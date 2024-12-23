@@ -1,0 +1,56 @@
+package com.shopify.types;
+
+/**
+ * Possible types of a metafield's owner resource.
+ */
+public enum MetafieldOwnerType {
+  API_PERMISSION,
+
+  COMPANY,
+
+  COMPANY_LOCATION,
+
+  PAYMENT_CUSTOMIZATION,
+
+  VALIDATION,
+
+  CUSTOMER,
+
+  DELIVERY_CUSTOMIZATION,
+
+  DRAFTORDER,
+
+  GIFT_CARD_TRANSACTION,
+
+  MARKET,
+
+  CARTTRANSFORM,
+
+  COLLECTION,
+
+  MEDIA_IMAGE,
+
+  PRODUCT,
+
+  PRODUCTVARIANT,
+
+  SELLING_PLAN,
+
+  ARTICLE,
+
+  BLOG,
+
+  PAGE,
+
+  FULFILLMENT_CONSTRAINT_RULE,
+
+  ORDER_ROUTING_LOCATION_RULE,
+
+  DISCOUNT,
+
+  ORDER,
+
+  LOCATION,
+
+  SHOP
+}

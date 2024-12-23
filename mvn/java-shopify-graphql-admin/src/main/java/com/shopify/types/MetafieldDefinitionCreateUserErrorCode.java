@@ -1,0 +1,44 @@
+package com.shopify.types;
+
+/**
+ * Possible error codes that can be returned by `MetafieldDefinitionCreateUserError`.
+ */
+public enum MetafieldDefinitionCreateUserErrorCode {
+  INVALID,
+
+  INCLUSION,
+
+  PRESENT,
+
+  TAKEN,
+
+  TOO_LONG,
+
+  TOO_SHORT,
+
+  RESOURCE_TYPE_LIMIT_EXCEEDED,
+
+  LIMIT_EXCEEDED,
+
+  INVALID_OPTION,
+
+  DUPLICATE_OPTION,
+
+  RESERVED_NAMESPACE_KEY,
+
+  PINNED_LIMIT_REACHED,
+
+  UNSTRUCTURED_ALREADY_EXISTS,
+
+  INVALID_CHARACTER,
+
+  TYPE_NOT_ALLOWED_FOR_CONDITIONS,
+
+  OWNER_TYPE_LIMIT_EXCEEDED_FOR_AUTOMATED_COLLECTIONS,
+
+  GRANT_LIMIT_EXCEEDED,
+
+  INVALID_INPUT_COMBINATION,
+
+  INVALID_CAPABILITY
+}

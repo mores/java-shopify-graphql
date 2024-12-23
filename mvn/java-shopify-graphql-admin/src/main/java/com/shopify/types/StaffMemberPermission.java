@@ -1,0 +1,68 @@
+package com.shopify.types;
+
+/**
+ * Represents access permissions for a staff member.
+ */
+public enum StaffMemberPermission {
+  APPLICATIONS,
+
+  CHANNELS,
+
+  CREATE_AND_EDIT_CUSTOMERS,
+
+  CREATE_AND_EDIT_GIFT_CARDS,
+
+  CUSTOMERS,
+
+  DASHBOARD,
+
+  DEACTIVATE_GIFT_CARDS,
+
+  DELETE_CUSTOMERS,
+
+  DOMAINS,
+
+  DRAFT_ORDERS,
+
+  EDIT_ORDERS,
+
+  ERASE_CUSTOMER_DATA,
+
+  EXPORT_CUSTOMERS,
+
+  EXPORT_GIFT_CARDS,
+
+  FULL,
+
+  GIFT_CARDS,
+
+  LINKS,
+
+  LOCATIONS,
+
+  MARKETING,
+
+  MARKETING_SECTION,
+
+  MERGE_CUSTOMERS,
+
+  ORDERS,
+
+  OVERVIEWS,
+
+  PAGES,
+
+  PAY_ORDERS_BY_VAULTED_CARD,
+
+  PREFERENCES,
+
+  PRODUCTS,
+
+  REPORTS,
+
+  REQUEST_CUSTOMER_DATA,
+
+  THEMES,
+
+  TRANSLATIONS
+}

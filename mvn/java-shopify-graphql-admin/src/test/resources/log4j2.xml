@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorinterval="30" status="INFO" strict="true" name="vp" xmlns="http://logging.apache.org/log4j/2.0/config">
+
+        <Appenders>
+                <Console name="CONSOLE" target="SYSTEM_OUT">
+                        <PatternLayout pattern="%16d %-5p [%c{1}:%L] (%X{name}) %m%n"/>
+                </Console>
+                
+        </Appenders>
+
+        <Loggers>
+                <Root level="INFO" additivity="false">
+                        <AppenderRef ref="CONSOLE" />
+                </Root>
+        </Loggers>
+</Configuration>
