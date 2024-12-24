@@ -9,6 +9,23 @@
         <version>2024.10.001</version>
         <packaging>pom</packaging>
 
+	<name>java-shopify-graphql</name>
+	<description>java objects to interface to shopify graphql</description>
+	<url>https://github.com/mores/java-shopify-graphql</url>
+
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+
+	<scm>
+		<connection>scm:git:git://github.com/mores/java-shopify-graphql.git</connection>
+		<developerConnection>scm:git:ssh://github.com:mores/java-shopify-graphql.git</developerConnection>
+		<url>https://github.com/mores/java-shopify-graphql/tree/master</url>
+	</scm>
+
         <properties>
                 <maven.compiler.source>11</maven.compiler.source>
                 <maven.compiler.target>11</maven.compiler.target>
@@ -19,4 +36,14 @@
         <modules>
                 <module>java-shopify-graphql-admin</module>
         </modules>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</reporting>
+
 </project>
