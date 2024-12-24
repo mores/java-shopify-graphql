@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * The possible statuses of a dispute.
- */
+
 public enum DisputeStatus {
   ACCEPTED,
 

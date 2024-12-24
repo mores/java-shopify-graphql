@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Updates a theme.
- */
+
 public class ThemeUpdateGraphQLQuery extends GraphQLQuery {
   public ThemeUpdateGraphQLQuery(String id, OnlineStoreThemeInput input, String queryName,
       Set<String> fieldsSet) {
@@ -48,18 +46,14 @@ public class ThemeUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the theme to be updated.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * The attributes of the theme to be updated.
-     */
+    
     public Builder input(OnlineStoreThemeInput input) {
       this.input = input;
       this.fieldsSet.add("input");

@@ -7,66 +7,42 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * A TenderTransaction represents a transaction with financial impact on a shop's balance sheet. A tender transaction always
- * represents actual money movement between a buyer and a shop. TenderTransactions can be used instead of OrderTransactions
- * for reconciling a shop's cash flow. A TenderTransaction is immutable once created.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class TenderTransaction implements com.shopify.types.Node {
-  /**
-   * The amount and currency of the tender transaction.
-   */
+  
   private MoneyV2 amount;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The order that's related to the tender transaction. This value is null if the order has been deleted.
-   */
+  
   private Order order;
 
-  /**
-   * Information about the payment method used for the transaction.
-   */
+  
   private String paymentMethod;
 
-  /**
-   * Date and time when the transaction was processed.
-   */
+  
   private OffsetDateTime processedAt;
 
-  /**
-   * The remote gateway reference associated with the tender transaction.
-   */
+  
   private String remoteReference;
 
-  /**
-   * Whether the transaction is a test transaction.
-   */
+  
   private boolean test;
 
-  /**
-   * Information about the payment instrument used for the transaction.
-   */
+  
   private TenderTransactionDetails transactionDetails;
 
-  /**
-   * The staff member who performed the transaction.
-   */
+  
   private StaffMember user;
 
   public TenderTransaction() {
   }
 
-  /**
-   * The amount and currency of the tender transaction.
-   */
+  
   public MoneyV2 getAmount() {
     return amount;
   }
@@ -75,9 +51,7 @@ public class TenderTransaction implements com.shopify.types.Node {
     this.amount = amount;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -86,9 +60,7 @@ public class TenderTransaction implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The order that's related to the tender transaction. This value is null if the order has been deleted.
-   */
+  
   public Order getOrder() {
     return order;
   }
@@ -97,9 +69,7 @@ public class TenderTransaction implements com.shopify.types.Node {
     this.order = order;
   }
 
-  /**
-   * Information about the payment method used for the transaction.
-   */
+  
   public String getPaymentMethod() {
     return paymentMethod;
   }
@@ -108,9 +78,7 @@ public class TenderTransaction implements com.shopify.types.Node {
     this.paymentMethod = paymentMethod;
   }
 
-  /**
-   * Date and time when the transaction was processed.
-   */
+  
   public OffsetDateTime getProcessedAt() {
     return processedAt;
   }
@@ -119,9 +87,7 @@ public class TenderTransaction implements com.shopify.types.Node {
     this.processedAt = processedAt;
   }
 
-  /**
-   * The remote gateway reference associated with the tender transaction.
-   */
+  
   public String getRemoteReference() {
     return remoteReference;
   }
@@ -130,9 +96,7 @@ public class TenderTransaction implements com.shopify.types.Node {
     this.remoteReference = remoteReference;
   }
 
-  /**
-   * Whether the transaction is a test transaction.
-   */
+  
   public boolean getTest() {
     return test;
   }
@@ -141,9 +105,7 @@ public class TenderTransaction implements com.shopify.types.Node {
     this.test = test;
   }
 
-  /**
-   * Information about the payment instrument used for the transaction.
-   */
+  
   public TenderTransactionDetails getTransactionDetails() {
     return transactionDetails;
   }
@@ -152,9 +114,7 @@ public class TenderTransaction implements com.shopify.types.Node {
     this.transactionDetails = transactionDetails;
   }
 
-  /**
-   * The staff member who performed the transaction.
-   */
+  
   public StaffMember getUser() {
     return user;
   }
@@ -194,49 +154,31 @@ public class TenderTransaction implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * The amount and currency of the tender transaction.
-     */
+    
     private MoneyV2 amount;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The order that's related to the tender transaction. This value is null if the order has been deleted.
-     */
+    
     private Order order;
 
-    /**
-     * Information about the payment method used for the transaction.
-     */
+    
     private String paymentMethod;
 
-    /**
-     * Date and time when the transaction was processed.
-     */
+    
     private OffsetDateTime processedAt;
 
-    /**
-     * The remote gateway reference associated with the tender transaction.
-     */
+    
     private String remoteReference;
 
-    /**
-     * Whether the transaction is a test transaction.
-     */
+    
     private boolean test;
 
-    /**
-     * Information about the payment instrument used for the transaction.
-     */
+    
     private TenderTransactionDetails transactionDetails;
 
-    /**
-     * The staff member who performed the transaction.
-     */
+    
     private StaffMember user;
 
     public TenderTransaction build() {
@@ -253,73 +195,55 @@ public class TenderTransaction implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * The amount and currency of the tender transaction.
-     */
+    
     public Builder amount(MoneyV2 amount) {
       this.amount = amount;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The order that's related to the tender transaction. This value is null if the order has been deleted.
-     */
+    
     public Builder order(Order order) {
       this.order = order;
       return this;
     }
 
-    /**
-     * Information about the payment method used for the transaction.
-     */
+    
     public Builder paymentMethod(String paymentMethod) {
       this.paymentMethod = paymentMethod;
       return this;
     }
 
-    /**
-     * Date and time when the transaction was processed.
-     */
+    
     public Builder processedAt(OffsetDateTime processedAt) {
       this.processedAt = processedAt;
       return this;
     }
 
-    /**
-     * The remote gateway reference associated with the tender transaction.
-     */
+    
     public Builder remoteReference(String remoteReference) {
       this.remoteReference = remoteReference;
       return this;
     }
 
-    /**
-     * Whether the transaction is a test transaction.
-     */
+    
     public Builder test(boolean test) {
       this.test = test;
       return this;
     }
 
-    /**
-     * Information about the payment instrument used for the transaction.
-     */
+    
     public Builder transactionDetails(TenderTransactionDetails transactionDetails) {
       this.transactionDetails = transactionDetails;
       return this;
     }
 
-    /**
-     * The staff member who performed the transaction.
-     */
+    
     public Builder user(StaffMember user) {
       this.user = user;
       return this;

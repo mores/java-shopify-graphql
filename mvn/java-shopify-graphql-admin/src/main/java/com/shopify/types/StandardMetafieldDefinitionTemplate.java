@@ -7,69 +7,42 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Standard metafield definition templates provide preset configurations to create metafield definitions.
- * Each template has a specific namespace and key that we've reserved to have specific meanings for common use cases.
- *
- * Refer to the [list of standard metafield definitions](https://shopify.dev/apps/metafields/definitions/standard-definitions).
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class StandardMetafieldDefinitionTemplate implements com.shopify.types.Node {
-  /**
-   * The description of the standard metafield definition.
-   */
+  
   private String description;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The key owned by the definition after the definition has been activated.
-   */
+  
   private String key;
 
-  /**
-   * The human-readable name for the standard metafield definition.
-   */
+  
   private String name;
 
-  /**
-   * The namespace owned by the definition after the definition has been activated.
-   */
+  
   private String namespace;
 
-  /**
-   * The list of resource types that the standard metafield definition can be applied to.
-   */
+  
   private List<MetafieldOwnerType> ownerTypes;
 
-  /**
-   * The associated [metafield definition
-   * type](https://shopify.dev/apps/metafields/definitions/types) that the
-   * metafield stores.
-   */
+  
   private MetafieldDefinitionType type;
 
-  /**
-   * The configured validations for the standard metafield definition.
-   */
+  
   private List<MetafieldDefinitionValidation> validations;
 
-  /**
-   * Whether metafields for the definition are by default visible using the Storefront API.
-   */
+  
   private boolean visibleToStorefrontApi;
 
   public StandardMetafieldDefinitionTemplate() {
   }
 
-  /**
-   * The description of the standard metafield definition.
-   */
+  
   public String getDescription() {
     return description;
   }
@@ -78,9 +51,7 @@ public class StandardMetafieldDefinitionTemplate implements com.shopify.types.No
     this.description = description;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -89,9 +60,7 @@ public class StandardMetafieldDefinitionTemplate implements com.shopify.types.No
     this.id = id;
   }
 
-  /**
-   * The key owned by the definition after the definition has been activated.
-   */
+  
   public String getKey() {
     return key;
   }
@@ -100,9 +69,7 @@ public class StandardMetafieldDefinitionTemplate implements com.shopify.types.No
     this.key = key;
   }
 
-  /**
-   * The human-readable name for the standard metafield definition.
-   */
+  
   public String getName() {
     return name;
   }
@@ -111,9 +78,7 @@ public class StandardMetafieldDefinitionTemplate implements com.shopify.types.No
     this.name = name;
   }
 
-  /**
-   * The namespace owned by the definition after the definition has been activated.
-   */
+  
   public String getNamespace() {
     return namespace;
   }
@@ -122,9 +87,7 @@ public class StandardMetafieldDefinitionTemplate implements com.shopify.types.No
     this.namespace = namespace;
   }
 
-  /**
-   * The list of resource types that the standard metafield definition can be applied to.
-   */
+  
   public List<MetafieldOwnerType> getOwnerTypes() {
     return ownerTypes;
   }
@@ -133,11 +96,7 @@ public class StandardMetafieldDefinitionTemplate implements com.shopify.types.No
     this.ownerTypes = ownerTypes;
   }
 
-  /**
-   * The associated [metafield definition
-   * type](https://shopify.dev/apps/metafields/definitions/types) that the
-   * metafield stores.
-   */
+  
   public MetafieldDefinitionType getType() {
     return type;
   }
@@ -146,9 +105,7 @@ public class StandardMetafieldDefinitionTemplate implements com.shopify.types.No
     this.type = type;
   }
 
-  /**
-   * The configured validations for the standard metafield definition.
-   */
+  
   public List<MetafieldDefinitionValidation> getValidations() {
     return validations;
   }
@@ -157,9 +114,7 @@ public class StandardMetafieldDefinitionTemplate implements com.shopify.types.No
     this.validations = validations;
   }
 
-  /**
-   * Whether metafields for the definition are by default visible using the Storefront API.
-   */
+  
   public boolean getVisibleToStorefrontApi() {
     return visibleToStorefrontApi;
   }
@@ -199,51 +154,31 @@ public class StandardMetafieldDefinitionTemplate implements com.shopify.types.No
   }
 
   public static class Builder {
-    /**
-     * The description of the standard metafield definition.
-     */
+    
     private String description;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The key owned by the definition after the definition has been activated.
-     */
+    
     private String key;
 
-    /**
-     * The human-readable name for the standard metafield definition.
-     */
+    
     private String name;
 
-    /**
-     * The namespace owned by the definition after the definition has been activated.
-     */
+    
     private String namespace;
 
-    /**
-     * The list of resource types that the standard metafield definition can be applied to.
-     */
+    
     private List<MetafieldOwnerType> ownerTypes;
 
-    /**
-     * The associated [metafield definition
-     * type](https://shopify.dev/apps/metafields/definitions/types) that the
-     * metafield stores.
-     */
+    
     private MetafieldDefinitionType type;
 
-    /**
-     * The configured validations for the standard metafield definition.
-     */
+    
     private List<MetafieldDefinitionValidation> validations;
 
-    /**
-     * Whether metafields for the definition are by default visible using the Storefront API.
-     */
+    
     private boolean visibleToStorefrontApi;
 
     public StandardMetafieldDefinitionTemplate build() {
@@ -260,75 +195,55 @@ public class StandardMetafieldDefinitionTemplate implements com.shopify.types.No
       return result;
     }
 
-    /**
-     * The description of the standard metafield definition.
-     */
+    
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The key owned by the definition after the definition has been activated.
-     */
+    
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
-    /**
-     * The human-readable name for the standard metafield definition.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The namespace owned by the definition after the definition has been activated.
-     */
+    
     public Builder namespace(String namespace) {
       this.namespace = namespace;
       return this;
     }
 
-    /**
-     * The list of resource types that the standard metafield definition can be applied to.
-     */
+    
     public Builder ownerTypes(List<MetafieldOwnerType> ownerTypes) {
       this.ownerTypes = ownerTypes;
       return this;
     }
 
-    /**
-     * The associated [metafield definition
-     * type](https://shopify.dev/apps/metafields/definitions/types) that the
-     * metafield stores.
-     */
+    
     public Builder type(MetafieldDefinitionType type) {
       this.type = type;
       return this;
     }
 
-    /**
-     * The configured validations for the standard metafield definition.
-     */
+    
     public Builder validations(List<MetafieldDefinitionValidation> validations) {
       this.validations = validations;
       return this;
     }
 
-    /**
-     * Whether metafields for the definition are by default visible using the Storefront API.
-     */
+    
     public Builder visibleToStorefrontApi(boolean visibleToStorefrontApi) {
       this.visibleToStorefrontApi = visibleToStorefrontApi;
       return this;

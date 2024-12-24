@@ -7,39 +7,27 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The details about a reverse delivery line item.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ReverseDeliveryLineItem implements com.shopify.types.Node {
-  /**
-   * The dispositions of the item.
-   */
+  
   private List<ReverseFulfillmentOrderDisposition> dispositions;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The expected number of units.
-   */
+  
   private int quantity;
 
-  /**
-   * The corresponding reverse fulfillment order line item.
-   */
+  
   private ReverseFulfillmentOrderLineItem reverseFulfillmentOrderLineItem;
 
   public ReverseDeliveryLineItem() {
   }
 
-  /**
-   * The dispositions of the item.
-   */
+  
   public List<ReverseFulfillmentOrderDisposition> getDispositions() {
     return dispositions;
   }
@@ -48,9 +36,7 @@ public class ReverseDeliveryLineItem implements com.shopify.types.Node {
     this.dispositions = dispositions;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -59,9 +45,7 @@ public class ReverseDeliveryLineItem implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The expected number of units.
-   */
+  
   public int getQuantity() {
     return quantity;
   }
@@ -70,9 +54,7 @@ public class ReverseDeliveryLineItem implements com.shopify.types.Node {
     this.quantity = quantity;
   }
 
-  /**
-   * The corresponding reverse fulfillment order line item.
-   */
+  
   public ReverseFulfillmentOrderLineItem getReverseFulfillmentOrderLineItem() {
     return reverseFulfillmentOrderLineItem;
   }
@@ -108,24 +90,16 @@ public class ReverseDeliveryLineItem implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * The dispositions of the item.
-     */
+    
     private List<ReverseFulfillmentOrderDisposition> dispositions;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The expected number of units.
-     */
+    
     private int quantity;
 
-    /**
-     * The corresponding reverse fulfillment order line item.
-     */
+    
     private ReverseFulfillmentOrderLineItem reverseFulfillmentOrderLineItem;
 
     public ReverseDeliveryLineItem build() {
@@ -137,33 +111,25 @@ public class ReverseDeliveryLineItem implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * The dispositions of the item.
-     */
+    
     public Builder dispositions(List<ReverseFulfillmentOrderDisposition> dispositions) {
       this.dispositions = dispositions;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The expected number of units.
-     */
+    
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    /**
-     * The corresponding reverse fulfillment order line item.
-     */
+    
     public Builder reverseFulfillmentOrderLineItem(
         ReverseFulfillmentOrderLineItem reverseFulfillmentOrderLineItem) {
       this.reverseFulfillmentOrderLineItem = reverseFulfillmentOrderLineItem;

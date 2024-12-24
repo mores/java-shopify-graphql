@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Creates a segment.
- */
+
 public class SegmentCreateGraphQLQuery extends GraphQLQuery {
   public SegmentCreateGraphQLQuery(String name, String query, String queryName,
       Set<String> fieldsSet) {
@@ -47,21 +45,14 @@ public class SegmentCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The name of the segment to be created. Segment names must be unique.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       this.fieldsSet.add("name");
       return this;
     }
 
-    /**
-     * A precise definition of the segment. The definition is composed of a
-     * combination of conditions on facts about customers such as
-     * `email_subscription_status = 'SUBSCRIBED'` with [this
-     * syntax](https://shopify.dev/api/shopifyql/segment-query-language-reference).
-     */
+    
     public Builder query(String query) {
       this.query = query;
       this.fieldsSet.add("query");

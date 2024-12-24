@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `productVariantsBulkDelete` mutation.
- */
+
 public class ProductVariantsBulkDeletePayload {
-  /**
-   * The updated product object.
-   */
+  
   private Product product;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<ProductVariantsBulkDeleteUserError> userErrors;
 
   public ProductVariantsBulkDeletePayload() {
   }
 
-  /**
-   * The updated product object.
-   */
+  
   public Product getProduct() {
     return product;
   }
@@ -34,9 +26,7 @@ public class ProductVariantsBulkDeletePayload {
     this.product = product;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<ProductVariantsBulkDeleteUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class ProductVariantsBulkDeletePayload {
   }
 
   public static class Builder {
-    /**
-     * The updated product object.
-     */
+    
     private Product product;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<ProductVariantsBulkDeleteUserError> userErrors;
 
     public ProductVariantsBulkDeletePayload build() {
@@ -86,17 +72,13 @@ public class ProductVariantsBulkDeletePayload {
       return result;
     }
 
-    /**
-     * The updated product object.
-     */
+    
     public Builder product(Product product) {
       this.product = product;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<ProductVariantsBulkDeleteUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

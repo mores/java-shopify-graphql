@@ -5,31 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields required to create or update a fixed selling plan pricing policy.
- */
+
 public class SellingPlanFixedPricingPolicyInput {
-  /**
-   * ID of the pricing policy.
-   */
+  
   private String id;
 
-  /**
-   * Price adjustment type defined by the policy.
-   */
+  
   private SellingPlanPricingPolicyAdjustmentType adjustmentType;
 
-  /**
-   * Price adjustment value defined by the policy.
-   */
+  
   private SellingPlanPricingPolicyValueInput adjustmentValue;
 
   public SellingPlanFixedPricingPolicyInput() {
   }
 
-  /**
-   * ID of the pricing policy.
-   */
+  
   public String getId() {
     return id;
   }
@@ -38,9 +28,7 @@ public class SellingPlanFixedPricingPolicyInput {
     this.id = id;
   }
 
-  /**
-   * Price adjustment type defined by the policy.
-   */
+  
   public SellingPlanPricingPolicyAdjustmentType getAdjustmentType() {
     return adjustmentType;
   }
@@ -49,9 +37,7 @@ public class SellingPlanFixedPricingPolicyInput {
     this.adjustmentType = adjustmentType;
   }
 
-  /**
-   * Price adjustment value defined by the policy.
-   */
+  
   public SellingPlanPricingPolicyValueInput getAdjustmentValue() {
     return adjustmentValue;
   }
@@ -85,19 +71,13 @@ public class SellingPlanFixedPricingPolicyInput {
   }
 
   public static class Builder {
-    /**
-     * ID of the pricing policy.
-     */
+    
     private String id;
 
-    /**
-     * Price adjustment type defined by the policy.
-     */
+    
     private SellingPlanPricingPolicyAdjustmentType adjustmentType;
 
-    /**
-     * Price adjustment value defined by the policy.
-     */
+    
     private SellingPlanPricingPolicyValueInput adjustmentValue;
 
     public SellingPlanFixedPricingPolicyInput build() {
@@ -108,25 +88,19 @@ public class SellingPlanFixedPricingPolicyInput {
       return result;
     }
 
-    /**
-     * ID of the pricing policy.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * Price adjustment type defined by the policy.
-     */
+    
     public Builder adjustmentType(SellingPlanPricingPolicyAdjustmentType adjustmentType) {
       this.adjustmentType = adjustmentType;
       return this;
     }
 
-    /**
-     * Price adjustment value defined by the policy.
-     */
+    
     public Builder adjustmentValue(SellingPlanPricingPolicyValueInput adjustmentValue) {
       this.adjustmentValue = adjustmentValue;
       return this;

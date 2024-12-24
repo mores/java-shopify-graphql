@@ -5,51 +5,33 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A calculated return line item.
- */
+
 public class CalculatedReturnLineItem {
-  /**
-   * The fulfillment line item from which items are returned.
-   */
+  
   private FulfillmentLineItem fulfillmentLineItem;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The quantity being returned.
-   */
+  
   private int quantity;
 
-  /**
-   * The restocking fee of the return line item.
-   */
+  
   private CalculatedRestockingFee restockingFee;
 
-  /**
-   * The subtotal of the return line item before order discounts.
-   */
+  
   private MoneyBag subtotalBeforeOrderDiscountsSet;
 
-  /**
-   * The subtotal of the return line item.
-   */
+  
   private MoneyBag subtotalSet;
 
-  /**
-   * The total tax of the return line item.
-   */
+  
   private MoneyBag totalTaxSet;
 
   public CalculatedReturnLineItem() {
   }
 
-  /**
-   * The fulfillment line item from which items are returned.
-   */
+  
   public FulfillmentLineItem getFulfillmentLineItem() {
     return fulfillmentLineItem;
   }
@@ -58,9 +40,7 @@ public class CalculatedReturnLineItem {
     this.fulfillmentLineItem = fulfillmentLineItem;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -69,9 +49,7 @@ public class CalculatedReturnLineItem {
     this.id = id;
   }
 
-  /**
-   * The quantity being returned.
-   */
+  
   public int getQuantity() {
     return quantity;
   }
@@ -80,9 +58,7 @@ public class CalculatedReturnLineItem {
     this.quantity = quantity;
   }
 
-  /**
-   * The restocking fee of the return line item.
-   */
+  
   public CalculatedRestockingFee getRestockingFee() {
     return restockingFee;
   }
@@ -91,9 +67,7 @@ public class CalculatedReturnLineItem {
     this.restockingFee = restockingFee;
   }
 
-  /**
-   * The subtotal of the return line item before order discounts.
-   */
+  
   public MoneyBag getSubtotalBeforeOrderDiscountsSet() {
     return subtotalBeforeOrderDiscountsSet;
   }
@@ -102,9 +76,7 @@ public class CalculatedReturnLineItem {
     this.subtotalBeforeOrderDiscountsSet = subtotalBeforeOrderDiscountsSet;
   }
 
-  /**
-   * The subtotal of the return line item.
-   */
+  
   public MoneyBag getSubtotalSet() {
     return subtotalSet;
   }
@@ -113,9 +85,7 @@ public class CalculatedReturnLineItem {
     this.subtotalSet = subtotalSet;
   }
 
-  /**
-   * The total tax of the return line item.
-   */
+  
   public MoneyBag getTotalTaxSet() {
     return totalTaxSet;
   }
@@ -153,39 +123,25 @@ public class CalculatedReturnLineItem {
   }
 
   public static class Builder {
-    /**
-     * The fulfillment line item from which items are returned.
-     */
+    
     private FulfillmentLineItem fulfillmentLineItem;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The quantity being returned.
-     */
+    
     private int quantity;
 
-    /**
-     * The restocking fee of the return line item.
-     */
+    
     private CalculatedRestockingFee restockingFee;
 
-    /**
-     * The subtotal of the return line item before order discounts.
-     */
+    
     private MoneyBag subtotalBeforeOrderDiscountsSet;
 
-    /**
-     * The subtotal of the return line item.
-     */
+    
     private MoneyBag subtotalSet;
 
-    /**
-     * The total tax of the return line item.
-     */
+    
     private MoneyBag totalTaxSet;
 
     public CalculatedReturnLineItem build() {
@@ -200,57 +156,43 @@ public class CalculatedReturnLineItem {
       return result;
     }
 
-    /**
-     * The fulfillment line item from which items are returned.
-     */
+    
     public Builder fulfillmentLineItem(FulfillmentLineItem fulfillmentLineItem) {
       this.fulfillmentLineItem = fulfillmentLineItem;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The quantity being returned.
-     */
+    
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    /**
-     * The restocking fee of the return line item.
-     */
+    
     public Builder restockingFee(CalculatedRestockingFee restockingFee) {
       this.restockingFee = restockingFee;
       return this;
     }
 
-    /**
-     * The subtotal of the return line item before order discounts.
-     */
+    
     public Builder subtotalBeforeOrderDiscountsSet(MoneyBag subtotalBeforeOrderDiscountsSet) {
       this.subtotalBeforeOrderDiscountsSet = subtotalBeforeOrderDiscountsSet;
       return this;
     }
 
-    /**
-     * The subtotal of the return line item.
-     */
+    
     public Builder subtotalSet(MoneyBag subtotalSet) {
       this.subtotalSet = subtotalSet;
       return this;
     }
 
-    /**
-     * The total tax of the return line item.
-     */
+    
     public Builder totalTaxSet(MoneyBag totalTaxSet) {
       this.totalTaxSet = totalTaxSet;
       return this;

@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Deletes the Server Pixel associated with the current app & shop.
- */
+
 public class ServerPixelDeleteGraphQLQuery extends GraphQLQuery {
   public ServerPixelDeleteGraphQLQuery(String queryName) {
     super("mutation", queryName);

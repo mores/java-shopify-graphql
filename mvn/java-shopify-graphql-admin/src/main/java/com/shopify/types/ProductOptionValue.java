@@ -7,49 +7,33 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The product option value names. For example, "Red", "Blue", and "Green" for a "Color" option.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ProductOptionValue implements com.shopify.types.HasPublishedTranslations, com.shopify.types.Node {
-  /**
-   * Whether the product option value has any linked variants.
-   */
+  
   private boolean hasVariants;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The value of the linked metafield.
-   */
+  
   private String linkedMetafieldValue;
 
-  /**
-   * The name of the product option value.
-   */
+  
   private String name;
 
-  /**
-   * The swatch associated with the product option value.
-   */
+  
   private ProductOptionValueSwatch swatch;
 
-  /**
-   * The published translations associated with the resource.
-   */
+  
   private List<Translation> translations;
 
   public ProductOptionValue() {
   }
 
-  /**
-   * Whether the product option value has any linked variants.
-   */
+  
   public boolean getHasVariants() {
     return hasVariants;
   }
@@ -58,9 +42,7 @@ public class ProductOptionValue implements com.shopify.types.HasPublishedTransla
     this.hasVariants = hasVariants;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -69,9 +51,7 @@ public class ProductOptionValue implements com.shopify.types.HasPublishedTransla
     this.id = id;
   }
 
-  /**
-   * The value of the linked metafield.
-   */
+  
   public String getLinkedMetafieldValue() {
     return linkedMetafieldValue;
   }
@@ -80,9 +60,7 @@ public class ProductOptionValue implements com.shopify.types.HasPublishedTransla
     this.linkedMetafieldValue = linkedMetafieldValue;
   }
 
-  /**
-   * The name of the product option value.
-   */
+  
   public String getName() {
     return name;
   }
@@ -91,9 +69,7 @@ public class ProductOptionValue implements com.shopify.types.HasPublishedTransla
     this.name = name;
   }
 
-  /**
-   * The swatch associated with the product option value.
-   */
+  
   public ProductOptionValueSwatch getSwatch() {
     return swatch;
   }
@@ -102,9 +78,7 @@ public class ProductOptionValue implements com.shopify.types.HasPublishedTransla
     this.swatch = swatch;
   }
 
-  /**
-   * The published translations associated with the resource.
-   */
+  
   public List<Translation> getTranslations() {
     return translations;
   }
@@ -141,34 +115,22 @@ public class ProductOptionValue implements com.shopify.types.HasPublishedTransla
   }
 
   public static class Builder {
-    /**
-     * Whether the product option value has any linked variants.
-     */
+    
     private boolean hasVariants;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The value of the linked metafield.
-     */
+    
     private String linkedMetafieldValue;
 
-    /**
-     * The name of the product option value.
-     */
+    
     private String name;
 
-    /**
-     * The swatch associated with the product option value.
-     */
+    
     private ProductOptionValueSwatch swatch;
 
-    /**
-     * The published translations associated with the resource.
-     */
+    
     private List<Translation> translations;
 
     public ProductOptionValue build() {
@@ -182,49 +144,37 @@ public class ProductOptionValue implements com.shopify.types.HasPublishedTransla
       return result;
     }
 
-    /**
-     * Whether the product option value has any linked variants.
-     */
+    
     public Builder hasVariants(boolean hasVariants) {
       this.hasVariants = hasVariants;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The value of the linked metafield.
-     */
+    
     public Builder linkedMetafieldValue(String linkedMetafieldValue) {
       this.linkedMetafieldValue = linkedMetafieldValue;
       return this;
     }
 
-    /**
-     * The name of the product option value.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The swatch associated with the product option value.
-     */
+    
     public Builder swatch(ProductOptionValueSwatch swatch) {
       this.swatch = swatch;
       return this;
     }
 
-    /**
-     * The published translations associated with the resource.
-     */
+    
     public Builder translations(List<Translation> translations) {
       this.translations = translations;
       return this;

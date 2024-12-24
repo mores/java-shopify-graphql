@@ -7,9 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Adds a locale for a shop. The newly added locale is in the unpublished state.
- */
+
 public class ShopLocaleEnableGraphQLQuery extends GraphQLQuery {
   public ShopLocaleEnableGraphQLQuery(String locale, List<String> marketWebPresenceIds,
       String queryName, Set<String> fieldsSet) {
@@ -48,18 +46,14 @@ public class ShopLocaleEnableGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * ISO code of the locale to enable.
-     */
+    
     public Builder locale(String locale) {
       this.locale = locale;
       this.fieldsSet.add("locale");
       return this;
     }
 
-    /**
-     * The list of markets web presences to add the locale to.
-     */
+    
     public Builder marketWebPresenceIds(List<String> marketWebPresenceIds) {
       this.marketWebPresenceIds = marketWebPresenceIds;
       this.fieldsSet.add("marketWebPresenceIds");

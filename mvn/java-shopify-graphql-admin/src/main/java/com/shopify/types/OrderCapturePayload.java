@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `orderCapture` mutation.
- */
+
 public class OrderCapturePayload {
-  /**
-   * The created capture transaction.
-   */
+  
   private OrderTransaction transaction;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public OrderCapturePayload() {
   }
 
-  /**
-   * The created capture transaction.
-   */
+  
   public OrderTransaction getTransaction() {
     return transaction;
   }
@@ -34,9 +26,7 @@ public class OrderCapturePayload {
     this.transaction = transaction;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class OrderCapturePayload {
   }
 
   public static class Builder {
-    /**
-     * The created capture transaction.
-     */
+    
     private OrderTransaction transaction;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public OrderCapturePayload build() {
@@ -86,17 +72,13 @@ public class OrderCapturePayload {
       return result;
     }
 
-    /**
-     * The created capture transaction.
-     */
+    
     public Builder transaction(OrderTransaction transaction) {
       this.transaction = transaction;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

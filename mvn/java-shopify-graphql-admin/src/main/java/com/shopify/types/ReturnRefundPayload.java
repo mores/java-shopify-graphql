@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `returnRefund` mutation.
- */
+
 public class ReturnRefundPayload {
-  /**
-   * The created refund.
-   */
+  
   private Refund refund;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<ReturnUserError> userErrors;
 
   public ReturnRefundPayload() {
   }
 
-  /**
-   * The created refund.
-   */
+  
   public Refund getRefund() {
     return refund;
   }
@@ -34,9 +26,7 @@ public class ReturnRefundPayload {
     this.refund = refund;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<ReturnUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class ReturnRefundPayload {
   }
 
   public static class Builder {
-    /**
-     * The created refund.
-     */
+    
     private Refund refund;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<ReturnUserError> userErrors;
 
     public ReturnRefundPayload build() {
@@ -86,17 +72,13 @@ public class ReturnRefundPayload {
       return result;
     }
 
-    /**
-     * The created refund.
-     */
+    
     public Builder refund(Refund refund) {
       this.refund = refund;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<ReturnUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

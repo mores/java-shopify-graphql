@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `locationLocalPickupEnable` mutation.
- */
+
 public class LocationLocalPickupEnablePayload {
-  /**
-   * The local pickup settings that were enabled.
-   */
+  
   private DeliveryLocalPickupSettings localPickupSettings;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<DeliveryLocationLocalPickupSettingsError> userErrors;
 
   public LocationLocalPickupEnablePayload() {
   }
 
-  /**
-   * The local pickup settings that were enabled.
-   */
+  
   public DeliveryLocalPickupSettings getLocalPickupSettings() {
     return localPickupSettings;
   }
@@ -34,9 +26,7 @@ public class LocationLocalPickupEnablePayload {
     this.localPickupSettings = localPickupSettings;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<DeliveryLocationLocalPickupSettingsError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class LocationLocalPickupEnablePayload {
   }
 
   public static class Builder {
-    /**
-     * The local pickup settings that were enabled.
-     */
+    
     private DeliveryLocalPickupSettings localPickupSettings;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<DeliveryLocationLocalPickupSettingsError> userErrors;
 
     public LocationLocalPickupEnablePayload build() {
@@ -86,17 +72,13 @@ public class LocationLocalPickupEnablePayload {
       return result;
     }
 
-    /**
-     * The local pickup settings that were enabled.
-     */
+    
     public Builder localPickupSettings(DeliveryLocalPickupSettings localPickupSettings) {
       this.localPickupSettings = localPickupSettings;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<DeliveryLocationLocalPickupSettingsError> userErrors) {
       this.userErrors = userErrors;
       return this;

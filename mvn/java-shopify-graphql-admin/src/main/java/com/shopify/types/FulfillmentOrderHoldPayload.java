@@ -6,37 +6,24 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `fulfillmentOrderHold` mutation.
- */
+
 public class FulfillmentOrderHoldPayload {
-  /**
-   * The fulfillment hold created for the fulfillment order. Null if no hold was created.
-   */
+  
   private FulfillmentHold fulfillmentHold;
 
-  /**
-   * The fulfillment order on which a fulfillment hold was applied.
-   */
+  
   private FulfillmentOrder fulfillmentOrder;
 
-  /**
-   * The remaining fulfillment order containing the line items to which the hold wasn't applied,
-   * if specific line items were specified to be placed on hold.
-   */
+  
   private FulfillmentOrder remainingFulfillmentOrder;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<FulfillmentOrderHoldUserError> userErrors;
 
   public FulfillmentOrderHoldPayload() {
   }
 
-  /**
-   * The fulfillment hold created for the fulfillment order. Null if no hold was created.
-   */
+  
   public FulfillmentHold getFulfillmentHold() {
     return fulfillmentHold;
   }
@@ -45,9 +32,7 @@ public class FulfillmentOrderHoldPayload {
     this.fulfillmentHold = fulfillmentHold;
   }
 
-  /**
-   * The fulfillment order on which a fulfillment hold was applied.
-   */
+  
   public FulfillmentOrder getFulfillmentOrder() {
     return fulfillmentOrder;
   }
@@ -56,10 +41,7 @@ public class FulfillmentOrderHoldPayload {
     this.fulfillmentOrder = fulfillmentOrder;
   }
 
-  /**
-   * The remaining fulfillment order containing the line items to which the hold wasn't applied,
-   * if specific line items were specified to be placed on hold.
-   */
+  
   public FulfillmentOrder getRemainingFulfillmentOrder() {
     return remainingFulfillmentOrder;
   }
@@ -68,9 +50,7 @@ public class FulfillmentOrderHoldPayload {
     this.remainingFulfillmentOrder = remainingFulfillmentOrder;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<FulfillmentOrderHoldUserError> getUserErrors() {
     return userErrors;
   }
@@ -105,25 +85,16 @@ public class FulfillmentOrderHoldPayload {
   }
 
   public static class Builder {
-    /**
-     * The fulfillment hold created for the fulfillment order. Null if no hold was created.
-     */
+    
     private FulfillmentHold fulfillmentHold;
 
-    /**
-     * The fulfillment order on which a fulfillment hold was applied.
-     */
+    
     private FulfillmentOrder fulfillmentOrder;
 
-    /**
-     * The remaining fulfillment order containing the line items to which the hold wasn't applied,
-     * if specific line items were specified to be placed on hold.
-     */
+    
     private FulfillmentOrder remainingFulfillmentOrder;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<FulfillmentOrderHoldUserError> userErrors;
 
     public FulfillmentOrderHoldPayload build() {
@@ -135,34 +106,25 @@ public class FulfillmentOrderHoldPayload {
       return result;
     }
 
-    /**
-     * The fulfillment hold created for the fulfillment order. Null if no hold was created.
-     */
+    
     public Builder fulfillmentHold(FulfillmentHold fulfillmentHold) {
       this.fulfillmentHold = fulfillmentHold;
       return this;
     }
 
-    /**
-     * The fulfillment order on which a fulfillment hold was applied.
-     */
+    
     public Builder fulfillmentOrder(FulfillmentOrder fulfillmentOrder) {
       this.fulfillmentOrder = fulfillmentOrder;
       return this;
     }
 
-    /**
-     * The remaining fulfillment order containing the line items to which the hold wasn't applied,
-     * if specific line items were specified to be placed on hold.
-     */
+    
     public Builder remainingFulfillmentOrder(FulfillmentOrder remainingFulfillmentOrder) {
       this.remainingFulfillmentOrder = remainingFulfillmentOrder;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<FulfillmentOrderHoldUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

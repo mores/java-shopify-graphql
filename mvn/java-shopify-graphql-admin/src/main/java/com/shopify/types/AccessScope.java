@@ -5,31 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The permission required to access a Shopify Admin API or Storefront API resource
- * for a shop. Merchants grant access scopes that are requested by applications.
- */
+
 public class AccessScope {
-  /**
-   * A description of the actions that the access scope allows an app to perform.
-   */
+  
   private String description;
 
-  /**
-   * A readable string that represents the access scope. The string usually follows
-   * the format `{action}_{resource}`. `{action}` is `read` or `write`, and
-   * `{resource}` is the resource that the action can be performed on. `{action}`
-   * and `{resource}` are separated by an underscore. For example, `read_orders` or
-   * `write_products`.
-   */
+  
   private String handle;
 
   public AccessScope() {
   }
 
-  /**
-   * A description of the actions that the access scope allows an app to perform.
-   */
+  
   public String getDescription() {
     return description;
   }
@@ -38,13 +25,7 @@ public class AccessScope {
     this.description = description;
   }
 
-  /**
-   * A readable string that represents the access scope. The string usually follows
-   * the format `{action}_{resource}`. `{action}` is `read` or `write`, and
-   * `{resource}` is the resource that the action can be performed on. `{action}`
-   * and `{resource}` are separated by an underscore. For example, `read_orders` or
-   * `write_products`.
-   */
+  
   public String getHandle() {
     return handle;
   }
@@ -77,18 +58,10 @@ public class AccessScope {
   }
 
   public static class Builder {
-    /**
-     * A description of the actions that the access scope allows an app to perform.
-     */
+    
     private String description;
 
-    /**
-     * A readable string that represents the access scope. The string usually follows
-     * the format `{action}_{resource}`. `{action}` is `read` or `write`, and
-     * `{resource}` is the resource that the action can be performed on. `{action}`
-     * and `{resource}` are separated by an underscore. For example, `read_orders` or
-     * `write_products`.
-     */
+    
     private String handle;
 
     public AccessScope build() {
@@ -98,21 +71,13 @@ public class AccessScope {
       return result;
     }
 
-    /**
-     * A description of the actions that the access scope allows an app to perform.
-     */
+    
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    /**
-     * A readable string that represents the access scope. The string usually follows
-     * the format `{action}_{resource}`. `{action}` is `read` or `write`, and
-     * `{resource}` is the resource that the action can be performed on. `{action}`
-     * and `{resource}` are separated by an underscore. For example, `read_orders` or
-     * `write_products`.
-     */
+    
     public Builder handle(String handle) {
       this.handle = handle;
       return this;

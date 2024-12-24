@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Adds a subscription free shipping discount to a subscription draft.
- */
+
 public class SubscriptionDraftFreeShippingDiscountAddGraphQLQuery extends GraphQLQuery {
   public SubscriptionDraftFreeShippingDiscountAddGraphQLQuery(String draftId,
       SubscriptionFreeShippingDiscountInput input, String queryName, Set<String> fieldsSet) {
@@ -48,18 +46,14 @@ public class SubscriptionDraftFreeShippingDiscountAddGraphQLQuery extends GraphQ
                
     }
 
-    /**
-     * The ID of the subscription contract draft to add a subscription free shipping discount to.
-     */
+    
     public Builder draftId(String draftId) {
       this.draftId = draftId;
       this.fieldsSet.add("draftId");
       return this;
     }
 
-    /**
-     * The properties of the new subscription free shipping discount.
-     */
+    
     public Builder input(SubscriptionFreeShippingDiscountInput input) {
       this.input = input;
       this.fieldsSet.add("input");

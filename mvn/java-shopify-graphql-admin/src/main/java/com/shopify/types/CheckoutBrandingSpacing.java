@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible values for the spacing.
- */
+
 public enum CheckoutBrandingSpacing {
   NONE,
 

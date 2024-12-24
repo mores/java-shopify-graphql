@@ -5,29 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The identifier for the metafield linked to this option.
- *
- * This API is currently in early access. See [Metafield-linked product options](https://shopify.dev/docs/api/admin/migrate/new-product-model/metafield-linked)
- * for more details.
- */
+
 public class LinkedMetafield {
-  /**
-   * Key of the metafield the option is linked to.
-   */
+  
   private String key;
 
-  /**
-   * Namespace of the metafield the option is linked to.
-   */
+  
   private String namespace;
 
   public LinkedMetafield() {
   }
 
-  /**
-   * Key of the metafield the option is linked to.
-   */
+  
   public String getKey() {
     return key;
   }
@@ -36,9 +25,7 @@ public class LinkedMetafield {
     this.key = key;
   }
 
-  /**
-   * Namespace of the metafield the option is linked to.
-   */
+  
   public String getNamespace() {
     return namespace;
   }
@@ -71,14 +58,10 @@ public class LinkedMetafield {
   }
 
   public static class Builder {
-    /**
-     * Key of the metafield the option is linked to.
-     */
+    
     private String key;
 
-    /**
-     * Namespace of the metafield the option is linked to.
-     */
+    
     private String namespace;
 
     public LinkedMetafield build() {
@@ -88,17 +71,13 @@ public class LinkedMetafield {
       return result;
     }
 
-    /**
-     * Key of the metafield the option is linked to.
-     */
+    
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
-    /**
-     * Namespace of the metafield the option is linked to.
-     */
+    
     public Builder namespace(String namespace) {
       this.namespace = namespace;
       return this;

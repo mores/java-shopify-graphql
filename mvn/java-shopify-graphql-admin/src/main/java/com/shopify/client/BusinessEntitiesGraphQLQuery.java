@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns a list of Business Entities associated with the shop.
- */
+
 public class BusinessEntitiesGraphQLQuery extends GraphQLQuery {
   public BusinessEntitiesGraphQLQuery(String queryName) {
     super("query", queryName);

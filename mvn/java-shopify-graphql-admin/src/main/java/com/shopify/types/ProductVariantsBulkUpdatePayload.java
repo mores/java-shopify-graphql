@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `productVariantsBulkUpdate` mutation.
- */
+
 public class ProductVariantsBulkUpdatePayload {
-  /**
-   * The updated product object.
-   */
+  
   private Product product;
 
-  /**
-   * The updated variants.
-   */
+  
   private List<ProductVariant> productVariants;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<ProductVariantsBulkUpdateUserError> userErrors;
 
   public ProductVariantsBulkUpdatePayload() {
   }
 
-  /**
-   * The updated product object.
-   */
+  
   public Product getProduct() {
     return product;
   }
@@ -39,9 +29,7 @@ public class ProductVariantsBulkUpdatePayload {
     this.product = product;
   }
 
-  /**
-   * The updated variants.
-   */
+  
   public List<ProductVariant> getProductVariants() {
     return productVariants;
   }
@@ -50,9 +38,7 @@ public class ProductVariantsBulkUpdatePayload {
     this.productVariants = productVariants;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<ProductVariantsBulkUpdateUserError> getUserErrors() {
     return userErrors;
   }
@@ -86,19 +72,13 @@ public class ProductVariantsBulkUpdatePayload {
   }
 
   public static class Builder {
-    /**
-     * The updated product object.
-     */
+    
     private Product product;
 
-    /**
-     * The updated variants.
-     */
+    
     private List<ProductVariant> productVariants;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<ProductVariantsBulkUpdateUserError> userErrors;
 
     public ProductVariantsBulkUpdatePayload build() {
@@ -109,25 +89,19 @@ public class ProductVariantsBulkUpdatePayload {
       return result;
     }
 
-    /**
-     * The updated product object.
-     */
+    
     public Builder product(Product product) {
       this.product = product;
       return this;
     }
 
-    /**
-     * The updated variants.
-     */
+    
     public Builder productVariants(List<ProductVariant> productVariants) {
       this.productVariants = productVariants;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<ProductVariantsBulkUpdateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

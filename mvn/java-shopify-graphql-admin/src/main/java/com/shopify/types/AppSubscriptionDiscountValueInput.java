@@ -6,26 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields to specify the value discounted every billing interval.
- */
+
 public class AppSubscriptionDiscountValueInput {
-  /**
-   * The percentage value of a discount.
-   */
+  
   private Double percentage;
 
-  /**
-   * The monetary value of a discount.
-   */
+  
   private String amount;
 
   public AppSubscriptionDiscountValueInput() {
   }
 
-  /**
-   * The percentage value of a discount.
-   */
+  
   public Double getPercentage() {
     return percentage;
   }
@@ -34,9 +26,7 @@ public class AppSubscriptionDiscountValueInput {
     this.percentage = percentage;
   }
 
-  /**
-   * The monetary value of a discount.
-   */
+  
   public String getAmount() {
     return amount;
   }
@@ -69,14 +59,10 @@ public class AppSubscriptionDiscountValueInput {
   }
 
   public static class Builder {
-    /**
-     * The percentage value of a discount.
-     */
+    
     private Double percentage;
 
-    /**
-     * The monetary value of a discount.
-     */
+    
     private String amount;
 
     public AppSubscriptionDiscountValueInput build() {
@@ -86,17 +72,13 @@ public class AppSubscriptionDiscountValueInput {
       return result;
     }
 
-    /**
-     * The percentage value of a discount.
-     */
+    
     public Builder percentage(Double percentage) {
       this.percentage = percentage;
       return this;
     }
 
-    /**
-     * The monetary value of a discount.
-     */
+    
     public Builder amount(String amount) {
       this.amount = amount;
       return this;

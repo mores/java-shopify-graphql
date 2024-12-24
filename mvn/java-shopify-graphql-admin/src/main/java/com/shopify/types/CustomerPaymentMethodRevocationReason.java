@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * The revocation reason types for a customer payment method.
- */
+
 public enum CustomerPaymentMethodRevocationReason {
   AUTHORIZE_NET_GATEWAY_NOT_ENABLED,
 

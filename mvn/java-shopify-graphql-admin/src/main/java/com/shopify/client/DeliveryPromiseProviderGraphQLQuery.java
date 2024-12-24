@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Lookup a delivery promise provider.
- */
+
 public class DeliveryPromiseProviderGraphQLQuery extends GraphQLQuery {
   public DeliveryPromiseProviderGraphQLQuery(String locationId, String queryName,
       Set<String> fieldsSet) {
@@ -43,9 +41,7 @@ public class DeliveryPromiseProviderGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the location associated with the delivery promise provider.
-     */
+    
     public Builder locationId(String locationId) {
       this.locationId = locationId;
       this.fieldsSet.add("locationId");

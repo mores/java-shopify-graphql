@@ -6,35 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The calculated costs of handling a return line item.
- * Typically, this would cover the costs of inspecting, repackaging, and restocking the item.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class CalculatedRestockingFee implements com.shopify.types.CalculatedReturnFee {
-  /**
-   * The calculated amount of the return fee, in shop and presentment currencies.
-   */
+  
   private MoneyBag amountSet;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The value of the fee as a percentage.
-   */
+  
   private double percentage;
 
   public CalculatedRestockingFee() {
   }
 
-  /**
-   * The calculated amount of the return fee, in shop and presentment currencies.
-   */
+  
   public MoneyBag getAmountSet() {
     return amountSet;
   }
@@ -43,9 +32,7 @@ public class CalculatedRestockingFee implements com.shopify.types.CalculatedRetu
     this.amountSet = amountSet;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -54,9 +41,7 @@ public class CalculatedRestockingFee implements com.shopify.types.CalculatedRetu
     this.id = id;
   }
 
-  /**
-   * The value of the fee as a percentage.
-   */
+  
   public double getPercentage() {
     return percentage;
   }
@@ -90,19 +75,13 @@ public class CalculatedRestockingFee implements com.shopify.types.CalculatedRetu
   }
 
   public static class Builder {
-    /**
-     * The calculated amount of the return fee, in shop and presentment currencies.
-     */
+    
     private MoneyBag amountSet;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The value of the fee as a percentage.
-     */
+    
     private double percentage;
 
     public CalculatedRestockingFee build() {
@@ -113,25 +92,19 @@ public class CalculatedRestockingFee implements com.shopify.types.CalculatedRetu
       return result;
     }
 
-    /**
-     * The calculated amount of the return fee, in shop and presentment currencies.
-     */
+    
     public Builder amountSet(MoneyBag amountSet) {
       this.amountSet = amountSet;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The value of the fee as a percentage.
-     */
+    
     public Builder percentage(double percentage) {
       this.percentage = percentage;
       return this;

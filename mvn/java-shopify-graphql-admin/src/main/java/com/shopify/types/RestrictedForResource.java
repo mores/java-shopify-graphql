@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Information about product is restricted for a given resource.
- */
+
 public class RestrictedForResource {
-  /**
-   * Returns true when the product is restricted for the given resource.
-   */
+  
   private boolean restricted;
 
-  /**
-   * Restriction reason for the given resource.
-   */
+  
   private String restrictedReason;
 
   public RestrictedForResource() {
   }
 
-  /**
-   * Returns true when the product is restricted for the given resource.
-   */
+  
   public boolean getRestricted() {
     return restricted;
   }
@@ -33,9 +25,7 @@ public class RestrictedForResource {
     this.restricted = restricted;
   }
 
-  /**
-   * Restriction reason for the given resource.
-   */
+  
   public String getRestrictedReason() {
     return restrictedReason;
   }
@@ -68,14 +58,10 @@ public class RestrictedForResource {
   }
 
   public static class Builder {
-    /**
-     * Returns true when the product is restricted for the given resource.
-     */
+    
     private boolean restricted;
 
-    /**
-     * Restriction reason for the given resource.
-     */
+    
     private String restrictedReason;
 
     public RestrictedForResource build() {
@@ -85,17 +71,13 @@ public class RestrictedForResource {
       return result;
     }
 
-    /**
-     * Returns true when the product is restricted for the given resource.
-     */
+    
     public Builder restricted(boolean restricted) {
       this.restricted = restricted;
       return this;
     }
 
-    /**
-     * Restriction reason for the given resource.
-     */
+    
     public Builder restrictedReason(String restrictedReason) {
       this.restrictedReason = restrictedReason;
       return this;

@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for creating or updating a product option value.
- */
+
 public class OptionValueSetInput {
-  /**
-   * Specifies the product option value.
-   */
+  
   private String id;
 
-  /**
-   * Value associated with an option.
-   */
+  
   private String name;
 
   public OptionValueSetInput() {
   }
 
-  /**
-   * Specifies the product option value.
-   */
+  
   public String getId() {
     return id;
   }
@@ -33,9 +25,7 @@ public class OptionValueSetInput {
     this.id = id;
   }
 
-  /**
-   * Value associated with an option.
-   */
+  
   public String getName() {
     return name;
   }
@@ -68,14 +58,10 @@ public class OptionValueSetInput {
   }
 
   public static class Builder {
-    /**
-     * Specifies the product option value.
-     */
+    
     private String id;
 
-    /**
-     * Value associated with an option.
-     */
+    
     private String name;
 
     public OptionValueSetInput build() {
@@ -85,17 +71,13 @@ public class OptionValueSetInput {
       return result;
     }
 
-    /**
-     * Specifies the product option value.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * Value associated with an option.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;

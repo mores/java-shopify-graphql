@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `companyRevokeMainContact` mutation.
- */
+
 public class CompanyRevokeMainContactPayload {
-  /**
-   * The company from which the main contact is revoked.
-   */
+  
   private Company company;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<BusinessCustomerUserError> userErrors;
 
   public CompanyRevokeMainContactPayload() {
   }
 
-  /**
-   * The company from which the main contact is revoked.
-   */
+  
   public Company getCompany() {
     return company;
   }
@@ -34,9 +26,7 @@ public class CompanyRevokeMainContactPayload {
     this.company = company;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<BusinessCustomerUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class CompanyRevokeMainContactPayload {
   }
 
   public static class Builder {
-    /**
-     * The company from which the main contact is revoked.
-     */
+    
     private Company company;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<BusinessCustomerUserError> userErrors;
 
     public CompanyRevokeMainContactPayload build() {
@@ -86,17 +72,13 @@ public class CompanyRevokeMainContactPayload {
       return result;
     }
 
-    /**
-     * The company from which the main contact is revoked.
-     */
+    
     public Builder company(Company company) {
       this.company = company;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<BusinessCustomerUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

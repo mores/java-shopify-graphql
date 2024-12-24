@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Bounding box information of a 3d model.
- */
+
 public class Model3dBoundingBox {
-  /**
-   * Size in meters of the smallest volume which contains the 3d model.
-   */
+  
   private Vector3 size;
 
   public Model3dBoundingBox() {
   }
 
-  /**
-   * Size in meters of the smallest volume which contains the 3d model.
-   */
+  
   public Vector3 getSize() {
     return size;
   }
@@ -51,9 +45,7 @@ public class Model3dBoundingBox {
   }
 
   public static class Builder {
-    /**
-     * Size in meters of the smallest volume which contains the 3d model.
-     */
+    
     private Vector3 size;
 
     public Model3dBoundingBox build() {
@@ -62,9 +54,7 @@ public class Model3dBoundingBox {
       return result;
     }
 
-    /**
-     * Size in meters of the smallest volume which contains the 3d model.
-     */
+    
     public Builder size(Vector3 size) {
       this.size = size;
       return this;

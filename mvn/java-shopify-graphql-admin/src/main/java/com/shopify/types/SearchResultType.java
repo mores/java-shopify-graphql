@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Specifies the type of resources to be returned from a search.
- */
+
 public enum SearchResultType {
   CUSTOMER,
 

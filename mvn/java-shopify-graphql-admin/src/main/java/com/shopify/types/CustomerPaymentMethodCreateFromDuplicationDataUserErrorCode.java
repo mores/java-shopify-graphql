@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible error codes that can be returned by `CustomerPaymentMethodCreateFromDuplicationDataUserError`.
- */
+
 public enum CustomerPaymentMethodCreateFromDuplicationDataUserErrorCode {
   TOO_MANY_REQUESTS,
 

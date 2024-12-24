@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The attribute editable information.
- */
+
 public class EditableProperty {
-  /**
-   * Whether the attribute is locked for editing.
-   */
+  
   private boolean locked;
 
-  /**
-   * The reason the attribute is locked for editing.
-   */
+  
   private String reason;
 
   public EditableProperty() {
   }
 
-  /**
-   * Whether the attribute is locked for editing.
-   */
+  
   public boolean getLocked() {
     return locked;
   }
@@ -33,9 +25,7 @@ public class EditableProperty {
     this.locked = locked;
   }
 
-  /**
-   * The reason the attribute is locked for editing.
-   */
+  
   public String getReason() {
     return reason;
   }
@@ -68,14 +58,10 @@ public class EditableProperty {
   }
 
   public static class Builder {
-    /**
-     * Whether the attribute is locked for editing.
-     */
+    
     private boolean locked;
 
-    /**
-     * The reason the attribute is locked for editing.
-     */
+    
     private String reason;
 
     public EditableProperty build() {
@@ -85,17 +71,13 @@ public class EditableProperty {
       return result;
     }
 
-    /**
-     * Whether the attribute is locked for editing.
-     */
+    
     public Builder locked(boolean locked) {
       this.locked = locked;
       return this;
     }
 
-    /**
-     * The reason the attribute is locked for editing.
-     */
+    
     public Builder reason(String reason) {
       this.reason = reason;
       return this;

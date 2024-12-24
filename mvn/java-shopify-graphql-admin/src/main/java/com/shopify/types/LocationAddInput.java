@@ -7,36 +7,24 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields to use to add a location.
- */
+
 public class LocationAddInput {
-  /**
-   * The name of the location.
-   */
+  
   private String name;
 
-  /**
-   * The address of the location.
-   */
+  
   private LocationAddAddressInput address;
 
-  /**
-   * Whether inventory at this location is available for sale online.
-   */
+  
   private Boolean fulfillsOnlineOrders = true;
 
-  /**
-   * Additional customizable information to associate with the location.
-   */
+  
   private List<MetafieldInput> metafields;
 
   public LocationAddInput() {
   }
 
-  /**
-   * The name of the location.
-   */
+  
   public String getName() {
     return name;
   }
@@ -45,9 +33,7 @@ public class LocationAddInput {
     this.name = name;
   }
 
-  /**
-   * The address of the location.
-   */
+  
   public LocationAddAddressInput getAddress() {
     return address;
   }
@@ -56,9 +42,7 @@ public class LocationAddInput {
     this.address = address;
   }
 
-  /**
-   * Whether inventory at this location is available for sale online.
-   */
+  
   public Boolean getFulfillsOnlineOrders() {
     return fulfillsOnlineOrders;
   }
@@ -67,9 +51,7 @@ public class LocationAddInput {
     this.fulfillsOnlineOrders = fulfillsOnlineOrders;
   }
 
-  /**
-   * Additional customizable information to associate with the location.
-   */
+  
   public List<MetafieldInput> getMetafields() {
     return metafields;
   }
@@ -104,24 +86,16 @@ public class LocationAddInput {
   }
 
   public static class Builder {
-    /**
-     * The name of the location.
-     */
+    
     private String name;
 
-    /**
-     * The address of the location.
-     */
+    
     private LocationAddAddressInput address;
 
-    /**
-     * Whether inventory at this location is available for sale online.
-     */
+    
     private Boolean fulfillsOnlineOrders = true;
 
-    /**
-     * Additional customizable information to associate with the location.
-     */
+    
     private List<MetafieldInput> metafields;
 
     public LocationAddInput build() {
@@ -133,33 +107,25 @@ public class LocationAddInput {
       return result;
     }
 
-    /**
-     * The name of the location.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The address of the location.
-     */
+    
     public Builder address(LocationAddAddressInput address) {
       this.address = address;
       return this;
     }
 
-    /**
-     * Whether inventory at this location is available for sale online.
-     */
+    
     public Builder fulfillsOnlineOrders(Boolean fulfillsOnlineOrders) {
       this.fulfillsOnlineOrders = fulfillsOnlineOrders;
       return this;
     }
 
-    /**
-     * Additional customizable information to associate with the location.
-     */
+    
     public Builder metafields(List<MetafieldInput> metafields) {
       this.metafields = metafields;
       return this;

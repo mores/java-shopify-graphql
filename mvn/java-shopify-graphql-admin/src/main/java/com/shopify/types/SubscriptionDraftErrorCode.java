@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible error codes that can be returned by `SubscriptionDraftUserError`.
- */
+
 public enum SubscriptionDraftErrorCode {
   ALREADY_REMOVED,
 

@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Creates a return.
- */
+
 public class ReturnCreateGraphQLQuery extends GraphQLQuery {
   public ReturnCreateGraphQLQuery(ReturnInput returnInput, String queryName,
       Set<String> fieldsSet) {
@@ -44,9 +42,7 @@ public class ReturnCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * Specifies the input fields for a return.
-     */
+    
     public Builder returnInput(ReturnInput returnInput) {
       this.returnInput = returnInput;
       this.fieldsSet.add("returnInput");

@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Creates a debit transaction that decreases the store credit account balance by the given amount.
- */
+
 public class StoreCreditAccountDebitGraphQLQuery extends GraphQLQuery {
   public StoreCreditAccountDebitGraphQLQuery(String id, StoreCreditAccountDebitInput debitInput,
       String queryName, Set<String> fieldsSet) {
@@ -48,18 +46,14 @@ public class StoreCreditAccountDebitGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the store credit account or the ID of the account owner.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * The input fields for a store credit account debit transaction.
-     */
+    
     public Builder debitInput(StoreCreditAccountDebitInput debitInput) {
       this.debitInput = debitInput;
       this.fieldsSet.add("debitInput");

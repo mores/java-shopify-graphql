@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields to create a fact on an order risk assessment.
- */
+
 public class OrderRiskAssessmentFactInput {
-  /**
-   * Indicates whether the fact is a negative, neutral or positive contributor with regards to risk.
-   */
+  
   private RiskFactSentiment sentiment;
 
-  /**
-   * A description of the fact. Large values are truncated to 256 characters.
-   */
+  
   private String description;
 
   public OrderRiskAssessmentFactInput() {
   }
 
-  /**
-   * Indicates whether the fact is a negative, neutral or positive contributor with regards to risk.
-   */
+  
   public RiskFactSentiment getSentiment() {
     return sentiment;
   }
@@ -33,9 +25,7 @@ public class OrderRiskAssessmentFactInput {
     this.sentiment = sentiment;
   }
 
-  /**
-   * A description of the fact. Large values are truncated to 256 characters.
-   */
+  
   public String getDescription() {
     return description;
   }
@@ -68,14 +58,10 @@ public class OrderRiskAssessmentFactInput {
   }
 
   public static class Builder {
-    /**
-     * Indicates whether the fact is a negative, neutral or positive contributor with regards to risk.
-     */
+    
     private RiskFactSentiment sentiment;
 
-    /**
-     * A description of the fact. Large values are truncated to 256 characters.
-     */
+    
     private String description;
 
     public OrderRiskAssessmentFactInput build() {
@@ -85,17 +71,13 @@ public class OrderRiskAssessmentFactInput {
       return result;
     }
 
-    /**
-     * Indicates whether the fact is a negative, neutral or positive contributor with regards to risk.
-     */
+    
     public Builder sentiment(RiskFactSentiment sentiment) {
       this.sentiment = sentiment;
       return this;
     }
 
-    /**
-     * A description of the fact. Large values are truncated to 256 characters.
-     */
+    
     public Builder description(String description) {
       this.description = description;
       return this;

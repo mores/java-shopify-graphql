@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `abandonmentEmailStateUpdate` mutation.
- */
+
 public class AbandonmentEmailStateUpdatePayload {
-  /**
-   * The updated abandonment.
-   */
+  
   private Abandonment abandonment;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<AbandonmentEmailStateUpdateUserError> userErrors;
 
   public AbandonmentEmailStateUpdatePayload() {
   }
 
-  /**
-   * The updated abandonment.
-   */
+  
   public Abandonment getAbandonment() {
     return abandonment;
   }
@@ -34,9 +26,7 @@ public class AbandonmentEmailStateUpdatePayload {
     this.abandonment = abandonment;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<AbandonmentEmailStateUpdateUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class AbandonmentEmailStateUpdatePayload {
   }
 
   public static class Builder {
-    /**
-     * The updated abandonment.
-     */
+    
     private Abandonment abandonment;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<AbandonmentEmailStateUpdateUserError> userErrors;
 
     public AbandonmentEmailStateUpdatePayload build() {
@@ -86,17 +72,13 @@ public class AbandonmentEmailStateUpdatePayload {
       return result;
     }
 
-    /**
-     * The updated abandonment.
-     */
+    
     public Builder abandonment(Abandonment abandonment) {
       this.abandonment = abandonment;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<AbandonmentEmailStateUpdateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -7,9 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Deletes multiple variants in a single product. This mutation can be called directly or via the bulkOperation.
- */
+
 public class ProductVariantsBulkDeleteGraphQLQuery extends GraphQLQuery {
   public ProductVariantsBulkDeleteGraphQLQuery(List<String> variantsIds, String productId,
       String queryName, Set<String> fieldsSet) {
@@ -48,18 +46,14 @@ public class ProductVariantsBulkDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * An array of product variants IDs to delete.
-     */
+    
     public Builder variantsIds(List<String> variantsIds) {
       this.variantsIds = variantsIds;
       this.fieldsSet.add("variantsIds");
       return this;
     }
 
-    /**
-     * The ID of the product with the variants to update.
-     */
+    
     public Builder productId(String productId) {
       this.productId = productId;
       this.fieldsSet.add("productId");

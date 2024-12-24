@@ -4,13 +4,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.String;
 
-/**
- * Interoperability metadata for types that directly correspond to a REST Admin API resource.
- * For example, on the Product type, LegacyInteroperability returns metadata for
- * the corresponding [Product
- * object](https://shopify.dev/api/admin-graphql/latest/objects/product) in the
- * REST Admin API.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
     include = JsonTypeInfo.As.PROPERTY,
@@ -37,8 +31,6 @@ import java.lang.String;
     @JsonSubTypes.Type(value = WebhookSubscription.class, name = "WebhookSubscription")
 })
 public interface LegacyInteroperability {
-  /**
-   * The ID of the corresponding resource in the REST Admin API.
-   */
+  
   String getLegacyResourceId();
 }

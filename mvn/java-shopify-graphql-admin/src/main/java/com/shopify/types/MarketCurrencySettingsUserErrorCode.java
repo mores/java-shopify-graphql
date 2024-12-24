@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible error codes that can be returned by `MarketCurrencySettingsUserError`.
- */
+
 public enum MarketCurrencySettingsUserErrorCode {
   MARKET_NOT_FOUND,
 

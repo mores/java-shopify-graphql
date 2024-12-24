@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for upserting a metaobject.
- */
+
 public class MetaobjectUpsertInput {
-  /**
-   * The handle of the metaobject.
-   */
+  
   private String handle;
 
-  /**
-   * Values for fields. These are mapped by key to fields of the metaobject definition.
-   */
+  
   private List<MetaobjectFieldInput> fields;
 
-  /**
-   * Capabilities for the metaobject.
-   */
+  
   private MetaobjectCapabilityDataInput capabilities;
 
   public MetaobjectUpsertInput() {
   }
 
-  /**
-   * The handle of the metaobject.
-   */
+  
   public String getHandle() {
     return handle;
   }
@@ -39,9 +29,7 @@ public class MetaobjectUpsertInput {
     this.handle = handle;
   }
 
-  /**
-   * Values for fields. These are mapped by key to fields of the metaobject definition.
-   */
+  
   public List<MetaobjectFieldInput> getFields() {
     return fields;
   }
@@ -50,9 +38,7 @@ public class MetaobjectUpsertInput {
     this.fields = fields;
   }
 
-  /**
-   * Capabilities for the metaobject.
-   */
+  
   public MetaobjectCapabilityDataInput getCapabilities() {
     return capabilities;
   }
@@ -86,19 +72,13 @@ public class MetaobjectUpsertInput {
   }
 
   public static class Builder {
-    /**
-     * The handle of the metaobject.
-     */
+    
     private String handle;
 
-    /**
-     * Values for fields. These are mapped by key to fields of the metaobject definition.
-     */
+    
     private List<MetaobjectFieldInput> fields;
 
-    /**
-     * Capabilities for the metaobject.
-     */
+    
     private MetaobjectCapabilityDataInput capabilities;
 
     public MetaobjectUpsertInput build() {
@@ -109,25 +89,19 @@ public class MetaobjectUpsertInput {
       return result;
     }
 
-    /**
-     * The handle of the metaobject.
-     */
+    
     public Builder handle(String handle) {
       this.handle = handle;
       return this;
     }
 
-    /**
-     * Values for fields. These are mapped by key to fields of the metaobject definition.
-     */
+    
     public Builder fields(List<MetaobjectFieldInput> fields) {
       this.fields = fields;
       return this;
     }
 
-    /**
-     * Capabilities for the metaobject.
-     */
+    
     public Builder capabilities(MetaobjectCapabilityDataInput capabilities) {
       this.capabilities = capabilities;
       return this;

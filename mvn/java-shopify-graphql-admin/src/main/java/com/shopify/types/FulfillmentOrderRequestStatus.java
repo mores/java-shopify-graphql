@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * The request status of a fulfillment order.
- */
+
 public enum FulfillmentOrderRequestStatus {
   UNSUBMITTED,
 

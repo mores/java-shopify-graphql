@@ -6,40 +6,27 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A new [shipping line](https://shopify.dev/api/admin-graphql/latest/objects/shippingline)
- * added as part of an order edit.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class OrderStagedChangeAddShippingLine implements OrderStagedChange {
-  /**
-   * The phone number at the shipping address.
-   */
+  
   private String phone;
 
-  /**
-   * The shipping line's title that's shown to the buyer.
-   */
+  
   private String presentmentTitle;
 
-  /**
-   * The price that applies to the shipping line.
-   */
+  
   private MoneyV2 price;
 
-  /**
-   * The title of the shipping line.
-   */
+  
   private String title;
 
   public OrderStagedChangeAddShippingLine() {
   }
 
-  /**
-   * The phone number at the shipping address.
-   */
+  
   public String getPhone() {
     return phone;
   }
@@ -48,9 +35,7 @@ public class OrderStagedChangeAddShippingLine implements OrderStagedChange {
     this.phone = phone;
   }
 
-  /**
-   * The shipping line's title that's shown to the buyer.
-   */
+  
   public String getPresentmentTitle() {
     return presentmentTitle;
   }
@@ -59,9 +44,7 @@ public class OrderStagedChangeAddShippingLine implements OrderStagedChange {
     this.presentmentTitle = presentmentTitle;
   }
 
-  /**
-   * The price that applies to the shipping line.
-   */
+  
   public MoneyV2 getPrice() {
     return price;
   }
@@ -70,9 +53,7 @@ public class OrderStagedChangeAddShippingLine implements OrderStagedChange {
     this.price = price;
   }
 
-  /**
-   * The title of the shipping line.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -107,24 +88,16 @@ public class OrderStagedChangeAddShippingLine implements OrderStagedChange {
   }
 
   public static class Builder {
-    /**
-     * The phone number at the shipping address.
-     */
+    
     private String phone;
 
-    /**
-     * The shipping line's title that's shown to the buyer.
-     */
+    
     private String presentmentTitle;
 
-    /**
-     * The price that applies to the shipping line.
-     */
+    
     private MoneyV2 price;
 
-    /**
-     * The title of the shipping line.
-     */
+    
     private String title;
 
     public OrderStagedChangeAddShippingLine build() {
@@ -136,33 +109,25 @@ public class OrderStagedChangeAddShippingLine implements OrderStagedChange {
       return result;
     }
 
-    /**
-     * The phone number at the shipping address.
-     */
+    
     public Builder phone(String phone) {
       this.phone = phone;
       return this;
     }
 
-    /**
-     * The shipping line's title that's shown to the buyer.
-     */
+    
     public Builder presentmentTitle(String presentmentTitle) {
       this.presentmentTitle = presentmentTitle;
       return this;
     }
 
-    /**
-     * The price that applies to the shipping line.
-     */
+    
     public Builder price(MoneyV2 price) {
       this.price = price;
       return this;
     }
 
-    /**
-     * The title of the shipping line.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;

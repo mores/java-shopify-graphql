@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Fails a Subscription Contract.
- */
+
 public class SubscriptionContractFailGraphQLQuery extends GraphQLQuery {
   public SubscriptionContractFailGraphQLQuery(String subscriptionContractId, String queryName,
       Set<String> fieldsSet) {
@@ -43,9 +41,7 @@ public class SubscriptionContractFailGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the Subscription Contract.
-     */
+    
     public Builder subscriptionContractId(String subscriptionContractId) {
       this.subscriptionContractId = subscriptionContractId;
       this.fieldsSet.add("subscriptionContractId");

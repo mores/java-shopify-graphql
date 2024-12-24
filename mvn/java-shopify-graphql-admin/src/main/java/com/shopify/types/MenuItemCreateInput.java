@@ -6,46 +6,30 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields required to create a valid Menu item.
- */
+
 public class MenuItemCreateInput {
-  /**
-   * The menu item's title.
-   */
+  
   private String title;
 
-  /**
-   * The menu item's type.
-   */
+  
   private MenuItemType type;
 
-  /**
-   * The menu item's association with an existing resource.
-   */
+  
   private String resourceId;
 
-  /**
-   * The menu item's url to be used when the item doesn't point to a resource.
-   */
+  
   private String url;
 
-  /**
-   * The menu item's tags to filter a collection.
-   */
+  
   private List<String> tags;
 
-  /**
-   * List of the menu items nested under this item sorted by position.
-   */
+  
   private List<MenuItemCreateInput> items;
 
   public MenuItemCreateInput() {
   }
 
-  /**
-   * The menu item's title.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -54,9 +38,7 @@ public class MenuItemCreateInput {
     this.title = title;
   }
 
-  /**
-   * The menu item's type.
-   */
+  
   public MenuItemType getType() {
     return type;
   }
@@ -65,9 +47,7 @@ public class MenuItemCreateInput {
     this.type = type;
   }
 
-  /**
-   * The menu item's association with an existing resource.
-   */
+  
   public String getResourceId() {
     return resourceId;
   }
@@ -76,9 +56,7 @@ public class MenuItemCreateInput {
     this.resourceId = resourceId;
   }
 
-  /**
-   * The menu item's url to be used when the item doesn't point to a resource.
-   */
+  
   public String getUrl() {
     return url;
   }
@@ -87,9 +65,7 @@ public class MenuItemCreateInput {
     this.url = url;
   }
 
-  /**
-   * The menu item's tags to filter a collection.
-   */
+  
   public List<String> getTags() {
     return tags;
   }
@@ -98,9 +74,7 @@ public class MenuItemCreateInput {
     this.tags = tags;
   }
 
-  /**
-   * List of the menu items nested under this item sorted by position.
-   */
+  
   public List<MenuItemCreateInput> getItems() {
     return items;
   }
@@ -137,34 +111,22 @@ public class MenuItemCreateInput {
   }
 
   public static class Builder {
-    /**
-     * The menu item's title.
-     */
+    
     private String title;
 
-    /**
-     * The menu item's type.
-     */
+    
     private MenuItemType type;
 
-    /**
-     * The menu item's association with an existing resource.
-     */
+    
     private String resourceId;
 
-    /**
-     * The menu item's url to be used when the item doesn't point to a resource.
-     */
+    
     private String url;
 
-    /**
-     * The menu item's tags to filter a collection.
-     */
+    
     private List<String> tags;
 
-    /**
-     * List of the menu items nested under this item sorted by position.
-     */
+    
     private List<MenuItemCreateInput> items;
 
     public MenuItemCreateInput build() {
@@ -178,49 +140,37 @@ public class MenuItemCreateInput {
       return result;
     }
 
-    /**
-     * The menu item's title.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    /**
-     * The menu item's type.
-     */
+    
     public Builder type(MenuItemType type) {
       this.type = type;
       return this;
     }
 
-    /**
-     * The menu item's association with an existing resource.
-     */
+    
     public Builder resourceId(String resourceId) {
       this.resourceId = resourceId;
       return this;
     }
 
-    /**
-     * The menu item's url to be used when the item doesn't point to a resource.
-     */
+    
     public Builder url(String url) {
       this.url = url;
       return this;
     }
 
-    /**
-     * The menu item's tags to filter a collection.
-     */
+    
     public Builder tags(List<String> tags) {
       this.tags = tags;
       return this;
     }
 
-    /**
-     * List of the menu items nested under this item sorted by position.
-     */
+    
     public Builder items(List<MenuItemCreateInput> items) {
       this.items = items;
       return this;

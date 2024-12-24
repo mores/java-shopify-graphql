@@ -8,9 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Update a fulfillment constraint rule.
- */
+
 public class FulfillmentConstraintRuleUpdateGraphQLQuery extends GraphQLQuery {
   public FulfillmentConstraintRuleUpdateGraphQLQuery(String id,
       List<DeliveryMethodType> deliveryMethodTypes, String queryName, Set<String> fieldsSet) {
@@ -49,19 +47,14 @@ public class FulfillmentConstraintRuleUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * A globally-unique identifier for the fulfillment constraint rule.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * Specifies the delivery method types to be updated.
-     * If not provided or providing an empty list will associate the function with all delivery methods.
-     */
+    
     public Builder deliveryMethodTypes(List<DeliveryMethodType> deliveryMethodTypes) {
       this.deliveryMethodTypes = deliveryMethodTypes;
       this.fieldsSet.add("deliveryMethodTypes");

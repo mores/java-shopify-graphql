@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Sends a link to the customer so they can update a specific payment method.
- */
+
 public class CustomerPaymentMethodSendUpdateEmailGraphQLQuery extends GraphQLQuery {
   public CustomerPaymentMethodSendUpdateEmailGraphQLQuery(String customerPaymentMethodId,
       EmailInput email, String queryName, Set<String> fieldsSet) {
@@ -48,18 +46,14 @@ public class CustomerPaymentMethodSendUpdateEmailGraphQLQuery extends GraphQLQue
                
     }
 
-    /**
-     * The payment method to be updated.
-     */
+    
     public Builder customerPaymentMethodId(String customerPaymentMethodId) {
       this.customerPaymentMethodId = customerPaymentMethodId;
       this.fieldsSet.add("customerPaymentMethodId");
       return this;
     }
 
-    /**
-     * Specifies the payment method update email fields.
-     */
+    
     public Builder email(EmailInput email) {
       this.email = email;
       this.fieldsSet.add("email");

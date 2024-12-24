@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `productReorderMedia` mutation.
- */
+
 public class ProductReorderMediaPayload {
-  /**
-   * The asynchronous job which reorders the media.
-   */
+  
   private Job job;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<MediaUserError> mediaUserErrors;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public ProductReorderMediaPayload() {
   }
 
-  /**
-   * The asynchronous job which reorders the media.
-   */
+  
   public Job getJob() {
     return job;
   }
@@ -39,9 +29,7 @@ public class ProductReorderMediaPayload {
     this.job = job;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<MediaUserError> getMediaUserErrors() {
     return mediaUserErrors;
   }
@@ -50,9 +38,7 @@ public class ProductReorderMediaPayload {
     this.mediaUserErrors = mediaUserErrors;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -86,19 +72,13 @@ public class ProductReorderMediaPayload {
   }
 
   public static class Builder {
-    /**
-     * The asynchronous job which reorders the media.
-     */
+    
     private Job job;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<MediaUserError> mediaUserErrors;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public ProductReorderMediaPayload build() {
@@ -109,25 +89,19 @@ public class ProductReorderMediaPayload {
       return result;
     }
 
-    /**
-     * The asynchronous job which reorders the media.
-     */
+    
     public Builder job(Job job) {
       this.job = job;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder mediaUserErrors(List<MediaUserError> mediaUserErrors) {
       this.mediaUserErrors = mediaUserErrors;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

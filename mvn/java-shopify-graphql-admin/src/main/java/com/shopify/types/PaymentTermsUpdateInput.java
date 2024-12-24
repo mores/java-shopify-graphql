@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields used to update the payment terms.
- */
+
 public class PaymentTermsUpdateInput {
-  /**
-   * The ID of the payment terms being updated.
-   */
+  
   private String paymentTermsId;
 
-  /**
-   * The attributes used to update the payment terms.
-   */
+  
   private PaymentTermsInput paymentTermsAttributes;
 
   public PaymentTermsUpdateInput() {
   }
 
-  /**
-   * The ID of the payment terms being updated.
-   */
+  
   public String getPaymentTermsId() {
     return paymentTermsId;
   }
@@ -33,9 +25,7 @@ public class PaymentTermsUpdateInput {
     this.paymentTermsId = paymentTermsId;
   }
 
-  /**
-   * The attributes used to update the payment terms.
-   */
+  
   public PaymentTermsInput getPaymentTermsAttributes() {
     return paymentTermsAttributes;
   }
@@ -68,14 +58,10 @@ public class PaymentTermsUpdateInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the payment terms being updated.
-     */
+    
     private String paymentTermsId;
 
-    /**
-     * The attributes used to update the payment terms.
-     */
+    
     private PaymentTermsInput paymentTermsAttributes;
 
     public PaymentTermsUpdateInput build() {
@@ -85,17 +71,13 @@ public class PaymentTermsUpdateInput {
       return result;
     }
 
-    /**
-     * The ID of the payment terms being updated.
-     */
+    
     public Builder paymentTermsId(String paymentTermsId) {
       this.paymentTermsId = paymentTermsId;
       return this;
     }
 
-    /**
-     * The attributes used to update the payment terms.
-     */
+    
     public Builder paymentTermsAttributes(PaymentTermsInput paymentTermsAttributes) {
       this.paymentTermsAttributes = paymentTermsAttributes;
       return this;

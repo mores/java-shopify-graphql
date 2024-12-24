@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for the file to create or update.
- */
+
 public class OnlineStoreThemeFilesUpsertFileInput {
-  /**
-   * The filename of the theme file.
-   */
+  
   private String filename;
 
-  /**
-   * The body of the theme file.
-   */
+  
   private OnlineStoreThemeFileBodyInput body;
 
   public OnlineStoreThemeFilesUpsertFileInput() {
   }
 
-  /**
-   * The filename of the theme file.
-   */
+  
   public String getFilename() {
     return filename;
   }
@@ -33,9 +25,7 @@ public class OnlineStoreThemeFilesUpsertFileInput {
     this.filename = filename;
   }
 
-  /**
-   * The body of the theme file.
-   */
+  
   public OnlineStoreThemeFileBodyInput getBody() {
     return body;
   }
@@ -68,14 +58,10 @@ public class OnlineStoreThemeFilesUpsertFileInput {
   }
 
   public static class Builder {
-    /**
-     * The filename of the theme file.
-     */
+    
     private String filename;
 
-    /**
-     * The body of the theme file.
-     */
+    
     private OnlineStoreThemeFileBodyInput body;
 
     public OnlineStoreThemeFilesUpsertFileInput build() {
@@ -85,17 +71,13 @@ public class OnlineStoreThemeFilesUpsertFileInput {
       return result;
     }
 
-    /**
-     * The filename of the theme file.
-     */
+    
     public Builder filename(String filename) {
       this.filename = filename;
       return this;
     }
 
-    /**
-     * The body of the theme file.
-     */
+    
     public Builder body(OnlineStoreThemeFileBodyInput body) {
       this.body = body;
       return this;

@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `orderCancel` mutation.
- */
+
 public class OrderCancelPayload {
-  /**
-   * The job that asynchronously cancels the order.
-   */
+  
   private Job job;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<OrderCancelUserError> orderCancelUserErrors;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public OrderCancelPayload() {
   }
 
-  /**
-   * The job that asynchronously cancels the order.
-   */
+  
   public Job getJob() {
     return job;
   }
@@ -39,9 +29,7 @@ public class OrderCancelPayload {
     this.job = job;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<OrderCancelUserError> getOrderCancelUserErrors() {
     return orderCancelUserErrors;
   }
@@ -50,9 +38,7 @@ public class OrderCancelPayload {
     this.orderCancelUserErrors = orderCancelUserErrors;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -86,19 +72,13 @@ public class OrderCancelPayload {
   }
 
   public static class Builder {
-    /**
-     * The job that asynchronously cancels the order.
-     */
+    
     private Job job;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<OrderCancelUserError> orderCancelUserErrors;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public OrderCancelPayload build() {
@@ -109,25 +89,19 @@ public class OrderCancelPayload {
       return result;
     }
 
-    /**
-     * The job that asynchronously cancels the order.
-     */
+    
     public Builder job(Job job) {
       this.job = job;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder orderCancelUserErrors(List<OrderCancelUserError> orderCancelUserErrors) {
       this.orderCancelUserErrors = orderCancelUserErrors;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

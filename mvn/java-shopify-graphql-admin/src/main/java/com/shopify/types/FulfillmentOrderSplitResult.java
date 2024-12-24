@@ -5,31 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The result of splitting a fulfillment order.
- */
+
 public class FulfillmentOrderSplitResult {
-  /**
-   * The original fulfillment order as a result of the split.
-   */
+  
   private FulfillmentOrder fulfillmentOrder;
 
-  /**
-   * The remaining fulfillment order as a result of the split.
-   */
+  
   private FulfillmentOrder remainingFulfillmentOrder;
 
-  /**
-   * The replacement fulfillment order if the original fulfillment order wasn't in a state to be split.
-   */
+  
   private FulfillmentOrder replacementFulfillmentOrder;
 
   public FulfillmentOrderSplitResult() {
   }
 
-  /**
-   * The original fulfillment order as a result of the split.
-   */
+  
   public FulfillmentOrder getFulfillmentOrder() {
     return fulfillmentOrder;
   }
@@ -38,9 +28,7 @@ public class FulfillmentOrderSplitResult {
     this.fulfillmentOrder = fulfillmentOrder;
   }
 
-  /**
-   * The remaining fulfillment order as a result of the split.
-   */
+  
   public FulfillmentOrder getRemainingFulfillmentOrder() {
     return remainingFulfillmentOrder;
   }
@@ -49,9 +37,7 @@ public class FulfillmentOrderSplitResult {
     this.remainingFulfillmentOrder = remainingFulfillmentOrder;
   }
 
-  /**
-   * The replacement fulfillment order if the original fulfillment order wasn't in a state to be split.
-   */
+  
   public FulfillmentOrder getReplacementFulfillmentOrder() {
     return replacementFulfillmentOrder;
   }
@@ -85,19 +71,13 @@ public class FulfillmentOrderSplitResult {
   }
 
   public static class Builder {
-    /**
-     * The original fulfillment order as a result of the split.
-     */
+    
     private FulfillmentOrder fulfillmentOrder;
 
-    /**
-     * The remaining fulfillment order as a result of the split.
-     */
+    
     private FulfillmentOrder remainingFulfillmentOrder;
 
-    /**
-     * The replacement fulfillment order if the original fulfillment order wasn't in a state to be split.
-     */
+    
     private FulfillmentOrder replacementFulfillmentOrder;
 
     public FulfillmentOrderSplitResult build() {
@@ -108,25 +88,19 @@ public class FulfillmentOrderSplitResult {
       return result;
     }
 
-    /**
-     * The original fulfillment order as a result of the split.
-     */
+    
     public Builder fulfillmentOrder(FulfillmentOrder fulfillmentOrder) {
       this.fulfillmentOrder = fulfillmentOrder;
       return this;
     }
 
-    /**
-     * The remaining fulfillment order as a result of the split.
-     */
+    
     public Builder remainingFulfillmentOrder(FulfillmentOrder remainingFulfillmentOrder) {
       this.remainingFulfillmentOrder = remainingFulfillmentOrder;
       return this;
     }
 
-    /**
-     * The replacement fulfillment order if the original fulfillment order wasn't in a state to be split.
-     */
+    
     public Builder replacementFulfillmentOrder(FulfillmentOrder replacementFulfillmentOrder) {
       this.replacementFulfillmentOrder = replacementFulfillmentOrder;
       return this;

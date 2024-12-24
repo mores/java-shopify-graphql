@@ -9,9 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Updates an address on a company location.
- */
+
 public class CompanyLocationAssignAddressGraphQLQuery extends GraphQLQuery {
   public CompanyLocationAssignAddressGraphQLQuery(String locationId, CompanyAddressInput address,
       List<CompanyAddressType> addressTypes, String queryName, Set<String> fieldsSet) {
@@ -54,27 +52,21 @@ public class CompanyLocationAssignAddressGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the company location to update addresses on.
-     */
+    
     public Builder locationId(String locationId) {
       this.locationId = locationId;
       this.fieldsSet.add("locationId");
       return this;
     }
 
-    /**
-     * The input fields to use to update the address.
-     */
+    
     public Builder address(CompanyAddressInput address) {
       this.address = address;
       this.fieldsSet.add("address");
       return this;
     }
 
-    /**
-     * The list of address types on the location to update.
-     */
+    
     public Builder addressTypes(List<CompanyAddressType> addressTypes) {
       this.addressTypes = addressTypes;
       this.fieldsSet.add("addressTypes");

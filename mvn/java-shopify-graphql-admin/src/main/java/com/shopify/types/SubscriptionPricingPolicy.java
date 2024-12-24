@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Represents a Subscription Line Pricing Policy.
- */
+
 public class SubscriptionPricingPolicy {
-  /**
-   * The base price per unit for the subscription line in the contract's currency.
-   */
+  
   private MoneyV2 basePrice;
 
-  /**
-   * The adjustments per cycle for the subscription line.
-   */
+  
   private List<SubscriptionCyclePriceAdjustment> cycleDiscounts;
 
   public SubscriptionPricingPolicy() {
   }
 
-  /**
-   * The base price per unit for the subscription line in the contract's currency.
-   */
+  
   public MoneyV2 getBasePrice() {
     return basePrice;
   }
@@ -34,9 +26,7 @@ public class SubscriptionPricingPolicy {
     this.basePrice = basePrice;
   }
 
-  /**
-   * The adjustments per cycle for the subscription line.
-   */
+  
   public List<SubscriptionCyclePriceAdjustment> getCycleDiscounts() {
     return cycleDiscounts;
   }
@@ -69,14 +59,10 @@ public class SubscriptionPricingPolicy {
   }
 
   public static class Builder {
-    /**
-     * The base price per unit for the subscription line in the contract's currency.
-     */
+    
     private MoneyV2 basePrice;
 
-    /**
-     * The adjustments per cycle for the subscription line.
-     */
+    
     private List<SubscriptionCyclePriceAdjustment> cycleDiscounts;
 
     public SubscriptionPricingPolicy build() {
@@ -86,17 +72,13 @@ public class SubscriptionPricingPolicy {
       return result;
     }
 
-    /**
-     * The base price per unit for the subscription line in the contract's currency.
-     */
+    
     public Builder basePrice(MoneyV2 basePrice) {
       this.basePrice = basePrice;
       return this;
     }
 
-    /**
-     * The adjustments per cycle for the subscription line.
-     */
+    
     public Builder cycleDiscounts(List<SubscriptionCyclePriceAdjustment> cycleDiscounts) {
       this.cycleDiscounts = cycleDiscounts;
       return this;

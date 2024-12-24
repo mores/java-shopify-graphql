@@ -8,11 +8,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Charges a shop for features or services one time.
- * This type of charge is recommended for apps that aren't billed on a recurring basis.
- * Test and demo shops aren't charged.
- */
+
 public class AppPurchaseOneTimeCreateGraphQLQuery extends GraphQLQuery {
   public AppPurchaseOneTimeCreateGraphQLQuery(String name, MoneyInput price, String returnUrl,
       Boolean test, String queryName, Set<String> fieldsSet) {
@@ -59,36 +55,28 @@ public class AppPurchaseOneTimeCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The name of the one-time purchase from the app.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       this.fieldsSet.add("name");
       return this;
     }
 
-    /**
-     * The amount to be charged to the store for the app one-time purchase.
-     */
+    
     public Builder price(MoneyInput price) {
       this.price = price;
       this.fieldsSet.add("price");
       return this;
     }
 
-    /**
-     * The URL where the merchant is redirected after approving the app one-time purchase.
-     */
+    
     public Builder returnUrl(String returnUrl) {
       this.returnUrl = returnUrl;
       this.fieldsSet.add("returnUrl");
       return this;
     }
 
-    /**
-     * Whether the app one-time purchase is a test transaction.
-     */
+    
     public Builder test(Boolean test) {
       this.test = test;
       this.fieldsSet.add("test");

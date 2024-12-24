@@ -7,43 +7,21 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for a resource feedback object.
- */
+
 public class ResourceFeedbackCreateInput {
-  /**
-   * The date and time when the feedback was generated. Used to help determine whether
-   * incoming feedback is outdated compared to existing feedback.
-   */
+  
   private OffsetDateTime feedbackGeneratedAt;
 
-  /**
-   * If the feedback state is `requires_action`, then you can send a string message
-   * that communicates the action to be taken by the merchant.
-   * The string must be a single message up to 100 characters long and must end with a period.
-   * You need to adhere to the message formatting rules or your requests will fail:
-   * - `[Explanation of the problem]. [Suggested action].`
-   *   
-   * **Examples:**
-   * - `[Your app name]` isn't connected. Connect your account to use this sales channel. `[Learn more]`
-   * - `[Your app name]` isn't configured. Agree to the terms and conditions to use this app. `[Learn more]`
-   * Both `Your app name` and `Learn more` (a button which directs merchants to
-   * your app) are automatically populated in the Shopify admin.
-   */
+  
   private List<String> messages;
 
-  /**
-   * The state of the feedback and whether it requires merchant action.
-   */
+  
   private ResourceFeedbackState state;
 
   public ResourceFeedbackCreateInput() {
   }
 
-  /**
-   * The date and time when the feedback was generated. Used to help determine whether
-   * incoming feedback is outdated compared to existing feedback.
-   */
+  
   public OffsetDateTime getFeedbackGeneratedAt() {
     return feedbackGeneratedAt;
   }
@@ -52,19 +30,7 @@ public class ResourceFeedbackCreateInput {
     this.feedbackGeneratedAt = feedbackGeneratedAt;
   }
 
-  /**
-   * If the feedback state is `requires_action`, then you can send a string message
-   * that communicates the action to be taken by the merchant.
-   * The string must be a single message up to 100 characters long and must end with a period.
-   * You need to adhere to the message formatting rules or your requests will fail:
-   * - `[Explanation of the problem]. [Suggested action].`
-   *   
-   * **Examples:**
-   * - `[Your app name]` isn't connected. Connect your account to use this sales channel. `[Learn more]`
-   * - `[Your app name]` isn't configured. Agree to the terms and conditions to use this app. `[Learn more]`
-   * Both `Your app name` and `Learn more` (a button which directs merchants to
-   * your app) are automatically populated in the Shopify admin.
-   */
+  
   public List<String> getMessages() {
     return messages;
   }
@@ -73,9 +39,7 @@ public class ResourceFeedbackCreateInput {
     this.messages = messages;
   }
 
-  /**
-   * The state of the feedback and whether it requires merchant action.
-   */
+  
   public ResourceFeedbackState getState() {
     return state;
   }
@@ -109,30 +73,13 @@ public class ResourceFeedbackCreateInput {
   }
 
   public static class Builder {
-    /**
-     * The date and time when the feedback was generated. Used to help determine whether
-     * incoming feedback is outdated compared to existing feedback.
-     */
+    
     private OffsetDateTime feedbackGeneratedAt;
 
-    /**
-     * If the feedback state is `requires_action`, then you can send a string message
-     * that communicates the action to be taken by the merchant.
-     * The string must be a single message up to 100 characters long and must end with a period.
-     * You need to adhere to the message formatting rules or your requests will fail:
-     * - `[Explanation of the problem]. [Suggested action].`
-     *   
-     * **Examples:**
-     * - `[Your app name]` isn't connected. Connect your account to use this sales channel. `[Learn more]`
-     * - `[Your app name]` isn't configured. Agree to the terms and conditions to use this app. `[Learn more]`
-     * Both `Your app name` and `Learn more` (a button which directs merchants to
-     * your app) are automatically populated in the Shopify admin.
-     */
+    
     private List<String> messages;
 
-    /**
-     * The state of the feedback and whether it requires merchant action.
-     */
+    
     private ResourceFeedbackState state;
 
     public ResourceFeedbackCreateInput build() {
@@ -143,36 +90,19 @@ public class ResourceFeedbackCreateInput {
       return result;
     }
 
-    /**
-     * The date and time when the feedback was generated. Used to help determine whether
-     * incoming feedback is outdated compared to existing feedback.
-     */
+    
     public Builder feedbackGeneratedAt(OffsetDateTime feedbackGeneratedAt) {
       this.feedbackGeneratedAt = feedbackGeneratedAt;
       return this;
     }
 
-    /**
-     * If the feedback state is `requires_action`, then you can send a string message
-     * that communicates the action to be taken by the merchant.
-     * The string must be a single message up to 100 characters long and must end with a period.
-     * You need to adhere to the message formatting rules or your requests will fail:
-     * - `[Explanation of the problem]. [Suggested action].`
-     *   
-     * **Examples:**
-     * - `[Your app name]` isn't connected. Connect your account to use this sales channel. `[Learn more]`
-     * - `[Your app name]` isn't configured. Agree to the terms and conditions to use this app. `[Learn more]`
-     * Both `Your app name` and `Learn more` (a button which directs merchants to
-     * your app) are automatically populated in the Shopify admin.
-     */
+    
     public Builder messages(List<String> messages) {
       this.messages = messages;
       return this;
     }
 
-    /**
-     * The state of the feedback and whether it requires merchant action.
-     */
+    
     public Builder state(ResourceFeedbackState state) {
       this.state = state;
       return this;

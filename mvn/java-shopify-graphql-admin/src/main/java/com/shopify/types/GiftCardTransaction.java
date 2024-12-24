@@ -5,9 +5,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.String;
 import java.time.OffsetDateTime;
 
-/**
- * Represents information about the metafields associated to the specified resource.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
     include = JsonTypeInfo.As.PROPERTY,
@@ -18,51 +16,30 @@ import java.time.OffsetDateTime;
     @JsonSubTypes.Type(value = GiftCardDebitTransaction.class, name = "GiftCardDebitTransaction")
 })
 public interface GiftCardTransaction {
-  /**
-   * The amount of the transaction.
-   */
+  
   MoneyV2 getAmount();
 
-  /**
-   * The gift card that the transaction belongs to.
-   */
+  
   GiftCard getGiftCard();
 
-  /**
-   * The unique ID for the transaction.
-   */
+  
   String getId();
 
-  /**
-   * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-   * including its `namespace` and `key`, that's associated with a Shopify resource
-   * for the purposes of adding and storing additional information.
-   */
+  
   Metafield getMetafield();
 
-  /**
-   * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-   * that a merchant associates with a Shopify resource.
-   */
+  
   MetafieldConnection getMetafields();
 
-  /**
-   * A note about the transaction.
-   */
+  
   String getNote();
 
-  /**
-   * Returns a private metafield by namespace and key that belongs to the resource.
-   */
+  
   PrivateMetafield getPrivateMetafield();
 
-  /**
-   * List of private metafields that belong to the resource.
-   */
+  
   PrivateMetafieldConnection getPrivateMetafields();
 
-  /**
-   * The date and time when the transaction was processed.
-   */
+  
   OffsetDateTime getProcessedAt();
 }

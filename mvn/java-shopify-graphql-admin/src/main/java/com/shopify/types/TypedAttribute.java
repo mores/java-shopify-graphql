@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents a typed custom attribute.
- */
+
 public class TypedAttribute {
-  /**
-   * Key or name of the attribute.
-   */
+  
   private String key;
 
-  /**
-   * Value of the attribute.
-   */
+  
   private String value;
 
   public TypedAttribute() {
   }
 
-  /**
-   * Key or name of the attribute.
-   */
+  
   public String getKey() {
     return key;
   }
@@ -33,9 +25,7 @@ public class TypedAttribute {
     this.key = key;
   }
 
-  /**
-   * Value of the attribute.
-   */
+  
   public String getValue() {
     return value;
   }
@@ -68,14 +58,10 @@ public class TypedAttribute {
   }
 
   public static class Builder {
-    /**
-     * Key or name of the attribute.
-     */
+    
     private String key;
 
-    /**
-     * Value of the attribute.
-     */
+    
     private String value;
 
     public TypedAttribute build() {
@@ -85,17 +71,13 @@ public class TypedAttribute {
       return result;
     }
 
-    /**
-     * Key or name of the attribute.
-     */
+    
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
-    /**
-     * Value of the attribute.
-     */
+    
     public Builder value(String value) {
       this.value = value;
       return this;

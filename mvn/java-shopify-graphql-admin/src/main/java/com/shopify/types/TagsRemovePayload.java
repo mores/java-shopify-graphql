@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `tagsRemove` mutation.
- */
+
 public class TagsRemovePayload {
-  /**
-   * The object that was updated.
-   */
+  
   private Node node;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public TagsRemovePayload() {
   }
 
-  /**
-   * The object that was updated.
-   */
+  
   public Node getNode() {
     return node;
   }
@@ -34,9 +26,7 @@ public class TagsRemovePayload {
     this.node = node;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class TagsRemovePayload {
   }
 
   public static class Builder {
-    /**
-     * The object that was updated.
-     */
+    
     private Node node;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public TagsRemovePayload build() {
@@ -86,17 +72,13 @@ public class TagsRemovePayload {
       return result;
     }
 
-    /**
-     * The object that was updated.
-     */
+    
     public Builder node(Node node) {
       this.node = node;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `paymentTermsUpdate` mutation.
- */
+
 public class PaymentTermsUpdatePayload {
-  /**
-   * The updated payment terms.
-   */
+  
   private PaymentTerms paymentTerms;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<PaymentTermsUpdateUserError> userErrors;
 
   public PaymentTermsUpdatePayload() {
   }
 
-  /**
-   * The updated payment terms.
-   */
+  
   public PaymentTerms getPaymentTerms() {
     return paymentTerms;
   }
@@ -34,9 +26,7 @@ public class PaymentTermsUpdatePayload {
     this.paymentTerms = paymentTerms;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<PaymentTermsUpdateUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class PaymentTermsUpdatePayload {
   }
 
   public static class Builder {
-    /**
-     * The updated payment terms.
-     */
+    
     private PaymentTerms paymentTerms;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<PaymentTermsUpdateUserError> userErrors;
 
     public PaymentTermsUpdatePayload build() {
@@ -86,17 +72,13 @@ public class PaymentTermsUpdatePayload {
       return result;
     }
 
-    /**
-     * The updated payment terms.
-     */
+    
     public Builder paymentTerms(PaymentTerms paymentTerms) {
       this.paymentTerms = paymentTerms;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<PaymentTermsUpdateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

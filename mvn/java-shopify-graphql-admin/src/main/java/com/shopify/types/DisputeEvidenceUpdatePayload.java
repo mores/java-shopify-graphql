@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `disputeEvidenceUpdate` mutation.
- */
+
 public class DisputeEvidenceUpdatePayload {
-  /**
-   * The updated dispute evidence.
-   */
+  
   private ShopifyPaymentsDisputeEvidence disputeEvidence;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<DisputeEvidenceUpdateUserError> userErrors;
 
   public DisputeEvidenceUpdatePayload() {
   }
 
-  /**
-   * The updated dispute evidence.
-   */
+  
   public ShopifyPaymentsDisputeEvidence getDisputeEvidence() {
     return disputeEvidence;
   }
@@ -34,9 +26,7 @@ public class DisputeEvidenceUpdatePayload {
     this.disputeEvidence = disputeEvidence;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<DisputeEvidenceUpdateUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class DisputeEvidenceUpdatePayload {
   }
 
   public static class Builder {
-    /**
-     * The updated dispute evidence.
-     */
+    
     private ShopifyPaymentsDisputeEvidence disputeEvidence;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<DisputeEvidenceUpdateUserError> userErrors;
 
     public DisputeEvidenceUpdatePayload build() {
@@ -86,17 +72,13 @@ public class DisputeEvidenceUpdatePayload {
       return result;
     }
 
-    /**
-     * The updated dispute evidence.
-     */
+    
     public Builder disputeEvidence(ShopifyPaymentsDisputeEvidence disputeEvidence) {
       this.disputeEvidence = disputeEvidence;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<DisputeEvidenceUpdateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

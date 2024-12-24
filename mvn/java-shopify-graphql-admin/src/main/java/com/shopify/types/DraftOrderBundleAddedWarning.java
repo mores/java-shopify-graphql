@@ -6,34 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A warning indicating that a bundle was added to a draft order.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DraftOrderBundleAddedWarning implements com.shopify.types.DraftOrderWarning {
-  /**
-   * The error code.
-   */
+  
   private String errorCode;
 
-  /**
-   * The input field that the warning applies to.
-   */
+  
   private String field;
 
-  /**
-   * The warning message.
-   */
+  
   private String message;
 
   public DraftOrderBundleAddedWarning() {
   }
 
-  /**
-   * The error code.
-   */
+  
   public String getErrorCode() {
     return errorCode;
   }
@@ -42,9 +32,7 @@ public class DraftOrderBundleAddedWarning implements com.shopify.types.DraftOrde
     this.errorCode = errorCode;
   }
 
-  /**
-   * The input field that the warning applies to.
-   */
+  
   public String getField() {
     return field;
   }
@@ -53,9 +41,7 @@ public class DraftOrderBundleAddedWarning implements com.shopify.types.DraftOrde
     this.field = field;
   }
 
-  /**
-   * The warning message.
-   */
+  
   public String getMessage() {
     return message;
   }
@@ -89,19 +75,13 @@ public class DraftOrderBundleAddedWarning implements com.shopify.types.DraftOrde
   }
 
   public static class Builder {
-    /**
-     * The error code.
-     */
+    
     private String errorCode;
 
-    /**
-     * The input field that the warning applies to.
-     */
+    
     private String field;
 
-    /**
-     * The warning message.
-     */
+    
     private String message;
 
     public DraftOrderBundleAddedWarning build() {
@@ -112,25 +92,19 @@ public class DraftOrderBundleAddedWarning implements com.shopify.types.DraftOrde
       return result;
     }
 
-    /**
-     * The error code.
-     */
+    
     public Builder errorCode(String errorCode) {
       this.errorCode = errorCode;
       return this;
     }
 
-    /**
-     * The input field that the warning applies to.
-     */
+    
     public Builder field(String field) {
       this.field = field;
       return this;
     }
 
-    /**
-     * The warning message.
-     */
+    
     public Builder message(String message) {
       this.message = message;
       return this;

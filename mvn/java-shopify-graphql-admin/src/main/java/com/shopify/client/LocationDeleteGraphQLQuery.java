@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Deletes a location.
- */
+
 public class LocationDeleteGraphQLQuery extends GraphQLQuery {
   public LocationDeleteGraphQLQuery(String locationId, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -42,9 +40,7 @@ public class LocationDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of a location to delete.
-     */
+    
     public Builder locationId(String locationId) {
       this.locationId = locationId;
       this.fieldsSet.add("locationId");

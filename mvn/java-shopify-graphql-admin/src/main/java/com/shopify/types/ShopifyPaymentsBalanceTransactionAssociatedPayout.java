@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The payout associated with a balance transaction.
- */
+
 public class ShopifyPaymentsBalanceTransactionAssociatedPayout {
-  /**
-   * The ID of the payout associated with the balance transaction.
-   */
+  
   private String id;
 
-  /**
-   * The status of the payout associated with the balance transaction.
-   */
+  
   private ShopifyPaymentsBalanceTransactionPayoutStatus status;
 
   public ShopifyPaymentsBalanceTransactionAssociatedPayout() {
   }
 
-  /**
-   * The ID of the payout associated with the balance transaction.
-   */
+  
   public String getId() {
     return id;
   }
@@ -33,9 +25,7 @@ public class ShopifyPaymentsBalanceTransactionAssociatedPayout {
     this.id = id;
   }
 
-  /**
-   * The status of the payout associated with the balance transaction.
-   */
+  
   public ShopifyPaymentsBalanceTransactionPayoutStatus getStatus() {
     return status;
   }
@@ -68,14 +58,10 @@ public class ShopifyPaymentsBalanceTransactionAssociatedPayout {
   }
 
   public static class Builder {
-    /**
-     * The ID of the payout associated with the balance transaction.
-     */
+    
     private String id;
 
-    /**
-     * The status of the payout associated with the balance transaction.
-     */
+    
     private ShopifyPaymentsBalanceTransactionPayoutStatus status;
 
     public ShopifyPaymentsBalanceTransactionAssociatedPayout build() {
@@ -85,17 +71,13 @@ public class ShopifyPaymentsBalanceTransactionAssociatedPayout {
       return result;
     }
 
-    /**
-     * The ID of the payout associated with the balance transaction.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The status of the payout associated with the balance transaction.
-     */
+    
     public Builder status(ShopifyPaymentsBalanceTransactionPayoutStatus status) {
       this.status = status;
       return this;

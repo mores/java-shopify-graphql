@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * The container shadow.
- */
+
 public enum CheckoutBrandingShadow {
   SMALL_200,
 

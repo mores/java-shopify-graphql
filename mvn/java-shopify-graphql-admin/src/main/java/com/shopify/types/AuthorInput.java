@@ -14,9 +14,7 @@ public class AuthorInput {
    */
   private String name;
 
-  /**
-   * The ID of a staff member's account.
-   */
+  
   private String userId;
 
   public AuthorInput() {
@@ -33,9 +31,7 @@ public class AuthorInput {
     this.name = name;
   }
 
-  /**
-   * The ID of a staff member's account.
-   */
+  
   public String getUserId() {
     return userId;
   }
@@ -73,9 +69,7 @@ public class AuthorInput {
      */
     private String name;
 
-    /**
-     * The ID of a staff member's account.
-     */
+    
     private String userId;
 
     public AuthorInput build() {
@@ -93,9 +87,7 @@ public class AuthorInput {
       return this;
     }
 
-    /**
-     * The ID of a staff member's account.
-     */
+    
     public Builder userId(String userId) {
       this.userId = userId;
       return this;

@@ -5,44 +5,27 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents the value captured by a localization extension. Localization
- * extensions are additional fields required by certain countries on international
- * orders. For example, some countries require additional fields for customs
- * information or tax identification numbers.
- */
+
 public class LocalizationExtension {
-  /**
-   * Country ISO 3166-1 alpha-2 code.
-   */
+  
   private CountryCode countryCode;
 
-  /**
-   * The localized extension keys that are allowed.
-   */
+  
   private LocalizationExtensionKey key;
 
-  /**
-   * The purpose of this localization extension.
-   */
+  
   private LocalizationExtensionPurpose purpose;
 
-  /**
-   * The localized extension title.
-   */
+  
   private String title;
 
-  /**
-   * The value of the field.
-   */
+  
   private String value;
 
   public LocalizationExtension() {
   }
 
-  /**
-   * Country ISO 3166-1 alpha-2 code.
-   */
+  
   public CountryCode getCountryCode() {
     return countryCode;
   }
@@ -51,9 +34,7 @@ public class LocalizationExtension {
     this.countryCode = countryCode;
   }
 
-  /**
-   * The localized extension keys that are allowed.
-   */
+  
   public LocalizationExtensionKey getKey() {
     return key;
   }
@@ -62,9 +43,7 @@ public class LocalizationExtension {
     this.key = key;
   }
 
-  /**
-   * The purpose of this localization extension.
-   */
+  
   public LocalizationExtensionPurpose getPurpose() {
     return purpose;
   }
@@ -73,9 +52,7 @@ public class LocalizationExtension {
     this.purpose = purpose;
   }
 
-  /**
-   * The localized extension title.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -84,9 +61,7 @@ public class LocalizationExtension {
     this.title = title;
   }
 
-  /**
-   * The value of the field.
-   */
+  
   public String getValue() {
     return value;
   }
@@ -122,29 +97,19 @@ public class LocalizationExtension {
   }
 
   public static class Builder {
-    /**
-     * Country ISO 3166-1 alpha-2 code.
-     */
+    
     private CountryCode countryCode;
 
-    /**
-     * The localized extension keys that are allowed.
-     */
+    
     private LocalizationExtensionKey key;
 
-    /**
-     * The purpose of this localization extension.
-     */
+    
     private LocalizationExtensionPurpose purpose;
 
-    /**
-     * The localized extension title.
-     */
+    
     private String title;
 
-    /**
-     * The value of the field.
-     */
+    
     private String value;
 
     public LocalizationExtension build() {
@@ -157,41 +122,31 @@ public class LocalizationExtension {
       return result;
     }
 
-    /**
-     * Country ISO 3166-1 alpha-2 code.
-     */
+    
     public Builder countryCode(CountryCode countryCode) {
       this.countryCode = countryCode;
       return this;
     }
 
-    /**
-     * The localized extension keys that are allowed.
-     */
+    
     public Builder key(LocalizationExtensionKey key) {
       this.key = key;
       return this;
     }
 
-    /**
-     * The purpose of this localization extension.
-     */
+    
     public Builder purpose(LocalizationExtensionPurpose purpose) {
       this.purpose = purpose;
       return this;
     }
 
-    /**
-     * The localized extension title.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    /**
-     * The value of the field.
-     */
+    
     public Builder value(String value) {
       this.value = value;
       return this;

@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents the preview image for a media.
- */
+
 public class MediaPreviewImage {
-  /**
-   * The preview image for the media. Returns `null` until `status` is `READY`.
-   */
+  
   private Image image;
 
-  /**
-   * Current status of the preview image.
-   */
+  
   private MediaPreviewImageStatus status;
 
   public MediaPreviewImage() {
   }
 
-  /**
-   * The preview image for the media. Returns `null` until `status` is `READY`.
-   */
+  
   public Image getImage() {
     return image;
   }
@@ -33,9 +25,7 @@ public class MediaPreviewImage {
     this.image = image;
   }
 
-  /**
-   * Current status of the preview image.
-   */
+  
   public MediaPreviewImageStatus getStatus() {
     return status;
   }
@@ -68,14 +58,10 @@ public class MediaPreviewImage {
   }
 
   public static class Builder {
-    /**
-     * The preview image for the media. Returns `null` until `status` is `READY`.
-     */
+    
     private Image image;
 
-    /**
-     * Current status of the preview image.
-     */
+    
     private MediaPreviewImageStatus status;
 
     public MediaPreviewImage build() {
@@ -85,17 +71,13 @@ public class MediaPreviewImage {
       return result;
     }
 
-    /**
-     * The preview image for the media. Returns `null` until `status` is `READY`.
-     */
+    
     public Builder image(Image image) {
       this.image = image;
       return this;
     }
 
-    /**
-     * Current status of the preview image.
-     */
+    
     public Builder status(MediaPreviewImageStatus status) {
       this.status = status;
       return this;

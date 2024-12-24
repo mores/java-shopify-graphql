@@ -6,49 +6,33 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents a merchant's Business Entity.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class BusinessEntity implements com.shopify.types.Node {
-  /**
-   * The address of the merchant's Business Entity.
-   */
+  
   private BusinessEntityAddress address;
 
-  /**
-   * The name of the company associated with the merchant's Business Entity.
-   */
+  
   private String companyName;
 
-  /**
-   * The display name of the merchant's Business Entity.
-   */
+  
   private String displayName;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * Whether it's the merchant's primary Business Entity.
-   */
+  
   private boolean primary;
 
-  /**
-   * Shopify Payments account information, including balances and payouts.
-   */
+  
   private ShopifyPaymentsAccount shopifyPaymentsAccount;
 
   public BusinessEntity() {
   }
 
-  /**
-   * The address of the merchant's Business Entity.
-   */
+  
   public BusinessEntityAddress getAddress() {
     return address;
   }
@@ -57,9 +41,7 @@ public class BusinessEntity implements com.shopify.types.Node {
     this.address = address;
   }
 
-  /**
-   * The name of the company associated with the merchant's Business Entity.
-   */
+  
   public String getCompanyName() {
     return companyName;
   }
@@ -68,9 +50,7 @@ public class BusinessEntity implements com.shopify.types.Node {
     this.companyName = companyName;
   }
 
-  /**
-   * The display name of the merchant's Business Entity.
-   */
+  
   public String getDisplayName() {
     return displayName;
   }
@@ -79,9 +59,7 @@ public class BusinessEntity implements com.shopify.types.Node {
     this.displayName = displayName;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -90,9 +68,7 @@ public class BusinessEntity implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * Whether it's the merchant's primary Business Entity.
-   */
+  
   public boolean getPrimary() {
     return primary;
   }
@@ -101,9 +77,7 @@ public class BusinessEntity implements com.shopify.types.Node {
     this.primary = primary;
   }
 
-  /**
-   * Shopify Payments account information, including balances and payouts.
-   */
+  
   public ShopifyPaymentsAccount getShopifyPaymentsAccount() {
     return shopifyPaymentsAccount;
   }
@@ -140,34 +114,22 @@ public class BusinessEntity implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * The address of the merchant's Business Entity.
-     */
+    
     private BusinessEntityAddress address;
 
-    /**
-     * The name of the company associated with the merchant's Business Entity.
-     */
+    
     private String companyName;
 
-    /**
-     * The display name of the merchant's Business Entity.
-     */
+    
     private String displayName;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * Whether it's the merchant's primary Business Entity.
-     */
+    
     private boolean primary;
 
-    /**
-     * Shopify Payments account information, including balances and payouts.
-     */
+    
     private ShopifyPaymentsAccount shopifyPaymentsAccount;
 
     public BusinessEntity build() {
@@ -181,49 +143,37 @@ public class BusinessEntity implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * The address of the merchant's Business Entity.
-     */
+    
     public Builder address(BusinessEntityAddress address) {
       this.address = address;
       return this;
     }
 
-    /**
-     * The name of the company associated with the merchant's Business Entity.
-     */
+    
     public Builder companyName(String companyName) {
       this.companyName = companyName;
       return this;
     }
 
-    /**
-     * The display name of the merchant's Business Entity.
-     */
+    
     public Builder displayName(String displayName) {
       this.displayName = displayName;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * Whether it's the merchant's primary Business Entity.
-     */
+    
     public Builder primary(boolean primary) {
       this.primary = primary;
       return this;
     }
 
-    /**
-     * Shopify Payments account information, including balances and payouts.
-     */
+    
     public Builder shopifyPaymentsAccount(ShopifyPaymentsAccount shopifyPaymentsAccount) {
       this.shopifyPaymentsAccount = shopifyPaymentsAccount;
       return this;

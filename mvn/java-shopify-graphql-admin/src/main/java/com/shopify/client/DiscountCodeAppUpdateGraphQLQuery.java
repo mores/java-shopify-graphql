@@ -7,17 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Updates a code discount, where the discount type is provided by an app
- * extension that uses [Shopify
- * Functions](https://shopify.dev/docs/apps/build/functions). Use this mutation
- * when you need advanced, custom, or dynamic discount capabilities that aren't
- * supported by [Shopify's native discount
- * types](https://help.shopify.com/manual/discounts/discount-types).
- *   
- * > Note:
- * > To update automatic discounts, use [`discountAutomaticAppUpdate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/discountAutomaticAppUpdate).
- */
+
 public class DiscountCodeAppUpdateGraphQLQuery extends GraphQLQuery {
   public DiscountCodeAppUpdateGraphQLQuery(String id, DiscountCodeAppInput codeAppDiscount,
       String queryName, Set<String> fieldsSet) {
@@ -56,18 +46,14 @@ public class DiscountCodeAppUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the discount to update.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * The input fields required to update the discount.
-     */
+    
     public Builder codeAppDiscount(DiscountCodeAppInput codeAppDiscount) {
       this.codeAppDiscount = codeAppDiscount;
       this.fieldsSet.add("codeAppDiscount");

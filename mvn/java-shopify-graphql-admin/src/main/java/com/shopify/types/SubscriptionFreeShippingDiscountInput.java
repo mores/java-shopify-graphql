@@ -6,26 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for a subscription free shipping discount on a contract.
- */
+
 public class SubscriptionFreeShippingDiscountInput {
-  /**
-   * The title associated with the subscription free shipping discount.
-   */
+  
   private String title;
 
-  /**
-   * The maximum number of times the subscription free shipping discount will be applied on orders.
-   */
+  
   private Integer recurringCycleLimit;
 
   public SubscriptionFreeShippingDiscountInput() {
   }
 
-  /**
-   * The title associated with the subscription free shipping discount.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -34,9 +26,7 @@ public class SubscriptionFreeShippingDiscountInput {
     this.title = title;
   }
 
-  /**
-   * The maximum number of times the subscription free shipping discount will be applied on orders.
-   */
+  
   public Integer getRecurringCycleLimit() {
     return recurringCycleLimit;
   }
@@ -69,14 +59,10 @@ public class SubscriptionFreeShippingDiscountInput {
   }
 
   public static class Builder {
-    /**
-     * The title associated with the subscription free shipping discount.
-     */
+    
     private String title;
 
-    /**
-     * The maximum number of times the subscription free shipping discount will be applied on orders.
-     */
+    
     private Integer recurringCycleLimit;
 
     public SubscriptionFreeShippingDiscountInput build() {
@@ -86,17 +72,13 @@ public class SubscriptionFreeShippingDiscountInput {
       return result;
     }
 
-    /**
-     * The title associated with the subscription free shipping discount.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    /**
-     * The maximum number of times the subscription free shipping discount will be applied on orders.
-     */
+    
     public Builder recurringCycleLimit(Integer recurringCycleLimit) {
       this.recurringCycleLimit = recurringCycleLimit;
       return this;

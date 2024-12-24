@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields to use to update the choice list customizations.
- */
+
 public class CheckoutBrandingChoiceListInput {
-  /**
-   * The settings that apply to the 'group' variant of ChoiceList.
-   */
+  
   private CheckoutBrandingChoiceListGroupInput group;
 
   public CheckoutBrandingChoiceListInput() {
   }
 
-  /**
-   * The settings that apply to the 'group' variant of ChoiceList.
-   */
+  
   public CheckoutBrandingChoiceListGroupInput getGroup() {
     return group;
   }
@@ -51,9 +45,7 @@ public class CheckoutBrandingChoiceListInput {
   }
 
   public static class Builder {
-    /**
-     * The settings that apply to the 'group' variant of ChoiceList.
-     */
+    
     private CheckoutBrandingChoiceListGroupInput group;
 
     public CheckoutBrandingChoiceListInput build() {
@@ -62,9 +54,7 @@ public class CheckoutBrandingChoiceListInput {
       return result;
     }
 
-    /**
-     * The settings that apply to the 'group' variant of ChoiceList.
-     */
+    
     public Builder group(CheckoutBrandingChoiceListGroupInput group) {
       this.group = group;
       return this;

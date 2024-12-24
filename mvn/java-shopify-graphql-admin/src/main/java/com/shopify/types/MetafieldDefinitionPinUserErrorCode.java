@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible error codes that can be returned by `MetafieldDefinitionPinUserError`.
- */
+
 public enum MetafieldDefinitionPinUserErrorCode {
   NOT_FOUND,
 

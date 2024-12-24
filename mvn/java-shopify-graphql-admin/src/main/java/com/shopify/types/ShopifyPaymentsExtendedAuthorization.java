@@ -15,9 +15,7 @@ public class ShopifyPaymentsExtendedAuthorization {
    */
   private OffsetDateTime extendedAuthorizationExpiresAt;
 
-  /**
-   * The time after which capture will incur an additional fee.
-   */
+  
   private OffsetDateTime standardAuthorizationExpiresAt;
 
   public ShopifyPaymentsExtendedAuthorization() {
@@ -34,9 +32,7 @@ public class ShopifyPaymentsExtendedAuthorization {
     this.extendedAuthorizationExpiresAt = extendedAuthorizationExpiresAt;
   }
 
-  /**
-   * The time after which capture will incur an additional fee.
-   */
+  
   public OffsetDateTime getStandardAuthorizationExpiresAt() {
     return standardAuthorizationExpiresAt;
   }
@@ -74,9 +70,7 @@ public class ShopifyPaymentsExtendedAuthorization {
      */
     private OffsetDateTime extendedAuthorizationExpiresAt;
 
-    /**
-     * The time after which capture will incur an additional fee.
-     */
+    
     private OffsetDateTime standardAuthorizationExpiresAt;
 
     public ShopifyPaymentsExtendedAuthorization build() {
@@ -94,9 +88,7 @@ public class ShopifyPaymentsExtendedAuthorization {
       return this;
     }
 
-    /**
-     * The time after which capture will incur an additional fee.
-     */
+    
     public Builder standardAuthorizationExpiresAt(OffsetDateTime standardAuthorizationExpiresAt) {
       this.standardAuthorizationExpiresAt = standardAuthorizationExpiresAt;
       return this;

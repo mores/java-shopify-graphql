@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Create a payment method from remote gateway identifiers.
- */
+
 public class CustomerPaymentMethodRemoteCreateGraphQLQuery extends GraphQLQuery {
   public CustomerPaymentMethodRemoteCreateGraphQLQuery(String customerId,
       CustomerPaymentMethodRemoteInput remoteReference, String queryName, Set<String> fieldsSet) {
@@ -48,18 +46,14 @@ public class CustomerPaymentMethodRemoteCreateGraphQLQuery extends GraphQLQuery 
                
     }
 
-    /**
-     * The ID of the customer.
-     */
+    
     public Builder customerId(String customerId) {
       this.customerId = customerId;
       this.fieldsSet.add("customerId");
       return this;
     }
 
-    /**
-     * Remote gateway payment method details.
-     */
+    
     public Builder remoteReference(CustomerPaymentMethodRemoteInput remoteReference) {
       this.remoteReference = remoteReference;
       this.fieldsSet.add("remoteReference");

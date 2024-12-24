@@ -6,36 +6,24 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `priceListFixedPricesByProductUpdate` mutation.
- */
+
 public class PriceListFixedPricesByProductUpdatePayload {
-  /**
-   * The price list for which the fixed prices were modified.
-   */
+  
   private PriceList priceList;
 
-  /**
-   * The product for which the fixed prices were added.
-   */
+  
   private List<Product> pricesToAddProducts;
 
-  /**
-   * The product for which the fixed prices were deleted.
-   */
+  
   private List<Product> pricesToDeleteProducts;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<PriceListFixedPricesByProductBulkUpdateUserError> userErrors;
 
   public PriceListFixedPricesByProductUpdatePayload() {
   }
 
-  /**
-   * The price list for which the fixed prices were modified.
-   */
+  
   public PriceList getPriceList() {
     return priceList;
   }
@@ -44,9 +32,7 @@ public class PriceListFixedPricesByProductUpdatePayload {
     this.priceList = priceList;
   }
 
-  /**
-   * The product for which the fixed prices were added.
-   */
+  
   public List<Product> getPricesToAddProducts() {
     return pricesToAddProducts;
   }
@@ -55,9 +41,7 @@ public class PriceListFixedPricesByProductUpdatePayload {
     this.pricesToAddProducts = pricesToAddProducts;
   }
 
-  /**
-   * The product for which the fixed prices were deleted.
-   */
+  
   public List<Product> getPricesToDeleteProducts() {
     return pricesToDeleteProducts;
   }
@@ -66,9 +50,7 @@ public class PriceListFixedPricesByProductUpdatePayload {
     this.pricesToDeleteProducts = pricesToDeleteProducts;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<PriceListFixedPricesByProductBulkUpdateUserError> getUserErrors() {
     return userErrors;
   }
@@ -103,24 +85,16 @@ public class PriceListFixedPricesByProductUpdatePayload {
   }
 
   public static class Builder {
-    /**
-     * The price list for which the fixed prices were modified.
-     */
+    
     private PriceList priceList;
 
-    /**
-     * The product for which the fixed prices were added.
-     */
+    
     private List<Product> pricesToAddProducts;
 
-    /**
-     * The product for which the fixed prices were deleted.
-     */
+    
     private List<Product> pricesToDeleteProducts;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<PriceListFixedPricesByProductBulkUpdateUserError> userErrors;
 
     public PriceListFixedPricesByProductUpdatePayload build() {
@@ -132,33 +106,25 @@ public class PriceListFixedPricesByProductUpdatePayload {
       return result;
     }
 
-    /**
-     * The price list for which the fixed prices were modified.
-     */
+    
     public Builder priceList(PriceList priceList) {
       this.priceList = priceList;
       return this;
     }
 
-    /**
-     * The product for which the fixed prices were added.
-     */
+    
     public Builder pricesToAddProducts(List<Product> pricesToAddProducts) {
       this.pricesToAddProducts = pricesToAddProducts;
       return this;
     }
 
-    /**
-     * The product for which the fixed prices were deleted.
-     */
+    
     public Builder pricesToDeleteProducts(List<Product> pricesToDeleteProducts) {
       this.pricesToDeleteProducts = pricesToDeleteProducts;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<PriceListFixedPricesByProductBulkUpdateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Links a location group with zones. Both are associated to a delivery profile.
- */
+
 public class DeliveryProfileLocationGroup {
-  /**
-   * The countries already selected in any zone for the specified location group.
-   */
+  
   private List<DeliveryCountryAndZone> countriesInAnyZone;
 
-  /**
-   * The collection of locations that make up the specified location group.
-   */
+  
   private DeliveryLocationGroup locationGroup;
 
-  /**
-   * The applicable zones associated to the specified location group.
-   */
+  
   private DeliveryLocationGroupZoneConnection locationGroupZones;
 
   public DeliveryProfileLocationGroup() {
   }
 
-  /**
-   * The countries already selected in any zone for the specified location group.
-   */
+  
   public List<DeliveryCountryAndZone> getCountriesInAnyZone() {
     return countriesInAnyZone;
   }
@@ -39,9 +29,7 @@ public class DeliveryProfileLocationGroup {
     this.countriesInAnyZone = countriesInAnyZone;
   }
 
-  /**
-   * The collection of locations that make up the specified location group.
-   */
+  
   public DeliveryLocationGroup getLocationGroup() {
     return locationGroup;
   }
@@ -50,9 +38,7 @@ public class DeliveryProfileLocationGroup {
     this.locationGroup = locationGroup;
   }
 
-  /**
-   * The applicable zones associated to the specified location group.
-   */
+  
   public DeliveryLocationGroupZoneConnection getLocationGroupZones() {
     return locationGroupZones;
   }
@@ -86,19 +72,13 @@ public class DeliveryProfileLocationGroup {
   }
 
   public static class Builder {
-    /**
-     * The countries already selected in any zone for the specified location group.
-     */
+    
     private List<DeliveryCountryAndZone> countriesInAnyZone;
 
-    /**
-     * The collection of locations that make up the specified location group.
-     */
+    
     private DeliveryLocationGroup locationGroup;
 
-    /**
-     * The applicable zones associated to the specified location group.
-     */
+    
     private DeliveryLocationGroupZoneConnection locationGroupZones;
 
     public DeliveryProfileLocationGroup build() {
@@ -109,25 +89,19 @@ public class DeliveryProfileLocationGroup {
       return result;
     }
 
-    /**
-     * The countries already selected in any zone for the specified location group.
-     */
+    
     public Builder countriesInAnyZone(List<DeliveryCountryAndZone> countriesInAnyZone) {
       this.countriesInAnyZone = countriesInAnyZone;
       return this;
     }
 
-    /**
-     * The collection of locations that make up the specified location group.
-     */
+    
     public Builder locationGroup(DeliveryLocationGroup locationGroup) {
       this.locationGroup = locationGroup;
       return this;
     }
 
-    /**
-     * The applicable zones associated to the specified location group.
-     */
+    
     public Builder locationGroupZones(DeliveryLocationGroupZoneConnection locationGroupZones) {
       this.locationGroupZones = locationGroupZones;
       return this;

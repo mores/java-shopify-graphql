@@ -6,11 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns a URL that allows the customer to update a specific payment method.
- *   
- * Currently, `customerPaymentMethodGetUpdateUrl` only supports Shop Pay.
- */
+
 public class CustomerPaymentMethodGetUpdateUrlGraphQLQuery extends GraphQLQuery {
   public CustomerPaymentMethodGetUpdateUrlGraphQLQuery(String customerPaymentMethodId,
       String queryName, Set<String> fieldsSet) {
@@ -45,9 +41,7 @@ public class CustomerPaymentMethodGetUpdateUrlGraphQLQuery extends GraphQLQuery 
                
     }
 
-    /**
-     * The payment method to be updated.
-     */
+    
     public Builder customerPaymentMethodId(String customerPaymentMethodId) {
       this.customerPaymentMethodId = customerPaymentMethodId;
       this.fieldsSet.add("customerPaymentMethodId");

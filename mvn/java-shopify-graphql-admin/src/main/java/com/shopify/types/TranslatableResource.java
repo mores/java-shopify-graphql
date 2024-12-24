@@ -6,36 +6,24 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * A resource that has translatable fields.
- */
+
 public class TranslatableResource {
-  /**
-   * Nested translatable resources under the current resource.
-   */
+  
   private TranslatableResourceConnection nestedTranslatableResources;
 
-  /**
-   * GID of the resource.
-   */
+  
   private String resourceId;
 
-  /**
-   * Translatable content.
-   */
+  
   private List<TranslatableContent> translatableContent;
 
-  /**
-   * Translatable content translations (includes unpublished locales).
-   */
+  
   private List<Translation> translations;
 
   public TranslatableResource() {
   }
 
-  /**
-   * Nested translatable resources under the current resource.
-   */
+  
   public TranslatableResourceConnection getNestedTranslatableResources() {
     return nestedTranslatableResources;
   }
@@ -45,9 +33,7 @@ public class TranslatableResource {
     this.nestedTranslatableResources = nestedTranslatableResources;
   }
 
-  /**
-   * GID of the resource.
-   */
+  
   public String getResourceId() {
     return resourceId;
   }
@@ -56,9 +42,7 @@ public class TranslatableResource {
     this.resourceId = resourceId;
   }
 
-  /**
-   * Translatable content.
-   */
+  
   public List<TranslatableContent> getTranslatableContent() {
     return translatableContent;
   }
@@ -67,9 +51,7 @@ public class TranslatableResource {
     this.translatableContent = translatableContent;
   }
 
-  /**
-   * Translatable content translations (includes unpublished locales).
-   */
+  
   public List<Translation> getTranslations() {
     return translations;
   }
@@ -104,24 +86,16 @@ public class TranslatableResource {
   }
 
   public static class Builder {
-    /**
-     * Nested translatable resources under the current resource.
-     */
+    
     private TranslatableResourceConnection nestedTranslatableResources;
 
-    /**
-     * GID of the resource.
-     */
+    
     private String resourceId;
 
-    /**
-     * Translatable content.
-     */
+    
     private List<TranslatableContent> translatableContent;
 
-    /**
-     * Translatable content translations (includes unpublished locales).
-     */
+    
     private List<Translation> translations;
 
     public TranslatableResource build() {
@@ -133,34 +107,26 @@ public class TranslatableResource {
       return result;
     }
 
-    /**
-     * Nested translatable resources under the current resource.
-     */
+    
     public Builder nestedTranslatableResources(
         TranslatableResourceConnection nestedTranslatableResources) {
       this.nestedTranslatableResources = nestedTranslatableResources;
       return this;
     }
 
-    /**
-     * GID of the resource.
-     */
+    
     public Builder resourceId(String resourceId) {
       this.resourceId = resourceId;
       return this;
     }
 
-    /**
-     * Translatable content.
-     */
+    
     public Builder translatableContent(List<TranslatableContent> translatableContent) {
       this.translatableContent = translatableContent;
       return this;
     }
 
-    /**
-     * Translatable content translations (includes unpublished locales).
-     */
+    
     public Builder translations(List<Translation> translations) {
       this.translations = translations;
       return this;

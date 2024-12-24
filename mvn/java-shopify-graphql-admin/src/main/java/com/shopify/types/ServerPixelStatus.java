@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * The current state of a server pixel.
- */
+
 public enum ServerPixelStatus {
   CONNECTED,
 

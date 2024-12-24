@@ -7,10 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Publishes a product. Products that are sold exclusively on subscription
- * (`requiresSellingPlan: true`) can only be published on online stores.
- */
+
 public class ProductPublishGraphQLQuery extends GraphQLQuery {
   public ProductPublishGraphQLQuery(ProductPublishInput input, String queryName,
       Set<String> fieldsSet) {
@@ -45,9 +42,7 @@ public class ProductPublishGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * Specifies the product to publish and the channels to publish it to.
-     */
+    
     public Builder input(ProductPublishInput input) {
       this.input = input;
       this.fieldsSet.add("input");

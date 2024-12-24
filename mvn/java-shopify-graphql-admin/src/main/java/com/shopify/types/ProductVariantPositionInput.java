@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields representing a product variant position.
- */
+
 public class ProductVariantPositionInput {
-  /**
-   * Specifies the ID of the product variant to update.
-   */
+  
   private String id;
 
-  /**
-   * The order of the product variant in the list of product variants. The first position in the list is 1.
-   */
+  
   private int position;
 
   public ProductVariantPositionInput() {
   }
 
-  /**
-   * Specifies the ID of the product variant to update.
-   */
+  
   public String getId() {
     return id;
   }
@@ -33,9 +25,7 @@ public class ProductVariantPositionInput {
     this.id = id;
   }
 
-  /**
-   * The order of the product variant in the list of product variants. The first position in the list is 1.
-   */
+  
   public int getPosition() {
     return position;
   }
@@ -68,14 +58,10 @@ public class ProductVariantPositionInput {
   }
 
   public static class Builder {
-    /**
-     * Specifies the ID of the product variant to update.
-     */
+    
     private String id;
 
-    /**
-     * The order of the product variant in the list of product variants. The first position in the list is 1.
-     */
+    
     private int position;
 
     public ProductVariantPositionInput build() {
@@ -85,17 +71,13 @@ public class ProductVariantPositionInput {
       return result;
     }
 
-    /**
-     * Specifies the ID of the product variant to update.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The order of the product variant in the list of product variants. The first position in the list is 1.
-     */
+    
     public Builder position(int position) {
       this.position = position;
       return this;

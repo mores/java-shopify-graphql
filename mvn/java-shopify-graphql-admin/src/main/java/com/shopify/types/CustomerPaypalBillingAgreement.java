@@ -6,39 +6,27 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents a PayPal instrument for customer payment method.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class CustomerPaypalBillingAgreement implements CustomerPaymentInstrument {
-  /**
-   * The billing address of this payment method.
-   */
+  
   private CustomerPaymentInstrumentBillingAddress billingAddress;
 
-  /**
-   * Whether the PayPal billing agreement is inactive.
-   */
+  
   private boolean inactive;
 
-  /**
-   * Whether the payment method can be revoked.The payment method can be revoked if there are no active subscription contracts.
-   */
+  
   private boolean isRevocable;
 
-  /**
-   * The customers's PayPal account email address.
-   */
+  
   private String paypalAccountEmail;
 
   public CustomerPaypalBillingAgreement() {
   }
 
-  /**
-   * The billing address of this payment method.
-   */
+  
   public CustomerPaymentInstrumentBillingAddress getBillingAddress() {
     return billingAddress;
   }
@@ -47,9 +35,7 @@ public class CustomerPaypalBillingAgreement implements CustomerPaymentInstrument
     this.billingAddress = billingAddress;
   }
 
-  /**
-   * Whether the PayPal billing agreement is inactive.
-   */
+  
   public boolean getInactive() {
     return inactive;
   }
@@ -58,9 +44,7 @@ public class CustomerPaypalBillingAgreement implements CustomerPaymentInstrument
     this.inactive = inactive;
   }
 
-  /**
-   * Whether the payment method can be revoked.The payment method can be revoked if there are no active subscription contracts.
-   */
+  
   public boolean getIsRevocable() {
     return isRevocable;
   }
@@ -69,9 +53,7 @@ public class CustomerPaypalBillingAgreement implements CustomerPaymentInstrument
     this.isRevocable = isRevocable;
   }
 
-  /**
-   * The customers's PayPal account email address.
-   */
+  
   public String getPaypalAccountEmail() {
     return paypalAccountEmail;
   }
@@ -106,24 +88,16 @@ public class CustomerPaypalBillingAgreement implements CustomerPaymentInstrument
   }
 
   public static class Builder {
-    /**
-     * The billing address of this payment method.
-     */
+    
     private CustomerPaymentInstrumentBillingAddress billingAddress;
 
-    /**
-     * Whether the PayPal billing agreement is inactive.
-     */
+    
     private boolean inactive;
 
-    /**
-     * Whether the payment method can be revoked.The payment method can be revoked if there are no active subscription contracts.
-     */
+    
     private boolean isRevocable;
 
-    /**
-     * The customers's PayPal account email address.
-     */
+    
     private String paypalAccountEmail;
 
     public CustomerPaypalBillingAgreement build() {
@@ -135,33 +109,25 @@ public class CustomerPaypalBillingAgreement implements CustomerPaymentInstrument
       return result;
     }
 
-    /**
-     * The billing address of this payment method.
-     */
+    
     public Builder billingAddress(CustomerPaymentInstrumentBillingAddress billingAddress) {
       this.billingAddress = billingAddress;
       return this;
     }
 
-    /**
-     * Whether the PayPal billing agreement is inactive.
-     */
+    
     public Builder inactive(boolean inactive) {
       this.inactive = inactive;
       return this;
     }
 
-    /**
-     * Whether the payment method can be revoked.The payment method can be revoked if there are no active subscription contracts.
-     */
+    
     public Builder isRevocable(boolean isRevocable) {
       this.isRevocable = isRevocable;
       return this;
     }
 
-    /**
-     * The customers's PayPal account email address.
-     */
+    
     public Builder paypalAccountEmail(String paypalAccountEmail) {
       this.paypalAccountEmail = paypalAccountEmail;
       return this;

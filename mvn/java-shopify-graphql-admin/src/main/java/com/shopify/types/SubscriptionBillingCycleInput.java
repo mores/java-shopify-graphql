@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for specifying the subscription contract and selecting the associated billing cycle.
- */
+
 public class SubscriptionBillingCycleInput {
-  /**
-   * The ID of the subscription contract associated with the billing cycle.
-   */
+  
   private String contractId;
 
-  /**
-   * Selects the billing cycle by date or index.
-   */
+  
   private SubscriptionBillingCycleSelector selector;
 
   public SubscriptionBillingCycleInput() {
   }
 
-  /**
-   * The ID of the subscription contract associated with the billing cycle.
-   */
+  
   public String getContractId() {
     return contractId;
   }
@@ -33,9 +25,7 @@ public class SubscriptionBillingCycleInput {
     this.contractId = contractId;
   }
 
-  /**
-   * Selects the billing cycle by date or index.
-   */
+  
   public SubscriptionBillingCycleSelector getSelector() {
     return selector;
   }
@@ -68,14 +58,10 @@ public class SubscriptionBillingCycleInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the subscription contract associated with the billing cycle.
-     */
+    
     private String contractId;
 
-    /**
-     * Selects the billing cycle by date or index.
-     */
+    
     private SubscriptionBillingCycleSelector selector;
 
     public SubscriptionBillingCycleInput build() {
@@ -85,17 +71,13 @@ public class SubscriptionBillingCycleInput {
       return result;
     }
 
-    /**
-     * The ID of the subscription contract associated with the billing cycle.
-     */
+    
     public Builder contractId(String contractId) {
       this.contractId = contractId;
       return this;
     }
 
-    /**
-     * Selects the billing cycle by date or index.
-     */
+    
     public Builder selector(SubscriptionBillingCycleSelector selector) {
       this.selector = selector;
       return this;

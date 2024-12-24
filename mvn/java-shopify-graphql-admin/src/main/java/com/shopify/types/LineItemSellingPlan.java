@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents the selling plan for a line item.
- */
+
 public class LineItemSellingPlan {
-  /**
-   * The name of the selling plan for display purposes.
-   */
+  
   private String name;
 
-  /**
-   * The ID of the selling plan associated with the line item.
-   */
+  
   private String sellingPlanId;
 
   public LineItemSellingPlan() {
   }
 
-  /**
-   * The name of the selling plan for display purposes.
-   */
+  
   public String getName() {
     return name;
   }
@@ -33,9 +25,7 @@ public class LineItemSellingPlan {
     this.name = name;
   }
 
-  /**
-   * The ID of the selling plan associated with the line item.
-   */
+  
   public String getSellingPlanId() {
     return sellingPlanId;
   }
@@ -68,14 +58,10 @@ public class LineItemSellingPlan {
   }
 
   public static class Builder {
-    /**
-     * The name of the selling plan for display purposes.
-     */
+    
     private String name;
 
-    /**
-     * The ID of the selling plan associated with the line item.
-     */
+    
     private String sellingPlanId;
 
     public LineItemSellingPlan build() {
@@ -85,17 +71,13 @@ public class LineItemSellingPlan {
       return result;
     }
 
-    /**
-     * The name of the selling plan for display purposes.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The ID of the selling plan associated with the line item.
-     */
+    
     public Builder sellingPlanId(String sellingPlanId) {
       this.sellingPlanId = sellingPlanId;
       return this;

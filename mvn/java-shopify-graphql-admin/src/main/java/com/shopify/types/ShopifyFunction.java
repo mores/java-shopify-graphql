@@ -5,66 +5,42 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A Shopify Function.
- */
+
 public class ShopifyFunction {
-  /**
-   * The API type of the Shopify Function.
-   */
+  
   private String apiType;
 
-  /**
-   * The API version of the Shopify Function.
-   */
+  
   private String apiVersion;
 
-  /**
-   * The app that owns the Shopify Function.
-   */
+  
   private App app;
 
-  /**
-   * The App Bridge information for the Shopify Function.
-   */
+  
   private FunctionsAppBridge appBridge;
 
-  /**
-   * The client ID of the app that owns the Shopify Function.
-   */
+  
   private String appKey;
 
-  /**
-   * The description of the Shopify Function.
-   */
+  
   private String description;
 
-  /**
-   * The ID of the Shopify Function.
-   */
+  
   private String id;
 
-  /**
-   * The input query of the Shopify Function.
-   */
+  
   private String inputQuery;
 
-  /**
-   * The title of the Shopify Function.
-   */
+  
   private String title;
 
-  /**
-   * If the Shopify Function uses the creation UI in the Admin.
-   */
+  
   private boolean useCreationUi;
 
   public ShopifyFunction() {
   }
 
-  /**
-   * The API type of the Shopify Function.
-   */
+  
   public String getApiType() {
     return apiType;
   }
@@ -73,9 +49,7 @@ public class ShopifyFunction {
     this.apiType = apiType;
   }
 
-  /**
-   * The API version of the Shopify Function.
-   */
+  
   public String getApiVersion() {
     return apiVersion;
   }
@@ -84,9 +58,7 @@ public class ShopifyFunction {
     this.apiVersion = apiVersion;
   }
 
-  /**
-   * The app that owns the Shopify Function.
-   */
+  
   public App getApp() {
     return app;
   }
@@ -95,9 +67,7 @@ public class ShopifyFunction {
     this.app = app;
   }
 
-  /**
-   * The App Bridge information for the Shopify Function.
-   */
+  
   public FunctionsAppBridge getAppBridge() {
     return appBridge;
   }
@@ -106,9 +76,7 @@ public class ShopifyFunction {
     this.appBridge = appBridge;
   }
 
-  /**
-   * The client ID of the app that owns the Shopify Function.
-   */
+  
   public String getAppKey() {
     return appKey;
   }
@@ -117,9 +85,7 @@ public class ShopifyFunction {
     this.appKey = appKey;
   }
 
-  /**
-   * The description of the Shopify Function.
-   */
+  
   public String getDescription() {
     return description;
   }
@@ -128,9 +94,7 @@ public class ShopifyFunction {
     this.description = description;
   }
 
-  /**
-   * The ID of the Shopify Function.
-   */
+  
   public String getId() {
     return id;
   }
@@ -139,9 +103,7 @@ public class ShopifyFunction {
     this.id = id;
   }
 
-  /**
-   * The input query of the Shopify Function.
-   */
+  
   public String getInputQuery() {
     return inputQuery;
   }
@@ -150,9 +112,7 @@ public class ShopifyFunction {
     this.inputQuery = inputQuery;
   }
 
-  /**
-   * The title of the Shopify Function.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -161,9 +121,7 @@ public class ShopifyFunction {
     this.title = title;
   }
 
-  /**
-   * If the Shopify Function uses the creation UI in the Admin.
-   */
+  
   public boolean getUseCreationUi() {
     return useCreationUi;
   }
@@ -204,54 +162,34 @@ public class ShopifyFunction {
   }
 
   public static class Builder {
-    /**
-     * The API type of the Shopify Function.
-     */
+    
     private String apiType;
 
-    /**
-     * The API version of the Shopify Function.
-     */
+    
     private String apiVersion;
 
-    /**
-     * The app that owns the Shopify Function.
-     */
+    
     private App app;
 
-    /**
-     * The App Bridge information for the Shopify Function.
-     */
+    
     private FunctionsAppBridge appBridge;
 
-    /**
-     * The client ID of the app that owns the Shopify Function.
-     */
+    
     private String appKey;
 
-    /**
-     * The description of the Shopify Function.
-     */
+    
     private String description;
 
-    /**
-     * The ID of the Shopify Function.
-     */
+    
     private String id;
 
-    /**
-     * The input query of the Shopify Function.
-     */
+    
     private String inputQuery;
 
-    /**
-     * The title of the Shopify Function.
-     */
+    
     private String title;
 
-    /**
-     * If the Shopify Function uses the creation UI in the Admin.
-     */
+    
     private boolean useCreationUi;
 
     public ShopifyFunction build() {
@@ -269,81 +207,61 @@ public class ShopifyFunction {
       return result;
     }
 
-    /**
-     * The API type of the Shopify Function.
-     */
+    
     public Builder apiType(String apiType) {
       this.apiType = apiType;
       return this;
     }
 
-    /**
-     * The API version of the Shopify Function.
-     */
+    
     public Builder apiVersion(String apiVersion) {
       this.apiVersion = apiVersion;
       return this;
     }
 
-    /**
-     * The app that owns the Shopify Function.
-     */
+    
     public Builder app(App app) {
       this.app = app;
       return this;
     }
 
-    /**
-     * The App Bridge information for the Shopify Function.
-     */
+    
     public Builder appBridge(FunctionsAppBridge appBridge) {
       this.appBridge = appBridge;
       return this;
     }
 
-    /**
-     * The client ID of the app that owns the Shopify Function.
-     */
+    
     public Builder appKey(String appKey) {
       this.appKey = appKey;
       return this;
     }
 
-    /**
-     * The description of the Shopify Function.
-     */
+    
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    /**
-     * The ID of the Shopify Function.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The input query of the Shopify Function.
-     */
+    
     public Builder inputQuery(String inputQuery) {
       this.inputQuery = inputQuery;
       return this;
     }
 
-    /**
-     * The title of the Shopify Function.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    /**
-     * If the Shopify Function uses the creation UI in the Admin.
-     */
+    
     public Builder useCreationUi(boolean useCreationUi) {
       this.useCreationUi = useCreationUi;
       return this;

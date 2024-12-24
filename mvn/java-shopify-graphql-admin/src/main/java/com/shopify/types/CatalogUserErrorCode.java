@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible error codes that can be returned by `CatalogUserError`.
- */
+
 public enum CatalogUserErrorCode {
   APP_CATALOG_PRICE_LIST_ASSIGNMENT,
 

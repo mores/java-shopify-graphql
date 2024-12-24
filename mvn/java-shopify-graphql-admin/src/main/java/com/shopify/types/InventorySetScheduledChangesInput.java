@@ -6,34 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for setting up scheduled changes of inventory items.
- */
+
 public class InventorySetScheduledChangesInput {
-  /**
-   * The reason for setting up the scheduled changes.
-   */
+  
   private String reason;
 
-  /**
-   * The list of all the items on which the scheduled changes need to be applied.
-   */
+  
   private List<InventoryScheduledChangeItemInput> items;
 
-  /**
-   * A freeform URI that represents why the inventory change happened. This can be the entity adjusting inventory
-   * quantities or the Shopify resource that's associated with the inventory adjustment. For example, a unit in a
-   * draft order might have been previously reserved, and a merchant later creates an order from the draft order.
-   * In this case, the `referenceDocumentUri` for the inventory adjustment is a URI referencing the order ID.
-   */
+  
   private String referenceDocumentUri;
 
   public InventorySetScheduledChangesInput() {
   }
 
-  /**
-   * The reason for setting up the scheduled changes.
-   */
+  
   public String getReason() {
     return reason;
   }
@@ -42,9 +29,7 @@ public class InventorySetScheduledChangesInput {
     this.reason = reason;
   }
 
-  /**
-   * The list of all the items on which the scheduled changes need to be applied.
-   */
+  
   public List<InventoryScheduledChangeItemInput> getItems() {
     return items;
   }
@@ -53,12 +38,7 @@ public class InventorySetScheduledChangesInput {
     this.items = items;
   }
 
-  /**
-   * A freeform URI that represents why the inventory change happened. This can be the entity adjusting inventory
-   * quantities or the Shopify resource that's associated with the inventory adjustment. For example, a unit in a
-   * draft order might have been previously reserved, and a merchant later creates an order from the draft order.
-   * In this case, the `referenceDocumentUri` for the inventory adjustment is a URI referencing the order ID.
-   */
+  
   public String getReferenceDocumentUri() {
     return referenceDocumentUri;
   }
@@ -92,22 +72,13 @@ public class InventorySetScheduledChangesInput {
   }
 
   public static class Builder {
-    /**
-     * The reason for setting up the scheduled changes.
-     */
+    
     private String reason;
 
-    /**
-     * The list of all the items on which the scheduled changes need to be applied.
-     */
+    
     private List<InventoryScheduledChangeItemInput> items;
 
-    /**
-     * A freeform URI that represents why the inventory change happened. This can be the entity adjusting inventory
-     * quantities or the Shopify resource that's associated with the inventory adjustment. For example, a unit in a
-     * draft order might have been previously reserved, and a merchant later creates an order from the draft order.
-     * In this case, the `referenceDocumentUri` for the inventory adjustment is a URI referencing the order ID.
-     */
+    
     private String referenceDocumentUri;
 
     public InventorySetScheduledChangesInput build() {
@@ -118,28 +89,19 @@ public class InventorySetScheduledChangesInput {
       return result;
     }
 
-    /**
-     * The reason for setting up the scheduled changes.
-     */
+    
     public Builder reason(String reason) {
       this.reason = reason;
       return this;
     }
 
-    /**
-     * The list of all the items on which the scheduled changes need to be applied.
-     */
+    
     public Builder items(List<InventoryScheduledChangeItemInput> items) {
       this.items = items;
       return this;
     }
 
-    /**
-     * A freeform URI that represents why the inventory change happened. This can be the entity adjusting inventory
-     * quantities or the Shopify resource that's associated with the inventory adjustment. For example, a unit in a
-     * draft order might have been previously reserved, and a merchant later creates an order from the draft order.
-     * In this case, the `referenceDocumentUri` for the inventory adjustment is a URI referencing the order ID.
-     */
+    
     public Builder referenceDocumentUri(String referenceDocumentUri) {
       this.referenceDocumentUri = referenceDocumentUri;
       return this;

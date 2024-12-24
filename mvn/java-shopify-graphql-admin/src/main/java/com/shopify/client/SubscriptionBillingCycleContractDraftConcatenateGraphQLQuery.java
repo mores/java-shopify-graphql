@@ -8,9 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Concatenates a contract to a Subscription Draft.
- */
+
 public class SubscriptionBillingCycleContractDraftConcatenateGraphQLQuery extends GraphQLQuery {
   public SubscriptionBillingCycleContractDraftConcatenateGraphQLQuery(String draftId,
       List<SubscriptionBillingCycleInput> concatenatedBillingCycleContracts, String queryName,
@@ -50,18 +48,14 @@ public class SubscriptionBillingCycleContractDraftConcatenateGraphQLQuery extend
                
     }
 
-    /**
-     * The gid of the Subscription Contract draft to update.
-     */
+    
     public Builder draftId(String draftId) {
       this.draftId = draftId;
       this.fieldsSet.add("draftId");
       return this;
     }
 
-    /**
-     * An array of Subscription Contracts with their selected billing cycles to concatenate to the subscription draft.
-     */
+    
     public Builder concatenatedBillingCycleContracts(
         List<SubscriptionBillingCycleInput> concatenatedBillingCycleContracts) {
       this.concatenatedBillingCycleContracts = concatenatedBillingCycleContracts;

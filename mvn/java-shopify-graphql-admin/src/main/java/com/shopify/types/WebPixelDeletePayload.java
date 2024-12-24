@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `webPixelDelete` mutation.
- */
+
 public class WebPixelDeletePayload {
-  /**
-   * The ID of the web pixel settings that was deleted.
-   */
+  
   private String deletedWebPixelId;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<ErrorsWebPixelUserError> userErrors;
 
   public WebPixelDeletePayload() {
   }
 
-  /**
-   * The ID of the web pixel settings that was deleted.
-   */
+  
   public String getDeletedWebPixelId() {
     return deletedWebPixelId;
   }
@@ -34,9 +26,7 @@ public class WebPixelDeletePayload {
     this.deletedWebPixelId = deletedWebPixelId;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<ErrorsWebPixelUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class WebPixelDeletePayload {
   }
 
   public static class Builder {
-    /**
-     * The ID of the web pixel settings that was deleted.
-     */
+    
     private String deletedWebPixelId;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<ErrorsWebPixelUserError> userErrors;
 
     public WebPixelDeletePayload build() {
@@ -86,17 +72,13 @@ public class WebPixelDeletePayload {
       return result;
     }
 
-    /**
-     * The ID of the web pixel settings that was deleted.
-     */
+    
     public Builder deletedWebPixelId(String deletedWebPixelId) {
       this.deletedWebPixelId = deletedWebPixelId;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<ErrorsWebPixelUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

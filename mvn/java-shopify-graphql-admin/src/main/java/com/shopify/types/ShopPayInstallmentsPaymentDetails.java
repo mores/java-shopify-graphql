@@ -6,24 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Shop Pay Installments payment details related to a transaction.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ShopPayInstallmentsPaymentDetails implements PaymentDetails, com.shopify.types.BasePaymentDetails {
-  /**
-   * The name of payment method used by the buyer.
-   */
+  
   private String paymentMethodName;
 
   public ShopPayInstallmentsPaymentDetails() {
   }
 
-  /**
-   * The name of payment method used by the buyer.
-   */
+  
   public String getPaymentMethodName() {
     return paymentMethodName;
   }
@@ -55,9 +49,7 @@ public class ShopPayInstallmentsPaymentDetails implements PaymentDetails, com.sh
   }
 
   public static class Builder {
-    /**
-     * The name of payment method used by the buyer.
-     */
+    
     private String paymentMethodName;
 
     public ShopPayInstallmentsPaymentDetails build() {
@@ -66,9 +58,7 @@ public class ShopPayInstallmentsPaymentDetails implements PaymentDetails, com.sh
       return result;
     }
 
-    /**
-     * The name of payment method used by the buyer.
-     */
+    
     public Builder paymentMethodName(String paymentMethodName) {
       this.paymentMethodName = paymentMethodName;
       return this;

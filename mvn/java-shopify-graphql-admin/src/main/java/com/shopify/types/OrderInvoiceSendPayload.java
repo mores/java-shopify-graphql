@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `orderInvoiceSend` mutation.
- */
+
 public class OrderInvoiceSendPayload {
-  /**
-   * The order associated with the invoice email.
-   */
+  
   private Order order;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<OrderInvoiceSendUserError> userErrors;
 
   public OrderInvoiceSendPayload() {
   }
 
-  /**
-   * The order associated with the invoice email.
-   */
+  
   public Order getOrder() {
     return order;
   }
@@ -34,9 +26,7 @@ public class OrderInvoiceSendPayload {
     this.order = order;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<OrderInvoiceSendUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class OrderInvoiceSendPayload {
   }
 
   public static class Builder {
-    /**
-     * The order associated with the invoice email.
-     */
+    
     private Order order;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<OrderInvoiceSendUserError> userErrors;
 
     public OrderInvoiceSendPayload build() {
@@ -86,17 +72,13 @@ public class OrderInvoiceSendPayload {
       return result;
     }
 
-    /**
-     * The order associated with the invoice email.
-     */
+    
     public Builder order(Order order) {
       this.order = order;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<OrderInvoiceSendUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

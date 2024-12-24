@@ -6,72 +6,39 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The `DiscountAutomaticNode` object enables you to manage [automatic discounts](https://help.shopify.com/manual/discounts/discount-types#automatic-discounts)
- * that are applied when an order meets specific criteria. You can create amount
- * off, free shipping, or buy X get Y automatic discounts. For example, you can
- * offer customers a free shipping discount that applies when conditions are met.
- * Or you can offer customers a buy X get Y discount that's automatically applied
- * when customers spend a specified amount of money, or a specified quantity of products.
- *
- * Learn more about working with [Shopify's discount model](https://shopify.dev/docs/apps/build/discounts),
- * including related queries, mutations, limitations, and considerations.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DiscountAutomaticNode implements MetafieldReferencer, com.shopify.types.HasEvents, com.shopify.types.HasMetafieldDefinitions, com.shopify.types.HasMetafields, com.shopify.types.Node {
-  /**
-   * A discount that's applied automatically when an order meets specific criteria.
-   * Learn more about [automatic discounts](https://help.shopify.com/manual/discounts/discount-types#automatic-discounts).
-   */
+  
   private DiscountAutomatic automaticDiscount;
 
-  /**
-   * The paginated list of events associated with the host subject.
-   */
+  
   private EventConnection events;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-   * including its `namespace` and `key`, that's associated with a Shopify resource
-   * for the purposes of adding and storing additional information.
-   */
+  
   private Metafield metafield;
 
-  /**
-   * List of metafield definitions.
-   */
+  
   private MetafieldDefinitionConnection metafieldDefinitions;
 
-  /**
-   * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-   * that a merchant associates with a Shopify resource.
-   */
+  
   private MetafieldConnection metafields;
 
-  /**
-   * Returns a private metafield by namespace and key that belongs to the resource.
-   */
+  
   private PrivateMetafield privateMetafield;
 
-  /**
-   * List of private metafields that belong to the resource.
-   */
+  
   private PrivateMetafieldConnection privateMetafields;
 
   public DiscountAutomaticNode() {
   }
 
-  /**
-   * A discount that's applied automatically when an order meets specific criteria.
-   * Learn more about [automatic discounts](https://help.shopify.com/manual/discounts/discount-types#automatic-discounts).
-   */
+  
   public DiscountAutomatic getAutomaticDiscount() {
     return automaticDiscount;
   }
@@ -80,9 +47,7 @@ public class DiscountAutomaticNode implements MetafieldReferencer, com.shopify.t
     this.automaticDiscount = automaticDiscount;
   }
 
-  /**
-   * The paginated list of events associated with the host subject.
-   */
+  
   public EventConnection getEvents() {
     return events;
   }
@@ -91,9 +56,7 @@ public class DiscountAutomaticNode implements MetafieldReferencer, com.shopify.t
     this.events = events;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -102,11 +65,7 @@ public class DiscountAutomaticNode implements MetafieldReferencer, com.shopify.t
     this.id = id;
   }
 
-  /**
-   * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-   * including its `namespace` and `key`, that's associated with a Shopify resource
-   * for the purposes of adding and storing additional information.
-   */
+  
   public Metafield getMetafield() {
     return metafield;
   }
@@ -115,9 +74,7 @@ public class DiscountAutomaticNode implements MetafieldReferencer, com.shopify.t
     this.metafield = metafield;
   }
 
-  /**
-   * List of metafield definitions.
-   */
+  
   public MetafieldDefinitionConnection getMetafieldDefinitions() {
     return metafieldDefinitions;
   }
@@ -126,10 +83,7 @@ public class DiscountAutomaticNode implements MetafieldReferencer, com.shopify.t
     this.metafieldDefinitions = metafieldDefinitions;
   }
 
-  /**
-   * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-   * that a merchant associates with a Shopify resource.
-   */
+  
   public MetafieldConnection getMetafields() {
     return metafields;
   }
@@ -138,9 +92,7 @@ public class DiscountAutomaticNode implements MetafieldReferencer, com.shopify.t
     this.metafields = metafields;
   }
 
-  /**
-   * Returns a private metafield by namespace and key that belongs to the resource.
-   */
+  
   public PrivateMetafield getPrivateMetafield() {
     return privateMetafield;
   }
@@ -149,9 +101,7 @@ public class DiscountAutomaticNode implements MetafieldReferencer, com.shopify.t
     this.privateMetafield = privateMetafield;
   }
 
-  /**
-   * List of private metafields that belong to the resource.
-   */
+  
   public PrivateMetafieldConnection getPrivateMetafields() {
     return privateMetafields;
   }
@@ -190,48 +140,28 @@ public class DiscountAutomaticNode implements MetafieldReferencer, com.shopify.t
   }
 
   public static class Builder {
-    /**
-     * A discount that's applied automatically when an order meets specific criteria.
-     * Learn more about [automatic discounts](https://help.shopify.com/manual/discounts/discount-types#automatic-discounts).
-     */
+    
     private DiscountAutomatic automaticDiscount;
 
-    /**
-     * The paginated list of events associated with the host subject.
-     */
+    
     private EventConnection events;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-     * including its `namespace` and `key`, that's associated with a Shopify resource
-     * for the purposes of adding and storing additional information.
-     */
+    
     private Metafield metafield;
 
-    /**
-     * List of metafield definitions.
-     */
+    
     private MetafieldDefinitionConnection metafieldDefinitions;
 
-    /**
-     * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-     * that a merchant associates with a Shopify resource.
-     */
+    
     private MetafieldConnection metafields;
 
-    /**
-     * Returns a private metafield by namespace and key that belongs to the resource.
-     */
+    
     private PrivateMetafield privateMetafield;
 
-    /**
-     * List of private metafields that belong to the resource.
-     */
+    
     private PrivateMetafieldConnection privateMetafields;
 
     public DiscountAutomaticNode build() {
@@ -247,69 +177,49 @@ public class DiscountAutomaticNode implements MetafieldReferencer, com.shopify.t
       return result;
     }
 
-    /**
-     * A discount that's applied automatically when an order meets specific criteria.
-     * Learn more about [automatic discounts](https://help.shopify.com/manual/discounts/discount-types#automatic-discounts).
-     */
+    
     public Builder automaticDiscount(DiscountAutomatic automaticDiscount) {
       this.automaticDiscount = automaticDiscount;
       return this;
     }
 
-    /**
-     * The paginated list of events associated with the host subject.
-     */
+    
     public Builder events(EventConnection events) {
       this.events = events;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-     * including its `namespace` and `key`, that's associated with a Shopify resource
-     * for the purposes of adding and storing additional information.
-     */
+    
     public Builder metafield(Metafield metafield) {
       this.metafield = metafield;
       return this;
     }
 
-    /**
-     * List of metafield definitions.
-     */
+    
     public Builder metafieldDefinitions(MetafieldDefinitionConnection metafieldDefinitions) {
       this.metafieldDefinitions = metafieldDefinitions;
       return this;
     }
 
-    /**
-     * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-     * that a merchant associates with a Shopify resource.
-     */
+    
     public Builder metafields(MetafieldConnection metafields) {
       this.metafields = metafields;
       return this;
     }
 
-    /**
-     * Returns a private metafield by namespace and key that belongs to the resource.
-     */
+    
     public Builder privateMetafield(PrivateMetafield privateMetafield) {
       this.privateMetafield = privateMetafield;
       return this;
     }
 
-    /**
-     * List of private metafields that belong to the resource.
-     */
+    
     public Builder privateMetafields(PrivateMetafieldConnection privateMetafields) {
       this.privateMetafields = privateMetafields;
       return this;

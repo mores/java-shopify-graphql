@@ -6,21 +6,15 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * General inventory properties for the shop.
- */
+
 public class InventoryProperties {
-  /**
-   * All the quantity names.
-   */
+  
   private List<InventoryQuantityName> quantityNames;
 
   public InventoryProperties() {
   }
 
-  /**
-   * All the quantity names.
-   */
+  
   public List<InventoryQuantityName> getQuantityNames() {
     return quantityNames;
   }
@@ -52,9 +46,7 @@ public class InventoryProperties {
   }
 
   public static class Builder {
-    /**
-     * All the quantity names.
-     */
+    
     private List<InventoryQuantityName> quantityNames;
 
     public InventoryProperties build() {
@@ -63,9 +55,7 @@ public class InventoryProperties {
       return result;
     }
 
-    /**
-     * All the quantity names.
-     */
+    
     public Builder quantityNames(List<InventoryQuantityName> quantityNames) {
       this.quantityNames = quantityNames;
       return this;

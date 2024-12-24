@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `urlRedirectBulkDeleteAll` mutation.
- */
+
 public class UrlRedirectBulkDeleteAllPayload {
-  /**
-   * The asynchronous job removing the redirects.
-   */
+  
   private Job job;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public UrlRedirectBulkDeleteAllPayload() {
   }
 
-  /**
-   * The asynchronous job removing the redirects.
-   */
+  
   public Job getJob() {
     return job;
   }
@@ -34,9 +26,7 @@ public class UrlRedirectBulkDeleteAllPayload {
     this.job = job;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class UrlRedirectBulkDeleteAllPayload {
   }
 
   public static class Builder {
-    /**
-     * The asynchronous job removing the redirects.
-     */
+    
     private Job job;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public UrlRedirectBulkDeleteAllPayload build() {
@@ -86,17 +72,13 @@ public class UrlRedirectBulkDeleteAllPayload {
       return result;
     }
 
-    /**
-     * The asynchronous job removing the redirects.
-     */
+    
     public Builder job(Job job) {
       this.job = job;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

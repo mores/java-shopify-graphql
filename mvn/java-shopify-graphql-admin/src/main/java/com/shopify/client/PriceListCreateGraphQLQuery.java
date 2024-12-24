@@ -7,11 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Creates a price list. You can use the `priceListCreate` mutation to create a
- * new price list and associate it with a catalog. This enables you to sell your
- * products with contextual pricing.
- */
+
 public class PriceListCreateGraphQLQuery extends GraphQLQuery {
   public PriceListCreateGraphQLQuery(PriceListCreateInput input, String queryName,
       Set<String> fieldsSet) {
@@ -46,9 +42,7 @@ public class PriceListCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The properties of the new price list.
-     */
+    
     public Builder input(PriceListCreateInput input) {
       this.input = input;
       this.fieldsSet.add("input");

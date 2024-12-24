@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Updates a blog.
- */
+
 public class BlogUpdateGraphQLQuery extends GraphQLQuery {
   public BlogUpdateGraphQLQuery(String id, BlogUpdateInput blog, String queryName,
       Set<String> fieldsSet) {
@@ -48,18 +46,14 @@ public class BlogUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the blog to be updated.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * The properties of the blog to be updated.
-     */
+    
     public Builder blog(BlogUpdateInput blog) {
       this.blog = blog;
       this.fieldsSet.add("blog");

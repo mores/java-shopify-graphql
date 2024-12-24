@@ -7,9 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Whether a member, which is a customer, belongs to a segment.
- */
+
 public class CustomerSegmentMembershipGraphQLQuery extends GraphQLQuery {
   public CustomerSegmentMembershipGraphQLQuery(List<String> segmentIds, String customerId,
       String queryName, Set<String> fieldsSet) {
@@ -48,18 +46,14 @@ public class CustomerSegmentMembershipGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The segments to evaluate for the given customer.
-     */
+    
     public Builder segmentIds(List<String> segmentIds) {
       this.segmentIds = segmentIds;
       this.fieldsSet.add("segmentIds");
       return this;
     }
 
-    /**
-     * The ID of the customer that has the membership.
-     */
+    
     public Builder customerId(String customerId) {
       this.customerId = customerId;
       this.fieldsSet.add("customerId");

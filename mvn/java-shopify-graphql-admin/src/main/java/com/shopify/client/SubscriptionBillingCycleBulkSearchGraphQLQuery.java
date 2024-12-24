@@ -8,11 +8,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Asynchronously queries all subscription billing cycles whose [billingAttemptExpectedDate](https://shopify.dev/api/admin-graphql/latest/objects/SubscriptionBillingCycle#field-billingattemptexpecteddate)
- * values fall within a specified date range and meet additional filtering
- * criteria. The results of this action can be retrieved using the [subscriptionBillingCycleBulkResults](https://shopify.dev/api/admin-graphql/latest/queries/subscriptionBillingCycleBulkResults) query.
- */
+
 public class SubscriptionBillingCycleBulkSearchGraphQLQuery extends GraphQLQuery {
   public SubscriptionBillingCycleBulkSearchGraphQLQuery(
       SubscriptionBillingCyclesDateRangeSelector billingAttemptExpectedDateRange,
@@ -52,9 +48,7 @@ public class SubscriptionBillingCycleBulkSearchGraphQLQuery extends GraphQLQuery
                
     }
 
-    /**
-     * Specifies the date range within which the `billingAttemptExpectedDate` values of the billing cycles should fall.
-     */
+    
     public Builder billingAttemptExpectedDateRange(
         SubscriptionBillingCyclesDateRangeSelector billingAttemptExpectedDateRange) {
       this.billingAttemptExpectedDateRange = billingAttemptExpectedDateRange;
@@ -62,9 +56,7 @@ public class SubscriptionBillingCycleBulkSearchGraphQLQuery extends GraphQLQuery
       return this;
     }
 
-    /**
-     * Criteria to filter the billing cycles on which the action is executed.
-     */
+    
     public Builder filters(SubscriptionBillingCycleBulkFilters filters) {
       this.filters = filters;
       this.fieldsSet.add("filters");

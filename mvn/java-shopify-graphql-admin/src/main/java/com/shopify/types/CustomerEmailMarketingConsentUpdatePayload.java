@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `customerEmailMarketingConsentUpdate` mutation.
- */
+
 public class CustomerEmailMarketingConsentUpdatePayload {
-  /**
-   * The updated customer.
-   */
+  
   private Customer customer;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<CustomerEmailMarketingConsentUpdateUserError> userErrors;
 
   public CustomerEmailMarketingConsentUpdatePayload() {
   }
 
-  /**
-   * The updated customer.
-   */
+  
   public Customer getCustomer() {
     return customer;
   }
@@ -34,9 +26,7 @@ public class CustomerEmailMarketingConsentUpdatePayload {
     this.customer = customer;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<CustomerEmailMarketingConsentUpdateUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class CustomerEmailMarketingConsentUpdatePayload {
   }
 
   public static class Builder {
-    /**
-     * The updated customer.
-     */
+    
     private Customer customer;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<CustomerEmailMarketingConsentUpdateUserError> userErrors;
 
     public CustomerEmailMarketingConsentUpdatePayload build() {
@@ -86,17 +72,13 @@ public class CustomerEmailMarketingConsentUpdatePayload {
       return result;
     }
 
-    /**
-     * The updated customer.
-     */
+    
     public Builder customer(Customer customer) {
       this.customer = customer;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<CustomerEmailMarketingConsentUpdateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

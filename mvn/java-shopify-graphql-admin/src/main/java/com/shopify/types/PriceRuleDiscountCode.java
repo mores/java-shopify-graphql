@@ -6,40 +6,27 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A discount code of a price rule.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class PriceRuleDiscountCode implements com.shopify.types.Node {
-  /**
-   * The application that created the discount code.
-   */
+  
   private App app;
 
-  /**
-   * The code to apply the discount.
-   */
+  
   private String code;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The number of times that the price rule has been used. This value is updated
-   * asynchronously and can be different than the actual usage count.
-   */
+  
   private int usageCount;
 
   public PriceRuleDiscountCode() {
   }
 
-  /**
-   * The application that created the discount code.
-   */
+  
   public App getApp() {
     return app;
   }
@@ -48,9 +35,7 @@ public class PriceRuleDiscountCode implements com.shopify.types.Node {
     this.app = app;
   }
 
-  /**
-   * The code to apply the discount.
-   */
+  
   public String getCode() {
     return code;
   }
@@ -59,9 +44,7 @@ public class PriceRuleDiscountCode implements com.shopify.types.Node {
     this.code = code;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -70,10 +53,7 @@ public class PriceRuleDiscountCode implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The number of times that the price rule has been used. This value is updated
-   * asynchronously and can be different than the actual usage count.
-   */
+  
   public int getUsageCount() {
     return usageCount;
   }
@@ -108,25 +88,16 @@ public class PriceRuleDiscountCode implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * The application that created the discount code.
-     */
+    
     private App app;
 
-    /**
-     * The code to apply the discount.
-     */
+    
     private String code;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The number of times that the price rule has been used. This value is updated
-     * asynchronously and can be different than the actual usage count.
-     */
+    
     private int usageCount;
 
     public PriceRuleDiscountCode build() {
@@ -138,34 +109,25 @@ public class PriceRuleDiscountCode implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * The application that created the discount code.
-     */
+    
     public Builder app(App app) {
       this.app = app;
       return this;
     }
 
-    /**
-     * The code to apply the discount.
-     */
+    
     public Builder code(String code) {
       this.code = code;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The number of times that the price rule has been used. This value is updated
-     * asynchronously and can be different than the actual usage count.
-     */
+    
     public Builder usageCount(int usageCount) {
       this.usageCount = usageCount;
       return this;

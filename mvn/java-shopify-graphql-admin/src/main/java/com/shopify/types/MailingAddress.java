@@ -8,139 +8,81 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Represents a customer mailing address.
- *
- * For example, a customer's default address and an order's billing address are both mailling addresses.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class MailingAddress implements com.shopify.types.Node {
-  /**
-   * The first line of the address. Typically the street address or PO Box number.
-   */
+  
   private String address1;
 
-  /**
-   * The second line of the address. Typically the number of the apartment, suite, or unit.
-   */
+  
   private String address2;
 
-  /**
-   * The name of the city, district, village, or town.
-   */
+  
   private String city;
 
-  /**
-   * The name of the customer's company or organization.
-   */
+  
   private String company;
 
-  /**
-   * Whether the address corresponds to recognized latitude and longitude values.
-   */
+  
   private boolean coordinatesValidated;
 
-  /**
-   * The name of the country.
-   */
+  
   private String country;
 
-  /**
-   * The two-letter code for the country of the address.
-   *   
-   * For example, US.
-   */
+  
   private String countryCode;
 
-  /**
-   * The two-letter code for the country of the address.
-   *   
-   * For example, US.
-   */
+  
   private CountryCode countryCodeV2;
 
-  /**
-   * The first name of the customer.
-   */
+  
   private String firstName;
 
-  /**
-   * A formatted version of the address, customized by the provided arguments.
-   */
+  
   private List<String> formatted;
 
-  /**
-   * A comma-separated list of the values for city, province, and country.
-   */
+  
   private String formattedArea;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The last name of the customer.
-   */
+  
   private String lastName;
 
-  /**
-   * The latitude coordinate of the customer address.
-   */
+  
   private Double latitude;
 
-  /**
-   * The longitude coordinate of the customer address.
-   */
+  
   private Double longitude;
 
-  /**
-   * The full name of the customer, based on firstName and lastName.
-   */
+  
   private String name;
 
-  /**
-   * A unique phone number for the customer.
-   */
+  
   private String phone;
 
-  /**
-   * The region of the address, such as the province, state, or district.
-   */
+  
   private String province;
 
-  /**
-   * The alphanumeric code for the region.
-   *   
-   * For example, ON.
-   */
+  
   private String provinceCode;
 
-  /**
-   * The time zone of the address.
-   */
+  
   private String timeZone;
 
-  /**
-   * The validation status that is leveraged by the address validation feature in the Shopify Admin.
-   * See ["Validating addresses in your Shopify admin"](https://help.shopify.com/manual/fulfillment/managing-orders/validating-order-address)
-   * for more details.
-   */
+  
   private MailingAddressValidationResult validationResultSummary;
 
-  /**
-   * The zip or postal code of the address.
-   */
+  
   private String zip;
 
   public MailingAddress() {
   }
 
-  /**
-   * The first line of the address. Typically the street address or PO Box number.
-   */
+  
   public String getAddress1() {
     return address1;
   }
@@ -149,9 +91,7 @@ public class MailingAddress implements com.shopify.types.Node {
     this.address1 = address1;
   }
 
-  /**
-   * The second line of the address. Typically the number of the apartment, suite, or unit.
-   */
+  
   public String getAddress2() {
     return address2;
   }
@@ -160,9 +100,7 @@ public class MailingAddress implements com.shopify.types.Node {
     this.address2 = address2;
   }
 
-  /**
-   * The name of the city, district, village, or town.
-   */
+  
   public String getCity() {
     return city;
   }
@@ -171,9 +109,7 @@ public class MailingAddress implements com.shopify.types.Node {
     this.city = city;
   }
 
-  /**
-   * The name of the customer's company or organization.
-   */
+  
   public String getCompany() {
     return company;
   }
@@ -182,9 +118,7 @@ public class MailingAddress implements com.shopify.types.Node {
     this.company = company;
   }
 
-  /**
-   * Whether the address corresponds to recognized latitude and longitude values.
-   */
+  
   public boolean getCoordinatesValidated() {
     return coordinatesValidated;
   }
@@ -193,9 +127,7 @@ public class MailingAddress implements com.shopify.types.Node {
     this.coordinatesValidated = coordinatesValidated;
   }
 
-  /**
-   * The name of the country.
-   */
+  
   public String getCountry() {
     return country;
   }
@@ -204,11 +136,7 @@ public class MailingAddress implements com.shopify.types.Node {
     this.country = country;
   }
 
-  /**
-   * The two-letter code for the country of the address.
-   *   
-   * For example, US.
-   */
+  
   public String getCountryCode() {
     return countryCode;
   }
@@ -217,11 +145,7 @@ public class MailingAddress implements com.shopify.types.Node {
     this.countryCode = countryCode;
   }
 
-  /**
-   * The two-letter code for the country of the address.
-   *   
-   * For example, US.
-   */
+  
   public CountryCode getCountryCodeV2() {
     return countryCodeV2;
   }
@@ -230,9 +154,7 @@ public class MailingAddress implements com.shopify.types.Node {
     this.countryCodeV2 = countryCodeV2;
   }
 
-  /**
-   * The first name of the customer.
-   */
+  
   public String getFirstName() {
     return firstName;
   }
@@ -241,9 +163,7 @@ public class MailingAddress implements com.shopify.types.Node {
     this.firstName = firstName;
   }
 
-  /**
-   * A formatted version of the address, customized by the provided arguments.
-   */
+  
   public List<String> getFormatted() {
     return formatted;
   }
@@ -252,9 +172,7 @@ public class MailingAddress implements com.shopify.types.Node {
     this.formatted = formatted;
   }
 
-  /**
-   * A comma-separated list of the values for city, province, and country.
-   */
+  
   public String getFormattedArea() {
     return formattedArea;
   }
@@ -263,9 +181,7 @@ public class MailingAddress implements com.shopify.types.Node {
     this.formattedArea = formattedArea;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -274,9 +190,7 @@ public class MailingAddress implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The last name of the customer.
-   */
+  
   public String getLastName() {
     return lastName;
   }
@@ -285,9 +199,7 @@ public class MailingAddress implements com.shopify.types.Node {
     this.lastName = lastName;
   }
 
-  /**
-   * The latitude coordinate of the customer address.
-   */
+  
   public Double getLatitude() {
     return latitude;
   }
@@ -296,9 +208,7 @@ public class MailingAddress implements com.shopify.types.Node {
     this.latitude = latitude;
   }
 
-  /**
-   * The longitude coordinate of the customer address.
-   */
+  
   public Double getLongitude() {
     return longitude;
   }
@@ -307,9 +217,7 @@ public class MailingAddress implements com.shopify.types.Node {
     this.longitude = longitude;
   }
 
-  /**
-   * The full name of the customer, based on firstName and lastName.
-   */
+  
   public String getName() {
     return name;
   }
@@ -318,9 +226,7 @@ public class MailingAddress implements com.shopify.types.Node {
     this.name = name;
   }
 
-  /**
-   * A unique phone number for the customer.
-   */
+  
   public String getPhone() {
     return phone;
   }
@@ -329,9 +235,7 @@ public class MailingAddress implements com.shopify.types.Node {
     this.phone = phone;
   }
 
-  /**
-   * The region of the address, such as the province, state, or district.
-   */
+  
   public String getProvince() {
     return province;
   }
@@ -340,11 +244,7 @@ public class MailingAddress implements com.shopify.types.Node {
     this.province = province;
   }
 
-  /**
-   * The alphanumeric code for the region.
-   *   
-   * For example, ON.
-   */
+  
   public String getProvinceCode() {
     return provinceCode;
   }
@@ -353,9 +253,7 @@ public class MailingAddress implements com.shopify.types.Node {
     this.provinceCode = provinceCode;
   }
 
-  /**
-   * The time zone of the address.
-   */
+  
   public String getTimeZone() {
     return timeZone;
   }
@@ -364,11 +262,7 @@ public class MailingAddress implements com.shopify.types.Node {
     this.timeZone = timeZone;
   }
 
-  /**
-   * The validation status that is leveraged by the address validation feature in the Shopify Admin.
-   * See ["Validating addresses in your Shopify admin"](https://help.shopify.com/manual/fulfillment/managing-orders/validating-order-address)
-   * for more details.
-   */
+  
   public MailingAddressValidationResult getValidationResultSummary() {
     return validationResultSummary;
   }
@@ -377,9 +271,7 @@ public class MailingAddress implements com.shopify.types.Node {
     this.validationResultSummary = validationResultSummary;
   }
 
-  /**
-   * The zip or postal code of the address.
-   */
+  
   public String getZip() {
     return zip;
   }
@@ -432,122 +324,70 @@ public class MailingAddress implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * The first line of the address. Typically the street address or PO Box number.
-     */
+    
     private String address1;
 
-    /**
-     * The second line of the address. Typically the number of the apartment, suite, or unit.
-     */
+    
     private String address2;
 
-    /**
-     * The name of the city, district, village, or town.
-     */
+    
     private String city;
 
-    /**
-     * The name of the customer's company or organization.
-     */
+    
     private String company;
 
-    /**
-     * Whether the address corresponds to recognized latitude and longitude values.
-     */
+    
     private boolean coordinatesValidated;
 
-    /**
-     * The name of the country.
-     */
+    
     private String country;
 
-    /**
-     * The two-letter code for the country of the address.
-     *   
-     * For example, US.
-     */
+    
     private String countryCode;
 
-    /**
-     * The two-letter code for the country of the address.
-     *   
-     * For example, US.
-     */
+    
     private CountryCode countryCodeV2;
 
-    /**
-     * The first name of the customer.
-     */
+    
     private String firstName;
 
-    /**
-     * A formatted version of the address, customized by the provided arguments.
-     */
+    
     private List<String> formatted;
 
-    /**
-     * A comma-separated list of the values for city, province, and country.
-     */
+    
     private String formattedArea;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The last name of the customer.
-     */
+    
     private String lastName;
 
-    /**
-     * The latitude coordinate of the customer address.
-     */
+    
     private Double latitude;
 
-    /**
-     * The longitude coordinate of the customer address.
-     */
+    
     private Double longitude;
 
-    /**
-     * The full name of the customer, based on firstName and lastName.
-     */
+    
     private String name;
 
-    /**
-     * A unique phone number for the customer.
-     */
+    
     private String phone;
 
-    /**
-     * The region of the address, such as the province, state, or district.
-     */
+    
     private String province;
 
-    /**
-     * The alphanumeric code for the region.
-     *   
-     * For example, ON.
-     */
+    
     private String provinceCode;
 
-    /**
-     * The time zone of the address.
-     */
+    
     private String timeZone;
 
-    /**
-     * The validation status that is leveraged by the address validation feature in the Shopify Admin.
-     * See ["Validating addresses in your Shopify admin"](https://help.shopify.com/manual/fulfillment/managing-orders/validating-order-address)
-     * for more details.
-     */
+    
     private MailingAddressValidationResult validationResultSummary;
 
-    /**
-     * The zip or postal code of the address.
-     */
+    
     private String zip;
 
     public MailingAddress build() {
@@ -577,185 +417,133 @@ public class MailingAddress implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * The first line of the address. Typically the street address or PO Box number.
-     */
+    
     public Builder address1(String address1) {
       this.address1 = address1;
       return this;
     }
 
-    /**
-     * The second line of the address. Typically the number of the apartment, suite, or unit.
-     */
+    
     public Builder address2(String address2) {
       this.address2 = address2;
       return this;
     }
 
-    /**
-     * The name of the city, district, village, or town.
-     */
+    
     public Builder city(String city) {
       this.city = city;
       return this;
     }
 
-    /**
-     * The name of the customer's company or organization.
-     */
+    
     public Builder company(String company) {
       this.company = company;
       return this;
     }
 
-    /**
-     * Whether the address corresponds to recognized latitude and longitude values.
-     */
+    
     public Builder coordinatesValidated(boolean coordinatesValidated) {
       this.coordinatesValidated = coordinatesValidated;
       return this;
     }
 
-    /**
-     * The name of the country.
-     */
+    
     public Builder country(String country) {
       this.country = country;
       return this;
     }
 
-    /**
-     * The two-letter code for the country of the address.
-     *   
-     * For example, US.
-     */
+    
     public Builder countryCode(String countryCode) {
       this.countryCode = countryCode;
       return this;
     }
 
-    /**
-     * The two-letter code for the country of the address.
-     *   
-     * For example, US.
-     */
+    
     public Builder countryCodeV2(CountryCode countryCodeV2) {
       this.countryCodeV2 = countryCodeV2;
       return this;
     }
 
-    /**
-     * The first name of the customer.
-     */
+    
     public Builder firstName(String firstName) {
       this.firstName = firstName;
       return this;
     }
 
-    /**
-     * A formatted version of the address, customized by the provided arguments.
-     */
+    
     public Builder formatted(List<String> formatted) {
       this.formatted = formatted;
       return this;
     }
 
-    /**
-     * A comma-separated list of the values for city, province, and country.
-     */
+    
     public Builder formattedArea(String formattedArea) {
       this.formattedArea = formattedArea;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The last name of the customer.
-     */
+    
     public Builder lastName(String lastName) {
       this.lastName = lastName;
       return this;
     }
 
-    /**
-     * The latitude coordinate of the customer address.
-     */
+    
     public Builder latitude(Double latitude) {
       this.latitude = latitude;
       return this;
     }
 
-    /**
-     * The longitude coordinate of the customer address.
-     */
+    
     public Builder longitude(Double longitude) {
       this.longitude = longitude;
       return this;
     }
 
-    /**
-     * The full name of the customer, based on firstName and lastName.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * A unique phone number for the customer.
-     */
+    
     public Builder phone(String phone) {
       this.phone = phone;
       return this;
     }
 
-    /**
-     * The region of the address, such as the province, state, or district.
-     */
+    
     public Builder province(String province) {
       this.province = province;
       return this;
     }
 
-    /**
-     * The alphanumeric code for the region.
-     *   
-     * For example, ON.
-     */
+    
     public Builder provinceCode(String provinceCode) {
       this.provinceCode = provinceCode;
       return this;
     }
 
-    /**
-     * The time zone of the address.
-     */
+    
     public Builder timeZone(String timeZone) {
       this.timeZone = timeZone;
       return this;
     }
 
-    /**
-     * The validation status that is leveraged by the address validation feature in the Shopify Admin.
-     * See ["Validating addresses in your Shopify admin"](https://help.shopify.com/manual/fulfillment/managing-orders/validating-order-address)
-     * for more details.
-     */
+    
     public Builder validationResultSummary(MailingAddressValidationResult validationResultSummary) {
       this.validationResultSummary = validationResultSummary;
       return this;
     }
 
-    /**
-     * The zip or postal code of the address.
-     */
+    
     public Builder zip(String zip) {
       this.zip = zip;
       return this;

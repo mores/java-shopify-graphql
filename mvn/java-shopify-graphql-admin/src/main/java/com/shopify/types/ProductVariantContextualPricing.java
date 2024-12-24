@@ -5,37 +5,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The price of a product variant in a specific country.
- * Prices vary between countries.
- */
+
 public class ProductVariantContextualPricing {
-  /**
-   * The final compare-at price after all adjustments are applied.
-   */
+  
   private MoneyV2 compareAtPrice;
 
-  /**
-   * The final price after all adjustments are applied.
-   */
+  
   private MoneyV2 price;
 
-  /**
-   * A list of quantity breaks for the product variant.
-   */
+  
   private QuantityPriceBreakConnection quantityPriceBreaks;
 
-  /**
-   * The quantity rule applied for a given context.
-   */
+  
   private QuantityRule quantityRule;
 
   public ProductVariantContextualPricing() {
   }
 
-  /**
-   * The final compare-at price after all adjustments are applied.
-   */
+  
   public MoneyV2 getCompareAtPrice() {
     return compareAtPrice;
   }
@@ -44,9 +31,7 @@ public class ProductVariantContextualPricing {
     this.compareAtPrice = compareAtPrice;
   }
 
-  /**
-   * The final price after all adjustments are applied.
-   */
+  
   public MoneyV2 getPrice() {
     return price;
   }
@@ -55,9 +40,7 @@ public class ProductVariantContextualPricing {
     this.price = price;
   }
 
-  /**
-   * A list of quantity breaks for the product variant.
-   */
+  
   public QuantityPriceBreakConnection getQuantityPriceBreaks() {
     return quantityPriceBreaks;
   }
@@ -66,9 +49,7 @@ public class ProductVariantContextualPricing {
     this.quantityPriceBreaks = quantityPriceBreaks;
   }
 
-  /**
-   * The quantity rule applied for a given context.
-   */
+  
   public QuantityRule getQuantityRule() {
     return quantityRule;
   }
@@ -103,24 +84,16 @@ public class ProductVariantContextualPricing {
   }
 
   public static class Builder {
-    /**
-     * The final compare-at price after all adjustments are applied.
-     */
+    
     private MoneyV2 compareAtPrice;
 
-    /**
-     * The final price after all adjustments are applied.
-     */
+    
     private MoneyV2 price;
 
-    /**
-     * A list of quantity breaks for the product variant.
-     */
+    
     private QuantityPriceBreakConnection quantityPriceBreaks;
 
-    /**
-     * The quantity rule applied for a given context.
-     */
+    
     private QuantityRule quantityRule;
 
     public ProductVariantContextualPricing build() {
@@ -132,33 +105,25 @@ public class ProductVariantContextualPricing {
       return result;
     }
 
-    /**
-     * The final compare-at price after all adjustments are applied.
-     */
+    
     public Builder compareAtPrice(MoneyV2 compareAtPrice) {
       this.compareAtPrice = compareAtPrice;
       return this;
     }
 
-    /**
-     * The final price after all adjustments are applied.
-     */
+    
     public Builder price(MoneyV2 price) {
       this.price = price;
       return this;
     }
 
-    /**
-     * A list of quantity breaks for the product variant.
-     */
+    
     public Builder quantityPriceBreaks(QuantityPriceBreakConnection quantityPriceBreaks) {
       this.quantityPriceBreaks = quantityPriceBreaks;
       return this;
     }
 
-    /**
-     * The quantity rule applied for a given context.
-     */
+    
     public Builder quantityRule(QuantityRule quantityRule) {
       this.quantityRule = quantityRule;
       return this;

@@ -7,77 +7,48 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields required to create a collection.
- */
+
 public class CollectionInput {
-  /**
-   * The description of the collection, in HTML format.
-   */
+  
   private String descriptionHtml;
 
-  /**
-   * A unique human-friendly string for the collection. Automatically generated from the collection's title.
-   */
+  
   private String handle;
 
-  /**
-   * Specifies the collection to update or create a new collection if absent. Required for updating a collection.
-   */
+  
   private String id;
 
-  /**
-   * The image associated with the collection.
-   */
+  
   private ImageInput image;
 
-  /**
-   * Initial list of collection products. Only valid with `collectionCreate` and without rules.
-   */
+  
   private List<String> products;
 
-  /**
-   * The rules used to assign products to the collection.
-   */
+  
   private CollectionRuleSetInput ruleSet;
 
-  /**
-   * The theme template used when viewing the collection in a store.
-   */
+  
   private String templateSuffix;
 
-  /**
-   * The order in which the collection's products are sorted.
-   */
+  
   private CollectionSortOrder sortOrder;
 
-  /**
-   * The title of the collection. Required for creating a new collection.
-   */
+  
   private String title;
 
-  /**
-   * The metafields to associate with the collection.
-   */
+  
   private List<MetafieldInput> metafields;
 
-  /**
-   * SEO information for the collection.
-   */
+  
   private SEOInput seo;
 
-  /**
-   * Indicates whether a redirect is required after a new handle has been provided.
-   * If true, then the old handle is redirected to the new one automatically.
-   */
+  
   private Boolean redirectNewHandle = false;
 
   public CollectionInput() {
   }
 
-  /**
-   * The description of the collection, in HTML format.
-   */
+  
   public String getDescriptionHtml() {
     return descriptionHtml;
   }
@@ -86,9 +57,7 @@ public class CollectionInput {
     this.descriptionHtml = descriptionHtml;
   }
 
-  /**
-   * A unique human-friendly string for the collection. Automatically generated from the collection's title.
-   */
+  
   public String getHandle() {
     return handle;
   }
@@ -97,9 +66,7 @@ public class CollectionInput {
     this.handle = handle;
   }
 
-  /**
-   * Specifies the collection to update or create a new collection if absent. Required for updating a collection.
-   */
+  
   public String getId() {
     return id;
   }
@@ -108,9 +75,7 @@ public class CollectionInput {
     this.id = id;
   }
 
-  /**
-   * The image associated with the collection.
-   */
+  
   public ImageInput getImage() {
     return image;
   }
@@ -119,9 +84,7 @@ public class CollectionInput {
     this.image = image;
   }
 
-  /**
-   * Initial list of collection products. Only valid with `collectionCreate` and without rules.
-   */
+  
   public List<String> getProducts() {
     return products;
   }
@@ -130,9 +93,7 @@ public class CollectionInput {
     this.products = products;
   }
 
-  /**
-   * The rules used to assign products to the collection.
-   */
+  
   public CollectionRuleSetInput getRuleSet() {
     return ruleSet;
   }
@@ -141,9 +102,7 @@ public class CollectionInput {
     this.ruleSet = ruleSet;
   }
 
-  /**
-   * The theme template used when viewing the collection in a store.
-   */
+  
   public String getTemplateSuffix() {
     return templateSuffix;
   }
@@ -152,9 +111,7 @@ public class CollectionInput {
     this.templateSuffix = templateSuffix;
   }
 
-  /**
-   * The order in which the collection's products are sorted.
-   */
+  
   public CollectionSortOrder getSortOrder() {
     return sortOrder;
   }
@@ -163,9 +120,7 @@ public class CollectionInput {
     this.sortOrder = sortOrder;
   }
 
-  /**
-   * The title of the collection. Required for creating a new collection.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -174,9 +129,7 @@ public class CollectionInput {
     this.title = title;
   }
 
-  /**
-   * The metafields to associate with the collection.
-   */
+  
   public List<MetafieldInput> getMetafields() {
     return metafields;
   }
@@ -185,9 +138,7 @@ public class CollectionInput {
     this.metafields = metafields;
   }
 
-  /**
-   * SEO information for the collection.
-   */
+  
   public SEOInput getSeo() {
     return seo;
   }
@@ -196,10 +147,7 @@ public class CollectionInput {
     this.seo = seo;
   }
 
-  /**
-   * Indicates whether a redirect is required after a new handle has been provided.
-   * If true, then the old handle is redirected to the new one automatically.
-   */
+  
   public Boolean getRedirectNewHandle() {
     return redirectNewHandle;
   }
@@ -242,65 +190,40 @@ public class CollectionInput {
   }
 
   public static class Builder {
-    /**
-     * The description of the collection, in HTML format.
-     */
+    
     private String descriptionHtml;
 
-    /**
-     * A unique human-friendly string for the collection. Automatically generated from the collection's title.
-     */
+    
     private String handle;
 
-    /**
-     * Specifies the collection to update or create a new collection if absent. Required for updating a collection.
-     */
+    
     private String id;
 
-    /**
-     * The image associated with the collection.
-     */
+    
     private ImageInput image;
 
-    /**
-     * Initial list of collection products. Only valid with `collectionCreate` and without rules.
-     */
+    
     private List<String> products;
 
-    /**
-     * The rules used to assign products to the collection.
-     */
+    
     private CollectionRuleSetInput ruleSet;
 
-    /**
-     * The theme template used when viewing the collection in a store.
-     */
+    
     private String templateSuffix;
 
-    /**
-     * The order in which the collection's products are sorted.
-     */
+    
     private CollectionSortOrder sortOrder;
 
-    /**
-     * The title of the collection. Required for creating a new collection.
-     */
+    
     private String title;
 
-    /**
-     * The metafields to associate with the collection.
-     */
+    
     private List<MetafieldInput> metafields;
 
-    /**
-     * SEO information for the collection.
-     */
+    
     private SEOInput seo;
 
-    /**
-     * Indicates whether a redirect is required after a new handle has been provided.
-     * If true, then the old handle is redirected to the new one automatically.
-     */
+    
     private Boolean redirectNewHandle = false;
 
     public CollectionInput build() {
@@ -320,98 +243,73 @@ public class CollectionInput {
       return result;
     }
 
-    /**
-     * The description of the collection, in HTML format.
-     */
+    
     public Builder descriptionHtml(String descriptionHtml) {
       this.descriptionHtml = descriptionHtml;
       return this;
     }
 
-    /**
-     * A unique human-friendly string for the collection. Automatically generated from the collection's title.
-     */
+    
     public Builder handle(String handle) {
       this.handle = handle;
       return this;
     }
 
-    /**
-     * Specifies the collection to update or create a new collection if absent. Required for updating a collection.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The image associated with the collection.
-     */
+    
     public Builder image(ImageInput image) {
       this.image = image;
       return this;
     }
 
-    /**
-     * Initial list of collection products. Only valid with `collectionCreate` and without rules.
-     */
+    
     public Builder products(List<String> products) {
       this.products = products;
       return this;
     }
 
-    /**
-     * The rules used to assign products to the collection.
-     */
+    
     public Builder ruleSet(CollectionRuleSetInput ruleSet) {
       this.ruleSet = ruleSet;
       return this;
     }
 
-    /**
-     * The theme template used when viewing the collection in a store.
-     */
+    
     public Builder templateSuffix(String templateSuffix) {
       this.templateSuffix = templateSuffix;
       return this;
     }
 
-    /**
-     * The order in which the collection's products are sorted.
-     */
+    
     public Builder sortOrder(CollectionSortOrder sortOrder) {
       this.sortOrder = sortOrder;
       return this;
     }
 
-    /**
-     * The title of the collection. Required for creating a new collection.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    /**
-     * The metafields to associate with the collection.
-     */
+    
     public Builder metafields(List<MetafieldInput> metafields) {
       this.metafields = metafields;
       return this;
     }
 
-    /**
-     * SEO information for the collection.
-     */
+    
     public Builder seo(SEOInput seo) {
       this.seo = seo;
       return this;
     }
 
-    /**
-     * Indicates whether a redirect is required after a new handle has been provided.
-     * If true, then the old handle is redirected to the new one automatically.
-     */
+    
     public Builder redirectNewHandle(Boolean redirectNewHandle) {
       this.redirectNewHandle = redirectNewHandle;
       return this;

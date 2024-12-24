@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Return a collection by its handle.
- */
+
 public class CollectionByHandleGraphQLQuery extends GraphQLQuery {
   public CollectionByHandleGraphQLQuery(String handle, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -42,9 +40,7 @@ public class CollectionByHandleGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The handle of the collection.
-     */
+    
     public Builder handle(String handle) {
       this.handle = handle;
       this.fieldsSet.add("handle");

@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Updates a metaobject definition with new settings and metafield definitions.
- */
+
 public class MetaobjectDefinitionUpdateGraphQLQuery extends GraphQLQuery {
   public MetaobjectDefinitionUpdateGraphQLQuery(String id,
       MetaobjectDefinitionUpdateInput definition, String queryName, Set<String> fieldsSet) {
@@ -48,18 +46,14 @@ public class MetaobjectDefinitionUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the metaobject definition to update.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * The input fields for updating a metaobject definition.
-     */
+    
     public Builder definition(MetaobjectDefinitionUpdateInput definition) {
       this.definition = definition;
       this.fieldsSet.add("definition");

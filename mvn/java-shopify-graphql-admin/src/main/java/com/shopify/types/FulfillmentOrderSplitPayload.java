@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `fulfillmentOrderSplit` mutation.
- */
+
 public class FulfillmentOrderSplitPayload {
-  /**
-   * The result of the fulfillment order splits.
-   */
+  
   private List<FulfillmentOrderSplitResult> fulfillmentOrderSplits;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<FulfillmentOrderSplitUserError> userErrors;
 
   public FulfillmentOrderSplitPayload() {
   }
 
-  /**
-   * The result of the fulfillment order splits.
-   */
+  
   public List<FulfillmentOrderSplitResult> getFulfillmentOrderSplits() {
     return fulfillmentOrderSplits;
   }
@@ -34,9 +26,7 @@ public class FulfillmentOrderSplitPayload {
     this.fulfillmentOrderSplits = fulfillmentOrderSplits;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<FulfillmentOrderSplitUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class FulfillmentOrderSplitPayload {
   }
 
   public static class Builder {
-    /**
-     * The result of the fulfillment order splits.
-     */
+    
     private List<FulfillmentOrderSplitResult> fulfillmentOrderSplits;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<FulfillmentOrderSplitUserError> userErrors;
 
     public FulfillmentOrderSplitPayload build() {
@@ -86,18 +72,14 @@ public class FulfillmentOrderSplitPayload {
       return result;
     }
 
-    /**
-     * The result of the fulfillment order splits.
-     */
+    
     public Builder fulfillmentOrderSplits(
         List<FulfillmentOrderSplitResult> fulfillmentOrderSplits) {
       this.fulfillmentOrderSplits = fulfillmentOrderSplits;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<FulfillmentOrderSplitUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

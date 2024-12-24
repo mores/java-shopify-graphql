@@ -5,32 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Properties used by customers to select a product variant.
- * Products can have multiple options, like different sizes or colors.
- */
+
 public class SelectedOption {
-  /**
-   * The product option’s name.
-   */
+  
   private String name;
 
-  /**
-   * The product option’s value object.
-   */
+  
   private ProductOptionValue optionValue;
 
-  /**
-   * The product option’s value.
-   */
+  
   private String value;
 
   public SelectedOption() {
   }
 
-  /**
-   * The product option’s name.
-   */
+  
   public String getName() {
     return name;
   }
@@ -39,9 +28,7 @@ public class SelectedOption {
     this.name = name;
   }
 
-  /**
-   * The product option’s value object.
-   */
+  
   public ProductOptionValue getOptionValue() {
     return optionValue;
   }
@@ -50,9 +37,7 @@ public class SelectedOption {
     this.optionValue = optionValue;
   }
 
-  /**
-   * The product option’s value.
-   */
+  
   public String getValue() {
     return value;
   }
@@ -86,19 +71,13 @@ public class SelectedOption {
   }
 
   public static class Builder {
-    /**
-     * The product option’s name.
-     */
+    
     private String name;
 
-    /**
-     * The product option’s value object.
-     */
+    
     private ProductOptionValue optionValue;
 
-    /**
-     * The product option’s value.
-     */
+    
     private String value;
 
     public SelectedOption build() {
@@ -109,25 +88,19 @@ public class SelectedOption {
       return result;
     }
 
-    /**
-     * The product option’s name.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The product option’s value object.
-     */
+    
     public Builder optionValue(ProductOptionValue optionValue) {
       this.optionValue = optionValue;
       return this;
     }
 
-    /**
-     * The product option’s value.
-     */
+    
     public Builder value(String value) {
       this.value = value;
       return this;

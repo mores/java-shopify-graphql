@@ -8,99 +8,63 @@ import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * Represents an issued gift card.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class GiftCard implements com.shopify.types.Node {
-  /**
-   * The gift card's remaining balance.
-   */
+  
   private MoneyV2 balance;
 
-  /**
-   * The date and time at which the gift card was created.
-   */
+  
   private OffsetDateTime createdAt;
 
-  /**
-   * The customer who will receive the gift card.
-   */
+  
   private Customer customer;
 
-  /**
-   * The date and time at which the gift card was deactivated.
-   */
+  
   private OffsetDateTime deactivatedAt;
 
-  /**
-   * Whether the gift card is enabled.
-   */
+  
   private boolean enabled;
 
-  /**
-   * The date at which the gift card will expire.
-   */
+  
   private LocalDate expiresOn;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The initial value of the gift card.
-   */
+  
   private MoneyV2 initialValue;
 
-  /**
-   * The final four characters of the gift card code.
-   */
+  
   private String lastCharacters;
 
-  /**
-   * The gift card code. Everything but the final four characters is masked.
-   */
+  
   private String maskedCode;
 
-  /**
-   * The note associated with the gift card, which isn't visible to the customer.
-   */
+  
   private String note;
 
-  /**
-   * The order associated with the gift card. This value is `null` if the gift card was issued manually.
-   */
+  
   private Order order;
 
-  /**
-   * The recipient who will receive the gift card.
-   */
+  
   private GiftCardRecipient recipientAttributes;
 
-  /**
-   * The theme template used to render the gift card online.
-   */
+  
   private String templateSuffix;
 
-  /**
-   * The transaction history of the gift card.
-   */
+  
   private GiftCardTransactionConnection transactions;
 
-  /**
-   * The date and time at which the gift card was updated.
-   */
+  
   private OffsetDateTime updatedAt;
 
   public GiftCard() {
   }
 
-  /**
-   * The gift card's remaining balance.
-   */
+  
   public MoneyV2 getBalance() {
     return balance;
   }
@@ -109,9 +73,7 @@ public class GiftCard implements com.shopify.types.Node {
     this.balance = balance;
   }
 
-  /**
-   * The date and time at which the gift card was created.
-   */
+  
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -120,9 +82,7 @@ public class GiftCard implements com.shopify.types.Node {
     this.createdAt = createdAt;
   }
 
-  /**
-   * The customer who will receive the gift card.
-   */
+  
   public Customer getCustomer() {
     return customer;
   }
@@ -131,9 +91,7 @@ public class GiftCard implements com.shopify.types.Node {
     this.customer = customer;
   }
 
-  /**
-   * The date and time at which the gift card was deactivated.
-   */
+  
   public OffsetDateTime getDeactivatedAt() {
     return deactivatedAt;
   }
@@ -142,9 +100,7 @@ public class GiftCard implements com.shopify.types.Node {
     this.deactivatedAt = deactivatedAt;
   }
 
-  /**
-   * Whether the gift card is enabled.
-   */
+  
   public boolean getEnabled() {
     return enabled;
   }
@@ -153,9 +109,7 @@ public class GiftCard implements com.shopify.types.Node {
     this.enabled = enabled;
   }
 
-  /**
-   * The date at which the gift card will expire.
-   */
+  
   public LocalDate getExpiresOn() {
     return expiresOn;
   }
@@ -164,9 +118,7 @@ public class GiftCard implements com.shopify.types.Node {
     this.expiresOn = expiresOn;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -175,9 +127,7 @@ public class GiftCard implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The initial value of the gift card.
-   */
+  
   public MoneyV2 getInitialValue() {
     return initialValue;
   }
@@ -186,9 +136,7 @@ public class GiftCard implements com.shopify.types.Node {
     this.initialValue = initialValue;
   }
 
-  /**
-   * The final four characters of the gift card code.
-   */
+  
   public String getLastCharacters() {
     return lastCharacters;
   }
@@ -197,9 +145,7 @@ public class GiftCard implements com.shopify.types.Node {
     this.lastCharacters = lastCharacters;
   }
 
-  /**
-   * The gift card code. Everything but the final four characters is masked.
-   */
+  
   public String getMaskedCode() {
     return maskedCode;
   }
@@ -208,9 +154,7 @@ public class GiftCard implements com.shopify.types.Node {
     this.maskedCode = maskedCode;
   }
 
-  /**
-   * The note associated with the gift card, which isn't visible to the customer.
-   */
+  
   public String getNote() {
     return note;
   }
@@ -219,9 +163,7 @@ public class GiftCard implements com.shopify.types.Node {
     this.note = note;
   }
 
-  /**
-   * The order associated with the gift card. This value is `null` if the gift card was issued manually.
-   */
+  
   public Order getOrder() {
     return order;
   }
@@ -230,9 +172,7 @@ public class GiftCard implements com.shopify.types.Node {
     this.order = order;
   }
 
-  /**
-   * The recipient who will receive the gift card.
-   */
+  
   public GiftCardRecipient getRecipientAttributes() {
     return recipientAttributes;
   }
@@ -241,9 +181,7 @@ public class GiftCard implements com.shopify.types.Node {
     this.recipientAttributes = recipientAttributes;
   }
 
-  /**
-   * The theme template used to render the gift card online.
-   */
+  
   public String getTemplateSuffix() {
     return templateSuffix;
   }
@@ -252,9 +190,7 @@ public class GiftCard implements com.shopify.types.Node {
     this.templateSuffix = templateSuffix;
   }
 
-  /**
-   * The transaction history of the gift card.
-   */
+  
   public GiftCardTransactionConnection getTransactions() {
     return transactions;
   }
@@ -263,9 +199,7 @@ public class GiftCard implements com.shopify.types.Node {
     this.transactions = transactions;
   }
 
-  /**
-   * The date and time at which the gift card was updated.
-   */
+  
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
@@ -312,84 +246,52 @@ public class GiftCard implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * The gift card's remaining balance.
-     */
+    
     private MoneyV2 balance;
 
-    /**
-     * The date and time at which the gift card was created.
-     */
+    
     private OffsetDateTime createdAt;
 
-    /**
-     * The customer who will receive the gift card.
-     */
+    
     private Customer customer;
 
-    /**
-     * The date and time at which the gift card was deactivated.
-     */
+    
     private OffsetDateTime deactivatedAt;
 
-    /**
-     * Whether the gift card is enabled.
-     */
+    
     private boolean enabled;
 
-    /**
-     * The date at which the gift card will expire.
-     */
+    
     private LocalDate expiresOn;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The initial value of the gift card.
-     */
+    
     private MoneyV2 initialValue;
 
-    /**
-     * The final four characters of the gift card code.
-     */
+    
     private String lastCharacters;
 
-    /**
-     * The gift card code. Everything but the final four characters is masked.
-     */
+    
     private String maskedCode;
 
-    /**
-     * The note associated with the gift card, which isn't visible to the customer.
-     */
+    
     private String note;
 
-    /**
-     * The order associated with the gift card. This value is `null` if the gift card was issued manually.
-     */
+    
     private Order order;
 
-    /**
-     * The recipient who will receive the gift card.
-     */
+    
     private GiftCardRecipient recipientAttributes;
 
-    /**
-     * The theme template used to render the gift card online.
-     */
+    
     private String templateSuffix;
 
-    /**
-     * The transaction history of the gift card.
-     */
+    
     private GiftCardTransactionConnection transactions;
 
-    /**
-     * The date and time at which the gift card was updated.
-     */
+    
     private OffsetDateTime updatedAt;
 
     public GiftCard build() {
@@ -413,129 +315,97 @@ public class GiftCard implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * The gift card's remaining balance.
-     */
+    
     public Builder balance(MoneyV2 balance) {
       this.balance = balance;
       return this;
     }
 
-    /**
-     * The date and time at which the gift card was created.
-     */
+    
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    /**
-     * The customer who will receive the gift card.
-     */
+    
     public Builder customer(Customer customer) {
       this.customer = customer;
       return this;
     }
 
-    /**
-     * The date and time at which the gift card was deactivated.
-     */
+    
     public Builder deactivatedAt(OffsetDateTime deactivatedAt) {
       this.deactivatedAt = deactivatedAt;
       return this;
     }
 
-    /**
-     * Whether the gift card is enabled.
-     */
+    
     public Builder enabled(boolean enabled) {
       this.enabled = enabled;
       return this;
     }
 
-    /**
-     * The date at which the gift card will expire.
-     */
+    
     public Builder expiresOn(LocalDate expiresOn) {
       this.expiresOn = expiresOn;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The initial value of the gift card.
-     */
+    
     public Builder initialValue(MoneyV2 initialValue) {
       this.initialValue = initialValue;
       return this;
     }
 
-    /**
-     * The final four characters of the gift card code.
-     */
+    
     public Builder lastCharacters(String lastCharacters) {
       this.lastCharacters = lastCharacters;
       return this;
     }
 
-    /**
-     * The gift card code. Everything but the final four characters is masked.
-     */
+    
     public Builder maskedCode(String maskedCode) {
       this.maskedCode = maskedCode;
       return this;
     }
 
-    /**
-     * The note associated with the gift card, which isn't visible to the customer.
-     */
+    
     public Builder note(String note) {
       this.note = note;
       return this;
     }
 
-    /**
-     * The order associated with the gift card. This value is `null` if the gift card was issued manually.
-     */
+    
     public Builder order(Order order) {
       this.order = order;
       return this;
     }
 
-    /**
-     * The recipient who will receive the gift card.
-     */
+    
     public Builder recipientAttributes(GiftCardRecipient recipientAttributes) {
       this.recipientAttributes = recipientAttributes;
       return this;
     }
 
-    /**
-     * The theme template used to render the gift card online.
-     */
+    
     public Builder templateSuffix(String templateSuffix) {
       this.templateSuffix = templateSuffix;
       return this;
     }
 
-    /**
-     * The transaction history of the gift card.
-     */
+    
     public Builder transactions(GiftCardTransactionConnection transactions) {
       this.transactions = transactions;
       return this;
     }
 
-    /**
-     * The date and time at which the gift card was updated.
-     */
+    
     public Builder updatedAt(OffsetDateTime updatedAt) {
       this.updatedAt = updatedAt;
       return this;

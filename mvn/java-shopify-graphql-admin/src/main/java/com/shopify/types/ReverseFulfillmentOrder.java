@@ -6,51 +6,33 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A group of one or more items in a return that will be processed at a fulfillment service.
- * There can be more than one reverse fulfillment order for a return at a given location.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ReverseFulfillmentOrder implements com.shopify.types.Node {
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The list of reverse fulfillment order line items for the reverse fulfillment order.
-   */
+  
   private ReverseFulfillmentOrderLineItemConnection lineItems;
 
-  /**
-   * The order associated with the reverse fulfillment order.
-   */
+  
   private Order order;
 
-  /**
-   * The list of reverse deliveries for the reverse fulfillment order.
-   */
+  
   private ReverseDeliveryConnection reverseDeliveries;
 
-  /**
-   * The status of the reverse fulfillment order.
-   */
+  
   private ReverseFulfillmentOrderStatus status;
 
-  /**
-   * The current confirmation for the reverse fulfillment order from a third-party logistics service. 
-   * If no third-party service is involved, then this value is `nil`.
-   */
+  
   private ReverseFulfillmentOrderThirdPartyConfirmation thirdPartyConfirmation;
 
   public ReverseFulfillmentOrder() {
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -59,9 +41,7 @@ public class ReverseFulfillmentOrder implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The list of reverse fulfillment order line items for the reverse fulfillment order.
-   */
+  
   public ReverseFulfillmentOrderLineItemConnection getLineItems() {
     return lineItems;
   }
@@ -70,9 +50,7 @@ public class ReverseFulfillmentOrder implements com.shopify.types.Node {
     this.lineItems = lineItems;
   }
 
-  /**
-   * The order associated with the reverse fulfillment order.
-   */
+  
   public Order getOrder() {
     return order;
   }
@@ -81,9 +59,7 @@ public class ReverseFulfillmentOrder implements com.shopify.types.Node {
     this.order = order;
   }
 
-  /**
-   * The list of reverse deliveries for the reverse fulfillment order.
-   */
+  
   public ReverseDeliveryConnection getReverseDeliveries() {
     return reverseDeliveries;
   }
@@ -92,9 +68,7 @@ public class ReverseFulfillmentOrder implements com.shopify.types.Node {
     this.reverseDeliveries = reverseDeliveries;
   }
 
-  /**
-   * The status of the reverse fulfillment order.
-   */
+  
   public ReverseFulfillmentOrderStatus getStatus() {
     return status;
   }
@@ -103,10 +77,7 @@ public class ReverseFulfillmentOrder implements com.shopify.types.Node {
     this.status = status;
   }
 
-  /**
-   * The current confirmation for the reverse fulfillment order from a third-party logistics service. 
-   * If no third-party service is involved, then this value is `nil`.
-   */
+  
   public ReverseFulfillmentOrderThirdPartyConfirmation getThirdPartyConfirmation() {
     return thirdPartyConfirmation;
   }
@@ -144,35 +115,22 @@ public class ReverseFulfillmentOrder implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The list of reverse fulfillment order line items for the reverse fulfillment order.
-     */
+    
     private ReverseFulfillmentOrderLineItemConnection lineItems;
 
-    /**
-     * The order associated with the reverse fulfillment order.
-     */
+    
     private Order order;
 
-    /**
-     * The list of reverse deliveries for the reverse fulfillment order.
-     */
+    
     private ReverseDeliveryConnection reverseDeliveries;
 
-    /**
-     * The status of the reverse fulfillment order.
-     */
+    
     private ReverseFulfillmentOrderStatus status;
 
-    /**
-     * The current confirmation for the reverse fulfillment order from a third-party logistics service. 
-     * If no third-party service is involved, then this value is `nil`.
-     */
+    
     private ReverseFulfillmentOrderThirdPartyConfirmation thirdPartyConfirmation;
 
     public ReverseFulfillmentOrder build() {
@@ -186,50 +144,37 @@ public class ReverseFulfillmentOrder implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The list of reverse fulfillment order line items for the reverse fulfillment order.
-     */
+    
     public Builder lineItems(ReverseFulfillmentOrderLineItemConnection lineItems) {
       this.lineItems = lineItems;
       return this;
     }
 
-    /**
-     * The order associated with the reverse fulfillment order.
-     */
+    
     public Builder order(Order order) {
       this.order = order;
       return this;
     }
 
-    /**
-     * The list of reverse deliveries for the reverse fulfillment order.
-     */
+    
     public Builder reverseDeliveries(ReverseDeliveryConnection reverseDeliveries) {
       this.reverseDeliveries = reverseDeliveries;
       return this;
     }
 
-    /**
-     * The status of the reverse fulfillment order.
-     */
+    
     public Builder status(ReverseFulfillmentOrderStatus status) {
       this.status = status;
       return this;
     }
 
-    /**
-     * The current confirmation for the reverse fulfillment order from a third-party logistics service. 
-     * If no third-party service is involved, then this value is `nil`.
-     */
+    
     public Builder thirdPartyConfirmation(
         ReverseFulfillmentOrderThirdPartyConfirmation thirdPartyConfirmation) {
       this.thirdPartyConfirmation = thirdPartyConfirmation;

@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Specifies the relationship between the `column` and the `condition`.
- */
+
 public enum CollectionRuleRelation {
   CONTAINS,
 

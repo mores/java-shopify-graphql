@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields of the renderable capability for SEO aliases.
- */
+
 public class MetaobjectCapabilityDefinitionDataRenderableInput {
-  /**
-   * The metaobject field used as an alias for the SEO page title.
-   */
+  
   private String metaTitleKey;
 
-  /**
-   * The metaobject field used as an alias for the SEO page description.
-   */
+  
   private String metaDescriptionKey;
 
   public MetaobjectCapabilityDefinitionDataRenderableInput() {
   }
 
-  /**
-   * The metaobject field used as an alias for the SEO page title.
-   */
+  
   public String getMetaTitleKey() {
     return metaTitleKey;
   }
@@ -33,9 +25,7 @@ public class MetaobjectCapabilityDefinitionDataRenderableInput {
     this.metaTitleKey = metaTitleKey;
   }
 
-  /**
-   * The metaobject field used as an alias for the SEO page description.
-   */
+  
   public String getMetaDescriptionKey() {
     return metaDescriptionKey;
   }
@@ -68,14 +58,10 @@ public class MetaobjectCapabilityDefinitionDataRenderableInput {
   }
 
   public static class Builder {
-    /**
-     * The metaobject field used as an alias for the SEO page title.
-     */
+    
     private String metaTitleKey;
 
-    /**
-     * The metaobject field used as an alias for the SEO page description.
-     */
+    
     private String metaDescriptionKey;
 
     public MetaobjectCapabilityDefinitionDataRenderableInput build() {
@@ -85,17 +71,13 @@ public class MetaobjectCapabilityDefinitionDataRenderableInput {
       return result;
     }
 
-    /**
-     * The metaobject field used as an alias for the SEO page title.
-     */
+    
     public Builder metaTitleKey(String metaTitleKey) {
       this.metaTitleKey = metaTitleKey;
       return this;
     }
 
-    /**
-     * The metaobject field used as an alias for the SEO page description.
-     */
+    
     public Builder metaDescriptionKey(String metaDescriptionKey) {
       this.metaDescriptionKey = metaDescriptionKey;
       return this;

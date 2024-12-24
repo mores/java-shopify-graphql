@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * The possible dispute evidence file types.
- */
+
 public enum ShopifyPaymentsDisputeEvidenceFileType {
   CUSTOMER_COMMUNICATION_FILE,
 

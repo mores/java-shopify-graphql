@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The international duties relevant to a fulfillment order.
- */
+
 public class FulfillmentOrderInternationalDuties {
-  /**
-   * The method of duties payment. Example values: `DDP`, `DAP`.
-   */
+  
   private String incoterm;
 
   public FulfillmentOrderInternationalDuties() {
   }
 
-  /**
-   * The method of duties payment. Example values: `DDP`, `DAP`.
-   */
+  
   public String getIncoterm() {
     return incoterm;
   }
@@ -51,9 +45,7 @@ public class FulfillmentOrderInternationalDuties {
   }
 
   public static class Builder {
-    /**
-     * The method of duties payment. Example values: `DDP`, `DAP`.
-     */
+    
     private String incoterm;
 
     public FulfillmentOrderInternationalDuties build() {
@@ -62,9 +54,7 @@ public class FulfillmentOrderInternationalDuties {
       return result;
     }
 
-    /**
-     * The method of duties payment. Example values: `DDP`, `DAP`.
-     */
+    
     public Builder incoterm(String incoterm) {
       this.incoterm = incoterm;
       return this;

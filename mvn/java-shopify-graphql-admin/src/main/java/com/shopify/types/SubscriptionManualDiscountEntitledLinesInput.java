@@ -6,26 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for the subscription lines the discount applies on.
- */
+
 public class SubscriptionManualDiscountEntitledLinesInput {
-  /**
-   * Specify whether the subscription discount will apply on all subscription lines.
-   */
+  
   private Boolean all;
 
-  /**
-   * The ID of the lines to add to or remove from the subscription discount.
-   */
+  
   private SubscriptionManualDiscountLinesInput lines;
 
   public SubscriptionManualDiscountEntitledLinesInput() {
   }
 
-  /**
-   * Specify whether the subscription discount will apply on all subscription lines.
-   */
+  
   public Boolean getAll() {
     return all;
   }
@@ -34,9 +26,7 @@ public class SubscriptionManualDiscountEntitledLinesInput {
     this.all = all;
   }
 
-  /**
-   * The ID of the lines to add to or remove from the subscription discount.
-   */
+  
   public SubscriptionManualDiscountLinesInput getLines() {
     return lines;
   }
@@ -69,14 +59,10 @@ public class SubscriptionManualDiscountEntitledLinesInput {
   }
 
   public static class Builder {
-    /**
-     * Specify whether the subscription discount will apply on all subscription lines.
-     */
+    
     private Boolean all;
 
-    /**
-     * The ID of the lines to add to or remove from the subscription discount.
-     */
+    
     private SubscriptionManualDiscountLinesInput lines;
 
     public SubscriptionManualDiscountEntitledLinesInput build() {
@@ -86,17 +72,13 @@ public class SubscriptionManualDiscountEntitledLinesInput {
       return result;
     }
 
-    /**
-     * Specify whether the subscription discount will apply on all subscription lines.
-     */
+    
     public Builder all(Boolean all) {
       this.all = all;
       return this;
     }
 
-    /**
-     * The ID of the lines to add to or remove from the subscription discount.
-     */
+    
     public Builder lines(SubscriptionManualDiscountLinesInput lines) {
       this.lines = lines;
       return this;

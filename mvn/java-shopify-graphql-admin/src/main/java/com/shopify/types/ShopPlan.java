@@ -5,31 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The billing plan of the shop.
- */
+
 public class ShopPlan {
-  /**
-   * The name of the shop's billing plan.
-   */
+  
   private String displayName;
 
-  /**
-   * Whether the shop is a partner development shop for testing purposes.
-   */
+  
   private boolean partnerDevelopment;
 
-  /**
-   * Whether the shop has a Shopify Plus subscription.
-   */
+  
   private boolean shopifyPlus;
 
   public ShopPlan() {
   }
 
-  /**
-   * The name of the shop's billing plan.
-   */
+  
   public String getDisplayName() {
     return displayName;
   }
@@ -38,9 +28,7 @@ public class ShopPlan {
     this.displayName = displayName;
   }
 
-  /**
-   * Whether the shop is a partner development shop for testing purposes.
-   */
+  
   public boolean getPartnerDevelopment() {
     return partnerDevelopment;
   }
@@ -49,9 +37,7 @@ public class ShopPlan {
     this.partnerDevelopment = partnerDevelopment;
   }
 
-  /**
-   * Whether the shop has a Shopify Plus subscription.
-   */
+  
   public boolean getShopifyPlus() {
     return shopifyPlus;
   }
@@ -85,19 +71,13 @@ public class ShopPlan {
   }
 
   public static class Builder {
-    /**
-     * The name of the shop's billing plan.
-     */
+    
     private String displayName;
 
-    /**
-     * Whether the shop is a partner development shop for testing purposes.
-     */
+    
     private boolean partnerDevelopment;
 
-    /**
-     * Whether the shop has a Shopify Plus subscription.
-     */
+    
     private boolean shopifyPlus;
 
     public ShopPlan build() {
@@ -108,25 +88,19 @@ public class ShopPlan {
       return result;
     }
 
-    /**
-     * The name of the shop's billing plan.
-     */
+    
     public Builder displayName(String displayName) {
       this.displayName = displayName;
       return this;
     }
 
-    /**
-     * Whether the shop is a partner development shop for testing purposes.
-     */
+    
     public Builder partnerDevelopment(boolean partnerDevelopment) {
       this.partnerDevelopment = partnerDevelopment;
       return this;
     }
 
-    /**
-     * Whether the shop has a Shopify Plus subscription.
-     */
+    
     public Builder shopifyPlus(boolean shopifyPlus) {
       this.shopifyPlus = shopifyPlus;
       return this;

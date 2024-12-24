@@ -6,21 +6,15 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * A list of search filters along with their specific options in value and label pair for filtering.
- */
+
 public class SearchFilterOptions {
-  /**
-   * A list of options that can be use to filter product availability.
-   */
+  
   private List<FilterOption> productAvailability;
 
   public SearchFilterOptions() {
   }
 
-  /**
-   * A list of options that can be use to filter product availability.
-   */
+  
   public List<FilterOption> getProductAvailability() {
     return productAvailability;
   }
@@ -52,9 +46,7 @@ public class SearchFilterOptions {
   }
 
   public static class Builder {
-    /**
-     * A list of options that can be use to filter product availability.
-     */
+    
     private List<FilterOption> productAvailability;
 
     public SearchFilterOptions build() {
@@ -63,9 +55,7 @@ public class SearchFilterOptions {
       return result;
     }
 
-    /**
-     * A list of options that can be use to filter product availability.
-     */
+    
     public Builder productAvailability(List<FilterOption> productAvailability) {
       this.productAvailability = productAvailability;
       return this;

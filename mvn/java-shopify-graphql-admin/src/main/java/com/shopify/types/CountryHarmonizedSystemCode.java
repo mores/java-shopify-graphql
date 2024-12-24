@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The country-specific harmonized system code and ISO country code for an inventory item.
- */
+
 public class CountryHarmonizedSystemCode {
-  /**
-   * The ISO 3166-1 alpha-2 country code for the country that issued the specified harmonized system code.
-   */
+  
   private CountryCode countryCode;
 
-  /**
-   * The country-specific harmonized system code. These are usually longer than 6 digits.
-   */
+  
   private String harmonizedSystemCode;
 
   public CountryHarmonizedSystemCode() {
   }
 
-  /**
-   * The ISO 3166-1 alpha-2 country code for the country that issued the specified harmonized system code.
-   */
+  
   public CountryCode getCountryCode() {
     return countryCode;
   }
@@ -33,9 +25,7 @@ public class CountryHarmonizedSystemCode {
     this.countryCode = countryCode;
   }
 
-  /**
-   * The country-specific harmonized system code. These are usually longer than 6 digits.
-   */
+  
   public String getHarmonizedSystemCode() {
     return harmonizedSystemCode;
   }
@@ -68,14 +58,10 @@ public class CountryHarmonizedSystemCode {
   }
 
   public static class Builder {
-    /**
-     * The ISO 3166-1 alpha-2 country code for the country that issued the specified harmonized system code.
-     */
+    
     private CountryCode countryCode;
 
-    /**
-     * The country-specific harmonized system code. These are usually longer than 6 digits.
-     */
+    
     private String harmonizedSystemCode;
 
     public CountryHarmonizedSystemCode build() {
@@ -85,17 +71,13 @@ public class CountryHarmonizedSystemCode {
       return result;
     }
 
-    /**
-     * The ISO 3166-1 alpha-2 country code for the country that issued the specified harmonized system code.
-     */
+    
     public Builder countryCode(CountryCode countryCode) {
       this.countryCode = countryCode;
       return this;
     }
 
-    /**
-     * The country-specific harmonized system code. These are usually longer than 6 digits.
-     */
+    
     public Builder harmonizedSystemCode(String harmonizedSystemCode) {
       this.harmonizedSystemCode = harmonizedSystemCode;
       return this;

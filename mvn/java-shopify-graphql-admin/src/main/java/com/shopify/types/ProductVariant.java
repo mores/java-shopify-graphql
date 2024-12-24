@@ -9,232 +9,135 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Represents a product variant.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ProductVariant implements CommentEventEmbed, MetafieldReference, MetafieldReferencer, com.shopify.types.HasEvents, com.shopify.types.HasMetafieldDefinitions, com.shopify.types.HasMetafields, com.shopify.types.HasPublishedTranslations, com.shopify.types.LegacyInteroperability, com.shopify.types.Navigable, com.shopify.types.Node {
-  /**
-   * Whether the product variant is available for sale.
-   */
+  
   private boolean availableForSale;
 
-  /**
-   * The value of the barcode associated with the product.
-   */
+  
   private String barcode;
 
-  /**
-   * The compare-at price of the variant in the default shop currency.
-   */
+  
   private String compareAtPrice;
 
-  /**
-   * The pricing that applies for a customer in a given context.
-   */
+  
   private ProductVariantContextualPricing contextualPricing;
 
-  /**
-   * The date and time when the variant was created.
-   */
+  
   private OffsetDateTime createdAt;
 
-  /**
-   * A default [cursor](https://shopify.dev/api/usage/pagination-graphql) that
-   * returns the single next record, sorted ascending by ID.
-   */
+  
   private String defaultCursor;
 
-  /**
-   * The [delivery profile](https://shopify.dev/api/admin-graphql/latest/objects/DeliveryProfile) for the variant.
-   */
+  
   private DeliveryProfile deliveryProfile;
 
-  /**
-   * Display name of the variant, based on product's title + variant's title.
-   */
+  
   private String displayName;
 
-  /**
-   * The paginated list of events associated with the host subject.
-   */
+  
   private EventConnection events;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The featured image for the variant.
-   */
+  
   private Image image;
 
-  /**
-   * The inventory item, which is used to query for inventory information.
-   */
+  
   private InventoryItem inventoryItem;
 
-  /**
-   * Whether customers are allowed to place an order for the product variant when it's out of stock.
-   */
+  
   private ProductVariantInventoryPolicy inventoryPolicy;
 
-  /**
-   * The total sellable quantity of the variant.
-   */
+  
   private Integer inventoryQuantity;
 
-  /**
-   * The ID of the corresponding resource in the REST Admin API.
-   */
+  
   private String legacyResourceId;
 
-  /**
-   * The media associated with the product variant.
-   */
+  
   private MediaConnection media;
 
-  /**
-   * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-   * including its `namespace` and `key`, that's associated with a Shopify resource
-   * for the purposes of adding and storing additional information.
-   */
+  
   private Metafield metafield;
 
-  /**
-   * List of metafield definitions.
-   */
+  
   private MetafieldDefinitionConnection metafieldDefinitions;
 
-  /**
-   * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-   * that a merchant associates with a Shopify resource.
-   */
+  
   private MetafieldConnection metafields;
 
-  /**
-   * The order of the product variant in the list of product variants. The first position in the list is 1.
-   */
+  
   private int position;
 
-  /**
-   * List of prices and compare-at prices in the presentment currencies for this shop.
-   */
+  
   private ProductVariantPricePairConnection presentmentPrices;
 
-  /**
-   * The price of the product variant in the default shop currency.
-   */
+  
   private String price;
 
-  /**
-   * Returns a private metafield by namespace and key that belongs to the resource.
-   */
+  
   private PrivateMetafield privateMetafield;
 
-  /**
-   * List of private metafields that belong to the resource.
-   */
+  
   private PrivateMetafieldConnection privateMetafields;
 
-  /**
-   * The product that this variant belongs to.
-   */
+  
   private Product product;
 
-  /**
-   * A list of the product variant components.
-   */
+  
   private ProductVariantComponentConnection productVariantComponents;
 
-  /**
-   * Whether a product variant requires components. The default value is `false`.
-   * If `true`, then the product variant can only be purchased as a parent bundle with components and it will be omitted
-   * from channels that don't support bundles.
-   */
+  
   private boolean requiresComponents;
 
-  /**
-   * List of product options applied to the variant.
-   */
+  
   private List<SelectedOption> selectedOptions;
 
-  /**
-   * The total sellable quantity of the variant for online channels.
-   * This doesn't represent the total available inventory or capture
-   * [limitations based on customer location](https://help.shopify.com/manual/markets/inventory_and_fulfillment).
-   */
+  
   private int sellableOnlineQuantity;
 
-  /**
-   * Count of selling plan groups associated with the product variant.
-   */
+  
   private int sellingPlanGroupCount;
 
-  /**
-   * A list of all selling plan groups defined in the current shop associated with the product variant.
-   */
+  
   private SellingPlanGroupConnection sellingPlanGroups;
 
-  /**
-   * Count of selling plan groups associated with the product variant.
-   */
+  
   private Count sellingPlanGroupsCount;
 
-  /**
-   * A case-sensitive identifier for the product variant in the shop.
-   * Required in order to connect to a fulfillment service.
-   */
+  
   private String sku;
 
-  /**
-   * The Storefront GraphQL API ID of the `ProductVariant`.
-   *   
-   * As of the `2022-04` version release, the Storefront GraphQL API will no longer
-   * return Base64 encoded IDs to match the behavior of the Admin GraphQL API.
-   * Therefore, you can safely use the `id` field's value instead.
-   */
+  
   private String storefrontId;
 
-  /**
-   * The tax code for the product variant.
-   */
+  
   private String taxCode;
 
-  /**
-   * Whether a tax is charged when the product variant is sold.
-   */
+  
   private boolean taxable;
 
-  /**
-   * The title of the product variant.
-   */
+  
   private String title;
 
-  /**
-   * The published translations associated with the resource.
-   */
+  
   private List<Translation> translations;
 
-  /**
-   * The unit price measurement for the variant.
-   */
+  
   private UnitPriceMeasurement unitPriceMeasurement;
 
-  /**
-   * The date and time (ISO 8601 format) when the product variant was last modified.
-   */
+  
   private OffsetDateTime updatedAt;
 
   public ProductVariant() {
   }
 
-  /**
-   * Whether the product variant is available for sale.
-   */
+  
   public boolean getAvailableForSale() {
     return availableForSale;
   }
@@ -243,9 +146,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.availableForSale = availableForSale;
   }
 
-  /**
-   * The value of the barcode associated with the product.
-   */
+  
   public String getBarcode() {
     return barcode;
   }
@@ -254,9 +155,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.barcode = barcode;
   }
 
-  /**
-   * The compare-at price of the variant in the default shop currency.
-   */
+  
   public String getCompareAtPrice() {
     return compareAtPrice;
   }
@@ -265,9 +164,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.compareAtPrice = compareAtPrice;
   }
 
-  /**
-   * The pricing that applies for a customer in a given context.
-   */
+  
   public ProductVariantContextualPricing getContextualPricing() {
     return contextualPricing;
   }
@@ -276,9 +173,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.contextualPricing = contextualPricing;
   }
 
-  /**
-   * The date and time when the variant was created.
-   */
+  
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -287,10 +182,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.createdAt = createdAt;
   }
 
-  /**
-   * A default [cursor](https://shopify.dev/api/usage/pagination-graphql) that
-   * returns the single next record, sorted ascending by ID.
-   */
+  
   public String getDefaultCursor() {
     return defaultCursor;
   }
@@ -299,9 +191,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.defaultCursor = defaultCursor;
   }
 
-  /**
-   * The [delivery profile](https://shopify.dev/api/admin-graphql/latest/objects/DeliveryProfile) for the variant.
-   */
+  
   public DeliveryProfile getDeliveryProfile() {
     return deliveryProfile;
   }
@@ -310,9 +200,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.deliveryProfile = deliveryProfile;
   }
 
-  /**
-   * Display name of the variant, based on product's title + variant's title.
-   */
+  
   public String getDisplayName() {
     return displayName;
   }
@@ -321,9 +209,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.displayName = displayName;
   }
 
-  /**
-   * The paginated list of events associated with the host subject.
-   */
+  
   public EventConnection getEvents() {
     return events;
   }
@@ -332,9 +218,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.events = events;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -343,9 +227,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.id = id;
   }
 
-  /**
-   * The featured image for the variant.
-   */
+  
   public Image getImage() {
     return image;
   }
@@ -354,9 +236,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.image = image;
   }
 
-  /**
-   * The inventory item, which is used to query for inventory information.
-   */
+  
   public InventoryItem getInventoryItem() {
     return inventoryItem;
   }
@@ -365,9 +245,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.inventoryItem = inventoryItem;
   }
 
-  /**
-   * Whether customers are allowed to place an order for the product variant when it's out of stock.
-   */
+  
   public ProductVariantInventoryPolicy getInventoryPolicy() {
     return inventoryPolicy;
   }
@@ -376,9 +254,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.inventoryPolicy = inventoryPolicy;
   }
 
-  /**
-   * The total sellable quantity of the variant.
-   */
+  
   public Integer getInventoryQuantity() {
     return inventoryQuantity;
   }
@@ -387,9 +263,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.inventoryQuantity = inventoryQuantity;
   }
 
-  /**
-   * The ID of the corresponding resource in the REST Admin API.
-   */
+  
   public String getLegacyResourceId() {
     return legacyResourceId;
   }
@@ -398,9 +272,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.legacyResourceId = legacyResourceId;
   }
 
-  /**
-   * The media associated with the product variant.
-   */
+  
   public MediaConnection getMedia() {
     return media;
   }
@@ -409,11 +281,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.media = media;
   }
 
-  /**
-   * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-   * including its `namespace` and `key`, that's associated with a Shopify resource
-   * for the purposes of adding and storing additional information.
-   */
+  
   public Metafield getMetafield() {
     return metafield;
   }
@@ -422,9 +290,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.metafield = metafield;
   }
 
-  /**
-   * List of metafield definitions.
-   */
+  
   public MetafieldDefinitionConnection getMetafieldDefinitions() {
     return metafieldDefinitions;
   }
@@ -433,10 +299,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.metafieldDefinitions = metafieldDefinitions;
   }
 
-  /**
-   * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-   * that a merchant associates with a Shopify resource.
-   */
+  
   public MetafieldConnection getMetafields() {
     return metafields;
   }
@@ -445,9 +308,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.metafields = metafields;
   }
 
-  /**
-   * The order of the product variant in the list of product variants. The first position in the list is 1.
-   */
+  
   public int getPosition() {
     return position;
   }
@@ -456,9 +317,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.position = position;
   }
 
-  /**
-   * List of prices and compare-at prices in the presentment currencies for this shop.
-   */
+  
   public ProductVariantPricePairConnection getPresentmentPrices() {
     return presentmentPrices;
   }
@@ -467,9 +326,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.presentmentPrices = presentmentPrices;
   }
 
-  /**
-   * The price of the product variant in the default shop currency.
-   */
+  
   public String getPrice() {
     return price;
   }
@@ -478,9 +335,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.price = price;
   }
 
-  /**
-   * Returns a private metafield by namespace and key that belongs to the resource.
-   */
+  
   public PrivateMetafield getPrivateMetafield() {
     return privateMetafield;
   }
@@ -489,9 +344,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.privateMetafield = privateMetafield;
   }
 
-  /**
-   * List of private metafields that belong to the resource.
-   */
+  
   public PrivateMetafieldConnection getPrivateMetafields() {
     return privateMetafields;
   }
@@ -500,9 +353,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.privateMetafields = privateMetafields;
   }
 
-  /**
-   * The product that this variant belongs to.
-   */
+  
   public Product getProduct() {
     return product;
   }
@@ -511,9 +362,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.product = product;
   }
 
-  /**
-   * A list of the product variant components.
-   */
+  
   public ProductVariantComponentConnection getProductVariantComponents() {
     return productVariantComponents;
   }
@@ -523,11 +372,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.productVariantComponents = productVariantComponents;
   }
 
-  /**
-   * Whether a product variant requires components. The default value is `false`.
-   * If `true`, then the product variant can only be purchased as a parent bundle with components and it will be omitted
-   * from channels that don't support bundles.
-   */
+  
   public boolean getRequiresComponents() {
     return requiresComponents;
   }
@@ -536,9 +381,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.requiresComponents = requiresComponents;
   }
 
-  /**
-   * List of product options applied to the variant.
-   */
+  
   public List<SelectedOption> getSelectedOptions() {
     return selectedOptions;
   }
@@ -547,11 +390,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.selectedOptions = selectedOptions;
   }
 
-  /**
-   * The total sellable quantity of the variant for online channels.
-   * This doesn't represent the total available inventory or capture
-   * [limitations based on customer location](https://help.shopify.com/manual/markets/inventory_and_fulfillment).
-   */
+  
   public int getSellableOnlineQuantity() {
     return sellableOnlineQuantity;
   }
@@ -560,9 +399,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.sellableOnlineQuantity = sellableOnlineQuantity;
   }
 
-  /**
-   * Count of selling plan groups associated with the product variant.
-   */
+  
   public int getSellingPlanGroupCount() {
     return sellingPlanGroupCount;
   }
@@ -571,9 +408,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.sellingPlanGroupCount = sellingPlanGroupCount;
   }
 
-  /**
-   * A list of all selling plan groups defined in the current shop associated with the product variant.
-   */
+  
   public SellingPlanGroupConnection getSellingPlanGroups() {
     return sellingPlanGroups;
   }
@@ -582,9 +417,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.sellingPlanGroups = sellingPlanGroups;
   }
 
-  /**
-   * Count of selling plan groups associated with the product variant.
-   */
+  
   public Count getSellingPlanGroupsCount() {
     return sellingPlanGroupsCount;
   }
@@ -593,10 +426,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.sellingPlanGroupsCount = sellingPlanGroupsCount;
   }
 
-  /**
-   * A case-sensitive identifier for the product variant in the shop.
-   * Required in order to connect to a fulfillment service.
-   */
+  
   public String getSku() {
     return sku;
   }
@@ -605,13 +435,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.sku = sku;
   }
 
-  /**
-   * The Storefront GraphQL API ID of the `ProductVariant`.
-   *   
-   * As of the `2022-04` version release, the Storefront GraphQL API will no longer
-   * return Base64 encoded IDs to match the behavior of the Admin GraphQL API.
-   * Therefore, you can safely use the `id` field's value instead.
-   */
+  
   public String getStorefrontId() {
     return storefrontId;
   }
@@ -620,9 +444,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.storefrontId = storefrontId;
   }
 
-  /**
-   * The tax code for the product variant.
-   */
+  
   public String getTaxCode() {
     return taxCode;
   }
@@ -631,9 +453,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.taxCode = taxCode;
   }
 
-  /**
-   * Whether a tax is charged when the product variant is sold.
-   */
+  
   public boolean getTaxable() {
     return taxable;
   }
@@ -642,9 +462,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.taxable = taxable;
   }
 
-  /**
-   * The title of the product variant.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -653,9 +471,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.title = title;
   }
 
-  /**
-   * The published translations associated with the resource.
-   */
+  
   public List<Translation> getTranslations() {
     return translations;
   }
@@ -664,9 +480,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.translations = translations;
   }
 
-  /**
-   * The unit price measurement for the variant.
-   */
+  
   public UnitPriceMeasurement getUnitPriceMeasurement() {
     return unitPriceMeasurement;
   }
@@ -675,9 +489,7 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
     this.unitPriceMeasurement = unitPriceMeasurement;
   }
 
-  /**
-   * The date and time (ISO 8601 format) when the product variant was last modified.
-   */
+  
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
@@ -748,217 +560,124 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
   }
 
   public static class Builder {
-    /**
-     * Whether the product variant is available for sale.
-     */
+    
     private boolean availableForSale;
 
-    /**
-     * The value of the barcode associated with the product.
-     */
+    
     private String barcode;
 
-    /**
-     * The compare-at price of the variant in the default shop currency.
-     */
+    
     private String compareAtPrice;
 
-    /**
-     * The pricing that applies for a customer in a given context.
-     */
+    
     private ProductVariantContextualPricing contextualPricing;
 
-    /**
-     * The date and time when the variant was created.
-     */
+    
     private OffsetDateTime createdAt;
 
-    /**
-     * A default [cursor](https://shopify.dev/api/usage/pagination-graphql) that
-     * returns the single next record, sorted ascending by ID.
-     */
+    
     private String defaultCursor;
 
-    /**
-     * The [delivery profile](https://shopify.dev/api/admin-graphql/latest/objects/DeliveryProfile) for the variant.
-     */
+    
     private DeliveryProfile deliveryProfile;
 
-    /**
-     * Display name of the variant, based on product's title + variant's title.
-     */
+    
     private String displayName;
 
-    /**
-     * The paginated list of events associated with the host subject.
-     */
+    
     private EventConnection events;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The featured image for the variant.
-     */
+    
     private Image image;
 
-    /**
-     * The inventory item, which is used to query for inventory information.
-     */
+    
     private InventoryItem inventoryItem;
 
-    /**
-     * Whether customers are allowed to place an order for the product variant when it's out of stock.
-     */
+    
     private ProductVariantInventoryPolicy inventoryPolicy;
 
-    /**
-     * The total sellable quantity of the variant.
-     */
+    
     private Integer inventoryQuantity;
 
-    /**
-     * The ID of the corresponding resource in the REST Admin API.
-     */
+    
     private String legacyResourceId;
 
-    /**
-     * The media associated with the product variant.
-     */
+    
     private MediaConnection media;
 
-    /**
-     * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-     * including its `namespace` and `key`, that's associated with a Shopify resource
-     * for the purposes of adding and storing additional information.
-     */
+    
     private Metafield metafield;
 
-    /**
-     * List of metafield definitions.
-     */
+    
     private MetafieldDefinitionConnection metafieldDefinitions;
 
-    /**
-     * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-     * that a merchant associates with a Shopify resource.
-     */
+    
     private MetafieldConnection metafields;
 
-    /**
-     * The order of the product variant in the list of product variants. The first position in the list is 1.
-     */
+    
     private int position;
 
-    /**
-     * List of prices and compare-at prices in the presentment currencies for this shop.
-     */
+    
     private ProductVariantPricePairConnection presentmentPrices;
 
-    /**
-     * The price of the product variant in the default shop currency.
-     */
+    
     private String price;
 
-    /**
-     * Returns a private metafield by namespace and key that belongs to the resource.
-     */
+    
     private PrivateMetafield privateMetafield;
 
-    /**
-     * List of private metafields that belong to the resource.
-     */
+    
     private PrivateMetafieldConnection privateMetafields;
 
-    /**
-     * The product that this variant belongs to.
-     */
+    
     private Product product;
 
-    /**
-     * A list of the product variant components.
-     */
+    
     private ProductVariantComponentConnection productVariantComponents;
 
-    /**
-     * Whether a product variant requires components. The default value is `false`.
-     * If `true`, then the product variant can only be purchased as a parent bundle with components and it will be omitted
-     * from channels that don't support bundles.
-     */
+    
     private boolean requiresComponents;
 
-    /**
-     * List of product options applied to the variant.
-     */
+    
     private List<SelectedOption> selectedOptions;
 
-    /**
-     * The total sellable quantity of the variant for online channels.
-     * This doesn't represent the total available inventory or capture
-     * [limitations based on customer location](https://help.shopify.com/manual/markets/inventory_and_fulfillment).
-     */
+    
     private int sellableOnlineQuantity;
 
-    /**
-     * Count of selling plan groups associated with the product variant.
-     */
+    
     private int sellingPlanGroupCount;
 
-    /**
-     * A list of all selling plan groups defined in the current shop associated with the product variant.
-     */
+    
     private SellingPlanGroupConnection sellingPlanGroups;
 
-    /**
-     * Count of selling plan groups associated with the product variant.
-     */
+    
     private Count sellingPlanGroupsCount;
 
-    /**
-     * A case-sensitive identifier for the product variant in the shop.
-     * Required in order to connect to a fulfillment service.
-     */
+    
     private String sku;
 
-    /**
-     * The Storefront GraphQL API ID of the `ProductVariant`.
-     *   
-     * As of the `2022-04` version release, the Storefront GraphQL API will no longer
-     * return Base64 encoded IDs to match the behavior of the Admin GraphQL API.
-     * Therefore, you can safely use the `id` field's value instead.
-     */
+    
     private String storefrontId;
 
-    /**
-     * The tax code for the product variant.
-     */
+    
     private String taxCode;
 
-    /**
-     * Whether a tax is charged when the product variant is sold.
-     */
+    
     private boolean taxable;
 
-    /**
-     * The title of the product variant.
-     */
+    
     private String title;
 
-    /**
-     * The published translations associated with the resource.
-     */
+    
     private List<Translation> translations;
 
-    /**
-     * The unit price measurement for the variant.
-     */
+    
     private UnitPriceMeasurement unitPriceMeasurement;
 
-    /**
-     * The date and time (ISO 8601 format) when the product variant was last modified.
-     */
+    
     private OffsetDateTime updatedAt;
 
     public ProductVariant build() {
@@ -1006,335 +725,242 @@ public class ProductVariant implements CommentEventEmbed, MetafieldReference, Me
       return result;
     }
 
-    /**
-     * Whether the product variant is available for sale.
-     */
+    
     public Builder availableForSale(boolean availableForSale) {
       this.availableForSale = availableForSale;
       return this;
     }
 
-    /**
-     * The value of the barcode associated with the product.
-     */
+    
     public Builder barcode(String barcode) {
       this.barcode = barcode;
       return this;
     }
 
-    /**
-     * The compare-at price of the variant in the default shop currency.
-     */
+    
     public Builder compareAtPrice(String compareAtPrice) {
       this.compareAtPrice = compareAtPrice;
       return this;
     }
 
-    /**
-     * The pricing that applies for a customer in a given context.
-     */
+    
     public Builder contextualPricing(ProductVariantContextualPricing contextualPricing) {
       this.contextualPricing = contextualPricing;
       return this;
     }
 
-    /**
-     * The date and time when the variant was created.
-     */
+    
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    /**
-     * A default [cursor](https://shopify.dev/api/usage/pagination-graphql) that
-     * returns the single next record, sorted ascending by ID.
-     */
+    
     public Builder defaultCursor(String defaultCursor) {
       this.defaultCursor = defaultCursor;
       return this;
     }
 
-    /**
-     * The [delivery profile](https://shopify.dev/api/admin-graphql/latest/objects/DeliveryProfile) for the variant.
-     */
+    
     public Builder deliveryProfile(DeliveryProfile deliveryProfile) {
       this.deliveryProfile = deliveryProfile;
       return this;
     }
 
-    /**
-     * Display name of the variant, based on product's title + variant's title.
-     */
+    
     public Builder displayName(String displayName) {
       this.displayName = displayName;
       return this;
     }
 
-    /**
-     * The paginated list of events associated with the host subject.
-     */
+    
     public Builder events(EventConnection events) {
       this.events = events;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The featured image for the variant.
-     */
+    
     public Builder image(Image image) {
       this.image = image;
       return this;
     }
 
-    /**
-     * The inventory item, which is used to query for inventory information.
-     */
+    
     public Builder inventoryItem(InventoryItem inventoryItem) {
       this.inventoryItem = inventoryItem;
       return this;
     }
 
-    /**
-     * Whether customers are allowed to place an order for the product variant when it's out of stock.
-     */
+    
     public Builder inventoryPolicy(ProductVariantInventoryPolicy inventoryPolicy) {
       this.inventoryPolicy = inventoryPolicy;
       return this;
     }
 
-    /**
-     * The total sellable quantity of the variant.
-     */
+    
     public Builder inventoryQuantity(Integer inventoryQuantity) {
       this.inventoryQuantity = inventoryQuantity;
       return this;
     }
 
-    /**
-     * The ID of the corresponding resource in the REST Admin API.
-     */
+    
     public Builder legacyResourceId(String legacyResourceId) {
       this.legacyResourceId = legacyResourceId;
       return this;
     }
 
-    /**
-     * The media associated with the product variant.
-     */
+    
     public Builder media(MediaConnection media) {
       this.media = media;
       return this;
     }
 
-    /**
-     * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-     * including its `namespace` and `key`, that's associated with a Shopify resource
-     * for the purposes of adding and storing additional information.
-     */
+    
     public Builder metafield(Metafield metafield) {
       this.metafield = metafield;
       return this;
     }
 
-    /**
-     * List of metafield definitions.
-     */
+    
     public Builder metafieldDefinitions(MetafieldDefinitionConnection metafieldDefinitions) {
       this.metafieldDefinitions = metafieldDefinitions;
       return this;
     }
 
-    /**
-     * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-     * that a merchant associates with a Shopify resource.
-     */
+    
     public Builder metafields(MetafieldConnection metafields) {
       this.metafields = metafields;
       return this;
     }
 
-    /**
-     * The order of the product variant in the list of product variants. The first position in the list is 1.
-     */
+    
     public Builder position(int position) {
       this.position = position;
       return this;
     }
 
-    /**
-     * List of prices and compare-at prices in the presentment currencies for this shop.
-     */
+    
     public Builder presentmentPrices(ProductVariantPricePairConnection presentmentPrices) {
       this.presentmentPrices = presentmentPrices;
       return this;
     }
 
-    /**
-     * The price of the product variant in the default shop currency.
-     */
+    
     public Builder price(String price) {
       this.price = price;
       return this;
     }
 
-    /**
-     * Returns a private metafield by namespace and key that belongs to the resource.
-     */
+    
     public Builder privateMetafield(PrivateMetafield privateMetafield) {
       this.privateMetafield = privateMetafield;
       return this;
     }
 
-    /**
-     * List of private metafields that belong to the resource.
-     */
+    
     public Builder privateMetafields(PrivateMetafieldConnection privateMetafields) {
       this.privateMetafields = privateMetafields;
       return this;
     }
 
-    /**
-     * The product that this variant belongs to.
-     */
+    
     public Builder product(Product product) {
       this.product = product;
       return this;
     }
 
-    /**
-     * A list of the product variant components.
-     */
+    
     public Builder productVariantComponents(
         ProductVariantComponentConnection productVariantComponents) {
       this.productVariantComponents = productVariantComponents;
       return this;
     }
 
-    /**
-     * Whether a product variant requires components. The default value is `false`.
-     * If `true`, then the product variant can only be purchased as a parent bundle with components and it will be omitted
-     * from channels that don't support bundles.
-     */
+    
     public Builder requiresComponents(boolean requiresComponents) {
       this.requiresComponents = requiresComponents;
       return this;
     }
 
-    /**
-     * List of product options applied to the variant.
-     */
+    
     public Builder selectedOptions(List<SelectedOption> selectedOptions) {
       this.selectedOptions = selectedOptions;
       return this;
     }
 
-    /**
-     * The total sellable quantity of the variant for online channels.
-     * This doesn't represent the total available inventory or capture
-     * [limitations based on customer location](https://help.shopify.com/manual/markets/inventory_and_fulfillment).
-     */
+    
     public Builder sellableOnlineQuantity(int sellableOnlineQuantity) {
       this.sellableOnlineQuantity = sellableOnlineQuantity;
       return this;
     }
 
-    /**
-     * Count of selling plan groups associated with the product variant.
-     */
+    
     public Builder sellingPlanGroupCount(int sellingPlanGroupCount) {
       this.sellingPlanGroupCount = sellingPlanGroupCount;
       return this;
     }
 
-    /**
-     * A list of all selling plan groups defined in the current shop associated with the product variant.
-     */
+    
     public Builder sellingPlanGroups(SellingPlanGroupConnection sellingPlanGroups) {
       this.sellingPlanGroups = sellingPlanGroups;
       return this;
     }
 
-    /**
-     * Count of selling plan groups associated with the product variant.
-     */
+    
     public Builder sellingPlanGroupsCount(Count sellingPlanGroupsCount) {
       this.sellingPlanGroupsCount = sellingPlanGroupsCount;
       return this;
     }
 
-    /**
-     * A case-sensitive identifier for the product variant in the shop.
-     * Required in order to connect to a fulfillment service.
-     */
+    
     public Builder sku(String sku) {
       this.sku = sku;
       return this;
     }
 
-    /**
-     * The Storefront GraphQL API ID of the `ProductVariant`.
-     *   
-     * As of the `2022-04` version release, the Storefront GraphQL API will no longer
-     * return Base64 encoded IDs to match the behavior of the Admin GraphQL API.
-     * Therefore, you can safely use the `id` field's value instead.
-     */
+    
     public Builder storefrontId(String storefrontId) {
       this.storefrontId = storefrontId;
       return this;
     }
 
-    /**
-     * The tax code for the product variant.
-     */
+    
     public Builder taxCode(String taxCode) {
       this.taxCode = taxCode;
       return this;
     }
 
-    /**
-     * Whether a tax is charged when the product variant is sold.
-     */
+    
     public Builder taxable(boolean taxable) {
       this.taxable = taxable;
       return this;
     }
 
-    /**
-     * The title of the product variant.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    /**
-     * The published translations associated with the resource.
-     */
+    
     public Builder translations(List<Translation> translations) {
       this.translations = translations;
       return this;
     }
 
-    /**
-     * The unit price measurement for the variant.
-     */
+    
     public Builder unitPriceMeasurement(UnitPriceMeasurement unitPriceMeasurement) {
       this.unitPriceMeasurement = unitPriceMeasurement;
       return this;
     }
 
-    /**
-     * The date and time (ISO 8601 format) when the product variant was last modified.
-     */
+    
     public Builder updatedAt(OffsetDateTime updatedAt) {
       this.updatedAt = updatedAt;
       return this;

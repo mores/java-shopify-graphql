@@ -7,34 +7,24 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Represents an error that happens during execution of a redirect import mutation.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class UrlRedirectImportUserError implements com.shopify.types.DisplayableError {
-  /**
-   * The error code.
-   */
+  
   private UrlRedirectImportErrorCode code;
 
-  /**
-   * The path to the input field that caused the error.
-   */
+  
   private List<String> field;
 
-  /**
-   * The error message.
-   */
+  
   private String message;
 
   public UrlRedirectImportUserError() {
   }
 
-  /**
-   * The error code.
-   */
+  
   public UrlRedirectImportErrorCode getCode() {
     return code;
   }
@@ -43,9 +33,7 @@ public class UrlRedirectImportUserError implements com.shopify.types.Displayable
     this.code = code;
   }
 
-  /**
-   * The path to the input field that caused the error.
-   */
+  
   public List<String> getField() {
     return field;
   }
@@ -54,9 +42,7 @@ public class UrlRedirectImportUserError implements com.shopify.types.Displayable
     this.field = field;
   }
 
-  /**
-   * The error message.
-   */
+  
   public String getMessage() {
     return message;
   }
@@ -90,19 +76,13 @@ public class UrlRedirectImportUserError implements com.shopify.types.Displayable
   }
 
   public static class Builder {
-    /**
-     * The error code.
-     */
+    
     private UrlRedirectImportErrorCode code;
 
-    /**
-     * The path to the input field that caused the error.
-     */
+    
     private List<String> field;
 
-    /**
-     * The error message.
-     */
+    
     private String message;
 
     public UrlRedirectImportUserError build() {
@@ -113,25 +93,19 @@ public class UrlRedirectImportUserError implements com.shopify.types.Displayable
       return result;
     }
 
-    /**
-     * The error code.
-     */
+    
     public Builder code(UrlRedirectImportErrorCode code) {
       this.code = code;
       return this;
     }
 
-    /**
-     * The path to the input field that caused the error.
-     */
+    
     public Builder field(List<String> field) {
       this.field = field;
       return this;
     }
 
-    /**
-     * The error message.
-     */
+    
     public Builder message(String message) {
       this.message = message;
       return this;

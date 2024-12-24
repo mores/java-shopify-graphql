@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `customerPaymentMethodRemoteCreate` mutation.
- */
+
 public class CustomerPaymentMethodRemoteCreatePayload {
-  /**
-   * The customer payment method.
-   */
+  
   private CustomerPaymentMethod customerPaymentMethod;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<CustomerPaymentMethodRemoteUserError> userErrors;
 
   public CustomerPaymentMethodRemoteCreatePayload() {
   }
 
-  /**
-   * The customer payment method.
-   */
+  
   public CustomerPaymentMethod getCustomerPaymentMethod() {
     return customerPaymentMethod;
   }
@@ -34,9 +26,7 @@ public class CustomerPaymentMethodRemoteCreatePayload {
     this.customerPaymentMethod = customerPaymentMethod;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<CustomerPaymentMethodRemoteUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class CustomerPaymentMethodRemoteCreatePayload {
   }
 
   public static class Builder {
-    /**
-     * The customer payment method.
-     */
+    
     private CustomerPaymentMethod customerPaymentMethod;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<CustomerPaymentMethodRemoteUserError> userErrors;
 
     public CustomerPaymentMethodRemoteCreatePayload build() {
@@ -86,17 +72,13 @@ public class CustomerPaymentMethodRemoteCreatePayload {
       return result;
     }
 
-    /**
-     * The customer payment method.
-     */
+    
     public Builder customerPaymentMethod(CustomerPaymentMethod customerPaymentMethod) {
       this.customerPaymentMethod = customerPaymentMethod;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<CustomerPaymentMethodRemoteUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

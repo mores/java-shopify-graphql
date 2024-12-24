@@ -11,9 +11,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Allows an app to charge a store for features or services on a recurring basis.
- */
+
 public class AppSubscriptionCreateGraphQLQuery extends GraphQLQuery {
   public AppSubscriptionCreateGraphQLQuery(String name,
       List<AppSubscriptionLineItemInput> lineItems, Boolean test, Integer trialDays,
@@ -70,54 +68,42 @@ public class AppSubscriptionCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * A descriptive name for the app subscription.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       this.fieldsSet.add("name");
       return this;
     }
 
-    /**
-     * Attaches one or more pricing plans to an app subscription. Only one pricing plan can be defined for each available type.
-     */
+    
     public Builder lineItems(List<AppSubscriptionLineItemInput> lineItems) {
       this.lineItems = lineItems;
       this.fieldsSet.add("lineItems");
       return this;
     }
 
-    /**
-     * Whether the app subscription is a test transaction.
-     */
+    
     public Builder test(Boolean test) {
       this.test = test;
       this.fieldsSet.add("test");
       return this;
     }
 
-    /**
-     * The number of days of the free trial period, beginning on the day that the merchant approves the app charges.
-     */
+    
     public Builder trialDays(Integer trialDays) {
       this.trialDays = trialDays;
       this.fieldsSet.add("trialDays");
       return this;
     }
 
-    /**
-     * The URL pointing to the page where the merchant is redirected after approving the app subscription.
-     */
+    
     public Builder returnUrl(String returnUrl) {
       this.returnUrl = returnUrl;
       this.fieldsSet.add("returnUrl");
       return this;
     }
 
-    /**
-     * The replacement behavior when creating an app subscription for a merchant with an already existing app subscription.
-     */
+    
     public Builder replacementBehavior(AppSubscriptionReplacementBehavior replacementBehavior) {
       this.replacementBehavior = replacementBehavior;
       this.fieldsSet.add("replacementBehavior");

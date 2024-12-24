@@ -5,39 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for possible operations for modifying access grants. Exactly one option is required.
- *
- * Explicit grants are [deprecated](https://shopify.dev/changelog/deprecating-explicit-access-grants-for-app-owned-metafields).
- */
+
 public class MetafieldAccessGrantOperationInput {
-  /**
-   * The input fields for an explicit access grant to be created or updated for the metafields under this definition.
-   *   
-   * Explicit grants are [deprecated](https://shopify.dev/changelog/deprecating-explicit-access-grants-for-app-owned-metafields).
-   */
+  
   private MetafieldAccessGrantInput create;
 
-  /**
-   * The input fields for an explicit access grant to be created or updated for the metafields under this definition.
-   *   
-   * Explicit grants are [deprecated](https://shopify.dev/changelog/deprecating-explicit-access-grants-for-app-owned-metafields).
-   */
+  
   private MetafieldAccessGrantInput update;
 
-  /**
-   * The input fields for an explicit access grant to be deleted for the metafields under this definition.
-   */
+  
   private MetafieldAccessGrantDeleteInput delete;
 
   public MetafieldAccessGrantOperationInput() {
   }
 
-  /**
-   * The input fields for an explicit access grant to be created or updated for the metafields under this definition.
-   *   
-   * Explicit grants are [deprecated](https://shopify.dev/changelog/deprecating-explicit-access-grants-for-app-owned-metafields).
-   */
+  
   public MetafieldAccessGrantInput getCreate() {
     return create;
   }
@@ -46,11 +28,7 @@ public class MetafieldAccessGrantOperationInput {
     this.create = create;
   }
 
-  /**
-   * The input fields for an explicit access grant to be created or updated for the metafields under this definition.
-   *   
-   * Explicit grants are [deprecated](https://shopify.dev/changelog/deprecating-explicit-access-grants-for-app-owned-metafields).
-   */
+  
   public MetafieldAccessGrantInput getUpdate() {
     return update;
   }
@@ -59,9 +37,7 @@ public class MetafieldAccessGrantOperationInput {
     this.update = update;
   }
 
-  /**
-   * The input fields for an explicit access grant to be deleted for the metafields under this definition.
-   */
+  
   public MetafieldAccessGrantDeleteInput getDelete() {
     return delete;
   }
@@ -95,23 +71,13 @@ public class MetafieldAccessGrantOperationInput {
   }
 
   public static class Builder {
-    /**
-     * The input fields for an explicit access grant to be created or updated for the metafields under this definition.
-     *   
-     * Explicit grants are [deprecated](https://shopify.dev/changelog/deprecating-explicit-access-grants-for-app-owned-metafields).
-     */
+    
     private MetafieldAccessGrantInput create;
 
-    /**
-     * The input fields for an explicit access grant to be created or updated for the metafields under this definition.
-     *   
-     * Explicit grants are [deprecated](https://shopify.dev/changelog/deprecating-explicit-access-grants-for-app-owned-metafields).
-     */
+    
     private MetafieldAccessGrantInput update;
 
-    /**
-     * The input fields for an explicit access grant to be deleted for the metafields under this definition.
-     */
+    
     private MetafieldAccessGrantDeleteInput delete;
 
     public MetafieldAccessGrantOperationInput build() {
@@ -122,29 +88,19 @@ public class MetafieldAccessGrantOperationInput {
       return result;
     }
 
-    /**
-     * The input fields for an explicit access grant to be created or updated for the metafields under this definition.
-     *   
-     * Explicit grants are [deprecated](https://shopify.dev/changelog/deprecating-explicit-access-grants-for-app-owned-metafields).
-     */
+    
     public Builder create(MetafieldAccessGrantInput create) {
       this.create = create;
       return this;
     }
 
-    /**
-     * The input fields for an explicit access grant to be created or updated for the metafields under this definition.
-     *   
-     * Explicit grants are [deprecated](https://shopify.dev/changelog/deprecating-explicit-access-grants-for-app-owned-metafields).
-     */
+    
     public Builder update(MetafieldAccessGrantInput update) {
       this.update = update;
       return this;
     }
 
-    /**
-     * The input fields for an explicit access grant to be deleted for the metafields under this definition.
-     */
+    
     public Builder delete(MetafieldAccessGrantDeleteInput delete) {
       this.delete = delete;
       return this;

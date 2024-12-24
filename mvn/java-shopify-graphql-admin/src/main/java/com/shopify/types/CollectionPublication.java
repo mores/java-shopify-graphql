@@ -6,41 +6,27 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * Represents the publications where a collection is published.
- */
+
 public class CollectionPublication {
-  /**
-   * The channel where the collection will be published.
-   */
+  
   private Channel channel;
 
-  /**
-   * The collection to be published on the publication.
-   */
+  
   private Collection collection;
 
-  /**
-   * Whether the publication is published or not.
-   */
+  
   private boolean isPublished;
 
-  /**
-   * The publication where the collection will be published.
-   */
+  
   private Publication publication;
 
-  /**
-   * The date that the publication was or is going to be published.
-   */
+  
   private OffsetDateTime publishDate;
 
   public CollectionPublication() {
   }
 
-  /**
-   * The channel where the collection will be published.
-   */
+  
   public Channel getChannel() {
     return channel;
   }
@@ -49,9 +35,7 @@ public class CollectionPublication {
     this.channel = channel;
   }
 
-  /**
-   * The collection to be published on the publication.
-   */
+  
   public Collection getCollection() {
     return collection;
   }
@@ -60,9 +44,7 @@ public class CollectionPublication {
     this.collection = collection;
   }
 
-  /**
-   * Whether the publication is published or not.
-   */
+  
   public boolean getIsPublished() {
     return isPublished;
   }
@@ -71,9 +53,7 @@ public class CollectionPublication {
     this.isPublished = isPublished;
   }
 
-  /**
-   * The publication where the collection will be published.
-   */
+  
   public Publication getPublication() {
     return publication;
   }
@@ -82,9 +62,7 @@ public class CollectionPublication {
     this.publication = publication;
   }
 
-  /**
-   * The date that the publication was or is going to be published.
-   */
+  
   public OffsetDateTime getPublishDate() {
     return publishDate;
   }
@@ -120,29 +98,19 @@ public class CollectionPublication {
   }
 
   public static class Builder {
-    /**
-     * The channel where the collection will be published.
-     */
+    
     private Channel channel;
 
-    /**
-     * The collection to be published on the publication.
-     */
+    
     private Collection collection;
 
-    /**
-     * Whether the publication is published or not.
-     */
+    
     private boolean isPublished;
 
-    /**
-     * The publication where the collection will be published.
-     */
+    
     private Publication publication;
 
-    /**
-     * The date that the publication was or is going to be published.
-     */
+    
     private OffsetDateTime publishDate;
 
     public CollectionPublication build() {
@@ -155,41 +123,31 @@ public class CollectionPublication {
       return result;
     }
 
-    /**
-     * The channel where the collection will be published.
-     */
+    
     public Builder channel(Channel channel) {
       this.channel = channel;
       return this;
     }
 
-    /**
-     * The collection to be published on the publication.
-     */
+    
     public Builder collection(Collection collection) {
       this.collection = collection;
       return this;
     }
 
-    /**
-     * Whether the publication is published or not.
-     */
+    
     public Builder isPublished(boolean isPublished) {
       this.isPublished = isPublished;
       return this;
     }
 
-    /**
-     * The publication where the collection will be published.
-     */
+    
     public Builder publication(Publication publication) {
       this.publication = publication;
       return this;
     }
 
-    /**
-     * The date that the publication was or is going to be published.
-     */
+    
     public Builder publishDate(OffsetDateTime publishDate) {
       this.publishDate = publishDate;
       return this;

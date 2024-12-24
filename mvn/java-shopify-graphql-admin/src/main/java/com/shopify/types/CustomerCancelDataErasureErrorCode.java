@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible error codes that can be returned by `CustomerCancelDataErasureUserError`.
- */
+
 public enum CustomerCancelDataErasureErrorCode {
   DOES_NOT_EXIST,
 

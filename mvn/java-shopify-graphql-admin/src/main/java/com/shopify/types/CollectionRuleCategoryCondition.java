@@ -6,24 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Specifies the taxonomy category to used for the condition.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class CollectionRuleCategoryCondition implements CollectionRuleConditionObject {
-  /**
-   * The taxonomy category used as condition.
-   */
+  
   private TaxonomyCategory value;
 
   public CollectionRuleCategoryCondition() {
   }
 
-  /**
-   * The taxonomy category used as condition.
-   */
+  
   public TaxonomyCategory getValue() {
     return value;
   }
@@ -55,9 +49,7 @@ public class CollectionRuleCategoryCondition implements CollectionRuleConditionO
   }
 
   public static class Builder {
-    /**
-     * The taxonomy category used as condition.
-     */
+    
     private TaxonomyCategory value;
 
     public CollectionRuleCategoryCondition build() {
@@ -66,9 +58,7 @@ public class CollectionRuleCategoryCondition implements CollectionRuleConditionO
       return result;
     }
 
-    /**
-     * The taxonomy category used as condition.
-     */
+    
     public Builder value(TaxonomyCategory value) {
       this.value = value;
       return this;

@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * The number of customers.
- */
+
 public class CustomersCountGraphQLQuery extends GraphQLQuery {
   public CustomersCountGraphQLQuery(String query, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -42,16 +40,7 @@ public class CustomersCountGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * A filter made up of terms, connectives, modifiers, and comparators.
-     * | name | type | description | acceptable_values | default_value | example_use |
-     * | ---- | ---- | ---- | ---- | ---- | ---- |
-     * | created_at | time |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
-     * | updated_at | time |
-     * You can apply one or more filters to a query. Learn more about [Shopify API
-     * search syntax](https://shopify.dev/api/usage/search-syntax).
-     */
+    
     public Builder query(String query) {
       this.query = query;
       this.fieldsSet.add("query");

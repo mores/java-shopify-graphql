@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * List of all article tags.
- */
+
 public class ArticleTagsGraphQLQuery extends GraphQLQuery {
   public ArticleTagsGraphQLQuery(ArticleTagSort sort, int limit, String queryName,
       Set<String> fieldsSet) {
@@ -46,18 +44,14 @@ public class ArticleTagsGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * Type of sort order.
-     */
+    
     public Builder sort(ArticleTagSort sort) {
       this.sort = sort;
       this.fieldsSet.add("sort");
       return this;
     }
 
-    /**
-     * The maximum number of tags to return.
-     */
+    
     public Builder limit(int limit) {
       this.limit = limit;
       this.fieldsSet.add("limit");

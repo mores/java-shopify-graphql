@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible error codes that can be returned by `BulkMutationUserError`.
- */
+
 public enum BulkMutationErrorCode {
   OPERATION_IN_PROGRESS,
 

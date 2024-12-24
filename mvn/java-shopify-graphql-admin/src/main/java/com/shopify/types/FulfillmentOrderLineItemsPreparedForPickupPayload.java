@@ -6,21 +6,15 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `fulfillmentOrderLineItemsPreparedForPickup` mutation.
- */
+
 public class FulfillmentOrderLineItemsPreparedForPickupPayload {
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<FulfillmentOrderLineItemsPreparedForPickupUserError> userErrors;
 
   public FulfillmentOrderLineItemsPreparedForPickupPayload() {
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<FulfillmentOrderLineItemsPreparedForPickupUserError> getUserErrors() {
     return userErrors;
   }
@@ -52,9 +46,7 @@ public class FulfillmentOrderLineItemsPreparedForPickupPayload {
   }
 
   public static class Builder {
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<FulfillmentOrderLineItemsPreparedForPickupUserError> userErrors;
 
     public FulfillmentOrderLineItemsPreparedForPickupPayload build() {
@@ -63,9 +55,7 @@ public class FulfillmentOrderLineItemsPreparedForPickupPayload {
       return result;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(
         List<FulfillmentOrderLineItemsPreparedForPickupUserError> userErrors) {
       this.userErrors = userErrors;

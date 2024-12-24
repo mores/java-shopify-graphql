@@ -5,33 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The design system allows you to set values that represent specific attributes
- * of your brand like color and font. These attributes are used throughout the user
- * interface. This brings consistency and allows you to easily make broad design changes.
- */
+
 public class CheckoutBrandingDesignSystem {
-  /**
-   * The color settings for global colors and color schemes.
-   */
+  
   private CheckoutBrandingColors colors;
 
-  /**
-   * The corner radius variables.
-   */
+  
   private CheckoutBrandingCornerRadiusVariables cornerRadius;
 
-  /**
-   * The typography.
-   */
+  
   private CheckoutBrandingTypography typography;
 
   public CheckoutBrandingDesignSystem() {
   }
 
-  /**
-   * The color settings for global colors and color schemes.
-   */
+  
   public CheckoutBrandingColors getColors() {
     return colors;
   }
@@ -40,9 +28,7 @@ public class CheckoutBrandingDesignSystem {
     this.colors = colors;
   }
 
-  /**
-   * The corner radius variables.
-   */
+  
   public CheckoutBrandingCornerRadiusVariables getCornerRadius() {
     return cornerRadius;
   }
@@ -51,9 +37,7 @@ public class CheckoutBrandingDesignSystem {
     this.cornerRadius = cornerRadius;
   }
 
-  /**
-   * The typography.
-   */
+  
   public CheckoutBrandingTypography getTypography() {
     return typography;
   }
@@ -87,19 +71,13 @@ public class CheckoutBrandingDesignSystem {
   }
 
   public static class Builder {
-    /**
-     * The color settings for global colors and color schemes.
-     */
+    
     private CheckoutBrandingColors colors;
 
-    /**
-     * The corner radius variables.
-     */
+    
     private CheckoutBrandingCornerRadiusVariables cornerRadius;
 
-    /**
-     * The typography.
-     */
+    
     private CheckoutBrandingTypography typography;
 
     public CheckoutBrandingDesignSystem build() {
@@ -110,25 +88,19 @@ public class CheckoutBrandingDesignSystem {
       return result;
     }
 
-    /**
-     * The color settings for global colors and color schemes.
-     */
+    
     public Builder colors(CheckoutBrandingColors colors) {
       this.colors = colors;
       return this;
     }
 
-    /**
-     * The corner radius variables.
-     */
+    
     public Builder cornerRadius(CheckoutBrandingCornerRadiusVariables cornerRadius) {
       this.cornerRadius = cornerRadius;
       return this;
     }
 
-    /**
-     * The typography.
-     */
+    
     public Builder typography(CheckoutBrandingTypography typography) {
       this.typography = typography;
       return this;

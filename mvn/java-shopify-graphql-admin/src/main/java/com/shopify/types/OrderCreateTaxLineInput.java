@@ -6,38 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for a tax line to create for an order.
- */
+
 public class OrderCreateTaxLineInput {
-  /**
-   * Whether the channel that submitted the tax line is liable for remitting. A
-   * value of `null` indicates unknown liability for the tax line.
-   */
+  
   private Boolean channelLiable = false;
 
-  /**
-   * The amount of tax to be charged on the item.
-   */
+  
   private MoneyBagInput priceSet;
 
-  /**
-   * The proportion of the item price that the tax represents as a decimal.
-   */
+  
   private String rate;
 
-  /**
-   * The name of the tax line to create.
-   */
+  
   private String title;
 
   public OrderCreateTaxLineInput() {
   }
 
-  /**
-   * Whether the channel that submitted the tax line is liable for remitting. A
-   * value of `null` indicates unknown liability for the tax line.
-   */
+  
   public Boolean getChannelLiable() {
     return channelLiable;
   }
@@ -46,9 +32,7 @@ public class OrderCreateTaxLineInput {
     this.channelLiable = channelLiable;
   }
 
-  /**
-   * The amount of tax to be charged on the item.
-   */
+  
   public MoneyBagInput getPriceSet() {
     return priceSet;
   }
@@ -57,9 +41,7 @@ public class OrderCreateTaxLineInput {
     this.priceSet = priceSet;
   }
 
-  /**
-   * The proportion of the item price that the tax represents as a decimal.
-   */
+  
   public String getRate() {
     return rate;
   }
@@ -68,9 +50,7 @@ public class OrderCreateTaxLineInput {
     this.rate = rate;
   }
 
-  /**
-   * The name of the tax line to create.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -105,25 +85,16 @@ public class OrderCreateTaxLineInput {
   }
 
   public static class Builder {
-    /**
-     * Whether the channel that submitted the tax line is liable for remitting. A
-     * value of `null` indicates unknown liability for the tax line.
-     */
+    
     private Boolean channelLiable = false;
 
-    /**
-     * The amount of tax to be charged on the item.
-     */
+    
     private MoneyBagInput priceSet;
 
-    /**
-     * The proportion of the item price that the tax represents as a decimal.
-     */
+    
     private String rate;
 
-    /**
-     * The name of the tax line to create.
-     */
+    
     private String title;
 
     public OrderCreateTaxLineInput build() {
@@ -135,34 +106,25 @@ public class OrderCreateTaxLineInput {
       return result;
     }
 
-    /**
-     * Whether the channel that submitted the tax line is liable for remitting. A
-     * value of `null` indicates unknown liability for the tax line.
-     */
+    
     public Builder channelLiable(Boolean channelLiable) {
       this.channelLiable = channelLiable;
       return this;
     }
 
-    /**
-     * The amount of tax to be charged on the item.
-     */
+    
     public Builder priceSet(MoneyBagInput priceSet) {
       this.priceSet = priceSet;
       return this;
     }
 
-    /**
-     * The proportion of the item price that the tax represents as a decimal.
-     */
+    
     public Builder rate(String rate) {
       this.rate = rate;
       return this;
     }
 
-    /**
-     * The name of the tax line to create.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;

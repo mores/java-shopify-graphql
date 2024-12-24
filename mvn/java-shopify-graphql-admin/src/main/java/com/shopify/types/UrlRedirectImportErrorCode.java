@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible error codes that can be returned by `UrlRedirectImportUserError`.
- */
+
 public enum UrlRedirectImportErrorCode {
   FILE_DOES_NOT_EXIST,
 

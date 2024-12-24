@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * The Customer Segment.
- */
+
 public class SegmentGraphQLQuery extends GraphQLQuery {
   public SegmentGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -42,9 +40,7 @@ public class SegmentGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * Find a segment by ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

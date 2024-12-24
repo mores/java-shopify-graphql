@@ -6,21 +6,15 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Settings related to payments.
- */
+
 public class PaymentSettings {
-  /**
-   * List of the digital wallets which the shop supports.
-   */
+  
   private List<DigitalWallet> supportedDigitalWallets;
 
   public PaymentSettings() {
   }
 
-  /**
-   * List of the digital wallets which the shop supports.
-   */
+  
   public List<DigitalWallet> getSupportedDigitalWallets() {
     return supportedDigitalWallets;
   }
@@ -52,9 +46,7 @@ public class PaymentSettings {
   }
 
   public static class Builder {
-    /**
-     * List of the digital wallets which the shop supports.
-     */
+    
     private List<DigitalWallet> supportedDigitalWallets;
 
     public PaymentSettings build() {
@@ -63,9 +55,7 @@ public class PaymentSettings {
       return result;
     }
 
-    /**
-     * List of the digital wallets which the shop supports.
-     */
+    
     public Builder supportedDigitalWallets(List<DigitalWallet> supportedDigitalWallets) {
       this.supportedDigitalWallets = supportedDigitalWallets;
       return this;

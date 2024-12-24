@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `stagedUploadTargetGenerate` mutation.
- */
+
 public class StagedUploadTargetGeneratePayload {
-  /**
-   * The signed parameters that can be used to upload the asset.
-   */
+  
   private List<MutationsStagedUploadTargetGenerateUploadParameter> parameters;
 
-  /**
-   * The signed URL where the asset can be uploaded.
-   */
+  
   private String url;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public StagedUploadTargetGeneratePayload() {
   }
 
-  /**
-   * The signed parameters that can be used to upload the asset.
-   */
+  
   public List<MutationsStagedUploadTargetGenerateUploadParameter> getParameters() {
     return parameters;
   }
@@ -39,9 +29,7 @@ public class StagedUploadTargetGeneratePayload {
     this.parameters = parameters;
   }
 
-  /**
-   * The signed URL where the asset can be uploaded.
-   */
+  
   public String getUrl() {
     return url;
   }
@@ -50,9 +38,7 @@ public class StagedUploadTargetGeneratePayload {
     this.url = url;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -86,19 +72,13 @@ public class StagedUploadTargetGeneratePayload {
   }
 
   public static class Builder {
-    /**
-     * The signed parameters that can be used to upload the asset.
-     */
+    
     private List<MutationsStagedUploadTargetGenerateUploadParameter> parameters;
 
-    /**
-     * The signed URL where the asset can be uploaded.
-     */
+    
     private String url;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public StagedUploadTargetGeneratePayload build() {
@@ -109,25 +89,19 @@ public class StagedUploadTargetGeneratePayload {
       return result;
     }
 
-    /**
-     * The signed parameters that can be used to upload the asset.
-     */
+    
     public Builder parameters(List<MutationsStagedUploadTargetGenerateUploadParameter> parameters) {
       this.parameters = parameters;
       return this;
     }
 
-    /**
-     * The signed URL where the asset can be uploaded.
-     */
+    
     public Builder url(String url) {
       this.url = url;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

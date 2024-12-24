@@ -6,59 +6,39 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * An unverified return line item.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class UnverifiedReturnLineItem implements com.shopify.types.Node, com.shopify.types.ReturnLineItemType {
-  /**
-   * A note from the customer that describes the item to be returned. Maximum length: 300 characters.
-   */
+  
   private String customerNote;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The quantity being returned.
-   */
+  
   private int quantity;
 
-  /**
-   * The quantity that can be refunded.
-   */
+  
   private int refundableQuantity;
 
-  /**
-   * The quantity that was refunded.
-   */
+  
   private int refundedQuantity;
 
-  /**
-   * The reason for returning the item.
-   */
+  
   private ReturnReason returnReason;
 
-  /**
-   * Additional information about the reason for the return. Maximum length: 255 characters.
-   */
+  
   private String returnReasonNote;
 
-  /**
-   * The unit price of the unverified return line item.
-   */
+  
   private MoneyV2 unitPrice;
 
   public UnverifiedReturnLineItem() {
   }
 
-  /**
-   * A note from the customer that describes the item to be returned. Maximum length: 300 characters.
-   */
+  
   public String getCustomerNote() {
     return customerNote;
   }
@@ -67,9 +47,7 @@ public class UnverifiedReturnLineItem implements com.shopify.types.Node, com.sho
     this.customerNote = customerNote;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -78,9 +56,7 @@ public class UnverifiedReturnLineItem implements com.shopify.types.Node, com.sho
     this.id = id;
   }
 
-  /**
-   * The quantity being returned.
-   */
+  
   public int getQuantity() {
     return quantity;
   }
@@ -89,9 +65,7 @@ public class UnverifiedReturnLineItem implements com.shopify.types.Node, com.sho
     this.quantity = quantity;
   }
 
-  /**
-   * The quantity that can be refunded.
-   */
+  
   public int getRefundableQuantity() {
     return refundableQuantity;
   }
@@ -100,9 +74,7 @@ public class UnverifiedReturnLineItem implements com.shopify.types.Node, com.sho
     this.refundableQuantity = refundableQuantity;
   }
 
-  /**
-   * The quantity that was refunded.
-   */
+  
   public int getRefundedQuantity() {
     return refundedQuantity;
   }
@@ -111,9 +83,7 @@ public class UnverifiedReturnLineItem implements com.shopify.types.Node, com.sho
     this.refundedQuantity = refundedQuantity;
   }
 
-  /**
-   * The reason for returning the item.
-   */
+  
   public ReturnReason getReturnReason() {
     return returnReason;
   }
@@ -122,9 +92,7 @@ public class UnverifiedReturnLineItem implements com.shopify.types.Node, com.sho
     this.returnReason = returnReason;
   }
 
-  /**
-   * Additional information about the reason for the return. Maximum length: 255 characters.
-   */
+  
   public String getReturnReasonNote() {
     return returnReasonNote;
   }
@@ -133,9 +101,7 @@ public class UnverifiedReturnLineItem implements com.shopify.types.Node, com.sho
     this.returnReasonNote = returnReasonNote;
   }
 
-  /**
-   * The unit price of the unverified return line item.
-   */
+  
   public MoneyV2 getUnitPrice() {
     return unitPrice;
   }
@@ -174,44 +140,28 @@ public class UnverifiedReturnLineItem implements com.shopify.types.Node, com.sho
   }
 
   public static class Builder {
-    /**
-     * A note from the customer that describes the item to be returned. Maximum length: 300 characters.
-     */
+    
     private String customerNote;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The quantity being returned.
-     */
+    
     private int quantity;
 
-    /**
-     * The quantity that can be refunded.
-     */
+    
     private int refundableQuantity;
 
-    /**
-     * The quantity that was refunded.
-     */
+    
     private int refundedQuantity;
 
-    /**
-     * The reason for returning the item.
-     */
+    
     private ReturnReason returnReason;
 
-    /**
-     * Additional information about the reason for the return. Maximum length: 255 characters.
-     */
+    
     private String returnReasonNote;
 
-    /**
-     * The unit price of the unverified return line item.
-     */
+    
     private MoneyV2 unitPrice;
 
     public UnverifiedReturnLineItem build() {
@@ -227,65 +177,49 @@ public class UnverifiedReturnLineItem implements com.shopify.types.Node, com.sho
       return result;
     }
 
-    /**
-     * A note from the customer that describes the item to be returned. Maximum length: 300 characters.
-     */
+    
     public Builder customerNote(String customerNote) {
       this.customerNote = customerNote;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The quantity being returned.
-     */
+    
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    /**
-     * The quantity that can be refunded.
-     */
+    
     public Builder refundableQuantity(int refundableQuantity) {
       this.refundableQuantity = refundableQuantity;
       return this;
     }
 
-    /**
-     * The quantity that was refunded.
-     */
+    
     public Builder refundedQuantity(int refundedQuantity) {
       this.refundedQuantity = refundedQuantity;
       return this;
     }
 
-    /**
-     * The reason for returning the item.
-     */
+    
     public Builder returnReason(ReturnReason returnReason) {
       this.returnReason = returnReason;
       return this;
     }
 
-    /**
-     * Additional information about the reason for the return. Maximum length: 255 characters.
-     */
+    
     public Builder returnReasonNote(String returnReasonNote) {
       this.returnReasonNote = returnReasonNote;
       return this;
     }
 
-    /**
-     * The unit price of the unverified return line item.
-     */
+    
     public Builder unitPrice(MoneyV2 unitPrice) {
       this.unitPrice = unitPrice;
       return this;

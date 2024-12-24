@@ -7,10 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Deletes specific quantity rules from a price list using a product variant ID.
- * You can use the `quantityRulesDelete` mutation to delete a set of quantity rules from a price list.
- */
+
 public class QuantityRulesDeleteGraphQLQuery extends GraphQLQuery {
   public QuantityRulesDeleteGraphQLQuery(String priceListId, List<String> variantIds,
       String queryName, Set<String> fieldsSet) {
@@ -49,18 +46,14 @@ public class QuantityRulesDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the price list from which the quantity rules will be deleted.
-     */
+    
     public Builder priceListId(String priceListId) {
       this.priceListId = priceListId;
       this.fieldsSet.add("priceListId");
       return this;
     }
 
-    /**
-     * A list of product variant IDs whose quantity rules will be removed from the price list.
-     */
+    
     public Builder variantIds(List<String> variantIds) {
       this.variantIds = variantIds;
       this.fieldsSet.add("variantIds");

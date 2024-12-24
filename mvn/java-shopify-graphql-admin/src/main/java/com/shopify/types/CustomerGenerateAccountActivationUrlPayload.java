@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `customerGenerateAccountActivationUrl` mutation.
- */
+
 public class CustomerGenerateAccountActivationUrlPayload {
-  /**
-   * The generated account activation URL.
-   */
+  
   private String accountActivationUrl;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public CustomerGenerateAccountActivationUrlPayload() {
   }
 
-  /**
-   * The generated account activation URL.
-   */
+  
   public String getAccountActivationUrl() {
     return accountActivationUrl;
   }
@@ -34,9 +26,7 @@ public class CustomerGenerateAccountActivationUrlPayload {
     this.accountActivationUrl = accountActivationUrl;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class CustomerGenerateAccountActivationUrlPayload {
   }
 
   public static class Builder {
-    /**
-     * The generated account activation URL.
-     */
+    
     private String accountActivationUrl;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public CustomerGenerateAccountActivationUrlPayload build() {
@@ -86,17 +72,13 @@ public class CustomerGenerateAccountActivationUrlPayload {
       return result;
     }
 
-    /**
-     * The generated account activation URL.
-     */
+    
     public Builder accountActivationUrl(String accountActivationUrl) {
       this.accountActivationUrl = accountActivationUrl;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

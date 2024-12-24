@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Update a customer's email marketing information information.
- */
+
 public class CustomerEmailMarketingConsentUpdateGraphQLQuery extends GraphQLQuery {
   public CustomerEmailMarketingConsentUpdateGraphQLQuery(
       CustomerEmailMarketingConsentUpdateInput input, String queryName, Set<String> fieldsSet) {
@@ -44,9 +42,7 @@ public class CustomerEmailMarketingConsentUpdateGraphQLQuery extends GraphQLQuer
                
     }
 
-    /**
-     * Specifies the input fields to update a customer's email marketing consent information.
-     */
+    
     public Builder input(CustomerEmailMarketingConsentUpdateInput input) {
       this.input = input;
       this.fieldsSet.add("input");

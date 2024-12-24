@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The compare-at price and price of a variant sharing a currency.
- */
+
 public class ProductVariantPricePair {
-  /**
-   * The compare-at price of the variant with associated currency.
-   */
+  
   private MoneyV2 compareAtPrice;
 
-  /**
-   * The price of the variant with associated currency.
-   */
+  
   private MoneyV2 price;
 
   public ProductVariantPricePair() {
   }
 
-  /**
-   * The compare-at price of the variant with associated currency.
-   */
+  
   public MoneyV2 getCompareAtPrice() {
     return compareAtPrice;
   }
@@ -33,9 +25,7 @@ public class ProductVariantPricePair {
     this.compareAtPrice = compareAtPrice;
   }
 
-  /**
-   * The price of the variant with associated currency.
-   */
+  
   public MoneyV2 getPrice() {
     return price;
   }
@@ -68,14 +58,10 @@ public class ProductVariantPricePair {
   }
 
   public static class Builder {
-    /**
-     * The compare-at price of the variant with associated currency.
-     */
+    
     private MoneyV2 compareAtPrice;
 
-    /**
-     * The price of the variant with associated currency.
-     */
+    
     private MoneyV2 price;
 
     public ProductVariantPricePair build() {
@@ -85,17 +71,13 @@ public class ProductVariantPricePair {
       return result;
     }
 
-    /**
-     * The compare-at price of the variant with associated currency.
-     */
+    
     public Builder compareAtPrice(MoneyV2 compareAtPrice) {
       this.compareAtPrice = compareAtPrice;
       return this;
     }
 
-    /**
-     * The price of the variant with associated currency.
-     */
+    
     public Builder price(MoneyV2 price) {
       this.price = price;
       return this;

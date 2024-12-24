@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Revokes the main contact from the company.
- */
+
 public class CompanyRevokeMainContactGraphQLQuery extends GraphQLQuery {
   public CompanyRevokeMainContactGraphQLQuery(String companyId, String queryName,
       Set<String> fieldsSet) {
@@ -43,9 +41,7 @@ public class CompanyRevokeMainContactGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the company to revoke the main contact from.
-     */
+    
     public Builder companyId(String companyId) {
       this.companyId = companyId;
       this.fieldsSet.add("companyId");

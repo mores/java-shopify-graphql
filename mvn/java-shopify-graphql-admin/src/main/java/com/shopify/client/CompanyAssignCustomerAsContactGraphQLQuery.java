@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Assigns the customer as a company contact.
- */
+
 public class CompanyAssignCustomerAsContactGraphQLQuery extends GraphQLQuery {
   public CompanyAssignCustomerAsContactGraphQLQuery(String companyId, String customerId,
       String queryName, Set<String> fieldsSet) {
@@ -47,18 +45,14 @@ public class CompanyAssignCustomerAsContactGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the company to assign the contact to.
-     */
+    
     public Builder companyId(String companyId) {
       this.companyId = companyId;
       this.fieldsSet.add("companyId");
       return this;
     }
 
-    /**
-     * The ID of the customer to assign as the contact.
-     */
+    
     public Builder customerId(String customerId) {
       this.customerId = customerId;
       this.fieldsSet.add("customerId");

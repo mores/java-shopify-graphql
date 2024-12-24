@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The heading level customizations.
- */
+
 public class CheckoutBrandingHeadingLevel {
-  /**
-   * The typography customizations used for headings.
-   */
+  
   private CheckoutBrandingTypographyStyle typography;
 
   public CheckoutBrandingHeadingLevel() {
   }
 
-  /**
-   * The typography customizations used for headings.
-   */
+  
   public CheckoutBrandingTypographyStyle getTypography() {
     return typography;
   }
@@ -51,9 +45,7 @@ public class CheckoutBrandingHeadingLevel {
   }
 
   public static class Builder {
-    /**
-     * The typography customizations used for headings.
-     */
+    
     private CheckoutBrandingTypographyStyle typography;
 
     public CheckoutBrandingHeadingLevel build() {
@@ -62,9 +54,7 @@ public class CheckoutBrandingHeadingLevel {
       return result;
     }
 
-    /**
-     * The typography customizations used for headings.
-     */
+    
     public Builder typography(CheckoutBrandingTypographyStyle typography) {
       this.typography = typography;
       return this;

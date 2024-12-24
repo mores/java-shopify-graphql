@@ -5,51 +5,33 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Colors for form controls.
- */
+
 public class CheckoutBrandingControlColorRoles {
-  /**
-   * The color of accented objects (links and focused state).
-   */
+  
   private String accent;
 
-  /**
-   * The color of the background.
-   */
+  
   private String background;
 
-  /**
-   * The color of borders.
-   */
+  
   private String border;
 
-  /**
-   * The decorative color for highlighting specific parts of the user interface.
-   */
+  
   private String decorative;
 
-  /**
-   * The color of icons.
-   */
+  
   private String icon;
 
-  /**
-   * The colors of selected controls.
-   */
+  
   private CheckoutBrandingColorRoles selected;
 
-  /**
-   * The color of text.
-   */
+  
   private String text;
 
   public CheckoutBrandingControlColorRoles() {
   }
 
-  /**
-   * The color of accented objects (links and focused state).
-   */
+  
   public String getAccent() {
     return accent;
   }
@@ -58,9 +40,7 @@ public class CheckoutBrandingControlColorRoles {
     this.accent = accent;
   }
 
-  /**
-   * The color of the background.
-   */
+  
   public String getBackground() {
     return background;
   }
@@ -69,9 +49,7 @@ public class CheckoutBrandingControlColorRoles {
     this.background = background;
   }
 
-  /**
-   * The color of borders.
-   */
+  
   public String getBorder() {
     return border;
   }
@@ -80,9 +58,7 @@ public class CheckoutBrandingControlColorRoles {
     this.border = border;
   }
 
-  /**
-   * The decorative color for highlighting specific parts of the user interface.
-   */
+  
   public String getDecorative() {
     return decorative;
   }
@@ -91,9 +67,7 @@ public class CheckoutBrandingControlColorRoles {
     this.decorative = decorative;
   }
 
-  /**
-   * The color of icons.
-   */
+  
   public String getIcon() {
     return icon;
   }
@@ -102,9 +76,7 @@ public class CheckoutBrandingControlColorRoles {
     this.icon = icon;
   }
 
-  /**
-   * The colors of selected controls.
-   */
+  
   public CheckoutBrandingColorRoles getSelected() {
     return selected;
   }
@@ -113,9 +85,7 @@ public class CheckoutBrandingControlColorRoles {
     this.selected = selected;
   }
 
-  /**
-   * The color of text.
-   */
+  
   public String getText() {
     return text;
   }
@@ -153,39 +123,25 @@ public class CheckoutBrandingControlColorRoles {
   }
 
   public static class Builder {
-    /**
-     * The color of accented objects (links and focused state).
-     */
+    
     private String accent;
 
-    /**
-     * The color of the background.
-     */
+    
     private String background;
 
-    /**
-     * The color of borders.
-     */
+    
     private String border;
 
-    /**
-     * The decorative color for highlighting specific parts of the user interface.
-     */
+    
     private String decorative;
 
-    /**
-     * The color of icons.
-     */
+    
     private String icon;
 
-    /**
-     * The colors of selected controls.
-     */
+    
     private CheckoutBrandingColorRoles selected;
 
-    /**
-     * The color of text.
-     */
+    
     private String text;
 
     public CheckoutBrandingControlColorRoles build() {
@@ -200,57 +156,43 @@ public class CheckoutBrandingControlColorRoles {
       return result;
     }
 
-    /**
-     * The color of accented objects (links and focused state).
-     */
+    
     public Builder accent(String accent) {
       this.accent = accent;
       return this;
     }
 
-    /**
-     * The color of the background.
-     */
+    
     public Builder background(String background) {
       this.background = background;
       return this;
     }
 
-    /**
-     * The color of borders.
-     */
+    
     public Builder border(String border) {
       this.border = border;
       return this;
     }
 
-    /**
-     * The decorative color for highlighting specific parts of the user interface.
-     */
+    
     public Builder decorative(String decorative) {
       this.decorative = decorative;
       return this;
     }
 
-    /**
-     * The color of icons.
-     */
+    
     public Builder icon(String icon) {
       this.icon = icon;
       return this;
     }
 
-    /**
-     * The colors of selected controls.
-     */
+    
     public Builder selected(CheckoutBrandingColorRoles selected) {
       this.selected = selected;
       return this;
     }
 
-    /**
-     * The color of text.
-     */
+    
     public Builder text(String text) {
       this.text = text;
       return this;

@@ -6,46 +6,27 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields to create a blog.
- */
+
 public class BlogCreateInput {
-  /**
-   * A unique, human-friendly string for the blog. If no handle is specified, a
-   * handle will be generated automatically from the blog title.
-   * The handle is customizable and is used by the Liquid templating language to refer to the blog.
-   */
+  
   private String handle;
 
-  /**
-   * The name of the template a blog is using if it's using an alternate template.
-   * Returns `null` if a blog is using the default blog.liquid template.
-   */
+  
   private String templateSuffix;
 
-  /**
-   * Attaches additional metadata to a store's resources.
-   */
+  
   private List<MetafieldInput> metafields;
 
-  /**
-   * Indicates whether readers can post comments to the blog and whether comments are moderated.
-   */
+  
   private CommentPolicy commentPolicy;
 
-  /**
-   * The title of the blog.
-   */
+  
   private String title;
 
   public BlogCreateInput() {
   }
 
-  /**
-   * A unique, human-friendly string for the blog. If no handle is specified, a
-   * handle will be generated automatically from the blog title.
-   * The handle is customizable and is used by the Liquid templating language to refer to the blog.
-   */
+  
   public String getHandle() {
     return handle;
   }
@@ -54,10 +35,7 @@ public class BlogCreateInput {
     this.handle = handle;
   }
 
-  /**
-   * The name of the template a blog is using if it's using an alternate template.
-   * Returns `null` if a blog is using the default blog.liquid template.
-   */
+  
   public String getTemplateSuffix() {
     return templateSuffix;
   }
@@ -66,9 +44,7 @@ public class BlogCreateInput {
     this.templateSuffix = templateSuffix;
   }
 
-  /**
-   * Attaches additional metadata to a store's resources.
-   */
+  
   public List<MetafieldInput> getMetafields() {
     return metafields;
   }
@@ -77,9 +53,7 @@ public class BlogCreateInput {
     this.metafields = metafields;
   }
 
-  /**
-   * Indicates whether readers can post comments to the blog and whether comments are moderated.
-   */
+  
   public CommentPolicy getCommentPolicy() {
     return commentPolicy;
   }
@@ -88,9 +62,7 @@ public class BlogCreateInput {
     this.commentPolicy = commentPolicy;
   }
 
-  /**
-   * The title of the blog.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -126,32 +98,19 @@ public class BlogCreateInput {
   }
 
   public static class Builder {
-    /**
-     * A unique, human-friendly string for the blog. If no handle is specified, a
-     * handle will be generated automatically from the blog title.
-     * The handle is customizable and is used by the Liquid templating language to refer to the blog.
-     */
+    
     private String handle;
 
-    /**
-     * The name of the template a blog is using if it's using an alternate template.
-     * Returns `null` if a blog is using the default blog.liquid template.
-     */
+    
     private String templateSuffix;
 
-    /**
-     * Attaches additional metadata to a store's resources.
-     */
+    
     private List<MetafieldInput> metafields;
 
-    /**
-     * Indicates whether readers can post comments to the blog and whether comments are moderated.
-     */
+    
     private CommentPolicy commentPolicy;
 
-    /**
-     * The title of the blog.
-     */
+    
     private String title;
 
     public BlogCreateInput build() {
@@ -164,44 +123,31 @@ public class BlogCreateInput {
       return result;
     }
 
-    /**
-     * A unique, human-friendly string for the blog. If no handle is specified, a
-     * handle will be generated automatically from the blog title.
-     * The handle is customizable and is used by the Liquid templating language to refer to the blog.
-     */
+    
     public Builder handle(String handle) {
       this.handle = handle;
       return this;
     }
 
-    /**
-     * The name of the template a blog is using if it's using an alternate template.
-     * Returns `null` if a blog is using the default blog.liquid template.
-     */
+    
     public Builder templateSuffix(String templateSuffix) {
       this.templateSuffix = templateSuffix;
       return this;
     }
 
-    /**
-     * Attaches additional metadata to a store's resources.
-     */
+    
     public Builder metafields(List<MetafieldInput> metafields) {
       this.metafields = metafields;
       return this;
     }
 
-    /**
-     * Indicates whether readers can post comments to the blog and whether comments are moderated.
-     */
+    
     public Builder commentPolicy(CommentPolicy commentPolicy) {
       this.commentPolicy = commentPolicy;
       return this;
     }
 
-    /**
-     * The title of the blog.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;

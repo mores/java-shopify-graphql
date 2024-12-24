@@ -6,31 +6,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields used to update the corner radius variables.
- */
+
 public class CheckoutBrandingCornerRadiusVariablesInput {
-  /**
-   * The value in pixels for small corner radii. It should be greater than zero. Example: 3.
-   */
+  
   private Integer small;
 
-  /**
-   * The value in pixels for base corner radii. It should be greater than zero. Example: 5.
-   */
+  
   private Integer base;
 
-  /**
-   * The value in pixels for large corner radii. It should be greater than zero. Example: 10.
-   */
+  
   private Integer large;
 
   public CheckoutBrandingCornerRadiusVariablesInput() {
   }
 
-  /**
-   * The value in pixels for small corner radii. It should be greater than zero. Example: 3.
-   */
+  
   public Integer getSmall() {
     return small;
   }
@@ -39,9 +29,7 @@ public class CheckoutBrandingCornerRadiusVariablesInput {
     this.small = small;
   }
 
-  /**
-   * The value in pixels for base corner radii. It should be greater than zero. Example: 5.
-   */
+  
   public Integer getBase() {
     return base;
   }
@@ -50,9 +38,7 @@ public class CheckoutBrandingCornerRadiusVariablesInput {
     this.base = base;
   }
 
-  /**
-   * The value in pixels for large corner radii. It should be greater than zero. Example: 10.
-   */
+  
   public Integer getLarge() {
     return large;
   }
@@ -86,19 +72,13 @@ public class CheckoutBrandingCornerRadiusVariablesInput {
   }
 
   public static class Builder {
-    /**
-     * The value in pixels for small corner radii. It should be greater than zero. Example: 3.
-     */
+    
     private Integer small;
 
-    /**
-     * The value in pixels for base corner radii. It should be greater than zero. Example: 5.
-     */
+    
     private Integer base;
 
-    /**
-     * The value in pixels for large corner radii. It should be greater than zero. Example: 10.
-     */
+    
     private Integer large;
 
     public CheckoutBrandingCornerRadiusVariablesInput build() {
@@ -109,25 +89,19 @@ public class CheckoutBrandingCornerRadiusVariablesInput {
       return result;
     }
 
-    /**
-     * The value in pixels for small corner radii. It should be greater than zero. Example: 3.
-     */
+    
     public Builder small(Integer small) {
       this.small = small;
       return this;
     }
 
-    /**
-     * The value in pixels for base corner radii. It should be greater than zero. Example: 5.
-     */
+    
     public Builder base(Integer base) {
       this.base = base;
       return this;
     }
 
-    /**
-     * The value in pixels for large corner radii. It should be greater than zero. Example: 10.
-     */
+    
     public Builder large(Integer large) {
       this.large = large;
       return this;

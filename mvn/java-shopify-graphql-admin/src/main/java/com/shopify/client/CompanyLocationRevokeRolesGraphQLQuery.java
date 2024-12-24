@@ -7,9 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Revokes roles on a company location.
- */
+
 public class CompanyLocationRevokeRolesGraphQLQuery extends GraphQLQuery {
   public CompanyLocationRevokeRolesGraphQLQuery(String companyLocationId,
       List<String> rolesToRevoke, String queryName, Set<String> fieldsSet) {
@@ -48,18 +46,14 @@ public class CompanyLocationRevokeRolesGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The location whose roles are being revoked.
-     */
+    
     public Builder companyLocationId(String companyLocationId) {
       this.companyLocationId = companyLocationId;
       this.fieldsSet.add("companyLocationId");
       return this;
     }
 
-    /**
-     * The current roles to revoke.
-     */
+    
     public Builder rolesToRevoke(List<String> rolesToRevoke) {
       this.rolesToRevoke = rolesToRevoke;
       this.fieldsSet.add("rolesToRevoke");

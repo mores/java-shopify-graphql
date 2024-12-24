@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `scriptTagDelete` mutation.
- */
+
 public class ScriptTagDeletePayload {
-  /**
-   * The ID of the deleted script tag.
-   */
+  
   private String deletedScriptTagId;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public ScriptTagDeletePayload() {
   }
 
-  /**
-   * The ID of the deleted script tag.
-   */
+  
   public String getDeletedScriptTagId() {
     return deletedScriptTagId;
   }
@@ -34,9 +26,7 @@ public class ScriptTagDeletePayload {
     this.deletedScriptTagId = deletedScriptTagId;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class ScriptTagDeletePayload {
   }
 
   public static class Builder {
-    /**
-     * The ID of the deleted script tag.
-     */
+    
     private String deletedScriptTagId;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public ScriptTagDeletePayload build() {
@@ -86,17 +72,13 @@ public class ScriptTagDeletePayload {
       return result;
     }
 
-    /**
-     * The ID of the deleted script tag.
-     */
+    
     public Builder deletedScriptTagId(String deletedScriptTagId) {
       this.deletedScriptTagId = deletedScriptTagId;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

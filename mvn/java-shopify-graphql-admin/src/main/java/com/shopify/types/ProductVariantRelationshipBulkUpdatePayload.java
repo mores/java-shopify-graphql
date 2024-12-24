@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `productVariantRelationshipBulkUpdate` mutation.
- */
+
 public class ProductVariantRelationshipBulkUpdatePayload {
-  /**
-   * The product variants with successfully updated product variant relationships.
-   */
+  
   private List<ProductVariant> parentProductVariants;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<ProductVariantRelationshipBulkUpdateUserError> userErrors;
 
   public ProductVariantRelationshipBulkUpdatePayload() {
   }
 
-  /**
-   * The product variants with successfully updated product variant relationships.
-   */
+  
   public List<ProductVariant> getParentProductVariants() {
     return parentProductVariants;
   }
@@ -34,9 +26,7 @@ public class ProductVariantRelationshipBulkUpdatePayload {
     this.parentProductVariants = parentProductVariants;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<ProductVariantRelationshipBulkUpdateUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class ProductVariantRelationshipBulkUpdatePayload {
   }
 
   public static class Builder {
-    /**
-     * The product variants with successfully updated product variant relationships.
-     */
+    
     private List<ProductVariant> parentProductVariants;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<ProductVariantRelationshipBulkUpdateUserError> userErrors;
 
     public ProductVariantRelationshipBulkUpdatePayload build() {
@@ -86,17 +72,13 @@ public class ProductVariantRelationshipBulkUpdatePayload {
       return result;
     }
 
-    /**
-     * The product variants with successfully updated product variant relationships.
-     */
+    
     public Builder parentProductVariants(List<ProductVariant> parentProductVariants) {
       this.parentProductVariants = parentProductVariants;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<ProductVariantRelationshipBulkUpdateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

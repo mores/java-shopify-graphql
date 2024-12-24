@@ -9,11 +9,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Activates the specified standard metafield definition from its template.
- *   
- * Refer to the [list of standard metafield definition templates](https://shopify.dev/apps/metafields/definitions/standard-definitions).
- */
+
 public class StandardMetafieldDefinitionEnableGraphQLQuery extends GraphQLQuery {
   public StandardMetafieldDefinitionEnableGraphQLQuery(MetafieldOwnerType ownerType, String id,
       String namespace, String key, boolean pin, Boolean useAsCollectionCondition,
@@ -71,63 +67,49 @@ public class StandardMetafieldDefinitionEnableGraphQLQuery extends GraphQLQuery 
                
     }
 
-    /**
-     * The resource type that the metafield definition is scoped to.
-     */
+    
     public Builder ownerType(MetafieldOwnerType ownerType) {
       this.ownerType = ownerType;
       this.fieldsSet.add("ownerType");
       return this;
     }
 
-    /**
-     * The ID of the standard metafield definition template to enable.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * The namespace of the standard metafield to enable. Used in combination with `key`.
-     */
+    
     public Builder namespace(String namespace) {
       this.namespace = namespace;
       this.fieldsSet.add("namespace");
       return this;
     }
 
-    /**
-     * The key of the standard metafield to enable. Used in combination with `namespace`.
-     */
+    
     public Builder key(String key) {
       this.key = key;
       this.fieldsSet.add("key");
       return this;
     }
 
-    /**
-     * Whether to pin the metafield definition.
-     */
+    
     public Builder pin(boolean pin) {
       this.pin = pin;
       this.fieldsSet.add("pin");
       return this;
     }
 
-    /**
-     * Whether the metafield definition can be used as a collection condition.
-     */
+    
     public Builder useAsCollectionCondition(Boolean useAsCollectionCondition) {
       this.useAsCollectionCondition = useAsCollectionCondition;
       this.fieldsSet.add("useAsCollectionCondition");
       return this;
     }
 
-    /**
-     * The access settings that apply to each of the metafields that belong to the metafield definition.
-     */
+    
     public Builder access(StandardMetafieldDefinitionAccessInput access) {
       this.access = access;
       this.fieldsSet.add("access");

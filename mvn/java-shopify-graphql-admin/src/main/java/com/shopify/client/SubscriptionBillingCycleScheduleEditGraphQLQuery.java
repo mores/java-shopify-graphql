@@ -8,9 +8,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Modify the schedule of a specific billing cycle.
- */
+
 public class SubscriptionBillingCycleScheduleEditGraphQLQuery extends GraphQLQuery {
   public SubscriptionBillingCycleScheduleEditGraphQLQuery(
       SubscriptionBillingCycleInput billingCycleInput,
@@ -50,18 +48,14 @@ public class SubscriptionBillingCycleScheduleEditGraphQLQuery extends GraphQLQue
                
     }
 
-    /**
-     * Input object for selecting and using billing cycles.
-     */
+    
     public Builder billingCycleInput(SubscriptionBillingCycleInput billingCycleInput) {
       this.billingCycleInput = billingCycleInput;
       this.fieldsSet.add("billingCycleInput");
       return this;
     }
 
-    /**
-     * Data used to create or modify billing cycle schedule edit.
-     */
+    
     public Builder input(SubscriptionBillingCycleScheduleEditInput input) {
       this.input = input;
       this.fieldsSet.add("input");

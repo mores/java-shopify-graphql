@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns the shop-wide shipping settings.
- */
+
 public class DeliverySettingsGraphQLQuery extends GraphQLQuery {
   public DeliverySettingsGraphQLQuery(String queryName) {
     super("query", queryName);

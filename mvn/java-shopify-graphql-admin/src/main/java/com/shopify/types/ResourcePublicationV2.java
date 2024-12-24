@@ -6,42 +6,24 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * A resource publication represents information about the publication of a resource.
- * Unlike `ResourcePublication`, an instance of `ResourcePublicationV2` can't be
- * unpublished. It must either be published or scheduled to be published.
- *
- * See [ResourcePublication](/api/admin-graphql/latest/objects/ResourcePublication) for more context.
- */
+
 public class ResourcePublicationV2 {
-  /**
-   * Whether the resource publication is published. If true, then the resource publication is published to the publication.
-   * If false, then the resource publication is staged to be published to the publication.
-   */
+  
   private boolean isPublished;
 
-  /**
-   * The publication the resource publication is published to.
-   */
+  
   private Publication publication;
 
-  /**
-   * The date that the resource publication was or is going to be published to the publication.
-   */
+  
   private OffsetDateTime publishDate;
 
-  /**
-   * The resource published to the publication.
-   */
+  
   private Publishable publishable;
 
   public ResourcePublicationV2() {
   }
 
-  /**
-   * Whether the resource publication is published. If true, then the resource publication is published to the publication.
-   * If false, then the resource publication is staged to be published to the publication.
-   */
+  
   public boolean getIsPublished() {
     return isPublished;
   }
@@ -50,9 +32,7 @@ public class ResourcePublicationV2 {
     this.isPublished = isPublished;
   }
 
-  /**
-   * The publication the resource publication is published to.
-   */
+  
   public Publication getPublication() {
     return publication;
   }
@@ -61,9 +41,7 @@ public class ResourcePublicationV2 {
     this.publication = publication;
   }
 
-  /**
-   * The date that the resource publication was or is going to be published to the publication.
-   */
+  
   public OffsetDateTime getPublishDate() {
     return publishDate;
   }
@@ -72,9 +50,7 @@ public class ResourcePublicationV2 {
     this.publishDate = publishDate;
   }
 
-  /**
-   * The resource published to the publication.
-   */
+  
   public Publishable getPublishable() {
     return publishable;
   }
@@ -109,25 +85,16 @@ public class ResourcePublicationV2 {
   }
 
   public static class Builder {
-    /**
-     * Whether the resource publication is published. If true, then the resource publication is published to the publication.
-     * If false, then the resource publication is staged to be published to the publication.
-     */
+    
     private boolean isPublished;
 
-    /**
-     * The publication the resource publication is published to.
-     */
+    
     private Publication publication;
 
-    /**
-     * The date that the resource publication was or is going to be published to the publication.
-     */
+    
     private OffsetDateTime publishDate;
 
-    /**
-     * The resource published to the publication.
-     */
+    
     private Publishable publishable;
 
     public ResourcePublicationV2 build() {
@@ -139,34 +106,25 @@ public class ResourcePublicationV2 {
       return result;
     }
 
-    /**
-     * Whether the resource publication is published. If true, then the resource publication is published to the publication.
-     * If false, then the resource publication is staged to be published to the publication.
-     */
+    
     public Builder isPublished(boolean isPublished) {
       this.isPublished = isPublished;
       return this;
     }
 
-    /**
-     * The publication the resource publication is published to.
-     */
+    
     public Builder publication(Publication publication) {
       this.publication = publication;
       return this;
     }
 
-    /**
-     * The date that the resource publication was or is going to be published to the publication.
-     */
+    
     public Builder publishDate(OffsetDateTime publishDate) {
       this.publishDate = publishDate;
       return this;
     }
 
-    /**
-     * The resource published to the publication.
-     */
+    
     public Builder publishable(Publishable publishable) {
       this.publishable = publishable;
       return this;

@@ -5,30 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The `DeliverySetting` object enables you to manage shop-wide shipping settings.
- * You can enable legacy compatibility mode for the multi-location delivery profiles feature
- * if the legacy mode isn't blocked.
- */
+
 public class DeliverySetting {
-  /**
-   * Whether the shop is blocked from converting to full multi-location delivery
-   * profiles mode. If the shop is blocked, then the blocking reasons are also returned.
-   */
+  
   private DeliveryLegacyModeBlocked legacyModeBlocked;
 
-  /**
-   * Enables legacy compatability mode for the multi-location delivery profiles feature.
-   */
+  
   private boolean legacyModeProfiles;
 
   public DeliverySetting() {
   }
 
-  /**
-   * Whether the shop is blocked from converting to full multi-location delivery
-   * profiles mode. If the shop is blocked, then the blocking reasons are also returned.
-   */
+  
   public DeliveryLegacyModeBlocked getLegacyModeBlocked() {
     return legacyModeBlocked;
   }
@@ -37,9 +25,7 @@ public class DeliverySetting {
     this.legacyModeBlocked = legacyModeBlocked;
   }
 
-  /**
-   * Enables legacy compatability mode for the multi-location delivery profiles feature.
-   */
+  
   public boolean getLegacyModeProfiles() {
     return legacyModeProfiles;
   }
@@ -72,15 +58,10 @@ public class DeliverySetting {
   }
 
   public static class Builder {
-    /**
-     * Whether the shop is blocked from converting to full multi-location delivery
-     * profiles mode. If the shop is blocked, then the blocking reasons are also returned.
-     */
+    
     private DeliveryLegacyModeBlocked legacyModeBlocked;
 
-    /**
-     * Enables legacy compatability mode for the multi-location delivery profiles feature.
-     */
+    
     private boolean legacyModeProfiles;
 
     public DeliverySetting build() {
@@ -90,18 +71,13 @@ public class DeliverySetting {
       return result;
     }
 
-    /**
-     * Whether the shop is blocked from converting to full multi-location delivery
-     * profiles mode. If the shop is blocked, then the blocking reasons are also returned.
-     */
+    
     public Builder legacyModeBlocked(DeliveryLegacyModeBlocked legacyModeBlocked) {
       this.legacyModeBlocked = legacyModeBlocked;
       return this;
     }
 
-    /**
-     * Enables legacy compatability mode for the multi-location delivery profiles feature.
-     */
+    
     public Builder legacyModeProfiles(boolean legacyModeProfiles) {
       this.legacyModeProfiles = legacyModeProfiles;
       return this;

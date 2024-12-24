@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Applies a code discount on the subscription draft.
- */
+
 public class SubscriptionDraftDiscountCodeApplyGraphQLQuery extends GraphQLQuery {
   public SubscriptionDraftDiscountCodeApplyGraphQLQuery(String draftId, String redeemCode,
       String queryName, Set<String> fieldsSet) {
@@ -47,18 +45,14 @@ public class SubscriptionDraftDiscountCodeApplyGraphQLQuery extends GraphQLQuery
                
     }
 
-    /**
-     * The gid of the subscription contract draft to apply a subscription code discount on.
-     */
+    
     public Builder draftId(String draftId) {
       this.draftId = draftId;
       this.fieldsSet.add("draftId");
       return this;
     }
 
-    /**
-     * Code discount redeem code.
-     */
+    
     public Builder redeemCode(String redeemCode) {
       this.redeemCode = redeemCode;
       this.fieldsSet.add("redeemCode");

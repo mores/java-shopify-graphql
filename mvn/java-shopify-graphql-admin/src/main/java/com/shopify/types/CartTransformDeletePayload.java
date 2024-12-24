@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `cartTransformDelete` mutation.
- */
+
 public class CartTransformDeletePayload {
-  /**
-   * The globally-unique ID for the deleted cart transform.
-   */
+  
   private String deletedId;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<CartTransformDeleteUserError> userErrors;
 
   public CartTransformDeletePayload() {
   }
 
-  /**
-   * The globally-unique ID for the deleted cart transform.
-   */
+  
   public String getDeletedId() {
     return deletedId;
   }
@@ -34,9 +26,7 @@ public class CartTransformDeletePayload {
     this.deletedId = deletedId;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<CartTransformDeleteUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class CartTransformDeletePayload {
   }
 
   public static class Builder {
-    /**
-     * The globally-unique ID for the deleted cart transform.
-     */
+    
     private String deletedId;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<CartTransformDeleteUserError> userErrors;
 
     public CartTransformDeletePayload build() {
@@ -86,17 +72,13 @@ public class CartTransformDeletePayload {
       return result;
     }
 
-    /**
-     * The globally-unique ID for the deleted cart transform.
-     */
+    
     public Builder deletedId(String deletedId) {
       this.deletedId = deletedId;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<CartTransformDeleteUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

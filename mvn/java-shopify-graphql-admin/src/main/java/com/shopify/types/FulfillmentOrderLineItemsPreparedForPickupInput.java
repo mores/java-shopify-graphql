@@ -6,21 +6,15 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for marking fulfillment order line items as ready for pickup.
- */
+
 public class FulfillmentOrderLineItemsPreparedForPickupInput {
-  /**
-   * The fulfillment orders associated with the line items which are ready to be picked up by a customer.
-   */
+  
   private List<PreparedFulfillmentOrderLineItemsInput> lineItemsByFulfillmentOrder;
 
   public FulfillmentOrderLineItemsPreparedForPickupInput() {
   }
 
-  /**
-   * The fulfillment orders associated with the line items which are ready to be picked up by a customer.
-   */
+  
   public List<PreparedFulfillmentOrderLineItemsInput> getLineItemsByFulfillmentOrder() {
     return lineItemsByFulfillmentOrder;
   }
@@ -53,9 +47,7 @@ public class FulfillmentOrderLineItemsPreparedForPickupInput {
   }
 
   public static class Builder {
-    /**
-     * The fulfillment orders associated with the line items which are ready to be picked up by a customer.
-     */
+    
     private List<PreparedFulfillmentOrderLineItemsInput> lineItemsByFulfillmentOrder;
 
     public FulfillmentOrderLineItemsPreparedForPickupInput build() {
@@ -64,9 +56,7 @@ public class FulfillmentOrderLineItemsPreparedForPickupInput {
       return result;
     }
 
-    /**
-     * The fulfillment orders associated with the line items which are ready to be picked up by a customer.
-     */
+    
     public Builder lineItemsByFulfillmentOrder(
         List<PreparedFulfillmentOrderLineItemsInput> lineItemsByFulfillmentOrder) {
       this.lineItemsByFulfillmentOrder = lineItemsByFulfillmentOrder;

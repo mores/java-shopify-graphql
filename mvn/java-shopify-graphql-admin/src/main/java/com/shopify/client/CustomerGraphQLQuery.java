@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns a Customer resource by ID.
- */
+
 public class CustomerGraphQLQuery extends GraphQLQuery {
   public CustomerGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -42,9 +40,7 @@ public class CustomerGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the `Customer` to return.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

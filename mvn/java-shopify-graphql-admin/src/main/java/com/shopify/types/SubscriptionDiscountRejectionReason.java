@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * The reason a discount on a subscription draft was rejected.
- */
+
 public enum SubscriptionDiscountRejectionReason {
   NOT_FOUND,
 

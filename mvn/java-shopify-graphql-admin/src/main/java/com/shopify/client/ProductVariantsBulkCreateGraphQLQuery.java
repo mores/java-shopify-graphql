@@ -10,9 +10,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Creates multiple variants in a single product. This mutation can be called directly or via the bulkOperation.
- */
+
 public class ProductVariantsBulkCreateGraphQLQuery extends GraphQLQuery {
   public ProductVariantsBulkCreateGraphQLQuery(List<ProductVariantsBulkInput> variants,
       String productId, List<CreateMediaInput> media, ProductVariantsBulkCreateStrategy strategy,
@@ -60,38 +58,28 @@ public class ProductVariantsBulkCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * An array of product variants to be created.
-     */
+    
     public Builder variants(List<ProductVariantsBulkInput> variants) {
       this.variants = variants;
       this.fieldsSet.add("variants");
       return this;
     }
 
-    /**
-     * The ID of the product on which to create the variants.
-     */
+    
     public Builder productId(String productId) {
       this.productId = productId;
       this.fieldsSet.add("productId");
       return this;
     }
 
-    /**
-     * List of new media to be added to the product.
-     */
+    
     public Builder media(List<CreateMediaInput> media) {
       this.media = media;
       this.fieldsSet.add("media");
       return this;
     }
 
-    /**
-     * The strategy defines which behavior the mutation should observe, such as
-     * whether to keep or delete the standalone variant (when product has only a
-     * single or default variant) when creating new variants in bulk.
-     */
+    
     public Builder strategy(ProductVariantsBulkCreateStrategy strategy) {
       this.strategy = strategy;
       this.fieldsSet.add("strategy");

@@ -5,31 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for updating a product option value.
- */
+
 public class OptionValueUpdateInput {
-  /**
-   * Specifies the product option value.
-   */
+  
   private String id;
 
-  /**
-   * Value associated with an option.
-   */
+  
   private String name;
 
-  /**
-   * Metafield value associated with an option.
-   */
+  
   private String linkedMetafieldValue;
 
   public OptionValueUpdateInput() {
   }
 
-  /**
-   * Specifies the product option value.
-   */
+  
   public String getId() {
     return id;
   }
@@ -38,9 +28,7 @@ public class OptionValueUpdateInput {
     this.id = id;
   }
 
-  /**
-   * Value associated with an option.
-   */
+  
   public String getName() {
     return name;
   }
@@ -49,9 +37,7 @@ public class OptionValueUpdateInput {
     this.name = name;
   }
 
-  /**
-   * Metafield value associated with an option.
-   */
+  
   public String getLinkedMetafieldValue() {
     return linkedMetafieldValue;
   }
@@ -85,19 +71,13 @@ public class OptionValueUpdateInput {
   }
 
   public static class Builder {
-    /**
-     * Specifies the product option value.
-     */
+    
     private String id;
 
-    /**
-     * Value associated with an option.
-     */
+    
     private String name;
 
-    /**
-     * Metafield value associated with an option.
-     */
+    
     private String linkedMetafieldValue;
 
     public OptionValueUpdateInput build() {
@@ -108,25 +88,19 @@ public class OptionValueUpdateInput {
       return result;
     }
 
-    /**
-     * Specifies the product option value.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * Value associated with an option.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * Metafield value associated with an option.
-     */
+    
     public Builder linkedMetafieldValue(String linkedMetafieldValue) {
       this.linkedMetafieldValue = linkedMetafieldValue;
       return this;

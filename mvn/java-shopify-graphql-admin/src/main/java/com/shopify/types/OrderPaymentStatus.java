@@ -6,41 +6,27 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The status of a customer's payment for an order.
- */
+
 public class OrderPaymentStatus {
-  /**
-   * A message describing an error during the asynchronous processing of a payment.
-   */
+  
   private String errorMessage;
 
-  /**
-   * The ID of the payment, initially returned by an `orderCreateMandatePayment` or `orderCreatePayment` mutation.
-   */
+  
   private String paymentReferenceId;
 
-  /**
-   * The status of the payment.
-   */
+  
   private OrderPaymentStatusResult status;
 
-  /**
-   * The transaction associated with the payment.
-   */
+  
   private List<OrderTransaction> transactions;
 
-  /**
-   * A translated message describing an error during the asynchronous processing of a payment.
-   */
+  
   private String translatedErrorMessage;
 
   public OrderPaymentStatus() {
   }
 
-  /**
-   * A message describing an error during the asynchronous processing of a payment.
-   */
+  
   public String getErrorMessage() {
     return errorMessage;
   }
@@ -49,9 +35,7 @@ public class OrderPaymentStatus {
     this.errorMessage = errorMessage;
   }
 
-  /**
-   * The ID of the payment, initially returned by an `orderCreateMandatePayment` or `orderCreatePayment` mutation.
-   */
+  
   public String getPaymentReferenceId() {
     return paymentReferenceId;
   }
@@ -60,9 +44,7 @@ public class OrderPaymentStatus {
     this.paymentReferenceId = paymentReferenceId;
   }
 
-  /**
-   * The status of the payment.
-   */
+  
   public OrderPaymentStatusResult getStatus() {
     return status;
   }
@@ -71,9 +53,7 @@ public class OrderPaymentStatus {
     this.status = status;
   }
 
-  /**
-   * The transaction associated with the payment.
-   */
+  
   public List<OrderTransaction> getTransactions() {
     return transactions;
   }
@@ -82,9 +62,7 @@ public class OrderPaymentStatus {
     this.transactions = transactions;
   }
 
-  /**
-   * A translated message describing an error during the asynchronous processing of a payment.
-   */
+  
   public String getTranslatedErrorMessage() {
     return translatedErrorMessage;
   }
@@ -120,29 +98,19 @@ public class OrderPaymentStatus {
   }
 
   public static class Builder {
-    /**
-     * A message describing an error during the asynchronous processing of a payment.
-     */
+    
     private String errorMessage;
 
-    /**
-     * The ID of the payment, initially returned by an `orderCreateMandatePayment` or `orderCreatePayment` mutation.
-     */
+    
     private String paymentReferenceId;
 
-    /**
-     * The status of the payment.
-     */
+    
     private OrderPaymentStatusResult status;
 
-    /**
-     * The transaction associated with the payment.
-     */
+    
     private List<OrderTransaction> transactions;
 
-    /**
-     * A translated message describing an error during the asynchronous processing of a payment.
-     */
+    
     private String translatedErrorMessage;
 
     public OrderPaymentStatus build() {
@@ -155,41 +123,31 @@ public class OrderPaymentStatus {
       return result;
     }
 
-    /**
-     * A message describing an error during the asynchronous processing of a payment.
-     */
+    
     public Builder errorMessage(String errorMessage) {
       this.errorMessage = errorMessage;
       return this;
     }
 
-    /**
-     * The ID of the payment, initially returned by an `orderCreateMandatePayment` or `orderCreatePayment` mutation.
-     */
+    
     public Builder paymentReferenceId(String paymentReferenceId) {
       this.paymentReferenceId = paymentReferenceId;
       return this;
     }
 
-    /**
-     * The status of the payment.
-     */
+    
     public Builder status(OrderPaymentStatusResult status) {
       this.status = status;
       return this;
     }
 
-    /**
-     * The transaction associated with the payment.
-     */
+    
     public Builder transactions(List<OrderTransaction> transactions) {
       this.transactions = transactions;
       return this;
     }
 
-    /**
-     * A translated message describing an error during the asynchronous processing of a payment.
-     */
+    
     public Builder translatedErrorMessage(String translatedErrorMessage) {
       this.translatedErrorMessage = translatedErrorMessage;
       return this;

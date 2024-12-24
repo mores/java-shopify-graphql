@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns a bulk code creation resource by ID.
- */
+
 public class DiscountRedeemCodeBulkCreationGraphQLQuery extends GraphQLQuery {
   public DiscountRedeemCodeBulkCreationGraphQLQuery(String id, String queryName,
       Set<String> fieldsSet) {
@@ -43,9 +41,7 @@ public class DiscountRedeemCodeBulkCreationGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the `DiscountRedeemCodeBulkCreation` to return.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

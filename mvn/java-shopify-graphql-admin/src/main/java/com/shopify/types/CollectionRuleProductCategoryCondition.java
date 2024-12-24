@@ -6,24 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Specifies the condition for a Product Category field.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class CollectionRuleProductCategoryCondition implements CollectionRuleConditionObject {
-  /**
-   * The value of the condition.
-   */
+  
   private ProductTaxonomyNode value;
 
   public CollectionRuleProductCategoryCondition() {
   }
 
-  /**
-   * The value of the condition.
-   */
+  
   public ProductTaxonomyNode getValue() {
     return value;
   }
@@ -55,9 +49,7 @@ public class CollectionRuleProductCategoryCondition implements CollectionRuleCon
   }
 
   public static class Builder {
-    /**
-     * The value of the condition.
-     */
+    
     private ProductTaxonomyNode value;
 
     public CollectionRuleProductCategoryCondition build() {
@@ -66,9 +58,7 @@ public class CollectionRuleProductCategoryCondition implements CollectionRuleCon
       return result;
     }
 
-    /**
-     * The value of the condition.
-     */
+    
     public Builder value(ProductTaxonomyNode value) {
       this.value = value;
       return this;

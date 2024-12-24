@@ -10,12 +10,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Standard metafield definitions are intended for specific, common use cases.
- * Their namespace and keys reflect these use cases and are reserved.
- *   
- * Refer to all available [`Standard Metafield Definition Templates`](https://shopify.dev/api/admin-graphql/latest/objects/StandardMetafieldDefinitionTemplate).
- */
+
 public class StandardMetafieldDefinitionTemplatesGraphQLQuery extends GraphQLQuery {
   public StandardMetafieldDefinitionTemplatesGraphQLQuery(
       MetafieldDefinitionConstraintSubtypeIdentifier constraintSubtype,
@@ -81,9 +76,7 @@ public class StandardMetafieldDefinitionTemplatesGraphQLQuery extends GraphQLQue
                
     }
 
-    /**
-     * Filter standard metafield definitions based on whether they apply to a given resource subtype.
-     */
+    
     public Builder constraintSubtype(
         MetafieldDefinitionConstraintSubtypeIdentifier constraintSubtype) {
       this.constraintSubtype = constraintSubtype;
@@ -91,63 +84,49 @@ public class StandardMetafieldDefinitionTemplatesGraphQLQuery extends GraphQLQue
       return this;
     }
 
-    /**
-     * Filter standard metafield definitions based on whether they are constrained.
-     */
+    
     public Builder constraintStatus(MetafieldDefinitionConstraintStatus constraintStatus) {
       this.constraintStatus = constraintStatus;
       this.fieldsSet.add("constraintStatus");
       return this;
     }
 
-    /**
-     * Filter standard metafield definitions that have already been activated.
-     */
+    
     public Builder excludeActivated(Boolean excludeActivated) {
       this.excludeActivated = excludeActivated;
       this.fieldsSet.add("excludeActivated");
       return this;
     }
 
-    /**
-     * The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     public Builder first(Integer first) {
       this.first = first;
       this.fieldsSet.add("first");
       return this;
     }
 
-    /**
-     * The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     public Builder after(String after) {
       this.after = after;
       this.fieldsSet.add("after");
       return this;
     }
 
-    /**
-     * The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     public Builder last(Integer last) {
       this.last = last;
       this.fieldsSet.add("last");
       return this;
     }
 
-    /**
-     * The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     public Builder before(String before) {
       this.before = before;
       this.fieldsSet.add("before");
       return this;
     }
 
-    /**
-     * Reverse the order of the underlying list.
-     */
+    
     public Builder reverse(Boolean reverse) {
       this.reverse = reverse;
       this.fieldsSet.add("reverse");

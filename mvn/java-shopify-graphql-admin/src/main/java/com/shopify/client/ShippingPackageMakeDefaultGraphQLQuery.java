@@ -6,10 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Set a shipping package as the default.
- * The default shipping package is the one used to calculate shipping costs on checkout.
- */
+
 public class ShippingPackageMakeDefaultGraphQLQuery extends GraphQLQuery {
   public ShippingPackageMakeDefaultGraphQLQuery(String id, String queryName,
       Set<String> fieldsSet) {
@@ -44,9 +41,7 @@ public class ShippingPackageMakeDefaultGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the shipping package to set as the default.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

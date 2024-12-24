@@ -5,49 +5,30 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields required to create or update a file object.
- */
+
 public class FileSetInput {
-  /**
-   * When provided, the file will be created with the given filename,
-   * otherwise the filename in the originalSource will be used.
-   */
+  
   private String filename;
 
-  /**
-   * The file content type. If omitted, then Shopify will attempt to determine the content type during file processing.
-   */
+  
   private FileContentType contentType;
 
-  /**
-   * The alternative text description of the file.
-   */
+  
   private String alt;
 
-  /**
-   * How to handle if filename is already in use.
-   */
+  
   private FileCreateInputDuplicateResolutionMode duplicateResolutionMode = FileCreateInputDuplicateResolutionMode.APPEND_UUID;
 
-  /**
-   * The ID of an existing file.
-   */
+  
   private String id;
 
-  /**
-   * An external URL (for images only) or a
-   * [staged upload URL](https://shopify.dev/api/admin-graphql/latest/mutations/stageduploadscreate).
-   */
+  
   private String originalSource;
 
   public FileSetInput() {
   }
 
-  /**
-   * When provided, the file will be created with the given filename,
-   * otherwise the filename in the originalSource will be used.
-   */
+  
   public String getFilename() {
     return filename;
   }
@@ -56,9 +37,7 @@ public class FileSetInput {
     this.filename = filename;
   }
 
-  /**
-   * The file content type. If omitted, then Shopify will attempt to determine the content type during file processing.
-   */
+  
   public FileContentType getContentType() {
     return contentType;
   }
@@ -67,9 +46,7 @@ public class FileSetInput {
     this.contentType = contentType;
   }
 
-  /**
-   * The alternative text description of the file.
-   */
+  
   public String getAlt() {
     return alt;
   }
@@ -78,9 +55,7 @@ public class FileSetInput {
     this.alt = alt;
   }
 
-  /**
-   * How to handle if filename is already in use.
-   */
+  
   public FileCreateInputDuplicateResolutionMode getDuplicateResolutionMode() {
     return duplicateResolutionMode;
   }
@@ -90,9 +65,7 @@ public class FileSetInput {
     this.duplicateResolutionMode = duplicateResolutionMode;
   }
 
-  /**
-   * The ID of an existing file.
-   */
+  
   public String getId() {
     return id;
   }
@@ -101,10 +74,7 @@ public class FileSetInput {
     this.id = id;
   }
 
-  /**
-   * An external URL (for images only) or a
-   * [staged upload URL](https://shopify.dev/api/admin-graphql/latest/mutations/stageduploadscreate).
-   */
+  
   public String getOriginalSource() {
     return originalSource;
   }
@@ -141,36 +111,22 @@ public class FileSetInput {
   }
 
   public static class Builder {
-    /**
-     * When provided, the file will be created with the given filename,
-     * otherwise the filename in the originalSource will be used.
-     */
+    
     private String filename;
 
-    /**
-     * The file content type. If omitted, then Shopify will attempt to determine the content type during file processing.
-     */
+    
     private FileContentType contentType;
 
-    /**
-     * The alternative text description of the file.
-     */
+    
     private String alt;
 
-    /**
-     * How to handle if filename is already in use.
-     */
+    
     private FileCreateInputDuplicateResolutionMode duplicateResolutionMode = FileCreateInputDuplicateResolutionMode.APPEND_UUID;
 
-    /**
-     * The ID of an existing file.
-     */
+    
     private String id;
 
-    /**
-     * An external URL (for images only) or a
-     * [staged upload URL](https://shopify.dev/api/admin-graphql/latest/mutations/stageduploadscreate).
-     */
+    
     private String originalSource;
 
     public FileSetInput build() {
@@ -184,52 +140,38 @@ public class FileSetInput {
       return result;
     }
 
-    /**
-     * When provided, the file will be created with the given filename,
-     * otherwise the filename in the originalSource will be used.
-     */
+    
     public Builder filename(String filename) {
       this.filename = filename;
       return this;
     }
 
-    /**
-     * The file content type. If omitted, then Shopify will attempt to determine the content type during file processing.
-     */
+    
     public Builder contentType(FileContentType contentType) {
       this.contentType = contentType;
       return this;
     }
 
-    /**
-     * The alternative text description of the file.
-     */
+    
     public Builder alt(String alt) {
       this.alt = alt;
       return this;
     }
 
-    /**
-     * How to handle if filename is already in use.
-     */
+    
     public Builder duplicateResolutionMode(
         FileCreateInputDuplicateResolutionMode duplicateResolutionMode) {
       this.duplicateResolutionMode = duplicateResolutionMode;
       return this;
     }
 
-    /**
-     * The ID of an existing file.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * An external URL (for images only) or a
-     * [staged upload URL](https://shopify.dev/api/admin-graphql/latest/mutations/stageduploadscreate).
-     */
+    
     public Builder originalSource(String originalSource) {
       this.originalSource = originalSource;
       return this;

@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A summary of Shopify Protect details for an order.
- */
+
 public class ShopifyProtectOrderSummary {
-  /**
-   * The eligibility details of an order's protection against fraudulent chargebacks.
-   */
+  
   private ShopifyProtectOrderEligibility eligibility;
 
-  /**
-   * The status of the order's protection against fraudulent chargebacks.
-   */
+  
   private ShopifyProtectStatus status;
 
   public ShopifyProtectOrderSummary() {
   }
 
-  /**
-   * The eligibility details of an order's protection against fraudulent chargebacks.
-   */
+  
   public ShopifyProtectOrderEligibility getEligibility() {
     return eligibility;
   }
@@ -33,9 +25,7 @@ public class ShopifyProtectOrderSummary {
     this.eligibility = eligibility;
   }
 
-  /**
-   * The status of the order's protection against fraudulent chargebacks.
-   */
+  
   public ShopifyProtectStatus getStatus() {
     return status;
   }
@@ -68,14 +58,10 @@ public class ShopifyProtectOrderSummary {
   }
 
   public static class Builder {
-    /**
-     * The eligibility details of an order's protection against fraudulent chargebacks.
-     */
+    
     private ShopifyProtectOrderEligibility eligibility;
 
-    /**
-     * The status of the order's protection against fraudulent chargebacks.
-     */
+    
     private ShopifyProtectStatus status;
 
     public ShopifyProtectOrderSummary build() {
@@ -85,17 +71,13 @@ public class ShopifyProtectOrderSummary {
       return result;
     }
 
-    /**
-     * The eligibility details of an order's protection against fraudulent chargebacks.
-     */
+    
     public Builder eligibility(ShopifyProtectOrderEligibility eligibility) {
       this.eligibility = eligibility;
       return this;
     }
 
-    /**
-     * The status of the order's protection against fraudulent chargebacks.
-     */
+    
     public Builder status(ShopifyProtectStatus status) {
       this.status = status;
       return this;

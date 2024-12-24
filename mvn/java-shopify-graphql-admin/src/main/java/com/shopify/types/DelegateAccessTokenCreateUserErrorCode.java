@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible error codes that can be returned by `DelegateAccessTokenCreateUserError`.
- */
+
 public enum DelegateAccessTokenCreateUserErrorCode {
   EMPTY_ACCESS_SCOPE,
 

@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for specifying the collection to unpublish and the sales channels to remove it from.
- */
+
 public class CollectionUnpublishInput {
-  /**
-   * The collection to create or update publications for.
-   */
+  
   private String id;
 
-  /**
-   * The channels where the collection is published.
-   */
+  
   private List<CollectionPublicationInput> collectionPublications;
 
   public CollectionUnpublishInput() {
   }
 
-  /**
-   * The collection to create or update publications for.
-   */
+  
   public String getId() {
     return id;
   }
@@ -34,9 +26,7 @@ public class CollectionUnpublishInput {
     this.id = id;
   }
 
-  /**
-   * The channels where the collection is published.
-   */
+  
   public List<CollectionPublicationInput> getCollectionPublications() {
     return collectionPublications;
   }
@@ -69,14 +59,10 @@ public class CollectionUnpublishInput {
   }
 
   public static class Builder {
-    /**
-     * The collection to create or update publications for.
-     */
+    
     private String id;
 
-    /**
-     * The channels where the collection is published.
-     */
+    
     private List<CollectionPublicationInput> collectionPublications;
 
     public CollectionUnpublishInput build() {
@@ -86,17 +72,13 @@ public class CollectionUnpublishInput {
       return result;
     }
 
-    /**
-     * The collection to create or update publications for.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The channels where the collection is published.
-     */
+    
     public Builder collectionPublications(List<CollectionPublicationInput> collectionPublications) {
       this.collectionPublications = collectionPublications;
       return this;

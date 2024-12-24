@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents a product duplication job.
- */
+
 public class ProductDuplicateJob {
-  /**
-   * This indicates if the job is still queued or has been run.
-   */
+  
   private boolean done;
 
-  /**
-   * A globally-unique ID that's returned when running an asynchronous mutation.
-   */
+  
   private String id;
 
   public ProductDuplicateJob() {
   }
 
-  /**
-   * This indicates if the job is still queued or has been run.
-   */
+  
   public boolean getDone() {
     return done;
   }
@@ -33,9 +25,7 @@ public class ProductDuplicateJob {
     this.done = done;
   }
 
-  /**
-   * A globally-unique ID that's returned when running an asynchronous mutation.
-   */
+  
   public String getId() {
     return id;
   }
@@ -68,14 +58,10 @@ public class ProductDuplicateJob {
   }
 
   public static class Builder {
-    /**
-     * This indicates if the job is still queued or has been run.
-     */
+    
     private boolean done;
 
-    /**
-     * A globally-unique ID that's returned when running an asynchronous mutation.
-     */
+    
     private String id;
 
     public ProductDuplicateJob build() {
@@ -85,17 +71,13 @@ public class ProductDuplicateJob {
       return result;
     }
 
-    /**
-     * This indicates if the job is still queued or has been run.
-     */
+    
     public Builder done(boolean done) {
       this.done = done;
       return this;
     }
 
-    /**
-     * A globally-unique ID that's returned when running an asynchronous mutation.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;

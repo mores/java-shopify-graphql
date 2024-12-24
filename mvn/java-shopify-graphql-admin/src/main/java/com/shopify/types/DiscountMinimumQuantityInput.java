@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for the minimum quantity required for the discount.
- */
+
 public class DiscountMinimumQuantityInput {
-  /**
-   * The minimum quantity of items that's required for the discount to be applied.
-   */
+  
   private String greaterThanOrEqualToQuantity;
 
   public DiscountMinimumQuantityInput() {
   }
 
-  /**
-   * The minimum quantity of items that's required for the discount to be applied.
-   */
+  
   public String getGreaterThanOrEqualToQuantity() {
     return greaterThanOrEqualToQuantity;
   }
@@ -51,9 +45,7 @@ public class DiscountMinimumQuantityInput {
   }
 
   public static class Builder {
-    /**
-     * The minimum quantity of items that's required for the discount to be applied.
-     */
+    
     private String greaterThanOrEqualToQuantity;
 
     public DiscountMinimumQuantityInput build() {
@@ -62,9 +54,7 @@ public class DiscountMinimumQuantityInput {
       return result;
     }
 
-    /**
-     * The minimum quantity of items that's required for the discount to be applied.
-     */
+    
     public Builder greaterThanOrEqualToQuantity(String greaterThanOrEqualToQuantity) {
       this.greaterThanOrEqualToQuantity = greaterThanOrEqualToQuantity;
       return this;

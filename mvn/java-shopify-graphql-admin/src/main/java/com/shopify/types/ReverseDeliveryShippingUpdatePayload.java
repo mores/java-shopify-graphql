@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `reverseDeliveryShippingUpdate` mutation.
- */
+
 public class ReverseDeliveryShippingUpdatePayload {
-  /**
-   * The updated reverse delivery.
-   */
+  
   private ReverseDelivery reverseDelivery;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<ReturnUserError> userErrors;
 
   public ReverseDeliveryShippingUpdatePayload() {
   }
 
-  /**
-   * The updated reverse delivery.
-   */
+  
   public ReverseDelivery getReverseDelivery() {
     return reverseDelivery;
   }
@@ -34,9 +26,7 @@ public class ReverseDeliveryShippingUpdatePayload {
     this.reverseDelivery = reverseDelivery;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<ReturnUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class ReverseDeliveryShippingUpdatePayload {
   }
 
   public static class Builder {
-    /**
-     * The updated reverse delivery.
-     */
+    
     private ReverseDelivery reverseDelivery;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<ReturnUserError> userErrors;
 
     public ReverseDeliveryShippingUpdatePayload build() {
@@ -86,17 +72,13 @@ public class ReverseDeliveryShippingUpdatePayload {
       return result;
     }
 
-    /**
-     * The updated reverse delivery.
-     */
+    
     public Builder reverseDelivery(ReverseDelivery reverseDelivery) {
       this.reverseDelivery = reverseDelivery;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<ReturnUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

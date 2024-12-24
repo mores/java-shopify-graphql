@@ -4,9 +4,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.time.OffsetDateTime;
 
-/**
- * Interface for a store credit account transaction.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
     include = JsonTypeInfo.As.PROPERTY,
@@ -19,23 +17,15 @@ import java.time.OffsetDateTime;
     @JsonSubTypes.Type(value = StoreCreditAccountExpirationTransaction.class, name = "StoreCreditAccountExpirationTransaction")
 })
 public interface StoreCreditAccountTransaction {
-  /**
-   * The store credit account that the transaction belongs to.
-   */
+  
   StoreCreditAccount getAccount();
 
-  /**
-   * The amount of the transaction.
-   */
+  
   MoneyV2 getAmount();
 
-  /**
-   * The balance of the account after the transaction.
-   */
+  
   MoneyV2 getBalanceAfterTransaction();
 
-  /**
-   * The date and time when the transaction was created.
-   */
+  
   OffsetDateTime getCreatedAt();
 }

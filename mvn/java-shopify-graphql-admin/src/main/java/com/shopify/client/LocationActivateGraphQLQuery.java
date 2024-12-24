@@ -6,12 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Activates a location so that you can stock inventory at the location. Refer to the
- * [`isActive`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Location#field-isactive) and
- * [`activatable`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Location#field-activatable)
- * fields on the `Location` object.
- */
+
 public class LocationActivateGraphQLQuery extends GraphQLQuery {
   public LocationActivateGraphQLQuery(String locationId, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -45,9 +40,7 @@ public class LocationActivateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of a location to activate.
-     */
+    
     public Builder locationId(String locationId) {
       this.locationId = locationId;
       this.fieldsSet.add("locationId");

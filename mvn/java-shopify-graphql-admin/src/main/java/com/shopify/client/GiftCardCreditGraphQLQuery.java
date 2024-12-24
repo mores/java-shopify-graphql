@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Credit a gift card.
- */
+
 public class GiftCardCreditGraphQLQuery extends GraphQLQuery {
   public GiftCardCreditGraphQLQuery(String id, GiftCardCreditInput creditInput, String queryName,
       Set<String> fieldsSet) {
@@ -48,18 +46,14 @@ public class GiftCardCreditGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the gift card to be credited.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * The input fields to credit a gift card.
-     */
+    
     public Builder creditInput(GiftCardCreditInput creditInput) {
       this.creditInput = creditInput;
       this.fieldsSet.add("creditInput");

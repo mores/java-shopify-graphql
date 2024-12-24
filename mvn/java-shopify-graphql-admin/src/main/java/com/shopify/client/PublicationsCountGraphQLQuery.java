@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Count of publications.
- */
+
 public class PublicationsCountGraphQLQuery extends GraphQLQuery {
   public PublicationsCountGraphQLQuery(CatalogType catalogType, String queryName,
       Set<String> fieldsSet) {
@@ -44,9 +42,7 @@ public class PublicationsCountGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * Filter publications by catalog type.
-     */
+    
     public Builder catalogType(CatalogType catalogType) {
       this.catalogType = catalogType;
       this.fieldsSet.add("catalogType");

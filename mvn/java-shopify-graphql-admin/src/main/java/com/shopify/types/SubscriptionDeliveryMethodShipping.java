@@ -6,29 +6,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents a shipping delivery method: a mailing address and a shipping option.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class SubscriptionDeliveryMethodShipping implements SubscriptionDeliveryMethod {
-  /**
-   * The address to ship to.
-   */
+  
   private SubscriptionMailingAddress address;
 
-  /**
-   * The details of the shipping method to use.
-   */
+  
   private SubscriptionDeliveryMethodShippingOption shippingOption;
 
   public SubscriptionDeliveryMethodShipping() {
   }
 
-  /**
-   * The address to ship to.
-   */
+  
   public SubscriptionMailingAddress getAddress() {
     return address;
   }
@@ -37,9 +29,7 @@ public class SubscriptionDeliveryMethodShipping implements SubscriptionDeliveryM
     this.address = address;
   }
 
-  /**
-   * The details of the shipping method to use.
-   */
+  
   public SubscriptionDeliveryMethodShippingOption getShippingOption() {
     return shippingOption;
   }
@@ -72,14 +62,10 @@ public class SubscriptionDeliveryMethodShipping implements SubscriptionDeliveryM
   }
 
   public static class Builder {
-    /**
-     * The address to ship to.
-     */
+    
     private SubscriptionMailingAddress address;
 
-    /**
-     * The details of the shipping method to use.
-     */
+    
     private SubscriptionDeliveryMethodShippingOption shippingOption;
 
     public SubscriptionDeliveryMethodShipping build() {
@@ -89,17 +75,13 @@ public class SubscriptionDeliveryMethodShipping implements SubscriptionDeliveryM
       return result;
     }
 
-    /**
-     * The address to ship to.
-     */
+    
     public Builder address(SubscriptionMailingAddress address) {
       this.address = address;
       return this;
     }
 
-    /**
-     * The details of the shipping method to use.
-     */
+    
     public Builder shippingOption(SubscriptionDeliveryMethodShippingOption shippingOption) {
       this.shippingOption = shippingOption;
       return this;

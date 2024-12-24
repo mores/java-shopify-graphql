@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `subscriptionBillingCycleSkip` mutation.
- */
+
 public class SubscriptionBillingCycleSkipPayload {
-  /**
-   * The updated billing cycle.
-   */
+  
   private SubscriptionBillingCycle billingCycle;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<SubscriptionBillingCycleSkipUserError> userErrors;
 
   public SubscriptionBillingCycleSkipPayload() {
   }
 
-  /**
-   * The updated billing cycle.
-   */
+  
   public SubscriptionBillingCycle getBillingCycle() {
     return billingCycle;
   }
@@ -34,9 +26,7 @@ public class SubscriptionBillingCycleSkipPayload {
     this.billingCycle = billingCycle;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<SubscriptionBillingCycleSkipUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class SubscriptionBillingCycleSkipPayload {
   }
 
   public static class Builder {
-    /**
-     * The updated billing cycle.
-     */
+    
     private SubscriptionBillingCycle billingCycle;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<SubscriptionBillingCycleSkipUserError> userErrors;
 
     public SubscriptionBillingCycleSkipPayload build() {
@@ -86,17 +72,13 @@ public class SubscriptionBillingCycleSkipPayload {
       return result;
     }
 
-    /**
-     * The updated billing cycle.
-     */
+    
     public Builder billingCycle(SubscriptionBillingCycle billingCycle) {
       this.billingCycle = billingCycle;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<SubscriptionBillingCycleSkipUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for specifying a collection to publish and the sales channels to publish it to.
- */
+
 public class CollectionPublishInput {
-  /**
-   * The collection to create or update publications for.
-   */
+  
   private String id;
 
-  /**
-   * The channels where the collection will be published.
-   */
+  
   private List<CollectionPublicationInput> collectionPublications;
 
   public CollectionPublishInput() {
   }
 
-  /**
-   * The collection to create or update publications for.
-   */
+  
   public String getId() {
     return id;
   }
@@ -34,9 +26,7 @@ public class CollectionPublishInput {
     this.id = id;
   }
 
-  /**
-   * The channels where the collection will be published.
-   */
+  
   public List<CollectionPublicationInput> getCollectionPublications() {
     return collectionPublications;
   }
@@ -69,14 +59,10 @@ public class CollectionPublishInput {
   }
 
   public static class Builder {
-    /**
-     * The collection to create or update publications for.
-     */
+    
     private String id;
 
-    /**
-     * The channels where the collection will be published.
-     */
+    
     private List<CollectionPublicationInput> collectionPublications;
 
     public CollectionPublishInput build() {
@@ -86,17 +72,13 @@ public class CollectionPublishInput {
       return result;
     }
 
-    /**
-     * The collection to create or update publications for.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The channels where the collection will be published.
-     */
+    
     public Builder collectionPublications(List<CollectionPublicationInput> collectionPublications) {
       this.collectionPublications = collectionPublications;
       return this;

@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields used to update the global typography customizations.
- */
+
 public class CheckoutBrandingTypographyStyleGlobalInput {
-  /**
-   * The letter case.
-   */
+  
   private CheckoutBrandingTypographyLetterCase letterCase;
 
-  /**
-   * The kerning.
-   */
+  
   private CheckoutBrandingTypographyKerning kerning;
 
   public CheckoutBrandingTypographyStyleGlobalInput() {
   }
 
-  /**
-   * The letter case.
-   */
+  
   public CheckoutBrandingTypographyLetterCase getLetterCase() {
     return letterCase;
   }
@@ -33,9 +25,7 @@ public class CheckoutBrandingTypographyStyleGlobalInput {
     this.letterCase = letterCase;
   }
 
-  /**
-   * The kerning.
-   */
+  
   public CheckoutBrandingTypographyKerning getKerning() {
     return kerning;
   }
@@ -68,14 +58,10 @@ public class CheckoutBrandingTypographyStyleGlobalInput {
   }
 
   public static class Builder {
-    /**
-     * The letter case.
-     */
+    
     private CheckoutBrandingTypographyLetterCase letterCase;
 
-    /**
-     * The kerning.
-     */
+    
     private CheckoutBrandingTypographyKerning kerning;
 
     public CheckoutBrandingTypographyStyleGlobalInput build() {
@@ -85,17 +71,13 @@ public class CheckoutBrandingTypographyStyleGlobalInput {
       return result;
     }
 
-    /**
-     * The letter case.
-     */
+    
     public Builder letterCase(CheckoutBrandingTypographyLetterCase letterCase) {
       this.letterCase = letterCase;
       return this;
     }
 
-    /**
-     * The kerning.
-     */
+    
     public Builder kerning(CheckoutBrandingTypographyKerning kerning) {
       this.kerning = kerning;
       return this;

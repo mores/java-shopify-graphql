@@ -5,31 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields to create a saved search.
- */
+
 public class SavedSearchCreateInput {
-  /**
-   * The type of resource this saved search is searching in.
-   */
+  
   private SearchResultType resourceType;
 
-  /**
-   * A descriptive name of the saved search.
-   */
+  
   private String name;
 
-  /**
-   * The query string of a saved search. This includes search terms and filters.
-   */
+  
   private String query;
 
   public SavedSearchCreateInput() {
   }
 
-  /**
-   * The type of resource this saved search is searching in.
-   */
+  
   public SearchResultType getResourceType() {
     return resourceType;
   }
@@ -38,9 +28,7 @@ public class SavedSearchCreateInput {
     this.resourceType = resourceType;
   }
 
-  /**
-   * A descriptive name of the saved search.
-   */
+  
   public String getName() {
     return name;
   }
@@ -49,9 +37,7 @@ public class SavedSearchCreateInput {
     this.name = name;
   }
 
-  /**
-   * The query string of a saved search. This includes search terms and filters.
-   */
+  
   public String getQuery() {
     return query;
   }
@@ -85,19 +71,13 @@ public class SavedSearchCreateInput {
   }
 
   public static class Builder {
-    /**
-     * The type of resource this saved search is searching in.
-     */
+    
     private SearchResultType resourceType;
 
-    /**
-     * A descriptive name of the saved search.
-     */
+    
     private String name;
 
-    /**
-     * The query string of a saved search. This includes search terms and filters.
-     */
+    
     private String query;
 
     public SavedSearchCreateInput build() {
@@ -108,25 +88,19 @@ public class SavedSearchCreateInput {
       return result;
     }
 
-    /**
-     * The type of resource this saved search is searching in.
-     */
+    
     public Builder resourceType(SearchResultType resourceType) {
       this.resourceType = resourceType;
       return this;
     }
 
-    /**
-     * A descriptive name of the saved search.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The query string of a saved search. This includes search terms and filters.
-     */
+    
     public Builder query(String query) {
       this.query = query;
       return this;

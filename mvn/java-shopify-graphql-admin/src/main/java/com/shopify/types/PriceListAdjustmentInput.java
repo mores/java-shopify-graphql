@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields to set a price list adjustment.
- */
+
 public class PriceListAdjustmentInput {
-  /**
-   * The value of the price adjustment as specified by the `type`.
-   */
+  
   private double value;
 
-  /**
-   * The type of price adjustment, such as percentage increase or decrease.
-   */
+  
   private PriceListAdjustmentType type;
 
   public PriceListAdjustmentInput() {
   }
 
-  /**
-   * The value of the price adjustment as specified by the `type`.
-   */
+  
   public double getValue() {
     return value;
   }
@@ -33,9 +25,7 @@ public class PriceListAdjustmentInput {
     this.value = value;
   }
 
-  /**
-   * The type of price adjustment, such as percentage increase or decrease.
-   */
+  
   public PriceListAdjustmentType getType() {
     return type;
   }
@@ -68,14 +58,10 @@ public class PriceListAdjustmentInput {
   }
 
   public static class Builder {
-    /**
-     * The value of the price adjustment as specified by the `type`.
-     */
+    
     private double value;
 
-    /**
-     * The type of price adjustment, such as percentage increase or decrease.
-     */
+    
     private PriceListAdjustmentType type;
 
     public PriceListAdjustmentInput build() {
@@ -85,17 +71,13 @@ public class PriceListAdjustmentInput {
       return result;
     }
 
-    /**
-     * The value of the price adjustment as specified by the `type`.
-     */
+    
     public Builder value(double value) {
       this.value = value;
       return this;
     }
 
-    /**
-     * The type of price adjustment, such as percentage increase or decrease.
-     */
+    
     public Builder type(PriceListAdjustmentType type) {
       this.type = type;
       return this;

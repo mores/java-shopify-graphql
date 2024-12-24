@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The content container customizations.
- */
+
 public class CheckoutBrandingContent {
-  /**
-   * The content container's divider style and visibility.
-   */
+  
   private CheckoutBrandingContainerDivider divider;
 
   public CheckoutBrandingContent() {
   }
 
-  /**
-   * The content container's divider style and visibility.
-   */
+  
   public CheckoutBrandingContainerDivider getDivider() {
     return divider;
   }
@@ -51,9 +45,7 @@ public class CheckoutBrandingContent {
   }
 
   public static class Builder {
-    /**
-     * The content container's divider style and visibility.
-     */
+    
     private CheckoutBrandingContainerDivider divider;
 
     public CheckoutBrandingContent build() {
@@ -62,9 +54,7 @@ public class CheckoutBrandingContent {
       return result;
     }
 
-    /**
-     * The content container's divider style and visibility.
-     */
+    
     public Builder divider(CheckoutBrandingContainerDivider divider) {
       this.divider = divider;
       return this;

@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields to use to update the Express Checkout customizations.
- */
+
 public class CheckoutBrandingExpressCheckoutInput {
-  /**
-   * The Express Checkout buttons customizations.
-   */
+  
   private CheckoutBrandingExpressCheckoutButtonInput button;
 
   public CheckoutBrandingExpressCheckoutInput() {
   }
 
-  /**
-   * The Express Checkout buttons customizations.
-   */
+  
   public CheckoutBrandingExpressCheckoutButtonInput getButton() {
     return button;
   }
@@ -51,9 +45,7 @@ public class CheckoutBrandingExpressCheckoutInput {
   }
 
   public static class Builder {
-    /**
-     * The Express Checkout buttons customizations.
-     */
+    
     private CheckoutBrandingExpressCheckoutButtonInput button;
 
     public CheckoutBrandingExpressCheckoutInput build() {
@@ -62,9 +54,7 @@ public class CheckoutBrandingExpressCheckoutInput {
       return result;
     }
 
-    /**
-     * The Express Checkout buttons customizations.
-     */
+    
     public Builder button(CheckoutBrandingExpressCheckoutButtonInput button) {
       this.button = button;
       return this;

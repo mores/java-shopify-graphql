@@ -7,41 +7,27 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for creating or updating a product option.
- */
+
 public class OptionSetInput {
-  /**
-   * Specifies the product option to update.
-   */
+  
   private String id;
 
-  /**
-   * Name of the option.
-   */
+  
   private String name;
 
-  /**
-   * Position of the option.
-   */
+  
   private Integer position;
 
-  /**
-   * Value associated with an option.
-   */
+  
   private List<OptionValueSetInput> values;
 
-  /**
-   * Specifies the metafield the option is linked to.
-   */
+  
   private LinkedMetafieldCreateInput linkedMetafield;
 
   public OptionSetInput() {
   }
 
-  /**
-   * Specifies the product option to update.
-   */
+  
   public String getId() {
     return id;
   }
@@ -50,9 +36,7 @@ public class OptionSetInput {
     this.id = id;
   }
 
-  /**
-   * Name of the option.
-   */
+  
   public String getName() {
     return name;
   }
@@ -61,9 +45,7 @@ public class OptionSetInput {
     this.name = name;
   }
 
-  /**
-   * Position of the option.
-   */
+  
   public Integer getPosition() {
     return position;
   }
@@ -72,9 +54,7 @@ public class OptionSetInput {
     this.position = position;
   }
 
-  /**
-   * Value associated with an option.
-   */
+  
   public List<OptionValueSetInput> getValues() {
     return values;
   }
@@ -83,9 +63,7 @@ public class OptionSetInput {
     this.values = values;
   }
 
-  /**
-   * Specifies the metafield the option is linked to.
-   */
+  
   public LinkedMetafieldCreateInput getLinkedMetafield() {
     return linkedMetafield;
   }
@@ -121,29 +99,19 @@ public class OptionSetInput {
   }
 
   public static class Builder {
-    /**
-     * Specifies the product option to update.
-     */
+    
     private String id;
 
-    /**
-     * Name of the option.
-     */
+    
     private String name;
 
-    /**
-     * Position of the option.
-     */
+    
     private Integer position;
 
-    /**
-     * Value associated with an option.
-     */
+    
     private List<OptionValueSetInput> values;
 
-    /**
-     * Specifies the metafield the option is linked to.
-     */
+    
     private LinkedMetafieldCreateInput linkedMetafield;
 
     public OptionSetInput build() {
@@ -156,41 +124,31 @@ public class OptionSetInput {
       return result;
     }
 
-    /**
-     * Specifies the product option to update.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * Name of the option.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * Position of the option.
-     */
+    
     public Builder position(Integer position) {
       this.position = position;
       return this;
     }
 
-    /**
-     * Value associated with an option.
-     */
+    
     public Builder values(List<OptionValueSetInput> values) {
       this.values = values;
       return this;
     }
 
-    /**
-     * Specifies the metafield the option is linked to.
-     */
+    
     public Builder linkedMetafield(LinkedMetafieldCreateInput linkedMetafield) {
       this.linkedMetafield = linkedMetafield;
       return this;

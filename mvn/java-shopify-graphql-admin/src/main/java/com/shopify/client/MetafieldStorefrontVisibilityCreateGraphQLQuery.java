@@ -7,10 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Creates a `MetafieldStorefrontVisibility` record to make all metafields that belong to the specified resource
- * and have the established `namespace` and `key` combination visible in the Storefront API.
- */
+
 public class MetafieldStorefrontVisibilityCreateGraphQLQuery extends GraphQLQuery {
   public MetafieldStorefrontVisibilityCreateGraphQLQuery(MetafieldStorefrontVisibilityInput input,
       String queryName, Set<String> fieldsSet) {
@@ -45,9 +42,7 @@ public class MetafieldStorefrontVisibilityCreateGraphQLQuery extends GraphQLQuer
                
     }
 
-    /**
-     * Specifies the input fields for a `MetafieldStorefrontVisibility` record.
-     */
+    
     public Builder input(MetafieldStorefrontVisibilityInput input) {
       this.input = input;
       this.fieldsSet.add("input");

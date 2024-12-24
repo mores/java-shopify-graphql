@@ -7,77 +7,36 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * <div class="note"><h4>Theme app extensions</h4>
- *   <p>Your app might not pass App Store review if it uses script tags instead of
- * theme app extensions. All new apps, and apps that integrate with Online Store
- * 2.0 themes, should use theme app extensions, such as app blocks or app embed
- * blocks. Script tags are an alternative you can use with only vintage themes. <a
- * href="/apps/online-store#what-integration-method-should-i-use"
- * target="_blank">Learn more</a>.</p></div>
- *
- * <div class="note"><h4>Script tag deprecation</h4>
- *   <p>Script tags will be sunset for the <b>Order status</b> page on August 28, 2025. <a
- * href="https://www.shopify.com/plus/upgrading-to-checkout-extensibility">Upgrade
- * to Checkout Extensibility</a> before this date. <a
- * href="/docs/api/liquid/objects#script">Shopify Scripts</a> will continue to work
- * alongside Checkout Extensibility until August 28, 2025.</p></div>
- *
- *
- * A script tag represents remote JavaScript code that is loaded into the pages of
- * a shop's storefront or the **Order status** page of checkout.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ScriptTag implements com.shopify.types.LegacyInteroperability, com.shopify.types.Node {
-  /**
-   * Whether the Shopify CDN can cache and serve the script tag.
-   * If `true`, then the script will be cached and served by the CDN.
-   * The cache expires 15 minutes after the script tag is successfully returned.
-   * If `false`, then the script will be served as is.
-   */
+  
   private boolean cache;
 
-  /**
-   * The date and time when the script tag was created.
-   */
+  
   private OffsetDateTime createdAt;
 
-  /**
-   * The page or pages on the online store that the script should be included.
-   */
+  
   private ScriptTagDisplayScope displayScope;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The ID of the corresponding resource in the REST Admin API.
-   */
+  
   private String legacyResourceId;
 
-  /**
-   * The URL to the remote script.
-   */
+  
   private String src;
 
-  /**
-   * The date and time when the script tag was last updated.
-   */
+  
   private OffsetDateTime updatedAt;
 
   public ScriptTag() {
   }
 
-  /**
-   * Whether the Shopify CDN can cache and serve the script tag.
-   * If `true`, then the script will be cached and served by the CDN.
-   * The cache expires 15 minutes after the script tag is successfully returned.
-   * If `false`, then the script will be served as is.
-   */
+  
   public boolean getCache() {
     return cache;
   }
@@ -86,9 +45,7 @@ public class ScriptTag implements com.shopify.types.LegacyInteroperability, com.
     this.cache = cache;
   }
 
-  /**
-   * The date and time when the script tag was created.
-   */
+  
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -97,9 +54,7 @@ public class ScriptTag implements com.shopify.types.LegacyInteroperability, com.
     this.createdAt = createdAt;
   }
 
-  /**
-   * The page or pages on the online store that the script should be included.
-   */
+  
   public ScriptTagDisplayScope getDisplayScope() {
     return displayScope;
   }
@@ -108,9 +63,7 @@ public class ScriptTag implements com.shopify.types.LegacyInteroperability, com.
     this.displayScope = displayScope;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -119,9 +72,7 @@ public class ScriptTag implements com.shopify.types.LegacyInteroperability, com.
     this.id = id;
   }
 
-  /**
-   * The ID of the corresponding resource in the REST Admin API.
-   */
+  
   public String getLegacyResourceId() {
     return legacyResourceId;
   }
@@ -130,9 +81,7 @@ public class ScriptTag implements com.shopify.types.LegacyInteroperability, com.
     this.legacyResourceId = legacyResourceId;
   }
 
-  /**
-   * The URL to the remote script.
-   */
+  
   public String getSrc() {
     return src;
   }
@@ -141,9 +90,7 @@ public class ScriptTag implements com.shopify.types.LegacyInteroperability, com.
     this.src = src;
   }
 
-  /**
-   * The date and time when the script tag was last updated.
-   */
+  
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
@@ -181,42 +128,25 @@ public class ScriptTag implements com.shopify.types.LegacyInteroperability, com.
   }
 
   public static class Builder {
-    /**
-     * Whether the Shopify CDN can cache and serve the script tag.
-     * If `true`, then the script will be cached and served by the CDN.
-     * The cache expires 15 minutes after the script tag is successfully returned.
-     * If `false`, then the script will be served as is.
-     */
+    
     private boolean cache;
 
-    /**
-     * The date and time when the script tag was created.
-     */
+    
     private OffsetDateTime createdAt;
 
-    /**
-     * The page or pages on the online store that the script should be included.
-     */
+    
     private ScriptTagDisplayScope displayScope;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The ID of the corresponding resource in the REST Admin API.
-     */
+    
     private String legacyResourceId;
 
-    /**
-     * The URL to the remote script.
-     */
+    
     private String src;
 
-    /**
-     * The date and time when the script tag was last updated.
-     */
+    
     private OffsetDateTime updatedAt;
 
     public ScriptTag build() {
@@ -231,60 +161,43 @@ public class ScriptTag implements com.shopify.types.LegacyInteroperability, com.
       return result;
     }
 
-    /**
-     * Whether the Shopify CDN can cache and serve the script tag.
-     * If `true`, then the script will be cached and served by the CDN.
-     * The cache expires 15 minutes after the script tag is successfully returned.
-     * If `false`, then the script will be served as is.
-     */
+    
     public Builder cache(boolean cache) {
       this.cache = cache;
       return this;
     }
 
-    /**
-     * The date and time when the script tag was created.
-     */
+    
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    /**
-     * The page or pages on the online store that the script should be included.
-     */
+    
     public Builder displayScope(ScriptTagDisplayScope displayScope) {
       this.displayScope = displayScope;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The ID of the corresponding resource in the REST Admin API.
-     */
+    
     public Builder legacyResourceId(String legacyResourceId) {
       this.legacyResourceId = legacyResourceId;
       return this;
     }
 
-    /**
-     * The URL to the remote script.
-     */
+    
     public Builder src(String src) {
       this.src = src;
       return this;
     }
 
-    /**
-     * The date and time when the script tag was last updated.
-     */
+    
     public Builder updatedAt(OffsetDateTime updatedAt) {
       this.updatedAt = updatedAt;
       return this;

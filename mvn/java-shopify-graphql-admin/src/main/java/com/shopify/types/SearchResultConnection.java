@@ -6,33 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The connection type for SearchResult.
- */
+
 public class SearchResultConnection {
-  /**
-   * The connection between the node and its parent. Each edge contains a minimum of the edge's cursor and the node.
-   */
+  
   private List<SearchResultEdge> edges;
 
-  /**
-   * An object that’s used to retrieve [cursor
-   * information](https://shopify.dev/api/usage/pagination-graphql) about the current page.
-   */
+  
   private PageInfo pageInfo;
 
-  /**
-   * An object that’s used to retrieve [cursor
-   * information](https://shopify.dev/api/usage/pagination-graphql) about the current page.
-   */
+  
   private int resultsAfterCount;
 
   public SearchResultConnection() {
   }
 
-  /**
-   * The connection between the node and its parent. Each edge contains a minimum of the edge's cursor and the node.
-   */
+  
   public List<SearchResultEdge> getEdges() {
     return edges;
   }
@@ -41,10 +29,7 @@ public class SearchResultConnection {
     this.edges = edges;
   }
 
-  /**
-   * An object that’s used to retrieve [cursor
-   * information](https://shopify.dev/api/usage/pagination-graphql) about the current page.
-   */
+  
   public PageInfo getPageInfo() {
     return pageInfo;
   }
@@ -53,10 +38,7 @@ public class SearchResultConnection {
     this.pageInfo = pageInfo;
   }
 
-  /**
-   * An object that’s used to retrieve [cursor
-   * information](https://shopify.dev/api/usage/pagination-graphql) about the current page.
-   */
+  
   public int getResultsAfterCount() {
     return resultsAfterCount;
   }
@@ -90,21 +72,13 @@ public class SearchResultConnection {
   }
 
   public static class Builder {
-    /**
-     * The connection between the node and its parent. Each edge contains a minimum of the edge's cursor and the node.
-     */
+    
     private List<SearchResultEdge> edges;
 
-    /**
-     * An object that’s used to retrieve [cursor
-     * information](https://shopify.dev/api/usage/pagination-graphql) about the current page.
-     */
+    
     private PageInfo pageInfo;
 
-    /**
-     * An object that’s used to retrieve [cursor
-     * information](https://shopify.dev/api/usage/pagination-graphql) about the current page.
-     */
+    
     private int resultsAfterCount;
 
     public SearchResultConnection build() {
@@ -115,27 +89,19 @@ public class SearchResultConnection {
       return result;
     }
 
-    /**
-     * The connection between the node and its parent. Each edge contains a minimum of the edge's cursor and the node.
-     */
+    
     public Builder edges(List<SearchResultEdge> edges) {
       this.edges = edges;
       return this;
     }
 
-    /**
-     * An object that’s used to retrieve [cursor
-     * information](https://shopify.dev/api/usage/pagination-graphql) about the current page.
-     */
+    
     public Builder pageInfo(PageInfo pageInfo) {
       this.pageInfo = pageInfo;
       return this;
     }
 
-    /**
-     * An object that’s used to retrieve [cursor
-     * information](https://shopify.dev/api/usage/pagination-graphql) about the current page.
-     */
+    
     public Builder resultsAfterCount(int resultsAfterCount) {
       this.resultsAfterCount = resultsAfterCount;
       return this;

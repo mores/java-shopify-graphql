@@ -5,41 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The [discount classes](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
- * that you can use in combination with
- * [Shopify discount types](https://help.shopify.com/manual/discounts/discount-types).
- */
+
 public class DiscountCombinesWith {
-  /**
-   * Whether the discount combines with the
-   * [order discount](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
-   * class.
-   */
+  
   private boolean orderDiscounts;
 
-  /**
-   * Whether the discount combines with the
-   * [product discount](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
-   * class.
-   */
+  
   private boolean productDiscounts;
 
-  /**
-   * Whether the discount combines with the
-   * [shipping discount](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
-   * class.
-   */
+  
   private boolean shippingDiscounts;
 
   public DiscountCombinesWith() {
   }
 
-  /**
-   * Whether the discount combines with the
-   * [order discount](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
-   * class.
-   */
+  
   public boolean getOrderDiscounts() {
     return orderDiscounts;
   }
@@ -48,11 +28,7 @@ public class DiscountCombinesWith {
     this.orderDiscounts = orderDiscounts;
   }
 
-  /**
-   * Whether the discount combines with the
-   * [product discount](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
-   * class.
-   */
+  
   public boolean getProductDiscounts() {
     return productDiscounts;
   }
@@ -61,11 +37,7 @@ public class DiscountCombinesWith {
     this.productDiscounts = productDiscounts;
   }
 
-  /**
-   * Whether the discount combines with the
-   * [shipping discount](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
-   * class.
-   */
+  
   public boolean getShippingDiscounts() {
     return shippingDiscounts;
   }
@@ -99,25 +71,13 @@ public class DiscountCombinesWith {
   }
 
   public static class Builder {
-    /**
-     * Whether the discount combines with the
-     * [order discount](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
-     * class.
-     */
+    
     private boolean orderDiscounts;
 
-    /**
-     * Whether the discount combines with the
-     * [product discount](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
-     * class.
-     */
+    
     private boolean productDiscounts;
 
-    /**
-     * Whether the discount combines with the
-     * [shipping discount](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
-     * class.
-     */
+    
     private boolean shippingDiscounts;
 
     public DiscountCombinesWith build() {
@@ -128,31 +88,19 @@ public class DiscountCombinesWith {
       return result;
     }
 
-    /**
-     * Whether the discount combines with the
-     * [order discount](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
-     * class.
-     */
+    
     public Builder orderDiscounts(boolean orderDiscounts) {
       this.orderDiscounts = orderDiscounts;
       return this;
     }
 
-    /**
-     * Whether the discount combines with the
-     * [product discount](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
-     * class.
-     */
+    
     public Builder productDiscounts(boolean productDiscounts) {
       this.productDiscounts = productDiscounts;
       return this;
     }
 
-    /**
-     * Whether the discount combines with the
-     * [shipping discount](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
-     * class.
-     */
+    
     public Builder shippingDiscounts(boolean shippingDiscounts) {
       this.shippingDiscounts = shippingDiscounts;
       return this;

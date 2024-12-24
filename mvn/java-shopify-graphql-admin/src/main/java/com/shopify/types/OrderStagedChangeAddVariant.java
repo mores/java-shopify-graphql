@@ -6,29 +6,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A change to the order representing the addition of an existing product variant.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class OrderStagedChangeAddVariant implements OrderStagedChange {
-  /**
-   * The quantity of the product variant that was added.
-   */
+  
   private int quantity;
 
-  /**
-   * The product variant that was added.
-   */
+  
   private ProductVariant variant;
 
   public OrderStagedChangeAddVariant() {
   }
 
-  /**
-   * The quantity of the product variant that was added.
-   */
+  
   public int getQuantity() {
     return quantity;
   }
@@ -37,9 +29,7 @@ public class OrderStagedChangeAddVariant implements OrderStagedChange {
     this.quantity = quantity;
   }
 
-  /**
-   * The product variant that was added.
-   */
+  
   public ProductVariant getVariant() {
     return variant;
   }
@@ -72,14 +62,10 @@ public class OrderStagedChangeAddVariant implements OrderStagedChange {
   }
 
   public static class Builder {
-    /**
-     * The quantity of the product variant that was added.
-     */
+    
     private int quantity;
 
-    /**
-     * The product variant that was added.
-     */
+    
     private ProductVariant variant;
 
     public OrderStagedChangeAddVariant build() {
@@ -89,17 +75,13 @@ public class OrderStagedChangeAddVariant implements OrderStagedChange {
       return result;
     }
 
-    /**
-     * The quantity of the product variant that was added.
-     */
+    
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    /**
-     * The product variant that was added.
-     */
+    
     public Builder variant(ProductVariant variant) {
       this.variant = variant;
       return this;

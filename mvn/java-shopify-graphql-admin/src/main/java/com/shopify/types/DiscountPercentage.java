@@ -6,24 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A discount effect that gives customers a percentage off of specified items on their order.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DiscountPercentage implements DiscountCustomerGetsValue, DiscountEffect {
-  /**
-   * The percentage value of the discount.
-   */
+  
   private double percentage;
 
   public DiscountPercentage() {
   }
 
-  /**
-   * The percentage value of the discount.
-   */
+  
   public double getPercentage() {
     return percentage;
   }
@@ -55,9 +49,7 @@ public class DiscountPercentage implements DiscountCustomerGetsValue, DiscountEf
   }
 
   public static class Builder {
-    /**
-     * The percentage value of the discount.
-     */
+    
     private double percentage;
 
     public DiscountPercentage build() {
@@ -66,9 +58,7 @@ public class DiscountPercentage implements DiscountCustomerGetsValue, DiscountEf
       return result;
     }
 
-    /**
-     * The percentage value of the discount.
-     */
+    
     public Builder percentage(double percentage) {
       this.percentage = percentage;
       return this;

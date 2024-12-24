@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for the bundle components for core.
- */
+
 public class ProductVariantGroupRelationshipInput {
-  /**
-   * The ID of the product variant that's a component of the bundle.
-   */
+  
   private String id;
 
-  /**
-   * The number of units of the product variant required to construct one unit of the bundle.
-   */
+  
   private int quantity;
 
   public ProductVariantGroupRelationshipInput() {
   }
 
-  /**
-   * The ID of the product variant that's a component of the bundle.
-   */
+  
   public String getId() {
     return id;
   }
@@ -33,9 +25,7 @@ public class ProductVariantGroupRelationshipInput {
     this.id = id;
   }
 
-  /**
-   * The number of units of the product variant required to construct one unit of the bundle.
-   */
+  
   public int getQuantity() {
     return quantity;
   }
@@ -68,14 +58,10 @@ public class ProductVariantGroupRelationshipInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the product variant that's a component of the bundle.
-     */
+    
     private String id;
 
-    /**
-     * The number of units of the product variant required to construct one unit of the bundle.
-     */
+    
     private int quantity;
 
     public ProductVariantGroupRelationshipInput build() {
@@ -85,17 +71,13 @@ public class ProductVariantGroupRelationshipInput {
       return result;
     }
 
-    /**
-     * The ID of the product variant that's a component of the bundle.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The number of units of the product variant required to construct one unit of the bundle.
-     */
+    
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;

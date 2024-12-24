@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * The delivery customization.
- */
+
 public class DeliveryCustomizationGraphQLQuery extends GraphQLQuery {
   public DeliveryCustomizationGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -42,9 +40,7 @@ public class DeliveryCustomizationGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the delivery customization.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

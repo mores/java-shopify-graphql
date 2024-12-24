@@ -5,63 +5,39 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The billing address of a credit card payment instrument.
- */
+
 public class CustomerCreditCardBillingAddress {
-  /**
-   * The first line of the address. Typically the street address or PO Box number.
-   */
+  
   private String address1;
 
-  /**
-   * The name of the city, district, village, or town.
-   */
+  
   private String city;
 
-  /**
-   * The name of the country.
-   */
+  
   private String country;
 
-  /**
-   * The two-letter code for the country of the address.
-   * For example, US.
-   */
+  
   private CountryCode countryCode;
 
-  /**
-   * The first name in the billing address.
-   */
+  
   private String firstName;
 
-  /**
-   * The last name in the billing address.
-   */
+  
   private String lastName;
 
-  /**
-   * The region of the address, such as the province, state, or district.
-   */
+  
   private String province;
 
-  /**
-   * The alphanumeric code for the region.
-   * For example, ON.
-   */
+  
   private String provinceCode;
 
-  /**
-   * The zip or postal code of the address.
-   */
+  
   private String zip;
 
   public CustomerCreditCardBillingAddress() {
   }
 
-  /**
-   * The first line of the address. Typically the street address or PO Box number.
-   */
+  
   public String getAddress1() {
     return address1;
   }
@@ -70,9 +46,7 @@ public class CustomerCreditCardBillingAddress {
     this.address1 = address1;
   }
 
-  /**
-   * The name of the city, district, village, or town.
-   */
+  
   public String getCity() {
     return city;
   }
@@ -81,9 +55,7 @@ public class CustomerCreditCardBillingAddress {
     this.city = city;
   }
 
-  /**
-   * The name of the country.
-   */
+  
   public String getCountry() {
     return country;
   }
@@ -92,10 +64,7 @@ public class CustomerCreditCardBillingAddress {
     this.country = country;
   }
 
-  /**
-   * The two-letter code for the country of the address.
-   * For example, US.
-   */
+  
   public CountryCode getCountryCode() {
     return countryCode;
   }
@@ -104,9 +73,7 @@ public class CustomerCreditCardBillingAddress {
     this.countryCode = countryCode;
   }
 
-  /**
-   * The first name in the billing address.
-   */
+  
   public String getFirstName() {
     return firstName;
   }
@@ -115,9 +82,7 @@ public class CustomerCreditCardBillingAddress {
     this.firstName = firstName;
   }
 
-  /**
-   * The last name in the billing address.
-   */
+  
   public String getLastName() {
     return lastName;
   }
@@ -126,9 +91,7 @@ public class CustomerCreditCardBillingAddress {
     this.lastName = lastName;
   }
 
-  /**
-   * The region of the address, such as the province, state, or district.
-   */
+  
   public String getProvince() {
     return province;
   }
@@ -137,10 +100,7 @@ public class CustomerCreditCardBillingAddress {
     this.province = province;
   }
 
-  /**
-   * The alphanumeric code for the region.
-   * For example, ON.
-   */
+  
   public String getProvinceCode() {
     return provinceCode;
   }
@@ -149,9 +109,7 @@ public class CustomerCreditCardBillingAddress {
     this.provinceCode = provinceCode;
   }
 
-  /**
-   * The zip or postal code of the address.
-   */
+  
   public String getZip() {
     return zip;
   }
@@ -191,51 +149,31 @@ public class CustomerCreditCardBillingAddress {
   }
 
   public static class Builder {
-    /**
-     * The first line of the address. Typically the street address or PO Box number.
-     */
+    
     private String address1;
 
-    /**
-     * The name of the city, district, village, or town.
-     */
+    
     private String city;
 
-    /**
-     * The name of the country.
-     */
+    
     private String country;
 
-    /**
-     * The two-letter code for the country of the address.
-     * For example, US.
-     */
+    
     private CountryCode countryCode;
 
-    /**
-     * The first name in the billing address.
-     */
+    
     private String firstName;
 
-    /**
-     * The last name in the billing address.
-     */
+    
     private String lastName;
 
-    /**
-     * The region of the address, such as the province, state, or district.
-     */
+    
     private String province;
 
-    /**
-     * The alphanumeric code for the region.
-     * For example, ON.
-     */
+    
     private String provinceCode;
 
-    /**
-     * The zip or postal code of the address.
-     */
+    
     private String zip;
 
     public CustomerCreditCardBillingAddress build() {
@@ -252,75 +190,55 @@ public class CustomerCreditCardBillingAddress {
       return result;
     }
 
-    /**
-     * The first line of the address. Typically the street address or PO Box number.
-     */
+    
     public Builder address1(String address1) {
       this.address1 = address1;
       return this;
     }
 
-    /**
-     * The name of the city, district, village, or town.
-     */
+    
     public Builder city(String city) {
       this.city = city;
       return this;
     }
 
-    /**
-     * The name of the country.
-     */
+    
     public Builder country(String country) {
       this.country = country;
       return this;
     }
 
-    /**
-     * The two-letter code for the country of the address.
-     * For example, US.
-     */
+    
     public Builder countryCode(CountryCode countryCode) {
       this.countryCode = countryCode;
       return this;
     }
 
-    /**
-     * The first name in the billing address.
-     */
+    
     public Builder firstName(String firstName) {
       this.firstName = firstName;
       return this;
     }
 
-    /**
-     * The last name in the billing address.
-     */
+    
     public Builder lastName(String lastName) {
       this.lastName = lastName;
       return this;
     }
 
-    /**
-     * The region of the address, such as the province, state, or district.
-     */
+    
     public Builder province(String province) {
       this.province = province;
       return this;
     }
 
-    /**
-     * The alphanumeric code for the region.
-     * For example, ON.
-     */
+    
     public Builder provinceCode(String provinceCode) {
       this.provinceCode = provinceCode;
       return this;
     }
 
-    /**
-     * The zip or postal code of the address.
-     */
+    
     public Builder zip(String zip) {
       this.zip = zip;
       return this;

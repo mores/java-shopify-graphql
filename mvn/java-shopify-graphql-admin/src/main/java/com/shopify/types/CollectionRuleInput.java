@@ -5,37 +5,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for a rule to associate with a collection.
- */
+
 public class CollectionRuleInput {
-  /**
-   * The attribute that the rule focuses on. For example, `title` or `product_type`.
-   */
+  
   private CollectionRuleColumn column;
 
-  /**
-   * The type of operator that the rule is based on. For example, `equals`, `contains`, or `not_equals`.
-   */
+  
   private CollectionRuleRelation relation;
 
-  /**
-   * The value that the operator is applied to. For example, `Hats`.
-   */
+  
   private String condition;
 
-  /**
-   * The object ID that points to additional attributes for the collection rule.
-   * This is only required when using metafield definition rules.
-   */
+  
   private String conditionObjectId;
 
   public CollectionRuleInput() {
   }
 
-  /**
-   * The attribute that the rule focuses on. For example, `title` or `product_type`.
-   */
+  
   public CollectionRuleColumn getColumn() {
     return column;
   }
@@ -44,9 +31,7 @@ public class CollectionRuleInput {
     this.column = column;
   }
 
-  /**
-   * The type of operator that the rule is based on. For example, `equals`, `contains`, or `not_equals`.
-   */
+  
   public CollectionRuleRelation getRelation() {
     return relation;
   }
@@ -55,9 +40,7 @@ public class CollectionRuleInput {
     this.relation = relation;
   }
 
-  /**
-   * The value that the operator is applied to. For example, `Hats`.
-   */
+  
   public String getCondition() {
     return condition;
   }
@@ -66,10 +49,7 @@ public class CollectionRuleInput {
     this.condition = condition;
   }
 
-  /**
-   * The object ID that points to additional attributes for the collection rule.
-   * This is only required when using metafield definition rules.
-   */
+  
   public String getConditionObjectId() {
     return conditionObjectId;
   }
@@ -104,25 +84,16 @@ public class CollectionRuleInput {
   }
 
   public static class Builder {
-    /**
-     * The attribute that the rule focuses on. For example, `title` or `product_type`.
-     */
+    
     private CollectionRuleColumn column;
 
-    /**
-     * The type of operator that the rule is based on. For example, `equals`, `contains`, or `not_equals`.
-     */
+    
     private CollectionRuleRelation relation;
 
-    /**
-     * The value that the operator is applied to. For example, `Hats`.
-     */
+    
     private String condition;
 
-    /**
-     * The object ID that points to additional attributes for the collection rule.
-     * This is only required when using metafield definition rules.
-     */
+    
     private String conditionObjectId;
 
     public CollectionRuleInput build() {
@@ -134,34 +105,25 @@ public class CollectionRuleInput {
       return result;
     }
 
-    /**
-     * The attribute that the rule focuses on. For example, `title` or `product_type`.
-     */
+    
     public Builder column(CollectionRuleColumn column) {
       this.column = column;
       return this;
     }
 
-    /**
-     * The type of operator that the rule is based on. For example, `equals`, `contains`, or `not_equals`.
-     */
+    
     public Builder relation(CollectionRuleRelation relation) {
       this.relation = relation;
       return this;
     }
 
-    /**
-     * The value that the operator is applied to. For example, `Hats`.
-     */
+    
     public Builder condition(String condition) {
       this.condition = condition;
       return this;
     }
 
-    /**
-     * The object ID that points to additional attributes for the collection rule.
-     * This is only required when using metafield definition rules.
-     */
+    
     public Builder conditionObjectId(String conditionObjectId) {
       this.conditionObjectId = conditionObjectId;
       return this;

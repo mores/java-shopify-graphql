@@ -7,95 +7,51 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents an image resource.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class Image implements com.shopify.types.HasMetafields {
-  /**
-   * A word or phrase to share the nature or contents of an image.
-   */
+  
   private String altText;
 
-  /**
-   * The original height of the image in pixels. Returns `null` if the image isn't hosted by Shopify.
-   */
+  
   private Integer height;
 
-  /**
-   * A unique ID for the image.
-   */
+  
   private String id;
 
-  /**
-   * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-   * including its `namespace` and `key`, that's associated with a Shopify resource
-   * for the purposes of adding and storing additional information.
-   */
+  
   private Metafield metafield;
 
-  /**
-   * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-   * that a merchant associates with a Shopify resource.
-   */
+  
   private MetafieldConnection metafields;
 
-  /**
-   * The location of the original image as a URL.
-   *   
-   * If there are any existing transformations in the original source URL, they will remain and not be stripped.
-   */
+  
   private String originalSrc;
 
-  /**
-   * Returns a private metafield by namespace and key that belongs to the resource.
-   */
+  
   private PrivateMetafield privateMetafield;
 
-  /**
-   * List of private metafields that belong to the resource.
-   */
+  
   private PrivateMetafieldConnection privateMetafields;
 
-  /**
-   * The location of the image as a URL.
-   */
+  
   private String src;
 
-  /**
-   * The location of the transformed image as a URL.
-   *   
-   * All transformation arguments are considered "best-effort". If they can be applied to an image, they will be.
-   * Otherwise any transformations which an image type doesn't support will be ignored.
-   */
+  
   private String transformedSrc;
 
-  /**
-   * The location of the image as a URL.
-   *   
-   * If no transform options are specified, then the original image will be preserved including any pre-applied transforms.
-   *   
-   * All transformation options are considered "best-effort". Any transformation
-   * that the original image type doesn't support will be ignored.
-   *   
-   * If you need multiple variations of the same image, then you can use [GraphQL
-   * aliases](https://graphql.org/learn/queries/#aliases).
-   */
+  
   private String url;
 
-  /**
-   * The original width of the image in pixels. Returns `null` if the image isn't hosted by Shopify.
-   */
+  
   private Integer width;
 
   public Image() {
   }
 
-  /**
-   * A word or phrase to share the nature or contents of an image.
-   */
+  
   public String getAltText() {
     return altText;
   }
@@ -104,9 +60,7 @@ public class Image implements com.shopify.types.HasMetafields {
     this.altText = altText;
   }
 
-  /**
-   * The original height of the image in pixels. Returns `null` if the image isn't hosted by Shopify.
-   */
+  
   public Integer getHeight() {
     return height;
   }
@@ -115,9 +69,7 @@ public class Image implements com.shopify.types.HasMetafields {
     this.height = height;
   }
 
-  /**
-   * A unique ID for the image.
-   */
+  
   public String getId() {
     return id;
   }
@@ -126,11 +78,7 @@ public class Image implements com.shopify.types.HasMetafields {
     this.id = id;
   }
 
-  /**
-   * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-   * including its `namespace` and `key`, that's associated with a Shopify resource
-   * for the purposes of adding and storing additional information.
-   */
+  
   public Metafield getMetafield() {
     return metafield;
   }
@@ -139,10 +87,7 @@ public class Image implements com.shopify.types.HasMetafields {
     this.metafield = metafield;
   }
 
-  /**
-   * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-   * that a merchant associates with a Shopify resource.
-   */
+  
   public MetafieldConnection getMetafields() {
     return metafields;
   }
@@ -151,11 +96,7 @@ public class Image implements com.shopify.types.HasMetafields {
     this.metafields = metafields;
   }
 
-  /**
-   * The location of the original image as a URL.
-   *   
-   * If there are any existing transformations in the original source URL, they will remain and not be stripped.
-   */
+  
   public String getOriginalSrc() {
     return originalSrc;
   }
@@ -164,9 +105,7 @@ public class Image implements com.shopify.types.HasMetafields {
     this.originalSrc = originalSrc;
   }
 
-  /**
-   * Returns a private metafield by namespace and key that belongs to the resource.
-   */
+  
   public PrivateMetafield getPrivateMetafield() {
     return privateMetafield;
   }
@@ -175,9 +114,7 @@ public class Image implements com.shopify.types.HasMetafields {
     this.privateMetafield = privateMetafield;
   }
 
-  /**
-   * List of private metafields that belong to the resource.
-   */
+  
   public PrivateMetafieldConnection getPrivateMetafields() {
     return privateMetafields;
   }
@@ -186,9 +123,7 @@ public class Image implements com.shopify.types.HasMetafields {
     this.privateMetafields = privateMetafields;
   }
 
-  /**
-   * The location of the image as a URL.
-   */
+  
   public String getSrc() {
     return src;
   }
@@ -197,12 +132,7 @@ public class Image implements com.shopify.types.HasMetafields {
     this.src = src;
   }
 
-  /**
-   * The location of the transformed image as a URL.
-   *   
-   * All transformation arguments are considered "best-effort". If they can be applied to an image, they will be.
-   * Otherwise any transformations which an image type doesn't support will be ignored.
-   */
+  
   public String getTransformedSrc() {
     return transformedSrc;
   }
@@ -211,17 +141,7 @@ public class Image implements com.shopify.types.HasMetafields {
     this.transformedSrc = transformedSrc;
   }
 
-  /**
-   * The location of the image as a URL.
-   *   
-   * If no transform options are specified, then the original image will be preserved including any pre-applied transforms.
-   *   
-   * All transformation options are considered "best-effort". Any transformation
-   * that the original image type doesn't support will be ignored.
-   *   
-   * If you need multiple variations of the same image, then you can use [GraphQL
-   * aliases](https://graphql.org/learn/queries/#aliases).
-   */
+  
   public String getUrl() {
     return url;
   }
@@ -230,9 +150,7 @@ public class Image implements com.shopify.types.HasMetafields {
     this.url = url;
   }
 
-  /**
-   * The original width of the image in pixels. Returns `null` if the image isn't hosted by Shopify.
-   */
+  
   public Integer getWidth() {
     return width;
   }
@@ -275,80 +193,40 @@ public class Image implements com.shopify.types.HasMetafields {
   }
 
   public static class Builder {
-    /**
-     * A word or phrase to share the nature or contents of an image.
-     */
+    
     private String altText;
 
-    /**
-     * The original height of the image in pixels. Returns `null` if the image isn't hosted by Shopify.
-     */
+    
     private Integer height;
 
-    /**
-     * A unique ID for the image.
-     */
+    
     private String id;
 
-    /**
-     * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-     * including its `namespace` and `key`, that's associated with a Shopify resource
-     * for the purposes of adding and storing additional information.
-     */
+    
     private Metafield metafield;
 
-    /**
-     * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-     * that a merchant associates with a Shopify resource.
-     */
+    
     private MetafieldConnection metafields;
 
-    /**
-     * The location of the original image as a URL.
-     *   
-     * If there are any existing transformations in the original source URL, they will remain and not be stripped.
-     */
+    
     private String originalSrc;
 
-    /**
-     * Returns a private metafield by namespace and key that belongs to the resource.
-     */
+    
     private PrivateMetafield privateMetafield;
 
-    /**
-     * List of private metafields that belong to the resource.
-     */
+    
     private PrivateMetafieldConnection privateMetafields;
 
-    /**
-     * The location of the image as a URL.
-     */
+    
     private String src;
 
-    /**
-     * The location of the transformed image as a URL.
-     *   
-     * All transformation arguments are considered "best-effort". If they can be applied to an image, they will be.
-     * Otherwise any transformations which an image type doesn't support will be ignored.
-     */
+    
     private String transformedSrc;
 
-    /**
-     * The location of the image as a URL.
-     *   
-     * If no transform options are specified, then the original image will be preserved including any pre-applied transforms.
-     *   
-     * All transformation options are considered "best-effort". Any transformation
-     * that the original image type doesn't support will be ignored.
-     *   
-     * If you need multiple variations of the same image, then you can use [GraphQL
-     * aliases](https://graphql.org/learn/queries/#aliases).
-     */
+    
     private String url;
 
-    /**
-     * The original width of the image in pixels. Returns `null` if the image isn't hosted by Shopify.
-     */
+    
     private Integer width;
 
     public Image build() {
@@ -368,113 +246,73 @@ public class Image implements com.shopify.types.HasMetafields {
       return result;
     }
 
-    /**
-     * A word or phrase to share the nature or contents of an image.
-     */
+    
     public Builder altText(String altText) {
       this.altText = altText;
       return this;
     }
 
-    /**
-     * The original height of the image in pixels. Returns `null` if the image isn't hosted by Shopify.
-     */
+    
     public Builder height(Integer height) {
       this.height = height;
       return this;
     }
 
-    /**
-     * A unique ID for the image.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-     * including its `namespace` and `key`, that's associated with a Shopify resource
-     * for the purposes of adding and storing additional information.
-     */
+    
     public Builder metafield(Metafield metafield) {
       this.metafield = metafield;
       return this;
     }
 
-    /**
-     * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-     * that a merchant associates with a Shopify resource.
-     */
+    
     public Builder metafields(MetafieldConnection metafields) {
       this.metafields = metafields;
       return this;
     }
 
-    /**
-     * The location of the original image as a URL.
-     *   
-     * If there are any existing transformations in the original source URL, they will remain and not be stripped.
-     */
+    
     public Builder originalSrc(String originalSrc) {
       this.originalSrc = originalSrc;
       return this;
     }
 
-    /**
-     * Returns a private metafield by namespace and key that belongs to the resource.
-     */
+    
     public Builder privateMetafield(PrivateMetafield privateMetafield) {
       this.privateMetafield = privateMetafield;
       return this;
     }
 
-    /**
-     * List of private metafields that belong to the resource.
-     */
+    
     public Builder privateMetafields(PrivateMetafieldConnection privateMetafields) {
       this.privateMetafields = privateMetafields;
       return this;
     }
 
-    /**
-     * The location of the image as a URL.
-     */
+    
     public Builder src(String src) {
       this.src = src;
       return this;
     }
 
-    /**
-     * The location of the transformed image as a URL.
-     *   
-     * All transformation arguments are considered "best-effort". If they can be applied to an image, they will be.
-     * Otherwise any transformations which an image type doesn't support will be ignored.
-     */
+    
     public Builder transformedSrc(String transformedSrc) {
       this.transformedSrc = transformedSrc;
       return this;
     }
 
-    /**
-     * The location of the image as a URL.
-     *   
-     * If no transform options are specified, then the original image will be preserved including any pre-applied transforms.
-     *   
-     * All transformation options are considered "best-effort". Any transformation
-     * that the original image type doesn't support will be ignored.
-     *   
-     * If you need multiple variations of the same image, then you can use [GraphQL
-     * aliases](https://graphql.org/learn/queries/#aliases).
-     */
+    
     public Builder url(String url) {
       this.url = url;
       return this;
     }
 
-    /**
-     * The original width of the image in pixels. Returns `null` if the image isn't hosted by Shopify.
-     */
+    
     public Builder width(Integer width) {
       this.width = width;
       return this;

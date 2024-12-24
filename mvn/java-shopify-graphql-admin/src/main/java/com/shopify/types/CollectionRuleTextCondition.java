@@ -6,24 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Specifies the condition for a text field.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class CollectionRuleTextCondition implements CollectionRuleConditionObject {
-  /**
-   * The value of the condition.
-   */
+  
   private String value;
 
   public CollectionRuleTextCondition() {
   }
 
-  /**
-   * The value of the condition.
-   */
+  
   public String getValue() {
     return value;
   }
@@ -55,9 +49,7 @@ public class CollectionRuleTextCondition implements CollectionRuleConditionObjec
   }
 
   public static class Builder {
-    /**
-     * The value of the condition.
-     */
+    
     private String value;
 
     public CollectionRuleTextCondition build() {
@@ -66,9 +58,7 @@ public class CollectionRuleTextCondition implements CollectionRuleConditionObjec
       return result;
     }
 
-    /**
-     * The value of the condition.
-     */
+    
     public Builder value(String value) {
       this.value = value;
       return this;

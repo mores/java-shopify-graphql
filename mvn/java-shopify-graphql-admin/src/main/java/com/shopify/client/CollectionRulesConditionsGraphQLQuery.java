@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Lists all rules that can be used to create smart collections.
- */
+
 public class CollectionRulesConditionsGraphQLQuery extends GraphQLQuery {
   public CollectionRulesConditionsGraphQLQuery(String queryName) {
     super("query", queryName);

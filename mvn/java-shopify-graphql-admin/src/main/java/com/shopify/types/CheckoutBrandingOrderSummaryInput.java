@@ -5,36 +5,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields used to update the order summary container customizations.
- */
+
 public class CheckoutBrandingOrderSummaryInput {
-  /**
-   * The selected color scheme for the order summary container of the checkout.
-   */
+  
   private CheckoutBrandingColorSchemeSelection colorScheme;
 
-  /**
-   * The background image of the order summary container (must not be of SVG format).
-   */
+  
   private CheckoutBrandingImageInput backgroundImage;
 
-  /**
-   * Divider style and visibility on the order summary container.
-   */
+  
   private CheckoutBrandingContainerDividerInput divider;
 
-  /**
-   * The settings for the order summary sections.
-   */
+  
   private CheckoutBrandingOrderSummarySectionInput section;
 
   public CheckoutBrandingOrderSummaryInput() {
   }
 
-  /**
-   * The selected color scheme for the order summary container of the checkout.
-   */
+  
   public CheckoutBrandingColorSchemeSelection getColorScheme() {
     return colorScheme;
   }
@@ -43,9 +31,7 @@ public class CheckoutBrandingOrderSummaryInput {
     this.colorScheme = colorScheme;
   }
 
-  /**
-   * The background image of the order summary container (must not be of SVG format).
-   */
+  
   public CheckoutBrandingImageInput getBackgroundImage() {
     return backgroundImage;
   }
@@ -54,9 +40,7 @@ public class CheckoutBrandingOrderSummaryInput {
     this.backgroundImage = backgroundImage;
   }
 
-  /**
-   * Divider style and visibility on the order summary container.
-   */
+  
   public CheckoutBrandingContainerDividerInput getDivider() {
     return divider;
   }
@@ -65,9 +49,7 @@ public class CheckoutBrandingOrderSummaryInput {
     this.divider = divider;
   }
 
-  /**
-   * The settings for the order summary sections.
-   */
+  
   public CheckoutBrandingOrderSummarySectionInput getSection() {
     return section;
   }
@@ -102,24 +84,16 @@ public class CheckoutBrandingOrderSummaryInput {
   }
 
   public static class Builder {
-    /**
-     * The selected color scheme for the order summary container of the checkout.
-     */
+    
     private CheckoutBrandingColorSchemeSelection colorScheme;
 
-    /**
-     * The background image of the order summary container (must not be of SVG format).
-     */
+    
     private CheckoutBrandingImageInput backgroundImage;
 
-    /**
-     * Divider style and visibility on the order summary container.
-     */
+    
     private CheckoutBrandingContainerDividerInput divider;
 
-    /**
-     * The settings for the order summary sections.
-     */
+    
     private CheckoutBrandingOrderSummarySectionInput section;
 
     public CheckoutBrandingOrderSummaryInput build() {
@@ -131,33 +105,25 @@ public class CheckoutBrandingOrderSummaryInput {
       return result;
     }
 
-    /**
-     * The selected color scheme for the order summary container of the checkout.
-     */
+    
     public Builder colorScheme(CheckoutBrandingColorSchemeSelection colorScheme) {
       this.colorScheme = colorScheme;
       return this;
     }
 
-    /**
-     * The background image of the order summary container (must not be of SVG format).
-     */
+    
     public Builder backgroundImage(CheckoutBrandingImageInput backgroundImage) {
       this.backgroundImage = backgroundImage;
       return this;
     }
 
-    /**
-     * Divider style and visibility on the order summary container.
-     */
+    
     public Builder divider(CheckoutBrandingContainerDividerInput divider) {
       this.divider = divider;
       return this;
     }
 
-    /**
-     * The settings for the order summary sections.
-     */
+    
     public Builder section(CheckoutBrandingOrderSummarySectionInput section) {
       this.section = section;
       return this;

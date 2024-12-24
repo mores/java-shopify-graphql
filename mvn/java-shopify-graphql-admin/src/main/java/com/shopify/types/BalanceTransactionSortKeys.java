@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * The set of valid sort keys for the BalanceTransaction query.
- */
+
 public enum BalanceTransactionSortKeys {
   AMOUNT,
 

@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `appSubscriptionCancel` mutation.
- */
+
 public class AppSubscriptionCancelPayload {
-  /**
-   * The cancelled app subscription.
-   */
+  
   private AppSubscription appSubscription;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public AppSubscriptionCancelPayload() {
   }
 
-  /**
-   * The cancelled app subscription.
-   */
+  
   public AppSubscription getAppSubscription() {
     return appSubscription;
   }
@@ -34,9 +26,7 @@ public class AppSubscriptionCancelPayload {
     this.appSubscription = appSubscription;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class AppSubscriptionCancelPayload {
   }
 
   public static class Builder {
-    /**
-     * The cancelled app subscription.
-     */
+    
     private AppSubscription appSubscription;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public AppSubscriptionCancelPayload build() {
@@ -86,17 +72,13 @@ public class AppSubscriptionCancelPayload {
       return result;
     }
 
-    /**
-     * The cancelled app subscription.
-     */
+    
     public Builder appSubscription(AppSubscription appSubscription) {
       this.appSubscription = appSubscription;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

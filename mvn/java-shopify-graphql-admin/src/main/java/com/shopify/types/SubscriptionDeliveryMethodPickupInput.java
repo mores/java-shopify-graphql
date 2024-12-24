@@ -5,24 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for a pickup delivery method.
- *
- * This input accepts partial input. When a field is not provided,
- * its prior value is left unchanged.
- */
+
 public class SubscriptionDeliveryMethodPickupInput {
-  /**
-   * The details of the pickup method to use.
-   */
+  
   private SubscriptionDeliveryMethodPickupOptionInput pickupOption;
 
   public SubscriptionDeliveryMethodPickupInput() {
   }
 
-  /**
-   * The details of the pickup method to use.
-   */
+  
   public SubscriptionDeliveryMethodPickupOptionInput getPickupOption() {
     return pickupOption;
   }
@@ -54,9 +45,7 @@ public class SubscriptionDeliveryMethodPickupInput {
   }
 
   public static class Builder {
-    /**
-     * The details of the pickup method to use.
-     */
+    
     private SubscriptionDeliveryMethodPickupOptionInput pickupOption;
 
     public SubscriptionDeliveryMethodPickupInput build() {
@@ -65,9 +54,7 @@ public class SubscriptionDeliveryMethodPickupInput {
       return result;
     }
 
-    /**
-     * The details of the pickup method to use.
-     */
+    
     public Builder pickupOption(SubscriptionDeliveryMethodPickupOptionInput pickupOption) {
       this.pickupOption = pickupOption;
       return this;

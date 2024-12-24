@@ -8,23 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Sets metafield values. Metafield values will be set regardless if they were previously created or not.
- *   
- * Allows a maximum of 25 metafields to be set at a time.
- *   
- * This operation is atomic, meaning no changes are persisted if an error is encountered.
- *   
- * As of `2024-07`, this operation supports compare-and-set functionality to better handle concurrent requests.
- * If `compareDigest` is set for any metafield, the mutation will only set that
- * metafield if the persisted metafield value matches the digest used on
- * `compareDigest`.
- * If the metafield doesn't exist yet, but you want to guarantee that the
- * operation will run in a safe manner, set `compareDigest` to `null`.
- * The `compareDigest` value can be acquired by querying the metafield object and selecting `compareDigest` as a field.
- * If the `compareDigest` value does not match the digest for the persisted value, the mutation will return an error.
- * You can opt out of write guarantees by not sending `compareDigest` in the request.
- */
+
 public class MetafieldsSetGraphQLQuery extends GraphQLQuery {
   public MetafieldsSetGraphQLQuery(List<MetafieldsSetInput> metafields, String queryName,
       Set<String> fieldsSet) {
@@ -59,9 +43,7 @@ public class MetafieldsSetGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The list of metafield values to set. Maximum of 25.
-     */
+    
     public Builder metafields(List<MetafieldsSetInput> metafields) {
       this.metafields = metafields;
       this.fieldsSet.add("metafields");

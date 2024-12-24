@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns a Job resource by ID. Used to check the status of internal jobs and any applicable changes.
- */
+
 public class JobGraphQLQuery extends GraphQLQuery {
   public JobGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -42,9 +40,7 @@ public class JobGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * ID of the job to query.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

@@ -6,47 +6,24 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `fulfillmentOrderMove` mutation.
- */
+
 public class FulfillmentOrderMovePayload {
-  /**
-   * The fulfillment order which now contains the moved line items and is assigned to the destination location.
-   *   
-   * If the original fulfillment order doesn't have any line items which are fully
-   * or partially fulfilled, the original fulfillment order will be moved to the new location.
-   * However if this isn't the case, the moved fulfillment order will differ from the original one.
-   */
+  
   private FulfillmentOrder movedFulfillmentOrder;
 
-  /**
-   * The final state of the original fulfillment order.
-   *   
-   * As a result of the move operation, the original fulfillment order might be moved to the new location
-   * or remain in the original location. The original fulfillment order might have the same status or be closed.
-   */
+  
   private FulfillmentOrder originalFulfillmentOrder;
 
-  /**
-   * This field is deprecated.
-   */
+  
   private FulfillmentOrder remainingFulfillmentOrder;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public FulfillmentOrderMovePayload() {
   }
 
-  /**
-   * The fulfillment order which now contains the moved line items and is assigned to the destination location.
-   *   
-   * If the original fulfillment order doesn't have any line items which are fully
-   * or partially fulfilled, the original fulfillment order will be moved to the new location.
-   * However if this isn't the case, the moved fulfillment order will differ from the original one.
-   */
+  
   public FulfillmentOrder getMovedFulfillmentOrder() {
     return movedFulfillmentOrder;
   }
@@ -55,12 +32,7 @@ public class FulfillmentOrderMovePayload {
     this.movedFulfillmentOrder = movedFulfillmentOrder;
   }
 
-  /**
-   * The final state of the original fulfillment order.
-   *   
-   * As a result of the move operation, the original fulfillment order might be moved to the new location
-   * or remain in the original location. The original fulfillment order might have the same status or be closed.
-   */
+  
   public FulfillmentOrder getOriginalFulfillmentOrder() {
     return originalFulfillmentOrder;
   }
@@ -69,9 +41,7 @@ public class FulfillmentOrderMovePayload {
     this.originalFulfillmentOrder = originalFulfillmentOrder;
   }
 
-  /**
-   * This field is deprecated.
-   */
+  
   public FulfillmentOrder getRemainingFulfillmentOrder() {
     return remainingFulfillmentOrder;
   }
@@ -80,9 +50,7 @@ public class FulfillmentOrderMovePayload {
     this.remainingFulfillmentOrder = remainingFulfillmentOrder;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -117,31 +85,16 @@ public class FulfillmentOrderMovePayload {
   }
 
   public static class Builder {
-    /**
-     * The fulfillment order which now contains the moved line items and is assigned to the destination location.
-     *   
-     * If the original fulfillment order doesn't have any line items which are fully
-     * or partially fulfilled, the original fulfillment order will be moved to the new location.
-     * However if this isn't the case, the moved fulfillment order will differ from the original one.
-     */
+    
     private FulfillmentOrder movedFulfillmentOrder;
 
-    /**
-     * The final state of the original fulfillment order.
-     *   
-     * As a result of the move operation, the original fulfillment order might be moved to the new location
-     * or remain in the original location. The original fulfillment order might have the same status or be closed.
-     */
+    
     private FulfillmentOrder originalFulfillmentOrder;
 
-    /**
-     * This field is deprecated.
-     */
+    
     private FulfillmentOrder remainingFulfillmentOrder;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public FulfillmentOrderMovePayload build() {
@@ -153,40 +106,25 @@ public class FulfillmentOrderMovePayload {
       return result;
     }
 
-    /**
-     * The fulfillment order which now contains the moved line items and is assigned to the destination location.
-     *   
-     * If the original fulfillment order doesn't have any line items which are fully
-     * or partially fulfilled, the original fulfillment order will be moved to the new location.
-     * However if this isn't the case, the moved fulfillment order will differ from the original one.
-     */
+    
     public Builder movedFulfillmentOrder(FulfillmentOrder movedFulfillmentOrder) {
       this.movedFulfillmentOrder = movedFulfillmentOrder;
       return this;
     }
 
-    /**
-     * The final state of the original fulfillment order.
-     *   
-     * As a result of the move operation, the original fulfillment order might be moved to the new location
-     * or remain in the original location. The original fulfillment order might have the same status or be closed.
-     */
+    
     public Builder originalFulfillmentOrder(FulfillmentOrder originalFulfillmentOrder) {
       this.originalFulfillmentOrder = originalFulfillmentOrder;
       return this;
     }
 
-    /**
-     * This field is deprecated.
-     */
+    
     public Builder remainingFulfillmentOrder(FulfillmentOrder remainingFulfillmentOrder) {
       this.remainingFulfillmentOrder = remainingFulfillmentOrder;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

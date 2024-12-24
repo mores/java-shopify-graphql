@@ -6,24 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The minimum quantity of items required for the discount to apply.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DiscountMinimumQuantity implements DiscountMinimumRequirement {
-  /**
-   * The minimum quantity of items that's required for the discount to be applied.
-   */
+  
   private String greaterThanOrEqualToQuantity;
 
   public DiscountMinimumQuantity() {
   }
 
-  /**
-   * The minimum quantity of items that's required for the discount to be applied.
-   */
+  
   public String getGreaterThanOrEqualToQuantity() {
     return greaterThanOrEqualToQuantity;
   }
@@ -55,9 +49,7 @@ public class DiscountMinimumQuantity implements DiscountMinimumRequirement {
   }
 
   public static class Builder {
-    /**
-     * The minimum quantity of items that's required for the discount to be applied.
-     */
+    
     private String greaterThanOrEqualToQuantity;
 
     public DiscountMinimumQuantity build() {
@@ -66,9 +58,7 @@ public class DiscountMinimumQuantity implements DiscountMinimumRequirement {
       return result;
     }
 
-    /**
-     * The minimum quantity of items that's required for the discount to be applied.
-     */
+    
     public Builder greaterThanOrEqualToQuantity(String greaterThanOrEqualToQuantity) {
       this.greaterThanOrEqualToQuantity = greaterThanOrEqualToQuantity;
       return this;

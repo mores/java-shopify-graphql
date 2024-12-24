@@ -6,26 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The font size.
- */
+
 public class CheckoutBrandingFontSize {
-  /**
-   * The base font size.
-   */
+  
   private Double base;
 
-  /**
-   * The scale ratio used to derive all font sizes such as small and large.
-   */
+  
   private Double ratio;
 
   public CheckoutBrandingFontSize() {
   }
 
-  /**
-   * The base font size.
-   */
+  
   public Double getBase() {
     return base;
   }
@@ -34,9 +26,7 @@ public class CheckoutBrandingFontSize {
     this.base = base;
   }
 
-  /**
-   * The scale ratio used to derive all font sizes such as small and large.
-   */
+  
   public Double getRatio() {
     return ratio;
   }
@@ -69,14 +59,10 @@ public class CheckoutBrandingFontSize {
   }
 
   public static class Builder {
-    /**
-     * The base font size.
-     */
+    
     private Double base;
 
-    /**
-     * The scale ratio used to derive all font sizes such as small and large.
-     */
+    
     private Double ratio;
 
     public CheckoutBrandingFontSize build() {
@@ -86,17 +72,13 @@ public class CheckoutBrandingFontSize {
       return result;
     }
 
-    /**
-     * The base font size.
-     */
+    
     public Builder base(Double base) {
       this.base = base;
       return this;
     }
 
-    /**
-     * The scale ratio used to derive all font sizes such as small and large.
-     */
+    
     public Builder ratio(Double ratio) {
       this.ratio = ratio;
       return this;

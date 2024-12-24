@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Deletes a shipping package.
- */
+
 public class ShippingPackageDeleteGraphQLQuery extends GraphQLQuery {
   public ShippingPackageDeleteGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -42,9 +40,7 @@ public class ShippingPackageDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the shipping package to remove.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

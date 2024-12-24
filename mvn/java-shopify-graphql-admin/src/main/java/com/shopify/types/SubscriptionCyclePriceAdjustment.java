@@ -5,36 +5,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents a Subscription Line Pricing Cycle Adjustment.
- */
+
 public class SubscriptionCyclePriceAdjustment {
-  /**
-   * Price adjustment type.
-   */
+  
   private SellingPlanPricingPolicyAdjustmentType adjustmentType;
 
-  /**
-   * Price adjustment value.
-   */
+  
   private SellingPlanPricingPolicyAdjustmentValue adjustmentValue;
 
-  /**
-   * The number of cycles required before this pricing policy applies.
-   */
+  
   private int afterCycle;
 
-  /**
-   * The computed price after the adjustments applied.
-   */
+  
   private MoneyV2 computedPrice;
 
   public SubscriptionCyclePriceAdjustment() {
   }
 
-  /**
-   * Price adjustment type.
-   */
+  
   public SellingPlanPricingPolicyAdjustmentType getAdjustmentType() {
     return adjustmentType;
   }
@@ -43,9 +31,7 @@ public class SubscriptionCyclePriceAdjustment {
     this.adjustmentType = adjustmentType;
   }
 
-  /**
-   * Price adjustment value.
-   */
+  
   public SellingPlanPricingPolicyAdjustmentValue getAdjustmentValue() {
     return adjustmentValue;
   }
@@ -54,9 +40,7 @@ public class SubscriptionCyclePriceAdjustment {
     this.adjustmentValue = adjustmentValue;
   }
 
-  /**
-   * The number of cycles required before this pricing policy applies.
-   */
+  
   public int getAfterCycle() {
     return afterCycle;
   }
@@ -65,9 +49,7 @@ public class SubscriptionCyclePriceAdjustment {
     this.afterCycle = afterCycle;
   }
 
-  /**
-   * The computed price after the adjustments applied.
-   */
+  
   public MoneyV2 getComputedPrice() {
     return computedPrice;
   }
@@ -102,24 +84,16 @@ public class SubscriptionCyclePriceAdjustment {
   }
 
   public static class Builder {
-    /**
-     * Price adjustment type.
-     */
+    
     private SellingPlanPricingPolicyAdjustmentType adjustmentType;
 
-    /**
-     * Price adjustment value.
-     */
+    
     private SellingPlanPricingPolicyAdjustmentValue adjustmentValue;
 
-    /**
-     * The number of cycles required before this pricing policy applies.
-     */
+    
     private int afterCycle;
 
-    /**
-     * The computed price after the adjustments applied.
-     */
+    
     private MoneyV2 computedPrice;
 
     public SubscriptionCyclePriceAdjustment build() {
@@ -131,33 +105,25 @@ public class SubscriptionCyclePriceAdjustment {
       return result;
     }
 
-    /**
-     * Price adjustment type.
-     */
+    
     public Builder adjustmentType(SellingPlanPricingPolicyAdjustmentType adjustmentType) {
       this.adjustmentType = adjustmentType;
       return this;
     }
 
-    /**
-     * Price adjustment value.
-     */
+    
     public Builder adjustmentValue(SellingPlanPricingPolicyAdjustmentValue adjustmentValue) {
       this.adjustmentValue = adjustmentValue;
       return this;
     }
 
-    /**
-     * The number of cycles required before this pricing policy applies.
-     */
+    
     public Builder afterCycle(int afterCycle) {
       this.afterCycle = afterCycle;
       return this;
     }
 
-    /**
-     * The computed price after the adjustments applied.
-     */
+    
     public Builder computedPrice(MoneyV2 computedPrice) {
       this.computedPrice = computedPrice;
       return this;

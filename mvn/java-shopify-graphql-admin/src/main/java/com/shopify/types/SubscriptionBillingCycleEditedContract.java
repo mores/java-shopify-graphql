@@ -8,104 +8,66 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Represents a subscription contract with billing cycles.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class SubscriptionBillingCycleEditedContract implements com.shopify.types.SubscriptionContractBase {
-  /**
-   * The subscription app that the subscription contract is registered to.
-   */
+  
   private App app;
 
-  /**
-   * The URL of the subscription contract page on the subscription app.
-   */
+  
   private String appAdminUrl;
 
-  /**
-   * The billing cycles that the edited contract belongs to.
-   */
+  
   private SubscriptionBillingCycleConnection billingCycles;
 
-  /**
-   * The date and time when the subscription contract was created.
-   */
+  
   private OffsetDateTime createdAt;
 
-  /**
-   * The currency that's used for the subscription contract.
-   */
+  
   private CurrencyCode currencyCode;
 
-  /**
-   * A list of the custom attributes to be added to the generated orders.
-   */
+  
   private List<Attribute> customAttributes;
 
-  /**
-   * The customer to whom the subscription contract belongs.
-   */
+  
   private Customer customer;
 
-  /**
-   * The customer payment method that's used for the subscription contract.
-   */
+  
   private CustomerPaymentMethod customerPaymentMethod;
 
-  /**
-   * The delivery method for each billing of the subscription contract.
-   */
+  
   private SubscriptionDeliveryMethod deliveryMethod;
 
-  /**
-   * The delivery price for each billing of the subscription contract.
-   */
+  
   private MoneyV2 deliveryPrice;
 
-  /**
-   * The list of subscription discounts associated with the subscription contract.
-   */
+  
   private SubscriptionManualDiscountConnection discounts;
 
-  /**
-   * The number of lines associated with the subscription contract.
-   */
+  
   private int lineCount;
 
-  /**
-   * The list of subscription lines associated with the subscription contract.
-   */
+  
   private SubscriptionLineConnection lines;
 
-  /**
-   * The number of lines associated with the subscription contract.
-   */
+  
   private Count linesCount;
 
-  /**
-   * The note field that will be applied to the generated orders.
-   */
+  
   private String note;
 
-  /**
-   * A list of the subscription contract's orders.
-   */
+  
   private OrderConnection orders;
 
-  /**
-   * The date and time when the subscription contract was updated.
-   */
+  
   private OffsetDateTime updatedAt;
 
   public SubscriptionBillingCycleEditedContract() {
   }
 
-  /**
-   * The subscription app that the subscription contract is registered to.
-   */
+  
   public App getApp() {
     return app;
   }
@@ -114,9 +76,7 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.types
     this.app = app;
   }
 
-  /**
-   * The URL of the subscription contract page on the subscription app.
-   */
+  
   public String getAppAdminUrl() {
     return appAdminUrl;
   }
@@ -125,9 +85,7 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.types
     this.appAdminUrl = appAdminUrl;
   }
 
-  /**
-   * The billing cycles that the edited contract belongs to.
-   */
+  
   public SubscriptionBillingCycleConnection getBillingCycles() {
     return billingCycles;
   }
@@ -136,9 +94,7 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.types
     this.billingCycles = billingCycles;
   }
 
-  /**
-   * The date and time when the subscription contract was created.
-   */
+  
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -147,9 +103,7 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.types
     this.createdAt = createdAt;
   }
 
-  /**
-   * The currency that's used for the subscription contract.
-   */
+  
   public CurrencyCode getCurrencyCode() {
     return currencyCode;
   }
@@ -158,9 +112,7 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.types
     this.currencyCode = currencyCode;
   }
 
-  /**
-   * A list of the custom attributes to be added to the generated orders.
-   */
+  
   public List<Attribute> getCustomAttributes() {
     return customAttributes;
   }
@@ -169,9 +121,7 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.types
     this.customAttributes = customAttributes;
   }
 
-  /**
-   * The customer to whom the subscription contract belongs.
-   */
+  
   public Customer getCustomer() {
     return customer;
   }
@@ -180,9 +130,7 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.types
     this.customer = customer;
   }
 
-  /**
-   * The customer payment method that's used for the subscription contract.
-   */
+  
   public CustomerPaymentMethod getCustomerPaymentMethod() {
     return customerPaymentMethod;
   }
@@ -191,9 +139,7 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.types
     this.customerPaymentMethod = customerPaymentMethod;
   }
 
-  /**
-   * The delivery method for each billing of the subscription contract.
-   */
+  
   public SubscriptionDeliveryMethod getDeliveryMethod() {
     return deliveryMethod;
   }
@@ -202,9 +148,7 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.types
     this.deliveryMethod = deliveryMethod;
   }
 
-  /**
-   * The delivery price for each billing of the subscription contract.
-   */
+  
   public MoneyV2 getDeliveryPrice() {
     return deliveryPrice;
   }
@@ -213,9 +157,7 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.types
     this.deliveryPrice = deliveryPrice;
   }
 
-  /**
-   * The list of subscription discounts associated with the subscription contract.
-   */
+  
   public SubscriptionManualDiscountConnection getDiscounts() {
     return discounts;
   }
@@ -224,9 +166,7 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.types
     this.discounts = discounts;
   }
 
-  /**
-   * The number of lines associated with the subscription contract.
-   */
+  
   public int getLineCount() {
     return lineCount;
   }
@@ -235,9 +175,7 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.types
     this.lineCount = lineCount;
   }
 
-  /**
-   * The list of subscription lines associated with the subscription contract.
-   */
+  
   public SubscriptionLineConnection getLines() {
     return lines;
   }
@@ -246,9 +184,7 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.types
     this.lines = lines;
   }
 
-  /**
-   * The number of lines associated with the subscription contract.
-   */
+  
   public Count getLinesCount() {
     return linesCount;
   }
@@ -257,9 +193,7 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.types
     this.linesCount = linesCount;
   }
 
-  /**
-   * The note field that will be applied to the generated orders.
-   */
+  
   public String getNote() {
     return note;
   }
@@ -268,9 +202,7 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.types
     this.note = note;
   }
 
-  /**
-   * A list of the subscription contract's orders.
-   */
+  
   public OrderConnection getOrders() {
     return orders;
   }
@@ -279,9 +211,7 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.types
     this.orders = orders;
   }
 
-  /**
-   * The date and time when the subscription contract was updated.
-   */
+  
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
@@ -329,89 +259,55 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.types
   }
 
   public static class Builder {
-    /**
-     * The subscription app that the subscription contract is registered to.
-     */
+    
     private App app;
 
-    /**
-     * The URL of the subscription contract page on the subscription app.
-     */
+    
     private String appAdminUrl;
 
-    /**
-     * The billing cycles that the edited contract belongs to.
-     */
+    
     private SubscriptionBillingCycleConnection billingCycles;
 
-    /**
-     * The date and time when the subscription contract was created.
-     */
+    
     private OffsetDateTime createdAt;
 
-    /**
-     * The currency that's used for the subscription contract.
-     */
+    
     private CurrencyCode currencyCode;
 
-    /**
-     * A list of the custom attributes to be added to the generated orders.
-     */
+    
     private List<Attribute> customAttributes;
 
-    /**
-     * The customer to whom the subscription contract belongs.
-     */
+    
     private Customer customer;
 
-    /**
-     * The customer payment method that's used for the subscription contract.
-     */
+    
     private CustomerPaymentMethod customerPaymentMethod;
 
-    /**
-     * The delivery method for each billing of the subscription contract.
-     */
+    
     private SubscriptionDeliveryMethod deliveryMethod;
 
-    /**
-     * The delivery price for each billing of the subscription contract.
-     */
+    
     private MoneyV2 deliveryPrice;
 
-    /**
-     * The list of subscription discounts associated with the subscription contract.
-     */
+    
     private SubscriptionManualDiscountConnection discounts;
 
-    /**
-     * The number of lines associated with the subscription contract.
-     */
+    
     private int lineCount;
 
-    /**
-     * The list of subscription lines associated with the subscription contract.
-     */
+    
     private SubscriptionLineConnection lines;
 
-    /**
-     * The number of lines associated with the subscription contract.
-     */
+    
     private Count linesCount;
 
-    /**
-     * The note field that will be applied to the generated orders.
-     */
+    
     private String note;
 
-    /**
-     * A list of the subscription contract's orders.
-     */
+    
     private OrderConnection orders;
 
-    /**
-     * The date and time when the subscription contract was updated.
-     */
+    
     private OffsetDateTime updatedAt;
 
     public SubscriptionBillingCycleEditedContract build() {
@@ -436,137 +332,103 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.types
       return result;
     }
 
-    /**
-     * The subscription app that the subscription contract is registered to.
-     */
+    
     public Builder app(App app) {
       this.app = app;
       return this;
     }
 
-    /**
-     * The URL of the subscription contract page on the subscription app.
-     */
+    
     public Builder appAdminUrl(String appAdminUrl) {
       this.appAdminUrl = appAdminUrl;
       return this;
     }
 
-    /**
-     * The billing cycles that the edited contract belongs to.
-     */
+    
     public Builder billingCycles(SubscriptionBillingCycleConnection billingCycles) {
       this.billingCycles = billingCycles;
       return this;
     }
 
-    /**
-     * The date and time when the subscription contract was created.
-     */
+    
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    /**
-     * The currency that's used for the subscription contract.
-     */
+    
     public Builder currencyCode(CurrencyCode currencyCode) {
       this.currencyCode = currencyCode;
       return this;
     }
 
-    /**
-     * A list of the custom attributes to be added to the generated orders.
-     */
+    
     public Builder customAttributes(List<Attribute> customAttributes) {
       this.customAttributes = customAttributes;
       return this;
     }
 
-    /**
-     * The customer to whom the subscription contract belongs.
-     */
+    
     public Builder customer(Customer customer) {
       this.customer = customer;
       return this;
     }
 
-    /**
-     * The customer payment method that's used for the subscription contract.
-     */
+    
     public Builder customerPaymentMethod(CustomerPaymentMethod customerPaymentMethod) {
       this.customerPaymentMethod = customerPaymentMethod;
       return this;
     }
 
-    /**
-     * The delivery method for each billing of the subscription contract.
-     */
+    
     public Builder deliveryMethod(SubscriptionDeliveryMethod deliveryMethod) {
       this.deliveryMethod = deliveryMethod;
       return this;
     }
 
-    /**
-     * The delivery price for each billing of the subscription contract.
-     */
+    
     public Builder deliveryPrice(MoneyV2 deliveryPrice) {
       this.deliveryPrice = deliveryPrice;
       return this;
     }
 
-    /**
-     * The list of subscription discounts associated with the subscription contract.
-     */
+    
     public Builder discounts(SubscriptionManualDiscountConnection discounts) {
       this.discounts = discounts;
       return this;
     }
 
-    /**
-     * The number of lines associated with the subscription contract.
-     */
+    
     public Builder lineCount(int lineCount) {
       this.lineCount = lineCount;
       return this;
     }
 
-    /**
-     * The list of subscription lines associated with the subscription contract.
-     */
+    
     public Builder lines(SubscriptionLineConnection lines) {
       this.lines = lines;
       return this;
     }
 
-    /**
-     * The number of lines associated with the subscription contract.
-     */
+    
     public Builder linesCount(Count linesCount) {
       this.linesCount = linesCount;
       return this;
     }
 
-    /**
-     * The note field that will be applied to the generated orders.
-     */
+    
     public Builder note(String note) {
       this.note = note;
       return this;
     }
 
-    /**
-     * A list of the subscription contract's orders.
-     */
+    
     public Builder orders(OrderConnection orders) {
       this.orders = orders;
       return this;
     }
 
-    /**
-     * The date and time when the subscription contract was updated.
-     */
+    
     public Builder updatedAt(OffsetDateTime updatedAt) {
       this.updatedAt = updatedAt;
       return this;

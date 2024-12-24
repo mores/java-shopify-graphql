@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `reverseFulfillmentOrderDispose` mutation.
- */
+
 public class ReverseFulfillmentOrderDisposePayload {
-  /**
-   * The disposed reverse fulfillment order line items.
-   */
+  
   private List<ReverseFulfillmentOrderLineItem> reverseFulfillmentOrderLineItems;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<ReturnUserError> userErrors;
 
   public ReverseFulfillmentOrderDisposePayload() {
   }
 
-  /**
-   * The disposed reverse fulfillment order line items.
-   */
+  
   public List<ReverseFulfillmentOrderLineItem> getReverseFulfillmentOrderLineItems() {
     return reverseFulfillmentOrderLineItems;
   }
@@ -35,9 +27,7 @@ public class ReverseFulfillmentOrderDisposePayload {
     this.reverseFulfillmentOrderLineItems = reverseFulfillmentOrderLineItems;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<ReturnUserError> getUserErrors() {
     return userErrors;
   }
@@ -70,14 +60,10 @@ public class ReverseFulfillmentOrderDisposePayload {
   }
 
   public static class Builder {
-    /**
-     * The disposed reverse fulfillment order line items.
-     */
+    
     private List<ReverseFulfillmentOrderLineItem> reverseFulfillmentOrderLineItems;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<ReturnUserError> userErrors;
 
     public ReverseFulfillmentOrderDisposePayload build() {
@@ -87,18 +73,14 @@ public class ReverseFulfillmentOrderDisposePayload {
       return result;
     }
 
-    /**
-     * The disposed reverse fulfillment order line items.
-     */
+    
     public Builder reverseFulfillmentOrderLineItems(
         List<ReverseFulfillmentOrderLineItem> reverseFulfillmentOrderLineItems) {
       this.reverseFulfillmentOrderLineItems = reverseFulfillmentOrderLineItems;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<ReturnUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

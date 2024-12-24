@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `discountAutomaticDelete` mutation.
- */
+
 public class DiscountAutomaticDeletePayload {
-  /**
-   * The ID of the automatic discount that was deleted.
-   */
+  
   private String deletedAutomaticDiscountId;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<DiscountUserError> userErrors;
 
   public DiscountAutomaticDeletePayload() {
   }
 
-  /**
-   * The ID of the automatic discount that was deleted.
-   */
+  
   public String getDeletedAutomaticDiscountId() {
     return deletedAutomaticDiscountId;
   }
@@ -34,9 +26,7 @@ public class DiscountAutomaticDeletePayload {
     this.deletedAutomaticDiscountId = deletedAutomaticDiscountId;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<DiscountUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class DiscountAutomaticDeletePayload {
   }
 
   public static class Builder {
-    /**
-     * The ID of the automatic discount that was deleted.
-     */
+    
     private String deletedAutomaticDiscountId;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<DiscountUserError> userErrors;
 
     public DiscountAutomaticDeletePayload build() {
@@ -86,17 +72,13 @@ public class DiscountAutomaticDeletePayload {
       return result;
     }
 
-    /**
-     * The ID of the automatic discount that was deleted.
-     */
+    
     public Builder deletedAutomaticDiscountId(String deletedAutomaticDiscountId) {
       this.deletedAutomaticDiscountId = deletedAutomaticDiscountId;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<DiscountUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

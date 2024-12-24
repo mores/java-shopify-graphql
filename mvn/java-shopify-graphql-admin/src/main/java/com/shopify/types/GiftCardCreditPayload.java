@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `giftCardCredit` mutation.
- */
+
 public class GiftCardCreditPayload {
-  /**
-   * The gift card credit transaction that was created.
-   */
+  
   private GiftCardCreditTransaction giftCardCreditTransaction;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<GiftCardTransactionUserError> userErrors;
 
   public GiftCardCreditPayload() {
   }
 
-  /**
-   * The gift card credit transaction that was created.
-   */
+  
   public GiftCardCreditTransaction getGiftCardCreditTransaction() {
     return giftCardCreditTransaction;
   }
@@ -34,9 +26,7 @@ public class GiftCardCreditPayload {
     this.giftCardCreditTransaction = giftCardCreditTransaction;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<GiftCardTransactionUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class GiftCardCreditPayload {
   }
 
   public static class Builder {
-    /**
-     * The gift card credit transaction that was created.
-     */
+    
     private GiftCardCreditTransaction giftCardCreditTransaction;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<GiftCardTransactionUserError> userErrors;
 
     public GiftCardCreditPayload build() {
@@ -86,17 +72,13 @@ public class GiftCardCreditPayload {
       return result;
     }
 
-    /**
-     * The gift card credit transaction that was created.
-     */
+    
     public Builder giftCardCreditTransaction(GiftCardCreditTransaction giftCardCreditTransaction) {
       this.giftCardCreditTransaction = giftCardCreditTransaction;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<GiftCardTransactionUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

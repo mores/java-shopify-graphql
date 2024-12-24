@@ -6,29 +6,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Local payment methods payment details related to a transaction.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class LocalPaymentMethodsPaymentDetails implements PaymentDetails, com.shopify.types.BasePaymentDetails {
-  /**
-   * The descriptor by the payment provider. Only available for Amazon Pay and Buy with Prime.
-   */
+  
   private String paymentDescriptor;
 
-  /**
-   * The name of payment method used by the buyer.
-   */
+  
   private String paymentMethodName;
 
   public LocalPaymentMethodsPaymentDetails() {
   }
 
-  /**
-   * The descriptor by the payment provider. Only available for Amazon Pay and Buy with Prime.
-   */
+  
   public String getPaymentDescriptor() {
     return paymentDescriptor;
   }
@@ -37,9 +29,7 @@ public class LocalPaymentMethodsPaymentDetails implements PaymentDetails, com.sh
     this.paymentDescriptor = paymentDescriptor;
   }
 
-  /**
-   * The name of payment method used by the buyer.
-   */
+  
   public String getPaymentMethodName() {
     return paymentMethodName;
   }
@@ -72,14 +62,10 @@ public class LocalPaymentMethodsPaymentDetails implements PaymentDetails, com.sh
   }
 
   public static class Builder {
-    /**
-     * The descriptor by the payment provider. Only available for Amazon Pay and Buy with Prime.
-     */
+    
     private String paymentDescriptor;
 
-    /**
-     * The name of payment method used by the buyer.
-     */
+    
     private String paymentMethodName;
 
     public LocalPaymentMethodsPaymentDetails build() {
@@ -89,17 +75,13 @@ public class LocalPaymentMethodsPaymentDetails implements PaymentDetails, com.sh
       return result;
     }
 
-    /**
-     * The descriptor by the payment provider. Only available for Amazon Pay and Buy with Prime.
-     */
+    
     public Builder paymentDescriptor(String paymentDescriptor) {
       this.paymentDescriptor = paymentDescriptor;
       return this;
     }
 
-    /**
-     * The name of payment method used by the buyer.
-     */
+    
     public Builder paymentMethodName(String paymentMethodName) {
       this.paymentMethodName = paymentMethodName;
       return this;

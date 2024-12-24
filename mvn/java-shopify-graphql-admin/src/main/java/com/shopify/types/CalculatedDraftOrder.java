@@ -7,186 +7,108 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The calculated fields for a draft order.
- */
+
 public class CalculatedDraftOrder {
-  /**
-   * Whether or not to accept automatic discounts on the draft order during calculation.
-   * If false, only discount codes and custom draft order discounts (see `appliedDiscount`) will be applied.
-   * If true, eligible automatic discounts will be applied in addition to discount codes and custom draft order discounts.
-   */
+  
   private Boolean acceptAutomaticDiscounts;
 
-  /**
-   * The list of alerts raised while calculating.
-   */
+  
   private List<ResourceAlert> alerts;
 
-  /**
-   * The custom order-level discount applied.
-   */
+  
   private DraftOrderAppliedDiscount appliedDiscount;
 
-  /**
-   * The available shipping rates.
-   * Requires a customer with a valid shipping address and at least one line item.
-   */
+  
   private List<ShippingRate> availableShippingRates;
 
-  /**
-   * Whether the billing address matches the shipping address.
-   */
+  
   private boolean billingAddressMatchesShippingAddress;
 
-  /**
-   * The shop currency used for calculation.
-   */
+  
   private CurrencyCode currencyCode;
 
-  /**
-   * The customer who will be sent an invoice.
-   */
+  
   private Customer customer;
 
-  /**
-   * All discount codes applied.
-   */
+  
   private List<String> discountCodes;
 
-  /**
-   * The list of the line items in the calculated draft order.
-   */
+  
   private List<CalculatedDraftOrderLineItem> lineItems;
 
-  /**
-   * A subtotal of the line items and corresponding discounts,
-   * excluding include shipping charges, shipping discounts, taxes, or order discounts.
-   */
+  
   private MoneyBag lineItemsSubtotalPrice;
 
-  /**
-   * The name of the selected market.
-   */
+  
   private String marketName;
 
-  /**
-   * The selected country code that determines the pricing.
-   */
+  
   private CountryCode marketRegionCountryCode;
 
-  /**
-   * The assigned phone number.
-   */
+  
   private String phone;
 
-  /**
-   * The list of platform discounts applied.
-   */
+  
   private List<DraftOrderPlatformDiscount> platformDiscounts;
 
-  /**
-   * The payment currency used for calculation.
-   */
+  
   private CurrencyCode presentmentCurrencyCode;
 
-  /**
-   * The purchasing entity.
-   */
+  
   private PurchasingEntity purchasingEntity;
 
-  /**
-   * The line item containing the shipping information and costs.
-   */
+  
   private ShippingLine shippingLine;
 
-  /**
-   * The subtotal, in shop currency, of the line items and their discounts,
-   * excluding shipping charges, shipping discounts, and taxes.
-   */
+  
   private String subtotalPrice;
 
-  /**
-   * The subtotal, of the line items and their discounts, excluding shipping charges, shipping discounts, and taxes.
-   */
+  
   private MoneyBag subtotalPriceSet;
 
-  /**
-   * The list of of taxes lines charged for each line item and shipping line.
-   */
+  
   private List<TaxLine> taxLines;
 
-  /**
-   * Whether the line item prices include taxes.
-   */
+  
   private boolean taxesIncluded;
 
-  /**
-   * Total discounts.
-   */
+  
   private MoneyBag totalDiscountsSet;
 
-  /**
-   * Total price of line items.
-   */
+  
   private MoneyBag totalLineItemsPriceSet;
 
-  /**
-   * The total price, in shop currency, includes taxes, shipping charges, and discounts.
-   */
+  
   private String totalPrice;
 
-  /**
-   * The total price, includes taxes, shipping charges, and discounts.
-   */
+  
   private MoneyBag totalPriceSet;
 
-  /**
-   * The sum of individual line item quantities.
-   * If the draft order has bundle items, this is the sum containing the quantities of individual items in the bundle.
-   */
+  
   private int totalQuantityOfLineItems;
 
-  /**
-   * The total shipping price in shop currency.
-   */
+  
   private String totalShippingPrice;
 
-  /**
-   * The total shipping price.
-   */
+  
   private MoneyBag totalShippingPriceSet;
 
-  /**
-   * The total tax in shop currency.
-   */
+  
   private String totalTax;
 
-  /**
-   * The total tax.
-   */
+  
   private MoneyBag totalTaxSet;
 
-  /**
-   * Fingerprint of the current cart.
-   * In order to have bundles work, the fingerprint must be passed to
-   * each request as it was previously returned, unmodified.
-   */
+  
   private String transformerFingerprint;
 
-  /**
-   * The list of warnings raised while calculating.
-   */
+  
   private List<DraftOrderWarning> warnings;
 
   public CalculatedDraftOrder() {
   }
 
-  /**
-   * Whether or not to accept automatic discounts on the draft order during calculation.
-   * If false, only discount codes and custom draft order discounts (see `appliedDiscount`) will be applied.
-   * If true, eligible automatic discounts will be applied in addition to discount codes and custom draft order discounts.
-   */
+  
   public Boolean getAcceptAutomaticDiscounts() {
     return acceptAutomaticDiscounts;
   }
@@ -195,9 +117,7 @@ public class CalculatedDraftOrder {
     this.acceptAutomaticDiscounts = acceptAutomaticDiscounts;
   }
 
-  /**
-   * The list of alerts raised while calculating.
-   */
+  
   public List<ResourceAlert> getAlerts() {
     return alerts;
   }
@@ -206,9 +126,7 @@ public class CalculatedDraftOrder {
     this.alerts = alerts;
   }
 
-  /**
-   * The custom order-level discount applied.
-   */
+  
   public DraftOrderAppliedDiscount getAppliedDiscount() {
     return appliedDiscount;
   }
@@ -217,10 +135,7 @@ public class CalculatedDraftOrder {
     this.appliedDiscount = appliedDiscount;
   }
 
-  /**
-   * The available shipping rates.
-   * Requires a customer with a valid shipping address and at least one line item.
-   */
+  
   public List<ShippingRate> getAvailableShippingRates() {
     return availableShippingRates;
   }
@@ -229,9 +144,7 @@ public class CalculatedDraftOrder {
     this.availableShippingRates = availableShippingRates;
   }
 
-  /**
-   * Whether the billing address matches the shipping address.
-   */
+  
   public boolean getBillingAddressMatchesShippingAddress() {
     return billingAddressMatchesShippingAddress;
   }
@@ -241,9 +154,7 @@ public class CalculatedDraftOrder {
     this.billingAddressMatchesShippingAddress = billingAddressMatchesShippingAddress;
   }
 
-  /**
-   * The shop currency used for calculation.
-   */
+  
   public CurrencyCode getCurrencyCode() {
     return currencyCode;
   }
@@ -252,9 +163,7 @@ public class CalculatedDraftOrder {
     this.currencyCode = currencyCode;
   }
 
-  /**
-   * The customer who will be sent an invoice.
-   */
+  
   public Customer getCustomer() {
     return customer;
   }
@@ -263,9 +172,7 @@ public class CalculatedDraftOrder {
     this.customer = customer;
   }
 
-  /**
-   * All discount codes applied.
-   */
+  
   public List<String> getDiscountCodes() {
     return discountCodes;
   }
@@ -274,9 +181,7 @@ public class CalculatedDraftOrder {
     this.discountCodes = discountCodes;
   }
 
-  /**
-   * The list of the line items in the calculated draft order.
-   */
+  
   public List<CalculatedDraftOrderLineItem> getLineItems() {
     return lineItems;
   }
@@ -285,10 +190,7 @@ public class CalculatedDraftOrder {
     this.lineItems = lineItems;
   }
 
-  /**
-   * A subtotal of the line items and corresponding discounts,
-   * excluding include shipping charges, shipping discounts, taxes, or order discounts.
-   */
+  
   public MoneyBag getLineItemsSubtotalPrice() {
     return lineItemsSubtotalPrice;
   }
@@ -297,9 +199,7 @@ public class CalculatedDraftOrder {
     this.lineItemsSubtotalPrice = lineItemsSubtotalPrice;
   }
 
-  /**
-   * The name of the selected market.
-   */
+  
   public String getMarketName() {
     return marketName;
   }
@@ -308,9 +208,7 @@ public class CalculatedDraftOrder {
     this.marketName = marketName;
   }
 
-  /**
-   * The selected country code that determines the pricing.
-   */
+  
   public CountryCode getMarketRegionCountryCode() {
     return marketRegionCountryCode;
   }
@@ -319,9 +217,7 @@ public class CalculatedDraftOrder {
     this.marketRegionCountryCode = marketRegionCountryCode;
   }
 
-  /**
-   * The assigned phone number.
-   */
+  
   public String getPhone() {
     return phone;
   }
@@ -330,9 +226,7 @@ public class CalculatedDraftOrder {
     this.phone = phone;
   }
 
-  /**
-   * The list of platform discounts applied.
-   */
+  
   public List<DraftOrderPlatformDiscount> getPlatformDiscounts() {
     return platformDiscounts;
   }
@@ -341,9 +235,7 @@ public class CalculatedDraftOrder {
     this.platformDiscounts = platformDiscounts;
   }
 
-  /**
-   * The payment currency used for calculation.
-   */
+  
   public CurrencyCode getPresentmentCurrencyCode() {
     return presentmentCurrencyCode;
   }
@@ -352,9 +244,7 @@ public class CalculatedDraftOrder {
     this.presentmentCurrencyCode = presentmentCurrencyCode;
   }
 
-  /**
-   * The purchasing entity.
-   */
+  
   public PurchasingEntity getPurchasingEntity() {
     return purchasingEntity;
   }
@@ -363,9 +253,7 @@ public class CalculatedDraftOrder {
     this.purchasingEntity = purchasingEntity;
   }
 
-  /**
-   * The line item containing the shipping information and costs.
-   */
+  
   public ShippingLine getShippingLine() {
     return shippingLine;
   }
@@ -374,10 +262,7 @@ public class CalculatedDraftOrder {
     this.shippingLine = shippingLine;
   }
 
-  /**
-   * The subtotal, in shop currency, of the line items and their discounts,
-   * excluding shipping charges, shipping discounts, and taxes.
-   */
+  
   public String getSubtotalPrice() {
     return subtotalPrice;
   }
@@ -386,9 +271,7 @@ public class CalculatedDraftOrder {
     this.subtotalPrice = subtotalPrice;
   }
 
-  /**
-   * The subtotal, of the line items and their discounts, excluding shipping charges, shipping discounts, and taxes.
-   */
+  
   public MoneyBag getSubtotalPriceSet() {
     return subtotalPriceSet;
   }
@@ -397,9 +280,7 @@ public class CalculatedDraftOrder {
     this.subtotalPriceSet = subtotalPriceSet;
   }
 
-  /**
-   * The list of of taxes lines charged for each line item and shipping line.
-   */
+  
   public List<TaxLine> getTaxLines() {
     return taxLines;
   }
@@ -408,9 +289,7 @@ public class CalculatedDraftOrder {
     this.taxLines = taxLines;
   }
 
-  /**
-   * Whether the line item prices include taxes.
-   */
+  
   public boolean getTaxesIncluded() {
     return taxesIncluded;
   }
@@ -419,9 +298,7 @@ public class CalculatedDraftOrder {
     this.taxesIncluded = taxesIncluded;
   }
 
-  /**
-   * Total discounts.
-   */
+  
   public MoneyBag getTotalDiscountsSet() {
     return totalDiscountsSet;
   }
@@ -430,9 +307,7 @@ public class CalculatedDraftOrder {
     this.totalDiscountsSet = totalDiscountsSet;
   }
 
-  /**
-   * Total price of line items.
-   */
+  
   public MoneyBag getTotalLineItemsPriceSet() {
     return totalLineItemsPriceSet;
   }
@@ -441,9 +316,7 @@ public class CalculatedDraftOrder {
     this.totalLineItemsPriceSet = totalLineItemsPriceSet;
   }
 
-  /**
-   * The total price, in shop currency, includes taxes, shipping charges, and discounts.
-   */
+  
   public String getTotalPrice() {
     return totalPrice;
   }
@@ -452,9 +325,7 @@ public class CalculatedDraftOrder {
     this.totalPrice = totalPrice;
   }
 
-  /**
-   * The total price, includes taxes, shipping charges, and discounts.
-   */
+  
   public MoneyBag getTotalPriceSet() {
     return totalPriceSet;
   }
@@ -463,10 +334,7 @@ public class CalculatedDraftOrder {
     this.totalPriceSet = totalPriceSet;
   }
 
-  /**
-   * The sum of individual line item quantities.
-   * If the draft order has bundle items, this is the sum containing the quantities of individual items in the bundle.
-   */
+  
   public int getTotalQuantityOfLineItems() {
     return totalQuantityOfLineItems;
   }
@@ -475,9 +343,7 @@ public class CalculatedDraftOrder {
     this.totalQuantityOfLineItems = totalQuantityOfLineItems;
   }
 
-  /**
-   * The total shipping price in shop currency.
-   */
+  
   public String getTotalShippingPrice() {
     return totalShippingPrice;
   }
@@ -486,9 +352,7 @@ public class CalculatedDraftOrder {
     this.totalShippingPrice = totalShippingPrice;
   }
 
-  /**
-   * The total shipping price.
-   */
+  
   public MoneyBag getTotalShippingPriceSet() {
     return totalShippingPriceSet;
   }
@@ -497,9 +361,7 @@ public class CalculatedDraftOrder {
     this.totalShippingPriceSet = totalShippingPriceSet;
   }
 
-  /**
-   * The total tax in shop currency.
-   */
+  
   public String getTotalTax() {
     return totalTax;
   }
@@ -508,9 +370,7 @@ public class CalculatedDraftOrder {
     this.totalTax = totalTax;
   }
 
-  /**
-   * The total tax.
-   */
+  
   public MoneyBag getTotalTaxSet() {
     return totalTaxSet;
   }
@@ -519,11 +379,7 @@ public class CalculatedDraftOrder {
     this.totalTaxSet = totalTaxSet;
   }
 
-  /**
-   * Fingerprint of the current cart.
-   * In order to have bundles work, the fingerprint must be passed to
-   * each request as it was previously returned, unmodified.
-   */
+  
   public String getTransformerFingerprint() {
     return transformerFingerprint;
   }
@@ -532,9 +388,7 @@ public class CalculatedDraftOrder {
     this.transformerFingerprint = transformerFingerprint;
   }
 
-  /**
-   * The list of warnings raised while calculating.
-   */
+  
   public List<DraftOrderWarning> getWarnings() {
     return warnings;
   }
@@ -597,172 +451,100 @@ public class CalculatedDraftOrder {
   }
 
   public static class Builder {
-    /**
-     * Whether or not to accept automatic discounts on the draft order during calculation.
-     * If false, only discount codes and custom draft order discounts (see `appliedDiscount`) will be applied.
-     * If true, eligible automatic discounts will be applied in addition to discount codes and custom draft order discounts.
-     */
+    
     private Boolean acceptAutomaticDiscounts;
 
-    /**
-     * The list of alerts raised while calculating.
-     */
+    
     private List<ResourceAlert> alerts;
 
-    /**
-     * The custom order-level discount applied.
-     */
+    
     private DraftOrderAppliedDiscount appliedDiscount;
 
-    /**
-     * The available shipping rates.
-     * Requires a customer with a valid shipping address and at least one line item.
-     */
+    
     private List<ShippingRate> availableShippingRates;
 
-    /**
-     * Whether the billing address matches the shipping address.
-     */
+    
     private boolean billingAddressMatchesShippingAddress;
 
-    /**
-     * The shop currency used for calculation.
-     */
+    
     private CurrencyCode currencyCode;
 
-    /**
-     * The customer who will be sent an invoice.
-     */
+    
     private Customer customer;
 
-    /**
-     * All discount codes applied.
-     */
+    
     private List<String> discountCodes;
 
-    /**
-     * The list of the line items in the calculated draft order.
-     */
+    
     private List<CalculatedDraftOrderLineItem> lineItems;
 
-    /**
-     * A subtotal of the line items and corresponding discounts,
-     * excluding include shipping charges, shipping discounts, taxes, or order discounts.
-     */
+    
     private MoneyBag lineItemsSubtotalPrice;
 
-    /**
-     * The name of the selected market.
-     */
+    
     private String marketName;
 
-    /**
-     * The selected country code that determines the pricing.
-     */
+    
     private CountryCode marketRegionCountryCode;
 
-    /**
-     * The assigned phone number.
-     */
+    
     private String phone;
 
-    /**
-     * The list of platform discounts applied.
-     */
+    
     private List<DraftOrderPlatformDiscount> platformDiscounts;
 
-    /**
-     * The payment currency used for calculation.
-     */
+    
     private CurrencyCode presentmentCurrencyCode;
 
-    /**
-     * The purchasing entity.
-     */
+    
     private PurchasingEntity purchasingEntity;
 
-    /**
-     * The line item containing the shipping information and costs.
-     */
+    
     private ShippingLine shippingLine;
 
-    /**
-     * The subtotal, in shop currency, of the line items and their discounts,
-     * excluding shipping charges, shipping discounts, and taxes.
-     */
+    
     private String subtotalPrice;
 
-    /**
-     * The subtotal, of the line items and their discounts, excluding shipping charges, shipping discounts, and taxes.
-     */
+    
     private MoneyBag subtotalPriceSet;
 
-    /**
-     * The list of of taxes lines charged for each line item and shipping line.
-     */
+    
     private List<TaxLine> taxLines;
 
-    /**
-     * Whether the line item prices include taxes.
-     */
+    
     private boolean taxesIncluded;
 
-    /**
-     * Total discounts.
-     */
+    
     private MoneyBag totalDiscountsSet;
 
-    /**
-     * Total price of line items.
-     */
+    
     private MoneyBag totalLineItemsPriceSet;
 
-    /**
-     * The total price, in shop currency, includes taxes, shipping charges, and discounts.
-     */
+    
     private String totalPrice;
 
-    /**
-     * The total price, includes taxes, shipping charges, and discounts.
-     */
+    
     private MoneyBag totalPriceSet;
 
-    /**
-     * The sum of individual line item quantities.
-     * If the draft order has bundle items, this is the sum containing the quantities of individual items in the bundle.
-     */
+    
     private int totalQuantityOfLineItems;
 
-    /**
-     * The total shipping price in shop currency.
-     */
+    
     private String totalShippingPrice;
 
-    /**
-     * The total shipping price.
-     */
+    
     private MoneyBag totalShippingPriceSet;
 
-    /**
-     * The total tax in shop currency.
-     */
+    
     private String totalTax;
 
-    /**
-     * The total tax.
-     */
+    
     private MoneyBag totalTaxSet;
 
-    /**
-     * Fingerprint of the current cart.
-     * In order to have bundles work, the fingerprint must be passed to
-     * each request as it was previously returned, unmodified.
-     */
+    
     private String transformerFingerprint;
 
-    /**
-     * The list of warnings raised while calculating.
-     */
+    
     private List<DraftOrderWarning> warnings;
 
     public CalculatedDraftOrder build() {
@@ -802,266 +584,194 @@ public class CalculatedDraftOrder {
       return result;
     }
 
-    /**
-     * Whether or not to accept automatic discounts on the draft order during calculation.
-     * If false, only discount codes and custom draft order discounts (see `appliedDiscount`) will be applied.
-     * If true, eligible automatic discounts will be applied in addition to discount codes and custom draft order discounts.
-     */
+    
     public Builder acceptAutomaticDiscounts(Boolean acceptAutomaticDiscounts) {
       this.acceptAutomaticDiscounts = acceptAutomaticDiscounts;
       return this;
     }
 
-    /**
-     * The list of alerts raised while calculating.
-     */
+    
     public Builder alerts(List<ResourceAlert> alerts) {
       this.alerts = alerts;
       return this;
     }
 
-    /**
-     * The custom order-level discount applied.
-     */
+    
     public Builder appliedDiscount(DraftOrderAppliedDiscount appliedDiscount) {
       this.appliedDiscount = appliedDiscount;
       return this;
     }
 
-    /**
-     * The available shipping rates.
-     * Requires a customer with a valid shipping address and at least one line item.
-     */
+    
     public Builder availableShippingRates(List<ShippingRate> availableShippingRates) {
       this.availableShippingRates = availableShippingRates;
       return this;
     }
 
-    /**
-     * Whether the billing address matches the shipping address.
-     */
+    
     public Builder billingAddressMatchesShippingAddress(
         boolean billingAddressMatchesShippingAddress) {
       this.billingAddressMatchesShippingAddress = billingAddressMatchesShippingAddress;
       return this;
     }
 
-    /**
-     * The shop currency used for calculation.
-     */
+    
     public Builder currencyCode(CurrencyCode currencyCode) {
       this.currencyCode = currencyCode;
       return this;
     }
 
-    /**
-     * The customer who will be sent an invoice.
-     */
+    
     public Builder customer(Customer customer) {
       this.customer = customer;
       return this;
     }
 
-    /**
-     * All discount codes applied.
-     */
+    
     public Builder discountCodes(List<String> discountCodes) {
       this.discountCodes = discountCodes;
       return this;
     }
 
-    /**
-     * The list of the line items in the calculated draft order.
-     */
+    
     public Builder lineItems(List<CalculatedDraftOrderLineItem> lineItems) {
       this.lineItems = lineItems;
       return this;
     }
 
-    /**
-     * A subtotal of the line items and corresponding discounts,
-     * excluding include shipping charges, shipping discounts, taxes, or order discounts.
-     */
+    
     public Builder lineItemsSubtotalPrice(MoneyBag lineItemsSubtotalPrice) {
       this.lineItemsSubtotalPrice = lineItemsSubtotalPrice;
       return this;
     }
 
-    /**
-     * The name of the selected market.
-     */
+    
     public Builder marketName(String marketName) {
       this.marketName = marketName;
       return this;
     }
 
-    /**
-     * The selected country code that determines the pricing.
-     */
+    
     public Builder marketRegionCountryCode(CountryCode marketRegionCountryCode) {
       this.marketRegionCountryCode = marketRegionCountryCode;
       return this;
     }
 
-    /**
-     * The assigned phone number.
-     */
+    
     public Builder phone(String phone) {
       this.phone = phone;
       return this;
     }
 
-    /**
-     * The list of platform discounts applied.
-     */
+    
     public Builder platformDiscounts(List<DraftOrderPlatformDiscount> platformDiscounts) {
       this.platformDiscounts = platformDiscounts;
       return this;
     }
 
-    /**
-     * The payment currency used for calculation.
-     */
+    
     public Builder presentmentCurrencyCode(CurrencyCode presentmentCurrencyCode) {
       this.presentmentCurrencyCode = presentmentCurrencyCode;
       return this;
     }
 
-    /**
-     * The purchasing entity.
-     */
+    
     public Builder purchasingEntity(PurchasingEntity purchasingEntity) {
       this.purchasingEntity = purchasingEntity;
       return this;
     }
 
-    /**
-     * The line item containing the shipping information and costs.
-     */
+    
     public Builder shippingLine(ShippingLine shippingLine) {
       this.shippingLine = shippingLine;
       return this;
     }
 
-    /**
-     * The subtotal, in shop currency, of the line items and their discounts,
-     * excluding shipping charges, shipping discounts, and taxes.
-     */
+    
     public Builder subtotalPrice(String subtotalPrice) {
       this.subtotalPrice = subtotalPrice;
       return this;
     }
 
-    /**
-     * The subtotal, of the line items and their discounts, excluding shipping charges, shipping discounts, and taxes.
-     */
+    
     public Builder subtotalPriceSet(MoneyBag subtotalPriceSet) {
       this.subtotalPriceSet = subtotalPriceSet;
       return this;
     }
 
-    /**
-     * The list of of taxes lines charged for each line item and shipping line.
-     */
+    
     public Builder taxLines(List<TaxLine> taxLines) {
       this.taxLines = taxLines;
       return this;
     }
 
-    /**
-     * Whether the line item prices include taxes.
-     */
+    
     public Builder taxesIncluded(boolean taxesIncluded) {
       this.taxesIncluded = taxesIncluded;
       return this;
     }
 
-    /**
-     * Total discounts.
-     */
+    
     public Builder totalDiscountsSet(MoneyBag totalDiscountsSet) {
       this.totalDiscountsSet = totalDiscountsSet;
       return this;
     }
 
-    /**
-     * Total price of line items.
-     */
+    
     public Builder totalLineItemsPriceSet(MoneyBag totalLineItemsPriceSet) {
       this.totalLineItemsPriceSet = totalLineItemsPriceSet;
       return this;
     }
 
-    /**
-     * The total price, in shop currency, includes taxes, shipping charges, and discounts.
-     */
+    
     public Builder totalPrice(String totalPrice) {
       this.totalPrice = totalPrice;
       return this;
     }
 
-    /**
-     * The total price, includes taxes, shipping charges, and discounts.
-     */
+    
     public Builder totalPriceSet(MoneyBag totalPriceSet) {
       this.totalPriceSet = totalPriceSet;
       return this;
     }
 
-    /**
-     * The sum of individual line item quantities.
-     * If the draft order has bundle items, this is the sum containing the quantities of individual items in the bundle.
-     */
+    
     public Builder totalQuantityOfLineItems(int totalQuantityOfLineItems) {
       this.totalQuantityOfLineItems = totalQuantityOfLineItems;
       return this;
     }
 
-    /**
-     * The total shipping price in shop currency.
-     */
+    
     public Builder totalShippingPrice(String totalShippingPrice) {
       this.totalShippingPrice = totalShippingPrice;
       return this;
     }
 
-    /**
-     * The total shipping price.
-     */
+    
     public Builder totalShippingPriceSet(MoneyBag totalShippingPriceSet) {
       this.totalShippingPriceSet = totalShippingPriceSet;
       return this;
     }
 
-    /**
-     * The total tax in shop currency.
-     */
+    
     public Builder totalTax(String totalTax) {
       this.totalTax = totalTax;
       return this;
     }
 
-    /**
-     * The total tax.
-     */
+    
     public Builder totalTaxSet(MoneyBag totalTaxSet) {
       this.totalTaxSet = totalTaxSet;
       return this;
     }
 
-    /**
-     * Fingerprint of the current cart.
-     * In order to have bundles work, the fingerprint must be passed to
-     * each request as it was previously returned, unmodified.
-     */
+    
     public Builder transformerFingerprint(String transformerFingerprint) {
       this.transformerFingerprint = transformerFingerprint;
       return this;
     }
 
-    /**
-     * The list of warnings raised while calculating.
-     */
+    
     public Builder warnings(List<DraftOrderWarning> warnings) {
       this.warnings = warnings;
       return this;

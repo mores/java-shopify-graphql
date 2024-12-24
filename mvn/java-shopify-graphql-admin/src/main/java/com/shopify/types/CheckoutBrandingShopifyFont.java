@@ -7,29 +7,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A Shopify font.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class CheckoutBrandingShopifyFont implements com.shopify.types.CheckoutBrandingFont {
-  /**
-   * The font sources.
-   */
+  
   private String sources;
 
-  /**
-   * The font weight.
-   */
+  
   private Integer weight;
 
   public CheckoutBrandingShopifyFont() {
   }
 
-  /**
-   * The font sources.
-   */
+  
   public String getSources() {
     return sources;
   }
@@ -38,9 +30,7 @@ public class CheckoutBrandingShopifyFont implements com.shopify.types.CheckoutBr
     this.sources = sources;
   }
 
-  /**
-   * The font weight.
-   */
+  
   public Integer getWeight() {
     return weight;
   }
@@ -73,14 +63,10 @@ public class CheckoutBrandingShopifyFont implements com.shopify.types.CheckoutBr
   }
 
   public static class Builder {
-    /**
-     * The font sources.
-     */
+    
     private String sources;
 
-    /**
-     * The font weight.
-     */
+    
     private Integer weight;
 
     public CheckoutBrandingShopifyFont build() {
@@ -90,17 +76,13 @@ public class CheckoutBrandingShopifyFont implements com.shopify.types.CheckoutBr
       return result;
     }
 
-    /**
-     * The font sources.
-     */
+    
     public Builder sources(String sources) {
       this.sources = sources;
       return this;
     }
 
-    /**
-     * The font weight.
-     */
+    
     public Builder weight(Integer weight) {
       this.weight = weight;
       return this;

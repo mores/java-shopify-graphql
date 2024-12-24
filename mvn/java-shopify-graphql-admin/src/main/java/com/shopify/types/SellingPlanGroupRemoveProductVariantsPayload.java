@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `sellingPlanGroupRemoveProductVariants` mutation.
- */
+
 public class SellingPlanGroupRemoveProductVariantsPayload {
-  /**
-   * The removed product variant ids.
-   */
+  
   private List<String> removedProductVariantIds;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<SellingPlanGroupUserError> userErrors;
 
   public SellingPlanGroupRemoveProductVariantsPayload() {
   }
 
-  /**
-   * The removed product variant ids.
-   */
+  
   public List<String> getRemovedProductVariantIds() {
     return removedProductVariantIds;
   }
@@ -34,9 +26,7 @@ public class SellingPlanGroupRemoveProductVariantsPayload {
     this.removedProductVariantIds = removedProductVariantIds;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<SellingPlanGroupUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class SellingPlanGroupRemoveProductVariantsPayload {
   }
 
   public static class Builder {
-    /**
-     * The removed product variant ids.
-     */
+    
     private List<String> removedProductVariantIds;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<SellingPlanGroupUserError> userErrors;
 
     public SellingPlanGroupRemoveProductVariantsPayload build() {
@@ -86,17 +72,13 @@ public class SellingPlanGroupRemoveProductVariantsPayload {
       return result;
     }
 
-    /**
-     * The removed product variant ids.
-     */
+    
     public Builder removedProductVariantIds(List<String> removedProductVariantIds) {
       this.removedProductVariantIds = removedProductVariantIds;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<SellingPlanGroupUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

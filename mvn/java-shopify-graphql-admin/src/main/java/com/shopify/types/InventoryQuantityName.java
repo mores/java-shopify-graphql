@@ -6,43 +6,27 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Details about an individual quantity name.
- */
+
 public class InventoryQuantityName {
-  /**
-   * List of quantity names that this quantity name belongs to.
-   */
+  
   private List<String> belongsTo;
 
-  /**
-   * List of quantity names that comprise this quantity name.
-   */
+  
   private List<String> comprises;
 
-  /**
-   * The display name for quantity names translated into applicable language.
-   */
+  
   private String displayName;
 
-  /**
-   * Whether the quantity name has been used by the merchant.
-   */
+  
   private boolean isInUse;
 
-  /**
-   * The [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states) of
-   * the inventory quantity. Used by
-   * [inventory queries and mutations](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#graphql-queries-and-mutations).
-   */
+  
   private String name;
 
   public InventoryQuantityName() {
   }
 
-  /**
-   * List of quantity names that this quantity name belongs to.
-   */
+  
   public List<String> getBelongsTo() {
     return belongsTo;
   }
@@ -51,9 +35,7 @@ public class InventoryQuantityName {
     this.belongsTo = belongsTo;
   }
 
-  /**
-   * List of quantity names that comprise this quantity name.
-   */
+  
   public List<String> getComprises() {
     return comprises;
   }
@@ -62,9 +44,7 @@ public class InventoryQuantityName {
     this.comprises = comprises;
   }
 
-  /**
-   * The display name for quantity names translated into applicable language.
-   */
+  
   public String getDisplayName() {
     return displayName;
   }
@@ -73,9 +53,7 @@ public class InventoryQuantityName {
     this.displayName = displayName;
   }
 
-  /**
-   * Whether the quantity name has been used by the merchant.
-   */
+  
   public boolean getIsInUse() {
     return isInUse;
   }
@@ -84,11 +62,7 @@ public class InventoryQuantityName {
     this.isInUse = isInUse;
   }
 
-  /**
-   * The [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states) of
-   * the inventory quantity. Used by
-   * [inventory queries and mutations](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#graphql-queries-and-mutations).
-   */
+  
   public String getName() {
     return name;
   }
@@ -124,31 +98,19 @@ public class InventoryQuantityName {
   }
 
   public static class Builder {
-    /**
-     * List of quantity names that this quantity name belongs to.
-     */
+    
     private List<String> belongsTo;
 
-    /**
-     * List of quantity names that comprise this quantity name.
-     */
+    
     private List<String> comprises;
 
-    /**
-     * The display name for quantity names translated into applicable language.
-     */
+    
     private String displayName;
 
-    /**
-     * Whether the quantity name has been used by the merchant.
-     */
+    
     private boolean isInUse;
 
-    /**
-     * The [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states) of
-     * the inventory quantity. Used by
-     * [inventory queries and mutations](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#graphql-queries-and-mutations).
-     */
+    
     private String name;
 
     public InventoryQuantityName build() {
@@ -161,43 +123,31 @@ public class InventoryQuantityName {
       return result;
     }
 
-    /**
-     * List of quantity names that this quantity name belongs to.
-     */
+    
     public Builder belongsTo(List<String> belongsTo) {
       this.belongsTo = belongsTo;
       return this;
     }
 
-    /**
-     * List of quantity names that comprise this quantity name.
-     */
+    
     public Builder comprises(List<String> comprises) {
       this.comprises = comprises;
       return this;
     }
 
-    /**
-     * The display name for quantity names translated into applicable language.
-     */
+    
     public Builder displayName(String displayName) {
       this.displayName = displayName;
       return this;
     }
 
-    /**
-     * Whether the quantity name has been used by the merchant.
-     */
+    
     public Builder isInUse(boolean isInUse) {
       this.isInUse = isInUse;
       return this;
     }
 
-    /**
-     * The [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states) of
-     * the inventory quantity. Used by
-     * [inventory queries and mutations](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#graphql-queries-and-mutations).
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;

@@ -7,54 +7,36 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * A list of products with publishing and pricing information associated with markets.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class MarketCatalog implements com.shopify.types.Catalog, com.shopify.types.Node {
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The markets associated with the catalog.
-   */
+  
   private MarketConnection markets;
 
-  /**
-   * Most recent catalog operations.
-   */
+  
   private List<ResourceOperation> operations;
 
-  /**
-   * The price list associated with the catalog.
-   */
+  
   private PriceList priceList;
 
-  /**
-   * A group of products and collections that's published to a catalog.
-   */
+  
   private Publication publication;
 
-  /**
-   * The status of the catalog.
-   */
+  
   private CatalogStatus status;
 
-  /**
-   * The name of the catalog.
-   */
+  
   private String title;
 
   public MarketCatalog() {
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -63,9 +45,7 @@ public class MarketCatalog implements com.shopify.types.Catalog, com.shopify.typ
     this.id = id;
   }
 
-  /**
-   * The markets associated with the catalog.
-   */
+  
   public MarketConnection getMarkets() {
     return markets;
   }
@@ -74,9 +54,7 @@ public class MarketCatalog implements com.shopify.types.Catalog, com.shopify.typ
     this.markets = markets;
   }
 
-  /**
-   * Most recent catalog operations.
-   */
+  
   public List<ResourceOperation> getOperations() {
     return operations;
   }
@@ -85,9 +63,7 @@ public class MarketCatalog implements com.shopify.types.Catalog, com.shopify.typ
     this.operations = operations;
   }
 
-  /**
-   * The price list associated with the catalog.
-   */
+  
   public PriceList getPriceList() {
     return priceList;
   }
@@ -96,9 +72,7 @@ public class MarketCatalog implements com.shopify.types.Catalog, com.shopify.typ
     this.priceList = priceList;
   }
 
-  /**
-   * A group of products and collections that's published to a catalog.
-   */
+  
   public Publication getPublication() {
     return publication;
   }
@@ -107,9 +81,7 @@ public class MarketCatalog implements com.shopify.types.Catalog, com.shopify.typ
     this.publication = publication;
   }
 
-  /**
-   * The status of the catalog.
-   */
+  
   public CatalogStatus getStatus() {
     return status;
   }
@@ -118,9 +90,7 @@ public class MarketCatalog implements com.shopify.types.Catalog, com.shopify.typ
     this.status = status;
   }
 
-  /**
-   * The name of the catalog.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -158,39 +128,25 @@ public class MarketCatalog implements com.shopify.types.Catalog, com.shopify.typ
   }
 
   public static class Builder {
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The markets associated with the catalog.
-     */
+    
     private MarketConnection markets;
 
-    /**
-     * Most recent catalog operations.
-     */
+    
     private List<ResourceOperation> operations;
 
-    /**
-     * The price list associated with the catalog.
-     */
+    
     private PriceList priceList;
 
-    /**
-     * A group of products and collections that's published to a catalog.
-     */
+    
     private Publication publication;
 
-    /**
-     * The status of the catalog.
-     */
+    
     private CatalogStatus status;
 
-    /**
-     * The name of the catalog.
-     */
+    
     private String title;
 
     public MarketCatalog build() {
@@ -205,57 +161,43 @@ public class MarketCatalog implements com.shopify.types.Catalog, com.shopify.typ
       return result;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The markets associated with the catalog.
-     */
+    
     public Builder markets(MarketConnection markets) {
       this.markets = markets;
       return this;
     }
 
-    /**
-     * Most recent catalog operations.
-     */
+    
     public Builder operations(List<ResourceOperation> operations) {
       this.operations = operations;
       return this;
     }
 
-    /**
-     * The price list associated with the catalog.
-     */
+    
     public Builder priceList(PriceList priceList) {
       this.priceList = priceList;
       return this;
     }
 
-    /**
-     * A group of products and collections that's published to a catalog.
-     */
+    
     public Builder publication(Publication publication) {
       this.publication = publication;
       return this;
     }
 
-    /**
-     * The status of the catalog.
-     */
+    
     public Builder status(CatalogStatus status) {
       this.status = status;
       return this;
     }
 
-    /**
-     * The name of the catalog.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;

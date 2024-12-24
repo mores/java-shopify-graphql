@@ -9,9 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Creates options on a product.
- */
+
 public class ProductOptionsCreateGraphQLQuery extends GraphQLQuery {
   public ProductOptionsCreateGraphQLQuery(String productId, List<OptionCreateInput> options,
       ProductOptionCreateVariantStrategy variantStrategy, String queryName, Set<String> fieldsSet) {
@@ -54,28 +52,21 @@ public class ProductOptionsCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the product to update.
-     */
+    
     public Builder productId(String productId) {
       this.productId = productId;
       this.fieldsSet.add("productId");
       return this;
     }
 
-    /**
-     * Options to add to the product.
-     */
+    
     public Builder options(List<OptionCreateInput> options) {
       this.options = options;
       this.fieldsSet.add("options");
       return this;
     }
 
-    /**
-     * The strategy defines which behavior the mutation should observe regarding variants.
-     * If not provided or set to null, the strategy `LEAVE_AS_IS` will be used.
-     */
+    
     public Builder variantStrategy(ProductOptionCreateVariantStrategy variantStrategy) {
       this.variantStrategy = variantStrategy;
       this.fieldsSet.add("variantStrategy");

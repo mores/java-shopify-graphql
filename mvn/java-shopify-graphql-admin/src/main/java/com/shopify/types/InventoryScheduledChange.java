@@ -6,50 +6,30 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * Returns the scheduled changes to inventory states related to the ledger document.
- */
+
 public class InventoryScheduledChange {
-  /**
-   * The date and time that the scheduled change is expected to happen.
-   */
+  
   private OffsetDateTime expectedAt;
 
-  /**
-   * The quantity
-   * [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps/quantities-states#move-inventory-quantities-between-states)
-   * to transition from.
-   */
+  
   private String fromName;
 
-  /**
-   * The quantities of an inventory item that are related to a specific location.
-   */
+  
   private InventoryLevel inventoryLevel;
 
-  /**
-   * A freeform URI that represents what changed the inventory quantities.
-   */
+  
   private String ledgerDocumentUri;
 
-  /**
-   * The quantity of the scheduled change associated with the ledger document in the `fromName` state.
-   */
+  
   private int quantity;
 
-  /**
-   * The quantity
-   * [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps/quantities-states#move-inventory-quantities-between-states)
-   * to transition to.
-   */
+  
   private String toName;
 
   public InventoryScheduledChange() {
   }
 
-  /**
-   * The date and time that the scheduled change is expected to happen.
-   */
+  
   public OffsetDateTime getExpectedAt() {
     return expectedAt;
   }
@@ -58,11 +38,7 @@ public class InventoryScheduledChange {
     this.expectedAt = expectedAt;
   }
 
-  /**
-   * The quantity
-   * [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps/quantities-states#move-inventory-quantities-between-states)
-   * to transition from.
-   */
+  
   public String getFromName() {
     return fromName;
   }
@@ -71,9 +47,7 @@ public class InventoryScheduledChange {
     this.fromName = fromName;
   }
 
-  /**
-   * The quantities of an inventory item that are related to a specific location.
-   */
+  
   public InventoryLevel getInventoryLevel() {
     return inventoryLevel;
   }
@@ -82,9 +56,7 @@ public class InventoryScheduledChange {
     this.inventoryLevel = inventoryLevel;
   }
 
-  /**
-   * A freeform URI that represents what changed the inventory quantities.
-   */
+  
   public String getLedgerDocumentUri() {
     return ledgerDocumentUri;
   }
@@ -93,9 +65,7 @@ public class InventoryScheduledChange {
     this.ledgerDocumentUri = ledgerDocumentUri;
   }
 
-  /**
-   * The quantity of the scheduled change associated with the ledger document in the `fromName` state.
-   */
+  
   public int getQuantity() {
     return quantity;
   }
@@ -104,11 +74,7 @@ public class InventoryScheduledChange {
     this.quantity = quantity;
   }
 
-  /**
-   * The quantity
-   * [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps/quantities-states#move-inventory-quantities-between-states)
-   * to transition to.
-   */
+  
   public String getToName() {
     return toName;
   }
@@ -145,38 +111,22 @@ public class InventoryScheduledChange {
   }
 
   public static class Builder {
-    /**
-     * The date and time that the scheduled change is expected to happen.
-     */
+    
     private OffsetDateTime expectedAt;
 
-    /**
-     * The quantity
-     * [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps/quantities-states#move-inventory-quantities-between-states)
-     * to transition from.
-     */
+    
     private String fromName;
 
-    /**
-     * The quantities of an inventory item that are related to a specific location.
-     */
+    
     private InventoryLevel inventoryLevel;
 
-    /**
-     * A freeform URI that represents what changed the inventory quantities.
-     */
+    
     private String ledgerDocumentUri;
 
-    /**
-     * The quantity of the scheduled change associated with the ledger document in the `fromName` state.
-     */
+    
     private int quantity;
 
-    /**
-     * The quantity
-     * [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps/quantities-states#move-inventory-quantities-between-states)
-     * to transition to.
-     */
+    
     private String toName;
 
     public InventoryScheduledChange build() {
@@ -190,53 +140,37 @@ public class InventoryScheduledChange {
       return result;
     }
 
-    /**
-     * The date and time that the scheduled change is expected to happen.
-     */
+    
     public Builder expectedAt(OffsetDateTime expectedAt) {
       this.expectedAt = expectedAt;
       return this;
     }
 
-    /**
-     * The quantity
-     * [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps/quantities-states#move-inventory-quantities-between-states)
-     * to transition from.
-     */
+    
     public Builder fromName(String fromName) {
       this.fromName = fromName;
       return this;
     }
 
-    /**
-     * The quantities of an inventory item that are related to a specific location.
-     */
+    
     public Builder inventoryLevel(InventoryLevel inventoryLevel) {
       this.inventoryLevel = inventoryLevel;
       return this;
     }
 
-    /**
-     * A freeform URI that represents what changed the inventory quantities.
-     */
+    
     public Builder ledgerDocumentUri(String ledgerDocumentUri) {
       this.ledgerDocumentUri = ledgerDocumentUri;
       return this;
     }
 
-    /**
-     * The quantity of the scheduled change associated with the ledger document in the `fromName` state.
-     */
+    
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    /**
-     * The quantity
-     * [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps/quantities-states#move-inventory-quantities-between-states)
-     * to transition to.
-     */
+    
     public Builder toName(String toName) {
       this.toName = toName;
       return this;

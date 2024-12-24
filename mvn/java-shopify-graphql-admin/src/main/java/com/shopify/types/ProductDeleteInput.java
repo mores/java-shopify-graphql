@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for specifying the product to delete.
- */
+
 public class ProductDeleteInput {
-  /**
-   * The ID of the product.
-   */
+  
   private String id;
 
   public ProductDeleteInput() {
   }
 
-  /**
-   * The ID of the product.
-   */
+  
   public String getId() {
     return id;
   }
@@ -51,9 +45,7 @@ public class ProductDeleteInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the product.
-     */
+    
     private String id;
 
     public ProductDeleteInput build() {
@@ -62,9 +54,7 @@ public class ProductDeleteInput {
       return result;
     }
 
-    /**
-     * The ID of the product.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;

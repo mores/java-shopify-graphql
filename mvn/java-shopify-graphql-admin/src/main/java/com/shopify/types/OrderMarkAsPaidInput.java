@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for specifying the order to mark as paid.
- */
+
 public class OrderMarkAsPaidInput {
-  /**
-   * The ID of the order to mark as paid.
-   */
+  
   private String id;
 
   public OrderMarkAsPaidInput() {
   }
 
-  /**
-   * The ID of the order to mark as paid.
-   */
+  
   public String getId() {
     return id;
   }
@@ -51,9 +45,7 @@ public class OrderMarkAsPaidInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the order to mark as paid.
-     */
+    
     private String id;
 
     public OrderMarkAsPaidInput build() {
@@ -62,9 +54,7 @@ public class OrderMarkAsPaidInput {
       return result;
     }
 
-    /**
-     * The ID of the order to mark as paid.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;

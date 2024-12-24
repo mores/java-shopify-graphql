@@ -5,33 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Specifies the
- * [Urchin Traffic Module (UTM) parameters](https://en.wikipedia.org/wiki/UTM_parameters)
- * that are associated with a related marketing campaign.
- */
+
 public class UTMInput {
-  /**
-   * The name of the UTM campaign.
-   */
+  
   private String campaign;
 
-  /**
-   * The name of the website or application where the referral link exists.
-   */
+  
   private String source;
 
-  /**
-   * The UTM campaign medium.
-   */
+  
   private String medium;
 
   public UTMInput() {
   }
 
-  /**
-   * The name of the UTM campaign.
-   */
+  
   public String getCampaign() {
     return campaign;
   }
@@ -40,9 +28,7 @@ public class UTMInput {
     this.campaign = campaign;
   }
 
-  /**
-   * The name of the website or application where the referral link exists.
-   */
+  
   public String getSource() {
     return source;
   }
@@ -51,9 +37,7 @@ public class UTMInput {
     this.source = source;
   }
 
-  /**
-   * The UTM campaign medium.
-   */
+  
   public String getMedium() {
     return medium;
   }
@@ -87,19 +71,13 @@ public class UTMInput {
   }
 
   public static class Builder {
-    /**
-     * The name of the UTM campaign.
-     */
+    
     private String campaign;
 
-    /**
-     * The name of the website or application where the referral link exists.
-     */
+    
     private String source;
 
-    /**
-     * The UTM campaign medium.
-     */
+    
     private String medium;
 
     public UTMInput build() {
@@ -110,25 +88,19 @@ public class UTMInput {
       return result;
     }
 
-    /**
-     * The name of the UTM campaign.
-     */
+    
     public Builder campaign(String campaign) {
       this.campaign = campaign;
       return this;
     }
 
-    /**
-     * The name of the website or application where the referral link exists.
-     */
+    
     public Builder source(String source) {
       this.source = source;
       return this;
     }
 
-    /**
-     * The UTM campaign medium.
-     */
+    
     public Builder medium(String medium) {
       this.medium = medium;
       return this;

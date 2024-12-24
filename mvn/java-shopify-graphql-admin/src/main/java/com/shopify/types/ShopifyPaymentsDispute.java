@@ -8,74 +8,48 @@ import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * A dispute occurs when a buyer questions the legitimacy of a charge with their financial institution.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ShopifyPaymentsDispute implements com.shopify.types.LegacyInteroperability, com.shopify.types.Node {
-  /**
-   * The total amount disputed by the cardholder.
-   */
+  
   private MoneyV2 amount;
 
-  /**
-   * The deadline for evidence submission.
-   */
+  
   private LocalDate evidenceDueBy;
 
-  /**
-   * The date when evidence was sent. Returns null if evidence hasn't yet been sent.
-   */
+  
   private LocalDate evidenceSentOn;
 
-  /**
-   * The date when this dispute was resolved. Returns null if the dispute isn't yet resolved.
-   */
+  
   private LocalDate finalizedOn;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The date when this dispute was initiated.
-   */
+  
   private OffsetDateTime initiatedAt;
 
-  /**
-   * The ID of the corresponding resource in the REST Admin API.
-   */
+  
   private String legacyResourceId;
 
-  /**
-   * The order that contains the charge that's under dispute.
-   */
+  
   private Order order;
 
-  /**
-   * The reason of the dispute.
-   */
+  
   private ShopifyPaymentsDisputeReasonDetails reasonDetails;
 
-  /**
-   * The current state of the dispute.
-   */
+  
   private DisputeStatus status;
 
-  /**
-   * Indicates if this dispute is still in the inquiry phase or has turned into a chargeback.
-   */
+  
   private DisputeType type;
 
   public ShopifyPaymentsDispute() {
   }
 
-  /**
-   * The total amount disputed by the cardholder.
-   */
+  
   public MoneyV2 getAmount() {
     return amount;
   }
@@ -84,9 +58,7 @@ public class ShopifyPaymentsDispute implements com.shopify.types.LegacyInteroper
     this.amount = amount;
   }
 
-  /**
-   * The deadline for evidence submission.
-   */
+  
   public LocalDate getEvidenceDueBy() {
     return evidenceDueBy;
   }
@@ -95,9 +67,7 @@ public class ShopifyPaymentsDispute implements com.shopify.types.LegacyInteroper
     this.evidenceDueBy = evidenceDueBy;
   }
 
-  /**
-   * The date when evidence was sent. Returns null if evidence hasn't yet been sent.
-   */
+  
   public LocalDate getEvidenceSentOn() {
     return evidenceSentOn;
   }
@@ -106,9 +76,7 @@ public class ShopifyPaymentsDispute implements com.shopify.types.LegacyInteroper
     this.evidenceSentOn = evidenceSentOn;
   }
 
-  /**
-   * The date when this dispute was resolved. Returns null if the dispute isn't yet resolved.
-   */
+  
   public LocalDate getFinalizedOn() {
     return finalizedOn;
   }
@@ -117,9 +85,7 @@ public class ShopifyPaymentsDispute implements com.shopify.types.LegacyInteroper
     this.finalizedOn = finalizedOn;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -128,9 +94,7 @@ public class ShopifyPaymentsDispute implements com.shopify.types.LegacyInteroper
     this.id = id;
   }
 
-  /**
-   * The date when this dispute was initiated.
-   */
+  
   public OffsetDateTime getInitiatedAt() {
     return initiatedAt;
   }
@@ -139,9 +103,7 @@ public class ShopifyPaymentsDispute implements com.shopify.types.LegacyInteroper
     this.initiatedAt = initiatedAt;
   }
 
-  /**
-   * The ID of the corresponding resource in the REST Admin API.
-   */
+  
   public String getLegacyResourceId() {
     return legacyResourceId;
   }
@@ -150,9 +112,7 @@ public class ShopifyPaymentsDispute implements com.shopify.types.LegacyInteroper
     this.legacyResourceId = legacyResourceId;
   }
 
-  /**
-   * The order that contains the charge that's under dispute.
-   */
+  
   public Order getOrder() {
     return order;
   }
@@ -161,9 +121,7 @@ public class ShopifyPaymentsDispute implements com.shopify.types.LegacyInteroper
     this.order = order;
   }
 
-  /**
-   * The reason of the dispute.
-   */
+  
   public ShopifyPaymentsDisputeReasonDetails getReasonDetails() {
     return reasonDetails;
   }
@@ -172,9 +130,7 @@ public class ShopifyPaymentsDispute implements com.shopify.types.LegacyInteroper
     this.reasonDetails = reasonDetails;
   }
 
-  /**
-   * The current state of the dispute.
-   */
+  
   public DisputeStatus getStatus() {
     return status;
   }
@@ -183,9 +139,7 @@ public class ShopifyPaymentsDispute implements com.shopify.types.LegacyInteroper
     this.status = status;
   }
 
-  /**
-   * Indicates if this dispute is still in the inquiry phase or has turned into a chargeback.
-   */
+  
   public DisputeType getType() {
     return type;
   }
@@ -227,59 +181,37 @@ public class ShopifyPaymentsDispute implements com.shopify.types.LegacyInteroper
   }
 
   public static class Builder {
-    /**
-     * The total amount disputed by the cardholder.
-     */
+    
     private MoneyV2 amount;
 
-    /**
-     * The deadline for evidence submission.
-     */
+    
     private LocalDate evidenceDueBy;
 
-    /**
-     * The date when evidence was sent. Returns null if evidence hasn't yet been sent.
-     */
+    
     private LocalDate evidenceSentOn;
 
-    /**
-     * The date when this dispute was resolved. Returns null if the dispute isn't yet resolved.
-     */
+    
     private LocalDate finalizedOn;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The date when this dispute was initiated.
-     */
+    
     private OffsetDateTime initiatedAt;
 
-    /**
-     * The ID of the corresponding resource in the REST Admin API.
-     */
+    
     private String legacyResourceId;
 
-    /**
-     * The order that contains the charge that's under dispute.
-     */
+    
     private Order order;
 
-    /**
-     * The reason of the dispute.
-     */
+    
     private ShopifyPaymentsDisputeReasonDetails reasonDetails;
 
-    /**
-     * The current state of the dispute.
-     */
+    
     private DisputeStatus status;
 
-    /**
-     * Indicates if this dispute is still in the inquiry phase or has turned into a chargeback.
-     */
+    
     private DisputeType type;
 
     public ShopifyPaymentsDispute build() {
@@ -298,89 +230,67 @@ public class ShopifyPaymentsDispute implements com.shopify.types.LegacyInteroper
       return result;
     }
 
-    /**
-     * The total amount disputed by the cardholder.
-     */
+    
     public Builder amount(MoneyV2 amount) {
       this.amount = amount;
       return this;
     }
 
-    /**
-     * The deadline for evidence submission.
-     */
+    
     public Builder evidenceDueBy(LocalDate evidenceDueBy) {
       this.evidenceDueBy = evidenceDueBy;
       return this;
     }
 
-    /**
-     * The date when evidence was sent. Returns null if evidence hasn't yet been sent.
-     */
+    
     public Builder evidenceSentOn(LocalDate evidenceSentOn) {
       this.evidenceSentOn = evidenceSentOn;
       return this;
     }
 
-    /**
-     * The date when this dispute was resolved. Returns null if the dispute isn't yet resolved.
-     */
+    
     public Builder finalizedOn(LocalDate finalizedOn) {
       this.finalizedOn = finalizedOn;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The date when this dispute was initiated.
-     */
+    
     public Builder initiatedAt(OffsetDateTime initiatedAt) {
       this.initiatedAt = initiatedAt;
       return this;
     }
 
-    /**
-     * The ID of the corresponding resource in the REST Admin API.
-     */
+    
     public Builder legacyResourceId(String legacyResourceId) {
       this.legacyResourceId = legacyResourceId;
       return this;
     }
 
-    /**
-     * The order that contains the charge that's under dispute.
-     */
+    
     public Builder order(Order order) {
       this.order = order;
       return this;
     }
 
-    /**
-     * The reason of the dispute.
-     */
+    
     public Builder reasonDetails(ShopifyPaymentsDisputeReasonDetails reasonDetails) {
       this.reasonDetails = reasonDetails;
       return this;
     }
 
-    /**
-     * The current state of the dispute.
-     */
+    
     public Builder status(DisputeStatus status) {
       this.status = status;
       return this;
     }
 
-    /**
-     * Indicates if this dispute is still in the inquiry phase or has turned into a chargeback.
-     */
+    
     public Builder type(DisputeType type) {
       this.type = type;
       return this;

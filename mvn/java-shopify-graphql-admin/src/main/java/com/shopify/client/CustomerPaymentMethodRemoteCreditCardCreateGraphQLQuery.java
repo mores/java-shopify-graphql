@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Create a payment method from a credit card stored by Stripe.
- */
+
 public class CustomerPaymentMethodRemoteCreditCardCreateGraphQLQuery extends GraphQLQuery {
   public CustomerPaymentMethodRemoteCreditCardCreateGraphQLQuery(String customerId,
       String stripeCustomerId, String stripePaymentMethodId, String queryName,
@@ -52,27 +50,21 @@ public class CustomerPaymentMethodRemoteCreditCardCreateGraphQLQuery extends Gra
                
     }
 
-    /**
-     * The ID of the customer.
-     */
+    
     public Builder customerId(String customerId) {
       this.customerId = customerId;
       this.fieldsSet.add("customerId");
       return this;
     }
 
-    /**
-     * The Stripe Customer ID.
-     */
+    
     public Builder stripeCustomerId(String stripeCustomerId) {
       this.stripeCustomerId = stripeCustomerId;
       this.fieldsSet.add("stripeCustomerId");
       return this;
     }
 
-    /**
-     * The Stripe Payment Method ID. Starting on 2025, stripe_payment_method_id will become mandatory for all API versions.
-     */
+    
     public Builder stripePaymentMethodId(String stripePaymentMethodId) {
       this.stripePaymentMethodId = stripePaymentMethodId;
       this.fieldsSet.add("stripePaymentMethodId");

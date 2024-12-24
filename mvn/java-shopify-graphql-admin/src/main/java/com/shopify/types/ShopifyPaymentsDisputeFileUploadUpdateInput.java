@@ -6,26 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields required to update a dispute file upload object.
- */
+
 public class ShopifyPaymentsDisputeFileUploadUpdateInput {
-  /**
-   * The ID of the file upload to be updated.
-   */
+  
   private String id;
 
-  /**
-   * Whether to delete this file upload.
-   */
+  
   private Boolean destroy = false;
 
   public ShopifyPaymentsDisputeFileUploadUpdateInput() {
   }
 
-  /**
-   * The ID of the file upload to be updated.
-   */
+  
   public String getId() {
     return id;
   }
@@ -34,9 +26,7 @@ public class ShopifyPaymentsDisputeFileUploadUpdateInput {
     this.id = id;
   }
 
-  /**
-   * Whether to delete this file upload.
-   */
+  
   public Boolean getDestroy() {
     return destroy;
   }
@@ -69,14 +59,10 @@ public class ShopifyPaymentsDisputeFileUploadUpdateInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the file upload to be updated.
-     */
+    
     private String id;
 
-    /**
-     * Whether to delete this file upload.
-     */
+    
     private Boolean destroy = false;
 
     public ShopifyPaymentsDisputeFileUploadUpdateInput build() {
@@ -86,17 +72,13 @@ public class ShopifyPaymentsDisputeFileUploadUpdateInput {
       return result;
     }
 
-    /**
-     * The ID of the file upload to be updated.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * Whether to delete this file upload.
-     */
+    
     public Builder destroy(Boolean destroy) {
       this.destroy = destroy;
       return this;

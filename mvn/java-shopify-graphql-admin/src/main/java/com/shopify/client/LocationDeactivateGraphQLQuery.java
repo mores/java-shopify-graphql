@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Deactivates a location and moves inventory, pending orders, and moving transfers to a destination location.
- */
+
 public class LocationDeactivateGraphQLQuery extends GraphQLQuery {
   public LocationDeactivateGraphQLQuery(String locationId, String destinationLocationId,
       String queryName, Set<String> fieldsSet) {
@@ -47,19 +45,14 @@ public class LocationDeactivateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of a location to deactivate.
-     */
+    
     public Builder locationId(String locationId) {
       this.locationId = locationId;
       this.fieldsSet.add("locationId");
       return this;
     }
 
-    /**
-     * The ID of a destination location to which inventory, pending orders and
-     * moving transfers will be moved from the location to deactivate.
-     */
+    
     public Builder destinationLocationId(String destinationLocationId) {
       this.destinationLocationId = destinationLocationId;
       this.fieldsSet.add("destinationLocationId");

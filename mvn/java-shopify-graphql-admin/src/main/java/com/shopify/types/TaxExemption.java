@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Available customer tax exemptions.
- */
+
 public enum TaxExemption {
   CA_STATUS_CARD_EXEMPTION,
 

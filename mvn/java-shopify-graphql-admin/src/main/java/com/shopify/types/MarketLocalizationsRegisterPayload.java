@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `marketLocalizationsRegister` mutation.
- */
+
 public class MarketLocalizationsRegisterPayload {
-  /**
-   * The market localizations that were created or updated.
-   */
+  
   private List<MarketLocalization> marketLocalizations;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<TranslationUserError> userErrors;
 
   public MarketLocalizationsRegisterPayload() {
   }
 
-  /**
-   * The market localizations that were created or updated.
-   */
+  
   public List<MarketLocalization> getMarketLocalizations() {
     return marketLocalizations;
   }
@@ -34,9 +26,7 @@ public class MarketLocalizationsRegisterPayload {
     this.marketLocalizations = marketLocalizations;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<TranslationUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class MarketLocalizationsRegisterPayload {
   }
 
   public static class Builder {
-    /**
-     * The market localizations that were created or updated.
-     */
+    
     private List<MarketLocalization> marketLocalizations;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<TranslationUserError> userErrors;
 
     public MarketLocalizationsRegisterPayload build() {
@@ -86,17 +72,13 @@ public class MarketLocalizationsRegisterPayload {
       return result;
     }
 
-    /**
-     * The market localizations that were created or updated.
-     */
+    
     public Builder marketLocalizations(List<MarketLocalization> marketLocalizations) {
       this.marketLocalizations = marketLocalizations;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<TranslationUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

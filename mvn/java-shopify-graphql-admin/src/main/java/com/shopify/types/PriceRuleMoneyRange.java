@@ -5,36 +5,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A money range within which the price rule is applicable.
- */
+
 public class PriceRuleMoneyRange {
-  /**
-   * The lower bound of the money range.
-   */
+  
   private String greaterThan;
 
-  /**
-   * The lower bound or equal of the money range.
-   */
+  
   private String greaterThanOrEqualTo;
 
-  /**
-   * The upper bound of the money range.
-   */
+  
   private String lessThan;
 
-  /**
-   * The upper bound or equal of the money range.
-   */
+  
   private String lessThanOrEqualTo;
 
   public PriceRuleMoneyRange() {
   }
 
-  /**
-   * The lower bound of the money range.
-   */
+  
   public String getGreaterThan() {
     return greaterThan;
   }
@@ -43,9 +31,7 @@ public class PriceRuleMoneyRange {
     this.greaterThan = greaterThan;
   }
 
-  /**
-   * The lower bound or equal of the money range.
-   */
+  
   public String getGreaterThanOrEqualTo() {
     return greaterThanOrEqualTo;
   }
@@ -54,9 +40,7 @@ public class PriceRuleMoneyRange {
     this.greaterThanOrEqualTo = greaterThanOrEqualTo;
   }
 
-  /**
-   * The upper bound of the money range.
-   */
+  
   public String getLessThan() {
     return lessThan;
   }
@@ -65,9 +49,7 @@ public class PriceRuleMoneyRange {
     this.lessThan = lessThan;
   }
 
-  /**
-   * The upper bound or equal of the money range.
-   */
+  
   public String getLessThanOrEqualTo() {
     return lessThanOrEqualTo;
   }
@@ -102,24 +84,16 @@ public class PriceRuleMoneyRange {
   }
 
   public static class Builder {
-    /**
-     * The lower bound of the money range.
-     */
+    
     private String greaterThan;
 
-    /**
-     * The lower bound or equal of the money range.
-     */
+    
     private String greaterThanOrEqualTo;
 
-    /**
-     * The upper bound of the money range.
-     */
+    
     private String lessThan;
 
-    /**
-     * The upper bound or equal of the money range.
-     */
+    
     private String lessThanOrEqualTo;
 
     public PriceRuleMoneyRange build() {
@@ -131,33 +105,25 @@ public class PriceRuleMoneyRange {
       return result;
     }
 
-    /**
-     * The lower bound of the money range.
-     */
+    
     public Builder greaterThan(String greaterThan) {
       this.greaterThan = greaterThan;
       return this;
     }
 
-    /**
-     * The lower bound or equal of the money range.
-     */
+    
     public Builder greaterThanOrEqualTo(String greaterThanOrEqualTo) {
       this.greaterThanOrEqualTo = greaterThanOrEqualTo;
       return this;
     }
 
-    /**
-     * The upper bound of the money range.
-     */
+    
     public Builder lessThan(String lessThan) {
       this.lessThan = lessThan;
       return this;
     }
 
-    /**
-     * The upper bound or equal of the money range.
-     */
+    
     public Builder lessThanOrEqualTo(String lessThanOrEqualTo) {
       this.lessThanOrEqualTo = lessThanOrEqualTo;
       return this;

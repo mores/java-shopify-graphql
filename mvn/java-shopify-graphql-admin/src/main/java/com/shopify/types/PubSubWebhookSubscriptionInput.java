@@ -6,48 +6,30 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for a PubSub webhook subscription.
- */
+
 public class PubSubWebhookSubscriptionInput {
-  /**
-   * The Pub/Sub project ID.
-   */
+  
   private String pubSubProject;
 
-  /**
-   * The Pub/Sub topic ID.
-   */
+  
   private String pubSubTopic;
 
-  /**
-   * The format in which the webhook subscription should send the data.
-   */
+  
   private WebhookSubscriptionFormat format;
 
-  /**
-   * The list of fields to be included in the webhook subscription.
-   */
+  
   private List<String> includeFields;
 
-  /**
-   * A constraint specified using search syntax that ensures only webhooks that
-   * match the specified filter are emitted. See our [guide on
-   * filters](https://shopify.dev/docs/apps/build/webhooks/customize/filters) for more details.
-   */
+  
   private String filter;
 
-  /**
-   * The list of namespaces for any metafields that should be included in the webhook subscription.
-   */
+  
   private List<String> metafieldNamespaces;
 
   public PubSubWebhookSubscriptionInput() {
   }
 
-  /**
-   * The Pub/Sub project ID.
-   */
+  
   public String getPubSubProject() {
     return pubSubProject;
   }
@@ -56,9 +38,7 @@ public class PubSubWebhookSubscriptionInput {
     this.pubSubProject = pubSubProject;
   }
 
-  /**
-   * The Pub/Sub topic ID.
-   */
+  
   public String getPubSubTopic() {
     return pubSubTopic;
   }
@@ -67,9 +47,7 @@ public class PubSubWebhookSubscriptionInput {
     this.pubSubTopic = pubSubTopic;
   }
 
-  /**
-   * The format in which the webhook subscription should send the data.
-   */
+  
   public WebhookSubscriptionFormat getFormat() {
     return format;
   }
@@ -78,9 +56,7 @@ public class PubSubWebhookSubscriptionInput {
     this.format = format;
   }
 
-  /**
-   * The list of fields to be included in the webhook subscription.
-   */
+  
   public List<String> getIncludeFields() {
     return includeFields;
   }
@@ -89,11 +65,7 @@ public class PubSubWebhookSubscriptionInput {
     this.includeFields = includeFields;
   }
 
-  /**
-   * A constraint specified using search syntax that ensures only webhooks that
-   * match the specified filter are emitted. See our [guide on
-   * filters](https://shopify.dev/docs/apps/build/webhooks/customize/filters) for more details.
-   */
+  
   public String getFilter() {
     return filter;
   }
@@ -102,9 +74,7 @@ public class PubSubWebhookSubscriptionInput {
     this.filter = filter;
   }
 
-  /**
-   * The list of namespaces for any metafields that should be included in the webhook subscription.
-   */
+  
   public List<String> getMetafieldNamespaces() {
     return metafieldNamespaces;
   }
@@ -141,36 +111,22 @@ public class PubSubWebhookSubscriptionInput {
   }
 
   public static class Builder {
-    /**
-     * The Pub/Sub project ID.
-     */
+    
     private String pubSubProject;
 
-    /**
-     * The Pub/Sub topic ID.
-     */
+    
     private String pubSubTopic;
 
-    /**
-     * The format in which the webhook subscription should send the data.
-     */
+    
     private WebhookSubscriptionFormat format;
 
-    /**
-     * The list of fields to be included in the webhook subscription.
-     */
+    
     private List<String> includeFields;
 
-    /**
-     * A constraint specified using search syntax that ensures only webhooks that
-     * match the specified filter are emitted. See our [guide on
-     * filters](https://shopify.dev/docs/apps/build/webhooks/customize/filters) for more details.
-     */
+    
     private String filter;
 
-    /**
-     * The list of namespaces for any metafields that should be included in the webhook subscription.
-     */
+    
     private List<String> metafieldNamespaces;
 
     public PubSubWebhookSubscriptionInput build() {
@@ -184,51 +140,37 @@ public class PubSubWebhookSubscriptionInput {
       return result;
     }
 
-    /**
-     * The Pub/Sub project ID.
-     */
+    
     public Builder pubSubProject(String pubSubProject) {
       this.pubSubProject = pubSubProject;
       return this;
     }
 
-    /**
-     * The Pub/Sub topic ID.
-     */
+    
     public Builder pubSubTopic(String pubSubTopic) {
       this.pubSubTopic = pubSubTopic;
       return this;
     }
 
-    /**
-     * The format in which the webhook subscription should send the data.
-     */
+    
     public Builder format(WebhookSubscriptionFormat format) {
       this.format = format;
       return this;
     }
 
-    /**
-     * The list of fields to be included in the webhook subscription.
-     */
+    
     public Builder includeFields(List<String> includeFields) {
       this.includeFields = includeFields;
       return this;
     }
 
-    /**
-     * A constraint specified using search syntax that ensures only webhooks that
-     * match the specified filter are emitted. See our [guide on
-     * filters](https://shopify.dev/docs/apps/build/webhooks/customize/filters) for more details.
-     */
+    
     public Builder filter(String filter) {
       this.filter = filter;
       return this;
     }
 
-    /**
-     * The list of namespaces for any metafields that should be included in the webhook subscription.
-     */
+    
     public Builder metafieldNamespaces(List<String> metafieldNamespaces) {
       this.metafieldNamespaces = metafieldNamespaces;
       return this;

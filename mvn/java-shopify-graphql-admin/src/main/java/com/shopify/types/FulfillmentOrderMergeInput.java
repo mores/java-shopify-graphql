@@ -6,21 +6,15 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for merging fulfillment orders.
- */
+
 public class FulfillmentOrderMergeInput {
-  /**
-   * The details of the fulfillment orders to be merged.
-   */
+  
   private List<FulfillmentOrderMergeInputMergeIntent> mergeIntents;
 
   public FulfillmentOrderMergeInput() {
   }
 
-  /**
-   * The details of the fulfillment orders to be merged.
-   */
+  
   public List<FulfillmentOrderMergeInputMergeIntent> getMergeIntents() {
     return mergeIntents;
   }
@@ -52,9 +46,7 @@ public class FulfillmentOrderMergeInput {
   }
 
   public static class Builder {
-    /**
-     * The details of the fulfillment orders to be merged.
-     */
+    
     private List<FulfillmentOrderMergeInputMergeIntent> mergeIntents;
 
     public FulfillmentOrderMergeInput build() {
@@ -63,9 +55,7 @@ public class FulfillmentOrderMergeInput {
       return result;
     }
 
-    /**
-     * The details of the fulfillment orders to be merged.
-     */
+    
     public Builder mergeIntents(List<FulfillmentOrderMergeInputMergeIntent> mergeIntents) {
       this.mergeIntents = mergeIntents;
       return this;

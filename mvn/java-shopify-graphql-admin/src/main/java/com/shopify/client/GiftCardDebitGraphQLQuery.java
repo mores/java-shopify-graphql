@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Debit a gift card.
- */
+
 public class GiftCardDebitGraphQLQuery extends GraphQLQuery {
   public GiftCardDebitGraphQLQuery(String id, GiftCardDebitInput debitInput, String queryName,
       Set<String> fieldsSet) {
@@ -48,18 +46,14 @@ public class GiftCardDebitGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the gift card to be debited.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * The input fields to debit a gift card.
-     */
+    
     public Builder debitInput(GiftCardDebitInput debitInput) {
       this.debitInput = debitInput;
       this.fieldsSet.add("debitInput");

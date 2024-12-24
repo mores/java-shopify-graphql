@@ -4,9 +4,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.String;
 
-/**
- * The filters used in segment queries associated with a shop.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
     include = JsonTypeInfo.As.PROPERTY,
@@ -23,18 +21,12 @@ import java.lang.String;
     @JsonSubTypes.Type(value = SegmentStringFilter.class, name = "SegmentStringFilter")
 })
 public interface SegmentFilter {
-  /**
-   * The localized name of the filter.
-   */
+  
   String getLocalizedName();
 
-  /**
-   * Whether a file can have multiple values for a single customer.
-   */
+  
   boolean getMultiValue();
 
-  /**
-   * The query name of the filter.
-   */
+  
   String getQueryName();
 }

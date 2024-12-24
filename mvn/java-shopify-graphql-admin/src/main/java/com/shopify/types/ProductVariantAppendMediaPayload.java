@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `productVariantAppendMedia` mutation.
- */
+
 public class ProductVariantAppendMediaPayload {
-  /**
-   * The product associated with the variants and media.
-   */
+  
   private Product product;
 
-  /**
-   * The product variants that were updated.
-   */
+  
   private List<ProductVariant> productVariants;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<MediaUserError> userErrors;
 
   public ProductVariantAppendMediaPayload() {
   }
 
-  /**
-   * The product associated with the variants and media.
-   */
+  
   public Product getProduct() {
     return product;
   }
@@ -39,9 +29,7 @@ public class ProductVariantAppendMediaPayload {
     this.product = product;
   }
 
-  /**
-   * The product variants that were updated.
-   */
+  
   public List<ProductVariant> getProductVariants() {
     return productVariants;
   }
@@ -50,9 +38,7 @@ public class ProductVariantAppendMediaPayload {
     this.productVariants = productVariants;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<MediaUserError> getUserErrors() {
     return userErrors;
   }
@@ -86,19 +72,13 @@ public class ProductVariantAppendMediaPayload {
   }
 
   public static class Builder {
-    /**
-     * The product associated with the variants and media.
-     */
+    
     private Product product;
 
-    /**
-     * The product variants that were updated.
-     */
+    
     private List<ProductVariant> productVariants;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<MediaUserError> userErrors;
 
     public ProductVariantAppendMediaPayload build() {
@@ -109,25 +89,19 @@ public class ProductVariantAppendMediaPayload {
       return result;
     }
 
-    /**
-     * The product associated with the variants and media.
-     */
+    
     public Builder product(Product product) {
       this.product = product;
       return this;
     }
 
-    /**
-     * The product variants that were updated.
-     */
+    
     public Builder productVariants(List<ProductVariant> productVariants) {
       this.productVariants = productVariants;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<MediaUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

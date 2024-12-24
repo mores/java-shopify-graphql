@@ -6,29 +6,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents a Shopify product taxonomy value.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class TaxonomyValue implements MetafieldReference, com.shopify.types.Node {
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The name of the product taxonomy value. For example, Red.
-   */
+  
   private String name;
 
   public TaxonomyValue() {
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -37,9 +29,7 @@ public class TaxonomyValue implements MetafieldReference, com.shopify.types.Node
     this.id = id;
   }
 
-  /**
-   * The name of the product taxonomy value. For example, Red.
-   */
+  
   public String getName() {
     return name;
   }
@@ -72,14 +62,10 @@ public class TaxonomyValue implements MetafieldReference, com.shopify.types.Node
   }
 
   public static class Builder {
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The name of the product taxonomy value. For example, Red.
-     */
+    
     private String name;
 
     public TaxonomyValue build() {
@@ -89,17 +75,13 @@ public class TaxonomyValue implements MetafieldReference, com.shopify.types.Node
       return result;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The name of the product taxonomy value. For example, Red.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;

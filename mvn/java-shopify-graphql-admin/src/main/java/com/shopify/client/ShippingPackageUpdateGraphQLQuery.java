@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Updates a shipping package.
- */
+
 public class ShippingPackageUpdateGraphQLQuery extends GraphQLQuery {
   public ShippingPackageUpdateGraphQLQuery(String id, CustomShippingPackageInput shippingPackage,
       String queryName, Set<String> fieldsSet) {
@@ -48,18 +46,14 @@ public class ShippingPackageUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the shipping package to update.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * Specifies the input fields for a shipping package.
-     */
+    
     public Builder shippingPackage(CustomShippingPackageInput shippingPackage) {
       this.shippingPackage = shippingPackage;
       this.fieldsSet.add("shippingPackage");

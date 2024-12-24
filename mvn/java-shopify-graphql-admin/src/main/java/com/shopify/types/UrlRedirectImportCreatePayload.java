@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `urlRedirectImportCreate` mutation.
- */
+
 public class UrlRedirectImportCreatePayload {
-  /**
-   * The created `URLRedirectImport` object.
-   */
+  
   private UrlRedirectImport urlRedirectImport;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UrlRedirectImportUserError> userErrors;
 
   public UrlRedirectImportCreatePayload() {
   }
 
-  /**
-   * The created `URLRedirectImport` object.
-   */
+  
   public UrlRedirectImport getUrlRedirectImport() {
     return urlRedirectImport;
   }
@@ -34,9 +26,7 @@ public class UrlRedirectImportCreatePayload {
     this.urlRedirectImport = urlRedirectImport;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UrlRedirectImportUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class UrlRedirectImportCreatePayload {
   }
 
   public static class Builder {
-    /**
-     * The created `URLRedirectImport` object.
-     */
+    
     private UrlRedirectImport urlRedirectImport;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UrlRedirectImportUserError> userErrors;
 
     public UrlRedirectImportCreatePayload build() {
@@ -86,17 +72,13 @@ public class UrlRedirectImportCreatePayload {
       return result;
     }
 
-    /**
-     * The created `URLRedirectImport` object.
-     */
+    
     public Builder urlRedirectImport(UrlRedirectImport urlRedirectImport) {
       this.urlRedirectImport = urlRedirectImport;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UrlRedirectImportUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

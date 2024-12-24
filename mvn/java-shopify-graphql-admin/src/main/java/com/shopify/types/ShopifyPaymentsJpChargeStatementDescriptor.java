@@ -6,39 +6,27 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The charge descriptors for a Japanese payments account.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ShopifyPaymentsJpChargeStatementDescriptor implements com.shopify.types.ShopifyPaymentsChargeStatementDescriptor {
-  /**
-   * The default charge statement descriptor.
-   */
+  
   private String _default;
 
-  /**
-   * The charge statement descriptor in kana.
-   */
+  
   private String kana;
 
-  /**
-   * The charge statement descriptor in kanji.
-   */
+  
   private String kanji;
 
-  /**
-   * The prefix of the statement descriptor.
-   */
+  
   private String prefix;
 
   public ShopifyPaymentsJpChargeStatementDescriptor() {
   }
 
-  /**
-   * The default charge statement descriptor.
-   */
+  
   public String getDefault() {
     return _default;
   }
@@ -47,9 +35,7 @@ public class ShopifyPaymentsJpChargeStatementDescriptor implements com.shopify.t
     this._default = _default;
   }
 
-  /**
-   * The charge statement descriptor in kana.
-   */
+  
   public String getKana() {
     return kana;
   }
@@ -58,9 +44,7 @@ public class ShopifyPaymentsJpChargeStatementDescriptor implements com.shopify.t
     this.kana = kana;
   }
 
-  /**
-   * The charge statement descriptor in kanji.
-   */
+  
   public String getKanji() {
     return kanji;
   }
@@ -69,9 +53,7 @@ public class ShopifyPaymentsJpChargeStatementDescriptor implements com.shopify.t
     this.kanji = kanji;
   }
 
-  /**
-   * The prefix of the statement descriptor.
-   */
+  
   public String getPrefix() {
     return prefix;
   }
@@ -106,24 +88,16 @@ public class ShopifyPaymentsJpChargeStatementDescriptor implements com.shopify.t
   }
 
   public static class Builder {
-    /**
-     * The default charge statement descriptor.
-     */
+    
     private String _default;
 
-    /**
-     * The charge statement descriptor in kana.
-     */
+    
     private String kana;
 
-    /**
-     * The charge statement descriptor in kanji.
-     */
+    
     private String kanji;
 
-    /**
-     * The prefix of the statement descriptor.
-     */
+    
     private String prefix;
 
     public ShopifyPaymentsJpChargeStatementDescriptor build() {
@@ -135,33 +109,25 @@ public class ShopifyPaymentsJpChargeStatementDescriptor implements com.shopify.t
       return result;
     }
 
-    /**
-     * The default charge statement descriptor.
-     */
+    
     public Builder _default(String _default) {
       this._default = _default;
       return this;
     }
 
-    /**
-     * The charge statement descriptor in kana.
-     */
+    
     public Builder kana(String kana) {
       this.kana = kana;
       return this;
     }
 
-    /**
-     * The charge statement descriptor in kanji.
-     */
+    
     public Builder kanji(String kanji) {
       this.kanji = kanji;
       return this;
     }
 
-    /**
-     * The prefix of the statement descriptor.
-     */
+    
     public Builder prefix(String prefix) {
       this.prefix = prefix;
       return this;

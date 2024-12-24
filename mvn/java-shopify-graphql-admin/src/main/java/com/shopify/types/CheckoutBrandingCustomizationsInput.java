@@ -5,130 +5,78 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields used to update the components customizations.
- */
+
 public class CheckoutBrandingCustomizationsInput {
-  /**
-   * The global customizations.
-   */
+  
   private CheckoutBrandingGlobalInput global;
 
-  /**
-   * The header customizations.
-   */
+  
   private CheckoutBrandingHeaderInput header;
 
-  /**
-   * The Heading Level 1 customizations.
-   */
+  
   private CheckoutBrandingHeadingLevelInput headingLevel1;
 
-  /**
-   * The Heading Level 2 customizations.
-   */
+  
   private CheckoutBrandingHeadingLevelInput headingLevel2;
 
-  /**
-   * The Heading Level 3 customizations.
-   */
+  
   private CheckoutBrandingHeadingLevelInput headingLevel3;
 
-  /**
-   * The footer customizations.
-   */
+  
   private CheckoutBrandingFooterInput footer;
 
-  /**
-   * The main area customizations.
-   */
+  
   private CheckoutBrandingMainInput main;
 
-  /**
-   * The order summary customizations.
-   */
+  
   private CheckoutBrandingOrderSummaryInput orderSummary;
 
-  /**
-   * The form controls customizations.
-   */
+  
   private CheckoutBrandingControlInput control;
 
-  /**
-   * The text fields customizations.
-   */
+  
   private CheckoutBrandingTextFieldInput textField;
 
-  /**
-   * The checkboxes customizations.
-   */
+  
   private CheckoutBrandingCheckboxInput checkbox;
 
-  /**
-   * The selects customizations.
-   */
+  
   private CheckoutBrandingSelectInput select;
 
-  /**
-   * The primary buttons customizations.
-   */
+  
   private CheckoutBrandingButtonInput primaryButton;
 
-  /**
-   * The secondary buttons customizations.
-   */
+  
   private CheckoutBrandingButtonInput secondaryButton;
 
-  /**
-   * The favicon image (must be of PNG format).
-   */
+  
   private CheckoutBrandingImageInput favicon;
 
-  /**
-   * The choice list customizations.
-   */
+  
   private CheckoutBrandingChoiceListInput choiceList;
 
-  /**
-   * The merchandise thumbnails customizations.
-   */
+  
   private CheckoutBrandingMerchandiseThumbnailInput merchandiseThumbnail;
 
-  /**
-   * The express checkout customizations.
-   */
+  
   private CheckoutBrandingExpressCheckoutInput expressCheckout;
 
-  /**
-   * The content container customizations.
-   */
+  
   private CheckoutBrandingContentInput content;
 
-  /**
-   * The customizations for the breadcrumbs that represent a buyer's journey to the checkout.
-   */
+  
   private CheckoutBrandingBuyerJourneyInput buyerJourney;
 
-  /**
-   * The input for checkout cart link customizations. For example, by setting the
-   * visibility field to `HIDDEN`, you can hide the cart icon in the header for
-   * one-page checkout, and the cart link in breadcrumbs in three-page checkout.
-   */
+  
   private CheckoutBrandingCartLinkInput cartLink;
 
-  /**
-   * The input for the page, content, main, and order summary dividers
-   * customizations. For example, by setting the borderStyle to `DOTTED`, you can
-   * make these dividers render as dotted lines.
-   */
+  
   private CheckoutBrandingDividerStyleInput divider;
 
   public CheckoutBrandingCustomizationsInput() {
   }
 
-  /**
-   * The global customizations.
-   */
+  
   public CheckoutBrandingGlobalInput getGlobal() {
     return global;
   }
@@ -137,9 +85,7 @@ public class CheckoutBrandingCustomizationsInput {
     this.global = global;
   }
 
-  /**
-   * The header customizations.
-   */
+  
   public CheckoutBrandingHeaderInput getHeader() {
     return header;
   }
@@ -148,9 +94,7 @@ public class CheckoutBrandingCustomizationsInput {
     this.header = header;
   }
 
-  /**
-   * The Heading Level 1 customizations.
-   */
+  
   public CheckoutBrandingHeadingLevelInput getHeadingLevel1() {
     return headingLevel1;
   }
@@ -159,9 +103,7 @@ public class CheckoutBrandingCustomizationsInput {
     this.headingLevel1 = headingLevel1;
   }
 
-  /**
-   * The Heading Level 2 customizations.
-   */
+  
   public CheckoutBrandingHeadingLevelInput getHeadingLevel2() {
     return headingLevel2;
   }
@@ -170,9 +112,7 @@ public class CheckoutBrandingCustomizationsInput {
     this.headingLevel2 = headingLevel2;
   }
 
-  /**
-   * The Heading Level 3 customizations.
-   */
+  
   public CheckoutBrandingHeadingLevelInput getHeadingLevel3() {
     return headingLevel3;
   }
@@ -181,9 +121,7 @@ public class CheckoutBrandingCustomizationsInput {
     this.headingLevel3 = headingLevel3;
   }
 
-  /**
-   * The footer customizations.
-   */
+  
   public CheckoutBrandingFooterInput getFooter() {
     return footer;
   }
@@ -192,9 +130,7 @@ public class CheckoutBrandingCustomizationsInput {
     this.footer = footer;
   }
 
-  /**
-   * The main area customizations.
-   */
+  
   public CheckoutBrandingMainInput getMain() {
     return main;
   }
@@ -203,9 +139,7 @@ public class CheckoutBrandingCustomizationsInput {
     this.main = main;
   }
 
-  /**
-   * The order summary customizations.
-   */
+  
   public CheckoutBrandingOrderSummaryInput getOrderSummary() {
     return orderSummary;
   }
@@ -214,9 +148,7 @@ public class CheckoutBrandingCustomizationsInput {
     this.orderSummary = orderSummary;
   }
 
-  /**
-   * The form controls customizations.
-   */
+  
   public CheckoutBrandingControlInput getControl() {
     return control;
   }
@@ -225,9 +157,7 @@ public class CheckoutBrandingCustomizationsInput {
     this.control = control;
   }
 
-  /**
-   * The text fields customizations.
-   */
+  
   public CheckoutBrandingTextFieldInput getTextField() {
     return textField;
   }
@@ -236,9 +166,7 @@ public class CheckoutBrandingCustomizationsInput {
     this.textField = textField;
   }
 
-  /**
-   * The checkboxes customizations.
-   */
+  
   public CheckoutBrandingCheckboxInput getCheckbox() {
     return checkbox;
   }
@@ -247,9 +175,7 @@ public class CheckoutBrandingCustomizationsInput {
     this.checkbox = checkbox;
   }
 
-  /**
-   * The selects customizations.
-   */
+  
   public CheckoutBrandingSelectInput getSelect() {
     return select;
   }
@@ -258,9 +184,7 @@ public class CheckoutBrandingCustomizationsInput {
     this.select = select;
   }
 
-  /**
-   * The primary buttons customizations.
-   */
+  
   public CheckoutBrandingButtonInput getPrimaryButton() {
     return primaryButton;
   }
@@ -269,9 +193,7 @@ public class CheckoutBrandingCustomizationsInput {
     this.primaryButton = primaryButton;
   }
 
-  /**
-   * The secondary buttons customizations.
-   */
+  
   public CheckoutBrandingButtonInput getSecondaryButton() {
     return secondaryButton;
   }
@@ -280,9 +202,7 @@ public class CheckoutBrandingCustomizationsInput {
     this.secondaryButton = secondaryButton;
   }
 
-  /**
-   * The favicon image (must be of PNG format).
-   */
+  
   public CheckoutBrandingImageInput getFavicon() {
     return favicon;
   }
@@ -291,9 +211,7 @@ public class CheckoutBrandingCustomizationsInput {
     this.favicon = favicon;
   }
 
-  /**
-   * The choice list customizations.
-   */
+  
   public CheckoutBrandingChoiceListInput getChoiceList() {
     return choiceList;
   }
@@ -302,9 +220,7 @@ public class CheckoutBrandingCustomizationsInput {
     this.choiceList = choiceList;
   }
 
-  /**
-   * The merchandise thumbnails customizations.
-   */
+  
   public CheckoutBrandingMerchandiseThumbnailInput getMerchandiseThumbnail() {
     return merchandiseThumbnail;
   }
@@ -314,9 +230,7 @@ public class CheckoutBrandingCustomizationsInput {
     this.merchandiseThumbnail = merchandiseThumbnail;
   }
 
-  /**
-   * The express checkout customizations.
-   */
+  
   public CheckoutBrandingExpressCheckoutInput getExpressCheckout() {
     return expressCheckout;
   }
@@ -325,9 +239,7 @@ public class CheckoutBrandingCustomizationsInput {
     this.expressCheckout = expressCheckout;
   }
 
-  /**
-   * The content container customizations.
-   */
+  
   public CheckoutBrandingContentInput getContent() {
     return content;
   }
@@ -336,9 +248,7 @@ public class CheckoutBrandingCustomizationsInput {
     this.content = content;
   }
 
-  /**
-   * The customizations for the breadcrumbs that represent a buyer's journey to the checkout.
-   */
+  
   public CheckoutBrandingBuyerJourneyInput getBuyerJourney() {
     return buyerJourney;
   }
@@ -347,11 +257,7 @@ public class CheckoutBrandingCustomizationsInput {
     this.buyerJourney = buyerJourney;
   }
 
-  /**
-   * The input for checkout cart link customizations. For example, by setting the
-   * visibility field to `HIDDEN`, you can hide the cart icon in the header for
-   * one-page checkout, and the cart link in breadcrumbs in three-page checkout.
-   */
+  
   public CheckoutBrandingCartLinkInput getCartLink() {
     return cartLink;
   }
@@ -360,11 +266,7 @@ public class CheckoutBrandingCustomizationsInput {
     this.cartLink = cartLink;
   }
 
-  /**
-   * The input for the page, content, main, and order summary dividers
-   * customizations. For example, by setting the borderStyle to `DOTTED`, you can
-   * make these dividers render as dotted lines.
-   */
+  
   public CheckoutBrandingDividerStyleInput getDivider() {
     return divider;
   }
@@ -417,118 +319,70 @@ public class CheckoutBrandingCustomizationsInput {
   }
 
   public static class Builder {
-    /**
-     * The global customizations.
-     */
+    
     private CheckoutBrandingGlobalInput global;
 
-    /**
-     * The header customizations.
-     */
+    
     private CheckoutBrandingHeaderInput header;
 
-    /**
-     * The Heading Level 1 customizations.
-     */
+    
     private CheckoutBrandingHeadingLevelInput headingLevel1;
 
-    /**
-     * The Heading Level 2 customizations.
-     */
+    
     private CheckoutBrandingHeadingLevelInput headingLevel2;
 
-    /**
-     * The Heading Level 3 customizations.
-     */
+    
     private CheckoutBrandingHeadingLevelInput headingLevel3;
 
-    /**
-     * The footer customizations.
-     */
+    
     private CheckoutBrandingFooterInput footer;
 
-    /**
-     * The main area customizations.
-     */
+    
     private CheckoutBrandingMainInput main;
 
-    /**
-     * The order summary customizations.
-     */
+    
     private CheckoutBrandingOrderSummaryInput orderSummary;
 
-    /**
-     * The form controls customizations.
-     */
+    
     private CheckoutBrandingControlInput control;
 
-    /**
-     * The text fields customizations.
-     */
+    
     private CheckoutBrandingTextFieldInput textField;
 
-    /**
-     * The checkboxes customizations.
-     */
+    
     private CheckoutBrandingCheckboxInput checkbox;
 
-    /**
-     * The selects customizations.
-     */
+    
     private CheckoutBrandingSelectInput select;
 
-    /**
-     * The primary buttons customizations.
-     */
+    
     private CheckoutBrandingButtonInput primaryButton;
 
-    /**
-     * The secondary buttons customizations.
-     */
+    
     private CheckoutBrandingButtonInput secondaryButton;
 
-    /**
-     * The favicon image (must be of PNG format).
-     */
+    
     private CheckoutBrandingImageInput favicon;
 
-    /**
-     * The choice list customizations.
-     */
+    
     private CheckoutBrandingChoiceListInput choiceList;
 
-    /**
-     * The merchandise thumbnails customizations.
-     */
+    
     private CheckoutBrandingMerchandiseThumbnailInput merchandiseThumbnail;
 
-    /**
-     * The express checkout customizations.
-     */
+    
     private CheckoutBrandingExpressCheckoutInput expressCheckout;
 
-    /**
-     * The content container customizations.
-     */
+    
     private CheckoutBrandingContentInput content;
 
-    /**
-     * The customizations for the breadcrumbs that represent a buyer's journey to the checkout.
-     */
+    
     private CheckoutBrandingBuyerJourneyInput buyerJourney;
 
-    /**
-     * The input for checkout cart link customizations. For example, by setting the
-     * visibility field to `HIDDEN`, you can hide the cart icon in the header for
-     * one-page checkout, and the cart link in breadcrumbs in three-page checkout.
-     */
+    
     private CheckoutBrandingCartLinkInput cartLink;
 
-    /**
-     * The input for the page, content, main, and order summary dividers
-     * customizations. For example, by setting the borderStyle to `DOTTED`, you can
-     * make these dividers render as dotted lines.
-     */
+    
     private CheckoutBrandingDividerStyleInput divider;
 
     public CheckoutBrandingCustomizationsInput build() {
@@ -558,182 +412,134 @@ public class CheckoutBrandingCustomizationsInput {
       return result;
     }
 
-    /**
-     * The global customizations.
-     */
+    
     public Builder global(CheckoutBrandingGlobalInput global) {
       this.global = global;
       return this;
     }
 
-    /**
-     * The header customizations.
-     */
+    
     public Builder header(CheckoutBrandingHeaderInput header) {
       this.header = header;
       return this;
     }
 
-    /**
-     * The Heading Level 1 customizations.
-     */
+    
     public Builder headingLevel1(CheckoutBrandingHeadingLevelInput headingLevel1) {
       this.headingLevel1 = headingLevel1;
       return this;
     }
 
-    /**
-     * The Heading Level 2 customizations.
-     */
+    
     public Builder headingLevel2(CheckoutBrandingHeadingLevelInput headingLevel2) {
       this.headingLevel2 = headingLevel2;
       return this;
     }
 
-    /**
-     * The Heading Level 3 customizations.
-     */
+    
     public Builder headingLevel3(CheckoutBrandingHeadingLevelInput headingLevel3) {
       this.headingLevel3 = headingLevel3;
       return this;
     }
 
-    /**
-     * The footer customizations.
-     */
+    
     public Builder footer(CheckoutBrandingFooterInput footer) {
       this.footer = footer;
       return this;
     }
 
-    /**
-     * The main area customizations.
-     */
+    
     public Builder main(CheckoutBrandingMainInput main) {
       this.main = main;
       return this;
     }
 
-    /**
-     * The order summary customizations.
-     */
+    
     public Builder orderSummary(CheckoutBrandingOrderSummaryInput orderSummary) {
       this.orderSummary = orderSummary;
       return this;
     }
 
-    /**
-     * The form controls customizations.
-     */
+    
     public Builder control(CheckoutBrandingControlInput control) {
       this.control = control;
       return this;
     }
 
-    /**
-     * The text fields customizations.
-     */
+    
     public Builder textField(CheckoutBrandingTextFieldInput textField) {
       this.textField = textField;
       return this;
     }
 
-    /**
-     * The checkboxes customizations.
-     */
+    
     public Builder checkbox(CheckoutBrandingCheckboxInput checkbox) {
       this.checkbox = checkbox;
       return this;
     }
 
-    /**
-     * The selects customizations.
-     */
+    
     public Builder select(CheckoutBrandingSelectInput select) {
       this.select = select;
       return this;
     }
 
-    /**
-     * The primary buttons customizations.
-     */
+    
     public Builder primaryButton(CheckoutBrandingButtonInput primaryButton) {
       this.primaryButton = primaryButton;
       return this;
     }
 
-    /**
-     * The secondary buttons customizations.
-     */
+    
     public Builder secondaryButton(CheckoutBrandingButtonInput secondaryButton) {
       this.secondaryButton = secondaryButton;
       return this;
     }
 
-    /**
-     * The favicon image (must be of PNG format).
-     */
+    
     public Builder favicon(CheckoutBrandingImageInput favicon) {
       this.favicon = favicon;
       return this;
     }
 
-    /**
-     * The choice list customizations.
-     */
+    
     public Builder choiceList(CheckoutBrandingChoiceListInput choiceList) {
       this.choiceList = choiceList;
       return this;
     }
 
-    /**
-     * The merchandise thumbnails customizations.
-     */
+    
     public Builder merchandiseThumbnail(
         CheckoutBrandingMerchandiseThumbnailInput merchandiseThumbnail) {
       this.merchandiseThumbnail = merchandiseThumbnail;
       return this;
     }
 
-    /**
-     * The express checkout customizations.
-     */
+    
     public Builder expressCheckout(CheckoutBrandingExpressCheckoutInput expressCheckout) {
       this.expressCheckout = expressCheckout;
       return this;
     }
 
-    /**
-     * The content container customizations.
-     */
+    
     public Builder content(CheckoutBrandingContentInput content) {
       this.content = content;
       return this;
     }
 
-    /**
-     * The customizations for the breadcrumbs that represent a buyer's journey to the checkout.
-     */
+    
     public Builder buyerJourney(CheckoutBrandingBuyerJourneyInput buyerJourney) {
       this.buyerJourney = buyerJourney;
       return this;
     }
 
-    /**
-     * The input for checkout cart link customizations. For example, by setting the
-     * visibility field to `HIDDEN`, you can hide the cart icon in the header for
-     * one-page checkout, and the cart link in breadcrumbs in three-page checkout.
-     */
+    
     public Builder cartLink(CheckoutBrandingCartLinkInput cartLink) {
       this.cartLink = cartLink;
       return this;
     }
 
-    /**
-     * The input for the page, content, main, and order summary dividers
-     * customizations. For example, by setting the borderStyle to `DOTTED`, you can
-     * make these dividers render as dotted lines.
-     */
+    
     public Builder divider(CheckoutBrandingDividerStyleInput divider) {
       this.divider = divider;
       return this;

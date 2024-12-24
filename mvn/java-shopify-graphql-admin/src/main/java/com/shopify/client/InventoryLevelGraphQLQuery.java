@@ -6,11 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns an
- * [InventoryLevel](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryLevel)
- * object by ID.
- */
+
 public class InventoryLevelGraphQLQuery extends GraphQLQuery {
   public InventoryLevelGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -44,9 +40,7 @@ public class InventoryLevelGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the `InventoryLevel` to return.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

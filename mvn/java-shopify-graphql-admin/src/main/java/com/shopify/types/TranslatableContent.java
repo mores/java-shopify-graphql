@@ -5,41 +5,27 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Translatable content of a resource's field.
- */
+
 public class TranslatableContent {
-  /**
-   * Hash digest representation of the content value.
-   */
+  
   private String digest;
 
-  /**
-   * The resource field that's being translated.
-   */
+  
   private String key;
 
-  /**
-   * Locale of the content.
-   */
+  
   private String locale;
 
-  /**
-   * Type of the translatable content.
-   */
+  
   private LocalizableContentType type;
 
-  /**
-   * Content value.
-   */
+  
   private String value;
 
   public TranslatableContent() {
   }
 
-  /**
-   * Hash digest representation of the content value.
-   */
+  
   public String getDigest() {
     return digest;
   }
@@ -48,9 +34,7 @@ public class TranslatableContent {
     this.digest = digest;
   }
 
-  /**
-   * The resource field that's being translated.
-   */
+  
   public String getKey() {
     return key;
   }
@@ -59,9 +43,7 @@ public class TranslatableContent {
     this.key = key;
   }
 
-  /**
-   * Locale of the content.
-   */
+  
   public String getLocale() {
     return locale;
   }
@@ -70,9 +52,7 @@ public class TranslatableContent {
     this.locale = locale;
   }
 
-  /**
-   * Type of the translatable content.
-   */
+  
   public LocalizableContentType getType() {
     return type;
   }
@@ -81,9 +61,7 @@ public class TranslatableContent {
     this.type = type;
   }
 
-  /**
-   * Content value.
-   */
+  
   public String getValue() {
     return value;
   }
@@ -119,29 +97,19 @@ public class TranslatableContent {
   }
 
   public static class Builder {
-    /**
-     * Hash digest representation of the content value.
-     */
+    
     private String digest;
 
-    /**
-     * The resource field that's being translated.
-     */
+    
     private String key;
 
-    /**
-     * Locale of the content.
-     */
+    
     private String locale;
 
-    /**
-     * Type of the translatable content.
-     */
+    
     private LocalizableContentType type;
 
-    /**
-     * Content value.
-     */
+    
     private String value;
 
     public TranslatableContent build() {
@@ -154,41 +122,31 @@ public class TranslatableContent {
       return result;
     }
 
-    /**
-     * Hash digest representation of the content value.
-     */
+    
     public Builder digest(String digest) {
       this.digest = digest;
       return this;
     }
 
-    /**
-     * The resource field that's being translated.
-     */
+    
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
-    /**
-     * Locale of the content.
-     */
+    
     public Builder locale(String locale) {
       this.locale = locale;
       return this;
     }
 
-    /**
-     * Type of the translatable content.
-     */
+    
     public Builder type(LocalizableContentType type) {
       this.type = type;
       return this;
     }
 
-    /**
-     * Content value.
-     */
+    
     public Builder value(String value) {
       this.value = value;
       return this;

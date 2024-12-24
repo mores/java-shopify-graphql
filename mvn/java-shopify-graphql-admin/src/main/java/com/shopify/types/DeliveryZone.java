@@ -7,36 +7,24 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * A zone is a group of countries that have the same shipping rates. Customers can
- * order products from a store only if they choose a shipping destination that's
- * included in one of the store's zones.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DeliveryZone implements com.shopify.types.Node {
-  /**
-   * The list of countries within the zone.
-   */
+  
   private List<DeliveryCountry> countries;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The name of the zone.
-   */
+  
   private String name;
 
   public DeliveryZone() {
   }
 
-  /**
-   * The list of countries within the zone.
-   */
+  
   public List<DeliveryCountry> getCountries() {
     return countries;
   }
@@ -45,9 +33,7 @@ public class DeliveryZone implements com.shopify.types.Node {
     this.countries = countries;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -56,9 +42,7 @@ public class DeliveryZone implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The name of the zone.
-   */
+  
   public String getName() {
     return name;
   }
@@ -92,19 +76,13 @@ public class DeliveryZone implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * The list of countries within the zone.
-     */
+    
     private List<DeliveryCountry> countries;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The name of the zone.
-     */
+    
     private String name;
 
     public DeliveryZone build() {
@@ -115,25 +93,19 @@ public class DeliveryZone implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * The list of countries within the zone.
-     */
+    
     public Builder countries(List<DeliveryCountry> countries) {
       this.countries = countries;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The name of the zone.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;

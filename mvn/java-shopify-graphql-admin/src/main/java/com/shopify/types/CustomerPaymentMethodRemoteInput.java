@@ -5,13 +5,9 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for a remote gateway payment method, only one remote reference permitted.
- */
+
 public class CustomerPaymentMethodRemoteInput {
-  /**
-   * Input containing the fields for a remote stripe payment method.
-   */
+  
   private RemoteStripePaymentMethodInput stripePaymentMethod;
 
   /**
@@ -19,17 +15,13 @@ public class CustomerPaymentMethodRemoteInput {
    */
   private RemoteAuthorizeNetCustomerPaymentProfileInput authorizeNetCustomerPaymentProfile;
 
-  /**
-   * The input fields for a remote Braintree customer profile.
-   */
+  
   private RemoteBraintreePaymentMethodInput braintreePaymentMethod;
 
   public CustomerPaymentMethodRemoteInput() {
   }
 
-  /**
-   * Input containing the fields for a remote stripe payment method.
-   */
+  
   public RemoteStripePaymentMethodInput getStripePaymentMethod() {
     return stripePaymentMethod;
   }
@@ -50,9 +42,7 @@ public class CustomerPaymentMethodRemoteInput {
     this.authorizeNetCustomerPaymentProfile = authorizeNetCustomerPaymentProfile;
   }
 
-  /**
-   * The input fields for a remote Braintree customer profile.
-   */
+  
   public RemoteBraintreePaymentMethodInput getBraintreePaymentMethod() {
     return braintreePaymentMethod;
   }
@@ -86,9 +76,7 @@ public class CustomerPaymentMethodRemoteInput {
   }
 
   public static class Builder {
-    /**
-     * Input containing the fields for a remote stripe payment method.
-     */
+    
     private RemoteStripePaymentMethodInput stripePaymentMethod;
 
     /**
@@ -96,9 +84,7 @@ public class CustomerPaymentMethodRemoteInput {
      */
     private RemoteAuthorizeNetCustomerPaymentProfileInput authorizeNetCustomerPaymentProfile;
 
-    /**
-     * The input fields for a remote Braintree customer profile.
-     */
+    
     private RemoteBraintreePaymentMethodInput braintreePaymentMethod;
 
     public CustomerPaymentMethodRemoteInput build() {
@@ -109,9 +95,7 @@ public class CustomerPaymentMethodRemoteInput {
       return result;
     }
 
-    /**
-     * Input containing the fields for a remote stripe payment method.
-     */
+    
     public Builder stripePaymentMethod(RemoteStripePaymentMethodInput stripePaymentMethod) {
       this.stripePaymentMethod = stripePaymentMethod;
       return this;
@@ -126,9 +110,7 @@ public class CustomerPaymentMethodRemoteInput {
       return this;
     }
 
-    /**
-     * The input fields for a remote Braintree customer profile.
-     */
+    
     public Builder braintreePaymentMethod(
         RemoteBraintreePaymentMethodInput braintreePaymentMethod) {
       this.braintreePaymentMethod = braintreePaymentMethod;

@@ -7,16 +7,12 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * A comment on an article.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class Comment implements com.shopify.types.HasEvents, com.shopify.types.Node {
-  /**
-   * The article associated with the comment.
-   */
+  
   private Article article;
 
   /**
@@ -24,67 +20,43 @@ public class Comment implements com.shopify.types.HasEvents, com.shopify.types.N
    */
   private CommentAuthor author;
 
-  /**
-   * The content of the comment.
-   */
+  
   private String body;
 
-  /**
-   * The content of the comment, complete with HTML formatting.
-   */
+  
   private String bodyHtml;
 
-  /**
-   * The date and time when the comment was created.
-   */
+  
   private OffsetDateTime createdAt;
 
-  /**
-   * The paginated list of events associated with the host subject.
-   */
+  
   private EventConnection events;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The IP address of the commenter.
-   */
+  
   private String ip;
 
-  /**
-   * Whether or not the comment is published.
-   */
+  
   private boolean isPublished;
 
-  /**
-   * The date and time when the comment was published.
-   */
+  
   private OffsetDateTime publishedAt;
 
-  /**
-   * The status of the comment.
-   */
+  
   private CommentStatus status;
 
-  /**
-   * The date and time when the comment was last updated.
-   */
+  
   private OffsetDateTime updatedAt;
 
-  /**
-   * The user agent of the commenter.
-   */
+  
   private String userAgent;
 
   public Comment() {
   }
 
-  /**
-   * The article associated with the comment.
-   */
+  
   public Article getArticle() {
     return article;
   }
@@ -104,9 +76,7 @@ public class Comment implements com.shopify.types.HasEvents, com.shopify.types.N
     this.author = author;
   }
 
-  /**
-   * The content of the comment.
-   */
+  
   public String getBody() {
     return body;
   }
@@ -115,9 +85,7 @@ public class Comment implements com.shopify.types.HasEvents, com.shopify.types.N
     this.body = body;
   }
 
-  /**
-   * The content of the comment, complete with HTML formatting.
-   */
+  
   public String getBodyHtml() {
     return bodyHtml;
   }
@@ -126,9 +94,7 @@ public class Comment implements com.shopify.types.HasEvents, com.shopify.types.N
     this.bodyHtml = bodyHtml;
   }
 
-  /**
-   * The date and time when the comment was created.
-   */
+  
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -137,9 +103,7 @@ public class Comment implements com.shopify.types.HasEvents, com.shopify.types.N
     this.createdAt = createdAt;
   }
 
-  /**
-   * The paginated list of events associated with the host subject.
-   */
+  
   public EventConnection getEvents() {
     return events;
   }
@@ -148,9 +112,7 @@ public class Comment implements com.shopify.types.HasEvents, com.shopify.types.N
     this.events = events;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -159,9 +121,7 @@ public class Comment implements com.shopify.types.HasEvents, com.shopify.types.N
     this.id = id;
   }
 
-  /**
-   * The IP address of the commenter.
-   */
+  
   public String getIp() {
     return ip;
   }
@@ -170,9 +130,7 @@ public class Comment implements com.shopify.types.HasEvents, com.shopify.types.N
     this.ip = ip;
   }
 
-  /**
-   * Whether or not the comment is published.
-   */
+  
   public boolean getIsPublished() {
     return isPublished;
   }
@@ -181,9 +139,7 @@ public class Comment implements com.shopify.types.HasEvents, com.shopify.types.N
     this.isPublished = isPublished;
   }
 
-  /**
-   * The date and time when the comment was published.
-   */
+  
   public OffsetDateTime getPublishedAt() {
     return publishedAt;
   }
@@ -192,9 +148,7 @@ public class Comment implements com.shopify.types.HasEvents, com.shopify.types.N
     this.publishedAt = publishedAt;
   }
 
-  /**
-   * The status of the comment.
-   */
+  
   public CommentStatus getStatus() {
     return status;
   }
@@ -203,9 +157,7 @@ public class Comment implements com.shopify.types.HasEvents, com.shopify.types.N
     this.status = status;
   }
 
-  /**
-   * The date and time when the comment was last updated.
-   */
+  
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
@@ -214,9 +166,7 @@ public class Comment implements com.shopify.types.HasEvents, com.shopify.types.N
     this.updatedAt = updatedAt;
   }
 
-  /**
-   * The user agent of the commenter.
-   */
+  
   public String getUserAgent() {
     return userAgent;
   }
@@ -260,9 +210,7 @@ public class Comment implements com.shopify.types.HasEvents, com.shopify.types.N
   }
 
   public static class Builder {
-    /**
-     * The article associated with the comment.
-     */
+    
     private Article article;
 
     /**
@@ -270,59 +218,37 @@ public class Comment implements com.shopify.types.HasEvents, com.shopify.types.N
      */
     private CommentAuthor author;
 
-    /**
-     * The content of the comment.
-     */
+    
     private String body;
 
-    /**
-     * The content of the comment, complete with HTML formatting.
-     */
+    
     private String bodyHtml;
 
-    /**
-     * The date and time when the comment was created.
-     */
+    
     private OffsetDateTime createdAt;
 
-    /**
-     * The paginated list of events associated with the host subject.
-     */
+    
     private EventConnection events;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The IP address of the commenter.
-     */
+    
     private String ip;
 
-    /**
-     * Whether or not the comment is published.
-     */
+    
     private boolean isPublished;
 
-    /**
-     * The date and time when the comment was published.
-     */
+    
     private OffsetDateTime publishedAt;
 
-    /**
-     * The status of the comment.
-     */
+    
     private CommentStatus status;
 
-    /**
-     * The date and time when the comment was last updated.
-     */
+    
     private OffsetDateTime updatedAt;
 
-    /**
-     * The user agent of the commenter.
-     */
+    
     private String userAgent;
 
     public Comment build() {
@@ -343,9 +269,7 @@ public class Comment implements com.shopify.types.HasEvents, com.shopify.types.N
       return result;
     }
 
-    /**
-     * The article associated with the comment.
-     */
+    
     public Builder article(Article article) {
       this.article = article;
       return this;
@@ -359,89 +283,67 @@ public class Comment implements com.shopify.types.HasEvents, com.shopify.types.N
       return this;
     }
 
-    /**
-     * The content of the comment.
-     */
+    
     public Builder body(String body) {
       this.body = body;
       return this;
     }
 
-    /**
-     * The content of the comment, complete with HTML formatting.
-     */
+    
     public Builder bodyHtml(String bodyHtml) {
       this.bodyHtml = bodyHtml;
       return this;
     }
 
-    /**
-     * The date and time when the comment was created.
-     */
+    
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    /**
-     * The paginated list of events associated with the host subject.
-     */
+    
     public Builder events(EventConnection events) {
       this.events = events;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The IP address of the commenter.
-     */
+    
     public Builder ip(String ip) {
       this.ip = ip;
       return this;
     }
 
-    /**
-     * Whether or not the comment is published.
-     */
+    
     public Builder isPublished(boolean isPublished) {
       this.isPublished = isPublished;
       return this;
     }
 
-    /**
-     * The date and time when the comment was published.
-     */
+    
     public Builder publishedAt(OffsetDateTime publishedAt) {
       this.publishedAt = publishedAt;
       return this;
     }
 
-    /**
-     * The status of the comment.
-     */
+    
     public Builder status(CommentStatus status) {
       this.status = status;
       return this;
     }
 
-    /**
-     * The date and time when the comment was last updated.
-     */
+    
     public Builder updatedAt(OffsetDateTime updatedAt) {
       this.updatedAt = updatedAt;
       return this;
     }
 
-    /**
-     * The user agent of the commenter.
-     */
+    
     public Builder userAgent(String userAgent) {
       this.userAgent = userAgent;
       return this;

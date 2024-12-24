@@ -6,24 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents the body of a theme file.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class OnlineStoreThemeFileBodyText implements OnlineStoreThemeFileBody {
-  /**
-   * The body of the theme file.
-   */
+  
   private String content;
 
   public OnlineStoreThemeFileBodyText() {
   }
 
-  /**
-   * The body of the theme file.
-   */
+  
   public String getContent() {
     return content;
   }
@@ -55,9 +49,7 @@ public class OnlineStoreThemeFileBodyText implements OnlineStoreThemeFileBody {
   }
 
   public static class Builder {
-    /**
-     * The body of the theme file.
-     */
+    
     private String content;
 
     public OnlineStoreThemeFileBodyText build() {
@@ -66,9 +58,7 @@ public class OnlineStoreThemeFileBodyText implements OnlineStoreThemeFileBody {
       return result;
     }
 
-    /**
-     * The body of the theme file.
-     */
+    
     public Builder content(String content) {
       this.content = content;
       return this;

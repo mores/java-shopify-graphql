@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `serverPixelCreate` mutation.
- */
+
 public class ServerPixelCreatePayload {
-  /**
-   * The new server pixel.
-   */
+  
   private ServerPixel serverPixel;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<ErrorsServerPixelUserError> userErrors;
 
   public ServerPixelCreatePayload() {
   }
 
-  /**
-   * The new server pixel.
-   */
+  
   public ServerPixel getServerPixel() {
     return serverPixel;
   }
@@ -34,9 +26,7 @@ public class ServerPixelCreatePayload {
     this.serverPixel = serverPixel;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<ErrorsServerPixelUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class ServerPixelCreatePayload {
   }
 
   public static class Builder {
-    /**
-     * The new server pixel.
-     */
+    
     private ServerPixel serverPixel;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<ErrorsServerPixelUserError> userErrors;
 
     public ServerPixelCreatePayload build() {
@@ -86,17 +72,13 @@ public class ServerPixelCreatePayload {
       return result;
     }
 
-    /**
-     * The new server pixel.
-     */
+    
     public Builder serverPixel(ServerPixel serverPixel) {
       this.serverPixel = serverPixel;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<ErrorsServerPixelUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Removes a subscription discount from a subscription draft.
- */
+
 public class SubscriptionDraftDiscountRemoveGraphQLQuery extends GraphQLQuery {
   public SubscriptionDraftDiscountRemoveGraphQLQuery(String draftId, String discountId,
       String queryName, Set<String> fieldsSet) {
@@ -47,18 +45,14 @@ public class SubscriptionDraftDiscountRemoveGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The gid of the subscription contract draft to remove a subscription discount from.
-     */
+    
     public Builder draftId(String draftId) {
       this.draftId = draftId;
       this.fieldsSet.add("draftId");
       return this;
     }
 
-    /**
-     * The gid of the subscription draft discount to remove.
-     */
+    
     public Builder discountId(String discountId) {
       this.discountId = discountId;
       this.fieldsSet.add("discountId");

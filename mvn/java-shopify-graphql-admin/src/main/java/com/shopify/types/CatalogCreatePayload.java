@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `catalogCreate` mutation.
- */
+
 public class CatalogCreatePayload {
-  /**
-   * The newly created catalog.
-   */
+  
   private Catalog catalog;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<CatalogUserError> userErrors;
 
   public CatalogCreatePayload() {
   }
 
-  /**
-   * The newly created catalog.
-   */
+  
   public Catalog getCatalog() {
     return catalog;
   }
@@ -34,9 +26,7 @@ public class CatalogCreatePayload {
     this.catalog = catalog;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<CatalogUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class CatalogCreatePayload {
   }
 
   public static class Builder {
-    /**
-     * The newly created catalog.
-     */
+    
     private Catalog catalog;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<CatalogUserError> userErrors;
 
     public CatalogCreatePayload build() {
@@ -86,17 +72,13 @@ public class CatalogCreatePayload {
       return result;
     }
 
-    /**
-     * The newly created catalog.
-     */
+    
     public Builder catalog(Catalog catalog) {
       this.catalog = catalog;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<CatalogUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

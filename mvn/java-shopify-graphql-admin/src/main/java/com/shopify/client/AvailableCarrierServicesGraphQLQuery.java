@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns a list of activated carrier services and associated shop locations that support them.
- */
+
 public class AvailableCarrierServicesGraphQLQuery extends GraphQLQuery {
   public AvailableCarrierServicesGraphQLQuery(String queryName) {
     super("query", queryName);

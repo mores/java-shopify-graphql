@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `subscriptionDraftUpdate` mutation.
- */
+
 public class SubscriptionDraftUpdatePayload {
-  /**
-   * The Subscription Draft object.
-   */
+  
   private SubscriptionDraft draft;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<SubscriptionDraftUserError> userErrors;
 
   public SubscriptionDraftUpdatePayload() {
   }
 
-  /**
-   * The Subscription Draft object.
-   */
+  
   public SubscriptionDraft getDraft() {
     return draft;
   }
@@ -34,9 +26,7 @@ public class SubscriptionDraftUpdatePayload {
     this.draft = draft;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<SubscriptionDraftUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class SubscriptionDraftUpdatePayload {
   }
 
   public static class Builder {
-    /**
-     * The Subscription Draft object.
-     */
+    
     private SubscriptionDraft draft;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<SubscriptionDraftUserError> userErrors;
 
     public SubscriptionDraftUpdatePayload build() {
@@ -86,17 +72,13 @@ public class SubscriptionDraftUpdatePayload {
       return result;
     }
 
-    /**
-     * The Subscription Draft object.
-     */
+    
     public Builder draft(SubscriptionDraft draft) {
       this.draft = draft;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<SubscriptionDraftUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

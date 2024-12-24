@@ -6,21 +6,15 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `deliveryShippingOriginAssign` mutation.
- */
+
 public class DeliveryShippingOriginAssignPayload {
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public DeliveryShippingOriginAssignPayload() {
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -52,9 +46,7 @@ public class DeliveryShippingOriginAssignPayload {
   }
 
   public static class Builder {
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public DeliveryShippingOriginAssignPayload build() {
@@ -63,9 +55,7 @@ public class DeliveryShippingOriginAssignPayload {
       return result;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

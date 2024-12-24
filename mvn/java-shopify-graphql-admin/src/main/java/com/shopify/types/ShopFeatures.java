@@ -5,150 +5,90 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents the feature set available to the shop.
- * Most fields specify whether a feature is enabled for a shop, and some fields return information
- * related to specific features.
- */
+
 public class ShopFeatures {
-  /**
-   * Whether a shop has access to Avalara AvaTax.
-   */
+  
   private boolean avalaraAvatax;
 
-  /**
-   * The branding of the shop, which influences its look and feel in the Shopify admin.
-   */
+  
   private ShopBranding branding;
 
-  /**
-   * Represents the Bundles feature configuration for the shop.
-   */
+  
   private BundlesFeature bundles;
 
-  /**
-   * Whether a shop's online store can have CAPTCHA protection.
-   */
+  
   private boolean captcha;
 
-  /**
-   * Whether a shop's online store can have CAPTCHA protection for domains not managed by Shopify.
-   */
+  
   private boolean captchaExternalDomains;
 
-  /**
-   * Represents the cart transform feature configuration for the shop.
-   */
+  
   private CartTransformFeature cartTransform;
 
-  /**
-   * Whether the delivery profiles functionality is enabled for this shop.
-   */
+  
   private boolean deliveryProfiles;
 
-  /**
-   * Whether a shop has access to the Google Analytics dynamic remarketing feature.
-   */
+  
   private boolean dynamicRemarketing;
 
-  /**
-   * Whether a shop can be migrated to use Shopify subscriptions.
-   */
+  
   private boolean eligibleForSubscriptionMigration;
 
-  /**
-   * Whether a shop is configured properly to sell subscriptions.
-   */
+  
   private boolean eligibleForSubscriptions;
 
-  /**
-   * Whether a shop can create gift cards.
-   */
+  
   private boolean giftCards;
 
-  /**
-   * Whether a shop displays Harmonized System codes on products. This is used for customs when shipping
-   * internationally.
-   */
+  
   private boolean harmonizedSystemCode;
 
-  /**
-   * Whether a shop can enable international domains.
-   */
+  
   private boolean internationalDomains;
 
-  /**
-   * Whether a shop can enable international price overrides.
-   */
+  
   private boolean internationalPriceOverrides;
 
-  /**
-   * Whether a shop can enable international price rules.
-   */
+  
   private boolean internationalPriceRules;
 
-  /**
-   * Whether a shop has enabled a legacy subscription gateway to handle older subscriptions.
-   */
+  
   private boolean legacySubscriptionGatewayEnabled;
 
-  /**
-   * Whether to show the Live View metrics in the Shopify admin. Live view is hidden from merchants that are on a trial
-   * or don't have a storefront.
-   */
+  
   private boolean liveView;
 
-  /**
-   * Whether a shop has multi-location functionality.
-   */
+  
   private boolean multiLocation;
 
-  /**
-   * Whether a shop has access to the onboarding visual.
-   */
+  
   private boolean onboardingVisual;
 
-  /**
-   * Whether a shop is configured to sell subscriptions with PayPal Express.
-   */
+  
   private PaypalExpressSubscriptionsGatewayStatus paypalExpressSubscriptionGatewayStatus;
 
-  /**
-   * Whether a shop has access to all reporting features.
-   */
+  
   private boolean reports;
 
-  /**
-   * Whether a shop has ever had subscription products.
-   */
+  
   private boolean sellsSubscriptions;
 
-  /**
-   * Whether the shop has a Shopify Plus subscription.
-   */
+  
   private boolean shopifyPlus;
 
-  /**
-   * Whether to show metrics in the Shopify admin. Metrics are hidden for new merchants until they become meaningful.
-   */
+  
   private boolean showMetrics;
 
-  /**
-   * Whether a shop has an online store.
-   */
+  
   private boolean storefront;
 
-  /**
-   * Whether a shop is using Shopify Balance.
-   */
+  
   private boolean usingShopifyBalance;
 
   public ShopFeatures() {
   }
 
-  /**
-   * Whether a shop has access to Avalara AvaTax.
-   */
+  
   public boolean getAvalaraAvatax() {
     return avalaraAvatax;
   }
@@ -157,9 +97,7 @@ public class ShopFeatures {
     this.avalaraAvatax = avalaraAvatax;
   }
 
-  /**
-   * The branding of the shop, which influences its look and feel in the Shopify admin.
-   */
+  
   public ShopBranding getBranding() {
     return branding;
   }
@@ -168,9 +106,7 @@ public class ShopFeatures {
     this.branding = branding;
   }
 
-  /**
-   * Represents the Bundles feature configuration for the shop.
-   */
+  
   public BundlesFeature getBundles() {
     return bundles;
   }
@@ -179,9 +115,7 @@ public class ShopFeatures {
     this.bundles = bundles;
   }
 
-  /**
-   * Whether a shop's online store can have CAPTCHA protection.
-   */
+  
   public boolean getCaptcha() {
     return captcha;
   }
@@ -190,9 +124,7 @@ public class ShopFeatures {
     this.captcha = captcha;
   }
 
-  /**
-   * Whether a shop's online store can have CAPTCHA protection for domains not managed by Shopify.
-   */
+  
   public boolean getCaptchaExternalDomains() {
     return captchaExternalDomains;
   }
@@ -201,9 +133,7 @@ public class ShopFeatures {
     this.captchaExternalDomains = captchaExternalDomains;
   }
 
-  /**
-   * Represents the cart transform feature configuration for the shop.
-   */
+  
   public CartTransformFeature getCartTransform() {
     return cartTransform;
   }
@@ -212,9 +142,7 @@ public class ShopFeatures {
     this.cartTransform = cartTransform;
   }
 
-  /**
-   * Whether the delivery profiles functionality is enabled for this shop.
-   */
+  
   public boolean getDeliveryProfiles() {
     return deliveryProfiles;
   }
@@ -223,9 +151,7 @@ public class ShopFeatures {
     this.deliveryProfiles = deliveryProfiles;
   }
 
-  /**
-   * Whether a shop has access to the Google Analytics dynamic remarketing feature.
-   */
+  
   public boolean getDynamicRemarketing() {
     return dynamicRemarketing;
   }
@@ -234,9 +160,7 @@ public class ShopFeatures {
     this.dynamicRemarketing = dynamicRemarketing;
   }
 
-  /**
-   * Whether a shop can be migrated to use Shopify subscriptions.
-   */
+  
   public boolean getEligibleForSubscriptionMigration() {
     return eligibleForSubscriptionMigration;
   }
@@ -245,9 +169,7 @@ public class ShopFeatures {
     this.eligibleForSubscriptionMigration = eligibleForSubscriptionMigration;
   }
 
-  /**
-   * Whether a shop is configured properly to sell subscriptions.
-   */
+  
   public boolean getEligibleForSubscriptions() {
     return eligibleForSubscriptions;
   }
@@ -256,9 +178,7 @@ public class ShopFeatures {
     this.eligibleForSubscriptions = eligibleForSubscriptions;
   }
 
-  /**
-   * Whether a shop can create gift cards.
-   */
+  
   public boolean getGiftCards() {
     return giftCards;
   }
@@ -267,10 +187,7 @@ public class ShopFeatures {
     this.giftCards = giftCards;
   }
 
-  /**
-   * Whether a shop displays Harmonized System codes on products. This is used for customs when shipping
-   * internationally.
-   */
+  
   public boolean getHarmonizedSystemCode() {
     return harmonizedSystemCode;
   }
@@ -279,9 +196,7 @@ public class ShopFeatures {
     this.harmonizedSystemCode = harmonizedSystemCode;
   }
 
-  /**
-   * Whether a shop can enable international domains.
-   */
+  
   public boolean getInternationalDomains() {
     return internationalDomains;
   }
@@ -290,9 +205,7 @@ public class ShopFeatures {
     this.internationalDomains = internationalDomains;
   }
 
-  /**
-   * Whether a shop can enable international price overrides.
-   */
+  
   public boolean getInternationalPriceOverrides() {
     return internationalPriceOverrides;
   }
@@ -301,9 +214,7 @@ public class ShopFeatures {
     this.internationalPriceOverrides = internationalPriceOverrides;
   }
 
-  /**
-   * Whether a shop can enable international price rules.
-   */
+  
   public boolean getInternationalPriceRules() {
     return internationalPriceRules;
   }
@@ -312,9 +223,7 @@ public class ShopFeatures {
     this.internationalPriceRules = internationalPriceRules;
   }
 
-  /**
-   * Whether a shop has enabled a legacy subscription gateway to handle older subscriptions.
-   */
+  
   public boolean getLegacySubscriptionGatewayEnabled() {
     return legacySubscriptionGatewayEnabled;
   }
@@ -323,10 +232,7 @@ public class ShopFeatures {
     this.legacySubscriptionGatewayEnabled = legacySubscriptionGatewayEnabled;
   }
 
-  /**
-   * Whether to show the Live View metrics in the Shopify admin. Live view is hidden from merchants that are on a trial
-   * or don't have a storefront.
-   */
+  
   public boolean getLiveView() {
     return liveView;
   }
@@ -335,9 +241,7 @@ public class ShopFeatures {
     this.liveView = liveView;
   }
 
-  /**
-   * Whether a shop has multi-location functionality.
-   */
+  
   public boolean getMultiLocation() {
     return multiLocation;
   }
@@ -346,9 +250,7 @@ public class ShopFeatures {
     this.multiLocation = multiLocation;
   }
 
-  /**
-   * Whether a shop has access to the onboarding visual.
-   */
+  
   public boolean getOnboardingVisual() {
     return onboardingVisual;
   }
@@ -357,9 +259,7 @@ public class ShopFeatures {
     this.onboardingVisual = onboardingVisual;
   }
 
-  /**
-   * Whether a shop is configured to sell subscriptions with PayPal Express.
-   */
+  
   public PaypalExpressSubscriptionsGatewayStatus getPaypalExpressSubscriptionGatewayStatus() {
     return paypalExpressSubscriptionGatewayStatus;
   }
@@ -369,9 +269,7 @@ public class ShopFeatures {
     this.paypalExpressSubscriptionGatewayStatus = paypalExpressSubscriptionGatewayStatus;
   }
 
-  /**
-   * Whether a shop has access to all reporting features.
-   */
+  
   public boolean getReports() {
     return reports;
   }
@@ -380,9 +278,7 @@ public class ShopFeatures {
     this.reports = reports;
   }
 
-  /**
-   * Whether a shop has ever had subscription products.
-   */
+  
   public boolean getSellsSubscriptions() {
     return sellsSubscriptions;
   }
@@ -391,9 +287,7 @@ public class ShopFeatures {
     this.sellsSubscriptions = sellsSubscriptions;
   }
 
-  /**
-   * Whether the shop has a Shopify Plus subscription.
-   */
+  
   public boolean getShopifyPlus() {
     return shopifyPlus;
   }
@@ -402,9 +296,7 @@ public class ShopFeatures {
     this.shopifyPlus = shopifyPlus;
   }
 
-  /**
-   * Whether to show metrics in the Shopify admin. Metrics are hidden for new merchants until they become meaningful.
-   */
+  
   public boolean getShowMetrics() {
     return showMetrics;
   }
@@ -413,9 +305,7 @@ public class ShopFeatures {
     this.showMetrics = showMetrics;
   }
 
-  /**
-   * Whether a shop has an online store.
-   */
+  
   public boolean getStorefront() {
     return storefront;
   }
@@ -424,9 +314,7 @@ public class ShopFeatures {
     this.storefront = storefront;
   }
 
-  /**
-   * Whether a shop is using Shopify Balance.
-   */
+  
   public boolean getUsingShopifyBalance() {
     return usingShopifyBalance;
   }
@@ -483,136 +371,82 @@ public class ShopFeatures {
   }
 
   public static class Builder {
-    /**
-     * Whether a shop has access to Avalara AvaTax.
-     */
+    
     private boolean avalaraAvatax;
 
-    /**
-     * The branding of the shop, which influences its look and feel in the Shopify admin.
-     */
+    
     private ShopBranding branding;
 
-    /**
-     * Represents the Bundles feature configuration for the shop.
-     */
+    
     private BundlesFeature bundles;
 
-    /**
-     * Whether a shop's online store can have CAPTCHA protection.
-     */
+    
     private boolean captcha;
 
-    /**
-     * Whether a shop's online store can have CAPTCHA protection for domains not managed by Shopify.
-     */
+    
     private boolean captchaExternalDomains;
 
-    /**
-     * Represents the cart transform feature configuration for the shop.
-     */
+    
     private CartTransformFeature cartTransform;
 
-    /**
-     * Whether the delivery profiles functionality is enabled for this shop.
-     */
+    
     private boolean deliveryProfiles;
 
-    /**
-     * Whether a shop has access to the Google Analytics dynamic remarketing feature.
-     */
+    
     private boolean dynamicRemarketing;
 
-    /**
-     * Whether a shop can be migrated to use Shopify subscriptions.
-     */
+    
     private boolean eligibleForSubscriptionMigration;
 
-    /**
-     * Whether a shop is configured properly to sell subscriptions.
-     */
+    
     private boolean eligibleForSubscriptions;
 
-    /**
-     * Whether a shop can create gift cards.
-     */
+    
     private boolean giftCards;
 
-    /**
-     * Whether a shop displays Harmonized System codes on products. This is used for customs when shipping
-     * internationally.
-     */
+    
     private boolean harmonizedSystemCode;
 
-    /**
-     * Whether a shop can enable international domains.
-     */
+    
     private boolean internationalDomains;
 
-    /**
-     * Whether a shop can enable international price overrides.
-     */
+    
     private boolean internationalPriceOverrides;
 
-    /**
-     * Whether a shop can enable international price rules.
-     */
+    
     private boolean internationalPriceRules;
 
-    /**
-     * Whether a shop has enabled a legacy subscription gateway to handle older subscriptions.
-     */
+    
     private boolean legacySubscriptionGatewayEnabled;
 
-    /**
-     * Whether to show the Live View metrics in the Shopify admin. Live view is hidden from merchants that are on a trial
-     * or don't have a storefront.
-     */
+    
     private boolean liveView;
 
-    /**
-     * Whether a shop has multi-location functionality.
-     */
+    
     private boolean multiLocation;
 
-    /**
-     * Whether a shop has access to the onboarding visual.
-     */
+    
     private boolean onboardingVisual;
 
-    /**
-     * Whether a shop is configured to sell subscriptions with PayPal Express.
-     */
+    
     private PaypalExpressSubscriptionsGatewayStatus paypalExpressSubscriptionGatewayStatus;
 
-    /**
-     * Whether a shop has access to all reporting features.
-     */
+    
     private boolean reports;
 
-    /**
-     * Whether a shop has ever had subscription products.
-     */
+    
     private boolean sellsSubscriptions;
 
-    /**
-     * Whether the shop has a Shopify Plus subscription.
-     */
+    
     private boolean shopifyPlus;
 
-    /**
-     * Whether to show metrics in the Shopify admin. Metrics are hidden for new merchants until they become meaningful.
-     */
+    
     private boolean showMetrics;
 
-    /**
-     * Whether a shop has an online store.
-     */
+    
     private boolean storefront;
 
-    /**
-     * Whether a shop is using Shopify Balance.
-     */
+    
     private boolean usingShopifyBalance;
 
     public ShopFeatures build() {
@@ -646,212 +480,158 @@ public class ShopFeatures {
       return result;
     }
 
-    /**
-     * Whether a shop has access to Avalara AvaTax.
-     */
+    
     public Builder avalaraAvatax(boolean avalaraAvatax) {
       this.avalaraAvatax = avalaraAvatax;
       return this;
     }
 
-    /**
-     * The branding of the shop, which influences its look and feel in the Shopify admin.
-     */
+    
     public Builder branding(ShopBranding branding) {
       this.branding = branding;
       return this;
     }
 
-    /**
-     * Represents the Bundles feature configuration for the shop.
-     */
+    
     public Builder bundles(BundlesFeature bundles) {
       this.bundles = bundles;
       return this;
     }
 
-    /**
-     * Whether a shop's online store can have CAPTCHA protection.
-     */
+    
     public Builder captcha(boolean captcha) {
       this.captcha = captcha;
       return this;
     }
 
-    /**
-     * Whether a shop's online store can have CAPTCHA protection for domains not managed by Shopify.
-     */
+    
     public Builder captchaExternalDomains(boolean captchaExternalDomains) {
       this.captchaExternalDomains = captchaExternalDomains;
       return this;
     }
 
-    /**
-     * Represents the cart transform feature configuration for the shop.
-     */
+    
     public Builder cartTransform(CartTransformFeature cartTransform) {
       this.cartTransform = cartTransform;
       return this;
     }
 
-    /**
-     * Whether the delivery profiles functionality is enabled for this shop.
-     */
+    
     public Builder deliveryProfiles(boolean deliveryProfiles) {
       this.deliveryProfiles = deliveryProfiles;
       return this;
     }
 
-    /**
-     * Whether a shop has access to the Google Analytics dynamic remarketing feature.
-     */
+    
     public Builder dynamicRemarketing(boolean dynamicRemarketing) {
       this.dynamicRemarketing = dynamicRemarketing;
       return this;
     }
 
-    /**
-     * Whether a shop can be migrated to use Shopify subscriptions.
-     */
+    
     public Builder eligibleForSubscriptionMigration(boolean eligibleForSubscriptionMigration) {
       this.eligibleForSubscriptionMigration = eligibleForSubscriptionMigration;
       return this;
     }
 
-    /**
-     * Whether a shop is configured properly to sell subscriptions.
-     */
+    
     public Builder eligibleForSubscriptions(boolean eligibleForSubscriptions) {
       this.eligibleForSubscriptions = eligibleForSubscriptions;
       return this;
     }
 
-    /**
-     * Whether a shop can create gift cards.
-     */
+    
     public Builder giftCards(boolean giftCards) {
       this.giftCards = giftCards;
       return this;
     }
 
-    /**
-     * Whether a shop displays Harmonized System codes on products. This is used for customs when shipping
-     * internationally.
-     */
+    
     public Builder harmonizedSystemCode(boolean harmonizedSystemCode) {
       this.harmonizedSystemCode = harmonizedSystemCode;
       return this;
     }
 
-    /**
-     * Whether a shop can enable international domains.
-     */
+    
     public Builder internationalDomains(boolean internationalDomains) {
       this.internationalDomains = internationalDomains;
       return this;
     }
 
-    /**
-     * Whether a shop can enable international price overrides.
-     */
+    
     public Builder internationalPriceOverrides(boolean internationalPriceOverrides) {
       this.internationalPriceOverrides = internationalPriceOverrides;
       return this;
     }
 
-    /**
-     * Whether a shop can enable international price rules.
-     */
+    
     public Builder internationalPriceRules(boolean internationalPriceRules) {
       this.internationalPriceRules = internationalPriceRules;
       return this;
     }
 
-    /**
-     * Whether a shop has enabled a legacy subscription gateway to handle older subscriptions.
-     */
+    
     public Builder legacySubscriptionGatewayEnabled(boolean legacySubscriptionGatewayEnabled) {
       this.legacySubscriptionGatewayEnabled = legacySubscriptionGatewayEnabled;
       return this;
     }
 
-    /**
-     * Whether to show the Live View metrics in the Shopify admin. Live view is hidden from merchants that are on a trial
-     * or don't have a storefront.
-     */
+    
     public Builder liveView(boolean liveView) {
       this.liveView = liveView;
       return this;
     }
 
-    /**
-     * Whether a shop has multi-location functionality.
-     */
+    
     public Builder multiLocation(boolean multiLocation) {
       this.multiLocation = multiLocation;
       return this;
     }
 
-    /**
-     * Whether a shop has access to the onboarding visual.
-     */
+    
     public Builder onboardingVisual(boolean onboardingVisual) {
       this.onboardingVisual = onboardingVisual;
       return this;
     }
 
-    /**
-     * Whether a shop is configured to sell subscriptions with PayPal Express.
-     */
+    
     public Builder paypalExpressSubscriptionGatewayStatus(
         PaypalExpressSubscriptionsGatewayStatus paypalExpressSubscriptionGatewayStatus) {
       this.paypalExpressSubscriptionGatewayStatus = paypalExpressSubscriptionGatewayStatus;
       return this;
     }
 
-    /**
-     * Whether a shop has access to all reporting features.
-     */
+    
     public Builder reports(boolean reports) {
       this.reports = reports;
       return this;
     }
 
-    /**
-     * Whether a shop has ever had subscription products.
-     */
+    
     public Builder sellsSubscriptions(boolean sellsSubscriptions) {
       this.sellsSubscriptions = sellsSubscriptions;
       return this;
     }
 
-    /**
-     * Whether the shop has a Shopify Plus subscription.
-     */
+    
     public Builder shopifyPlus(boolean shopifyPlus) {
       this.shopifyPlus = shopifyPlus;
       return this;
     }
 
-    /**
-     * Whether to show metrics in the Shopify admin. Metrics are hidden for new merchants until they become meaningful.
-     */
+    
     public Builder showMetrics(boolean showMetrics) {
       this.showMetrics = showMetrics;
       return this;
     }
 
-    /**
-     * Whether a shop has an online store.
-     */
+    
     public Builder storefront(boolean storefront) {
       this.storefront = storefront;
       return this;
     }
 
-    /**
-     * Whether a shop is using Shopify Balance.
-     */
+    
     public Builder usingShopifyBalance(boolean usingShopifyBalance) {
       this.usingShopifyBalance = usingShopifyBalance;
       return this;

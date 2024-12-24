@@ -7,48 +7,30 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for an inventory item.
- */
+
 public class InventoryItemInput {
-  /**
-   * The SKU (stock keeping unit) of the inventory item.
-   */
+  
   private String sku;
 
-  /**
-   * Unit cost associated with the inventory item, the currency is the shop's default currency.
-   */
+  
   private String cost;
 
-  /**
-   * Whether the inventory item is tracked.
-   */
+  
   private Boolean tracked;
 
-  /**
-   * The ISO 3166-1 alpha-2 country code of where the item originated from.
-   */
+  
   private CountryCode countryCodeOfOrigin;
 
-  /**
-   * The harmonized system code of the inventory item.
-   */
+  
   private String harmonizedSystemCode;
 
-  /**
-   * List of country-specific harmonized system codes.
-   */
+  
   private List<CountryHarmonizedSystemCodeInput> countryHarmonizedSystemCodes;
 
-  /**
-   * The ISO 3166-2 alpha-2 province code of where the item originated from.
-   */
+  
   private String provinceCodeOfOrigin;
 
-  /**
-   * The measurements of an inventory item.
-   */
+  
   private InventoryItemMeasurementInput measurement;
 
   private Boolean requiresShipping;
@@ -56,9 +38,7 @@ public class InventoryItemInput {
   public InventoryItemInput() {
   }
 
-  /**
-   * The SKU (stock keeping unit) of the inventory item.
-   */
+  
   public String getSku() {
     return sku;
   }
@@ -67,9 +47,7 @@ public class InventoryItemInput {
     this.sku = sku;
   }
 
-  /**
-   * Unit cost associated with the inventory item, the currency is the shop's default currency.
-   */
+  
   public String getCost() {
     return cost;
   }
@@ -78,9 +56,7 @@ public class InventoryItemInput {
     this.cost = cost;
   }
 
-  /**
-   * Whether the inventory item is tracked.
-   */
+  
   public Boolean getTracked() {
     return tracked;
   }
@@ -89,9 +65,7 @@ public class InventoryItemInput {
     this.tracked = tracked;
   }
 
-  /**
-   * The ISO 3166-1 alpha-2 country code of where the item originated from.
-   */
+  
   public CountryCode getCountryCodeOfOrigin() {
     return countryCodeOfOrigin;
   }
@@ -100,9 +74,7 @@ public class InventoryItemInput {
     this.countryCodeOfOrigin = countryCodeOfOrigin;
   }
 
-  /**
-   * The harmonized system code of the inventory item.
-   */
+  
   public String getHarmonizedSystemCode() {
     return harmonizedSystemCode;
   }
@@ -111,9 +83,7 @@ public class InventoryItemInput {
     this.harmonizedSystemCode = harmonizedSystemCode;
   }
 
-  /**
-   * List of country-specific harmonized system codes.
-   */
+  
   public List<CountryHarmonizedSystemCodeInput> getCountryHarmonizedSystemCodes() {
     return countryHarmonizedSystemCodes;
   }
@@ -123,9 +93,7 @@ public class InventoryItemInput {
     this.countryHarmonizedSystemCodes = countryHarmonizedSystemCodes;
   }
 
-  /**
-   * The ISO 3166-2 alpha-2 province code of where the item originated from.
-   */
+  
   public String getProvinceCodeOfOrigin() {
     return provinceCodeOfOrigin;
   }
@@ -134,9 +102,7 @@ public class InventoryItemInput {
     this.provinceCodeOfOrigin = provinceCodeOfOrigin;
   }
 
-  /**
-   * The measurements of an inventory item.
-   */
+  
   public InventoryItemMeasurementInput getMeasurement() {
     return measurement;
   }
@@ -184,44 +150,28 @@ public class InventoryItemInput {
   }
 
   public static class Builder {
-    /**
-     * The SKU (stock keeping unit) of the inventory item.
-     */
+    
     private String sku;
 
-    /**
-     * Unit cost associated with the inventory item, the currency is the shop's default currency.
-     */
+    
     private String cost;
 
-    /**
-     * Whether the inventory item is tracked.
-     */
+    
     private Boolean tracked;
 
-    /**
-     * The ISO 3166-1 alpha-2 country code of where the item originated from.
-     */
+    
     private CountryCode countryCodeOfOrigin;
 
-    /**
-     * The harmonized system code of the inventory item.
-     */
+    
     private String harmonizedSystemCode;
 
-    /**
-     * List of country-specific harmonized system codes.
-     */
+    
     private List<CountryHarmonizedSystemCodeInput> countryHarmonizedSystemCodes;
 
-    /**
-     * The ISO 3166-2 alpha-2 province code of where the item originated from.
-     */
+    
     private String provinceCodeOfOrigin;
 
-    /**
-     * The measurements of an inventory item.
-     */
+    
     private InventoryItemMeasurementInput measurement;
 
     private Boolean requiresShipping;
@@ -240,66 +190,50 @@ public class InventoryItemInput {
       return result;
     }
 
-    /**
-     * The SKU (stock keeping unit) of the inventory item.
-     */
+    
     public Builder sku(String sku) {
       this.sku = sku;
       return this;
     }
 
-    /**
-     * Unit cost associated with the inventory item, the currency is the shop's default currency.
-     */
+    
     public Builder cost(String cost) {
       this.cost = cost;
       return this;
     }
 
-    /**
-     * Whether the inventory item is tracked.
-     */
+    
     public Builder tracked(Boolean tracked) {
       this.tracked = tracked;
       return this;
     }
 
-    /**
-     * The ISO 3166-1 alpha-2 country code of where the item originated from.
-     */
+    
     public Builder countryCodeOfOrigin(CountryCode countryCodeOfOrigin) {
       this.countryCodeOfOrigin = countryCodeOfOrigin;
       return this;
     }
 
-    /**
-     * The harmonized system code of the inventory item.
-     */
+    
     public Builder harmonizedSystemCode(String harmonizedSystemCode) {
       this.harmonizedSystemCode = harmonizedSystemCode;
       return this;
     }
 
-    /**
-     * List of country-specific harmonized system codes.
-     */
+    
     public Builder countryHarmonizedSystemCodes(
         List<CountryHarmonizedSystemCodeInput> countryHarmonizedSystemCodes) {
       this.countryHarmonizedSystemCodes = countryHarmonizedSystemCodes;
       return this;
     }
 
-    /**
-     * The ISO 3166-2 alpha-2 province code of where the item originated from.
-     */
+    
     public Builder provinceCodeOfOrigin(String provinceCodeOfOrigin) {
       this.provinceCodeOfOrigin = provinceCodeOfOrigin;
       return this;
     }
 
-    /**
-     * The measurements of an inventory item.
-     */
+    
     public Builder measurement(InventoryItemMeasurementInput measurement) {
       this.measurement = measurement;
       return this;

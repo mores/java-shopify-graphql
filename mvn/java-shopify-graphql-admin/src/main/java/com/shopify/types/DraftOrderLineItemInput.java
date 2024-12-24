@@ -7,82 +7,48 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for a line item included in a draft order.
- */
+
 public class DraftOrderLineItemInput {
-  /**
-   * The custom discount to be applied.
-   */
+  
   private DraftOrderAppliedDiscountInput appliedDiscount;
 
-  /**
-   * A generic custom attribute using a key value pair.
-   */
+  
   private List<AttributeInput> customAttributes;
 
-  /**
-   * The price in presentment currency, without any discounts applied, for a custom line item.
-   * If this value is provided, `original_unit_price` will be ignored. This field is ignored when `variantId` is provided.
-   * Note: All presentment currencies for a single draft should be the same and match the
-   * presentment currency of the draft order.
-   */
+  
   private MoneyInput originalUnitPriceWithCurrency;
 
-  /**
-   * The line item quantity.
-   */
+  
   private int quantity;
 
-  /**
-   * Whether physical shipping is required for a custom line item. This field is ignored when `variantId` is provided.
-   */
+  
   private Boolean requiresShipping;
 
-  /**
-   * The SKU number for custom line items only. This field is ignored when `variantId` is provided.
-   */
+  
   private String sku;
 
-  /**
-   * Whether the custom line item is taxable. This field is ignored when `variantId` is provided.
-   */
+  
   private Boolean taxable;
 
-  /**
-   * Title of the line item. This field is ignored when `variantId` is provided.
-   */
+  
   private String title;
 
-  /**
-   * The ID of the product variant corresponding to the line item.
-   * Must be null for custom line items, otherwise required.
-   */
+  
   private String variantId;
 
-  /**
-   * The weight unit and value inputs for custom line items only.
-   * This field is ignored when `variantId` is provided.
-   */
+  
   private WeightInput weight;
 
-  /**
-   * The UUID of the draft order line item. Must be unique and consistent across requests.
-   * This field is mandatory in order to manipulate drafts with bundles.
-   */
+  
   private String uuid;
 
-  /**
-   * The bundle components when the line item is a bundle.
-   */
+  
   private List<BundlesDraftOrderBundleLineItemComponentInput> bundleComponents;
 
   public DraftOrderLineItemInput() {
   }
 
-  /**
-   * The custom discount to be applied.
-   */
+  
   public DraftOrderAppliedDiscountInput getAppliedDiscount() {
     return appliedDiscount;
   }
@@ -91,9 +57,7 @@ public class DraftOrderLineItemInput {
     this.appliedDiscount = appliedDiscount;
   }
 
-  /**
-   * A generic custom attribute using a key value pair.
-   */
+  
   public List<AttributeInput> getCustomAttributes() {
     return customAttributes;
   }
@@ -102,12 +66,7 @@ public class DraftOrderLineItemInput {
     this.customAttributes = customAttributes;
   }
 
-  /**
-   * The price in presentment currency, without any discounts applied, for a custom line item.
-   * If this value is provided, `original_unit_price` will be ignored. This field is ignored when `variantId` is provided.
-   * Note: All presentment currencies for a single draft should be the same and match the
-   * presentment currency of the draft order.
-   */
+  
   public MoneyInput getOriginalUnitPriceWithCurrency() {
     return originalUnitPriceWithCurrency;
   }
@@ -116,9 +75,7 @@ public class DraftOrderLineItemInput {
     this.originalUnitPriceWithCurrency = originalUnitPriceWithCurrency;
   }
 
-  /**
-   * The line item quantity.
-   */
+  
   public int getQuantity() {
     return quantity;
   }
@@ -127,9 +84,7 @@ public class DraftOrderLineItemInput {
     this.quantity = quantity;
   }
 
-  /**
-   * Whether physical shipping is required for a custom line item. This field is ignored when `variantId` is provided.
-   */
+  
   public Boolean getRequiresShipping() {
     return requiresShipping;
   }
@@ -138,9 +93,7 @@ public class DraftOrderLineItemInput {
     this.requiresShipping = requiresShipping;
   }
 
-  /**
-   * The SKU number for custom line items only. This field is ignored when `variantId` is provided.
-   */
+  
   public String getSku() {
     return sku;
   }
@@ -149,9 +102,7 @@ public class DraftOrderLineItemInput {
     this.sku = sku;
   }
 
-  /**
-   * Whether the custom line item is taxable. This field is ignored when `variantId` is provided.
-   */
+  
   public Boolean getTaxable() {
     return taxable;
   }
@@ -160,9 +111,7 @@ public class DraftOrderLineItemInput {
     this.taxable = taxable;
   }
 
-  /**
-   * Title of the line item. This field is ignored when `variantId` is provided.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -171,10 +120,7 @@ public class DraftOrderLineItemInput {
     this.title = title;
   }
 
-  /**
-   * The ID of the product variant corresponding to the line item.
-   * Must be null for custom line items, otherwise required.
-   */
+  
   public String getVariantId() {
     return variantId;
   }
@@ -183,10 +129,7 @@ public class DraftOrderLineItemInput {
     this.variantId = variantId;
   }
 
-  /**
-   * The weight unit and value inputs for custom line items only.
-   * This field is ignored when `variantId` is provided.
-   */
+  
   public WeightInput getWeight() {
     return weight;
   }
@@ -195,10 +138,7 @@ public class DraftOrderLineItemInput {
     this.weight = weight;
   }
 
-  /**
-   * The UUID of the draft order line item. Must be unique and consistent across requests.
-   * This field is mandatory in order to manipulate drafts with bundles.
-   */
+  
   public String getUuid() {
     return uuid;
   }
@@ -207,9 +147,7 @@ public class DraftOrderLineItemInput {
     this.uuid = uuid;
   }
 
-  /**
-   * The bundle components when the line item is a bundle.
-   */
+  
   public List<BundlesDraftOrderBundleLineItemComponentInput> getBundleComponents() {
     return bundleComponents;
   }
@@ -253,70 +191,40 @@ public class DraftOrderLineItemInput {
   }
 
   public static class Builder {
-    /**
-     * The custom discount to be applied.
-     */
+    
     private DraftOrderAppliedDiscountInput appliedDiscount;
 
-    /**
-     * A generic custom attribute using a key value pair.
-     */
+    
     private List<AttributeInput> customAttributes;
 
-    /**
-     * The price in presentment currency, without any discounts applied, for a custom line item.
-     * If this value is provided, `original_unit_price` will be ignored. This field is ignored when `variantId` is provided.
-     * Note: All presentment currencies for a single draft should be the same and match the
-     * presentment currency of the draft order.
-     */
+    
     private MoneyInput originalUnitPriceWithCurrency;
 
-    /**
-     * The line item quantity.
-     */
+    
     private int quantity;
 
-    /**
-     * Whether physical shipping is required for a custom line item. This field is ignored when `variantId` is provided.
-     */
+    
     private Boolean requiresShipping;
 
-    /**
-     * The SKU number for custom line items only. This field is ignored when `variantId` is provided.
-     */
+    
     private String sku;
 
-    /**
-     * Whether the custom line item is taxable. This field is ignored when `variantId` is provided.
-     */
+    
     private Boolean taxable;
 
-    /**
-     * Title of the line item. This field is ignored when `variantId` is provided.
-     */
+    
     private String title;
 
-    /**
-     * The ID of the product variant corresponding to the line item.
-     * Must be null for custom line items, otherwise required.
-     */
+    
     private String variantId;
 
-    /**
-     * The weight unit and value inputs for custom line items only.
-     * This field is ignored when `variantId` is provided.
-     */
+    
     private WeightInput weight;
 
-    /**
-     * The UUID of the draft order line item. Must be unique and consistent across requests.
-     * This field is mandatory in order to manipulate drafts with bundles.
-     */
+    
     private String uuid;
 
-    /**
-     * The bundle components when the line item is a bundle.
-     */
+    
     private List<BundlesDraftOrderBundleLineItemComponentInput> bundleComponents;
 
     public DraftOrderLineItemInput build() {
@@ -336,103 +244,73 @@ public class DraftOrderLineItemInput {
       return result;
     }
 
-    /**
-     * The custom discount to be applied.
-     */
+    
     public Builder appliedDiscount(DraftOrderAppliedDiscountInput appliedDiscount) {
       this.appliedDiscount = appliedDiscount;
       return this;
     }
 
-    /**
-     * A generic custom attribute using a key value pair.
-     */
+    
     public Builder customAttributes(List<AttributeInput> customAttributes) {
       this.customAttributes = customAttributes;
       return this;
     }
 
-    /**
-     * The price in presentment currency, without any discounts applied, for a custom line item.
-     * If this value is provided, `original_unit_price` will be ignored. This field is ignored when `variantId` is provided.
-     * Note: All presentment currencies for a single draft should be the same and match the
-     * presentment currency of the draft order.
-     */
+    
     public Builder originalUnitPriceWithCurrency(MoneyInput originalUnitPriceWithCurrency) {
       this.originalUnitPriceWithCurrency = originalUnitPriceWithCurrency;
       return this;
     }
 
-    /**
-     * The line item quantity.
-     */
+    
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    /**
-     * Whether physical shipping is required for a custom line item. This field is ignored when `variantId` is provided.
-     */
+    
     public Builder requiresShipping(Boolean requiresShipping) {
       this.requiresShipping = requiresShipping;
       return this;
     }
 
-    /**
-     * The SKU number for custom line items only. This field is ignored when `variantId` is provided.
-     */
+    
     public Builder sku(String sku) {
       this.sku = sku;
       return this;
     }
 
-    /**
-     * Whether the custom line item is taxable. This field is ignored when `variantId` is provided.
-     */
+    
     public Builder taxable(Boolean taxable) {
       this.taxable = taxable;
       return this;
     }
 
-    /**
-     * Title of the line item. This field is ignored when `variantId` is provided.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    /**
-     * The ID of the product variant corresponding to the line item.
-     * Must be null for custom line items, otherwise required.
-     */
+    
     public Builder variantId(String variantId) {
       this.variantId = variantId;
       return this;
     }
 
-    /**
-     * The weight unit and value inputs for custom line items only.
-     * This field is ignored when `variantId` is provided.
-     */
+    
     public Builder weight(WeightInput weight) {
       this.weight = weight;
       return this;
     }
 
-    /**
-     * The UUID of the draft order line item. Must be unique and consistent across requests.
-     * This field is mandatory in order to manipulate drafts with bundles.
-     */
+    
     public Builder uuid(String uuid) {
       this.uuid = uuid;
       return this;
     }
 
-    /**
-     * The bundle components when the line item is a bundle.
-     */
+    
     public Builder bundleComponents(
         List<BundlesDraftOrderBundleLineItemComponentInput> bundleComponents) {
       this.bundleComponents = bundleComponents;

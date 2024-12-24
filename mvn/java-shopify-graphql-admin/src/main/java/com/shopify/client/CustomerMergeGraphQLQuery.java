@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Merges two customers.
- */
+
 public class CustomerMergeGraphQLQuery extends GraphQLQuery {
   public CustomerMergeGraphQLQuery(String customerOneId, String customerTwoId,
       CustomerMergeOverrideFields overrideFields, String queryName, Set<String> fieldsSet) {
@@ -52,27 +50,21 @@ public class CustomerMergeGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the first customer that will be merged.
-     */
+    
     public Builder customerOneId(String customerOneId) {
       this.customerOneId = customerOneId;
       this.fieldsSet.add("customerOneId");
       return this;
     }
 
-    /**
-     * The ID of the second customer that will be merged.
-     */
+    
     public Builder customerTwoId(String customerTwoId) {
       this.customerTwoId = customerTwoId;
       this.fieldsSet.add("customerTwoId");
       return this;
     }
 
-    /**
-     * The fields to override the default customer merge rules.
-     */
+    
     public Builder overrideFields(CustomerMergeOverrideFields overrideFields) {
       this.overrideFields = overrideFields;
       this.fieldsSet.add("overrideFields");

@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `mobilePlatformApplicationDelete` mutation.
- */
+
 public class MobilePlatformApplicationDeletePayload {
-  /**
-   * The ID of the mobile platform application that was just deleted.
-   */
+  
   private String deletedMobilePlatformApplicationId;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<MobilePlatformApplicationUserError> userErrors;
 
   public MobilePlatformApplicationDeletePayload() {
   }
 
-  /**
-   * The ID of the mobile platform application that was just deleted.
-   */
+  
   public String getDeletedMobilePlatformApplicationId() {
     return deletedMobilePlatformApplicationId;
   }
@@ -34,9 +26,7 @@ public class MobilePlatformApplicationDeletePayload {
     this.deletedMobilePlatformApplicationId = deletedMobilePlatformApplicationId;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<MobilePlatformApplicationUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class MobilePlatformApplicationDeletePayload {
   }
 
   public static class Builder {
-    /**
-     * The ID of the mobile platform application that was just deleted.
-     */
+    
     private String deletedMobilePlatformApplicationId;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<MobilePlatformApplicationUserError> userErrors;
 
     public MobilePlatformApplicationDeletePayload build() {
@@ -86,17 +72,13 @@ public class MobilePlatformApplicationDeletePayload {
       return result;
     }
 
-    /**
-     * The ID of the mobile platform application that was just deleted.
-     */
+    
     public Builder deletedMobilePlatformApplicationId(String deletedMobilePlatformApplicationId) {
       this.deletedMobilePlatformApplicationId = deletedMobilePlatformApplicationId;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<MobilePlatformApplicationUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

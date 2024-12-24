@@ -5,27 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents a media warning. This occurs when there is a non-blocking concern regarding your media.
- * Consider reviewing your media to ensure it is correct and its parameters are as expected.
- */
+
 public class MediaWarning {
-  /**
-   * The code representing the type of warning.
-   */
+  
   private MediaWarningCode code;
 
-  /**
-   * Translated warning message.
-   */
+  
   private String message;
 
   public MediaWarning() {
   }
 
-  /**
-   * The code representing the type of warning.
-   */
+  
   public MediaWarningCode getCode() {
     return code;
   }
@@ -34,9 +25,7 @@ public class MediaWarning {
     this.code = code;
   }
 
-  /**
-   * Translated warning message.
-   */
+  
   public String getMessage() {
     return message;
   }
@@ -69,14 +58,10 @@ public class MediaWarning {
   }
 
   public static class Builder {
-    /**
-     * The code representing the type of warning.
-     */
+    
     private MediaWarningCode code;
 
-    /**
-     * Translated warning message.
-     */
+    
     private String message;
 
     public MediaWarning build() {
@@ -86,17 +71,13 @@ public class MediaWarning {
       return result;
     }
 
-    /**
-     * The code representing the type of warning.
-     */
+    
     public Builder code(MediaWarningCode code) {
       this.code = code;
       return this;
     }
 
-    /**
-     * Translated warning message.
-     */
+    
     public Builder message(String message) {
       this.message = message;
       return this;

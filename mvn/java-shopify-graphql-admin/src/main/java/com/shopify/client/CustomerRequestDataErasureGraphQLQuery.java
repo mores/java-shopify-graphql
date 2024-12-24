@@ -6,11 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Enqueues a request to erase customer's data. Read more [here](https://help.shopify.com/manual/privacy-and-security/privacy/processing-customer-data-requests#erase-customer-personal-data).
- *   
- * To cancel the data erasure request use the [customerCancelDataErasure mutation](https://shopify.dev/api/admin-graphql/unstable/mutations/customerCancelDataErasure).
- */
+
 public class CustomerRequestDataErasureGraphQLQuery extends GraphQLQuery {
   public CustomerRequestDataErasureGraphQLQuery(String customerId, String queryName,
       Set<String> fieldsSet) {
@@ -45,9 +41,7 @@ public class CustomerRequestDataErasureGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the customer to erase.
-     */
+    
     public Builder customerId(String customerId) {
       this.customerId = customerId;
       this.fieldsSet.add("customerId");

@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * An auto-generated type which holds one AbandonedCheckoutLineItem and a cursor during pagination.
- */
+
 public class AbandonedCheckoutLineItemEdge {
-  /**
-   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-   */
+  
   private String cursor;
 
-  /**
-   * The item at the end of AbandonedCheckoutLineItemEdge.
-   */
+  
   private AbandonedCheckoutLineItem node;
 
   public AbandonedCheckoutLineItemEdge() {
   }
 
-  /**
-   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-   */
+  
   public String getCursor() {
     return cursor;
   }
@@ -33,9 +25,7 @@ public class AbandonedCheckoutLineItemEdge {
     this.cursor = cursor;
   }
 
-  /**
-   * The item at the end of AbandonedCheckoutLineItemEdge.
-   */
+  
   public AbandonedCheckoutLineItem getNode() {
     return node;
   }
@@ -68,14 +58,10 @@ public class AbandonedCheckoutLineItemEdge {
   }
 
   public static class Builder {
-    /**
-     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     private String cursor;
 
-    /**
-     * The item at the end of AbandonedCheckoutLineItemEdge.
-     */
+    
     private AbandonedCheckoutLineItem node;
 
     public AbandonedCheckoutLineItemEdge build() {
@@ -85,17 +71,13 @@ public class AbandonedCheckoutLineItemEdge {
       return result;
     }
 
-    /**
-     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     public Builder cursor(String cursor) {
       this.cursor = cursor;
       return this;
     }
 
-    /**
-     * The item at the end of AbandonedCheckoutLineItemEdge.
-     */
+    
     public Builder node(AbandonedCheckoutLineItem node) {
       this.node = node;
       return this;

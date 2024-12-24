@@ -6,27 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A list of collections that the discount can have as a prerequisite or a list of
- * collections to which the discount can be applied.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DiscountCollections implements DiscountItems {
-  /**
-   * The list of collections that the discount can have as a prerequisite or the
-   * list of collections to which the discount can be applied.
-   */
+  
   private CollectionConnection collections;
 
   public DiscountCollections() {
   }
 
-  /**
-   * The list of collections that the discount can have as a prerequisite or the
-   * list of collections to which the discount can be applied.
-   */
+  
   public CollectionConnection getCollections() {
     return collections;
   }
@@ -58,10 +49,7 @@ public class DiscountCollections implements DiscountItems {
   }
 
   public static class Builder {
-    /**
-     * The list of collections that the discount can have as a prerequisite or the
-     * list of collections to which the discount can be applied.
-     */
+    
     private CollectionConnection collections;
 
     public DiscountCollections build() {
@@ -70,10 +58,7 @@ public class DiscountCollections implements DiscountItems {
       return result;
     }
 
-    /**
-     * The list of collections that the discount can have as a prerequisite or the
-     * list of collections to which the discount can be applied.
-     */
+    
     public Builder collections(CollectionConnection collections) {
       this.collections = collections;
       return this;

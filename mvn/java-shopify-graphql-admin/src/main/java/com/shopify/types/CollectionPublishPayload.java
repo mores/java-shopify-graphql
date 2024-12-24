@@ -6,36 +6,24 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `collectionPublish` mutation.
- */
+
 public class CollectionPublishPayload {
-  /**
-   * The published collection.
-   */
+  
   private Collection collection;
 
-  /**
-   * The channels where the collection has been published.
-   */
+  
   private List<CollectionPublication> collectionPublications;
 
-  /**
-   * The shop associated with the collection.
-   */
+  
   private Shop shop;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public CollectionPublishPayload() {
   }
 
-  /**
-   * The published collection.
-   */
+  
   public Collection getCollection() {
     return collection;
   }
@@ -44,9 +32,7 @@ public class CollectionPublishPayload {
     this.collection = collection;
   }
 
-  /**
-   * The channels where the collection has been published.
-   */
+  
   public List<CollectionPublication> getCollectionPublications() {
     return collectionPublications;
   }
@@ -55,9 +41,7 @@ public class CollectionPublishPayload {
     this.collectionPublications = collectionPublications;
   }
 
-  /**
-   * The shop associated with the collection.
-   */
+  
   public Shop getShop() {
     return shop;
   }
@@ -66,9 +50,7 @@ public class CollectionPublishPayload {
     this.shop = shop;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -103,24 +85,16 @@ public class CollectionPublishPayload {
   }
 
   public static class Builder {
-    /**
-     * The published collection.
-     */
+    
     private Collection collection;
 
-    /**
-     * The channels where the collection has been published.
-     */
+    
     private List<CollectionPublication> collectionPublications;
 
-    /**
-     * The shop associated with the collection.
-     */
+    
     private Shop shop;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public CollectionPublishPayload build() {
@@ -132,33 +106,25 @@ public class CollectionPublishPayload {
       return result;
     }
 
-    /**
-     * The published collection.
-     */
+    
     public Builder collection(Collection collection) {
       this.collection = collection;
       return this;
     }
 
-    /**
-     * The channels where the collection has been published.
-     */
+    
     public Builder collectionPublications(List<CollectionPublication> collectionPublications) {
       this.collectionPublications = collectionPublications;
       return this;
     }
 
-    /**
-     * The shop associated with the collection.
-     */
+    
     public Builder shop(Shop shop) {
       this.shop = shop;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

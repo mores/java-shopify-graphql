@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for a fixed amount discount code to apply to an order.
- */
+
 public class OrderCreateFixedDiscountCodeAttributesInput {
-  /**
-   * The discount code that was entered at checkout.
-   */
+  
   private String code;
 
-  /**
-   * The amount that's deducted from the order total. When you create an order, this value is the monetary amount to deduct.
-   */
+  
   private MoneyBagInput amountSet;
 
   public OrderCreateFixedDiscountCodeAttributesInput() {
   }
 
-  /**
-   * The discount code that was entered at checkout.
-   */
+  
   public String getCode() {
     return code;
   }
@@ -33,9 +25,7 @@ public class OrderCreateFixedDiscountCodeAttributesInput {
     this.code = code;
   }
 
-  /**
-   * The amount that's deducted from the order total. When you create an order, this value is the monetary amount to deduct.
-   */
+  
   public MoneyBagInput getAmountSet() {
     return amountSet;
   }
@@ -68,14 +58,10 @@ public class OrderCreateFixedDiscountCodeAttributesInput {
   }
 
   public static class Builder {
-    /**
-     * The discount code that was entered at checkout.
-     */
+    
     private String code;
 
-    /**
-     * The amount that's deducted from the order total. When you create an order, this value is the monetary amount to deduct.
-     */
+    
     private MoneyBagInput amountSet;
 
     public OrderCreateFixedDiscountCodeAttributesInput build() {
@@ -85,17 +71,13 @@ public class OrderCreateFixedDiscountCodeAttributesInput {
       return result;
     }
 
-    /**
-     * The discount code that was entered at checkout.
-     */
+    
     public Builder code(String code) {
       this.code = code;
       return this;
     }
 
-    /**
-     * The amount that's deducted from the order total. When you create an order, this value is the monetary amount to deduct.
-     */
+    
     public Builder amountSet(MoneyBagInput amountSet) {
       this.amountSet = amountSet;
       return this;

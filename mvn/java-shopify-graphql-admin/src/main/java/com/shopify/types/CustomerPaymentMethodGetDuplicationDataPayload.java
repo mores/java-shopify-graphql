@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `customerPaymentMethodGetDuplicationData` mutation.
- */
+
 public class CustomerPaymentMethodGetDuplicationDataPayload {
-  /**
-   * The encrypted data from the payment method to be duplicated.
-   */
+  
   private String encryptedDuplicationData;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<CustomerPaymentMethodGetDuplicationDataUserError> userErrors;
 
   public CustomerPaymentMethodGetDuplicationDataPayload() {
   }
 
-  /**
-   * The encrypted data from the payment method to be duplicated.
-   */
+  
   public String getEncryptedDuplicationData() {
     return encryptedDuplicationData;
   }
@@ -34,9 +26,7 @@ public class CustomerPaymentMethodGetDuplicationDataPayload {
     this.encryptedDuplicationData = encryptedDuplicationData;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<CustomerPaymentMethodGetDuplicationDataUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class CustomerPaymentMethodGetDuplicationDataPayload {
   }
 
   public static class Builder {
-    /**
-     * The encrypted data from the payment method to be duplicated.
-     */
+    
     private String encryptedDuplicationData;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<CustomerPaymentMethodGetDuplicationDataUserError> userErrors;
 
     public CustomerPaymentMethodGetDuplicationDataPayload build() {
@@ -86,17 +72,13 @@ public class CustomerPaymentMethodGetDuplicationDataPayload {
       return result;
     }
 
-    /**
-     * The encrypted data from the payment method to be duplicated.
-     */
+    
     public Builder encryptedDuplicationData(String encryptedDuplicationData) {
       this.encryptedDuplicationData = encryptedDuplicationData;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<CustomerPaymentMethodGetDuplicationDataUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

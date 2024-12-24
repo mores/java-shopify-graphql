@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Marks a comment as not spam.
- */
+
 public class CommentNotSpamGraphQLQuery extends GraphQLQuery {
   public CommentNotSpamGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -42,9 +40,7 @@ public class CommentNotSpamGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the comment to be marked as not spam.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

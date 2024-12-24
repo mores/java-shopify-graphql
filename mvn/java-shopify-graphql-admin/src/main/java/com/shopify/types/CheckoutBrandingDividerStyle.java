@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The customizations for the page, content, main, and order summary dividers.
- */
+
 public class CheckoutBrandingDividerStyle {
-  /**
-   * The border style for the divider.
-   */
+  
   private CheckoutBrandingBorderStyle borderStyle;
 
-  /**
-   * The border width for the divider.
-   */
+  
   private CheckoutBrandingBorderWidth borderWidth;
 
   public CheckoutBrandingDividerStyle() {
   }
 
-  /**
-   * The border style for the divider.
-   */
+  
   public CheckoutBrandingBorderStyle getBorderStyle() {
     return borderStyle;
   }
@@ -33,9 +25,7 @@ public class CheckoutBrandingDividerStyle {
     this.borderStyle = borderStyle;
   }
 
-  /**
-   * The border width for the divider.
-   */
+  
   public CheckoutBrandingBorderWidth getBorderWidth() {
     return borderWidth;
   }
@@ -68,14 +58,10 @@ public class CheckoutBrandingDividerStyle {
   }
 
   public static class Builder {
-    /**
-     * The border style for the divider.
-     */
+    
     private CheckoutBrandingBorderStyle borderStyle;
 
-    /**
-     * The border width for the divider.
-     */
+    
     private CheckoutBrandingBorderWidth borderWidth;
 
     public CheckoutBrandingDividerStyle build() {
@@ -85,17 +71,13 @@ public class CheckoutBrandingDividerStyle {
       return result;
     }
 
-    /**
-     * The border style for the divider.
-     */
+    
     public Builder borderStyle(CheckoutBrandingBorderStyle borderStyle) {
       this.borderStyle = borderStyle;
       return this;
     }
 
-    /**
-     * The border width for the divider.
-     */
+    
     public Builder borderWidth(CheckoutBrandingBorderWidth borderWidth) {
       this.borderWidth = borderWidth;
       return this;

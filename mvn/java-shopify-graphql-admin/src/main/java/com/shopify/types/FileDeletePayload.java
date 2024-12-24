@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `fileDelete` mutation.
- */
+
 public class FileDeletePayload {
-  /**
-   * The IDs of the deleted files.
-   */
+  
   private List<String> deletedFileIds;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<FilesUserError> userErrors;
 
   public FileDeletePayload() {
   }
 
-  /**
-   * The IDs of the deleted files.
-   */
+  
   public List<String> getDeletedFileIds() {
     return deletedFileIds;
   }
@@ -34,9 +26,7 @@ public class FileDeletePayload {
     this.deletedFileIds = deletedFileIds;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<FilesUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class FileDeletePayload {
   }
 
   public static class Builder {
-    /**
-     * The IDs of the deleted files.
-     */
+    
     private List<String> deletedFileIds;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<FilesUserError> userErrors;
 
     public FileDeletePayload build() {
@@ -86,17 +72,13 @@ public class FileDeletePayload {
       return result;
     }
 
-    /**
-     * The IDs of the deleted files.
-     */
+    
     public Builder deletedFileIds(List<String> deletedFileIds) {
       this.deletedFileIds = deletedFileIds;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<FilesUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

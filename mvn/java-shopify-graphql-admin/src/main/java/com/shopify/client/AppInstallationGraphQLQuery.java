@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Lookup an AppInstallation by ID or return the AppInstallation for the currently authenticated App.
- */
+
 public class AppInstallationGraphQLQuery extends GraphQLQuery {
   public AppInstallationGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -42,9 +40,7 @@ public class AppInstallationGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * ID used to lookup AppInstallation.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

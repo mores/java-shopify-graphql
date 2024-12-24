@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for a mobile application platform type.
- */
+
 public class MobilePlatformApplicationCreateInput {
-  /**
-   * Android based mobile platform application.
-   */
+  
   private MobilePlatformApplicationCreateAndroidInput android;
 
-  /**
-   * Apple based mobile platform application.
-   */
+  
   private MobilePlatformApplicationCreateAppleInput apple;
 
   public MobilePlatformApplicationCreateInput() {
   }
 
-  /**
-   * Android based mobile platform application.
-   */
+  
   public MobilePlatformApplicationCreateAndroidInput getAndroid() {
     return android;
   }
@@ -33,9 +25,7 @@ public class MobilePlatformApplicationCreateInput {
     this.android = android;
   }
 
-  /**
-   * Apple based mobile platform application.
-   */
+  
   public MobilePlatformApplicationCreateAppleInput getApple() {
     return apple;
   }
@@ -68,14 +58,10 @@ public class MobilePlatformApplicationCreateInput {
   }
 
   public static class Builder {
-    /**
-     * Android based mobile platform application.
-     */
+    
     private MobilePlatformApplicationCreateAndroidInput android;
 
-    /**
-     * Apple based mobile platform application.
-     */
+    
     private MobilePlatformApplicationCreateAppleInput apple;
 
     public MobilePlatformApplicationCreateInput build() {
@@ -85,17 +71,13 @@ public class MobilePlatformApplicationCreateInput {
       return result;
     }
 
-    /**
-     * Android based mobile platform application.
-     */
+    
     public Builder android(MobilePlatformApplicationCreateAndroidInput android) {
       this.android = android;
       return this;
     }
 
-    /**
-     * Apple based mobile platform application.
-     */
+    
     public Builder apple(MobilePlatformApplicationCreateAppleInput apple) {
       this.apple = apple;
       return this;

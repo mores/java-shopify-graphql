@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns a Collection resource by ID.
- */
+
 public class CollectionGraphQLQuery extends GraphQLQuery {
   public CollectionGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -42,9 +40,7 @@ public class CollectionGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the `Collection` to return.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

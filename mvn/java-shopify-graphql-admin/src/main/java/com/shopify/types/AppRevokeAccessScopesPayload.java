@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `appRevokeAccessScopes` mutation.
- */
+
 public class AppRevokeAccessScopesPayload {
-  /**
-   * The list of scope handles that have been revoked.
-   */
+  
   private List<AccessScope> revoked;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<AppRevokeAccessScopesAppRevokeScopeError> userErrors;
 
   public AppRevokeAccessScopesPayload() {
   }
 
-  /**
-   * The list of scope handles that have been revoked.
-   */
+  
   public List<AccessScope> getRevoked() {
     return revoked;
   }
@@ -34,9 +26,7 @@ public class AppRevokeAccessScopesPayload {
     this.revoked = revoked;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<AppRevokeAccessScopesAppRevokeScopeError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class AppRevokeAccessScopesPayload {
   }
 
   public static class Builder {
-    /**
-     * The list of scope handles that have been revoked.
-     */
+    
     private List<AccessScope> revoked;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<AppRevokeAccessScopesAppRevokeScopeError> userErrors;
 
     public AppRevokeAccessScopesPayload build() {
@@ -86,17 +72,13 @@ public class AppRevokeAccessScopesPayload {
       return result;
     }
 
-    /**
-     * The list of scope handles that have been revoked.
-     */
+    
     public Builder revoked(List<AccessScope> revoked) {
       this.revoked = revoked;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<AppRevokeAccessScopesAppRevokeScopeError> userErrors) {
       this.userErrors = userErrors;
       return this;

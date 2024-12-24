@@ -6,55 +6,33 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Discount code applications capture the intentions of a discount code at
- * the time that it is applied onto an order.
- *
- * Discount applications don't represent the actual final amount discounted on a
- * line (line item or shipping line). The actual amount discounted on a line is
- * represented by the [DiscountAllocation](https://shopify.dev/api/admin-graphql/latest/objects/discountallocation) object.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DiscountCodeApplication implements com.shopify.types.DiscountApplication {
-  /**
-   * The method by which the discount's value is applied to its entitled items.
-   */
+  
   private DiscountApplicationAllocationMethod allocationMethod;
 
-  /**
-   * The string identifying the discount code that was used at the time of application.
-   */
+  
   private String code;
 
-  /**
-   * An ordered index that can be used to identify the discount application and indicate the precedence
-   * of the discount application for calculations.
-   */
+  
   private int index;
 
-  /**
-   * How the discount amount is distributed on the discounted lines.
-   */
+  
   private DiscountApplicationTargetSelection targetSelection;
 
-  /**
-   * Whether the discount is applied on line items or shipping lines.
-   */
+  
   private DiscountApplicationTargetType targetType;
 
-  /**
-   * The value of the discount application.
-   */
+  
   private PricingValue value;
 
   public DiscountCodeApplication() {
   }
 
-  /**
-   * The method by which the discount's value is applied to its entitled items.
-   */
+  
   public DiscountApplicationAllocationMethod getAllocationMethod() {
     return allocationMethod;
   }
@@ -63,9 +41,7 @@ public class DiscountCodeApplication implements com.shopify.types.DiscountApplic
     this.allocationMethod = allocationMethod;
   }
 
-  /**
-   * The string identifying the discount code that was used at the time of application.
-   */
+  
   public String getCode() {
     return code;
   }
@@ -74,10 +50,7 @@ public class DiscountCodeApplication implements com.shopify.types.DiscountApplic
     this.code = code;
   }
 
-  /**
-   * An ordered index that can be used to identify the discount application and indicate the precedence
-   * of the discount application for calculations.
-   */
+  
   public int getIndex() {
     return index;
   }
@@ -86,9 +59,7 @@ public class DiscountCodeApplication implements com.shopify.types.DiscountApplic
     this.index = index;
   }
 
-  /**
-   * How the discount amount is distributed on the discounted lines.
-   */
+  
   public DiscountApplicationTargetSelection getTargetSelection() {
     return targetSelection;
   }
@@ -97,9 +68,7 @@ public class DiscountCodeApplication implements com.shopify.types.DiscountApplic
     this.targetSelection = targetSelection;
   }
 
-  /**
-   * Whether the discount is applied on line items or shipping lines.
-   */
+  
   public DiscountApplicationTargetType getTargetType() {
     return targetType;
   }
@@ -108,9 +77,7 @@ public class DiscountCodeApplication implements com.shopify.types.DiscountApplic
     this.targetType = targetType;
   }
 
-  /**
-   * The value of the discount application.
-   */
+  
   public PricingValue getValue() {
     return value;
   }
@@ -147,35 +114,22 @@ public class DiscountCodeApplication implements com.shopify.types.DiscountApplic
   }
 
   public static class Builder {
-    /**
-     * The method by which the discount's value is applied to its entitled items.
-     */
+    
     private DiscountApplicationAllocationMethod allocationMethod;
 
-    /**
-     * The string identifying the discount code that was used at the time of application.
-     */
+    
     private String code;
 
-    /**
-     * An ordered index that can be used to identify the discount application and indicate the precedence
-     * of the discount application for calculations.
-     */
+    
     private int index;
 
-    /**
-     * How the discount amount is distributed on the discounted lines.
-     */
+    
     private DiscountApplicationTargetSelection targetSelection;
 
-    /**
-     * Whether the discount is applied on line items or shipping lines.
-     */
+    
     private DiscountApplicationTargetType targetType;
 
-    /**
-     * The value of the discount application.
-     */
+    
     private PricingValue value;
 
     public DiscountCodeApplication build() {
@@ -189,50 +143,37 @@ public class DiscountCodeApplication implements com.shopify.types.DiscountApplic
       return result;
     }
 
-    /**
-     * The method by which the discount's value is applied to its entitled items.
-     */
+    
     public Builder allocationMethod(DiscountApplicationAllocationMethod allocationMethod) {
       this.allocationMethod = allocationMethod;
       return this;
     }
 
-    /**
-     * The string identifying the discount code that was used at the time of application.
-     */
+    
     public Builder code(String code) {
       this.code = code;
       return this;
     }
 
-    /**
-     * An ordered index that can be used to identify the discount application and indicate the precedence
-     * of the discount application for calculations.
-     */
+    
     public Builder index(int index) {
       this.index = index;
       return this;
     }
 
-    /**
-     * How the discount amount is distributed on the discounted lines.
-     */
+    
     public Builder targetSelection(DiscountApplicationTargetSelection targetSelection) {
       this.targetSelection = targetSelection;
       return this;
     }
 
-    /**
-     * Whether the discount is applied on line items or shipping lines.
-     */
+    
     public Builder targetType(DiscountApplicationTargetType targetType) {
       this.targetType = targetType;
       return this;
     }
 
-    /**
-     * The value of the discount application.
-     */
+    
     public Builder value(PricingValue value) {
       this.value = value;
       return this;

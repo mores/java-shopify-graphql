@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `transactionVoid` mutation.
- */
+
 public class TransactionVoidPayload {
-  /**
-   * The created void transaction.
-   */
+  
   private OrderTransaction transaction;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<TransactionVoidUserError> userErrors;
 
   public TransactionVoidPayload() {
   }
 
-  /**
-   * The created void transaction.
-   */
+  
   public OrderTransaction getTransaction() {
     return transaction;
   }
@@ -34,9 +26,7 @@ public class TransactionVoidPayload {
     this.transaction = transaction;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<TransactionVoidUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class TransactionVoidPayload {
   }
 
   public static class Builder {
-    /**
-     * The created void transaction.
-     */
+    
     private OrderTransaction transaction;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<TransactionVoidUserError> userErrors;
 
     public TransactionVoidPayload build() {
@@ -86,17 +72,13 @@ public class TransactionVoidPayload {
       return result;
     }
 
-    /**
-     * The created void transaction.
-     */
+    
     public Builder transaction(OrderTransaction transaction) {
       this.transaction = transaction;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<TransactionVoidUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

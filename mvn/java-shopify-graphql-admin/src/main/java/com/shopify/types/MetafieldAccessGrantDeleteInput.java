@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for an explicit access grant to be deleted for the metafields under this definition.
- */
+
 public class MetafieldAccessGrantDeleteInput {
-  /**
-   * The grantee whose grant should be deleted.
-   */
+  
   private String grantee;
 
   public MetafieldAccessGrantDeleteInput() {
   }
 
-  /**
-   * The grantee whose grant should be deleted.
-   */
+  
   public String getGrantee() {
     return grantee;
   }
@@ -51,9 +45,7 @@ public class MetafieldAccessGrantDeleteInput {
   }
 
   public static class Builder {
-    /**
-     * The grantee whose grant should be deleted.
-     */
+    
     private String grantee;
 
     public MetafieldAccessGrantDeleteInput build() {
@@ -62,9 +54,7 @@ public class MetafieldAccessGrantDeleteInput {
       return result;
     }
 
-    /**
-     * The grantee whose grant should be deleted.
-     */
+    
     public Builder grantee(String grantee) {
       this.grantee = grantee;
       return this;

@@ -8,9 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Add tax exemptions for the customer.
- */
+
 public class CustomerAddTaxExemptionsGraphQLQuery extends GraphQLQuery {
   public CustomerAddTaxExemptionsGraphQLQuery(String customerId, List<TaxExemption> taxExemptions,
       String queryName, Set<String> fieldsSet) {
@@ -49,21 +47,14 @@ public class CustomerAddTaxExemptionsGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the customer to update.
-     */
+    
     public Builder customerId(String customerId) {
       this.customerId = customerId;
       this.fieldsSet.add("customerId");
       return this;
     }
 
-    /**
-     * The list of tax exemptions to add for the customer, in the format of an
-     * array or a comma-separated list. Example values:
-     * `["CA_BC_RESELLER_EXEMPTION", "CA_STATUS_CARD_EXEMPTION"]`,
-     * `"CA_BC_RESELLER_EXEMPTION, CA_STATUS_CARD_EXEMPTION"`.
-     */
+    
     public Builder taxExemptions(List<TaxExemption> taxExemptions) {
       this.taxExemptions = taxExemptions;
       this.fieldsSet.add("taxExemptions");

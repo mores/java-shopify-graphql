@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Delete the current and future schedule and contract edits of a list of subscription billing cycles.
- */
+
 public class SubscriptionBillingCycleEditsDeleteGraphQLQuery extends GraphQLQuery {
   public SubscriptionBillingCycleEditsDeleteGraphQLQuery(String contractId,
       SubscriptionBillingCyclesTargetSelection targetSelection, String queryName,
@@ -49,18 +47,14 @@ public class SubscriptionBillingCycleEditsDeleteGraphQLQuery extends GraphQLQuer
                
     }
 
-    /**
-     * The globally-unique identifier of the subscription contract that the billing cycle belongs to.
-     */
+    
     public Builder contractId(String contractId) {
       this.contractId = contractId;
       this.fieldsSet.add("contractId");
       return this;
     }
 
-    /**
-     * Select billing cycles to be deleted.
-     */
+    
     public Builder targetSelection(SubscriptionBillingCyclesTargetSelection targetSelection) {
       this.targetSelection = targetSelection;
       this.fieldsSet.add("targetSelection");

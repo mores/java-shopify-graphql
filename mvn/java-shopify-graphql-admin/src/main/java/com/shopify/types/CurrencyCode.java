@@ -1,10 +1,6 @@
 package com.shopify.types;
 
-/**
- * The three-letter currency codes that represent the world currencies used in
- * stores. These include standard ISO 4217 codes, legacy codes,
- * and non-standard codes.
- */
+
 public enum CurrencyCode {
   USD,
 

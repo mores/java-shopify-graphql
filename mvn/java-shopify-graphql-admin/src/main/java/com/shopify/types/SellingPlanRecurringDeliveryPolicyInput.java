@@ -7,46 +7,30 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields to create or update a recurring delivery policy.
- */
+
 public class SellingPlanRecurringDeliveryPolicyInput {
-  /**
-   * The delivery frequency, it can be either: day, week, month or year.
-   */
+  
   private SellingPlanInterval interval;
 
-  /**
-   * The number of intervals between deliveries.
-   */
+  
   private Integer intervalCount;
 
-  /**
-   * The specific anchor dates upon which the delivery interval calculations should be made.
-   */
+  
   private List<SellingPlanAnchorInput> anchors;
 
-  /**
-   * A buffer period for orders to be included in a cycle.
-   */
+  
   private Integer cutoff;
 
-  /**
-   * Intention of this delivery policy, it can be either: delivery or fulfillment.
-   */
+  
   private SellingPlanRecurringDeliveryPolicyIntent intent;
 
-  /**
-   * The pre-anchor behavior. It can be either: asap or next.
-   */
+  
   private SellingPlanRecurringDeliveryPolicyPreAnchorBehavior preAnchorBehavior;
 
   public SellingPlanRecurringDeliveryPolicyInput() {
   }
 
-  /**
-   * The delivery frequency, it can be either: day, week, month or year.
-   */
+  
   public SellingPlanInterval getInterval() {
     return interval;
   }
@@ -55,9 +39,7 @@ public class SellingPlanRecurringDeliveryPolicyInput {
     this.interval = interval;
   }
 
-  /**
-   * The number of intervals between deliveries.
-   */
+  
   public Integer getIntervalCount() {
     return intervalCount;
   }
@@ -66,9 +48,7 @@ public class SellingPlanRecurringDeliveryPolicyInput {
     this.intervalCount = intervalCount;
   }
 
-  /**
-   * The specific anchor dates upon which the delivery interval calculations should be made.
-   */
+  
   public List<SellingPlanAnchorInput> getAnchors() {
     return anchors;
   }
@@ -77,9 +57,7 @@ public class SellingPlanRecurringDeliveryPolicyInput {
     this.anchors = anchors;
   }
 
-  /**
-   * A buffer period for orders to be included in a cycle.
-   */
+  
   public Integer getCutoff() {
     return cutoff;
   }
@@ -88,9 +66,7 @@ public class SellingPlanRecurringDeliveryPolicyInput {
     this.cutoff = cutoff;
   }
 
-  /**
-   * Intention of this delivery policy, it can be either: delivery or fulfillment.
-   */
+  
   public SellingPlanRecurringDeliveryPolicyIntent getIntent() {
     return intent;
   }
@@ -99,9 +75,7 @@ public class SellingPlanRecurringDeliveryPolicyInput {
     this.intent = intent;
   }
 
-  /**
-   * The pre-anchor behavior. It can be either: asap or next.
-   */
+  
   public SellingPlanRecurringDeliveryPolicyPreAnchorBehavior getPreAnchorBehavior() {
     return preAnchorBehavior;
   }
@@ -139,34 +113,22 @@ public class SellingPlanRecurringDeliveryPolicyInput {
   }
 
   public static class Builder {
-    /**
-     * The delivery frequency, it can be either: day, week, month or year.
-     */
+    
     private SellingPlanInterval interval;
 
-    /**
-     * The number of intervals between deliveries.
-     */
+    
     private Integer intervalCount;
 
-    /**
-     * The specific anchor dates upon which the delivery interval calculations should be made.
-     */
+    
     private List<SellingPlanAnchorInput> anchors;
 
-    /**
-     * A buffer period for orders to be included in a cycle.
-     */
+    
     private Integer cutoff;
 
-    /**
-     * Intention of this delivery policy, it can be either: delivery or fulfillment.
-     */
+    
     private SellingPlanRecurringDeliveryPolicyIntent intent;
 
-    /**
-     * The pre-anchor behavior. It can be either: asap or next.
-     */
+    
     private SellingPlanRecurringDeliveryPolicyPreAnchorBehavior preAnchorBehavior;
 
     public SellingPlanRecurringDeliveryPolicyInput build() {
@@ -180,49 +142,37 @@ public class SellingPlanRecurringDeliveryPolicyInput {
       return result;
     }
 
-    /**
-     * The delivery frequency, it can be either: day, week, month or year.
-     */
+    
     public Builder interval(SellingPlanInterval interval) {
       this.interval = interval;
       return this;
     }
 
-    /**
-     * The number of intervals between deliveries.
-     */
+    
     public Builder intervalCount(Integer intervalCount) {
       this.intervalCount = intervalCount;
       return this;
     }
 
-    /**
-     * The specific anchor dates upon which the delivery interval calculations should be made.
-     */
+    
     public Builder anchors(List<SellingPlanAnchorInput> anchors) {
       this.anchors = anchors;
       return this;
     }
 
-    /**
-     * A buffer period for orders to be included in a cycle.
-     */
+    
     public Builder cutoff(Integer cutoff) {
       this.cutoff = cutoff;
       return this;
     }
 
-    /**
-     * Intention of this delivery policy, it can be either: delivery or fulfillment.
-     */
+    
     public Builder intent(SellingPlanRecurringDeliveryPolicyIntent intent) {
       this.intent = intent;
       return this;
     }
 
-    /**
-     * The pre-anchor behavior. It can be either: asap or next.
-     */
+    
     public Builder preAnchorBehavior(
         SellingPlanRecurringDeliveryPolicyPreAnchorBehavior preAnchorBehavior) {
       this.preAnchorBehavior = preAnchorBehavior;

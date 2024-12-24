@@ -8,95 +8,54 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * A webhook subscription is a persisted data object created by an app using the REST Admin API or GraphQL Admin API.
- * It describes the topic that the app wants to receive, and a destination where
- * Shopify should send webhooks of the specified topic.
- * When an event for a given topic occurs, the webhook subscription sends a relevant payload to the destination.
- * Learn more about the [webhooks system](https://shopify.dev/apps/webhooks).
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class WebhookSubscription implements com.shopify.types.LegacyInteroperability, com.shopify.types.Node {
-  /**
-   * The Admin API version that Shopify uses to serialize webhook events. This
-   * value is inherited from the app that created the webhook subscription.
-   */
+  
   private ApiVersion apiVersion;
 
-  /**
-   * The destination URI to which the webhook subscription will send a message when an event occurs.
-   */
+  
   private String callbackUrl;
 
-  /**
-   * The date and time when the webhook subscription was created.
-   */
+  
   private OffsetDateTime createdAt;
 
-  /**
-   * The endpoint to which the webhook subscription will send events.
-   */
+  
   private WebhookSubscriptionEndpoint endpoint;
 
-  /**
-   * A constraint specified using search syntax that ensures only webhooks that
-   * match the specified filter are emitted. See our [guide on
-   * filters](https://shopify.dev/docs/apps/build/webhooks/customize/filters) for more details.
-   */
+  
   private String filter;
 
-  /**
-   * The format in which the webhook subscription should send the data.
-   */
+  
   private WebhookSubscriptionFormat format;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * An optional array of top-level resource fields that should be serialized and
-   * sent in the webhook message. If null, then all fields will be sent.
-   */
+  
   private List<String> includeFields;
 
-  /**
-   * The ID of the corresponding resource in the REST Admin API.
-   */
+  
   private String legacyResourceId;
 
-  /**
-   * The list of namespaces for any metafields that should be included in the webhook subscription.
-   */
+  
   private List<String> metafieldNamespaces;
 
-  /**
-   * The list of namespaces for private metafields that should be included in the webhook subscription.
-   */
+  
   private List<String> privateMetafieldNamespaces;
 
-  /**
-   * The type of event that triggers the webhook. The topic determines when the
-   * webhook subscription sends a webhook, as well as what class of data object
-   * that webhook contains.
-   */
+  
   private WebhookSubscriptionTopic topic;
 
-  /**
-   * The date and time when the webhook subscription was updated.
-   */
+  
   private OffsetDateTime updatedAt;
 
   public WebhookSubscription() {
   }
 
-  /**
-   * The Admin API version that Shopify uses to serialize webhook events. This
-   * value is inherited from the app that created the webhook subscription.
-   */
+  
   public ApiVersion getApiVersion() {
     return apiVersion;
   }
@@ -105,9 +64,7 @@ public class WebhookSubscription implements com.shopify.types.LegacyInteroperabi
     this.apiVersion = apiVersion;
   }
 
-  /**
-   * The destination URI to which the webhook subscription will send a message when an event occurs.
-   */
+  
   public String getCallbackUrl() {
     return callbackUrl;
   }
@@ -116,9 +73,7 @@ public class WebhookSubscription implements com.shopify.types.LegacyInteroperabi
     this.callbackUrl = callbackUrl;
   }
 
-  /**
-   * The date and time when the webhook subscription was created.
-   */
+  
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -127,9 +82,7 @@ public class WebhookSubscription implements com.shopify.types.LegacyInteroperabi
     this.createdAt = createdAt;
   }
 
-  /**
-   * The endpoint to which the webhook subscription will send events.
-   */
+  
   public WebhookSubscriptionEndpoint getEndpoint() {
     return endpoint;
   }
@@ -138,11 +91,7 @@ public class WebhookSubscription implements com.shopify.types.LegacyInteroperabi
     this.endpoint = endpoint;
   }
 
-  /**
-   * A constraint specified using search syntax that ensures only webhooks that
-   * match the specified filter are emitted. See our [guide on
-   * filters](https://shopify.dev/docs/apps/build/webhooks/customize/filters) for more details.
-   */
+  
   public String getFilter() {
     return filter;
   }
@@ -151,9 +100,7 @@ public class WebhookSubscription implements com.shopify.types.LegacyInteroperabi
     this.filter = filter;
   }
 
-  /**
-   * The format in which the webhook subscription should send the data.
-   */
+  
   public WebhookSubscriptionFormat getFormat() {
     return format;
   }
@@ -162,9 +109,7 @@ public class WebhookSubscription implements com.shopify.types.LegacyInteroperabi
     this.format = format;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -173,10 +118,7 @@ public class WebhookSubscription implements com.shopify.types.LegacyInteroperabi
     this.id = id;
   }
 
-  /**
-   * An optional array of top-level resource fields that should be serialized and
-   * sent in the webhook message. If null, then all fields will be sent.
-   */
+  
   public List<String> getIncludeFields() {
     return includeFields;
   }
@@ -185,9 +127,7 @@ public class WebhookSubscription implements com.shopify.types.LegacyInteroperabi
     this.includeFields = includeFields;
   }
 
-  /**
-   * The ID of the corresponding resource in the REST Admin API.
-   */
+  
   public String getLegacyResourceId() {
     return legacyResourceId;
   }
@@ -196,9 +136,7 @@ public class WebhookSubscription implements com.shopify.types.LegacyInteroperabi
     this.legacyResourceId = legacyResourceId;
   }
 
-  /**
-   * The list of namespaces for any metafields that should be included in the webhook subscription.
-   */
+  
   public List<String> getMetafieldNamespaces() {
     return metafieldNamespaces;
   }
@@ -207,9 +145,7 @@ public class WebhookSubscription implements com.shopify.types.LegacyInteroperabi
     this.metafieldNamespaces = metafieldNamespaces;
   }
 
-  /**
-   * The list of namespaces for private metafields that should be included in the webhook subscription.
-   */
+  
   public List<String> getPrivateMetafieldNamespaces() {
     return privateMetafieldNamespaces;
   }
@@ -218,11 +154,7 @@ public class WebhookSubscription implements com.shopify.types.LegacyInteroperabi
     this.privateMetafieldNamespaces = privateMetafieldNamespaces;
   }
 
-  /**
-   * The type of event that triggers the webhook. The topic determines when the
-   * webhook subscription sends a webhook, as well as what class of data object
-   * that webhook contains.
-   */
+  
   public WebhookSubscriptionTopic getTopic() {
     return topic;
   }
@@ -231,9 +163,7 @@ public class WebhookSubscription implements com.shopify.types.LegacyInteroperabi
     this.topic = topic;
   }
 
-  /**
-   * The date and time when the webhook subscription was updated.
-   */
+  
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
@@ -277,75 +207,43 @@ public class WebhookSubscription implements com.shopify.types.LegacyInteroperabi
   }
 
   public static class Builder {
-    /**
-     * The Admin API version that Shopify uses to serialize webhook events. This
-     * value is inherited from the app that created the webhook subscription.
-     */
+    
     private ApiVersion apiVersion;
 
-    /**
-     * The destination URI to which the webhook subscription will send a message when an event occurs.
-     */
+    
     private String callbackUrl;
 
-    /**
-     * The date and time when the webhook subscription was created.
-     */
+    
     private OffsetDateTime createdAt;
 
-    /**
-     * The endpoint to which the webhook subscription will send events.
-     */
+    
     private WebhookSubscriptionEndpoint endpoint;
 
-    /**
-     * A constraint specified using search syntax that ensures only webhooks that
-     * match the specified filter are emitted. See our [guide on
-     * filters](https://shopify.dev/docs/apps/build/webhooks/customize/filters) for more details.
-     */
+    
     private String filter;
 
-    /**
-     * The format in which the webhook subscription should send the data.
-     */
+    
     private WebhookSubscriptionFormat format;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * An optional array of top-level resource fields that should be serialized and
-     * sent in the webhook message. If null, then all fields will be sent.
-     */
+    
     private List<String> includeFields;
 
-    /**
-     * The ID of the corresponding resource in the REST Admin API.
-     */
+    
     private String legacyResourceId;
 
-    /**
-     * The list of namespaces for any metafields that should be included in the webhook subscription.
-     */
+    
     private List<String> metafieldNamespaces;
 
-    /**
-     * The list of namespaces for private metafields that should be included in the webhook subscription.
-     */
+    
     private List<String> privateMetafieldNamespaces;
 
-    /**
-     * The type of event that triggers the webhook. The topic determines when the
-     * webhook subscription sends a webhook, as well as what class of data object
-     * that webhook contains.
-     */
+    
     private WebhookSubscriptionTopic topic;
 
-    /**
-     * The date and time when the webhook subscription was updated.
-     */
+    
     private OffsetDateTime updatedAt;
 
     public WebhookSubscription build() {
@@ -366,111 +264,79 @@ public class WebhookSubscription implements com.shopify.types.LegacyInteroperabi
       return result;
     }
 
-    /**
-     * The Admin API version that Shopify uses to serialize webhook events. This
-     * value is inherited from the app that created the webhook subscription.
-     */
+    
     public Builder apiVersion(ApiVersion apiVersion) {
       this.apiVersion = apiVersion;
       return this;
     }
 
-    /**
-     * The destination URI to which the webhook subscription will send a message when an event occurs.
-     */
+    
     public Builder callbackUrl(String callbackUrl) {
       this.callbackUrl = callbackUrl;
       return this;
     }
 
-    /**
-     * The date and time when the webhook subscription was created.
-     */
+    
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    /**
-     * The endpoint to which the webhook subscription will send events.
-     */
+    
     public Builder endpoint(WebhookSubscriptionEndpoint endpoint) {
       this.endpoint = endpoint;
       return this;
     }
 
-    /**
-     * A constraint specified using search syntax that ensures only webhooks that
-     * match the specified filter are emitted. See our [guide on
-     * filters](https://shopify.dev/docs/apps/build/webhooks/customize/filters) for more details.
-     */
+    
     public Builder filter(String filter) {
       this.filter = filter;
       return this;
     }
 
-    /**
-     * The format in which the webhook subscription should send the data.
-     */
+    
     public Builder format(WebhookSubscriptionFormat format) {
       this.format = format;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * An optional array of top-level resource fields that should be serialized and
-     * sent in the webhook message. If null, then all fields will be sent.
-     */
+    
     public Builder includeFields(List<String> includeFields) {
       this.includeFields = includeFields;
       return this;
     }
 
-    /**
-     * The ID of the corresponding resource in the REST Admin API.
-     */
+    
     public Builder legacyResourceId(String legacyResourceId) {
       this.legacyResourceId = legacyResourceId;
       return this;
     }
 
-    /**
-     * The list of namespaces for any metafields that should be included in the webhook subscription.
-     */
+    
     public Builder metafieldNamespaces(List<String> metafieldNamespaces) {
       this.metafieldNamespaces = metafieldNamespaces;
       return this;
     }
 
-    /**
-     * The list of namespaces for private metafields that should be included in the webhook subscription.
-     */
+    
     public Builder privateMetafieldNamespaces(List<String> privateMetafieldNamespaces) {
       this.privateMetafieldNamespaces = privateMetafieldNamespaces;
       return this;
     }
 
-    /**
-     * The type of event that triggers the webhook. The topic determines when the
-     * webhook subscription sends a webhook, as well as what class of data object
-     * that webhook contains.
-     */
+    
     public Builder topic(WebhookSubscriptionTopic topic) {
       this.topic = topic;
       return this;
     }
 
-    /**
-     * The date and time when the webhook subscription was updated.
-     */
+    
     public Builder updatedAt(OffsetDateTime updatedAt) {
       this.updatedAt = updatedAt;
       return this;

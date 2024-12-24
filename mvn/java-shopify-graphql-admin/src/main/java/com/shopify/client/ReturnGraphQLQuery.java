@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns a Return resource by ID.
- */
+
 public class ReturnGraphQLQuery extends GraphQLQuery {
   public ReturnGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -42,9 +40,7 @@ public class ReturnGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the Return to return.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

@@ -5,38 +5,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents the change to be made to an inventory item at a location.
- * The change can either involve the same quantity name between different locations,
- * or involve different quantity names between the same location.
- */
+
 public class InventoryMoveQuantityChange {
-  /**
-   * Specifies the inventory item to which the change will be applied.
-   */
+  
   private String inventoryItemId;
 
-  /**
-   * The amount by which the inventory quantity will be changed.
-   */
+  
   private int quantity;
 
-  /**
-   * Details about where the move will be made from.
-   */
+  
   private InventoryMoveQuantityTerminalInput from;
 
-  /**
-   * Details about where the move will be made to.
-   */
+  
   private InventoryMoveQuantityTerminalInput to;
 
   public InventoryMoveQuantityChange() {
   }
 
-  /**
-   * Specifies the inventory item to which the change will be applied.
-   */
+  
   public String getInventoryItemId() {
     return inventoryItemId;
   }
@@ -45,9 +31,7 @@ public class InventoryMoveQuantityChange {
     this.inventoryItemId = inventoryItemId;
   }
 
-  /**
-   * The amount by which the inventory quantity will be changed.
-   */
+  
   public int getQuantity() {
     return quantity;
   }
@@ -56,9 +40,7 @@ public class InventoryMoveQuantityChange {
     this.quantity = quantity;
   }
 
-  /**
-   * Details about where the move will be made from.
-   */
+  
   public InventoryMoveQuantityTerminalInput getFrom() {
     return from;
   }
@@ -67,9 +49,7 @@ public class InventoryMoveQuantityChange {
     this.from = from;
   }
 
-  /**
-   * Details about where the move will be made to.
-   */
+  
   public InventoryMoveQuantityTerminalInput getTo() {
     return to;
   }
@@ -104,24 +84,16 @@ public class InventoryMoveQuantityChange {
   }
 
   public static class Builder {
-    /**
-     * Specifies the inventory item to which the change will be applied.
-     */
+    
     private String inventoryItemId;
 
-    /**
-     * The amount by which the inventory quantity will be changed.
-     */
+    
     private int quantity;
 
-    /**
-     * Details about where the move will be made from.
-     */
+    
     private InventoryMoveQuantityTerminalInput from;
 
-    /**
-     * Details about where the move will be made to.
-     */
+    
     private InventoryMoveQuantityTerminalInput to;
 
     public InventoryMoveQuantityChange build() {
@@ -133,33 +105,25 @@ public class InventoryMoveQuantityChange {
       return result;
     }
 
-    /**
-     * Specifies the inventory item to which the change will be applied.
-     */
+    
     public Builder inventoryItemId(String inventoryItemId) {
       this.inventoryItemId = inventoryItemId;
       return this;
     }
 
-    /**
-     * The amount by which the inventory quantity will be changed.
-     */
+    
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    /**
-     * Details about where the move will be made from.
-     */
+    
     public Builder from(InventoryMoveQuantityTerminalInput from) {
       this.from = from;
       return this;
     }
 
-    /**
-     * Details about where the move will be made to.
-     */
+    
     public Builder to(InventoryMoveQuantityTerminalInput to) {
       this.to = to;
       return this;

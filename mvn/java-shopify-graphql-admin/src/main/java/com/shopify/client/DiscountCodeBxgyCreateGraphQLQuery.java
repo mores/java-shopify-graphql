@@ -7,16 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Creates a
- * [buy X get Y discount (BXGY)](https://help.shopify.com/manual/discounts/discount-types/buy-x-get-y)
- * that's applied on a cart and at checkout when a customer enters a code.
- *   
- * > Note:
- * > To create discounts that are automatically applied on a cart and at checkout, use the
- * [`discountAutomaticBxgyCreate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/discountAutomaticBxgyCreate)
- * mutation.
- */
+
 public class DiscountCodeBxgyCreateGraphQLQuery extends GraphQLQuery {
   public DiscountCodeBxgyCreateGraphQLQuery(DiscountCodeBxgyInput bxgyCodeDiscount,
       String queryName, Set<String> fieldsSet) {
@@ -51,9 +42,7 @@ public class DiscountCodeBxgyCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The input data used to create the BXGY code discount.
-     */
+    
     public Builder bxgyCodeDiscount(DiscountCodeBxgyInput bxgyCodeDiscount) {
       this.bxgyCodeDiscount = bxgyCodeDiscount;
       this.fieldsSet.add("bxgyCodeDiscount");

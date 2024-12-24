@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `metaobjectDefinitionDelete` mutation.
- */
+
 public class MetaobjectDefinitionDeletePayload {
-  /**
-   * The ID of the deleted metaobjects definition.
-   */
+  
   private String deletedId;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<MetaobjectUserError> userErrors;
 
   public MetaobjectDefinitionDeletePayload() {
   }
 
-  /**
-   * The ID of the deleted metaobjects definition.
-   */
+  
   public String getDeletedId() {
     return deletedId;
   }
@@ -34,9 +26,7 @@ public class MetaobjectDefinitionDeletePayload {
     this.deletedId = deletedId;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<MetaobjectUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class MetaobjectDefinitionDeletePayload {
   }
 
   public static class Builder {
-    /**
-     * The ID of the deleted metaobjects definition.
-     */
+    
     private String deletedId;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<MetaobjectUserError> userErrors;
 
     public MetaobjectDefinitionDeletePayload build() {
@@ -86,17 +72,13 @@ public class MetaobjectDefinitionDeletePayload {
       return result;
     }
 
-    /**
-     * The ID of the deleted metaobjects definition.
-     */
+    
     public Builder deletedId(String deletedId) {
       this.deletedId = deletedId;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<MetaobjectUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

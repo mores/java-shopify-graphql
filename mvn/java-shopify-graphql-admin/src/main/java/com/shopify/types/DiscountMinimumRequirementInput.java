@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for the minimum quantity or subtotal required for a discount.
- */
+
 public class DiscountMinimumRequirementInput {
-  /**
-   * The minimum required quantity.
-   */
+  
   private DiscountMinimumQuantityInput quantity;
 
-  /**
-   * The minimum required subtotal.
-   */
+  
   private DiscountMinimumSubtotalInput subtotal;
 
   public DiscountMinimumRequirementInput() {
   }
 
-  /**
-   * The minimum required quantity.
-   */
+  
   public DiscountMinimumQuantityInput getQuantity() {
     return quantity;
   }
@@ -33,9 +25,7 @@ public class DiscountMinimumRequirementInput {
     this.quantity = quantity;
   }
 
-  /**
-   * The minimum required subtotal.
-   */
+  
   public DiscountMinimumSubtotalInput getSubtotal() {
     return subtotal;
   }
@@ -68,14 +58,10 @@ public class DiscountMinimumRequirementInput {
   }
 
   public static class Builder {
-    /**
-     * The minimum required quantity.
-     */
+    
     private DiscountMinimumQuantityInput quantity;
 
-    /**
-     * The minimum required subtotal.
-     */
+    
     private DiscountMinimumSubtotalInput subtotal;
 
     public DiscountMinimumRequirementInput build() {
@@ -85,17 +71,13 @@ public class DiscountMinimumRequirementInput {
       return result;
     }
 
-    /**
-     * The minimum required quantity.
-     */
+    
     public Builder quantity(DiscountMinimumQuantityInput quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    /**
-     * The minimum required subtotal.
-     */
+    
     public Builder subtotal(DiscountMinimumSubtotalInput subtotal) {
       this.subtotal = subtotal;
       return this;

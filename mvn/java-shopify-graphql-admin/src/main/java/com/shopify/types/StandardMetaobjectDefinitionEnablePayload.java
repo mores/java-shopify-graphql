@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `standardMetaobjectDefinitionEnable` mutation.
- */
+
 public class StandardMetaobjectDefinitionEnablePayload {
-  /**
-   * The metaobject definition that was enabled using the standard template.
-   */
+  
   private MetaobjectDefinition metaobjectDefinition;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<MetaobjectUserError> userErrors;
 
   public StandardMetaobjectDefinitionEnablePayload() {
   }
 
-  /**
-   * The metaobject definition that was enabled using the standard template.
-   */
+  
   public MetaobjectDefinition getMetaobjectDefinition() {
     return metaobjectDefinition;
   }
@@ -34,9 +26,7 @@ public class StandardMetaobjectDefinitionEnablePayload {
     this.metaobjectDefinition = metaobjectDefinition;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<MetaobjectUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class StandardMetaobjectDefinitionEnablePayload {
   }
 
   public static class Builder {
-    /**
-     * The metaobject definition that was enabled using the standard template.
-     */
+    
     private MetaobjectDefinition metaobjectDefinition;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<MetaobjectUserError> userErrors;
 
     public StandardMetaobjectDefinitionEnablePayload build() {
@@ -86,17 +72,13 @@ public class StandardMetaobjectDefinitionEnablePayload {
       return result;
     }
 
-    /**
-     * The metaobject definition that was enabled using the standard template.
-     */
+    
     public Builder metaobjectDefinition(MetaobjectDefinition metaobjectDefinition) {
       this.metaobjectDefinition = metaobjectDefinition;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<MetaobjectUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

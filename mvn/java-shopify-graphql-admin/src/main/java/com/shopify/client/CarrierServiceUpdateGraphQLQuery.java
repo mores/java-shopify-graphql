@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Updates a carrier service. Only the app that creates a carrier service can update it.
- */
+
 public class CarrierServiceUpdateGraphQLQuery extends GraphQLQuery {
   public CarrierServiceUpdateGraphQLQuery(DeliveryCarrierServiceUpdateInput input, String queryName,
       Set<String> fieldsSet) {
@@ -44,9 +42,7 @@ public class CarrierServiceUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The input fields used to update a carrier service.
-     */
+    
     public Builder input(DeliveryCarrierServiceUpdateInput input) {
       this.input = input;
       this.fieldsSet.add("input");

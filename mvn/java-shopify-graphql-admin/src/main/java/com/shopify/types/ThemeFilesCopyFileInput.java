@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for the file copy.
- */
+
 public class ThemeFilesCopyFileInput {
-  /**
-   * The new file where the content is copied to.
-   */
+  
   private String dstFilename;
 
-  /**
-   * The source file to copy from.
-   */
+  
   private String srcFilename;
 
   public ThemeFilesCopyFileInput() {
   }
 
-  /**
-   * The new file where the content is copied to.
-   */
+  
   public String getDstFilename() {
     return dstFilename;
   }
@@ -33,9 +25,7 @@ public class ThemeFilesCopyFileInput {
     this.dstFilename = dstFilename;
   }
 
-  /**
-   * The source file to copy from.
-   */
+  
   public String getSrcFilename() {
     return srcFilename;
   }
@@ -68,14 +58,10 @@ public class ThemeFilesCopyFileInput {
   }
 
   public static class Builder {
-    /**
-     * The new file where the content is copied to.
-     */
+    
     private String dstFilename;
 
-    /**
-     * The source file to copy from.
-     */
+    
     private String srcFilename;
 
     public ThemeFilesCopyFileInput build() {
@@ -85,17 +71,13 @@ public class ThemeFilesCopyFileInput {
       return result;
     }
 
-    /**
-     * The new file where the content is copied to.
-     */
+    
     public Builder dstFilename(String dstFilename) {
       this.dstFilename = dstFilename;
       return this;
     }
 
-    /**
-     * The source file to copy from.
-     */
+    
     public Builder srcFilename(String srcFilename) {
       this.srcFilename = srcFilename;
       return this;

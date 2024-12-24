@@ -6,36 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for the per-order quantity rule to be applied on the product variant.
- */
+
 public class QuantityRuleInput {
-  /**
-   * The quantity increment.
-   */
+  
   private int increment;
 
-  /**
-   * The maximum quantity.
-   */
+  
   private Integer maximum = null;
 
-  /**
-   * The minimum quantity.
-   */
+  
   private int minimum;
 
-  /**
-   * Product variant on which to apply the quantity rule.
-   */
+  
   private String variantId;
 
   public QuantityRuleInput() {
   }
 
-  /**
-   * The quantity increment.
-   */
+  
   public int getIncrement() {
     return increment;
   }
@@ -44,9 +32,7 @@ public class QuantityRuleInput {
     this.increment = increment;
   }
 
-  /**
-   * The maximum quantity.
-   */
+  
   public Integer getMaximum() {
     return maximum;
   }
@@ -55,9 +41,7 @@ public class QuantityRuleInput {
     this.maximum = maximum;
   }
 
-  /**
-   * The minimum quantity.
-   */
+  
   public int getMinimum() {
     return minimum;
   }
@@ -66,9 +50,7 @@ public class QuantityRuleInput {
     this.minimum = minimum;
   }
 
-  /**
-   * Product variant on which to apply the quantity rule.
-   */
+  
   public String getVariantId() {
     return variantId;
   }
@@ -103,24 +85,16 @@ public class QuantityRuleInput {
   }
 
   public static class Builder {
-    /**
-     * The quantity increment.
-     */
+    
     private int increment;
 
-    /**
-     * The maximum quantity.
-     */
+    
     private Integer maximum = null;
 
-    /**
-     * The minimum quantity.
-     */
+    
     private int minimum;
 
-    /**
-     * Product variant on which to apply the quantity rule.
-     */
+    
     private String variantId;
 
     public QuantityRuleInput build() {
@@ -132,33 +106,25 @@ public class QuantityRuleInput {
       return result;
     }
 
-    /**
-     * The quantity increment.
-     */
+    
     public Builder increment(int increment) {
       this.increment = increment;
       return this;
     }
 
-    /**
-     * The maximum quantity.
-     */
+    
     public Builder maximum(Integer maximum) {
       this.maximum = maximum;
       return this;
     }
 
-    /**
-     * The minimum quantity.
-     */
+    
     public Builder minimum(int minimum) {
       this.minimum = minimum;
       return this;
     }
 
-    /**
-     * Product variant on which to apply the quantity rule.
-     */
+    
     public Builder variantId(String variantId) {
       this.variantId = variantId;
       return this;

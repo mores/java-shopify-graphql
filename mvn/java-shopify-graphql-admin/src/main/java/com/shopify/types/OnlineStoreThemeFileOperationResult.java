@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents the result of a copy, delete, or write operation performed on a theme file.
- */
+
 public class OnlineStoreThemeFileOperationResult {
-  /**
-   * Unique identifier of the theme file.
-   */
+  
   private String filename;
 
   public OnlineStoreThemeFileOperationResult() {
   }
 
-  /**
-   * Unique identifier of the theme file.
-   */
+  
   public String getFilename() {
     return filename;
   }
@@ -51,9 +45,7 @@ public class OnlineStoreThemeFileOperationResult {
   }
 
   public static class Builder {
-    /**
-     * Unique identifier of the theme file.
-     */
+    
     private String filename;
 
     public OnlineStoreThemeFileOperationResult build() {
@@ -62,9 +54,7 @@ public class OnlineStoreThemeFileOperationResult {
       return result;
     }
 
-    /**
-     * Unique identifier of the theme file.
-     */
+    
     public Builder filename(String filename) {
       this.filename = filename;
       return this;

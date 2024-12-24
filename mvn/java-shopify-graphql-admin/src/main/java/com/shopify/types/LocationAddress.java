@@ -7,76 +7,48 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Represents the address of a location.
- */
+
 public class LocationAddress {
-  /**
-   * The first line of the address for the location.
-   */
+  
   private String address1;
 
-  /**
-   * The second line of the address for the location.
-   */
+  
   private String address2;
 
-  /**
-   * The city of the location.
-   */
+  
   private String city;
 
-  /**
-   * The country of the location.
-   */
+  
   private String country;
 
-  /**
-   * The country code of the location.
-   */
+  
   private String countryCode;
 
-  /**
-   * A formatted version of the address for the location.
-   */
+  
   private List<String> formatted;
 
-  /**
-   * The approximate latitude coordinates of the location.
-   */
+  
   private Double latitude;
 
-  /**
-   * The approximate longitude coordinates of the location.
-   */
+  
   private Double longitude;
 
-  /**
-   * The phone number of the location.
-   */
+  
   private String phone;
 
-  /**
-   * The province of the location.
-   */
+  
   private String province;
 
-  /**
-   * The code for the province, state, or district of the address of the location.
-   */
+  
   private String provinceCode;
 
-  /**
-   * The ZIP code of the location.
-   */
+  
   private String zip;
 
   public LocationAddress() {
   }
 
-  /**
-   * The first line of the address for the location.
-   */
+  
   public String getAddress1() {
     return address1;
   }
@@ -85,9 +57,7 @@ public class LocationAddress {
     this.address1 = address1;
   }
 
-  /**
-   * The second line of the address for the location.
-   */
+  
   public String getAddress2() {
     return address2;
   }
@@ -96,9 +66,7 @@ public class LocationAddress {
     this.address2 = address2;
   }
 
-  /**
-   * The city of the location.
-   */
+  
   public String getCity() {
     return city;
   }
@@ -107,9 +75,7 @@ public class LocationAddress {
     this.city = city;
   }
 
-  /**
-   * The country of the location.
-   */
+  
   public String getCountry() {
     return country;
   }
@@ -118,9 +84,7 @@ public class LocationAddress {
     this.country = country;
   }
 
-  /**
-   * The country code of the location.
-   */
+  
   public String getCountryCode() {
     return countryCode;
   }
@@ -129,9 +93,7 @@ public class LocationAddress {
     this.countryCode = countryCode;
   }
 
-  /**
-   * A formatted version of the address for the location.
-   */
+  
   public List<String> getFormatted() {
     return formatted;
   }
@@ -140,9 +102,7 @@ public class LocationAddress {
     this.formatted = formatted;
   }
 
-  /**
-   * The approximate latitude coordinates of the location.
-   */
+  
   public Double getLatitude() {
     return latitude;
   }
@@ -151,9 +111,7 @@ public class LocationAddress {
     this.latitude = latitude;
   }
 
-  /**
-   * The approximate longitude coordinates of the location.
-   */
+  
   public Double getLongitude() {
     return longitude;
   }
@@ -162,9 +120,7 @@ public class LocationAddress {
     this.longitude = longitude;
   }
 
-  /**
-   * The phone number of the location.
-   */
+  
   public String getPhone() {
     return phone;
   }
@@ -173,9 +129,7 @@ public class LocationAddress {
     this.phone = phone;
   }
 
-  /**
-   * The province of the location.
-   */
+  
   public String getProvince() {
     return province;
   }
@@ -184,9 +138,7 @@ public class LocationAddress {
     this.province = province;
   }
 
-  /**
-   * The code for the province, state, or district of the address of the location.
-   */
+  
   public String getProvinceCode() {
     return provinceCode;
   }
@@ -195,9 +147,7 @@ public class LocationAddress {
     this.provinceCode = provinceCode;
   }
 
-  /**
-   * The ZIP code of the location.
-   */
+  
   public String getZip() {
     return zip;
   }
@@ -240,64 +190,40 @@ public class LocationAddress {
   }
 
   public static class Builder {
-    /**
-     * The first line of the address for the location.
-     */
+    
     private String address1;
 
-    /**
-     * The second line of the address for the location.
-     */
+    
     private String address2;
 
-    /**
-     * The city of the location.
-     */
+    
     private String city;
 
-    /**
-     * The country of the location.
-     */
+    
     private String country;
 
-    /**
-     * The country code of the location.
-     */
+    
     private String countryCode;
 
-    /**
-     * A formatted version of the address for the location.
-     */
+    
     private List<String> formatted;
 
-    /**
-     * The approximate latitude coordinates of the location.
-     */
+    
     private Double latitude;
 
-    /**
-     * The approximate longitude coordinates of the location.
-     */
+    
     private Double longitude;
 
-    /**
-     * The phone number of the location.
-     */
+    
     private String phone;
 
-    /**
-     * The province of the location.
-     */
+    
     private String province;
 
-    /**
-     * The code for the province, state, or district of the address of the location.
-     */
+    
     private String provinceCode;
 
-    /**
-     * The ZIP code of the location.
-     */
+    
     private String zip;
 
     public LocationAddress build() {
@@ -317,97 +243,73 @@ public class LocationAddress {
       return result;
     }
 
-    /**
-     * The first line of the address for the location.
-     */
+    
     public Builder address1(String address1) {
       this.address1 = address1;
       return this;
     }
 
-    /**
-     * The second line of the address for the location.
-     */
+    
     public Builder address2(String address2) {
       this.address2 = address2;
       return this;
     }
 
-    /**
-     * The city of the location.
-     */
+    
     public Builder city(String city) {
       this.city = city;
       return this;
     }
 
-    /**
-     * The country of the location.
-     */
+    
     public Builder country(String country) {
       this.country = country;
       return this;
     }
 
-    /**
-     * The country code of the location.
-     */
+    
     public Builder countryCode(String countryCode) {
       this.countryCode = countryCode;
       return this;
     }
 
-    /**
-     * A formatted version of the address for the location.
-     */
+    
     public Builder formatted(List<String> formatted) {
       this.formatted = formatted;
       return this;
     }
 
-    /**
-     * The approximate latitude coordinates of the location.
-     */
+    
     public Builder latitude(Double latitude) {
       this.latitude = latitude;
       return this;
     }
 
-    /**
-     * The approximate longitude coordinates of the location.
-     */
+    
     public Builder longitude(Double longitude) {
       this.longitude = longitude;
       return this;
     }
 
-    /**
-     * The phone number of the location.
-     */
+    
     public Builder phone(String phone) {
       this.phone = phone;
       return this;
     }
 
-    /**
-     * The province of the location.
-     */
+    
     public Builder province(String province) {
       this.province = province;
       return this;
     }
 
-    /**
-     * The code for the province, state, or district of the address of the location.
-     */
+    
     public Builder provinceCode(String provinceCode) {
       this.provinceCode = provinceCode;
       return this;
     }
 
-    /**
-     * The ZIP code of the location.
-     */
+    
     public Builder zip(String zip) {
       this.zip = zip;
       return this;

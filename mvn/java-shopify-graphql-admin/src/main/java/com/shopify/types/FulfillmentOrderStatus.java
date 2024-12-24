@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * The status of a fulfillment order.
- */
+
 public enum FulfillmentOrderStatus {
   OPEN,
 

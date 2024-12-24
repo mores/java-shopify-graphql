@@ -6,31 +6,21 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * The return label file information for a reverse delivery.
- */
+
 public class ReverseDeliveryLabelV2 {
-  /**
-   * The date and time when the reverse delivery label was created.
-   */
+  
   private OffsetDateTime createdAt;
 
-  /**
-   * A public link that can be used to download the label image.
-   */
+  
   private String publicFileUrl;
 
-  /**
-   * The date and time when the reverse delivery label was updated.
-   */
+  
   private OffsetDateTime updatedAt;
 
   public ReverseDeliveryLabelV2() {
   }
 
-  /**
-   * The date and time when the reverse delivery label was created.
-   */
+  
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -39,9 +29,7 @@ public class ReverseDeliveryLabelV2 {
     this.createdAt = createdAt;
   }
 
-  /**
-   * A public link that can be used to download the label image.
-   */
+  
   public String getPublicFileUrl() {
     return publicFileUrl;
   }
@@ -50,9 +38,7 @@ public class ReverseDeliveryLabelV2 {
     this.publicFileUrl = publicFileUrl;
   }
 
-  /**
-   * The date and time when the reverse delivery label was updated.
-   */
+  
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
@@ -86,19 +72,13 @@ public class ReverseDeliveryLabelV2 {
   }
 
   public static class Builder {
-    /**
-     * The date and time when the reverse delivery label was created.
-     */
+    
     private OffsetDateTime createdAt;
 
-    /**
-     * A public link that can be used to download the label image.
-     */
+    
     private String publicFileUrl;
 
-    /**
-     * The date and time when the reverse delivery label was updated.
-     */
+    
     private OffsetDateTime updatedAt;
 
     public ReverseDeliveryLabelV2 build() {
@@ -109,25 +89,19 @@ public class ReverseDeliveryLabelV2 {
       return result;
     }
 
-    /**
-     * The date and time when the reverse delivery label was created.
-     */
+    
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    /**
-     * A public link that can be used to download the label image.
-     */
+    
     public Builder publicFileUrl(String publicFileUrl) {
       this.publicFileUrl = publicFileUrl;
       return this;
     }
 
-    /**
-     * The date and time when the reverse delivery label was updated.
-     */
+    
     public Builder updatedAt(OffsetDateTime updatedAt) {
       this.updatedAt = updatedAt;
       return this;

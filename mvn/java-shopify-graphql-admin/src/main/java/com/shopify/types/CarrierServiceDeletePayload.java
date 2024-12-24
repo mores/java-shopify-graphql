@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `carrierServiceDelete` mutation.
- */
+
 public class CarrierServiceDeletePayload {
-  /**
-   * The ID of the deleted carrier service.
-   */
+  
   private String deletedId;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<CarrierServiceDeleteUserError> userErrors;
 
   public CarrierServiceDeletePayload() {
   }
 
-  /**
-   * The ID of the deleted carrier service.
-   */
+  
   public String getDeletedId() {
     return deletedId;
   }
@@ -34,9 +26,7 @@ public class CarrierServiceDeletePayload {
     this.deletedId = deletedId;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<CarrierServiceDeleteUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class CarrierServiceDeletePayload {
   }
 
   public static class Builder {
-    /**
-     * The ID of the deleted carrier service.
-     */
+    
     private String deletedId;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<CarrierServiceDeleteUserError> userErrors;
 
     public CarrierServiceDeletePayload build() {
@@ -86,17 +72,13 @@ public class CarrierServiceDeletePayload {
       return result;
     }
 
-    /**
-     * The ID of the deleted carrier service.
-     */
+    
     public Builder deletedId(String deletedId) {
       this.deletedId = deletedId;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<CarrierServiceDeleteUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for linking a combined listing option to a metafield.
- */
+
 public class LinkedMetafieldInput {
-  /**
-   * The namespace of the linked metafield.
-   */
+  
   private String namespace;
 
-  /**
-   * The key of the linked metafield.
-   */
+  
   private String key;
 
-  /**
-   * The values of the linked metafield.
-   */
+  
   private List<String> values;
 
   public LinkedMetafieldInput() {
   }
 
-  /**
-   * The namespace of the linked metafield.
-   */
+  
   public String getNamespace() {
     return namespace;
   }
@@ -39,9 +29,7 @@ public class LinkedMetafieldInput {
     this.namespace = namespace;
   }
 
-  /**
-   * The key of the linked metafield.
-   */
+  
   public String getKey() {
     return key;
   }
@@ -50,9 +38,7 @@ public class LinkedMetafieldInput {
     this.key = key;
   }
 
-  /**
-   * The values of the linked metafield.
-   */
+  
   public List<String> getValues() {
     return values;
   }
@@ -86,19 +72,13 @@ public class LinkedMetafieldInput {
   }
 
   public static class Builder {
-    /**
-     * The namespace of the linked metafield.
-     */
+    
     private String namespace;
 
-    /**
-     * The key of the linked metafield.
-     */
+    
     private String key;
 
-    /**
-     * The values of the linked metafield.
-     */
+    
     private List<String> values;
 
     public LinkedMetafieldInput build() {
@@ -109,25 +89,19 @@ public class LinkedMetafieldInput {
       return result;
     }
 
-    /**
-     * The namespace of the linked metafield.
-     */
+    
     public Builder namespace(String namespace) {
       this.namespace = namespace;
       return this;
     }
 
-    /**
-     * The key of the linked metafield.
-     */
+    
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
-    /**
-     * The values of the linked metafield.
-     */
+    
     public Builder values(List<String> values) {
       this.values = values;
       return this;

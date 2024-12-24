@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `webhookSubscriptionDelete` mutation.
- */
+
 public class WebhookSubscriptionDeletePayload {
-  /**
-   * The ID of the deleted webhook subscription.
-   */
+  
   private String deletedWebhookSubscriptionId;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public WebhookSubscriptionDeletePayload() {
   }
 
-  /**
-   * The ID of the deleted webhook subscription.
-   */
+  
   public String getDeletedWebhookSubscriptionId() {
     return deletedWebhookSubscriptionId;
   }
@@ -34,9 +26,7 @@ public class WebhookSubscriptionDeletePayload {
     this.deletedWebhookSubscriptionId = deletedWebhookSubscriptionId;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class WebhookSubscriptionDeletePayload {
   }
 
   public static class Builder {
-    /**
-     * The ID of the deleted webhook subscription.
-     */
+    
     private String deletedWebhookSubscriptionId;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public WebhookSubscriptionDeletePayload build() {
@@ -86,17 +72,13 @@ public class WebhookSubscriptionDeletePayload {
       return result;
     }
 
-    /**
-     * The ID of the deleted webhook subscription.
-     */
+    
     public Builder deletedWebhookSubscriptionId(String deletedWebhookSubscriptionId) {
       this.deletedWebhookSubscriptionId = deletedWebhookSubscriptionId;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

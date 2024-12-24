@@ -5,36 +5,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * An action associated to a resource alert, such as editing variants.
- */
+
 public class ResourceAlertAction {
-  /**
-   * Whether the action appears as a button or as a link.
-   */
+  
   private boolean primary;
 
-  /**
-   * Resource for the action to show.
-   */
+  
   private String show;
 
-  /**
-   * The text for the button in the alert. For example, _Edit variants_.
-   */
+  
   private String title;
 
-  /**
-   * The target URL that the button links to.
-   */
+  
   private String url;
 
   public ResourceAlertAction() {
   }
 
-  /**
-   * Whether the action appears as a button or as a link.
-   */
+  
   public boolean getPrimary() {
     return primary;
   }
@@ -43,9 +31,7 @@ public class ResourceAlertAction {
     this.primary = primary;
   }
 
-  /**
-   * Resource for the action to show.
-   */
+  
   public String getShow() {
     return show;
   }
@@ -54,9 +40,7 @@ public class ResourceAlertAction {
     this.show = show;
   }
 
-  /**
-   * The text for the button in the alert. For example, _Edit variants_.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -65,9 +49,7 @@ public class ResourceAlertAction {
     this.title = title;
   }
 
-  /**
-   * The target URL that the button links to.
-   */
+  
   public String getUrl() {
     return url;
   }
@@ -102,24 +84,16 @@ public class ResourceAlertAction {
   }
 
   public static class Builder {
-    /**
-     * Whether the action appears as a button or as a link.
-     */
+    
     private boolean primary;
 
-    /**
-     * Resource for the action to show.
-     */
+    
     private String show;
 
-    /**
-     * The text for the button in the alert. For example, _Edit variants_.
-     */
+    
     private String title;
 
-    /**
-     * The target URL that the button links to.
-     */
+    
     private String url;
 
     public ResourceAlertAction build() {
@@ -131,33 +105,25 @@ public class ResourceAlertAction {
       return result;
     }
 
-    /**
-     * Whether the action appears as a button or as a link.
-     */
+    
     public Builder primary(boolean primary) {
       this.primary = primary;
       return this;
     }
 
-    /**
-     * Resource for the action to show.
-     */
+    
     public Builder show(String show) {
       this.show = show;
       return this;
     }
 
-    /**
-     * The text for the button in the alert. For example, _Edit variants_.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    /**
-     * The target URL that the button links to.
-     */
+    
     public Builder url(String url) {
       this.url = url;
       return this;

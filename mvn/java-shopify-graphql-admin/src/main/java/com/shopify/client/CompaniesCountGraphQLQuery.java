@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * The number of companies for a shop.
- */
+
 public class CompaniesCountGraphQLQuery extends GraphQLQuery {
   public CompaniesCountGraphQLQuery(String queryName) {
     super("query", queryName);

@@ -6,49 +6,33 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The Apple mobile platform application.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class AppleApplication implements MobilePlatformApplication {
-  /**
-   * The iOS App Clip application ID.
-   */
+  
   private String appClipApplicationId;
 
-  /**
-   * Whether iOS App Clips are enabled for this app.
-   */
+  
   private boolean appClipsEnabled;
 
-  /**
-   * The iOS App ID.
-   */
+  
   private String appId;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * Whether iOS shared web credentials are enabled for this app.
-   */
+  
   private boolean sharedWebCredentialsEnabled;
 
-  /**
-   * Whether iOS Universal Links are supported by this app.
-   */
+  
   private boolean universalLinksEnabled;
 
   public AppleApplication() {
   }
 
-  /**
-   * The iOS App Clip application ID.
-   */
+  
   public String getAppClipApplicationId() {
     return appClipApplicationId;
   }
@@ -57,9 +41,7 @@ public class AppleApplication implements MobilePlatformApplication {
     this.appClipApplicationId = appClipApplicationId;
   }
 
-  /**
-   * Whether iOS App Clips are enabled for this app.
-   */
+  
   public boolean getAppClipsEnabled() {
     return appClipsEnabled;
   }
@@ -68,9 +50,7 @@ public class AppleApplication implements MobilePlatformApplication {
     this.appClipsEnabled = appClipsEnabled;
   }
 
-  /**
-   * The iOS App ID.
-   */
+  
   public String getAppId() {
     return appId;
   }
@@ -79,9 +59,7 @@ public class AppleApplication implements MobilePlatformApplication {
     this.appId = appId;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -90,9 +68,7 @@ public class AppleApplication implements MobilePlatformApplication {
     this.id = id;
   }
 
-  /**
-   * Whether iOS shared web credentials are enabled for this app.
-   */
+  
   public boolean getSharedWebCredentialsEnabled() {
     return sharedWebCredentialsEnabled;
   }
@@ -101,9 +77,7 @@ public class AppleApplication implements MobilePlatformApplication {
     this.sharedWebCredentialsEnabled = sharedWebCredentialsEnabled;
   }
 
-  /**
-   * Whether iOS Universal Links are supported by this app.
-   */
+  
   public boolean getUniversalLinksEnabled() {
     return universalLinksEnabled;
   }
@@ -140,34 +114,22 @@ public class AppleApplication implements MobilePlatformApplication {
   }
 
   public static class Builder {
-    /**
-     * The iOS App Clip application ID.
-     */
+    
     private String appClipApplicationId;
 
-    /**
-     * Whether iOS App Clips are enabled for this app.
-     */
+    
     private boolean appClipsEnabled;
 
-    /**
-     * The iOS App ID.
-     */
+    
     private String appId;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * Whether iOS shared web credentials are enabled for this app.
-     */
+    
     private boolean sharedWebCredentialsEnabled;
 
-    /**
-     * Whether iOS Universal Links are supported by this app.
-     */
+    
     private boolean universalLinksEnabled;
 
     public AppleApplication build() {
@@ -181,49 +143,37 @@ public class AppleApplication implements MobilePlatformApplication {
       return result;
     }
 
-    /**
-     * The iOS App Clip application ID.
-     */
+    
     public Builder appClipApplicationId(String appClipApplicationId) {
       this.appClipApplicationId = appClipApplicationId;
       return this;
     }
 
-    /**
-     * Whether iOS App Clips are enabled for this app.
-     */
+    
     public Builder appClipsEnabled(boolean appClipsEnabled) {
       this.appClipsEnabled = appClipsEnabled;
       return this;
     }
 
-    /**
-     * The iOS App ID.
-     */
+    
     public Builder appId(String appId) {
       this.appId = appId;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * Whether iOS shared web credentials are enabled for this app.
-     */
+    
     public Builder sharedWebCredentialsEnabled(boolean sharedWebCredentialsEnabled) {
       this.sharedWebCredentialsEnabled = sharedWebCredentialsEnabled;
       return this;
     }
 
-    /**
-     * Whether iOS Universal Links are supported by this app.
-     */
+    
     public Builder universalLinksEnabled(boolean universalLinksEnabled) {
       this.universalLinksEnabled = universalLinksEnabled;
       return this;

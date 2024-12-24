@@ -6,92 +6,57 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Represents a refund suggested by Shopify based on the items being reimbursed.
- * You can then use the suggested refund object to generate an actual refund.
- */
+
 public class SuggestedRefund {
-  /**
-   * The total monetary value to be refunded.
-   */
+  
   private String amount;
 
-  /**
-   * The total monetary value to be refunded in shop and presentment currencies.
-   */
+  
   private MoneyBag amountSet;
 
-  /**
-   * The sum of all the discounted prices of the line items being refunded.
-   */
+  
   private MoneyBag discountedSubtotalSet;
 
-  /**
-   * The total monetary value available to refund.
-   */
+  
   private String maximumRefundable;
 
-  /**
-   * The total monetary value available to refund in shop and presentment currencies.
-   */
+  
   private MoneyBag maximumRefundableSet;
 
-  /**
-   * A list of duties to be refunded from the order.
-   */
+  
   private List<RefundDuty> refundDuties;
 
-  /**
-   * A list of line items to be refunded, along with restock instructions.
-   */
+  
   private List<RefundLineItem> refundLineItems;
 
-  /**
-   * The shipping costs to be refunded from the order.
-   */
+  
   private ShippingRefund shipping;
 
-  /**
-   * The sum of all the prices of the line items being refunded.
-   */
+  
   private String subtotal;
 
-  /**
-   * The sum of all the prices of the line items being refunded in shop and presentment currencies.
-   */
+  
   private MoneyBag subtotalSet;
 
-  /**
-   * A list of suggested order transactions.
-   */
+  
   private List<SuggestedOrderTransaction> suggestedTransactions;
 
-  /**
-   * The total cart discount amount that was applied to all line items in this refund.
-   */
+  
   private MoneyBag totalCartDiscountAmountSet;
 
-  /**
-   * The sum of all the duties being refunded from the order in shop and presentment currencies. The value must be positive.
-   */
+  
   private MoneyBag totalDutiesSet;
 
-  /**
-   * The sum of the taxes being refunded from the order in shop and presentment currencies. The value must be positive.
-   */
+  
   private MoneyBag totalTaxSet;
 
-  /**
-   * The sum of the taxes being refunded from the order. The value must be positive.
-   */
+  
   private String totalTaxes;
 
   public SuggestedRefund() {
   }
 
-  /**
-   * The total monetary value to be refunded.
-   */
+  
   public String getAmount() {
     return amount;
   }
@@ -100,9 +65,7 @@ public class SuggestedRefund {
     this.amount = amount;
   }
 
-  /**
-   * The total monetary value to be refunded in shop and presentment currencies.
-   */
+  
   public MoneyBag getAmountSet() {
     return amountSet;
   }
@@ -111,9 +74,7 @@ public class SuggestedRefund {
     this.amountSet = amountSet;
   }
 
-  /**
-   * The sum of all the discounted prices of the line items being refunded.
-   */
+  
   public MoneyBag getDiscountedSubtotalSet() {
     return discountedSubtotalSet;
   }
@@ -122,9 +83,7 @@ public class SuggestedRefund {
     this.discountedSubtotalSet = discountedSubtotalSet;
   }
 
-  /**
-   * The total monetary value available to refund.
-   */
+  
   public String getMaximumRefundable() {
     return maximumRefundable;
   }
@@ -133,9 +92,7 @@ public class SuggestedRefund {
     this.maximumRefundable = maximumRefundable;
   }
 
-  /**
-   * The total monetary value available to refund in shop and presentment currencies.
-   */
+  
   public MoneyBag getMaximumRefundableSet() {
     return maximumRefundableSet;
   }
@@ -144,9 +101,7 @@ public class SuggestedRefund {
     this.maximumRefundableSet = maximumRefundableSet;
   }
 
-  /**
-   * A list of duties to be refunded from the order.
-   */
+  
   public List<RefundDuty> getRefundDuties() {
     return refundDuties;
   }
@@ -155,9 +110,7 @@ public class SuggestedRefund {
     this.refundDuties = refundDuties;
   }
 
-  /**
-   * A list of line items to be refunded, along with restock instructions.
-   */
+  
   public List<RefundLineItem> getRefundLineItems() {
     return refundLineItems;
   }
@@ -166,9 +119,7 @@ public class SuggestedRefund {
     this.refundLineItems = refundLineItems;
   }
 
-  /**
-   * The shipping costs to be refunded from the order.
-   */
+  
   public ShippingRefund getShipping() {
     return shipping;
   }
@@ -177,9 +128,7 @@ public class SuggestedRefund {
     this.shipping = shipping;
   }
 
-  /**
-   * The sum of all the prices of the line items being refunded.
-   */
+  
   public String getSubtotal() {
     return subtotal;
   }
@@ -188,9 +137,7 @@ public class SuggestedRefund {
     this.subtotal = subtotal;
   }
 
-  /**
-   * The sum of all the prices of the line items being refunded in shop and presentment currencies.
-   */
+  
   public MoneyBag getSubtotalSet() {
     return subtotalSet;
   }
@@ -199,9 +146,7 @@ public class SuggestedRefund {
     this.subtotalSet = subtotalSet;
   }
 
-  /**
-   * A list of suggested order transactions.
-   */
+  
   public List<SuggestedOrderTransaction> getSuggestedTransactions() {
     return suggestedTransactions;
   }
@@ -210,9 +155,7 @@ public class SuggestedRefund {
     this.suggestedTransactions = suggestedTransactions;
   }
 
-  /**
-   * The total cart discount amount that was applied to all line items in this refund.
-   */
+  
   public MoneyBag getTotalCartDiscountAmountSet() {
     return totalCartDiscountAmountSet;
   }
@@ -221,9 +164,7 @@ public class SuggestedRefund {
     this.totalCartDiscountAmountSet = totalCartDiscountAmountSet;
   }
 
-  /**
-   * The sum of all the duties being refunded from the order in shop and presentment currencies. The value must be positive.
-   */
+  
   public MoneyBag getTotalDutiesSet() {
     return totalDutiesSet;
   }
@@ -232,9 +173,7 @@ public class SuggestedRefund {
     this.totalDutiesSet = totalDutiesSet;
   }
 
-  /**
-   * The sum of the taxes being refunded from the order in shop and presentment currencies. The value must be positive.
-   */
+  
   public MoneyBag getTotalTaxSet() {
     return totalTaxSet;
   }
@@ -243,9 +182,7 @@ public class SuggestedRefund {
     this.totalTaxSet = totalTaxSet;
   }
 
-  /**
-   * The sum of the taxes being refunded from the order. The value must be positive.
-   */
+  
   public String getTotalTaxes() {
     return totalTaxes;
   }
@@ -291,79 +228,49 @@ public class SuggestedRefund {
   }
 
   public static class Builder {
-    /**
-     * The total monetary value to be refunded.
-     */
+    
     private String amount;
 
-    /**
-     * The total monetary value to be refunded in shop and presentment currencies.
-     */
+    
     private MoneyBag amountSet;
 
-    /**
-     * The sum of all the discounted prices of the line items being refunded.
-     */
+    
     private MoneyBag discountedSubtotalSet;
 
-    /**
-     * The total monetary value available to refund.
-     */
+    
     private String maximumRefundable;
 
-    /**
-     * The total monetary value available to refund in shop and presentment currencies.
-     */
+    
     private MoneyBag maximumRefundableSet;
 
-    /**
-     * A list of duties to be refunded from the order.
-     */
+    
     private List<RefundDuty> refundDuties;
 
-    /**
-     * A list of line items to be refunded, along with restock instructions.
-     */
+    
     private List<RefundLineItem> refundLineItems;
 
-    /**
-     * The shipping costs to be refunded from the order.
-     */
+    
     private ShippingRefund shipping;
 
-    /**
-     * The sum of all the prices of the line items being refunded.
-     */
+    
     private String subtotal;
 
-    /**
-     * The sum of all the prices of the line items being refunded in shop and presentment currencies.
-     */
+    
     private MoneyBag subtotalSet;
 
-    /**
-     * A list of suggested order transactions.
-     */
+    
     private List<SuggestedOrderTransaction> suggestedTransactions;
 
-    /**
-     * The total cart discount amount that was applied to all line items in this refund.
-     */
+    
     private MoneyBag totalCartDiscountAmountSet;
 
-    /**
-     * The sum of all the duties being refunded from the order in shop and presentment currencies. The value must be positive.
-     */
+    
     private MoneyBag totalDutiesSet;
 
-    /**
-     * The sum of the taxes being refunded from the order in shop and presentment currencies. The value must be positive.
-     */
+    
     private MoneyBag totalTaxSet;
 
-    /**
-     * The sum of the taxes being refunded from the order. The value must be positive.
-     */
+    
     private String totalTaxes;
 
     public SuggestedRefund build() {
@@ -386,121 +293,91 @@ public class SuggestedRefund {
       return result;
     }
 
-    /**
-     * The total monetary value to be refunded.
-     */
+    
     public Builder amount(String amount) {
       this.amount = amount;
       return this;
     }
 
-    /**
-     * The total monetary value to be refunded in shop and presentment currencies.
-     */
+    
     public Builder amountSet(MoneyBag amountSet) {
       this.amountSet = amountSet;
       return this;
     }
 
-    /**
-     * The sum of all the discounted prices of the line items being refunded.
-     */
+    
     public Builder discountedSubtotalSet(MoneyBag discountedSubtotalSet) {
       this.discountedSubtotalSet = discountedSubtotalSet;
       return this;
     }
 
-    /**
-     * The total monetary value available to refund.
-     */
+    
     public Builder maximumRefundable(String maximumRefundable) {
       this.maximumRefundable = maximumRefundable;
       return this;
     }
 
-    /**
-     * The total monetary value available to refund in shop and presentment currencies.
-     */
+    
     public Builder maximumRefundableSet(MoneyBag maximumRefundableSet) {
       this.maximumRefundableSet = maximumRefundableSet;
       return this;
     }
 
-    /**
-     * A list of duties to be refunded from the order.
-     */
+    
     public Builder refundDuties(List<RefundDuty> refundDuties) {
       this.refundDuties = refundDuties;
       return this;
     }
 
-    /**
-     * A list of line items to be refunded, along with restock instructions.
-     */
+    
     public Builder refundLineItems(List<RefundLineItem> refundLineItems) {
       this.refundLineItems = refundLineItems;
       return this;
     }
 
-    /**
-     * The shipping costs to be refunded from the order.
-     */
+    
     public Builder shipping(ShippingRefund shipping) {
       this.shipping = shipping;
       return this;
     }
 
-    /**
-     * The sum of all the prices of the line items being refunded.
-     */
+    
     public Builder subtotal(String subtotal) {
       this.subtotal = subtotal;
       return this;
     }
 
-    /**
-     * The sum of all the prices of the line items being refunded in shop and presentment currencies.
-     */
+    
     public Builder subtotalSet(MoneyBag subtotalSet) {
       this.subtotalSet = subtotalSet;
       return this;
     }
 
-    /**
-     * A list of suggested order transactions.
-     */
+    
     public Builder suggestedTransactions(List<SuggestedOrderTransaction> suggestedTransactions) {
       this.suggestedTransactions = suggestedTransactions;
       return this;
     }
 
-    /**
-     * The total cart discount amount that was applied to all line items in this refund.
-     */
+    
     public Builder totalCartDiscountAmountSet(MoneyBag totalCartDiscountAmountSet) {
       this.totalCartDiscountAmountSet = totalCartDiscountAmountSet;
       return this;
     }
 
-    /**
-     * The sum of all the duties being refunded from the order in shop and presentment currencies. The value must be positive.
-     */
+    
     public Builder totalDutiesSet(MoneyBag totalDutiesSet) {
       this.totalDutiesSet = totalDutiesSet;
       return this;
     }
 
-    /**
-     * The sum of the taxes being refunded from the order in shop and presentment currencies. The value must be positive.
-     */
+    
     public Builder totalTaxSet(MoneyBag totalTaxSet) {
       this.totalTaxSet = totalTaxSet;
       return this;
     }
 
-    /**
-     * The sum of the taxes being refunded from the order. The value must be positive.
-     */
+    
     public Builder totalTaxes(String totalTaxes) {
       this.totalTaxes = totalTaxes;
       return this;

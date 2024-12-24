@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * An app discount type.
- */
+
 public class AppDiscountTypeGraphQLQuery extends GraphQLQuery {
   public AppDiscountTypeGraphQLQuery(String functionId, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -42,9 +40,7 @@ public class AppDiscountTypeGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID for the function providing the app discount type.
-     */
+    
     public Builder functionId(String functionId) {
       this.functionId = functionId;
       this.fieldsSet.add("functionId");

@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `giftCardDebit` mutation.
- */
+
 public class GiftCardDebitPayload {
-  /**
-   * The gift card debit transaction that was created.
-   */
+  
   private GiftCardDebitTransaction giftCardDebitTransaction;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<GiftCardTransactionUserError> userErrors;
 
   public GiftCardDebitPayload() {
   }
 
-  /**
-   * The gift card debit transaction that was created.
-   */
+  
   public GiftCardDebitTransaction getGiftCardDebitTransaction() {
     return giftCardDebitTransaction;
   }
@@ -34,9 +26,7 @@ public class GiftCardDebitPayload {
     this.giftCardDebitTransaction = giftCardDebitTransaction;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<GiftCardTransactionUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class GiftCardDebitPayload {
   }
 
   public static class Builder {
-    /**
-     * The gift card debit transaction that was created.
-     */
+    
     private GiftCardDebitTransaction giftCardDebitTransaction;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<GiftCardTransactionUserError> userErrors;
 
     public GiftCardDebitPayload build() {
@@ -86,17 +72,13 @@ public class GiftCardDebitPayload {
       return result;
     }
 
-    /**
-     * The gift card debit transaction that was created.
-     */
+    
     public Builder giftCardDebitTransaction(GiftCardDebitTransaction giftCardDebitTransaction) {
       this.giftCardDebitTransaction = giftCardDebitTransaction;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<GiftCardTransactionUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

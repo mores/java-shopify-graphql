@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Language codes supported by Shopify.
- */
+
 public enum LanguageCode {
   AF,
 

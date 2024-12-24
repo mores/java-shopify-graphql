@@ -5,46 +5,30 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A file attachment associated to a comment event.
- */
+
 public class CommentEventAttachment {
-  /**
-   * The file extension of the comment event attachment, indicating the file format.
-   */
+  
   private String fileExtension;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The image attached to the comment event.
-   */
+  
   private Image image;
 
-  /**
-   * The filename of the comment event attachment.
-   */
+  
   private String name;
 
-  /**
-   * The size of the attachment.
-   */
+  
   private int size;
 
-  /**
-   * The URL of the attachment.
-   */
+  
   private String url;
 
   public CommentEventAttachment() {
   }
 
-  /**
-   * The file extension of the comment event attachment, indicating the file format.
-   */
+  
   public String getFileExtension() {
     return fileExtension;
   }
@@ -53,9 +37,7 @@ public class CommentEventAttachment {
     this.fileExtension = fileExtension;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -64,9 +46,7 @@ public class CommentEventAttachment {
     this.id = id;
   }
 
-  /**
-   * The image attached to the comment event.
-   */
+  
   public Image getImage() {
     return image;
   }
@@ -75,9 +55,7 @@ public class CommentEventAttachment {
     this.image = image;
   }
 
-  /**
-   * The filename of the comment event attachment.
-   */
+  
   public String getName() {
     return name;
   }
@@ -86,9 +64,7 @@ public class CommentEventAttachment {
     this.name = name;
   }
 
-  /**
-   * The size of the attachment.
-   */
+  
   public int getSize() {
     return size;
   }
@@ -97,9 +73,7 @@ public class CommentEventAttachment {
     this.size = size;
   }
 
-  /**
-   * The URL of the attachment.
-   */
+  
   public String getUrl() {
     return url;
   }
@@ -136,34 +110,22 @@ public class CommentEventAttachment {
   }
 
   public static class Builder {
-    /**
-     * The file extension of the comment event attachment, indicating the file format.
-     */
+    
     private String fileExtension;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The image attached to the comment event.
-     */
+    
     private Image image;
 
-    /**
-     * The filename of the comment event attachment.
-     */
+    
     private String name;
 
-    /**
-     * The size of the attachment.
-     */
+    
     private int size;
 
-    /**
-     * The URL of the attachment.
-     */
+    
     private String url;
 
     public CommentEventAttachment build() {
@@ -177,49 +139,37 @@ public class CommentEventAttachment {
       return result;
     }
 
-    /**
-     * The file extension of the comment event attachment, indicating the file format.
-     */
+    
     public Builder fileExtension(String fileExtension) {
       this.fileExtension = fileExtension;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The image attached to the comment event.
-     */
+    
     public Builder image(Image image) {
       this.image = image;
       return this;
     }
 
-    /**
-     * The filename of the comment event attachment.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The size of the attachment.
-     */
+    
     public Builder size(int size) {
       this.size = size;
       return this;
     }
 
-    /**
-     * The URL of the attachment.
-     */
+    
     public Builder url(String url) {
       this.url = url;
       return this;

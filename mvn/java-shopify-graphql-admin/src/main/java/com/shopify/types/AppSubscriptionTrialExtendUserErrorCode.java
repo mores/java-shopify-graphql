@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible error codes that can be returned by `AppSubscriptionTrialExtendUserError`.
- */
+
 public enum AppSubscriptionTrialExtendUserErrorCode {
   SUBSCRIPTION_NOT_FOUND,
 

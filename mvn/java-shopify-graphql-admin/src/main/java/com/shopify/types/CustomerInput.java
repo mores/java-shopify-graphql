@@ -7,96 +7,54 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields and values to use when creating or updating a customer.
- */
+
 public class CustomerInput {
-  /**
-   * The addresses for a customer.
-   */
+  
   private List<MailingAddressInput> addresses;
 
-  /**
-   * The unique email address of the customer.
-   */
+  
   private String email;
 
-  /**
-   * The customer's first name.
-   */
+  
   private String firstName;
 
-  /**
-   * The ID of the customer to update.
-   */
+  
   private String id;
 
-  /**
-   * The customer's last name.
-   */
+  
   private String lastName;
 
-  /**
-   * The customer's locale.
-   */
+  
   private String locale;
 
-  /**
-   * Additional metafields to associate to the customer.
-   */
+  
   private List<MetafieldInput> metafields;
 
-  /**
-   * A note about the customer.
-   */
+  
   private String note;
 
-  /**
-   * The unique phone number for the customer.
-   */
+  
   private String phone;
 
-  /**
-   * A list of tags to associate with the customer. Can be an array or a
-   * comma-separated list. Example values: `["tag1", "tag2", "tag3"]`, `"tag1, tag2, tag3"`
-   *   
-   * Updating `tags` overwrites any existing tags that were previously added to the
-   * customer. To add new tags without overwriting
-   * existing tags, use the [tagsAdd](https://shopify.dev/api/admin-graphql/latest/mutations/tagsadd)
-   * mutation.
-   */
+  
   private List<String> tags;
 
-  /**
-   * Information that describes when the customer consented to receiving marketing
-   *         material by email. The `email` field is required when creating a customer with email marketing
-   *         consent information.
-   */
+  
   private CustomerEmailMarketingConsentInput emailMarketingConsent;
 
-  /**
-   * The marketing consent information when the customer consented to receiving marketing
-   *         material by SMS. The `phone` field is required when creating a customer with SMS
-   *         marketing consent information.
-   */
+  
   private CustomerSmsMarketingConsentInput smsMarketingConsent;
 
-  /**
-   * Whether the customer is exempt from paying taxes on their order.
-   */
+  
   private Boolean taxExempt;
 
-  /**
-   * The list of tax exemptions to apply to the customer.
-   */
+  
   private List<TaxExemption> taxExemptions;
 
   public CustomerInput() {
   }
 
-  /**
-   * The addresses for a customer.
-   */
+  
   public List<MailingAddressInput> getAddresses() {
     return addresses;
   }
@@ -105,9 +63,7 @@ public class CustomerInput {
     this.addresses = addresses;
   }
 
-  /**
-   * The unique email address of the customer.
-   */
+  
   public String getEmail() {
     return email;
   }
@@ -116,9 +72,7 @@ public class CustomerInput {
     this.email = email;
   }
 
-  /**
-   * The customer's first name.
-   */
+  
   public String getFirstName() {
     return firstName;
   }
@@ -127,9 +81,7 @@ public class CustomerInput {
     this.firstName = firstName;
   }
 
-  /**
-   * The ID of the customer to update.
-   */
+  
   public String getId() {
     return id;
   }
@@ -138,9 +90,7 @@ public class CustomerInput {
     this.id = id;
   }
 
-  /**
-   * The customer's last name.
-   */
+  
   public String getLastName() {
     return lastName;
   }
@@ -149,9 +99,7 @@ public class CustomerInput {
     this.lastName = lastName;
   }
 
-  /**
-   * The customer's locale.
-   */
+  
   public String getLocale() {
     return locale;
   }
@@ -160,9 +108,7 @@ public class CustomerInput {
     this.locale = locale;
   }
 
-  /**
-   * Additional metafields to associate to the customer.
-   */
+  
   public List<MetafieldInput> getMetafields() {
     return metafields;
   }
@@ -171,9 +117,7 @@ public class CustomerInput {
     this.metafields = metafields;
   }
 
-  /**
-   * A note about the customer.
-   */
+  
   public String getNote() {
     return note;
   }
@@ -182,9 +126,7 @@ public class CustomerInput {
     this.note = note;
   }
 
-  /**
-   * The unique phone number for the customer.
-   */
+  
   public String getPhone() {
     return phone;
   }
@@ -193,15 +135,7 @@ public class CustomerInput {
     this.phone = phone;
   }
 
-  /**
-   * A list of tags to associate with the customer. Can be an array or a
-   * comma-separated list. Example values: `["tag1", "tag2", "tag3"]`, `"tag1, tag2, tag3"`
-   *   
-   * Updating `tags` overwrites any existing tags that were previously added to the
-   * customer. To add new tags without overwriting
-   * existing tags, use the [tagsAdd](https://shopify.dev/api/admin-graphql/latest/mutations/tagsadd)
-   * mutation.
-   */
+  
   public List<String> getTags() {
     return tags;
   }
@@ -210,11 +144,7 @@ public class CustomerInput {
     this.tags = tags;
   }
 
-  /**
-   * Information that describes when the customer consented to receiving marketing
-   *         material by email. The `email` field is required when creating a customer with email marketing
-   *         consent information.
-   */
+  
   public CustomerEmailMarketingConsentInput getEmailMarketingConsent() {
     return emailMarketingConsent;
   }
@@ -223,11 +153,7 @@ public class CustomerInput {
     this.emailMarketingConsent = emailMarketingConsent;
   }
 
-  /**
-   * The marketing consent information when the customer consented to receiving marketing
-   *         material by SMS. The `phone` field is required when creating a customer with SMS
-   *         marketing consent information.
-   */
+  
   public CustomerSmsMarketingConsentInput getSmsMarketingConsent() {
     return smsMarketingConsent;
   }
@@ -236,9 +162,7 @@ public class CustomerInput {
     this.smsMarketingConsent = smsMarketingConsent;
   }
 
-  /**
-   * Whether the customer is exempt from paying taxes on their order.
-   */
+  
   public Boolean getTaxExempt() {
     return taxExempt;
   }
@@ -247,9 +171,7 @@ public class CustomerInput {
     this.taxExempt = taxExempt;
   }
 
-  /**
-   * The list of tax exemptions to apply to the customer.
-   */
+  
   public List<TaxExemption> getTaxExemptions() {
     return taxExemptions;
   }
@@ -294,84 +216,46 @@ public class CustomerInput {
   }
 
   public static class Builder {
-    /**
-     * The addresses for a customer.
-     */
+    
     private List<MailingAddressInput> addresses;
 
-    /**
-     * The unique email address of the customer.
-     */
+    
     private String email;
 
-    /**
-     * The customer's first name.
-     */
+    
     private String firstName;
 
-    /**
-     * The ID of the customer to update.
-     */
+    
     private String id;
 
-    /**
-     * The customer's last name.
-     */
+    
     private String lastName;
 
-    /**
-     * The customer's locale.
-     */
+    
     private String locale;
 
-    /**
-     * Additional metafields to associate to the customer.
-     */
+    
     private List<MetafieldInput> metafields;
 
-    /**
-     * A note about the customer.
-     */
+    
     private String note;
 
-    /**
-     * The unique phone number for the customer.
-     */
+    
     private String phone;
 
-    /**
-     * A list of tags to associate with the customer. Can be an array or a
-     * comma-separated list. Example values: `["tag1", "tag2", "tag3"]`, `"tag1, tag2, tag3"`
-     *   
-     * Updating `tags` overwrites any existing tags that were previously added to the
-     * customer. To add new tags without overwriting
-     * existing tags, use the [tagsAdd](https://shopify.dev/api/admin-graphql/latest/mutations/tagsadd)
-     * mutation.
-     */
+    
     private List<String> tags;
 
-    /**
-     * Information that describes when the customer consented to receiving marketing
-     *         material by email. The `email` field is required when creating a customer with email marketing
-     *         consent information.
-     */
+    
     private CustomerEmailMarketingConsentInput emailMarketingConsent;
 
-    /**
-     * The marketing consent information when the customer consented to receiving marketing
-     *         material by SMS. The `phone` field is required when creating a customer with SMS
-     *         marketing consent information.
-     */
+    
     private CustomerSmsMarketingConsentInput smsMarketingConsent;
 
-    /**
-     * Whether the customer is exempt from paying taxes on their order.
-     */
+    
     private Boolean taxExempt;
 
-    /**
-     * The list of tax exemptions to apply to the customer.
-     */
+    
     private List<TaxExemption> taxExemptions;
 
     public CustomerInput build() {
@@ -393,123 +277,85 @@ public class CustomerInput {
       return result;
     }
 
-    /**
-     * The addresses for a customer.
-     */
+    
     public Builder addresses(List<MailingAddressInput> addresses) {
       this.addresses = addresses;
       return this;
     }
 
-    /**
-     * The unique email address of the customer.
-     */
+    
     public Builder email(String email) {
       this.email = email;
       return this;
     }
 
-    /**
-     * The customer's first name.
-     */
+    
     public Builder firstName(String firstName) {
       this.firstName = firstName;
       return this;
     }
 
-    /**
-     * The ID of the customer to update.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The customer's last name.
-     */
+    
     public Builder lastName(String lastName) {
       this.lastName = lastName;
       return this;
     }
 
-    /**
-     * The customer's locale.
-     */
+    
     public Builder locale(String locale) {
       this.locale = locale;
       return this;
     }
 
-    /**
-     * Additional metafields to associate to the customer.
-     */
+    
     public Builder metafields(List<MetafieldInput> metafields) {
       this.metafields = metafields;
       return this;
     }
 
-    /**
-     * A note about the customer.
-     */
+    
     public Builder note(String note) {
       this.note = note;
       return this;
     }
 
-    /**
-     * The unique phone number for the customer.
-     */
+    
     public Builder phone(String phone) {
       this.phone = phone;
       return this;
     }
 
-    /**
-     * A list of tags to associate with the customer. Can be an array or a
-     * comma-separated list. Example values: `["tag1", "tag2", "tag3"]`, `"tag1, tag2, tag3"`
-     *   
-     * Updating `tags` overwrites any existing tags that were previously added to the
-     * customer. To add new tags without overwriting
-     * existing tags, use the [tagsAdd](https://shopify.dev/api/admin-graphql/latest/mutations/tagsadd)
-     * mutation.
-     */
+    
     public Builder tags(List<String> tags) {
       this.tags = tags;
       return this;
     }
 
-    /**
-     * Information that describes when the customer consented to receiving marketing
-     *         material by email. The `email` field is required when creating a customer with email marketing
-     *         consent information.
-     */
+    
     public Builder emailMarketingConsent(CustomerEmailMarketingConsentInput emailMarketingConsent) {
       this.emailMarketingConsent = emailMarketingConsent;
       return this;
     }
 
-    /**
-     * The marketing consent information when the customer consented to receiving marketing
-     *         material by SMS. The `phone` field is required when creating a customer with SMS
-     *         marketing consent information.
-     */
+    
     public Builder smsMarketingConsent(CustomerSmsMarketingConsentInput smsMarketingConsent) {
       this.smsMarketingConsent = smsMarketingConsent;
       return this;
     }
 
-    /**
-     * Whether the customer is exempt from paying taxes on their order.
-     */
+    
     public Builder taxExempt(Boolean taxExempt) {
       this.taxExempt = taxExempt;
       return this;
     }
 
-    /**
-     * The list of tax exemptions to apply to the customer.
-     */
+    
     public Builder taxExemptions(List<TaxExemption> taxExemptions) {
       this.taxExemptions = taxExemptions;
       return this;

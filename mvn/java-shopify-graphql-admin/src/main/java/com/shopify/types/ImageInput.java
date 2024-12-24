@@ -5,31 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for an image.
- */
+
 public class ImageInput {
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * A word or phrase to share the nature or contents of an image.
-   */
+  
   private String altText;
 
-  /**
-   * The URL of the image. May be a staged upload URL.
-   */
+  
   private String src;
 
   public ImageInput() {
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -38,9 +28,7 @@ public class ImageInput {
     this.id = id;
   }
 
-  /**
-   * A word or phrase to share the nature or contents of an image.
-   */
+  
   public String getAltText() {
     return altText;
   }
@@ -49,9 +37,7 @@ public class ImageInput {
     this.altText = altText;
   }
 
-  /**
-   * The URL of the image. May be a staged upload URL.
-   */
+  
   public String getSrc() {
     return src;
   }
@@ -85,19 +71,13 @@ public class ImageInput {
   }
 
   public static class Builder {
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * A word or phrase to share the nature or contents of an image.
-     */
+    
     private String altText;
 
-    /**
-     * The URL of the image. May be a staged upload URL.
-     */
+    
     private String src;
 
     public ImageInput build() {
@@ -108,25 +88,19 @@ public class ImageInput {
       return result;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * A word or phrase to share the nature or contents of an image.
-     */
+    
     public Builder altText(String altText) {
       this.altText = altText;
       return this;
     }
 
-    /**
-     * The URL of the image. May be a staged upload URL.
-     */
+    
     public Builder src(String src) {
       this.src = src;
       return this;

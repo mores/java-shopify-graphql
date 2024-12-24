@@ -7,46 +7,27 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields required to set inventory quantities.
- */
+
 public class InventorySetQuantitiesInput {
-  /**
-   * The reason for the quantity changes. The value must be one of the [possible
-   * reasons](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps/quantities-states#set-inventory-quantities-on-hand).
-   */
+  
   private String reason;
 
-  /**
-   * The name of quantities to be changed. The only accepted values are: `available` or `on_hand`.
-   */
+  
   private String name;
 
-  /**
-   * A freeform URI that represents why the inventory change happened. This can be the entity adjusting inventory
-   * quantities or the Shopify resource that's associated with the inventory adjustment. For example, a unit in a
-   * draft order might have been previously reserved, and a merchant later creates an order from the draft order.
-   * In this case, the `referenceDocumentUri` for the inventory adjustment is a URI referencing the order ID.
-   */
+  
   private String referenceDocumentUri;
 
-  /**
-   * The values to which each quantities will be set.
-   */
+  
   private List<InventoryQuantityInput> quantities;
 
-  /**
-   * Skip the compare quantity check in the quantities field.
-   */
+  
   private Boolean ignoreCompareQuantity = false;
 
   public InventorySetQuantitiesInput() {
   }
 
-  /**
-   * The reason for the quantity changes. The value must be one of the [possible
-   * reasons](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps/quantities-states#set-inventory-quantities-on-hand).
-   */
+  
   public String getReason() {
     return reason;
   }
@@ -55,9 +36,7 @@ public class InventorySetQuantitiesInput {
     this.reason = reason;
   }
 
-  /**
-   * The name of quantities to be changed. The only accepted values are: `available` or `on_hand`.
-   */
+  
   public String getName() {
     return name;
   }
@@ -66,12 +45,7 @@ public class InventorySetQuantitiesInput {
     this.name = name;
   }
 
-  /**
-   * A freeform URI that represents why the inventory change happened. This can be the entity adjusting inventory
-   * quantities or the Shopify resource that's associated with the inventory adjustment. For example, a unit in a
-   * draft order might have been previously reserved, and a merchant later creates an order from the draft order.
-   * In this case, the `referenceDocumentUri` for the inventory adjustment is a URI referencing the order ID.
-   */
+  
   public String getReferenceDocumentUri() {
     return referenceDocumentUri;
   }
@@ -80,9 +54,7 @@ public class InventorySetQuantitiesInput {
     this.referenceDocumentUri = referenceDocumentUri;
   }
 
-  /**
-   * The values to which each quantities will be set.
-   */
+  
   public List<InventoryQuantityInput> getQuantities() {
     return quantities;
   }
@@ -91,9 +63,7 @@ public class InventorySetQuantitiesInput {
     this.quantities = quantities;
   }
 
-  /**
-   * Skip the compare quantity check in the quantities field.
-   */
+  
   public Boolean getIgnoreCompareQuantity() {
     return ignoreCompareQuantity;
   }
@@ -129,33 +99,19 @@ public class InventorySetQuantitiesInput {
   }
 
   public static class Builder {
-    /**
-     * The reason for the quantity changes. The value must be one of the [possible
-     * reasons](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps/quantities-states#set-inventory-quantities-on-hand).
-     */
+    
     private String reason;
 
-    /**
-     * The name of quantities to be changed. The only accepted values are: `available` or `on_hand`.
-     */
+    
     private String name;
 
-    /**
-     * A freeform URI that represents why the inventory change happened. This can be the entity adjusting inventory
-     * quantities or the Shopify resource that's associated with the inventory adjustment. For example, a unit in a
-     * draft order might have been previously reserved, and a merchant later creates an order from the draft order.
-     * In this case, the `referenceDocumentUri` for the inventory adjustment is a URI referencing the order ID.
-     */
+    
     private String referenceDocumentUri;
 
-    /**
-     * The values to which each quantities will be set.
-     */
+    
     private List<InventoryQuantityInput> quantities;
 
-    /**
-     * Skip the compare quantity check in the quantities field.
-     */
+    
     private Boolean ignoreCompareQuantity = false;
 
     public InventorySetQuantitiesInput build() {
@@ -168,45 +124,31 @@ public class InventorySetQuantitiesInput {
       return result;
     }
 
-    /**
-     * The reason for the quantity changes. The value must be one of the [possible
-     * reasons](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps/quantities-states#set-inventory-quantities-on-hand).
-     */
+    
     public Builder reason(String reason) {
       this.reason = reason;
       return this;
     }
 
-    /**
-     * The name of quantities to be changed. The only accepted values are: `available` or `on_hand`.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * A freeform URI that represents why the inventory change happened. This can be the entity adjusting inventory
-     * quantities or the Shopify resource that's associated with the inventory adjustment. For example, a unit in a
-     * draft order might have been previously reserved, and a merchant later creates an order from the draft order.
-     * In this case, the `referenceDocumentUri` for the inventory adjustment is a URI referencing the order ID.
-     */
+    
     public Builder referenceDocumentUri(String referenceDocumentUri) {
       this.referenceDocumentUri = referenceDocumentUri;
       return this;
     }
 
-    /**
-     * The values to which each quantities will be set.
-     */
+    
     public Builder quantities(List<InventoryQuantityInput> quantities) {
       this.quantities = quantities;
       return this;
     }
 
-    /**
-     * Skip the compare quantity check in the quantities field.
-     */
+    
     public Builder ignoreCompareQuantity(Boolean ignoreCompareQuantity) {
       this.ignoreCompareQuantity = ignoreCompareQuantity;
       return this;

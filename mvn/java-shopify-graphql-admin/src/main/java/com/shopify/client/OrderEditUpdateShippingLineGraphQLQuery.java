@@ -7,10 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Updates a shipping line on the current order edit. For more information on how
- * to use the GraphQL Admin API to edit an existing order, refer to [Edit existing orders](https://shopify.dev/apps/fulfillment/order-management-apps/order-editing).
- */
+
 public class OrderEditUpdateShippingLineGraphQLQuery extends GraphQLQuery {
   public OrderEditUpdateShippingLineGraphQLQuery(String id,
       OrderEditUpdateShippingLineInput shippingLine, String shippingLineId, String queryName,
@@ -54,28 +51,21 @@ public class OrderEditUpdateShippingLineGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
-     * from which to update the shipping line.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * The updated shipping line.
-     */
+    
     public Builder shippingLine(OrderEditUpdateShippingLineInput shippingLine) {
       this.shippingLine = shippingLine;
       this.fieldsSet.add("shippingLine");
       return this;
     }
 
-    /**
-     * The ID of the calculated shipping line to update.
-     */
+    
     public Builder shippingLineId(String shippingLineId) {
       this.shippingLineId = shippingLineId;
       this.fieldsSet.add("shippingLineId");

@@ -7,46 +7,27 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields used to create a product feedback.
- */
+
 public class ProductResourceFeedbackInput {
-  /**
-   * The ID of the product that the feedback was created on.
-   */
+  
   private String productId;
 
-  /**
-   * Whether the merchant needs to take action on the product.
-   */
+  
   private ResourceFeedbackState state;
 
-  /**
-   * The date and time when the payload is constructed.
-   * Used to help determine whether incoming feedback is outdated compared to
-   * feedback already received, and if it should be ignored upon arrival.
-   */
+  
   private OffsetDateTime feedbackGeneratedAt;
 
-  /**
-   * The timestamp of the product associated with the feedback.
-   */
+  
   private OffsetDateTime productUpdatedAt;
 
-  /**
-   * A concise set of copy strings to be displayed to merchants. Used to guide
-   * merchants in resolving problems that your app encounters when trying to make
-   * use of their products.
-   * You can specify up to four messages. Each message is limited to 100 characters.
-   */
+  
   private List<String> messages;
 
   public ProductResourceFeedbackInput() {
   }
 
-  /**
-   * The ID of the product that the feedback was created on.
-   */
+  
   public String getProductId() {
     return productId;
   }
@@ -55,9 +36,7 @@ public class ProductResourceFeedbackInput {
     this.productId = productId;
   }
 
-  /**
-   * Whether the merchant needs to take action on the product.
-   */
+  
   public ResourceFeedbackState getState() {
     return state;
   }
@@ -66,11 +45,7 @@ public class ProductResourceFeedbackInput {
     this.state = state;
   }
 
-  /**
-   * The date and time when the payload is constructed.
-   * Used to help determine whether incoming feedback is outdated compared to
-   * feedback already received, and if it should be ignored upon arrival.
-   */
+  
   public OffsetDateTime getFeedbackGeneratedAt() {
     return feedbackGeneratedAt;
   }
@@ -79,9 +54,7 @@ public class ProductResourceFeedbackInput {
     this.feedbackGeneratedAt = feedbackGeneratedAt;
   }
 
-  /**
-   * The timestamp of the product associated with the feedback.
-   */
+  
   public OffsetDateTime getProductUpdatedAt() {
     return productUpdatedAt;
   }
@@ -90,12 +63,7 @@ public class ProductResourceFeedbackInput {
     this.productUpdatedAt = productUpdatedAt;
   }
 
-  /**
-   * A concise set of copy strings to be displayed to merchants. Used to guide
-   * merchants in resolving problems that your app encounters when trying to make
-   * use of their products.
-   * You can specify up to four messages. Each message is limited to 100 characters.
-   */
+  
   public List<String> getMessages() {
     return messages;
   }
@@ -131,34 +99,19 @@ public class ProductResourceFeedbackInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the product that the feedback was created on.
-     */
+    
     private String productId;
 
-    /**
-     * Whether the merchant needs to take action on the product.
-     */
+    
     private ResourceFeedbackState state;
 
-    /**
-     * The date and time when the payload is constructed.
-     * Used to help determine whether incoming feedback is outdated compared to
-     * feedback already received, and if it should be ignored upon arrival.
-     */
+    
     private OffsetDateTime feedbackGeneratedAt;
 
-    /**
-     * The timestamp of the product associated with the feedback.
-     */
+    
     private OffsetDateTime productUpdatedAt;
 
-    /**
-     * A concise set of copy strings to be displayed to merchants. Used to guide
-     * merchants in resolving problems that your app encounters when trying to make
-     * use of their products.
-     * You can specify up to four messages. Each message is limited to 100 characters.
-     */
+    
     private List<String> messages;
 
     public ProductResourceFeedbackInput build() {
@@ -171,46 +124,31 @@ public class ProductResourceFeedbackInput {
       return result;
     }
 
-    /**
-     * The ID of the product that the feedback was created on.
-     */
+    
     public Builder productId(String productId) {
       this.productId = productId;
       return this;
     }
 
-    /**
-     * Whether the merchant needs to take action on the product.
-     */
+    
     public Builder state(ResourceFeedbackState state) {
       this.state = state;
       return this;
     }
 
-    /**
-     * The date and time when the payload is constructed.
-     * Used to help determine whether incoming feedback is outdated compared to
-     * feedback already received, and if it should be ignored upon arrival.
-     */
+    
     public Builder feedbackGeneratedAt(OffsetDateTime feedbackGeneratedAt) {
       this.feedbackGeneratedAt = feedbackGeneratedAt;
       return this;
     }
 
-    /**
-     * The timestamp of the product associated with the feedback.
-     */
+    
     public Builder productUpdatedAt(OffsetDateTime productUpdatedAt) {
       this.productUpdatedAt = productUpdatedAt;
       return this;
     }
 
-    /**
-     * A concise set of copy strings to be displayed to merchants. Used to guide
-     * merchants in resolving problems that your app encounters when trying to make
-     * use of their products.
-     * You can specify up to four messages. Each message is limited to 100 characters.
-     */
+    
     public Builder messages(List<String> messages) {
       this.messages = messages;
       return this;

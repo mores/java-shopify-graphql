@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Update a Selling Plan Group.
- */
+
 public class SellingPlanGroupUpdateGraphQLQuery extends GraphQLQuery {
   public SellingPlanGroupUpdateGraphQLQuery(String id, SellingPlanGroupInput input,
       String queryName, Set<String> fieldsSet) {
@@ -48,18 +46,14 @@ public class SellingPlanGroupUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The Selling Plan Group to update.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * The properties of the Selling Plan Group to update.
-     */
+    
     public Builder input(SellingPlanGroupInput input) {
       this.input = input;
       this.fieldsSet.add("input");

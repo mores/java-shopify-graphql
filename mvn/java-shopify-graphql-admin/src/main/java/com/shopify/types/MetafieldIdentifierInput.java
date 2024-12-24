@@ -5,31 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields that identify metafields.
- */
+
 public class MetafieldIdentifierInput {
-  /**
-   * The unique ID of the resource that the metafield is attached to.
-   */
+  
   private String ownerId;
 
-  /**
-   * The namespace of the metafield.
-   */
+  
   private String namespace;
 
-  /**
-   * The key of the metafield.
-   */
+  
   private String key;
 
   public MetafieldIdentifierInput() {
   }
 
-  /**
-   * The unique ID of the resource that the metafield is attached to.
-   */
+  
   public String getOwnerId() {
     return ownerId;
   }
@@ -38,9 +28,7 @@ public class MetafieldIdentifierInput {
     this.ownerId = ownerId;
   }
 
-  /**
-   * The namespace of the metafield.
-   */
+  
   public String getNamespace() {
     return namespace;
   }
@@ -49,9 +37,7 @@ public class MetafieldIdentifierInput {
     this.namespace = namespace;
   }
 
-  /**
-   * The key of the metafield.
-   */
+  
   public String getKey() {
     return key;
   }
@@ -85,19 +71,13 @@ public class MetafieldIdentifierInput {
   }
 
   public static class Builder {
-    /**
-     * The unique ID of the resource that the metafield is attached to.
-     */
+    
     private String ownerId;
 
-    /**
-     * The namespace of the metafield.
-     */
+    
     private String namespace;
 
-    /**
-     * The key of the metafield.
-     */
+    
     private String key;
 
     public MetafieldIdentifierInput build() {
@@ -108,25 +88,19 @@ public class MetafieldIdentifierInput {
       return result;
     }
 
-    /**
-     * The unique ID of the resource that the metafield is attached to.
-     */
+    
     public Builder ownerId(String ownerId) {
       this.ownerId = ownerId;
       return this;
     }
 
-    /**
-     * The namespace of the metafield.
-     */
+    
     public Builder namespace(String namespace) {
       this.namespace = namespace;
       return this;
     }
 
-    /**
-     * The key of the metafield.
-     */
+    
     public Builder key(String key) {
       this.key = key;
       return this;

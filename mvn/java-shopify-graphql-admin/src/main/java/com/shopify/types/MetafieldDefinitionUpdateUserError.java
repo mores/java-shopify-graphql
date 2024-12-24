@@ -8,39 +8,27 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * An error that occurs during the execution of `MetafieldDefinitionUpdate`.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class MetafieldDefinitionUpdateUserError implements com.shopify.types.DisplayableError {
-  /**
-   * The error code.
-   */
+  
   private MetafieldDefinitionUpdateUserErrorCode code;
 
-  /**
-   * The index of the array element that's causing the error.
-   */
+  
   private Integer elementIndex;
 
-  /**
-   * The path to the input field that caused the error.
-   */
+  
   private List<String> field;
 
-  /**
-   * The error message.
-   */
+  
   private String message;
 
   public MetafieldDefinitionUpdateUserError() {
   }
 
-  /**
-   * The error code.
-   */
+  
   public MetafieldDefinitionUpdateUserErrorCode getCode() {
     return code;
   }
@@ -49,9 +37,7 @@ public class MetafieldDefinitionUpdateUserError implements com.shopify.types.Dis
     this.code = code;
   }
 
-  /**
-   * The index of the array element that's causing the error.
-   */
+  
   public Integer getElementIndex() {
     return elementIndex;
   }
@@ -60,9 +46,7 @@ public class MetafieldDefinitionUpdateUserError implements com.shopify.types.Dis
     this.elementIndex = elementIndex;
   }
 
-  /**
-   * The path to the input field that caused the error.
-   */
+  
   public List<String> getField() {
     return field;
   }
@@ -71,9 +55,7 @@ public class MetafieldDefinitionUpdateUserError implements com.shopify.types.Dis
     this.field = field;
   }
 
-  /**
-   * The error message.
-   */
+  
   public String getMessage() {
     return message;
   }
@@ -108,24 +90,16 @@ public class MetafieldDefinitionUpdateUserError implements com.shopify.types.Dis
   }
 
   public static class Builder {
-    /**
-     * The error code.
-     */
+    
     private MetafieldDefinitionUpdateUserErrorCode code;
 
-    /**
-     * The index of the array element that's causing the error.
-     */
+    
     private Integer elementIndex;
 
-    /**
-     * The path to the input field that caused the error.
-     */
+    
     private List<String> field;
 
-    /**
-     * The error message.
-     */
+    
     private String message;
 
     public MetafieldDefinitionUpdateUserError build() {
@@ -137,33 +111,25 @@ public class MetafieldDefinitionUpdateUserError implements com.shopify.types.Dis
       return result;
     }
 
-    /**
-     * The error code.
-     */
+    
     public Builder code(MetafieldDefinitionUpdateUserErrorCode code) {
       this.code = code;
       return this;
     }
 
-    /**
-     * The index of the array element that's causing the error.
-     */
+    
     public Builder elementIndex(Integer elementIndex) {
       this.elementIndex = elementIndex;
       return this;
     }
 
-    /**
-     * The path to the input field that caused the error.
-     */
+    
     public Builder field(List<String> field) {
       this.field = field;
       return this;
     }
 
-    /**
-     * The error message.
-     */
+    
     public Builder message(String message) {
       this.message = message;
       return this;

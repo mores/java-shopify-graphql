@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * The container border width.
- */
+
 public enum CheckoutBrandingBorderWidth {
   BASE,
 

@@ -6,35 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A location group is a collection of locations. They share zones and delivery methods across delivery
- * profiles.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DeliveryLocationGroup implements com.shopify.types.Node {
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * A list of all locations that are part of this location group.
-   */
+  
   private LocationConnection locations;
 
-  /**
-   * A count of all locations that are part of this location group.
-   */
+  
   private Count locationsCount;
 
   public DeliveryLocationGroup() {
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -43,9 +32,7 @@ public class DeliveryLocationGroup implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * A list of all locations that are part of this location group.
-   */
+  
   public LocationConnection getLocations() {
     return locations;
   }
@@ -54,9 +41,7 @@ public class DeliveryLocationGroup implements com.shopify.types.Node {
     this.locations = locations;
   }
 
-  /**
-   * A count of all locations that are part of this location group.
-   */
+  
   public Count getLocationsCount() {
     return locationsCount;
   }
@@ -90,19 +75,13 @@ public class DeliveryLocationGroup implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * A list of all locations that are part of this location group.
-     */
+    
     private LocationConnection locations;
 
-    /**
-     * A count of all locations that are part of this location group.
-     */
+    
     private Count locationsCount;
 
     public DeliveryLocationGroup build() {
@@ -113,25 +92,19 @@ public class DeliveryLocationGroup implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * A list of all locations that are part of this location group.
-     */
+    
     public Builder locations(LocationConnection locations) {
       this.locations = locations;
       return this;
     }
 
-    /**
-     * A count of all locations that are part of this location group.
-     */
+    
     public Builder locationsCount(Count locationsCount) {
       this.locationsCount = locationsCount;
       return this;

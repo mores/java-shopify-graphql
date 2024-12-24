@@ -6,46 +6,30 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for an email.
- */
+
 public class EmailInput {
-  /**
-   * Specifies the email subject.
-   */
+  
   private String subject;
 
-  /**
-   * Specifies the email recipient.
-   */
+  
   private String to;
 
-  /**
-   * Specifies the email sender.
-   */
+  
   private String from;
 
-  /**
-   * Specifies the email body.
-   */
+  
   private String body;
 
-  /**
-   * Specifies any bcc recipients for the email.
-   */
+  
   private List<String> bcc;
 
-  /**
-   * Specifies a custom message to include in the email.
-   */
+  
   private String customMessage;
 
   public EmailInput() {
   }
 
-  /**
-   * Specifies the email subject.
-   */
+  
   public String getSubject() {
     return subject;
   }
@@ -54,9 +38,7 @@ public class EmailInput {
     this.subject = subject;
   }
 
-  /**
-   * Specifies the email recipient.
-   */
+  
   public String getTo() {
     return to;
   }
@@ -65,9 +47,7 @@ public class EmailInput {
     this.to = to;
   }
 
-  /**
-   * Specifies the email sender.
-   */
+  
   public String getFrom() {
     return from;
   }
@@ -76,9 +56,7 @@ public class EmailInput {
     this.from = from;
   }
 
-  /**
-   * Specifies the email body.
-   */
+  
   public String getBody() {
     return body;
   }
@@ -87,9 +65,7 @@ public class EmailInput {
     this.body = body;
   }
 
-  /**
-   * Specifies any bcc recipients for the email.
-   */
+  
   public List<String> getBcc() {
     return bcc;
   }
@@ -98,9 +74,7 @@ public class EmailInput {
     this.bcc = bcc;
   }
 
-  /**
-   * Specifies a custom message to include in the email.
-   */
+  
   public String getCustomMessage() {
     return customMessage;
   }
@@ -137,34 +111,22 @@ public class EmailInput {
   }
 
   public static class Builder {
-    /**
-     * Specifies the email subject.
-     */
+    
     private String subject;
 
-    /**
-     * Specifies the email recipient.
-     */
+    
     private String to;
 
-    /**
-     * Specifies the email sender.
-     */
+    
     private String from;
 
-    /**
-     * Specifies the email body.
-     */
+    
     private String body;
 
-    /**
-     * Specifies any bcc recipients for the email.
-     */
+    
     private List<String> bcc;
 
-    /**
-     * Specifies a custom message to include in the email.
-     */
+    
     private String customMessage;
 
     public EmailInput build() {
@@ -178,49 +140,37 @@ public class EmailInput {
       return result;
     }
 
-    /**
-     * Specifies the email subject.
-     */
+    
     public Builder subject(String subject) {
       this.subject = subject;
       return this;
     }
 
-    /**
-     * Specifies the email recipient.
-     */
+    
     public Builder to(String to) {
       this.to = to;
       return this;
     }
 
-    /**
-     * Specifies the email sender.
-     */
+    
     public Builder from(String from) {
       this.from = from;
       return this;
     }
 
-    /**
-     * Specifies the email body.
-     */
+    
     public Builder body(String body) {
       this.body = body;
       return this;
     }
 
-    /**
-     * Specifies any bcc recipients for the email.
-     */
+    
     public Builder bcc(List<String> bcc) {
       this.bcc = bcc;
       return this;
     }
 
-    /**
-     * Specifies a custom message to include in the email.
-     */
+    
     public Builder customMessage(String customMessage) {
       this.customMessage = customMessage;
       return this;

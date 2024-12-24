@@ -8,149 +8,93 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * A browse, cart, or checkout that was abandoned by a customer.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class Abandonment implements com.shopify.types.Node {
-  /**
-   * The abandonment payload for the abandoned checkout.
-   */
+  
   private AbandonedCheckout abandonedCheckoutPayload;
 
-  /**
-   * The abandonment type.
-   */
+  
   private AbandonmentAbandonmentType abandonmentType;
 
-  /**
-   * The app associated with an abandoned checkout.
-   */
+  
   private App app;
 
-  /**
-   * Permalink to the cart page.
-   */
+  
   private String cartUrl;
 
-  /**
-   * The date and time when the abandonment was created.
-   */
+  
   private OffsetDateTime createdAt;
 
-  /**
-   * The customer who abandoned this event.
-   */
+  
   private Customer customer;
 
-  /**
-   * Whether the customer has a draft order since this abandonment has been abandoned.
-   */
+  
   private boolean customerHasNoDraftOrderSinceAbandonment;
 
-  /**
-   * Whether the customer has completed an order since this checkout has been abandoned.
-   */
+  
   private boolean customerHasNoOrderSinceAbandonment;
 
-  /**
-   * The number of days since the last abandonment email was sent to the customer.
-   */
+  
   private int daysSinceLastAbandonmentEmail;
 
-  /**
-   * When the email was sent, if that's the case.
-   */
+  
   private OffsetDateTime emailSentAt;
 
-  /**
-   * The email state (e.g., sent or not sent).
-   */
+  
   private AbandonmentEmailState emailState;
 
-  /**
-   * The number of hours since the customer has last abandoned a checkout.
-   */
+  
   private Double hoursSinceLastAbandonedCheckout;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * Whether the products in abandonment are available.
-   */
+  
   private boolean inventoryAvailable;
 
-  /**
-   * Whether the abandonment event comes from a custom storefront channel.
-   */
+  
   private boolean isFromCustomStorefront;
 
-  /**
-   * Whether the abandonment event comes from the Online Store sales channel.
-   */
+  
   private boolean isFromOnlineStore;
 
-  /**
-   * Whether the abandonment event comes from the Shop app sales channel.
-   */
+  
   private boolean isFromShopApp;
 
-  /**
-   * Whether the abandonment event comes from Shop Pay.
-   */
+  
   private boolean isFromShopPay;
 
-  /**
-   * Whether the customer didn't complete another most significant step since this abandonment.
-   */
+  
   private boolean isMostSignificantAbandonment;
 
-  /**
-   * The date for the latest browse abandonment.
-   */
+  
   private OffsetDateTime lastBrowseAbandonmentDate;
 
-  /**
-   * The date for the latest cart abandonment.
-   */
+  
   private OffsetDateTime lastCartAbandonmentDate;
 
-  /**
-   * The date for the latest checkout abandonment.
-   */
+  
   private OffsetDateTime lastCheckoutAbandonmentDate;
 
-  /**
-   * The most recent step type.
-   */
+  
   private AbandonmentAbandonmentType mostRecentStep;
 
-  /**
-   * The products added to the cart during the customer abandoned visit.
-   */
+  
   private CustomerVisitProductInfoConnection productsAddedToCart;
 
-  /**
-   * The products viewed during the customer abandoned visit.
-   */
+  
   private CustomerVisitProductInfoConnection productsViewed;
 
-  /**
-   * The date and time when the visit started.
-   */
+  
   private OffsetDateTime visitStartedAt;
 
   public Abandonment() {
   }
 
-  /**
-   * The abandonment payload for the abandoned checkout.
-   */
+  
   public AbandonedCheckout getAbandonedCheckoutPayload() {
     return abandonedCheckoutPayload;
   }
@@ -159,9 +103,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.abandonedCheckoutPayload = abandonedCheckoutPayload;
   }
 
-  /**
-   * The abandonment type.
-   */
+  
   public AbandonmentAbandonmentType getAbandonmentType() {
     return abandonmentType;
   }
@@ -170,9 +112,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.abandonmentType = abandonmentType;
   }
 
-  /**
-   * The app associated with an abandoned checkout.
-   */
+  
   public App getApp() {
     return app;
   }
@@ -181,9 +121,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.app = app;
   }
 
-  /**
-   * Permalink to the cart page.
-   */
+  
   public String getCartUrl() {
     return cartUrl;
   }
@@ -192,9 +130,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.cartUrl = cartUrl;
   }
 
-  /**
-   * The date and time when the abandonment was created.
-   */
+  
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -203,9 +139,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.createdAt = createdAt;
   }
 
-  /**
-   * The customer who abandoned this event.
-   */
+  
   public Customer getCustomer() {
     return customer;
   }
@@ -214,9 +148,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.customer = customer;
   }
 
-  /**
-   * Whether the customer has a draft order since this abandonment has been abandoned.
-   */
+  
   public boolean getCustomerHasNoDraftOrderSinceAbandonment() {
     return customerHasNoDraftOrderSinceAbandonment;
   }
@@ -226,9 +158,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.customerHasNoDraftOrderSinceAbandonment = customerHasNoDraftOrderSinceAbandonment;
   }
 
-  /**
-   * Whether the customer has completed an order since this checkout has been abandoned.
-   */
+  
   public boolean getCustomerHasNoOrderSinceAbandonment() {
     return customerHasNoOrderSinceAbandonment;
   }
@@ -237,9 +167,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.customerHasNoOrderSinceAbandonment = customerHasNoOrderSinceAbandonment;
   }
 
-  /**
-   * The number of days since the last abandonment email was sent to the customer.
-   */
+  
   public int getDaysSinceLastAbandonmentEmail() {
     return daysSinceLastAbandonmentEmail;
   }
@@ -248,9 +176,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.daysSinceLastAbandonmentEmail = daysSinceLastAbandonmentEmail;
   }
 
-  /**
-   * When the email was sent, if that's the case.
-   */
+  
   public OffsetDateTime getEmailSentAt() {
     return emailSentAt;
   }
@@ -259,9 +185,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.emailSentAt = emailSentAt;
   }
 
-  /**
-   * The email state (e.g., sent or not sent).
-   */
+  
   public AbandonmentEmailState getEmailState() {
     return emailState;
   }
@@ -270,9 +194,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.emailState = emailState;
   }
 
-  /**
-   * The number of hours since the customer has last abandoned a checkout.
-   */
+  
   public Double getHoursSinceLastAbandonedCheckout() {
     return hoursSinceLastAbandonedCheckout;
   }
@@ -281,9 +203,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.hoursSinceLastAbandonedCheckout = hoursSinceLastAbandonedCheckout;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -292,9 +212,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * Whether the products in abandonment are available.
-   */
+  
   public boolean getInventoryAvailable() {
     return inventoryAvailable;
   }
@@ -303,9 +221,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.inventoryAvailable = inventoryAvailable;
   }
 
-  /**
-   * Whether the abandonment event comes from a custom storefront channel.
-   */
+  
   public boolean getIsFromCustomStorefront() {
     return isFromCustomStorefront;
   }
@@ -314,9 +230,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.isFromCustomStorefront = isFromCustomStorefront;
   }
 
-  /**
-   * Whether the abandonment event comes from the Online Store sales channel.
-   */
+  
   public boolean getIsFromOnlineStore() {
     return isFromOnlineStore;
   }
@@ -325,9 +239,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.isFromOnlineStore = isFromOnlineStore;
   }
 
-  /**
-   * Whether the abandonment event comes from the Shop app sales channel.
-   */
+  
   public boolean getIsFromShopApp() {
     return isFromShopApp;
   }
@@ -336,9 +248,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.isFromShopApp = isFromShopApp;
   }
 
-  /**
-   * Whether the abandonment event comes from Shop Pay.
-   */
+  
   public boolean getIsFromShopPay() {
     return isFromShopPay;
   }
@@ -347,9 +257,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.isFromShopPay = isFromShopPay;
   }
 
-  /**
-   * Whether the customer didn't complete another most significant step since this abandonment.
-   */
+  
   public boolean getIsMostSignificantAbandonment() {
     return isMostSignificantAbandonment;
   }
@@ -358,9 +266,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.isMostSignificantAbandonment = isMostSignificantAbandonment;
   }
 
-  /**
-   * The date for the latest browse abandonment.
-   */
+  
   public OffsetDateTime getLastBrowseAbandonmentDate() {
     return lastBrowseAbandonmentDate;
   }
@@ -369,9 +275,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.lastBrowseAbandonmentDate = lastBrowseAbandonmentDate;
   }
 
-  /**
-   * The date for the latest cart abandonment.
-   */
+  
   public OffsetDateTime getLastCartAbandonmentDate() {
     return lastCartAbandonmentDate;
   }
@@ -380,9 +284,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.lastCartAbandonmentDate = lastCartAbandonmentDate;
   }
 
-  /**
-   * The date for the latest checkout abandonment.
-   */
+  
   public OffsetDateTime getLastCheckoutAbandonmentDate() {
     return lastCheckoutAbandonmentDate;
   }
@@ -391,9 +293,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.lastCheckoutAbandonmentDate = lastCheckoutAbandonmentDate;
   }
 
-  /**
-   * The most recent step type.
-   */
+  
   public AbandonmentAbandonmentType getMostRecentStep() {
     return mostRecentStep;
   }
@@ -402,9 +302,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.mostRecentStep = mostRecentStep;
   }
 
-  /**
-   * The products added to the cart during the customer abandoned visit.
-   */
+  
   public CustomerVisitProductInfoConnection getProductsAddedToCart() {
     return productsAddedToCart;
   }
@@ -413,9 +311,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.productsAddedToCart = productsAddedToCart;
   }
 
-  /**
-   * The products viewed during the customer abandoned visit.
-   */
+  
   public CustomerVisitProductInfoConnection getProductsViewed() {
     return productsViewed;
   }
@@ -424,9 +320,7 @@ public class Abandonment implements com.shopify.types.Node {
     this.productsViewed = productsViewed;
   }
 
-  /**
-   * The date and time when the visit started.
-   */
+  
   public OffsetDateTime getVisitStartedAt() {
     return visitStartedAt;
   }
@@ -483,134 +377,82 @@ public class Abandonment implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * The abandonment payload for the abandoned checkout.
-     */
+    
     private AbandonedCheckout abandonedCheckoutPayload;
 
-    /**
-     * The abandonment type.
-     */
+    
     private AbandonmentAbandonmentType abandonmentType;
 
-    /**
-     * The app associated with an abandoned checkout.
-     */
+    
     private App app;
 
-    /**
-     * Permalink to the cart page.
-     */
+    
     private String cartUrl;
 
-    /**
-     * The date and time when the abandonment was created.
-     */
+    
     private OffsetDateTime createdAt;
 
-    /**
-     * The customer who abandoned this event.
-     */
+    
     private Customer customer;
 
-    /**
-     * Whether the customer has a draft order since this abandonment has been abandoned.
-     */
+    
     private boolean customerHasNoDraftOrderSinceAbandonment;
 
-    /**
-     * Whether the customer has completed an order since this checkout has been abandoned.
-     */
+    
     private boolean customerHasNoOrderSinceAbandonment;
 
-    /**
-     * The number of days since the last abandonment email was sent to the customer.
-     */
+    
     private int daysSinceLastAbandonmentEmail;
 
-    /**
-     * When the email was sent, if that's the case.
-     */
+    
     private OffsetDateTime emailSentAt;
 
-    /**
-     * The email state (e.g., sent or not sent).
-     */
+    
     private AbandonmentEmailState emailState;
 
-    /**
-     * The number of hours since the customer has last abandoned a checkout.
-     */
+    
     private Double hoursSinceLastAbandonedCheckout;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * Whether the products in abandonment are available.
-     */
+    
     private boolean inventoryAvailable;
 
-    /**
-     * Whether the abandonment event comes from a custom storefront channel.
-     */
+    
     private boolean isFromCustomStorefront;
 
-    /**
-     * Whether the abandonment event comes from the Online Store sales channel.
-     */
+    
     private boolean isFromOnlineStore;
 
-    /**
-     * Whether the abandonment event comes from the Shop app sales channel.
-     */
+    
     private boolean isFromShopApp;
 
-    /**
-     * Whether the abandonment event comes from Shop Pay.
-     */
+    
     private boolean isFromShopPay;
 
-    /**
-     * Whether the customer didn't complete another most significant step since this abandonment.
-     */
+    
     private boolean isMostSignificantAbandonment;
 
-    /**
-     * The date for the latest browse abandonment.
-     */
+    
     private OffsetDateTime lastBrowseAbandonmentDate;
 
-    /**
-     * The date for the latest cart abandonment.
-     */
+    
     private OffsetDateTime lastCartAbandonmentDate;
 
-    /**
-     * The date for the latest checkout abandonment.
-     */
+    
     private OffsetDateTime lastCheckoutAbandonmentDate;
 
-    /**
-     * The most recent step type.
-     */
+    
     private AbandonmentAbandonmentType mostRecentStep;
 
-    /**
-     * The products added to the cart during the customer abandoned visit.
-     */
+    
     private CustomerVisitProductInfoConnection productsAddedToCart;
 
-    /**
-     * The products viewed during the customer abandoned visit.
-     */
+    
     private CustomerVisitProductInfoConnection productsViewed;
 
-    /**
-     * The date and time when the visit started.
-     */
+    
     private OffsetDateTime visitStartedAt;
 
     public Abandonment build() {
@@ -644,210 +486,158 @@ public class Abandonment implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * The abandonment payload for the abandoned checkout.
-     */
+    
     public Builder abandonedCheckoutPayload(AbandonedCheckout abandonedCheckoutPayload) {
       this.abandonedCheckoutPayload = abandonedCheckoutPayload;
       return this;
     }
 
-    /**
-     * The abandonment type.
-     */
+    
     public Builder abandonmentType(AbandonmentAbandonmentType abandonmentType) {
       this.abandonmentType = abandonmentType;
       return this;
     }
 
-    /**
-     * The app associated with an abandoned checkout.
-     */
+    
     public Builder app(App app) {
       this.app = app;
       return this;
     }
 
-    /**
-     * Permalink to the cart page.
-     */
+    
     public Builder cartUrl(String cartUrl) {
       this.cartUrl = cartUrl;
       return this;
     }
 
-    /**
-     * The date and time when the abandonment was created.
-     */
+    
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    /**
-     * The customer who abandoned this event.
-     */
+    
     public Builder customer(Customer customer) {
       this.customer = customer;
       return this;
     }
 
-    /**
-     * Whether the customer has a draft order since this abandonment has been abandoned.
-     */
+    
     public Builder customerHasNoDraftOrderSinceAbandonment(
         boolean customerHasNoDraftOrderSinceAbandonment) {
       this.customerHasNoDraftOrderSinceAbandonment = customerHasNoDraftOrderSinceAbandonment;
       return this;
     }
 
-    /**
-     * Whether the customer has completed an order since this checkout has been abandoned.
-     */
+    
     public Builder customerHasNoOrderSinceAbandonment(boolean customerHasNoOrderSinceAbandonment) {
       this.customerHasNoOrderSinceAbandonment = customerHasNoOrderSinceAbandonment;
       return this;
     }
 
-    /**
-     * The number of days since the last abandonment email was sent to the customer.
-     */
+    
     public Builder daysSinceLastAbandonmentEmail(int daysSinceLastAbandonmentEmail) {
       this.daysSinceLastAbandonmentEmail = daysSinceLastAbandonmentEmail;
       return this;
     }
 
-    /**
-     * When the email was sent, if that's the case.
-     */
+    
     public Builder emailSentAt(OffsetDateTime emailSentAt) {
       this.emailSentAt = emailSentAt;
       return this;
     }
 
-    /**
-     * The email state (e.g., sent or not sent).
-     */
+    
     public Builder emailState(AbandonmentEmailState emailState) {
       this.emailState = emailState;
       return this;
     }
 
-    /**
-     * The number of hours since the customer has last abandoned a checkout.
-     */
+    
     public Builder hoursSinceLastAbandonedCheckout(Double hoursSinceLastAbandonedCheckout) {
       this.hoursSinceLastAbandonedCheckout = hoursSinceLastAbandonedCheckout;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * Whether the products in abandonment are available.
-     */
+    
     public Builder inventoryAvailable(boolean inventoryAvailable) {
       this.inventoryAvailable = inventoryAvailable;
       return this;
     }
 
-    /**
-     * Whether the abandonment event comes from a custom storefront channel.
-     */
+    
     public Builder isFromCustomStorefront(boolean isFromCustomStorefront) {
       this.isFromCustomStorefront = isFromCustomStorefront;
       return this;
     }
 
-    /**
-     * Whether the abandonment event comes from the Online Store sales channel.
-     */
+    
     public Builder isFromOnlineStore(boolean isFromOnlineStore) {
       this.isFromOnlineStore = isFromOnlineStore;
       return this;
     }
 
-    /**
-     * Whether the abandonment event comes from the Shop app sales channel.
-     */
+    
     public Builder isFromShopApp(boolean isFromShopApp) {
       this.isFromShopApp = isFromShopApp;
       return this;
     }
 
-    /**
-     * Whether the abandonment event comes from Shop Pay.
-     */
+    
     public Builder isFromShopPay(boolean isFromShopPay) {
       this.isFromShopPay = isFromShopPay;
       return this;
     }
 
-    /**
-     * Whether the customer didn't complete another most significant step since this abandonment.
-     */
+    
     public Builder isMostSignificantAbandonment(boolean isMostSignificantAbandonment) {
       this.isMostSignificantAbandonment = isMostSignificantAbandonment;
       return this;
     }
 
-    /**
-     * The date for the latest browse abandonment.
-     */
+    
     public Builder lastBrowseAbandonmentDate(OffsetDateTime lastBrowseAbandonmentDate) {
       this.lastBrowseAbandonmentDate = lastBrowseAbandonmentDate;
       return this;
     }
 
-    /**
-     * The date for the latest cart abandonment.
-     */
+    
     public Builder lastCartAbandonmentDate(OffsetDateTime lastCartAbandonmentDate) {
       this.lastCartAbandonmentDate = lastCartAbandonmentDate;
       return this;
     }
 
-    /**
-     * The date for the latest checkout abandonment.
-     */
+    
     public Builder lastCheckoutAbandonmentDate(OffsetDateTime lastCheckoutAbandonmentDate) {
       this.lastCheckoutAbandonmentDate = lastCheckoutAbandonmentDate;
       return this;
     }
 
-    /**
-     * The most recent step type.
-     */
+    
     public Builder mostRecentStep(AbandonmentAbandonmentType mostRecentStep) {
       this.mostRecentStep = mostRecentStep;
       return this;
     }
 
-    /**
-     * The products added to the cart during the customer abandoned visit.
-     */
+    
     public Builder productsAddedToCart(CustomerVisitProductInfoConnection productsAddedToCart) {
       this.productsAddedToCart = productsAddedToCart;
       return this;
     }
 
-    /**
-     * The products viewed during the customer abandoned visit.
-     */
+    
     public Builder productsViewed(CustomerVisitProductInfoConnection productsViewed) {
       this.productsViewed = productsViewed;
       return this;
     }
 
-    /**
-     * The date and time when the visit started.
-     */
+    
     public Builder visitStartedAt(OffsetDateTime visitStartedAt) {
       this.visitStartedAt = visitStartedAt;
       return this;

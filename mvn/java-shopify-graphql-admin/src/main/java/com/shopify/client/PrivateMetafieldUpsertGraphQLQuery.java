@@ -7,13 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Creates or updates a private metafield. Use private metafields when you don't
- * want the metafield data to be accessible by merchants or other apps.
- * Private metafields are accessible only by the application that created them and only from the GraphQL Admin API.
- *   
- * An application can create a maximum of 10 private metafields per shop resource.
- */
+
 public class PrivateMetafieldUpsertGraphQLQuery extends GraphQLQuery {
   public PrivateMetafieldUpsertGraphQLQuery(PrivateMetafieldInput input, String queryName,
       Set<String> fieldsSet) {
@@ -48,9 +42,7 @@ public class PrivateMetafieldUpsertGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * Specifies the input fields for the private metafield.
-     */
+    
     public Builder input(PrivateMetafieldInput input) {
       this.input = input;
       this.fieldsSet.add("input");

@@ -5,36 +5,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Resource limits of a shop.
- */
+
 public class ShopResourceLimits {
-  /**
-   * Maximum number of locations allowed.
-   */
+  
   private int locationLimit;
 
-  /**
-   * Maximum number of product options allowed.
-   */
+  
   private int maxProductOptions;
 
-  /**
-   * The maximum number of variants allowed per product.
-   */
+  
   private int maxProductVariants;
 
-  /**
-   * Whether the shop has reached the limit of the number of URL redirects it can make for resources.
-   */
+  
   private boolean redirectLimitReached;
 
   public ShopResourceLimits() {
   }
 
-  /**
-   * Maximum number of locations allowed.
-   */
+  
   public int getLocationLimit() {
     return locationLimit;
   }
@@ -43,9 +31,7 @@ public class ShopResourceLimits {
     this.locationLimit = locationLimit;
   }
 
-  /**
-   * Maximum number of product options allowed.
-   */
+  
   public int getMaxProductOptions() {
     return maxProductOptions;
   }
@@ -54,9 +40,7 @@ public class ShopResourceLimits {
     this.maxProductOptions = maxProductOptions;
   }
 
-  /**
-   * The maximum number of variants allowed per product.
-   */
+  
   public int getMaxProductVariants() {
     return maxProductVariants;
   }
@@ -65,9 +49,7 @@ public class ShopResourceLimits {
     this.maxProductVariants = maxProductVariants;
   }
 
-  /**
-   * Whether the shop has reached the limit of the number of URL redirects it can make for resources.
-   */
+  
   public boolean getRedirectLimitReached() {
     return redirectLimitReached;
   }
@@ -102,24 +84,16 @@ public class ShopResourceLimits {
   }
 
   public static class Builder {
-    /**
-     * Maximum number of locations allowed.
-     */
+    
     private int locationLimit;
 
-    /**
-     * Maximum number of product options allowed.
-     */
+    
     private int maxProductOptions;
 
-    /**
-     * The maximum number of variants allowed per product.
-     */
+    
     private int maxProductVariants;
 
-    /**
-     * Whether the shop has reached the limit of the number of URL redirects it can make for resources.
-     */
+    
     private boolean redirectLimitReached;
 
     public ShopResourceLimits build() {
@@ -131,33 +105,25 @@ public class ShopResourceLimits {
       return result;
     }
 
-    /**
-     * Maximum number of locations allowed.
-     */
+    
     public Builder locationLimit(int locationLimit) {
       this.locationLimit = locationLimit;
       return this;
     }
 
-    /**
-     * Maximum number of product options allowed.
-     */
+    
     public Builder maxProductOptions(int maxProductOptions) {
       this.maxProductOptions = maxProductOptions;
       return this;
     }
 
-    /**
-     * The maximum number of variants allowed per product.
-     */
+    
     public Builder maxProductVariants(int maxProductVariants) {
       this.maxProductVariants = maxProductVariants;
       return this;
     }
 
-    /**
-     * Whether the shop has reached the limit of the number of URL redirects it can make for resources.
-     */
+    
     public Builder redirectLimitReached(boolean redirectLimitReached) {
       this.redirectLimitReached = redirectLimitReached;
       return this;

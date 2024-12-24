@@ -5,27 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for tracking information about a return delivery.
- */
+
 public class ReverseDeliveryTrackingInput {
-  /**
-   * The tracking number for the label.
-   */
+  
   private String number;
 
-  /**
-   * The tracking URL for the carrier. If the carrier isn't supported by Shopify,
-   * then provide the tracking URL of the delivery.
-   */
+  
   private String url;
 
   public ReverseDeliveryTrackingInput() {
   }
 
-  /**
-   * The tracking number for the label.
-   */
+  
   public String getNumber() {
     return number;
   }
@@ -34,10 +25,7 @@ public class ReverseDeliveryTrackingInput {
     this.number = number;
   }
 
-  /**
-   * The tracking URL for the carrier. If the carrier isn't supported by Shopify,
-   * then provide the tracking URL of the delivery.
-   */
+  
   public String getUrl() {
     return url;
   }
@@ -70,15 +58,10 @@ public class ReverseDeliveryTrackingInput {
   }
 
   public static class Builder {
-    /**
-     * The tracking number for the label.
-     */
+    
     private String number;
 
-    /**
-     * The tracking URL for the carrier. If the carrier isn't supported by Shopify,
-     * then provide the tracking URL of the delivery.
-     */
+    
     private String url;
 
     public ReverseDeliveryTrackingInput build() {
@@ -88,18 +71,13 @@ public class ReverseDeliveryTrackingInput {
       return result;
     }
 
-    /**
-     * The tracking number for the label.
-     */
+    
     public Builder number(String number) {
       this.number = number;
       return this;
     }
 
-    /**
-     * The tracking URL for the carrier. If the carrier isn't supported by Shopify,
-     * then provide the tracking URL of the delivery.
-     */
+    
     public Builder url(String url) {
       this.url = url;
       return this;

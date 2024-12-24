@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * The Shopify Function.
- */
+
 public class ShopifyFunctionGraphQLQuery extends GraphQLQuery {
   public ShopifyFunctionGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -42,9 +40,7 @@ public class ShopifyFunctionGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the Shopify Function.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

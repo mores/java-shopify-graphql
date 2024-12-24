@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The third-party confirmation of a reverse fulfillment order.
- */
+
 public class ReverseFulfillmentOrderThirdPartyConfirmation {
-  /**
-   * The status of the reverse fulfillment order third-party confirmation.
-   */
+  
   private ReverseFulfillmentOrderThirdPartyConfirmationStatus status;
 
   public ReverseFulfillmentOrderThirdPartyConfirmation() {
   }
 
-  /**
-   * The status of the reverse fulfillment order third-party confirmation.
-   */
+  
   public ReverseFulfillmentOrderThirdPartyConfirmationStatus getStatus() {
     return status;
   }
@@ -51,9 +45,7 @@ public class ReverseFulfillmentOrderThirdPartyConfirmation {
   }
 
   public static class Builder {
-    /**
-     * The status of the reverse fulfillment order third-party confirmation.
-     */
+    
     private ReverseFulfillmentOrderThirdPartyConfirmationStatus status;
 
     public ReverseFulfillmentOrderThirdPartyConfirmation build() {
@@ -62,9 +54,7 @@ public class ReverseFulfillmentOrderThirdPartyConfirmation {
       return result;
     }
 
-    /**
-     * The status of the reverse fulfillment order third-party confirmation.
-     */
+    
     public Builder status(ReverseFulfillmentOrderThirdPartyConfirmationStatus status) {
       this.status = status;
       return this;

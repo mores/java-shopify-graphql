@@ -5,56 +5,36 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The main sections customizations.
- */
+
 public class CheckoutBrandingMainSection {
-  /**
-   * The background style of the main sections.
-   */
+  
   private CheckoutBrandingBackground background;
 
-  /**
-   * The border for the main sections.
-   */
+  
   private CheckoutBrandingSimpleBorder border;
 
-  /**
-   * The border style of the main sections.
-   */
+  
   private CheckoutBrandingBorderStyle borderStyle;
 
-  /**
-   * The border width of the main sections.
-   */
+  
   private CheckoutBrandingBorderWidth borderWidth;
 
-  /**
-   * The selected color scheme of the main sections.
-   */
+  
   private CheckoutBrandingColorSchemeSelection colorScheme;
 
-  /**
-   * The corner radius of the main sections.
-   */
+  
   private CheckoutBrandingCornerRadius cornerRadius;
 
-  /**
-   * The padding of the main sections.
-   */
+  
   private CheckoutBrandingSpacingKeyword padding;
 
-  /**
-   * The shadow of the main sections.
-   */
+  
   private CheckoutBrandingShadow shadow;
 
   public CheckoutBrandingMainSection() {
   }
 
-  /**
-   * The background style of the main sections.
-   */
+  
   public CheckoutBrandingBackground getBackground() {
     return background;
   }
@@ -63,9 +43,7 @@ public class CheckoutBrandingMainSection {
     this.background = background;
   }
 
-  /**
-   * The border for the main sections.
-   */
+  
   public CheckoutBrandingSimpleBorder getBorder() {
     return border;
   }
@@ -74,9 +52,7 @@ public class CheckoutBrandingMainSection {
     this.border = border;
   }
 
-  /**
-   * The border style of the main sections.
-   */
+  
   public CheckoutBrandingBorderStyle getBorderStyle() {
     return borderStyle;
   }
@@ -85,9 +61,7 @@ public class CheckoutBrandingMainSection {
     this.borderStyle = borderStyle;
   }
 
-  /**
-   * The border width of the main sections.
-   */
+  
   public CheckoutBrandingBorderWidth getBorderWidth() {
     return borderWidth;
   }
@@ -96,9 +70,7 @@ public class CheckoutBrandingMainSection {
     this.borderWidth = borderWidth;
   }
 
-  /**
-   * The selected color scheme of the main sections.
-   */
+  
   public CheckoutBrandingColorSchemeSelection getColorScheme() {
     return colorScheme;
   }
@@ -107,9 +79,7 @@ public class CheckoutBrandingMainSection {
     this.colorScheme = colorScheme;
   }
 
-  /**
-   * The corner radius of the main sections.
-   */
+  
   public CheckoutBrandingCornerRadius getCornerRadius() {
     return cornerRadius;
   }
@@ -118,9 +88,7 @@ public class CheckoutBrandingMainSection {
     this.cornerRadius = cornerRadius;
   }
 
-  /**
-   * The padding of the main sections.
-   */
+  
   public CheckoutBrandingSpacingKeyword getPadding() {
     return padding;
   }
@@ -129,9 +97,7 @@ public class CheckoutBrandingMainSection {
     this.padding = padding;
   }
 
-  /**
-   * The shadow of the main sections.
-   */
+  
   public CheckoutBrandingShadow getShadow() {
     return shadow;
   }
@@ -170,44 +136,28 @@ public class CheckoutBrandingMainSection {
   }
 
   public static class Builder {
-    /**
-     * The background style of the main sections.
-     */
+    
     private CheckoutBrandingBackground background;
 
-    /**
-     * The border for the main sections.
-     */
+    
     private CheckoutBrandingSimpleBorder border;
 
-    /**
-     * The border style of the main sections.
-     */
+    
     private CheckoutBrandingBorderStyle borderStyle;
 
-    /**
-     * The border width of the main sections.
-     */
+    
     private CheckoutBrandingBorderWidth borderWidth;
 
-    /**
-     * The selected color scheme of the main sections.
-     */
+    
     private CheckoutBrandingColorSchemeSelection colorScheme;
 
-    /**
-     * The corner radius of the main sections.
-     */
+    
     private CheckoutBrandingCornerRadius cornerRadius;
 
-    /**
-     * The padding of the main sections.
-     */
+    
     private CheckoutBrandingSpacingKeyword padding;
 
-    /**
-     * The shadow of the main sections.
-     */
+    
     private CheckoutBrandingShadow shadow;
 
     public CheckoutBrandingMainSection build() {
@@ -223,65 +173,49 @@ public class CheckoutBrandingMainSection {
       return result;
     }
 
-    /**
-     * The background style of the main sections.
-     */
+    
     public Builder background(CheckoutBrandingBackground background) {
       this.background = background;
       return this;
     }
 
-    /**
-     * The border for the main sections.
-     */
+    
     public Builder border(CheckoutBrandingSimpleBorder border) {
       this.border = border;
       return this;
     }
 
-    /**
-     * The border style of the main sections.
-     */
+    
     public Builder borderStyle(CheckoutBrandingBorderStyle borderStyle) {
       this.borderStyle = borderStyle;
       return this;
     }
 
-    /**
-     * The border width of the main sections.
-     */
+    
     public Builder borderWidth(CheckoutBrandingBorderWidth borderWidth) {
       this.borderWidth = borderWidth;
       return this;
     }
 
-    /**
-     * The selected color scheme of the main sections.
-     */
+    
     public Builder colorScheme(CheckoutBrandingColorSchemeSelection colorScheme) {
       this.colorScheme = colorScheme;
       return this;
     }
 
-    /**
-     * The corner radius of the main sections.
-     */
+    
     public Builder cornerRadius(CheckoutBrandingCornerRadius cornerRadius) {
       this.cornerRadius = cornerRadius;
       return this;
     }
 
-    /**
-     * The padding of the main sections.
-     */
+    
     public Builder padding(CheckoutBrandingSpacingKeyword padding) {
       this.padding = padding;
       return this;
     }
 
-    /**
-     * The shadow of the main sections.
-     */
+    
     public Builder shadow(CheckoutBrandingShadow shadow) {
       this.shadow = shadow;
       return this;

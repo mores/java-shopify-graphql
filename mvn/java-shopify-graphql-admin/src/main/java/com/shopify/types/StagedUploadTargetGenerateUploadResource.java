@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * The resource type to receive.
- */
+
 public enum StagedUploadTargetGenerateUploadResource {
   COLLECTION_IMAGE,
 

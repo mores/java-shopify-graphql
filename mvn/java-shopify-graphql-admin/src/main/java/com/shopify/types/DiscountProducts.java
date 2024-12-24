@@ -6,34 +6,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A list of products and product variants that the discount can have as a
- * prerequisite or a list of products and product variants to which the discount
- * can be applied.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DiscountProducts implements DiscountItems {
-  /**
-   * The list of product variants that the discount can have as a prerequisite or
-   * the list of product variants to which the discount can be applied.
-   */
+  
   private ProductVariantConnection productVariants;
 
-  /**
-   * The list of products that the discount can have as a prerequisite or the list
-   * of products to which the discount can be applied.
-   */
+  
   private ProductConnection products;
 
   public DiscountProducts() {
   }
 
-  /**
-   * The list of product variants that the discount can have as a prerequisite or
-   * the list of product variants to which the discount can be applied.
-   */
+  
   public ProductVariantConnection getProductVariants() {
     return productVariants;
   }
@@ -42,10 +29,7 @@ public class DiscountProducts implements DiscountItems {
     this.productVariants = productVariants;
   }
 
-  /**
-   * The list of products that the discount can have as a prerequisite or the list
-   * of products to which the discount can be applied.
-   */
+  
   public ProductConnection getProducts() {
     return products;
   }
@@ -78,16 +62,10 @@ public class DiscountProducts implements DiscountItems {
   }
 
   public static class Builder {
-    /**
-     * The list of product variants that the discount can have as a prerequisite or
-     * the list of product variants to which the discount can be applied.
-     */
+    
     private ProductVariantConnection productVariants;
 
-    /**
-     * The list of products that the discount can have as a prerequisite or the list
-     * of products to which the discount can be applied.
-     */
+    
     private ProductConnection products;
 
     public DiscountProducts build() {
@@ -97,19 +75,13 @@ public class DiscountProducts implements DiscountItems {
       return result;
     }
 
-    /**
-     * The list of product variants that the discount can have as a prerequisite or
-     * the list of product variants to which the discount can be applied.
-     */
+    
     public Builder productVariants(ProductVariantConnection productVariants) {
       this.productVariants = productVariants;
       return this;
     }
 
-    /**
-     * The list of products that the discount can have as a prerequisite or the list
-     * of products to which the discount can be applied.
-     */
+    
     public Builder products(ProductConnection products) {
       this.products = products;
       return this;

@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Updates a delivery customization.
- */
+
 public class DeliveryCustomizationUpdateGraphQLQuery extends GraphQLQuery {
   public DeliveryCustomizationUpdateGraphQLQuery(String id,
       DeliveryCustomizationInput deliveryCustomization, String queryName, Set<String> fieldsSet) {
@@ -48,18 +46,14 @@ public class DeliveryCustomizationUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The global ID of the delivery customization.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * The input data used to update the delivery customization.
-     */
+    
     public Builder deliveryCustomization(DeliveryCustomizationInput deliveryCustomization) {
       this.deliveryCustomization = deliveryCustomization;
       this.fieldsSet.add("deliveryCustomization");

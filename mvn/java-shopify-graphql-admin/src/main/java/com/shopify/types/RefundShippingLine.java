@@ -6,39 +6,27 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A shipping line item that's included in a refund.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class RefundShippingLine implements com.shopify.types.Node {
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The `ShippingLine` resource associated to the refunded shipping line item.
-   */
+  
   private ShippingLine shippingLine;
 
-  /**
-   * The subtotal amount of the refund shipping line in shop and presentment currencies.
-   */
+  
   private MoneyBag subtotalAmountSet;
 
-  /**
-   * The tax amount of the refund shipping line in shop and presentment currencies.
-   */
+  
   private MoneyBag taxAmountSet;
 
   public RefundShippingLine() {
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -47,9 +35,7 @@ public class RefundShippingLine implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The `ShippingLine` resource associated to the refunded shipping line item.
-   */
+  
   public ShippingLine getShippingLine() {
     return shippingLine;
   }
@@ -58,9 +44,7 @@ public class RefundShippingLine implements com.shopify.types.Node {
     this.shippingLine = shippingLine;
   }
 
-  /**
-   * The subtotal amount of the refund shipping line in shop and presentment currencies.
-   */
+  
   public MoneyBag getSubtotalAmountSet() {
     return subtotalAmountSet;
   }
@@ -69,9 +53,7 @@ public class RefundShippingLine implements com.shopify.types.Node {
     this.subtotalAmountSet = subtotalAmountSet;
   }
 
-  /**
-   * The tax amount of the refund shipping line in shop and presentment currencies.
-   */
+  
   public MoneyBag getTaxAmountSet() {
     return taxAmountSet;
   }
@@ -106,24 +88,16 @@ public class RefundShippingLine implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The `ShippingLine` resource associated to the refunded shipping line item.
-     */
+    
     private ShippingLine shippingLine;
 
-    /**
-     * The subtotal amount of the refund shipping line in shop and presentment currencies.
-     */
+    
     private MoneyBag subtotalAmountSet;
 
-    /**
-     * The tax amount of the refund shipping line in shop and presentment currencies.
-     */
+    
     private MoneyBag taxAmountSet;
 
     public RefundShippingLine build() {
@@ -135,33 +109,25 @@ public class RefundShippingLine implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The `ShippingLine` resource associated to the refunded shipping line item.
-     */
+    
     public Builder shippingLine(ShippingLine shippingLine) {
       this.shippingLine = shippingLine;
       return this;
     }
 
-    /**
-     * The subtotal amount of the refund shipping line in shop and presentment currencies.
-     */
+    
     public Builder subtotalAmountSet(MoneyBag subtotalAmountSet) {
       this.subtotalAmountSet = subtotalAmountSet;
       return this;
     }
 
-    /**
-     * The tax amount of the refund shipping line in shop and presentment currencies.
-     */
+    
     public Builder taxAmountSet(MoneyBag taxAmountSet) {
       this.taxAmountSet = taxAmountSet;
       return this;

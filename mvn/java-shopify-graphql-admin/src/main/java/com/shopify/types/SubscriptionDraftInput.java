@@ -7,61 +7,39 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields required to create a Subscription Draft.
- */
+
 public class SubscriptionDraftInput {
-  /**
-   * The current status of the subscription contract.
-   */
+  
   private SubscriptionContractSubscriptionStatus status;
 
-  /**
-   * The ID of the payment method to be used for the subscription contract.
-   */
+  
   private String paymentMethodId;
 
-  /**
-   * The next billing date for the subscription contract.
-   */
+  
   private OffsetDateTime nextBillingDate;
 
-  /**
-   * The billing policy for the subscription contract.
-   */
+  
   private SubscriptionBillingPolicyInput billingPolicy;
 
-  /**
-   * The delivery policy for the subscription contract.
-   */
+  
   private SubscriptionDeliveryPolicyInput deliveryPolicy;
 
-  /**
-   * The shipping price for each renewal the subscription contract.
-   */
+  
   private String deliveryPrice;
 
-  /**
-   * The delivery method for the subscription contract.
-   */
+  
   private SubscriptionDeliveryMethodInput deliveryMethod;
 
-  /**
-   * The note field that will be applied to the generated orders.
-   */
+  
   private String note;
 
-  /**
-   * A list of the custom attributes added to the subscription contract.
-   */
+  
   private List<AttributeInput> customAttributes;
 
   public SubscriptionDraftInput() {
   }
 
-  /**
-   * The current status of the subscription contract.
-   */
+  
   public SubscriptionContractSubscriptionStatus getStatus() {
     return status;
   }
@@ -70,9 +48,7 @@ public class SubscriptionDraftInput {
     this.status = status;
   }
 
-  /**
-   * The ID of the payment method to be used for the subscription contract.
-   */
+  
   public String getPaymentMethodId() {
     return paymentMethodId;
   }
@@ -81,9 +57,7 @@ public class SubscriptionDraftInput {
     this.paymentMethodId = paymentMethodId;
   }
 
-  /**
-   * The next billing date for the subscription contract.
-   */
+  
   public OffsetDateTime getNextBillingDate() {
     return nextBillingDate;
   }
@@ -92,9 +66,7 @@ public class SubscriptionDraftInput {
     this.nextBillingDate = nextBillingDate;
   }
 
-  /**
-   * The billing policy for the subscription contract.
-   */
+  
   public SubscriptionBillingPolicyInput getBillingPolicy() {
     return billingPolicy;
   }
@@ -103,9 +75,7 @@ public class SubscriptionDraftInput {
     this.billingPolicy = billingPolicy;
   }
 
-  /**
-   * The delivery policy for the subscription contract.
-   */
+  
   public SubscriptionDeliveryPolicyInput getDeliveryPolicy() {
     return deliveryPolicy;
   }
@@ -114,9 +84,7 @@ public class SubscriptionDraftInput {
     this.deliveryPolicy = deliveryPolicy;
   }
 
-  /**
-   * The shipping price for each renewal the subscription contract.
-   */
+  
   public String getDeliveryPrice() {
     return deliveryPrice;
   }
@@ -125,9 +93,7 @@ public class SubscriptionDraftInput {
     this.deliveryPrice = deliveryPrice;
   }
 
-  /**
-   * The delivery method for the subscription contract.
-   */
+  
   public SubscriptionDeliveryMethodInput getDeliveryMethod() {
     return deliveryMethod;
   }
@@ -136,9 +102,7 @@ public class SubscriptionDraftInput {
     this.deliveryMethod = deliveryMethod;
   }
 
-  /**
-   * The note field that will be applied to the generated orders.
-   */
+  
   public String getNote() {
     return note;
   }
@@ -147,9 +111,7 @@ public class SubscriptionDraftInput {
     this.note = note;
   }
 
-  /**
-   * A list of the custom attributes added to the subscription contract.
-   */
+  
   public List<AttributeInput> getCustomAttributes() {
     return customAttributes;
   }
@@ -189,49 +151,31 @@ public class SubscriptionDraftInput {
   }
 
   public static class Builder {
-    /**
-     * The current status of the subscription contract.
-     */
+    
     private SubscriptionContractSubscriptionStatus status;
 
-    /**
-     * The ID of the payment method to be used for the subscription contract.
-     */
+    
     private String paymentMethodId;
 
-    /**
-     * The next billing date for the subscription contract.
-     */
+    
     private OffsetDateTime nextBillingDate;
 
-    /**
-     * The billing policy for the subscription contract.
-     */
+    
     private SubscriptionBillingPolicyInput billingPolicy;
 
-    /**
-     * The delivery policy for the subscription contract.
-     */
+    
     private SubscriptionDeliveryPolicyInput deliveryPolicy;
 
-    /**
-     * The shipping price for each renewal the subscription contract.
-     */
+    
     private String deliveryPrice;
 
-    /**
-     * The delivery method for the subscription contract.
-     */
+    
     private SubscriptionDeliveryMethodInput deliveryMethod;
 
-    /**
-     * The note field that will be applied to the generated orders.
-     */
+    
     private String note;
 
-    /**
-     * A list of the custom attributes added to the subscription contract.
-     */
+    
     private List<AttributeInput> customAttributes;
 
     public SubscriptionDraftInput build() {
@@ -248,73 +192,55 @@ public class SubscriptionDraftInput {
       return result;
     }
 
-    /**
-     * The current status of the subscription contract.
-     */
+    
     public Builder status(SubscriptionContractSubscriptionStatus status) {
       this.status = status;
       return this;
     }
 
-    /**
-     * The ID of the payment method to be used for the subscription contract.
-     */
+    
     public Builder paymentMethodId(String paymentMethodId) {
       this.paymentMethodId = paymentMethodId;
       return this;
     }
 
-    /**
-     * The next billing date for the subscription contract.
-     */
+    
     public Builder nextBillingDate(OffsetDateTime nextBillingDate) {
       this.nextBillingDate = nextBillingDate;
       return this;
     }
 
-    /**
-     * The billing policy for the subscription contract.
-     */
+    
     public Builder billingPolicy(SubscriptionBillingPolicyInput billingPolicy) {
       this.billingPolicy = billingPolicy;
       return this;
     }
 
-    /**
-     * The delivery policy for the subscription contract.
-     */
+    
     public Builder deliveryPolicy(SubscriptionDeliveryPolicyInput deliveryPolicy) {
       this.deliveryPolicy = deliveryPolicy;
       return this;
     }
 
-    /**
-     * The shipping price for each renewal the subscription contract.
-     */
+    
     public Builder deliveryPrice(String deliveryPrice) {
       this.deliveryPrice = deliveryPrice;
       return this;
     }
 
-    /**
-     * The delivery method for the subscription contract.
-     */
+    
     public Builder deliveryMethod(SubscriptionDeliveryMethodInput deliveryMethod) {
       this.deliveryMethod = deliveryMethod;
       return this;
     }
 
-    /**
-     * The note field that will be applied to the generated orders.
-     */
+    
     public Builder note(String note) {
       this.note = note;
       return this;
     }
 
-    /**
-     * A list of the custom attributes added to the subscription contract.
-     */
+    
     public Builder customAttributes(List<AttributeInput> customAttributes) {
       this.customAttributes = customAttributes;
       return this;

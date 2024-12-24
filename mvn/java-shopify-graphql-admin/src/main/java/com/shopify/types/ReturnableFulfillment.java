@@ -6,35 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A returnable fulfillment, which is an order that has been delivered
- * and is eligible to be returned to the merchant.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ReturnableFulfillment implements com.shopify.types.Node {
-  /**
-   * The fulfillment that the returnable fulfillment refers to.
-   */
+  
   private Fulfillment fulfillment;
 
-  /**
-   * The unique ID of the Returnable Fulfillment.
-   */
+  
   private String id;
 
-  /**
-   * The list of returnable fulfillment line items.
-   */
+  
   private ReturnableFulfillmentLineItemConnection returnableFulfillmentLineItems;
 
   public ReturnableFulfillment() {
   }
 
-  /**
-   * The fulfillment that the returnable fulfillment refers to.
-   */
+  
   public Fulfillment getFulfillment() {
     return fulfillment;
   }
@@ -43,9 +32,7 @@ public class ReturnableFulfillment implements com.shopify.types.Node {
     this.fulfillment = fulfillment;
   }
 
-  /**
-   * The unique ID of the Returnable Fulfillment.
-   */
+  
   public String getId() {
     return id;
   }
@@ -54,9 +41,7 @@ public class ReturnableFulfillment implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The list of returnable fulfillment line items.
-   */
+  
   public ReturnableFulfillmentLineItemConnection getReturnableFulfillmentLineItems() {
     return returnableFulfillmentLineItems;
   }
@@ -91,19 +76,13 @@ public class ReturnableFulfillment implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * The fulfillment that the returnable fulfillment refers to.
-     */
+    
     private Fulfillment fulfillment;
 
-    /**
-     * The unique ID of the Returnable Fulfillment.
-     */
+    
     private String id;
 
-    /**
-     * The list of returnable fulfillment line items.
-     */
+    
     private ReturnableFulfillmentLineItemConnection returnableFulfillmentLineItems;
 
     public ReturnableFulfillment build() {
@@ -114,25 +93,19 @@ public class ReturnableFulfillment implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * The fulfillment that the returnable fulfillment refers to.
-     */
+    
     public Builder fulfillment(Fulfillment fulfillment) {
       this.fulfillment = fulfillment;
       return this;
     }
 
-    /**
-     * The unique ID of the Returnable Fulfillment.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The list of returnable fulfillment line items.
-     */
+    
     public Builder returnableFulfillmentLineItems(
         ReturnableFulfillmentLineItemConnection returnableFulfillmentLineItems) {
       this.returnableFulfillmentLineItems = returnableFulfillmentLineItems;

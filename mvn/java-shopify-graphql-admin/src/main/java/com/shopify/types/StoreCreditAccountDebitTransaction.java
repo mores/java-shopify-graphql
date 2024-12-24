@@ -7,44 +7,30 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * A debit transaction which decreases the store credit account balance.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class StoreCreditAccountDebitTransaction implements com.shopify.types.Node, com.shopify.types.StoreCreditAccountTransaction {
-  /**
-   * The store credit account that the transaction belongs to.
-   */
+  
   private StoreCreditAccount account;
 
-  /**
-   * The amount of the transaction.
-   */
+  
   private MoneyV2 amount;
 
-  /**
-   * The balance of the account after the transaction.
-   */
+  
   private MoneyV2 balanceAfterTransaction;
 
-  /**
-   * The date and time when the transaction was created.
-   */
+  
   private OffsetDateTime createdAt;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
   public StoreCreditAccountDebitTransaction() {
   }
 
-  /**
-   * The store credit account that the transaction belongs to.
-   */
+  
   public StoreCreditAccount getAccount() {
     return account;
   }
@@ -53,9 +39,7 @@ public class StoreCreditAccountDebitTransaction implements com.shopify.types.Nod
     this.account = account;
   }
 
-  /**
-   * The amount of the transaction.
-   */
+  
   public MoneyV2 getAmount() {
     return amount;
   }
@@ -64,9 +48,7 @@ public class StoreCreditAccountDebitTransaction implements com.shopify.types.Nod
     this.amount = amount;
   }
 
-  /**
-   * The balance of the account after the transaction.
-   */
+  
   public MoneyV2 getBalanceAfterTransaction() {
     return balanceAfterTransaction;
   }
@@ -75,9 +57,7 @@ public class StoreCreditAccountDebitTransaction implements com.shopify.types.Nod
     this.balanceAfterTransaction = balanceAfterTransaction;
   }
 
-  /**
-   * The date and time when the transaction was created.
-   */
+  
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -86,9 +66,7 @@ public class StoreCreditAccountDebitTransaction implements com.shopify.types.Nod
     this.createdAt = createdAt;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -124,29 +102,19 @@ public class StoreCreditAccountDebitTransaction implements com.shopify.types.Nod
   }
 
   public static class Builder {
-    /**
-     * The store credit account that the transaction belongs to.
-     */
+    
     private StoreCreditAccount account;
 
-    /**
-     * The amount of the transaction.
-     */
+    
     private MoneyV2 amount;
 
-    /**
-     * The balance of the account after the transaction.
-     */
+    
     private MoneyV2 balanceAfterTransaction;
 
-    /**
-     * The date and time when the transaction was created.
-     */
+    
     private OffsetDateTime createdAt;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
     public StoreCreditAccountDebitTransaction build() {
@@ -159,41 +127,31 @@ public class StoreCreditAccountDebitTransaction implements com.shopify.types.Nod
       return result;
     }
 
-    /**
-     * The store credit account that the transaction belongs to.
-     */
+    
     public Builder account(StoreCreditAccount account) {
       this.account = account;
       return this;
     }
 
-    /**
-     * The amount of the transaction.
-     */
+    
     public Builder amount(MoneyV2 amount) {
       this.amount = amount;
       return this;
     }
 
-    /**
-     * The balance of the account after the transaction.
-     */
+    
     public Builder balanceAfterTransaction(MoneyV2 balanceAfterTransaction) {
       this.balanceAfterTransaction = balanceAfterTransaction;
       return this;
     }
 
-    /**
-     * The date and time when the transaction was created.
-     */
+    
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;

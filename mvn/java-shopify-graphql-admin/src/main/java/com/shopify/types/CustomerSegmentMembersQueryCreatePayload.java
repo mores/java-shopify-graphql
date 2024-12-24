@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `customerSegmentMembersQueryCreate` mutation.
- */
+
 public class CustomerSegmentMembersQueryCreatePayload {
-  /**
-   * The newly created customer segment members query.
-   */
+  
   private CustomerSegmentMembersQuery customerSegmentMembersQuery;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<CustomerSegmentMembersQueryUserError> userErrors;
 
   public CustomerSegmentMembersQueryCreatePayload() {
   }
 
-  /**
-   * The newly created customer segment members query.
-   */
+  
   public CustomerSegmentMembersQuery getCustomerSegmentMembersQuery() {
     return customerSegmentMembersQuery;
   }
@@ -35,9 +27,7 @@ public class CustomerSegmentMembersQueryCreatePayload {
     this.customerSegmentMembersQuery = customerSegmentMembersQuery;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<CustomerSegmentMembersQueryUserError> getUserErrors() {
     return userErrors;
   }
@@ -70,14 +60,10 @@ public class CustomerSegmentMembersQueryCreatePayload {
   }
 
   public static class Builder {
-    /**
-     * The newly created customer segment members query.
-     */
+    
     private CustomerSegmentMembersQuery customerSegmentMembersQuery;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<CustomerSegmentMembersQueryUserError> userErrors;
 
     public CustomerSegmentMembersQueryCreatePayload build() {
@@ -87,18 +73,14 @@ public class CustomerSegmentMembersQueryCreatePayload {
       return result;
     }
 
-    /**
-     * The newly created customer segment members query.
-     */
+    
     public Builder customerSegmentMembersQuery(
         CustomerSegmentMembersQuery customerSegmentMembersQuery) {
       this.customerSegmentMembersQuery = customerSegmentMembersQuery;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<CustomerSegmentMembersQueryUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

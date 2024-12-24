@@ -6,28 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Input for the quantity option related to a component product. This will become a
- * new option on the parent bundle product that doesn't have a corresponding option
- * on the component.
- */
+
 public class ProductBundleComponentQuantityOptionInput {
-  /**
-   * The option name to create on the parent product.
-   */
+  
   private String name;
 
-  /**
-   * Array of option values.
-   */
+  
   private List<ProductBundleComponentQuantityOptionValueInput> values;
 
   public ProductBundleComponentQuantityOptionInput() {
   }
 
-  /**
-   * The option name to create on the parent product.
-   */
+  
   public String getName() {
     return name;
   }
@@ -36,9 +26,7 @@ public class ProductBundleComponentQuantityOptionInput {
     this.name = name;
   }
 
-  /**
-   * Array of option values.
-   */
+  
   public List<ProductBundleComponentQuantityOptionValueInput> getValues() {
     return values;
   }
@@ -71,14 +59,10 @@ public class ProductBundleComponentQuantityOptionInput {
   }
 
   public static class Builder {
-    /**
-     * The option name to create on the parent product.
-     */
+    
     private String name;
 
-    /**
-     * Array of option values.
-     */
+    
     private List<ProductBundleComponentQuantityOptionValueInput> values;
 
     public ProductBundleComponentQuantityOptionInput build() {
@@ -88,17 +72,13 @@ public class ProductBundleComponentQuantityOptionInput {
       return result;
     }
 
-    /**
-     * The option name to create on the parent product.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * Array of option values.
-     */
+    
     public Builder values(List<ProductBundleComponentQuantityOptionValueInput> values) {
       this.values = values;
       return this;

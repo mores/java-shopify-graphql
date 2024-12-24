@@ -7,67 +7,42 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * A credit transaction which increases the gift card balance.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class GiftCardCreditTransaction implements com.shopify.types.GiftCardTransaction, com.shopify.types.HasMetafields, com.shopify.types.Node {
-  /**
-   * The amount of the transaction.
-   */
+  
   private MoneyV2 amount;
 
-  /**
-   * The gift card that the transaction belongs to.
-   */
+  
   private GiftCard giftCard;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-   * including its `namespace` and `key`, that's associated with a Shopify resource
-   * for the purposes of adding and storing additional information.
-   */
+  
   private Metafield metafield;
 
-  /**
-   * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-   * that a merchant associates with a Shopify resource.
-   */
+  
   private MetafieldConnection metafields;
 
-  /**
-   * A note about the transaction.
-   */
+  
   private String note;
 
-  /**
-   * Returns a private metafield by namespace and key that belongs to the resource.
-   */
+  
   private PrivateMetafield privateMetafield;
 
-  /**
-   * List of private metafields that belong to the resource.
-   */
+  
   private PrivateMetafieldConnection privateMetafields;
 
-  /**
-   * The date and time when the transaction was processed.
-   */
+  
   private OffsetDateTime processedAt;
 
   public GiftCardCreditTransaction() {
   }
 
-  /**
-   * The amount of the transaction.
-   */
+  
   public MoneyV2 getAmount() {
     return amount;
   }
@@ -76,9 +51,7 @@ public class GiftCardCreditTransaction implements com.shopify.types.GiftCardTran
     this.amount = amount;
   }
 
-  /**
-   * The gift card that the transaction belongs to.
-   */
+  
   public GiftCard getGiftCard() {
     return giftCard;
   }
@@ -87,9 +60,7 @@ public class GiftCardCreditTransaction implements com.shopify.types.GiftCardTran
     this.giftCard = giftCard;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -98,11 +69,7 @@ public class GiftCardCreditTransaction implements com.shopify.types.GiftCardTran
     this.id = id;
   }
 
-  /**
-   * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-   * including its `namespace` and `key`, that's associated with a Shopify resource
-   * for the purposes of adding and storing additional information.
-   */
+  
   public Metafield getMetafield() {
     return metafield;
   }
@@ -111,10 +78,7 @@ public class GiftCardCreditTransaction implements com.shopify.types.GiftCardTran
     this.metafield = metafield;
   }
 
-  /**
-   * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-   * that a merchant associates with a Shopify resource.
-   */
+  
   public MetafieldConnection getMetafields() {
     return metafields;
   }
@@ -123,9 +87,7 @@ public class GiftCardCreditTransaction implements com.shopify.types.GiftCardTran
     this.metafields = metafields;
   }
 
-  /**
-   * A note about the transaction.
-   */
+  
   public String getNote() {
     return note;
   }
@@ -134,9 +96,7 @@ public class GiftCardCreditTransaction implements com.shopify.types.GiftCardTran
     this.note = note;
   }
 
-  /**
-   * Returns a private metafield by namespace and key that belongs to the resource.
-   */
+  
   public PrivateMetafield getPrivateMetafield() {
     return privateMetafield;
   }
@@ -145,9 +105,7 @@ public class GiftCardCreditTransaction implements com.shopify.types.GiftCardTran
     this.privateMetafield = privateMetafield;
   }
 
-  /**
-   * List of private metafields that belong to the resource.
-   */
+  
   public PrivateMetafieldConnection getPrivateMetafields() {
     return privateMetafields;
   }
@@ -156,9 +114,7 @@ public class GiftCardCreditTransaction implements com.shopify.types.GiftCardTran
     this.privateMetafields = privateMetafields;
   }
 
-  /**
-   * The date and time when the transaction was processed.
-   */
+  
   public OffsetDateTime getProcessedAt() {
     return processedAt;
   }
@@ -198,52 +154,31 @@ public class GiftCardCreditTransaction implements com.shopify.types.GiftCardTran
   }
 
   public static class Builder {
-    /**
-     * The amount of the transaction.
-     */
+    
     private MoneyV2 amount;
 
-    /**
-     * The gift card that the transaction belongs to.
-     */
+    
     private GiftCard giftCard;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-     * including its `namespace` and `key`, that's associated with a Shopify resource
-     * for the purposes of adding and storing additional information.
-     */
+    
     private Metafield metafield;
 
-    /**
-     * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-     * that a merchant associates with a Shopify resource.
-     */
+    
     private MetafieldConnection metafields;
 
-    /**
-     * A note about the transaction.
-     */
+    
     private String note;
 
-    /**
-     * Returns a private metafield by namespace and key that belongs to the resource.
-     */
+    
     private PrivateMetafield privateMetafield;
 
-    /**
-     * List of private metafields that belong to the resource.
-     */
+    
     private PrivateMetafieldConnection privateMetafields;
 
-    /**
-     * The date and time when the transaction was processed.
-     */
+    
     private OffsetDateTime processedAt;
 
     public GiftCardCreditTransaction build() {
@@ -260,76 +195,55 @@ public class GiftCardCreditTransaction implements com.shopify.types.GiftCardTran
       return result;
     }
 
-    /**
-     * The amount of the transaction.
-     */
+    
     public Builder amount(MoneyV2 amount) {
       this.amount = amount;
       return this;
     }
 
-    /**
-     * The gift card that the transaction belongs to.
-     */
+    
     public Builder giftCard(GiftCard giftCard) {
       this.giftCard = giftCard;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-     * including its `namespace` and `key`, that's associated with a Shopify resource
-     * for the purposes of adding and storing additional information.
-     */
+    
     public Builder metafield(Metafield metafield) {
       this.metafield = metafield;
       return this;
     }
 
-    /**
-     * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-     * that a merchant associates with a Shopify resource.
-     */
+    
     public Builder metafields(MetafieldConnection metafields) {
       this.metafields = metafields;
       return this;
     }
 
-    /**
-     * A note about the transaction.
-     */
+    
     public Builder note(String note) {
       this.note = note;
       return this;
     }
 
-    /**
-     * Returns a private metafield by namespace and key that belongs to the resource.
-     */
+    
     public Builder privateMetafield(PrivateMetafield privateMetafield) {
       this.privateMetafield = privateMetafield;
       return this;
     }
 
-    /**
-     * List of private metafields that belong to the resource.
-     */
+    
     public Builder privateMetafields(PrivateMetafieldConnection privateMetafields) {
       this.privateMetafields = privateMetafields;
       return this;
     }
 
-    /**
-     * The date and time when the transaction was processed.
-     */
+    
     public Builder processedAt(OffsetDateTime processedAt) {
       this.processedAt = processedAt;
       return this;

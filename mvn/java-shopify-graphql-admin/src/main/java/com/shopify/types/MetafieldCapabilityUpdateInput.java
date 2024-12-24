@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for updating a metafield capability.
- */
+
 public class MetafieldCapabilityUpdateInput {
-  /**
-   * The input for updating the smart collection condition capability.
-   */
+  
   private MetafieldCapabilitySmartCollectionConditionInput smartCollectionCondition;
 
-  /**
-   * The input for updating the admin filterable capability.
-   */
+  
   private MetafieldCapabilityAdminFilterableInput adminFilterable;
 
   public MetafieldCapabilityUpdateInput() {
   }
 
-  /**
-   * The input for updating the smart collection condition capability.
-   */
+  
   public MetafieldCapabilitySmartCollectionConditionInput getSmartCollectionCondition() {
     return smartCollectionCondition;
   }
@@ -34,9 +26,7 @@ public class MetafieldCapabilityUpdateInput {
     this.smartCollectionCondition = smartCollectionCondition;
   }
 
-  /**
-   * The input for updating the admin filterable capability.
-   */
+  
   public MetafieldCapabilityAdminFilterableInput getAdminFilterable() {
     return adminFilterable;
   }
@@ -69,14 +59,10 @@ public class MetafieldCapabilityUpdateInput {
   }
 
   public static class Builder {
-    /**
-     * The input for updating the smart collection condition capability.
-     */
+    
     private MetafieldCapabilitySmartCollectionConditionInput smartCollectionCondition;
 
-    /**
-     * The input for updating the admin filterable capability.
-     */
+    
     private MetafieldCapabilityAdminFilterableInput adminFilterable;
 
     public MetafieldCapabilityUpdateInput build() {
@@ -86,18 +72,14 @@ public class MetafieldCapabilityUpdateInput {
       return result;
     }
 
-    /**
-     * The input for updating the smart collection condition capability.
-     */
+    
     public Builder smartCollectionCondition(
         MetafieldCapabilitySmartCollectionConditionInput smartCollectionCondition) {
       this.smartCollectionCondition = smartCollectionCondition;
       return this;
     }
 
-    /**
-     * The input for updating the admin filterable capability.
-     */
+    
     public Builder adminFilterable(MetafieldCapabilityAdminFilterableInput adminFilterable) {
       this.adminFilterable = adminFilterable;
       return this;

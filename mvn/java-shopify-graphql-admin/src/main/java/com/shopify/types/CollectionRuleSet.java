@@ -6,30 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The set of rules that are used to determine which products are included in the collection.
- */
+
 public class CollectionRuleSet {
-  /**
-   * Whether products must match any or all of the rules to be included in the collection.
-   * If true, then products must match at least one of the rules to be included in the collection.
-   * If false, then products must match all of the rules to be included in the collection.
-   */
+  
   private boolean appliedDisjunctively;
 
-  /**
-   * The rules used to assign products to the collection.
-   */
+  
   private List<CollectionRule> rules;
 
   public CollectionRuleSet() {
   }
 
-  /**
-   * Whether products must match any or all of the rules to be included in the collection.
-   * If true, then products must match at least one of the rules to be included in the collection.
-   * If false, then products must match all of the rules to be included in the collection.
-   */
+  
   public boolean getAppliedDisjunctively() {
     return appliedDisjunctively;
   }
@@ -38,9 +26,7 @@ public class CollectionRuleSet {
     this.appliedDisjunctively = appliedDisjunctively;
   }
 
-  /**
-   * The rules used to assign products to the collection.
-   */
+  
   public List<CollectionRule> getRules() {
     return rules;
   }
@@ -73,16 +59,10 @@ public class CollectionRuleSet {
   }
 
   public static class Builder {
-    /**
-     * Whether products must match any or all of the rules to be included in the collection.
-     * If true, then products must match at least one of the rules to be included in the collection.
-     * If false, then products must match all of the rules to be included in the collection.
-     */
+    
     private boolean appliedDisjunctively;
 
-    /**
-     * The rules used to assign products to the collection.
-     */
+    
     private List<CollectionRule> rules;
 
     public CollectionRuleSet build() {
@@ -92,19 +72,13 @@ public class CollectionRuleSet {
       return result;
     }
 
-    /**
-     * Whether products must match any or all of the rules to be included in the collection.
-     * If true, then products must match at least one of the rules to be included in the collection.
-     * If false, then products must match all of the rules to be included in the collection.
-     */
+    
     public Builder appliedDisjunctively(boolean appliedDisjunctively) {
       this.appliedDisjunctively = appliedDisjunctively;
       return this;
     }
 
-    /**
-     * The rules used to assign products to the collection.
-     */
+    
     public Builder rules(List<CollectionRule> rules) {
       this.rules = rules;
       return this;

@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Generate an account activation URL for a customer.
- */
+
 public class CustomerGenerateAccountActivationUrlGraphQLQuery extends GraphQLQuery {
   public CustomerGenerateAccountActivationUrlGraphQLQuery(String customerId, String queryName,
       Set<String> fieldsSet) {
@@ -43,9 +41,7 @@ public class CustomerGenerateAccountActivationUrlGraphQLQuery extends GraphQLQue
                
     }
 
-    /**
-     * The ID of the customer that the URL is generated for.
-     */
+    
     public Builder customerId(String customerId) {
       this.customerId = customerId;
       this.fieldsSet.add("customerId");

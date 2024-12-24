@@ -5,42 +5,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A source for a Shopify-hosted 3d model.
- *
- * Types of sources include GLB and USDZ formatted 3d models, where the former
- * is an original 3d model and the latter has been converted from the original.
- *
- * If the original source is in GLB format and over 15 MBs in size, then both the
- * original and the USDZ formatted source are optimized to reduce the file size.
- */
+
 public class Model3dSource {
-  /**
-   * The 3d model source's filesize.
-   */
+  
   private int filesize;
 
-  /**
-   * The 3d model source's format.
-   */
+  
   private String format;
 
-  /**
-   * The 3d model source's MIME type.
-   */
+  
   private String mimeType;
 
-  /**
-   * The 3d model source's URL.
-   */
+  
   private String url;
 
   public Model3dSource() {
   }
 
-  /**
-   * The 3d model source's filesize.
-   */
+  
   public int getFilesize() {
     return filesize;
   }
@@ -49,9 +31,7 @@ public class Model3dSource {
     this.filesize = filesize;
   }
 
-  /**
-   * The 3d model source's format.
-   */
+  
   public String getFormat() {
     return format;
   }
@@ -60,9 +40,7 @@ public class Model3dSource {
     this.format = format;
   }
 
-  /**
-   * The 3d model source's MIME type.
-   */
+  
   public String getMimeType() {
     return mimeType;
   }
@@ -71,9 +49,7 @@ public class Model3dSource {
     this.mimeType = mimeType;
   }
 
-  /**
-   * The 3d model source's URL.
-   */
+  
   public String getUrl() {
     return url;
   }
@@ -108,24 +84,16 @@ public class Model3dSource {
   }
 
   public static class Builder {
-    /**
-     * The 3d model source's filesize.
-     */
+    
     private int filesize;
 
-    /**
-     * The 3d model source's format.
-     */
+    
     private String format;
 
-    /**
-     * The 3d model source's MIME type.
-     */
+    
     private String mimeType;
 
-    /**
-     * The 3d model source's URL.
-     */
+    
     private String url;
 
     public Model3dSource build() {
@@ -137,33 +105,25 @@ public class Model3dSource {
       return result;
     }
 
-    /**
-     * The 3d model source's filesize.
-     */
+    
     public Builder filesize(int filesize) {
       this.filesize = filesize;
       return this;
     }
 
-    /**
-     * The 3d model source's format.
-     */
+    
     public Builder format(String format) {
       this.format = format;
       return this;
     }
 
-    /**
-     * The 3d model source's MIME type.
-     */
+    
     public Builder mimeType(String mimeType) {
       this.mimeType = mimeType;
       return this;
     }
 
-    /**
-     * The 3d model source's URL.
-     */
+    
     public Builder url(String url) {
       this.url = url;
       return this;

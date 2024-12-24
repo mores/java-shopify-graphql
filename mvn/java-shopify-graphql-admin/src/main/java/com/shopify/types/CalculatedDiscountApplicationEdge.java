@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * An auto-generated type which holds one CalculatedDiscountApplication and a cursor during pagination.
- */
+
 public class CalculatedDiscountApplicationEdge {
-  /**
-   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-   */
+  
   private String cursor;
 
-  /**
-   * The item at the end of CalculatedDiscountApplicationEdge.
-   */
+  
   private CalculatedDiscountApplication node;
 
   public CalculatedDiscountApplicationEdge() {
   }
 
-  /**
-   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-   */
+  
   public String getCursor() {
     return cursor;
   }
@@ -33,9 +25,7 @@ public class CalculatedDiscountApplicationEdge {
     this.cursor = cursor;
   }
 
-  /**
-   * The item at the end of CalculatedDiscountApplicationEdge.
-   */
+  
   public CalculatedDiscountApplication getNode() {
     return node;
   }
@@ -68,14 +58,10 @@ public class CalculatedDiscountApplicationEdge {
   }
 
   public static class Builder {
-    /**
-     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     private String cursor;
 
-    /**
-     * The item at the end of CalculatedDiscountApplicationEdge.
-     */
+    
     private CalculatedDiscountApplication node;
 
     public CalculatedDiscountApplicationEdge build() {
@@ -85,17 +71,13 @@ public class CalculatedDiscountApplicationEdge {
       return result;
     }
 
-    /**
-     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     public Builder cursor(String cursor) {
       this.cursor = cursor;
       return this;
     }
 
-    /**
-     * The item at the end of CalculatedDiscountApplicationEdge.
-     */
+    
     public Builder node(CalculatedDiscountApplication node) {
       this.node = node;
       return this;

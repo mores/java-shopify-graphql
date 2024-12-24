@@ -8,9 +8,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Creates a Selling Plan Group.
- */
+
 public class SellingPlanGroupCreateGraphQLQuery extends GraphQLQuery {
   public SellingPlanGroupCreateGraphQLQuery(SellingPlanGroupInput input,
       SellingPlanGroupResourceInput resources, String queryName, Set<String> fieldsSet) {
@@ -49,18 +47,14 @@ public class SellingPlanGroupCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The properties of the new Selling Plan Group.
-     */
+    
     public Builder input(SellingPlanGroupInput input) {
       this.input = input;
       this.fieldsSet.add("input");
       return this;
     }
 
-    /**
-     * The resources this Selling Plan Group should be applied to.
-     */
+    
     public Builder resources(SellingPlanGroupResourceInput resources) {
       this.resources = resources;
       this.fieldsSet.add("resources");

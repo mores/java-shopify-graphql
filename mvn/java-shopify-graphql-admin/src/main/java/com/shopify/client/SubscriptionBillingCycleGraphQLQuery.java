@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns a subscription billing cycle found either by cycle index or date.
- */
+
 public class SubscriptionBillingCycleGraphQLQuery extends GraphQLQuery {
   public SubscriptionBillingCycleGraphQLQuery(SubscriptionBillingCycleInput billingCycleInput,
       String queryName, Set<String> fieldsSet) {
@@ -44,9 +42,7 @@ public class SubscriptionBillingCycleGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * Input object used to select and use billing cycles.
-     */
+    
     public Builder billingCycleInput(SubscriptionBillingCycleInput billingCycleInput) {
       this.billingCycleInput = billingCycleInput;
       this.fieldsSet.add("billingCycleInput");

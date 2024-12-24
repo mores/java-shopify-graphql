@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * The status of a reverse fulfillment order third-party confirmation.
- */
+
 public enum ReverseFulfillmentOrderThirdPartyConfirmationStatus {
   ACCEPTED,
 

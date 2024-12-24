@@ -8,84 +8,54 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * The fulfillment event that describes the fulfilllment status at a particular time.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class FulfillmentEvent implements com.shopify.types.Node {
-  /**
-   * The street address where this fulfillment event occurred.
-   */
+  
   private String address1;
 
-  /**
-   * The city where this fulfillment event occurred.
-   */
+  
   private String city;
 
-  /**
-   * The country where this fulfillment event occurred.
-   */
+  
   private String country;
 
-  /**
-   * The date and time when the fulfillment event was created.
-   */
+  
   private OffsetDateTime createdAt;
 
-  /**
-   * The estimated delivery date and time of the fulfillment.
-   */
+  
   private OffsetDateTime estimatedDeliveryAt;
 
-  /**
-   * The time at which this fulfillment event happened.
-   */
+  
   private OffsetDateTime happenedAt;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The latitude where this fulfillment event occurred.
-   */
+  
   private Double latitude;
 
-  /**
-   * The longitude where this fulfillment event occurred.
-   */
+  
   private Double longitude;
 
-  /**
-   * A message associated with this fulfillment event.
-   */
+  
   private String message;
 
-  /**
-   * The province where this fulfillment event occurred.
-   */
+  
   private String province;
 
-  /**
-   * The status of this fulfillment event.
-   */
+  
   private FulfillmentEventStatus status;
 
-  /**
-   * The zip code of the location where this fulfillment event occurred.
-   */
+  
   private String zip;
 
   public FulfillmentEvent() {
   }
 
-  /**
-   * The street address where this fulfillment event occurred.
-   */
+  
   public String getAddress1() {
     return address1;
   }
@@ -94,9 +64,7 @@ public class FulfillmentEvent implements com.shopify.types.Node {
     this.address1 = address1;
   }
 
-  /**
-   * The city where this fulfillment event occurred.
-   */
+  
   public String getCity() {
     return city;
   }
@@ -105,9 +73,7 @@ public class FulfillmentEvent implements com.shopify.types.Node {
     this.city = city;
   }
 
-  /**
-   * The country where this fulfillment event occurred.
-   */
+  
   public String getCountry() {
     return country;
   }
@@ -116,9 +82,7 @@ public class FulfillmentEvent implements com.shopify.types.Node {
     this.country = country;
   }
 
-  /**
-   * The date and time when the fulfillment event was created.
-   */
+  
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -127,9 +91,7 @@ public class FulfillmentEvent implements com.shopify.types.Node {
     this.createdAt = createdAt;
   }
 
-  /**
-   * The estimated delivery date and time of the fulfillment.
-   */
+  
   public OffsetDateTime getEstimatedDeliveryAt() {
     return estimatedDeliveryAt;
   }
@@ -138,9 +100,7 @@ public class FulfillmentEvent implements com.shopify.types.Node {
     this.estimatedDeliveryAt = estimatedDeliveryAt;
   }
 
-  /**
-   * The time at which this fulfillment event happened.
-   */
+  
   public OffsetDateTime getHappenedAt() {
     return happenedAt;
   }
@@ -149,9 +109,7 @@ public class FulfillmentEvent implements com.shopify.types.Node {
     this.happenedAt = happenedAt;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -160,9 +118,7 @@ public class FulfillmentEvent implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The latitude where this fulfillment event occurred.
-   */
+  
   public Double getLatitude() {
     return latitude;
   }
@@ -171,9 +127,7 @@ public class FulfillmentEvent implements com.shopify.types.Node {
     this.latitude = latitude;
   }
 
-  /**
-   * The longitude where this fulfillment event occurred.
-   */
+  
   public Double getLongitude() {
     return longitude;
   }
@@ -182,9 +136,7 @@ public class FulfillmentEvent implements com.shopify.types.Node {
     this.longitude = longitude;
   }
 
-  /**
-   * A message associated with this fulfillment event.
-   */
+  
   public String getMessage() {
     return message;
   }
@@ -193,9 +145,7 @@ public class FulfillmentEvent implements com.shopify.types.Node {
     this.message = message;
   }
 
-  /**
-   * The province where this fulfillment event occurred.
-   */
+  
   public String getProvince() {
     return province;
   }
@@ -204,9 +154,7 @@ public class FulfillmentEvent implements com.shopify.types.Node {
     this.province = province;
   }
 
-  /**
-   * The status of this fulfillment event.
-   */
+  
   public FulfillmentEventStatus getStatus() {
     return status;
   }
@@ -215,9 +163,7 @@ public class FulfillmentEvent implements com.shopify.types.Node {
     this.status = status;
   }
 
-  /**
-   * The zip code of the location where this fulfillment event occurred.
-   */
+  
   public String getZip() {
     return zip;
   }
@@ -261,69 +207,43 @@ public class FulfillmentEvent implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * The street address where this fulfillment event occurred.
-     */
+    
     private String address1;
 
-    /**
-     * The city where this fulfillment event occurred.
-     */
+    
     private String city;
 
-    /**
-     * The country where this fulfillment event occurred.
-     */
+    
     private String country;
 
-    /**
-     * The date and time when the fulfillment event was created.
-     */
+    
     private OffsetDateTime createdAt;
 
-    /**
-     * The estimated delivery date and time of the fulfillment.
-     */
+    
     private OffsetDateTime estimatedDeliveryAt;
 
-    /**
-     * The time at which this fulfillment event happened.
-     */
+    
     private OffsetDateTime happenedAt;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The latitude where this fulfillment event occurred.
-     */
+    
     private Double latitude;
 
-    /**
-     * The longitude where this fulfillment event occurred.
-     */
+    
     private Double longitude;
 
-    /**
-     * A message associated with this fulfillment event.
-     */
+    
     private String message;
 
-    /**
-     * The province where this fulfillment event occurred.
-     */
+    
     private String province;
 
-    /**
-     * The status of this fulfillment event.
-     */
+    
     private FulfillmentEventStatus status;
 
-    /**
-     * The zip code of the location where this fulfillment event occurred.
-     */
+    
     private String zip;
 
     public FulfillmentEvent build() {
@@ -344,105 +264,79 @@ public class FulfillmentEvent implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * The street address where this fulfillment event occurred.
-     */
+    
     public Builder address1(String address1) {
       this.address1 = address1;
       return this;
     }
 
-    /**
-     * The city where this fulfillment event occurred.
-     */
+    
     public Builder city(String city) {
       this.city = city;
       return this;
     }
 
-    /**
-     * The country where this fulfillment event occurred.
-     */
+    
     public Builder country(String country) {
       this.country = country;
       return this;
     }
 
-    /**
-     * The date and time when the fulfillment event was created.
-     */
+    
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    /**
-     * The estimated delivery date and time of the fulfillment.
-     */
+    
     public Builder estimatedDeliveryAt(OffsetDateTime estimatedDeliveryAt) {
       this.estimatedDeliveryAt = estimatedDeliveryAt;
       return this;
     }
 
-    /**
-     * The time at which this fulfillment event happened.
-     */
+    
     public Builder happenedAt(OffsetDateTime happenedAt) {
       this.happenedAt = happenedAt;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The latitude where this fulfillment event occurred.
-     */
+    
     public Builder latitude(Double latitude) {
       this.latitude = latitude;
       return this;
     }
 
-    /**
-     * The longitude where this fulfillment event occurred.
-     */
+    
     public Builder longitude(Double longitude) {
       this.longitude = longitude;
       return this;
     }
 
-    /**
-     * A message associated with this fulfillment event.
-     */
+    
     public Builder message(String message) {
       this.message = message;
       return this;
     }
 
-    /**
-     * The province where this fulfillment event occurred.
-     */
+    
     public Builder province(String province) {
       this.province = province;
       return this;
     }
 
-    /**
-     * The status of this fulfillment event.
-     */
+    
     public Builder status(FulfillmentEventStatus status) {
       this.status = status;
       return this;
     }
 
-    /**
-     * The zip code of the location where this fulfillment event occurred.
-     */
+    
     public Builder zip(String zip) {
       this.zip = zip;
       return this;

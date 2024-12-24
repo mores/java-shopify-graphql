@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for specifying a product to publish and the channels to publish it to.
- */
+
 public class ProductPublishInput {
-  /**
-   * The product to create or update publications for.
-   */
+  
   private String id;
 
-  /**
-   * The publication that the product is published to.
-   */
+  
   private List<ProductPublicationInput> productPublications;
 
   public ProductPublishInput() {
   }
 
-  /**
-   * The product to create or update publications for.
-   */
+  
   public String getId() {
     return id;
   }
@@ -34,9 +26,7 @@ public class ProductPublishInput {
     this.id = id;
   }
 
-  /**
-   * The publication that the product is published to.
-   */
+  
   public List<ProductPublicationInput> getProductPublications() {
     return productPublications;
   }
@@ -69,14 +59,10 @@ public class ProductPublishInput {
   }
 
   public static class Builder {
-    /**
-     * The product to create or update publications for.
-     */
+    
     private String id;
 
-    /**
-     * The publication that the product is published to.
-     */
+    
     private List<ProductPublicationInput> productPublications;
 
     public ProductPublishInput build() {
@@ -86,17 +72,13 @@ public class ProductPublishInput {
       return result;
     }
 
-    /**
-     * The product to create or update publications for.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The publication that the product is published to.
-     */
+    
     public Builder productPublications(List<ProductPublicationInput> productPublications) {
       this.productPublications = productPublications;
       return this;

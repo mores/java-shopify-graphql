@@ -6,27 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields used to include the line items of a specified fulfillment order that should be fulfilled.
- */
+
 public class FulfillmentOrderLineItemsInput {
-  /**
-   * The ID of the fulfillment order.
-   */
+  
   private String fulfillmentOrderId;
 
-  /**
-   * The fulfillment order line items to be fulfilled.
-   * If left blank, all line items of the fulfillment order will be fulfilled.
-   */
+  
   private List<FulfillmentOrderLineItemInput> fulfillmentOrderLineItems;
 
   public FulfillmentOrderLineItemsInput() {
   }
 
-  /**
-   * The ID of the fulfillment order.
-   */
+  
   public String getFulfillmentOrderId() {
     return fulfillmentOrderId;
   }
@@ -35,10 +26,7 @@ public class FulfillmentOrderLineItemsInput {
     this.fulfillmentOrderId = fulfillmentOrderId;
   }
 
-  /**
-   * The fulfillment order line items to be fulfilled.
-   * If left blank, all line items of the fulfillment order will be fulfilled.
-   */
+  
   public List<FulfillmentOrderLineItemInput> getFulfillmentOrderLineItems() {
     return fulfillmentOrderLineItems;
   }
@@ -72,15 +60,10 @@ public class FulfillmentOrderLineItemsInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the fulfillment order.
-     */
+    
     private String fulfillmentOrderId;
 
-    /**
-     * The fulfillment order line items to be fulfilled.
-     * If left blank, all line items of the fulfillment order will be fulfilled.
-     */
+    
     private List<FulfillmentOrderLineItemInput> fulfillmentOrderLineItems;
 
     public FulfillmentOrderLineItemsInput build() {
@@ -90,18 +73,13 @@ public class FulfillmentOrderLineItemsInput {
       return result;
     }
 
-    /**
-     * The ID of the fulfillment order.
-     */
+    
     public Builder fulfillmentOrderId(String fulfillmentOrderId) {
       this.fulfillmentOrderId = fulfillmentOrderId;
       return this;
     }
 
-    /**
-     * The fulfillment order line items to be fulfilled.
-     * If left blank, all line items of the fulfillment order will be fulfilled.
-     */
+    
     public Builder fulfillmentOrderLineItems(
         List<FulfillmentOrderLineItemInput> fulfillmentOrderLineItems) {
       this.fulfillmentOrderLineItems = fulfillmentOrderLineItems;

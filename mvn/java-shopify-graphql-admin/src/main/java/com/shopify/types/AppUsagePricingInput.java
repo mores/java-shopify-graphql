@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields to issue arbitrary charges for app usage associated with a subscription.
- */
+
 public class AppUsagePricingInput {
-  /**
-   * The maximum amount of usage charges that can be incurred within a subscription billing interval.
-   */
+  
   private MoneyInput cappedAmount;
 
-  /**
-   * The terms and conditions for app usage. These terms stipulate the pricing model for the charges that an app creates.
-   */
+  
   private String terms;
 
   public AppUsagePricingInput() {
   }
 
-  /**
-   * The maximum amount of usage charges that can be incurred within a subscription billing interval.
-   */
+  
   public MoneyInput getCappedAmount() {
     return cappedAmount;
   }
@@ -33,9 +25,7 @@ public class AppUsagePricingInput {
     this.cappedAmount = cappedAmount;
   }
 
-  /**
-   * The terms and conditions for app usage. These terms stipulate the pricing model for the charges that an app creates.
-   */
+  
   public String getTerms() {
     return terms;
   }
@@ -68,14 +58,10 @@ public class AppUsagePricingInput {
   }
 
   public static class Builder {
-    /**
-     * The maximum amount of usage charges that can be incurred within a subscription billing interval.
-     */
+    
     private MoneyInput cappedAmount;
 
-    /**
-     * The terms and conditions for app usage. These terms stipulate the pricing model for the charges that an app creates.
-     */
+    
     private String terms;
 
     public AppUsagePricingInput build() {
@@ -85,17 +71,13 @@ public class AppUsagePricingInput {
       return result;
     }
 
-    /**
-     * The maximum amount of usage charges that can be incurred within a subscription billing interval.
-     */
+    
     public Builder cappedAmount(MoneyInput cappedAmount) {
       this.cappedAmount = cappedAmount;
       return this;
     }
 
-    /**
-     * The terms and conditions for app usage. These terms stipulate the pricing model for the charges that an app creates.
-     */
+    
     public Builder terms(String terms) {
       this.terms = terms;
       return this;

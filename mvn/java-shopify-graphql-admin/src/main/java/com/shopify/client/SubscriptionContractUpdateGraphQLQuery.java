@@ -6,12 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * The subscriptionContractUpdate mutation allows you to create a draft of an
- * existing subscription contract. This [draft](https://shopify.dev/api/admin-graphql/latest/objects/SubscriptionDraft)
- * can be reviewed and modified as needed. Once the draft is committed with [subscriptionDraftCommit](https://shopify.dev/api/admin-graphql/latest/mutations/subscriptionDraftCommit),
- * the changes are applied to the original subscription contract.
- */
+
 public class SubscriptionContractUpdateGraphQLQuery extends GraphQLQuery {
   public SubscriptionContractUpdateGraphQLQuery(String contractId, String queryName,
       Set<String> fieldsSet) {
@@ -46,9 +41,7 @@ public class SubscriptionContractUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The gid of the Subscription Contract to update.
-     */
+    
     public Builder contractId(String contractId) {
       this.contractId = contractId;
       this.fieldsSet.add("contractId");

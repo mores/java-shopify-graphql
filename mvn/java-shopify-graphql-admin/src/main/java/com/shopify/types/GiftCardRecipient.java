@@ -6,37 +6,24 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * Represents a recipient who will receive the issued gift card.
- */
+
 public class GiftCardRecipient {
-  /**
-   * The message sent with the gift card.
-   */
+  
   private String message;
 
-  /**
-   * The preferred name of the recipient who will receive the gift card.
-   */
+  
   private String preferredName;
 
-  /**
-   * The recipient who will receive the gift card.
-   */
+  
   private Customer recipient;
 
-  /**
-   * The scheduled datetime on which the gift card will be sent to the recipient.
-   * The gift card will be sent within an hour of the specified datetime.
-   */
+  
   private OffsetDateTime sendNotificationAt;
 
   public GiftCardRecipient() {
   }
 
-  /**
-   * The message sent with the gift card.
-   */
+  
   public String getMessage() {
     return message;
   }
@@ -45,9 +32,7 @@ public class GiftCardRecipient {
     this.message = message;
   }
 
-  /**
-   * The preferred name of the recipient who will receive the gift card.
-   */
+  
   public String getPreferredName() {
     return preferredName;
   }
@@ -56,9 +41,7 @@ public class GiftCardRecipient {
     this.preferredName = preferredName;
   }
 
-  /**
-   * The recipient who will receive the gift card.
-   */
+  
   public Customer getRecipient() {
     return recipient;
   }
@@ -67,10 +50,7 @@ public class GiftCardRecipient {
     this.recipient = recipient;
   }
 
-  /**
-   * The scheduled datetime on which the gift card will be sent to the recipient.
-   * The gift card will be sent within an hour of the specified datetime.
-   */
+  
   public OffsetDateTime getSendNotificationAt() {
     return sendNotificationAt;
   }
@@ -105,25 +85,16 @@ public class GiftCardRecipient {
   }
 
   public static class Builder {
-    /**
-     * The message sent with the gift card.
-     */
+    
     private String message;
 
-    /**
-     * The preferred name of the recipient who will receive the gift card.
-     */
+    
     private String preferredName;
 
-    /**
-     * The recipient who will receive the gift card.
-     */
+    
     private Customer recipient;
 
-    /**
-     * The scheduled datetime on which the gift card will be sent to the recipient.
-     * The gift card will be sent within an hour of the specified datetime.
-     */
+    
     private OffsetDateTime sendNotificationAt;
 
     public GiftCardRecipient build() {
@@ -135,34 +106,25 @@ public class GiftCardRecipient {
       return result;
     }
 
-    /**
-     * The message sent with the gift card.
-     */
+    
     public Builder message(String message) {
       this.message = message;
       return this;
     }
 
-    /**
-     * The preferred name of the recipient who will receive the gift card.
-     */
+    
     public Builder preferredName(String preferredName) {
       this.preferredName = preferredName;
       return this;
     }
 
-    /**
-     * The recipient who will receive the gift card.
-     */
+    
     public Builder recipient(Customer recipient) {
       this.recipient = recipient;
       return this;
     }
 
-    /**
-     * The scheduled datetime on which the gift card will be sent to the recipient.
-     * The gift card will be sent within an hour of the specified datetime.
-     */
+    
     public Builder sendNotificationAt(OffsetDateTime sendNotificationAt) {
       this.sendNotificationAt = sendNotificationAt;
       return this;

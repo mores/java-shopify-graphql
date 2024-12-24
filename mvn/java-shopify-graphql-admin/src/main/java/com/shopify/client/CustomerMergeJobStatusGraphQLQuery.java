@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns the status of a customer merge request job.
- */
+
 public class CustomerMergeJobStatusGraphQLQuery extends GraphQLQuery {
   public CustomerMergeJobStatusGraphQLQuery(String jobId, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -42,9 +40,7 @@ public class CustomerMergeJobStatusGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the job performing the customer merge request.
-     */
+    
     public Builder jobId(String jobId) {
       this.jobId = jobId;
       this.fieldsSet.add("jobId");

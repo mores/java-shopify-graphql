@@ -6,29 +6,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents the packaged dimension for an inventory item.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class InventoryItemMeasurement implements com.shopify.types.Node {
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The weight of the inventory item.
-   */
+  
   private Weight weight;
 
   public InventoryItemMeasurement() {
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -37,9 +29,7 @@ public class InventoryItemMeasurement implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The weight of the inventory item.
-   */
+  
   public Weight getWeight() {
     return weight;
   }
@@ -72,14 +62,10 @@ public class InventoryItemMeasurement implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The weight of the inventory item.
-     */
+    
     private Weight weight;
 
     public InventoryItemMeasurement build() {
@@ -89,17 +75,13 @@ public class InventoryItemMeasurement implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The weight of the inventory item.
-     */
+    
     public Builder weight(Weight weight) {
       this.weight = weight;
       return this;

@@ -6,36 +6,24 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for new line items to be added to the order as part of an exchange.
- */
+
 public class ExchangeLineItemInput {
-  /**
-   * The gift card codes associated with the physical gift cards.
-   */
+  
   private List<String> giftCardCodes;
 
-  /**
-   * The ID of the product variant to be added to the order as part of an exchange.
-   */
+  
   private String variantId;
 
-  /**
-   * The quantity of the item to be added.
-   */
+  
   private int quantity;
 
-  /**
-   * The discount to be applied to the exchange line item.
-   */
+  
   private ExchangeLineItemAppliedDiscountInput appliedDiscount;
 
   public ExchangeLineItemInput() {
   }
 
-  /**
-   * The gift card codes associated with the physical gift cards.
-   */
+  
   public List<String> getGiftCardCodes() {
     return giftCardCodes;
   }
@@ -44,9 +32,7 @@ public class ExchangeLineItemInput {
     this.giftCardCodes = giftCardCodes;
   }
 
-  /**
-   * The ID of the product variant to be added to the order as part of an exchange.
-   */
+  
   public String getVariantId() {
     return variantId;
   }
@@ -55,9 +41,7 @@ public class ExchangeLineItemInput {
     this.variantId = variantId;
   }
 
-  /**
-   * The quantity of the item to be added.
-   */
+  
   public int getQuantity() {
     return quantity;
   }
@@ -66,9 +50,7 @@ public class ExchangeLineItemInput {
     this.quantity = quantity;
   }
 
-  /**
-   * The discount to be applied to the exchange line item.
-   */
+  
   public ExchangeLineItemAppliedDiscountInput getAppliedDiscount() {
     return appliedDiscount;
   }
@@ -103,24 +85,16 @@ public class ExchangeLineItemInput {
   }
 
   public static class Builder {
-    /**
-     * The gift card codes associated with the physical gift cards.
-     */
+    
     private List<String> giftCardCodes;
 
-    /**
-     * The ID of the product variant to be added to the order as part of an exchange.
-     */
+    
     private String variantId;
 
-    /**
-     * The quantity of the item to be added.
-     */
+    
     private int quantity;
 
-    /**
-     * The discount to be applied to the exchange line item.
-     */
+    
     private ExchangeLineItemAppliedDiscountInput appliedDiscount;
 
     public ExchangeLineItemInput build() {
@@ -132,33 +106,25 @@ public class ExchangeLineItemInput {
       return result;
     }
 
-    /**
-     * The gift card codes associated with the physical gift cards.
-     */
+    
     public Builder giftCardCodes(List<String> giftCardCodes) {
       this.giftCardCodes = giftCardCodes;
       return this;
     }
 
-    /**
-     * The ID of the product variant to be added to the order as part of an exchange.
-     */
+    
     public Builder variantId(String variantId) {
       this.variantId = variantId;
       return this;
     }
 
-    /**
-     * The quantity of the item to be added.
-     */
+    
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    /**
-     * The discount to be applied to the exchange line item.
-     */
+    
     public Builder appliedDiscount(ExchangeLineItemAppliedDiscountInput appliedDiscount) {
       this.appliedDiscount = appliedDiscount;
       return this;

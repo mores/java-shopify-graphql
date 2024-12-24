@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The payment collection details for an order that requires additional payment following an edit to the order.
- */
+
 public class OrderPaymentCollectionDetails {
-  /**
-   * The URL to use for collecting an additional payment on the order.
-   */
+  
   private String additionalPaymentCollectionUrl;
 
-  /**
-   * The list of vaulted payment methods for the order with their permissions.
-   */
+  
   private List<PaymentMandate> vaultedPaymentMethods;
 
   public OrderPaymentCollectionDetails() {
   }
 
-  /**
-   * The URL to use for collecting an additional payment on the order.
-   */
+  
   public String getAdditionalPaymentCollectionUrl() {
     return additionalPaymentCollectionUrl;
   }
@@ -34,9 +26,7 @@ public class OrderPaymentCollectionDetails {
     this.additionalPaymentCollectionUrl = additionalPaymentCollectionUrl;
   }
 
-  /**
-   * The list of vaulted payment methods for the order with their permissions.
-   */
+  
   public List<PaymentMandate> getVaultedPaymentMethods() {
     return vaultedPaymentMethods;
   }
@@ -69,14 +59,10 @@ public class OrderPaymentCollectionDetails {
   }
 
   public static class Builder {
-    /**
-     * The URL to use for collecting an additional payment on the order.
-     */
+    
     private String additionalPaymentCollectionUrl;
 
-    /**
-     * The list of vaulted payment methods for the order with their permissions.
-     */
+    
     private List<PaymentMandate> vaultedPaymentMethods;
 
     public OrderPaymentCollectionDetails build() {
@@ -86,17 +72,13 @@ public class OrderPaymentCollectionDetails {
       return result;
     }
 
-    /**
-     * The URL to use for collecting an additional payment on the order.
-     */
+    
     public Builder additionalPaymentCollectionUrl(String additionalPaymentCollectionUrl) {
       this.additionalPaymentCollectionUrl = additionalPaymentCollectionUrl;
       return this;
     }
 
-    /**
-     * The list of vaulted payment methods for the order with their permissions.
-     */
+    
     public Builder vaultedPaymentMethods(List<PaymentMandate> vaultedPaymentMethods) {
       this.vaultedPaymentMethods = vaultedPaymentMethods;
       return this;

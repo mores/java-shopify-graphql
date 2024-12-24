@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `discountCodeBulkDeactivate` mutation.
- */
+
 public class DiscountCodeBulkDeactivatePayload {
-  /**
-   * The asynchronous job that deactivates the discounts.
-   */
+  
   private Job job;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<DiscountUserError> userErrors;
 
   public DiscountCodeBulkDeactivatePayload() {
   }
 
-  /**
-   * The asynchronous job that deactivates the discounts.
-   */
+  
   public Job getJob() {
     return job;
   }
@@ -34,9 +26,7 @@ public class DiscountCodeBulkDeactivatePayload {
     this.job = job;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<DiscountUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class DiscountCodeBulkDeactivatePayload {
   }
 
   public static class Builder {
-    /**
-     * The asynchronous job that deactivates the discounts.
-     */
+    
     private Job job;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<DiscountUserError> userErrors;
 
     public DiscountCodeBulkDeactivatePayload build() {
@@ -86,17 +72,13 @@ public class DiscountCodeBulkDeactivatePayload {
       return result;
     }
 
-    /**
-     * The asynchronous job that deactivates the discounts.
-     */
+    
     public Builder job(Job job) {
       this.job = job;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<DiscountUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -7,10 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Deletes a private metafield.
- * Private metafields are automatically deleted when the app that created them is uninstalled.
- */
+
 public class PrivateMetafieldDeleteGraphQLQuery extends GraphQLQuery {
   public PrivateMetafieldDeleteGraphQLQuery(PrivateMetafieldDeleteInput input, String queryName,
       Set<String> fieldsSet) {
@@ -45,9 +42,7 @@ public class PrivateMetafieldDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The input fields for the private metafield to delete.
-     */
+    
     public Builder input(PrivateMetafieldDeleteInput input) {
       this.input = input;
       this.fieldsSet.add("input");

@@ -7,47 +7,30 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A delivery promise provider. Currently restricted to select approved delivery promise partners.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DeliveryPromiseProvider implements com.shopify.types.Node {
-  /**
-   * Whether the delivery promise provider is active. Defaults to `true` when creating a provider.
-   */
+  
   private boolean active;
 
-  /**
-   * The number of seconds to add to the current time as a buffer when looking up
-   * delivery promises. Represents how long the shop requires before releasing an
-   * order to the fulfillment provider.
-   */
+  
   private Integer fulfillmentDelay;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The location associated with this delivery promise provider.
-   */
+  
   private Location location;
 
-  /**
-   * The time zone to be used for interpreting day of week and cutoff times in
-   * delivery schedules when looking up delivery promises.
-   */
+  
   private String timeZone;
 
   public DeliveryPromiseProvider() {
   }
 
-  /**
-   * Whether the delivery promise provider is active. Defaults to `true` when creating a provider.
-   */
+  
   public boolean getActive() {
     return active;
   }
@@ -56,11 +39,7 @@ public class DeliveryPromiseProvider implements com.shopify.types.Node {
     this.active = active;
   }
 
-  /**
-   * The number of seconds to add to the current time as a buffer when looking up
-   * delivery promises. Represents how long the shop requires before releasing an
-   * order to the fulfillment provider.
-   */
+  
   public Integer getFulfillmentDelay() {
     return fulfillmentDelay;
   }
@@ -69,9 +48,7 @@ public class DeliveryPromiseProvider implements com.shopify.types.Node {
     this.fulfillmentDelay = fulfillmentDelay;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -80,9 +57,7 @@ public class DeliveryPromiseProvider implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The location associated with this delivery promise provider.
-   */
+  
   public Location getLocation() {
     return location;
   }
@@ -91,10 +66,7 @@ public class DeliveryPromiseProvider implements com.shopify.types.Node {
     this.location = location;
   }
 
-  /**
-   * The time zone to be used for interpreting day of week and cutoff times in
-   * delivery schedules when looking up delivery promises.
-   */
+  
   public String getTimeZone() {
     return timeZone;
   }
@@ -130,32 +102,19 @@ public class DeliveryPromiseProvider implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * Whether the delivery promise provider is active. Defaults to `true` when creating a provider.
-     */
+    
     private boolean active;
 
-    /**
-     * The number of seconds to add to the current time as a buffer when looking up
-     * delivery promises. Represents how long the shop requires before releasing an
-     * order to the fulfillment provider.
-     */
+    
     private Integer fulfillmentDelay;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The location associated with this delivery promise provider.
-     */
+    
     private Location location;
 
-    /**
-     * The time zone to be used for interpreting day of week and cutoff times in
-     * delivery schedules when looking up delivery promises.
-     */
+    
     private String timeZone;
 
     public DeliveryPromiseProvider build() {
@@ -168,44 +127,31 @@ public class DeliveryPromiseProvider implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * Whether the delivery promise provider is active. Defaults to `true` when creating a provider.
-     */
+    
     public Builder active(boolean active) {
       this.active = active;
       return this;
     }
 
-    /**
-     * The number of seconds to add to the current time as a buffer when looking up
-     * delivery promises. Represents how long the shop requires before releasing an
-     * order to the fulfillment provider.
-     */
+    
     public Builder fulfillmentDelay(Integer fulfillmentDelay) {
       this.fulfillmentDelay = fulfillmentDelay;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The location associated with this delivery promise provider.
-     */
+    
     public Builder location(Location location) {
       this.location = location;
       return this;
     }
 
-    /**
-     * The time zone to be used for interpreting day of week and cutoff times in
-     * delivery schedules when looking up delivery promises.
-     */
+    
     public Builder timeZone(String timeZone) {
       this.timeZone = timeZone;
       return this;

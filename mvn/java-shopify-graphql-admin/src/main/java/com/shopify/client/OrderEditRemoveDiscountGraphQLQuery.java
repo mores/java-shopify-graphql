@@ -6,10 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Removes a discount on the current order edit. For more information on how to
- * use the GraphQL Admin API to edit an existing order, refer to [Edit existing orders](https://shopify.dev/apps/fulfillment/order-management-apps/order-editing).
- */
+
 public class OrderEditRemoveDiscountGraphQLQuery extends GraphQLQuery {
   public OrderEditRemoveDiscountGraphQLQuery(String id, String discountApplicationId,
       String queryName, Set<String> fieldsSet) {
@@ -48,20 +45,14 @@ public class OrderEditRemoveDiscountGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
-     * from which to remove the discount.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * The ID of the [calculated discount application](https://shopify.dev/api/admin-graphql/latest/interfaces/calculateddiscountapplication)
-     * to remove.
-     */
+    
     public Builder discountApplicationId(String discountApplicationId) {
       this.discountApplicationId = discountApplicationId;
       this.fieldsSet.add("discountApplicationId");

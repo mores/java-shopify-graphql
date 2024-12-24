@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `fulfillmentConstraintRuleCreate` mutation.
- */
+
 public class FulfillmentConstraintRuleCreatePayload {
-  /**
-   * The newly created fulfillment constraint rule.
-   */
+  
   private FulfillmentConstraintRule fulfillmentConstraintRule;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<FulfillmentConstraintRuleCreateUserError> userErrors;
 
   public FulfillmentConstraintRuleCreatePayload() {
   }
 
-  /**
-   * The newly created fulfillment constraint rule.
-   */
+  
   public FulfillmentConstraintRule getFulfillmentConstraintRule() {
     return fulfillmentConstraintRule;
   }
@@ -34,9 +26,7 @@ public class FulfillmentConstraintRuleCreatePayload {
     this.fulfillmentConstraintRule = fulfillmentConstraintRule;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<FulfillmentConstraintRuleCreateUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class FulfillmentConstraintRuleCreatePayload {
   }
 
   public static class Builder {
-    /**
-     * The newly created fulfillment constraint rule.
-     */
+    
     private FulfillmentConstraintRule fulfillmentConstraintRule;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<FulfillmentConstraintRuleCreateUserError> userErrors;
 
     public FulfillmentConstraintRuleCreatePayload build() {
@@ -86,17 +72,13 @@ public class FulfillmentConstraintRuleCreatePayload {
       return result;
     }
 
-    /**
-     * The newly created fulfillment constraint rule.
-     */
+    
     public Builder fulfillmentConstraintRule(FulfillmentConstraintRule fulfillmentConstraintRule) {
       this.fulfillmentConstraintRule = fulfillmentConstraintRule;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<FulfillmentConstraintRuleCreateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

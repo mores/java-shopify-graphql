@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for expected price changes of the subscription line over time.
- */
+
 public class SubscriptionPricingPolicyInput {
-  /**
-   * The base price per unit for the subscription line in the contract's currency.
-   */
+  
   private String basePrice;
 
-  /**
-   * An array containing all pricing changes for each billing cycle.
-   */
+  
   private List<SubscriptionPricingPolicyCycleDiscountsInput> cycleDiscounts;
 
   public SubscriptionPricingPolicyInput() {
   }
 
-  /**
-   * The base price per unit for the subscription line in the contract's currency.
-   */
+  
   public String getBasePrice() {
     return basePrice;
   }
@@ -34,9 +26,7 @@ public class SubscriptionPricingPolicyInput {
     this.basePrice = basePrice;
   }
 
-  /**
-   * An array containing all pricing changes for each billing cycle.
-   */
+  
   public List<SubscriptionPricingPolicyCycleDiscountsInput> getCycleDiscounts() {
     return cycleDiscounts;
   }
@@ -69,14 +59,10 @@ public class SubscriptionPricingPolicyInput {
   }
 
   public static class Builder {
-    /**
-     * The base price per unit for the subscription line in the contract's currency.
-     */
+    
     private String basePrice;
 
-    /**
-     * An array containing all pricing changes for each billing cycle.
-     */
+    
     private List<SubscriptionPricingPolicyCycleDiscountsInput> cycleDiscounts;
 
     public SubscriptionPricingPolicyInput build() {
@@ -86,17 +72,13 @@ public class SubscriptionPricingPolicyInput {
       return result;
     }
 
-    /**
-     * The base price per unit for the subscription line in the contract's currency.
-     */
+    
     public Builder basePrice(String basePrice) {
       this.basePrice = basePrice;
       return this;
     }
 
-    /**
-     * An array containing all pricing changes for each billing cycle.
-     */
+    
     public Builder cycleDiscounts(
         List<SubscriptionPricingPolicyCycleDiscountsInput> cycleDiscounts) {
       this.cycleDiscounts = cycleDiscounts;

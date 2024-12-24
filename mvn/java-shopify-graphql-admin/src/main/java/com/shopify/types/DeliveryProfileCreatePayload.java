@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `deliveryProfileCreate` mutation.
- */
+
 public class DeliveryProfileCreatePayload {
-  /**
-   * The delivery profile that was created.
-   */
+  
   private DeliveryProfile profile;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public DeliveryProfileCreatePayload() {
   }
 
-  /**
-   * The delivery profile that was created.
-   */
+  
   public DeliveryProfile getProfile() {
     return profile;
   }
@@ -34,9 +26,7 @@ public class DeliveryProfileCreatePayload {
     this.profile = profile;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class DeliveryProfileCreatePayload {
   }
 
   public static class Builder {
-    /**
-     * The delivery profile that was created.
-     */
+    
     private DeliveryProfile profile;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public DeliveryProfileCreatePayload build() {
@@ -86,17 +72,13 @@ public class DeliveryProfileCreatePayload {
       return result;
     }
 
-    /**
-     * The delivery profile that was created.
-     */
+    
     public Builder profile(DeliveryProfile profile) {
       this.profile = profile;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

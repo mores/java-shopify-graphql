@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible types of a metafield's owner resource.
- */
+
 public enum MetafieldOwnerType {
   API_PERMISSION,
 

@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * The display status of a fulfillment.
- */
+
 public enum FulfillmentDisplayStatus {
   ATTEMPTED_DELIVERY,
 

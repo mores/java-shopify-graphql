@@ -7,10 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Asynchronously delete discount redeem codes in bulk. Specify the redeem codes to delete by providing a
- * search query, a saved search ID, or a list of redeem code IDs.
- */
+
 public class DiscountCodeRedeemCodeBulkDeleteGraphQLQuery extends GraphQLQuery {
   public DiscountCodeRedeemCodeBulkDeleteGraphQLQuery(String discountId, String search,
       String savedSearchId, List<String> ids, String queryName, Set<String> fieldsSet) {
@@ -57,36 +54,28 @@ public class DiscountCodeRedeemCodeBulkDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the redeem code's discount.
-     */
+    
     public Builder discountId(String discountId) {
       this.discountId = discountId;
       this.fieldsSet.add("discountId");
       return this;
     }
 
-    /**
-     * The search query for filtering discount redeem codes.
-     */
+    
     public Builder search(String search) {
       this.search = search;
       this.fieldsSet.add("search");
       return this;
     }
 
-    /**
-     * The ID of the saved search.
-     */
+    
     public Builder savedSearchId(String savedSearchId) {
       this.savedSearchId = savedSearchId;
       this.fieldsSet.add("savedSearchId");
       return this;
     }
 
-    /**
-     * The IDs of the discount redeem codes to delete.
-     */
+    
     public Builder ids(List<String> ids) {
       this.ids = ids;
       this.fieldsSet.add("ids");

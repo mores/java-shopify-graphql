@@ -5,28 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The total number of pending orders on a shop if less then a maximum, or that maximum.
- * The atMax field indicates when this maximum has been reached.
- */
+
 public class LimitedPendingOrderCount {
-  /**
-   * This is set when the number of pending orders has reached the maximum.
-   */
+  
   private boolean atMax;
 
-  /**
-   * The number of pendings orders on the shop.
-   * Limited to a maximum of 10000.
-   */
+  
   private int count;
 
   public LimitedPendingOrderCount() {
   }
 
-  /**
-   * This is set when the number of pending orders has reached the maximum.
-   */
+  
   public boolean getAtMax() {
     return atMax;
   }
@@ -35,10 +25,7 @@ public class LimitedPendingOrderCount {
     this.atMax = atMax;
   }
 
-  /**
-   * The number of pendings orders on the shop.
-   * Limited to a maximum of 10000.
-   */
+  
   public int getCount() {
     return count;
   }
@@ -71,15 +58,10 @@ public class LimitedPendingOrderCount {
   }
 
   public static class Builder {
-    /**
-     * This is set when the number of pending orders has reached the maximum.
-     */
+    
     private boolean atMax;
 
-    /**
-     * The number of pendings orders on the shop.
-     * Limited to a maximum of 10000.
-     */
+    
     private int count;
 
     public LimitedPendingOrderCount build() {
@@ -89,18 +71,13 @@ public class LimitedPendingOrderCount {
       return result;
     }
 
-    /**
-     * This is set when the number of pending orders has reached the maximum.
-     */
+    
     public Builder atMax(boolean atMax) {
       this.atMax = atMax;
       return this;
     }
 
-    /**
-     * The number of pendings orders on the shop.
-     * Limited to a maximum of 10000.
-     */
+    
     public Builder count(int count) {
       this.count = count;
       return this;

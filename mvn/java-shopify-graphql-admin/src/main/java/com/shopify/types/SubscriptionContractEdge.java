@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * An auto-generated type which holds one SubscriptionContract and a cursor during pagination.
- */
+
 public class SubscriptionContractEdge {
-  /**
-   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-   */
+  
   private String cursor;
 
-  /**
-   * The item at the end of SubscriptionContractEdge.
-   */
+  
   private SubscriptionContract node;
 
   public SubscriptionContractEdge() {
   }
 
-  /**
-   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-   */
+  
   public String getCursor() {
     return cursor;
   }
@@ -33,9 +25,7 @@ public class SubscriptionContractEdge {
     this.cursor = cursor;
   }
 
-  /**
-   * The item at the end of SubscriptionContractEdge.
-   */
+  
   public SubscriptionContract getNode() {
     return node;
   }
@@ -68,14 +58,10 @@ public class SubscriptionContractEdge {
   }
 
   public static class Builder {
-    /**
-     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     private String cursor;
 
-    /**
-     * The item at the end of SubscriptionContractEdge.
-     */
+    
     private SubscriptionContract node;
 
     public SubscriptionContractEdge build() {
@@ -85,17 +71,13 @@ public class SubscriptionContractEdge {
       return result;
     }
 
-    /**
-     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     public Builder cursor(String cursor) {
       this.cursor = cursor;
       return this;
     }
 
-    /**
-     * The item at the end of SubscriptionContractEdge.
-     */
+    
     public Builder node(SubscriptionContract node) {
       this.node = node;
       return this;

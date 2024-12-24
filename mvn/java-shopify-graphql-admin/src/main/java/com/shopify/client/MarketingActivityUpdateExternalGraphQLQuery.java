@@ -8,9 +8,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Update an external marketing activity.
- */
+
 public class MarketingActivityUpdateExternalGraphQLQuery extends GraphQLQuery {
   public MarketingActivityUpdateExternalGraphQLQuery(MarketingActivityUpdateExternalInput input,
       String marketingActivityId, String remoteId, UTMInput utm, String queryName,
@@ -58,41 +56,28 @@ public class MarketingActivityUpdateExternalGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The input field for updating an external marketing activity.
-     */
+    
     public Builder input(MarketingActivityUpdateExternalInput input) {
       this.input = input;
       this.fieldsSet.add("input");
       return this;
     }
 
-    /**
-     * The ID of the marketing activity. Specify either the marketing activity ID,
-     * remote ID, or UTM to update the marketing activity.
-     */
+    
     public Builder marketingActivityId(String marketingActivityId) {
       this.marketingActivityId = marketingActivityId;
       this.fieldsSet.add("marketingActivityId");
       return this;
     }
 
-    /**
-     * The ID of an activity that's hosted outside of Shopify. Specify either the
-     * marketing activity ID, remote ID, or UTM to update the marketing activity.
-     */
+    
     public Builder remoteId(String remoteId) {
       this.remoteId = remoteId;
       this.fieldsSet.add("remoteId");
       return this;
     }
 
-    /**
-     * Specifies the [Urchin Traffic Module (UTM)
-     * parameters](https://en.wikipedia.org/wiki/UTM_parameters) that are
-     * associated with a related marketing campaign. Specify either the marketing
-     * activity ID, remote ID, or UTM to update the marketing activity.
-     */
+    
     public Builder utm(UTMInput utm) {
       this.utm = utm;
       this.fieldsSet.add("utm");

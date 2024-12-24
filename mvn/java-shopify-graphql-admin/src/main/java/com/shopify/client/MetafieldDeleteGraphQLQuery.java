@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Deletes a metafield.
- */
+
 public class MetafieldDeleteGraphQLQuery extends GraphQLQuery {
   public MetafieldDeleteGraphQLQuery(MetafieldDeleteInput input, String queryName,
       Set<String> fieldsSet) {

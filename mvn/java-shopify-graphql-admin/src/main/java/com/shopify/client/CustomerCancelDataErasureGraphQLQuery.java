@@ -6,11 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Cancels a pending erasure of a customer's data.
- *   
- * To request an erasure of a customer's data use the [customerRequestDataErasure mutation](https://shopify.dev/api/admin-graphql/unstable/mutations/customerRequestDataErasure).
- */
+
 public class CustomerCancelDataErasureGraphQLQuery extends GraphQLQuery {
   public CustomerCancelDataErasureGraphQLQuery(String customerId, String queryName,
       Set<String> fieldsSet) {
@@ -45,9 +41,7 @@ public class CustomerCancelDataErasureGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the customer for whom to cancel a pending data erasure.
-     */
+    
     public Builder customerId(String customerId) {
       this.customerId = customerId;
       this.fieldsSet.add("customerId");

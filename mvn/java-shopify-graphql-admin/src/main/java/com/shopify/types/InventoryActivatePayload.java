@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `inventoryActivate` mutation.
- */
+
 public class InventoryActivatePayload {
-  /**
-   * The inventory level that was activated.
-   */
+  
   private InventoryLevel inventoryLevel;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public InventoryActivatePayload() {
   }
 
-  /**
-   * The inventory level that was activated.
-   */
+  
   public InventoryLevel getInventoryLevel() {
     return inventoryLevel;
   }
@@ -34,9 +26,7 @@ public class InventoryActivatePayload {
     this.inventoryLevel = inventoryLevel;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class InventoryActivatePayload {
   }
 
   public static class Builder {
-    /**
-     * The inventory level that was activated.
-     */
+    
     private InventoryLevel inventoryLevel;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public InventoryActivatePayload build() {
@@ -86,17 +72,13 @@ public class InventoryActivatePayload {
       return result;
     }
 
-    /**
-     * The inventory level that was activated.
-     */
+    
     public Builder inventoryLevel(InventoryLevel inventoryLevel) {
       this.inventoryLevel = inventoryLevel;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

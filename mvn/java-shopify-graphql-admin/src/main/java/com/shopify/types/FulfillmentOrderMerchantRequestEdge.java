@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * An auto-generated type which holds one FulfillmentOrderMerchantRequest and a cursor during pagination.
- */
+
 public class FulfillmentOrderMerchantRequestEdge {
-  /**
-   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-   */
+  
   private String cursor;
 
-  /**
-   * The item at the end of FulfillmentOrderMerchantRequestEdge.
-   */
+  
   private FulfillmentOrderMerchantRequest node;
 
   public FulfillmentOrderMerchantRequestEdge() {
   }
 
-  /**
-   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-   */
+  
   public String getCursor() {
     return cursor;
   }
@@ -33,9 +25,7 @@ public class FulfillmentOrderMerchantRequestEdge {
     this.cursor = cursor;
   }
 
-  /**
-   * The item at the end of FulfillmentOrderMerchantRequestEdge.
-   */
+  
   public FulfillmentOrderMerchantRequest getNode() {
     return node;
   }
@@ -68,14 +58,10 @@ public class FulfillmentOrderMerchantRequestEdge {
   }
 
   public static class Builder {
-    /**
-     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     private String cursor;
 
-    /**
-     * The item at the end of FulfillmentOrderMerchantRequestEdge.
-     */
+    
     private FulfillmentOrderMerchantRequest node;
 
     public FulfillmentOrderMerchantRequestEdge build() {
@@ -85,17 +71,13 @@ public class FulfillmentOrderMerchantRequestEdge {
       return result;
     }
 
-    /**
-     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     public Builder cursor(String cursor) {
       this.cursor = cursor;
       return this;
     }
 
-    /**
-     * The item at the end of FulfillmentOrderMerchantRequestEdge.
-     */
+    
     public Builder node(FulfillmentOrderMerchantRequest node) {
       this.node = node;
       return this;

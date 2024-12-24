@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `quantityRulesDelete` mutation.
- */
+
 public class QuantityRulesDeletePayload {
-  /**
-   * A list of product variant IDs whose quantity rules were removed from the price list.
-   */
+  
   private List<String> deletedQuantityRulesVariantIds;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<QuantityRuleUserError> userErrors;
 
   public QuantityRulesDeletePayload() {
   }
 
-  /**
-   * A list of product variant IDs whose quantity rules were removed from the price list.
-   */
+  
   public List<String> getDeletedQuantityRulesVariantIds() {
     return deletedQuantityRulesVariantIds;
   }
@@ -34,9 +26,7 @@ public class QuantityRulesDeletePayload {
     this.deletedQuantityRulesVariantIds = deletedQuantityRulesVariantIds;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<QuantityRuleUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class QuantityRulesDeletePayload {
   }
 
   public static class Builder {
-    /**
-     * A list of product variant IDs whose quantity rules were removed from the price list.
-     */
+    
     private List<String> deletedQuantityRulesVariantIds;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<QuantityRuleUserError> userErrors;
 
     public QuantityRulesDeletePayload build() {
@@ -86,17 +72,13 @@ public class QuantityRulesDeletePayload {
       return result;
     }
 
-    /**
-     * A list of product variant IDs whose quantity rules were removed from the price list.
-     */
+    
     public Builder deletedQuantityRulesVariantIds(List<String> deletedQuantityRulesVariantIds) {
       this.deletedQuantityRulesVariantIds = deletedQuantityRulesVariantIds;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<QuantityRuleUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -7,58 +7,36 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * A credit transaction which increases the store credit account balance.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class StoreCreditAccountCreditTransaction implements com.shopify.types.Node, com.shopify.types.StoreCreditAccountTransaction {
-  /**
-   * The store credit account that the transaction belongs to.
-   */
+  
   private StoreCreditAccount account;
 
-  /**
-   * The amount of the transaction.
-   */
+  
   private MoneyV2 amount;
 
-  /**
-   * The balance of the account after the transaction.
-   */
+  
   private MoneyV2 balanceAfterTransaction;
 
-  /**
-   * The date and time when the transaction was created.
-   */
+  
   private OffsetDateTime createdAt;
 
-  /**
-   * The time at which the transaction expires.
-   * Debit transactions will always spend the soonest expiring credit first.
-   */
+  
   private OffsetDateTime expiresAt;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The remaining amount of the credit.
-   * The remaining amount will decrease when a debit spends this credit. It may
-   * also increase if that debit is subsequently reverted.
-   * In the event that the credit expires, the remaining amount will represent the amount that remained as the expiry ocurred.
-   */
+  
   private MoneyV2 remainingAmount;
 
   public StoreCreditAccountCreditTransaction() {
   }
 
-  /**
-   * The store credit account that the transaction belongs to.
-   */
+  
   public StoreCreditAccount getAccount() {
     return account;
   }
@@ -67,9 +45,7 @@ public class StoreCreditAccountCreditTransaction implements com.shopify.types.No
     this.account = account;
   }
 
-  /**
-   * The amount of the transaction.
-   */
+  
   public MoneyV2 getAmount() {
     return amount;
   }
@@ -78,9 +54,7 @@ public class StoreCreditAccountCreditTransaction implements com.shopify.types.No
     this.amount = amount;
   }
 
-  /**
-   * The balance of the account after the transaction.
-   */
+  
   public MoneyV2 getBalanceAfterTransaction() {
     return balanceAfterTransaction;
   }
@@ -89,9 +63,7 @@ public class StoreCreditAccountCreditTransaction implements com.shopify.types.No
     this.balanceAfterTransaction = balanceAfterTransaction;
   }
 
-  /**
-   * The date and time when the transaction was created.
-   */
+  
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -100,10 +72,7 @@ public class StoreCreditAccountCreditTransaction implements com.shopify.types.No
     this.createdAt = createdAt;
   }
 
-  /**
-   * The time at which the transaction expires.
-   * Debit transactions will always spend the soonest expiring credit first.
-   */
+  
   public OffsetDateTime getExpiresAt() {
     return expiresAt;
   }
@@ -112,9 +81,7 @@ public class StoreCreditAccountCreditTransaction implements com.shopify.types.No
     this.expiresAt = expiresAt;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -123,12 +90,7 @@ public class StoreCreditAccountCreditTransaction implements com.shopify.types.No
     this.id = id;
   }
 
-  /**
-   * The remaining amount of the credit.
-   * The remaining amount will decrease when a debit spends this credit. It may
-   * also increase if that debit is subsequently reverted.
-   * In the event that the credit expires, the remaining amount will represent the amount that remained as the expiry ocurred.
-   */
+  
   public MoneyV2 getRemainingAmount() {
     return remainingAmount;
   }
@@ -166,43 +128,25 @@ public class StoreCreditAccountCreditTransaction implements com.shopify.types.No
   }
 
   public static class Builder {
-    /**
-     * The store credit account that the transaction belongs to.
-     */
+    
     private StoreCreditAccount account;
 
-    /**
-     * The amount of the transaction.
-     */
+    
     private MoneyV2 amount;
 
-    /**
-     * The balance of the account after the transaction.
-     */
+    
     private MoneyV2 balanceAfterTransaction;
 
-    /**
-     * The date and time when the transaction was created.
-     */
+    
     private OffsetDateTime createdAt;
 
-    /**
-     * The time at which the transaction expires.
-     * Debit transactions will always spend the soonest expiring credit first.
-     */
+    
     private OffsetDateTime expiresAt;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The remaining amount of the credit.
-     * The remaining amount will decrease when a debit spends this credit. It may
-     * also increase if that debit is subsequently reverted.
-     * In the event that the credit expires, the remaining amount will represent the amount that remained as the expiry ocurred.
-     */
+    
     private MoneyV2 remainingAmount;
 
     public StoreCreditAccountCreditTransaction build() {
@@ -217,61 +161,43 @@ public class StoreCreditAccountCreditTransaction implements com.shopify.types.No
       return result;
     }
 
-    /**
-     * The store credit account that the transaction belongs to.
-     */
+    
     public Builder account(StoreCreditAccount account) {
       this.account = account;
       return this;
     }
 
-    /**
-     * The amount of the transaction.
-     */
+    
     public Builder amount(MoneyV2 amount) {
       this.amount = amount;
       return this;
     }
 
-    /**
-     * The balance of the account after the transaction.
-     */
+    
     public Builder balanceAfterTransaction(MoneyV2 balanceAfterTransaction) {
       this.balanceAfterTransaction = balanceAfterTransaction;
       return this;
     }
 
-    /**
-     * The date and time when the transaction was created.
-     */
+    
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    /**
-     * The time at which the transaction expires.
-     * Debit transactions will always spend the soonest expiring credit first.
-     */
+    
     public Builder expiresAt(OffsetDateTime expiresAt) {
       this.expiresAt = expiresAt;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The remaining amount of the credit.
-     * The remaining amount will decrease when a debit spends this credit. It may
-     * also increase if that debit is subsequently reverted.
-     * In the event that the credit expires, the remaining amount will represent the amount that remained as the expiry ocurred.
-     */
+    
     public Builder remainingAmount(MoneyV2 remainingAmount) {
       this.remainingAmount = remainingAmount;
       return this;

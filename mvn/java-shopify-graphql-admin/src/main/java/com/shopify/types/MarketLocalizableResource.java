@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * A resource that has market localizable fields.
- */
+
 public class MarketLocalizableResource {
-  /**
-   * The market localizable content.
-   */
+  
   private List<MarketLocalizableContent> marketLocalizableContent;
 
-  /**
-   * Market localizations for the market localizable content.
-   */
+  
   private List<MarketLocalization> marketLocalizations;
 
-  /**
-   * The GID of the resource.
-   */
+  
   private String resourceId;
 
   public MarketLocalizableResource() {
   }
 
-  /**
-   * The market localizable content.
-   */
+  
   public List<MarketLocalizableContent> getMarketLocalizableContent() {
     return marketLocalizableContent;
   }
@@ -39,9 +29,7 @@ public class MarketLocalizableResource {
     this.marketLocalizableContent = marketLocalizableContent;
   }
 
-  /**
-   * Market localizations for the market localizable content.
-   */
+  
   public List<MarketLocalization> getMarketLocalizations() {
     return marketLocalizations;
   }
@@ -50,9 +38,7 @@ public class MarketLocalizableResource {
     this.marketLocalizations = marketLocalizations;
   }
 
-  /**
-   * The GID of the resource.
-   */
+  
   public String getResourceId() {
     return resourceId;
   }
@@ -86,19 +72,13 @@ public class MarketLocalizableResource {
   }
 
   public static class Builder {
-    /**
-     * The market localizable content.
-     */
+    
     private List<MarketLocalizableContent> marketLocalizableContent;
 
-    /**
-     * Market localizations for the market localizable content.
-     */
+    
     private List<MarketLocalization> marketLocalizations;
 
-    /**
-     * The GID of the resource.
-     */
+    
     private String resourceId;
 
     public MarketLocalizableResource build() {
@@ -109,26 +89,20 @@ public class MarketLocalizableResource {
       return result;
     }
 
-    /**
-     * The market localizable content.
-     */
+    
     public Builder marketLocalizableContent(
         List<MarketLocalizableContent> marketLocalizableContent) {
       this.marketLocalizableContent = marketLocalizableContent;
       return this;
     }
 
-    /**
-     * Market localizations for the market localizable content.
-     */
+    
     public Builder marketLocalizations(List<MarketLocalization> marketLocalizations) {
       this.marketLocalizations = marketLocalizations;
       return this;
     }
 
-    /**
-     * The GID of the resource.
-     */
+    
     public Builder resourceId(String resourceId) {
       this.resourceId = resourceId;
       return this;

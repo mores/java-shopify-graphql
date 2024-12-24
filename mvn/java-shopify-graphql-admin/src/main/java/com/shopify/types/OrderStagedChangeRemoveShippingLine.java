@@ -6,24 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A shipping line removed during an order edit.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class OrderStagedChangeRemoveShippingLine implements OrderStagedChange {
-  /**
-   * The removed shipping line.
-   */
+  
   private ShippingLine shippingLine;
 
   public OrderStagedChangeRemoveShippingLine() {
   }
 
-  /**
-   * The removed shipping line.
-   */
+  
   public ShippingLine getShippingLine() {
     return shippingLine;
   }
@@ -55,9 +49,7 @@ public class OrderStagedChangeRemoveShippingLine implements OrderStagedChange {
   }
 
   public static class Builder {
-    /**
-     * The removed shipping line.
-     */
+    
     private ShippingLine shippingLine;
 
     public OrderStagedChangeRemoveShippingLine build() {
@@ -66,9 +58,7 @@ public class OrderStagedChangeRemoveShippingLine implements OrderStagedChange {
       return result;
     }
 
-    /**
-     * The removed shipping line.
-     */
+    
     public Builder shippingLine(ShippingLine shippingLine) {
       this.shippingLine = shippingLine;
       return this;

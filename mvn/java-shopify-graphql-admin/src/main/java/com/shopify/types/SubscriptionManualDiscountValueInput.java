@@ -6,26 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for the discount value and its distribution.
- */
+
 public class SubscriptionManualDiscountValueInput {
-  /**
-   * The percentage value of the discount. Value must be between 0 - 100.
-   */
+  
   private Integer percentage;
 
-  /**
-   * Fixed amount input in the currency defined by the subscription.
-   */
+  
   private SubscriptionManualDiscountFixedAmountInput fixedAmount;
 
   public SubscriptionManualDiscountValueInput() {
   }
 
-  /**
-   * The percentage value of the discount. Value must be between 0 - 100.
-   */
+  
   public Integer getPercentage() {
     return percentage;
   }
@@ -34,9 +26,7 @@ public class SubscriptionManualDiscountValueInput {
     this.percentage = percentage;
   }
 
-  /**
-   * Fixed amount input in the currency defined by the subscription.
-   */
+  
   public SubscriptionManualDiscountFixedAmountInput getFixedAmount() {
     return fixedAmount;
   }
@@ -69,14 +59,10 @@ public class SubscriptionManualDiscountValueInput {
   }
 
   public static class Builder {
-    /**
-     * The percentage value of the discount. Value must be between 0 - 100.
-     */
+    
     private Integer percentage;
 
-    /**
-     * Fixed amount input in the currency defined by the subscription.
-     */
+    
     private SubscriptionManualDiscountFixedAmountInput fixedAmount;
 
     public SubscriptionManualDiscountValueInput build() {
@@ -86,17 +72,13 @@ public class SubscriptionManualDiscountValueInput {
       return result;
     }
 
-    /**
-     * The percentage value of the discount. Value must be between 0 - 100.
-     */
+    
     public Builder percentage(Integer percentage) {
       this.percentage = percentage;
       return this;
     }
 
-    /**
-     * Fixed amount input in the currency defined by the subscription.
-     */
+    
     public Builder fixedAmount(SubscriptionManualDiscountFixedAmountInput fixedAmount) {
       this.fixedAmount = fixedAmount;
       return this;

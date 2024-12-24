@@ -8,9 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Disposes reverse fulfillment order line items.
- */
+
 public class ReverseFulfillmentOrderDisposeGraphQLQuery extends GraphQLQuery {
   public ReverseFulfillmentOrderDisposeGraphQLQuery(
       List<ReverseFulfillmentOrderDisposeInput> dispositionInputs, String queryName,
@@ -46,9 +44,7 @@ public class ReverseFulfillmentOrderDisposeGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The input parameters required to dispose reverse fulfillment order line items.
-     */
+    
     public Builder dispositionInputs(List<ReverseFulfillmentOrderDisposeInput> dispositionInputs) {
       this.dispositionInputs = dispositionInputs;
       this.fieldsSet.add("dispositionInputs");

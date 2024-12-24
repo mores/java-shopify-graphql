@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Validation available on the shop.
- */
+
 public class ValidationGraphQLQuery extends GraphQLQuery {
   public ValidationGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -42,9 +40,7 @@ public class ValidationGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the validation.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

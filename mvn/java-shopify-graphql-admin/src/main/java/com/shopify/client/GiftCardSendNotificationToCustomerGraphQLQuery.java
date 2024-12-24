@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Send notification to the customer of a gift card.
- */
+
 public class GiftCardSendNotificationToCustomerGraphQLQuery extends GraphQLQuery {
   public GiftCardSendNotificationToCustomerGraphQLQuery(String id, String queryName,
       Set<String> fieldsSet) {
@@ -43,9 +41,7 @@ public class GiftCardSendNotificationToCustomerGraphQLQuery extends GraphQLQuery
                
     }
 
-    /**
-     * The ID of the gift card to send.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

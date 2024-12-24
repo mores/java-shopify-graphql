@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible error codes that can be returned by `UrlRedirectBulkDeleteBySavedSearchUserError`.
- */
+
 public enum UrlRedirectBulkDeleteBySavedSearchUserErrorCode {
   SAVED_SEARCH_NOT_FOUND,
 

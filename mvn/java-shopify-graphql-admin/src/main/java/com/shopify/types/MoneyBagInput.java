@@ -5,29 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * An input collection of monetary values in their respective currencies.
- * Represents an amount in the shop's currency and the amount as converted to the
- * customer's currency of choice (the presentment currency).
- */
+
 public class MoneyBagInput {
-  /**
-   * Amount in shop currency.
-   */
+  
   private MoneyInput shopMoney;
 
-  /**
-   * Amount in presentment currency. If this isn't given then we assume that the
-   * presentment currency is the same as the shop's currency.
-   */
+  
   private MoneyInput presentmentMoney;
 
   public MoneyBagInput() {
   }
 
-  /**
-   * Amount in shop currency.
-   */
+  
   public MoneyInput getShopMoney() {
     return shopMoney;
   }
@@ -36,10 +25,7 @@ public class MoneyBagInput {
     this.shopMoney = shopMoney;
   }
 
-  /**
-   * Amount in presentment currency. If this isn't given then we assume that the
-   * presentment currency is the same as the shop's currency.
-   */
+  
   public MoneyInput getPresentmentMoney() {
     return presentmentMoney;
   }
@@ -72,15 +58,10 @@ public class MoneyBagInput {
   }
 
   public static class Builder {
-    /**
-     * Amount in shop currency.
-     */
+    
     private MoneyInput shopMoney;
 
-    /**
-     * Amount in presentment currency. If this isn't given then we assume that the
-     * presentment currency is the same as the shop's currency.
-     */
+    
     private MoneyInput presentmentMoney;
 
     public MoneyBagInput build() {
@@ -90,18 +71,13 @@ public class MoneyBagInput {
       return result;
     }
 
-    /**
-     * Amount in shop currency.
-     */
+    
     public Builder shopMoney(MoneyInput shopMoney) {
       this.shopMoney = shopMoney;
       return this;
     }
 
-    /**
-     * Amount in presentment currency. If this isn't given then we assume that the
-     * presentment currency is the same as the shop's currency.
-     */
+    
     public Builder presentmentMoney(MoneyInput presentmentMoney) {
       this.presentmentMoney = presentmentMoney;
       return this;

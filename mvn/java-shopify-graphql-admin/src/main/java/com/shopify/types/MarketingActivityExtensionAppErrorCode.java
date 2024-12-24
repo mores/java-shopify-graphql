@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * The error code resulted from the marketing activity extension integration.
- */
+
 public enum MarketingActivityExtensionAppErrorCode {
   NOT_ONBOARDED_ERROR,
 

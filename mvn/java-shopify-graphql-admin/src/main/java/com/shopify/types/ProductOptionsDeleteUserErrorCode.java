@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible error codes that can be returned by `ProductOptionsDeleteUserError`.
- */
+
 public enum ProductOptionsDeleteUserErrorCode {
   PRODUCT_DOES_NOT_EXIST,
 

@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns the product duplicate job.
- */
+
 public class ProductDuplicateJobGraphQLQuery extends GraphQLQuery {
   public ProductDuplicateJobGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -42,9 +40,7 @@ public class ProductDuplicateJobGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * An ID of a product duplicate job to fetch.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

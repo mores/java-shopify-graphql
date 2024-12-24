@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * An action associated to a shop alert, such as adding a credit card.
- */
+
 public class ShopAlertAction {
-  /**
-   * The text for the button in the alert. For example, _Add credit card_.
-   */
+  
   private String title;
 
-  /**
-   * The target URL that the button links to.
-   */
+  
   private String url;
 
   public ShopAlertAction() {
   }
 
-  /**
-   * The text for the button in the alert. For example, _Add credit card_.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -33,9 +25,7 @@ public class ShopAlertAction {
     this.title = title;
   }
 
-  /**
-   * The target URL that the button links to.
-   */
+  
   public String getUrl() {
     return url;
   }
@@ -68,14 +58,10 @@ public class ShopAlertAction {
   }
 
   public static class Builder {
-    /**
-     * The text for the button in the alert. For example, _Add credit card_.
-     */
+    
     private String title;
 
-    /**
-     * The target URL that the button links to.
-     */
+    
     private String url;
 
     public ShopAlertAction build() {
@@ -85,17 +71,13 @@ public class ShopAlertAction {
       return result;
     }
 
-    /**
-     * The text for the button in the alert. For example, _Add credit card_.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    /**
-     * The target URL that the button links to.
-     */
+    
     public Builder url(String url) {
       this.url = url;
       return this;

@@ -6,11 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Marks an in-progress fulfillment order as incomplete, indicating the
- * fulfillment service is unable to ship any remaining items and intends to close
- * the fulfillment order.
- */
+
 public class FulfillmentOrderCloseGraphQLQuery extends GraphQLQuery {
   public FulfillmentOrderCloseGraphQLQuery(String id, String message, String queryName,
       Set<String> fieldsSet) {
@@ -49,18 +45,14 @@ public class FulfillmentOrderCloseGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the fulfillment order to mark as incomplete.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * An optional reason for marking the fulfillment order as incomplete.
-     */
+    
     public Builder message(String message) {
       this.message = message;
       this.fieldsSet.add("message");

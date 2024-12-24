@@ -5,46 +5,30 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents the address of a merchant's Business Entity.
- */
+
 public class BusinessEntityAddress {
-  /**
-   * The first line of the address. Typically the street address or PO Box number.
-   */
+  
   private String address1;
 
-  /**
-   * The second line of the address. Typically the number of the apartment, suite, or unit.
-   */
+  
   private String address2;
 
-  /**
-   * The name of the city, district, village, or town.
-   */
+  
   private String city;
 
-  /**
-   * The country code of the merchant's Business Entity.
-   */
+  
   private CountryCode countryCode;
 
-  /**
-   * The region of the address, such as the province, state, or district.
-   */
+  
   private String province;
 
-  /**
-   * The zip or postal code of the address.
-   */
+  
   private String zip;
 
   public BusinessEntityAddress() {
   }
 
-  /**
-   * The first line of the address. Typically the street address or PO Box number.
-   */
+  
   public String getAddress1() {
     return address1;
   }
@@ -53,9 +37,7 @@ public class BusinessEntityAddress {
     this.address1 = address1;
   }
 
-  /**
-   * The second line of the address. Typically the number of the apartment, suite, or unit.
-   */
+  
   public String getAddress2() {
     return address2;
   }
@@ -64,9 +46,7 @@ public class BusinessEntityAddress {
     this.address2 = address2;
   }
 
-  /**
-   * The name of the city, district, village, or town.
-   */
+  
   public String getCity() {
     return city;
   }
@@ -75,9 +55,7 @@ public class BusinessEntityAddress {
     this.city = city;
   }
 
-  /**
-   * The country code of the merchant's Business Entity.
-   */
+  
   public CountryCode getCountryCode() {
     return countryCode;
   }
@@ -86,9 +64,7 @@ public class BusinessEntityAddress {
     this.countryCode = countryCode;
   }
 
-  /**
-   * The region of the address, such as the province, state, or district.
-   */
+  
   public String getProvince() {
     return province;
   }
@@ -97,9 +73,7 @@ public class BusinessEntityAddress {
     this.province = province;
   }
 
-  /**
-   * The zip or postal code of the address.
-   */
+  
   public String getZip() {
     return zip;
   }
@@ -136,34 +110,22 @@ public class BusinessEntityAddress {
   }
 
   public static class Builder {
-    /**
-     * The first line of the address. Typically the street address or PO Box number.
-     */
+    
     private String address1;
 
-    /**
-     * The second line of the address. Typically the number of the apartment, suite, or unit.
-     */
+    
     private String address2;
 
-    /**
-     * The name of the city, district, village, or town.
-     */
+    
     private String city;
 
-    /**
-     * The country code of the merchant's Business Entity.
-     */
+    
     private CountryCode countryCode;
 
-    /**
-     * The region of the address, such as the province, state, or district.
-     */
+    
     private String province;
 
-    /**
-     * The zip or postal code of the address.
-     */
+    
     private String zip;
 
     public BusinessEntityAddress build() {
@@ -177,49 +139,37 @@ public class BusinessEntityAddress {
       return result;
     }
 
-    /**
-     * The first line of the address. Typically the street address or PO Box number.
-     */
+    
     public Builder address1(String address1) {
       this.address1 = address1;
       return this;
     }
 
-    /**
-     * The second line of the address. Typically the number of the apartment, suite, or unit.
-     */
+    
     public Builder address2(String address2) {
       this.address2 = address2;
       return this;
     }
 
-    /**
-     * The name of the city, district, village, or town.
-     */
+    
     public Builder city(String city) {
       this.city = city;
       return this;
     }
 
-    /**
-     * The country code of the merchant's Business Entity.
-     */
+    
     public Builder countryCode(CountryCode countryCode) {
       this.countryCode = countryCode;
       return this;
     }
 
-    /**
-     * The region of the address, such as the province, state, or district.
-     */
+    
     public Builder province(String province) {
       this.province = province;
       return this;
     }
 
-    /**
-     * The zip or postal code of the address.
-     */
+    
     public Builder zip(String zip) {
       this.zip = zip;
       return this;

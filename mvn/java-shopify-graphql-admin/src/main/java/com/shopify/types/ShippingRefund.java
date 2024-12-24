@@ -5,46 +5,30 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents the shipping costs refunded on the Refund.
- */
+
 public class ShippingRefund {
-  /**
-   * The monetary value of the shipping fees to be refunded.
-   */
+  
   private String amount;
 
-  /**
-   * The monetary value of the shipping fees to be refunded in shop and presentment currencies.
-   */
+  
   private MoneyBag amountSet;
 
-  /**
-   * The maximum amount of shipping fees currently refundable.
-   */
+  
   private String maximumRefundable;
 
-  /**
-   * The maximum amount of shipping fees currently refundable in shop and presentment currencies.
-   */
+  
   private MoneyBag maximumRefundableSet;
 
-  /**
-   * The monetary value of the tax allocated to shipping fees to be refunded.
-   */
+  
   private String tax;
 
-  /**
-   * The monetary value of the tax allocated to shipping fees to be refunded in shop and presentment currencies.
-   */
+  
   private MoneyBag taxSet;
 
   public ShippingRefund() {
   }
 
-  /**
-   * The monetary value of the shipping fees to be refunded.
-   */
+  
   public String getAmount() {
     return amount;
   }
@@ -53,9 +37,7 @@ public class ShippingRefund {
     this.amount = amount;
   }
 
-  /**
-   * The monetary value of the shipping fees to be refunded in shop and presentment currencies.
-   */
+  
   public MoneyBag getAmountSet() {
     return amountSet;
   }
@@ -64,9 +46,7 @@ public class ShippingRefund {
     this.amountSet = amountSet;
   }
 
-  /**
-   * The maximum amount of shipping fees currently refundable.
-   */
+  
   public String getMaximumRefundable() {
     return maximumRefundable;
   }
@@ -75,9 +55,7 @@ public class ShippingRefund {
     this.maximumRefundable = maximumRefundable;
   }
 
-  /**
-   * The maximum amount of shipping fees currently refundable in shop and presentment currencies.
-   */
+  
   public MoneyBag getMaximumRefundableSet() {
     return maximumRefundableSet;
   }
@@ -86,9 +64,7 @@ public class ShippingRefund {
     this.maximumRefundableSet = maximumRefundableSet;
   }
 
-  /**
-   * The monetary value of the tax allocated to shipping fees to be refunded.
-   */
+  
   public String getTax() {
     return tax;
   }
@@ -97,9 +73,7 @@ public class ShippingRefund {
     this.tax = tax;
   }
 
-  /**
-   * The monetary value of the tax allocated to shipping fees to be refunded in shop and presentment currencies.
-   */
+  
   public MoneyBag getTaxSet() {
     return taxSet;
   }
@@ -136,34 +110,22 @@ public class ShippingRefund {
   }
 
   public static class Builder {
-    /**
-     * The monetary value of the shipping fees to be refunded.
-     */
+    
     private String amount;
 
-    /**
-     * The monetary value of the shipping fees to be refunded in shop and presentment currencies.
-     */
+    
     private MoneyBag amountSet;
 
-    /**
-     * The maximum amount of shipping fees currently refundable.
-     */
+    
     private String maximumRefundable;
 
-    /**
-     * The maximum amount of shipping fees currently refundable in shop and presentment currencies.
-     */
+    
     private MoneyBag maximumRefundableSet;
 
-    /**
-     * The monetary value of the tax allocated to shipping fees to be refunded.
-     */
+    
     private String tax;
 
-    /**
-     * The monetary value of the tax allocated to shipping fees to be refunded in shop and presentment currencies.
-     */
+    
     private MoneyBag taxSet;
 
     public ShippingRefund build() {
@@ -177,49 +139,37 @@ public class ShippingRefund {
       return result;
     }
 
-    /**
-     * The monetary value of the shipping fees to be refunded.
-     */
+    
     public Builder amount(String amount) {
       this.amount = amount;
       return this;
     }
 
-    /**
-     * The monetary value of the shipping fees to be refunded in shop and presentment currencies.
-     */
+    
     public Builder amountSet(MoneyBag amountSet) {
       this.amountSet = amountSet;
       return this;
     }
 
-    /**
-     * The maximum amount of shipping fees currently refundable.
-     */
+    
     public Builder maximumRefundable(String maximumRefundable) {
       this.maximumRefundable = maximumRefundable;
       return this;
     }
 
-    /**
-     * The maximum amount of shipping fees currently refundable in shop and presentment currencies.
-     */
+    
     public Builder maximumRefundableSet(MoneyBag maximumRefundableSet) {
       this.maximumRefundableSet = maximumRefundableSet;
       return this;
     }
 
-    /**
-     * The monetary value of the tax allocated to shipping fees to be refunded.
-     */
+    
     public Builder tax(String tax) {
       this.tax = tax;
       return this;
     }
 
-    /**
-     * The monetary value of the tax allocated to shipping fees to be refunded in shop and presentment currencies.
-     */
+    
     public Builder taxSet(MoneyBag taxSet) {
       this.taxSet = taxSet;
       return this;

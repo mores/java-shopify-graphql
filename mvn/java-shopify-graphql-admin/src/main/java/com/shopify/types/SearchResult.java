@@ -5,41 +5,27 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents an individual result returned from a search.
- */
+
 public class SearchResult {
-  /**
-   * Returns the search result description text.
-   */
+  
   private String description;
 
-  /**
-   * Returns the Image resource presented to accompany a search result.
-   */
+  
   private Image image;
 
-  /**
-   * Returns the ID of the resource returned in the search result.
-   */
+  
   private Node reference;
 
-  /**
-   * Returns the resource title.
-   */
+  
   private String title;
 
-  /**
-   * Returns the absolute URL to the resource in the search result.
-   */
+  
   private String url;
 
   public SearchResult() {
   }
 
-  /**
-   * Returns the search result description text.
-   */
+  
   public String getDescription() {
     return description;
   }
@@ -48,9 +34,7 @@ public class SearchResult {
     this.description = description;
   }
 
-  /**
-   * Returns the Image resource presented to accompany a search result.
-   */
+  
   public Image getImage() {
     return image;
   }
@@ -59,9 +43,7 @@ public class SearchResult {
     this.image = image;
   }
 
-  /**
-   * Returns the ID of the resource returned in the search result.
-   */
+  
   public Node getReference() {
     return reference;
   }
@@ -70,9 +52,7 @@ public class SearchResult {
     this.reference = reference;
   }
 
-  /**
-   * Returns the resource title.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -81,9 +61,7 @@ public class SearchResult {
     this.title = title;
   }
 
-  /**
-   * Returns the absolute URL to the resource in the search result.
-   */
+  
   public String getUrl() {
     return url;
   }
@@ -119,29 +97,19 @@ public class SearchResult {
   }
 
   public static class Builder {
-    /**
-     * Returns the search result description text.
-     */
+    
     private String description;
 
-    /**
-     * Returns the Image resource presented to accompany a search result.
-     */
+    
     private Image image;
 
-    /**
-     * Returns the ID of the resource returned in the search result.
-     */
+    
     private Node reference;
 
-    /**
-     * Returns the resource title.
-     */
+    
     private String title;
 
-    /**
-     * Returns the absolute URL to the resource in the search result.
-     */
+    
     private String url;
 
     public SearchResult build() {
@@ -154,41 +122,31 @@ public class SearchResult {
       return result;
     }
 
-    /**
-     * Returns the search result description text.
-     */
+    
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    /**
-     * Returns the Image resource presented to accompany a search result.
-     */
+    
     public Builder image(Image image) {
       this.image = image;
       return this;
     }
 
-    /**
-     * Returns the ID of the resource returned in the search result.
-     */
+    
     public Builder reference(Node reference) {
       this.reference = reference;
       return this;
     }
 
-    /**
-     * Returns the resource title.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    /**
-     * Returns the absolute URL to the resource in the search result.
-     */
+    
     public Builder url(String url) {
       this.url = url;
       return this;

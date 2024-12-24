@@ -7,34 +7,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A custom font.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class CheckoutBrandingCustomFont implements com.shopify.types.CheckoutBrandingFont {
-  /**
-   * Globally unique ID reference to the custom font file.
-   */
+  
   private String genericFileId;
 
-  /**
-   * The font sources.
-   */
+  
   private String sources;
 
-  /**
-   * The font weight.
-   */
+  
   private Integer weight;
 
   public CheckoutBrandingCustomFont() {
   }
 
-  /**
-   * Globally unique ID reference to the custom font file.
-   */
+  
   public String getGenericFileId() {
     return genericFileId;
   }
@@ -43,9 +33,7 @@ public class CheckoutBrandingCustomFont implements com.shopify.types.CheckoutBra
     this.genericFileId = genericFileId;
   }
 
-  /**
-   * The font sources.
-   */
+  
   public String getSources() {
     return sources;
   }
@@ -54,9 +42,7 @@ public class CheckoutBrandingCustomFont implements com.shopify.types.CheckoutBra
     this.sources = sources;
   }
 
-  /**
-   * The font weight.
-   */
+  
   public Integer getWeight() {
     return weight;
   }
@@ -90,19 +76,13 @@ public class CheckoutBrandingCustomFont implements com.shopify.types.CheckoutBra
   }
 
   public static class Builder {
-    /**
-     * Globally unique ID reference to the custom font file.
-     */
+    
     private String genericFileId;
 
-    /**
-     * The font sources.
-     */
+    
     private String sources;
 
-    /**
-     * The font weight.
-     */
+    
     private Integer weight;
 
     public CheckoutBrandingCustomFont build() {
@@ -113,25 +93,19 @@ public class CheckoutBrandingCustomFont implements com.shopify.types.CheckoutBra
       return result;
     }
 
-    /**
-     * Globally unique ID reference to the custom font file.
-     */
+    
     public Builder genericFileId(String genericFileId) {
       this.genericFileId = genericFileId;
       return this;
     }
 
-    /**
-     * The font sources.
-     */
+    
     public Builder sources(String sources) {
       this.sources = sources;
       return this;
     }
 
-    /**
-     * The font weight.
-     */
+    
     public Builder weight(Integer weight) {
       this.weight = weight;
       return this;

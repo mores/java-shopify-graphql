@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible error codes that can be returned by `PublicationUserError`.
- */
+
 public enum PublicationUserErrorCode {
   UNSUPPORTED_PUBLICATION_ACTION,
 

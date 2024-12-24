@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Creates a new metaobject definition.
- */
+
 public class MetaobjectDefinitionCreateGraphQLQuery extends GraphQLQuery {
   public MetaobjectDefinitionCreateGraphQLQuery(MetaobjectDefinitionCreateInput definition,
       String queryName, Set<String> fieldsSet) {
@@ -44,9 +42,7 @@ public class MetaobjectDefinitionCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The input fields for creating a metaobject definition.
-     */
+    
     public Builder definition(MetaobjectDefinitionCreateInput definition) {
       this.definition = definition;
       this.fieldsSet.add("definition");

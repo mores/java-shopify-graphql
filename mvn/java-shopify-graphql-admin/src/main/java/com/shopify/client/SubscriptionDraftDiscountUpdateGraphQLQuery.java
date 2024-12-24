@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Updates a subscription discount on a subscription draft.
- */
+
 public class SubscriptionDraftDiscountUpdateGraphQLQuery extends GraphQLQuery {
   public SubscriptionDraftDiscountUpdateGraphQLQuery(String draftId, String discountId,
       SubscriptionManualDiscountInput input, String queryName, Set<String> fieldsSet) {
@@ -52,27 +50,21 @@ public class SubscriptionDraftDiscountUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the Subscription Contract draft to update a subscription discount on.
-     */
+    
     public Builder draftId(String draftId) {
       this.draftId = draftId;
       this.fieldsSet.add("draftId");
       return this;
     }
 
-    /**
-     * The gid of the Subscription Discount to update.
-     */
+    
     public Builder discountId(String discountId) {
       this.discountId = discountId;
       this.fieldsSet.add("discountId");
       return this;
     }
 
-    /**
-     * The properties to update on the Subscription Discount.
-     */
+    
     public Builder input(SubscriptionManualDiscountInput input) {
       this.input = input;
       this.fieldsSet.add("input");

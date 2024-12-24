@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns a list of all origin locations available for a delivery profile.
- */
+
 public class LocationsAvailableForDeliveryProfilesGraphQLQuery extends GraphQLQuery {
   public LocationsAvailableForDeliveryProfilesGraphQLQuery(String queryName) {
     super("query", queryName);

@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for a removing a return line item from a return.
- */
+
 public class ReturnLineItemRemoveFromReturnInput {
-  /**
-   * The ID of the return line item to remove.
-   */
+  
   private String returnLineItemId;
 
-  /**
-   * The quantity of the associated return line item to be removed.
-   */
+  
   private int quantity;
 
   public ReturnLineItemRemoveFromReturnInput() {
   }
 
-  /**
-   * The ID of the return line item to remove.
-   */
+  
   public String getReturnLineItemId() {
     return returnLineItemId;
   }
@@ -33,9 +25,7 @@ public class ReturnLineItemRemoveFromReturnInput {
     this.returnLineItemId = returnLineItemId;
   }
 
-  /**
-   * The quantity of the associated return line item to be removed.
-   */
+  
   public int getQuantity() {
     return quantity;
   }
@@ -68,14 +58,10 @@ public class ReturnLineItemRemoveFromReturnInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the return line item to remove.
-     */
+    
     private String returnLineItemId;
 
-    /**
-     * The quantity of the associated return line item to be removed.
-     */
+    
     private int quantity;
 
     public ReturnLineItemRemoveFromReturnInput build() {
@@ -85,17 +71,13 @@ public class ReturnLineItemRemoveFromReturnInput {
       return result;
     }
 
-    /**
-     * The ID of the return line item to remove.
-     */
+    
     public Builder returnLineItemId(String returnLineItemId) {
       this.returnLineItemId = returnLineItemId;
       return this;
     }
 
-    /**
-     * The quantity of the associated return line item to be removed.
-     */
+    
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;

@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `productOptionsDelete` mutation.
- */
+
 public class ProductOptionsDeletePayload {
-  /**
-   * IDs of the options deleted.
-   */
+  
   private List<String> deletedOptionsIds;
 
-  /**
-   * The updated product object.
-   */
+  
   private Product product;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<ProductOptionsDeleteUserError> userErrors;
 
   public ProductOptionsDeletePayload() {
   }
 
-  /**
-   * IDs of the options deleted.
-   */
+  
   public List<String> getDeletedOptionsIds() {
     return deletedOptionsIds;
   }
@@ -39,9 +29,7 @@ public class ProductOptionsDeletePayload {
     this.deletedOptionsIds = deletedOptionsIds;
   }
 
-  /**
-   * The updated product object.
-   */
+  
   public Product getProduct() {
     return product;
   }
@@ -50,9 +38,7 @@ public class ProductOptionsDeletePayload {
     this.product = product;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<ProductOptionsDeleteUserError> getUserErrors() {
     return userErrors;
   }
@@ -86,19 +72,13 @@ public class ProductOptionsDeletePayload {
   }
 
   public static class Builder {
-    /**
-     * IDs of the options deleted.
-     */
+    
     private List<String> deletedOptionsIds;
 
-    /**
-     * The updated product object.
-     */
+    
     private Product product;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<ProductOptionsDeleteUserError> userErrors;
 
     public ProductOptionsDeletePayload build() {
@@ -109,25 +89,19 @@ public class ProductOptionsDeletePayload {
       return result;
     }
 
-    /**
-     * IDs of the options deleted.
-     */
+    
     public Builder deletedOptionsIds(List<String> deletedOptionsIds) {
       this.deletedOptionsIds = deletedOptionsIds;
       return this;
     }
 
-    /**
-     * The updated product object.
-     */
+    
     public Builder product(Product product) {
       this.product = product;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<ProductOptionsDeleteUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields that are required to create or update a delivery policy.
- */
+
 public class SellingPlanDeliveryPolicyInput {
-  /**
-   * The fixed delivery policy details.
-   */
+  
   private SellingPlanFixedDeliveryPolicyInput fixed;
 
-  /**
-   * The recurring delivery policy details.
-   */
+  
   private SellingPlanRecurringDeliveryPolicyInput recurring;
 
   public SellingPlanDeliveryPolicyInput() {
   }
 
-  /**
-   * The fixed delivery policy details.
-   */
+  
   public SellingPlanFixedDeliveryPolicyInput getFixed() {
     return fixed;
   }
@@ -33,9 +25,7 @@ public class SellingPlanDeliveryPolicyInput {
     this.fixed = fixed;
   }
 
-  /**
-   * The recurring delivery policy details.
-   */
+  
   public SellingPlanRecurringDeliveryPolicyInput getRecurring() {
     return recurring;
   }
@@ -68,14 +58,10 @@ public class SellingPlanDeliveryPolicyInput {
   }
 
   public static class Builder {
-    /**
-     * The fixed delivery policy details.
-     */
+    
     private SellingPlanFixedDeliveryPolicyInput fixed;
 
-    /**
-     * The recurring delivery policy details.
-     */
+    
     private SellingPlanRecurringDeliveryPolicyInput recurring;
 
     public SellingPlanDeliveryPolicyInput build() {
@@ -85,17 +71,13 @@ public class SellingPlanDeliveryPolicyInput {
       return result;
     }
 
-    /**
-     * The fixed delivery policy details.
-     */
+    
     public Builder fixed(SellingPlanFixedDeliveryPolicyInput fixed) {
       this.fixed = fixed;
       return this;
     }
 
-    /**
-     * The recurring delivery policy details.
-     */
+    
     public Builder recurring(SellingPlanRecurringDeliveryPolicyInput recurring) {
       this.recurring = recurring;
       return this;

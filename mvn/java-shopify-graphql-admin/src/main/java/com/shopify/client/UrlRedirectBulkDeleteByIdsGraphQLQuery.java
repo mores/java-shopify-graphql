@@ -7,12 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Asynchronously delete [URLRedirect](https://shopify.dev/api/admin-graphql/latest/objects/UrlRedirect) 
- * objects in bulk by IDs.
- * Learn more about [URLRedirect](https://help.shopify.com/en/manual/online-store/menus-and-links/url-redirect) 
- * objects.
- */
+
 public class UrlRedirectBulkDeleteByIdsGraphQLQuery extends GraphQLQuery {
   public UrlRedirectBulkDeleteByIdsGraphQLQuery(List<String> ids, String queryName,
       Set<String> fieldsSet) {
@@ -47,11 +42,7 @@ public class UrlRedirectBulkDeleteByIdsGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * A list of [`URLRedirect`](
-     *             https://help.shopify.com/en/manual/online-store/menus-and-links/url-redirect
-     *           ) object IDs to delete.
-     */
+    
     public Builder ids(List<String> ids) {
       this.ids = ids;
       this.fieldsSet.add("ids");

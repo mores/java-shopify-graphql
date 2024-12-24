@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `orderDelete` mutation.
- */
+
 public class OrderDeletePayload {
-  /**
-   * Deleted order ID.
-   */
+  
   private String deletedId;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<OrderDeleteUserError> userErrors;
 
   public OrderDeletePayload() {
   }
 
-  /**
-   * Deleted order ID.
-   */
+  
   public String getDeletedId() {
     return deletedId;
   }
@@ -34,9 +26,7 @@ public class OrderDeletePayload {
     this.deletedId = deletedId;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<OrderDeleteUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class OrderDeletePayload {
   }
 
   public static class Builder {
-    /**
-     * Deleted order ID.
-     */
+    
     private String deletedId;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<OrderDeleteUserError> userErrors;
 
     public OrderDeletePayload build() {
@@ -86,17 +72,13 @@ public class OrderDeletePayload {
       return result;
     }
 
-    /**
-     * Deleted order ID.
-     */
+    
     public Builder deletedId(String deletedId) {
       this.deletedId = deletedId;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<OrderDeleteUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

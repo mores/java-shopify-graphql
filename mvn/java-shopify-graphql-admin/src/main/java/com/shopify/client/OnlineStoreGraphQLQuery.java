@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * The shop's online store channel.
- */
+
 public class OnlineStoreGraphQLQuery extends GraphQLQuery {
   public OnlineStoreGraphQLQuery(String queryName) {
     super("query", queryName);

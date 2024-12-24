@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `productUnpublish` mutation.
- */
+
 public class ProductUnpublishPayload {
-  /**
-   * The product that has been unpublished.
-   */
+  
   private Product product;
 
-  /**
-   * The user's shop.
-   */
+  
   private Shop shop;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public ProductUnpublishPayload() {
   }
 
-  /**
-   * The product that has been unpublished.
-   */
+  
   public Product getProduct() {
     return product;
   }
@@ -39,9 +29,7 @@ public class ProductUnpublishPayload {
     this.product = product;
   }
 
-  /**
-   * The user's shop.
-   */
+  
   public Shop getShop() {
     return shop;
   }
@@ -50,9 +38,7 @@ public class ProductUnpublishPayload {
     this.shop = shop;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -86,19 +72,13 @@ public class ProductUnpublishPayload {
   }
 
   public static class Builder {
-    /**
-     * The product that has been unpublished.
-     */
+    
     private Product product;
 
-    /**
-     * The user's shop.
-     */
+    
     private Shop shop;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public ProductUnpublishPayload build() {
@@ -109,25 +89,19 @@ public class ProductUnpublishPayload {
       return result;
     }
 
-    /**
-     * The product that has been unpublished.
-     */
+    
     public Builder product(Product product) {
       this.product = product;
       return this;
     }
 
-    /**
-     * The user's shop.
-     */
+    
     public Builder shop(Shop shop) {
       this.shop = shop;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

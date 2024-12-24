@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Moves inventory between inventory quantity names at a single location.
- */
+
 public class InventoryMoveQuantitiesGraphQLQuery extends GraphQLQuery {
   public InventoryMoveQuantitiesGraphQLQuery(InventoryMoveQuantitiesInput input, String queryName,
       Set<String> fieldsSet) {
@@ -44,9 +42,7 @@ public class InventoryMoveQuantitiesGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The information required to move inventory quantities.
-     */
+    
     public Builder input(InventoryMoveQuantitiesInput input) {
       this.input = input;
       this.fieldsSet.add("input");

@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `collectionDelete` mutation.
- */
+
 public class CollectionDeletePayload {
-  /**
-   * The ID of the collection that was deleted. Returns `null` if the collection doesn't exist.
-   */
+  
   private String deletedCollectionId;
 
-  /**
-   * The shop associated with the collection.
-   */
+  
   private Shop shop;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public CollectionDeletePayload() {
   }
 
-  /**
-   * The ID of the collection that was deleted. Returns `null` if the collection doesn't exist.
-   */
+  
   public String getDeletedCollectionId() {
     return deletedCollectionId;
   }
@@ -39,9 +29,7 @@ public class CollectionDeletePayload {
     this.deletedCollectionId = deletedCollectionId;
   }
 
-  /**
-   * The shop associated with the collection.
-   */
+  
   public Shop getShop() {
     return shop;
   }
@@ -50,9 +38,7 @@ public class CollectionDeletePayload {
     this.shop = shop;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -86,19 +72,13 @@ public class CollectionDeletePayload {
   }
 
   public static class Builder {
-    /**
-     * The ID of the collection that was deleted. Returns `null` if the collection doesn't exist.
-     */
+    
     private String deletedCollectionId;
 
-    /**
-     * The shop associated with the collection.
-     */
+    
     private Shop shop;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public CollectionDeletePayload build() {
@@ -109,25 +89,19 @@ public class CollectionDeletePayload {
       return result;
     }
 
-    /**
-     * The ID of the collection that was deleted. Returns `null` if the collection doesn't exist.
-     */
+    
     public Builder deletedCollectionId(String deletedCollectionId) {
       this.deletedCollectionId = deletedCollectionId;
       return this;
     }
 
-    /**
-     * The shop associated with the collection.
-     */
+    
     public Builder shop(Shop shop) {
       this.shop = shop;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

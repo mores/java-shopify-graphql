@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `themeFilesCopy` mutation.
- */
+
 public class ThemeFilesCopyPayload {
-  /**
-   * The resulting theme files.
-   */
+  
   private List<OnlineStoreThemeFileOperationResult> copiedThemeFiles;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<OnlineStoreThemeFilesUserErrors> userErrors;
 
   public ThemeFilesCopyPayload() {
   }
 
-  /**
-   * The resulting theme files.
-   */
+  
   public List<OnlineStoreThemeFileOperationResult> getCopiedThemeFiles() {
     return copiedThemeFiles;
   }
@@ -34,9 +26,7 @@ public class ThemeFilesCopyPayload {
     this.copiedThemeFiles = copiedThemeFiles;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<OnlineStoreThemeFilesUserErrors> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class ThemeFilesCopyPayload {
   }
 
   public static class Builder {
-    /**
-     * The resulting theme files.
-     */
+    
     private List<OnlineStoreThemeFileOperationResult> copiedThemeFiles;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<OnlineStoreThemeFilesUserErrors> userErrors;
 
     public ThemeFilesCopyPayload build() {
@@ -86,17 +72,13 @@ public class ThemeFilesCopyPayload {
       return result;
     }
 
-    /**
-     * The resulting theme files.
-     */
+    
     public Builder copiedThemeFiles(List<OnlineStoreThemeFileOperationResult> copiedThemeFiles) {
       this.copiedThemeFiles = copiedThemeFiles;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<OnlineStoreThemeFilesUserErrors> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -6,41 +6,27 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for a delivery zone associated to a location group and profile.
- */
+
 public class DeliveryLocationGroupZoneInput {
-  /**
-   * A globally-unique ID of the zone.
-   */
+  
   private String id;
 
-  /**
-   * The name of the zone.
-   */
+  
   private String name;
 
-  /**
-   * A list of countries to associate with the zone.
-   */
+  
   private List<DeliveryCountryInput> countries;
 
-  /**
-   * A list of method definitions to create.
-   */
+  
   private List<DeliveryMethodDefinitionInput> methodDefinitionsToCreate;
 
-  /**
-   * A list of method definitions to update.
-   */
+  
   private List<DeliveryMethodDefinitionInput> methodDefinitionsToUpdate;
 
   public DeliveryLocationGroupZoneInput() {
   }
 
-  /**
-   * A globally-unique ID of the zone.
-   */
+  
   public String getId() {
     return id;
   }
@@ -49,9 +35,7 @@ public class DeliveryLocationGroupZoneInput {
     this.id = id;
   }
 
-  /**
-   * The name of the zone.
-   */
+  
   public String getName() {
     return name;
   }
@@ -60,9 +44,7 @@ public class DeliveryLocationGroupZoneInput {
     this.name = name;
   }
 
-  /**
-   * A list of countries to associate with the zone.
-   */
+  
   public List<DeliveryCountryInput> getCountries() {
     return countries;
   }
@@ -71,9 +53,7 @@ public class DeliveryLocationGroupZoneInput {
     this.countries = countries;
   }
 
-  /**
-   * A list of method definitions to create.
-   */
+  
   public List<DeliveryMethodDefinitionInput> getMethodDefinitionsToCreate() {
     return methodDefinitionsToCreate;
   }
@@ -83,9 +63,7 @@ public class DeliveryLocationGroupZoneInput {
     this.methodDefinitionsToCreate = methodDefinitionsToCreate;
   }
 
-  /**
-   * A list of method definitions to update.
-   */
+  
   public List<DeliveryMethodDefinitionInput> getMethodDefinitionsToUpdate() {
     return methodDefinitionsToUpdate;
   }
@@ -122,29 +100,19 @@ public class DeliveryLocationGroupZoneInput {
   }
 
   public static class Builder {
-    /**
-     * A globally-unique ID of the zone.
-     */
+    
     private String id;
 
-    /**
-     * The name of the zone.
-     */
+    
     private String name;
 
-    /**
-     * A list of countries to associate with the zone.
-     */
+    
     private List<DeliveryCountryInput> countries;
 
-    /**
-     * A list of method definitions to create.
-     */
+    
     private List<DeliveryMethodDefinitionInput> methodDefinitionsToCreate;
 
-    /**
-     * A list of method definitions to update.
-     */
+    
     private List<DeliveryMethodDefinitionInput> methodDefinitionsToUpdate;
 
     public DeliveryLocationGroupZoneInput build() {
@@ -157,42 +125,32 @@ public class DeliveryLocationGroupZoneInput {
       return result;
     }
 
-    /**
-     * A globally-unique ID of the zone.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The name of the zone.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * A list of countries to associate with the zone.
-     */
+    
     public Builder countries(List<DeliveryCountryInput> countries) {
       this.countries = countries;
       return this;
     }
 
-    /**
-     * A list of method definitions to create.
-     */
+    
     public Builder methodDefinitionsToCreate(
         List<DeliveryMethodDefinitionInput> methodDefinitionsToCreate) {
       this.methodDefinitionsToCreate = methodDefinitionsToCreate;
       return this;
     }
 
-    /**
-     * A list of method definitions to update.
-     */
+    
     public Builder methodDefinitionsToUpdate(
         List<DeliveryMethodDefinitionInput> methodDefinitionsToUpdate) {
       this.methodDefinitionsToUpdate = methodDefinitionsToUpdate;

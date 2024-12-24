@@ -7,64 +7,42 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Custom subscription discount.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class SubscriptionManualDiscount implements SubscriptionDiscount {
-  /**
-   * Entitled line items used to apply the subscription discount on.
-   */
+  
   private SubscriptionDiscountEntitledLines entitledLines;
 
-  /**
-   * The unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The maximum number of times the subscription discount will be applied on orders.
-   */
+  
   private Integer recurringCycleLimit;
 
-  /**
-   * The reason that the discount on the subscription draft is rejected.
-   */
+  
   private SubscriptionDiscountRejectionReason rejectionReason;
 
-  /**
-   * Type of line the discount applies on.
-   */
+  
   private DiscountTargetType targetType;
 
-  /**
-   * The title associated with the subscription discount.
-   */
+  
   private String title;
 
-  /**
-   * The type of the subscription discount.
-   */
+  
   private DiscountType type;
 
-  /**
-   * The number of times the discount was applied.
-   */
+  
   private int usageCount;
 
-  /**
-   * The value of the subscription discount.
-   */
+  
   private SubscriptionDiscountValue value;
 
   public SubscriptionManualDiscount() {
   }
 
-  /**
-   * Entitled line items used to apply the subscription discount on.
-   */
+  
   public SubscriptionDiscountEntitledLines getEntitledLines() {
     return entitledLines;
   }
@@ -73,9 +51,7 @@ public class SubscriptionManualDiscount implements SubscriptionDiscount {
     this.entitledLines = entitledLines;
   }
 
-  /**
-   * The unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -84,9 +60,7 @@ public class SubscriptionManualDiscount implements SubscriptionDiscount {
     this.id = id;
   }
 
-  /**
-   * The maximum number of times the subscription discount will be applied on orders.
-   */
+  
   public Integer getRecurringCycleLimit() {
     return recurringCycleLimit;
   }
@@ -95,9 +69,7 @@ public class SubscriptionManualDiscount implements SubscriptionDiscount {
     this.recurringCycleLimit = recurringCycleLimit;
   }
 
-  /**
-   * The reason that the discount on the subscription draft is rejected.
-   */
+  
   public SubscriptionDiscountRejectionReason getRejectionReason() {
     return rejectionReason;
   }
@@ -106,9 +78,7 @@ public class SubscriptionManualDiscount implements SubscriptionDiscount {
     this.rejectionReason = rejectionReason;
   }
 
-  /**
-   * Type of line the discount applies on.
-   */
+  
   public DiscountTargetType getTargetType() {
     return targetType;
   }
@@ -117,9 +87,7 @@ public class SubscriptionManualDiscount implements SubscriptionDiscount {
     this.targetType = targetType;
   }
 
-  /**
-   * The title associated with the subscription discount.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -128,9 +96,7 @@ public class SubscriptionManualDiscount implements SubscriptionDiscount {
     this.title = title;
   }
 
-  /**
-   * The type of the subscription discount.
-   */
+  
   public DiscountType getType() {
     return type;
   }
@@ -139,9 +105,7 @@ public class SubscriptionManualDiscount implements SubscriptionDiscount {
     this.type = type;
   }
 
-  /**
-   * The number of times the discount was applied.
-   */
+  
   public int getUsageCount() {
     return usageCount;
   }
@@ -150,9 +114,7 @@ public class SubscriptionManualDiscount implements SubscriptionDiscount {
     this.usageCount = usageCount;
   }
 
-  /**
-   * The value of the subscription discount.
-   */
+  
   public SubscriptionDiscountValue getValue() {
     return value;
   }
@@ -192,49 +154,31 @@ public class SubscriptionManualDiscount implements SubscriptionDiscount {
   }
 
   public static class Builder {
-    /**
-     * Entitled line items used to apply the subscription discount on.
-     */
+    
     private SubscriptionDiscountEntitledLines entitledLines;
 
-    /**
-     * The unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The maximum number of times the subscription discount will be applied on orders.
-     */
+    
     private Integer recurringCycleLimit;
 
-    /**
-     * The reason that the discount on the subscription draft is rejected.
-     */
+    
     private SubscriptionDiscountRejectionReason rejectionReason;
 
-    /**
-     * Type of line the discount applies on.
-     */
+    
     private DiscountTargetType targetType;
 
-    /**
-     * The title associated with the subscription discount.
-     */
+    
     private String title;
 
-    /**
-     * The type of the subscription discount.
-     */
+    
     private DiscountType type;
 
-    /**
-     * The number of times the discount was applied.
-     */
+    
     private int usageCount;
 
-    /**
-     * The value of the subscription discount.
-     */
+    
     private SubscriptionDiscountValue value;
 
     public SubscriptionManualDiscount build() {
@@ -251,73 +195,55 @@ public class SubscriptionManualDiscount implements SubscriptionDiscount {
       return result;
     }
 
-    /**
-     * Entitled line items used to apply the subscription discount on.
-     */
+    
     public Builder entitledLines(SubscriptionDiscountEntitledLines entitledLines) {
       this.entitledLines = entitledLines;
       return this;
     }
 
-    /**
-     * The unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The maximum number of times the subscription discount will be applied on orders.
-     */
+    
     public Builder recurringCycleLimit(Integer recurringCycleLimit) {
       this.recurringCycleLimit = recurringCycleLimit;
       return this;
     }
 
-    /**
-     * The reason that the discount on the subscription draft is rejected.
-     */
+    
     public Builder rejectionReason(SubscriptionDiscountRejectionReason rejectionReason) {
       this.rejectionReason = rejectionReason;
       return this;
     }
 
-    /**
-     * Type of line the discount applies on.
-     */
+    
     public Builder targetType(DiscountTargetType targetType) {
       this.targetType = targetType;
       return this;
     }
 
-    /**
-     * The title associated with the subscription discount.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    /**
-     * The type of the subscription discount.
-     */
+    
     public Builder type(DiscountType type) {
       this.type = type;
       return this;
     }
 
-    /**
-     * The number of times the discount was applied.
-     */
+    
     public Builder usageCount(int usageCount) {
       this.usageCount = usageCount;
       return this;
     }
 
-    /**
-     * The value of the subscription discount.
-     */
+    
     public Builder value(SubscriptionDiscountValue value) {
       this.value = value;
       return this;

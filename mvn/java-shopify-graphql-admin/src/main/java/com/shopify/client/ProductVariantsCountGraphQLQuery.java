@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Count of product variants.
- */
+
 public class ProductVariantsCountGraphQLQuery extends GraphQLQuery {
   public ProductVariantsCountGraphQLQuery(String query, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -42,9 +40,7 @@ public class ProductVariantsCountGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * No supported search fields.
-     */
+    
     public Builder query(String query) {
       this.query = query;
       this.fieldsSet.add("query");

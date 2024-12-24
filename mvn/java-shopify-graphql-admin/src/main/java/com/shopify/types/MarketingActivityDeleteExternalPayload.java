@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `marketingActivityDeleteExternal` mutation.
- */
+
 public class MarketingActivityDeleteExternalPayload {
-  /**
-   * The ID of the marketing activity that was deleted, if one was deleted.
-   */
+  
   private String deletedMarketingActivityId;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<MarketingActivityUserError> userErrors;
 
   public MarketingActivityDeleteExternalPayload() {
   }
 
-  /**
-   * The ID of the marketing activity that was deleted, if one was deleted.
-   */
+  
   public String getDeletedMarketingActivityId() {
     return deletedMarketingActivityId;
   }
@@ -34,9 +26,7 @@ public class MarketingActivityDeleteExternalPayload {
     this.deletedMarketingActivityId = deletedMarketingActivityId;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<MarketingActivityUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class MarketingActivityDeleteExternalPayload {
   }
 
   public static class Builder {
-    /**
-     * The ID of the marketing activity that was deleted, if one was deleted.
-     */
+    
     private String deletedMarketingActivityId;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<MarketingActivityUserError> userErrors;
 
     public MarketingActivityDeleteExternalPayload build() {
@@ -86,17 +72,13 @@ public class MarketingActivityDeleteExternalPayload {
       return result;
     }
 
-    /**
-     * The ID of the marketing activity that was deleted, if one was deleted.
-     */
+    
     public Builder deletedMarketingActivityId(String deletedMarketingActivityId) {
       this.deletedMarketingActivityId = deletedMarketingActivityId;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<MarketingActivityUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

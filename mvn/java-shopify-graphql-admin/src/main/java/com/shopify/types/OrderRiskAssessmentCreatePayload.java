@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `orderRiskAssessmentCreate` mutation.
- */
+
 public class OrderRiskAssessmentCreatePayload {
-  /**
-   * The order risk assessment created.
-   */
+  
   private OrderRiskAssessment orderRiskAssessment;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<OrderRiskAssessmentCreateUserError> userErrors;
 
   public OrderRiskAssessmentCreatePayload() {
   }
 
-  /**
-   * The order risk assessment created.
-   */
+  
   public OrderRiskAssessment getOrderRiskAssessment() {
     return orderRiskAssessment;
   }
@@ -34,9 +26,7 @@ public class OrderRiskAssessmentCreatePayload {
     this.orderRiskAssessment = orderRiskAssessment;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<OrderRiskAssessmentCreateUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class OrderRiskAssessmentCreatePayload {
   }
 
   public static class Builder {
-    /**
-     * The order risk assessment created.
-     */
+    
     private OrderRiskAssessment orderRiskAssessment;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<OrderRiskAssessmentCreateUserError> userErrors;
 
     public OrderRiskAssessmentCreatePayload build() {
@@ -86,17 +72,13 @@ public class OrderRiskAssessmentCreatePayload {
       return result;
     }
 
-    /**
-     * The order risk assessment created.
-     */
+    
     public Builder orderRiskAssessment(OrderRiskAssessment orderRiskAssessment) {
       this.orderRiskAssessment = orderRiskAssessment;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<OrderRiskAssessmentCreateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

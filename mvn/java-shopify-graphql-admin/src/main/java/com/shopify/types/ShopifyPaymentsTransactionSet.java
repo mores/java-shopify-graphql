@@ -5,18 +5,14 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Presents all Shopify Payments specific information related to an order transaction.
- */
+
 public class ShopifyPaymentsTransactionSet {
   /**
    * Contains all fields related to an extended authorization.
    */
   private ShopifyPaymentsExtendedAuthorization extendedAuthorizationSet;
 
-  /**
-   * Contains all fields related to a refund.
-   */
+  
   private ShopifyPaymentsRefundSet refundSet;
 
   public ShopifyPaymentsTransactionSet() {
@@ -34,9 +30,7 @@ public class ShopifyPaymentsTransactionSet {
     this.extendedAuthorizationSet = extendedAuthorizationSet;
   }
 
-  /**
-   * Contains all fields related to a refund.
-   */
+  
   public ShopifyPaymentsRefundSet getRefundSet() {
     return refundSet;
   }
@@ -74,9 +68,7 @@ public class ShopifyPaymentsTransactionSet {
      */
     private ShopifyPaymentsExtendedAuthorization extendedAuthorizationSet;
 
-    /**
-     * Contains all fields related to a refund.
-     */
+    
     private ShopifyPaymentsRefundSet refundSet;
 
     public ShopifyPaymentsTransactionSet build() {
@@ -95,9 +87,7 @@ public class ShopifyPaymentsTransactionSet {
       return this;
     }
 
-    /**
-     * Contains all fields related to a refund.
-     */
+    
     public Builder refundSet(ShopifyPaymentsRefundSet refundSet) {
       this.refundSet = refundSet;
       return this;

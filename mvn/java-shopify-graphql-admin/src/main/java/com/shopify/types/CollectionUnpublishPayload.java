@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `collectionUnpublish` mutation.
- */
+
 public class CollectionUnpublishPayload {
-  /**
-   * The collection that has been unpublished.
-   */
+  
   private Collection collection;
 
-  /**
-   * The shop associated with the collection.
-   */
+  
   private Shop shop;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public CollectionUnpublishPayload() {
   }
 
-  /**
-   * The collection that has been unpublished.
-   */
+  
   public Collection getCollection() {
     return collection;
   }
@@ -39,9 +29,7 @@ public class CollectionUnpublishPayload {
     this.collection = collection;
   }
 
-  /**
-   * The shop associated with the collection.
-   */
+  
   public Shop getShop() {
     return shop;
   }
@@ -50,9 +38,7 @@ public class CollectionUnpublishPayload {
     this.shop = shop;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -86,19 +72,13 @@ public class CollectionUnpublishPayload {
   }
 
   public static class Builder {
-    /**
-     * The collection that has been unpublished.
-     */
+    
     private Collection collection;
 
-    /**
-     * The shop associated with the collection.
-     */
+    
     private Shop shop;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public CollectionUnpublishPayload build() {
@@ -109,25 +89,19 @@ public class CollectionUnpublishPayload {
       return result;
     }
 
-    /**
-     * The collection that has been unpublished.
-     */
+    
     public Builder collection(Collection collection) {
       this.collection = collection;
       return this;
     }
 
-    /**
-     * The shop associated with the collection.
-     */
+    
     public Builder shop(Shop shop) {
       this.shop = shop;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

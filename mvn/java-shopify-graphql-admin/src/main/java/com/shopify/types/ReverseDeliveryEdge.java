@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * An auto-generated type which holds one ReverseDelivery and a cursor during pagination.
- */
+
 public class ReverseDeliveryEdge {
-  /**
-   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-   */
+  
   private String cursor;
 
-  /**
-   * The item at the end of ReverseDeliveryEdge.
-   */
+  
   private ReverseDelivery node;
 
   public ReverseDeliveryEdge() {
   }
 
-  /**
-   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-   */
+  
   public String getCursor() {
     return cursor;
   }
@@ -33,9 +25,7 @@ public class ReverseDeliveryEdge {
     this.cursor = cursor;
   }
 
-  /**
-   * The item at the end of ReverseDeliveryEdge.
-   */
+  
   public ReverseDelivery getNode() {
     return node;
   }
@@ -68,14 +58,10 @@ public class ReverseDeliveryEdge {
   }
 
   public static class Builder {
-    /**
-     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     private String cursor;
 
-    /**
-     * The item at the end of ReverseDeliveryEdge.
-     */
+    
     private ReverseDelivery node;
 
     public ReverseDeliveryEdge build() {
@@ -85,17 +71,13 @@ public class ReverseDeliveryEdge {
       return result;
     }
 
-    /**
-     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     public Builder cursor(String cursor) {
       this.cursor = cursor;
       return this;
     }
 
-    /**
-     * The item at the end of ReverseDeliveryEdge.
-     */
+    
     public Builder node(ReverseDelivery node) {
       this.node = node;
       return this;

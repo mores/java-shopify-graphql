@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for enabling and disabling the translatable capability.
- */
+
 public class MetaobjectCapabilityTranslatableInput {
-  /**
-   * Indicates whether the capability should be enabled or disabled.
-   */
+  
   private boolean enabled;
 
   public MetaobjectCapabilityTranslatableInput() {
   }
 
-  /**
-   * Indicates whether the capability should be enabled or disabled.
-   */
+  
   public boolean getEnabled() {
     return enabled;
   }
@@ -51,9 +45,7 @@ public class MetaobjectCapabilityTranslatableInput {
   }
 
   public static class Builder {
-    /**
-     * Indicates whether the capability should be enabled or disabled.
-     */
+    
     private boolean enabled;
 
     public MetaobjectCapabilityTranslatableInput build() {
@@ -62,9 +54,7 @@ public class MetaobjectCapabilityTranslatableInput {
       return result;
     }
 
-    /**
-     * Indicates whether the capability should be enabled or disabled.
-     */
+    
     public Builder enabled(boolean enabled) {
       this.enabled = enabled;
       return this;

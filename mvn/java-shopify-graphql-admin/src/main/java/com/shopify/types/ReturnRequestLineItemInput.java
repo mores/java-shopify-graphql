@@ -5,45 +5,27 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for a return line item.
- */
+
 public class ReturnRequestLineItemInput {
-  /**
-   * The ID of the fulfillment line item to be returned.
-   * Specifically, this field expects a `FulfillmentLineItem.id`.
-   */
+  
   private String fulfillmentLineItemId;
 
-  /**
-   * The quantity of the item that's being returned.
-   */
+  
   private int quantity;
 
-  /**
-   * The restocking fee to capture.
-   */
+  
   private RestockingFeeInput restockingFee;
 
-  /**
-   * The reason why the line item is being returned.
-   */
+  
   private ReturnReason returnReason;
 
-  /**
-   * A note from the customer that describes the item to be returned.
-   * For example, the note can communicate issues with the item to the merchant.
-   * Maximum length: 300 characters.
-   */
+  
   private String customerNote;
 
   public ReturnRequestLineItemInput() {
   }
 
-  /**
-   * The ID of the fulfillment line item to be returned.
-   * Specifically, this field expects a `FulfillmentLineItem.id`.
-   */
+  
   public String getFulfillmentLineItemId() {
     return fulfillmentLineItemId;
   }
@@ -52,9 +34,7 @@ public class ReturnRequestLineItemInput {
     this.fulfillmentLineItemId = fulfillmentLineItemId;
   }
 
-  /**
-   * The quantity of the item that's being returned.
-   */
+  
   public int getQuantity() {
     return quantity;
   }
@@ -63,9 +43,7 @@ public class ReturnRequestLineItemInput {
     this.quantity = quantity;
   }
 
-  /**
-   * The restocking fee to capture.
-   */
+  
   public RestockingFeeInput getRestockingFee() {
     return restockingFee;
   }
@@ -74,9 +52,7 @@ public class ReturnRequestLineItemInput {
     this.restockingFee = restockingFee;
   }
 
-  /**
-   * The reason why the line item is being returned.
-   */
+  
   public ReturnReason getReturnReason() {
     return returnReason;
   }
@@ -85,11 +61,7 @@ public class ReturnRequestLineItemInput {
     this.returnReason = returnReason;
   }
 
-  /**
-   * A note from the customer that describes the item to be returned.
-   * For example, the note can communicate issues with the item to the merchant.
-   * Maximum length: 300 characters.
-   */
+  
   public String getCustomerNote() {
     return customerNote;
   }
@@ -125,32 +97,19 @@ public class ReturnRequestLineItemInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the fulfillment line item to be returned.
-     * Specifically, this field expects a `FulfillmentLineItem.id`.
-     */
+    
     private String fulfillmentLineItemId;
 
-    /**
-     * The quantity of the item that's being returned.
-     */
+    
     private int quantity;
 
-    /**
-     * The restocking fee to capture.
-     */
+    
     private RestockingFeeInput restockingFee;
 
-    /**
-     * The reason why the line item is being returned.
-     */
+    
     private ReturnReason returnReason;
 
-    /**
-     * A note from the customer that describes the item to be returned.
-     * For example, the note can communicate issues with the item to the merchant.
-     * Maximum length: 300 characters.
-     */
+    
     private String customerNote;
 
     public ReturnRequestLineItemInput build() {
@@ -163,44 +122,31 @@ public class ReturnRequestLineItemInput {
       return result;
     }
 
-    /**
-     * The ID of the fulfillment line item to be returned.
-     * Specifically, this field expects a `FulfillmentLineItem.id`.
-     */
+    
     public Builder fulfillmentLineItemId(String fulfillmentLineItemId) {
       this.fulfillmentLineItemId = fulfillmentLineItemId;
       return this;
     }
 
-    /**
-     * The quantity of the item that's being returned.
-     */
+    
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    /**
-     * The restocking fee to capture.
-     */
+    
     public Builder restockingFee(RestockingFeeInput restockingFee) {
       this.restockingFee = restockingFee;
       return this;
     }
 
-    /**
-     * The reason why the line item is being returned.
-     */
+    
     public Builder returnReason(ReturnReason returnReason) {
       this.returnReason = returnReason;
       return this;
     }
 
-    /**
-     * A note from the customer that describes the item to be returned.
-     * For example, the note can communicate issues with the item to the merchant.
-     * Maximum length: 300 characters.
-     */
+    
     public Builder customerNote(String customerNote) {
       this.customerNote = customerNote;
       return this;

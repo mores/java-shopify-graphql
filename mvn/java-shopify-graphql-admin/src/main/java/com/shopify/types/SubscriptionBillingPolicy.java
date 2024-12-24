@@ -7,41 +7,27 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Represents a Subscription Billing Policy.
- */
+
 public class SubscriptionBillingPolicy {
-  /**
-   * Specific anchor dates upon which the billing interval calculations should be made.
-   */
+  
   private List<SellingPlanAnchor> anchors;
 
-  /**
-   * The kind of interval that's associated with this schedule (e.g. Monthly, Weekly, etc).
-   */
+  
   private SellingPlanInterval interval;
 
-  /**
-   * The number of billing intervals between invoices.
-   */
+  
   private int intervalCount;
 
-  /**
-   * Maximum amount of cycles after which the subscription ends.
-   */
+  
   private Integer maxCycles;
 
-  /**
-   * Minimum amount of cycles required in the subscription.
-   */
+  
   private Integer minCycles;
 
   public SubscriptionBillingPolicy() {
   }
 
-  /**
-   * Specific anchor dates upon which the billing interval calculations should be made.
-   */
+  
   public List<SellingPlanAnchor> getAnchors() {
     return anchors;
   }
@@ -50,9 +36,7 @@ public class SubscriptionBillingPolicy {
     this.anchors = anchors;
   }
 
-  /**
-   * The kind of interval that's associated with this schedule (e.g. Monthly, Weekly, etc).
-   */
+  
   public SellingPlanInterval getInterval() {
     return interval;
   }
@@ -61,9 +45,7 @@ public class SubscriptionBillingPolicy {
     this.interval = interval;
   }
 
-  /**
-   * The number of billing intervals between invoices.
-   */
+  
   public int getIntervalCount() {
     return intervalCount;
   }
@@ -72,9 +54,7 @@ public class SubscriptionBillingPolicy {
     this.intervalCount = intervalCount;
   }
 
-  /**
-   * Maximum amount of cycles after which the subscription ends.
-   */
+  
   public Integer getMaxCycles() {
     return maxCycles;
   }
@@ -83,9 +63,7 @@ public class SubscriptionBillingPolicy {
     this.maxCycles = maxCycles;
   }
 
-  /**
-   * Minimum amount of cycles required in the subscription.
-   */
+  
   public Integer getMinCycles() {
     return minCycles;
   }
@@ -121,29 +99,19 @@ public class SubscriptionBillingPolicy {
   }
 
   public static class Builder {
-    /**
-     * Specific anchor dates upon which the billing interval calculations should be made.
-     */
+    
     private List<SellingPlanAnchor> anchors;
 
-    /**
-     * The kind of interval that's associated with this schedule (e.g. Monthly, Weekly, etc).
-     */
+    
     private SellingPlanInterval interval;
 
-    /**
-     * The number of billing intervals between invoices.
-     */
+    
     private int intervalCount;
 
-    /**
-     * Maximum amount of cycles after which the subscription ends.
-     */
+    
     private Integer maxCycles;
 
-    /**
-     * Minimum amount of cycles required in the subscription.
-     */
+    
     private Integer minCycles;
 
     public SubscriptionBillingPolicy build() {
@@ -156,41 +124,31 @@ public class SubscriptionBillingPolicy {
       return result;
     }
 
-    /**
-     * Specific anchor dates upon which the billing interval calculations should be made.
-     */
+    
     public Builder anchors(List<SellingPlanAnchor> anchors) {
       this.anchors = anchors;
       return this;
     }
 
-    /**
-     * The kind of interval that's associated with this schedule (e.g. Monthly, Weekly, etc).
-     */
+    
     public Builder interval(SellingPlanInterval interval) {
       this.interval = interval;
       return this;
     }
 
-    /**
-     * The number of billing intervals between invoices.
-     */
+    
     public Builder intervalCount(int intervalCount) {
       this.intervalCount = intervalCount;
       return this;
     }
 
-    /**
-     * Maximum amount of cycles after which the subscription ends.
-     */
+    
     public Builder maxCycles(Integer maxCycles) {
       this.maxCycles = maxCycles;
       return this;
     }
 
-    /**
-     * Minimum amount of cycles required in the subscription.
-     */
+    
     public Builder minCycles(Integer minCycles) {
       this.minCycles = minCycles;
       return this;

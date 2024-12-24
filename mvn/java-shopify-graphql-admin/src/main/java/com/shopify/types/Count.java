@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Details for count of elements.
- */
+
 public class Count {
-  /**
-   * The count of elements.
-   */
+  
   private int count;
 
-  /**
-   * The count's precision, or the exactness of the value.
-   */
+  
   private CountPrecision precision;
 
   public Count() {
   }
 
-  /**
-   * The count of elements.
-   */
+  
   public int getCount() {
     return count;
   }
@@ -33,9 +25,7 @@ public class Count {
     this.count = count;
   }
 
-  /**
-   * The count's precision, or the exactness of the value.
-   */
+  
   public CountPrecision getPrecision() {
     return precision;
   }
@@ -68,14 +58,10 @@ public class Count {
   }
 
   public static class Builder {
-    /**
-     * The count of elements.
-     */
+    
     private int count;
 
-    /**
-     * The count's precision, or the exactness of the value.
-     */
+    
     private CountPrecision precision;
 
     public Count build() {
@@ -85,17 +71,13 @@ public class Count {
       return result;
     }
 
-    /**
-     * The count of elements.
-     */
+    
     public Builder count(int count) {
       this.count = count;
       return this;
     }
 
-    /**
-     * The count's precision, or the exactness of the value.
-     */
+    
     public Builder precision(CountPrecision precision) {
       this.precision = precision;
       return this;

@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible error codes that can be returned by `CombinedListingUpdateUserError`.
- */
+
 public enum CombinedListingUpdateUserErrorCode {
   CANNOT_HAVE_DUPLICATED_PRODUCTS,
 

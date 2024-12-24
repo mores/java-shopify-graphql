@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * How many product variants are in a profile. This count is capped at 500.
- */
+
 public class DeliveryProductVariantsCount {
-  /**
-   * Whether the count has reached the cap of 500.
-   */
+  
   private boolean capped;
 
-  /**
-   * The product variant count.
-   */
+  
   private int count;
 
   public DeliveryProductVariantsCount() {
   }
 
-  /**
-   * Whether the count has reached the cap of 500.
-   */
+  
   public boolean getCapped() {
     return capped;
   }
@@ -33,9 +25,7 @@ public class DeliveryProductVariantsCount {
     this.capped = capped;
   }
 
-  /**
-   * The product variant count.
-   */
+  
   public int getCount() {
     return count;
   }
@@ -68,14 +58,10 @@ public class DeliveryProductVariantsCount {
   }
 
   public static class Builder {
-    /**
-     * Whether the count has reached the cap of 500.
-     */
+    
     private boolean capped;
 
-    /**
-     * The product variant count.
-     */
+    
     private int count;
 
     public DeliveryProductVariantsCount build() {
@@ -85,17 +71,13 @@ public class DeliveryProductVariantsCount {
       return result;
     }
 
-    /**
-     * Whether the count has reached the cap of 500.
-     */
+    
     public Builder capped(boolean capped) {
       this.capped = capped;
       return this;
     }
 
-    /**
-     * The product variant count.
-     */
+    
     public Builder count(int count) {
       this.count = count;
       return this;

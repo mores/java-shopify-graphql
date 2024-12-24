@@ -6,28 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `marketingEngagementCreate` mutation.
- */
+
 public class MarketingEngagementCreatePayload {
-  /**
-   * The marketing engagement that was created. This represents customer activity
-   * taken on a marketing activity or a marketing channel.
-   */
+  
   private MarketingEngagement marketingEngagement;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<MarketingActivityUserError> userErrors;
 
   public MarketingEngagementCreatePayload() {
   }
 
-  /**
-   * The marketing engagement that was created. This represents customer activity
-   * taken on a marketing activity or a marketing channel.
-   */
+  
   public MarketingEngagement getMarketingEngagement() {
     return marketingEngagement;
   }
@@ -36,9 +26,7 @@ public class MarketingEngagementCreatePayload {
     this.marketingEngagement = marketingEngagement;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<MarketingActivityUserError> getUserErrors() {
     return userErrors;
   }
@@ -71,15 +59,10 @@ public class MarketingEngagementCreatePayload {
   }
 
   public static class Builder {
-    /**
-     * The marketing engagement that was created. This represents customer activity
-     * taken on a marketing activity or a marketing channel.
-     */
+    
     private MarketingEngagement marketingEngagement;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<MarketingActivityUserError> userErrors;
 
     public MarketingEngagementCreatePayload build() {
@@ -89,18 +72,13 @@ public class MarketingEngagementCreatePayload {
       return result;
     }
 
-    /**
-     * The marketing engagement that was created. This represents customer activity
-     * taken on a marketing activity or a marketing channel.
-     */
+    
     public Builder marketingEngagement(MarketingEngagement marketingEngagement) {
       this.marketingEngagement = marketingEngagement;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<MarketingActivityUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

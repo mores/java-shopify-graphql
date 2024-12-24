@@ -5,28 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for updating the price of a parent product variant.
- */
+
 public class PriceInput {
-  /**
-   * The specific type of calculation done to determine the price of the parent variant.
-   * The price is calculated during Bundle creation. Updating a component variant won't recalculate the price.
-   */
+  
   private PriceCalculationType calculation;
 
-  /**
-   * The price of the parent product variant. This will be be used if calcualtion is set to 'FIXED'.
-   */
+  
   private String price;
 
   public PriceInput() {
   }
 
-  /**
-   * The specific type of calculation done to determine the price of the parent variant.
-   * The price is calculated during Bundle creation. Updating a component variant won't recalculate the price.
-   */
+  
   public PriceCalculationType getCalculation() {
     return calculation;
   }
@@ -35,9 +25,7 @@ public class PriceInput {
     this.calculation = calculation;
   }
 
-  /**
-   * The price of the parent product variant. This will be be used if calcualtion is set to 'FIXED'.
-   */
+  
   public String getPrice() {
     return price;
   }
@@ -70,15 +58,10 @@ public class PriceInput {
   }
 
   public static class Builder {
-    /**
-     * The specific type of calculation done to determine the price of the parent variant.
-     * The price is calculated during Bundle creation. Updating a component variant won't recalculate the price.
-     */
+    
     private PriceCalculationType calculation;
 
-    /**
-     * The price of the parent product variant. This will be be used if calcualtion is set to 'FIXED'.
-     */
+    
     private String price;
 
     public PriceInput build() {
@@ -88,18 +71,13 @@ public class PriceInput {
       return result;
     }
 
-    /**
-     * The specific type of calculation done to determine the price of the parent variant.
-     * The price is calculated during Bundle creation. Updating a component variant won't recalculate the price.
-     */
+    
     public Builder calculation(PriceCalculationType calculation) {
       this.calculation = calculation;
       return this;
     }
 
-    /**
-     * The price of the parent product variant. This will be be used if calcualtion is set to 'FIXED'.
-     */
+    
     public Builder price(String price) {
       this.price = price;
       return this;

@@ -6,39 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Specifies the items that will be discounted, the quantity of items that will be discounted, and the value of discount.
- */
+
 public class DiscountCustomerGetsInput {
-  /**
-   * The quantity of items discounted and the discount value.
-   */
+  
   private DiscountCustomerGetsValueInput value;
 
-  /**
-   * The IDs of the items that the customer gets. The items can be either collections or products.
-   */
+  
   private DiscountItemsInput items;
 
-  /**
-   * Whether the discount applies on regular one-time-purchase items.
-   */
+  
   private Boolean appliesOnOneTimePurchase;
 
-  /**
-   * Whether the discount applies on subscription items.
-   * [Subscriptions](https://shopify.dev/docs/apps/launch/billing/subscription-billing/offer-subscription-discounts)
-   * enable customers to purchase products
-   * on a recurring basis.
-   */
+  
   private Boolean appliesOnSubscription;
 
   public DiscountCustomerGetsInput() {
   }
 
-  /**
-   * The quantity of items discounted and the discount value.
-   */
+  
   public DiscountCustomerGetsValueInput getValue() {
     return value;
   }
@@ -47,9 +32,7 @@ public class DiscountCustomerGetsInput {
     this.value = value;
   }
 
-  /**
-   * The IDs of the items that the customer gets. The items can be either collections or products.
-   */
+  
   public DiscountItemsInput getItems() {
     return items;
   }
@@ -58,9 +41,7 @@ public class DiscountCustomerGetsInput {
     this.items = items;
   }
 
-  /**
-   * Whether the discount applies on regular one-time-purchase items.
-   */
+  
   public Boolean getAppliesOnOneTimePurchase() {
     return appliesOnOneTimePurchase;
   }
@@ -69,12 +50,7 @@ public class DiscountCustomerGetsInput {
     this.appliesOnOneTimePurchase = appliesOnOneTimePurchase;
   }
 
-  /**
-   * Whether the discount applies on subscription items.
-   * [Subscriptions](https://shopify.dev/docs/apps/launch/billing/subscription-billing/offer-subscription-discounts)
-   * enable customers to purchase products
-   * on a recurring basis.
-   */
+  
   public Boolean getAppliesOnSubscription() {
     return appliesOnSubscription;
   }
@@ -109,27 +85,16 @@ public class DiscountCustomerGetsInput {
   }
 
   public static class Builder {
-    /**
-     * The quantity of items discounted and the discount value.
-     */
+    
     private DiscountCustomerGetsValueInput value;
 
-    /**
-     * The IDs of the items that the customer gets. The items can be either collections or products.
-     */
+    
     private DiscountItemsInput items;
 
-    /**
-     * Whether the discount applies on regular one-time-purchase items.
-     */
+    
     private Boolean appliesOnOneTimePurchase;
 
-    /**
-     * Whether the discount applies on subscription items.
-     * [Subscriptions](https://shopify.dev/docs/apps/launch/billing/subscription-billing/offer-subscription-discounts)
-     * enable customers to purchase products
-     * on a recurring basis.
-     */
+    
     private Boolean appliesOnSubscription;
 
     public DiscountCustomerGetsInput build() {
@@ -141,36 +106,25 @@ public class DiscountCustomerGetsInput {
       return result;
     }
 
-    /**
-     * The quantity of items discounted and the discount value.
-     */
+    
     public Builder value(DiscountCustomerGetsValueInput value) {
       this.value = value;
       return this;
     }
 
-    /**
-     * The IDs of the items that the customer gets. The items can be either collections or products.
-     */
+    
     public Builder items(DiscountItemsInput items) {
       this.items = items;
       return this;
     }
 
-    /**
-     * Whether the discount applies on regular one-time-purchase items.
-     */
+    
     public Builder appliesOnOneTimePurchase(Boolean appliesOnOneTimePurchase) {
       this.appliesOnOneTimePurchase = appliesOnOneTimePurchase;
       return this;
     }
 
-    /**
-     * Whether the discount applies on subscription items.
-     * [Subscriptions](https://shopify.dev/docs/apps/launch/billing/subscription-billing/offer-subscription-discounts)
-     * enable customers to purchase products
-     * on a recurring basis.
-     */
+    
     public Builder appliesOnSubscription(Boolean appliesOnSubscription) {
       this.appliesOnSubscription = appliesOnSubscription;
       return this;

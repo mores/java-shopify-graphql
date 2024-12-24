@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A phone number.
- */
+
 public class CustomerPhoneNumber {
-  /**
-   * Whether the customer has subscribed to SMS marketing material.
-   */
+  
   private CustomerSmsMarketingState marketingState;
 
-  /**
-   * A customer's phone number.
-   */
+  
   private String phoneNumber;
 
   public CustomerPhoneNumber() {
   }
 
-  /**
-   * Whether the customer has subscribed to SMS marketing material.
-   */
+  
   public CustomerSmsMarketingState getMarketingState() {
     return marketingState;
   }
@@ -33,9 +25,7 @@ public class CustomerPhoneNumber {
     this.marketingState = marketingState;
   }
 
-  /**
-   * A customer's phone number.
-   */
+  
   public String getPhoneNumber() {
     return phoneNumber;
   }
@@ -68,14 +58,10 @@ public class CustomerPhoneNumber {
   }
 
   public static class Builder {
-    /**
-     * Whether the customer has subscribed to SMS marketing material.
-     */
+    
     private CustomerSmsMarketingState marketingState;
 
-    /**
-     * A customer's phone number.
-     */
+    
     private String phoneNumber;
 
     public CustomerPhoneNumber build() {
@@ -85,17 +71,13 @@ public class CustomerPhoneNumber {
       return result;
     }
 
-    /**
-     * Whether the customer has subscribed to SMS marketing material.
-     */
+    
     public Builder marketingState(CustomerSmsMarketingState marketingState) {
       this.marketingState = marketingState;
       return this;
     }
 
-    /**
-     * A customer's phone number.
-     */
+    
     public Builder phoneNumber(String phoneNumber) {
       this.phoneNumber = phoneNumber;
       return this;

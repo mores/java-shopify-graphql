@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The price range of the product.
- */
+
 public class ProductPriceRange {
-  /**
-   * The highest variant's price.
-   */
+  
   private MoneyV2 maxVariantPrice;
 
-  /**
-   * The lowest variant's price.
-   */
+  
   private MoneyV2 minVariantPrice;
 
   public ProductPriceRange() {
   }
 
-  /**
-   * The highest variant's price.
-   */
+  
   public MoneyV2 getMaxVariantPrice() {
     return maxVariantPrice;
   }
@@ -33,9 +25,7 @@ public class ProductPriceRange {
     this.maxVariantPrice = maxVariantPrice;
   }
 
-  /**
-   * The lowest variant's price.
-   */
+  
   public MoneyV2 getMinVariantPrice() {
     return minVariantPrice;
   }
@@ -68,14 +58,10 @@ public class ProductPriceRange {
   }
 
   public static class Builder {
-    /**
-     * The highest variant's price.
-     */
+    
     private MoneyV2 maxVariantPrice;
 
-    /**
-     * The lowest variant's price.
-     */
+    
     private MoneyV2 minVariantPrice;
 
     public ProductPriceRange build() {
@@ -85,17 +71,13 @@ public class ProductPriceRange {
       return result;
     }
 
-    /**
-     * The highest variant's price.
-     */
+    
     public Builder maxVariantPrice(MoneyV2 maxVariantPrice) {
       this.maxVariantPrice = maxVariantPrice;
       return this;
     }
 
-    /**
-     * The lowest variant's price.
-     */
+    
     public Builder minVariantPrice(MoneyV2 minVariantPrice) {
       this.minVariantPrice = minVariantPrice;
       return this;

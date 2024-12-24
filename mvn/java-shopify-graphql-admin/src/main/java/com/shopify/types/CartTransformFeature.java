@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents the cart transform feature configuration for the shop.
- */
+
 public class CartTransformFeature {
-  /**
-   * The cart transform operations eligible for the shop.
-   */
+  
   private CartTransformEligibleOperations eligibleOperations;
 
   public CartTransformFeature() {
   }
 
-  /**
-   * The cart transform operations eligible for the shop.
-   */
+  
   public CartTransformEligibleOperations getEligibleOperations() {
     return eligibleOperations;
   }
@@ -51,9 +45,7 @@ public class CartTransformFeature {
   }
 
   public static class Builder {
-    /**
-     * The cart transform operations eligible for the shop.
-     */
+    
     private CartTransformEligibleOperations eligibleOperations;
 
     public CartTransformFeature build() {
@@ -62,9 +54,7 @@ public class CartTransformFeature {
       return result;
     }
 
-    /**
-     * The cart transform operations eligible for the shop.
-     */
+    
     public Builder eligibleOperations(CartTransformEligibleOperations eligibleOperations) {
       this.eligibleOperations = eligibleOperations;
       return this;

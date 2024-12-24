@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `inventoryBulkToggleActivation` mutation.
- */
+
 public class InventoryBulkToggleActivationPayload {
-  /**
-   * The inventory item that was updated.
-   */
+  
   private InventoryItem inventoryItem;
 
-  /**
-   * The activated inventory levels.
-   */
+  
   private List<InventoryLevel> inventoryLevels;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<InventoryBulkToggleActivationUserError> userErrors;
 
   public InventoryBulkToggleActivationPayload() {
   }
 
-  /**
-   * The inventory item that was updated.
-   */
+  
   public InventoryItem getInventoryItem() {
     return inventoryItem;
   }
@@ -39,9 +29,7 @@ public class InventoryBulkToggleActivationPayload {
     this.inventoryItem = inventoryItem;
   }
 
-  /**
-   * The activated inventory levels.
-   */
+  
   public List<InventoryLevel> getInventoryLevels() {
     return inventoryLevels;
   }
@@ -50,9 +38,7 @@ public class InventoryBulkToggleActivationPayload {
     this.inventoryLevels = inventoryLevels;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<InventoryBulkToggleActivationUserError> getUserErrors() {
     return userErrors;
   }
@@ -86,19 +72,13 @@ public class InventoryBulkToggleActivationPayload {
   }
 
   public static class Builder {
-    /**
-     * The inventory item that was updated.
-     */
+    
     private InventoryItem inventoryItem;
 
-    /**
-     * The activated inventory levels.
-     */
+    
     private List<InventoryLevel> inventoryLevels;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<InventoryBulkToggleActivationUserError> userErrors;
 
     public InventoryBulkToggleActivationPayload build() {
@@ -109,25 +89,19 @@ public class InventoryBulkToggleActivationPayload {
       return result;
     }
 
-    /**
-     * The inventory item that was updated.
-     */
+    
     public Builder inventoryItem(InventoryItem inventoryItem) {
       this.inventoryItem = inventoryItem;
       return this;
     }
 
-    /**
-     * The activated inventory levels.
-     */
+    
     public Builder inventoryLevels(List<InventoryLevel> inventoryLevels) {
       this.inventoryLevels = inventoryLevels;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<InventoryBulkToggleActivationUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

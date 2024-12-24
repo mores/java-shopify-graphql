@@ -6,26 +6,18 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * A time period during which a price rule is applicable.
- */
+
 public class PriceRuleValidityPeriod {
-  /**
-   * The time after which the price rule becomes invalid.
-   */
+  
   private OffsetDateTime end;
 
-  /**
-   * The time after which the price rule is valid.
-   */
+  
   private OffsetDateTime start;
 
   public PriceRuleValidityPeriod() {
   }
 
-  /**
-   * The time after which the price rule becomes invalid.
-   */
+  
   public OffsetDateTime getEnd() {
     return end;
   }
@@ -34,9 +26,7 @@ public class PriceRuleValidityPeriod {
     this.end = end;
   }
 
-  /**
-   * The time after which the price rule is valid.
-   */
+  
   public OffsetDateTime getStart() {
     return start;
   }
@@ -69,14 +59,10 @@ public class PriceRuleValidityPeriod {
   }
 
   public static class Builder {
-    /**
-     * The time after which the price rule becomes invalid.
-     */
+    
     private OffsetDateTime end;
 
-    /**
-     * The time after which the price rule is valid.
-     */
+    
     private OffsetDateTime start;
 
     public PriceRuleValidityPeriod build() {
@@ -86,17 +72,13 @@ public class PriceRuleValidityPeriod {
       return result;
     }
 
-    /**
-     * The time after which the price rule becomes invalid.
-     */
+    
     public Builder end(OffsetDateTime end) {
       this.end = end;
       return this;
     }
 
-    /**
-     * The time after which the price rule is valid.
-     */
+    
     public Builder start(OffsetDateTime start) {
       this.start = start;
       return this;

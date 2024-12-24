@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * The reason for a fulfillment hold.
- */
+
 public enum FulfillmentHoldReason {
   AWAITING_PAYMENT,
 

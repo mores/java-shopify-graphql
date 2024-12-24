@@ -8,139 +8,87 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Represents a Subscription Draft.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class SubscriptionDraft implements com.shopify.types.Node {
-  /**
-   * The billing cycle that the subscription contract will be associated with.
-   */
+  
   private SubscriptionBillingCycle billingCycle;
 
-  /**
-   * The billing policy for the subscription contract.
-   */
+  
   private SubscriptionBillingPolicy billingPolicy;
 
-  /**
-   * The billing cycles of the contracts that will be concatenated to the subscription contract.
-   */
+  
   private SubscriptionBillingCycleConnection concatenatedBillingCycles;
 
-  /**
-   * The currency used for the subscription contract.
-   */
+  
   private CurrencyCode currencyCode;
 
-  /**
-   * A list of the custom attributes to be added to the generated orders.
-   */
+  
   private List<Attribute> customAttributes;
 
-  /**
-   * The customer to whom the subscription contract belongs.
-   */
+  
   private Customer customer;
 
-  /**
-   * The customer payment method used for the subscription contract.
-   */
+  
   private CustomerPaymentMethod customerPaymentMethod;
 
-  /**
-   * The delivery method for each billing of the subscription contract.
-   */
+  
   private SubscriptionDeliveryMethod deliveryMethod;
 
-  /**
-   * The available delivery options for a given delivery address. Returns `null` for pending requests.
-   */
+  
   private SubscriptionDeliveryOptionResult deliveryOptions;
 
-  /**
-   * The delivery policy for the subscription contract.
-   */
+  
   private SubscriptionDeliveryPolicy deliveryPolicy;
 
-  /**
-   * The delivery price for each billing the subscription contract.
-   */
+  
   private MoneyV2 deliveryPrice;
 
-  /**
-   * The list of subscription discounts which will be associated with the subscription contract.
-   */
+  
   private SubscriptionDiscountConnection discounts;
 
-  /**
-   * The list of subscription discounts to be added to the subscription contract.
-   */
+  
   private SubscriptionDiscountConnection discountsAdded;
 
-  /**
-   * The list of subscription discounts to be removed from the subscription contract.
-   */
+  
   private SubscriptionDiscountConnection discountsRemoved;
 
-  /**
-   * The list of subscription discounts to be updated on the subscription contract.
-   */
+  
   private SubscriptionDiscountConnection discountsUpdated;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The list of subscription lines which will be associated with the subscription contract.
-   */
+  
   private SubscriptionLineConnection lines;
 
-  /**
-   * The list of subscription lines to be added to the subscription contract.
-   */
+  
   private SubscriptionLineConnection linesAdded;
 
-  /**
-   * The list of subscription lines to be removed from the subscription contract.
-   */
+  
   private SubscriptionLineConnection linesRemoved;
 
-  /**
-   * The next billing date for the subscription contract.
-   */
+  
   private OffsetDateTime nextBillingDate;
 
-  /**
-   * The note field that will be applied to the generated orders.
-   */
+  
   private String note;
 
-  /**
-   * The original subscription contract.
-   */
+  
   private SubscriptionContract originalContract;
 
-  /**
-   * Available Shipping Options for a given delivery address. Returns NULL for pending requests.
-   */
+  
   private SubscriptionShippingOptionResult shippingOptions;
 
-  /**
-   * The current status of the subscription contract.
-   */
+  
   private SubscriptionContractSubscriptionStatus status;
 
   public SubscriptionDraft() {
   }
 
-  /**
-   * The billing cycle that the subscription contract will be associated with.
-   */
+  
   public SubscriptionBillingCycle getBillingCycle() {
     return billingCycle;
   }
@@ -149,9 +97,7 @@ public class SubscriptionDraft implements com.shopify.types.Node {
     this.billingCycle = billingCycle;
   }
 
-  /**
-   * The billing policy for the subscription contract.
-   */
+  
   public SubscriptionBillingPolicy getBillingPolicy() {
     return billingPolicy;
   }
@@ -160,9 +106,7 @@ public class SubscriptionDraft implements com.shopify.types.Node {
     this.billingPolicy = billingPolicy;
   }
 
-  /**
-   * The billing cycles of the contracts that will be concatenated to the subscription contract.
-   */
+  
   public SubscriptionBillingCycleConnection getConcatenatedBillingCycles() {
     return concatenatedBillingCycles;
   }
@@ -172,9 +116,7 @@ public class SubscriptionDraft implements com.shopify.types.Node {
     this.concatenatedBillingCycles = concatenatedBillingCycles;
   }
 
-  /**
-   * The currency used for the subscription contract.
-   */
+  
   public CurrencyCode getCurrencyCode() {
     return currencyCode;
   }
@@ -183,9 +125,7 @@ public class SubscriptionDraft implements com.shopify.types.Node {
     this.currencyCode = currencyCode;
   }
 
-  /**
-   * A list of the custom attributes to be added to the generated orders.
-   */
+  
   public List<Attribute> getCustomAttributes() {
     return customAttributes;
   }
@@ -194,9 +134,7 @@ public class SubscriptionDraft implements com.shopify.types.Node {
     this.customAttributes = customAttributes;
   }
 
-  /**
-   * The customer to whom the subscription contract belongs.
-   */
+  
   public Customer getCustomer() {
     return customer;
   }
@@ -205,9 +143,7 @@ public class SubscriptionDraft implements com.shopify.types.Node {
     this.customer = customer;
   }
 
-  /**
-   * The customer payment method used for the subscription contract.
-   */
+  
   public CustomerPaymentMethod getCustomerPaymentMethod() {
     return customerPaymentMethod;
   }
@@ -216,9 +152,7 @@ public class SubscriptionDraft implements com.shopify.types.Node {
     this.customerPaymentMethod = customerPaymentMethod;
   }
 
-  /**
-   * The delivery method for each billing of the subscription contract.
-   */
+  
   public SubscriptionDeliveryMethod getDeliveryMethod() {
     return deliveryMethod;
   }
@@ -227,9 +161,7 @@ public class SubscriptionDraft implements com.shopify.types.Node {
     this.deliveryMethod = deliveryMethod;
   }
 
-  /**
-   * The available delivery options for a given delivery address. Returns `null` for pending requests.
-   */
+  
   public SubscriptionDeliveryOptionResult getDeliveryOptions() {
     return deliveryOptions;
   }
@@ -238,9 +170,7 @@ public class SubscriptionDraft implements com.shopify.types.Node {
     this.deliveryOptions = deliveryOptions;
   }
 
-  /**
-   * The delivery policy for the subscription contract.
-   */
+  
   public SubscriptionDeliveryPolicy getDeliveryPolicy() {
     return deliveryPolicy;
   }
@@ -249,9 +179,7 @@ public class SubscriptionDraft implements com.shopify.types.Node {
     this.deliveryPolicy = deliveryPolicy;
   }
 
-  /**
-   * The delivery price for each billing the subscription contract.
-   */
+  
   public MoneyV2 getDeliveryPrice() {
     return deliveryPrice;
   }
@@ -260,9 +188,7 @@ public class SubscriptionDraft implements com.shopify.types.Node {
     this.deliveryPrice = deliveryPrice;
   }
 
-  /**
-   * The list of subscription discounts which will be associated with the subscription contract.
-   */
+  
   public SubscriptionDiscountConnection getDiscounts() {
     return discounts;
   }
@@ -271,9 +197,7 @@ public class SubscriptionDraft implements com.shopify.types.Node {
     this.discounts = discounts;
   }
 
-  /**
-   * The list of subscription discounts to be added to the subscription contract.
-   */
+  
   public SubscriptionDiscountConnection getDiscountsAdded() {
     return discountsAdded;
   }
@@ -282,9 +206,7 @@ public class SubscriptionDraft implements com.shopify.types.Node {
     this.discountsAdded = discountsAdded;
   }
 
-  /**
-   * The list of subscription discounts to be removed from the subscription contract.
-   */
+  
   public SubscriptionDiscountConnection getDiscountsRemoved() {
     return discountsRemoved;
   }
@@ -293,9 +215,7 @@ public class SubscriptionDraft implements com.shopify.types.Node {
     this.discountsRemoved = discountsRemoved;
   }
 
-  /**
-   * The list of subscription discounts to be updated on the subscription contract.
-   */
+  
   public SubscriptionDiscountConnection getDiscountsUpdated() {
     return discountsUpdated;
   }
@@ -304,9 +224,7 @@ public class SubscriptionDraft implements com.shopify.types.Node {
     this.discountsUpdated = discountsUpdated;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -315,9 +233,7 @@ public class SubscriptionDraft implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The list of subscription lines which will be associated with the subscription contract.
-   */
+  
   public SubscriptionLineConnection getLines() {
     return lines;
   }
@@ -326,9 +242,7 @@ public class SubscriptionDraft implements com.shopify.types.Node {
     this.lines = lines;
   }
 
-  /**
-   * The list of subscription lines to be added to the subscription contract.
-   */
+  
   public SubscriptionLineConnection getLinesAdded() {
     return linesAdded;
   }
@@ -337,9 +251,7 @@ public class SubscriptionDraft implements com.shopify.types.Node {
     this.linesAdded = linesAdded;
   }
 
-  /**
-   * The list of subscription lines to be removed from the subscription contract.
-   */
+  
   public SubscriptionLineConnection getLinesRemoved() {
     return linesRemoved;
   }
@@ -348,9 +260,7 @@ public class SubscriptionDraft implements com.shopify.types.Node {
     this.linesRemoved = linesRemoved;
   }
 
-  /**
-   * The next billing date for the subscription contract.
-   */
+  
   public OffsetDateTime getNextBillingDate() {
     return nextBillingDate;
   }
@@ -359,9 +269,7 @@ public class SubscriptionDraft implements com.shopify.types.Node {
     this.nextBillingDate = nextBillingDate;
   }
 
-  /**
-   * The note field that will be applied to the generated orders.
-   */
+  
   public String getNote() {
     return note;
   }
@@ -370,9 +278,7 @@ public class SubscriptionDraft implements com.shopify.types.Node {
     this.note = note;
   }
 
-  /**
-   * The original subscription contract.
-   */
+  
   public SubscriptionContract getOriginalContract() {
     return originalContract;
   }
@@ -381,9 +287,7 @@ public class SubscriptionDraft implements com.shopify.types.Node {
     this.originalContract = originalContract;
   }
 
-  /**
-   * Available Shipping Options for a given delivery address. Returns NULL for pending requests.
-   */
+  
   public SubscriptionShippingOptionResult getShippingOptions() {
     return shippingOptions;
   }
@@ -392,9 +296,7 @@ public class SubscriptionDraft implements com.shopify.types.Node {
     this.shippingOptions = shippingOptions;
   }
 
-  /**
-   * The current status of the subscription contract.
-   */
+  
   public SubscriptionContractSubscriptionStatus getStatus() {
     return status;
   }
@@ -449,124 +351,76 @@ public class SubscriptionDraft implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * The billing cycle that the subscription contract will be associated with.
-     */
+    
     private SubscriptionBillingCycle billingCycle;
 
-    /**
-     * The billing policy for the subscription contract.
-     */
+    
     private SubscriptionBillingPolicy billingPolicy;
 
-    /**
-     * The billing cycles of the contracts that will be concatenated to the subscription contract.
-     */
+    
     private SubscriptionBillingCycleConnection concatenatedBillingCycles;
 
-    /**
-     * The currency used for the subscription contract.
-     */
+    
     private CurrencyCode currencyCode;
 
-    /**
-     * A list of the custom attributes to be added to the generated orders.
-     */
+    
     private List<Attribute> customAttributes;
 
-    /**
-     * The customer to whom the subscription contract belongs.
-     */
+    
     private Customer customer;
 
-    /**
-     * The customer payment method used for the subscription contract.
-     */
+    
     private CustomerPaymentMethod customerPaymentMethod;
 
-    /**
-     * The delivery method for each billing of the subscription contract.
-     */
+    
     private SubscriptionDeliveryMethod deliveryMethod;
 
-    /**
-     * The available delivery options for a given delivery address. Returns `null` for pending requests.
-     */
+    
     private SubscriptionDeliveryOptionResult deliveryOptions;
 
-    /**
-     * The delivery policy for the subscription contract.
-     */
+    
     private SubscriptionDeliveryPolicy deliveryPolicy;
 
-    /**
-     * The delivery price for each billing the subscription contract.
-     */
+    
     private MoneyV2 deliveryPrice;
 
-    /**
-     * The list of subscription discounts which will be associated with the subscription contract.
-     */
+    
     private SubscriptionDiscountConnection discounts;
 
-    /**
-     * The list of subscription discounts to be added to the subscription contract.
-     */
+    
     private SubscriptionDiscountConnection discountsAdded;
 
-    /**
-     * The list of subscription discounts to be removed from the subscription contract.
-     */
+    
     private SubscriptionDiscountConnection discountsRemoved;
 
-    /**
-     * The list of subscription discounts to be updated on the subscription contract.
-     */
+    
     private SubscriptionDiscountConnection discountsUpdated;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The list of subscription lines which will be associated with the subscription contract.
-     */
+    
     private SubscriptionLineConnection lines;
 
-    /**
-     * The list of subscription lines to be added to the subscription contract.
-     */
+    
     private SubscriptionLineConnection linesAdded;
 
-    /**
-     * The list of subscription lines to be removed from the subscription contract.
-     */
+    
     private SubscriptionLineConnection linesRemoved;
 
-    /**
-     * The next billing date for the subscription contract.
-     */
+    
     private OffsetDateTime nextBillingDate;
 
-    /**
-     * The note field that will be applied to the generated orders.
-     */
+    
     private String note;
 
-    /**
-     * The original subscription contract.
-     */
+    
     private SubscriptionContract originalContract;
 
-    /**
-     * Available Shipping Options for a given delivery address. Returns NULL for pending requests.
-     */
+    
     private SubscriptionShippingOptionResult shippingOptions;
 
-    /**
-     * The current status of the subscription contract.
-     */
+    
     private SubscriptionContractSubscriptionStatus status;
 
     public SubscriptionDraft build() {
@@ -598,194 +452,146 @@ public class SubscriptionDraft implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * The billing cycle that the subscription contract will be associated with.
-     */
+    
     public Builder billingCycle(SubscriptionBillingCycle billingCycle) {
       this.billingCycle = billingCycle;
       return this;
     }
 
-    /**
-     * The billing policy for the subscription contract.
-     */
+    
     public Builder billingPolicy(SubscriptionBillingPolicy billingPolicy) {
       this.billingPolicy = billingPolicy;
       return this;
     }
 
-    /**
-     * The billing cycles of the contracts that will be concatenated to the subscription contract.
-     */
+    
     public Builder concatenatedBillingCycles(
         SubscriptionBillingCycleConnection concatenatedBillingCycles) {
       this.concatenatedBillingCycles = concatenatedBillingCycles;
       return this;
     }
 
-    /**
-     * The currency used for the subscription contract.
-     */
+    
     public Builder currencyCode(CurrencyCode currencyCode) {
       this.currencyCode = currencyCode;
       return this;
     }
 
-    /**
-     * A list of the custom attributes to be added to the generated orders.
-     */
+    
     public Builder customAttributes(List<Attribute> customAttributes) {
       this.customAttributes = customAttributes;
       return this;
     }
 
-    /**
-     * The customer to whom the subscription contract belongs.
-     */
+    
     public Builder customer(Customer customer) {
       this.customer = customer;
       return this;
     }
 
-    /**
-     * The customer payment method used for the subscription contract.
-     */
+    
     public Builder customerPaymentMethod(CustomerPaymentMethod customerPaymentMethod) {
       this.customerPaymentMethod = customerPaymentMethod;
       return this;
     }
 
-    /**
-     * The delivery method for each billing of the subscription contract.
-     */
+    
     public Builder deliveryMethod(SubscriptionDeliveryMethod deliveryMethod) {
       this.deliveryMethod = deliveryMethod;
       return this;
     }
 
-    /**
-     * The available delivery options for a given delivery address. Returns `null` for pending requests.
-     */
+    
     public Builder deliveryOptions(SubscriptionDeliveryOptionResult deliveryOptions) {
       this.deliveryOptions = deliveryOptions;
       return this;
     }
 
-    /**
-     * The delivery policy for the subscription contract.
-     */
+    
     public Builder deliveryPolicy(SubscriptionDeliveryPolicy deliveryPolicy) {
       this.deliveryPolicy = deliveryPolicy;
       return this;
     }
 
-    /**
-     * The delivery price for each billing the subscription contract.
-     */
+    
     public Builder deliveryPrice(MoneyV2 deliveryPrice) {
       this.deliveryPrice = deliveryPrice;
       return this;
     }
 
-    /**
-     * The list of subscription discounts which will be associated with the subscription contract.
-     */
+    
     public Builder discounts(SubscriptionDiscountConnection discounts) {
       this.discounts = discounts;
       return this;
     }
 
-    /**
-     * The list of subscription discounts to be added to the subscription contract.
-     */
+    
     public Builder discountsAdded(SubscriptionDiscountConnection discountsAdded) {
       this.discountsAdded = discountsAdded;
       return this;
     }
 
-    /**
-     * The list of subscription discounts to be removed from the subscription contract.
-     */
+    
     public Builder discountsRemoved(SubscriptionDiscountConnection discountsRemoved) {
       this.discountsRemoved = discountsRemoved;
       return this;
     }
 
-    /**
-     * The list of subscription discounts to be updated on the subscription contract.
-     */
+    
     public Builder discountsUpdated(SubscriptionDiscountConnection discountsUpdated) {
       this.discountsUpdated = discountsUpdated;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The list of subscription lines which will be associated with the subscription contract.
-     */
+    
     public Builder lines(SubscriptionLineConnection lines) {
       this.lines = lines;
       return this;
     }
 
-    /**
-     * The list of subscription lines to be added to the subscription contract.
-     */
+    
     public Builder linesAdded(SubscriptionLineConnection linesAdded) {
       this.linesAdded = linesAdded;
       return this;
     }
 
-    /**
-     * The list of subscription lines to be removed from the subscription contract.
-     */
+    
     public Builder linesRemoved(SubscriptionLineConnection linesRemoved) {
       this.linesRemoved = linesRemoved;
       return this;
     }
 
-    /**
-     * The next billing date for the subscription contract.
-     */
+    
     public Builder nextBillingDate(OffsetDateTime nextBillingDate) {
       this.nextBillingDate = nextBillingDate;
       return this;
     }
 
-    /**
-     * The note field that will be applied to the generated orders.
-     */
+    
     public Builder note(String note) {
       this.note = note;
       return this;
     }
 
-    /**
-     * The original subscription contract.
-     */
+    
     public Builder originalContract(SubscriptionContract originalContract) {
       this.originalContract = originalContract;
       return this;
     }
 
-    /**
-     * Available Shipping Options for a given delivery address. Returns NULL for pending requests.
-     */
+    
     public Builder shippingOptions(SubscriptionShippingOptionResult shippingOptions) {
       this.shippingOptions = shippingOptions;
       return this;
     }
 
-    /**
-     * The current status of the subscription contract.
-     */
+    
     public Builder status(SubscriptionContractSubscriptionStatus status) {
       this.status = status;
       return this;

@@ -7,34 +7,24 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Represents a subscription contract status update error.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class SubscriptionContractStatusUpdateUserError implements com.shopify.types.DisplayableError {
-  /**
-   * The error code.
-   */
+  
   private SubscriptionContractStatusUpdateErrorCode code;
 
-  /**
-   * The path to the input field that caused the error.
-   */
+  
   private List<String> field;
 
-  /**
-   * The error message.
-   */
+  
   private String message;
 
   public SubscriptionContractStatusUpdateUserError() {
   }
 
-  /**
-   * The error code.
-   */
+  
   public SubscriptionContractStatusUpdateErrorCode getCode() {
     return code;
   }
@@ -43,9 +33,7 @@ public class SubscriptionContractStatusUpdateUserError implements com.shopify.ty
     this.code = code;
   }
 
-  /**
-   * The path to the input field that caused the error.
-   */
+  
   public List<String> getField() {
     return field;
   }
@@ -54,9 +42,7 @@ public class SubscriptionContractStatusUpdateUserError implements com.shopify.ty
     this.field = field;
   }
 
-  /**
-   * The error message.
-   */
+  
   public String getMessage() {
     return message;
   }
@@ -90,19 +76,13 @@ public class SubscriptionContractStatusUpdateUserError implements com.shopify.ty
   }
 
   public static class Builder {
-    /**
-     * The error code.
-     */
+    
     private SubscriptionContractStatusUpdateErrorCode code;
 
-    /**
-     * The path to the input field that caused the error.
-     */
+    
     private List<String> field;
 
-    /**
-     * The error message.
-     */
+    
     private String message;
 
     public SubscriptionContractStatusUpdateUserError build() {
@@ -113,25 +93,19 @@ public class SubscriptionContractStatusUpdateUserError implements com.shopify.ty
       return result;
     }
 
-    /**
-     * The error code.
-     */
+    
     public Builder code(SubscriptionContractStatusUpdateErrorCode code) {
       this.code = code;
       return this;
     }
 
-    /**
-     * The path to the input field that caused the error.
-     */
+    
     public Builder field(List<String> field) {
       this.field = field;
       return this;
     }
 
-    /**
-     * The error message.
-     */
+    
     public Builder message(String message) {
       this.message = message;
       return this;

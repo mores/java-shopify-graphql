@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Deletes an order. For more information on which orders can be deleted, refer to [Delete an order](https://help.shopify.com/manual/orders/cancel-delete-order#delete-an-order).
- */
+
 public class OrderDeleteGraphQLQuery extends GraphQLQuery {
   public OrderDeleteGraphQLQuery(String orderId, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -42,9 +40,7 @@ public class OrderDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the order to be deleted.
-     */
+    
     public Builder orderId(String orderId) {
       this.orderId = orderId;
       this.fieldsSet.add("orderId");

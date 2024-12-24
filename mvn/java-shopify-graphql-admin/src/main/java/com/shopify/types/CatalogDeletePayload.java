@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `catalogDelete` mutation.
- */
+
 public class CatalogDeletePayload {
-  /**
-   * The ID of the deleted catalog.
-   */
+  
   private String deletedId;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<CatalogUserError> userErrors;
 
   public CatalogDeletePayload() {
   }
 
-  /**
-   * The ID of the deleted catalog.
-   */
+  
   public String getDeletedId() {
     return deletedId;
   }
@@ -34,9 +26,7 @@ public class CatalogDeletePayload {
     this.deletedId = deletedId;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<CatalogUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class CatalogDeletePayload {
   }
 
   public static class Builder {
-    /**
-     * The ID of the deleted catalog.
-     */
+    
     private String deletedId;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<CatalogUserError> userErrors;
 
     public CatalogDeletePayload build() {
@@ -86,17 +72,13 @@ public class CatalogDeletePayload {
       return result;
     }
 
-    /**
-     * The ID of the deleted catalog.
-     */
+    
     public Builder deletedId(String deletedId) {
       this.deletedId = deletedId;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<CatalogUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

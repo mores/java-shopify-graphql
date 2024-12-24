@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Return the AppInstallation for the currently authenticated App.
- */
+
 public class CurrentAppInstallationGraphQLQuery extends GraphQLQuery {
   public CurrentAppInstallationGraphQLQuery(String queryName) {
     super("query", queryName);

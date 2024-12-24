@@ -6,26 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields required to create or update a pricing policy adjustment value.
- */
+
 public class SellingPlanPricingPolicyValueInput {
-  /**
-   * The percentage value.
-   */
+  
   private Double percentage;
 
-  /**
-   * The fixed value for an fixed amount off or a new policy price.
-   */
+  
   private String fixedValue;
 
   public SellingPlanPricingPolicyValueInput() {
   }
 
-  /**
-   * The percentage value.
-   */
+  
   public Double getPercentage() {
     return percentage;
   }
@@ -34,9 +26,7 @@ public class SellingPlanPricingPolicyValueInput {
     this.percentage = percentage;
   }
 
-  /**
-   * The fixed value for an fixed amount off or a new policy price.
-   */
+  
   public String getFixedValue() {
     return fixedValue;
   }
@@ -69,14 +59,10 @@ public class SellingPlanPricingPolicyValueInput {
   }
 
   public static class Builder {
-    /**
-     * The percentage value.
-     */
+    
     private Double percentage;
 
-    /**
-     * The fixed value for an fixed amount off or a new policy price.
-     */
+    
     private String fixedValue;
 
     public SellingPlanPricingPolicyValueInput build() {
@@ -86,17 +72,13 @@ public class SellingPlanPricingPolicyValueInput {
       return result;
     }
 
-    /**
-     * The percentage value.
-     */
+    
     public Builder percentage(Double percentage) {
       this.percentage = percentage;
       return this;
     }
 
-    /**
-     * The fixed value for an fixed amount off or a new policy price.
-     */
+    
     public Builder fixedValue(String fixedValue) {
       this.fixedValue = fixedValue;
       return this;

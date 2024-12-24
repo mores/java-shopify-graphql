@@ -5,33 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for header cart link customizations.
- */
+
 public class CheckoutBrandingHeaderCartLinkInput {
-  /**
-   * The input for the content type for the header back to cart link in 1-page
-   * checkout. Setting this to image will render the custom image provided using
-   * the image field on the header cart_link object. If no image is provided, the
-   * default cart icon will be used.
-   */
+  
   private CheckoutBrandingCartLinkContentType contentType;
 
-  /**
-   * The input for the image that's used for the header back to cart link in 1-page
-   * checkout when the content type is set to image.
-   */
+  
   private CheckoutBrandingImageInput image;
 
   public CheckoutBrandingHeaderCartLinkInput() {
   }
 
-  /**
-   * The input for the content type for the header back to cart link in 1-page
-   * checkout. Setting this to image will render the custom image provided using
-   * the image field on the header cart_link object. If no image is provided, the
-   * default cart icon will be used.
-   */
+  
   public CheckoutBrandingCartLinkContentType getContentType() {
     return contentType;
   }
@@ -40,10 +25,7 @@ public class CheckoutBrandingHeaderCartLinkInput {
     this.contentType = contentType;
   }
 
-  /**
-   * The input for the image that's used for the header back to cart link in 1-page
-   * checkout when the content type is set to image.
-   */
+  
   public CheckoutBrandingImageInput getImage() {
     return image;
   }
@@ -76,18 +58,10 @@ public class CheckoutBrandingHeaderCartLinkInput {
   }
 
   public static class Builder {
-    /**
-     * The input for the content type for the header back to cart link in 1-page
-     * checkout. Setting this to image will render the custom image provided using
-     * the image field on the header cart_link object. If no image is provided, the
-     * default cart icon will be used.
-     */
+    
     private CheckoutBrandingCartLinkContentType contentType;
 
-    /**
-     * The input for the image that's used for the header back to cart link in 1-page
-     * checkout when the content type is set to image.
-     */
+    
     private CheckoutBrandingImageInput image;
 
     public CheckoutBrandingHeaderCartLinkInput build() {
@@ -97,21 +71,13 @@ public class CheckoutBrandingHeaderCartLinkInput {
       return result;
     }
 
-    /**
-     * The input for the content type for the header back to cart link in 1-page
-     * checkout. Setting this to image will render the custom image provided using
-     * the image field on the header cart_link object. If no image is provided, the
-     * default cart icon will be used.
-     */
+    
     public Builder contentType(CheckoutBrandingCartLinkContentType contentType) {
       this.contentType = contentType;
       return this;
     }
 
-    /**
-     * The input for the image that's used for the header back to cart link in 1-page
-     * checkout when the content type is set to image.
-     */
+    
     public Builder image(CheckoutBrandingImageInput image) {
       this.image = image;
       return this;

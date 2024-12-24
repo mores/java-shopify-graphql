@@ -6,51 +6,33 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * Represents a theme file.
- */
+
 public class OnlineStoreThemeFile {
-  /**
-   * The body of the theme file.
-   */
+  
   private OnlineStoreThemeFileBody body;
 
-  /**
-   * The md5 digest of the theme file for data integrity.
-   */
+  
   private String checksumMd5;
 
-  /**
-   * The content type of the theme file.
-   */
+  
   private String contentType;
 
-  /**
-   * The date and time when the theme file was created.
-   */
+  
   private OffsetDateTime createdAt;
 
-  /**
-   * The unique identifier of the theme file.
-   */
+  
   private String filename;
 
-  /**
-   * The size of the theme file in bytes.
-   */
+  
   private String size;
 
-  /**
-   * The date and time when the theme file was last updated.
-   */
+  
   private OffsetDateTime updatedAt;
 
   public OnlineStoreThemeFile() {
   }
 
-  /**
-   * The body of the theme file.
-   */
+  
   public OnlineStoreThemeFileBody getBody() {
     return body;
   }
@@ -59,9 +41,7 @@ public class OnlineStoreThemeFile {
     this.body = body;
   }
 
-  /**
-   * The md5 digest of the theme file for data integrity.
-   */
+  
   public String getChecksumMd5() {
     return checksumMd5;
   }
@@ -70,9 +50,7 @@ public class OnlineStoreThemeFile {
     this.checksumMd5 = checksumMd5;
   }
 
-  /**
-   * The content type of the theme file.
-   */
+  
   public String getContentType() {
     return contentType;
   }
@@ -81,9 +59,7 @@ public class OnlineStoreThemeFile {
     this.contentType = contentType;
   }
 
-  /**
-   * The date and time when the theme file was created.
-   */
+  
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -92,9 +68,7 @@ public class OnlineStoreThemeFile {
     this.createdAt = createdAt;
   }
 
-  /**
-   * The unique identifier of the theme file.
-   */
+  
   public String getFilename() {
     return filename;
   }
@@ -103,9 +77,7 @@ public class OnlineStoreThemeFile {
     this.filename = filename;
   }
 
-  /**
-   * The size of the theme file in bytes.
-   */
+  
   public String getSize() {
     return size;
   }
@@ -114,9 +86,7 @@ public class OnlineStoreThemeFile {
     this.size = size;
   }
 
-  /**
-   * The date and time when the theme file was last updated.
-   */
+  
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
@@ -154,39 +124,25 @@ public class OnlineStoreThemeFile {
   }
 
   public static class Builder {
-    /**
-     * The body of the theme file.
-     */
+    
     private OnlineStoreThemeFileBody body;
 
-    /**
-     * The md5 digest of the theme file for data integrity.
-     */
+    
     private String checksumMd5;
 
-    /**
-     * The content type of the theme file.
-     */
+    
     private String contentType;
 
-    /**
-     * The date and time when the theme file was created.
-     */
+    
     private OffsetDateTime createdAt;
 
-    /**
-     * The unique identifier of the theme file.
-     */
+    
     private String filename;
 
-    /**
-     * The size of the theme file in bytes.
-     */
+    
     private String size;
 
-    /**
-     * The date and time when the theme file was last updated.
-     */
+    
     private OffsetDateTime updatedAt;
 
     public OnlineStoreThemeFile build() {
@@ -201,57 +157,43 @@ public class OnlineStoreThemeFile {
       return result;
     }
 
-    /**
-     * The body of the theme file.
-     */
+    
     public Builder body(OnlineStoreThemeFileBody body) {
       this.body = body;
       return this;
     }
 
-    /**
-     * The md5 digest of the theme file for data integrity.
-     */
+    
     public Builder checksumMd5(String checksumMd5) {
       this.checksumMd5 = checksumMd5;
       return this;
     }
 
-    /**
-     * The content type of the theme file.
-     */
+    
     public Builder contentType(String contentType) {
       this.contentType = contentType;
       return this;
     }
 
-    /**
-     * The date and time when the theme file was created.
-     */
+    
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    /**
-     * The unique identifier of the theme file.
-     */
+    
     public Builder filename(String filename) {
       this.filename = filename;
       return this;
     }
 
-    /**
-     * The size of the theme file in bytes.
-     */
+    
     public Builder size(String size) {
       this.size = size;
       return this;
     }
 
-    /**
-     * The date and time when the theme file was last updated.
-     */
+    
     public Builder updatedAt(OffsetDateTime updatedAt) {
       this.updatedAt = updatedAt;
       return this;

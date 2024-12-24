@@ -5,9 +5,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.String;
 import java.util.List;
 
-/**
- * Represents an error in the input of a mutation.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
     include = JsonTypeInfo.As.PROPERTY,
@@ -178,13 +176,9 @@ import java.util.List;
     @JsonSubTypes.Type(value = ValidationUserError.class, name = "ValidationUserError")
 })
 public interface DisplayableError {
-  /**
-   * The path to the input field that caused the error.
-   */
+  
   List<String> getField();
 
-  /**
-   * The error message.
-   */
+  
   String getMessage();
 }

@@ -7,119 +7,72 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * Represents actions that market a merchant's store or products.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class MarketingEvent implements com.shopify.types.LegacyInteroperability, com.shopify.types.Node {
-  /**
-   * The app that the marketing event is attributed to.
-   */
+  
   private App app;
 
-  /**
-   * The medium through which the marketing activity and event reached consumers. This is used for reporting aggregation.
-   */
+  
   private MarketingChannel channel;
 
-  /**
-   * The unique string identifier of the channel to which this activity belongs.
-   * For the correct handle for your channel, contact your partner manager.
-   */
+  
   private String channelHandle;
 
-  /**
-   * A human-readable description of the marketing event.
-   */
+  
   private String description;
 
-  /**
-   * The date and time when the marketing event ended.
-   */
+  
   private OffsetDateTime endedAt;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The ID of the corresponding resource in the REST Admin API.
-   */
+  
   private String legacyResourceId;
 
-  /**
-   * The URL where the marketing event can be managed.
-   */
+  
   private String manageUrl;
 
-  /**
-   * The medium through which the marketing activity and event reached consumers. This is used for reporting aggregation.
-   */
+  
   private MarketingChannel marketingChannelType;
 
-  /**
-   * The URL where the marketing event can be previewed.
-   */
+  
   private String previewUrl;
 
-  /**
-   * An optional ID that helps Shopify validate engagement data.
-   */
+  
   private String remoteId;
 
-  /**
-   * The date and time when the marketing event is scheduled to end.
-   */
+  
   private OffsetDateTime scheduledToEndAt;
 
-  /**
-   * Where the `MarketingEvent` occurred and what kind of content was used.
-   * Because `utmSource` and `utmMedium` are often used interchangeably, this is
-   * based on a combination of `marketingChannel`, `referringDomain`, and `type` to
-   * provide a consistent representation for any given piece of marketing
-   * regardless of the app that created it.
-   */
+  
   private String sourceAndMedium;
 
-  /**
-   * The date and time when the marketing event started.
-   */
+  
   private OffsetDateTime startedAt;
 
-  /**
-   * The display text for the marketing event type.
-   */
+  
   private String targetTypeDisplayText;
 
-  /**
-   * The marketing event type.
-   */
+  
   private MarketingTactic type;
 
-  /**
-   * The name of the marketing campaign.
-   */
+  
   private String utmCampaign;
 
-  /**
-   * The medium that the marketing campaign is using. Example values: `cpc`, `banner`.
-   */
+  
   private String utmMedium;
 
-  /**
-   * The referrer of the marketing event. Example values: `google`, `newsletter`.
-   */
+  
   private String utmSource;
 
   public MarketingEvent() {
   }
 
-  /**
-   * The app that the marketing event is attributed to.
-   */
+  
   public App getApp() {
     return app;
   }
@@ -128,9 +81,7 @@ public class MarketingEvent implements com.shopify.types.LegacyInteroperability,
     this.app = app;
   }
 
-  /**
-   * The medium through which the marketing activity and event reached consumers. This is used for reporting aggregation.
-   */
+  
   public MarketingChannel getChannel() {
     return channel;
   }
@@ -139,10 +90,7 @@ public class MarketingEvent implements com.shopify.types.LegacyInteroperability,
     this.channel = channel;
   }
 
-  /**
-   * The unique string identifier of the channel to which this activity belongs.
-   * For the correct handle for your channel, contact your partner manager.
-   */
+  
   public String getChannelHandle() {
     return channelHandle;
   }
@@ -151,9 +99,7 @@ public class MarketingEvent implements com.shopify.types.LegacyInteroperability,
     this.channelHandle = channelHandle;
   }
 
-  /**
-   * A human-readable description of the marketing event.
-   */
+  
   public String getDescription() {
     return description;
   }
@@ -162,9 +108,7 @@ public class MarketingEvent implements com.shopify.types.LegacyInteroperability,
     this.description = description;
   }
 
-  /**
-   * The date and time when the marketing event ended.
-   */
+  
   public OffsetDateTime getEndedAt() {
     return endedAt;
   }
@@ -173,9 +117,7 @@ public class MarketingEvent implements com.shopify.types.LegacyInteroperability,
     this.endedAt = endedAt;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -184,9 +126,7 @@ public class MarketingEvent implements com.shopify.types.LegacyInteroperability,
     this.id = id;
   }
 
-  /**
-   * The ID of the corresponding resource in the REST Admin API.
-   */
+  
   public String getLegacyResourceId() {
     return legacyResourceId;
   }
@@ -195,9 +135,7 @@ public class MarketingEvent implements com.shopify.types.LegacyInteroperability,
     this.legacyResourceId = legacyResourceId;
   }
 
-  /**
-   * The URL where the marketing event can be managed.
-   */
+  
   public String getManageUrl() {
     return manageUrl;
   }
@@ -206,9 +144,7 @@ public class MarketingEvent implements com.shopify.types.LegacyInteroperability,
     this.manageUrl = manageUrl;
   }
 
-  /**
-   * The medium through which the marketing activity and event reached consumers. This is used for reporting aggregation.
-   */
+  
   public MarketingChannel getMarketingChannelType() {
     return marketingChannelType;
   }
@@ -217,9 +153,7 @@ public class MarketingEvent implements com.shopify.types.LegacyInteroperability,
     this.marketingChannelType = marketingChannelType;
   }
 
-  /**
-   * The URL where the marketing event can be previewed.
-   */
+  
   public String getPreviewUrl() {
     return previewUrl;
   }
@@ -228,9 +162,7 @@ public class MarketingEvent implements com.shopify.types.LegacyInteroperability,
     this.previewUrl = previewUrl;
   }
 
-  /**
-   * An optional ID that helps Shopify validate engagement data.
-   */
+  
   public String getRemoteId() {
     return remoteId;
   }
@@ -239,9 +171,7 @@ public class MarketingEvent implements com.shopify.types.LegacyInteroperability,
     this.remoteId = remoteId;
   }
 
-  /**
-   * The date and time when the marketing event is scheduled to end.
-   */
+  
   public OffsetDateTime getScheduledToEndAt() {
     return scheduledToEndAt;
   }
@@ -250,13 +180,7 @@ public class MarketingEvent implements com.shopify.types.LegacyInteroperability,
     this.scheduledToEndAt = scheduledToEndAt;
   }
 
-  /**
-   * Where the `MarketingEvent` occurred and what kind of content was used.
-   * Because `utmSource` and `utmMedium` are often used interchangeably, this is
-   * based on a combination of `marketingChannel`, `referringDomain`, and `type` to
-   * provide a consistent representation for any given piece of marketing
-   * regardless of the app that created it.
-   */
+  
   public String getSourceAndMedium() {
     return sourceAndMedium;
   }
@@ -265,9 +189,7 @@ public class MarketingEvent implements com.shopify.types.LegacyInteroperability,
     this.sourceAndMedium = sourceAndMedium;
   }
 
-  /**
-   * The date and time when the marketing event started.
-   */
+  
   public OffsetDateTime getStartedAt() {
     return startedAt;
   }
@@ -276,9 +198,7 @@ public class MarketingEvent implements com.shopify.types.LegacyInteroperability,
     this.startedAt = startedAt;
   }
 
-  /**
-   * The display text for the marketing event type.
-   */
+  
   public String getTargetTypeDisplayText() {
     return targetTypeDisplayText;
   }
@@ -287,9 +207,7 @@ public class MarketingEvent implements com.shopify.types.LegacyInteroperability,
     this.targetTypeDisplayText = targetTypeDisplayText;
   }
 
-  /**
-   * The marketing event type.
-   */
+  
   public MarketingTactic getType() {
     return type;
   }
@@ -298,9 +216,7 @@ public class MarketingEvent implements com.shopify.types.LegacyInteroperability,
     this.type = type;
   }
 
-  /**
-   * The name of the marketing campaign.
-   */
+  
   public String getUtmCampaign() {
     return utmCampaign;
   }
@@ -309,9 +225,7 @@ public class MarketingEvent implements com.shopify.types.LegacyInteroperability,
     this.utmCampaign = utmCampaign;
   }
 
-  /**
-   * The medium that the marketing campaign is using. Example values: `cpc`, `banner`.
-   */
+  
   public String getUtmMedium() {
     return utmMedium;
   }
@@ -320,9 +234,7 @@ public class MarketingEvent implements com.shopify.types.LegacyInteroperability,
     this.utmMedium = utmMedium;
   }
 
-  /**
-   * The referrer of the marketing event. Example values: `google`, `newsletter`.
-   */
+  
   public String getUtmSource() {
     return utmSource;
   }
@@ -372,104 +284,61 @@ public class MarketingEvent implements com.shopify.types.LegacyInteroperability,
   }
 
   public static class Builder {
-    /**
-     * The app that the marketing event is attributed to.
-     */
+    
     private App app;
 
-    /**
-     * The medium through which the marketing activity and event reached consumers. This is used for reporting aggregation.
-     */
+    
     private MarketingChannel channel;
 
-    /**
-     * The unique string identifier of the channel to which this activity belongs.
-     * For the correct handle for your channel, contact your partner manager.
-     */
+    
     private String channelHandle;
 
-    /**
-     * A human-readable description of the marketing event.
-     */
+    
     private String description;
 
-    /**
-     * The date and time when the marketing event ended.
-     */
+    
     private OffsetDateTime endedAt;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The ID of the corresponding resource in the REST Admin API.
-     */
+    
     private String legacyResourceId;
 
-    /**
-     * The URL where the marketing event can be managed.
-     */
+    
     private String manageUrl;
 
-    /**
-     * The medium through which the marketing activity and event reached consumers. This is used for reporting aggregation.
-     */
+    
     private MarketingChannel marketingChannelType;
 
-    /**
-     * The URL where the marketing event can be previewed.
-     */
+    
     private String previewUrl;
 
-    /**
-     * An optional ID that helps Shopify validate engagement data.
-     */
+    
     private String remoteId;
 
-    /**
-     * The date and time when the marketing event is scheduled to end.
-     */
+    
     private OffsetDateTime scheduledToEndAt;
 
-    /**
-     * Where the `MarketingEvent` occurred and what kind of content was used.
-     * Because `utmSource` and `utmMedium` are often used interchangeably, this is
-     * based on a combination of `marketingChannel`, `referringDomain`, and `type` to
-     * provide a consistent representation for any given piece of marketing
-     * regardless of the app that created it.
-     */
+    
     private String sourceAndMedium;
 
-    /**
-     * The date and time when the marketing event started.
-     */
+    
     private OffsetDateTime startedAt;
 
-    /**
-     * The display text for the marketing event type.
-     */
+    
     private String targetTypeDisplayText;
 
-    /**
-     * The marketing event type.
-     */
+    
     private MarketingTactic type;
 
-    /**
-     * The name of the marketing campaign.
-     */
+    
     private String utmCampaign;
 
-    /**
-     * The medium that the marketing campaign is using. Example values: `cpc`, `banner`.
-     */
+    
     private String utmMedium;
 
-    /**
-     * The referrer of the marketing event. Example values: `google`, `newsletter`.
-     */
+    
     private String utmSource;
 
     public MarketingEvent build() {
@@ -496,158 +365,115 @@ public class MarketingEvent implements com.shopify.types.LegacyInteroperability,
       return result;
     }
 
-    /**
-     * The app that the marketing event is attributed to.
-     */
+    
     public Builder app(App app) {
       this.app = app;
       return this;
     }
 
-    /**
-     * The medium through which the marketing activity and event reached consumers. This is used for reporting aggregation.
-     */
+    
     public Builder channel(MarketingChannel channel) {
       this.channel = channel;
       return this;
     }
 
-    /**
-     * The unique string identifier of the channel to which this activity belongs.
-     * For the correct handle for your channel, contact your partner manager.
-     */
+    
     public Builder channelHandle(String channelHandle) {
       this.channelHandle = channelHandle;
       return this;
     }
 
-    /**
-     * A human-readable description of the marketing event.
-     */
+    
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    /**
-     * The date and time when the marketing event ended.
-     */
+    
     public Builder endedAt(OffsetDateTime endedAt) {
       this.endedAt = endedAt;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The ID of the corresponding resource in the REST Admin API.
-     */
+    
     public Builder legacyResourceId(String legacyResourceId) {
       this.legacyResourceId = legacyResourceId;
       return this;
     }
 
-    /**
-     * The URL where the marketing event can be managed.
-     */
+    
     public Builder manageUrl(String manageUrl) {
       this.manageUrl = manageUrl;
       return this;
     }
 
-    /**
-     * The medium through which the marketing activity and event reached consumers. This is used for reporting aggregation.
-     */
+    
     public Builder marketingChannelType(MarketingChannel marketingChannelType) {
       this.marketingChannelType = marketingChannelType;
       return this;
     }
 
-    /**
-     * The URL where the marketing event can be previewed.
-     */
+    
     public Builder previewUrl(String previewUrl) {
       this.previewUrl = previewUrl;
       return this;
     }
 
-    /**
-     * An optional ID that helps Shopify validate engagement data.
-     */
+    
     public Builder remoteId(String remoteId) {
       this.remoteId = remoteId;
       return this;
     }
 
-    /**
-     * The date and time when the marketing event is scheduled to end.
-     */
+    
     public Builder scheduledToEndAt(OffsetDateTime scheduledToEndAt) {
       this.scheduledToEndAt = scheduledToEndAt;
       return this;
     }
 
-    /**
-     * Where the `MarketingEvent` occurred and what kind of content was used.
-     * Because `utmSource` and `utmMedium` are often used interchangeably, this is
-     * based on a combination of `marketingChannel`, `referringDomain`, and `type` to
-     * provide a consistent representation for any given piece of marketing
-     * regardless of the app that created it.
-     */
+    
     public Builder sourceAndMedium(String sourceAndMedium) {
       this.sourceAndMedium = sourceAndMedium;
       return this;
     }
 
-    /**
-     * The date and time when the marketing event started.
-     */
+    
     public Builder startedAt(OffsetDateTime startedAt) {
       this.startedAt = startedAt;
       return this;
     }
 
-    /**
-     * The display text for the marketing event type.
-     */
+    
     public Builder targetTypeDisplayText(String targetTypeDisplayText) {
       this.targetTypeDisplayText = targetTypeDisplayText;
       return this;
     }
 
-    /**
-     * The marketing event type.
-     */
+    
     public Builder type(MarketingTactic type) {
       this.type = type;
       return this;
     }
 
-    /**
-     * The name of the marketing campaign.
-     */
+    
     public Builder utmCampaign(String utmCampaign) {
       this.utmCampaign = utmCampaign;
       return this;
     }
 
-    /**
-     * The medium that the marketing campaign is using. Example values: `cpc`, `banner`.
-     */
+    
     public Builder utmMedium(String utmMedium) {
       this.utmMedium = utmMedium;
       return this;
     }
 
-    /**
-     * The referrer of the marketing event. Example values: `google`, `newsletter`.
-     */
+    
     public Builder utmSource(String utmSource) {
       this.utmSource = utmSource;
       return this;

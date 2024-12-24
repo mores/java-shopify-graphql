@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Generates a signature for a Flow action payload.
- */
+
 public class FlowGenerateSignatureGraphQLQuery extends GraphQLQuery {
   public FlowGenerateSignatureGraphQLQuery(String id, String payload, String queryName,
       Set<String> fieldsSet) {
@@ -47,18 +45,14 @@ public class FlowGenerateSignatureGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The unique identifier of the Flow action definition.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * The request payload used to generate the signature.
-     */
+    
     public Builder payload(String payload) {
       this.payload = payload;
       this.fieldsSet.add("payload");

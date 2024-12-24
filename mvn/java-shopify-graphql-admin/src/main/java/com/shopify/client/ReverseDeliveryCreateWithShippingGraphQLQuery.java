@@ -11,9 +11,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Creates a new reverse delivery with associated external shipping information.
- */
+
 public class ReverseDeliveryCreateWithShippingGraphQLQuery extends GraphQLQuery {
   public ReverseDeliveryCreateWithShippingGraphQLQuery(String reverseFulfillmentOrderId,
       List<ReverseDeliveryLineItemInput> reverseDeliveryLineItems,
@@ -66,20 +64,14 @@ public class ReverseDeliveryCreateWithShippingGraphQLQuery extends GraphQLQuery 
                
     }
 
-    /**
-     * The ID of the reverse fulfillment order that's associated to the reverse delivery.
-     */
+    
     public Builder reverseFulfillmentOrderId(String reverseFulfillmentOrderId) {
       this.reverseFulfillmentOrderId = reverseFulfillmentOrderId;
       this.fieldsSet.add("reverseFulfillmentOrderId");
       return this;
     }
 
-    /**
-     * The reverse delivery line items to be created. If an empty array is provided, then this mutation
-     *           will create a reverse delivery line item for each reverse fulfillment order line item, with its quantity equal
-     *           to the reverse fulfillment order line item total quantity.
-     */
+    
     public Builder reverseDeliveryLineItems(
         List<ReverseDeliveryLineItemInput> reverseDeliveryLineItems) {
       this.reverseDeliveryLineItems = reverseDeliveryLineItems;
@@ -87,27 +79,21 @@ public class ReverseDeliveryCreateWithShippingGraphQLQuery extends GraphQLQuery 
       return this;
     }
 
-    /**
-     * The tracking information for the reverse delivery.
-     */
+    
     public Builder trackingInput(ReverseDeliveryTrackingInput trackingInput) {
       this.trackingInput = trackingInput;
       this.fieldsSet.add("trackingInput");
       return this;
     }
 
-    /**
-     * The return label file information for the reverse delivery.
-     */
+    
     public Builder labelInput(ReverseDeliveryLabelInput labelInput) {
       this.labelInput = labelInput;
       this.fieldsSet.add("labelInput");
       return this;
     }
 
-    /**
-     * When `true` the customer is notified with delivery instructions if the `ReverseFulfillmentOrder.order.email` is present.
-     */
+    
     public Builder notifyCustomer(Boolean notifyCustomer) {
       this.notifyCustomer = notifyCustomer;
       this.fieldsSet.add("notifyCustomer");

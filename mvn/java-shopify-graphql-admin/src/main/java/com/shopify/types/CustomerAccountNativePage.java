@@ -6,46 +6,30 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A native page for the customer account navigation menu.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class CustomerAccountNativePage implements com.shopify.types.CustomerAccountPage, com.shopify.types.Navigable, com.shopify.types.Node {
-  /**
-   * A default [cursor](https://shopify.dev/api/usage/pagination-graphql) that
-   * returns the single next record, sorted ascending by ID.
-   */
+  
   private String defaultCursor;
 
-  /**
-   * A unique, human-friendly string for the customer account page.
-   */
+  
   private String handle;
 
-  /**
-   * The unique ID for the customer account page.
-   */
+  
   private String id;
 
-  /**
-   * The type of customer account native page.
-   */
+  
   private CustomerAccountNativePagePageType pageType;
 
-  /**
-   * The title of the customer account page.
-   */
+  
   private String title;
 
   public CustomerAccountNativePage() {
   }
 
-  /**
-   * A default [cursor](https://shopify.dev/api/usage/pagination-graphql) that
-   * returns the single next record, sorted ascending by ID.
-   */
+  
   public String getDefaultCursor() {
     return defaultCursor;
   }
@@ -54,9 +38,7 @@ public class CustomerAccountNativePage implements com.shopify.types.CustomerAcco
     this.defaultCursor = defaultCursor;
   }
 
-  /**
-   * A unique, human-friendly string for the customer account page.
-   */
+  
   public String getHandle() {
     return handle;
   }
@@ -65,9 +47,7 @@ public class CustomerAccountNativePage implements com.shopify.types.CustomerAcco
     this.handle = handle;
   }
 
-  /**
-   * The unique ID for the customer account page.
-   */
+  
   public String getId() {
     return id;
   }
@@ -76,9 +56,7 @@ public class CustomerAccountNativePage implements com.shopify.types.CustomerAcco
     this.id = id;
   }
 
-  /**
-   * The type of customer account native page.
-   */
+  
   public CustomerAccountNativePagePageType getPageType() {
     return pageType;
   }
@@ -87,9 +65,7 @@ public class CustomerAccountNativePage implements com.shopify.types.CustomerAcco
     this.pageType = pageType;
   }
 
-  /**
-   * The title of the customer account page.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -125,30 +101,19 @@ public class CustomerAccountNativePage implements com.shopify.types.CustomerAcco
   }
 
   public static class Builder {
-    /**
-     * A default [cursor](https://shopify.dev/api/usage/pagination-graphql) that
-     * returns the single next record, sorted ascending by ID.
-     */
+    
     private String defaultCursor;
 
-    /**
-     * A unique, human-friendly string for the customer account page.
-     */
+    
     private String handle;
 
-    /**
-     * The unique ID for the customer account page.
-     */
+    
     private String id;
 
-    /**
-     * The type of customer account native page.
-     */
+    
     private CustomerAccountNativePagePageType pageType;
 
-    /**
-     * The title of the customer account page.
-     */
+    
     private String title;
 
     public CustomerAccountNativePage build() {
@@ -161,42 +126,31 @@ public class CustomerAccountNativePage implements com.shopify.types.CustomerAcco
       return result;
     }
 
-    /**
-     * A default [cursor](https://shopify.dev/api/usage/pagination-graphql) that
-     * returns the single next record, sorted ascending by ID.
-     */
+    
     public Builder defaultCursor(String defaultCursor) {
       this.defaultCursor = defaultCursor;
       return this;
     }
 
-    /**
-     * A unique, human-friendly string for the customer account page.
-     */
+    
     public Builder handle(String handle) {
       this.handle = handle;
       return this;
     }
 
-    /**
-     * The unique ID for the customer account page.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The type of customer account native page.
-     */
+    
     public Builder pageType(CustomerAccountNativePagePageType pageType) {
       this.pageType = pageType;
       return this;
     }
 
-    /**
-     * The title of the customer account page.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;

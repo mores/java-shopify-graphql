@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Provides the capabilities of a metaobject.
- */
+
 public class MetaobjectCapabilityData {
-  /**
-   * The Online Store capability for this metaobject.
-   */
+  
   private MetaobjectCapabilityDataOnlineStore onlineStore;
 
-  /**
-   * The publishable capability for this metaobject.
-   */
+  
   private MetaobjectCapabilityDataPublishable publishable;
 
   public MetaobjectCapabilityData() {
   }
 
-  /**
-   * The Online Store capability for this metaobject.
-   */
+  
   public MetaobjectCapabilityDataOnlineStore getOnlineStore() {
     return onlineStore;
   }
@@ -33,9 +25,7 @@ public class MetaobjectCapabilityData {
     this.onlineStore = onlineStore;
   }
 
-  /**
-   * The publishable capability for this metaobject.
-   */
+  
   public MetaobjectCapabilityDataPublishable getPublishable() {
     return publishable;
   }
@@ -68,14 +58,10 @@ public class MetaobjectCapabilityData {
   }
 
   public static class Builder {
-    /**
-     * The Online Store capability for this metaobject.
-     */
+    
     private MetaobjectCapabilityDataOnlineStore onlineStore;
 
-    /**
-     * The publishable capability for this metaobject.
-     */
+    
     private MetaobjectCapabilityDataPublishable publishable;
 
     public MetaobjectCapabilityData build() {
@@ -85,17 +71,13 @@ public class MetaobjectCapabilityData {
       return result;
     }
 
-    /**
-     * The Online Store capability for this metaobject.
-     */
+    
     public Builder onlineStore(MetaobjectCapabilityDataOnlineStore onlineStore) {
       this.onlineStore = onlineStore;
       return this;
     }
 
-    /**
-     * The publishable capability for this metaobject.
-     */
+    
     public Builder publishable(MetaobjectCapabilityDataPublishable publishable) {
       this.publishable = publishable;
       return this;

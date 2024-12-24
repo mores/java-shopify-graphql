@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for specifying an open order to close.
- */
+
 public class OrderCloseInput {
-  /**
-   * The ID of the order to close.
-   */
+  
   private String id;
 
   public OrderCloseInput() {
   }
 
-  /**
-   * The ID of the order to close.
-   */
+  
   public String getId() {
     return id;
   }
@@ -51,9 +45,7 @@ public class OrderCloseInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the order to close.
-     */
+    
     private String id;
 
     public OrderCloseInput build() {
@@ -62,9 +54,7 @@ public class OrderCloseInput {
       return result;
     }
 
-    /**
-     * The ID of the order to close.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;

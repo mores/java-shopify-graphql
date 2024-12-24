@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `draftOrderBulkDelete` mutation.
- */
+
 public class DraftOrderBulkDeletePayload {
-  /**
-   * The asynchronous job for deleting the draft orders.
-   */
+  
   private Job job;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public DraftOrderBulkDeletePayload() {
   }
 
-  /**
-   * The asynchronous job for deleting the draft orders.
-   */
+  
   public Job getJob() {
     return job;
   }
@@ -34,9 +26,7 @@ public class DraftOrderBulkDeletePayload {
     this.job = job;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class DraftOrderBulkDeletePayload {
   }
 
   public static class Builder {
-    /**
-     * The asynchronous job for deleting the draft orders.
-     */
+    
     private Job job;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public DraftOrderBulkDeletePayload build() {
@@ -86,17 +72,13 @@ public class DraftOrderBulkDeletePayload {
       return result;
     }
 
-    /**
-     * The asynchronous job for deleting the draft orders.
-     */
+    
     public Builder job(Job job) {
       this.job = job;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

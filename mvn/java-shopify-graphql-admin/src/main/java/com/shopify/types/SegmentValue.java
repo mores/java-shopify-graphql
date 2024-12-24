@@ -5,28 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A list of suggested values associated with an individual segment. A
- * segment is a group of members, such as customers, that meet specific
- * criteria.
- */
+
 public class SegmentValue {
-  /**
-   * The localized version of the value's name. This name is displayed to the merchant.
-   */
+  
   private String localizedValue;
 
-  /**
-   * The name of the query associated with the suggestion.
-   */
+  
   private String queryName;
 
   public SegmentValue() {
   }
 
-  /**
-   * The localized version of the value's name. This name is displayed to the merchant.
-   */
+  
   public String getLocalizedValue() {
     return localizedValue;
   }
@@ -35,9 +25,7 @@ public class SegmentValue {
     this.localizedValue = localizedValue;
   }
 
-  /**
-   * The name of the query associated with the suggestion.
-   */
+  
   public String getQueryName() {
     return queryName;
   }
@@ -70,14 +58,10 @@ public class SegmentValue {
   }
 
   public static class Builder {
-    /**
-     * The localized version of the value's name. This name is displayed to the merchant.
-     */
+    
     private String localizedValue;
 
-    /**
-     * The name of the query associated with the suggestion.
-     */
+    
     private String queryName;
 
     public SegmentValue build() {
@@ -87,17 +71,13 @@ public class SegmentValue {
       return result;
     }
 
-    /**
-     * The localized version of the value's name. This name is displayed to the merchant.
-     */
+    
     public Builder localizedValue(String localizedValue) {
       this.localizedValue = localizedValue;
       return this;
     }
 
-    /**
-     * The name of the query associated with the suggestion.
-     */
+    
     public Builder queryName(String queryName) {
       this.queryName = queryName;
       return this;

@@ -7,96 +7,60 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * A shipping profile. In Shopify, a shipping profile is a set of shipping rates
- * scoped to a set of products or variants that can be shipped from selected
- * locations to zones. Learn more about [building with delivery profiles](https://shopify.dev/apps/build/purchase-options/deferred/delivery-and-deferment/build-delivery-profiles).
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DeliveryProfile implements com.shopify.types.Node {
-  /**
-   * The number of active shipping rates for the profile.
-   */
+  
   private int activeMethodDefinitionsCount;
 
-  /**
-   * Whether this is the default profile.
-   */
+  
   private boolean _default;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * Whether this shop has enabled legacy compatibility mode for delivery profiles.
-   */
+  
   private boolean legacyMode;
 
-  /**
-   * The number of locations without rates defined.
-   */
+  
   private int locationsWithoutRatesCount;
 
-  /**
-   * The name of the delivery profile.
-   */
+  
   private String name;
 
-  /**
-   * The number of active origin locations for the profile.
-   */
+  
   private int originLocationCount;
 
-  /**
-   * How many product variants are in this profile.
-   */
+  
   private Count productVariantsCount;
 
-  /**
-   * How many product variants are in this profile.
-   */
+  
   private DeliveryProductVariantsCount productVariantsCountV2;
 
-  /**
-   * The products and variants associated with this profile.
-   */
+  
   private DeliveryProfileItemConnection profileItems;
 
-  /**
-   * The location groups and associated zones using this profile.
-   */
+  
   private List<DeliveryProfileLocationGroup> profileLocationGroups;
 
-  /**
-   * Selling plan groups associated with the specified delivery profile.
-   */
+  
   private SellingPlanGroupConnection sellingPlanGroups;
 
-  /**
-   * List of locations that haven't been assigned to a location group for this profile.
-   */
+  
   private List<Location> unassignedLocations;
 
-  /**
-   * List of locations that have not been assigned to a location group for this profile.
-   */
+  
   private LocationConnection unassignedLocationsPaginated;
 
-  /**
-   * The number of countries with active rates to deliver to.
-   */
+  
   private int zoneCountryCount;
 
   public DeliveryProfile() {
   }
 
-  /**
-   * The number of active shipping rates for the profile.
-   */
+  
   public int getActiveMethodDefinitionsCount() {
     return activeMethodDefinitionsCount;
   }
@@ -105,9 +69,7 @@ public class DeliveryProfile implements com.shopify.types.Node {
     this.activeMethodDefinitionsCount = activeMethodDefinitionsCount;
   }
 
-  /**
-   * Whether this is the default profile.
-   */
+  
   public boolean getDefault() {
     return _default;
   }
@@ -116,9 +78,7 @@ public class DeliveryProfile implements com.shopify.types.Node {
     this._default = _default;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -127,9 +87,7 @@ public class DeliveryProfile implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * Whether this shop has enabled legacy compatibility mode for delivery profiles.
-   */
+  
   public boolean getLegacyMode() {
     return legacyMode;
   }
@@ -138,9 +96,7 @@ public class DeliveryProfile implements com.shopify.types.Node {
     this.legacyMode = legacyMode;
   }
 
-  /**
-   * The number of locations without rates defined.
-   */
+  
   public int getLocationsWithoutRatesCount() {
     return locationsWithoutRatesCount;
   }
@@ -149,9 +105,7 @@ public class DeliveryProfile implements com.shopify.types.Node {
     this.locationsWithoutRatesCount = locationsWithoutRatesCount;
   }
 
-  /**
-   * The name of the delivery profile.
-   */
+  
   public String getName() {
     return name;
   }
@@ -160,9 +114,7 @@ public class DeliveryProfile implements com.shopify.types.Node {
     this.name = name;
   }
 
-  /**
-   * The number of active origin locations for the profile.
-   */
+  
   public int getOriginLocationCount() {
     return originLocationCount;
   }
@@ -171,9 +123,7 @@ public class DeliveryProfile implements com.shopify.types.Node {
     this.originLocationCount = originLocationCount;
   }
 
-  /**
-   * How many product variants are in this profile.
-   */
+  
   public Count getProductVariantsCount() {
     return productVariantsCount;
   }
@@ -182,9 +132,7 @@ public class DeliveryProfile implements com.shopify.types.Node {
     this.productVariantsCount = productVariantsCount;
   }
 
-  /**
-   * How many product variants are in this profile.
-   */
+  
   public DeliveryProductVariantsCount getProductVariantsCountV2() {
     return productVariantsCountV2;
   }
@@ -193,9 +141,7 @@ public class DeliveryProfile implements com.shopify.types.Node {
     this.productVariantsCountV2 = productVariantsCountV2;
   }
 
-  /**
-   * The products and variants associated with this profile.
-   */
+  
   public DeliveryProfileItemConnection getProfileItems() {
     return profileItems;
   }
@@ -204,9 +150,7 @@ public class DeliveryProfile implements com.shopify.types.Node {
     this.profileItems = profileItems;
   }
 
-  /**
-   * The location groups and associated zones using this profile.
-   */
+  
   public List<DeliveryProfileLocationGroup> getProfileLocationGroups() {
     return profileLocationGroups;
   }
@@ -215,9 +159,7 @@ public class DeliveryProfile implements com.shopify.types.Node {
     this.profileLocationGroups = profileLocationGroups;
   }
 
-  /**
-   * Selling plan groups associated with the specified delivery profile.
-   */
+  
   public SellingPlanGroupConnection getSellingPlanGroups() {
     return sellingPlanGroups;
   }
@@ -226,9 +168,7 @@ public class DeliveryProfile implements com.shopify.types.Node {
     this.sellingPlanGroups = sellingPlanGroups;
   }
 
-  /**
-   * List of locations that haven't been assigned to a location group for this profile.
-   */
+  
   public List<Location> getUnassignedLocations() {
     return unassignedLocations;
   }
@@ -237,9 +177,7 @@ public class DeliveryProfile implements com.shopify.types.Node {
     this.unassignedLocations = unassignedLocations;
   }
 
-  /**
-   * List of locations that have not been assigned to a location group for this profile.
-   */
+  
   public LocationConnection getUnassignedLocationsPaginated() {
     return unassignedLocationsPaginated;
   }
@@ -248,9 +186,7 @@ public class DeliveryProfile implements com.shopify.types.Node {
     this.unassignedLocationsPaginated = unassignedLocationsPaginated;
   }
 
-  /**
-   * The number of countries with active rates to deliver to.
-   */
+  
   public int getZoneCountryCount() {
     return zoneCountryCount;
   }
@@ -296,79 +232,49 @@ public class DeliveryProfile implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * The number of active shipping rates for the profile.
-     */
+    
     private int activeMethodDefinitionsCount;
 
-    /**
-     * Whether this is the default profile.
-     */
+    
     private boolean _default;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * Whether this shop has enabled legacy compatibility mode for delivery profiles.
-     */
+    
     private boolean legacyMode;
 
-    /**
-     * The number of locations without rates defined.
-     */
+    
     private int locationsWithoutRatesCount;
 
-    /**
-     * The name of the delivery profile.
-     */
+    
     private String name;
 
-    /**
-     * The number of active origin locations for the profile.
-     */
+    
     private int originLocationCount;
 
-    /**
-     * How many product variants are in this profile.
-     */
+    
     private Count productVariantsCount;
 
-    /**
-     * How many product variants are in this profile.
-     */
+    
     private DeliveryProductVariantsCount productVariantsCountV2;
 
-    /**
-     * The products and variants associated with this profile.
-     */
+    
     private DeliveryProfileItemConnection profileItems;
 
-    /**
-     * The location groups and associated zones using this profile.
-     */
+    
     private List<DeliveryProfileLocationGroup> profileLocationGroups;
 
-    /**
-     * Selling plan groups associated with the specified delivery profile.
-     */
+    
     private SellingPlanGroupConnection sellingPlanGroups;
 
-    /**
-     * List of locations that haven't been assigned to a location group for this profile.
-     */
+    
     private List<Location> unassignedLocations;
 
-    /**
-     * List of locations that have not been assigned to a location group for this profile.
-     */
+    
     private LocationConnection unassignedLocationsPaginated;
 
-    /**
-     * The number of countries with active rates to deliver to.
-     */
+    
     private int zoneCountryCount;
 
     public DeliveryProfile build() {
@@ -391,121 +297,91 @@ public class DeliveryProfile implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * The number of active shipping rates for the profile.
-     */
+    
     public Builder activeMethodDefinitionsCount(int activeMethodDefinitionsCount) {
       this.activeMethodDefinitionsCount = activeMethodDefinitionsCount;
       return this;
     }
 
-    /**
-     * Whether this is the default profile.
-     */
+    
     public Builder _default(boolean _default) {
       this._default = _default;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * Whether this shop has enabled legacy compatibility mode for delivery profiles.
-     */
+    
     public Builder legacyMode(boolean legacyMode) {
       this.legacyMode = legacyMode;
       return this;
     }
 
-    /**
-     * The number of locations without rates defined.
-     */
+    
     public Builder locationsWithoutRatesCount(int locationsWithoutRatesCount) {
       this.locationsWithoutRatesCount = locationsWithoutRatesCount;
       return this;
     }
 
-    /**
-     * The name of the delivery profile.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The number of active origin locations for the profile.
-     */
+    
     public Builder originLocationCount(int originLocationCount) {
       this.originLocationCount = originLocationCount;
       return this;
     }
 
-    /**
-     * How many product variants are in this profile.
-     */
+    
     public Builder productVariantsCount(Count productVariantsCount) {
       this.productVariantsCount = productVariantsCount;
       return this;
     }
 
-    /**
-     * How many product variants are in this profile.
-     */
+    
     public Builder productVariantsCountV2(DeliveryProductVariantsCount productVariantsCountV2) {
       this.productVariantsCountV2 = productVariantsCountV2;
       return this;
     }
 
-    /**
-     * The products and variants associated with this profile.
-     */
+    
     public Builder profileItems(DeliveryProfileItemConnection profileItems) {
       this.profileItems = profileItems;
       return this;
     }
 
-    /**
-     * The location groups and associated zones using this profile.
-     */
+    
     public Builder profileLocationGroups(List<DeliveryProfileLocationGroup> profileLocationGroups) {
       this.profileLocationGroups = profileLocationGroups;
       return this;
     }
 
-    /**
-     * Selling plan groups associated with the specified delivery profile.
-     */
+    
     public Builder sellingPlanGroups(SellingPlanGroupConnection sellingPlanGroups) {
       this.sellingPlanGroups = sellingPlanGroups;
       return this;
     }
 
-    /**
-     * List of locations that haven't been assigned to a location group for this profile.
-     */
+    
     public Builder unassignedLocations(List<Location> unassignedLocations) {
       this.unassignedLocations = unassignedLocations;
       return this;
     }
 
-    /**
-     * List of locations that have not been assigned to a location group for this profile.
-     */
+    
     public Builder unassignedLocationsPaginated(LocationConnection unassignedLocationsPaginated) {
       this.unassignedLocationsPaginated = unassignedLocationsPaginated;
       return this;
     }
 
-    /**
-     * The number of countries with active rates to deliver to.
-     */
+    
     public Builder zoneCountryCount(int zoneCountryCount) {
       this.zoneCountryCount = zoneCountryCount;
       return this;

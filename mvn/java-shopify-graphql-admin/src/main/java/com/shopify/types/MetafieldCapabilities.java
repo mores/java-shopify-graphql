@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Provides the capabilities of a metafield definition.
- */
+
 public class MetafieldCapabilities {
-  /**
-   * Indicate whether a metafield definition is configured for filtering.
-   */
+  
   private MetafieldCapabilityAdminFilterable adminFilterable;
 
-  /**
-   * Indicate whether a metafield definition can be used as a smart collection condition.
-   */
+  
   private MetafieldCapabilitySmartCollectionCondition smartCollectionCondition;
 
   public MetafieldCapabilities() {
   }
 
-  /**
-   * Indicate whether a metafield definition is configured for filtering.
-   */
+  
   public MetafieldCapabilityAdminFilterable getAdminFilterable() {
     return adminFilterable;
   }
@@ -33,9 +25,7 @@ public class MetafieldCapabilities {
     this.adminFilterable = adminFilterable;
   }
 
-  /**
-   * Indicate whether a metafield definition can be used as a smart collection condition.
-   */
+  
   public MetafieldCapabilitySmartCollectionCondition getSmartCollectionCondition() {
     return smartCollectionCondition;
   }
@@ -69,14 +59,10 @@ public class MetafieldCapabilities {
   }
 
   public static class Builder {
-    /**
-     * Indicate whether a metafield definition is configured for filtering.
-     */
+    
     private MetafieldCapabilityAdminFilterable adminFilterable;
 
-    /**
-     * Indicate whether a metafield definition can be used as a smart collection condition.
-     */
+    
     private MetafieldCapabilitySmartCollectionCondition smartCollectionCondition;
 
     public MetafieldCapabilities build() {
@@ -86,17 +72,13 @@ public class MetafieldCapabilities {
       return result;
     }
 
-    /**
-     * Indicate whether a metafield definition is configured for filtering.
-     */
+    
     public Builder adminFilterable(MetafieldCapabilityAdminFilterable adminFilterable) {
       this.adminFilterable = adminFilterable;
       return this;
     }
 
-    /**
-     * Indicate whether a metafield definition can be used as a smart collection condition.
-     */
+    
     public Builder smartCollectionCondition(
         MetafieldCapabilitySmartCollectionCondition smartCollectionCondition) {
       this.smartCollectionCondition = smartCollectionCondition;

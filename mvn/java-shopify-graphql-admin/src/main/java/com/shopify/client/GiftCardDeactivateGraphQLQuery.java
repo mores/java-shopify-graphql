@@ -6,10 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Deactivate a gift card. A deactivated gift card cannot be used by a customer.
- * A deactivated gift card cannot be re-enabled.
- */
+
 public class GiftCardDeactivateGraphQLQuery extends GraphQLQuery {
   public GiftCardDeactivateGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -43,9 +40,7 @@ public class GiftCardDeactivateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the gift card to deactivate.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

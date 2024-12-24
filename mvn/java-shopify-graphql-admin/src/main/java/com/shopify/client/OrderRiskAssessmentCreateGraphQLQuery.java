@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Create a risk assessment for an order.
- */
+
 public class OrderRiskAssessmentCreateGraphQLQuery extends GraphQLQuery {
   public OrderRiskAssessmentCreateGraphQLQuery(
       OrderRiskAssessmentCreateInput orderRiskAssessmentInput, String queryName,
@@ -45,9 +43,7 @@ public class OrderRiskAssessmentCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The input fields required to create a risk assessment.
-     */
+    
     public Builder orderRiskAssessmentInput(
         OrderRiskAssessmentCreateInput orderRiskAssessmentInput) {
       this.orderRiskAssessmentInput = orderRiskAssessmentInput;

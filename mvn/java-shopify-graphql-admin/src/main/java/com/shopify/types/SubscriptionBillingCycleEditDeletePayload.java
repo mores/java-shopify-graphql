@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `subscriptionBillingCycleEditDelete` mutation.
- */
+
 public class SubscriptionBillingCycleEditDeletePayload {
-  /**
-   * The list of updated billing cycles.
-   */
+  
   private List<SubscriptionBillingCycle> billingCycles;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<SubscriptionBillingCycleUserError> userErrors;
 
   public SubscriptionBillingCycleEditDeletePayload() {
   }
 
-  /**
-   * The list of updated billing cycles.
-   */
+  
   public List<SubscriptionBillingCycle> getBillingCycles() {
     return billingCycles;
   }
@@ -34,9 +26,7 @@ public class SubscriptionBillingCycleEditDeletePayload {
     this.billingCycles = billingCycles;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<SubscriptionBillingCycleUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class SubscriptionBillingCycleEditDeletePayload {
   }
 
   public static class Builder {
-    /**
-     * The list of updated billing cycles.
-     */
+    
     private List<SubscriptionBillingCycle> billingCycles;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<SubscriptionBillingCycleUserError> userErrors;
 
     public SubscriptionBillingCycleEditDeletePayload build() {
@@ -86,17 +72,13 @@ public class SubscriptionBillingCycleEditDeletePayload {
       return result;
     }
 
-    /**
-     * The list of updated billing cycles.
-     */
+    
     public Builder billingCycles(List<SubscriptionBillingCycle> billingCycles) {
       this.billingCycles = billingCycles;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<SubscriptionBillingCycleUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

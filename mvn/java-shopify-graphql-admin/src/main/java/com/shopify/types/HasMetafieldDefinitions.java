@@ -3,9 +3,7 @@ package com.shopify.types;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
-/**
- * Resources that metafield definitions can be applied to.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
     include = JsonTypeInfo.As.PROPERTY,
@@ -33,8 +31,6 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
     @JsonSubTypes.Type(value = Validation.class, name = "Validation")
 })
 public interface HasMetafieldDefinitions {
-  /**
-   * List of metafield definitions.
-   */
+  
   MetafieldDefinitionConnection getMetafieldDefinitions();
 }

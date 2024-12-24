@@ -6,11 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns an
- * [InventoryItem](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryItem)
- * object by ID.
- */
+
 public class InventoryItemGraphQLQuery extends GraphQLQuery {
   public InventoryItemGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -44,9 +40,7 @@ public class InventoryItemGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the `InventoryItem` to return.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for which customers to add to or remove from the discount.
- */
+
 public class DiscountCustomersInput {
-  /**
-   * A list of customers to add to the current list of customers who can use the discount.
-   */
+  
   private List<String> add;
 
-  /**
-   * A list of customers to remove from the current list of customers who can use the discount.
-   */
+  
   private List<String> remove;
 
   public DiscountCustomersInput() {
   }
 
-  /**
-   * A list of customers to add to the current list of customers who can use the discount.
-   */
+  
   public List<String> getAdd() {
     return add;
   }
@@ -34,9 +26,7 @@ public class DiscountCustomersInput {
     this.add = add;
   }
 
-  /**
-   * A list of customers to remove from the current list of customers who can use the discount.
-   */
+  
   public List<String> getRemove() {
     return remove;
   }
@@ -69,14 +59,10 @@ public class DiscountCustomersInput {
   }
 
   public static class Builder {
-    /**
-     * A list of customers to add to the current list of customers who can use the discount.
-     */
+    
     private List<String> add;
 
-    /**
-     * A list of customers to remove from the current list of customers who can use the discount.
-     */
+    
     private List<String> remove;
 
     public DiscountCustomersInput build() {
@@ -86,17 +72,13 @@ public class DiscountCustomersInput {
       return result;
     }
 
-    /**
-     * A list of customers to add to the current list of customers who can use the discount.
-     */
+    
     public Builder add(List<String> add) {
       this.add = add;
       return this;
     }
 
-    /**
-     * A list of customers to remove from the current list of customers who can use the discount.
-     */
+    
     public Builder remove(List<String> remove) {
       this.remove = remove;
       return this;

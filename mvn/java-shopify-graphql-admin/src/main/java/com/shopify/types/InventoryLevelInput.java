@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for an inventory level.
- */
+
 public class InventoryLevelInput {
-  /**
-   * The available quantity of an inventory item at a location.
-   */
+  
   private int availableQuantity;
 
-  /**
-   * The ID of a location associated with the inventory level.
-   */
+  
   private String locationId;
 
   public InventoryLevelInput() {
   }
 
-  /**
-   * The available quantity of an inventory item at a location.
-   */
+  
   public int getAvailableQuantity() {
     return availableQuantity;
   }
@@ -33,9 +25,7 @@ public class InventoryLevelInput {
     this.availableQuantity = availableQuantity;
   }
 
-  /**
-   * The ID of a location associated with the inventory level.
-   */
+  
   public String getLocationId() {
     return locationId;
   }
@@ -68,14 +58,10 @@ public class InventoryLevelInput {
   }
 
   public static class Builder {
-    /**
-     * The available quantity of an inventory item at a location.
-     */
+    
     private int availableQuantity;
 
-    /**
-     * The ID of a location associated with the inventory level.
-     */
+    
     private String locationId;
 
     public InventoryLevelInput build() {
@@ -85,17 +71,13 @@ public class InventoryLevelInput {
       return result;
     }
 
-    /**
-     * The available quantity of an inventory item at a location.
-     */
+    
     public Builder availableQuantity(int availableQuantity) {
       this.availableQuantity = availableQuantity;
       return this;
     }
 
-    /**
-     * The ID of a location associated with the inventory level.
-     */
+    
     public Builder locationId(String locationId) {
       this.locationId = locationId;
       return this;

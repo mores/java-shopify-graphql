@@ -6,45 +6,30 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Quantity price breaks lets you offer different rates that are based on the
- * amount of a specific variant being ordered.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class QuantityPriceBreak implements com.shopify.types.Node {
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * Minimum quantity required to reach new quantity break price.
-   */
+  
   private int minimumQuantity;
 
-  /**
-   * The price of variant after reaching the minimum quanity.
-   */
+  
   private MoneyV2 price;
 
-  /**
-   * The price list associated with this quantity break.
-   */
+  
   private PriceList priceList;
 
-  /**
-   * The product variant associated with this quantity break.
-   */
+  
   private ProductVariant variant;
 
   public QuantityPriceBreak() {
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -53,9 +38,7 @@ public class QuantityPriceBreak implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * Minimum quantity required to reach new quantity break price.
-   */
+  
   public int getMinimumQuantity() {
     return minimumQuantity;
   }
@@ -64,9 +47,7 @@ public class QuantityPriceBreak implements com.shopify.types.Node {
     this.minimumQuantity = minimumQuantity;
   }
 
-  /**
-   * The price of variant after reaching the minimum quanity.
-   */
+  
   public MoneyV2 getPrice() {
     return price;
   }
@@ -75,9 +56,7 @@ public class QuantityPriceBreak implements com.shopify.types.Node {
     this.price = price;
   }
 
-  /**
-   * The price list associated with this quantity break.
-   */
+  
   public PriceList getPriceList() {
     return priceList;
   }
@@ -86,9 +65,7 @@ public class QuantityPriceBreak implements com.shopify.types.Node {
     this.priceList = priceList;
   }
 
-  /**
-   * The product variant associated with this quantity break.
-   */
+  
   public ProductVariant getVariant() {
     return variant;
   }
@@ -124,29 +101,19 @@ public class QuantityPriceBreak implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * Minimum quantity required to reach new quantity break price.
-     */
+    
     private int minimumQuantity;
 
-    /**
-     * The price of variant after reaching the minimum quanity.
-     */
+    
     private MoneyV2 price;
 
-    /**
-     * The price list associated with this quantity break.
-     */
+    
     private PriceList priceList;
 
-    /**
-     * The product variant associated with this quantity break.
-     */
+    
     private ProductVariant variant;
 
     public QuantityPriceBreak build() {
@@ -159,41 +126,31 @@ public class QuantityPriceBreak implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * Minimum quantity required to reach new quantity break price.
-     */
+    
     public Builder minimumQuantity(int minimumQuantity) {
       this.minimumQuantity = minimumQuantity;
       return this;
     }
 
-    /**
-     * The price of variant after reaching the minimum quanity.
-     */
+    
     public Builder price(MoneyV2 price) {
       this.price = price;
       return this;
     }
 
-    /**
-     * The price list associated with this quantity break.
-     */
+    
     public Builder priceList(PriceList priceList) {
       this.priceList = priceList;
       return this;
     }
 
-    /**
-     * The product variant associated with this quantity break.
-     */
+    
     public Builder variant(ProductVariant variant) {
       this.variant = variant;
       return this;

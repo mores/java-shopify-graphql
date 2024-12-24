@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The Online Store capability of a metaobject definition.
- */
+
 public class MetaobjectCapabilitiesOnlineStore {
-  /**
-   * The data associated with the Online Store capability.
-   */
+  
   private MetaobjectCapabilityDefinitionDataOnlineStore data;
 
-  /**
-   * Indicates if the capability is enabled.
-   */
+  
   private boolean enabled;
 
   public MetaobjectCapabilitiesOnlineStore() {
   }
 
-  /**
-   * The data associated with the Online Store capability.
-   */
+  
   public MetaobjectCapabilityDefinitionDataOnlineStore getData() {
     return data;
   }
@@ -33,9 +25,7 @@ public class MetaobjectCapabilitiesOnlineStore {
     this.data = data;
   }
 
-  /**
-   * Indicates if the capability is enabled.
-   */
+  
   public boolean getEnabled() {
     return enabled;
   }
@@ -68,14 +58,10 @@ public class MetaobjectCapabilitiesOnlineStore {
   }
 
   public static class Builder {
-    /**
-     * The data associated with the Online Store capability.
-     */
+    
     private MetaobjectCapabilityDefinitionDataOnlineStore data;
 
-    /**
-     * Indicates if the capability is enabled.
-     */
+    
     private boolean enabled;
 
     public MetaobjectCapabilitiesOnlineStore build() {
@@ -85,17 +71,13 @@ public class MetaobjectCapabilitiesOnlineStore {
       return result;
     }
 
-    /**
-     * The data associated with the Online Store capability.
-     */
+    
     public Builder data(MetaobjectCapabilityDefinitionDataOnlineStore data) {
       this.data = data;
       return this;
     }
 
-    /**
-     * Indicates if the capability is enabled.
-     */
+    
     public Builder enabled(boolean enabled) {
       this.enabled = enabled;
       return this;

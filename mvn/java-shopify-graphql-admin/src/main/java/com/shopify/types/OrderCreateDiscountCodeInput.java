@@ -5,31 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for a discount code to apply to an order. Only one type of discount can be applied to an order.
- */
+
 public class OrderCreateDiscountCodeInput {
-  /**
-   * A percentage discount code applied to the line items on the order.
-   */
+  
   private OrderCreatePercentageDiscountCodeAttributesInput itemPercentageDiscountCode;
 
-  /**
-   * A fixed amount discount code applied to the line items on the order.
-   */
+  
   private OrderCreateFixedDiscountCodeAttributesInput itemFixedDiscountCode;
 
-  /**
-   * A free shipping discount code applied to the shipping on an order.
-   */
+  
   private OrderCreateFreeShippingDiscountCodeAttributesInput freeShippingDiscountCode;
 
   public OrderCreateDiscountCodeInput() {
   }
 
-  /**
-   * A percentage discount code applied to the line items on the order.
-   */
+  
   public OrderCreatePercentageDiscountCodeAttributesInput getItemPercentageDiscountCode() {
     return itemPercentageDiscountCode;
   }
@@ -39,9 +29,7 @@ public class OrderCreateDiscountCodeInput {
     this.itemPercentageDiscountCode = itemPercentageDiscountCode;
   }
 
-  /**
-   * A fixed amount discount code applied to the line items on the order.
-   */
+  
   public OrderCreateFixedDiscountCodeAttributesInput getItemFixedDiscountCode() {
     return itemFixedDiscountCode;
   }
@@ -51,9 +39,7 @@ public class OrderCreateDiscountCodeInput {
     this.itemFixedDiscountCode = itemFixedDiscountCode;
   }
 
-  /**
-   * A free shipping discount code applied to the shipping on an order.
-   */
+  
   public OrderCreateFreeShippingDiscountCodeAttributesInput getFreeShippingDiscountCode() {
     return freeShippingDiscountCode;
   }
@@ -88,19 +74,13 @@ public class OrderCreateDiscountCodeInput {
   }
 
   public static class Builder {
-    /**
-     * A percentage discount code applied to the line items on the order.
-     */
+    
     private OrderCreatePercentageDiscountCodeAttributesInput itemPercentageDiscountCode;
 
-    /**
-     * A fixed amount discount code applied to the line items on the order.
-     */
+    
     private OrderCreateFixedDiscountCodeAttributesInput itemFixedDiscountCode;
 
-    /**
-     * A free shipping discount code applied to the shipping on an order.
-     */
+    
     private OrderCreateFreeShippingDiscountCodeAttributesInput freeShippingDiscountCode;
 
     public OrderCreateDiscountCodeInput build() {
@@ -111,27 +91,21 @@ public class OrderCreateDiscountCodeInput {
       return result;
     }
 
-    /**
-     * A percentage discount code applied to the line items on the order.
-     */
+    
     public Builder itemPercentageDiscountCode(
         OrderCreatePercentageDiscountCodeAttributesInput itemPercentageDiscountCode) {
       this.itemPercentageDiscountCode = itemPercentageDiscountCode;
       return this;
     }
 
-    /**
-     * A fixed amount discount code applied to the line items on the order.
-     */
+    
     public Builder itemFixedDiscountCode(
         OrderCreateFixedDiscountCodeAttributesInput itemFixedDiscountCode) {
       this.itemFixedDiscountCode = itemFixedDiscountCode;
       return this;
     }
 
-    /**
-     * A free shipping discount code applied to the shipping on an order.
-     */
+    
     public Builder freeShippingDiscountCode(
         OrderCreateFreeShippingDiscountCodeAttributesInput freeShippingDiscountCode) {
       this.freeShippingDiscountCode = freeShippingDiscountCode;

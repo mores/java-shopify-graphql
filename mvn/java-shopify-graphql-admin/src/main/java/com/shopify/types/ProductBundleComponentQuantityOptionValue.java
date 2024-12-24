@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A quantity option value related to a componentized product.
- */
+
 public class ProductBundleComponentQuantityOptionValue {
-  /**
-   * The name of the option value.
-   */
+  
   private String name;
 
-  /**
-   * The quantity of the option value.
-   */
+  
   private int quantity;
 
   public ProductBundleComponentQuantityOptionValue() {
   }
 
-  /**
-   * The name of the option value.
-   */
+  
   public String getName() {
     return name;
   }
@@ -33,9 +25,7 @@ public class ProductBundleComponentQuantityOptionValue {
     this.name = name;
   }
 
-  /**
-   * The quantity of the option value.
-   */
+  
   public int getQuantity() {
     return quantity;
   }
@@ -68,14 +58,10 @@ public class ProductBundleComponentQuantityOptionValue {
   }
 
   public static class Builder {
-    /**
-     * The name of the option value.
-     */
+    
     private String name;
 
-    /**
-     * The quantity of the option value.
-     */
+    
     private int quantity;
 
     public ProductBundleComponentQuantityOptionValue build() {
@@ -85,17 +71,13 @@ public class ProductBundleComponentQuantityOptionValue {
       return result;
     }
 
-    /**
-     * The name of the option value.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The quantity of the option value.
-     */
+    
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;

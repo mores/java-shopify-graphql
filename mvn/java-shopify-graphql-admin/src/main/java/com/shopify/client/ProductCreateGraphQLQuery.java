@@ -9,12 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Creates a product.
- *   
- * Learn more about the [product model](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model)
- * and [adding product data](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model/add-data).
- */
+
 public class ProductCreateGraphQLQuery extends GraphQLQuery {
   public ProductCreateGraphQLQuery(ProductCreateInput product, List<CreateMediaInput> media,
       String queryName, Set<String> fieldsSet) {
@@ -53,18 +48,14 @@ public class ProductCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The properties of the new product.
-     */
+    
     public Builder product(ProductCreateInput product) {
       this.product = product;
       this.fieldsSet.add("product");
       return this;
     }
 
-    /**
-     * List of new media to be added to the product.
-     */
+    
     public Builder media(List<CreateMediaInput> media) {
       this.media = media;
       this.fieldsSet.add("media");

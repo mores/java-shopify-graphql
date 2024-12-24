@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `subscriptionContractProductChange` mutation.
- */
+
 public class SubscriptionContractProductChangePayload {
-  /**
-   * The new Subscription Contract object.
-   */
+  
   private SubscriptionContract contract;
 
-  /**
-   * The updated Subscription Line.
-   */
+  
   private SubscriptionLine lineUpdated;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<SubscriptionDraftUserError> userErrors;
 
   public SubscriptionContractProductChangePayload() {
   }
 
-  /**
-   * The new Subscription Contract object.
-   */
+  
   public SubscriptionContract getContract() {
     return contract;
   }
@@ -39,9 +29,7 @@ public class SubscriptionContractProductChangePayload {
     this.contract = contract;
   }
 
-  /**
-   * The updated Subscription Line.
-   */
+  
   public SubscriptionLine getLineUpdated() {
     return lineUpdated;
   }
@@ -50,9 +38,7 @@ public class SubscriptionContractProductChangePayload {
     this.lineUpdated = lineUpdated;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<SubscriptionDraftUserError> getUserErrors() {
     return userErrors;
   }
@@ -86,19 +72,13 @@ public class SubscriptionContractProductChangePayload {
   }
 
   public static class Builder {
-    /**
-     * The new Subscription Contract object.
-     */
+    
     private SubscriptionContract contract;
 
-    /**
-     * The updated Subscription Line.
-     */
+    
     private SubscriptionLine lineUpdated;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<SubscriptionDraftUserError> userErrors;
 
     public SubscriptionContractProductChangePayload build() {
@@ -109,25 +89,19 @@ public class SubscriptionContractProductChangePayload {
       return result;
     }
 
-    /**
-     * The new Subscription Contract object.
-     */
+    
     public Builder contract(SubscriptionContract contract) {
       this.contract = contract;
       return this;
     }
 
-    /**
-     * The updated Subscription Line.
-     */
+    
     public Builder lineUpdated(SubscriptionLine lineUpdated) {
       this.lineUpdated = lineUpdated;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<SubscriptionDraftUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Presents all Shopify Payments specific information related to an order refund.
- */
+
 public class ShopifyPaymentsRefundSet {
-  /**
-   * The acquirer reference number (ARN) code generated for Visa/Mastercard transactions.
-   */
+  
   private String acquirerReferenceNumber;
 
   public ShopifyPaymentsRefundSet() {
   }
 
-  /**
-   * The acquirer reference number (ARN) code generated for Visa/Mastercard transactions.
-   */
+  
   public String getAcquirerReferenceNumber() {
     return acquirerReferenceNumber;
   }
@@ -51,9 +45,7 @@ public class ShopifyPaymentsRefundSet {
   }
 
   public static class Builder {
-    /**
-     * The acquirer reference number (ARN) code generated for Visa/Mastercard transactions.
-     */
+    
     private String acquirerReferenceNumber;
 
     public ShopifyPaymentsRefundSet build() {
@@ -62,9 +54,7 @@ public class ShopifyPaymentsRefundSet {
       return result;
     }
 
-    /**
-     * The acquirer reference number (ARN) code generated for Visa/Mastercard transactions.
-     */
+    
     public Builder acquirerReferenceNumber(String acquirerReferenceNumber) {
       this.acquirerReferenceNumber = acquirerReferenceNumber;
       return this;

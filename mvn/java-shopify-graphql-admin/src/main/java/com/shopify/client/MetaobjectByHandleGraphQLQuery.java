@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Retrieves a metaobject by handle.
- */
+
 public class MetaobjectByHandleGraphQLQuery extends GraphQLQuery {
   public MetaobjectByHandleGraphQLQuery(MetaobjectHandleInput handle, String queryName,
       Set<String> fieldsSet) {
@@ -44,9 +42,7 @@ public class MetaobjectByHandleGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The identifier of the metaobject to return.
-     */
+    
     public Builder handle(MetaobjectHandleInput handle) {
       this.handle = handle;
       this.fieldsSet.add("handle");

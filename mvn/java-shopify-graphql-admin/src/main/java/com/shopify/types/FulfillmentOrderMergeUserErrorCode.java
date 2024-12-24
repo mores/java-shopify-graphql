@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible error codes that can be returned by `FulfillmentOrderMergeUserError`.
- */
+
 public enum FulfillmentOrderMergeUserErrorCode {
   FULFILLMENT_ORDER_NOT_FOUND,
 

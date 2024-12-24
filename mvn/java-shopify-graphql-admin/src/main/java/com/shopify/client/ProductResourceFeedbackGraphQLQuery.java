@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns the product resource feedback for the currently authenticated app.
- */
+
 public class ProductResourceFeedbackGraphQLQuery extends GraphQLQuery {
   public ProductResourceFeedbackGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -42,9 +40,7 @@ public class ProductResourceFeedbackGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The product associated with the resource feedback.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

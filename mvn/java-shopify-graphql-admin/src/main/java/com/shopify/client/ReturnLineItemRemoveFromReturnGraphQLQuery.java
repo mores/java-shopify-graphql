@@ -8,9 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Removes return lines from a return.
- */
+
 public class ReturnLineItemRemoveFromReturnGraphQLQuery extends GraphQLQuery {
   public ReturnLineItemRemoveFromReturnGraphQLQuery(String returnId,
       List<ReturnLineItemRemoveFromReturnInput> returnLineItems, String queryName,
@@ -50,18 +48,14 @@ public class ReturnLineItemRemoveFromReturnGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the return for line item removal.
-     */
+    
     public Builder returnId(String returnId) {
       this.returnId = returnId;
       this.fieldsSet.add("returnId");
       return this;
     }
 
-    /**
-     * The return line items to remove from the return.
-     */
+    
     public Builder returnLineItems(List<ReturnLineItemRemoveFromReturnInput> returnLineItems) {
       this.returnLineItems = returnLineItems;
       this.fieldsSet.add("returnLineItems");

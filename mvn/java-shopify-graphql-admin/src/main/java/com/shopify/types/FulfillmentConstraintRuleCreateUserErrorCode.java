@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible error codes that can be returned by `FulfillmentConstraintRuleCreateUserError`.
- */
+
 public enum FulfillmentConstraintRuleCreateUserErrorCode {
   INPUT_INVALID,
 

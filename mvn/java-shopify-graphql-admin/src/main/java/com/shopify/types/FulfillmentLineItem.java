@@ -7,54 +7,36 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents a line item from an order that's included in a fulfillment.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class FulfillmentLineItem implements com.shopify.types.Node {
-  /**
-   * The total price after discounts are applied.
-   */
+  
   private String discountedTotal;
 
-  /**
-   * The total price after discounts are applied in shop and presentment currencies.
-   */
+  
   private MoneyBag discountedTotalSet;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The associated order's line item.
-   */
+  
   private LineItem lineItem;
 
-  /**
-   * The total price before discounts are applied.
-   */
+  
   private String originalTotal;
 
-  /**
-   * The total price before discounts are applied in shop and presentment currencies.
-   */
+  
   private MoneyBag originalTotalSet;
 
-  /**
-   * Number of line items in the fulfillment.
-   */
+  
   private Integer quantity;
 
   public FulfillmentLineItem() {
   }
 
-  /**
-   * The total price after discounts are applied.
-   */
+  
   public String getDiscountedTotal() {
     return discountedTotal;
   }
@@ -63,9 +45,7 @@ public class FulfillmentLineItem implements com.shopify.types.Node {
     this.discountedTotal = discountedTotal;
   }
 
-  /**
-   * The total price after discounts are applied in shop and presentment currencies.
-   */
+  
   public MoneyBag getDiscountedTotalSet() {
     return discountedTotalSet;
   }
@@ -74,9 +54,7 @@ public class FulfillmentLineItem implements com.shopify.types.Node {
     this.discountedTotalSet = discountedTotalSet;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -85,9 +63,7 @@ public class FulfillmentLineItem implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The associated order's line item.
-   */
+  
   public LineItem getLineItem() {
     return lineItem;
   }
@@ -96,9 +72,7 @@ public class FulfillmentLineItem implements com.shopify.types.Node {
     this.lineItem = lineItem;
   }
 
-  /**
-   * The total price before discounts are applied.
-   */
+  
   public String getOriginalTotal() {
     return originalTotal;
   }
@@ -107,9 +81,7 @@ public class FulfillmentLineItem implements com.shopify.types.Node {
     this.originalTotal = originalTotal;
   }
 
-  /**
-   * The total price before discounts are applied in shop and presentment currencies.
-   */
+  
   public MoneyBag getOriginalTotalSet() {
     return originalTotalSet;
   }
@@ -118,9 +90,7 @@ public class FulfillmentLineItem implements com.shopify.types.Node {
     this.originalTotalSet = originalTotalSet;
   }
 
-  /**
-   * Number of line items in the fulfillment.
-   */
+  
   public Integer getQuantity() {
     return quantity;
   }
@@ -158,39 +128,25 @@ public class FulfillmentLineItem implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * The total price after discounts are applied.
-     */
+    
     private String discountedTotal;
 
-    /**
-     * The total price after discounts are applied in shop and presentment currencies.
-     */
+    
     private MoneyBag discountedTotalSet;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The associated order's line item.
-     */
+    
     private LineItem lineItem;
 
-    /**
-     * The total price before discounts are applied.
-     */
+    
     private String originalTotal;
 
-    /**
-     * The total price before discounts are applied in shop and presentment currencies.
-     */
+    
     private MoneyBag originalTotalSet;
 
-    /**
-     * Number of line items in the fulfillment.
-     */
+    
     private Integer quantity;
 
     public FulfillmentLineItem build() {
@@ -205,57 +161,43 @@ public class FulfillmentLineItem implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * The total price after discounts are applied.
-     */
+    
     public Builder discountedTotal(String discountedTotal) {
       this.discountedTotal = discountedTotal;
       return this;
     }
 
-    /**
-     * The total price after discounts are applied in shop and presentment currencies.
-     */
+    
     public Builder discountedTotalSet(MoneyBag discountedTotalSet) {
       this.discountedTotalSet = discountedTotalSet;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The associated order's line item.
-     */
+    
     public Builder lineItem(LineItem lineItem) {
       this.lineItem = lineItem;
       return this;
     }
 
-    /**
-     * The total price before discounts are applied.
-     */
+    
     public Builder originalTotal(String originalTotal) {
       this.originalTotal = originalTotal;
       return this;
     }
 
-    /**
-     * The total price before discounts are applied in shop and presentment currencies.
-     */
+    
     public Builder originalTotalSet(MoneyBag originalTotalSet) {
       this.originalTotalSet = originalTotalSet;
       return this;
     }
 
-    /**
-     * Number of line items in the fulfillment.
-     */
+    
     public Builder quantity(Integer quantity) {
       this.quantity = quantity;
       return this;

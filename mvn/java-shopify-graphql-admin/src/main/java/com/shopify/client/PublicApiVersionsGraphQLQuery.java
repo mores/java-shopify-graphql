@@ -6,10 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * The list of publicly-accessible Admin API versions, including supported
- * versions, the release candidate, and unstable versions.
- */
+
 public class PublicApiVersionsGraphQLQuery extends GraphQLQuery {
   public PublicApiVersionsGraphQLQuery(String queryName) {
     super("query", queryName);

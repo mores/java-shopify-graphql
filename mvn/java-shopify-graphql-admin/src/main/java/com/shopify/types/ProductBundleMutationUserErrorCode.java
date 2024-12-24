@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible error codes that can be returned by `ProductBundleMutationUserError`.
- */
+
 public enum ProductBundleMutationUserErrorCode {
   GENERIC_ERROR,
 

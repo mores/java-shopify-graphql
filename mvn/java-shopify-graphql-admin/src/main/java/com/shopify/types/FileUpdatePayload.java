@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `fileUpdate` mutation.
- */
+
 public class FileUpdatePayload {
-  /**
-   * The list of updated files.
-   */
+  
   private List<File> files;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<FilesUserError> userErrors;
 
   public FileUpdatePayload() {
   }
 
-  /**
-   * The list of updated files.
-   */
+  
   public List<File> getFiles() {
     return files;
   }
@@ -34,9 +26,7 @@ public class FileUpdatePayload {
     this.files = files;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<FilesUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class FileUpdatePayload {
   }
 
   public static class Builder {
-    /**
-     * The list of updated files.
-     */
+    
     private List<File> files;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<FilesUserError> userErrors;
 
     public FileUpdatePayload build() {
@@ -86,17 +72,13 @@ public class FileUpdatePayload {
       return result;
     }
 
-    /**
-     * The list of updated files.
-     */
+    
     public Builder files(List<File> files) {
       this.files = files;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<FilesUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

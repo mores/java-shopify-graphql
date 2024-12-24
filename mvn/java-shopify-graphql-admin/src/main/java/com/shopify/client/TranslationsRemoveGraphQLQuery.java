@@ -7,9 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Deletes translations.
- */
+
 public class TranslationsRemoveGraphQLQuery extends GraphQLQuery {
   public TranslationsRemoveGraphQLQuery(String resourceId, List<String> translationKeys,
       List<String> locales, List<String> marketIds, String queryName, Set<String> fieldsSet) {
@@ -56,36 +54,28 @@ public class TranslationsRemoveGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * ID of the translatable resource for which translations are being deleted.
-     */
+    
     public Builder resourceId(String resourceId) {
       this.resourceId = resourceId;
       this.fieldsSet.add("resourceId");
       return this;
     }
 
-    /**
-     * The list of translation keys.
-     */
+    
     public Builder translationKeys(List<String> translationKeys) {
       this.translationKeys = translationKeys;
       this.fieldsSet.add("translationKeys");
       return this;
     }
 
-    /**
-     * The list of translation locales. Only locales returned in `shopLocales` are valid.
-     */
+    
     public Builder locales(List<String> locales) {
       this.locales = locales;
       this.fieldsSet.add("locales");
       return this;
     }
 
-    /**
-     * The list of market IDs.
-     */
+    
     public Builder marketIds(List<String> marketIds) {
       this.marketIds = marketIds;
       this.fieldsSet.add("marketIds");

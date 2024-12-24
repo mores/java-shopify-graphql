@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * The Taxonomy resource lets you access the categories, attributes and values of the loaded taxonomy tree.
- */
+
 public class TaxonomyGraphQLQuery extends GraphQLQuery {
   public TaxonomyGraphQLQuery(String queryName) {
     super("query", queryName);

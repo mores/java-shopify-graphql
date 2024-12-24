@@ -6,29 +6,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The charge descriptors for a payments account.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ShopifyPaymentsDefaultChargeStatementDescriptor implements com.shopify.types.ShopifyPaymentsChargeStatementDescriptor {
-  /**
-   * The default charge statement descriptor.
-   */
+  
   private String _default;
 
-  /**
-   * The prefix of the statement descriptor.
-   */
+  
   private String prefix;
 
   public ShopifyPaymentsDefaultChargeStatementDescriptor() {
   }
 
-  /**
-   * The default charge statement descriptor.
-   */
+  
   public String getDefault() {
     return _default;
   }
@@ -37,9 +29,7 @@ public class ShopifyPaymentsDefaultChargeStatementDescriptor implements com.shop
     this._default = _default;
   }
 
-  /**
-   * The prefix of the statement descriptor.
-   */
+  
   public String getPrefix() {
     return prefix;
   }
@@ -72,14 +62,10 @@ public class ShopifyPaymentsDefaultChargeStatementDescriptor implements com.shop
   }
 
   public static class Builder {
-    /**
-     * The default charge statement descriptor.
-     */
+    
     private String _default;
 
-    /**
-     * The prefix of the statement descriptor.
-     */
+    
     private String prefix;
 
     public ShopifyPaymentsDefaultChargeStatementDescriptor build() {
@@ -89,17 +75,13 @@ public class ShopifyPaymentsDefaultChargeStatementDescriptor implements com.shop
       return result;
     }
 
-    /**
-     * The default charge statement descriptor.
-     */
+    
     public Builder _default(String _default) {
       this._default = _default;
       return this;
     }
 
-    /**
-     * The prefix of the statement descriptor.
-     */
+    
     public Builder prefix(String prefix) {
       this.prefix = prefix;
       return this;

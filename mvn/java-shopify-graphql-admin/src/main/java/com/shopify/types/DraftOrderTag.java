@@ -6,34 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents a draft order tag.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DraftOrderTag implements com.shopify.types.Node {
-  /**
-   * Handle of draft order tag.
-   */
+  
   private String handle;
 
-  /**
-   * ID of draft order tag.
-   */
+  
   private String id;
 
-  /**
-   * Title of draft order tag.
-   */
+  
   private String title;
 
   public DraftOrderTag() {
   }
 
-  /**
-   * Handle of draft order tag.
-   */
+  
   public String getHandle() {
     return handle;
   }
@@ -42,9 +32,7 @@ public class DraftOrderTag implements com.shopify.types.Node {
     this.handle = handle;
   }
 
-  /**
-   * ID of draft order tag.
-   */
+  
   public String getId() {
     return id;
   }
@@ -53,9 +41,7 @@ public class DraftOrderTag implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * Title of draft order tag.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -89,19 +75,13 @@ public class DraftOrderTag implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * Handle of draft order tag.
-     */
+    
     private String handle;
 
-    /**
-     * ID of draft order tag.
-     */
+    
     private String id;
 
-    /**
-     * Title of draft order tag.
-     */
+    
     private String title;
 
     public DraftOrderTag build() {
@@ -112,25 +92,19 @@ public class DraftOrderTag implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * Handle of draft order tag.
-     */
+    
     public Builder handle(String handle) {
       this.handle = handle;
       return this;
     }
 
-    /**
-     * ID of draft order tag.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * Title of draft order tag.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;

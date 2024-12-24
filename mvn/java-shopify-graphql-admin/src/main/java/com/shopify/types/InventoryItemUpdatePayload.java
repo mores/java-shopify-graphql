@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `inventoryItemUpdate` mutation.
- */
+
 public class InventoryItemUpdatePayload {
-  /**
-   * The inventory item that was updated.
-   */
+  
   private InventoryItem inventoryItem;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public InventoryItemUpdatePayload() {
   }
 
-  /**
-   * The inventory item that was updated.
-   */
+  
   public InventoryItem getInventoryItem() {
     return inventoryItem;
   }
@@ -34,9 +26,7 @@ public class InventoryItemUpdatePayload {
     this.inventoryItem = inventoryItem;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class InventoryItemUpdatePayload {
   }
 
   public static class Builder {
-    /**
-     * The inventory item that was updated.
-     */
+    
     private InventoryItem inventoryItem;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public InventoryItemUpdatePayload build() {
@@ -86,17 +72,13 @@ public class InventoryItemUpdatePayload {
       return result;
     }
 
-    /**
-     * The inventory item that was updated.
-     */
+    
     public Builder inventoryItem(InventoryItem inventoryItem) {
       this.inventoryItem = inventoryItem;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

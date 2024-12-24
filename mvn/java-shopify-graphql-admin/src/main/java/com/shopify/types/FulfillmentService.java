@@ -5,150 +5,42 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A **Fulfillment Service** is a third party warehouse that prepares and ships orders
- * on behalf of the store owner. Fulfillment services charge a fee to package and ship items
- * and update product inventory levels. Some well known fulfillment services with Shopify integrations
- * include: Amazon, Shipwire, and Rakuten. When an app registers a new `FulfillmentService` on a store,
- * Shopify automatically creates a `Location` that's associated to the fulfillment service.
- * To learn more about fulfillment services, refer to
- * [Manage fulfillments as a fulfillment service app](https://shopify.dev/apps/fulfillment/fulfillment-service-apps)
- * guide.
- *
- * ## Mutations
- *
- * You can work with the `FulfillmentService` object with the
- * [fulfillmentServiceCreate](https://shopify.dev/api/admin-graphql/latest/mutations/fulfillmentServiceCreate),
- * [fulfillmentServiceUpdate](https://shopify.dev/api/admin-graphql/latest/mutations/fulfillmentServiceUpdate),
- * and [fulfillmentServiceDelete](https://shopify.dev/api/admin-graphql/latest/mutations/fulfillmentServiceDelete)
- * mutations.
- *
- * ## Hosted endpoints
- *
- * Fulfillment service providers integrate with Shopify by providing Shopify with a set of hosted endpoints that
- * Shopify can query on certain conditions.
- * These endpoints must have a common prefix, and this prefix should be supplied in the `callbackUrl` parameter
- * in the
- * [fulfillmentServiceCreate](https://shopify.dev/api/admin-graphql/latest/mutations/fulfillmentServiceCreate)
- * mutation.
- *
- * - Shopify sends POST requests to the `<callbackUrl>/fulfillment_order_notification` endpoint
- *   to notify the fulfillment service about fulfillment requests and fulfillment cancellation requests.
- *
- *   For more information, refer to
- *   [Receive fulfillment requests and cancellations](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments#step-2-receive-fulfillment-requests-and-cancellations).
- * - Shopify sends GET requests to the `<callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers for orders,
- *   if `trackingSupport` is set to `true`.
- *
- *   For more information, refer to
- *   [Enable tracking support](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments#step-8-enable-tracking-support-optional).
- *
- *   Fulfillment services can also update tracking information with the
- *   [fulfillmentTrackingInfoUpdate](https://shopify.dev/api/admin-graphql/unstable/mutations/fulfillmentTrackingInfoUpdate) mutation,
- *   rather than waiting for Shopify to ask for tracking numbers.
- * - Shopify sends GET requests to the `<callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
- *   if `inventoryManagement` is set to `true`.
- *
- *   For more information, refer to
- *   [Sharing inventory levels with Shopify](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments#step-9-share-inventory-levels-with-shopify-optional).
- *
- * To make sure you have everything set up correctly, you can test the `callbackUrl`-prefixed endpoints
- * in your development store.
- *
- * ## Resources and webhooks
- *
- * There are a variety of objects and webhooks that enable a fulfillment service to work.
- * To exchange fulfillment information with Shopify, fulfillment services use the
- * [FulfillmentOrder](https://shopify.dev/api/admin-graphql/latest/objects/FulfillmentOrder),
- * [Fulfillment](https://shopify.dev/api/admin-graphql/latest/objects/Fulfillment) and
- * [Order](https://shopify.dev/api/admin-graphql/latest/objects/Order) objects and related mutations.
- * To act on fulfillment process events that happen on the Shopify side,
- * besides awaiting calls to `callbackUrl`-prefixed endpoints,
- * fulfillment services can subscribe to the
- * [fulfillment order](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments#webhooks)
- * and [order](https://shopify.dev/api/admin-rest/latest/resources/webhook)
- * webhooks.
- */
+
 public class FulfillmentService {
-  /**
-   * The callback URL that the fulfillment service has registered for requests. The following considerations apply:
-   *   
-   * - Shopify queries the `<callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
-   *     for orders, if `trackingSupport` is set to `true`.
-   * - Shopify queries the `<callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
-   *     if `inventoryManagement` is set to `true`.
-   * - Shopify uses the `<callbackUrl>/fulfillment_order_notification` endpoint to send
-   *     [fulfillment and cancellation requests](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments#step-2-receive-fulfillment-requests-and-cancellations),
-   *     if the fulfillment service has opted in to the fulfillment order based workflow for managing fulfillments
-   *     (`fulfillmentOrdersOptIn` is set to `true`).
-   */
+  
   private String callbackUrl;
 
-  /**
-   * Whether the fulfillment service uses the [fulfillment order based workflow](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments)
-   * for managing fulfillments.
-   *   
-   * As the migration is now finished, the `fulfillmentOrdersOptIn` property is [deprecated](
-   * https://shopify.dev/changelog/deprecation-of-the-fulfillmentservice-fulfillmentordersoptin-field)
-   * and is always set to `true` on correctly functioning fulfillment services.
-   */
+  
   private boolean fulfillmentOrdersOptIn;
 
-  /**
-   * Human-readable unique identifier for this fulfillment service.
-   */
+  
   private String handle;
 
-  /**
-   * The ID of the fulfillment service.
-   */
+  
   private String id;
 
-  /**
-   * Whether the fulfillment service tracks product inventory and provides updates to Shopify.
-   */
+  
   private boolean inventoryManagement;
 
-  /**
-   * Location associated with the fulfillment service.
-   */
+  
   private Location location;
 
-  /**
-   * Whether the fulfillment service can stock inventory alongside other locations.
-   */
+  
   private boolean permitsSkuSharing;
 
-  /**
-   * The name of the fulfillment service as seen by merchants.
-   */
+  
   private String serviceName;
 
-  /**
-   * Whether the fulfillment service implemented the /fetch_tracking_numbers endpoint.
-   */
+  
   private boolean trackingSupport;
 
-  /**
-   * Type associated with the fulfillment service.
-   */
+  
   private FulfillmentServiceType type;
 
   public FulfillmentService() {
   }
 
-  /**
-   * The callback URL that the fulfillment service has registered for requests. The following considerations apply:
-   *   
-   * - Shopify queries the `<callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
-   *     for orders, if `trackingSupport` is set to `true`.
-   * - Shopify queries the `<callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
-   *     if `inventoryManagement` is set to `true`.
-   * - Shopify uses the `<callbackUrl>/fulfillment_order_notification` endpoint to send
-   *     [fulfillment and cancellation requests](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments#step-2-receive-fulfillment-requests-and-cancellations),
-   *     if the fulfillment service has opted in to the fulfillment order based workflow for managing fulfillments
-   *     (`fulfillmentOrdersOptIn` is set to `true`).
-   */
+  
   public String getCallbackUrl() {
     return callbackUrl;
   }
@@ -157,14 +49,7 @@ public class FulfillmentService {
     this.callbackUrl = callbackUrl;
   }
 
-  /**
-   * Whether the fulfillment service uses the [fulfillment order based workflow](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments)
-   * for managing fulfillments.
-   *   
-   * As the migration is now finished, the `fulfillmentOrdersOptIn` property is [deprecated](
-   * https://shopify.dev/changelog/deprecation-of-the-fulfillmentservice-fulfillmentordersoptin-field)
-   * and is always set to `true` on correctly functioning fulfillment services.
-   */
+  
   public boolean getFulfillmentOrdersOptIn() {
     return fulfillmentOrdersOptIn;
   }
@@ -173,9 +58,7 @@ public class FulfillmentService {
     this.fulfillmentOrdersOptIn = fulfillmentOrdersOptIn;
   }
 
-  /**
-   * Human-readable unique identifier for this fulfillment service.
-   */
+  
   public String getHandle() {
     return handle;
   }
@@ -184,9 +67,7 @@ public class FulfillmentService {
     this.handle = handle;
   }
 
-  /**
-   * The ID of the fulfillment service.
-   */
+  
   public String getId() {
     return id;
   }
@@ -195,9 +76,7 @@ public class FulfillmentService {
     this.id = id;
   }
 
-  /**
-   * Whether the fulfillment service tracks product inventory and provides updates to Shopify.
-   */
+  
   public boolean getInventoryManagement() {
     return inventoryManagement;
   }
@@ -206,9 +85,7 @@ public class FulfillmentService {
     this.inventoryManagement = inventoryManagement;
   }
 
-  /**
-   * Location associated with the fulfillment service.
-   */
+  
   public Location getLocation() {
     return location;
   }
@@ -217,9 +94,7 @@ public class FulfillmentService {
     this.location = location;
   }
 
-  /**
-   * Whether the fulfillment service can stock inventory alongside other locations.
-   */
+  
   public boolean getPermitsSkuSharing() {
     return permitsSkuSharing;
   }
@@ -228,9 +103,7 @@ public class FulfillmentService {
     this.permitsSkuSharing = permitsSkuSharing;
   }
 
-  /**
-   * The name of the fulfillment service as seen by merchants.
-   */
+  
   public String getServiceName() {
     return serviceName;
   }
@@ -239,9 +112,7 @@ public class FulfillmentService {
     this.serviceName = serviceName;
   }
 
-  /**
-   * Whether the fulfillment service implemented the /fetch_tracking_numbers endpoint.
-   */
+  
   public boolean getTrackingSupport() {
     return trackingSupport;
   }
@@ -250,9 +121,7 @@ public class FulfillmentService {
     this.trackingSupport = trackingSupport;
   }
 
-  /**
-   * Type associated with the fulfillment service.
-   */
+  
   public FulfillmentServiceType getType() {
     return type;
   }
@@ -293,68 +162,34 @@ public class FulfillmentService {
   }
 
   public static class Builder {
-    /**
-     * The callback URL that the fulfillment service has registered for requests. The following considerations apply:
-     *   
-     * - Shopify queries the `<callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
-     *     for orders, if `trackingSupport` is set to `true`.
-     * - Shopify queries the `<callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
-     *     if `inventoryManagement` is set to `true`.
-     * - Shopify uses the `<callbackUrl>/fulfillment_order_notification` endpoint to send
-     *     [fulfillment and cancellation requests](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments#step-2-receive-fulfillment-requests-and-cancellations),
-     *     if the fulfillment service has opted in to the fulfillment order based workflow for managing fulfillments
-     *     (`fulfillmentOrdersOptIn` is set to `true`).
-     */
+    
     private String callbackUrl;
 
-    /**
-     * Whether the fulfillment service uses the [fulfillment order based workflow](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments)
-     * for managing fulfillments.
-     *   
-     * As the migration is now finished, the `fulfillmentOrdersOptIn` property is [deprecated](
-     * https://shopify.dev/changelog/deprecation-of-the-fulfillmentservice-fulfillmentordersoptin-field)
-     * and is always set to `true` on correctly functioning fulfillment services.
-     */
+    
     private boolean fulfillmentOrdersOptIn;
 
-    /**
-     * Human-readable unique identifier for this fulfillment service.
-     */
+    
     private String handle;
 
-    /**
-     * The ID of the fulfillment service.
-     */
+    
     private String id;
 
-    /**
-     * Whether the fulfillment service tracks product inventory and provides updates to Shopify.
-     */
+    
     private boolean inventoryManagement;
 
-    /**
-     * Location associated with the fulfillment service.
-     */
+    
     private Location location;
 
-    /**
-     * Whether the fulfillment service can stock inventory alongside other locations.
-     */
+    
     private boolean permitsSkuSharing;
 
-    /**
-     * The name of the fulfillment service as seen by merchants.
-     */
+    
     private String serviceName;
 
-    /**
-     * Whether the fulfillment service implemented the /fetch_tracking_numbers endpoint.
-     */
+    
     private boolean trackingSupport;
 
-    /**
-     * Type associated with the fulfillment service.
-     */
+    
     private FulfillmentServiceType type;
 
     public FulfillmentService build() {
@@ -372,95 +207,61 @@ public class FulfillmentService {
       return result;
     }
 
-    /**
-     * The callback URL that the fulfillment service has registered for requests. The following considerations apply:
-     *   
-     * - Shopify queries the `<callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
-     *     for orders, if `trackingSupport` is set to `true`.
-     * - Shopify queries the `<callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
-     *     if `inventoryManagement` is set to `true`.
-     * - Shopify uses the `<callbackUrl>/fulfillment_order_notification` endpoint to send
-     *     [fulfillment and cancellation requests](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments#step-2-receive-fulfillment-requests-and-cancellations),
-     *     if the fulfillment service has opted in to the fulfillment order based workflow for managing fulfillments
-     *     (`fulfillmentOrdersOptIn` is set to `true`).
-     */
+    
     public Builder callbackUrl(String callbackUrl) {
       this.callbackUrl = callbackUrl;
       return this;
     }
 
-    /**
-     * Whether the fulfillment service uses the [fulfillment order based workflow](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments)
-     * for managing fulfillments.
-     *   
-     * As the migration is now finished, the `fulfillmentOrdersOptIn` property is [deprecated](
-     * https://shopify.dev/changelog/deprecation-of-the-fulfillmentservice-fulfillmentordersoptin-field)
-     * and is always set to `true` on correctly functioning fulfillment services.
-     */
+    
     public Builder fulfillmentOrdersOptIn(boolean fulfillmentOrdersOptIn) {
       this.fulfillmentOrdersOptIn = fulfillmentOrdersOptIn;
       return this;
     }
 
-    /**
-     * Human-readable unique identifier for this fulfillment service.
-     */
+    
     public Builder handle(String handle) {
       this.handle = handle;
       return this;
     }
 
-    /**
-     * The ID of the fulfillment service.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * Whether the fulfillment service tracks product inventory and provides updates to Shopify.
-     */
+    
     public Builder inventoryManagement(boolean inventoryManagement) {
       this.inventoryManagement = inventoryManagement;
       return this;
     }
 
-    /**
-     * Location associated with the fulfillment service.
-     */
+    
     public Builder location(Location location) {
       this.location = location;
       return this;
     }
 
-    /**
-     * Whether the fulfillment service can stock inventory alongside other locations.
-     */
+    
     public Builder permitsSkuSharing(boolean permitsSkuSharing) {
       this.permitsSkuSharing = permitsSkuSharing;
       return this;
     }
 
-    /**
-     * The name of the fulfillment service as seen by merchants.
-     */
+    
     public Builder serviceName(String serviceName) {
       this.serviceName = serviceName;
       return this;
     }
 
-    /**
-     * Whether the fulfillment service implemented the /fetch_tracking_numbers endpoint.
-     */
+    
     public Builder trackingSupport(boolean trackingSupport) {
       this.trackingSupport = trackingSupport;
       return this;
     }
 
-    /**
-     * Type associated with the fulfillment service.
-     */
+    
     public Builder type(FulfillmentServiceType type) {
       this.type = type;
       return this;

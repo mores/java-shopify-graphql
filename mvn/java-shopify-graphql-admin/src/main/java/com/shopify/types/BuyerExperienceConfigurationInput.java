@@ -6,36 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields specifying the behavior of checkout for a B2B buyer.
- */
+
 public class BuyerExperienceConfigurationInput {
-  /**
-   * Whether to checkout to draft order for merchant review.
-   */
+  
   private Boolean checkoutToDraft;
 
-  /**
-   * Represents the merchant configured payment terms.
-   */
+  
   private String paymentTermsTemplateId;
 
-  /**
-   * Whether to allow customers to edit their shipping address at checkout.
-   */
+  
   private Boolean editableShippingAddress;
 
-  /**
-   * The input fields configuring the deposit a B2B buyer.
-   */
+  
   private DepositInput deposit;
 
   public BuyerExperienceConfigurationInput() {
   }
 
-  /**
-   * Whether to checkout to draft order for merchant review.
-   */
+  
   public Boolean getCheckoutToDraft() {
     return checkoutToDraft;
   }
@@ -44,9 +32,7 @@ public class BuyerExperienceConfigurationInput {
     this.checkoutToDraft = checkoutToDraft;
   }
 
-  /**
-   * Represents the merchant configured payment terms.
-   */
+  
   public String getPaymentTermsTemplateId() {
     return paymentTermsTemplateId;
   }
@@ -55,9 +41,7 @@ public class BuyerExperienceConfigurationInput {
     this.paymentTermsTemplateId = paymentTermsTemplateId;
   }
 
-  /**
-   * Whether to allow customers to edit their shipping address at checkout.
-   */
+  
   public Boolean getEditableShippingAddress() {
     return editableShippingAddress;
   }
@@ -66,9 +50,7 @@ public class BuyerExperienceConfigurationInput {
     this.editableShippingAddress = editableShippingAddress;
   }
 
-  /**
-   * The input fields configuring the deposit a B2B buyer.
-   */
+  
   public DepositInput getDeposit() {
     return deposit;
   }
@@ -103,24 +85,16 @@ public class BuyerExperienceConfigurationInput {
   }
 
   public static class Builder {
-    /**
-     * Whether to checkout to draft order for merchant review.
-     */
+    
     private Boolean checkoutToDraft;
 
-    /**
-     * Represents the merchant configured payment terms.
-     */
+    
     private String paymentTermsTemplateId;
 
-    /**
-     * Whether to allow customers to edit their shipping address at checkout.
-     */
+    
     private Boolean editableShippingAddress;
 
-    /**
-     * The input fields configuring the deposit a B2B buyer.
-     */
+    
     private DepositInput deposit;
 
     public BuyerExperienceConfigurationInput build() {
@@ -132,33 +106,25 @@ public class BuyerExperienceConfigurationInput {
       return result;
     }
 
-    /**
-     * Whether to checkout to draft order for merchant review.
-     */
+    
     public Builder checkoutToDraft(Boolean checkoutToDraft) {
       this.checkoutToDraft = checkoutToDraft;
       return this;
     }
 
-    /**
-     * Represents the merchant configured payment terms.
-     */
+    
     public Builder paymentTermsTemplateId(String paymentTermsTemplateId) {
       this.paymentTermsTemplateId = paymentTermsTemplateId;
       return this;
     }
 
-    /**
-     * Whether to allow customers to edit their shipping address at checkout.
-     */
+    
     public Builder editableShippingAddress(Boolean editableShippingAddress) {
       this.editableShippingAddress = editableShippingAddress;
       return this;
     }
 
-    /**
-     * The input fields configuring the deposit a B2B buyer.
-     */
+    
     public Builder deposit(DepositInput deposit) {
       this.deposit = deposit;
       return this;

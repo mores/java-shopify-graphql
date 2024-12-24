@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields used to update a shipping line.
- */
+
 public class OrderEditUpdateShippingLineInput {
-  /**
-   * The price of the shipping line.
-   */
+  
   private MoneyInput price;
 
-  /**
-   * The title of the shipping line.
-   */
+  
   private String title;
 
   public OrderEditUpdateShippingLineInput() {
   }
 
-  /**
-   * The price of the shipping line.
-   */
+  
   public MoneyInput getPrice() {
     return price;
   }
@@ -33,9 +25,7 @@ public class OrderEditUpdateShippingLineInput {
     this.price = price;
   }
 
-  /**
-   * The title of the shipping line.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -68,14 +58,10 @@ public class OrderEditUpdateShippingLineInput {
   }
 
   public static class Builder {
-    /**
-     * The price of the shipping line.
-     */
+    
     private MoneyInput price;
 
-    /**
-     * The title of the shipping line.
-     */
+    
     private String title;
 
     public OrderEditUpdateShippingLineInput build() {
@@ -85,17 +71,13 @@ public class OrderEditUpdateShippingLineInput {
       return result;
     }
 
-    /**
-     * The price of the shipping line.
-     */
+    
     public Builder price(MoneyInput price) {
       this.price = price;
       return this;
     }
 
-    /**
-     * The title of the shipping line.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;

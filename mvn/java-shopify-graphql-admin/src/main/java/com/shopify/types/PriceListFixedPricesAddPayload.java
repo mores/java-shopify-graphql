@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `priceListFixedPricesAdd` mutation.
- */
+
 public class PriceListFixedPricesAddPayload {
-  /**
-   * The list of fixed prices that were added to or updated in the price list.
-   */
+  
   private List<PriceListPrice> prices;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<PriceListPriceUserError> userErrors;
 
   public PriceListFixedPricesAddPayload() {
   }
 
-  /**
-   * The list of fixed prices that were added to or updated in the price list.
-   */
+  
   public List<PriceListPrice> getPrices() {
     return prices;
   }
@@ -34,9 +26,7 @@ public class PriceListFixedPricesAddPayload {
     this.prices = prices;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<PriceListPriceUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class PriceListFixedPricesAddPayload {
   }
 
   public static class Builder {
-    /**
-     * The list of fixed prices that were added to or updated in the price list.
-     */
+    
     private List<PriceListPrice> prices;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<PriceListPriceUserError> userErrors;
 
     public PriceListFixedPricesAddPayload build() {
@@ -86,17 +72,13 @@ public class PriceListFixedPricesAddPayload {
       return result;
     }
 
-    /**
-     * The list of fixed prices that were added to or updated in the price list.
-     */
+    
     public Builder prices(List<PriceListPrice> prices) {
       this.prices = prices;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<PriceListPriceUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

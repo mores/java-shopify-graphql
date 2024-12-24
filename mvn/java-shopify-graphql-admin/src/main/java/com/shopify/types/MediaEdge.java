@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * An auto-generated type which holds one Media and a cursor during pagination.
- */
+
 public class MediaEdge {
-  /**
-   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-   */
+  
   private String cursor;
 
-  /**
-   * The item at the end of MediaEdge.
-   */
+  
   private Media node;
 
   public MediaEdge() {
   }
 
-  /**
-   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-   */
+  
   public String getCursor() {
     return cursor;
   }
@@ -33,9 +25,7 @@ public class MediaEdge {
     this.cursor = cursor;
   }
 
-  /**
-   * The item at the end of MediaEdge.
-   */
+  
   public Media getNode() {
     return node;
   }
@@ -68,14 +58,10 @@ public class MediaEdge {
   }
 
   public static class Builder {
-    /**
-     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     private String cursor;
 
-    /**
-     * The item at the end of MediaEdge.
-     */
+    
     private Media node;
 
     public MediaEdge build() {
@@ -85,17 +71,13 @@ public class MediaEdge {
       return result;
     }
 
-    /**
-     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     public Builder cursor(String cursor) {
       this.cursor = cursor;
       return this;
     }
 
-    /**
-     * The item at the end of MediaEdge.
-     */
+    
     public Builder node(Media node) {
       this.node = node;
       return this;

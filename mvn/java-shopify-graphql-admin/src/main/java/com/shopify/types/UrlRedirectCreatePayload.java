@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `urlRedirectCreate` mutation.
- */
+
 public class UrlRedirectCreatePayload {
-  /**
-   * The created redirect.
-   */
+  
   private UrlRedirect urlRedirect;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UrlRedirectUserError> userErrors;
 
   public UrlRedirectCreatePayload() {
   }
 
-  /**
-   * The created redirect.
-   */
+  
   public UrlRedirect getUrlRedirect() {
     return urlRedirect;
   }
@@ -34,9 +26,7 @@ public class UrlRedirectCreatePayload {
     this.urlRedirect = urlRedirect;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UrlRedirectUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class UrlRedirectCreatePayload {
   }
 
   public static class Builder {
-    /**
-     * The created redirect.
-     */
+    
     private UrlRedirect urlRedirect;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UrlRedirectUserError> userErrors;
 
     public UrlRedirectCreatePayload build() {
@@ -86,17 +72,13 @@ public class UrlRedirectCreatePayload {
       return result;
     }
 
-    /**
-     * The created redirect.
-     */
+    
     public Builder urlRedirect(UrlRedirect urlRedirect) {
       this.urlRedirect = urlRedirect;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UrlRedirectUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

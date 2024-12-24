@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for specifying the collection to delete.
- */
+
 public class CollectionDeleteInput {
-  /**
-   * The ID of the collection to be deleted.
-   */
+  
   private String id;
 
   public CollectionDeleteInput() {
   }
 
-  /**
-   * The ID of the collection to be deleted.
-   */
+  
   public String getId() {
     return id;
   }
@@ -51,9 +45,7 @@ public class CollectionDeleteInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the collection to be deleted.
-     */
+    
     private String id;
 
     public CollectionDeleteInput build() {
@@ -62,9 +54,7 @@ public class CollectionDeleteInput {
       return result;
     }
 
-    /**
-     * The ID of the collection to be deleted.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;

@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A checkout branding image.
- */
+
 public class CheckoutBrandingImage {
-  /**
-   * The image details.
-   */
+  
   private Image image;
 
   public CheckoutBrandingImage() {
   }
 
-  /**
-   * The image details.
-   */
+  
   public Image getImage() {
     return image;
   }
@@ -51,9 +45,7 @@ public class CheckoutBrandingImage {
   }
 
   public static class Builder {
-    /**
-     * The image details.
-     */
+    
     private Image image;
 
     public CheckoutBrandingImage build() {
@@ -62,9 +54,7 @@ public class CheckoutBrandingImage {
       return result;
     }
 
-    /**
-     * The image details.
-     */
+    
     public Builder image(Image image) {
       this.image = image;
       return this;

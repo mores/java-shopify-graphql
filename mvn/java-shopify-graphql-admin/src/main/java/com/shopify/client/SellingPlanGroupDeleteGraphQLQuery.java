@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Delete a Selling Plan Group. This does not affect subscription contracts.
- */
+
 public class SellingPlanGroupDeleteGraphQLQuery extends GraphQLQuery {
   public SellingPlanGroupDeleteGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -42,9 +40,7 @@ public class SellingPlanGroupDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The id of the selling plan group to delete.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

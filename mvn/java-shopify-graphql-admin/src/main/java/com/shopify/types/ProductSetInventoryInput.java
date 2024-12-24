@@ -5,31 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields required to set inventory quantities using `productSet` mutation.
- */
+
 public class ProductSetInventoryInput {
-  /**
-   * The ID of the location of the inventory quantity being set.
-   */
+  
   private String locationId;
 
-  /**
-   * The name of the inventory quantity being set. Must be one of `available` or `on_hand`.
-   */
+  
   private String name;
 
-  /**
-   * The values to which each quantities will be set.
-   */
+  
   private int quantity;
 
   public ProductSetInventoryInput() {
   }
 
-  /**
-   * The ID of the location of the inventory quantity being set.
-   */
+  
   public String getLocationId() {
     return locationId;
   }
@@ -38,9 +28,7 @@ public class ProductSetInventoryInput {
     this.locationId = locationId;
   }
 
-  /**
-   * The name of the inventory quantity being set. Must be one of `available` or `on_hand`.
-   */
+  
   public String getName() {
     return name;
   }
@@ -49,9 +37,7 @@ public class ProductSetInventoryInput {
     this.name = name;
   }
 
-  /**
-   * The values to which each quantities will be set.
-   */
+  
   public int getQuantity() {
     return quantity;
   }
@@ -85,19 +71,13 @@ public class ProductSetInventoryInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the location of the inventory quantity being set.
-     */
+    
     private String locationId;
 
-    /**
-     * The name of the inventory quantity being set. Must be one of `available` or `on_hand`.
-     */
+    
     private String name;
 
-    /**
-     * The values to which each quantities will be set.
-     */
+    
     private int quantity;
 
     public ProductSetInventoryInput build() {
@@ -108,25 +88,19 @@ public class ProductSetInventoryInput {
       return result;
     }
 
-    /**
-     * The ID of the location of the inventory quantity being set.
-     */
+    
     public Builder locationId(String locationId) {
       this.locationId = locationId;
       return this;
     }
 
-    /**
-     * The name of the inventory quantity being set. Must be one of `available` or `on_hand`.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The values to which each quantities will be set.
-     */
+    
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;

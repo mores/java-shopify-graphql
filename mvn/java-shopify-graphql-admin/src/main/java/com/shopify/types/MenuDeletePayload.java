@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `menuDelete` mutation.
- */
+
 public class MenuDeletePayload {
-  /**
-   * The ID of the deleted menu.
-   */
+  
   private String deletedMenuId;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<MenuDeleteUserError> userErrors;
 
   public MenuDeletePayload() {
   }
 
-  /**
-   * The ID of the deleted menu.
-   */
+  
   public String getDeletedMenuId() {
     return deletedMenuId;
   }
@@ -34,9 +26,7 @@ public class MenuDeletePayload {
     this.deletedMenuId = deletedMenuId;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<MenuDeleteUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class MenuDeletePayload {
   }
 
   public static class Builder {
-    /**
-     * The ID of the deleted menu.
-     */
+    
     private String deletedMenuId;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<MenuDeleteUserError> userErrors;
 
     public MenuDeletePayload build() {
@@ -86,17 +72,13 @@ public class MenuDeletePayload {
       return result;
     }
 
-    /**
-     * The ID of the deleted menu.
-     */
+    
     public Builder deletedMenuId(String deletedMenuId) {
       this.deletedMenuId = deletedMenuId;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<MenuDeleteUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

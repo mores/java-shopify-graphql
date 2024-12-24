@@ -5,36 +5,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The order summary customizations.
- */
+
 public class CheckoutBrandingOrderSummary {
-  /**
-   * The background image of the order summary container.
-   */
+  
   private CheckoutBrandingImage backgroundImage;
 
-  /**
-   * The selected color scheme of the order summary container.
-   */
+  
   private CheckoutBrandingColorSchemeSelection colorScheme;
 
-  /**
-   * The order summary container's divider style and visibility.
-   */
+  
   private CheckoutBrandingContainerDivider divider;
 
-  /**
-   * The settings for the order summary sections.
-   */
+  
   private CheckoutBrandingOrderSummarySection section;
 
   public CheckoutBrandingOrderSummary() {
   }
 
-  /**
-   * The background image of the order summary container.
-   */
+  
   public CheckoutBrandingImage getBackgroundImage() {
     return backgroundImage;
   }
@@ -43,9 +31,7 @@ public class CheckoutBrandingOrderSummary {
     this.backgroundImage = backgroundImage;
   }
 
-  /**
-   * The selected color scheme of the order summary container.
-   */
+  
   public CheckoutBrandingColorSchemeSelection getColorScheme() {
     return colorScheme;
   }
@@ -54,9 +40,7 @@ public class CheckoutBrandingOrderSummary {
     this.colorScheme = colorScheme;
   }
 
-  /**
-   * The order summary container's divider style and visibility.
-   */
+  
   public CheckoutBrandingContainerDivider getDivider() {
     return divider;
   }
@@ -65,9 +49,7 @@ public class CheckoutBrandingOrderSummary {
     this.divider = divider;
   }
 
-  /**
-   * The settings for the order summary sections.
-   */
+  
   public CheckoutBrandingOrderSummarySection getSection() {
     return section;
   }
@@ -102,24 +84,16 @@ public class CheckoutBrandingOrderSummary {
   }
 
   public static class Builder {
-    /**
-     * The background image of the order summary container.
-     */
+    
     private CheckoutBrandingImage backgroundImage;
 
-    /**
-     * The selected color scheme of the order summary container.
-     */
+    
     private CheckoutBrandingColorSchemeSelection colorScheme;
 
-    /**
-     * The order summary container's divider style and visibility.
-     */
+    
     private CheckoutBrandingContainerDivider divider;
 
-    /**
-     * The settings for the order summary sections.
-     */
+    
     private CheckoutBrandingOrderSummarySection section;
 
     public CheckoutBrandingOrderSummary build() {
@@ -131,33 +105,25 @@ public class CheckoutBrandingOrderSummary {
       return result;
     }
 
-    /**
-     * The background image of the order summary container.
-     */
+    
     public Builder backgroundImage(CheckoutBrandingImage backgroundImage) {
       this.backgroundImage = backgroundImage;
       return this;
     }
 
-    /**
-     * The selected color scheme of the order summary container.
-     */
+    
     public Builder colorScheme(CheckoutBrandingColorSchemeSelection colorScheme) {
       this.colorScheme = colorScheme;
       return this;
     }
 
-    /**
-     * The order summary container's divider style and visibility.
-     */
+    
     public Builder divider(CheckoutBrandingContainerDivider divider) {
       this.divider = divider;
       return this;
     }
 
-    /**
-     * The settings for the order summary sections.
-     */
+    
     public Builder section(CheckoutBrandingOrderSummarySection section) {
       this.section = section;
       return this;

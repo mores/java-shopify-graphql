@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * The reason for a fulfillment order rejection.
- */
+
 public enum FulfillmentOrderRejectionReason {
   INCORRECT_ADDRESS,
 

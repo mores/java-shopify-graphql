@@ -5,41 +5,27 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The measurement used to calculate a unit price for a product variant (e.g. $9.99 / 100ml).
- */
+
 public class UnitPriceMeasurement {
-  /**
-   * The type of unit of measurement for the unit price measurement.
-   */
+  
   private UnitPriceMeasurementMeasuredType measuredType;
 
-  /**
-   * The quantity unit for the unit price measurement.
-   */
+  
   private UnitPriceMeasurementMeasuredUnit quantityUnit;
 
-  /**
-   * The quantity value for the unit price measurement.
-   */
+  
   private double quantityValue;
 
-  /**
-   * The reference unit for the unit price measurement.
-   */
+  
   private UnitPriceMeasurementMeasuredUnit referenceUnit;
 
-  /**
-   * The reference value for the unit price measurement.
-   */
+  
   private int referenceValue;
 
   public UnitPriceMeasurement() {
   }
 
-  /**
-   * The type of unit of measurement for the unit price measurement.
-   */
+  
   public UnitPriceMeasurementMeasuredType getMeasuredType() {
     return measuredType;
   }
@@ -48,9 +34,7 @@ public class UnitPriceMeasurement {
     this.measuredType = measuredType;
   }
 
-  /**
-   * The quantity unit for the unit price measurement.
-   */
+  
   public UnitPriceMeasurementMeasuredUnit getQuantityUnit() {
     return quantityUnit;
   }
@@ -59,9 +43,7 @@ public class UnitPriceMeasurement {
     this.quantityUnit = quantityUnit;
   }
 
-  /**
-   * The quantity value for the unit price measurement.
-   */
+  
   public double getQuantityValue() {
     return quantityValue;
   }
@@ -70,9 +52,7 @@ public class UnitPriceMeasurement {
     this.quantityValue = quantityValue;
   }
 
-  /**
-   * The reference unit for the unit price measurement.
-   */
+  
   public UnitPriceMeasurementMeasuredUnit getReferenceUnit() {
     return referenceUnit;
   }
@@ -81,9 +61,7 @@ public class UnitPriceMeasurement {
     this.referenceUnit = referenceUnit;
   }
 
-  /**
-   * The reference value for the unit price measurement.
-   */
+  
   public int getReferenceValue() {
     return referenceValue;
   }
@@ -119,29 +97,19 @@ public class UnitPriceMeasurement {
   }
 
   public static class Builder {
-    /**
-     * The type of unit of measurement for the unit price measurement.
-     */
+    
     private UnitPriceMeasurementMeasuredType measuredType;
 
-    /**
-     * The quantity unit for the unit price measurement.
-     */
+    
     private UnitPriceMeasurementMeasuredUnit quantityUnit;
 
-    /**
-     * The quantity value for the unit price measurement.
-     */
+    
     private double quantityValue;
 
-    /**
-     * The reference unit for the unit price measurement.
-     */
+    
     private UnitPriceMeasurementMeasuredUnit referenceUnit;
 
-    /**
-     * The reference value for the unit price measurement.
-     */
+    
     private int referenceValue;
 
     public UnitPriceMeasurement build() {
@@ -154,41 +122,31 @@ public class UnitPriceMeasurement {
       return result;
     }
 
-    /**
-     * The type of unit of measurement for the unit price measurement.
-     */
+    
     public Builder measuredType(UnitPriceMeasurementMeasuredType measuredType) {
       this.measuredType = measuredType;
       return this;
     }
 
-    /**
-     * The quantity unit for the unit price measurement.
-     */
+    
     public Builder quantityUnit(UnitPriceMeasurementMeasuredUnit quantityUnit) {
       this.quantityUnit = quantityUnit;
       return this;
     }
 
-    /**
-     * The quantity value for the unit price measurement.
-     */
+    
     public Builder quantityValue(double quantityValue) {
       this.quantityValue = quantityValue;
       return this;
     }
 
-    /**
-     * The reference unit for the unit price measurement.
-     */
+    
     public Builder referenceUnit(UnitPriceMeasurementMeasuredUnit referenceUnit) {
       this.referenceUnit = referenceUnit;
       return this;
     }
 
-    /**
-     * The reference value for the unit price measurement.
-     */
+    
     public Builder referenceValue(int referenceValue) {
       this.referenceValue = referenceValue;
       return this;

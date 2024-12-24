@@ -1,18 +1,6 @@
 package com.shopify.types;
 
-/**
- * The supported topics for webhook subscriptions. You can use webhook subscriptions to receive
- * notifications about particular events in a shop.
- *
- * You create [mandatory webhooks](https://shopify.dev/apps/webhooks/configuration/mandatory-webhooks#mandatory-compliance-webhooks) either via the
- * [Partner Dashboard](https://shopify.dev/apps/webhooks/configuration/mandatory-webhooks#subscribe-to-privacy-webhooks)
- * or by updating the [app configuration file](https://shopify.dev/apps/tools/cli/configuration#app-configuration-file-example).
- *
- * > Tip: 
- * >To configure your subscription using the app configuration file, refer to the
- * [full list of topic
- * names](https://shopify.dev/docs/api/webhooks?reference=graphql).
- */
+
 public enum WebhookSubscriptionTopic {
   APP_UNINSTALLED,
 

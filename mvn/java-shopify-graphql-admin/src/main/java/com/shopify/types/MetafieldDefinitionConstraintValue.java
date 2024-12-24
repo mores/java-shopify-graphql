@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A constraint subtype value that the metafield definition applies to.
- */
+
 public class MetafieldDefinitionConstraintValue {
-  /**
-   * The subtype value of the constraint.
-   */
+  
   private String value;
 
   public MetafieldDefinitionConstraintValue() {
   }
 
-  /**
-   * The subtype value of the constraint.
-   */
+  
   public String getValue() {
     return value;
   }
@@ -51,9 +45,7 @@ public class MetafieldDefinitionConstraintValue {
   }
 
   public static class Builder {
-    /**
-     * The subtype value of the constraint.
-     */
+    
     private String value;
 
     public MetafieldDefinitionConstraintValue build() {
@@ -62,9 +54,7 @@ public class MetafieldDefinitionConstraintValue {
       return result;
     }
 
-    /**
-     * The subtype value of the constraint.
-     */
+    
     public Builder value(String value) {
       this.value = value;
       return this;

@@ -6,29 +6,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The value of the discount and how it will be applied.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class SubscriptionDiscountFixedAmountValue implements SubscriptionDiscountValue {
-  /**
-   * The fixed amount value of the discount.
-   */
+  
   private MoneyV2 amount;
 
-  /**
-   * Whether the amount is applied per item.
-   */
+  
   private boolean appliesOnEachItem;
 
   public SubscriptionDiscountFixedAmountValue() {
   }
 
-  /**
-   * The fixed amount value of the discount.
-   */
+  
   public MoneyV2 getAmount() {
     return amount;
   }
@@ -37,9 +29,7 @@ public class SubscriptionDiscountFixedAmountValue implements SubscriptionDiscoun
     this.amount = amount;
   }
 
-  /**
-   * Whether the amount is applied per item.
-   */
+  
   public boolean getAppliesOnEachItem() {
     return appliesOnEachItem;
   }
@@ -72,14 +62,10 @@ public class SubscriptionDiscountFixedAmountValue implements SubscriptionDiscoun
   }
 
   public static class Builder {
-    /**
-     * The fixed amount value of the discount.
-     */
+    
     private MoneyV2 amount;
 
-    /**
-     * Whether the amount is applied per item.
-     */
+    
     private boolean appliesOnEachItem;
 
     public SubscriptionDiscountFixedAmountValue build() {
@@ -89,17 +75,13 @@ public class SubscriptionDiscountFixedAmountValue implements SubscriptionDiscoun
       return result;
     }
 
-    /**
-     * The fixed amount value of the discount.
-     */
+    
     public Builder amount(MoneyV2 amount) {
       this.amount = amount;
       return this;
     }
 
-    /**
-     * Whether the amount is applied per item.
-     */
+    
     public Builder appliesOnEachItem(boolean appliesOnEachItem) {
       this.appliesOnEachItem = appliesOnEachItem;
       return this;

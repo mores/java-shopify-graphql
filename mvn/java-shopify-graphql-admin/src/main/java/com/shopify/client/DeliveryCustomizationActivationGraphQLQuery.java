@@ -7,9 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Activates and deactivates delivery customizations.
- */
+
 public class DeliveryCustomizationActivationGraphQLQuery extends GraphQLQuery {
   public DeliveryCustomizationActivationGraphQLQuery(List<String> ids, boolean enabled,
       String queryName, Set<String> fieldsSet) {
@@ -46,18 +44,14 @@ public class DeliveryCustomizationActivationGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The global IDs of the delivery customizations.
-     */
+    
     public Builder ids(List<String> ids) {
       this.ids = ids;
       this.fieldsSet.add("ids");
       return this;
     }
 
-    /**
-     * The enabled status of the delivery customizations.
-     */
+    
     public Builder enabled(boolean enabled) {
       this.enabled = enabled;
       this.fieldsSet.add("enabled");

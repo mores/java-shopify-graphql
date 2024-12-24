@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Creates a delivery customization.
- */
+
 public class DeliveryCustomizationCreateGraphQLQuery extends GraphQLQuery {
   public DeliveryCustomizationCreateGraphQLQuery(DeliveryCustomizationInput deliveryCustomization,
       String queryName, Set<String> fieldsSet) {
@@ -44,9 +42,7 @@ public class DeliveryCustomizationCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The input data used to create the delivery customization.
-     */
+    
     public Builder deliveryCustomization(DeliveryCustomizationInput deliveryCustomization) {
       this.deliveryCustomization = deliveryCustomization;
       this.fieldsSet.add("deliveryCustomization");

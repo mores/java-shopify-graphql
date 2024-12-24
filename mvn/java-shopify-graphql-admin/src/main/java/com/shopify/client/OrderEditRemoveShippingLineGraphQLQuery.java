@@ -6,10 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Removes a shipping line from an existing order. For more information on how to
- * use the GraphQL Admin API to edit an existing order, refer to [Edit existing orders](https://shopify.dev/apps/fulfillment/order-management-apps/order-editing).
- */
+
 public class OrderEditRemoveShippingLineGraphQLQuery extends GraphQLQuery {
   public OrderEditRemoveShippingLineGraphQLQuery(String id, String shippingLineId, String queryName,
       Set<String> fieldsSet) {
@@ -48,19 +45,14 @@ public class OrderEditRemoveShippingLineGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
-     * to edit.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * The ID of the calculated shipping line to remove.
-     */
+    
     public Builder shippingLineId(String shippingLineId) {
       this.shippingLineId = shippingLineId;
       this.fieldsSet.add("shippingLineId");

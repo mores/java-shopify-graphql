@@ -6,16 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * The count of webhook subscriptions.
- *   
- * Building an app? If you only use app-specific webhooks, you won't need this.
- * App-specific webhook subscriptions specified in your `shopify.app.toml` may be
- * easier. They are automatically kept up to date by Shopify & require less
- * maintenance. Please read [About managing webhook
- * subscriptions](https://shopify.dev/docs/apps/build/webhooks/subscribe).
- * Limited to a maximum of 10000.
- */
+
 public class WebhookSubscriptionsCountGraphQLQuery extends GraphQLQuery {
   public WebhookSubscriptionsCountGraphQLQuery(String query, String queryName,
       Set<String> fieldsSet) {
@@ -50,18 +41,7 @@ public class WebhookSubscriptionsCountGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * A filter made up of terms, connectives, modifiers, and comparators.
-     * | name | type | description | acceptable_values | default_value | example_use |
-     * | ---- | ---- | ---- | ---- | ---- | ---- |
-     * | created_at | time |
-     * | endpoint | string |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
-     * | topic | string |
-     * | updated_at | time |
-     * You can apply one or more filters to a query. Learn more about [Shopify API
-     * search syntax](https://shopify.dev/api/usage/search-syntax).
-     */
+    
     public Builder query(String query) {
       this.query = query;
       this.fieldsSet.add("query");

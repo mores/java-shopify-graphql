@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `marketingActivityUpdateExternal` mutation.
- */
+
 public class MarketingActivityUpdateExternalPayload {
-  /**
-   * The updated marketing activity.
-   */
+  
   private MarketingActivity marketingActivity;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<MarketingActivityUserError> userErrors;
 
   public MarketingActivityUpdateExternalPayload() {
   }
 
-  /**
-   * The updated marketing activity.
-   */
+  
   public MarketingActivity getMarketingActivity() {
     return marketingActivity;
   }
@@ -34,9 +26,7 @@ public class MarketingActivityUpdateExternalPayload {
     this.marketingActivity = marketingActivity;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<MarketingActivityUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class MarketingActivityUpdateExternalPayload {
   }
 
   public static class Builder {
-    /**
-     * The updated marketing activity.
-     */
+    
     private MarketingActivity marketingActivity;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<MarketingActivityUserError> userErrors;
 
     public MarketingActivityUpdateExternalPayload build() {
@@ -86,17 +72,13 @@ public class MarketingActivityUpdateExternalPayload {
       return result;
     }
 
-    /**
-     * The updated marketing activity.
-     */
+    
     public Builder marketingActivity(MarketingActivity marketingActivity) {
       this.marketingActivity = marketingActivity;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<MarketingActivityUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

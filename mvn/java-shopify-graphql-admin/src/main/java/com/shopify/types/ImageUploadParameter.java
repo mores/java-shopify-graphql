@@ -5,33 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A parameter to upload an image.
- *
- * Deprecated in favor of
- * [StagedUploadParameter](https://shopify.dev/api/admin-graphql/latest/objects/StagedUploadParameter),
- * which is used in
- * [StagedMediaUploadTarget](https://shopify.dev/api/admin-graphql/latest/objects/StagedMediaUploadTarget)
- * and returned by the
- * [stagedUploadsCreate mutation](https://shopify.dev/api/admin-graphql/latest/mutations/stagedUploadsCreate).
- */
+
 public class ImageUploadParameter {
-  /**
-   * The parameter name.
-   */
+  
   private String name;
 
-  /**
-   * The parameter value.
-   */
+  
   private String value;
 
   public ImageUploadParameter() {
   }
 
-  /**
-   * The parameter name.
-   */
+  
   public String getName() {
     return name;
   }
@@ -40,9 +25,7 @@ public class ImageUploadParameter {
     this.name = name;
   }
 
-  /**
-   * The parameter value.
-   */
+  
   public String getValue() {
     return value;
   }
@@ -75,14 +58,10 @@ public class ImageUploadParameter {
   }
 
   public static class Builder {
-    /**
-     * The parameter name.
-     */
+    
     private String name;
 
-    /**
-     * The parameter value.
-     */
+    
     private String value;
 
     public ImageUploadParameter build() {
@@ -92,17 +71,13 @@ public class ImageUploadParameter {
       return result;
     }
 
-    /**
-     * The parameter name.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The parameter value.
-     */
+    
     public Builder value(String value) {
       this.value = value;
       return this;

@@ -8,14 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Creates staged upload targets for each input. This is the first step in the upload process.
- * The returned staged upload targets' URL and parameter fields can be used to send a request
- * to upload the file described in the corresponding input.
- *   
- * For more information on the upload process, refer to
- * [Upload media to Shopify](https://shopify.dev/apps/online-store/media/products#step-1-upload-media-to-shopify).
- */
+
 public class StagedUploadsCreateGraphQLQuery extends GraphQLQuery {
   public StagedUploadsCreateGraphQLQuery(List<StagedUploadInput> input, String queryName,
       Set<String> fieldsSet) {
@@ -50,9 +43,7 @@ public class StagedUploadsCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The information required to generate staged upload targets.
-     */
+    
     public Builder input(List<StagedUploadInput> input) {
       this.input = input;
       this.fieldsSet.add("input");

@@ -5,31 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A navigation item, holding basic link attributes.
- */
+
 public class NavigationItem {
-  /**
-   * The unique identifier of the navigation item.
-   */
+  
   private String id;
 
-  /**
-   * The name of the navigation item.
-   */
+  
   private String title;
 
-  /**
-   * The URL of the page that the navigation item links to.
-   */
+  
   private String url;
 
   public NavigationItem() {
   }
 
-  /**
-   * The unique identifier of the navigation item.
-   */
+  
   public String getId() {
     return id;
   }
@@ -38,9 +28,7 @@ public class NavigationItem {
     this.id = id;
   }
 
-  /**
-   * The name of the navigation item.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -49,9 +37,7 @@ public class NavigationItem {
     this.title = title;
   }
 
-  /**
-   * The URL of the page that the navigation item links to.
-   */
+  
   public String getUrl() {
     return url;
   }
@@ -85,19 +71,13 @@ public class NavigationItem {
   }
 
   public static class Builder {
-    /**
-     * The unique identifier of the navigation item.
-     */
+    
     private String id;
 
-    /**
-     * The name of the navigation item.
-     */
+    
     private String title;
 
-    /**
-     * The URL of the page that the navigation item links to.
-     */
+    
     private String url;
 
     public NavigationItem build() {
@@ -108,25 +88,19 @@ public class NavigationItem {
       return result;
     }
 
-    /**
-     * The unique identifier of the navigation item.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The name of the navigation item.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    /**
-     * The URL of the page that the navigation item links to.
-     */
+    
     public Builder url(String url) {
       this.url = url;
       return this;

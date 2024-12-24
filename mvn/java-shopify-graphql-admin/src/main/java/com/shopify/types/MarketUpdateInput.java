@@ -6,32 +6,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields used to update a market.
- */
+
 public class MarketUpdateInput {
-  /**
-   * The name of the market. Not shown to customers.
-   */
+  
   private String name;
 
-  /**
-   * A unique identifier for the market. For example `"ca"`.
-   */
+  
   private String handle;
 
-  /**
-   * Whether the market is enabled to receive visitors and sales. **Note**: Regions in
-   * inactive markets cannot be selected on the storefront or in checkout.
-   */
+  
   private Boolean enabled;
 
   public MarketUpdateInput() {
   }
 
-  /**
-   * The name of the market. Not shown to customers.
-   */
+  
   public String getName() {
     return name;
   }
@@ -40,9 +29,7 @@ public class MarketUpdateInput {
     this.name = name;
   }
 
-  /**
-   * A unique identifier for the market. For example `"ca"`.
-   */
+  
   public String getHandle() {
     return handle;
   }
@@ -51,10 +38,7 @@ public class MarketUpdateInput {
     this.handle = handle;
   }
 
-  /**
-   * Whether the market is enabled to receive visitors and sales. **Note**: Regions in
-   * inactive markets cannot be selected on the storefront or in checkout.
-   */
+  
   public Boolean getEnabled() {
     return enabled;
   }
@@ -88,20 +72,13 @@ public class MarketUpdateInput {
   }
 
   public static class Builder {
-    /**
-     * The name of the market. Not shown to customers.
-     */
+    
     private String name;
 
-    /**
-     * A unique identifier for the market. For example `"ca"`.
-     */
+    
     private String handle;
 
-    /**
-     * Whether the market is enabled to receive visitors and sales. **Note**: Regions in
-     * inactive markets cannot be selected on the storefront or in checkout.
-     */
+    
     private Boolean enabled;
 
     public MarketUpdateInput build() {
@@ -112,26 +89,19 @@ public class MarketUpdateInput {
       return result;
     }
 
-    /**
-     * The name of the market. Not shown to customers.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * A unique identifier for the market. For example `"ca"`.
-     */
+    
     public Builder handle(String handle) {
       this.handle = handle;
       return this;
     }
 
-    /**
-     * Whether the market is enabled to receive visitors and sales. **Note**: Regions in
-     * inactive markets cannot be selected on the storefront or in checkout.
-     */
+    
     public Builder enabled(Boolean enabled) {
       this.enabled = enabled;
       return this;

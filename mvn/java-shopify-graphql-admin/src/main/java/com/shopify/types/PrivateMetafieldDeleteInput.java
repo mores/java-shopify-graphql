@@ -5,31 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for the private metafield to delete.
- */
+
 public class PrivateMetafieldDeleteInput {
-  /**
-   * The ID of the resource that owns the metafield. If the field is blank, then the `Shop` resource owns the metafield.
-   */
+  
   private String owner;
 
-  /**
-   * The namespace of the private metafield.
-   */
+  
   private String namespace;
 
-  /**
-   * The key of the private metafield.
-   */
+  
   private String key;
 
   public PrivateMetafieldDeleteInput() {
   }
 
-  /**
-   * The ID of the resource that owns the metafield. If the field is blank, then the `Shop` resource owns the metafield.
-   */
+  
   public String getOwner() {
     return owner;
   }
@@ -38,9 +28,7 @@ public class PrivateMetafieldDeleteInput {
     this.owner = owner;
   }
 
-  /**
-   * The namespace of the private metafield.
-   */
+  
   public String getNamespace() {
     return namespace;
   }
@@ -49,9 +37,7 @@ public class PrivateMetafieldDeleteInput {
     this.namespace = namespace;
   }
 
-  /**
-   * The key of the private metafield.
-   */
+  
   public String getKey() {
     return key;
   }
@@ -85,19 +71,13 @@ public class PrivateMetafieldDeleteInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the resource that owns the metafield. If the field is blank, then the `Shop` resource owns the metafield.
-     */
+    
     private String owner;
 
-    /**
-     * The namespace of the private metafield.
-     */
+    
     private String namespace;
 
-    /**
-     * The key of the private metafield.
-     */
+    
     private String key;
 
     public PrivateMetafieldDeleteInput build() {
@@ -108,25 +88,19 @@ public class PrivateMetafieldDeleteInput {
       return result;
     }
 
-    /**
-     * The ID of the resource that owns the metafield. If the field is blank, then the `Shop` resource owns the metafield.
-     */
+    
     public Builder owner(String owner) {
       this.owner = owner;
       return this;
     }
 
-    /**
-     * The namespace of the private metafield.
-     */
+    
     public Builder namespace(String namespace) {
       this.namespace = namespace;
       return this;
     }
 
-    /**
-     * The key of the private metafield.
-     */
+    
     public Builder key(String key) {
       this.key = key;
       return this;

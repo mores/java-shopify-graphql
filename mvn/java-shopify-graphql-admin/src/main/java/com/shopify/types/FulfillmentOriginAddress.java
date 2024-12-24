@@ -5,51 +5,30 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The address at which the fulfillment occurred. This object is intended for tax
- * purposes, as a full address is required for tax providers to accurately
- * calculate taxes. Typically this is the address of the warehouse or fulfillment
- * center. To retrieve a fulfillment location's address, use the `assignedLocation` field on the
- * [`FulfillmentOrder`](/docs/api/admin-graphql/latest/objects/FulfillmentOrder)
- * object instead.
- */
+
 public class FulfillmentOriginAddress {
-  /**
-   * The street address of the fulfillment location.
-   */
+  
   private String address1;
 
-  /**
-   * The second line of the address. Typically the number of the apartment, suite, or unit.
-   */
+  
   private String address2;
 
-  /**
-   * The city in which the fulfillment location is located.
-   */
+  
   private String city;
 
-  /**
-   * The country code of the fulfillment location.
-   */
+  
   private String countryCode;
 
-  /**
-   * The province code of the fulfillment location.
-   */
+  
   private String provinceCode;
 
-  /**
-   * The zip code of the fulfillment location.
-   */
+  
   private String zip;
 
   public FulfillmentOriginAddress() {
   }
 
-  /**
-   * The street address of the fulfillment location.
-   */
+  
   public String getAddress1() {
     return address1;
   }
@@ -58,9 +37,7 @@ public class FulfillmentOriginAddress {
     this.address1 = address1;
   }
 
-  /**
-   * The second line of the address. Typically the number of the apartment, suite, or unit.
-   */
+  
   public String getAddress2() {
     return address2;
   }
@@ -69,9 +46,7 @@ public class FulfillmentOriginAddress {
     this.address2 = address2;
   }
 
-  /**
-   * The city in which the fulfillment location is located.
-   */
+  
   public String getCity() {
     return city;
   }
@@ -80,9 +55,7 @@ public class FulfillmentOriginAddress {
     this.city = city;
   }
 
-  /**
-   * The country code of the fulfillment location.
-   */
+  
   public String getCountryCode() {
     return countryCode;
   }
@@ -91,9 +64,7 @@ public class FulfillmentOriginAddress {
     this.countryCode = countryCode;
   }
 
-  /**
-   * The province code of the fulfillment location.
-   */
+  
   public String getProvinceCode() {
     return provinceCode;
   }
@@ -102,9 +73,7 @@ public class FulfillmentOriginAddress {
     this.provinceCode = provinceCode;
   }
 
-  /**
-   * The zip code of the fulfillment location.
-   */
+  
   public String getZip() {
     return zip;
   }
@@ -141,34 +110,22 @@ public class FulfillmentOriginAddress {
   }
 
   public static class Builder {
-    /**
-     * The street address of the fulfillment location.
-     */
+    
     private String address1;
 
-    /**
-     * The second line of the address. Typically the number of the apartment, suite, or unit.
-     */
+    
     private String address2;
 
-    /**
-     * The city in which the fulfillment location is located.
-     */
+    
     private String city;
 
-    /**
-     * The country code of the fulfillment location.
-     */
+    
     private String countryCode;
 
-    /**
-     * The province code of the fulfillment location.
-     */
+    
     private String provinceCode;
 
-    /**
-     * The zip code of the fulfillment location.
-     */
+    
     private String zip;
 
     public FulfillmentOriginAddress build() {
@@ -182,49 +139,37 @@ public class FulfillmentOriginAddress {
       return result;
     }
 
-    /**
-     * The street address of the fulfillment location.
-     */
+    
     public Builder address1(String address1) {
       this.address1 = address1;
       return this;
     }
 
-    /**
-     * The second line of the address. Typically the number of the apartment, suite, or unit.
-     */
+    
     public Builder address2(String address2) {
       this.address2 = address2;
       return this;
     }
 
-    /**
-     * The city in which the fulfillment location is located.
-     */
+    
     public Builder city(String city) {
       this.city = city;
       return this;
     }
 
-    /**
-     * The country code of the fulfillment location.
-     */
+    
     public Builder countryCode(String countryCode) {
       this.countryCode = countryCode;
       return this;
     }
 
-    /**
-     * The province code of the fulfillment location.
-     */
+    
     public Builder provinceCode(String provinceCode) {
       this.provinceCode = provinceCode;
       return this;
     }
 
-    /**
-     * The zip code of the fulfillment location.
-     */
+    
     public Builder zip(String zip) {
       this.zip = zip;
       return this;

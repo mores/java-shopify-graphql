@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Creates a draft order from order.
- */
+
 public class DraftOrderCreateFromOrderGraphQLQuery extends GraphQLQuery {
   public DraftOrderCreateFromOrderGraphQLQuery(String orderId, String queryName,
       Set<String> fieldsSet) {
@@ -43,9 +41,7 @@ public class DraftOrderCreateFromOrderGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * Specifies the order's id that we create the draft order from.
-     */
+    
     public Builder orderId(String orderId) {
       this.orderId = orderId;
       this.fieldsSet.add("orderId");

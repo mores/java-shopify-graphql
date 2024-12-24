@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields required to link a product option to a metafield.
- */
+
 public class LinkedMetafieldCreateInput {
-  /**
-   * The namespace of the metafield this option is linked to.
-   */
+  
   private String namespace;
 
-  /**
-   * The key of the metafield this option is linked to.
-   */
+  
   private String key;
 
-  /**
-   * Values associated with the option.
-   */
+  
   private List<String> values;
 
   public LinkedMetafieldCreateInput() {
   }
 
-  /**
-   * The namespace of the metafield this option is linked to.
-   */
+  
   public String getNamespace() {
     return namespace;
   }
@@ -39,9 +29,7 @@ public class LinkedMetafieldCreateInput {
     this.namespace = namespace;
   }
 
-  /**
-   * The key of the metafield this option is linked to.
-   */
+  
   public String getKey() {
     return key;
   }
@@ -50,9 +38,7 @@ public class LinkedMetafieldCreateInput {
     this.key = key;
   }
 
-  /**
-   * Values associated with the option.
-   */
+  
   public List<String> getValues() {
     return values;
   }
@@ -86,19 +72,13 @@ public class LinkedMetafieldCreateInput {
   }
 
   public static class Builder {
-    /**
-     * The namespace of the metafield this option is linked to.
-     */
+    
     private String namespace;
 
-    /**
-     * The key of the metafield this option is linked to.
-     */
+    
     private String key;
 
-    /**
-     * Values associated with the option.
-     */
+    
     private List<String> values;
 
     public LinkedMetafieldCreateInput build() {
@@ -109,25 +89,19 @@ public class LinkedMetafieldCreateInput {
       return result;
     }
 
-    /**
-     * The namespace of the metafield this option is linked to.
-     */
+    
     public Builder namespace(String namespace) {
       this.namespace = namespace;
       return this;
     }
 
-    /**
-     * The key of the metafield this option is linked to.
-     */
+    
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
-    /**
-     * Values associated with the option.
-     */
+    
     public Builder values(List<String> values) {
       this.values = values;
       return this;

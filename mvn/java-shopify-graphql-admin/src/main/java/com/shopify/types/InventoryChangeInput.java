@@ -5,39 +5,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for the change to be made to an inventory item at a location.
- */
+
 public class InventoryChangeInput {
-  /**
-   * The amount by which the inventory quantity will be changed.
-   */
+  
   private int delta;
 
-  /**
-   * Specifies the inventory item to which the change will be applied.
-   */
+  
   private String inventoryItemId;
 
-  /**
-   * Specifies the location at which the change will be applied.
-   */
+  
   private String locationId;
 
-  /**
-   * A freeform URI that represents what changed the inventory quantities. A Shopify global ID isn't an accepted
-   * value. For example, specifying "gid://shopify/Order/123" would return an error. This field is required for all
-   * quantity names except `available`. The field `ledgerDocumentUri` isn't supported for use with an `available`
-   * quantity name.
-   */
+  
   private String ledgerDocumentUri;
 
   public InventoryChangeInput() {
   }
 
-  /**
-   * The amount by which the inventory quantity will be changed.
-   */
+  
   public int getDelta() {
     return delta;
   }
@@ -46,9 +31,7 @@ public class InventoryChangeInput {
     this.delta = delta;
   }
 
-  /**
-   * Specifies the inventory item to which the change will be applied.
-   */
+  
   public String getInventoryItemId() {
     return inventoryItemId;
   }
@@ -57,9 +40,7 @@ public class InventoryChangeInput {
     this.inventoryItemId = inventoryItemId;
   }
 
-  /**
-   * Specifies the location at which the change will be applied.
-   */
+  
   public String getLocationId() {
     return locationId;
   }
@@ -68,12 +49,7 @@ public class InventoryChangeInput {
     this.locationId = locationId;
   }
 
-  /**
-   * A freeform URI that represents what changed the inventory quantities. A Shopify global ID isn't an accepted
-   * value. For example, specifying "gid://shopify/Order/123" would return an error. This field is required for all
-   * quantity names except `available`. The field `ledgerDocumentUri` isn't supported for use with an `available`
-   * quantity name.
-   */
+  
   public String getLedgerDocumentUri() {
     return ledgerDocumentUri;
   }
@@ -108,27 +84,16 @@ public class InventoryChangeInput {
   }
 
   public static class Builder {
-    /**
-     * The amount by which the inventory quantity will be changed.
-     */
+    
     private int delta;
 
-    /**
-     * Specifies the inventory item to which the change will be applied.
-     */
+    
     private String inventoryItemId;
 
-    /**
-     * Specifies the location at which the change will be applied.
-     */
+    
     private String locationId;
 
-    /**
-     * A freeform URI that represents what changed the inventory quantities. A Shopify global ID isn't an accepted
-     * value. For example, specifying "gid://shopify/Order/123" would return an error. This field is required for all
-     * quantity names except `available`. The field `ledgerDocumentUri` isn't supported for use with an `available`
-     * quantity name.
-     */
+    
     private String ledgerDocumentUri;
 
     public InventoryChangeInput build() {
@@ -140,36 +105,25 @@ public class InventoryChangeInput {
       return result;
     }
 
-    /**
-     * The amount by which the inventory quantity will be changed.
-     */
+    
     public Builder delta(int delta) {
       this.delta = delta;
       return this;
     }
 
-    /**
-     * Specifies the inventory item to which the change will be applied.
-     */
+    
     public Builder inventoryItemId(String inventoryItemId) {
       this.inventoryItemId = inventoryItemId;
       return this;
     }
 
-    /**
-     * Specifies the location at which the change will be applied.
-     */
+    
     public Builder locationId(String locationId) {
       this.locationId = locationId;
       return this;
     }
 
-    /**
-     * A freeform URI that represents what changed the inventory quantities. A Shopify global ID isn't an accepted
-     * value. For example, specifying "gid://shopify/Order/123" would return an error. This field is required for all
-     * quantity names except `available`. The field `ledgerDocumentUri` isn't supported for use with an `available`
-     * quantity name.
-     */
+    
     public Builder ledgerDocumentUri(String ledgerDocumentUri) {
       this.ledgerDocumentUri = ledgerDocumentUri;
       return this;

@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Assigns a role to a contact for a location.
- */
+
 public class CompanyContactAssignRoleGraphQLQuery extends GraphQLQuery {
   public CompanyContactAssignRoleGraphQLQuery(String companyContactId, String companyContactRoleId,
       String companyLocationId, String queryName, Set<String> fieldsSet) {
@@ -51,27 +49,21 @@ public class CompanyContactAssignRoleGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the contact to assign a role to.
-     */
+    
     public Builder companyContactId(String companyContactId) {
       this.companyContactId = companyContactId;
       this.fieldsSet.add("companyContactId");
       return this;
     }
 
-    /**
-     * The ID of the role to assign to a contact.
-     */
+    
     public Builder companyContactRoleId(String companyContactRoleId) {
       this.companyContactRoleId = companyContactRoleId;
       this.fieldsSet.add("companyContactRoleId");
       return this;
     }
 
-    /**
-     * The ID of the location to assign a role to a contact.
-     */
+    
     public Builder companyLocationId(String companyLocationId) {
       this.companyLocationId = companyLocationId;
       this.fieldsSet.add("companyLocationId");

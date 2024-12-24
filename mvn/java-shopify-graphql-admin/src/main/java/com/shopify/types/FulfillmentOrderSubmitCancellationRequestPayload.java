@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `fulfillmentOrderSubmitCancellationRequest` mutation.
- */
+
 public class FulfillmentOrderSubmitCancellationRequestPayload {
-  /**
-   * The fulfillment order specified in the cancelation request.
-   */
+  
   private FulfillmentOrder fulfillmentOrder;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public FulfillmentOrderSubmitCancellationRequestPayload() {
   }
 
-  /**
-   * The fulfillment order specified in the cancelation request.
-   */
+  
   public FulfillmentOrder getFulfillmentOrder() {
     return fulfillmentOrder;
   }
@@ -34,9 +26,7 @@ public class FulfillmentOrderSubmitCancellationRequestPayload {
     this.fulfillmentOrder = fulfillmentOrder;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class FulfillmentOrderSubmitCancellationRequestPayload {
   }
 
   public static class Builder {
-    /**
-     * The fulfillment order specified in the cancelation request.
-     */
+    
     private FulfillmentOrder fulfillmentOrder;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public FulfillmentOrderSubmitCancellationRequestPayload build() {
@@ -86,17 +72,13 @@ public class FulfillmentOrderSubmitCancellationRequestPayload {
       return result;
     }
 
-    /**
-     * The fulfillment order specified in the cancelation request.
-     */
+    
     public Builder fulfillmentOrder(FulfillmentOrder fulfillmentOrder) {
       this.fulfillmentOrder = fulfillmentOrder;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

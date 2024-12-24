@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The renderable capability of a metaobject definition.
- */
+
 public class MetaobjectCapabilitiesRenderable {
-  /**
-   * The data associated with the renderable capability.
-   */
+  
   private MetaobjectCapabilityDefinitionDataRenderable data;
 
-  /**
-   * Indicates if the capability is enabled.
-   */
+  
   private boolean enabled;
 
   public MetaobjectCapabilitiesRenderable() {
   }
 
-  /**
-   * The data associated with the renderable capability.
-   */
+  
   public MetaobjectCapabilityDefinitionDataRenderable getData() {
     return data;
   }
@@ -33,9 +25,7 @@ public class MetaobjectCapabilitiesRenderable {
     this.data = data;
   }
 
-  /**
-   * Indicates if the capability is enabled.
-   */
+  
   public boolean getEnabled() {
     return enabled;
   }
@@ -68,14 +58,10 @@ public class MetaobjectCapabilitiesRenderable {
   }
 
   public static class Builder {
-    /**
-     * The data associated with the renderable capability.
-     */
+    
     private MetaobjectCapabilityDefinitionDataRenderable data;
 
-    /**
-     * Indicates if the capability is enabled.
-     */
+    
     private boolean enabled;
 
     public MetaobjectCapabilitiesRenderable build() {
@@ -85,17 +71,13 @@ public class MetaobjectCapabilitiesRenderable {
       return result;
     }
 
-    /**
-     * The data associated with the renderable capability.
-     */
+    
     public Builder data(MetaobjectCapabilityDefinitionDataRenderable data) {
       this.data = data;
       return this;
     }
 
-    /**
-     * Indicates if the capability is enabled.
-     */
+    
     public Builder enabled(boolean enabled) {
       this.enabled = enabled;
       return this;

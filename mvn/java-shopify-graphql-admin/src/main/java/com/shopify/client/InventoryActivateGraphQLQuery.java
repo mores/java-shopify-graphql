@@ -8,9 +8,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Activate an inventory item at a location.
- */
+
 public class InventoryActivateGraphQLQuery extends GraphQLQuery {
   public InventoryActivateGraphQLQuery(String inventoryItemId, String locationId, Integer available,
       Integer onHand, Boolean stockAtLegacyLocation, String queryName, Set<String> fieldsSet) {
@@ -61,46 +59,35 @@ public class InventoryActivateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the inventory item to activate.
-     */
+    
     public Builder inventoryItemId(String inventoryItemId) {
       this.inventoryItemId = inventoryItemId;
       this.fieldsSet.add("inventoryItemId");
       return this;
     }
 
-    /**
-     * The ID of the location of the inventory item being activated.
-     */
+    
     public Builder locationId(String locationId) {
       this.locationId = locationId;
       this.fieldsSet.add("locationId");
       return this;
     }
 
-    /**
-     * The initial available quantity of the inventory item being activated at the location.
-     */
+    
     public Builder available(Integer available) {
       this.available = available;
       this.fieldsSet.add("available");
       return this;
     }
 
-    /**
-     * The initial on_hand quantity of the inventory item being activated at the location.
-     */
+    
     public Builder onHand(Integer onHand) {
       this.onHand = onHand;
       this.fieldsSet.add("onHand");
       return this;
     }
 
-    /**
-     * Allow activation at or away from fulfillment service location with sku
-     * sharing off. This will deactivate inventory at all other locations.
-     */
+    
     public Builder stockAtLegacyLocation(Boolean stockAtLegacyLocation) {
       this.stockAtLegacyLocation = stockAtLegacyLocation;
       this.fieldsSet.add("stockAtLegacyLocation");

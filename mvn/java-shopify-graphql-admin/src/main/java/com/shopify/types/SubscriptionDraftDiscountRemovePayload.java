@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `subscriptionDraftDiscountRemove` mutation.
- */
+
 public class SubscriptionDraftDiscountRemovePayload {
-  /**
-   * The removed subscription draft discount.
-   */
+  
   private SubscriptionDiscount discountRemoved;
 
-  /**
-   * The subscription contract draft object.
-   */
+  
   private SubscriptionDraft draft;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<SubscriptionDraftUserError> userErrors;
 
   public SubscriptionDraftDiscountRemovePayload() {
   }
 
-  /**
-   * The removed subscription draft discount.
-   */
+  
   public SubscriptionDiscount getDiscountRemoved() {
     return discountRemoved;
   }
@@ -39,9 +29,7 @@ public class SubscriptionDraftDiscountRemovePayload {
     this.discountRemoved = discountRemoved;
   }
 
-  /**
-   * The subscription contract draft object.
-   */
+  
   public SubscriptionDraft getDraft() {
     return draft;
   }
@@ -50,9 +38,7 @@ public class SubscriptionDraftDiscountRemovePayload {
     this.draft = draft;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<SubscriptionDraftUserError> getUserErrors() {
     return userErrors;
   }
@@ -86,19 +72,13 @@ public class SubscriptionDraftDiscountRemovePayload {
   }
 
   public static class Builder {
-    /**
-     * The removed subscription draft discount.
-     */
+    
     private SubscriptionDiscount discountRemoved;
 
-    /**
-     * The subscription contract draft object.
-     */
+    
     private SubscriptionDraft draft;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<SubscriptionDraftUserError> userErrors;
 
     public SubscriptionDraftDiscountRemovePayload build() {
@@ -109,25 +89,19 @@ public class SubscriptionDraftDiscountRemovePayload {
       return result;
     }
 
-    /**
-     * The removed subscription draft discount.
-     */
+    
     public Builder discountRemoved(SubscriptionDiscount discountRemoved) {
       this.discountRemoved = discountRemoved;
       return this;
     }
 
-    /**
-     * The subscription contract draft object.
-     */
+    
     public Builder draft(SubscriptionDraft draft) {
       this.draft = draft;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<SubscriptionDraftUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

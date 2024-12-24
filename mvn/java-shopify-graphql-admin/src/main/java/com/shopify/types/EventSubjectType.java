@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * The type of the resource that generated the event.
- */
+
 public enum EventSubjectType {
   COMPANY_LOCATION,
 

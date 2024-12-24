@@ -7,11 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Applies and saves staged changes to an order. Mutations are operating on `OrderEdit`.
- * All order edits start with `orderEditBegin`, have any number of `orderEdit`*
- * mutations made, and end with `orderEditCommit`.
- */
+
 public class OrderEditCommitGraphQLQuery extends GraphQLQuery {
   public OrderEditCommitGraphQLQuery(String id, Boolean notifyCustomer, String staffNote,
       String queryName, Set<String> fieldsSet) {
@@ -54,28 +50,21 @@ public class OrderEditCommitGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
-     * that will have its changes applied to the order.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * Whether to notify the customer or not.
-     */
+    
     public Builder notifyCustomer(Boolean notifyCustomer) {
       this.notifyCustomer = notifyCustomer;
       this.fieldsSet.add("notifyCustomer");
       return this;
     }
 
-    /**
-     * Note for staff members.
-     */
+    
     public Builder staffNote(String staffNote) {
       this.staffNote = staffNote;
       this.fieldsSet.add("staffNote");

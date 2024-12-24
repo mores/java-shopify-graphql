@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `deliveryPromiseProviderUpsert` mutation.
- */
+
 public class DeliveryPromiseProviderUpsertPayload {
-  /**
-   * The created or updated delivery promise provider.
-   */
+  
   private DeliveryPromiseProvider deliveryPromiseProvider;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<DeliveryPromiseProviderUpsertUserError> userErrors;
 
   public DeliveryPromiseProviderUpsertPayload() {
   }
 
-  /**
-   * The created or updated delivery promise provider.
-   */
+  
   public DeliveryPromiseProvider getDeliveryPromiseProvider() {
     return deliveryPromiseProvider;
   }
@@ -34,9 +26,7 @@ public class DeliveryPromiseProviderUpsertPayload {
     this.deliveryPromiseProvider = deliveryPromiseProvider;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<DeliveryPromiseProviderUpsertUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class DeliveryPromiseProviderUpsertPayload {
   }
 
   public static class Builder {
-    /**
-     * The created or updated delivery promise provider.
-     */
+    
     private DeliveryPromiseProvider deliveryPromiseProvider;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<DeliveryPromiseProviderUpsertUserError> userErrors;
 
     public DeliveryPromiseProviderUpsertPayload build() {
@@ -86,17 +72,13 @@ public class DeliveryPromiseProviderUpsertPayload {
       return result;
     }
 
-    /**
-     * The created or updated delivery promise provider.
-     */
+    
     public Builder deliveryPromiseProvider(DeliveryPromiseProvider deliveryPromiseProvider) {
       this.deliveryPromiseProvider = deliveryPromiseProvider;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<DeliveryPromiseProviderUpsertUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

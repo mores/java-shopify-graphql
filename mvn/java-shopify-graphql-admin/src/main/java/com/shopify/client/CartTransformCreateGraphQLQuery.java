@@ -9,9 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Create a CartTransform function to the Shop.
- */
+
 public class CartTransformCreateGraphQLQuery extends GraphQLQuery {
   public CartTransformCreateGraphQLQuery(String functionId, Boolean blockOnFailure,
       List<MetafieldInput> metafields, String queryName, Set<String> fieldsSet) {
@@ -54,27 +52,21 @@ public class CartTransformCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The identifier of the Function providing the cart transform.
-     */
+    
     public Builder functionId(String functionId) {
       this.functionId = functionId;
       this.fieldsSet.add("functionId");
       return this;
     }
 
-    /**
-     * Whether a run failure should block cart and checkout operations.
-     */
+    
     public Builder blockOnFailure(Boolean blockOnFailure) {
       this.blockOnFailure = blockOnFailure;
       this.fieldsSet.add("blockOnFailure");
       return this;
     }
 
-    /**
-     * Additional metafields to associate to the cart transform.
-     */
+    
     public Builder metafields(List<MetafieldInput> metafields) {
       this.metafields = metafields;
       this.fieldsSet.add("metafields");

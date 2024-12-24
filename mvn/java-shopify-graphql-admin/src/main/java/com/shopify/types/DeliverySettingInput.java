@@ -6,21 +6,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for shop-level delivery settings.
- */
+
 public class DeliverySettingInput {
-  /**
-   * Whether legacy compatability mode is enabled for the multi-location delivery profiles feature.
-   */
+  
   private Boolean legacyModeProfiles;
 
   public DeliverySettingInput() {
   }
 
-  /**
-   * Whether legacy compatability mode is enabled for the multi-location delivery profiles feature.
-   */
+  
   public Boolean getLegacyModeProfiles() {
     return legacyModeProfiles;
   }
@@ -52,9 +46,7 @@ public class DeliverySettingInput {
   }
 
   public static class Builder {
-    /**
-     * Whether legacy compatability mode is enabled for the multi-location delivery profiles feature.
-     */
+    
     private Boolean legacyModeProfiles;
 
     public DeliverySettingInput build() {
@@ -63,9 +55,7 @@ public class DeliverySettingInput {
       return result;
     }
 
-    /**
-     * Whether legacy compatability mode is enabled for the multi-location delivery profiles feature.
-     */
+    
     public Builder legacyModeProfiles(Boolean legacyModeProfiles) {
       this.legacyModeProfiles = legacyModeProfiles;
       return this;

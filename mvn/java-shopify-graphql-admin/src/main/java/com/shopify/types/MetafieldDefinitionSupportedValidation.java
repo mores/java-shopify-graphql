@@ -5,29 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The type and name for the optional validation configuration of a metafield.
- *
- * For example, a supported validation might consist of a `max` name and a `number_integer` type.
- * This validation can then be used to enforce a maximum character length for a `single_line_text_field` metafield.
- */
+
 public class MetafieldDefinitionSupportedValidation {
-  /**
-   * The name of the metafield definition validation.
-   */
+  
   private String name;
 
-  /**
-   * The type of input for the validation.
-   */
+  
   private String type;
 
   public MetafieldDefinitionSupportedValidation() {
   }
 
-  /**
-   * The name of the metafield definition validation.
-   */
+  
   public String getName() {
     return name;
   }
@@ -36,9 +25,7 @@ public class MetafieldDefinitionSupportedValidation {
     this.name = name;
   }
 
-  /**
-   * The type of input for the validation.
-   */
+  
   public String getType() {
     return type;
   }
@@ -71,14 +58,10 @@ public class MetafieldDefinitionSupportedValidation {
   }
 
   public static class Builder {
-    /**
-     * The name of the metafield definition validation.
-     */
+    
     private String name;
 
-    /**
-     * The type of input for the validation.
-     */
+    
     private String type;
 
     public MetafieldDefinitionSupportedValidation build() {
@@ -88,17 +71,13 @@ public class MetafieldDefinitionSupportedValidation {
       return result;
     }
 
-    /**
-     * The name of the metafield definition validation.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The type of input for the validation.
-     */
+    
     public Builder type(String type) {
       this.type = type;
       return this;

@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `metafieldDefinitionPin` mutation.
- */
+
 public class MetafieldDefinitionPinPayload {
-  /**
-   * The metafield definition that was pinned.
-   */
+  
   private MetafieldDefinition pinnedDefinition;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<MetafieldDefinitionPinUserError> userErrors;
 
   public MetafieldDefinitionPinPayload() {
   }
 
-  /**
-   * The metafield definition that was pinned.
-   */
+  
   public MetafieldDefinition getPinnedDefinition() {
     return pinnedDefinition;
   }
@@ -34,9 +26,7 @@ public class MetafieldDefinitionPinPayload {
     this.pinnedDefinition = pinnedDefinition;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<MetafieldDefinitionPinUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class MetafieldDefinitionPinPayload {
   }
 
   public static class Builder {
-    /**
-     * The metafield definition that was pinned.
-     */
+    
     private MetafieldDefinition pinnedDefinition;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<MetafieldDefinitionPinUserError> userErrors;
 
     public MetafieldDefinitionPinPayload build() {
@@ -86,17 +72,13 @@ public class MetafieldDefinitionPinPayload {
       return result;
     }
 
-    /**
-     * The metafield definition that was pinned.
-     */
+    
     public Builder pinnedDefinition(MetafieldDefinition pinnedDefinition) {
       this.pinnedDefinition = pinnedDefinition;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<MetafieldDefinitionPinUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

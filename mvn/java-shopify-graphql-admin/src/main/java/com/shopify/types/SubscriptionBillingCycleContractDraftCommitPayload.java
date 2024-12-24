@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `subscriptionBillingCycleContractDraftCommit` mutation.
- */
+
 public class SubscriptionBillingCycleContractDraftCommitPayload {
-  /**
-   * The committed Subscription Billing Cycle Edited Contract object.
-   */
+  
   private SubscriptionBillingCycleEditedContract contract;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<SubscriptionDraftUserError> userErrors;
 
   public SubscriptionBillingCycleContractDraftCommitPayload() {
   }
 
-  /**
-   * The committed Subscription Billing Cycle Edited Contract object.
-   */
+  
   public SubscriptionBillingCycleEditedContract getContract() {
     return contract;
   }
@@ -34,9 +26,7 @@ public class SubscriptionBillingCycleContractDraftCommitPayload {
     this.contract = contract;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<SubscriptionDraftUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class SubscriptionBillingCycleContractDraftCommitPayload {
   }
 
   public static class Builder {
-    /**
-     * The committed Subscription Billing Cycle Edited Contract object.
-     */
+    
     private SubscriptionBillingCycleEditedContract contract;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<SubscriptionDraftUserError> userErrors;
 
     public SubscriptionBillingCycleContractDraftCommitPayload build() {
@@ -86,17 +72,13 @@ public class SubscriptionBillingCycleContractDraftCommitPayload {
       return result;
     }
 
-    /**
-     * The committed Subscription Billing Cycle Edited Contract object.
-     */
+    
     public Builder contract(SubscriptionBillingCycleEditedContract contract) {
       this.contract = contract;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<SubscriptionDraftUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

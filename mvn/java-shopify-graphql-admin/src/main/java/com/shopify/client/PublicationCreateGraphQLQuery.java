@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Creates a publication.
- */
+
 public class PublicationCreateGraphQLQuery extends GraphQLQuery {
   public PublicationCreateGraphQLQuery(PublicationCreateInput input, String queryName,
       Set<String> fieldsSet) {
@@ -44,9 +42,7 @@ public class PublicationCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The input fields to use when creating the publication.
-     */
+    
     public Builder input(PublicationCreateInput input) {
       this.input = input;
       this.fieldsSet.add("input");

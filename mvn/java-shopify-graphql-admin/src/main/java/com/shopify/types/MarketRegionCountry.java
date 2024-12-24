@@ -6,39 +6,27 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A country which comprises a market.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class MarketRegionCountry implements com.shopify.types.MarketRegion, com.shopify.types.Node {
-  /**
-   * The ISO code identifying the country.
-   */
+  
   private CountryCode code;
 
-  /**
-   * The currency which this country uses given its market settings.
-   */
+  
   private CurrencySetting currency;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The name of the region.
-   */
+  
   private String name;
 
   public MarketRegionCountry() {
   }
 
-  /**
-   * The ISO code identifying the country.
-   */
+  
   public CountryCode getCode() {
     return code;
   }
@@ -47,9 +35,7 @@ public class MarketRegionCountry implements com.shopify.types.MarketRegion, com.
     this.code = code;
   }
 
-  /**
-   * The currency which this country uses given its market settings.
-   */
+  
   public CurrencySetting getCurrency() {
     return currency;
   }
@@ -58,9 +44,7 @@ public class MarketRegionCountry implements com.shopify.types.MarketRegion, com.
     this.currency = currency;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -69,9 +53,7 @@ public class MarketRegionCountry implements com.shopify.types.MarketRegion, com.
     this.id = id;
   }
 
-  /**
-   * The name of the region.
-   */
+  
   public String getName() {
     return name;
   }
@@ -106,24 +88,16 @@ public class MarketRegionCountry implements com.shopify.types.MarketRegion, com.
   }
 
   public static class Builder {
-    /**
-     * The ISO code identifying the country.
-     */
+    
     private CountryCode code;
 
-    /**
-     * The currency which this country uses given its market settings.
-     */
+    
     private CurrencySetting currency;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The name of the region.
-     */
+    
     private String name;
 
     public MarketRegionCountry build() {
@@ -135,33 +109,25 @@ public class MarketRegionCountry implements com.shopify.types.MarketRegion, com.
       return result;
     }
 
-    /**
-     * The ISO code identifying the country.
-     */
+    
     public Builder code(CountryCode code) {
       this.code = code;
       return this;
     }
 
-    /**
-     * The currency which this country uses given its market settings.
-     */
+    
     public Builder currency(CurrencySetting currency) {
       this.currency = currency;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The name of the region.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;

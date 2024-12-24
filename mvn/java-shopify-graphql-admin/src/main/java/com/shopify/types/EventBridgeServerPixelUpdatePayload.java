@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `eventBridgeServerPixelUpdate` mutation.
- */
+
 public class EventBridgeServerPixelUpdatePayload {
-  /**
-   * The server pixel as configured by the mutation.
-   */
+  
   private ServerPixel serverPixel;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<ErrorsServerPixelUserError> userErrors;
 
   public EventBridgeServerPixelUpdatePayload() {
   }
 
-  /**
-   * The server pixel as configured by the mutation.
-   */
+  
   public ServerPixel getServerPixel() {
     return serverPixel;
   }
@@ -34,9 +26,7 @@ public class EventBridgeServerPixelUpdatePayload {
     this.serverPixel = serverPixel;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<ErrorsServerPixelUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class EventBridgeServerPixelUpdatePayload {
   }
 
   public static class Builder {
-    /**
-     * The server pixel as configured by the mutation.
-     */
+    
     private ServerPixel serverPixel;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<ErrorsServerPixelUserError> userErrors;
 
     public EventBridgeServerPixelUpdatePayload build() {
@@ -86,17 +72,13 @@ public class EventBridgeServerPixelUpdatePayload {
       return result;
     }
 
-    /**
-     * The server pixel as configured by the mutation.
-     */
+    
     public Builder serverPixel(ServerPixel serverPixel) {
       this.serverPixel = serverPixel;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<ErrorsServerPixelUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

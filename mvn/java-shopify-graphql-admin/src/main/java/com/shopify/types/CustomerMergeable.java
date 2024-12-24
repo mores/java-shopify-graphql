@@ -6,36 +6,24 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * An object that represents whether a customer can be merged with another customer.
- */
+
 public class CustomerMergeable {
-  /**
-   * The list of fields preventing the customer from being merged.
-   */
+  
   private List<CustomerMergeErrorFieldType> errorFields;
 
-  /**
-   * Whether the customer can be merged with another customer.
-   */
+  
   private boolean isMergeable;
 
-  /**
-   * The merge request if one is currently in progress.
-   */
+  
   private CustomerMergeRequest mergeInProgress;
 
-  /**
-   * The reason why the customer can't be merged with another customer.
-   */
+  
   private String reason;
 
   public CustomerMergeable() {
   }
 
-  /**
-   * The list of fields preventing the customer from being merged.
-   */
+  
   public List<CustomerMergeErrorFieldType> getErrorFields() {
     return errorFields;
   }
@@ -44,9 +32,7 @@ public class CustomerMergeable {
     this.errorFields = errorFields;
   }
 
-  /**
-   * Whether the customer can be merged with another customer.
-   */
+  
   public boolean getIsMergeable() {
     return isMergeable;
   }
@@ -55,9 +41,7 @@ public class CustomerMergeable {
     this.isMergeable = isMergeable;
   }
 
-  /**
-   * The merge request if one is currently in progress.
-   */
+  
   public CustomerMergeRequest getMergeInProgress() {
     return mergeInProgress;
   }
@@ -66,9 +50,7 @@ public class CustomerMergeable {
     this.mergeInProgress = mergeInProgress;
   }
 
-  /**
-   * The reason why the customer can't be merged with another customer.
-   */
+  
   public String getReason() {
     return reason;
   }
@@ -103,24 +85,16 @@ public class CustomerMergeable {
   }
 
   public static class Builder {
-    /**
-     * The list of fields preventing the customer from being merged.
-     */
+    
     private List<CustomerMergeErrorFieldType> errorFields;
 
-    /**
-     * Whether the customer can be merged with another customer.
-     */
+    
     private boolean isMergeable;
 
-    /**
-     * The merge request if one is currently in progress.
-     */
+    
     private CustomerMergeRequest mergeInProgress;
 
-    /**
-     * The reason why the customer can't be merged with another customer.
-     */
+    
     private String reason;
 
     public CustomerMergeable build() {
@@ -132,33 +106,25 @@ public class CustomerMergeable {
       return result;
     }
 
-    /**
-     * The list of fields preventing the customer from being merged.
-     */
+    
     public Builder errorFields(List<CustomerMergeErrorFieldType> errorFields) {
       this.errorFields = errorFields;
       return this;
     }
 
-    /**
-     * Whether the customer can be merged with another customer.
-     */
+    
     public Builder isMergeable(boolean isMergeable) {
       this.isMergeable = isMergeable;
       return this;
     }
 
-    /**
-     * The merge request if one is currently in progress.
-     */
+    
     public Builder mergeInProgress(CustomerMergeRequest mergeInProgress) {
       this.mergeInProgress = mergeInProgress;
       return this;
     }
 
-    /**
-     * The reason why the customer can't be merged with another customer.
-     */
+    
     public Builder reason(String reason) {
       this.reason = reason;
       return this;

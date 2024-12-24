@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `locationEdit` mutation.
- */
+
 public class LocationEditPayload {
-  /**
-   * The location that was edited.
-   */
+  
   private Location location;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<LocationEditUserError> userErrors;
 
   public LocationEditPayload() {
   }
 
-  /**
-   * The location that was edited.
-   */
+  
   public Location getLocation() {
     return location;
   }
@@ -34,9 +26,7 @@ public class LocationEditPayload {
     this.location = location;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<LocationEditUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class LocationEditPayload {
   }
 
   public static class Builder {
-    /**
-     * The location that was edited.
-     */
+    
     private Location location;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<LocationEditUserError> userErrors;
 
     public LocationEditPayload build() {
@@ -86,17 +72,13 @@ public class LocationEditPayload {
       return result;
     }
 
-    /**
-     * The location that was edited.
-     */
+    
     public Builder location(Location location) {
       this.location = location;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<LocationEditUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

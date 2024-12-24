@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Creates a fulfillment event for a specified fulfillment.
- */
+
 public class FulfillmentEventCreateGraphQLQuery extends GraphQLQuery {
   public FulfillmentEventCreateGraphQLQuery(FulfillmentEventInput fulfillmentEvent,
       String queryName, Set<String> fieldsSet) {
@@ -44,9 +42,7 @@ public class FulfillmentEventCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The input fields used to create a fulfillment event for a fulfillment.
-     */
+    
     public Builder fulfillmentEvent(FulfillmentEventInput fulfillmentEvent) {
       this.fulfillmentEvent = fulfillmentEvent;
       this.fieldsSet.add("fulfillmentEvent");

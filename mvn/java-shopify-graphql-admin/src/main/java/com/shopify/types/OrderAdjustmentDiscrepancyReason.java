@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Discrepancy reasons for order adjustments.
- */
+
 public enum OrderAdjustmentDiscrepancyReason {
   RESTOCK,
 

@@ -7,59 +7,39 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * A list of products with publishing and pricing information associated with company locations.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class CompanyLocationCatalog implements com.shopify.types.Catalog, com.shopify.types.Node {
-  /**
-   * The company locations associated with the catalog.
-   */
+  
   private CompanyLocationConnection companyLocations;
 
-  /**
-   * The number of company locations associated with the catalog.
-   */
+  
   private Count companyLocationsCount;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * Most recent catalog operations.
-   */
+  
   private List<ResourceOperation> operations;
 
-  /**
-   * The price list associated with the catalog.
-   */
+  
   private PriceList priceList;
 
-  /**
-   * A group of products and collections that's published to a catalog.
-   */
+  
   private Publication publication;
 
-  /**
-   * The status of the catalog.
-   */
+  
   private CatalogStatus status;
 
-  /**
-   * The name of the catalog.
-   */
+  
   private String title;
 
   public CompanyLocationCatalog() {
   }
 
-  /**
-   * The company locations associated with the catalog.
-   */
+  
   public CompanyLocationConnection getCompanyLocations() {
     return companyLocations;
   }
@@ -68,9 +48,7 @@ public class CompanyLocationCatalog implements com.shopify.types.Catalog, com.sh
     this.companyLocations = companyLocations;
   }
 
-  /**
-   * The number of company locations associated with the catalog.
-   */
+  
   public Count getCompanyLocationsCount() {
     return companyLocationsCount;
   }
@@ -79,9 +57,7 @@ public class CompanyLocationCatalog implements com.shopify.types.Catalog, com.sh
     this.companyLocationsCount = companyLocationsCount;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -90,9 +66,7 @@ public class CompanyLocationCatalog implements com.shopify.types.Catalog, com.sh
     this.id = id;
   }
 
-  /**
-   * Most recent catalog operations.
-   */
+  
   public List<ResourceOperation> getOperations() {
     return operations;
   }
@@ -101,9 +75,7 @@ public class CompanyLocationCatalog implements com.shopify.types.Catalog, com.sh
     this.operations = operations;
   }
 
-  /**
-   * The price list associated with the catalog.
-   */
+  
   public PriceList getPriceList() {
     return priceList;
   }
@@ -112,9 +84,7 @@ public class CompanyLocationCatalog implements com.shopify.types.Catalog, com.sh
     this.priceList = priceList;
   }
 
-  /**
-   * A group of products and collections that's published to a catalog.
-   */
+  
   public Publication getPublication() {
     return publication;
   }
@@ -123,9 +93,7 @@ public class CompanyLocationCatalog implements com.shopify.types.Catalog, com.sh
     this.publication = publication;
   }
 
-  /**
-   * The status of the catalog.
-   */
+  
   public CatalogStatus getStatus() {
     return status;
   }
@@ -134,9 +102,7 @@ public class CompanyLocationCatalog implements com.shopify.types.Catalog, com.sh
     this.status = status;
   }
 
-  /**
-   * The name of the catalog.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -175,44 +141,28 @@ public class CompanyLocationCatalog implements com.shopify.types.Catalog, com.sh
   }
 
   public static class Builder {
-    /**
-     * The company locations associated with the catalog.
-     */
+    
     private CompanyLocationConnection companyLocations;
 
-    /**
-     * The number of company locations associated with the catalog.
-     */
+    
     private Count companyLocationsCount;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * Most recent catalog operations.
-     */
+    
     private List<ResourceOperation> operations;
 
-    /**
-     * The price list associated with the catalog.
-     */
+    
     private PriceList priceList;
 
-    /**
-     * A group of products and collections that's published to a catalog.
-     */
+    
     private Publication publication;
 
-    /**
-     * The status of the catalog.
-     */
+    
     private CatalogStatus status;
 
-    /**
-     * The name of the catalog.
-     */
+    
     private String title;
 
     public CompanyLocationCatalog build() {
@@ -228,65 +178,49 @@ public class CompanyLocationCatalog implements com.shopify.types.Catalog, com.sh
       return result;
     }
 
-    /**
-     * The company locations associated with the catalog.
-     */
+    
     public Builder companyLocations(CompanyLocationConnection companyLocations) {
       this.companyLocations = companyLocations;
       return this;
     }
 
-    /**
-     * The number of company locations associated with the catalog.
-     */
+    
     public Builder companyLocationsCount(Count companyLocationsCount) {
       this.companyLocationsCount = companyLocationsCount;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * Most recent catalog operations.
-     */
+    
     public Builder operations(List<ResourceOperation> operations) {
       this.operations = operations;
       return this;
     }
 
-    /**
-     * The price list associated with the catalog.
-     */
+    
     public Builder priceList(PriceList priceList) {
       this.priceList = priceList;
       return this;
     }
 
-    /**
-     * A group of products and collections that's published to a catalog.
-     */
+    
     public Builder publication(Publication publication) {
       this.publication = publication;
       return this;
     }
 
-    /**
-     * The status of the catalog.
-     */
+    
     public Builder status(CatalogStatus status) {
       this.status = status;
       return this;
     }
 
-    /**
-     * The name of the catalog.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;

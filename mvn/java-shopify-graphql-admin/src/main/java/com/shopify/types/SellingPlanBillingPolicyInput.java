@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields that are required to create or update a billing policy type.
- */
+
 public class SellingPlanBillingPolicyInput {
-  /**
-   * The fixed billing policy details.
-   */
+  
   private SellingPlanFixedBillingPolicyInput fixed;
 
-  /**
-   * The recurring billing policy details.
-   */
+  
   private SellingPlanRecurringBillingPolicyInput recurring;
 
   public SellingPlanBillingPolicyInput() {
   }
 
-  /**
-   * The fixed billing policy details.
-   */
+  
   public SellingPlanFixedBillingPolicyInput getFixed() {
     return fixed;
   }
@@ -33,9 +25,7 @@ public class SellingPlanBillingPolicyInput {
     this.fixed = fixed;
   }
 
-  /**
-   * The recurring billing policy details.
-   */
+  
   public SellingPlanRecurringBillingPolicyInput getRecurring() {
     return recurring;
   }
@@ -68,14 +58,10 @@ public class SellingPlanBillingPolicyInput {
   }
 
   public static class Builder {
-    /**
-     * The fixed billing policy details.
-     */
+    
     private SellingPlanFixedBillingPolicyInput fixed;
 
-    /**
-     * The recurring billing policy details.
-     */
+    
     private SellingPlanRecurringBillingPolicyInput recurring;
 
     public SellingPlanBillingPolicyInput build() {
@@ -85,17 +71,13 @@ public class SellingPlanBillingPolicyInput {
       return result;
     }
 
-    /**
-     * The fixed billing policy details.
-     */
+    
     public Builder fixed(SellingPlanFixedBillingPolicyInput fixed) {
       this.fixed = fixed;
       return this;
     }
 
-    /**
-     * The recurring billing policy details.
-     */
+    
     public Builder recurring(SellingPlanRecurringBillingPolicyInput recurring) {
       this.recurring = recurring;
       return this;

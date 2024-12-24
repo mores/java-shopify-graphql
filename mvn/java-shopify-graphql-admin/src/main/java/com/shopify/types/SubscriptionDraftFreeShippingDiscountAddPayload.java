@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `subscriptionDraftFreeShippingDiscountAdd` mutation.
- */
+
 public class SubscriptionDraftFreeShippingDiscountAddPayload {
-  /**
-   * The added subscription free shipping discount.
-   */
+  
   private SubscriptionManualDiscount discountAdded;
 
-  /**
-   * The subscription contract draft object.
-   */
+  
   private SubscriptionDraft draft;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<SubscriptionDraftUserError> userErrors;
 
   public SubscriptionDraftFreeShippingDiscountAddPayload() {
   }
 
-  /**
-   * The added subscription free shipping discount.
-   */
+  
   public SubscriptionManualDiscount getDiscountAdded() {
     return discountAdded;
   }
@@ -39,9 +29,7 @@ public class SubscriptionDraftFreeShippingDiscountAddPayload {
     this.discountAdded = discountAdded;
   }
 
-  /**
-   * The subscription contract draft object.
-   */
+  
   public SubscriptionDraft getDraft() {
     return draft;
   }
@@ -50,9 +38,7 @@ public class SubscriptionDraftFreeShippingDiscountAddPayload {
     this.draft = draft;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<SubscriptionDraftUserError> getUserErrors() {
     return userErrors;
   }
@@ -86,19 +72,13 @@ public class SubscriptionDraftFreeShippingDiscountAddPayload {
   }
 
   public static class Builder {
-    /**
-     * The added subscription free shipping discount.
-     */
+    
     private SubscriptionManualDiscount discountAdded;
 
-    /**
-     * The subscription contract draft object.
-     */
+    
     private SubscriptionDraft draft;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<SubscriptionDraftUserError> userErrors;
 
     public SubscriptionDraftFreeShippingDiscountAddPayload build() {
@@ -109,25 +89,19 @@ public class SubscriptionDraftFreeShippingDiscountAddPayload {
       return result;
     }
 
-    /**
-     * The added subscription free shipping discount.
-     */
+    
     public Builder discountAdded(SubscriptionManualDiscount discountAdded) {
       this.discountAdded = discountAdded;
       return this;
     }
 
-    /**
-     * The subscription contract draft object.
-     */
+    
     public Builder draft(SubscriptionDraft draft) {
       this.draft = draft;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<SubscriptionDraftUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

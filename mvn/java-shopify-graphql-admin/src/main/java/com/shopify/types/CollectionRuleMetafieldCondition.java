@@ -6,24 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Identifies a metafield definition used as a rule for the smart collection.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class CollectionRuleMetafieldCondition implements CollectionRuleConditionObject, CollectionRuleConditionsRuleObject {
-  /**
-   * The metafield definition associated with the condition.
-   */
+  
   private MetafieldDefinition metafieldDefinition;
 
   public CollectionRuleMetafieldCondition() {
   }
 
-  /**
-   * The metafield definition associated with the condition.
-   */
+  
   public MetafieldDefinition getMetafieldDefinition() {
     return metafieldDefinition;
   }
@@ -55,9 +49,7 @@ public class CollectionRuleMetafieldCondition implements CollectionRuleCondition
   }
 
   public static class Builder {
-    /**
-     * The metafield definition associated with the condition.
-     */
+    
     private MetafieldDefinition metafieldDefinition;
 
     public CollectionRuleMetafieldCondition build() {
@@ -66,9 +58,7 @@ public class CollectionRuleMetafieldCondition implements CollectionRuleCondition
       return result;
     }
 
-    /**
-     * The metafield definition associated with the condition.
-     */
+    
     public Builder metafieldDefinition(MetafieldDefinition metafieldDefinition) {
       this.metafieldDefinition = metafieldDefinition;
       return this;

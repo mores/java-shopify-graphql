@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for a LocalizationExtensionInput.
- */
+
 public class LocalizationExtensionInput {
-  /**
-   * The key for the localization extension.
-   */
+  
   private LocalizationExtensionKey key;
 
-  /**
-   * The localization extension value.
-   */
+  
   private String value;
 
   public LocalizationExtensionInput() {
   }
 
-  /**
-   * The key for the localization extension.
-   */
+  
   public LocalizationExtensionKey getKey() {
     return key;
   }
@@ -33,9 +25,7 @@ public class LocalizationExtensionInput {
     this.key = key;
   }
 
-  /**
-   * The localization extension value.
-   */
+  
   public String getValue() {
     return value;
   }
@@ -68,14 +58,10 @@ public class LocalizationExtensionInput {
   }
 
   public static class Builder {
-    /**
-     * The key for the localization extension.
-     */
+    
     private LocalizationExtensionKey key;
 
-    /**
-     * The localization extension value.
-     */
+    
     private String value;
 
     public LocalizationExtensionInput build() {
@@ -85,17 +71,13 @@ public class LocalizationExtensionInput {
       return result;
     }
 
-    /**
-     * The key for the localization extension.
-     */
+    
     public Builder key(LocalizationExtensionKey key) {
       this.key = key;
       return this;
     }
 
-    /**
-     * The localization extension value.
-     */
+    
     public Builder value(String value) {
       this.value = value;
       return this;

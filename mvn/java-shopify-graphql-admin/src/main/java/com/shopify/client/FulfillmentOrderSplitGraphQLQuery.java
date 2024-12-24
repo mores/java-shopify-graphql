@@ -8,9 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Splits a fulfillment order or orders based on line item inputs and quantities.
- */
+
 public class FulfillmentOrderSplitGraphQLQuery extends GraphQLQuery {
   public FulfillmentOrderSplitGraphQLQuery(List<FulfillmentOrderSplitInput> fulfillmentOrderSplits,
       String queryName, Set<String> fieldsSet) {
@@ -45,9 +43,7 @@ public class FulfillmentOrderSplitGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The fulfillment orders, line items and quantities to be split into new fulfillment orders.
-     */
+    
     public Builder fulfillmentOrderSplits(List<FulfillmentOrderSplitInput> fulfillmentOrderSplits) {
       this.fulfillmentOrderSplits = fulfillmentOrderSplits;
       this.fieldsSet.add("fulfillmentOrderSplits");

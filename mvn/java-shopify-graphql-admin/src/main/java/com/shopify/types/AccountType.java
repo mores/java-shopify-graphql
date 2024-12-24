@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible account types that a staff member can have.
- */
+
 public enum AccountType {
   REGULAR,
 

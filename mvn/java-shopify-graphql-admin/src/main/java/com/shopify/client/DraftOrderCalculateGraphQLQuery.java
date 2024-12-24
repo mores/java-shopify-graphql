@@ -7,10 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Calculates the properties of a draft order. Useful for determining information
- * such as total taxes or price without actually creating a draft order.
- */
+
 public class DraftOrderCalculateGraphQLQuery extends GraphQLQuery {
   public DraftOrderCalculateGraphQLQuery(DraftOrderInput input, String queryName,
       Set<String> fieldsSet) {
@@ -45,9 +42,7 @@ public class DraftOrderCalculateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The fields for the draft order.
-     */
+    
     public Builder input(DraftOrderInput input) {
       this.input = input;
       this.fieldsSet.add("input");

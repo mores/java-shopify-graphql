@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns a `DeliveryCarrierService` object by ID.
- */
+
 public class CarrierServiceGraphQLQuery extends GraphQLQuery {
   public CarrierServiceGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -42,9 +40,7 @@ public class CarrierServiceGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the `DeliveryCarrierService` to return.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

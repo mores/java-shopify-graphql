@@ -7,44 +7,30 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The duty details for a line item.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class Duty implements com.shopify.types.Node {
-  /**
-   * The ISO 3166-1 alpha-2 country code of the country of origin used in calculating the duty.
-   */
+  
   private CountryCode countryCodeOfOrigin;
 
-  /**
-   * The harmonized system code of the item used in calculating the duty.
-   */
+  
   private String harmonizedSystemCode;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The amount of the duty.
-   */
+  
   private MoneyBag price;
 
-  /**
-   * A list of taxes charged on the duty.
-   */
+  
   private List<TaxLine> taxLines;
 
   public Duty() {
   }
 
-  /**
-   * The ISO 3166-1 alpha-2 country code of the country of origin used in calculating the duty.
-   */
+  
   public CountryCode getCountryCodeOfOrigin() {
     return countryCodeOfOrigin;
   }
@@ -53,9 +39,7 @@ public class Duty implements com.shopify.types.Node {
     this.countryCodeOfOrigin = countryCodeOfOrigin;
   }
 
-  /**
-   * The harmonized system code of the item used in calculating the duty.
-   */
+  
   public String getHarmonizedSystemCode() {
     return harmonizedSystemCode;
   }
@@ -64,9 +48,7 @@ public class Duty implements com.shopify.types.Node {
     this.harmonizedSystemCode = harmonizedSystemCode;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -75,9 +57,7 @@ public class Duty implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The amount of the duty.
-   */
+  
   public MoneyBag getPrice() {
     return price;
   }
@@ -86,9 +66,7 @@ public class Duty implements com.shopify.types.Node {
     this.price = price;
   }
 
-  /**
-   * A list of taxes charged on the duty.
-   */
+  
   public List<TaxLine> getTaxLines() {
     return taxLines;
   }
@@ -124,29 +102,19 @@ public class Duty implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * The ISO 3166-1 alpha-2 country code of the country of origin used in calculating the duty.
-     */
+    
     private CountryCode countryCodeOfOrigin;
 
-    /**
-     * The harmonized system code of the item used in calculating the duty.
-     */
+    
     private String harmonizedSystemCode;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The amount of the duty.
-     */
+    
     private MoneyBag price;
 
-    /**
-     * A list of taxes charged on the duty.
-     */
+    
     private List<TaxLine> taxLines;
 
     public Duty build() {
@@ -159,41 +127,31 @@ public class Duty implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * The ISO 3166-1 alpha-2 country code of the country of origin used in calculating the duty.
-     */
+    
     public Builder countryCodeOfOrigin(CountryCode countryCodeOfOrigin) {
       this.countryCodeOfOrigin = countryCodeOfOrigin;
       return this;
     }
 
-    /**
-     * The harmonized system code of the item used in calculating the duty.
-     */
+    
     public Builder harmonizedSystemCode(String harmonizedSystemCode) {
       this.harmonizedSystemCode = harmonizedSystemCode;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The amount of the duty.
-     */
+    
     public Builder price(MoneyBag price) {
       this.price = price;
       return this;
     }
 
-    /**
-     * A list of taxes charged on the duty.
-     */
+    
     public Builder taxLines(List<TaxLine> taxLines) {
       this.taxLines = taxLines;
       return this;

@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Quantity of prerequisite items required for the price rule to be applicable, compared to quantity of entitled items.
- */
+
 public class PriceRuleEntitlementToPrerequisiteQuantityRatio {
-  /**
-   * The quantity of entitled items in the ratio.
-   */
+  
   private int entitlementQuantity;
 
-  /**
-   * The quantity of prerequisite items in the ratio.
-   */
+  
   private int prerequisiteQuantity;
 
   public PriceRuleEntitlementToPrerequisiteQuantityRatio() {
   }
 
-  /**
-   * The quantity of entitled items in the ratio.
-   */
+  
   public int getEntitlementQuantity() {
     return entitlementQuantity;
   }
@@ -33,9 +25,7 @@ public class PriceRuleEntitlementToPrerequisiteQuantityRatio {
     this.entitlementQuantity = entitlementQuantity;
   }
 
-  /**
-   * The quantity of prerequisite items in the ratio.
-   */
+  
   public int getPrerequisiteQuantity() {
     return prerequisiteQuantity;
   }
@@ -68,14 +58,10 @@ public class PriceRuleEntitlementToPrerequisiteQuantityRatio {
   }
 
   public static class Builder {
-    /**
-     * The quantity of entitled items in the ratio.
-     */
+    
     private int entitlementQuantity;
 
-    /**
-     * The quantity of prerequisite items in the ratio.
-     */
+    
     private int prerequisiteQuantity;
 
     public PriceRuleEntitlementToPrerequisiteQuantityRatio build() {
@@ -85,17 +71,13 @@ public class PriceRuleEntitlementToPrerequisiteQuantityRatio {
       return result;
     }
 
-    /**
-     * The quantity of entitled items in the ratio.
-     */
+    
     public Builder entitlementQuantity(int entitlementQuantity) {
       this.entitlementQuantity = entitlementQuantity;
       return this;
     }
 
-    /**
-     * The quantity of prerequisite items in the ratio.
-     */
+    
     public Builder prerequisiteQuantity(int prerequisiteQuantity) {
       this.prerequisiteQuantity = prerequisiteQuantity;
       return this;

@@ -6,24 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents the url of the body of a theme file.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class OnlineStoreThemeFileBodyUrl implements OnlineStoreThemeFileBody {
-  /**
-   * The url for the body of the theme file.
-   */
+  
   private String url;
 
   public OnlineStoreThemeFileBodyUrl() {
   }
 
-  /**
-   * The url for the body of the theme file.
-   */
+  
   public String getUrl() {
     return url;
   }
@@ -55,9 +49,7 @@ public class OnlineStoreThemeFileBodyUrl implements OnlineStoreThemeFileBody {
   }
 
   public static class Builder {
-    /**
-     * The url for the body of the theme file.
-     */
+    
     private String url;
 
     public OnlineStoreThemeFileBodyUrl build() {
@@ -66,9 +58,7 @@ public class OnlineStoreThemeFileBodyUrl implements OnlineStoreThemeFileBody {
       return result;
     }
 
-    /**
-     * The url for the body of the theme file.
-     */
+    
     public Builder url(String url) {
       this.url = url;
       return this;

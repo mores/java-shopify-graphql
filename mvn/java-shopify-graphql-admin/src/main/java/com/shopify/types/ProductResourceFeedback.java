@@ -7,45 +7,27 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Reports the status of product for a Sales Channel or Storefront API.
- * This might include why a product is not available in a Sales Channel
- * and how a merchant might fix this.
- */
+
 public class ProductResourceFeedback {
-  /**
-   * The time when the feedback was generated. Used to help determine whether
-   * incoming feedback is outdated compared to existing feedback.
-   */
+  
   private OffsetDateTime feedbackGeneratedAt;
 
-  /**
-   * The feedback messages presented to the merchant.
-   */
+  
   private List<String> messages;
 
-  /**
-   * The ID of the product associated with the feedback.
-   */
+  
   private String productId;
 
-  /**
-   * The timestamp of the product associated with the feedback.
-   */
+  
   private OffsetDateTime productUpdatedAt;
 
-  /**
-   * Conveys the state of the feedback and whether it requires merchant action or not.
-   */
+  
   private ResourceFeedbackState state;
 
   public ProductResourceFeedback() {
   }
 
-  /**
-   * The time when the feedback was generated. Used to help determine whether
-   * incoming feedback is outdated compared to existing feedback.
-   */
+  
   public OffsetDateTime getFeedbackGeneratedAt() {
     return feedbackGeneratedAt;
   }
@@ -54,9 +36,7 @@ public class ProductResourceFeedback {
     this.feedbackGeneratedAt = feedbackGeneratedAt;
   }
 
-  /**
-   * The feedback messages presented to the merchant.
-   */
+  
   public List<String> getMessages() {
     return messages;
   }
@@ -65,9 +45,7 @@ public class ProductResourceFeedback {
     this.messages = messages;
   }
 
-  /**
-   * The ID of the product associated with the feedback.
-   */
+  
   public String getProductId() {
     return productId;
   }
@@ -76,9 +54,7 @@ public class ProductResourceFeedback {
     this.productId = productId;
   }
 
-  /**
-   * The timestamp of the product associated with the feedback.
-   */
+  
   public OffsetDateTime getProductUpdatedAt() {
     return productUpdatedAt;
   }
@@ -87,9 +63,7 @@ public class ProductResourceFeedback {
     this.productUpdatedAt = productUpdatedAt;
   }
 
-  /**
-   * Conveys the state of the feedback and whether it requires merchant action or not.
-   */
+  
   public ResourceFeedbackState getState() {
     return state;
   }
@@ -125,30 +99,19 @@ public class ProductResourceFeedback {
   }
 
   public static class Builder {
-    /**
-     * The time when the feedback was generated. Used to help determine whether
-     * incoming feedback is outdated compared to existing feedback.
-     */
+    
     private OffsetDateTime feedbackGeneratedAt;
 
-    /**
-     * The feedback messages presented to the merchant.
-     */
+    
     private List<String> messages;
 
-    /**
-     * The ID of the product associated with the feedback.
-     */
+    
     private String productId;
 
-    /**
-     * The timestamp of the product associated with the feedback.
-     */
+    
     private OffsetDateTime productUpdatedAt;
 
-    /**
-     * Conveys the state of the feedback and whether it requires merchant action or not.
-     */
+    
     private ResourceFeedbackState state;
 
     public ProductResourceFeedback build() {
@@ -161,42 +124,31 @@ public class ProductResourceFeedback {
       return result;
     }
 
-    /**
-     * The time when the feedback was generated. Used to help determine whether
-     * incoming feedback is outdated compared to existing feedback.
-     */
+    
     public Builder feedbackGeneratedAt(OffsetDateTime feedbackGeneratedAt) {
       this.feedbackGeneratedAt = feedbackGeneratedAt;
       return this;
     }
 
-    /**
-     * The feedback messages presented to the merchant.
-     */
+    
     public Builder messages(List<String> messages) {
       this.messages = messages;
       return this;
     }
 
-    /**
-     * The ID of the product associated with the feedback.
-     */
+    
     public Builder productId(String productId) {
       this.productId = productId;
       return this;
     }
 
-    /**
-     * The timestamp of the product associated with the feedback.
-     */
+    
     public Builder productUpdatedAt(OffsetDateTime productUpdatedAt) {
       this.productUpdatedAt = productUpdatedAt;
       return this;
     }
 
-    /**
-     * Conveys the state of the feedback and whether it requires merchant action or not.
-     */
+    
     public Builder state(ResourceFeedbackState state) {
       this.state = state;
       return this;

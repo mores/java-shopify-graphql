@@ -6,36 +6,24 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * The input fields required to create a Subscription Contract.
- */
+
 public class SubscriptionContractCreateInput {
-  /**
-   * The ID of the customer to associate with the subscription contract.
-   */
+  
   private String customerId;
 
-  /**
-   * The next billing date for the subscription contract.
-   */
+  
   private OffsetDateTime nextBillingDate;
 
-  /**
-   * The currency used for the subscription contract.
-   */
+  
   private CurrencyCode currencyCode;
 
-  /**
-   * The attributes used as input for the Subscription Draft.
-   */
+  
   private SubscriptionDraftInput contract;
 
   public SubscriptionContractCreateInput() {
   }
 
-  /**
-   * The ID of the customer to associate with the subscription contract.
-   */
+  
   public String getCustomerId() {
     return customerId;
   }
@@ -44,9 +32,7 @@ public class SubscriptionContractCreateInput {
     this.customerId = customerId;
   }
 
-  /**
-   * The next billing date for the subscription contract.
-   */
+  
   public OffsetDateTime getNextBillingDate() {
     return nextBillingDate;
   }
@@ -55,9 +41,7 @@ public class SubscriptionContractCreateInput {
     this.nextBillingDate = nextBillingDate;
   }
 
-  /**
-   * The currency used for the subscription contract.
-   */
+  
   public CurrencyCode getCurrencyCode() {
     return currencyCode;
   }
@@ -66,9 +50,7 @@ public class SubscriptionContractCreateInput {
     this.currencyCode = currencyCode;
   }
 
-  /**
-   * The attributes used as input for the Subscription Draft.
-   */
+  
   public SubscriptionDraftInput getContract() {
     return contract;
   }
@@ -103,24 +85,16 @@ public class SubscriptionContractCreateInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the customer to associate with the subscription contract.
-     */
+    
     private String customerId;
 
-    /**
-     * The next billing date for the subscription contract.
-     */
+    
     private OffsetDateTime nextBillingDate;
 
-    /**
-     * The currency used for the subscription contract.
-     */
+    
     private CurrencyCode currencyCode;
 
-    /**
-     * The attributes used as input for the Subscription Draft.
-     */
+    
     private SubscriptionDraftInput contract;
 
     public SubscriptionContractCreateInput build() {
@@ -132,33 +106,25 @@ public class SubscriptionContractCreateInput {
       return result;
     }
 
-    /**
-     * The ID of the customer to associate with the subscription contract.
-     */
+    
     public Builder customerId(String customerId) {
       this.customerId = customerId;
       return this;
     }
 
-    /**
-     * The next billing date for the subscription contract.
-     */
+    
     public Builder nextBillingDate(OffsetDateTime nextBillingDate) {
       this.nextBillingDate = nextBillingDate;
       return this;
     }
 
-    /**
-     * The currency used for the subscription contract.
-     */
+    
     public Builder currencyCode(CurrencyCode currencyCode) {
       this.currencyCode = currencyCode;
       return this;
     }
 
-    /**
-     * The attributes used as input for the Subscription Draft.
-     */
+    
     public Builder contract(SubscriptionDraftInput contract) {
       this.contract = contract;
       return this;

@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields required to create or update a selling plan pricing policy.
- */
+
 public class SellingPlanPricingPolicyInput {
-  /**
-   * Recurring pricing policy details.
-   */
+  
   private SellingPlanRecurringPricingPolicyInput recurring;
 
-  /**
-   * Fixed pricing policy details.
-   */
+  
   private SellingPlanFixedPricingPolicyInput fixed;
 
   public SellingPlanPricingPolicyInput() {
   }
 
-  /**
-   * Recurring pricing policy details.
-   */
+  
   public SellingPlanRecurringPricingPolicyInput getRecurring() {
     return recurring;
   }
@@ -33,9 +25,7 @@ public class SellingPlanPricingPolicyInput {
     this.recurring = recurring;
   }
 
-  /**
-   * Fixed pricing policy details.
-   */
+  
   public SellingPlanFixedPricingPolicyInput getFixed() {
     return fixed;
   }
@@ -68,14 +58,10 @@ public class SellingPlanPricingPolicyInput {
   }
 
   public static class Builder {
-    /**
-     * Recurring pricing policy details.
-     */
+    
     private SellingPlanRecurringPricingPolicyInput recurring;
 
-    /**
-     * Fixed pricing policy details.
-     */
+    
     private SellingPlanFixedPricingPolicyInput fixed;
 
     public SellingPlanPricingPolicyInput build() {
@@ -85,17 +71,13 @@ public class SellingPlanPricingPolicyInput {
       return result;
     }
 
-    /**
-     * Recurring pricing policy details.
-     */
+    
     public Builder recurring(SellingPlanRecurringPricingPolicyInput recurring) {
       this.recurring = recurring;
       return this;
     }
 
-    /**
-     * Fixed pricing policy details.
-     */
+    
     public Builder fixed(SellingPlanFixedPricingPolicyInput fixed) {
       this.fixed = fixed;
       return this;

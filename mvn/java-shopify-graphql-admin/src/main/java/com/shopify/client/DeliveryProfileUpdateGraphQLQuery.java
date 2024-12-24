@@ -8,9 +8,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Update a delivery profile.
- */
+
 public class DeliveryProfileUpdateGraphQLQuery extends GraphQLQuery {
   public DeliveryProfileUpdateGraphQLQuery(String id, DeliveryProfileInput profile,
       Boolean leaveLegacyModeProfiles, String queryName, Set<String> fieldsSet) {
@@ -53,27 +51,21 @@ public class DeliveryProfileUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the delivery profile to update.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * Specifies the input fields for a delivery profile.
-     */
+    
     public Builder profile(DeliveryProfileInput profile) {
       this.profile = profile;
       this.fieldsSet.add("profile");
       return this;
     }
 
-    /**
-     * Whether this delivery profile should leave legacy mode.
-     */
+    
     public Builder leaveLegacyModeProfiles(Boolean leaveLegacyModeProfiles) {
       this.leaveLegacyModeProfiles = leaveLegacyModeProfiles;
       this.fieldsSet.add("leaveLegacyModeProfiles");

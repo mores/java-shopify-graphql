@@ -7,48 +7,30 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * A country that is used to define a shipping zone.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DeliveryCountry implements com.shopify.types.Node {
-  /**
-   * A two-letter country code in ISO 3166-1 alpha-2 standard.
-   * It also includes a flag indicating whether the country should be
-   * a part of the 'Rest Of World' shipping zone.
-   */
+  
   private DeliveryCountryCodeOrRestOfWorld code;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The full name of the country.
-   */
+  
   private String name;
 
-  /**
-   * The list of regions associated with this country.
-   */
+  
   private List<DeliveryProvince> provinces;
 
-  /**
-   * The translated name of the country. The translation returned is based on the system's locale.
-   */
+  
   private String translatedName;
 
   public DeliveryCountry() {
   }
 
-  /**
-   * A two-letter country code in ISO 3166-1 alpha-2 standard.
-   * It also includes a flag indicating whether the country should be
-   * a part of the 'Rest Of World' shipping zone.
-   */
+  
   public DeliveryCountryCodeOrRestOfWorld getCode() {
     return code;
   }
@@ -57,9 +39,7 @@ public class DeliveryCountry implements com.shopify.types.Node {
     this.code = code;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -68,9 +48,7 @@ public class DeliveryCountry implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The full name of the country.
-   */
+  
   public String getName() {
     return name;
   }
@@ -79,9 +57,7 @@ public class DeliveryCountry implements com.shopify.types.Node {
     this.name = name;
   }
 
-  /**
-   * The list of regions associated with this country.
-   */
+  
   public List<DeliveryProvince> getProvinces() {
     return provinces;
   }
@@ -90,9 +66,7 @@ public class DeliveryCountry implements com.shopify.types.Node {
     this.provinces = provinces;
   }
 
-  /**
-   * The translated name of the country. The translation returned is based on the system's locale.
-   */
+  
   public String getTranslatedName() {
     return translatedName;
   }
@@ -128,31 +102,19 @@ public class DeliveryCountry implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * A two-letter country code in ISO 3166-1 alpha-2 standard.
-     * It also includes a flag indicating whether the country should be
-     * a part of the 'Rest Of World' shipping zone.
-     */
+    
     private DeliveryCountryCodeOrRestOfWorld code;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The full name of the country.
-     */
+    
     private String name;
 
-    /**
-     * The list of regions associated with this country.
-     */
+    
     private List<DeliveryProvince> provinces;
 
-    /**
-     * The translated name of the country. The translation returned is based on the system's locale.
-     */
+    
     private String translatedName;
 
     public DeliveryCountry build() {
@@ -165,43 +127,31 @@ public class DeliveryCountry implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * A two-letter country code in ISO 3166-1 alpha-2 standard.
-     * It also includes a flag indicating whether the country should be
-     * a part of the 'Rest Of World' shipping zone.
-     */
+    
     public Builder code(DeliveryCountryCodeOrRestOfWorld code) {
       this.code = code;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The full name of the country.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The list of regions associated with this country.
-     */
+    
     public Builder provinces(List<DeliveryProvince> provinces) {
       this.provinces = provinces;
       return this;
     }
 
-    /**
-     * The translated name of the country. The translation returned is based on the system's locale.
-     */
+    
     public Builder translatedName(String translatedName) {
       this.translatedName = translatedName;
       return this;

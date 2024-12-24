@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Pauses a Subscription Contract.
- */
+
 public class SubscriptionContractPauseGraphQLQuery extends GraphQLQuery {
   public SubscriptionContractPauseGraphQLQuery(String subscriptionContractId, String queryName,
       Set<String> fieldsSet) {
@@ -43,9 +41,7 @@ public class SubscriptionContractPauseGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the Subscription Contract.
-     */
+    
     public Builder subscriptionContractId(String subscriptionContractId) {
       this.subscriptionContractId = subscriptionContractId;
       this.fieldsSet.add("subscriptionContractId");

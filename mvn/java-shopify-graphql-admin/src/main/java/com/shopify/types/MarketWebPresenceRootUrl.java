@@ -5,27 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The URL for the homepage of the online store in the context of a particular market and a
- * particular locale.
- */
+
 public class MarketWebPresenceRootUrl {
-  /**
-   * The locale that the storefront loads in.
-   */
+  
   private String locale;
 
-  /**
-   * The URL.
-   */
+  
   private String url;
 
   public MarketWebPresenceRootUrl() {
   }
 
-  /**
-   * The locale that the storefront loads in.
-   */
+  
   public String getLocale() {
     return locale;
   }
@@ -34,9 +25,7 @@ public class MarketWebPresenceRootUrl {
     this.locale = locale;
   }
 
-  /**
-   * The URL.
-   */
+  
   public String getUrl() {
     return url;
   }
@@ -69,14 +58,10 @@ public class MarketWebPresenceRootUrl {
   }
 
   public static class Builder {
-    /**
-     * The locale that the storefront loads in.
-     */
+    
     private String locale;
 
-    /**
-     * The URL.
-     */
+    
     private String url;
 
     public MarketWebPresenceRootUrl build() {
@@ -86,17 +71,13 @@ public class MarketWebPresenceRootUrl {
       return result;
     }
 
-    /**
-     * The locale that the storefront loads in.
-     */
+    
     public Builder locale(String locale) {
       this.locale = locale;
       return this;
     }
 
-    /**
-     * The URL.
-     */
+    
     public Builder url(String url) {
       this.url = url;
       return this;

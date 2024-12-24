@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `customerPaymentMethodCreateFromDuplicationData` mutation.
- */
+
 public class CustomerPaymentMethodCreateFromDuplicationDataPayload {
-  /**
-   * The customer payment method.
-   */
+  
   private CustomerPaymentMethod customerPaymentMethod;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<CustomerPaymentMethodCreateFromDuplicationDataUserError> userErrors;
 
   public CustomerPaymentMethodCreateFromDuplicationDataPayload() {
   }
 
-  /**
-   * The customer payment method.
-   */
+  
   public CustomerPaymentMethod getCustomerPaymentMethod() {
     return customerPaymentMethod;
   }
@@ -34,9 +26,7 @@ public class CustomerPaymentMethodCreateFromDuplicationDataPayload {
     this.customerPaymentMethod = customerPaymentMethod;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<CustomerPaymentMethodCreateFromDuplicationDataUserError> getUserErrors() {
     return userErrors;
   }
@@ -70,14 +60,10 @@ public class CustomerPaymentMethodCreateFromDuplicationDataPayload {
   }
 
   public static class Builder {
-    /**
-     * The customer payment method.
-     */
+    
     private CustomerPaymentMethod customerPaymentMethod;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<CustomerPaymentMethodCreateFromDuplicationDataUserError> userErrors;
 
     public CustomerPaymentMethodCreateFromDuplicationDataPayload build() {
@@ -87,17 +73,13 @@ public class CustomerPaymentMethodCreateFromDuplicationDataPayload {
       return result;
     }
 
-    /**
-     * The customer payment method.
-     */
+    
     public Builder customerPaymentMethod(CustomerPaymentMethod customerPaymentMethod) {
       this.customerPaymentMethod = customerPaymentMethod;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(
         List<CustomerPaymentMethodCreateFromDuplicationDataUserError> userErrors) {
       this.userErrors = userErrors;

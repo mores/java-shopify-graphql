@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Revokes a role on a company contact.
- */
+
 public class CompanyContactRevokeRoleGraphQLQuery extends GraphQLQuery {
   public CompanyContactRevokeRoleGraphQLQuery(String companyContactId,
       String companyContactRoleAssignmentId, String queryName, Set<String> fieldsSet) {
@@ -47,18 +45,14 @@ public class CompanyContactRevokeRoleGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the contact to revoke a role from.
-     */
+    
     public Builder companyContactId(String companyContactId) {
       this.companyContactId = companyContactId;
       this.fieldsSet.add("companyContactId");
       return this;
     }
 
-    /**
-     * The ID of the role assignment to revoke from a contact.
-     */
+    
     public Builder companyContactRoleAssignmentId(String companyContactRoleAssignmentId) {
       this.companyContactRoleAssignmentId = companyContactRoleAssignmentId;
       this.fieldsSet.add("companyContactRoleAssignmentId");

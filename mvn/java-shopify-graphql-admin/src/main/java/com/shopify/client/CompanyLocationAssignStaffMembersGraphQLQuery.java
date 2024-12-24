@@ -7,9 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Creates one or more mappings between a staff member at a shop and a company location.
- */
+
 public class CompanyLocationAssignStaffMembersGraphQLQuery extends GraphQLQuery {
   public CompanyLocationAssignStaffMembersGraphQLQuery(String companyLocationId,
       List<String> staffMemberIds, String queryName, Set<String> fieldsSet) {
@@ -48,18 +46,14 @@ public class CompanyLocationAssignStaffMembersGraphQLQuery extends GraphQLQuery 
                
     }
 
-    /**
-     * The ID of the company location to assign the staff member to.
-     */
+    
     public Builder companyLocationId(String companyLocationId) {
       this.companyLocationId = companyLocationId;
       this.fieldsSet.add("companyLocationId");
       return this;
     }
 
-    /**
-     * The list of IDs of the staff members to assign.
-     */
+    
     public Builder staffMemberIds(List<String> staffMemberIds) {
       this.staffMemberIds = staffMemberIds;
       this.fieldsSet.add("staffMemberIds");

@@ -6,10 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Deletes an
- * [automatic discount](https://help.shopify.com/manual/discounts/discount-types#automatic-discounts).
- */
+
 public class DiscountAutomaticDeleteGraphQLQuery extends GraphQLQuery {
   public DiscountAutomaticDeleteGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -43,9 +40,7 @@ public class DiscountAutomaticDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the automatic discount to delete.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

@@ -5,31 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields used to update the design system.
- */
+
 public class CheckoutBrandingDesignSystemInput {
-  /**
-   * The color settings for global colors and color schemes.
-   */
+  
   private CheckoutBrandingColorsInput colors;
 
-  /**
-   * The typography.
-   */
+  
   private CheckoutBrandingTypographyInput typography;
 
-  /**
-   * The corner radius variables.
-   */
+  
   private CheckoutBrandingCornerRadiusVariablesInput cornerRadius;
 
   public CheckoutBrandingDesignSystemInput() {
   }
 
-  /**
-   * The color settings for global colors and color schemes.
-   */
+  
   public CheckoutBrandingColorsInput getColors() {
     return colors;
   }
@@ -38,9 +28,7 @@ public class CheckoutBrandingDesignSystemInput {
     this.colors = colors;
   }
 
-  /**
-   * The typography.
-   */
+  
   public CheckoutBrandingTypographyInput getTypography() {
     return typography;
   }
@@ -49,9 +37,7 @@ public class CheckoutBrandingDesignSystemInput {
     this.typography = typography;
   }
 
-  /**
-   * The corner radius variables.
-   */
+  
   public CheckoutBrandingCornerRadiusVariablesInput getCornerRadius() {
     return cornerRadius;
   }
@@ -85,19 +71,13 @@ public class CheckoutBrandingDesignSystemInput {
   }
 
   public static class Builder {
-    /**
-     * The color settings for global colors and color schemes.
-     */
+    
     private CheckoutBrandingColorsInput colors;
 
-    /**
-     * The typography.
-     */
+    
     private CheckoutBrandingTypographyInput typography;
 
-    /**
-     * The corner radius variables.
-     */
+    
     private CheckoutBrandingCornerRadiusVariablesInput cornerRadius;
 
     public CheckoutBrandingDesignSystemInput build() {
@@ -108,25 +88,19 @@ public class CheckoutBrandingDesignSystemInput {
       return result;
     }
 
-    /**
-     * The color settings for global colors and color schemes.
-     */
+    
     public Builder colors(CheckoutBrandingColorsInput colors) {
       this.colors = colors;
       return this;
     }
 
-    /**
-     * The typography.
-     */
+    
     public Builder typography(CheckoutBrandingTypographyInput typography) {
       this.typography = typography;
       return this;
     }
 
-    /**
-     * The corner radius variables.
-     */
+    
     public Builder cornerRadius(CheckoutBrandingCornerRadiusVariablesInput cornerRadius) {
       this.cornerRadius = cornerRadius;
       return this;

@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `standardMetafieldDefinitionEnable` mutation.
- */
+
 public class StandardMetafieldDefinitionEnablePayload {
-  /**
-   * The metafield definition that was created.
-   */
+  
   private MetafieldDefinition createdDefinition;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<StandardMetafieldDefinitionEnableUserError> userErrors;
 
   public StandardMetafieldDefinitionEnablePayload() {
   }
 
-  /**
-   * The metafield definition that was created.
-   */
+  
   public MetafieldDefinition getCreatedDefinition() {
     return createdDefinition;
   }
@@ -34,9 +26,7 @@ public class StandardMetafieldDefinitionEnablePayload {
     this.createdDefinition = createdDefinition;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<StandardMetafieldDefinitionEnableUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class StandardMetafieldDefinitionEnablePayload {
   }
 
   public static class Builder {
-    /**
-     * The metafield definition that was created.
-     */
+    
     private MetafieldDefinition createdDefinition;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<StandardMetafieldDefinitionEnableUserError> userErrors;
 
     public StandardMetafieldDefinitionEnablePayload build() {
@@ -86,17 +72,13 @@ public class StandardMetafieldDefinitionEnablePayload {
       return result;
     }
 
-    /**
-     * The metafield definition that was created.
-     */
+    
     public Builder createdDefinition(MetafieldDefinition createdDefinition) {
       this.createdDefinition = createdDefinition;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<StandardMetafieldDefinitionEnableUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

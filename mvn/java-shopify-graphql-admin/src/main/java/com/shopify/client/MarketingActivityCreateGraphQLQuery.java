@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Create new marketing activity.
- */
+
 public class MarketingActivityCreateGraphQLQuery extends GraphQLQuery {
   public MarketingActivityCreateGraphQLQuery(MarketingActivityCreateInput input, String queryName,
       Set<String> fieldsSet) {
@@ -44,9 +42,7 @@ public class MarketingActivityCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The Input of marketing activity create.
-     */
+    
     public Builder input(MarketingActivityCreateInput input) {
       this.input = input;
       this.fieldsSet.add("input");

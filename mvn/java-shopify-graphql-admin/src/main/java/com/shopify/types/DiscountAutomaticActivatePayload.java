@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `discountAutomaticActivate` mutation.
- */
+
 public class DiscountAutomaticActivatePayload {
-  /**
-   * The activated automatic discount.
-   */
+  
   private DiscountAutomaticNode automaticDiscountNode;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<DiscountUserError> userErrors;
 
   public DiscountAutomaticActivatePayload() {
   }
 
-  /**
-   * The activated automatic discount.
-   */
+  
   public DiscountAutomaticNode getAutomaticDiscountNode() {
     return automaticDiscountNode;
   }
@@ -34,9 +26,7 @@ public class DiscountAutomaticActivatePayload {
     this.automaticDiscountNode = automaticDiscountNode;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<DiscountUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class DiscountAutomaticActivatePayload {
   }
 
   public static class Builder {
-    /**
-     * The activated automatic discount.
-     */
+    
     private DiscountAutomaticNode automaticDiscountNode;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<DiscountUserError> userErrors;
 
     public DiscountAutomaticActivatePayload build() {
@@ -86,17 +72,13 @@ public class DiscountAutomaticActivatePayload {
       return result;
     }
 
-    /**
-     * The activated automatic discount.
-     */
+    
     public Builder automaticDiscountNode(DiscountAutomaticNode automaticDiscountNode) {
       this.automaticDiscountNode = automaticDiscountNode;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<DiscountUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

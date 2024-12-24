@@ -5,41 +5,27 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents the selected pickup option on a subscription contract.
- */
+
 public class SubscriptionDeliveryMethodPickupOption {
-  /**
-   * A custom reference to the delivery method for use with automations.
-   */
+  
   private String code;
 
-  /**
-   * The details displayed to the customer to describe the pickup option.
-   */
+  
   private String description;
 
-  /**
-   * The location where the customer will pick up the merchandise.
-   */
+  
   private Location location;
 
-  /**
-   * The presentment title of the pickup option.
-   */
+  
   private String presentmentTitle;
 
-  /**
-   * The title of the pickup option.
-   */
+  
   private String title;
 
   public SubscriptionDeliveryMethodPickupOption() {
   }
 
-  /**
-   * A custom reference to the delivery method for use with automations.
-   */
+  
   public String getCode() {
     return code;
   }
@@ -48,9 +34,7 @@ public class SubscriptionDeliveryMethodPickupOption {
     this.code = code;
   }
 
-  /**
-   * The details displayed to the customer to describe the pickup option.
-   */
+  
   public String getDescription() {
     return description;
   }
@@ -59,9 +43,7 @@ public class SubscriptionDeliveryMethodPickupOption {
     this.description = description;
   }
 
-  /**
-   * The location where the customer will pick up the merchandise.
-   */
+  
   public Location getLocation() {
     return location;
   }
@@ -70,9 +52,7 @@ public class SubscriptionDeliveryMethodPickupOption {
     this.location = location;
   }
 
-  /**
-   * The presentment title of the pickup option.
-   */
+  
   public String getPresentmentTitle() {
     return presentmentTitle;
   }
@@ -81,9 +61,7 @@ public class SubscriptionDeliveryMethodPickupOption {
     this.presentmentTitle = presentmentTitle;
   }
 
-  /**
-   * The title of the pickup option.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -119,29 +97,19 @@ public class SubscriptionDeliveryMethodPickupOption {
   }
 
   public static class Builder {
-    /**
-     * A custom reference to the delivery method for use with automations.
-     */
+    
     private String code;
 
-    /**
-     * The details displayed to the customer to describe the pickup option.
-     */
+    
     private String description;
 
-    /**
-     * The location where the customer will pick up the merchandise.
-     */
+    
     private Location location;
 
-    /**
-     * The presentment title of the pickup option.
-     */
+    
     private String presentmentTitle;
 
-    /**
-     * The title of the pickup option.
-     */
+    
     private String title;
 
     public SubscriptionDeliveryMethodPickupOption build() {
@@ -154,41 +122,31 @@ public class SubscriptionDeliveryMethodPickupOption {
       return result;
     }
 
-    /**
-     * A custom reference to the delivery method for use with automations.
-     */
+    
     public Builder code(String code) {
       this.code = code;
       return this;
     }
 
-    /**
-     * The details displayed to the customer to describe the pickup option.
-     */
+    
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    /**
-     * The location where the customer will pick up the merchandise.
-     */
+    
     public Builder location(Location location) {
       this.location = location;
       return this;
     }
 
-    /**
-     * The presentment title of the pickup option.
-     */
+    
     public Builder presentmentTitle(String presentmentTitle) {
       this.presentmentTitle = presentmentTitle;
       return this;
     }
 
-    /**
-     * The title of the pickup option.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;

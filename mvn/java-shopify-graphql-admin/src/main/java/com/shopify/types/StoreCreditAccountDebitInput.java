@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for a store credit account debit transaction.
- */
+
 public class StoreCreditAccountDebitInput {
-  /**
-   * The amount to debit the store credit account.
-   */
+  
   private MoneyInput debitAmount;
 
   public StoreCreditAccountDebitInput() {
   }
 
-  /**
-   * The amount to debit the store credit account.
-   */
+  
   public MoneyInput getDebitAmount() {
     return debitAmount;
   }
@@ -51,9 +45,7 @@ public class StoreCreditAccountDebitInput {
   }
 
   public static class Builder {
-    /**
-     * The amount to debit the store credit account.
-     */
+    
     private MoneyInput debitAmount;
 
     public StoreCreditAccountDebitInput build() {
@@ -62,9 +54,7 @@ public class StoreCreditAccountDebitInput {
       return result;
     }
 
-    /**
-     * The amount to debit the store credit account.
-     */
+    
     public Builder debitAmount(MoneyInput debitAmount) {
       this.debitAmount = debitAmount;
       return this;

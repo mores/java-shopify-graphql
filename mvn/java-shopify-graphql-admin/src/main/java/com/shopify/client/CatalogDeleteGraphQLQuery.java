@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Delete a catalog.
- */
+
 public class CatalogDeleteGraphQLQuery extends GraphQLQuery {
   public CatalogDeleteGraphQLQuery(String id, Boolean deleteDependentResources, String queryName,
       Set<String> fieldsSet) {
@@ -48,18 +46,14 @@ public class CatalogDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the catalog to delete.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * Whether to also delete the price list and the publication owned by the catalog.
-     */
+    
     public Builder deleteDependentResources(Boolean deleteDependentResources) {
       this.deleteDependentResources = deleteDependentResources;
       this.fieldsSet.add("deleteDependentResources");

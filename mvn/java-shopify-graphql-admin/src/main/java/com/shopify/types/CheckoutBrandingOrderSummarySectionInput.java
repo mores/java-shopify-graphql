@@ -5,56 +5,36 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields used to update the order summary sections customizations.
- */
+
 public class CheckoutBrandingOrderSummarySectionInput {
-  /**
-   * The selected color scheme for the order summary sections.
-   */
+  
   private CheckoutBrandingColorSchemeSelection colorScheme;
 
-  /**
-   * The background style of the order summary sections.
-   */
+  
   private CheckoutBrandingBackground background;
 
-  /**
-   * The corner radius of the order summary sections.
-   */
+  
   private CheckoutBrandingCornerRadius cornerRadius;
 
-  /**
-   * The border for the order summary sections.
-   */
+  
   private CheckoutBrandingSimpleBorder border;
 
-  /**
-   * The border style of the order summary sections.
-   */
+  
   private CheckoutBrandingBorderStyle borderStyle;
 
-  /**
-   * The border width of the order summary sections.
-   */
+  
   private CheckoutBrandingBorderWidth borderWidth;
 
-  /**
-   * The shadow of the order summary sections.
-   */
+  
   private CheckoutBrandingShadow shadow;
 
-  /**
-   * The padding of the order summary sections.
-   */
+  
   private CheckoutBrandingSpacingKeyword padding;
 
   public CheckoutBrandingOrderSummarySectionInput() {
   }
 
-  /**
-   * The selected color scheme for the order summary sections.
-   */
+  
   public CheckoutBrandingColorSchemeSelection getColorScheme() {
     return colorScheme;
   }
@@ -63,9 +43,7 @@ public class CheckoutBrandingOrderSummarySectionInput {
     this.colorScheme = colorScheme;
   }
 
-  /**
-   * The background style of the order summary sections.
-   */
+  
   public CheckoutBrandingBackground getBackground() {
     return background;
   }
@@ -74,9 +52,7 @@ public class CheckoutBrandingOrderSummarySectionInput {
     this.background = background;
   }
 
-  /**
-   * The corner radius of the order summary sections.
-   */
+  
   public CheckoutBrandingCornerRadius getCornerRadius() {
     return cornerRadius;
   }
@@ -85,9 +61,7 @@ public class CheckoutBrandingOrderSummarySectionInput {
     this.cornerRadius = cornerRadius;
   }
 
-  /**
-   * The border for the order summary sections.
-   */
+  
   public CheckoutBrandingSimpleBorder getBorder() {
     return border;
   }
@@ -96,9 +70,7 @@ public class CheckoutBrandingOrderSummarySectionInput {
     this.border = border;
   }
 
-  /**
-   * The border style of the order summary sections.
-   */
+  
   public CheckoutBrandingBorderStyle getBorderStyle() {
     return borderStyle;
   }
@@ -107,9 +79,7 @@ public class CheckoutBrandingOrderSummarySectionInput {
     this.borderStyle = borderStyle;
   }
 
-  /**
-   * The border width of the order summary sections.
-   */
+  
   public CheckoutBrandingBorderWidth getBorderWidth() {
     return borderWidth;
   }
@@ -118,9 +88,7 @@ public class CheckoutBrandingOrderSummarySectionInput {
     this.borderWidth = borderWidth;
   }
 
-  /**
-   * The shadow of the order summary sections.
-   */
+  
   public CheckoutBrandingShadow getShadow() {
     return shadow;
   }
@@ -129,9 +97,7 @@ public class CheckoutBrandingOrderSummarySectionInput {
     this.shadow = shadow;
   }
 
-  /**
-   * The padding of the order summary sections.
-   */
+  
   public CheckoutBrandingSpacingKeyword getPadding() {
     return padding;
   }
@@ -170,44 +136,28 @@ public class CheckoutBrandingOrderSummarySectionInput {
   }
 
   public static class Builder {
-    /**
-     * The selected color scheme for the order summary sections.
-     */
+    
     private CheckoutBrandingColorSchemeSelection colorScheme;
 
-    /**
-     * The background style of the order summary sections.
-     */
+    
     private CheckoutBrandingBackground background;
 
-    /**
-     * The corner radius of the order summary sections.
-     */
+    
     private CheckoutBrandingCornerRadius cornerRadius;
 
-    /**
-     * The border for the order summary sections.
-     */
+    
     private CheckoutBrandingSimpleBorder border;
 
-    /**
-     * The border style of the order summary sections.
-     */
+    
     private CheckoutBrandingBorderStyle borderStyle;
 
-    /**
-     * The border width of the order summary sections.
-     */
+    
     private CheckoutBrandingBorderWidth borderWidth;
 
-    /**
-     * The shadow of the order summary sections.
-     */
+    
     private CheckoutBrandingShadow shadow;
 
-    /**
-     * The padding of the order summary sections.
-     */
+    
     private CheckoutBrandingSpacingKeyword padding;
 
     public CheckoutBrandingOrderSummarySectionInput build() {
@@ -223,65 +173,49 @@ public class CheckoutBrandingOrderSummarySectionInput {
       return result;
     }
 
-    /**
-     * The selected color scheme for the order summary sections.
-     */
+    
     public Builder colorScheme(CheckoutBrandingColorSchemeSelection colorScheme) {
       this.colorScheme = colorScheme;
       return this;
     }
 
-    /**
-     * The background style of the order summary sections.
-     */
+    
     public Builder background(CheckoutBrandingBackground background) {
       this.background = background;
       return this;
     }
 
-    /**
-     * The corner radius of the order summary sections.
-     */
+    
     public Builder cornerRadius(CheckoutBrandingCornerRadius cornerRadius) {
       this.cornerRadius = cornerRadius;
       return this;
     }
 
-    /**
-     * The border for the order summary sections.
-     */
+    
     public Builder border(CheckoutBrandingSimpleBorder border) {
       this.border = border;
       return this;
     }
 
-    /**
-     * The border style of the order summary sections.
-     */
+    
     public Builder borderStyle(CheckoutBrandingBorderStyle borderStyle) {
       this.borderStyle = borderStyle;
       return this;
     }
 
-    /**
-     * The border width of the order summary sections.
-     */
+    
     public Builder borderWidth(CheckoutBrandingBorderWidth borderWidth) {
       this.borderWidth = borderWidth;
       return this;
     }
 
-    /**
-     * The shadow of the order summary sections.
-     */
+    
     public Builder shadow(CheckoutBrandingShadow shadow) {
       this.shadow = shadow;
       return this;
     }
 
-    /**
-     * The padding of the order summary sections.
-     */
+    
     public Builder padding(CheckoutBrandingSpacingKeyword padding) {
       this.padding = padding;
       return this;

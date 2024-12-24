@@ -5,27 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The pricing model for the app subscription.
- * The pricing model input can be either `appRecurringPricingDetails` or `appUsagePricingDetails`.
- */
+
 public class AppPlanInput {
-  /**
-   * The pricing details for usage-based billing.
-   */
+  
   private AppUsagePricingInput appUsagePricingDetails;
 
-  /**
-   * The pricing details for recurring billing.
-   */
+  
   private AppRecurringPricingInput appRecurringPricingDetails;
 
   public AppPlanInput() {
   }
 
-  /**
-   * The pricing details for usage-based billing.
-   */
+  
   public AppUsagePricingInput getAppUsagePricingDetails() {
     return appUsagePricingDetails;
   }
@@ -34,9 +25,7 @@ public class AppPlanInput {
     this.appUsagePricingDetails = appUsagePricingDetails;
   }
 
-  /**
-   * The pricing details for recurring billing.
-   */
+  
   public AppRecurringPricingInput getAppRecurringPricingDetails() {
     return appRecurringPricingDetails;
   }
@@ -69,14 +58,10 @@ public class AppPlanInput {
   }
 
   public static class Builder {
-    /**
-     * The pricing details for usage-based billing.
-     */
+    
     private AppUsagePricingInput appUsagePricingDetails;
 
-    /**
-     * The pricing details for recurring billing.
-     */
+    
     private AppRecurringPricingInput appRecurringPricingDetails;
 
     public AppPlanInput build() {
@@ -86,17 +71,13 @@ public class AppPlanInput {
       return result;
     }
 
-    /**
-     * The pricing details for usage-based billing.
-     */
+    
     public Builder appUsagePricingDetails(AppUsagePricingInput appUsagePricingDetails) {
       this.appUsagePricingDetails = appUsagePricingDetails;
       return this;
     }
 
-    /**
-     * The pricing details for recurring billing.
-     */
+    
     public Builder appRecurringPricingDetails(AppRecurringPricingInput appRecurringPricingDetails) {
       this.appRecurringPricingDetails = appRecurringPricingDetails;
       return this;

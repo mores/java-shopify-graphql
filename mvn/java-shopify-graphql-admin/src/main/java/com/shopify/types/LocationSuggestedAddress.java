@@ -6,61 +6,39 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Represents a suggested address for a location.
- */
+
 public class LocationSuggestedAddress {
-  /**
-   * The first line of the suggested address.
-   */
+  
   private String address1;
 
-  /**
-   * The second line of the suggested address.
-   */
+  
   private String address2;
 
-  /**
-   * The city of the suggested address.
-   */
+  
   private String city;
 
-  /**
-   * The country of the suggested address.
-   */
+  
   private String country;
 
-  /**
-   * The country code of the suggested address.
-   */
+  
   private CountryCode countryCode;
 
-  /**
-   * A formatted version of the suggested address.
-   */
+  
   private List<String> formatted;
 
-  /**
-   * The province of the suggested address.
-   */
+  
   private String province;
 
-  /**
-   * The code for the province, state, or district of the suggested address.
-   */
+  
   private String provinceCode;
 
-  /**
-   * The ZIP code of the suggested address.
-   */
+  
   private String zip;
 
   public LocationSuggestedAddress() {
   }
 
-  /**
-   * The first line of the suggested address.
-   */
+  
   public String getAddress1() {
     return address1;
   }
@@ -69,9 +47,7 @@ public class LocationSuggestedAddress {
     this.address1 = address1;
   }
 
-  /**
-   * The second line of the suggested address.
-   */
+  
   public String getAddress2() {
     return address2;
   }
@@ -80,9 +56,7 @@ public class LocationSuggestedAddress {
     this.address2 = address2;
   }
 
-  /**
-   * The city of the suggested address.
-   */
+  
   public String getCity() {
     return city;
   }
@@ -91,9 +65,7 @@ public class LocationSuggestedAddress {
     this.city = city;
   }
 
-  /**
-   * The country of the suggested address.
-   */
+  
   public String getCountry() {
     return country;
   }
@@ -102,9 +74,7 @@ public class LocationSuggestedAddress {
     this.country = country;
   }
 
-  /**
-   * The country code of the suggested address.
-   */
+  
   public CountryCode getCountryCode() {
     return countryCode;
   }
@@ -113,9 +83,7 @@ public class LocationSuggestedAddress {
     this.countryCode = countryCode;
   }
 
-  /**
-   * A formatted version of the suggested address.
-   */
+  
   public List<String> getFormatted() {
     return formatted;
   }
@@ -124,9 +92,7 @@ public class LocationSuggestedAddress {
     this.formatted = formatted;
   }
 
-  /**
-   * The province of the suggested address.
-   */
+  
   public String getProvince() {
     return province;
   }
@@ -135,9 +101,7 @@ public class LocationSuggestedAddress {
     this.province = province;
   }
 
-  /**
-   * The code for the province, state, or district of the suggested address.
-   */
+  
   public String getProvinceCode() {
     return provinceCode;
   }
@@ -146,9 +110,7 @@ public class LocationSuggestedAddress {
     this.provinceCode = provinceCode;
   }
 
-  /**
-   * The ZIP code of the suggested address.
-   */
+  
   public String getZip() {
     return zip;
   }
@@ -188,49 +150,31 @@ public class LocationSuggestedAddress {
   }
 
   public static class Builder {
-    /**
-     * The first line of the suggested address.
-     */
+    
     private String address1;
 
-    /**
-     * The second line of the suggested address.
-     */
+    
     private String address2;
 
-    /**
-     * The city of the suggested address.
-     */
+    
     private String city;
 
-    /**
-     * The country of the suggested address.
-     */
+    
     private String country;
 
-    /**
-     * The country code of the suggested address.
-     */
+    
     private CountryCode countryCode;
 
-    /**
-     * A formatted version of the suggested address.
-     */
+    
     private List<String> formatted;
 
-    /**
-     * The province of the suggested address.
-     */
+    
     private String province;
 
-    /**
-     * The code for the province, state, or district of the suggested address.
-     */
+    
     private String provinceCode;
 
-    /**
-     * The ZIP code of the suggested address.
-     */
+    
     private String zip;
 
     public LocationSuggestedAddress build() {
@@ -247,73 +191,55 @@ public class LocationSuggestedAddress {
       return result;
     }
 
-    /**
-     * The first line of the suggested address.
-     */
+    
     public Builder address1(String address1) {
       this.address1 = address1;
       return this;
     }
 
-    /**
-     * The second line of the suggested address.
-     */
+    
     public Builder address2(String address2) {
       this.address2 = address2;
       return this;
     }
 
-    /**
-     * The city of the suggested address.
-     */
+    
     public Builder city(String city) {
       this.city = city;
       return this;
     }
 
-    /**
-     * The country of the suggested address.
-     */
+    
     public Builder country(String country) {
       this.country = country;
       return this;
     }
 
-    /**
-     * The country code of the suggested address.
-     */
+    
     public Builder countryCode(CountryCode countryCode) {
       this.countryCode = countryCode;
       return this;
     }
 
-    /**
-     * A formatted version of the suggested address.
-     */
+    
     public Builder formatted(List<String> formatted) {
       this.formatted = formatted;
       return this;
     }
 
-    /**
-     * The province of the suggested address.
-     */
+    
     public Builder province(String province) {
       this.province = province;
       return this;
     }
 
-    /**
-     * The code for the province, state, or district of the suggested address.
-     */
+    
     public Builder provinceCode(String provinceCode) {
       this.provinceCode = provinceCode;
       return this;
     }
 
-    /**
-     * The ZIP code of the suggested address.
-     */
+    
     public Builder zip(String zip) {
       this.zip = zip;
       return this;

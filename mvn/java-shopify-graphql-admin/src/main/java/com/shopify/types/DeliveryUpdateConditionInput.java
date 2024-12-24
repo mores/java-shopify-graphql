@@ -6,41 +6,27 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for updating the condition of a delivery method definition.
- */
+
 public class DeliveryUpdateConditionInput {
-  /**
-   * A globally-unique ID of the condition.
-   */
+  
   private String id;
 
-  /**
-   * The value that will be used in comparison.
-   */
+  
   private Double criteria;
 
-  /**
-   * The unit associated with the value that will be used in comparison.
-   */
+  
   private String criteriaUnit;
 
-  /**
-   * The property of an order that will be used in comparison.
-   */
+  
   private DeliveryConditionField field;
 
-  /**
-   * The operator to use for comparison.
-   */
+  
   private DeliveryConditionOperator operator;
 
   public DeliveryUpdateConditionInput() {
   }
 
-  /**
-   * A globally-unique ID of the condition.
-   */
+  
   public String getId() {
     return id;
   }
@@ -49,9 +35,7 @@ public class DeliveryUpdateConditionInput {
     this.id = id;
   }
 
-  /**
-   * The value that will be used in comparison.
-   */
+  
   public Double getCriteria() {
     return criteria;
   }
@@ -60,9 +44,7 @@ public class DeliveryUpdateConditionInput {
     this.criteria = criteria;
   }
 
-  /**
-   * The unit associated with the value that will be used in comparison.
-   */
+  
   public String getCriteriaUnit() {
     return criteriaUnit;
   }
@@ -71,9 +53,7 @@ public class DeliveryUpdateConditionInput {
     this.criteriaUnit = criteriaUnit;
   }
 
-  /**
-   * The property of an order that will be used in comparison.
-   */
+  
   public DeliveryConditionField getField() {
     return field;
   }
@@ -82,9 +62,7 @@ public class DeliveryUpdateConditionInput {
     this.field = field;
   }
 
-  /**
-   * The operator to use for comparison.
-   */
+  
   public DeliveryConditionOperator getOperator() {
     return operator;
   }
@@ -120,29 +98,19 @@ public class DeliveryUpdateConditionInput {
   }
 
   public static class Builder {
-    /**
-     * A globally-unique ID of the condition.
-     */
+    
     private String id;
 
-    /**
-     * The value that will be used in comparison.
-     */
+    
     private Double criteria;
 
-    /**
-     * The unit associated with the value that will be used in comparison.
-     */
+    
     private String criteriaUnit;
 
-    /**
-     * The property of an order that will be used in comparison.
-     */
+    
     private DeliveryConditionField field;
 
-    /**
-     * The operator to use for comparison.
-     */
+    
     private DeliveryConditionOperator operator;
 
     public DeliveryUpdateConditionInput build() {
@@ -155,41 +123,31 @@ public class DeliveryUpdateConditionInput {
       return result;
     }
 
-    /**
-     * A globally-unique ID of the condition.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The value that will be used in comparison.
-     */
+    
     public Builder criteria(Double criteria) {
       this.criteria = criteria;
       return this;
     }
 
-    /**
-     * The unit associated with the value that will be used in comparison.
-     */
+    
     public Builder criteriaUnit(String criteriaUnit) {
       this.criteriaUnit = criteriaUnit;
       return this;
     }
 
-    /**
-     * The property of an order that will be used in comparison.
-     */
+    
     public Builder field(DeliveryConditionField field) {
       this.field = field;
       return this;
     }
 
-    /**
-     * The operator to use for comparison.
-     */
+    
     public Builder operator(DeliveryConditionOperator operator) {
       this.operator = operator;
       return this;

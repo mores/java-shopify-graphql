@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * An auto-generated type which holds one CurrencySetting and a cursor during pagination.
- */
+
 public class CurrencySettingEdge {
-  /**
-   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-   */
+  
   private String cursor;
 
-  /**
-   * The item at the end of CurrencySettingEdge.
-   */
+  
   private CurrencySetting node;
 
   public CurrencySettingEdge() {
   }
 
-  /**
-   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-   */
+  
   public String getCursor() {
     return cursor;
   }
@@ -33,9 +25,7 @@ public class CurrencySettingEdge {
     this.cursor = cursor;
   }
 
-  /**
-   * The item at the end of CurrencySettingEdge.
-   */
+  
   public CurrencySetting getNode() {
     return node;
   }
@@ -68,14 +58,10 @@ public class CurrencySettingEdge {
   }
 
   public static class Builder {
-    /**
-     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     private String cursor;
 
-    /**
-     * The item at the end of CurrencySettingEdge.
-     */
+    
     private CurrencySetting node;
 
     public CurrencySettingEdge build() {
@@ -85,17 +71,13 @@ public class CurrencySettingEdge {
       return result;
     }
 
-    /**
-     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     public Builder cursor(String cursor) {
       this.cursor = cursor;
       return this;
     }
 
-    /**
-     * The item at the end of CurrencySettingEdge.
-     */
+    
     public Builder node(CurrencySetting node) {
       this.node = node;
       return this;

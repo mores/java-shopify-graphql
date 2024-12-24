@@ -7,26 +7,18 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * The input fields to select SubscriptionBillingCycle by either date or index.
- */
+
 public class SubscriptionBillingCycleSelector {
-  /**
-   * Returns a billing cycle by index.
-   */
+  
   private Integer index;
 
-  /**
-   * Returns a billing cycle by date.
-   */
+  
   private OffsetDateTime date;
 
   public SubscriptionBillingCycleSelector() {
   }
 
-  /**
-   * Returns a billing cycle by index.
-   */
+  
   public Integer getIndex() {
     return index;
   }
@@ -35,9 +27,7 @@ public class SubscriptionBillingCycleSelector {
     this.index = index;
   }
 
-  /**
-   * Returns a billing cycle by date.
-   */
+  
   public OffsetDateTime getDate() {
     return date;
   }
@@ -70,14 +60,10 @@ public class SubscriptionBillingCycleSelector {
   }
 
   public static class Builder {
-    /**
-     * Returns a billing cycle by index.
-     */
+    
     private Integer index;
 
-    /**
-     * Returns a billing cycle by date.
-     */
+    
     private OffsetDateTime date;
 
     public SubscriptionBillingCycleSelector build() {
@@ -87,17 +73,13 @@ public class SubscriptionBillingCycleSelector {
       return result;
     }
 
-    /**
-     * Returns a billing cycle by index.
-     */
+    
     public Builder index(Integer index) {
       this.index = index;
       return this;
     }
 
-    /**
-     * Returns a billing cycle by date.
-     */
+    
     public Builder date(OffsetDateTime date) {
       this.date = date;
       return this;

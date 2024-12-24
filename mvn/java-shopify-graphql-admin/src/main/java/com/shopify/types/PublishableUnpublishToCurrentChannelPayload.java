@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `publishableUnpublishToCurrentChannel` mutation.
- */
+
 public class PublishableUnpublishToCurrentChannelPayload {
-  /**
-   * Resource that has been unpublished.
-   */
+  
   private Publishable publishable;
 
-  /**
-   * The user's shop.
-   */
+  
   private Shop shop;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public PublishableUnpublishToCurrentChannelPayload() {
   }
 
-  /**
-   * Resource that has been unpublished.
-   */
+  
   public Publishable getPublishable() {
     return publishable;
   }
@@ -39,9 +29,7 @@ public class PublishableUnpublishToCurrentChannelPayload {
     this.publishable = publishable;
   }
 
-  /**
-   * The user's shop.
-   */
+  
   public Shop getShop() {
     return shop;
   }
@@ -50,9 +38,7 @@ public class PublishableUnpublishToCurrentChannelPayload {
     this.shop = shop;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -86,19 +72,13 @@ public class PublishableUnpublishToCurrentChannelPayload {
   }
 
   public static class Builder {
-    /**
-     * Resource that has been unpublished.
-     */
+    
     private Publishable publishable;
 
-    /**
-     * The user's shop.
-     */
+    
     private Shop shop;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public PublishableUnpublishToCurrentChannelPayload build() {
@@ -109,25 +89,19 @@ public class PublishableUnpublishToCurrentChannelPayload {
       return result;
     }
 
-    /**
-     * Resource that has been unpublished.
-     */
+    
     public Builder publishable(Publishable publishable) {
       this.publishable = publishable;
       return this;
     }
 
-    /**
-     * The user's shop.
-     */
+    
     public Builder shop(Shop shop) {
       this.shop = shop;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -5,46 +5,30 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields used to update the buttons customizations.
- */
+
 public class CheckoutBrandingButtonInput {
-  /**
-   * The background style used for buttons.
-   */
+  
   private CheckoutBrandingBackgroundStyle background;
 
-  /**
-   * The border used for buttons.
-   */
+  
   private CheckoutBrandingSimpleBorder border;
 
-  /**
-   * The corner radius used for buttons.
-   */
+  
   private CheckoutBrandingCornerRadius cornerRadius;
 
-  /**
-   * The block padding used for buttons.
-   */
+  
   private CheckoutBrandingSpacing blockPadding;
 
-  /**
-   * The inline padding used for buttons.
-   */
+  
   private CheckoutBrandingSpacing inlinePadding;
 
-  /**
-   * The typography style used for buttons.
-   */
+  
   private CheckoutBrandingTypographyStyleInput typography;
 
   public CheckoutBrandingButtonInput() {
   }
 
-  /**
-   * The background style used for buttons.
-   */
+  
   public CheckoutBrandingBackgroundStyle getBackground() {
     return background;
   }
@@ -53,9 +37,7 @@ public class CheckoutBrandingButtonInput {
     this.background = background;
   }
 
-  /**
-   * The border used for buttons.
-   */
+  
   public CheckoutBrandingSimpleBorder getBorder() {
     return border;
   }
@@ -64,9 +46,7 @@ public class CheckoutBrandingButtonInput {
     this.border = border;
   }
 
-  /**
-   * The corner radius used for buttons.
-   */
+  
   public CheckoutBrandingCornerRadius getCornerRadius() {
     return cornerRadius;
   }
@@ -75,9 +55,7 @@ public class CheckoutBrandingButtonInput {
     this.cornerRadius = cornerRadius;
   }
 
-  /**
-   * The block padding used for buttons.
-   */
+  
   public CheckoutBrandingSpacing getBlockPadding() {
     return blockPadding;
   }
@@ -86,9 +64,7 @@ public class CheckoutBrandingButtonInput {
     this.blockPadding = blockPadding;
   }
 
-  /**
-   * The inline padding used for buttons.
-   */
+  
   public CheckoutBrandingSpacing getInlinePadding() {
     return inlinePadding;
   }
@@ -97,9 +73,7 @@ public class CheckoutBrandingButtonInput {
     this.inlinePadding = inlinePadding;
   }
 
-  /**
-   * The typography style used for buttons.
-   */
+  
   public CheckoutBrandingTypographyStyleInput getTypography() {
     return typography;
   }
@@ -136,34 +110,22 @@ public class CheckoutBrandingButtonInput {
   }
 
   public static class Builder {
-    /**
-     * The background style used for buttons.
-     */
+    
     private CheckoutBrandingBackgroundStyle background;
 
-    /**
-     * The border used for buttons.
-     */
+    
     private CheckoutBrandingSimpleBorder border;
 
-    /**
-     * The corner radius used for buttons.
-     */
+    
     private CheckoutBrandingCornerRadius cornerRadius;
 
-    /**
-     * The block padding used for buttons.
-     */
+    
     private CheckoutBrandingSpacing blockPadding;
 
-    /**
-     * The inline padding used for buttons.
-     */
+    
     private CheckoutBrandingSpacing inlinePadding;
 
-    /**
-     * The typography style used for buttons.
-     */
+    
     private CheckoutBrandingTypographyStyleInput typography;
 
     public CheckoutBrandingButtonInput build() {
@@ -177,49 +139,37 @@ public class CheckoutBrandingButtonInput {
       return result;
     }
 
-    /**
-     * The background style used for buttons.
-     */
+    
     public Builder background(CheckoutBrandingBackgroundStyle background) {
       this.background = background;
       return this;
     }
 
-    /**
-     * The border used for buttons.
-     */
+    
     public Builder border(CheckoutBrandingSimpleBorder border) {
       this.border = border;
       return this;
     }
 
-    /**
-     * The corner radius used for buttons.
-     */
+    
     public Builder cornerRadius(CheckoutBrandingCornerRadius cornerRadius) {
       this.cornerRadius = cornerRadius;
       return this;
     }
 
-    /**
-     * The block padding used for buttons.
-     */
+    
     public Builder blockPadding(CheckoutBrandingSpacing blockPadding) {
       this.blockPadding = blockPadding;
       return this;
     }
 
-    /**
-     * The inline padding used for buttons.
-     */
+    
     public Builder inlinePadding(CheckoutBrandingSpacing inlinePadding) {
       this.inlinePadding = inlinePadding;
       return this;
     }
 
-    /**
-     * The typography style used for buttons.
-     */
+    
     public Builder typography(CheckoutBrandingTypographyStyleInput typography) {
       this.typography = typography;
       return this;

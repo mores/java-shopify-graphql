@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `customerPaymentMethodPaypalBillingAgreementUpdate` mutation.
- */
+
 public class CustomerPaymentMethodPaypalBillingAgreementUpdatePayload {
-  /**
-   * The customer payment method.
-   */
+  
   private CustomerPaymentMethod customerPaymentMethod;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<CustomerPaymentMethodUserError> userErrors;
 
   public CustomerPaymentMethodPaypalBillingAgreementUpdatePayload() {
   }
 
-  /**
-   * The customer payment method.
-   */
+  
   public CustomerPaymentMethod getCustomerPaymentMethod() {
     return customerPaymentMethod;
   }
@@ -34,9 +26,7 @@ public class CustomerPaymentMethodPaypalBillingAgreementUpdatePayload {
     this.customerPaymentMethod = customerPaymentMethod;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<CustomerPaymentMethodUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class CustomerPaymentMethodPaypalBillingAgreementUpdatePayload {
   }
 
   public static class Builder {
-    /**
-     * The customer payment method.
-     */
+    
     private CustomerPaymentMethod customerPaymentMethod;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<CustomerPaymentMethodUserError> userErrors;
 
     public CustomerPaymentMethodPaypalBillingAgreementUpdatePayload build() {
@@ -86,17 +72,13 @@ public class CustomerPaymentMethodPaypalBillingAgreementUpdatePayload {
       return result;
     }
 
-    /**
-     * The customer payment method.
-     */
+    
     public Builder customerPaymentMethod(CustomerPaymentMethod customerPaymentMethod) {
       this.customerPaymentMethod = customerPaymentMethod;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<CustomerPaymentMethodUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

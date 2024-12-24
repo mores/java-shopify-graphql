@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible error codes that can be returned by `StoreCreditAccountDebitUserError`.
- */
+
 public enum StoreCreditAccountDebitUserErrorCode {
   ACCOUNT_NOT_FOUND,
 

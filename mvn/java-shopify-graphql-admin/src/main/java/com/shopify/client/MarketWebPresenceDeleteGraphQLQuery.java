@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Deletes a market web presence.
- */
+
 public class MarketWebPresenceDeleteGraphQLQuery extends GraphQLQuery {
   public MarketWebPresenceDeleteGraphQLQuery(String webPresenceId, String queryName,
       Set<String> fieldsSet) {
@@ -43,9 +41,7 @@ public class MarketWebPresenceDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the web presence to delete.
-     */
+    
     public Builder webPresenceId(String webPresenceId) {
       this.webPresenceId = webPresenceId;
       this.fieldsSet.add("webPresenceId");

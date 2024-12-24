@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields required to detach media from a single variant.
- */
+
 public class ProductVariantDetachMediaInput {
-  /**
-   * Specifies the variant from which media will be detached.
-   */
+  
   private String variantId;
 
-  /**
-   * Specifies the media to detach from the variant.
-   */
+  
   private List<String> mediaIds;
 
   public ProductVariantDetachMediaInput() {
   }
 
-  /**
-   * Specifies the variant from which media will be detached.
-   */
+  
   public String getVariantId() {
     return variantId;
   }
@@ -34,9 +26,7 @@ public class ProductVariantDetachMediaInput {
     this.variantId = variantId;
   }
 
-  /**
-   * Specifies the media to detach from the variant.
-   */
+  
   public List<String> getMediaIds() {
     return mediaIds;
   }
@@ -69,14 +59,10 @@ public class ProductVariantDetachMediaInput {
   }
 
   public static class Builder {
-    /**
-     * Specifies the variant from which media will be detached.
-     */
+    
     private String variantId;
 
-    /**
-     * Specifies the media to detach from the variant.
-     */
+    
     private List<String> mediaIds;
 
     public ProductVariantDetachMediaInput build() {
@@ -86,17 +72,13 @@ public class ProductVariantDetachMediaInput {
       return result;
     }
 
-    /**
-     * Specifies the variant from which media will be detached.
-     */
+    
     public Builder variantId(String variantId) {
       this.variantId = variantId;
       return this;
     }
 
-    /**
-     * Specifies the media to detach from the variant.
-     */
+    
     public Builder mediaIds(List<String> mediaIds) {
       this.mediaIds = mediaIds;
       return this;

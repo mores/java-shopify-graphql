@@ -6,31 +6,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The store logo customizations.
- */
+
 public class CheckoutBrandingLogo {
-  /**
-   * The logo image.
-   */
+  
   private Image image;
 
-  /**
-   * The maximum width of the logo.
-   */
+  
   private Integer maxWidth;
 
-  /**
-   * The visibility of the logo.
-   */
+  
   private CheckoutBrandingVisibility visibility;
 
   public CheckoutBrandingLogo() {
   }
 
-  /**
-   * The logo image.
-   */
+  
   public Image getImage() {
     return image;
   }
@@ -39,9 +29,7 @@ public class CheckoutBrandingLogo {
     this.image = image;
   }
 
-  /**
-   * The maximum width of the logo.
-   */
+  
   public Integer getMaxWidth() {
     return maxWidth;
   }
@@ -50,9 +38,7 @@ public class CheckoutBrandingLogo {
     this.maxWidth = maxWidth;
   }
 
-  /**
-   * The visibility of the logo.
-   */
+  
   public CheckoutBrandingVisibility getVisibility() {
     return visibility;
   }
@@ -86,19 +72,13 @@ public class CheckoutBrandingLogo {
   }
 
   public static class Builder {
-    /**
-     * The logo image.
-     */
+    
     private Image image;
 
-    /**
-     * The maximum width of the logo.
-     */
+    
     private Integer maxWidth;
 
-    /**
-     * The visibility of the logo.
-     */
+    
     private CheckoutBrandingVisibility visibility;
 
     public CheckoutBrandingLogo build() {
@@ -109,25 +89,19 @@ public class CheckoutBrandingLogo {
       return result;
     }
 
-    /**
-     * The logo image.
-     */
+    
     public Builder image(Image image) {
       this.image = image;
       return this;
     }
 
-    /**
-     * The maximum width of the logo.
-     */
+    
     public Builder maxWidth(Integer maxWidth) {
       this.maxWidth = maxWidth;
       return this;
     }
 
-    /**
-     * The visibility of the logo.
-     */
+    
     public Builder visibility(CheckoutBrandingVisibility visibility) {
       this.visibility = visibility;
       return this;

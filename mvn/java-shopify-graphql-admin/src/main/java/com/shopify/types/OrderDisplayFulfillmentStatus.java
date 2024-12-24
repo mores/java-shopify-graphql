@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Represents the order's aggregated fulfillment status for display purposes.
- */
+
 public enum OrderDisplayFulfillmentStatus {
   UNFULFILLED,
 

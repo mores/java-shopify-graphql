@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The Online Store capability for the parent metaobject.
- */
+
 public class MetaobjectCapabilityDataOnlineStore {
-  /**
-   * The theme template used when viewing the metaobject in a store.
-   */
+  
   private String templateSuffix;
 
   public MetaobjectCapabilityDataOnlineStore() {
   }
 
-  /**
-   * The theme template used when viewing the metaobject in a store.
-   */
+  
   public String getTemplateSuffix() {
     return templateSuffix;
   }
@@ -51,9 +45,7 @@ public class MetaobjectCapabilityDataOnlineStore {
   }
 
   public static class Builder {
-    /**
-     * The theme template used when viewing the metaobject in a store.
-     */
+    
     private String templateSuffix;
 
     public MetaobjectCapabilityDataOnlineStore build() {
@@ -62,9 +54,7 @@ public class MetaobjectCapabilityDataOnlineStore {
       return result;
     }
 
-    /**
-     * The theme template used when viewing the metaobject in a store.
-     */
+    
     public Builder templateSuffix(String templateSuffix) {
       this.templateSuffix = templateSuffix;
       return this;

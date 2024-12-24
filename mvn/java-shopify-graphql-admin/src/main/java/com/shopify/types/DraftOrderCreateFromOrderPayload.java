@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `draftOrderCreateFromOrder` mutation.
- */
+
 public class DraftOrderCreateFromOrderPayload {
-  /**
-   * The created draft order.
-   */
+  
   private DraftOrder draftOrder;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public DraftOrderCreateFromOrderPayload() {
   }
 
-  /**
-   * The created draft order.
-   */
+  
   public DraftOrder getDraftOrder() {
     return draftOrder;
   }
@@ -34,9 +26,7 @@ public class DraftOrderCreateFromOrderPayload {
     this.draftOrder = draftOrder;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class DraftOrderCreateFromOrderPayload {
   }
 
   public static class Builder {
-    /**
-     * The created draft order.
-     */
+    
     private DraftOrder draftOrder;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public DraftOrderCreateFromOrderPayload build() {
@@ -86,17 +72,13 @@ public class DraftOrderCreateFromOrderPayload {
       return result;
     }
 
-    /**
-     * The created draft order.
-     */
+    
     public Builder draftOrder(DraftOrder draftOrder) {
       this.draftOrder = draftOrder;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

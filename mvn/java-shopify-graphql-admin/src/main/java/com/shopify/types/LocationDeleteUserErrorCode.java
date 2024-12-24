@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible error codes that can be returned by `LocationDeleteUserError`.
- */
+
 public enum LocationDeleteUserErrorCode {
   LOCATION_NOT_FOUND,
 

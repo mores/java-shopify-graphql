@@ -5,31 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * This type returns the information about the product and product variant from a customer visit.
- */
+
 public class CustomerVisitProductInfo {
-  /**
-   * The product information. If `null`, then the product was deleted from the store.
-   */
+  
   private Product product;
 
-  /**
-   * The quantity of the product that the customer requested.
-   */
+  
   private int quantity;
 
-  /**
-   * The product variant information, if the product variant exists.
-   */
+  
   private ProductVariant variant;
 
   public CustomerVisitProductInfo() {
   }
 
-  /**
-   * The product information. If `null`, then the product was deleted from the store.
-   */
+  
   public Product getProduct() {
     return product;
   }
@@ -38,9 +28,7 @@ public class CustomerVisitProductInfo {
     this.product = product;
   }
 
-  /**
-   * The quantity of the product that the customer requested.
-   */
+  
   public int getQuantity() {
     return quantity;
   }
@@ -49,9 +37,7 @@ public class CustomerVisitProductInfo {
     this.quantity = quantity;
   }
 
-  /**
-   * The product variant information, if the product variant exists.
-   */
+  
   public ProductVariant getVariant() {
     return variant;
   }
@@ -85,19 +71,13 @@ public class CustomerVisitProductInfo {
   }
 
   public static class Builder {
-    /**
-     * The product information. If `null`, then the product was deleted from the store.
-     */
+    
     private Product product;
 
-    /**
-     * The quantity of the product that the customer requested.
-     */
+    
     private int quantity;
 
-    /**
-     * The product variant information, if the product variant exists.
-     */
+    
     private ProductVariant variant;
 
     public CustomerVisitProductInfo build() {
@@ -108,25 +88,19 @@ public class CustomerVisitProductInfo {
       return result;
     }
 
-    /**
-     * The product information. If `null`, then the product was deleted from the store.
-     */
+    
     public Builder product(Product product) {
       this.product = product;
       return this;
     }
 
-    /**
-     * The quantity of the product that the customer requested.
-     */
+    
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    /**
-     * The product variant information, if the product variant exists.
-     */
+    
     public Builder variant(ProductVariant variant) {
       this.variant = variant;
       return this;

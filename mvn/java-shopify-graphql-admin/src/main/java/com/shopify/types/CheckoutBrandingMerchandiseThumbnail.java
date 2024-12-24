@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The merchandise thumbnails customizations.
- */
+
 public class CheckoutBrandingMerchandiseThumbnail {
-  /**
-   * The border used for merchandise thumbnails.
-   */
+  
   private CheckoutBrandingSimpleBorder border;
 
-  /**
-   * The corner radius used for merchandise thumbnails.
-   */
+  
   private CheckoutBrandingCornerRadius cornerRadius;
 
   public CheckoutBrandingMerchandiseThumbnail() {
   }
 
-  /**
-   * The border used for merchandise thumbnails.
-   */
+  
   public CheckoutBrandingSimpleBorder getBorder() {
     return border;
   }
@@ -33,9 +25,7 @@ public class CheckoutBrandingMerchandiseThumbnail {
     this.border = border;
   }
 
-  /**
-   * The corner radius used for merchandise thumbnails.
-   */
+  
   public CheckoutBrandingCornerRadius getCornerRadius() {
     return cornerRadius;
   }
@@ -68,14 +58,10 @@ public class CheckoutBrandingMerchandiseThumbnail {
   }
 
   public static class Builder {
-    /**
-     * The border used for merchandise thumbnails.
-     */
+    
     private CheckoutBrandingSimpleBorder border;
 
-    /**
-     * The corner radius used for merchandise thumbnails.
-     */
+    
     private CheckoutBrandingCornerRadius cornerRadius;
 
     public CheckoutBrandingMerchandiseThumbnail build() {
@@ -85,17 +71,13 @@ public class CheckoutBrandingMerchandiseThumbnail {
       return result;
     }
 
-    /**
-     * The border used for merchandise thumbnails.
-     */
+    
     public Builder border(CheckoutBrandingSimpleBorder border) {
       this.border = border;
       return this;
     }
 
-    /**
-     * The corner radius used for merchandise thumbnails.
-     */
+    
     public Builder cornerRadius(CheckoutBrandingCornerRadius cornerRadius) {
       this.cornerRadius = cornerRadius;
       return this;

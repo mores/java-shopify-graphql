@@ -5,30 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for updating SMS marketing consent information for a given customer ID.
- */
+
 public class CustomerSmsMarketingConsentUpdateInput {
-  /**
-   * The ID of the customer to update the SMS marketing consent information for.
-   * The customer must have a unique phone number associated to the record. If not,
-   * add the phone number using the `customerUpdate` mutation first.
-   */
+  
   private String customerId;
 
-  /**
-   * The marketing consent information when the customer consented to receiving marketing material by SMS.
-   */
+  
   private CustomerSmsMarketingConsentInput smsMarketingConsent;
 
   public CustomerSmsMarketingConsentUpdateInput() {
   }
 
-  /**
-   * The ID of the customer to update the SMS marketing consent information for.
-   * The customer must have a unique phone number associated to the record. If not,
-   * add the phone number using the `customerUpdate` mutation first.
-   */
+  
   public String getCustomerId() {
     return customerId;
   }
@@ -37,9 +25,7 @@ public class CustomerSmsMarketingConsentUpdateInput {
     this.customerId = customerId;
   }
 
-  /**
-   * The marketing consent information when the customer consented to receiving marketing material by SMS.
-   */
+  
   public CustomerSmsMarketingConsentInput getSmsMarketingConsent() {
     return smsMarketingConsent;
   }
@@ -72,16 +58,10 @@ public class CustomerSmsMarketingConsentUpdateInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the customer to update the SMS marketing consent information for.
-     * The customer must have a unique phone number associated to the record. If not,
-     * add the phone number using the `customerUpdate` mutation first.
-     */
+    
     private String customerId;
 
-    /**
-     * The marketing consent information when the customer consented to receiving marketing material by SMS.
-     */
+    
     private CustomerSmsMarketingConsentInput smsMarketingConsent;
 
     public CustomerSmsMarketingConsentUpdateInput build() {
@@ -91,19 +71,13 @@ public class CustomerSmsMarketingConsentUpdateInput {
       return result;
     }
 
-    /**
-     * The ID of the customer to update the SMS marketing consent information for.
-     * The customer must have a unique phone number associated to the record. If not,
-     * add the phone number using the `customerUpdate` mutation first.
-     */
+    
     public Builder customerId(String customerId) {
       this.customerId = customerId;
       return this;
     }
 
-    /**
-     * The marketing consent information when the customer consented to receiving marketing material by SMS.
-     */
+    
     public Builder smsMarketingConsent(CustomerSmsMarketingConsentInput smsMarketingConsent) {
       this.smsMarketingConsent = smsMarketingConsent;
       return this;

@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * The staff member making the API request.
- */
+
 public class CurrentStaffMemberGraphQLQuery extends GraphQLQuery {
   public CurrentStaffMemberGraphQLQuery(String queryName) {
     super("query", queryName);

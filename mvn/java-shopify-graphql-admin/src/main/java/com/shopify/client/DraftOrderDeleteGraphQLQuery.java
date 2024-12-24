@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Deletes a draft order.
- */
+
 public class DraftOrderDeleteGraphQLQuery extends GraphQLQuery {
   public DraftOrderDeleteGraphQLQuery(DraftOrderDeleteInput input, String queryName,
       Set<String> fieldsSet) {
@@ -44,9 +42,7 @@ public class DraftOrderDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * Specify the draft order to delete by its ID.
-     */
+    
     public Builder input(DraftOrderDeleteInput input) {
       this.input = input;
       this.fieldsSet.add("input");

@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `collectionAddProducts` mutation.
- */
+
 public class CollectionAddProductsPayload {
-  /**
-   * The updated collection. Returns `null` if an error is raised.
-   */
+  
   private Collection collection;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public CollectionAddProductsPayload() {
   }
 
-  /**
-   * The updated collection. Returns `null` if an error is raised.
-   */
+  
   public Collection getCollection() {
     return collection;
   }
@@ -34,9 +26,7 @@ public class CollectionAddProductsPayload {
     this.collection = collection;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class CollectionAddProductsPayload {
   }
 
   public static class Builder {
-    /**
-     * The updated collection. Returns `null` if an error is raised.
-     */
+    
     private Collection collection;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public CollectionAddProductsPayload build() {
@@ -86,17 +72,13 @@ public class CollectionAddProductsPayload {
       return result;
     }
 
-    /**
-     * The updated collection. Returns `null` if an error is raised.
-     */
+    
     public Builder collection(Collection collection) {
       this.collection = collection;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

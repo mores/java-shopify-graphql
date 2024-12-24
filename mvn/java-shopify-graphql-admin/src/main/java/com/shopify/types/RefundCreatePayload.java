@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `refundCreate` mutation.
- */
+
 public class RefundCreatePayload {
-  /**
-   * The order associated with the created refund.
-   */
+  
   private Order order;
 
-  /**
-   * The created refund.
-   */
+  
   private Refund refund;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public RefundCreatePayload() {
   }
 
-  /**
-   * The order associated with the created refund.
-   */
+  
   public Order getOrder() {
     return order;
   }
@@ -39,9 +29,7 @@ public class RefundCreatePayload {
     this.order = order;
   }
 
-  /**
-   * The created refund.
-   */
+  
   public Refund getRefund() {
     return refund;
   }
@@ -50,9 +38,7 @@ public class RefundCreatePayload {
     this.refund = refund;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -86,19 +72,13 @@ public class RefundCreatePayload {
   }
 
   public static class Builder {
-    /**
-     * The order associated with the created refund.
-     */
+    
     private Order order;
 
-    /**
-     * The created refund.
-     */
+    
     private Refund refund;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public RefundCreatePayload build() {
@@ -109,25 +89,19 @@ public class RefundCreatePayload {
       return result;
     }
 
-    /**
-     * The order associated with the created refund.
-     */
+    
     public Builder order(Order order) {
       this.order = order;
       return this;
     }
 
-    /**
-     * The created refund.
-     */
+    
     public Builder refund(Refund refund) {
       this.refund = refund;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

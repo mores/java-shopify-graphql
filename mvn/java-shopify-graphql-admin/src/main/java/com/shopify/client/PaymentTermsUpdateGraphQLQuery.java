@@ -7,10 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Update payment terms on an order. To update payment terms on a draft order,
- * use a draft order mutation and include the request with the `DraftOrderInput`.
- */
+
 public class PaymentTermsUpdateGraphQLQuery extends GraphQLQuery {
   public PaymentTermsUpdateGraphQLQuery(PaymentTermsUpdateInput input, String queryName,
       Set<String> fieldsSet) {
@@ -45,9 +42,7 @@ public class PaymentTermsUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The input fields used to update the payment terms.
-     */
+    
     public Builder input(PaymentTermsUpdateInput input) {
       this.input = input;
       this.fieldsSet.add("input");

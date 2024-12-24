@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for mapping a subscription line to a discount.
- */
+
 public class SubscriptionAtomicLineInput {
-  /**
-   * The new subscription line.
-   */
+  
   private SubscriptionLineInput line;
 
-  /**
-   * The discount to be added to the subscription line.
-   */
+  
   private List<SubscriptionAtomicManualDiscountInput> discounts;
 
   public SubscriptionAtomicLineInput() {
   }
 
-  /**
-   * The new subscription line.
-   */
+  
   public SubscriptionLineInput getLine() {
     return line;
   }
@@ -34,9 +26,7 @@ public class SubscriptionAtomicLineInput {
     this.line = line;
   }
 
-  /**
-   * The discount to be added to the subscription line.
-   */
+  
   public List<SubscriptionAtomicManualDiscountInput> getDiscounts() {
     return discounts;
   }
@@ -69,14 +59,10 @@ public class SubscriptionAtomicLineInput {
   }
 
   public static class Builder {
-    /**
-     * The new subscription line.
-     */
+    
     private SubscriptionLineInput line;
 
-    /**
-     * The discount to be added to the subscription line.
-     */
+    
     private List<SubscriptionAtomicManualDiscountInput> discounts;
 
     public SubscriptionAtomicLineInput build() {
@@ -86,17 +72,13 @@ public class SubscriptionAtomicLineInput {
       return result;
     }
 
-    /**
-     * The new subscription line.
-     */
+    
     public Builder line(SubscriptionLineInput line) {
       this.line = line;
       return this;
     }
 
-    /**
-     * The discount to be added to the subscription line.
-     */
+    
     public Builder discounts(List<SubscriptionAtomicManualDiscountInput> discounts) {
       this.discounts = discounts;
       return this;

@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `subscriptionBillingCycleBulkSearch` mutation.
- */
+
 public class SubscriptionBillingCycleBulkSearchPayload {
-  /**
-   * The asynchronous job that performs the action on the targeted billing cycles.
-   */
+  
   private Job job;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<SubscriptionBillingCycleBulkUserError> userErrors;
 
   public SubscriptionBillingCycleBulkSearchPayload() {
   }
 
-  /**
-   * The asynchronous job that performs the action on the targeted billing cycles.
-   */
+  
   public Job getJob() {
     return job;
   }
@@ -34,9 +26,7 @@ public class SubscriptionBillingCycleBulkSearchPayload {
     this.job = job;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<SubscriptionBillingCycleBulkUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class SubscriptionBillingCycleBulkSearchPayload {
   }
 
   public static class Builder {
-    /**
-     * The asynchronous job that performs the action on the targeted billing cycles.
-     */
+    
     private Job job;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<SubscriptionBillingCycleBulkUserError> userErrors;
 
     public SubscriptionBillingCycleBulkSearchPayload build() {
@@ -86,17 +72,13 @@ public class SubscriptionBillingCycleBulkSearchPayload {
       return result;
     }
 
-    /**
-     * The asynchronous job that performs the action on the targeted billing cycles.
-     */
+    
     public Builder job(Job job) {
       this.job = job;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<SubscriptionBillingCycleBulkUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

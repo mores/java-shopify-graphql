@@ -6,11 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Creates and runs a bulk operation query.
- *   
- * See the [bulk operations guide](https://shopify.dev/api/usage/bulk-operations/queries) for more details.
- */
+
 public class BulkOperationRunQueryGraphQLQuery extends GraphQLQuery {
   public BulkOperationRunQueryGraphQLQuery(String query, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -44,9 +40,7 @@ public class BulkOperationRunQueryGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The query to be executed in bulk.
-     */
+    
     public Builder query(String query) {
       this.query = query;
       this.fieldsSet.add("query");

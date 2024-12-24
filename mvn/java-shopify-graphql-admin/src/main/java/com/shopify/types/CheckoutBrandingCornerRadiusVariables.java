@@ -6,31 +6,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Define the pixel size of corner radius options.
- */
+
 public class CheckoutBrandingCornerRadiusVariables {
-  /**
-   * The value in pixels for base corner radii. Example: 5.
-   */
+  
   private Integer base;
 
-  /**
-   * The value in pixels for large corner radii. Example: 10.
-   */
+  
   private Integer large;
 
-  /**
-   * The value in pixels for small corner radii. Example: 3.
-   */
+  
   private Integer small;
 
   public CheckoutBrandingCornerRadiusVariables() {
   }
 
-  /**
-   * The value in pixels for base corner radii. Example: 5.
-   */
+  
   public Integer getBase() {
     return base;
   }
@@ -39,9 +29,7 @@ public class CheckoutBrandingCornerRadiusVariables {
     this.base = base;
   }
 
-  /**
-   * The value in pixels for large corner radii. Example: 10.
-   */
+  
   public Integer getLarge() {
     return large;
   }
@@ -50,9 +38,7 @@ public class CheckoutBrandingCornerRadiusVariables {
     this.large = large;
   }
 
-  /**
-   * The value in pixels for small corner radii. Example: 3.
-   */
+  
   public Integer getSmall() {
     return small;
   }
@@ -86,19 +72,13 @@ public class CheckoutBrandingCornerRadiusVariables {
   }
 
   public static class Builder {
-    /**
-     * The value in pixels for base corner radii. Example: 5.
-     */
+    
     private Integer base;
 
-    /**
-     * The value in pixels for large corner radii. Example: 10.
-     */
+    
     private Integer large;
 
-    /**
-     * The value in pixels for small corner radii. Example: 3.
-     */
+    
     private Integer small;
 
     public CheckoutBrandingCornerRadiusVariables build() {
@@ -109,25 +89,19 @@ public class CheckoutBrandingCornerRadiusVariables {
       return result;
     }
 
-    /**
-     * The value in pixels for base corner radii. Example: 5.
-     */
+    
     public Builder base(Integer base) {
       this.base = base;
       return this;
     }
 
-    /**
-     * The value in pixels for large corner radii. Example: 10.
-     */
+    
     public Builder large(Integer large) {
       this.large = large;
       return this;
     }
 
-    /**
-     * The value in pixels for small corner radii. Example: 3.
-     */
+    
     public Builder small(Integer small) {
       this.small = small;
       return this;

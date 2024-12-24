@@ -7,26 +7,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for a delegate access token.
- */
+
 public class DelegateAccessTokenInput {
-  /**
-   * The list of scopes that will be delegated to the new access token.
-   */
+  
   private List<String> delegateAccessScope;
 
-  /**
-   * The amount of time, in seconds, after which the delegate access token is no longer valid.
-   */
+  
   private Integer expiresIn;
 
   public DelegateAccessTokenInput() {
   }
 
-  /**
-   * The list of scopes that will be delegated to the new access token.
-   */
+  
   public List<String> getDelegateAccessScope() {
     return delegateAccessScope;
   }
@@ -35,9 +27,7 @@ public class DelegateAccessTokenInput {
     this.delegateAccessScope = delegateAccessScope;
   }
 
-  /**
-   * The amount of time, in seconds, after which the delegate access token is no longer valid.
-   */
+  
   public Integer getExpiresIn() {
     return expiresIn;
   }
@@ -70,14 +60,10 @@ public class DelegateAccessTokenInput {
   }
 
   public static class Builder {
-    /**
-     * The list of scopes that will be delegated to the new access token.
-     */
+    
     private List<String> delegateAccessScope;
 
-    /**
-     * The amount of time, in seconds, after which the delegate access token is no longer valid.
-     */
+    
     private Integer expiresIn;
 
     public DelegateAccessTokenInput build() {
@@ -87,17 +73,13 @@ public class DelegateAccessTokenInput {
       return result;
     }
 
-    /**
-     * The list of scopes that will be delegated to the new access token.
-     */
+    
     public Builder delegateAccessScope(List<String> delegateAccessScope) {
       this.delegateAccessScope = delegateAccessScope;
       return this;
     }
 
-    /**
-     * The amount of time, in seconds, after which the delegate access token is no longer valid.
-     */
+    
     public Builder expiresIn(Integer expiresIn) {
       this.expiresIn = expiresIn;
       return this;

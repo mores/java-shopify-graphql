@@ -6,39 +6,27 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A product feed.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ProductFeed implements com.shopify.types.Node {
-  /**
-   * The country of the product feed.
-   */
+  
   private CountryCode country;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The language of the product feed.
-   */
+  
   private LanguageCode language;
 
-  /**
-   * The status of the product feed.
-   */
+  
   private ProductFeedStatus status;
 
   public ProductFeed() {
   }
 
-  /**
-   * The country of the product feed.
-   */
+  
   public CountryCode getCountry() {
     return country;
   }
@@ -47,9 +35,7 @@ public class ProductFeed implements com.shopify.types.Node {
     this.country = country;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -58,9 +44,7 @@ public class ProductFeed implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The language of the product feed.
-   */
+  
   public LanguageCode getLanguage() {
     return language;
   }
@@ -69,9 +53,7 @@ public class ProductFeed implements com.shopify.types.Node {
     this.language = language;
   }
 
-  /**
-   * The status of the product feed.
-   */
+  
   public ProductFeedStatus getStatus() {
     return status;
   }
@@ -106,24 +88,16 @@ public class ProductFeed implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * The country of the product feed.
-     */
+    
     private CountryCode country;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The language of the product feed.
-     */
+    
     private LanguageCode language;
 
-    /**
-     * The status of the product feed.
-     */
+    
     private ProductFeedStatus status;
 
     public ProductFeed build() {
@@ -135,33 +109,25 @@ public class ProductFeed implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * The country of the product feed.
-     */
+    
     public Builder country(CountryCode country) {
       this.country = country;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The language of the product feed.
-     */
+    
     public Builder language(LanguageCode language) {
       this.language = language;
       return this;
     }
 
-    /**
-     * The status of the product feed.
-     */
+    
     public Builder status(ProductFeedStatus status) {
       this.status = status;
       return this;

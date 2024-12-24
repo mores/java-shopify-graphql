@@ -9,74 +9,48 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * A theme for display on the storefront.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class OnlineStoreTheme implements com.shopify.types.HasPublishedTranslations, com.shopify.types.Node {
-  /**
-   * The date and time when the theme was created.
-   */
+  
   private OffsetDateTime createdAt;
 
-  /**
-   * The files in the theme.
-   */
+  
   private OnlineStoreThemeFileConnection files;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The name of the theme, set by the merchant.
-   */
+  
   private String name;
 
-  /**
-   * The prefix of the theme.
-   */
+  
   private String prefix;
 
-  /**
-   * Whether the theme is processing.
-   */
+  
   private boolean processing;
 
-  /**
-   * Whether the theme processing failed.
-   */
+  
   private boolean processingFailed;
 
-  /**
-   * The role of the theme.
-   */
+  
   private ThemeRole role;
 
-  /**
-   * The theme store ID.
-   */
+  
   private Integer themeStoreId;
 
-  /**
-   * The published translations associated with the resource.
-   */
+  
   private List<Translation> translations;
 
-  /**
-   * The date and time when the theme was last updated.
-   */
+  
   private OffsetDateTime updatedAt;
 
   public OnlineStoreTheme() {
   }
 
-  /**
-   * The date and time when the theme was created.
-   */
+  
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -85,9 +59,7 @@ public class OnlineStoreTheme implements com.shopify.types.HasPublishedTranslati
     this.createdAt = createdAt;
   }
 
-  /**
-   * The files in the theme.
-   */
+  
   public OnlineStoreThemeFileConnection getFiles() {
     return files;
   }
@@ -96,9 +68,7 @@ public class OnlineStoreTheme implements com.shopify.types.HasPublishedTranslati
     this.files = files;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -107,9 +77,7 @@ public class OnlineStoreTheme implements com.shopify.types.HasPublishedTranslati
     this.id = id;
   }
 
-  /**
-   * The name of the theme, set by the merchant.
-   */
+  
   public String getName() {
     return name;
   }
@@ -118,9 +86,7 @@ public class OnlineStoreTheme implements com.shopify.types.HasPublishedTranslati
     this.name = name;
   }
 
-  /**
-   * The prefix of the theme.
-   */
+  
   public String getPrefix() {
     return prefix;
   }
@@ -129,9 +95,7 @@ public class OnlineStoreTheme implements com.shopify.types.HasPublishedTranslati
     this.prefix = prefix;
   }
 
-  /**
-   * Whether the theme is processing.
-   */
+  
   public boolean getProcessing() {
     return processing;
   }
@@ -140,9 +104,7 @@ public class OnlineStoreTheme implements com.shopify.types.HasPublishedTranslati
     this.processing = processing;
   }
 
-  /**
-   * Whether the theme processing failed.
-   */
+  
   public boolean getProcessingFailed() {
     return processingFailed;
   }
@@ -151,9 +113,7 @@ public class OnlineStoreTheme implements com.shopify.types.HasPublishedTranslati
     this.processingFailed = processingFailed;
   }
 
-  /**
-   * The role of the theme.
-   */
+  
   public ThemeRole getRole() {
     return role;
   }
@@ -162,9 +122,7 @@ public class OnlineStoreTheme implements com.shopify.types.HasPublishedTranslati
     this.role = role;
   }
 
-  /**
-   * The theme store ID.
-   */
+  
   public Integer getThemeStoreId() {
     return themeStoreId;
   }
@@ -173,9 +131,7 @@ public class OnlineStoreTheme implements com.shopify.types.HasPublishedTranslati
     this.themeStoreId = themeStoreId;
   }
 
-  /**
-   * The published translations associated with the resource.
-   */
+  
   public List<Translation> getTranslations() {
     return translations;
   }
@@ -184,9 +140,7 @@ public class OnlineStoreTheme implements com.shopify.types.HasPublishedTranslati
     this.translations = translations;
   }
 
-  /**
-   * The date and time when the theme was last updated.
-   */
+  
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
@@ -228,59 +182,37 @@ public class OnlineStoreTheme implements com.shopify.types.HasPublishedTranslati
   }
 
   public static class Builder {
-    /**
-     * The date and time when the theme was created.
-     */
+    
     private OffsetDateTime createdAt;
 
-    /**
-     * The files in the theme.
-     */
+    
     private OnlineStoreThemeFileConnection files;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The name of the theme, set by the merchant.
-     */
+    
     private String name;
 
-    /**
-     * The prefix of the theme.
-     */
+    
     private String prefix;
 
-    /**
-     * Whether the theme is processing.
-     */
+    
     private boolean processing;
 
-    /**
-     * Whether the theme processing failed.
-     */
+    
     private boolean processingFailed;
 
-    /**
-     * The role of the theme.
-     */
+    
     private ThemeRole role;
 
-    /**
-     * The theme store ID.
-     */
+    
     private Integer themeStoreId;
 
-    /**
-     * The published translations associated with the resource.
-     */
+    
     private List<Translation> translations;
 
-    /**
-     * The date and time when the theme was last updated.
-     */
+    
     private OffsetDateTime updatedAt;
 
     public OnlineStoreTheme build() {
@@ -299,89 +231,67 @@ public class OnlineStoreTheme implements com.shopify.types.HasPublishedTranslati
       return result;
     }
 
-    /**
-     * The date and time when the theme was created.
-     */
+    
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    /**
-     * The files in the theme.
-     */
+    
     public Builder files(OnlineStoreThemeFileConnection files) {
       this.files = files;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The name of the theme, set by the merchant.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The prefix of the theme.
-     */
+    
     public Builder prefix(String prefix) {
       this.prefix = prefix;
       return this;
     }
 
-    /**
-     * Whether the theme is processing.
-     */
+    
     public Builder processing(boolean processing) {
       this.processing = processing;
       return this;
     }
 
-    /**
-     * Whether the theme processing failed.
-     */
+    
     public Builder processingFailed(boolean processingFailed) {
       this.processingFailed = processingFailed;
       return this;
     }
 
-    /**
-     * The role of the theme.
-     */
+    
     public Builder role(ThemeRole role) {
       this.role = role;
       return this;
     }
 
-    /**
-     * The theme store ID.
-     */
+    
     public Builder themeStoreId(Integer themeStoreId) {
       this.themeStoreId = themeStoreId;
       return this;
     }
 
-    /**
-     * The published translations associated with the resource.
-     */
+    
     public Builder translations(List<Translation> translations) {
       this.translations = translations;
       return this;
     }
 
-    /**
-     * The date and time when the theme was last updated.
-     */
+    
     public Builder updatedAt(OffsetDateTime updatedAt) {
       this.updatedAt = updatedAt;
       return this;

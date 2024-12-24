@@ -6,13 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns the visual customizations for checkout for a given checkout profile.
- *   
- * To learn more about updating checkout branding settings, refer to the
- * [checkoutBrandingUpsert](https://shopify.dev/api/admin-graphql/unstable/mutations/checkoutBrandingUpsert)
- * mutation and the checkout branding [tutorial](https://shopify.dev/docs/apps/checkout/styling).
- */
+
 public class CheckoutBrandingGraphQLQuery extends GraphQLQuery {
   public CheckoutBrandingGraphQLQuery(String checkoutProfileId, String queryName,
       Set<String> fieldsSet) {
@@ -47,9 +41,7 @@ public class CheckoutBrandingGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * A globally-unique identifier.
-     */
+    
     public Builder checkoutProfileId(String checkoutProfileId) {
       this.checkoutProfileId = checkoutProfileId;
       this.fieldsSet.add("checkoutProfileId");

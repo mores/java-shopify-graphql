@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `metafieldStorefrontVisibilityDelete` mutation.
- */
+
 public class MetafieldStorefrontVisibilityDeletePayload {
-  /**
-   * The ID of the deleted `MetafieldStorefrontVisibility` record.
-   */
+  
   private String deletedMetafieldStorefrontVisibilityId;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public MetafieldStorefrontVisibilityDeletePayload() {
   }
 
-  /**
-   * The ID of the deleted `MetafieldStorefrontVisibility` record.
-   */
+  
   public String getDeletedMetafieldStorefrontVisibilityId() {
     return deletedMetafieldStorefrontVisibilityId;
   }
@@ -35,9 +27,7 @@ public class MetafieldStorefrontVisibilityDeletePayload {
     this.deletedMetafieldStorefrontVisibilityId = deletedMetafieldStorefrontVisibilityId;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -70,14 +60,10 @@ public class MetafieldStorefrontVisibilityDeletePayload {
   }
 
   public static class Builder {
-    /**
-     * The ID of the deleted `MetafieldStorefrontVisibility` record.
-     */
+    
     private String deletedMetafieldStorefrontVisibilityId;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public MetafieldStorefrontVisibilityDeletePayload build() {
@@ -87,18 +73,14 @@ public class MetafieldStorefrontVisibilityDeletePayload {
       return result;
     }
 
-    /**
-     * The ID of the deleted `MetafieldStorefrontVisibility` record.
-     */
+    
     public Builder deletedMetafieldStorefrontVisibilityId(
         String deletedMetafieldStorefrontVisibilityId) {
       this.deletedMetafieldStorefrontVisibilityId = deletedMetafieldStorefrontVisibilityId;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -8,9 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Assigns roles on a company location.
- */
+
 public class CompanyLocationAssignRolesGraphQLQuery extends GraphQLQuery {
   public CompanyLocationAssignRolesGraphQLQuery(String companyLocationId,
       List<CompanyLocationRoleAssign> rolesToAssign, String queryName, Set<String> fieldsSet) {
@@ -49,18 +47,14 @@ public class CompanyLocationAssignRolesGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The location whose roles are being assigned.
-     */
+    
     public Builder companyLocationId(String companyLocationId) {
       this.companyLocationId = companyLocationId;
       this.fieldsSet.add("companyLocationId");
       return this;
     }
 
-    /**
-     * The roles to assign.
-     */
+    
     public Builder rolesToAssign(List<CompanyLocationRoleAssign> rolesToAssign) {
       this.rolesToAssign = rolesToAssign;
       this.fieldsSet.add("rolesToAssign");

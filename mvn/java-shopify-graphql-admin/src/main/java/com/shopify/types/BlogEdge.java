@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * An auto-generated type which holds one Blog and a cursor during pagination.
- */
+
 public class BlogEdge {
-  /**
-   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-   */
+  
   private String cursor;
 
-  /**
-   * The item at the end of BlogEdge.
-   */
+  
   private Blog node;
 
   public BlogEdge() {
   }
 
-  /**
-   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-   */
+  
   public String getCursor() {
     return cursor;
   }
@@ -33,9 +25,7 @@ public class BlogEdge {
     this.cursor = cursor;
   }
 
-  /**
-   * The item at the end of BlogEdge.
-   */
+  
   public Blog getNode() {
     return node;
   }
@@ -68,14 +58,10 @@ public class BlogEdge {
   }
 
   public static class Builder {
-    /**
-     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     private String cursor;
 
-    /**
-     * The item at the end of BlogEdge.
-     */
+    
     private Blog node;
 
     public BlogEdge build() {
@@ -85,17 +71,13 @@ public class BlogEdge {
       return result;
     }
 
-    /**
-     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     public Builder cursor(String cursor) {
       this.cursor = cursor;
       return this;
     }
 
-    /**
-     * The item at the end of BlogEdge.
-     */
+    
     public Builder node(Blog node) {
       this.node = node;
       return this;

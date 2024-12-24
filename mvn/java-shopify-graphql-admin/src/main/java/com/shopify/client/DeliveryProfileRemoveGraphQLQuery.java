@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Enqueue the removal of a delivery profile.
- */
+
 public class DeliveryProfileRemoveGraphQLQuery extends GraphQLQuery {
   public DeliveryProfileRemoveGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -42,9 +40,7 @@ public class DeliveryProfileRemoveGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the delivery profile to remove.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns an inventory Location resource by ID.
- */
+
 public class LocationGraphQLQuery extends GraphQLQuery {
   public LocationGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -42,9 +40,7 @@ public class LocationGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the location to return. If no ID is provided, the primary location of the Shop is returned.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

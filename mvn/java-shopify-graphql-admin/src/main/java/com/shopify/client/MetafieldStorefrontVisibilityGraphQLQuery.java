@@ -6,10 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns a `MetafieldStorefrontVisibility` record by ID. A `MetafieldStorefrontVisibility` record lists the
- * metafields to make visible in the Storefront API.
- */
+
 public class MetafieldStorefrontVisibilityGraphQLQuery extends GraphQLQuery {
   public MetafieldStorefrontVisibilityGraphQLQuery(String id, String queryName,
       Set<String> fieldsSet) {
@@ -44,9 +41,7 @@ public class MetafieldStorefrontVisibilityGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the `MetafieldStorefrontVisibility` to return.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

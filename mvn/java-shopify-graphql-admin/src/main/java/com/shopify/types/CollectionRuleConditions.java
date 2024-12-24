@@ -6,37 +6,24 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * This object defines all columns and allowed relations that can be used in rules
- * for smart collections to automatically include the matching products.
- */
+
 public class CollectionRuleConditions {
-  /**
-   * Allowed relations of the rule.
-   */
+  
   private List<CollectionRuleRelation> allowedRelations;
 
-  /**
-   * Most commonly used relation for this rule.
-   */
+  
   private CollectionRuleRelation defaultRelation;
 
-  /**
-   * Additional attributes defining the rule.
-   */
+  
   private CollectionRuleConditionsRuleObject ruleObject;
 
-  /**
-   * Type of the rule.
-   */
+  
   private CollectionRuleColumn ruleType;
 
   public CollectionRuleConditions() {
   }
 
-  /**
-   * Allowed relations of the rule.
-   */
+  
   public List<CollectionRuleRelation> getAllowedRelations() {
     return allowedRelations;
   }
@@ -45,9 +32,7 @@ public class CollectionRuleConditions {
     this.allowedRelations = allowedRelations;
   }
 
-  /**
-   * Most commonly used relation for this rule.
-   */
+  
   public CollectionRuleRelation getDefaultRelation() {
     return defaultRelation;
   }
@@ -56,9 +41,7 @@ public class CollectionRuleConditions {
     this.defaultRelation = defaultRelation;
   }
 
-  /**
-   * Additional attributes defining the rule.
-   */
+  
   public CollectionRuleConditionsRuleObject getRuleObject() {
     return ruleObject;
   }
@@ -67,9 +50,7 @@ public class CollectionRuleConditions {
     this.ruleObject = ruleObject;
   }
 
-  /**
-   * Type of the rule.
-   */
+  
   public CollectionRuleColumn getRuleType() {
     return ruleType;
   }
@@ -104,24 +85,16 @@ public class CollectionRuleConditions {
   }
 
   public static class Builder {
-    /**
-     * Allowed relations of the rule.
-     */
+    
     private List<CollectionRuleRelation> allowedRelations;
 
-    /**
-     * Most commonly used relation for this rule.
-     */
+    
     private CollectionRuleRelation defaultRelation;
 
-    /**
-     * Additional attributes defining the rule.
-     */
+    
     private CollectionRuleConditionsRuleObject ruleObject;
 
-    /**
-     * Type of the rule.
-     */
+    
     private CollectionRuleColumn ruleType;
 
     public CollectionRuleConditions build() {
@@ -133,33 +106,25 @@ public class CollectionRuleConditions {
       return result;
     }
 
-    /**
-     * Allowed relations of the rule.
-     */
+    
     public Builder allowedRelations(List<CollectionRuleRelation> allowedRelations) {
       this.allowedRelations = allowedRelations;
       return this;
     }
 
-    /**
-     * Most commonly used relation for this rule.
-     */
+    
     public Builder defaultRelation(CollectionRuleRelation defaultRelation) {
       this.defaultRelation = defaultRelation;
       return this;
     }
 
-    /**
-     * Additional attributes defining the rule.
-     */
+    
     public Builder ruleObject(CollectionRuleConditionsRuleObject ruleObject) {
       this.ruleObject = ruleObject;
       return this;
     }
 
-    /**
-     * Type of the rule.
-     */
+    
     public Builder ruleType(CollectionRuleColumn ruleType) {
       this.ruleType = ruleType;
       return this;

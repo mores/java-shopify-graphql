@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `bulkOperationRunQuery` mutation.
- */
+
 public class BulkOperationRunQueryPayload {
-  /**
-   * The newly created bulk operation.
-   */
+  
   private BulkOperation bulkOperation;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public BulkOperationRunQueryPayload() {
   }
 
-  /**
-   * The newly created bulk operation.
-   */
+  
   public BulkOperation getBulkOperation() {
     return bulkOperation;
   }
@@ -34,9 +26,7 @@ public class BulkOperationRunQueryPayload {
     this.bulkOperation = bulkOperation;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class BulkOperationRunQueryPayload {
   }
 
   public static class Builder {
-    /**
-     * The newly created bulk operation.
-     */
+    
     private BulkOperation bulkOperation;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public BulkOperationRunQueryPayload build() {
@@ -86,17 +72,13 @@ public class BulkOperationRunQueryPayload {
       return result;
     }
 
-    /**
-     * The newly created bulk operation.
-     */
+    
     public Builder bulkOperation(BulkOperation bulkOperation) {
       this.bulkOperation = bulkOperation;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

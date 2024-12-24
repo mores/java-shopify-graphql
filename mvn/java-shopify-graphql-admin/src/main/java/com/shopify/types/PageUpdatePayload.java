@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `pageUpdate` mutation.
- */
+
 public class PageUpdatePayload {
-  /**
-   * The page that was updated.
-   */
+  
   private Page page;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<PageUpdateUserError> userErrors;
 
   public PageUpdatePayload() {
   }
 
-  /**
-   * The page that was updated.
-   */
+  
   public Page getPage() {
     return page;
   }
@@ -34,9 +26,7 @@ public class PageUpdatePayload {
     this.page = page;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<PageUpdateUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class PageUpdatePayload {
   }
 
   public static class Builder {
-    /**
-     * The page that was updated.
-     */
+    
     private Page page;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<PageUpdateUserError> userErrors;
 
     public PageUpdatePayload build() {
@@ -86,17 +72,13 @@ public class PageUpdatePayload {
       return result;
     }
 
-    /**
-     * The page that was updated.
-     */
+    
     public Builder page(Page page) {
       this.page = page;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<PageUpdateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

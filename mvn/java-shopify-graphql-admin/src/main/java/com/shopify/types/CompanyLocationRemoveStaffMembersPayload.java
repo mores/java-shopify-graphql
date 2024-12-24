@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `companyLocationRemoveStaffMembers` mutation.
- */
+
 public class CompanyLocationRemoveStaffMembersPayload {
-  /**
-   * The list of IDs of the deleted staff member assignment.
-   */
+  
   private List<String> deletedCompanyLocationStaffMemberAssignmentIds;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<BusinessCustomerUserError> userErrors;
 
   public CompanyLocationRemoveStaffMembersPayload() {
   }
 
-  /**
-   * The list of IDs of the deleted staff member assignment.
-   */
+  
   public List<String> getDeletedCompanyLocationStaffMemberAssignmentIds() {
     return deletedCompanyLocationStaffMemberAssignmentIds;
   }
@@ -35,9 +27,7 @@ public class CompanyLocationRemoveStaffMembersPayload {
     this.deletedCompanyLocationStaffMemberAssignmentIds = deletedCompanyLocationStaffMemberAssignmentIds;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<BusinessCustomerUserError> getUserErrors() {
     return userErrors;
   }
@@ -70,14 +60,10 @@ public class CompanyLocationRemoveStaffMembersPayload {
   }
 
   public static class Builder {
-    /**
-     * The list of IDs of the deleted staff member assignment.
-     */
+    
     private List<String> deletedCompanyLocationStaffMemberAssignmentIds;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<BusinessCustomerUserError> userErrors;
 
     public CompanyLocationRemoveStaffMembersPayload build() {
@@ -87,18 +73,14 @@ public class CompanyLocationRemoveStaffMembersPayload {
       return result;
     }
 
-    /**
-     * The list of IDs of the deleted staff member assignment.
-     */
+    
     public Builder deletedCompanyLocationStaffMemberAssignmentIds(
         List<String> deletedCompanyLocationStaffMemberAssignmentIds) {
       this.deletedCompanyLocationStaffMemberAssignmentIds = deletedCompanyLocationStaffMemberAssignmentIds;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<BusinessCustomerUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

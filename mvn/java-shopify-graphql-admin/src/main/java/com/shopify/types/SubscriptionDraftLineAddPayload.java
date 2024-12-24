@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `subscriptionDraftLineAdd` mutation.
- */
+
 public class SubscriptionDraftLineAddPayload {
-  /**
-   * The Subscription Contract draft object.
-   */
+  
   private SubscriptionDraft draft;
 
-  /**
-   * The added Subscription Line.
-   */
+  
   private SubscriptionLine lineAdded;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<SubscriptionDraftUserError> userErrors;
 
   public SubscriptionDraftLineAddPayload() {
   }
 
-  /**
-   * The Subscription Contract draft object.
-   */
+  
   public SubscriptionDraft getDraft() {
     return draft;
   }
@@ -39,9 +29,7 @@ public class SubscriptionDraftLineAddPayload {
     this.draft = draft;
   }
 
-  /**
-   * The added Subscription Line.
-   */
+  
   public SubscriptionLine getLineAdded() {
     return lineAdded;
   }
@@ -50,9 +38,7 @@ public class SubscriptionDraftLineAddPayload {
     this.lineAdded = lineAdded;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<SubscriptionDraftUserError> getUserErrors() {
     return userErrors;
   }
@@ -86,19 +72,13 @@ public class SubscriptionDraftLineAddPayload {
   }
 
   public static class Builder {
-    /**
-     * The Subscription Contract draft object.
-     */
+    
     private SubscriptionDraft draft;
 
-    /**
-     * The added Subscription Line.
-     */
+    
     private SubscriptionLine lineAdded;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<SubscriptionDraftUserError> userErrors;
 
     public SubscriptionDraftLineAddPayload build() {
@@ -109,25 +89,19 @@ public class SubscriptionDraftLineAddPayload {
       return result;
     }
 
-    /**
-     * The Subscription Contract draft object.
-     */
+    
     public Builder draft(SubscriptionDraft draft) {
       this.draft = draft;
       return this;
     }
 
-    /**
-     * The added Subscription Line.
-     */
+    
     public Builder lineAdded(SubscriptionLine lineAdded) {
       this.lineAdded = lineAdded;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<SubscriptionDraftUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents what a particular discount reduces from a line price.
- */
+
 public class SubscriptionDiscountAllocation {
-  /**
-   * Allocation amount.
-   */
+  
   private MoneyV2 amount;
 
-  /**
-   * Discount that created the allocation.
-   */
+  
   private SubscriptionDiscount discount;
 
   public SubscriptionDiscountAllocation() {
   }
 
-  /**
-   * Allocation amount.
-   */
+  
   public MoneyV2 getAmount() {
     return amount;
   }
@@ -33,9 +25,7 @@ public class SubscriptionDiscountAllocation {
     this.amount = amount;
   }
 
-  /**
-   * Discount that created the allocation.
-   */
+  
   public SubscriptionDiscount getDiscount() {
     return discount;
   }
@@ -68,14 +58,10 @@ public class SubscriptionDiscountAllocation {
   }
 
   public static class Builder {
-    /**
-     * Allocation amount.
-     */
+    
     private MoneyV2 amount;
 
-    /**
-     * Discount that created the allocation.
-     */
+    
     private SubscriptionDiscount discount;
 
     public SubscriptionDiscountAllocation build() {
@@ -85,17 +71,13 @@ public class SubscriptionDiscountAllocation {
       return result;
     }
 
-    /**
-     * Allocation amount.
-     */
+    
     public Builder amount(MoneyV2 amount) {
       this.amount = amount;
       return this;
     }
 
-    /**
-     * Discount that created the allocation.
-     */
+    
     public Builder discount(SubscriptionDiscount discount) {
       this.discount = discount;
       return this;

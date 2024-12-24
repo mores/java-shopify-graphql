@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `customerSendAccountInviteEmail` mutation.
- */
+
 public class CustomerSendAccountInviteEmailPayload {
-  /**
-   * The customer to whom an account invite email was sent.
-   */
+  
   private Customer customer;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<CustomerSendAccountInviteEmailUserError> userErrors;
 
   public CustomerSendAccountInviteEmailPayload() {
   }
 
-  /**
-   * The customer to whom an account invite email was sent.
-   */
+  
   public Customer getCustomer() {
     return customer;
   }
@@ -34,9 +26,7 @@ public class CustomerSendAccountInviteEmailPayload {
     this.customer = customer;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<CustomerSendAccountInviteEmailUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class CustomerSendAccountInviteEmailPayload {
   }
 
   public static class Builder {
-    /**
-     * The customer to whom an account invite email was sent.
-     */
+    
     private Customer customer;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<CustomerSendAccountInviteEmailUserError> userErrors;
 
     public CustomerSendAccountInviteEmailPayload build() {
@@ -86,17 +72,13 @@ public class CustomerSendAccountInviteEmailPayload {
       return result;
     }
 
-    /**
-     * The customer to whom an account invite email was sent.
-     */
+    
     public Builder customer(Customer customer) {
       this.customer = customer;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<CustomerSendAccountInviteEmailUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

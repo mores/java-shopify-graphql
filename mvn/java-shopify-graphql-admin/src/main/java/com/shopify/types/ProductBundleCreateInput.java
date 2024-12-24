@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for creating a componentized product.
- */
+
 public class ProductBundleCreateInput {
-  /**
-   * The title of the product to create.
-   */
+  
   private String title;
 
-  /**
-   * The component products to bundle with the bundle product.
-   */
+  
   private List<ProductBundleComponentInput> components;
 
   public ProductBundleCreateInput() {
   }
 
-  /**
-   * The title of the product to create.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -34,9 +26,7 @@ public class ProductBundleCreateInput {
     this.title = title;
   }
 
-  /**
-   * The component products to bundle with the bundle product.
-   */
+  
   public List<ProductBundleComponentInput> getComponents() {
     return components;
   }
@@ -69,14 +59,10 @@ public class ProductBundleCreateInput {
   }
 
   public static class Builder {
-    /**
-     * The title of the product to create.
-     */
+    
     private String title;
 
-    /**
-     * The component products to bundle with the bundle product.
-     */
+    
     private List<ProductBundleComponentInput> components;
 
     public ProductBundleCreateInput build() {
@@ -86,17 +72,13 @@ public class ProductBundleCreateInput {
       return result;
     }
 
-    /**
-     * The title of the product to create.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    /**
-     * The component products to bundle with the bundle product.
-     */
+    
     public Builder components(List<ProductBundleComponentInput> components) {
       this.components = components;
       return this;

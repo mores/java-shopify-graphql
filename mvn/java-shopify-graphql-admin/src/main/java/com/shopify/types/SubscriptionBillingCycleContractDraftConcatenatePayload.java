@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `subscriptionBillingCycleContractDraftConcatenate` mutation.
- */
+
 public class SubscriptionBillingCycleContractDraftConcatenatePayload {
-  /**
-   * The Subscription Draft object.
-   */
+  
   private SubscriptionDraft draft;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<SubscriptionDraftUserError> userErrors;
 
   public SubscriptionBillingCycleContractDraftConcatenatePayload() {
   }
 
-  /**
-   * The Subscription Draft object.
-   */
+  
   public SubscriptionDraft getDraft() {
     return draft;
   }
@@ -34,9 +26,7 @@ public class SubscriptionBillingCycleContractDraftConcatenatePayload {
     this.draft = draft;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<SubscriptionDraftUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class SubscriptionBillingCycleContractDraftConcatenatePayload {
   }
 
   public static class Builder {
-    /**
-     * The Subscription Draft object.
-     */
+    
     private SubscriptionDraft draft;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<SubscriptionDraftUserError> userErrors;
 
     public SubscriptionBillingCycleContractDraftConcatenatePayload build() {
@@ -86,17 +72,13 @@ public class SubscriptionBillingCycleContractDraftConcatenatePayload {
       return result;
     }
 
-    /**
-     * The Subscription Draft object.
-     */
+    
     public Builder draft(SubscriptionDraft draft) {
       this.draft = draft;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<SubscriptionDraftUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

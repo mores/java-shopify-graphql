@@ -6,26 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The original source for an image.
- */
+
 public class MediaImageOriginalSource {
-  /**
-   * The size of the original file in bytes.
-   */
+  
   private Integer fileSize;
 
-  /**
-   * The URL of the original image, valid only for a short period.
-   */
+  
   private String url;
 
   public MediaImageOriginalSource() {
   }
 
-  /**
-   * The size of the original file in bytes.
-   */
+  
   public Integer getFileSize() {
     return fileSize;
   }
@@ -34,9 +26,7 @@ public class MediaImageOriginalSource {
     this.fileSize = fileSize;
   }
 
-  /**
-   * The URL of the original image, valid only for a short period.
-   */
+  
   public String getUrl() {
     return url;
   }
@@ -69,14 +59,10 @@ public class MediaImageOriginalSource {
   }
 
   public static class Builder {
-    /**
-     * The size of the original file in bytes.
-     */
+    
     private Integer fileSize;
 
-    /**
-     * The URL of the original image, valid only for a short period.
-     */
+    
     private String url;
 
     public MediaImageOriginalSource build() {
@@ -86,17 +72,13 @@ public class MediaImageOriginalSource {
       return result;
     }
 
-    /**
-     * The size of the original file in bytes.
-     */
+    
     public Builder fileSize(Integer fileSize) {
       this.fileSize = fileSize;
       return this;
     }
 
-    /**
-     * The URL of the original image, valid only for a short period.
-     */
+    
     public Builder url(String url) {
       this.url = url;
       return this;

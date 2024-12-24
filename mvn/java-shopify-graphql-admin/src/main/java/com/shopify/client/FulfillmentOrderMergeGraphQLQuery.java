@@ -8,10 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Merges a set or multiple sets of fulfillment orders together into one based on
- * line item inputs and quantities.
- */
+
 public class FulfillmentOrderMergeGraphQLQuery extends GraphQLQuery {
   public FulfillmentOrderMergeGraphQLQuery(
       List<FulfillmentOrderMergeInput> fulfillmentOrderMergeInputs, String queryName,
@@ -47,9 +44,7 @@ public class FulfillmentOrderMergeGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * One or more sets of fulfillment orders to be merged.
-     */
+    
     public Builder fulfillmentOrderMergeInputs(
         List<FulfillmentOrderMergeInput> fulfillmentOrderMergeInputs) {
       this.fulfillmentOrderMergeInputs = fulfillmentOrderMergeInputs;

@@ -5,36 +5,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields used to update the main container customizations.
- */
+
 public class CheckoutBrandingMainInput {
-  /**
-   * The selected color scheme for the main container of the checkout.
-   */
+  
   private CheckoutBrandingColorSchemeSelection colorScheme;
 
-  /**
-   * The background image of the main container (must not be of SVG format).
-   */
+  
   private CheckoutBrandingImageInput backgroundImage;
 
-  /**
-   * Divider style and visibility on the main container.
-   */
+  
   private CheckoutBrandingContainerDividerInput divider;
 
-  /**
-   * The settings for the main sections.
-   */
+  
   private CheckoutBrandingMainSectionInput section;
 
   public CheckoutBrandingMainInput() {
   }
 
-  /**
-   * The selected color scheme for the main container of the checkout.
-   */
+  
   public CheckoutBrandingColorSchemeSelection getColorScheme() {
     return colorScheme;
   }
@@ -43,9 +31,7 @@ public class CheckoutBrandingMainInput {
     this.colorScheme = colorScheme;
   }
 
-  /**
-   * The background image of the main container (must not be of SVG format).
-   */
+  
   public CheckoutBrandingImageInput getBackgroundImage() {
     return backgroundImage;
   }
@@ -54,9 +40,7 @@ public class CheckoutBrandingMainInput {
     this.backgroundImage = backgroundImage;
   }
 
-  /**
-   * Divider style and visibility on the main container.
-   */
+  
   public CheckoutBrandingContainerDividerInput getDivider() {
     return divider;
   }
@@ -65,9 +49,7 @@ public class CheckoutBrandingMainInput {
     this.divider = divider;
   }
 
-  /**
-   * The settings for the main sections.
-   */
+  
   public CheckoutBrandingMainSectionInput getSection() {
     return section;
   }
@@ -102,24 +84,16 @@ public class CheckoutBrandingMainInput {
   }
 
   public static class Builder {
-    /**
-     * The selected color scheme for the main container of the checkout.
-     */
+    
     private CheckoutBrandingColorSchemeSelection colorScheme;
 
-    /**
-     * The background image of the main container (must not be of SVG format).
-     */
+    
     private CheckoutBrandingImageInput backgroundImage;
 
-    /**
-     * Divider style and visibility on the main container.
-     */
+    
     private CheckoutBrandingContainerDividerInput divider;
 
-    /**
-     * The settings for the main sections.
-     */
+    
     private CheckoutBrandingMainSectionInput section;
 
     public CheckoutBrandingMainInput build() {
@@ -131,33 +105,25 @@ public class CheckoutBrandingMainInput {
       return result;
     }
 
-    /**
-     * The selected color scheme for the main container of the checkout.
-     */
+    
     public Builder colorScheme(CheckoutBrandingColorSchemeSelection colorScheme) {
       this.colorScheme = colorScheme;
       return this;
     }
 
-    /**
-     * The background image of the main container (must not be of SVG format).
-     */
+    
     public Builder backgroundImage(CheckoutBrandingImageInput backgroundImage) {
       this.backgroundImage = backgroundImage;
       return this;
     }
 
-    /**
-     * Divider style and visibility on the main container.
-     */
+    
     public Builder divider(CheckoutBrandingContainerDividerInput divider) {
       this.divider = divider;
       return this;
     }
 
-    /**
-     * The settings for the main sections.
-     */
+    
     public Builder section(CheckoutBrandingMainSectionInput section) {
       this.section = section;
       return this;

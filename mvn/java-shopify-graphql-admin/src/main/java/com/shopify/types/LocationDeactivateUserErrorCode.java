@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible error codes that can be returned by `LocationDeactivateUserError`.
- */
+
 public enum LocationDeactivateUserErrorCode {
   LOCATION_NOT_FOUND,
 

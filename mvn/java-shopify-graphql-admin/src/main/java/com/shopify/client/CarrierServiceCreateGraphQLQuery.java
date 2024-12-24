@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Creates a new carrier service.
- */
+
 public class CarrierServiceCreateGraphQLQuery extends GraphQLQuery {
   public CarrierServiceCreateGraphQLQuery(DeliveryCarrierServiceCreateInput input, String queryName,
       Set<String> fieldsSet) {
@@ -44,9 +42,7 @@ public class CarrierServiceCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The input fields used to create a carrier service.
-     */
+    
     public Builder input(DeliveryCarrierServiceCreateInput input) {
       this.input = input;
       this.fieldsSet.add("input");

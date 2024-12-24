@@ -7,9 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Deletes media for a product.
- */
+
 public class ProductDeleteMediaGraphQLQuery extends GraphQLQuery {
   public ProductDeleteMediaGraphQLQuery(String productId, List<String> mediaIds, String queryName,
       Set<String> fieldsSet) {
@@ -48,18 +46,14 @@ public class ProductDeleteMediaGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * Specifies the product ID from which the media will be deleted.
-     */
+    
     public Builder productId(String productId) {
       this.productId = productId;
       this.fieldsSet.add("productId");
       return this;
     }
 
-    /**
-     * The media IDs to be deleted.
-     */
+    
     public Builder mediaIds(List<String> mediaIds) {
       this.mediaIds = mediaIds;
       this.fieldsSet.add("mediaIds");

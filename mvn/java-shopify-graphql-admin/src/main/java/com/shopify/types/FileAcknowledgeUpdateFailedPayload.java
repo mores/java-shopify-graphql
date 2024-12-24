@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `fileAcknowledgeUpdateFailed` mutation.
- */
+
 public class FileAcknowledgeUpdateFailedPayload {
-  /**
-   * The updated file(s).
-   */
+  
   private List<File> files;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<FilesUserError> userErrors;
 
   public FileAcknowledgeUpdateFailedPayload() {
   }
 
-  /**
-   * The updated file(s).
-   */
+  
   public List<File> getFiles() {
     return files;
   }
@@ -34,9 +26,7 @@ public class FileAcknowledgeUpdateFailedPayload {
     this.files = files;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<FilesUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class FileAcknowledgeUpdateFailedPayload {
   }
 
   public static class Builder {
-    /**
-     * The updated file(s).
-     */
+    
     private List<File> files;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<FilesUserError> userErrors;
 
     public FileAcknowledgeUpdateFailedPayload build() {
@@ -86,17 +72,13 @@ public class FileAcknowledgeUpdateFailedPayload {
       return result;
     }
 
-    /**
-     * The updated file(s).
-     */
+    
     public Builder files(List<File> files) {
       this.files = files;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<FilesUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

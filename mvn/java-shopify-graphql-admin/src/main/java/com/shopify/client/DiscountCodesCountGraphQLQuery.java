@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * The total number of discount codes for the shop.
- */
+
 public class DiscountCodesCountGraphQLQuery extends GraphQLQuery {
   public DiscountCodesCountGraphQLQuery(String query, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -42,17 +40,7 @@ public class DiscountCodesCountGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * A filter made up of terms, connectives, modifiers, and comparators.
-     * | name | type | description | acceptable_values | default_value | example_use |
-     * | ---- | ---- | ---- | ---- | ---- | ---- |
-     * | default | string | Filter by a case-insensitive search of multiple fields
-     * in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
-     * | times_used | integer |
-     * You can apply one or more filters to a query. Learn more about [Shopify API
-     * search syntax](https://shopify.dev/api/usage/search-syntax).
-     */
+    
     public Builder query(String query) {
       this.query = query;
       this.fieldsSet.add("query");

@@ -8,116 +8,69 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * A page on the Online Store.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class Page implements MetafieldReference, MetafieldReferencer, com.shopify.types.HasEvents, com.shopify.types.HasMetafieldDefinitions, com.shopify.types.HasMetafields, com.shopify.types.HasPublishedTranslations, com.shopify.types.Navigable, com.shopify.types.Node {
-  /**
-   * The text content of the page, complete with HTML markup.
-   */
+  
   private String body;
 
-  /**
-   * The first 150 characters of the page body. If the page body contains more than
-   * 150 characters, additional characters are truncated by ellipses.
-   */
+  
   private String bodySummary;
 
-  /**
-   * The date and time (ISO 8601 format) of the page creation.
-   */
+  
   private OffsetDateTime createdAt;
 
-  /**
-   * A default [cursor](https://shopify.dev/api/usage/pagination-graphql) that
-   * returns the single next record, sorted ascending by ID.
-   */
+  
   private String defaultCursor;
 
-  /**
-   * The paginated list of events associated with the host subject.
-   */
+  
   private EventConnection events;
 
-  /**
-   * A unique, human-friendly string for the page.
-   * In themes, the Liquid templating language refers to a page by its handle.
-   */
+  
   private String handle;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * Whether or not the page is visible.
-   */
+  
   private boolean isPublished;
 
-  /**
-   * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-   * including its `namespace` and `key`, that's associated with a Shopify resource
-   * for the purposes of adding and storing additional information.
-   */
+  
   private Metafield metafield;
 
-  /**
-   * List of metafield definitions.
-   */
+  
   private MetafieldDefinitionConnection metafieldDefinitions;
 
-  /**
-   * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-   * that a merchant associates with a Shopify resource.
-   */
+  
   private MetafieldConnection metafields;
 
-  /**
-   * Returns a private metafield by namespace and key that belongs to the resource.
-   */
+  
   private PrivateMetafield privateMetafield;
 
-  /**
-   * List of private metafields that belong to the resource.
-   */
+  
   private PrivateMetafieldConnection privateMetafields;
 
-  /**
-   * The date and time (ISO 8601 format) when the page became or will become visible.
-   * Returns null when the page isn't visible.
-   */
+  
   private OffsetDateTime publishedAt;
 
-  /**
-   * The suffix of the template that's used to render the page.
-   */
+  
   private String templateSuffix;
 
-  /**
-   * Title of the page.
-   */
+  
   private String title;
 
-  /**
-   * The published translations associated with the resource.
-   */
+  
   private List<Translation> translations;
 
-  /**
-   * The date and time (ISO 8601 format) of the latest page update.
-   */
+  
   private OffsetDateTime updatedAt;
 
   public Page() {
   }
 
-  /**
-   * The text content of the page, complete with HTML markup.
-   */
+  
   public String getBody() {
     return body;
   }
@@ -126,10 +79,7 @@ public class Page implements MetafieldReference, MetafieldReferencer, com.shopif
     this.body = body;
   }
 
-  /**
-   * The first 150 characters of the page body. If the page body contains more than
-   * 150 characters, additional characters are truncated by ellipses.
-   */
+  
   public String getBodySummary() {
     return bodySummary;
   }
@@ -138,9 +88,7 @@ public class Page implements MetafieldReference, MetafieldReferencer, com.shopif
     this.bodySummary = bodySummary;
   }
 
-  /**
-   * The date and time (ISO 8601 format) of the page creation.
-   */
+  
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -149,10 +97,7 @@ public class Page implements MetafieldReference, MetafieldReferencer, com.shopif
     this.createdAt = createdAt;
   }
 
-  /**
-   * A default [cursor](https://shopify.dev/api/usage/pagination-graphql) that
-   * returns the single next record, sorted ascending by ID.
-   */
+  
   public String getDefaultCursor() {
     return defaultCursor;
   }
@@ -161,9 +106,7 @@ public class Page implements MetafieldReference, MetafieldReferencer, com.shopif
     this.defaultCursor = defaultCursor;
   }
 
-  /**
-   * The paginated list of events associated with the host subject.
-   */
+  
   public EventConnection getEvents() {
     return events;
   }
@@ -172,10 +115,7 @@ public class Page implements MetafieldReference, MetafieldReferencer, com.shopif
     this.events = events;
   }
 
-  /**
-   * A unique, human-friendly string for the page.
-   * In themes, the Liquid templating language refers to a page by its handle.
-   */
+  
   public String getHandle() {
     return handle;
   }
@@ -184,9 +124,7 @@ public class Page implements MetafieldReference, MetafieldReferencer, com.shopif
     this.handle = handle;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -195,9 +133,7 @@ public class Page implements MetafieldReference, MetafieldReferencer, com.shopif
     this.id = id;
   }
 
-  /**
-   * Whether or not the page is visible.
-   */
+  
   public boolean getIsPublished() {
     return isPublished;
   }
@@ -206,11 +142,7 @@ public class Page implements MetafieldReference, MetafieldReferencer, com.shopif
     this.isPublished = isPublished;
   }
 
-  /**
-   * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-   * including its `namespace` and `key`, that's associated with a Shopify resource
-   * for the purposes of adding and storing additional information.
-   */
+  
   public Metafield getMetafield() {
     return metafield;
   }
@@ -219,9 +151,7 @@ public class Page implements MetafieldReference, MetafieldReferencer, com.shopif
     this.metafield = metafield;
   }
 
-  /**
-   * List of metafield definitions.
-   */
+  
   public MetafieldDefinitionConnection getMetafieldDefinitions() {
     return metafieldDefinitions;
   }
@@ -230,10 +160,7 @@ public class Page implements MetafieldReference, MetafieldReferencer, com.shopif
     this.metafieldDefinitions = metafieldDefinitions;
   }
 
-  /**
-   * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-   * that a merchant associates with a Shopify resource.
-   */
+  
   public MetafieldConnection getMetafields() {
     return metafields;
   }
@@ -242,9 +169,7 @@ public class Page implements MetafieldReference, MetafieldReferencer, com.shopif
     this.metafields = metafields;
   }
 
-  /**
-   * Returns a private metafield by namespace and key that belongs to the resource.
-   */
+  
   public PrivateMetafield getPrivateMetafield() {
     return privateMetafield;
   }
@@ -253,9 +178,7 @@ public class Page implements MetafieldReference, MetafieldReferencer, com.shopif
     this.privateMetafield = privateMetafield;
   }
 
-  /**
-   * List of private metafields that belong to the resource.
-   */
+  
   public PrivateMetafieldConnection getPrivateMetafields() {
     return privateMetafields;
   }
@@ -264,10 +187,7 @@ public class Page implements MetafieldReference, MetafieldReferencer, com.shopif
     this.privateMetafields = privateMetafields;
   }
 
-  /**
-   * The date and time (ISO 8601 format) when the page became or will become visible.
-   * Returns null when the page isn't visible.
-   */
+  
   public OffsetDateTime getPublishedAt() {
     return publishedAt;
   }
@@ -276,9 +196,7 @@ public class Page implements MetafieldReference, MetafieldReferencer, com.shopif
     this.publishedAt = publishedAt;
   }
 
-  /**
-   * The suffix of the template that's used to render the page.
-   */
+  
   public String getTemplateSuffix() {
     return templateSuffix;
   }
@@ -287,9 +205,7 @@ public class Page implements MetafieldReference, MetafieldReferencer, com.shopif
     this.templateSuffix = templateSuffix;
   }
 
-  /**
-   * Title of the page.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -298,9 +214,7 @@ public class Page implements MetafieldReference, MetafieldReferencer, com.shopif
     this.title = title;
   }
 
-  /**
-   * The published translations associated with the resource.
-   */
+  
   public List<Translation> getTranslations() {
     return translations;
   }
@@ -309,9 +223,7 @@ public class Page implements MetafieldReference, MetafieldReferencer, com.shopif
     this.translations = translations;
   }
 
-  /**
-   * The date and time (ISO 8601 format) of the latest page update.
-   */
+  
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
@@ -360,101 +272,58 @@ public class Page implements MetafieldReference, MetafieldReferencer, com.shopif
   }
 
   public static class Builder {
-    /**
-     * The text content of the page, complete with HTML markup.
-     */
+    
     private String body;
 
-    /**
-     * The first 150 characters of the page body. If the page body contains more than
-     * 150 characters, additional characters are truncated by ellipses.
-     */
+    
     private String bodySummary;
 
-    /**
-     * The date and time (ISO 8601 format) of the page creation.
-     */
+    
     private OffsetDateTime createdAt;
 
-    /**
-     * A default [cursor](https://shopify.dev/api/usage/pagination-graphql) that
-     * returns the single next record, sorted ascending by ID.
-     */
+    
     private String defaultCursor;
 
-    /**
-     * The paginated list of events associated with the host subject.
-     */
+    
     private EventConnection events;
 
-    /**
-     * A unique, human-friendly string for the page.
-     * In themes, the Liquid templating language refers to a page by its handle.
-     */
+    
     private String handle;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * Whether or not the page is visible.
-     */
+    
     private boolean isPublished;
 
-    /**
-     * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-     * including its `namespace` and `key`, that's associated with a Shopify resource
-     * for the purposes of adding and storing additional information.
-     */
+    
     private Metafield metafield;
 
-    /**
-     * List of metafield definitions.
-     */
+    
     private MetafieldDefinitionConnection metafieldDefinitions;
 
-    /**
-     * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-     * that a merchant associates with a Shopify resource.
-     */
+    
     private MetafieldConnection metafields;
 
-    /**
-     * Returns a private metafield by namespace and key that belongs to the resource.
-     */
+    
     private PrivateMetafield privateMetafield;
 
-    /**
-     * List of private metafields that belong to the resource.
-     */
+    
     private PrivateMetafieldConnection privateMetafields;
 
-    /**
-     * The date and time (ISO 8601 format) when the page became or will become visible.
-     * Returns null when the page isn't visible.
-     */
+    
     private OffsetDateTime publishedAt;
 
-    /**
-     * The suffix of the template that's used to render the page.
-     */
+    
     private String templateSuffix;
 
-    /**
-     * Title of the page.
-     */
+    
     private String title;
 
-    /**
-     * The published translations associated with the resource.
-     */
+    
     private List<Translation> translations;
 
-    /**
-     * The date and time (ISO 8601 format) of the latest page update.
-     */
+    
     private OffsetDateTime updatedAt;
 
     public Page build() {
@@ -480,152 +349,109 @@ public class Page implements MetafieldReference, MetafieldReferencer, com.shopif
       return result;
     }
 
-    /**
-     * The text content of the page, complete with HTML markup.
-     */
+    
     public Builder body(String body) {
       this.body = body;
       return this;
     }
 
-    /**
-     * The first 150 characters of the page body. If the page body contains more than
-     * 150 characters, additional characters are truncated by ellipses.
-     */
+    
     public Builder bodySummary(String bodySummary) {
       this.bodySummary = bodySummary;
       return this;
     }
 
-    /**
-     * The date and time (ISO 8601 format) of the page creation.
-     */
+    
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    /**
-     * A default [cursor](https://shopify.dev/api/usage/pagination-graphql) that
-     * returns the single next record, sorted ascending by ID.
-     */
+    
     public Builder defaultCursor(String defaultCursor) {
       this.defaultCursor = defaultCursor;
       return this;
     }
 
-    /**
-     * The paginated list of events associated with the host subject.
-     */
+    
     public Builder events(EventConnection events) {
       this.events = events;
       return this;
     }
 
-    /**
-     * A unique, human-friendly string for the page.
-     * In themes, the Liquid templating language refers to a page by its handle.
-     */
+    
     public Builder handle(String handle) {
       this.handle = handle;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * Whether or not the page is visible.
-     */
+    
     public Builder isPublished(boolean isPublished) {
       this.isPublished = isPublished;
       return this;
     }
 
-    /**
-     * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-     * including its `namespace` and `key`, that's associated with a Shopify resource
-     * for the purposes of adding and storing additional information.
-     */
+    
     public Builder metafield(Metafield metafield) {
       this.metafield = metafield;
       return this;
     }
 
-    /**
-     * List of metafield definitions.
-     */
+    
     public Builder metafieldDefinitions(MetafieldDefinitionConnection metafieldDefinitions) {
       this.metafieldDefinitions = metafieldDefinitions;
       return this;
     }
 
-    /**
-     * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-     * that a merchant associates with a Shopify resource.
-     */
+    
     public Builder metafields(MetafieldConnection metafields) {
       this.metafields = metafields;
       return this;
     }
 
-    /**
-     * Returns a private metafield by namespace and key that belongs to the resource.
-     */
+    
     public Builder privateMetafield(PrivateMetafield privateMetafield) {
       this.privateMetafield = privateMetafield;
       return this;
     }
 
-    /**
-     * List of private metafields that belong to the resource.
-     */
+    
     public Builder privateMetafields(PrivateMetafieldConnection privateMetafields) {
       this.privateMetafields = privateMetafields;
       return this;
     }
 
-    /**
-     * The date and time (ISO 8601 format) when the page became or will become visible.
-     * Returns null when the page isn't visible.
-     */
+    
     public Builder publishedAt(OffsetDateTime publishedAt) {
       this.publishedAt = publishedAt;
       return this;
     }
 
-    /**
-     * The suffix of the template that's used to render the page.
-     */
+    
     public Builder templateSuffix(String templateSuffix) {
       this.templateSuffix = templateSuffix;
       return this;
     }
 
-    /**
-     * Title of the page.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    /**
-     * The published translations associated with the resource.
-     */
+    
     public Builder translations(List<Translation> translations) {
       this.translations = translations;
       return this;
     }
 
-    /**
-     * The date and time (ISO 8601 format) of the latest page update.
-     */
+    
     public Builder updatedAt(OffsetDateTime updatedAt) {
       this.updatedAt = updatedAt;
       return this;

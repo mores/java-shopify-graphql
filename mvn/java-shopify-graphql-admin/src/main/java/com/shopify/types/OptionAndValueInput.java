@@ -6,36 +6,24 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for the options and values of the combined listing.
- */
+
 public class OptionAndValueInput {
-  /**
-   * The name of the Product's Option.
-   */
+  
   private String name;
 
-  /**
-   * The ordered values of the Product's Option.
-   */
+  
   private List<String> values;
 
-  /**
-   * The ID of the option to update. If not present, the option will be created.
-   */
+  
   private String optionId;
 
-  /**
-   * The linked metafield for the product's option.
-   */
+  
   private LinkedMetafieldInput linkedMetafield;
 
   public OptionAndValueInput() {
   }
 
-  /**
-   * The name of the Product's Option.
-   */
+  
   public String getName() {
     return name;
   }
@@ -44,9 +32,7 @@ public class OptionAndValueInput {
     this.name = name;
   }
 
-  /**
-   * The ordered values of the Product's Option.
-   */
+  
   public List<String> getValues() {
     return values;
   }
@@ -55,9 +41,7 @@ public class OptionAndValueInput {
     this.values = values;
   }
 
-  /**
-   * The ID of the option to update. If not present, the option will be created.
-   */
+  
   public String getOptionId() {
     return optionId;
   }
@@ -66,9 +50,7 @@ public class OptionAndValueInput {
     this.optionId = optionId;
   }
 
-  /**
-   * The linked metafield for the product's option.
-   */
+  
   public LinkedMetafieldInput getLinkedMetafield() {
     return linkedMetafield;
   }
@@ -103,24 +85,16 @@ public class OptionAndValueInput {
   }
 
   public static class Builder {
-    /**
-     * The name of the Product's Option.
-     */
+    
     private String name;
 
-    /**
-     * The ordered values of the Product's Option.
-     */
+    
     private List<String> values;
 
-    /**
-     * The ID of the option to update. If not present, the option will be created.
-     */
+    
     private String optionId;
 
-    /**
-     * The linked metafield for the product's option.
-     */
+    
     private LinkedMetafieldInput linkedMetafield;
 
     public OptionAndValueInput build() {
@@ -132,33 +106,25 @@ public class OptionAndValueInput {
       return result;
     }
 
-    /**
-     * The name of the Product's Option.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The ordered values of the Product's Option.
-     */
+    
     public Builder values(List<String> values) {
       this.values = values;
       return this;
     }
 
-    /**
-     * The ID of the option to update. If not present, the option will be created.
-     */
+    
     public Builder optionId(String optionId) {
       this.optionId = optionId;
       return this;
     }
 
-    /**
-     * The linked metafield for the product's option.
-     */
+    
     public Builder linkedMetafield(LinkedMetafieldInput linkedMetafield) {
       this.linkedMetafield = linkedMetafield;
       return this;

@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for a single option related to a component product.
- */
+
 public class ProductBundleComponentOptionSelectionInput {
-  /**
-   * The ID of the option present on the component product.
-   */
+  
   private String componentOptionId;
 
-  /**
-   * The name to create for this option on the parent product.
-   */
+  
   private String name;
 
-  /**
-   * Array of selected option values.
-   */
+  
   private List<String> values;
 
   public ProductBundleComponentOptionSelectionInput() {
   }
 
-  /**
-   * The ID of the option present on the component product.
-   */
+  
   public String getComponentOptionId() {
     return componentOptionId;
   }
@@ -39,9 +29,7 @@ public class ProductBundleComponentOptionSelectionInput {
     this.componentOptionId = componentOptionId;
   }
 
-  /**
-   * The name to create for this option on the parent product.
-   */
+  
   public String getName() {
     return name;
   }
@@ -50,9 +38,7 @@ public class ProductBundleComponentOptionSelectionInput {
     this.name = name;
   }
 
-  /**
-   * Array of selected option values.
-   */
+  
   public List<String> getValues() {
     return values;
   }
@@ -86,19 +72,13 @@ public class ProductBundleComponentOptionSelectionInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the option present on the component product.
-     */
+    
     private String componentOptionId;
 
-    /**
-     * The name to create for this option on the parent product.
-     */
+    
     private String name;
 
-    /**
-     * Array of selected option values.
-     */
+    
     private List<String> values;
 
     public ProductBundleComponentOptionSelectionInput build() {
@@ -109,25 +89,19 @@ public class ProductBundleComponentOptionSelectionInput {
       return result;
     }
 
-    /**
-     * The ID of the option present on the component product.
-     */
+    
     public Builder componentOptionId(String componentOptionId) {
       this.componentOptionId = componentOptionId;
       return this;
     }
 
-    /**
-     * The name to create for this option on the parent product.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * Array of selected option values.
-     */
+    
     public Builder values(List<String> values) {
       this.values = values;
       return this;

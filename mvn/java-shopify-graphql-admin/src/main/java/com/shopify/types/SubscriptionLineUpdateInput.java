@@ -7,51 +7,33 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields required to update a subscription line on a contract.
- */
+
 public class SubscriptionLineUpdateInput {
-  /**
-   * The ID of the product variant the subscription line refers to.
-   */
+  
   private String productVariantId;
 
-  /**
-   * The quantity of the product.
-   */
+  
   private Integer quantity;
 
-  /**
-   * The selling plan for the subscription line.
-   */
+  
   private String sellingPlanId;
 
-  /**
-   * The selling plan name for the subscription line.
-   */
+  
   private String sellingPlanName;
 
-  /**
-   * The price of the product.
-   */
+  
   private String currentPrice;
 
-  /**
-   * The custom attributes for this subscription line.
-   */
+  
   private List<AttributeInput> customAttributes;
 
-  /**
-   * Describes expected price changes of the subscription line over time.
-   */
+  
   private SubscriptionPricingPolicyInput pricingPolicy;
 
   public SubscriptionLineUpdateInput() {
   }
 
-  /**
-   * The ID of the product variant the subscription line refers to.
-   */
+  
   public String getProductVariantId() {
     return productVariantId;
   }
@@ -60,9 +42,7 @@ public class SubscriptionLineUpdateInput {
     this.productVariantId = productVariantId;
   }
 
-  /**
-   * The quantity of the product.
-   */
+  
   public Integer getQuantity() {
     return quantity;
   }
@@ -71,9 +51,7 @@ public class SubscriptionLineUpdateInput {
     this.quantity = quantity;
   }
 
-  /**
-   * The selling plan for the subscription line.
-   */
+  
   public String getSellingPlanId() {
     return sellingPlanId;
   }
@@ -82,9 +60,7 @@ public class SubscriptionLineUpdateInput {
     this.sellingPlanId = sellingPlanId;
   }
 
-  /**
-   * The selling plan name for the subscription line.
-   */
+  
   public String getSellingPlanName() {
     return sellingPlanName;
   }
@@ -93,9 +69,7 @@ public class SubscriptionLineUpdateInput {
     this.sellingPlanName = sellingPlanName;
   }
 
-  /**
-   * The price of the product.
-   */
+  
   public String getCurrentPrice() {
     return currentPrice;
   }
@@ -104,9 +78,7 @@ public class SubscriptionLineUpdateInput {
     this.currentPrice = currentPrice;
   }
 
-  /**
-   * The custom attributes for this subscription line.
-   */
+  
   public List<AttributeInput> getCustomAttributes() {
     return customAttributes;
   }
@@ -115,9 +87,7 @@ public class SubscriptionLineUpdateInput {
     this.customAttributes = customAttributes;
   }
 
-  /**
-   * Describes expected price changes of the subscription line over time.
-   */
+  
   public SubscriptionPricingPolicyInput getPricingPolicy() {
     return pricingPolicy;
   }
@@ -155,39 +125,25 @@ public class SubscriptionLineUpdateInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the product variant the subscription line refers to.
-     */
+    
     private String productVariantId;
 
-    /**
-     * The quantity of the product.
-     */
+    
     private Integer quantity;
 
-    /**
-     * The selling plan for the subscription line.
-     */
+    
     private String sellingPlanId;
 
-    /**
-     * The selling plan name for the subscription line.
-     */
+    
     private String sellingPlanName;
 
-    /**
-     * The price of the product.
-     */
+    
     private String currentPrice;
 
-    /**
-     * The custom attributes for this subscription line.
-     */
+    
     private List<AttributeInput> customAttributes;
 
-    /**
-     * Describes expected price changes of the subscription line over time.
-     */
+    
     private SubscriptionPricingPolicyInput pricingPolicy;
 
     public SubscriptionLineUpdateInput build() {
@@ -202,57 +158,43 @@ public class SubscriptionLineUpdateInput {
       return result;
     }
 
-    /**
-     * The ID of the product variant the subscription line refers to.
-     */
+    
     public Builder productVariantId(String productVariantId) {
       this.productVariantId = productVariantId;
       return this;
     }
 
-    /**
-     * The quantity of the product.
-     */
+    
     public Builder quantity(Integer quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    /**
-     * The selling plan for the subscription line.
-     */
+    
     public Builder sellingPlanId(String sellingPlanId) {
       this.sellingPlanId = sellingPlanId;
       return this;
     }
 
-    /**
-     * The selling plan name for the subscription line.
-     */
+    
     public Builder sellingPlanName(String sellingPlanName) {
       this.sellingPlanName = sellingPlanName;
       return this;
     }
 
-    /**
-     * The price of the product.
-     */
+    
     public Builder currentPrice(String currentPrice) {
       this.currentPrice = currentPrice;
       return this;
     }
 
-    /**
-     * The custom attributes for this subscription line.
-     */
+    
     public Builder customAttributes(List<AttributeInput> customAttributes) {
       this.customAttributes = customAttributes;
       return this;
     }
 
-    /**
-     * Describes expected price changes of the subscription line over time.
-     */
+    
     public Builder pricingPolicy(SubscriptionPricingPolicyInput pricingPolicy) {
       this.pricingPolicy = pricingPolicy;
       return this;

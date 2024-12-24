@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `customerMerge` mutation.
- */
+
 public class CustomerMergePayload {
-  /**
-   * The asynchronous job for merging the customers.
-   */
+  
   private Job job;
 
-  /**
-   * The ID of the customer resulting from the merge.
-   */
+  
   private String resultingCustomerId;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<CustomerMergeUserError> userErrors;
 
   public CustomerMergePayload() {
   }
 
-  /**
-   * The asynchronous job for merging the customers.
-   */
+  
   public Job getJob() {
     return job;
   }
@@ -39,9 +29,7 @@ public class CustomerMergePayload {
     this.job = job;
   }
 
-  /**
-   * The ID of the customer resulting from the merge.
-   */
+  
   public String getResultingCustomerId() {
     return resultingCustomerId;
   }
@@ -50,9 +38,7 @@ public class CustomerMergePayload {
     this.resultingCustomerId = resultingCustomerId;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<CustomerMergeUserError> getUserErrors() {
     return userErrors;
   }
@@ -86,19 +72,13 @@ public class CustomerMergePayload {
   }
 
   public static class Builder {
-    /**
-     * The asynchronous job for merging the customers.
-     */
+    
     private Job job;
 
-    /**
-     * The ID of the customer resulting from the merge.
-     */
+    
     private String resultingCustomerId;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<CustomerMergeUserError> userErrors;
 
     public CustomerMergePayload build() {
@@ -109,25 +89,19 @@ public class CustomerMergePayload {
       return result;
     }
 
-    /**
-     * The asynchronous job for merging the customers.
-     */
+    
     public Builder job(Job job) {
       this.job = job;
       return this;
     }
 
-    /**
-     * The ID of the customer resulting from the merge.
-     */
+    
     public Builder resultingCustomerId(String resultingCustomerId) {
       this.resultingCustomerId = resultingCustomerId;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<CustomerMergeUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * An auto-generated type which holds one ExchangeLineItem and a cursor during pagination.
- */
+
 public class ExchangeLineItemEdge {
-  /**
-   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-   */
+  
   private String cursor;
 
-  /**
-   * The item at the end of ExchangeLineItemEdge.
-   */
+  
   private ExchangeLineItem node;
 
   public ExchangeLineItemEdge() {
   }
 
-  /**
-   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-   */
+  
   public String getCursor() {
     return cursor;
   }
@@ -33,9 +25,7 @@ public class ExchangeLineItemEdge {
     this.cursor = cursor;
   }
 
-  /**
-   * The item at the end of ExchangeLineItemEdge.
-   */
+  
   public ExchangeLineItem getNode() {
     return node;
   }
@@ -68,14 +58,10 @@ public class ExchangeLineItemEdge {
   }
 
   public static class Builder {
-    /**
-     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     private String cursor;
 
-    /**
-     * The item at the end of ExchangeLineItemEdge.
-     */
+    
     private ExchangeLineItem node;
 
     public ExchangeLineItemEdge build() {
@@ -85,17 +71,13 @@ public class ExchangeLineItemEdge {
       return result;
     }
 
-    /**
-     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     public Builder cursor(String cursor) {
       this.cursor = cursor;
       return this;
     }
 
-    /**
-     * The item at the end of ExchangeLineItemEdge.
-     */
+    
     public Builder node(ExchangeLineItem node) {
       this.node = node;
       return this;

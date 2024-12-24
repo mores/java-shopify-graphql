@@ -6,33 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * A result of a discount redeem code creation operation created by a bulk creation.
- */
+
 public class DiscountRedeemCodeBulkCreationCode {
-  /**
-   * The code to use in the discount redeem code creation operation.
-   */
+  
   private String code;
 
-  /**
-   * The successfully created discount redeem code.
-   *   
-   * If the discount redeem code couldn't be created, then this field is `null``.
-   */
+  
   private DiscountRedeemCode discountRedeemCode;
 
-  /**
-   * A list of errors that occurred during the creation operation of the discount redeem code.
-   */
+  
   private List<DiscountUserError> errors;
 
   public DiscountRedeemCodeBulkCreationCode() {
   }
 
-  /**
-   * The code to use in the discount redeem code creation operation.
-   */
+  
   public String getCode() {
     return code;
   }
@@ -41,11 +29,7 @@ public class DiscountRedeemCodeBulkCreationCode {
     this.code = code;
   }
 
-  /**
-   * The successfully created discount redeem code.
-   *   
-   * If the discount redeem code couldn't be created, then this field is `null``.
-   */
+  
   public DiscountRedeemCode getDiscountRedeemCode() {
     return discountRedeemCode;
   }
@@ -54,9 +38,7 @@ public class DiscountRedeemCodeBulkCreationCode {
     this.discountRedeemCode = discountRedeemCode;
   }
 
-  /**
-   * A list of errors that occurred during the creation operation of the discount redeem code.
-   */
+  
   public List<DiscountUserError> getErrors() {
     return errors;
   }
@@ -90,21 +72,13 @@ public class DiscountRedeemCodeBulkCreationCode {
   }
 
   public static class Builder {
-    /**
-     * The code to use in the discount redeem code creation operation.
-     */
+    
     private String code;
 
-    /**
-     * The successfully created discount redeem code.
-     *   
-     * If the discount redeem code couldn't be created, then this field is `null``.
-     */
+    
     private DiscountRedeemCode discountRedeemCode;
 
-    /**
-     * A list of errors that occurred during the creation operation of the discount redeem code.
-     */
+    
     private List<DiscountUserError> errors;
 
     public DiscountRedeemCodeBulkCreationCode build() {
@@ -115,27 +89,19 @@ public class DiscountRedeemCodeBulkCreationCode {
       return result;
     }
 
-    /**
-     * The code to use in the discount redeem code creation operation.
-     */
+    
     public Builder code(String code) {
       this.code = code;
       return this;
     }
 
-    /**
-     * The successfully created discount redeem code.
-     *   
-     * If the discount redeem code couldn't be created, then this field is `null``.
-     */
+    
     public Builder discountRedeemCode(DiscountRedeemCode discountRedeemCode) {
       this.discountRedeemCode = discountRedeemCode;
       return this;
     }
 
-    /**
-     * A list of errors that occurred during the creation operation of the discount redeem code.
-     */
+    
     public Builder errors(List<DiscountUserError> errors) {
       this.errors = errors;
       return this;

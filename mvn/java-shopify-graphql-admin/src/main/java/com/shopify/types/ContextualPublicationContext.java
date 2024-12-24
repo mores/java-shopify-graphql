@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The context data that determines the publication status of a product.
- */
+
 public class ContextualPublicationContext {
-  /**
-   * The country code used to fetch country-specific publication.
-   */
+  
   private CountryCode country;
 
-  /**
-   * The company location ID used to fetch company-specific publication.
-   */
+  
   private String companyLocationId;
 
   public ContextualPublicationContext() {
   }
 
-  /**
-   * The country code used to fetch country-specific publication.
-   */
+  
   public CountryCode getCountry() {
     return country;
   }
@@ -33,9 +25,7 @@ public class ContextualPublicationContext {
     this.country = country;
   }
 
-  /**
-   * The company location ID used to fetch company-specific publication.
-   */
+  
   public String getCompanyLocationId() {
     return companyLocationId;
   }
@@ -68,14 +58,10 @@ public class ContextualPublicationContext {
   }
 
   public static class Builder {
-    /**
-     * The country code used to fetch country-specific publication.
-     */
+    
     private CountryCode country;
 
-    /**
-     * The company location ID used to fetch company-specific publication.
-     */
+    
     private String companyLocationId;
 
     public ContextualPublicationContext build() {
@@ -85,17 +71,13 @@ public class ContextualPublicationContext {
       return result;
     }
 
-    /**
-     * The country code used to fetch country-specific publication.
-     */
+    
     public Builder country(CountryCode country) {
       this.country = country;
       return this;
     }
 
-    /**
-     * The company location ID used to fetch company-specific publication.
-     */
+    
     public Builder companyLocationId(String companyLocationId) {
       this.companyLocationId = companyLocationId;
       return this;

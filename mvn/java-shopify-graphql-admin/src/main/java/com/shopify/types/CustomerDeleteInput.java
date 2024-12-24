@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields to delete a customer.
- */
+
 public class CustomerDeleteInput {
-  /**
-   * The ID of the customer to delete.
-   */
+  
   private String id;
 
   public CustomerDeleteInput() {
   }
 
-  /**
-   * The ID of the customer to delete.
-   */
+  
   public String getId() {
     return id;
   }
@@ -51,9 +45,7 @@ public class CustomerDeleteInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the customer to delete.
-     */
+    
     private String id;
 
     public CustomerDeleteInput build() {
@@ -62,9 +54,7 @@ public class CustomerDeleteInput {
       return result;
     }
 
-    /**
-     * The ID of the customer to delete.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;

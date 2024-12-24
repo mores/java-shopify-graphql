@@ -6,24 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents the base64 encoded body of a theme file.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class OnlineStoreThemeFileBodyBase64 implements OnlineStoreThemeFileBody {
-  /**
-   * The body of the theme file, base64 encoded.
-   */
+  
   private String contentBase64;
 
   public OnlineStoreThemeFileBodyBase64() {
   }
 
-  /**
-   * The body of the theme file, base64 encoded.
-   */
+  
   public String getContentBase64() {
     return contentBase64;
   }
@@ -55,9 +49,7 @@ public class OnlineStoreThemeFileBodyBase64 implements OnlineStoreThemeFileBody 
   }
 
   public static class Builder {
-    /**
-     * The body of the theme file, base64 encoded.
-     */
+    
     private String contentBase64;
 
     public OnlineStoreThemeFileBodyBase64 build() {
@@ -66,9 +58,7 @@ public class OnlineStoreThemeFileBodyBase64 implements OnlineStoreThemeFileBody 
       return result;
     }
 
-    /**
-     * The body of the theme file, base64 encoded.
-     */
+    
     public Builder contentBase64(String contentBase64) {
       this.contentBase64 = contentBase64;
       return this;

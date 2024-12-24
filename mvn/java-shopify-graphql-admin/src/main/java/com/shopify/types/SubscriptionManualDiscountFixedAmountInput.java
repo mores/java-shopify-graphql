@@ -7,26 +7,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for the fixed amount value of the discount and distribution on the lines.
- */
+
 public class SubscriptionManualDiscountFixedAmountInput {
-  /**
-   * Fixed amount value.
-   */
+  
   private Double amount;
 
-  /**
-   * Whether the amount is intended per line item or once per subscription.
-   */
+  
   private Boolean appliesOnEachItem;
 
   public SubscriptionManualDiscountFixedAmountInput() {
   }
 
-  /**
-   * Fixed amount value.
-   */
+  
   public Double getAmount() {
     return amount;
   }
@@ -35,9 +27,7 @@ public class SubscriptionManualDiscountFixedAmountInput {
     this.amount = amount;
   }
 
-  /**
-   * Whether the amount is intended per line item or once per subscription.
-   */
+  
   public Boolean getAppliesOnEachItem() {
     return appliesOnEachItem;
   }
@@ -70,14 +60,10 @@ public class SubscriptionManualDiscountFixedAmountInput {
   }
 
   public static class Builder {
-    /**
-     * Fixed amount value.
-     */
+    
     private Double amount;
 
-    /**
-     * Whether the amount is intended per line item or once per subscription.
-     */
+    
     private Boolean appliesOnEachItem;
 
     public SubscriptionManualDiscountFixedAmountInput build() {
@@ -87,17 +73,13 @@ public class SubscriptionManualDiscountFixedAmountInput {
       return result;
     }
 
-    /**
-     * Fixed amount value.
-     */
+    
     public Builder amount(Double amount) {
       this.amount = amount;
       return this;
     }
 
-    /**
-     * Whether the amount is intended per line item or once per subscription.
-     */
+    
     public Builder appliesOnEachItem(Boolean appliesOnEachItem) {
       this.appliesOnEachItem = appliesOnEachItem;
       return this;

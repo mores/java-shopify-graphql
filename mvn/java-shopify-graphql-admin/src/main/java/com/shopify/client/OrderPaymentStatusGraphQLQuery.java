@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns a payment status by payment reference ID. Used to check the status of a deferred payment.
- */
+
 public class OrderPaymentStatusGraphQLQuery extends GraphQLQuery {
   public OrderPaymentStatusGraphQLQuery(String paymentReferenceId, String orderId, String queryName,
       Set<String> fieldsSet) {
@@ -47,18 +45,14 @@ public class OrderPaymentStatusGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * Unique identifier returned by orderCreatePayment.
-     */
+    
     public Builder paymentReferenceId(String paymentReferenceId) {
       this.paymentReferenceId = paymentReferenceId;
       this.fieldsSet.add("paymentReferenceId");
       return this;
     }
 
-    /**
-     * ID of the order for which the payment was initiated.
-     */
+    
     public Builder orderId(String orderId) {
       this.orderId = orderId;
       this.fieldsSet.add("orderId");

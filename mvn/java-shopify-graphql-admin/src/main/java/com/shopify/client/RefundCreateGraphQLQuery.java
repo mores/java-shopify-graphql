@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Creates a refund.
- */
+
 public class RefundCreateGraphQLQuery extends GraphQLQuery {
   public RefundCreateGraphQLQuery(RefundInput input, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -43,9 +41,7 @@ public class RefundCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The input fields that are used in the mutation for creating a refund.
-     */
+    
     public Builder input(RefundInput input) {
       this.input = input;
       this.fieldsSet.add("input");

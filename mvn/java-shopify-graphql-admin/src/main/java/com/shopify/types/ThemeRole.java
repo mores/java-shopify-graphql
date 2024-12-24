@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * The role of the theme.
- */
+
 public enum ThemeRole {
   MAIN,
 

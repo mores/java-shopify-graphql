@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `bulkOperationCancel` mutation.
- */
+
 public class BulkOperationCancelPayload {
-  /**
-   * The bulk operation to be canceled.
-   */
+  
   private BulkOperation bulkOperation;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public BulkOperationCancelPayload() {
   }
 
-  /**
-   * The bulk operation to be canceled.
-   */
+  
   public BulkOperation getBulkOperation() {
     return bulkOperation;
   }
@@ -34,9 +26,7 @@ public class BulkOperationCancelPayload {
     this.bulkOperation = bulkOperation;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class BulkOperationCancelPayload {
   }
 
   public static class Builder {
-    /**
-     * The bulk operation to be canceled.
-     */
+    
     private BulkOperation bulkOperation;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public BulkOperationCancelPayload build() {
@@ -86,17 +72,13 @@ public class BulkOperationCancelPayload {
       return result;
     }
 
-    /**
-     * The bulk operation to be canceled.
-     */
+    
     public Builder bulkOperation(BulkOperation bulkOperation) {
       this.bulkOperation = bulkOperation;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

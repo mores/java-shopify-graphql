@@ -7,34 +7,24 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Represents an error that happens during the execution of a gift card mutation.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class GiftCardUserError implements com.shopify.types.DisplayableError {
-  /**
-   * The error code.
-   */
+  
   private GiftCardErrorCode code;
 
-  /**
-   * The path to the input field that caused the error.
-   */
+  
   private List<String> field;
 
-  /**
-   * The error message.
-   */
+  
   private String message;
 
   public GiftCardUserError() {
   }
 
-  /**
-   * The error code.
-   */
+  
   public GiftCardErrorCode getCode() {
     return code;
   }
@@ -43,9 +33,7 @@ public class GiftCardUserError implements com.shopify.types.DisplayableError {
     this.code = code;
   }
 
-  /**
-   * The path to the input field that caused the error.
-   */
+  
   public List<String> getField() {
     return field;
   }
@@ -54,9 +42,7 @@ public class GiftCardUserError implements com.shopify.types.DisplayableError {
     this.field = field;
   }
 
-  /**
-   * The error message.
-   */
+  
   public String getMessage() {
     return message;
   }
@@ -90,19 +76,13 @@ public class GiftCardUserError implements com.shopify.types.DisplayableError {
   }
 
   public static class Builder {
-    /**
-     * The error code.
-     */
+    
     private GiftCardErrorCode code;
 
-    /**
-     * The path to the input field that caused the error.
-     */
+    
     private List<String> field;
 
-    /**
-     * The error message.
-     */
+    
     private String message;
 
     public GiftCardUserError build() {
@@ -113,25 +93,19 @@ public class GiftCardUserError implements com.shopify.types.DisplayableError {
       return result;
     }
 
-    /**
-     * The error code.
-     */
+    
     public Builder code(GiftCardErrorCode code) {
       this.code = code;
       return this;
     }
 
-    /**
-     * The path to the input field that caused the error.
-     */
+    
     public Builder field(List<String> field) {
       this.field = field;
       return this;
     }
 
-    /**
-     * The error message.
-     */
+    
     public Builder message(String message) {
       this.message = message;
       return this;

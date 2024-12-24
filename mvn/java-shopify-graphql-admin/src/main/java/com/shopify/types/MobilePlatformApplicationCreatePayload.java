@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `mobilePlatformApplicationCreate` mutation.
- */
+
 public class MobilePlatformApplicationCreatePayload {
-  /**
-   * Created mobile platform application.
-   */
+  
   private MobilePlatformApplication mobilePlatformApplication;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<MobilePlatformApplicationUserError> userErrors;
 
   public MobilePlatformApplicationCreatePayload() {
   }
 
-  /**
-   * Created mobile platform application.
-   */
+  
   public MobilePlatformApplication getMobilePlatformApplication() {
     return mobilePlatformApplication;
   }
@@ -34,9 +26,7 @@ public class MobilePlatformApplicationCreatePayload {
     this.mobilePlatformApplication = mobilePlatformApplication;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<MobilePlatformApplicationUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class MobilePlatformApplicationCreatePayload {
   }
 
   public static class Builder {
-    /**
-     * Created mobile platform application.
-     */
+    
     private MobilePlatformApplication mobilePlatformApplication;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<MobilePlatformApplicationUserError> userErrors;
 
     public MobilePlatformApplicationCreatePayload build() {
@@ -86,17 +72,13 @@ public class MobilePlatformApplicationCreatePayload {
       return result;
     }
 
-    /**
-     * Created mobile platform application.
-     */
+    
     public Builder mobilePlatformApplication(MobilePlatformApplication mobilePlatformApplication) {
       this.mobilePlatformApplication = mobilePlatformApplication;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<MobilePlatformApplicationUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

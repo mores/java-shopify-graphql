@@ -6,34 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A Shopify product taxonomy choice list attribute.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class TaxonomyChoiceListAttribute implements TaxonomyCategoryAttribute, com.shopify.types.Node {
-  /**
-   * The unique ID of the TaxonomyAttribute.
-   */
+  
   private String id;
 
-  /**
-   * The name of the product taxonomy attribute. For example, Color.
-   */
+  
   private String name;
 
-  /**
-   * A list of values on the choice list attribute.
-   */
+  
   private TaxonomyValueConnection values;
 
   public TaxonomyChoiceListAttribute() {
   }
 
-  /**
-   * The unique ID of the TaxonomyAttribute.
-   */
+  
   public String getId() {
     return id;
   }
@@ -42,9 +32,7 @@ public class TaxonomyChoiceListAttribute implements TaxonomyCategoryAttribute, c
     this.id = id;
   }
 
-  /**
-   * The name of the product taxonomy attribute. For example, Color.
-   */
+  
   public String getName() {
     return name;
   }
@@ -53,9 +41,7 @@ public class TaxonomyChoiceListAttribute implements TaxonomyCategoryAttribute, c
     this.name = name;
   }
 
-  /**
-   * A list of values on the choice list attribute.
-   */
+  
   public TaxonomyValueConnection getValues() {
     return values;
   }
@@ -89,19 +75,13 @@ public class TaxonomyChoiceListAttribute implements TaxonomyCategoryAttribute, c
   }
 
   public static class Builder {
-    /**
-     * The unique ID of the TaxonomyAttribute.
-     */
+    
     private String id;
 
-    /**
-     * The name of the product taxonomy attribute. For example, Color.
-     */
+    
     private String name;
 
-    /**
-     * A list of values on the choice list attribute.
-     */
+    
     private TaxonomyValueConnection values;
 
     public TaxonomyChoiceListAttribute build() {
@@ -112,25 +92,19 @@ public class TaxonomyChoiceListAttribute implements TaxonomyCategoryAttribute, c
       return result;
     }
 
-    /**
-     * The unique ID of the TaxonomyAttribute.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The name of the product taxonomy attribute. For example, Color.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * A list of values on the choice list attribute.
-     */
+    
     public Builder values(TaxonomyValueConnection values) {
       this.values = values;
       return this;

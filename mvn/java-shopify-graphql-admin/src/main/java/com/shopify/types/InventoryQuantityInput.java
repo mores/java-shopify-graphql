@@ -6,36 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for the quantity to be set for an inventory item at a location.
- */
+
 public class InventoryQuantityInput {
-  /**
-   * Specifies the inventory item to which the quantity will be set.
-   */
+  
   private String inventoryItemId;
 
-  /**
-   * Specifies the location at which the quantity will be set.
-   */
+  
   private String locationId;
 
-  /**
-   * The quantity to which the inventory quantity will be set.
-   */
+  
   private int quantity;
 
-  /**
-   * The current quantity to be compared against the persisted quantity.
-   */
+  
   private Integer compareQuantity;
 
   public InventoryQuantityInput() {
   }
 
-  /**
-   * Specifies the inventory item to which the quantity will be set.
-   */
+  
   public String getInventoryItemId() {
     return inventoryItemId;
   }
@@ -44,9 +32,7 @@ public class InventoryQuantityInput {
     this.inventoryItemId = inventoryItemId;
   }
 
-  /**
-   * Specifies the location at which the quantity will be set.
-   */
+  
   public String getLocationId() {
     return locationId;
   }
@@ -55,9 +41,7 @@ public class InventoryQuantityInput {
     this.locationId = locationId;
   }
 
-  /**
-   * The quantity to which the inventory quantity will be set.
-   */
+  
   public int getQuantity() {
     return quantity;
   }
@@ -66,9 +50,7 @@ public class InventoryQuantityInput {
     this.quantity = quantity;
   }
 
-  /**
-   * The current quantity to be compared against the persisted quantity.
-   */
+  
   public Integer getCompareQuantity() {
     return compareQuantity;
   }
@@ -103,24 +85,16 @@ public class InventoryQuantityInput {
   }
 
   public static class Builder {
-    /**
-     * Specifies the inventory item to which the quantity will be set.
-     */
+    
     private String inventoryItemId;
 
-    /**
-     * Specifies the location at which the quantity will be set.
-     */
+    
     private String locationId;
 
-    /**
-     * The quantity to which the inventory quantity will be set.
-     */
+    
     private int quantity;
 
-    /**
-     * The current quantity to be compared against the persisted quantity.
-     */
+    
     private Integer compareQuantity;
 
     public InventoryQuantityInput build() {
@@ -132,33 +106,25 @@ public class InventoryQuantityInput {
       return result;
     }
 
-    /**
-     * Specifies the inventory item to which the quantity will be set.
-     */
+    
     public Builder inventoryItemId(String inventoryItemId) {
       this.inventoryItemId = inventoryItemId;
       return this;
     }
 
-    /**
-     * Specifies the location at which the quantity will be set.
-     */
+    
     public Builder locationId(String locationId) {
       this.locationId = locationId;
       return this;
     }
 
-    /**
-     * The quantity to which the inventory quantity will be set.
-     */
+    
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    /**
-     * The current quantity to be compared against the persisted quantity.
-     */
+    
     public Builder compareQuantity(Integer compareQuantity) {
       this.compareQuantity = compareQuantity;
       return this;

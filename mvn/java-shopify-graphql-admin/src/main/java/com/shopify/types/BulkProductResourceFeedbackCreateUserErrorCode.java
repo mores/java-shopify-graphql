@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible error codes that can be returned by `BulkProductResourceFeedbackCreateUserError`.
- */
+
 public enum BulkProductResourceFeedbackCreateUserErrorCode {
   MAXIMUM_FEEDBACK_LIMIT_EXCEEDED,
 

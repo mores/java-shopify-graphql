@@ -6,21 +6,15 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * A list of maps that contain `segmentId` IDs and `isMember` Booleans. The maps represent segment memberships.
- */
+
 public class SegmentMembershipResponse {
-  /**
-   * The membership status for the given list of segments.
-   */
+  
   private List<SegmentMembership> memberships;
 
   public SegmentMembershipResponse() {
   }
 
-  /**
-   * The membership status for the given list of segments.
-   */
+  
   public List<SegmentMembership> getMemberships() {
     return memberships;
   }
@@ -52,9 +46,7 @@ public class SegmentMembershipResponse {
   }
 
   public static class Builder {
-    /**
-     * The membership status for the given list of segments.
-     */
+    
     private List<SegmentMembership> memberships;
 
     public SegmentMembershipResponse build() {
@@ -63,9 +55,7 @@ public class SegmentMembershipResponse {
       return result;
     }
 
-    /**
-     * The membership status for the given list of segments.
-     */
+    
     public Builder memberships(List<SegmentMembership> memberships) {
       this.memberships = memberships;
       return this;

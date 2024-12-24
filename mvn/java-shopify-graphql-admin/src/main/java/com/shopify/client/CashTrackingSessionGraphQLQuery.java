@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Lookup a cash tracking session by ID.
- */
+
 public class CashTrackingSessionGraphQLQuery extends GraphQLQuery {
   public CashTrackingSessionGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -42,9 +40,7 @@ public class CashTrackingSessionGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the `CashTrackingSession` to return.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

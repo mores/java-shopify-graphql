@@ -5,41 +5,27 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields used to update the typography customizations.
- */
+
 public class CheckoutBrandingTypographyStyleInput {
-  /**
-   * The font.
-   */
+  
   private CheckoutBrandingTypographyFont font;
 
-  /**
-   * The font size.
-   */
+  
   private CheckoutBrandingTypographySize size;
 
-  /**
-   * The font weight.
-   */
+  
   private CheckoutBrandingTypographyWeight weight;
 
-  /**
-   * The letter case.
-   */
+  
   private CheckoutBrandingTypographyLetterCase letterCase;
 
-  /**
-   * The kerning.
-   */
+  
   private CheckoutBrandingTypographyKerning kerning;
 
   public CheckoutBrandingTypographyStyleInput() {
   }
 
-  /**
-   * The font.
-   */
+  
   public CheckoutBrandingTypographyFont getFont() {
     return font;
   }
@@ -48,9 +34,7 @@ public class CheckoutBrandingTypographyStyleInput {
     this.font = font;
   }
 
-  /**
-   * The font size.
-   */
+  
   public CheckoutBrandingTypographySize getSize() {
     return size;
   }
@@ -59,9 +43,7 @@ public class CheckoutBrandingTypographyStyleInput {
     this.size = size;
   }
 
-  /**
-   * The font weight.
-   */
+  
   public CheckoutBrandingTypographyWeight getWeight() {
     return weight;
   }
@@ -70,9 +52,7 @@ public class CheckoutBrandingTypographyStyleInput {
     this.weight = weight;
   }
 
-  /**
-   * The letter case.
-   */
+  
   public CheckoutBrandingTypographyLetterCase getLetterCase() {
     return letterCase;
   }
@@ -81,9 +61,7 @@ public class CheckoutBrandingTypographyStyleInput {
     this.letterCase = letterCase;
   }
 
-  /**
-   * The kerning.
-   */
+  
   public CheckoutBrandingTypographyKerning getKerning() {
     return kerning;
   }
@@ -119,29 +97,19 @@ public class CheckoutBrandingTypographyStyleInput {
   }
 
   public static class Builder {
-    /**
-     * The font.
-     */
+    
     private CheckoutBrandingTypographyFont font;
 
-    /**
-     * The font size.
-     */
+    
     private CheckoutBrandingTypographySize size;
 
-    /**
-     * The font weight.
-     */
+    
     private CheckoutBrandingTypographyWeight weight;
 
-    /**
-     * The letter case.
-     */
+    
     private CheckoutBrandingTypographyLetterCase letterCase;
 
-    /**
-     * The kerning.
-     */
+    
     private CheckoutBrandingTypographyKerning kerning;
 
     public CheckoutBrandingTypographyStyleInput build() {
@@ -154,41 +122,31 @@ public class CheckoutBrandingTypographyStyleInput {
       return result;
     }
 
-    /**
-     * The font.
-     */
+    
     public Builder font(CheckoutBrandingTypographyFont font) {
       this.font = font;
       return this;
     }
 
-    /**
-     * The font size.
-     */
+    
     public Builder size(CheckoutBrandingTypographySize size) {
       this.size = size;
       return this;
     }
 
-    /**
-     * The font weight.
-     */
+    
     public Builder weight(CheckoutBrandingTypographyWeight weight) {
       this.weight = weight;
       return this;
     }
 
-    /**
-     * The letter case.
-     */
+    
     public Builder letterCase(CheckoutBrandingTypographyLetterCase letterCase) {
       this.letterCase = letterCase;
       return this;
     }
 
-    /**
-     * The kerning.
-     */
+    
     public Builder kerning(CheckoutBrandingTypographyKerning kerning) {
       this.kerning = kerning;
       return this;

@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for specifying a product to unpublish from a channel and the sales channels to unpublish it from.
- */
+
 public class ProductUnpublishInput {
-  /**
-   * The ID of the product to create or update publications for.
-   */
+  
   private String id;
 
-  /**
-   * The channels to unpublish the product from.
-   */
+  
   private List<ProductPublicationInput> productPublications;
 
   public ProductUnpublishInput() {
   }
 
-  /**
-   * The ID of the product to create or update publications for.
-   */
+  
   public String getId() {
     return id;
   }
@@ -34,9 +26,7 @@ public class ProductUnpublishInput {
     this.id = id;
   }
 
-  /**
-   * The channels to unpublish the product from.
-   */
+  
   public List<ProductPublicationInput> getProductPublications() {
     return productPublications;
   }
@@ -69,14 +59,10 @@ public class ProductUnpublishInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the product to create or update publications for.
-     */
+    
     private String id;
 
-    /**
-     * The channels to unpublish the product from.
-     */
+    
     private List<ProductPublicationInput> productPublications;
 
     public ProductUnpublishInput build() {
@@ -86,17 +72,13 @@ public class ProductUnpublishInput {
       return result;
     }
 
-    /**
-     * The ID of the product to create or update publications for.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The channels to unpublish the product from.
-     */
+    
     public Builder productPublications(List<ProductPublicationInput> productPublications) {
       this.productPublications = productPublications;
       return this;

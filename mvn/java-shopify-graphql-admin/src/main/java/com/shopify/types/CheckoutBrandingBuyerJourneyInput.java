@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for updating breadcrumb customizations, which represent the buyer's journey to checkout.
- */
+
 public class CheckoutBrandingBuyerJourneyInput {
-  /**
-   * The visibility customizations for updating breadcrumbs, which represent the buyer's journey to checkout.
-   */
+  
   private CheckoutBrandingVisibility visibility;
 
   public CheckoutBrandingBuyerJourneyInput() {
   }
 
-  /**
-   * The visibility customizations for updating breadcrumbs, which represent the buyer's journey to checkout.
-   */
+  
   public CheckoutBrandingVisibility getVisibility() {
     return visibility;
   }
@@ -51,9 +45,7 @@ public class CheckoutBrandingBuyerJourneyInput {
   }
 
   public static class Builder {
-    /**
-     * The visibility customizations for updating breadcrumbs, which represent the buyer's journey to checkout.
-     */
+    
     private CheckoutBrandingVisibility visibility;
 
     public CheckoutBrandingBuyerJourneyInput build() {
@@ -62,9 +54,7 @@ public class CheckoutBrandingBuyerJourneyInput {
       return result;
     }
 
-    /**
-     * The visibility customizations for updating breadcrumbs, which represent the buyer's journey to checkout.
-     */
+    
     public Builder visibility(CheckoutBrandingVisibility visibility) {
       this.visibility = visibility;
       return this;

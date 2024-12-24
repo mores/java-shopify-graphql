@@ -8,9 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Creates regions that belong to an existing market.
- */
+
 public class MarketRegionsCreateGraphQLQuery extends GraphQLQuery {
   public MarketRegionsCreateGraphQLQuery(String marketId, List<MarketRegionCreateInput> regions,
       String queryName, Set<String> fieldsSet) {
@@ -49,18 +47,14 @@ public class MarketRegionsCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the market to add the regions to.
-     */
+    
     public Builder marketId(String marketId) {
       this.marketId = marketId;
       this.fieldsSet.add("marketId");
       return this;
     }
 
-    /**
-     * The regions to be created.
-     */
+    
     public Builder regions(List<MarketRegionCreateInput> regions) {
       this.regions = regions;
       this.fieldsSet.add("regions");

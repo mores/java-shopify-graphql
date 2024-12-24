@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Updates the context of a catalog.
- */
+
 public class CatalogContextUpdateGraphQLQuery extends GraphQLQuery {
   public CatalogContextUpdateGraphQLQuery(String catalogId, CatalogContextInput contextsToAdd,
       CatalogContextInput contextsToRemove, String queryName, Set<String> fieldsSet) {
@@ -52,27 +50,21 @@ public class CatalogContextUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the catalog for which to update the context.
-     */
+    
     public Builder catalogId(String catalogId) {
       this.catalogId = catalogId;
       this.fieldsSet.add("catalogId");
       return this;
     }
 
-    /**
-     * The contexts to add to the catalog.
-     */
+    
     public Builder contextsToAdd(CatalogContextInput contextsToAdd) {
       this.contextsToAdd = contextsToAdd;
       this.fieldsSet.add("contextsToAdd");
       return this;
     }
 
-    /**
-     * The contexts to remove from the catalog.
-     */
+    
     public Builder contextsToRemove(CatalogContextInput contextsToRemove) {
       this.contextsToRemove = contextsToRemove;
       this.fieldsSet.add("contextsToRemove");

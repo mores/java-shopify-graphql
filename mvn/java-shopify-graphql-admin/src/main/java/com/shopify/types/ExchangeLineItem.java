@@ -6,29 +6,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * An item for exchange.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ExchangeLineItem implements com.shopify.types.Node {
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The order line item for the exchange.
-   */
+  
   private LineItem lineItem;
 
   public ExchangeLineItem() {
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -37,9 +29,7 @@ public class ExchangeLineItem implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The order line item for the exchange.
-   */
+  
   public LineItem getLineItem() {
     return lineItem;
   }
@@ -72,14 +62,10 @@ public class ExchangeLineItem implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The order line item for the exchange.
-     */
+    
     private LineItem lineItem;
 
     public ExchangeLineItem build() {
@@ -89,17 +75,13 @@ public class ExchangeLineItem implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The order line item for the exchange.
-     */
+    
     public Builder lineItem(LineItem lineItem) {
       this.lineItem = lineItem;
       return this;

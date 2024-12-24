@@ -5,36 +5,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields used to update a price list.
- */
+
 public class PriceListUpdateInput {
-  /**
-   * The unique name of the price list, used as a human-readable identifier.
-   */
+  
   private String name;
 
-  /**
-   * The three-letter currency code for fixed prices associated with this price list.
-   */
+  
   private CurrencyCode currency;
 
-  /**
-   * Relative adjustments to other prices.
-   */
+  
   private PriceListParentUpdateInput _parent;
 
-  /**
-   * The ID of the catalog to associate with this price list.
-   */
+  
   private String catalogId;
 
   public PriceListUpdateInput() {
   }
 
-  /**
-   * The unique name of the price list, used as a human-readable identifier.
-   */
+  
   public String getName() {
     return name;
   }
@@ -43,9 +31,7 @@ public class PriceListUpdateInput {
     this.name = name;
   }
 
-  /**
-   * The three-letter currency code for fixed prices associated with this price list.
-   */
+  
   public CurrencyCode getCurrency() {
     return currency;
   }
@@ -54,9 +40,7 @@ public class PriceListUpdateInput {
     this.currency = currency;
   }
 
-  /**
-   * Relative adjustments to other prices.
-   */
+  
   public PriceListParentUpdateInput getParent() {
     return _parent;
   }
@@ -65,9 +49,7 @@ public class PriceListUpdateInput {
     this._parent = _parent;
   }
 
-  /**
-   * The ID of the catalog to associate with this price list.
-   */
+  
   public String getCatalogId() {
     return catalogId;
   }
@@ -102,24 +84,16 @@ public class PriceListUpdateInput {
   }
 
   public static class Builder {
-    /**
-     * The unique name of the price list, used as a human-readable identifier.
-     */
+    
     private String name;
 
-    /**
-     * The three-letter currency code for fixed prices associated with this price list.
-     */
+    
     private CurrencyCode currency;
 
-    /**
-     * Relative adjustments to other prices.
-     */
+    
     private PriceListParentUpdateInput _parent;
 
-    /**
-     * The ID of the catalog to associate with this price list.
-     */
+    
     private String catalogId;
 
     public PriceListUpdateInput build() {
@@ -131,33 +105,25 @@ public class PriceListUpdateInput {
       return result;
     }
 
-    /**
-     * The unique name of the price list, used as a human-readable identifier.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The three-letter currency code for fixed prices associated with this price list.
-     */
+    
     public Builder currency(CurrencyCode currency) {
       this.currency = currency;
       return this;
     }
 
-    /**
-     * Relative adjustments to other prices.
-     */
+    
     public Builder _parent(PriceListParentUpdateInput _parent) {
       this._parent = _parent;
       return this;
     }
 
-    /**
-     * The ID of the catalog to associate with this price list.
-     */
+    
     public Builder catalogId(String catalogId) {
       this.catalogId = catalogId;
       return this;

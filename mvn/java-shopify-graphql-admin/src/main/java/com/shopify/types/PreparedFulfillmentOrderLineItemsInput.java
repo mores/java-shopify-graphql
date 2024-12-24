@@ -5,22 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields used to include the line items of a specified fulfillment order
- * that should be marked as prepared for pickup by a customer.
- */
+
 public class PreparedFulfillmentOrderLineItemsInput {
-  /**
-   * The ID of the fulfillment order.
-   */
+  
   private String fulfillmentOrderId;
 
   public PreparedFulfillmentOrderLineItemsInput() {
   }
 
-  /**
-   * The ID of the fulfillment order.
-   */
+  
   public String getFulfillmentOrderId() {
     return fulfillmentOrderId;
   }
@@ -52,9 +45,7 @@ public class PreparedFulfillmentOrderLineItemsInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the fulfillment order.
-     */
+    
     private String fulfillmentOrderId;
 
     public PreparedFulfillmentOrderLineItemsInput build() {
@@ -63,9 +54,7 @@ public class PreparedFulfillmentOrderLineItemsInput {
       return result;
     }
 
-    /**
-     * The ID of the fulfillment order.
-     */
+    
     public Builder fulfillmentOrderId(String fulfillmentOrderId) {
       this.fulfillmentOrderId = fulfillmentOrderId;
       return this;

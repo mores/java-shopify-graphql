@@ -8,10 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Asynchronously add discount redeem codes in bulk. Specify the codes to add
- * and the discount code ID that the codes will belong to.
- */
+
 public class DiscountRedeemCodeBulkAddGraphQLQuery extends GraphQLQuery {
   public DiscountRedeemCodeBulkAddGraphQLQuery(String discountId,
       List<DiscountRedeemCodeInput> codes, String queryName, Set<String> fieldsSet) {
@@ -50,18 +47,14 @@ public class DiscountRedeemCodeBulkAddGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the code discount that the codes will be added to.
-     */
+    
     public Builder discountId(String discountId) {
       this.discountId = discountId;
       this.fieldsSet.add("discountId");
       return this;
     }
 
-    /**
-     * The list of codes that will be added to the code discount. Maximum 100 codes permitted.
-     */
+    
     public Builder codes(List<DiscountRedeemCodeInput> codes) {
       this.codes = codes;
       this.fieldsSet.add("codes");

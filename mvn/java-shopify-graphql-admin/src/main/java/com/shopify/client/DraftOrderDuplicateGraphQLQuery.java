@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Duplicates a draft order.
- */
+
 public class DraftOrderDuplicateGraphQLQuery extends GraphQLQuery {
   public DraftOrderDuplicateGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -42,9 +40,7 @@ public class DraftOrderDuplicateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the draft order to duplicate.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

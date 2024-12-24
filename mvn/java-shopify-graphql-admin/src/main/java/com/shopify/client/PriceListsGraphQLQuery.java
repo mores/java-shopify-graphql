@@ -9,9 +9,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * All price lists for a shop.
- */
+
 public class PriceListsGraphQLQuery extends GraphQLQuery {
   public PriceListsGraphQLQuery(Integer first, String after, Integer last, String before,
       Boolean reverse, PriceListSortKeys sortKey, String queryName, Set<String> fieldsSet) {
@@ -66,55 +64,42 @@ public class PriceListsGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     public Builder first(Integer first) {
       this.first = first;
       this.fieldsSet.add("first");
       return this;
     }
 
-    /**
-     * The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     public Builder after(String after) {
       this.after = after;
       this.fieldsSet.add("after");
       return this;
     }
 
-    /**
-     * The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     public Builder last(Integer last) {
       this.last = last;
       this.fieldsSet.add("last");
       return this;
     }
 
-    /**
-     * The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     public Builder before(String before) {
       this.before = before;
       this.fieldsSet.add("before");
       return this;
     }
 
-    /**
-     * Reverse the order of the underlying list.
-     */
+    
     public Builder reverse(Boolean reverse) {
       this.reverse = reverse;
       this.fieldsSet.add("reverse");
       return this;
     }
 
-    /**
-     * Sort the underlying list using a key. If your query is slow or returns an
-     * error, then [try specifying a sort key that matches the field used in the search](https://shopify.dev/api/usage/pagination-graphql#search-performance-considerations).
-     */
+    
     public Builder sortKey(PriceListSortKeys sortKey) {
       this.sortKey = sortKey;
       this.fieldsSet.add("sortKey");

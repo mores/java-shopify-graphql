@@ -6,27 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Whether the shop is blocked from converting to full multi-location delivery
- * profiles mode. If the shop is blocked, then the blocking reasons are also returned.
- */
+
 public class DeliveryLegacyModeBlocked {
-  /**
-   * Whether the shop can convert to full multi-location delivery profiles mode.
-   */
+  
   private boolean blocked;
 
-  /**
-   * The reasons why the shop is blocked from converting to full multi-location delivery profiles mode.
-   */
+  
   private List<DeliveryLegacyModeBlockedReason> reasons;
 
   public DeliveryLegacyModeBlocked() {
   }
 
-  /**
-   * Whether the shop can convert to full multi-location delivery profiles mode.
-   */
+  
   public boolean getBlocked() {
     return blocked;
   }
@@ -35,9 +26,7 @@ public class DeliveryLegacyModeBlocked {
     this.blocked = blocked;
   }
 
-  /**
-   * The reasons why the shop is blocked from converting to full multi-location delivery profiles mode.
-   */
+  
   public List<DeliveryLegacyModeBlockedReason> getReasons() {
     return reasons;
   }
@@ -70,14 +59,10 @@ public class DeliveryLegacyModeBlocked {
   }
 
   public static class Builder {
-    /**
-     * Whether the shop can convert to full multi-location delivery profiles mode.
-     */
+    
     private boolean blocked;
 
-    /**
-     * The reasons why the shop is blocked from converting to full multi-location delivery profiles mode.
-     */
+    
     private List<DeliveryLegacyModeBlockedReason> reasons;
 
     public DeliveryLegacyModeBlocked build() {
@@ -87,17 +72,13 @@ public class DeliveryLegacyModeBlocked {
       return result;
     }
 
-    /**
-     * Whether the shop can convert to full multi-location delivery profiles mode.
-     */
+    
     public Builder blocked(boolean blocked) {
       this.blocked = blocked;
       return this;
     }
 
-    /**
-     * The reasons why the shop is blocked from converting to full multi-location delivery profiles mode.
-     */
+    
     public Builder reasons(List<DeliveryLegacyModeBlockedReason> reasons) {
       this.reasons = reasons;
       return this;

@@ -6,34 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents a paypal billing agreement payment instrument.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class VaultPaypalBillingAgreement implements PaymentInstrument {
-  /**
-   * Whether the paypal billing agreement is inactive.
-   */
+  
   private boolean inactive;
 
-  /**
-   * The paypal account name.
-   */
+  
   private String name;
 
-  /**
-   * The paypal account email address.
-   */
+  
   private String paypalAccountEmail;
 
   public VaultPaypalBillingAgreement() {
   }
 
-  /**
-   * Whether the paypal billing agreement is inactive.
-   */
+  
   public boolean getInactive() {
     return inactive;
   }
@@ -42,9 +32,7 @@ public class VaultPaypalBillingAgreement implements PaymentInstrument {
     this.inactive = inactive;
   }
 
-  /**
-   * The paypal account name.
-   */
+  
   public String getName() {
     return name;
   }
@@ -53,9 +41,7 @@ public class VaultPaypalBillingAgreement implements PaymentInstrument {
     this.name = name;
   }
 
-  /**
-   * The paypal account email address.
-   */
+  
   public String getPaypalAccountEmail() {
     return paypalAccountEmail;
   }
@@ -89,19 +75,13 @@ public class VaultPaypalBillingAgreement implements PaymentInstrument {
   }
 
   public static class Builder {
-    /**
-     * Whether the paypal billing agreement is inactive.
-     */
+    
     private boolean inactive;
 
-    /**
-     * The paypal account name.
-     */
+    
     private String name;
 
-    /**
-     * The paypal account email address.
-     */
+    
     private String paypalAccountEmail;
 
     public VaultPaypalBillingAgreement build() {
@@ -112,25 +92,19 @@ public class VaultPaypalBillingAgreement implements PaymentInstrument {
       return result;
     }
 
-    /**
-     * Whether the paypal billing agreement is inactive.
-     */
+    
     public Builder inactive(boolean inactive) {
       this.inactive = inactive;
       return this;
     }
 
-    /**
-     * The paypal account name.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The paypal account email address.
-     */
+    
     public Builder paypalAccountEmail(String paypalAccountEmail) {
       this.paypalAccountEmail = paypalAccountEmail;
       return this;

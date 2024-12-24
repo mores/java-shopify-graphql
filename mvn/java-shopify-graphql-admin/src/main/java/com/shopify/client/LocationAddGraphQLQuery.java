@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Adds a new location.
- */
+
 public class LocationAddGraphQLQuery extends GraphQLQuery {
   public LocationAddGraphQLQuery(LocationAddInput input, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -43,9 +41,7 @@ public class LocationAddGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The properties of the location to add.
-     */
+    
     public Builder input(LocationAddInput input) {
       this.input = input;
       this.fieldsSet.add("input");

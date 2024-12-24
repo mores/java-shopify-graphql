@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `privateMetafieldUpsert` mutation.
- */
+
 public class PrivateMetafieldUpsertPayload {
-  /**
-   * The private metafield that was created or updated.
-   */
+  
   private PrivateMetafield privateMetafield;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public PrivateMetafieldUpsertPayload() {
   }
 
-  /**
-   * The private metafield that was created or updated.
-   */
+  
   public PrivateMetafield getPrivateMetafield() {
     return privateMetafield;
   }
@@ -34,9 +26,7 @@ public class PrivateMetafieldUpsertPayload {
     this.privateMetafield = privateMetafield;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class PrivateMetafieldUpsertPayload {
   }
 
   public static class Builder {
-    /**
-     * The private metafield that was created or updated.
-     */
+    
     private PrivateMetafield privateMetafield;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public PrivateMetafieldUpsertPayload build() {
@@ -86,17 +72,13 @@ public class PrivateMetafieldUpsertPayload {
       return result;
     }
 
-    /**
-     * The private metafield that was created or updated.
-     */
+    
     public Builder privateMetafield(PrivateMetafield privateMetafield) {
       this.privateMetafield = privateMetafield;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

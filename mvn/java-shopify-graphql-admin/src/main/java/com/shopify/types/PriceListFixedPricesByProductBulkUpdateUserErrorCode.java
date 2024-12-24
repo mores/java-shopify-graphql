@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible error codes that can be returned by `PriceListFixedPricesByProductBulkUpdateUserError`.
- */
+
 public enum PriceListFixedPricesByProductBulkUpdateUserErrorCode {
   NO_UPDATE_OPERATIONS_SPECIFIED,
 

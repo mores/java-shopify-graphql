@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns a `Company` object by ID.
- */
+
 public class CompanyGraphQLQuery extends GraphQLQuery {
   public CompanyGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -42,9 +40,7 @@ public class CompanyGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the `Company` to return.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

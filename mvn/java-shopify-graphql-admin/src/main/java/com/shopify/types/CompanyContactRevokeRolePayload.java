@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `companyContactRevokeRole` mutation.
- */
+
 public class CompanyContactRevokeRolePayload {
-  /**
-   * The role assignment that was revoked.
-   */
+  
   private String revokedCompanyContactRoleAssignmentId;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<BusinessCustomerUserError> userErrors;
 
   public CompanyContactRevokeRolePayload() {
   }
 
-  /**
-   * The role assignment that was revoked.
-   */
+  
   public String getRevokedCompanyContactRoleAssignmentId() {
     return revokedCompanyContactRoleAssignmentId;
   }
@@ -35,9 +27,7 @@ public class CompanyContactRevokeRolePayload {
     this.revokedCompanyContactRoleAssignmentId = revokedCompanyContactRoleAssignmentId;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<BusinessCustomerUserError> getUserErrors() {
     return userErrors;
   }
@@ -70,14 +60,10 @@ public class CompanyContactRevokeRolePayload {
   }
 
   public static class Builder {
-    /**
-     * The role assignment that was revoked.
-     */
+    
     private String revokedCompanyContactRoleAssignmentId;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<BusinessCustomerUserError> userErrors;
 
     public CompanyContactRevokeRolePayload build() {
@@ -87,18 +73,14 @@ public class CompanyContactRevokeRolePayload {
       return result;
     }
 
-    /**
-     * The role assignment that was revoked.
-     */
+    
     public Builder revokedCompanyContactRoleAssignmentId(
         String revokedCompanyContactRoleAssignmentId) {
       this.revokedCompanyContactRoleAssignmentId = revokedCompanyContactRoleAssignmentId;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<BusinessCustomerUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

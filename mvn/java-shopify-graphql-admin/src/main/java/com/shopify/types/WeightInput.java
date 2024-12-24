@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for the weight unit and value inputs.
- */
+
 public class WeightInput {
-  /**
-   * The weight value using the unit system specified with `weight_unit`.
-   */
+  
   private double value;
 
-  /**
-   * Unit of measurement for `value`.
-   */
+  
   private WeightUnit unit;
 
   public WeightInput() {
   }
 
-  /**
-   * The weight value using the unit system specified with `weight_unit`.
-   */
+  
   public double getValue() {
     return value;
   }
@@ -33,9 +25,7 @@ public class WeightInput {
     this.value = value;
   }
 
-  /**
-   * Unit of measurement for `value`.
-   */
+  
   public WeightUnit getUnit() {
     return unit;
   }
@@ -68,14 +58,10 @@ public class WeightInput {
   }
 
   public static class Builder {
-    /**
-     * The weight value using the unit system specified with `weight_unit`.
-     */
+    
     private double value;
 
-    /**
-     * Unit of measurement for `value`.
-     */
+    
     private WeightUnit unit;
 
     public WeightInput build() {
@@ -85,17 +71,13 @@ public class WeightInput {
       return result;
     }
 
-    /**
-     * The weight value using the unit system specified with `weight_unit`.
-     */
+    
     public Builder value(double value) {
       this.value = value;
       return this;
     }
 
-    /**
-     * Unit of measurement for `value`.
-     */
+    
     public Builder unit(WeightUnit unit) {
       this.unit = unit;
       return this;

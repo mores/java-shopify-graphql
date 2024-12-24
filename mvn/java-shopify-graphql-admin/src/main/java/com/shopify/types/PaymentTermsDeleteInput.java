@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields used to delete the payment terms.
- */
+
 public class PaymentTermsDeleteInput {
-  /**
-   * The ID of the payment terms being deleted.
-   */
+  
   private String paymentTermsId;
 
   public PaymentTermsDeleteInput() {
   }
 
-  /**
-   * The ID of the payment terms being deleted.
-   */
+  
   public String getPaymentTermsId() {
     return paymentTermsId;
   }
@@ -51,9 +45,7 @@ public class PaymentTermsDeleteInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the payment terms being deleted.
-     */
+    
     private String paymentTermsId;
 
     public PaymentTermsDeleteInput build() {
@@ -62,9 +54,7 @@ public class PaymentTermsDeleteInput {
       return result;
     }
 
-    /**
-     * The ID of the payment terms being deleted.
-     */
+    
     public Builder paymentTermsId(String paymentTermsId) {
       this.paymentTermsId = paymentTermsId;
       return this;

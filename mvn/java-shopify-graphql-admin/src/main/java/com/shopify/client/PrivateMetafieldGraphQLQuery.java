@@ -6,10 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns a private metafield by ID.
- * Private metafields are accessible only by the application that created them.
- */
+
 public class PrivateMetafieldGraphQLQuery extends GraphQLQuery {
   public PrivateMetafieldGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -43,9 +40,7 @@ public class PrivateMetafieldGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the `PrivateMetafield` to return.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

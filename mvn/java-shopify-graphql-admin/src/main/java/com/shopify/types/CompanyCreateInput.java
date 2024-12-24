@@ -5,31 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields and values for creating a company and its associated resources.
- */
+
 public class CompanyCreateInput {
-  /**
-   * The attributes for the company.
-   */
+  
   private CompanyInput company;
 
-  /**
-   * The attributes for the company contact.
-   */
+  
   private CompanyContactInput companyContact;
 
-  /**
-   * The attributes for the company location.
-   */
+  
   private CompanyLocationInput companyLocation;
 
   public CompanyCreateInput() {
   }
 
-  /**
-   * The attributes for the company.
-   */
+  
   public CompanyInput getCompany() {
     return company;
   }
@@ -38,9 +28,7 @@ public class CompanyCreateInput {
     this.company = company;
   }
 
-  /**
-   * The attributes for the company contact.
-   */
+  
   public CompanyContactInput getCompanyContact() {
     return companyContact;
   }
@@ -49,9 +37,7 @@ public class CompanyCreateInput {
     this.companyContact = companyContact;
   }
 
-  /**
-   * The attributes for the company location.
-   */
+  
   public CompanyLocationInput getCompanyLocation() {
     return companyLocation;
   }
@@ -85,19 +71,13 @@ public class CompanyCreateInput {
   }
 
   public static class Builder {
-    /**
-     * The attributes for the company.
-     */
+    
     private CompanyInput company;
 
-    /**
-     * The attributes for the company contact.
-     */
+    
     private CompanyContactInput companyContact;
 
-    /**
-     * The attributes for the company location.
-     */
+    
     private CompanyLocationInput companyLocation;
 
     public CompanyCreateInput build() {
@@ -108,25 +88,19 @@ public class CompanyCreateInput {
       return result;
     }
 
-    /**
-     * The attributes for the company.
-     */
+    
     public Builder company(CompanyInput company) {
       this.company = company;
       return this;
     }
 
-    /**
-     * The attributes for the company contact.
-     */
+    
     public Builder companyContact(CompanyContactInput companyContact) {
       this.companyContact = companyContact;
       return this;
     }
 
-    /**
-     * The attributes for the company location.
-     */
+    
     public Builder companyLocation(CompanyLocationInput companyLocation) {
       this.companyLocation = companyLocation;
       return this;

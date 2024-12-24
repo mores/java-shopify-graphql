@@ -8,9 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Creates or updates translations.
- */
+
 public class TranslationsRegisterGraphQLQuery extends GraphQLQuery {
   public TranslationsRegisterGraphQLQuery(String resourceId, List<TranslationInput> translations,
       String queryName, Set<String> fieldsSet) {
@@ -49,18 +47,14 @@ public class TranslationsRegisterGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * ID of the resource that is being translated.
-     */
+    
     public Builder resourceId(String resourceId) {
       this.resourceId = resourceId;
       this.fieldsSet.add("resourceId");
       return this;
     }
 
-    /**
-     * Specifies the input fields for a translation.
-     */
+    
     public Builder translations(List<TranslationInput> translations) {
       this.translations = translations;
       this.fieldsSet.add("translations");

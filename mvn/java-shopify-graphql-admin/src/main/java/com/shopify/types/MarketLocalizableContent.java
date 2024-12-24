@@ -5,31 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The market localizable content of a resource's field.
- */
+
 public class MarketLocalizableContent {
-  /**
-   * The hash digest representation of the content value.
-   */
+  
   private String digest;
 
-  /**
-   * The resource field that's being localized.
-   */
+  
   private String key;
 
-  /**
-   * The content value.
-   */
+  
   private String value;
 
   public MarketLocalizableContent() {
   }
 
-  /**
-   * The hash digest representation of the content value.
-   */
+  
   public String getDigest() {
     return digest;
   }
@@ -38,9 +28,7 @@ public class MarketLocalizableContent {
     this.digest = digest;
   }
 
-  /**
-   * The resource field that's being localized.
-   */
+  
   public String getKey() {
     return key;
   }
@@ -49,9 +37,7 @@ public class MarketLocalizableContent {
     this.key = key;
   }
 
-  /**
-   * The content value.
-   */
+  
   public String getValue() {
     return value;
   }
@@ -85,19 +71,13 @@ public class MarketLocalizableContent {
   }
 
   public static class Builder {
-    /**
-     * The hash digest representation of the content value.
-     */
+    
     private String digest;
 
-    /**
-     * The resource field that's being localized.
-     */
+    
     private String key;
 
-    /**
-     * The content value.
-     */
+    
     private String value;
 
     public MarketLocalizableContent build() {
@@ -108,25 +88,19 @@ public class MarketLocalizableContent {
       return result;
     }
 
-    /**
-     * The hash digest representation of the content value.
-     */
+    
     public Builder digest(String digest) {
       this.digest = digest;
       return this;
     }
 
-    /**
-     * The resource field that's being localized.
-     */
+    
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
-    /**
-     * The content value.
-     */
+    
     public Builder value(String value) {
       this.value = value;
       return this;

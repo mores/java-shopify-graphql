@@ -6,35 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Each subject (individual) of an account has a verification object giving
- *  information about the verification state.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ShopifyPaymentsVerification implements com.shopify.types.Node {
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The status of the verification.
-   */
+  
   private ShopifyPaymentsVerificationStatus status;
 
-  /**
-   * The subject/individual who has to be verified.
-   */
+  
   private ShopifyPaymentsVerificationSubject subject;
 
   public ShopifyPaymentsVerification() {
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -43,9 +32,7 @@ public class ShopifyPaymentsVerification implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The status of the verification.
-   */
+  
   public ShopifyPaymentsVerificationStatus getStatus() {
     return status;
   }
@@ -54,9 +41,7 @@ public class ShopifyPaymentsVerification implements com.shopify.types.Node {
     this.status = status;
   }
 
-  /**
-   * The subject/individual who has to be verified.
-   */
+  
   public ShopifyPaymentsVerificationSubject getSubject() {
     return subject;
   }
@@ -90,19 +75,13 @@ public class ShopifyPaymentsVerification implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The status of the verification.
-     */
+    
     private ShopifyPaymentsVerificationStatus status;
 
-    /**
-     * The subject/individual who has to be verified.
-     */
+    
     private ShopifyPaymentsVerificationSubject subject;
 
     public ShopifyPaymentsVerification build() {
@@ -113,25 +92,19 @@ public class ShopifyPaymentsVerification implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The status of the verification.
-     */
+    
     public Builder status(ShopifyPaymentsVerificationStatus status) {
       this.status = status;
       return this;
     }
 
-    /**
-     * The subject/individual who has to be verified.
-     */
+    
     public Builder subject(ShopifyPaymentsVerificationSubject subject) {
       this.subject = subject;
       return this;

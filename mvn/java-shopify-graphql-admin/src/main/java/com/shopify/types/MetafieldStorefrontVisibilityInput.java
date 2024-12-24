@@ -5,31 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields to create a MetafieldStorefrontVisibility record.
- */
+
 public class MetafieldStorefrontVisibilityInput {
-  /**
-   * The namespace of a metafield to make visible in the Storefront API. If omitted the app reserved namespace will be used.
-   */
+  
   private String namespace;
 
-  /**
-   * The key of a metafield to make visible in the Storefront API.
-   */
+  
   private String key;
 
-  /**
-   * The owner type of a metafield to make visible in the Storefront API.
-   */
+  
   private MetafieldOwnerType ownerType;
 
   public MetafieldStorefrontVisibilityInput() {
   }
 
-  /**
-   * The namespace of a metafield to make visible in the Storefront API. If omitted the app reserved namespace will be used.
-   */
+  
   public String getNamespace() {
     return namespace;
   }
@@ -38,9 +28,7 @@ public class MetafieldStorefrontVisibilityInput {
     this.namespace = namespace;
   }
 
-  /**
-   * The key of a metafield to make visible in the Storefront API.
-   */
+  
   public String getKey() {
     return key;
   }
@@ -49,9 +37,7 @@ public class MetafieldStorefrontVisibilityInput {
     this.key = key;
   }
 
-  /**
-   * The owner type of a metafield to make visible in the Storefront API.
-   */
+  
   public MetafieldOwnerType getOwnerType() {
     return ownerType;
   }
@@ -85,19 +71,13 @@ public class MetafieldStorefrontVisibilityInput {
   }
 
   public static class Builder {
-    /**
-     * The namespace of a metafield to make visible in the Storefront API. If omitted the app reserved namespace will be used.
-     */
+    
     private String namespace;
 
-    /**
-     * The key of a metafield to make visible in the Storefront API.
-     */
+    
     private String key;
 
-    /**
-     * The owner type of a metafield to make visible in the Storefront API.
-     */
+    
     private MetafieldOwnerType ownerType;
 
     public MetafieldStorefrontVisibilityInput build() {
@@ -108,25 +88,19 @@ public class MetafieldStorefrontVisibilityInput {
       return result;
     }
 
-    /**
-     * The namespace of a metafield to make visible in the Storefront API. If omitted the app reserved namespace will be used.
-     */
+    
     public Builder namespace(String namespace) {
       this.namespace = namespace;
       return this;
     }
 
-    /**
-     * The key of a metafield to make visible in the Storefront API.
-     */
+    
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
-    /**
-     * The owner type of a metafield to make visible in the Storefront API.
-     */
+    
     public Builder ownerType(MetafieldOwnerType ownerType) {
       this.ownerType = ownerType;
       return this;

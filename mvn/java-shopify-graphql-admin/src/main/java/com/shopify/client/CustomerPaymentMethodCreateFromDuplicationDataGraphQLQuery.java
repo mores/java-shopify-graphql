@@ -7,13 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Creates a vaulted payment method for a customer from duplication data.
- *   
- * This data must be obtained from another shop within the same organization.
- *   
- * Currently, this only supports Shop Pay payment methods. This is only available for selected partner apps.
- */
+
 public class CustomerPaymentMethodCreateFromDuplicationDataGraphQLQuery extends GraphQLQuery {
   public CustomerPaymentMethodCreateFromDuplicationDataGraphQLQuery(String customerId,
       MailingAddressInput billingAddress, String encryptedDuplicationData, String queryName,
@@ -57,27 +51,21 @@ public class CustomerPaymentMethodCreateFromDuplicationDataGraphQLQuery extends 
                
     }
 
-    /**
-     * The ID of the customer.
-     */
+    
     public Builder customerId(String customerId) {
       this.customerId = customerId;
       this.fieldsSet.add("customerId");
       return this;
     }
 
-    /**
-     * The billing address.
-     */
+    
     public Builder billingAddress(MailingAddressInput billingAddress) {
       this.billingAddress = billingAddress;
       this.fieldsSet.add("billingAddress");
       return this;
     }
 
-    /**
-     * The encrypted payment method data.
-     */
+    
     public Builder encryptedDuplicationData(String encryptedDuplicationData) {
       this.encryptedDuplicationData = encryptedDuplicationData;
       this.fieldsSet.add("encryptedDuplicationData");

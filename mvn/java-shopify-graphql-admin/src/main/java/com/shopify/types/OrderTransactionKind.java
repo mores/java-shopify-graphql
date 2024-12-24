@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * The different kinds of order transactions.
- */
+
 public enum OrderTransactionKind {
   SALE,
 

@@ -7,90 +7,57 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * A channel represents an app where you sell a group of products and collections.
- * A channel can be a platform or marketplace such as Facebook or Pinterest, an online store, or POS.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class Channel implements com.shopify.types.Node {
-  /**
-   * The underlying app used by the channel.
-   */
+  
   private App app;
 
-  /**
-   * The collection publications for the list of collections published to the channel.
-   */
+  
   private ResourcePublicationConnection collectionPublicationsV3;
 
-  /**
-   * The list of collections published to the channel.
-   */
+  
   private CollectionConnection collections;
 
-  /**
-   * The unique identifier for the channel.
-   */
+  
   private String handle;
 
-  /**
-   * Whether the collection is available to the channel.
-   */
+  
   private boolean hasCollection;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The name of the channel.
-   */
+  
   private String name;
 
-  /**
-   * The menu items for the channel, which also appear as submenu items in the left navigation sidebar in the Shopify admin.
-   */
+  
   private List<NavigationItem> navigationItems;
 
-  /**
-   * Home page for the channel.
-   */
+  
   private String overviewPath;
 
-  /**
-   * The product publications for the products published to the channel.
-   */
+  
   private ProductPublicationConnection productPublications;
 
-  /**
-   * The product publications for the list of products published to the channel.
-   */
+  
   private ResourcePublicationConnection productPublicationsV3;
 
-  /**
-   * The list of products published to the channel.
-   */
+  
   private ProductConnection products;
 
-  /**
-   * The count of products published to the channel. Limited to a maximum of 10000.
-   */
+  
   private Count productsCount;
 
-  /**
-   * Whether the channel supports future publishing.
-   */
+  
   private boolean supportsFuturePublishing;
 
   public Channel() {
   }
 
-  /**
-   * The underlying app used by the channel.
-   */
+  
   public App getApp() {
     return app;
   }
@@ -99,9 +66,7 @@ public class Channel implements com.shopify.types.Node {
     this.app = app;
   }
 
-  /**
-   * The collection publications for the list of collections published to the channel.
-   */
+  
   public ResourcePublicationConnection getCollectionPublicationsV3() {
     return collectionPublicationsV3;
   }
@@ -110,9 +75,7 @@ public class Channel implements com.shopify.types.Node {
     this.collectionPublicationsV3 = collectionPublicationsV3;
   }
 
-  /**
-   * The list of collections published to the channel.
-   */
+  
   public CollectionConnection getCollections() {
     return collections;
   }
@@ -121,9 +84,7 @@ public class Channel implements com.shopify.types.Node {
     this.collections = collections;
   }
 
-  /**
-   * The unique identifier for the channel.
-   */
+  
   public String getHandle() {
     return handle;
   }
@@ -132,9 +93,7 @@ public class Channel implements com.shopify.types.Node {
     this.handle = handle;
   }
 
-  /**
-   * Whether the collection is available to the channel.
-   */
+  
   public boolean getHasCollection() {
     return hasCollection;
   }
@@ -143,9 +102,7 @@ public class Channel implements com.shopify.types.Node {
     this.hasCollection = hasCollection;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -154,9 +111,7 @@ public class Channel implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The name of the channel.
-   */
+  
   public String getName() {
     return name;
   }
@@ -165,9 +120,7 @@ public class Channel implements com.shopify.types.Node {
     this.name = name;
   }
 
-  /**
-   * The menu items for the channel, which also appear as submenu items in the left navigation sidebar in the Shopify admin.
-   */
+  
   public List<NavigationItem> getNavigationItems() {
     return navigationItems;
   }
@@ -176,9 +129,7 @@ public class Channel implements com.shopify.types.Node {
     this.navigationItems = navigationItems;
   }
 
-  /**
-   * Home page for the channel.
-   */
+  
   public String getOverviewPath() {
     return overviewPath;
   }
@@ -187,9 +138,7 @@ public class Channel implements com.shopify.types.Node {
     this.overviewPath = overviewPath;
   }
 
-  /**
-   * The product publications for the products published to the channel.
-   */
+  
   public ProductPublicationConnection getProductPublications() {
     return productPublications;
   }
@@ -198,9 +147,7 @@ public class Channel implements com.shopify.types.Node {
     this.productPublications = productPublications;
   }
 
-  /**
-   * The product publications for the list of products published to the channel.
-   */
+  
   public ResourcePublicationConnection getProductPublicationsV3() {
     return productPublicationsV3;
   }
@@ -209,9 +156,7 @@ public class Channel implements com.shopify.types.Node {
     this.productPublicationsV3 = productPublicationsV3;
   }
 
-  /**
-   * The list of products published to the channel.
-   */
+  
   public ProductConnection getProducts() {
     return products;
   }
@@ -220,9 +165,7 @@ public class Channel implements com.shopify.types.Node {
     this.products = products;
   }
 
-  /**
-   * The count of products published to the channel. Limited to a maximum of 10000.
-   */
+  
   public Count getProductsCount() {
     return productsCount;
   }
@@ -231,9 +174,7 @@ public class Channel implements com.shopify.types.Node {
     this.productsCount = productsCount;
   }
 
-  /**
-   * Whether the channel supports future publishing.
-   */
+  
   public boolean getSupportsFuturePublishing() {
     return supportsFuturePublishing;
   }
@@ -278,74 +219,46 @@ public class Channel implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * The underlying app used by the channel.
-     */
+    
     private App app;
 
-    /**
-     * The collection publications for the list of collections published to the channel.
-     */
+    
     private ResourcePublicationConnection collectionPublicationsV3;
 
-    /**
-     * The list of collections published to the channel.
-     */
+    
     private CollectionConnection collections;
 
-    /**
-     * The unique identifier for the channel.
-     */
+    
     private String handle;
 
-    /**
-     * Whether the collection is available to the channel.
-     */
+    
     private boolean hasCollection;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The name of the channel.
-     */
+    
     private String name;
 
-    /**
-     * The menu items for the channel, which also appear as submenu items in the left navigation sidebar in the Shopify admin.
-     */
+    
     private List<NavigationItem> navigationItems;
 
-    /**
-     * Home page for the channel.
-     */
+    
     private String overviewPath;
 
-    /**
-     * The product publications for the products published to the channel.
-     */
+    
     private ProductPublicationConnection productPublications;
 
-    /**
-     * The product publications for the list of products published to the channel.
-     */
+    
     private ResourcePublicationConnection productPublicationsV3;
 
-    /**
-     * The list of products published to the channel.
-     */
+    
     private ProductConnection products;
 
-    /**
-     * The count of products published to the channel. Limited to a maximum of 10000.
-     */
+    
     private Count productsCount;
 
-    /**
-     * Whether the channel supports future publishing.
-     */
+    
     private boolean supportsFuturePublishing;
 
     public Channel build() {
@@ -367,114 +280,86 @@ public class Channel implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * The underlying app used by the channel.
-     */
+    
     public Builder app(App app) {
       this.app = app;
       return this;
     }
 
-    /**
-     * The collection publications for the list of collections published to the channel.
-     */
+    
     public Builder collectionPublicationsV3(
         ResourcePublicationConnection collectionPublicationsV3) {
       this.collectionPublicationsV3 = collectionPublicationsV3;
       return this;
     }
 
-    /**
-     * The list of collections published to the channel.
-     */
+    
     public Builder collections(CollectionConnection collections) {
       this.collections = collections;
       return this;
     }
 
-    /**
-     * The unique identifier for the channel.
-     */
+    
     public Builder handle(String handle) {
       this.handle = handle;
       return this;
     }
 
-    /**
-     * Whether the collection is available to the channel.
-     */
+    
     public Builder hasCollection(boolean hasCollection) {
       this.hasCollection = hasCollection;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The name of the channel.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The menu items for the channel, which also appear as submenu items in the left navigation sidebar in the Shopify admin.
-     */
+    
     public Builder navigationItems(List<NavigationItem> navigationItems) {
       this.navigationItems = navigationItems;
       return this;
     }
 
-    /**
-     * Home page for the channel.
-     */
+    
     public Builder overviewPath(String overviewPath) {
       this.overviewPath = overviewPath;
       return this;
     }
 
-    /**
-     * The product publications for the products published to the channel.
-     */
+    
     public Builder productPublications(ProductPublicationConnection productPublications) {
       this.productPublications = productPublications;
       return this;
     }
 
-    /**
-     * The product publications for the list of products published to the channel.
-     */
+    
     public Builder productPublicationsV3(ResourcePublicationConnection productPublicationsV3) {
       this.productPublicationsV3 = productPublicationsV3;
       return this;
     }
 
-    /**
-     * The list of products published to the channel.
-     */
+    
     public Builder products(ProductConnection products) {
       this.products = products;
       return this;
     }
 
-    /**
-     * The count of products published to the channel. Limited to a maximum of 10000.
-     */
+    
     public Builder productsCount(Count productsCount) {
       this.productsCount = productsCount;
       return this;
     }
 
-    /**
-     * Whether the channel supports future publishing.
-     */
+    
     public Builder supportsFuturePublishing(boolean supportsFuturePublishing) {
       this.supportsFuturePublishing = supportsFuturePublishing;
       return this;

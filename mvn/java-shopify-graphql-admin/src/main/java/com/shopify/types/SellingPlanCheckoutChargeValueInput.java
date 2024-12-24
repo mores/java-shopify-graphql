@@ -6,26 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields required to create or update an checkout charge value.
- */
+
 public class SellingPlanCheckoutChargeValueInput {
-  /**
-   * The percentage value.
-   */
+  
   private Double percentage;
 
-  /**
-   * The fixed value for an checkout charge.
-   */
+  
   private String fixedValue;
 
   public SellingPlanCheckoutChargeValueInput() {
   }
 
-  /**
-   * The percentage value.
-   */
+  
   public Double getPercentage() {
     return percentage;
   }
@@ -34,9 +26,7 @@ public class SellingPlanCheckoutChargeValueInput {
     this.percentage = percentage;
   }
 
-  /**
-   * The fixed value for an checkout charge.
-   */
+  
   public String getFixedValue() {
     return fixedValue;
   }
@@ -69,14 +59,10 @@ public class SellingPlanCheckoutChargeValueInput {
   }
 
   public static class Builder {
-    /**
-     * The percentage value.
-     */
+    
     private Double percentage;
 
-    /**
-     * The fixed value for an checkout charge.
-     */
+    
     private String fixedValue;
 
     public SellingPlanCheckoutChargeValueInput build() {
@@ -86,17 +72,13 @@ public class SellingPlanCheckoutChargeValueInput {
       return result;
     }
 
-    /**
-     * The percentage value.
-     */
+    
     public Builder percentage(Double percentage) {
       this.percentage = percentage;
       return this;
     }
 
-    /**
-     * The fixed value for an checkout charge.
-     */
+    
     public Builder fixedValue(String fixedValue) {
       this.fixedValue = fixedValue;
       return this;

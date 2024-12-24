@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Units of measurement for length.
- */
+
 public enum LengthUnit {
   MILLIMETERS,
 

@@ -6,24 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The percentage value of a discount.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class AppSubscriptionDiscountPercentage implements AppSubscriptionDiscountValue {
-  /**
-   * The percentage value of a discount.
-   */
+  
   private double percentage;
 
   public AppSubscriptionDiscountPercentage() {
   }
 
-  /**
-   * The percentage value of a discount.
-   */
+  
   public double getPercentage() {
     return percentage;
   }
@@ -55,9 +49,7 @@ public class AppSubscriptionDiscountPercentage implements AppSubscriptionDiscoun
   }
 
   public static class Builder {
-    /**
-     * The percentage value of a discount.
-     */
+    
     private double percentage;
 
     public AppSubscriptionDiscountPercentage build() {
@@ -66,9 +58,7 @@ public class AppSubscriptionDiscountPercentage implements AppSubscriptionDiscoun
       return result;
     }
 
-    /**
-     * The percentage value of a discount.
-     */
+    
     public Builder percentage(double percentage) {
       this.percentage = percentage;
       return this;

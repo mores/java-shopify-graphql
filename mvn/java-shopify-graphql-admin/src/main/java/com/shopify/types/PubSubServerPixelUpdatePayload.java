@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `pubSubServerPixelUpdate` mutation.
- */
+
 public class PubSubServerPixelUpdatePayload {
-  /**
-   * The server pixel as configured by the mutation.
-   */
+  
   private ServerPixel serverPixel;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<ErrorsServerPixelUserError> userErrors;
 
   public PubSubServerPixelUpdatePayload() {
   }
 
-  /**
-   * The server pixel as configured by the mutation.
-   */
+  
   public ServerPixel getServerPixel() {
     return serverPixel;
   }
@@ -34,9 +26,7 @@ public class PubSubServerPixelUpdatePayload {
     this.serverPixel = serverPixel;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<ErrorsServerPixelUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class PubSubServerPixelUpdatePayload {
   }
 
   public static class Builder {
-    /**
-     * The server pixel as configured by the mutation.
-     */
+    
     private ServerPixel serverPixel;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<ErrorsServerPixelUserError> userErrors;
 
     public PubSubServerPixelUpdatePayload build() {
@@ -86,17 +72,13 @@ public class PubSubServerPixelUpdatePayload {
       return result;
     }
 
-    /**
-     * The server pixel as configured by the mutation.
-     */
+    
     public Builder serverPixel(ServerPixel serverPixel) {
       this.serverPixel = serverPixel;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<ErrorsServerPixelUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

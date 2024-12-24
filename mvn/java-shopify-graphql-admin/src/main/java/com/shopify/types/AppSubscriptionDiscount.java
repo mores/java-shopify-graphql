@@ -6,38 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Discount applied to the recurring pricing portion of a subscription.
- */
+
 public class AppSubscriptionDiscount {
-  /**
-   * The total number of billing intervals to which the discount will be applied.
-   * The discount will be applied to an indefinite number of billing intervals if this value is blank.
-   */
+  
   private Integer durationLimitInIntervals;
 
-  /**
-   * The price of the subscription after the discount is applied.
-   */
+  
   private MoneyV2 priceAfterDiscount;
 
-  /**
-   * The remaining number of billing intervals to which the discount will be applied.
-   */
+  
   private Integer remainingDurationInIntervals;
 
-  /**
-   * The value of the discount applied every billing interval.
-   */
+  
   private AppSubscriptionDiscountValue value;
 
   public AppSubscriptionDiscount() {
   }
 
-  /**
-   * The total number of billing intervals to which the discount will be applied.
-   * The discount will be applied to an indefinite number of billing intervals if this value is blank.
-   */
+  
   public Integer getDurationLimitInIntervals() {
     return durationLimitInIntervals;
   }
@@ -46,9 +32,7 @@ public class AppSubscriptionDiscount {
     this.durationLimitInIntervals = durationLimitInIntervals;
   }
 
-  /**
-   * The price of the subscription after the discount is applied.
-   */
+  
   public MoneyV2 getPriceAfterDiscount() {
     return priceAfterDiscount;
   }
@@ -57,9 +41,7 @@ public class AppSubscriptionDiscount {
     this.priceAfterDiscount = priceAfterDiscount;
   }
 
-  /**
-   * The remaining number of billing intervals to which the discount will be applied.
-   */
+  
   public Integer getRemainingDurationInIntervals() {
     return remainingDurationInIntervals;
   }
@@ -68,9 +50,7 @@ public class AppSubscriptionDiscount {
     this.remainingDurationInIntervals = remainingDurationInIntervals;
   }
 
-  /**
-   * The value of the discount applied every billing interval.
-   */
+  
   public AppSubscriptionDiscountValue getValue() {
     return value;
   }
@@ -105,25 +85,16 @@ public class AppSubscriptionDiscount {
   }
 
   public static class Builder {
-    /**
-     * The total number of billing intervals to which the discount will be applied.
-     * The discount will be applied to an indefinite number of billing intervals if this value is blank.
-     */
+    
     private Integer durationLimitInIntervals;
 
-    /**
-     * The price of the subscription after the discount is applied.
-     */
+    
     private MoneyV2 priceAfterDiscount;
 
-    /**
-     * The remaining number of billing intervals to which the discount will be applied.
-     */
+    
     private Integer remainingDurationInIntervals;
 
-    /**
-     * The value of the discount applied every billing interval.
-     */
+    
     private AppSubscriptionDiscountValue value;
 
     public AppSubscriptionDiscount build() {
@@ -135,34 +106,25 @@ public class AppSubscriptionDiscount {
       return result;
     }
 
-    /**
-     * The total number of billing intervals to which the discount will be applied.
-     * The discount will be applied to an indefinite number of billing intervals if this value is blank.
-     */
+    
     public Builder durationLimitInIntervals(Integer durationLimitInIntervals) {
       this.durationLimitInIntervals = durationLimitInIntervals;
       return this;
     }
 
-    /**
-     * The price of the subscription after the discount is applied.
-     */
+    
     public Builder priceAfterDiscount(MoneyV2 priceAfterDiscount) {
       this.priceAfterDiscount = priceAfterDiscount;
       return this;
     }
 
-    /**
-     * The remaining number of billing intervals to which the discount will be applied.
-     */
+    
     public Builder remainingDurationInIntervals(Integer remainingDurationInIntervals) {
       this.remainingDurationInIntervals = remainingDurationInIntervals;
       return this;
     }
 
-    /**
-     * The value of the discount applied every billing interval.
-     */
+    
     public Builder value(AppSubscriptionDiscountValue value) {
       this.value = value;
       return this;

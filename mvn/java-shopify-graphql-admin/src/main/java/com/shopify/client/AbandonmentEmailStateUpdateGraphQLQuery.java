@@ -8,9 +8,7 @@ import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Updates the email state value for an abandonment.
- */
+
 public class AbandonmentEmailStateUpdateGraphQLQuery extends GraphQLQuery {
   public AbandonmentEmailStateUpdateGraphQLQuery(String id, AbandonmentEmailState emailState,
       OffsetDateTime emailSentAt, String emailStateChangeReason, String queryName,
@@ -58,36 +56,28 @@ public class AbandonmentEmailStateUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the abandonment that needs to be updated.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * The new email state of the abandonment.
-     */
+    
     public Builder emailState(AbandonmentEmailState emailState) {
       this.emailState = emailState;
       this.fieldsSet.add("emailState");
       return this;
     }
 
-    /**
-     * The date and time for when the email was sent, if that is the case.
-     */
+    
     public Builder emailSentAt(OffsetDateTime emailSentAt) {
       this.emailSentAt = emailSentAt;
       this.fieldsSet.add("emailSentAt");
       return this;
     }
 
-    /**
-     * The reason why the email was or was not sent.
-     */
+    
     public Builder emailStateChangeReason(String emailStateChangeReason) {
       this.emailStateChangeReason = emailStateChangeReason;
       this.fieldsSet.add("emailStateChangeReason");

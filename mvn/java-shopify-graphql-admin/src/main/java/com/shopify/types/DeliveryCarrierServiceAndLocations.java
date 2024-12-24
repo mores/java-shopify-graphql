@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * A carrier service and the associated list of shop locations.
- */
+
 public class DeliveryCarrierServiceAndLocations {
-  /**
-   * The carrier service.
-   */
+  
   private DeliveryCarrierService carrierService;
 
-  /**
-   * The list of locations that support this carrier service.
-   */
+  
   private List<Location> locations;
 
   public DeliveryCarrierServiceAndLocations() {
   }
 
-  /**
-   * The carrier service.
-   */
+  
   public DeliveryCarrierService getCarrierService() {
     return carrierService;
   }
@@ -34,9 +26,7 @@ public class DeliveryCarrierServiceAndLocations {
     this.carrierService = carrierService;
   }
 
-  /**
-   * The list of locations that support this carrier service.
-   */
+  
   public List<Location> getLocations() {
     return locations;
   }
@@ -69,14 +59,10 @@ public class DeliveryCarrierServiceAndLocations {
   }
 
   public static class Builder {
-    /**
-     * The carrier service.
-     */
+    
     private DeliveryCarrierService carrierService;
 
-    /**
-     * The list of locations that support this carrier service.
-     */
+    
     private List<Location> locations;
 
     public DeliveryCarrierServiceAndLocations build() {
@@ -86,17 +72,13 @@ public class DeliveryCarrierServiceAndLocations {
       return result;
     }
 
-    /**
-     * The carrier service.
-     */
+    
     public Builder carrierService(DeliveryCarrierService carrierService) {
       this.carrierService = carrierService;
       return this;
     }
 
-    /**
-     * The list of locations that support this carrier service.
-     */
+    
     public Builder locations(List<Location> locations) {
       this.locations = locations;
       return this;

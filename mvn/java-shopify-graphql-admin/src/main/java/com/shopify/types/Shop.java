@@ -8,494 +8,285 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Represents a collection of general settings and information about the shop.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafields, com.shopify.types.HasPublishedTranslations, com.shopify.types.Node {
-  /**
-   * Account owner information.
-   */
+  
   private StaffMember accountOwner;
 
-  /**
-   * A list of the shop's active alert messages that appear in the Shopify admin.
-   */
+  
   private List<ShopAlert> alerts;
 
-  /**
-   * A list of the shop's product categories. Limit: 1000 product categories.
-   */
+  
   private List<ProductCategory> allProductCategories;
 
-  /**
-   * A list of the shop's product categories. Limit: 1000 product categories.
-   */
+  
   private List<TaxonomyCategory> allProductCategoriesList;
 
-  /**
-   * The token required to query the shop's reports or dashboards.
-   */
+  
   private String analyticsToken;
 
-  /**
-   * The paginated list of fulfillment orders assigned to the shop locations owned by the app.
-   *   
-   * Assigned fulfillment orders are fulfillment orders that are set to be fulfilled from locations
-   * managed by
-   * [fulfillment services](https://shopify.dev/api/admin-graphql/latest/objects/FulfillmentService)
-   * that are registered by the app.
-   * One app (api_client) can host multiple fulfillment services on a shop.
-   * Each fulfillment service manages a dedicated location on a shop.
-   * Assigned fulfillment orders can have associated
-   * [fulfillment requests](https://shopify.dev/api/admin-graphql/latest/enums/FulfillmentOrderRequestStatus),
-   * or might currently not be requested to be fulfilled.
-   *   
-   * The app must have `read_assigned_fulfillment_orders`
-   * [access scope](https://shopify.dev/docs/api/usage/access-scopes)
-   * to be able to retrieve fulfillment orders assigned to its locations.
-   *   
-   * All assigned fulfillment orders (except those with the `CLOSED` status) will be returned by default.
-   * Perform filtering with the `assignmentStatus` argument
-   * to receive only fulfillment orders that have been requested to be fulfilled.
-   */
+  
   private FulfillmentOrderConnection assignedFulfillmentOrders;
 
-  /**
-   * The list of sales channels not currently installed on the shop.
-   */
+  
   private AppConnection availableChannelApps;
 
-  /**
-   * The shop's billing address information.
-   */
+  
   private ShopAddress billingAddress;
 
-  /**
-   * List of all channel definitions associated with a shop.
-   */
+  
   private List<AvailableChannelDefinitionsByChannel> channelDefinitionsForInstalledChannels;
 
-  /**
-   * List of the shop's active sales channels.
-   */
+  
   private ChannelConnection channels;
 
-  /**
-   * Specifies whether the shop supports checkouts via Checkout API.
-   */
+  
   private boolean checkoutApiSupported;
 
-  /**
-   * Return a collection by its handle.
-   */
+  
   private Collection collectionByHandle;
 
-  /**
-   * List of the shop's collection saved searches.
-   */
+  
   private SavedSearchConnection collectionSavedSearches;
 
-  /**
-   * List of the shop's collections.
-   */
+  
   private CollectionConnection collections;
 
-  /**
-   * The public-facing contact email address for the shop.
-   * Customers will use this email to communicate with the shop owner.
-   */
+  
   private String contactEmail;
 
-  /**
-   * Countries that have been defined in shipping zones for the shop.
-   */
+  
   private CountriesInShippingZones countriesInShippingZones;
 
-  /**
-   * The date and time when the shop was created.
-   */
+  
   private OffsetDateTime createdAt;
 
-  /**
-   * The three letter code for the currency that the shop sells in.
-   */
+  
   private CurrencyCode currencyCode;
 
-  /**
-   * How currencies are displayed on your store.
-   */
+  
   private CurrencyFormats currencyFormats;
 
-  /**
-   * The presentment currency settings for the shop excluding the shop's own currency.
-   */
+  
   private CurrencySettingConnection currencySettings;
 
-  /**
-   * Whether customer accounts are required, optional, or disabled for the shop.
-   */
+  
   private ShopCustomerAccountsSetting customerAccounts;
 
-  /**
-   * Information about the shop's customer accounts.
-   */
+  
   private CustomerAccountsV2 customerAccountsV2;
 
-  /**
-   * List of the shop's customer saved searches.
-   */
+  
   private SavedSearchConnection customerSavedSearches;
 
-  /**
-   * A list of tags that have been added to customer accounts.
-   */
+  
   private StringConnection customerTags;
 
-  /**
-   * Customer accounts associated to the shop.
-   */
+  
   private CustomerConnection customers;
 
-  /**
-   * The shop's meta description used in search engine results.
-   */
+  
   private String description;
 
-  /**
-   * The domains configured for the shop.
-   */
+  
   private List<Domain> domains;
 
-  /**
-   * List of the shop's draft order saved searches.
-   */
+  
   private SavedSearchConnection draftOrderSavedSearches;
 
-  /**
-   * A list of tags that have been added to draft orders.
-   */
+  
   private StringConnection draftOrderTags;
 
-  /**
-   * List of saved draft orders on the shop.
-   */
+  
   private DraftOrderConnection draftOrders;
 
-  /**
-   * The shop owner's email address.
-   * Shopify will use this email address to communicate with the shop owner.
-   */
+  
   private String email;
 
-  /**
-   * The presentment currencies enabled for the shop.
-   */
+  
   private List<CurrencyCode> enabledPresentmentCurrencies;
 
-  /**
-   * The set of features enabled for the shop.
-   */
+  
   private ShopFeatures features;
 
-  /**
-   * The paginated list of merchant-managed and third-party fulfillment orders.
-   */
+  
   private FulfillmentOrderConnection fulfillmentOrders;
 
-  /**
-   * List of the shop's installed fulfillment services.
-   */
+  
   private List<FulfillmentService> fulfillmentServices;
 
-  /**
-   * The shop's time zone as defined by the IANA.
-   */
+  
   private String ianaTimezone;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * List of the shop's inventory items.
-   */
+  
   private InventoryItemConnection inventoryItems;
 
-  /**
-   * The number of pendings orders on the shop.
-   * Limited to a maximum of 10000.
-   */
+  
   private LimitedPendingOrderCount limitedPendingOrderCount;
 
-  /**
-   * List of active locations of the shop.
-   */
+  
   private LocationConnection locations;
 
-  /**
-   * List of a shop's marketing events.
-   */
+  
   private MarketingEventConnection marketingEvents;
 
-  /**
-   * Whether SMS marketing has been enabled on the shop's checkout configuration settings.
-   */
+  
   private boolean marketingSmsConsentEnabledAtCheckout;
 
-  /**
-   * The approval signals for a shop to support onboarding to channel apps.
-   */
+  
   private MerchantApprovalSignals merchantApprovalSignals;
 
-  /**
-   * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-   * including its `namespace` and `key`, that's associated with a Shopify resource
-   * for the purposes of adding and storing additional information.
-   */
+  
   private Metafield metafield;
 
-  /**
-   * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-   * that a merchant associates with a Shopify resource.
-   */
+  
   private MetafieldConnection metafields;
 
-  /**
-   * The shop's .myshopify.com domain name.
-   */
+  
   private String myshopifyDomain;
 
-  /**
-   * The shop's name.
-   */
+  
   private String name;
 
-  /**
-   * The shop's settings related to navigation.
-   */
+  
   private List<NavigationItem> navigationSettings;
 
-  /**
-   * The prefix that appears before order numbers.
-   */
+  
   private String orderNumberFormatPrefix;
 
-  /**
-   * The suffix that appears after order numbers.
-   */
+  
   private String orderNumberFormatSuffix;
 
-  /**
-   * List of the shop's order saved searches.
-   */
+  
   private SavedSearchConnection orderSavedSearches;
 
-  /**
-   * A list of tags that have been added to orders.
-   */
+  
   private StringConnection orderTags;
 
-  /**
-   * A list of the shop's orders.
-   */
+  
   private OrderConnection orders;
 
-  /**
-   * The shop's settings related to payments.
-   */
+  
   private PaymentSettings paymentSettings;
 
-  /**
-   * The shop's billing plan.
-   */
+  
   private ShopPlan plan;
 
-  /**
-   * The primary domain of the shop's online store.
-   */
+  
   private Domain primaryDomain;
 
-  /**
-   * Returns a private metafield by namespace and key that belongs to the resource.
-   */
+  
   private PrivateMetafield privateMetafield;
 
-  /**
-   * List of private metafields that belong to the resource.
-   */
+  
   private PrivateMetafieldConnection privateMetafields;
 
-  /**
-   * Return a product by its handle.
-   */
+  
   private Product productByHandle;
 
-  /**
-   * The list of all images of all products for the shop.
-   */
+  
   private ImageConnection productImages;
 
-  /**
-   * List of the shop's product saved searches.
-   */
+  
   private SavedSearchConnection productSavedSearches;
 
-  /**
-   * A list of tags that have been added to products.
-   */
+  
   private StringConnection productTags;
 
-  /**
-   * The list of types added to products.
-   */
+  
   private StringConnection productTypes;
 
-  /**
-   * List of the shop's product variants.
-   */
+  
   private ProductVariantConnection productVariants;
 
-  /**
-   * The list of vendors added to products.
-   */
+  
   private StringConnection productVendors;
 
-  /**
-   * List of the shop's products.
-   */
+  
   private ProductConnection products;
 
-  /**
-   * The number of publications for the shop.
-   */
+  
   private int publicationCount;
 
-  /**
-   * The shop's limits for specific resources. For example, the maximum number
-   * ofvariants allowed per product, or the maximum number of locations allowed.
-   */
+  
   private ShopResourceLimits resourceLimits;
 
-  /**
-   * The URL of the rich text editor that can be used for mobile devices.
-   */
+  
   private String richTextEditorUrl;
 
-  /**
-   * Fetches a list of admin search results by a specified query.
-   */
+  
   private SearchResultConnection search;
 
-  /**
-   * The list of search filter options for the shop. These can be used to filter productvisibility for the shop.
-   */
+  
   private SearchFilterOptions searchFilters;
 
-  /**
-   * Whether the shop has outstanding setup steps.
-   */
+  
   private boolean setupRequired;
 
-  /**
-   * The list of countries that the shop ships to.
-   */
+  
   private List<CountryCode> shipsToCountries;
 
-  /**
-   * The name of the shop owner.
-   */
+  
   private String shopOwnerName;
 
-  /**
-   * The list of all legal policies associated with a shop.
-   */
+  
   private List<ShopPolicy> shopPolicies;
 
-  /**
-   * The paginated list of the shop's staff members.
-   */
+  
   private StaffMemberConnection staffMembers;
 
-  /**
-   * The storefront access token of a private application. These are scoped per-application.
-   */
+  
   private StorefrontAccessTokenConnection storefrontAccessTokens;
 
-  /**
-   * The URL of the shop's storefront.
-   */
+  
   private String storefrontUrl;
 
-  /**
-   * Whether the shop charges taxes for shipping.
-   */
+  
   private boolean taxShipping;
 
-  /**
-   * Whether applicable taxes are included in the shop's product prices.
-   */
+  
   private boolean taxesIncluded;
 
-  /**
-   * The shop's time zone abbreviation.
-   */
+  
   private String timezoneAbbreviation;
 
-  /**
-   * The shop's time zone offset.
-   */
+  
   private String timezoneOffset;
 
-  /**
-   * The shop's time zone offset expressed as a number of minutes.
-   */
+  
   private int timezoneOffsetMinutes;
 
-  /**
-   * Whether transactional SMS sent by Shopify have been disabled for a shop.
-   */
+  
   private boolean transactionalSmsDisabled;
 
-  /**
-   * The published translations associated with the resource.
-   */
+  
   private List<Translation> translations;
 
-  /**
-   * The shop's unit system for weights and measures.
-   */
+  
   private UnitSystem unitSystem;
 
-  /**
-   * The date and time when the shop was last updated.
-   */
+  
   private OffsetDateTime updatedAt;
 
-  /**
-   * Fetches a list of images uploaded to the shop by their IDs.
-   */
+  
   private List<Image> uploadedImagesByIds;
 
-  /**
-   * The URL of the shop's online store.
-   */
+  
   private String url;
 
-  /**
-   * The shop's primary unit of weight for products and shipping.
-   */
+  
   private WeightUnit weightUnit;
 
   public Shop() {
   }
 
-  /**
-   * Account owner information.
-   */
+  
   public StaffMember getAccountOwner() {
     return accountOwner;
   }
@@ -504,9 +295,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.accountOwner = accountOwner;
   }
 
-  /**
-   * A list of the shop's active alert messages that appear in the Shopify admin.
-   */
+  
   public List<ShopAlert> getAlerts() {
     return alerts;
   }
@@ -515,9 +304,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.alerts = alerts;
   }
 
-  /**
-   * A list of the shop's product categories. Limit: 1000 product categories.
-   */
+  
   public List<ProductCategory> getAllProductCategories() {
     return allProductCategories;
   }
@@ -526,9 +313,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.allProductCategories = allProductCategories;
   }
 
-  /**
-   * A list of the shop's product categories. Limit: 1000 product categories.
-   */
+  
   public List<TaxonomyCategory> getAllProductCategoriesList() {
     return allProductCategoriesList;
   }
@@ -537,9 +322,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.allProductCategoriesList = allProductCategoriesList;
   }
 
-  /**
-   * The token required to query the shop's reports or dashboards.
-   */
+  
   public String getAnalyticsToken() {
     return analyticsToken;
   }
@@ -548,27 +331,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.analyticsToken = analyticsToken;
   }
 
-  /**
-   * The paginated list of fulfillment orders assigned to the shop locations owned by the app.
-   *   
-   * Assigned fulfillment orders are fulfillment orders that are set to be fulfilled from locations
-   * managed by
-   * [fulfillment services](https://shopify.dev/api/admin-graphql/latest/objects/FulfillmentService)
-   * that are registered by the app.
-   * One app (api_client) can host multiple fulfillment services on a shop.
-   * Each fulfillment service manages a dedicated location on a shop.
-   * Assigned fulfillment orders can have associated
-   * [fulfillment requests](https://shopify.dev/api/admin-graphql/latest/enums/FulfillmentOrderRequestStatus),
-   * or might currently not be requested to be fulfilled.
-   *   
-   * The app must have `read_assigned_fulfillment_orders`
-   * [access scope](https://shopify.dev/docs/api/usage/access-scopes)
-   * to be able to retrieve fulfillment orders assigned to its locations.
-   *   
-   * All assigned fulfillment orders (except those with the `CLOSED` status) will be returned by default.
-   * Perform filtering with the `assignmentStatus` argument
-   * to receive only fulfillment orders that have been requested to be fulfilled.
-   */
+  
   public FulfillmentOrderConnection getAssignedFulfillmentOrders() {
     return assignedFulfillmentOrders;
   }
@@ -577,9 +340,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.assignedFulfillmentOrders = assignedFulfillmentOrders;
   }
 
-  /**
-   * The list of sales channels not currently installed on the shop.
-   */
+  
   public AppConnection getAvailableChannelApps() {
     return availableChannelApps;
   }
@@ -588,9 +349,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.availableChannelApps = availableChannelApps;
   }
 
-  /**
-   * The shop's billing address information.
-   */
+  
   public ShopAddress getBillingAddress() {
     return billingAddress;
   }
@@ -599,9 +358,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.billingAddress = billingAddress;
   }
 
-  /**
-   * List of all channel definitions associated with a shop.
-   */
+  
   public List<AvailableChannelDefinitionsByChannel> getChannelDefinitionsForInstalledChannels() {
     return channelDefinitionsForInstalledChannels;
   }
@@ -611,9 +368,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.channelDefinitionsForInstalledChannels = channelDefinitionsForInstalledChannels;
   }
 
-  /**
-   * List of the shop's active sales channels.
-   */
+  
   public ChannelConnection getChannels() {
     return channels;
   }
@@ -622,9 +377,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.channels = channels;
   }
 
-  /**
-   * Specifies whether the shop supports checkouts via Checkout API.
-   */
+  
   public boolean getCheckoutApiSupported() {
     return checkoutApiSupported;
   }
@@ -633,9 +386,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.checkoutApiSupported = checkoutApiSupported;
   }
 
-  /**
-   * Return a collection by its handle.
-   */
+  
   public Collection getCollectionByHandle() {
     return collectionByHandle;
   }
@@ -644,9 +395,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.collectionByHandle = collectionByHandle;
   }
 
-  /**
-   * List of the shop's collection saved searches.
-   */
+  
   public SavedSearchConnection getCollectionSavedSearches() {
     return collectionSavedSearches;
   }
@@ -655,9 +404,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.collectionSavedSearches = collectionSavedSearches;
   }
 
-  /**
-   * List of the shop's collections.
-   */
+  
   public CollectionConnection getCollections() {
     return collections;
   }
@@ -666,10 +413,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.collections = collections;
   }
 
-  /**
-   * The public-facing contact email address for the shop.
-   * Customers will use this email to communicate with the shop owner.
-   */
+  
   public String getContactEmail() {
     return contactEmail;
   }
@@ -678,9 +422,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.contactEmail = contactEmail;
   }
 
-  /**
-   * Countries that have been defined in shipping zones for the shop.
-   */
+  
   public CountriesInShippingZones getCountriesInShippingZones() {
     return countriesInShippingZones;
   }
@@ -689,9 +431,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.countriesInShippingZones = countriesInShippingZones;
   }
 
-  /**
-   * The date and time when the shop was created.
-   */
+  
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -700,9 +440,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.createdAt = createdAt;
   }
 
-  /**
-   * The three letter code for the currency that the shop sells in.
-   */
+  
   public CurrencyCode getCurrencyCode() {
     return currencyCode;
   }
@@ -711,9 +449,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.currencyCode = currencyCode;
   }
 
-  /**
-   * How currencies are displayed on your store.
-   */
+  
   public CurrencyFormats getCurrencyFormats() {
     return currencyFormats;
   }
@@ -722,9 +458,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.currencyFormats = currencyFormats;
   }
 
-  /**
-   * The presentment currency settings for the shop excluding the shop's own currency.
-   */
+  
   public CurrencySettingConnection getCurrencySettings() {
     return currencySettings;
   }
@@ -733,9 +467,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.currencySettings = currencySettings;
   }
 
-  /**
-   * Whether customer accounts are required, optional, or disabled for the shop.
-   */
+  
   public ShopCustomerAccountsSetting getCustomerAccounts() {
     return customerAccounts;
   }
@@ -744,9 +476,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.customerAccounts = customerAccounts;
   }
 
-  /**
-   * Information about the shop's customer accounts.
-   */
+  
   public CustomerAccountsV2 getCustomerAccountsV2() {
     return customerAccountsV2;
   }
@@ -755,9 +485,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.customerAccountsV2 = customerAccountsV2;
   }
 
-  /**
-   * List of the shop's customer saved searches.
-   */
+  
   public SavedSearchConnection getCustomerSavedSearches() {
     return customerSavedSearches;
   }
@@ -766,9 +494,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.customerSavedSearches = customerSavedSearches;
   }
 
-  /**
-   * A list of tags that have been added to customer accounts.
-   */
+  
   public StringConnection getCustomerTags() {
     return customerTags;
   }
@@ -777,9 +503,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.customerTags = customerTags;
   }
 
-  /**
-   * Customer accounts associated to the shop.
-   */
+  
   public CustomerConnection getCustomers() {
     return customers;
   }
@@ -788,9 +512,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.customers = customers;
   }
 
-  /**
-   * The shop's meta description used in search engine results.
-   */
+  
   public String getDescription() {
     return description;
   }
@@ -799,9 +521,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.description = description;
   }
 
-  /**
-   * The domains configured for the shop.
-   */
+  
   public List<Domain> getDomains() {
     return domains;
   }
@@ -810,9 +530,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.domains = domains;
   }
 
-  /**
-   * List of the shop's draft order saved searches.
-   */
+  
   public SavedSearchConnection getDraftOrderSavedSearches() {
     return draftOrderSavedSearches;
   }
@@ -821,9 +539,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.draftOrderSavedSearches = draftOrderSavedSearches;
   }
 
-  /**
-   * A list of tags that have been added to draft orders.
-   */
+  
   public StringConnection getDraftOrderTags() {
     return draftOrderTags;
   }
@@ -832,9 +548,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.draftOrderTags = draftOrderTags;
   }
 
-  /**
-   * List of saved draft orders on the shop.
-   */
+  
   public DraftOrderConnection getDraftOrders() {
     return draftOrders;
   }
@@ -843,10 +557,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.draftOrders = draftOrders;
   }
 
-  /**
-   * The shop owner's email address.
-   * Shopify will use this email address to communicate with the shop owner.
-   */
+  
   public String getEmail() {
     return email;
   }
@@ -855,9 +566,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.email = email;
   }
 
-  /**
-   * The presentment currencies enabled for the shop.
-   */
+  
   public List<CurrencyCode> getEnabledPresentmentCurrencies() {
     return enabledPresentmentCurrencies;
   }
@@ -866,9 +575,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.enabledPresentmentCurrencies = enabledPresentmentCurrencies;
   }
 
-  /**
-   * The set of features enabled for the shop.
-   */
+  
   public ShopFeatures getFeatures() {
     return features;
   }
@@ -877,9 +584,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.features = features;
   }
 
-  /**
-   * The paginated list of merchant-managed and third-party fulfillment orders.
-   */
+  
   public FulfillmentOrderConnection getFulfillmentOrders() {
     return fulfillmentOrders;
   }
@@ -888,9 +593,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.fulfillmentOrders = fulfillmentOrders;
   }
 
-  /**
-   * List of the shop's installed fulfillment services.
-   */
+  
   public List<FulfillmentService> getFulfillmentServices() {
     return fulfillmentServices;
   }
@@ -899,9 +602,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.fulfillmentServices = fulfillmentServices;
   }
 
-  /**
-   * The shop's time zone as defined by the IANA.
-   */
+  
   public String getIanaTimezone() {
     return ianaTimezone;
   }
@@ -910,9 +611,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.ianaTimezone = ianaTimezone;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -921,9 +620,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.id = id;
   }
 
-  /**
-   * List of the shop's inventory items.
-   */
+  
   public InventoryItemConnection getInventoryItems() {
     return inventoryItems;
   }
@@ -932,10 +629,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.inventoryItems = inventoryItems;
   }
 
-  /**
-   * The number of pendings orders on the shop.
-   * Limited to a maximum of 10000.
-   */
+  
   public LimitedPendingOrderCount getLimitedPendingOrderCount() {
     return limitedPendingOrderCount;
   }
@@ -944,9 +638,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.limitedPendingOrderCount = limitedPendingOrderCount;
   }
 
-  /**
-   * List of active locations of the shop.
-   */
+  
   public LocationConnection getLocations() {
     return locations;
   }
@@ -955,9 +647,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.locations = locations;
   }
 
-  /**
-   * List of a shop's marketing events.
-   */
+  
   public MarketingEventConnection getMarketingEvents() {
     return marketingEvents;
   }
@@ -966,9 +656,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.marketingEvents = marketingEvents;
   }
 
-  /**
-   * Whether SMS marketing has been enabled on the shop's checkout configuration settings.
-   */
+  
   public boolean getMarketingSmsConsentEnabledAtCheckout() {
     return marketingSmsConsentEnabledAtCheckout;
   }
@@ -978,9 +666,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.marketingSmsConsentEnabledAtCheckout = marketingSmsConsentEnabledAtCheckout;
   }
 
-  /**
-   * The approval signals for a shop to support onboarding to channel apps.
-   */
+  
   public MerchantApprovalSignals getMerchantApprovalSignals() {
     return merchantApprovalSignals;
   }
@@ -989,11 +675,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.merchantApprovalSignals = merchantApprovalSignals;
   }
 
-  /**
-   * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-   * including its `namespace` and `key`, that's associated with a Shopify resource
-   * for the purposes of adding and storing additional information.
-   */
+  
   public Metafield getMetafield() {
     return metafield;
   }
@@ -1002,10 +684,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.metafield = metafield;
   }
 
-  /**
-   * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-   * that a merchant associates with a Shopify resource.
-   */
+  
   public MetafieldConnection getMetafields() {
     return metafields;
   }
@@ -1014,9 +693,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.metafields = metafields;
   }
 
-  /**
-   * The shop's .myshopify.com domain name.
-   */
+  
   public String getMyshopifyDomain() {
     return myshopifyDomain;
   }
@@ -1025,9 +702,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.myshopifyDomain = myshopifyDomain;
   }
 
-  /**
-   * The shop's name.
-   */
+  
   public String getName() {
     return name;
   }
@@ -1036,9 +711,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.name = name;
   }
 
-  /**
-   * The shop's settings related to navigation.
-   */
+  
   public List<NavigationItem> getNavigationSettings() {
     return navigationSettings;
   }
@@ -1047,9 +720,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.navigationSettings = navigationSettings;
   }
 
-  /**
-   * The prefix that appears before order numbers.
-   */
+  
   public String getOrderNumberFormatPrefix() {
     return orderNumberFormatPrefix;
   }
@@ -1058,9 +729,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.orderNumberFormatPrefix = orderNumberFormatPrefix;
   }
 
-  /**
-   * The suffix that appears after order numbers.
-   */
+  
   public String getOrderNumberFormatSuffix() {
     return orderNumberFormatSuffix;
   }
@@ -1069,9 +738,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.orderNumberFormatSuffix = orderNumberFormatSuffix;
   }
 
-  /**
-   * List of the shop's order saved searches.
-   */
+  
   public SavedSearchConnection getOrderSavedSearches() {
     return orderSavedSearches;
   }
@@ -1080,9 +747,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.orderSavedSearches = orderSavedSearches;
   }
 
-  /**
-   * A list of tags that have been added to orders.
-   */
+  
   public StringConnection getOrderTags() {
     return orderTags;
   }
@@ -1091,9 +756,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.orderTags = orderTags;
   }
 
-  /**
-   * A list of the shop's orders.
-   */
+  
   public OrderConnection getOrders() {
     return orders;
   }
@@ -1102,9 +765,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.orders = orders;
   }
 
-  /**
-   * The shop's settings related to payments.
-   */
+  
   public PaymentSettings getPaymentSettings() {
     return paymentSettings;
   }
@@ -1113,9 +774,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.paymentSettings = paymentSettings;
   }
 
-  /**
-   * The shop's billing plan.
-   */
+  
   public ShopPlan getPlan() {
     return plan;
   }
@@ -1124,9 +783,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.plan = plan;
   }
 
-  /**
-   * The primary domain of the shop's online store.
-   */
+  
   public Domain getPrimaryDomain() {
     return primaryDomain;
   }
@@ -1135,9 +792,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.primaryDomain = primaryDomain;
   }
 
-  /**
-   * Returns a private metafield by namespace and key that belongs to the resource.
-   */
+  
   public PrivateMetafield getPrivateMetafield() {
     return privateMetafield;
   }
@@ -1146,9 +801,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.privateMetafield = privateMetafield;
   }
 
-  /**
-   * List of private metafields that belong to the resource.
-   */
+  
   public PrivateMetafieldConnection getPrivateMetafields() {
     return privateMetafields;
   }
@@ -1157,9 +810,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.privateMetafields = privateMetafields;
   }
 
-  /**
-   * Return a product by its handle.
-   */
+  
   public Product getProductByHandle() {
     return productByHandle;
   }
@@ -1168,9 +819,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.productByHandle = productByHandle;
   }
 
-  /**
-   * The list of all images of all products for the shop.
-   */
+  
   public ImageConnection getProductImages() {
     return productImages;
   }
@@ -1179,9 +828,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.productImages = productImages;
   }
 
-  /**
-   * List of the shop's product saved searches.
-   */
+  
   public SavedSearchConnection getProductSavedSearches() {
     return productSavedSearches;
   }
@@ -1190,9 +837,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.productSavedSearches = productSavedSearches;
   }
 
-  /**
-   * A list of tags that have been added to products.
-   */
+  
   public StringConnection getProductTags() {
     return productTags;
   }
@@ -1201,9 +846,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.productTags = productTags;
   }
 
-  /**
-   * The list of types added to products.
-   */
+  
   public StringConnection getProductTypes() {
     return productTypes;
   }
@@ -1212,9 +855,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.productTypes = productTypes;
   }
 
-  /**
-   * List of the shop's product variants.
-   */
+  
   public ProductVariantConnection getProductVariants() {
     return productVariants;
   }
@@ -1223,9 +864,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.productVariants = productVariants;
   }
 
-  /**
-   * The list of vendors added to products.
-   */
+  
   public StringConnection getProductVendors() {
     return productVendors;
   }
@@ -1234,9 +873,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.productVendors = productVendors;
   }
 
-  /**
-   * List of the shop's products.
-   */
+  
   public ProductConnection getProducts() {
     return products;
   }
@@ -1245,9 +882,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.products = products;
   }
 
-  /**
-   * The number of publications for the shop.
-   */
+  
   public int getPublicationCount() {
     return publicationCount;
   }
@@ -1256,10 +891,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.publicationCount = publicationCount;
   }
 
-  /**
-   * The shop's limits for specific resources. For example, the maximum number
-   * ofvariants allowed per product, or the maximum number of locations allowed.
-   */
+  
   public ShopResourceLimits getResourceLimits() {
     return resourceLimits;
   }
@@ -1268,9 +900,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.resourceLimits = resourceLimits;
   }
 
-  /**
-   * The URL of the rich text editor that can be used for mobile devices.
-   */
+  
   public String getRichTextEditorUrl() {
     return richTextEditorUrl;
   }
@@ -1279,9 +909,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.richTextEditorUrl = richTextEditorUrl;
   }
 
-  /**
-   * Fetches a list of admin search results by a specified query.
-   */
+  
   public SearchResultConnection getSearch() {
     return search;
   }
@@ -1290,9 +918,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.search = search;
   }
 
-  /**
-   * The list of search filter options for the shop. These can be used to filter productvisibility for the shop.
-   */
+  
   public SearchFilterOptions getSearchFilters() {
     return searchFilters;
   }
@@ -1301,9 +927,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.searchFilters = searchFilters;
   }
 
-  /**
-   * Whether the shop has outstanding setup steps.
-   */
+  
   public boolean getSetupRequired() {
     return setupRequired;
   }
@@ -1312,9 +936,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.setupRequired = setupRequired;
   }
 
-  /**
-   * The list of countries that the shop ships to.
-   */
+  
   public List<CountryCode> getShipsToCountries() {
     return shipsToCountries;
   }
@@ -1323,9 +945,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.shipsToCountries = shipsToCountries;
   }
 
-  /**
-   * The name of the shop owner.
-   */
+  
   public String getShopOwnerName() {
     return shopOwnerName;
   }
@@ -1334,9 +954,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.shopOwnerName = shopOwnerName;
   }
 
-  /**
-   * The list of all legal policies associated with a shop.
-   */
+  
   public List<ShopPolicy> getShopPolicies() {
     return shopPolicies;
   }
@@ -1345,9 +963,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.shopPolicies = shopPolicies;
   }
 
-  /**
-   * The paginated list of the shop's staff members.
-   */
+  
   public StaffMemberConnection getStaffMembers() {
     return staffMembers;
   }
@@ -1356,9 +972,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.staffMembers = staffMembers;
   }
 
-  /**
-   * The storefront access token of a private application. These are scoped per-application.
-   */
+  
   public StorefrontAccessTokenConnection getStorefrontAccessTokens() {
     return storefrontAccessTokens;
   }
@@ -1367,9 +981,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.storefrontAccessTokens = storefrontAccessTokens;
   }
 
-  /**
-   * The URL of the shop's storefront.
-   */
+  
   public String getStorefrontUrl() {
     return storefrontUrl;
   }
@@ -1378,9 +990,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.storefrontUrl = storefrontUrl;
   }
 
-  /**
-   * Whether the shop charges taxes for shipping.
-   */
+  
   public boolean getTaxShipping() {
     return taxShipping;
   }
@@ -1389,9 +999,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.taxShipping = taxShipping;
   }
 
-  /**
-   * Whether applicable taxes are included in the shop's product prices.
-   */
+  
   public boolean getTaxesIncluded() {
     return taxesIncluded;
   }
@@ -1400,9 +1008,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.taxesIncluded = taxesIncluded;
   }
 
-  /**
-   * The shop's time zone abbreviation.
-   */
+  
   public String getTimezoneAbbreviation() {
     return timezoneAbbreviation;
   }
@@ -1411,9 +1017,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.timezoneAbbreviation = timezoneAbbreviation;
   }
 
-  /**
-   * The shop's time zone offset.
-   */
+  
   public String getTimezoneOffset() {
     return timezoneOffset;
   }
@@ -1422,9 +1026,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.timezoneOffset = timezoneOffset;
   }
 
-  /**
-   * The shop's time zone offset expressed as a number of minutes.
-   */
+  
   public int getTimezoneOffsetMinutes() {
     return timezoneOffsetMinutes;
   }
@@ -1433,9 +1035,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.timezoneOffsetMinutes = timezoneOffsetMinutes;
   }
 
-  /**
-   * Whether transactional SMS sent by Shopify have been disabled for a shop.
-   */
+  
   public boolean getTransactionalSmsDisabled() {
     return transactionalSmsDisabled;
   }
@@ -1444,9 +1044,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.transactionalSmsDisabled = transactionalSmsDisabled;
   }
 
-  /**
-   * The published translations associated with the resource.
-   */
+  
   public List<Translation> getTranslations() {
     return translations;
   }
@@ -1455,9 +1053,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.translations = translations;
   }
 
-  /**
-   * The shop's unit system for weights and measures.
-   */
+  
   public UnitSystem getUnitSystem() {
     return unitSystem;
   }
@@ -1466,9 +1062,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.unitSystem = unitSystem;
   }
 
-  /**
-   * The date and time when the shop was last updated.
-   */
+  
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
@@ -1477,9 +1071,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.updatedAt = updatedAt;
   }
 
-  /**
-   * Fetches a list of images uploaded to the shop by their IDs.
-   */
+  
   public List<Image> getUploadedImagesByIds() {
     return uploadedImagesByIds;
   }
@@ -1488,9 +1080,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.uploadedImagesByIds = uploadedImagesByIds;
   }
 
-  /**
-   * The URL of the shop's online store.
-   */
+  
   public String getUrl() {
     return url;
   }
@@ -1499,9 +1089,7 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
     this.url = url;
   }
 
-  /**
-   * The shop's primary unit of weight for products and shipping.
-   */
+  
   public WeightUnit getWeightUnit() {
     return weightUnit;
   }
@@ -1622,479 +1210,274 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
   }
 
   public static class Builder {
-    /**
-     * Account owner information.
-     */
+    
     private StaffMember accountOwner;
 
-    /**
-     * A list of the shop's active alert messages that appear in the Shopify admin.
-     */
+    
     private List<ShopAlert> alerts;
 
-    /**
-     * A list of the shop's product categories. Limit: 1000 product categories.
-     */
+    
     private List<ProductCategory> allProductCategories;
 
-    /**
-     * A list of the shop's product categories. Limit: 1000 product categories.
-     */
+    
     private List<TaxonomyCategory> allProductCategoriesList;
 
-    /**
-     * The token required to query the shop's reports or dashboards.
-     */
+    
     private String analyticsToken;
 
-    /**
-     * The paginated list of fulfillment orders assigned to the shop locations owned by the app.
-     *   
-     * Assigned fulfillment orders are fulfillment orders that are set to be fulfilled from locations
-     * managed by
-     * [fulfillment services](https://shopify.dev/api/admin-graphql/latest/objects/FulfillmentService)
-     * that are registered by the app.
-     * One app (api_client) can host multiple fulfillment services on a shop.
-     * Each fulfillment service manages a dedicated location on a shop.
-     * Assigned fulfillment orders can have associated
-     * [fulfillment requests](https://shopify.dev/api/admin-graphql/latest/enums/FulfillmentOrderRequestStatus),
-     * or might currently not be requested to be fulfilled.
-     *   
-     * The app must have `read_assigned_fulfillment_orders`
-     * [access scope](https://shopify.dev/docs/api/usage/access-scopes)
-     * to be able to retrieve fulfillment orders assigned to its locations.
-     *   
-     * All assigned fulfillment orders (except those with the `CLOSED` status) will be returned by default.
-     * Perform filtering with the `assignmentStatus` argument
-     * to receive only fulfillment orders that have been requested to be fulfilled.
-     */
+    
     private FulfillmentOrderConnection assignedFulfillmentOrders;
 
-    /**
-     * The list of sales channels not currently installed on the shop.
-     */
+    
     private AppConnection availableChannelApps;
 
-    /**
-     * The shop's billing address information.
-     */
+    
     private ShopAddress billingAddress;
 
-    /**
-     * List of all channel definitions associated with a shop.
-     */
+    
     private List<AvailableChannelDefinitionsByChannel> channelDefinitionsForInstalledChannels;
 
-    /**
-     * List of the shop's active sales channels.
-     */
+    
     private ChannelConnection channels;
 
-    /**
-     * Specifies whether the shop supports checkouts via Checkout API.
-     */
+    
     private boolean checkoutApiSupported;
 
-    /**
-     * Return a collection by its handle.
-     */
+    
     private Collection collectionByHandle;
 
-    /**
-     * List of the shop's collection saved searches.
-     */
+    
     private SavedSearchConnection collectionSavedSearches;
 
-    /**
-     * List of the shop's collections.
-     */
+    
     private CollectionConnection collections;
 
-    /**
-     * The public-facing contact email address for the shop.
-     * Customers will use this email to communicate with the shop owner.
-     */
+    
     private String contactEmail;
 
-    /**
-     * Countries that have been defined in shipping zones for the shop.
-     */
+    
     private CountriesInShippingZones countriesInShippingZones;
 
-    /**
-     * The date and time when the shop was created.
-     */
+    
     private OffsetDateTime createdAt;
 
-    /**
-     * The three letter code for the currency that the shop sells in.
-     */
+    
     private CurrencyCode currencyCode;
 
-    /**
-     * How currencies are displayed on your store.
-     */
+    
     private CurrencyFormats currencyFormats;
 
-    /**
-     * The presentment currency settings for the shop excluding the shop's own currency.
-     */
+    
     private CurrencySettingConnection currencySettings;
 
-    /**
-     * Whether customer accounts are required, optional, or disabled for the shop.
-     */
+    
     private ShopCustomerAccountsSetting customerAccounts;
 
-    /**
-     * Information about the shop's customer accounts.
-     */
+    
     private CustomerAccountsV2 customerAccountsV2;
 
-    /**
-     * List of the shop's customer saved searches.
-     */
+    
     private SavedSearchConnection customerSavedSearches;
 
-    /**
-     * A list of tags that have been added to customer accounts.
-     */
+    
     private StringConnection customerTags;
 
-    /**
-     * Customer accounts associated to the shop.
-     */
+    
     private CustomerConnection customers;
 
-    /**
-     * The shop's meta description used in search engine results.
-     */
+    
     private String description;
 
-    /**
-     * The domains configured for the shop.
-     */
+    
     private List<Domain> domains;
 
-    /**
-     * List of the shop's draft order saved searches.
-     */
+    
     private SavedSearchConnection draftOrderSavedSearches;
 
-    /**
-     * A list of tags that have been added to draft orders.
-     */
+    
     private StringConnection draftOrderTags;
 
-    /**
-     * List of saved draft orders on the shop.
-     */
+    
     private DraftOrderConnection draftOrders;
 
-    /**
-     * The shop owner's email address.
-     * Shopify will use this email address to communicate with the shop owner.
-     */
+    
     private String email;
 
-    /**
-     * The presentment currencies enabled for the shop.
-     */
+    
     private List<CurrencyCode> enabledPresentmentCurrencies;
 
-    /**
-     * The set of features enabled for the shop.
-     */
+    
     private ShopFeatures features;
 
-    /**
-     * The paginated list of merchant-managed and third-party fulfillment orders.
-     */
+    
     private FulfillmentOrderConnection fulfillmentOrders;
 
-    /**
-     * List of the shop's installed fulfillment services.
-     */
+    
     private List<FulfillmentService> fulfillmentServices;
 
-    /**
-     * The shop's time zone as defined by the IANA.
-     */
+    
     private String ianaTimezone;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * List of the shop's inventory items.
-     */
+    
     private InventoryItemConnection inventoryItems;
 
-    /**
-     * The number of pendings orders on the shop.
-     * Limited to a maximum of 10000.
-     */
+    
     private LimitedPendingOrderCount limitedPendingOrderCount;
 
-    /**
-     * List of active locations of the shop.
-     */
+    
     private LocationConnection locations;
 
-    /**
-     * List of a shop's marketing events.
-     */
+    
     private MarketingEventConnection marketingEvents;
 
-    /**
-     * Whether SMS marketing has been enabled on the shop's checkout configuration settings.
-     */
+    
     private boolean marketingSmsConsentEnabledAtCheckout;
 
-    /**
-     * The approval signals for a shop to support onboarding to channel apps.
-     */
+    
     private MerchantApprovalSignals merchantApprovalSignals;
 
-    /**
-     * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-     * including its `namespace` and `key`, that's associated with a Shopify resource
-     * for the purposes of adding and storing additional information.
-     */
+    
     private Metafield metafield;
 
-    /**
-     * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-     * that a merchant associates with a Shopify resource.
-     */
+    
     private MetafieldConnection metafields;
 
-    /**
-     * The shop's .myshopify.com domain name.
-     */
+    
     private String myshopifyDomain;
 
-    /**
-     * The shop's name.
-     */
+    
     private String name;
 
-    /**
-     * The shop's settings related to navigation.
-     */
+    
     private List<NavigationItem> navigationSettings;
 
-    /**
-     * The prefix that appears before order numbers.
-     */
+    
     private String orderNumberFormatPrefix;
 
-    /**
-     * The suffix that appears after order numbers.
-     */
+    
     private String orderNumberFormatSuffix;
 
-    /**
-     * List of the shop's order saved searches.
-     */
+    
     private SavedSearchConnection orderSavedSearches;
 
-    /**
-     * A list of tags that have been added to orders.
-     */
+    
     private StringConnection orderTags;
 
-    /**
-     * A list of the shop's orders.
-     */
+    
     private OrderConnection orders;
 
-    /**
-     * The shop's settings related to payments.
-     */
+    
     private PaymentSettings paymentSettings;
 
-    /**
-     * The shop's billing plan.
-     */
+    
     private ShopPlan plan;
 
-    /**
-     * The primary domain of the shop's online store.
-     */
+    
     private Domain primaryDomain;
 
-    /**
-     * Returns a private metafield by namespace and key that belongs to the resource.
-     */
+    
     private PrivateMetafield privateMetafield;
 
-    /**
-     * List of private metafields that belong to the resource.
-     */
+    
     private PrivateMetafieldConnection privateMetafields;
 
-    /**
-     * Return a product by its handle.
-     */
+    
     private Product productByHandle;
 
-    /**
-     * The list of all images of all products for the shop.
-     */
+    
     private ImageConnection productImages;
 
-    /**
-     * List of the shop's product saved searches.
-     */
+    
     private SavedSearchConnection productSavedSearches;
 
-    /**
-     * A list of tags that have been added to products.
-     */
+    
     private StringConnection productTags;
 
-    /**
-     * The list of types added to products.
-     */
+    
     private StringConnection productTypes;
 
-    /**
-     * List of the shop's product variants.
-     */
+    
     private ProductVariantConnection productVariants;
 
-    /**
-     * The list of vendors added to products.
-     */
+    
     private StringConnection productVendors;
 
-    /**
-     * List of the shop's products.
-     */
+    
     private ProductConnection products;
 
-    /**
-     * The number of publications for the shop.
-     */
+    
     private int publicationCount;
 
-    /**
-     * The shop's limits for specific resources. For example, the maximum number
-     * ofvariants allowed per product, or the maximum number of locations allowed.
-     */
+    
     private ShopResourceLimits resourceLimits;
 
-    /**
-     * The URL of the rich text editor that can be used for mobile devices.
-     */
+    
     private String richTextEditorUrl;
 
-    /**
-     * Fetches a list of admin search results by a specified query.
-     */
+    
     private SearchResultConnection search;
 
-    /**
-     * The list of search filter options for the shop. These can be used to filter productvisibility for the shop.
-     */
+    
     private SearchFilterOptions searchFilters;
 
-    /**
-     * Whether the shop has outstanding setup steps.
-     */
+    
     private boolean setupRequired;
 
-    /**
-     * The list of countries that the shop ships to.
-     */
+    
     private List<CountryCode> shipsToCountries;
 
-    /**
-     * The name of the shop owner.
-     */
+    
     private String shopOwnerName;
 
-    /**
-     * The list of all legal policies associated with a shop.
-     */
+    
     private List<ShopPolicy> shopPolicies;
 
-    /**
-     * The paginated list of the shop's staff members.
-     */
+    
     private StaffMemberConnection staffMembers;
 
-    /**
-     * The storefront access token of a private application. These are scoped per-application.
-     */
+    
     private StorefrontAccessTokenConnection storefrontAccessTokens;
 
-    /**
-     * The URL of the shop's storefront.
-     */
+    
     private String storefrontUrl;
 
-    /**
-     * Whether the shop charges taxes for shipping.
-     */
+    
     private boolean taxShipping;
 
-    /**
-     * Whether applicable taxes are included in the shop's product prices.
-     */
+    
     private boolean taxesIncluded;
 
-    /**
-     * The shop's time zone abbreviation.
-     */
+    
     private String timezoneAbbreviation;
 
-    /**
-     * The shop's time zone offset.
-     */
+    
     private String timezoneOffset;
 
-    /**
-     * The shop's time zone offset expressed as a number of minutes.
-     */
+    
     private int timezoneOffsetMinutes;
 
-    /**
-     * Whether transactional SMS sent by Shopify have been disabled for a shop.
-     */
+    
     private boolean transactionalSmsDisabled;
 
-    /**
-     * The published translations associated with the resource.
-     */
+    
     private List<Translation> translations;
 
-    /**
-     * The shop's unit system for weights and measures.
-     */
+    
     private UnitSystem unitSystem;
 
-    /**
-     * The date and time when the shop was last updated.
-     */
+    
     private OffsetDateTime updatedAt;
 
-    /**
-     * Fetches a list of images uploaded to the shop by their IDs.
-     */
+    
     private List<Image> uploadedImagesByIds;
 
-    /**
-     * The URL of the shop's online store.
-     */
+    
     private String url;
 
-    /**
-     * The shop's primary unit of weight for products and shipping.
-     */
+    
     private WeightUnit weightUnit;
 
     public Shop build() {
@@ -2192,748 +1575,543 @@ public class Shop implements MetafieldReferencer, com.shopify.types.HasMetafield
       return result;
     }
 
-    /**
-     * Account owner information.
-     */
+    
     public Builder accountOwner(StaffMember accountOwner) {
       this.accountOwner = accountOwner;
       return this;
     }
 
-    /**
-     * A list of the shop's active alert messages that appear in the Shopify admin.
-     */
+    
     public Builder alerts(List<ShopAlert> alerts) {
       this.alerts = alerts;
       return this;
     }
 
-    /**
-     * A list of the shop's product categories. Limit: 1000 product categories.
-     */
+    
     public Builder allProductCategories(List<ProductCategory> allProductCategories) {
       this.allProductCategories = allProductCategories;
       return this;
     }
 
-    /**
-     * A list of the shop's product categories. Limit: 1000 product categories.
-     */
+    
     public Builder allProductCategoriesList(List<TaxonomyCategory> allProductCategoriesList) {
       this.allProductCategoriesList = allProductCategoriesList;
       return this;
     }
 
-    /**
-     * The token required to query the shop's reports or dashboards.
-     */
+    
     public Builder analyticsToken(String analyticsToken) {
       this.analyticsToken = analyticsToken;
       return this;
     }
 
-    /**
-     * The paginated list of fulfillment orders assigned to the shop locations owned by the app.
-     *   
-     * Assigned fulfillment orders are fulfillment orders that are set to be fulfilled from locations
-     * managed by
-     * [fulfillment services](https://shopify.dev/api/admin-graphql/latest/objects/FulfillmentService)
-     * that are registered by the app.
-     * One app (api_client) can host multiple fulfillment services on a shop.
-     * Each fulfillment service manages a dedicated location on a shop.
-     * Assigned fulfillment orders can have associated
-     * [fulfillment requests](https://shopify.dev/api/admin-graphql/latest/enums/FulfillmentOrderRequestStatus),
-     * or might currently not be requested to be fulfilled.
-     *   
-     * The app must have `read_assigned_fulfillment_orders`
-     * [access scope](https://shopify.dev/docs/api/usage/access-scopes)
-     * to be able to retrieve fulfillment orders assigned to its locations.
-     *   
-     * All assigned fulfillment orders (except those with the `CLOSED` status) will be returned by default.
-     * Perform filtering with the `assignmentStatus` argument
-     * to receive only fulfillment orders that have been requested to be fulfilled.
-     */
+    
     public Builder assignedFulfillmentOrders(FulfillmentOrderConnection assignedFulfillmentOrders) {
       this.assignedFulfillmentOrders = assignedFulfillmentOrders;
       return this;
     }
 
-    /**
-     * The list of sales channels not currently installed on the shop.
-     */
+    
     public Builder availableChannelApps(AppConnection availableChannelApps) {
       this.availableChannelApps = availableChannelApps;
       return this;
     }
 
-    /**
-     * The shop's billing address information.
-     */
+    
     public Builder billingAddress(ShopAddress billingAddress) {
       this.billingAddress = billingAddress;
       return this;
     }
 
-    /**
-     * List of all channel definitions associated with a shop.
-     */
+    
     public Builder channelDefinitionsForInstalledChannels(
         List<AvailableChannelDefinitionsByChannel> channelDefinitionsForInstalledChannels) {
       this.channelDefinitionsForInstalledChannels = channelDefinitionsForInstalledChannels;
       return this;
     }
 
-    /**
-     * List of the shop's active sales channels.
-     */
+    
     public Builder channels(ChannelConnection channels) {
       this.channels = channels;
       return this;
     }
 
-    /**
-     * Specifies whether the shop supports checkouts via Checkout API.
-     */
+    
     public Builder checkoutApiSupported(boolean checkoutApiSupported) {
       this.checkoutApiSupported = checkoutApiSupported;
       return this;
     }
 
-    /**
-     * Return a collection by its handle.
-     */
+    
     public Builder collectionByHandle(Collection collectionByHandle) {
       this.collectionByHandle = collectionByHandle;
       return this;
     }
 
-    /**
-     * List of the shop's collection saved searches.
-     */
+    
     public Builder collectionSavedSearches(SavedSearchConnection collectionSavedSearches) {
       this.collectionSavedSearches = collectionSavedSearches;
       return this;
     }
 
-    /**
-     * List of the shop's collections.
-     */
+    
     public Builder collections(CollectionConnection collections) {
       this.collections = collections;
       return this;
     }
 
-    /**
-     * The public-facing contact email address for the shop.
-     * Customers will use this email to communicate with the shop owner.
-     */
+    
     public Builder contactEmail(String contactEmail) {
       this.contactEmail = contactEmail;
       return this;
     }
 
-    /**
-     * Countries that have been defined in shipping zones for the shop.
-     */
+    
     public Builder countriesInShippingZones(CountriesInShippingZones countriesInShippingZones) {
       this.countriesInShippingZones = countriesInShippingZones;
       return this;
     }
 
-    /**
-     * The date and time when the shop was created.
-     */
+    
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    /**
-     * The three letter code for the currency that the shop sells in.
-     */
+    
     public Builder currencyCode(CurrencyCode currencyCode) {
       this.currencyCode = currencyCode;
       return this;
     }
 
-    /**
-     * How currencies are displayed on your store.
-     */
+    
     public Builder currencyFormats(CurrencyFormats currencyFormats) {
       this.currencyFormats = currencyFormats;
       return this;
     }
 
-    /**
-     * The presentment currency settings for the shop excluding the shop's own currency.
-     */
+    
     public Builder currencySettings(CurrencySettingConnection currencySettings) {
       this.currencySettings = currencySettings;
       return this;
     }
 
-    /**
-     * Whether customer accounts are required, optional, or disabled for the shop.
-     */
+    
     public Builder customerAccounts(ShopCustomerAccountsSetting customerAccounts) {
       this.customerAccounts = customerAccounts;
       return this;
     }
 
-    /**
-     * Information about the shop's customer accounts.
-     */
+    
     public Builder customerAccountsV2(CustomerAccountsV2 customerAccountsV2) {
       this.customerAccountsV2 = customerAccountsV2;
       return this;
     }
 
-    /**
-     * List of the shop's customer saved searches.
-     */
+    
     public Builder customerSavedSearches(SavedSearchConnection customerSavedSearches) {
       this.customerSavedSearches = customerSavedSearches;
       return this;
     }
 
-    /**
-     * A list of tags that have been added to customer accounts.
-     */
+    
     public Builder customerTags(StringConnection customerTags) {
       this.customerTags = customerTags;
       return this;
     }
 
-    /**
-     * Customer accounts associated to the shop.
-     */
+    
     public Builder customers(CustomerConnection customers) {
       this.customers = customers;
       return this;
     }
 
-    /**
-     * The shop's meta description used in search engine results.
-     */
+    
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    /**
-     * The domains configured for the shop.
-     */
+    
     public Builder domains(List<Domain> domains) {
       this.domains = domains;
       return this;
     }
 
-    /**
-     * List of the shop's draft order saved searches.
-     */
+    
     public Builder draftOrderSavedSearches(SavedSearchConnection draftOrderSavedSearches) {
       this.draftOrderSavedSearches = draftOrderSavedSearches;
       return this;
     }
 
-    /**
-     * A list of tags that have been added to draft orders.
-     */
+    
     public Builder draftOrderTags(StringConnection draftOrderTags) {
       this.draftOrderTags = draftOrderTags;
       return this;
     }
 
-    /**
-     * List of saved draft orders on the shop.
-     */
+    
     public Builder draftOrders(DraftOrderConnection draftOrders) {
       this.draftOrders = draftOrders;
       return this;
     }
 
-    /**
-     * The shop owner's email address.
-     * Shopify will use this email address to communicate with the shop owner.
-     */
+    
     public Builder email(String email) {
       this.email = email;
       return this;
     }
 
-    /**
-     * The presentment currencies enabled for the shop.
-     */
+    
     public Builder enabledPresentmentCurrencies(List<CurrencyCode> enabledPresentmentCurrencies) {
       this.enabledPresentmentCurrencies = enabledPresentmentCurrencies;
       return this;
     }
 
-    /**
-     * The set of features enabled for the shop.
-     */
+    
     public Builder features(ShopFeatures features) {
       this.features = features;
       return this;
     }
 
-    /**
-     * The paginated list of merchant-managed and third-party fulfillment orders.
-     */
+    
     public Builder fulfillmentOrders(FulfillmentOrderConnection fulfillmentOrders) {
       this.fulfillmentOrders = fulfillmentOrders;
       return this;
     }
 
-    /**
-     * List of the shop's installed fulfillment services.
-     */
+    
     public Builder fulfillmentServices(List<FulfillmentService> fulfillmentServices) {
       this.fulfillmentServices = fulfillmentServices;
       return this;
     }
 
-    /**
-     * The shop's time zone as defined by the IANA.
-     */
+    
     public Builder ianaTimezone(String ianaTimezone) {
       this.ianaTimezone = ianaTimezone;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * List of the shop's inventory items.
-     */
+    
     public Builder inventoryItems(InventoryItemConnection inventoryItems) {
       this.inventoryItems = inventoryItems;
       return this;
     }
 
-    /**
-     * The number of pendings orders on the shop.
-     * Limited to a maximum of 10000.
-     */
+    
     public Builder limitedPendingOrderCount(LimitedPendingOrderCount limitedPendingOrderCount) {
       this.limitedPendingOrderCount = limitedPendingOrderCount;
       return this;
     }
 
-    /**
-     * List of active locations of the shop.
-     */
+    
     public Builder locations(LocationConnection locations) {
       this.locations = locations;
       return this;
     }
 
-    /**
-     * List of a shop's marketing events.
-     */
+    
     public Builder marketingEvents(MarketingEventConnection marketingEvents) {
       this.marketingEvents = marketingEvents;
       return this;
     }
 
-    /**
-     * Whether SMS marketing has been enabled on the shop's checkout configuration settings.
-     */
+    
     public Builder marketingSmsConsentEnabledAtCheckout(
         boolean marketingSmsConsentEnabledAtCheckout) {
       this.marketingSmsConsentEnabledAtCheckout = marketingSmsConsentEnabledAtCheckout;
       return this;
     }
 
-    /**
-     * The approval signals for a shop to support onboarding to channel apps.
-     */
+    
     public Builder merchantApprovalSignals(MerchantApprovalSignals merchantApprovalSignals) {
       this.merchantApprovalSignals = merchantApprovalSignals;
       return this;
     }
 
-    /**
-     * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-     * including its `namespace` and `key`, that's associated with a Shopify resource
-     * for the purposes of adding and storing additional information.
-     */
+    
     public Builder metafield(Metafield metafield) {
       this.metafield = metafield;
       return this;
     }
 
-    /**
-     * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-     * that a merchant associates with a Shopify resource.
-     */
+    
     public Builder metafields(MetafieldConnection metafields) {
       this.metafields = metafields;
       return this;
     }
 
-    /**
-     * The shop's .myshopify.com domain name.
-     */
+    
     public Builder myshopifyDomain(String myshopifyDomain) {
       this.myshopifyDomain = myshopifyDomain;
       return this;
     }
 
-    /**
-     * The shop's name.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The shop's settings related to navigation.
-     */
+    
     public Builder navigationSettings(List<NavigationItem> navigationSettings) {
       this.navigationSettings = navigationSettings;
       return this;
     }
 
-    /**
-     * The prefix that appears before order numbers.
-     */
+    
     public Builder orderNumberFormatPrefix(String orderNumberFormatPrefix) {
       this.orderNumberFormatPrefix = orderNumberFormatPrefix;
       return this;
     }
 
-    /**
-     * The suffix that appears after order numbers.
-     */
+    
     public Builder orderNumberFormatSuffix(String orderNumberFormatSuffix) {
       this.orderNumberFormatSuffix = orderNumberFormatSuffix;
       return this;
     }
 
-    /**
-     * List of the shop's order saved searches.
-     */
+    
     public Builder orderSavedSearches(SavedSearchConnection orderSavedSearches) {
       this.orderSavedSearches = orderSavedSearches;
       return this;
     }
 
-    /**
-     * A list of tags that have been added to orders.
-     */
+    
     public Builder orderTags(StringConnection orderTags) {
       this.orderTags = orderTags;
       return this;
     }
 
-    /**
-     * A list of the shop's orders.
-     */
+    
     public Builder orders(OrderConnection orders) {
       this.orders = orders;
       return this;
     }
 
-    /**
-     * The shop's settings related to payments.
-     */
+    
     public Builder paymentSettings(PaymentSettings paymentSettings) {
       this.paymentSettings = paymentSettings;
       return this;
     }
 
-    /**
-     * The shop's billing plan.
-     */
+    
     public Builder plan(ShopPlan plan) {
       this.plan = plan;
       return this;
     }
 
-    /**
-     * The primary domain of the shop's online store.
-     */
+    
     public Builder primaryDomain(Domain primaryDomain) {
       this.primaryDomain = primaryDomain;
       return this;
     }
 
-    /**
-     * Returns a private metafield by namespace and key that belongs to the resource.
-     */
+    
     public Builder privateMetafield(PrivateMetafield privateMetafield) {
       this.privateMetafield = privateMetafield;
       return this;
     }
 
-    /**
-     * List of private metafields that belong to the resource.
-     */
+    
     public Builder privateMetafields(PrivateMetafieldConnection privateMetafields) {
       this.privateMetafields = privateMetafields;
       return this;
     }
 
-    /**
-     * Return a product by its handle.
-     */
+    
     public Builder productByHandle(Product productByHandle) {
       this.productByHandle = productByHandle;
       return this;
     }
 
-    /**
-     * The list of all images of all products for the shop.
-     */
+    
     public Builder productImages(ImageConnection productImages) {
       this.productImages = productImages;
       return this;
     }
 
-    /**
-     * List of the shop's product saved searches.
-     */
+    
     public Builder productSavedSearches(SavedSearchConnection productSavedSearches) {
       this.productSavedSearches = productSavedSearches;
       return this;
     }
 
-    /**
-     * A list of tags that have been added to products.
-     */
+    
     public Builder productTags(StringConnection productTags) {
       this.productTags = productTags;
       return this;
     }
 
-    /**
-     * The list of types added to products.
-     */
+    
     public Builder productTypes(StringConnection productTypes) {
       this.productTypes = productTypes;
       return this;
     }
 
-    /**
-     * List of the shop's product variants.
-     */
+    
     public Builder productVariants(ProductVariantConnection productVariants) {
       this.productVariants = productVariants;
       return this;
     }
 
-    /**
-     * The list of vendors added to products.
-     */
+    
     public Builder productVendors(StringConnection productVendors) {
       this.productVendors = productVendors;
       return this;
     }
 
-    /**
-     * List of the shop's products.
-     */
+    
     public Builder products(ProductConnection products) {
       this.products = products;
       return this;
     }
 
-    /**
-     * The number of publications for the shop.
-     */
+    
     public Builder publicationCount(int publicationCount) {
       this.publicationCount = publicationCount;
       return this;
     }
 
-    /**
-     * The shop's limits for specific resources. For example, the maximum number
-     * ofvariants allowed per product, or the maximum number of locations allowed.
-     */
+    
     public Builder resourceLimits(ShopResourceLimits resourceLimits) {
       this.resourceLimits = resourceLimits;
       return this;
     }
 
-    /**
-     * The URL of the rich text editor that can be used for mobile devices.
-     */
+    
     public Builder richTextEditorUrl(String richTextEditorUrl) {
       this.richTextEditorUrl = richTextEditorUrl;
       return this;
     }
 
-    /**
-     * Fetches a list of admin search results by a specified query.
-     */
+    
     public Builder search(SearchResultConnection search) {
       this.search = search;
       return this;
     }
 
-    /**
-     * The list of search filter options for the shop. These can be used to filter productvisibility for the shop.
-     */
+    
     public Builder searchFilters(SearchFilterOptions searchFilters) {
       this.searchFilters = searchFilters;
       return this;
     }
 
-    /**
-     * Whether the shop has outstanding setup steps.
-     */
+    
     public Builder setupRequired(boolean setupRequired) {
       this.setupRequired = setupRequired;
       return this;
     }
 
-    /**
-     * The list of countries that the shop ships to.
-     */
+    
     public Builder shipsToCountries(List<CountryCode> shipsToCountries) {
       this.shipsToCountries = shipsToCountries;
       return this;
     }
 
-    /**
-     * The name of the shop owner.
-     */
+    
     public Builder shopOwnerName(String shopOwnerName) {
       this.shopOwnerName = shopOwnerName;
       return this;
     }
 
-    /**
-     * The list of all legal policies associated with a shop.
-     */
+    
     public Builder shopPolicies(List<ShopPolicy> shopPolicies) {
       this.shopPolicies = shopPolicies;
       return this;
     }
 
-    /**
-     * The paginated list of the shop's staff members.
-     */
+    
     public Builder staffMembers(StaffMemberConnection staffMembers) {
       this.staffMembers = staffMembers;
       return this;
     }
 
-    /**
-     * The storefront access token of a private application. These are scoped per-application.
-     */
+    
     public Builder storefrontAccessTokens(StorefrontAccessTokenConnection storefrontAccessTokens) {
       this.storefrontAccessTokens = storefrontAccessTokens;
       return this;
     }
 
-    /**
-     * The URL of the shop's storefront.
-     */
+    
     public Builder storefrontUrl(String storefrontUrl) {
       this.storefrontUrl = storefrontUrl;
       return this;
     }
 
-    /**
-     * Whether the shop charges taxes for shipping.
-     */
+    
     public Builder taxShipping(boolean taxShipping) {
       this.taxShipping = taxShipping;
       return this;
     }
 
-    /**
-     * Whether applicable taxes are included in the shop's product prices.
-     */
+    
     public Builder taxesIncluded(boolean taxesIncluded) {
       this.taxesIncluded = taxesIncluded;
       return this;
     }
 
-    /**
-     * The shop's time zone abbreviation.
-     */
+    
     public Builder timezoneAbbreviation(String timezoneAbbreviation) {
       this.timezoneAbbreviation = timezoneAbbreviation;
       return this;
     }
 
-    /**
-     * The shop's time zone offset.
-     */
+    
     public Builder timezoneOffset(String timezoneOffset) {
       this.timezoneOffset = timezoneOffset;
       return this;
     }
 
-    /**
-     * The shop's time zone offset expressed as a number of minutes.
-     */
+    
     public Builder timezoneOffsetMinutes(int timezoneOffsetMinutes) {
       this.timezoneOffsetMinutes = timezoneOffsetMinutes;
       return this;
     }
 
-    /**
-     * Whether transactional SMS sent by Shopify have been disabled for a shop.
-     */
+    
     public Builder transactionalSmsDisabled(boolean transactionalSmsDisabled) {
       this.transactionalSmsDisabled = transactionalSmsDisabled;
       return this;
     }
 
-    /**
-     * The published translations associated with the resource.
-     */
+    
     public Builder translations(List<Translation> translations) {
       this.translations = translations;
       return this;
     }
 
-    /**
-     * The shop's unit system for weights and measures.
-     */
+    
     public Builder unitSystem(UnitSystem unitSystem) {
       this.unitSystem = unitSystem;
       return this;
     }
 
-    /**
-     * The date and time when the shop was last updated.
-     */
+    
     public Builder updatedAt(OffsetDateTime updatedAt) {
       this.updatedAt = updatedAt;
       return this;
     }
 
-    /**
-     * Fetches a list of images uploaded to the shop by their IDs.
-     */
+    
     public Builder uploadedImagesByIds(List<Image> uploadedImagesByIds) {
       this.uploadedImagesByIds = uploadedImagesByIds;
       return this;
     }
 
-    /**
-     * The URL of the shop's online store.
-     */
+    
     public Builder url(String url) {
       this.url = url;
       return this;
     }
 
-    /**
-     * The shop's primary unit of weight for products and shipping.
-     */
+    
     public Builder weightUnit(WeightUnit weightUnit) {
       this.weightUnit = weightUnit;
       return this;

@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Updates a page.
- */
+
 public class PageUpdateGraphQLQuery extends GraphQLQuery {
   public PageUpdateGraphQLQuery(String id, PageUpdateInput page, String queryName,
       Set<String> fieldsSet) {
@@ -48,18 +46,14 @@ public class PageUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the page to be updated.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * The properties of the page to be updated.
-     */
+    
     public Builder page(PageUpdateInput page) {
       this.page = page;
       this.fieldsSet.add("page");

@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `customerCreate` mutation.
- */
+
 public class CustomerCreatePayload {
-  /**
-   * The created customer.
-   */
+  
   private Customer customer;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public CustomerCreatePayload() {
   }
 
-  /**
-   * The created customer.
-   */
+  
   public Customer getCustomer() {
     return customer;
   }
@@ -34,9 +26,7 @@ public class CustomerCreatePayload {
     this.customer = customer;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class CustomerCreatePayload {
   }
 
   public static class Builder {
-    /**
-     * The created customer.
-     */
+    
     private Customer customer;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public CustomerCreatePayload build() {
@@ -86,17 +72,13 @@ public class CustomerCreatePayload {
       return result;
     }
 
-    /**
-     * The created customer.
-     */
+    
     public Builder customer(Customer customer) {
       this.customer = customer;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

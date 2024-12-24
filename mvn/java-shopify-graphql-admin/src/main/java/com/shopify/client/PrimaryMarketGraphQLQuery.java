@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * The primary market of the shop.
- */
+
 public class PrimaryMarketGraphQLQuery extends GraphQLQuery {
   public PrimaryMarketGraphQLQuery(String queryName) {
     super("query", queryName);

@@ -7,49 +7,33 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents the payment terms template object.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class PaymentTermsTemplate implements com.shopify.types.Node {
-  /**
-   * The description of the payment terms template.
-   */
+  
   private String description;
 
-  /**
-   * The number of days between the issued date and due date if this is the net type of payment terms.
-   */
+  
   private Integer dueInDays;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The name of the payment terms template.
-   */
+  
   private String name;
 
-  /**
-   * The type of the payment terms template.
-   */
+  
   private PaymentTermsType paymentTermsType;
 
-  /**
-   * The translated payment terms template name.
-   */
+  
   private String translatedName;
 
   public PaymentTermsTemplate() {
   }
 
-  /**
-   * The description of the payment terms template.
-   */
+  
   public String getDescription() {
     return description;
   }
@@ -58,9 +42,7 @@ public class PaymentTermsTemplate implements com.shopify.types.Node {
     this.description = description;
   }
 
-  /**
-   * The number of days between the issued date and due date if this is the net type of payment terms.
-   */
+  
   public Integer getDueInDays() {
     return dueInDays;
   }
@@ -69,9 +51,7 @@ public class PaymentTermsTemplate implements com.shopify.types.Node {
     this.dueInDays = dueInDays;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -80,9 +60,7 @@ public class PaymentTermsTemplate implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The name of the payment terms template.
-   */
+  
   public String getName() {
     return name;
   }
@@ -91,9 +69,7 @@ public class PaymentTermsTemplate implements com.shopify.types.Node {
     this.name = name;
   }
 
-  /**
-   * The type of the payment terms template.
-   */
+  
   public PaymentTermsType getPaymentTermsType() {
     return paymentTermsType;
   }
@@ -102,9 +78,7 @@ public class PaymentTermsTemplate implements com.shopify.types.Node {
     this.paymentTermsType = paymentTermsType;
   }
 
-  /**
-   * The translated payment terms template name.
-   */
+  
   public String getTranslatedName() {
     return translatedName;
   }
@@ -141,34 +115,22 @@ public class PaymentTermsTemplate implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * The description of the payment terms template.
-     */
+    
     private String description;
 
-    /**
-     * The number of days between the issued date and due date if this is the net type of payment terms.
-     */
+    
     private Integer dueInDays;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The name of the payment terms template.
-     */
+    
     private String name;
 
-    /**
-     * The type of the payment terms template.
-     */
+    
     private PaymentTermsType paymentTermsType;
 
-    /**
-     * The translated payment terms template name.
-     */
+    
     private String translatedName;
 
     public PaymentTermsTemplate build() {
@@ -182,49 +144,37 @@ public class PaymentTermsTemplate implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * The description of the payment terms template.
-     */
+    
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    /**
-     * The number of days between the issued date and due date if this is the net type of payment terms.
-     */
+    
     public Builder dueInDays(Integer dueInDays) {
       this.dueInDays = dueInDays;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The name of the payment terms template.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The type of the payment terms template.
-     */
+    
     public Builder paymentTermsType(PaymentTermsType paymentTermsType) {
       this.paymentTermsType = paymentTermsType;
       return this;
     }
 
-    /**
-     * The translated payment terms template name.
-     */
+    
     public Builder translatedName(String translatedName) {
       this.translatedName = translatedName;
       return this;

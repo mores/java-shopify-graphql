@@ -8,9 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Creates new bundles, updates existing bundles, and removes bundle components for one or multiple bundles.
- */
+
 public class ProductVariantRelationshipBulkUpdateGraphQLQuery extends GraphQLQuery {
   public ProductVariantRelationshipBulkUpdateGraphQLQuery(
       List<ProductVariantRelationshipUpdateInput> input, String queryName, Set<String> fieldsSet) {
@@ -45,9 +43,7 @@ public class ProductVariantRelationshipBulkUpdateGraphQLQuery extends GraphQLQue
                
     }
 
-    /**
-     * The input options for the product variant being updated.
-     */
+    
     public Builder input(List<ProductVariantRelationshipUpdateInput> input) {
       this.input = input;
       this.fieldsSet.add("input");

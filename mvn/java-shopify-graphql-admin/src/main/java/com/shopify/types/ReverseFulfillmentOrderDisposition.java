@@ -6,39 +6,27 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The details of the arrangement of an item.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ReverseFulfillmentOrderDisposition implements com.shopify.types.Node {
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The location where the disposition occurred.
-   */
+  
   private Location location;
 
-  /**
-   * The number of disposed units.
-   */
+  
   private int quantity;
 
-  /**
-   * The final arrangement of an item.
-   */
+  
   private ReverseFulfillmentOrderDispositionType type;
 
   public ReverseFulfillmentOrderDisposition() {
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -47,9 +35,7 @@ public class ReverseFulfillmentOrderDisposition implements com.shopify.types.Nod
     this.id = id;
   }
 
-  /**
-   * The location where the disposition occurred.
-   */
+  
   public Location getLocation() {
     return location;
   }
@@ -58,9 +44,7 @@ public class ReverseFulfillmentOrderDisposition implements com.shopify.types.Nod
     this.location = location;
   }
 
-  /**
-   * The number of disposed units.
-   */
+  
   public int getQuantity() {
     return quantity;
   }
@@ -69,9 +53,7 @@ public class ReverseFulfillmentOrderDisposition implements com.shopify.types.Nod
     this.quantity = quantity;
   }
 
-  /**
-   * The final arrangement of an item.
-   */
+  
   public ReverseFulfillmentOrderDispositionType getType() {
     return type;
   }
@@ -106,24 +88,16 @@ public class ReverseFulfillmentOrderDisposition implements com.shopify.types.Nod
   }
 
   public static class Builder {
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The location where the disposition occurred.
-     */
+    
     private Location location;
 
-    /**
-     * The number of disposed units.
-     */
+    
     private int quantity;
 
-    /**
-     * The final arrangement of an item.
-     */
+    
     private ReverseFulfillmentOrderDispositionType type;
 
     public ReverseFulfillmentOrderDisposition build() {
@@ -135,33 +109,25 @@ public class ReverseFulfillmentOrderDisposition implements com.shopify.types.Nod
       return result;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The location where the disposition occurred.
-     */
+    
     public Builder location(Location location) {
       this.location = location;
       return this;
     }
 
-    /**
-     * The number of disposed units.
-     */
+    
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    /**
-     * The final arrangement of an item.
-     */
+    
     public Builder type(ReverseFulfillmentOrderDispositionType type) {
       this.type = type;
       return this;

@@ -4,9 +4,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.String;
 
-/**
- * Generic payment details that are related to a transaction.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
     include = JsonTypeInfo.As.PROPERTY,
@@ -18,8 +16,6 @@ import java.lang.String;
     @JsonSubTypes.Type(value = ShopPayInstallmentsPaymentDetails.class, name = "ShopPayInstallmentsPaymentDetails")
 })
 public interface BasePaymentDetails {
-  /**
-   * The name of payment method used by the buyer.
-   */
+  
   String getPaymentMethodName();
 }

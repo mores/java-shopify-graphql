@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields to delete a metafield.
- */
+
 public class MetafieldDeleteInput {
-  /**
-   * The ID of the metafield to delete.
-   */
+  
   private String id;
 
   public MetafieldDeleteInput() {
   }
 
-  /**
-   * The ID of the metafield to delete.
-   */
+  
   public String getId() {
     return id;
   }
@@ -51,9 +45,7 @@ public class MetafieldDeleteInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the metafield to delete.
-     */
+    
     private String id;
 
     public MetafieldDeleteInput build() {
@@ -62,9 +54,7 @@ public class MetafieldDeleteInput {
       return result;
     }
 
-    /**
-     * The ID of the metafield to delete.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;

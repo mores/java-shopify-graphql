@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Sends an email payment reminder for a payment schedule.
- */
+
 public class PaymentReminderSendGraphQLQuery extends GraphQLQuery {
   public PaymentReminderSendGraphQLQuery(String paymentScheduleId, String queryName,
       Set<String> fieldsSet) {
@@ -43,9 +41,7 @@ public class PaymentReminderSendGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The payment schedule id associated with the reminder.
-     */
+    
     public Builder paymentScheduleId(String paymentScheduleId) {
       this.paymentScheduleId = paymentScheduleId;
       this.fieldsSet.add("paymentScheduleId");

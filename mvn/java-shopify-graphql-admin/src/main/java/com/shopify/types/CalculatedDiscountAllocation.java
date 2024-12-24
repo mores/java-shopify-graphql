@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * An amount discounting the line that has been allocated by an associated discount application.
- */
+
 public class CalculatedDiscountAllocation {
-  /**
-   * The money amount that's allocated by the discount application in shop and presentment currencies.
-   */
+  
   private MoneyBag allocatedAmountSet;
 
-  /**
-   * The discount that the allocated amount originated from.
-   */
+  
   private CalculatedDiscountApplication discountApplication;
 
   public CalculatedDiscountAllocation() {
   }
 
-  /**
-   * The money amount that's allocated by the discount application in shop and presentment currencies.
-   */
+  
   public MoneyBag getAllocatedAmountSet() {
     return allocatedAmountSet;
   }
@@ -33,9 +25,7 @@ public class CalculatedDiscountAllocation {
     this.allocatedAmountSet = allocatedAmountSet;
   }
 
-  /**
-   * The discount that the allocated amount originated from.
-   */
+  
   public CalculatedDiscountApplication getDiscountApplication() {
     return discountApplication;
   }
@@ -68,14 +58,10 @@ public class CalculatedDiscountAllocation {
   }
 
   public static class Builder {
-    /**
-     * The money amount that's allocated by the discount application in shop and presentment currencies.
-     */
+    
     private MoneyBag allocatedAmountSet;
 
-    /**
-     * The discount that the allocated amount originated from.
-     */
+    
     private CalculatedDiscountApplication discountApplication;
 
     public CalculatedDiscountAllocation build() {
@@ -85,17 +71,13 @@ public class CalculatedDiscountAllocation {
       return result;
     }
 
-    /**
-     * The money amount that's allocated by the discount application in shop and presentment currencies.
-     */
+    
     public Builder allocatedAmountSet(MoneyBag allocatedAmountSet) {
       this.allocatedAmountSet = allocatedAmountSet;
       return this;
     }
 
-    /**
-     * The discount that the allocated amount originated from.
-     */
+    
     public Builder discountApplication(CalculatedDiscountApplication discountApplication) {
       this.discountApplication = discountApplication;
       return this;

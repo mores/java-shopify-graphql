@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields configuring the deposit for a B2B buyer.
- */
+
 public class DepositInput {
-  /**
-   * The percentage of the order total that should be paid as a deposit.
-   */
+  
   private double percentage;
 
   public DepositInput() {
   }
 
-  /**
-   * The percentage of the order total that should be paid as a deposit.
-   */
+  
   public double getPercentage() {
     return percentage;
   }
@@ -51,9 +45,7 @@ public class DepositInput {
   }
 
   public static class Builder {
-    /**
-     * The percentage of the order total that should be paid as a deposit.
-     */
+    
     private double percentage;
 
     public DepositInput build() {
@@ -62,9 +54,7 @@ public class DepositInput {
       return result;
     }
 
-    /**
-     * The percentage of the order total that should be paid as a deposit.
-     */
+    
     public Builder percentage(double percentage) {
       this.percentage = percentage;
       return this;

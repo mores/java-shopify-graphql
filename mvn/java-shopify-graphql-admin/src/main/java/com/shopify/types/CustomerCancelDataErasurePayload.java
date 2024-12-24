@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `customerCancelDataErasure` mutation.
- */
+
 public class CustomerCancelDataErasurePayload {
-  /**
-   * The ID of the customer whose pending data erasure has been cancelled.
-   */
+  
   private String customerId;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<CustomerCancelDataErasureUserError> userErrors;
 
   public CustomerCancelDataErasurePayload() {
   }
 
-  /**
-   * The ID of the customer whose pending data erasure has been cancelled.
-   */
+  
   public String getCustomerId() {
     return customerId;
   }
@@ -34,9 +26,7 @@ public class CustomerCancelDataErasurePayload {
     this.customerId = customerId;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<CustomerCancelDataErasureUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class CustomerCancelDataErasurePayload {
   }
 
   public static class Builder {
-    /**
-     * The ID of the customer whose pending data erasure has been cancelled.
-     */
+    
     private String customerId;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<CustomerCancelDataErasureUserError> userErrors;
 
     public CustomerCancelDataErasurePayload build() {
@@ -86,17 +72,13 @@ public class CustomerCancelDataErasurePayload {
       return result;
     }
 
-    /**
-     * The ID of the customer whose pending data erasure has been cancelled.
-     */
+    
     public Builder customerId(String customerId) {
       this.customerId = customerId;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<CustomerCancelDataErasureUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

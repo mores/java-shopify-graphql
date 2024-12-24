@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Set the delivery settings for a shop.
- */
+
 public class DeliverySettingUpdateGraphQLQuery extends GraphQLQuery {
   public DeliverySettingUpdateGraphQLQuery(DeliverySettingInput setting, String queryName,
       Set<String> fieldsSet) {
@@ -44,9 +42,7 @@ public class DeliverySettingUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * Specifies the input fields for the delivery shop level settings.
-     */
+    
     public Builder setting(DeliverySettingInput setting) {
       this.setting = setting;
       this.fieldsSet.add("setting");

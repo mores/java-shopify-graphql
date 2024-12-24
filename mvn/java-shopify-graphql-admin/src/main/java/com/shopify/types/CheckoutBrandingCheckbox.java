@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The checkboxes customizations.
- */
+
 public class CheckoutBrandingCheckbox {
-  /**
-   * The corner radius used for checkboxes.
-   */
+  
   private CheckoutBrandingCornerRadius cornerRadius;
 
   public CheckoutBrandingCheckbox() {
   }
 
-  /**
-   * The corner radius used for checkboxes.
-   */
+  
   public CheckoutBrandingCornerRadius getCornerRadius() {
     return cornerRadius;
   }
@@ -51,9 +45,7 @@ public class CheckoutBrandingCheckbox {
   }
 
   public static class Builder {
-    /**
-     * The corner radius used for checkboxes.
-     */
+    
     private CheckoutBrandingCornerRadius cornerRadius;
 
     public CheckoutBrandingCheckbox build() {
@@ -62,9 +54,7 @@ public class CheckoutBrandingCheckbox {
       return result;
     }
 
-    /**
-     * The corner radius used for checkboxes.
-     */
+    
     public Builder cornerRadius(CheckoutBrandingCornerRadius cornerRadius) {
       this.cornerRadius = cornerRadius;
       return this;

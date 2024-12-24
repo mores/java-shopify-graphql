@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Shopify Payments account information, including balances and payouts.
- */
+
 public class ShopifyPaymentsAccountGraphQLQuery extends GraphQLQuery {
   public ShopifyPaymentsAccountGraphQLQuery(String queryName) {
     super("query", queryName);

@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The eligibility details of an order's protection against fraudulent chargebacks by Shopify Protect.
- */
+
 public class ShopifyProtectOrderEligibility {
-  /**
-   * The status of whether an order is eligible for protection against fraudulent chargebacks.
-   */
+  
   private ShopifyProtectEligibilityStatus status;
 
   public ShopifyProtectOrderEligibility() {
   }
 
-  /**
-   * The status of whether an order is eligible for protection against fraudulent chargebacks.
-   */
+  
   public ShopifyProtectEligibilityStatus getStatus() {
     return status;
   }
@@ -51,9 +45,7 @@ public class ShopifyProtectOrderEligibility {
   }
 
   public static class Builder {
-    /**
-     * The status of whether an order is eligible for protection against fraudulent chargebacks.
-     */
+    
     private ShopifyProtectEligibilityStatus status;
 
     public ShopifyProtectOrderEligibility build() {
@@ -62,9 +54,7 @@ public class ShopifyProtectOrderEligibility {
       return result;
     }
 
-    /**
-     * The status of whether an order is eligible for protection against fraudulent chargebacks.
-     */
+    
     public Builder status(ShopifyProtectEligibilityStatus status) {
       this.status = status;
       return this;

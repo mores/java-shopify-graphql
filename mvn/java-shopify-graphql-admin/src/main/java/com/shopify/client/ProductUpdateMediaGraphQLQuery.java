@@ -8,9 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Updates media for a product.
- */
+
 public class ProductUpdateMediaGraphQLQuery extends GraphQLQuery {
   public ProductUpdateMediaGraphQLQuery(String productId, List<UpdateMediaInput> media,
       String queryName, Set<String> fieldsSet) {
@@ -49,18 +47,14 @@ public class ProductUpdateMediaGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * Specifies the product on which media will be updated.
-     */
+    
     public Builder productId(String productId) {
       this.productId = productId;
       this.fieldsSet.add("productId");
       return this;
     }
 
-    /**
-     * A list of media updates.
-     */
+    
     public Builder media(List<UpdateMediaInput> media) {
       this.media = media;
       this.fieldsSet.add("media");

@@ -6,26 +6,18 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * The input fields for specifying a publication to which a product will be published.
- */
+
 public class ProductPublicationInput {
-  /**
-   * ID of the publication.
-   */
+  
   private String publicationId;
 
-  /**
-   * The date and time that the product was (or will be) published.
-   */
+  
   private OffsetDateTime publishDate;
 
   public ProductPublicationInput() {
   }
 
-  /**
-   * ID of the publication.
-   */
+  
   public String getPublicationId() {
     return publicationId;
   }
@@ -34,9 +26,7 @@ public class ProductPublicationInput {
     this.publicationId = publicationId;
   }
 
-  /**
-   * The date and time that the product was (or will be) published.
-   */
+  
   public OffsetDateTime getPublishDate() {
     return publishDate;
   }
@@ -69,14 +59,10 @@ public class ProductPublicationInput {
   }
 
   public static class Builder {
-    /**
-     * ID of the publication.
-     */
+    
     private String publicationId;
 
-    /**
-     * The date and time that the product was (or will be) published.
-     */
+    
     private OffsetDateTime publishDate;
 
     public ProductPublicationInput build() {
@@ -86,17 +72,13 @@ public class ProductPublicationInput {
       return result;
     }
 
-    /**
-     * ID of the publication.
-     */
+    
     public Builder publicationId(String publicationId) {
       this.publicationId = publicationId;
       return this;
     }
 
-    /**
-     * The date and time that the product was (or will be) published.
-     */
+    
     public Builder publishDate(OffsetDateTime publishDate) {
       this.publishDate = publishDate;
       return this;

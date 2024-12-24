@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `productFeedDelete` mutation.
- */
+
 public class ProductFeedDeletePayload {
-  /**
-   * The ID of the product feed that was deleted.
-   */
+  
   private String deletedId;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<ProductFeedDeleteUserError> userErrors;
 
   public ProductFeedDeletePayload() {
   }
 
-  /**
-   * The ID of the product feed that was deleted.
-   */
+  
   public String getDeletedId() {
     return deletedId;
   }
@@ -34,9 +26,7 @@ public class ProductFeedDeletePayload {
     this.deletedId = deletedId;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<ProductFeedDeleteUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class ProductFeedDeletePayload {
   }
 
   public static class Builder {
-    /**
-     * The ID of the product feed that was deleted.
-     */
+    
     private String deletedId;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<ProductFeedDeleteUserError> userErrors;
 
     public ProductFeedDeletePayload build() {
@@ -86,17 +72,13 @@ public class ProductFeedDeletePayload {
       return result;
     }
 
-    /**
-     * The ID of the product feed that was deleted.
-     */
+    
     public Builder deletedId(String deletedId) {
       this.deletedId = deletedId;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<ProductFeedDeleteUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

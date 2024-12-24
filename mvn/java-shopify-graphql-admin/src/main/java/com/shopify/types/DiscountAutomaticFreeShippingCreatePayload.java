@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `discountAutomaticFreeShippingCreate` mutation.
- */
+
 public class DiscountAutomaticFreeShippingCreatePayload {
-  /**
-   * The automatic free shipping discount that was created.
-   */
+  
   private DiscountAutomaticNode automaticDiscountNode;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<DiscountUserError> userErrors;
 
   public DiscountAutomaticFreeShippingCreatePayload() {
   }
 
-  /**
-   * The automatic free shipping discount that was created.
-   */
+  
   public DiscountAutomaticNode getAutomaticDiscountNode() {
     return automaticDiscountNode;
   }
@@ -34,9 +26,7 @@ public class DiscountAutomaticFreeShippingCreatePayload {
     this.automaticDiscountNode = automaticDiscountNode;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<DiscountUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class DiscountAutomaticFreeShippingCreatePayload {
   }
 
   public static class Builder {
-    /**
-     * The automatic free shipping discount that was created.
-     */
+    
     private DiscountAutomaticNode automaticDiscountNode;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<DiscountUserError> userErrors;
 
     public DiscountAutomaticFreeShippingCreatePayload build() {
@@ -86,17 +72,13 @@ public class DiscountAutomaticFreeShippingCreatePayload {
       return result;
     }
 
-    /**
-     * The automatic free shipping discount that was created.
-     */
+    
     public Builder automaticDiscountNode(DiscountAutomaticNode automaticDiscountNode) {
       this.automaticDiscountNode = automaticDiscountNode;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<DiscountUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

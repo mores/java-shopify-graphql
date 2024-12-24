@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Set up scheduled changes of inventory items.
- */
+
 public class InventorySetScheduledChangesGraphQLQuery extends GraphQLQuery {
   public InventorySetScheduledChangesGraphQLQuery(InventorySetScheduledChangesInput input,
       String queryName, Set<String> fieldsSet) {
@@ -44,9 +42,7 @@ public class InventorySetScheduledChangesGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The input fields for setting up scheduled changes of inventory items.
-     */
+    
     public Builder input(InventorySetScheduledChangesInput input) {
       this.input = input;
       this.fieldsSet.add("input");

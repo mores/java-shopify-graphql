@@ -7,10 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Creates a credit transaction that increases the store credit account balance by the given amount.
- * This operation will create an account if one does not already exist.
- */
+
 public class StoreCreditAccountCreditGraphQLQuery extends GraphQLQuery {
   public StoreCreditAccountCreditGraphQLQuery(String id, StoreCreditAccountCreditInput creditInput,
       String queryName, Set<String> fieldsSet) {
@@ -49,18 +46,14 @@ public class StoreCreditAccountCreditGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the store credit account or the ID of the account owner.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * The input fields for a store credit account credit transaction.
-     */
+    
     public Builder creditInput(StoreCreditAccountCreditInput creditInput) {
       this.creditInput = creditInput;
       this.fieldsSet.add("creditInput");

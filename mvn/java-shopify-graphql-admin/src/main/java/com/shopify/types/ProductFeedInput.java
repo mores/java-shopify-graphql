@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields required to create a product feed.
- */
+
 public class ProductFeedInput {
-  /**
-   * The language of the product feed.
-   */
+  
   private LanguageCode language;
 
-  /**
-   * The country of the product feed.
-   */
+  
   private CountryCode country;
 
   public ProductFeedInput() {
   }
 
-  /**
-   * The language of the product feed.
-   */
+  
   public LanguageCode getLanguage() {
     return language;
   }
@@ -33,9 +25,7 @@ public class ProductFeedInput {
     this.language = language;
   }
 
-  /**
-   * The country of the product feed.
-   */
+  
   public CountryCode getCountry() {
     return country;
   }
@@ -68,14 +58,10 @@ public class ProductFeedInput {
   }
 
   public static class Builder {
-    /**
-     * The language of the product feed.
-     */
+    
     private LanguageCode language;
 
-    /**
-     * The country of the product feed.
-     */
+    
     private CountryCode country;
 
     public ProductFeedInput build() {
@@ -85,17 +71,13 @@ public class ProductFeedInput {
       return result;
     }
 
-    /**
-     * The language of the product feed.
-     */
+    
     public Builder language(LanguageCode language) {
       this.language = language;
       return this;
     }
 
-    /**
-     * The country of the product feed.
-     */
+    
     public Builder country(CountryCode country) {
       this.country = country;
       return this;

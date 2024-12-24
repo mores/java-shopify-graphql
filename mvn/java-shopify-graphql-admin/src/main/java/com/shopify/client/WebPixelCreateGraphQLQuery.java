@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Creates a new web pixel settings.
- */
+
 public class WebPixelCreateGraphQLQuery extends GraphQLQuery {
   public WebPixelCreateGraphQLQuery(WebPixelInput webPixel, String queryName,
       Set<String> fieldsSet) {
@@ -44,9 +42,7 @@ public class WebPixelCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The web pixel settings in JSON format.
-     */
+    
     public Builder webPixel(WebPixelInput webPixel) {
       this.webPixel = webPixel;
       this.fieldsSet.add("webPixel");

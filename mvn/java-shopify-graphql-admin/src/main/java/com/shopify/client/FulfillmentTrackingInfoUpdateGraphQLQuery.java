@@ -8,9 +8,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Updates tracking information for a fulfillment.
- */
+
 public class FulfillmentTrackingInfoUpdateGraphQLQuery extends GraphQLQuery {
   public FulfillmentTrackingInfoUpdateGraphQLQuery(String fulfillmentId,
       FulfillmentTrackingInput trackingInfoInput, Boolean notifyCustomer, String queryName,
@@ -54,28 +52,21 @@ public class FulfillmentTrackingInfoUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the fulfillment.
-     */
+    
     public Builder fulfillmentId(String fulfillmentId) {
       this.fulfillmentId = fulfillmentId;
       this.fieldsSet.add("fulfillmentId");
       return this;
     }
 
-    /**
-     * The tracking input for the mutation, including tracking URL, number, and company.
-     */
+    
     public Builder trackingInfoInput(FulfillmentTrackingInput trackingInfoInput) {
       this.trackingInfoInput = trackingInfoInput;
       this.fieldsSet.add("trackingInfoInput");
       return this;
     }
 
-    /**
-     * Whether the customer will be notified of this update and future updates for the fulfillment.
-     * If this field is left blank, then notifications won't be sent to the customer when the fulfillment is updated.
-     */
+    
     public Builder notifyCustomer(Boolean notifyCustomer) {
       this.notifyCustomer = notifyCustomer;
       this.fieldsSet.add("notifyCustomer");

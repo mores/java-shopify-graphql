@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * A list of app discount types installed by apps.
- */
+
 public class AppDiscountTypesGraphQLQuery extends GraphQLQuery {
   public AppDiscountTypesGraphQLQuery(String queryName) {
     super("query", queryName);

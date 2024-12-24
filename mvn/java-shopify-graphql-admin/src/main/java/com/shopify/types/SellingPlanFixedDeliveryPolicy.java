@@ -9,53 +9,33 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Represents a fixed selling plan delivery policy.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class SellingPlanFixedDeliveryPolicy implements SellingPlanDeliveryPolicy {
-  /**
-   * The specific anchor dates upon which the delivery interval calculations should be made.
-   */
+  
   private List<SellingPlanAnchor> anchors;
 
-  /**
-   * A buffer period for orders to be included in next fulfillment anchor.
-   */
+  
   private Integer cutoff;
 
-  /**
-   * The date and time when the fulfillment should trigger.
-   */
+  
   private OffsetDateTime fulfillmentExactTime;
 
-  /**
-   * What triggers the fulfillment. The value must be one of ANCHOR, ASAP, EXACT_TIME, or UNKNOWN.
-   */
+  
   private SellingPlanFulfillmentTrigger fulfillmentTrigger;
 
-  /**
-   * Whether the delivery policy is merchant or buyer-centric.
-   * Buyer-centric delivery policies state the time when the buyer will receive the goods.
-   * Merchant-centric delivery policies state the time when the fulfillment should be started.
-   * Currently, only merchant-centric delivery policies are supported.
-   */
+  
   private SellingPlanFixedDeliveryPolicyIntent intent;
 
-  /**
-   * The fulfillment or delivery behavior of the first fulfillment when the order
-   * is placed before the anchor. The default value for this field is `ASAP`.
-   */
+  
   private SellingPlanFixedDeliveryPolicyPreAnchorBehavior preAnchorBehavior;
 
   public SellingPlanFixedDeliveryPolicy() {
   }
 
-  /**
-   * The specific anchor dates upon which the delivery interval calculations should be made.
-   */
+  
   public List<SellingPlanAnchor> getAnchors() {
     return anchors;
   }
@@ -64,9 +44,7 @@ public class SellingPlanFixedDeliveryPolicy implements SellingPlanDeliveryPolicy
     this.anchors = anchors;
   }
 
-  /**
-   * A buffer period for orders to be included in next fulfillment anchor.
-   */
+  
   public Integer getCutoff() {
     return cutoff;
   }
@@ -75,9 +53,7 @@ public class SellingPlanFixedDeliveryPolicy implements SellingPlanDeliveryPolicy
     this.cutoff = cutoff;
   }
 
-  /**
-   * The date and time when the fulfillment should trigger.
-   */
+  
   public OffsetDateTime getFulfillmentExactTime() {
     return fulfillmentExactTime;
   }
@@ -86,9 +62,7 @@ public class SellingPlanFixedDeliveryPolicy implements SellingPlanDeliveryPolicy
     this.fulfillmentExactTime = fulfillmentExactTime;
   }
 
-  /**
-   * What triggers the fulfillment. The value must be one of ANCHOR, ASAP, EXACT_TIME, or UNKNOWN.
-   */
+  
   public SellingPlanFulfillmentTrigger getFulfillmentTrigger() {
     return fulfillmentTrigger;
   }
@@ -97,12 +71,7 @@ public class SellingPlanFixedDeliveryPolicy implements SellingPlanDeliveryPolicy
     this.fulfillmentTrigger = fulfillmentTrigger;
   }
 
-  /**
-   * Whether the delivery policy is merchant or buyer-centric.
-   * Buyer-centric delivery policies state the time when the buyer will receive the goods.
-   * Merchant-centric delivery policies state the time when the fulfillment should be started.
-   * Currently, only merchant-centric delivery policies are supported.
-   */
+  
   public SellingPlanFixedDeliveryPolicyIntent getIntent() {
     return intent;
   }
@@ -111,10 +80,7 @@ public class SellingPlanFixedDeliveryPolicy implements SellingPlanDeliveryPolicy
     this.intent = intent;
   }
 
-  /**
-   * The fulfillment or delivery behavior of the first fulfillment when the order
-   * is placed before the anchor. The default value for this field is `ASAP`.
-   */
+  
   public SellingPlanFixedDeliveryPolicyPreAnchorBehavior getPreAnchorBehavior() {
     return preAnchorBehavior;
   }
@@ -152,38 +118,22 @@ public class SellingPlanFixedDeliveryPolicy implements SellingPlanDeliveryPolicy
   }
 
   public static class Builder {
-    /**
-     * The specific anchor dates upon which the delivery interval calculations should be made.
-     */
+    
     private List<SellingPlanAnchor> anchors;
 
-    /**
-     * A buffer period for orders to be included in next fulfillment anchor.
-     */
+    
     private Integer cutoff;
 
-    /**
-     * The date and time when the fulfillment should trigger.
-     */
+    
     private OffsetDateTime fulfillmentExactTime;
 
-    /**
-     * What triggers the fulfillment. The value must be one of ANCHOR, ASAP, EXACT_TIME, or UNKNOWN.
-     */
+    
     private SellingPlanFulfillmentTrigger fulfillmentTrigger;
 
-    /**
-     * Whether the delivery policy is merchant or buyer-centric.
-     * Buyer-centric delivery policies state the time when the buyer will receive the goods.
-     * Merchant-centric delivery policies state the time when the fulfillment should be started.
-     * Currently, only merchant-centric delivery policies are supported.
-     */
+    
     private SellingPlanFixedDeliveryPolicyIntent intent;
 
-    /**
-     * The fulfillment or delivery behavior of the first fulfillment when the order
-     * is placed before the anchor. The default value for this field is `ASAP`.
-     */
+    
     private SellingPlanFixedDeliveryPolicyPreAnchorBehavior preAnchorBehavior;
 
     public SellingPlanFixedDeliveryPolicy build() {
@@ -197,53 +147,37 @@ public class SellingPlanFixedDeliveryPolicy implements SellingPlanDeliveryPolicy
       return result;
     }
 
-    /**
-     * The specific anchor dates upon which the delivery interval calculations should be made.
-     */
+    
     public Builder anchors(List<SellingPlanAnchor> anchors) {
       this.anchors = anchors;
       return this;
     }
 
-    /**
-     * A buffer period for orders to be included in next fulfillment anchor.
-     */
+    
     public Builder cutoff(Integer cutoff) {
       this.cutoff = cutoff;
       return this;
     }
 
-    /**
-     * The date and time when the fulfillment should trigger.
-     */
+    
     public Builder fulfillmentExactTime(OffsetDateTime fulfillmentExactTime) {
       this.fulfillmentExactTime = fulfillmentExactTime;
       return this;
     }
 
-    /**
-     * What triggers the fulfillment. The value must be one of ANCHOR, ASAP, EXACT_TIME, or UNKNOWN.
-     */
+    
     public Builder fulfillmentTrigger(SellingPlanFulfillmentTrigger fulfillmentTrigger) {
       this.fulfillmentTrigger = fulfillmentTrigger;
       return this;
     }
 
-    /**
-     * Whether the delivery policy is merchant or buyer-centric.
-     * Buyer-centric delivery policies state the time when the buyer will receive the goods.
-     * Merchant-centric delivery policies state the time when the fulfillment should be started.
-     * Currently, only merchant-centric delivery policies are supported.
-     */
+    
     public Builder intent(SellingPlanFixedDeliveryPolicyIntent intent) {
       this.intent = intent;
       return this;
     }
 
-    /**
-     * The fulfillment or delivery behavior of the first fulfillment when the order
-     * is placed before the anchor. The default value for this field is `ASAP`.
-     */
+    
     public Builder preAnchorBehavior(
         SellingPlanFixedDeliveryPolicyPreAnchorBehavior preAnchorBehavior) {
       this.preAnchorBehavior = preAnchorBehavior;

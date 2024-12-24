@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Assigns a location as the shipping origin while using legacy compatibility mode for multi-location delivery profiles.
- */
+
 public class DeliveryShippingOriginAssignGraphQLQuery extends GraphQLQuery {
   public DeliveryShippingOriginAssignGraphQLQuery(String locationId, String queryName,
       Set<String> fieldsSet) {
@@ -43,9 +41,7 @@ public class DeliveryShippingOriginAssignGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the location to assign as the shipping origin.
-     */
+    
     public Builder locationId(String locationId) {
       this.locationId = locationId;
       this.fieldsSet.add("locationId");

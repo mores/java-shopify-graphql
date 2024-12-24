@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `privateMetafieldDelete` mutation.
- */
+
 public class PrivateMetafieldDeletePayload {
-  /**
-   * The ID of private metafield that was deleted.
-   */
+  
   private String deletedPrivateMetafieldId;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public PrivateMetafieldDeletePayload() {
   }
 
-  /**
-   * The ID of private metafield that was deleted.
-   */
+  
   public String getDeletedPrivateMetafieldId() {
     return deletedPrivateMetafieldId;
   }
@@ -34,9 +26,7 @@ public class PrivateMetafieldDeletePayload {
     this.deletedPrivateMetafieldId = deletedPrivateMetafieldId;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class PrivateMetafieldDeletePayload {
   }
 
   public static class Builder {
-    /**
-     * The ID of private metafield that was deleted.
-     */
+    
     private String deletedPrivateMetafieldId;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public PrivateMetafieldDeletePayload build() {
@@ -86,17 +72,13 @@ public class PrivateMetafieldDeletePayload {
       return result;
     }
 
-    /**
-     * The ID of private metafield that was deleted.
-     */
+    
     public Builder deletedPrivateMetafieldId(String deletedPrivateMetafieldId) {
       this.deletedPrivateMetafieldId = deletedPrivateMetafieldId;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

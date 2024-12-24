@@ -5,32 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The name and value for a metafield definition validation.
- *
- * For example, for a metafield definition of `single_line_text_field` type, you
- * can set a validation with the name `min` and a value of `10`.
- * This validation will ensure that the value of the metafield is at least 10 characters.
- *
- * Refer to the [list of supported validations](https://shopify.dev/api/admin/graphql/reference/common-objects/metafieldDefinitionTypes#examples-Fetch_all_metafield_definition_types).
- */
+
 public class MetafieldDefinitionValidationInput {
-  /**
-   * The name for the metafield definition validation.
-   */
+  
   private String name;
 
-  /**
-   * The value for the metafield definition validation.
-   */
+  
   private String value;
 
   public MetafieldDefinitionValidationInput() {
   }
 
-  /**
-   * The name for the metafield definition validation.
-   */
+  
   public String getName() {
     return name;
   }
@@ -39,9 +25,7 @@ public class MetafieldDefinitionValidationInput {
     this.name = name;
   }
 
-  /**
-   * The value for the metafield definition validation.
-   */
+  
   public String getValue() {
     return value;
   }
@@ -74,14 +58,10 @@ public class MetafieldDefinitionValidationInput {
   }
 
   public static class Builder {
-    /**
-     * The name for the metafield definition validation.
-     */
+    
     private String name;
 
-    /**
-     * The value for the metafield definition validation.
-     */
+    
     private String value;
 
     public MetafieldDefinitionValidationInput build() {
@@ -91,17 +71,13 @@ public class MetafieldDefinitionValidationInput {
       return result;
     }
 
-    /**
-     * The name for the metafield definition validation.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The value for the metafield definition validation.
-     */
+    
     public Builder value(String value) {
       this.value = value;
       return this;

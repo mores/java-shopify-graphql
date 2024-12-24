@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Deletes a fulfillment constraint rule and its metafields.
- */
+
 public class FulfillmentConstraintRuleDeleteGraphQLQuery extends GraphQLQuery {
   public FulfillmentConstraintRuleDeleteGraphQLQuery(String id, String queryName,
       Set<String> fieldsSet) {
@@ -43,9 +41,7 @@ public class FulfillmentConstraintRuleDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * A globally-unique identifier for the fulfillment constraint rule.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

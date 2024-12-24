@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `combinedListingUpdate` mutation.
- */
+
 public class CombinedListingUpdatePayload {
-  /**
-   * The parent product.
-   */
+  
   private Product product;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<CombinedListingUpdateUserError> userErrors;
 
   public CombinedListingUpdatePayload() {
   }
 
-  /**
-   * The parent product.
-   */
+  
   public Product getProduct() {
     return product;
   }
@@ -34,9 +26,7 @@ public class CombinedListingUpdatePayload {
     this.product = product;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<CombinedListingUpdateUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class CombinedListingUpdatePayload {
   }
 
   public static class Builder {
-    /**
-     * The parent product.
-     */
+    
     private Product product;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<CombinedListingUpdateUserError> userErrors;
 
     public CombinedListingUpdatePayload build() {
@@ -86,17 +72,13 @@ public class CombinedListingUpdatePayload {
       return result;
     }
 
-    /**
-     * The parent product.
-     */
+    
     public Builder product(Product product) {
       this.product = product;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<CombinedListingUpdateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

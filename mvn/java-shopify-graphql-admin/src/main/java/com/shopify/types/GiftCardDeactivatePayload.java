@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `giftCardDeactivate` mutation.
- */
+
 public class GiftCardDeactivatePayload {
-  /**
-   * The deactivated gift card.
-   */
+  
   private GiftCard giftCard;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<GiftCardDeactivateUserError> userErrors;
 
   public GiftCardDeactivatePayload() {
   }
 
-  /**
-   * The deactivated gift card.
-   */
+  
   public GiftCard getGiftCard() {
     return giftCard;
   }
@@ -34,9 +26,7 @@ public class GiftCardDeactivatePayload {
     this.giftCard = giftCard;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<GiftCardDeactivateUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class GiftCardDeactivatePayload {
   }
 
   public static class Builder {
-    /**
-     * The deactivated gift card.
-     */
+    
     private GiftCard giftCard;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<GiftCardDeactivateUserError> userErrors;
 
     public GiftCardDeactivatePayload build() {
@@ -86,17 +72,13 @@ public class GiftCardDeactivatePayload {
       return result;
     }
 
-    /**
-     * The deactivated gift card.
-     */
+    
     public Builder giftCard(GiftCard giftCard) {
       this.giftCard = giftCard;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<GiftCardDeactivateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

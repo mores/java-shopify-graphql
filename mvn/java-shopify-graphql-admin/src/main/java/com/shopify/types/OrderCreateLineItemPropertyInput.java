@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for a line item property for an order.
- */
+
 public class OrderCreateLineItemPropertyInput {
-  /**
-   * The name of the line item property.
-   */
+  
   private String name;
 
-  /**
-   * The value of the line item property.
-   */
+  
   private String value;
 
   public OrderCreateLineItemPropertyInput() {
   }
 
-  /**
-   * The name of the line item property.
-   */
+  
   public String getName() {
     return name;
   }
@@ -33,9 +25,7 @@ public class OrderCreateLineItemPropertyInput {
     this.name = name;
   }
 
-  /**
-   * The value of the line item property.
-   */
+  
   public String getValue() {
     return value;
   }
@@ -68,14 +58,10 @@ public class OrderCreateLineItemPropertyInput {
   }
 
   public static class Builder {
-    /**
-     * The name of the line item property.
-     */
+    
     private String name;
 
-    /**
-     * The value of the line item property.
-     */
+    
     private String value;
 
     public OrderCreateLineItemPropertyInput build() {
@@ -85,17 +71,13 @@ public class OrderCreateLineItemPropertyInput {
       return result;
     }
 
-    /**
-     * The name of the line item property.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The value of the line item property.
-     */
+    
     public Builder value(String value) {
       this.value = value;
       return this;

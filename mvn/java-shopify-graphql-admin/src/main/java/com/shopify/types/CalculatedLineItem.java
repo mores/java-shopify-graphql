@@ -6,119 +6,72 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * A line item involved in order editing that may be newly added or have new changes applied.
- */
+
 public class CalculatedLineItem {
-  /**
-   * The discounts that have been allocated onto the line item by discount applications.
-   */
+  
   private List<CalculatedDiscountAllocation> calculatedDiscountAllocations;
 
-  /**
-   * A list of attributes that represent custom features or special requests.
-   */
+  
   private List<Attribute> customAttributes;
 
-  /**
-   * The discounts that have been allocated onto the line item by discount applications.
-   */
+  
   private List<DiscountAllocation> discountAllocations;
 
-  /**
-   * The price of a single quantity of the line item with line item discounts
-   * applied, in shop and presentment currencies. Discounts applied to the entire
-   * order aren't included in this price.
-   */
+  
   private MoneyBag discountedUnitPriceSet;
 
-  /**
-   * The total number of items that can be edited.
-   */
+  
   private int editableQuantity;
 
-  /**
-   * The editable quantity prior to any changes made in the current edit.
-   */
+  
   private int editableQuantityBeforeChanges;
 
-  /**
-   * The total price of editable lines in shop and presentment currencies.
-   */
+  
   private MoneyBag editableSubtotalSet;
 
-  /**
-   * Whether the calculated line item has a staged discount.
-   */
+  
   private boolean hasStagedLineItemDiscount;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The image object associated to the line item's variant.
-   */
+  
   private Image image;
 
-  /**
-   * The variant unit price in shop and presentment currencies, without any discounts applied.
-   */
+  
   private MoneyBag originalUnitPriceSet;
 
-  /**
-   * The total number of items.
-   */
+  
   private int quantity;
 
-  /**
-   * Whether the line item can be restocked or not.
-   */
+  
   private boolean restockable;
 
-  /**
-   * Whether the changes on the line item will result in a restock.
-   */
+  
   private boolean restocking;
 
-  /**
-   * The variant SKU number.
-   */
+  
   private String sku;
 
-  /**
-   * A list of changes that affect this line item.
-   */
+  
   private List<OrderStagedChange> stagedChanges;
 
-  /**
-   * The title of the product.
-   */
+  
   private String title;
 
-  /**
-   * The total price of uneditable lines in shop and presentment currencies.
-   */
+  
   private MoneyBag uneditableSubtotalSet;
 
-  /**
-   * The product variant associated with this line item. The value is null for custom line items and items where
-   * the variant has been deleted.
-   */
+  
   private ProductVariant variant;
 
-  /**
-   * The title of the variant.
-   */
+  
   private String variantTitle;
 
   public CalculatedLineItem() {
   }
 
-  /**
-   * The discounts that have been allocated onto the line item by discount applications.
-   */
+  
   public List<CalculatedDiscountAllocation> getCalculatedDiscountAllocations() {
     return calculatedDiscountAllocations;
   }
@@ -128,9 +81,7 @@ public class CalculatedLineItem {
     this.calculatedDiscountAllocations = calculatedDiscountAllocations;
   }
 
-  /**
-   * A list of attributes that represent custom features or special requests.
-   */
+  
   public List<Attribute> getCustomAttributes() {
     return customAttributes;
   }
@@ -139,9 +90,7 @@ public class CalculatedLineItem {
     this.customAttributes = customAttributes;
   }
 
-  /**
-   * The discounts that have been allocated onto the line item by discount applications.
-   */
+  
   public List<DiscountAllocation> getDiscountAllocations() {
     return discountAllocations;
   }
@@ -150,11 +99,7 @@ public class CalculatedLineItem {
     this.discountAllocations = discountAllocations;
   }
 
-  /**
-   * The price of a single quantity of the line item with line item discounts
-   * applied, in shop and presentment currencies. Discounts applied to the entire
-   * order aren't included in this price.
-   */
+  
   public MoneyBag getDiscountedUnitPriceSet() {
     return discountedUnitPriceSet;
   }
@@ -163,9 +108,7 @@ public class CalculatedLineItem {
     this.discountedUnitPriceSet = discountedUnitPriceSet;
   }
 
-  /**
-   * The total number of items that can be edited.
-   */
+  
   public int getEditableQuantity() {
     return editableQuantity;
   }
@@ -174,9 +117,7 @@ public class CalculatedLineItem {
     this.editableQuantity = editableQuantity;
   }
 
-  /**
-   * The editable quantity prior to any changes made in the current edit.
-   */
+  
   public int getEditableQuantityBeforeChanges() {
     return editableQuantityBeforeChanges;
   }
@@ -185,9 +126,7 @@ public class CalculatedLineItem {
     this.editableQuantityBeforeChanges = editableQuantityBeforeChanges;
   }
 
-  /**
-   * The total price of editable lines in shop and presentment currencies.
-   */
+  
   public MoneyBag getEditableSubtotalSet() {
     return editableSubtotalSet;
   }
@@ -196,9 +135,7 @@ public class CalculatedLineItem {
     this.editableSubtotalSet = editableSubtotalSet;
   }
 
-  /**
-   * Whether the calculated line item has a staged discount.
-   */
+  
   public boolean getHasStagedLineItemDiscount() {
     return hasStagedLineItemDiscount;
   }
@@ -207,9 +144,7 @@ public class CalculatedLineItem {
     this.hasStagedLineItemDiscount = hasStagedLineItemDiscount;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -218,9 +153,7 @@ public class CalculatedLineItem {
     this.id = id;
   }
 
-  /**
-   * The image object associated to the line item's variant.
-   */
+  
   public Image getImage() {
     return image;
   }
@@ -229,9 +162,7 @@ public class CalculatedLineItem {
     this.image = image;
   }
 
-  /**
-   * The variant unit price in shop and presentment currencies, without any discounts applied.
-   */
+  
   public MoneyBag getOriginalUnitPriceSet() {
     return originalUnitPriceSet;
   }
@@ -240,9 +171,7 @@ public class CalculatedLineItem {
     this.originalUnitPriceSet = originalUnitPriceSet;
   }
 
-  /**
-   * The total number of items.
-   */
+  
   public int getQuantity() {
     return quantity;
   }
@@ -251,9 +180,7 @@ public class CalculatedLineItem {
     this.quantity = quantity;
   }
 
-  /**
-   * Whether the line item can be restocked or not.
-   */
+  
   public boolean getRestockable() {
     return restockable;
   }
@@ -262,9 +189,7 @@ public class CalculatedLineItem {
     this.restockable = restockable;
   }
 
-  /**
-   * Whether the changes on the line item will result in a restock.
-   */
+  
   public boolean getRestocking() {
     return restocking;
   }
@@ -273,9 +198,7 @@ public class CalculatedLineItem {
     this.restocking = restocking;
   }
 
-  /**
-   * The variant SKU number.
-   */
+  
   public String getSku() {
     return sku;
   }
@@ -284,9 +207,7 @@ public class CalculatedLineItem {
     this.sku = sku;
   }
 
-  /**
-   * A list of changes that affect this line item.
-   */
+  
   public List<OrderStagedChange> getStagedChanges() {
     return stagedChanges;
   }
@@ -295,9 +216,7 @@ public class CalculatedLineItem {
     this.stagedChanges = stagedChanges;
   }
 
-  /**
-   * The title of the product.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -306,9 +225,7 @@ public class CalculatedLineItem {
     this.title = title;
   }
 
-  /**
-   * The total price of uneditable lines in shop and presentment currencies.
-   */
+  
   public MoneyBag getUneditableSubtotalSet() {
     return uneditableSubtotalSet;
   }
@@ -317,10 +234,7 @@ public class CalculatedLineItem {
     this.uneditableSubtotalSet = uneditableSubtotalSet;
   }
 
-  /**
-   * The product variant associated with this line item. The value is null for custom line items and items where
-   * the variant has been deleted.
-   */
+  
   public ProductVariant getVariant() {
     return variant;
   }
@@ -329,9 +243,7 @@ public class CalculatedLineItem {
     this.variant = variant;
   }
 
-  /**
-   * The title of the variant.
-   */
+  
   public String getVariantTitle() {
     return variantTitle;
   }
@@ -382,107 +294,64 @@ public class CalculatedLineItem {
   }
 
   public static class Builder {
-    /**
-     * The discounts that have been allocated onto the line item by discount applications.
-     */
+    
     private List<CalculatedDiscountAllocation> calculatedDiscountAllocations;
 
-    /**
-     * A list of attributes that represent custom features or special requests.
-     */
+    
     private List<Attribute> customAttributes;
 
-    /**
-     * The discounts that have been allocated onto the line item by discount applications.
-     */
+    
     private List<DiscountAllocation> discountAllocations;
 
-    /**
-     * The price of a single quantity of the line item with line item discounts
-     * applied, in shop and presentment currencies. Discounts applied to the entire
-     * order aren't included in this price.
-     */
+    
     private MoneyBag discountedUnitPriceSet;
 
-    /**
-     * The total number of items that can be edited.
-     */
+    
     private int editableQuantity;
 
-    /**
-     * The editable quantity prior to any changes made in the current edit.
-     */
+    
     private int editableQuantityBeforeChanges;
 
-    /**
-     * The total price of editable lines in shop and presentment currencies.
-     */
+    
     private MoneyBag editableSubtotalSet;
 
-    /**
-     * Whether the calculated line item has a staged discount.
-     */
+    
     private boolean hasStagedLineItemDiscount;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The image object associated to the line item's variant.
-     */
+    
     private Image image;
 
-    /**
-     * The variant unit price in shop and presentment currencies, without any discounts applied.
-     */
+    
     private MoneyBag originalUnitPriceSet;
 
-    /**
-     * The total number of items.
-     */
+    
     private int quantity;
 
-    /**
-     * Whether the line item can be restocked or not.
-     */
+    
     private boolean restockable;
 
-    /**
-     * Whether the changes on the line item will result in a restock.
-     */
+    
     private boolean restocking;
 
-    /**
-     * The variant SKU number.
-     */
+    
     private String sku;
 
-    /**
-     * A list of changes that affect this line item.
-     */
+    
     private List<OrderStagedChange> stagedChanges;
 
-    /**
-     * The title of the product.
-     */
+    
     private String title;
 
-    /**
-     * The total price of uneditable lines in shop and presentment currencies.
-     */
+    
     private MoneyBag uneditableSubtotalSet;
 
-    /**
-     * The product variant associated with this line item. The value is null for custom line items and items where
-     * the variant has been deleted.
-     */
+    
     private ProductVariant variant;
 
-    /**
-     * The title of the variant.
-     */
+    
     private String variantTitle;
 
     public CalculatedLineItem build() {
@@ -510,165 +379,122 @@ public class CalculatedLineItem {
       return result;
     }
 
-    /**
-     * The discounts that have been allocated onto the line item by discount applications.
-     */
+    
     public Builder calculatedDiscountAllocations(
         List<CalculatedDiscountAllocation> calculatedDiscountAllocations) {
       this.calculatedDiscountAllocations = calculatedDiscountAllocations;
       return this;
     }
 
-    /**
-     * A list of attributes that represent custom features or special requests.
-     */
+    
     public Builder customAttributes(List<Attribute> customAttributes) {
       this.customAttributes = customAttributes;
       return this;
     }
 
-    /**
-     * The discounts that have been allocated onto the line item by discount applications.
-     */
+    
     public Builder discountAllocations(List<DiscountAllocation> discountAllocations) {
       this.discountAllocations = discountAllocations;
       return this;
     }
 
-    /**
-     * The price of a single quantity of the line item with line item discounts
-     * applied, in shop and presentment currencies. Discounts applied to the entire
-     * order aren't included in this price.
-     */
+    
     public Builder discountedUnitPriceSet(MoneyBag discountedUnitPriceSet) {
       this.discountedUnitPriceSet = discountedUnitPriceSet;
       return this;
     }
 
-    /**
-     * The total number of items that can be edited.
-     */
+    
     public Builder editableQuantity(int editableQuantity) {
       this.editableQuantity = editableQuantity;
       return this;
     }
 
-    /**
-     * The editable quantity prior to any changes made in the current edit.
-     */
+    
     public Builder editableQuantityBeforeChanges(int editableQuantityBeforeChanges) {
       this.editableQuantityBeforeChanges = editableQuantityBeforeChanges;
       return this;
     }
 
-    /**
-     * The total price of editable lines in shop and presentment currencies.
-     */
+    
     public Builder editableSubtotalSet(MoneyBag editableSubtotalSet) {
       this.editableSubtotalSet = editableSubtotalSet;
       return this;
     }
 
-    /**
-     * Whether the calculated line item has a staged discount.
-     */
+    
     public Builder hasStagedLineItemDiscount(boolean hasStagedLineItemDiscount) {
       this.hasStagedLineItemDiscount = hasStagedLineItemDiscount;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The image object associated to the line item's variant.
-     */
+    
     public Builder image(Image image) {
       this.image = image;
       return this;
     }
 
-    /**
-     * The variant unit price in shop and presentment currencies, without any discounts applied.
-     */
+    
     public Builder originalUnitPriceSet(MoneyBag originalUnitPriceSet) {
       this.originalUnitPriceSet = originalUnitPriceSet;
       return this;
     }
 
-    /**
-     * The total number of items.
-     */
+    
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    /**
-     * Whether the line item can be restocked or not.
-     */
+    
     public Builder restockable(boolean restockable) {
       this.restockable = restockable;
       return this;
     }
 
-    /**
-     * Whether the changes on the line item will result in a restock.
-     */
+    
     public Builder restocking(boolean restocking) {
       this.restocking = restocking;
       return this;
     }
 
-    /**
-     * The variant SKU number.
-     */
+    
     public Builder sku(String sku) {
       this.sku = sku;
       return this;
     }
 
-    /**
-     * A list of changes that affect this line item.
-     */
+    
     public Builder stagedChanges(List<OrderStagedChange> stagedChanges) {
       this.stagedChanges = stagedChanges;
       return this;
     }
 
-    /**
-     * The title of the product.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    /**
-     * The total price of uneditable lines in shop and presentment currencies.
-     */
+    
     public Builder uneditableSubtotalSet(MoneyBag uneditableSubtotalSet) {
       this.uneditableSubtotalSet = uneditableSubtotalSet;
       return this;
     }
 
-    /**
-     * The product variant associated with this line item. The value is null for custom line items and items where
-     * the variant has been deleted.
-     */
+    
     public Builder variant(ProductVariant variant) {
       this.variant = variant;
       return this;
     }
 
-    /**
-     * The title of the variant.
-     */
+    
     public Builder variantTitle(String variantTitle) {
       this.variantTitle = variantTitle;
       return this;

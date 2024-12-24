@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Specifies the attribute of a product being used to populate the smart collection.
- */
+
 public enum CollectionRuleColumn {
   TAG,
 

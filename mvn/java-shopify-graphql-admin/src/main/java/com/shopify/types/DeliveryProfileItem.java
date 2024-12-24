@@ -6,34 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A product and the subset of associated variants that are part of this delivery profile.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DeliveryProfileItem implements com.shopify.types.Node {
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * A product associated with this profile.
-   */
+  
   private Product product;
 
-  /**
-   * The product variants associated with this delivery profile.
-   */
+  
   private ProductVariantConnection variants;
 
   public DeliveryProfileItem() {
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -42,9 +32,7 @@ public class DeliveryProfileItem implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * A product associated with this profile.
-   */
+  
   public Product getProduct() {
     return product;
   }
@@ -53,9 +41,7 @@ public class DeliveryProfileItem implements com.shopify.types.Node {
     this.product = product;
   }
 
-  /**
-   * The product variants associated with this delivery profile.
-   */
+  
   public ProductVariantConnection getVariants() {
     return variants;
   }
@@ -89,19 +75,13 @@ public class DeliveryProfileItem implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * A product associated with this profile.
-     */
+    
     private Product product;
 
-    /**
-     * The product variants associated with this delivery profile.
-     */
+    
     private ProductVariantConnection variants;
 
     public DeliveryProfileItem build() {
@@ -112,25 +92,19 @@ public class DeliveryProfileItem implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * A product associated with this profile.
-     */
+    
     public Builder product(Product product) {
       this.product = product;
       return this;
     }
 
-    /**
-     * The product variants associated with this delivery profile.
-     */
+    
     public Builder variants(ProductVariantConnection variants) {
       this.variants = variants;
       return this;

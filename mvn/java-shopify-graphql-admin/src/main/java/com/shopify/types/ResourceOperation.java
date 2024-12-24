@@ -5,9 +5,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.Integer;
 import java.lang.String;
 
-/**
- * Represents a merchandising background operation interface.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
     include = JsonTypeInfo.As.PROPERTY,
@@ -19,23 +17,15 @@ import java.lang.String;
     @JsonSubTypes.Type(value = PublicationResourceOperation.class, name = "PublicationResourceOperation")
 })
 public interface ResourceOperation {
-  /**
-   * A globally-unique ID.
-   */
+  
   String getId();
 
-  /**
-   * The count of processed rows, summing imported, failed, and skipped rows.
-   */
+  
   Integer getProcessedRowCount();
 
-  /**
-   * Represents a rows objects within this background operation.
-   */
+  
   RowCount getRowCount();
 
-  /**
-   * The status of this operation.
-   */
+  
   ResourceOperationStatus getStatus();
 }

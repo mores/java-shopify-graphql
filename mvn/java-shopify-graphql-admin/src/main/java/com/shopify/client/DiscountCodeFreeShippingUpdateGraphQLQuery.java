@@ -7,14 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Updates a [free shipping discount](https://help.shopify.com/manual/discounts/discount-types/free-shipping)
- * that's applied on a cart and at checkout when a customer enters a code.
- *   
- * > Note:
- * > To update a free shipping discount that's automatically applied on a cart
- * and at checkout, use the [`discountAutomaticFreeShippingUpdate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/discountAutomaticFreeShippingUpdate) mutation.
- */
+
 public class DiscountCodeFreeShippingUpdateGraphQLQuery extends GraphQLQuery {
   public DiscountCodeFreeShippingUpdateGraphQLQuery(String id,
       DiscountCodeFreeShippingInput freeShippingCodeDiscount, String queryName,
@@ -54,18 +47,14 @@ public class DiscountCodeFreeShippingUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the discount code to update.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * The input data used to update the discount code.
-     */
+    
     public Builder freeShippingCodeDiscount(
         DiscountCodeFreeShippingInput freeShippingCodeDiscount) {
       this.freeShippingCodeDiscount = freeShippingCodeDiscount;

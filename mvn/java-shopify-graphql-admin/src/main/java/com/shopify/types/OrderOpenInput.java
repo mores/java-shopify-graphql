@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for specifying a closed order to open.
- */
+
 public class OrderOpenInput {
-  /**
-   * The ID of the order to open.
-   */
+  
   private String id;
 
   public OrderOpenInput() {
   }
 
-  /**
-   * The ID of the order to open.
-   */
+  
   public String getId() {
     return id;
   }
@@ -51,9 +45,7 @@ public class OrderOpenInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the order to open.
-     */
+    
     private String id;
 
     public OrderOpenInput build() {
@@ -62,9 +54,7 @@ public class OrderOpenInput {
       return result;
     }
 
-    /**
-     * The ID of the order to open.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;

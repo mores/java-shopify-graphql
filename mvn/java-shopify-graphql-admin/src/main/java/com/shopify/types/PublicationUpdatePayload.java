@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `publicationUpdate` mutation.
- */
+
 public class PublicationUpdatePayload {
-  /**
-   * The publication that's been updated.
-   */
+  
   private Publication publication;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<PublicationUserError> userErrors;
 
   public PublicationUpdatePayload() {
   }
 
-  /**
-   * The publication that's been updated.
-   */
+  
   public Publication getPublication() {
     return publication;
   }
@@ -34,9 +26,7 @@ public class PublicationUpdatePayload {
     this.publication = publication;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<PublicationUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class PublicationUpdatePayload {
   }
 
   public static class Builder {
-    /**
-     * The publication that's been updated.
-     */
+    
     private Publication publication;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<PublicationUserError> userErrors;
 
     public PublicationUpdatePayload build() {
@@ -86,17 +72,13 @@ public class PublicationUpdatePayload {
       return result;
     }
 
-    /**
-     * The publication that's been updated.
-     */
+    
     public Builder publication(Publication publication) {
       this.publication = publication;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<PublicationUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

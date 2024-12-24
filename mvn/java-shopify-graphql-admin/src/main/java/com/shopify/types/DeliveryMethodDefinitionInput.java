@@ -7,61 +7,39 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for a method definition.
- */
+
 public class DeliveryMethodDefinitionInput {
-  /**
-   * A globally-unique ID of the method definition. Use only when updating a method definiton.
-   */
+  
   private String id;
 
-  /**
-   * The name of the method definition.
-   */
+  
   private String name;
 
-  /**
-   * The description of the method definition.
-   */
+  
   private String description;
 
-  /**
-   * Whether to use this method definition during rate calculation.
-   */
+  
   private Boolean active;
 
-  /**
-   * A rate definition to apply to the method definition.
-   */
+  
   private DeliveryRateDefinitionInput rateDefinition;
 
-  /**
-   * A participant to apply to the method definition.
-   */
+  
   private DeliveryParticipantInput participant;
 
-  /**
-   * A list of weight conditions on the method definition.
-   */
+  
   private List<DeliveryWeightConditionInput> weightConditionsToCreate;
 
-  /**
-   * A list of price conditions on the method definition.
-   */
+  
   private List<DeliveryPriceConditionInput> priceConditionsToCreate;
 
-  /**
-   * A list of conditions to update on the method definition.
-   */
+  
   private List<DeliveryUpdateConditionInput> conditionsToUpdate;
 
   public DeliveryMethodDefinitionInput() {
   }
 
-  /**
-   * A globally-unique ID of the method definition. Use only when updating a method definiton.
-   */
+  
   public String getId() {
     return id;
   }
@@ -70,9 +48,7 @@ public class DeliveryMethodDefinitionInput {
     this.id = id;
   }
 
-  /**
-   * The name of the method definition.
-   */
+  
   public String getName() {
     return name;
   }
@@ -81,9 +57,7 @@ public class DeliveryMethodDefinitionInput {
     this.name = name;
   }
 
-  /**
-   * The description of the method definition.
-   */
+  
   public String getDescription() {
     return description;
   }
@@ -92,9 +66,7 @@ public class DeliveryMethodDefinitionInput {
     this.description = description;
   }
 
-  /**
-   * Whether to use this method definition during rate calculation.
-   */
+  
   public Boolean getActive() {
     return active;
   }
@@ -103,9 +75,7 @@ public class DeliveryMethodDefinitionInput {
     this.active = active;
   }
 
-  /**
-   * A rate definition to apply to the method definition.
-   */
+  
   public DeliveryRateDefinitionInput getRateDefinition() {
     return rateDefinition;
   }
@@ -114,9 +84,7 @@ public class DeliveryMethodDefinitionInput {
     this.rateDefinition = rateDefinition;
   }
 
-  /**
-   * A participant to apply to the method definition.
-   */
+  
   public DeliveryParticipantInput getParticipant() {
     return participant;
   }
@@ -125,9 +93,7 @@ public class DeliveryMethodDefinitionInput {
     this.participant = participant;
   }
 
-  /**
-   * A list of weight conditions on the method definition.
-   */
+  
   public List<DeliveryWeightConditionInput> getWeightConditionsToCreate() {
     return weightConditionsToCreate;
   }
@@ -137,9 +103,7 @@ public class DeliveryMethodDefinitionInput {
     this.weightConditionsToCreate = weightConditionsToCreate;
   }
 
-  /**
-   * A list of price conditions on the method definition.
-   */
+  
   public List<DeliveryPriceConditionInput> getPriceConditionsToCreate() {
     return priceConditionsToCreate;
   }
@@ -149,9 +113,7 @@ public class DeliveryMethodDefinitionInput {
     this.priceConditionsToCreate = priceConditionsToCreate;
   }
 
-  /**
-   * A list of conditions to update on the method definition.
-   */
+  
   public List<DeliveryUpdateConditionInput> getConditionsToUpdate() {
     return conditionsToUpdate;
   }
@@ -191,49 +153,31 @@ public class DeliveryMethodDefinitionInput {
   }
 
   public static class Builder {
-    /**
-     * A globally-unique ID of the method definition. Use only when updating a method definiton.
-     */
+    
     private String id;
 
-    /**
-     * The name of the method definition.
-     */
+    
     private String name;
 
-    /**
-     * The description of the method definition.
-     */
+    
     private String description;
 
-    /**
-     * Whether to use this method definition during rate calculation.
-     */
+    
     private Boolean active;
 
-    /**
-     * A rate definition to apply to the method definition.
-     */
+    
     private DeliveryRateDefinitionInput rateDefinition;
 
-    /**
-     * A participant to apply to the method definition.
-     */
+    
     private DeliveryParticipantInput participant;
 
-    /**
-     * A list of weight conditions on the method definition.
-     */
+    
     private List<DeliveryWeightConditionInput> weightConditionsToCreate;
 
-    /**
-     * A list of price conditions on the method definition.
-     */
+    
     private List<DeliveryPriceConditionInput> priceConditionsToCreate;
 
-    /**
-     * A list of conditions to update on the method definition.
-     */
+    
     private List<DeliveryUpdateConditionInput> conditionsToUpdate;
 
     public DeliveryMethodDefinitionInput build() {
@@ -250,75 +194,57 @@ public class DeliveryMethodDefinitionInput {
       return result;
     }
 
-    /**
-     * A globally-unique ID of the method definition. Use only when updating a method definiton.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The name of the method definition.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The description of the method definition.
-     */
+    
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    /**
-     * Whether to use this method definition during rate calculation.
-     */
+    
     public Builder active(Boolean active) {
       this.active = active;
       return this;
     }
 
-    /**
-     * A rate definition to apply to the method definition.
-     */
+    
     public Builder rateDefinition(DeliveryRateDefinitionInput rateDefinition) {
       this.rateDefinition = rateDefinition;
       return this;
     }
 
-    /**
-     * A participant to apply to the method definition.
-     */
+    
     public Builder participant(DeliveryParticipantInput participant) {
       this.participant = participant;
       return this;
     }
 
-    /**
-     * A list of weight conditions on the method definition.
-     */
+    
     public Builder weightConditionsToCreate(
         List<DeliveryWeightConditionInput> weightConditionsToCreate) {
       this.weightConditionsToCreate = weightConditionsToCreate;
       return this;
     }
 
-    /**
-     * A list of price conditions on the method definition.
-     */
+    
     public Builder priceConditionsToCreate(
         List<DeliveryPriceConditionInput> priceConditionsToCreate) {
       this.priceConditionsToCreate = priceConditionsToCreate;
       return this;
     }
 
-    /**
-     * A list of conditions to update on the method definition.
-     */
+    
     public Builder conditionsToUpdate(List<DeliveryUpdateConditionInput> conditionsToUpdate) {
       this.conditionsToUpdate = conditionsToUpdate;
       return this;

@@ -47,9 +47,7 @@ public class DelegateAccessTokenCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The input fields for creating a delegate access token.
-     */
+    
     public Builder input(DelegateAccessTokenInput input) {
       this.input = input;
       this.fieldsSet.add("input");

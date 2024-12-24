@@ -6,26 +6,18 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * The input fields for a store credit account credit transaction.
- */
+
 public class StoreCreditAccountCreditInput {
-  /**
-   * The amount to credit the store credit account.
-   */
+  
   private MoneyInput creditAmount;
 
-  /**
-   * The date and time when the credit expires.
-   */
+  
   private OffsetDateTime expiresAt;
 
   public StoreCreditAccountCreditInput() {
   }
 
-  /**
-   * The amount to credit the store credit account.
-   */
+  
   public MoneyInput getCreditAmount() {
     return creditAmount;
   }
@@ -34,9 +26,7 @@ public class StoreCreditAccountCreditInput {
     this.creditAmount = creditAmount;
   }
 
-  /**
-   * The date and time when the credit expires.
-   */
+  
   public OffsetDateTime getExpiresAt() {
     return expiresAt;
   }
@@ -69,14 +59,10 @@ public class StoreCreditAccountCreditInput {
   }
 
   public static class Builder {
-    /**
-     * The amount to credit the store credit account.
-     */
+    
     private MoneyInput creditAmount;
 
-    /**
-     * The date and time when the credit expires.
-     */
+    
     private OffsetDateTime expiresAt;
 
     public StoreCreditAccountCreditInput build() {
@@ -86,17 +72,13 @@ public class StoreCreditAccountCreditInput {
       return result;
     }
 
-    /**
-     * The amount to credit the store credit account.
-     */
+    
     public Builder creditAmount(MoneyInput creditAmount) {
       this.creditAmount = creditAmount;
       return this;
     }
 
-    /**
-     * The date and time when the credit expires.
-     */
+    
     public Builder expiresAt(OffsetDateTime expiresAt) {
       this.expiresAt = expiresAt;
       return this;

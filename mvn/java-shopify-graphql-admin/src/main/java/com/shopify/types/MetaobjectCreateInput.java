@@ -6,36 +6,24 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for creating a metaobject.
- */
+
 public class MetaobjectCreateInput {
-  /**
-   * The type of the metaobject. Must match an existing metaobject definition type.
-   */
+  
   private String type;
 
-  /**
-   * A unique handle for the metaobject. This value is auto-generated when omitted.
-   */
+  
   private String handle;
 
-  /**
-   * Values for fields. These are mapped by key to fields of the metaobject definition.
-   */
+  
   private List<MetaobjectFieldInput> fields;
 
-  /**
-   * Capabilities for the metaobject.
-   */
+  
   private MetaobjectCapabilityDataInput capabilities;
 
   public MetaobjectCreateInput() {
   }
 
-  /**
-   * The type of the metaobject. Must match an existing metaobject definition type.
-   */
+  
   public String getType() {
     return type;
   }
@@ -44,9 +32,7 @@ public class MetaobjectCreateInput {
     this.type = type;
   }
 
-  /**
-   * A unique handle for the metaobject. This value is auto-generated when omitted.
-   */
+  
   public String getHandle() {
     return handle;
   }
@@ -55,9 +41,7 @@ public class MetaobjectCreateInput {
     this.handle = handle;
   }
 
-  /**
-   * Values for fields. These are mapped by key to fields of the metaobject definition.
-   */
+  
   public List<MetaobjectFieldInput> getFields() {
     return fields;
   }
@@ -66,9 +50,7 @@ public class MetaobjectCreateInput {
     this.fields = fields;
   }
 
-  /**
-   * Capabilities for the metaobject.
-   */
+  
   public MetaobjectCapabilityDataInput getCapabilities() {
     return capabilities;
   }
@@ -103,24 +85,16 @@ public class MetaobjectCreateInput {
   }
 
   public static class Builder {
-    /**
-     * The type of the metaobject. Must match an existing metaobject definition type.
-     */
+    
     private String type;
 
-    /**
-     * A unique handle for the metaobject. This value is auto-generated when omitted.
-     */
+    
     private String handle;
 
-    /**
-     * Values for fields. These are mapped by key to fields of the metaobject definition.
-     */
+    
     private List<MetaobjectFieldInput> fields;
 
-    /**
-     * Capabilities for the metaobject.
-     */
+    
     private MetaobjectCapabilityDataInput capabilities;
 
     public MetaobjectCreateInput build() {
@@ -132,33 +106,25 @@ public class MetaobjectCreateInput {
       return result;
     }
 
-    /**
-     * The type of the metaobject. Must match an existing metaobject definition type.
-     */
+    
     public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    /**
-     * A unique handle for the metaobject. This value is auto-generated when omitted.
-     */
+    
     public Builder handle(String handle) {
       this.handle = handle;
       return this;
     }
 
-    /**
-     * Values for fields. These are mapped by key to fields of the metaobject definition.
-     */
+    
     public Builder fields(List<MetaobjectFieldInput> fields) {
       this.fields = fields;
       return this;
     }
 
-    /**
-     * Capabilities for the metaobject.
-     */
+    
     public Builder capabilities(MetaobjectCapabilityDataInput capabilities) {
       this.capabilities = capabilities;
       return this;

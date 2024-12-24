@@ -6,25 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * One type of value given to a customer when a discount is applied to an order.
- * The application of a discount with this value gives the customer the specified percentage off a specified item.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class PricingPercentageValue implements PricingValue {
-  /**
-   * The percentage value of the object. This is a number between -100 (free) and 0 (no discount).
-   */
+  
   private double percentage;
 
   public PricingPercentageValue() {
   }
 
-  /**
-   * The percentage value of the object. This is a number between -100 (free) and 0 (no discount).
-   */
+  
   public double getPercentage() {
     return percentage;
   }
@@ -56,9 +49,7 @@ public class PricingPercentageValue implements PricingValue {
   }
 
   public static class Builder {
-    /**
-     * The percentage value of the object. This is a number between -100 (free) and 0 (no discount).
-     */
+    
     private double percentage;
 
     public PricingPercentageValue build() {
@@ -67,9 +58,7 @@ public class PricingPercentageValue implements PricingValue {
       return result;
     }
 
-    /**
-     * The percentage value of the object. This is a number between -100 (free) and 0 (no discount).
-     */
+    
     public Builder percentage(double percentage) {
       this.percentage = percentage;
       return this;

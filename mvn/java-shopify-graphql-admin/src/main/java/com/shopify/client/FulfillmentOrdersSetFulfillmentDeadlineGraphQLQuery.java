@@ -8,9 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Sets the latest date and time by which the fulfillment orders need to be fulfilled.
- */
+
 public class FulfillmentOrdersSetFulfillmentDeadlineGraphQLQuery extends GraphQLQuery {
   public FulfillmentOrdersSetFulfillmentDeadlineGraphQLQuery(List<String> fulfillmentOrderIds,
       OffsetDateTime fulfillmentDeadline, String queryName, Set<String> fieldsSet) {
@@ -49,18 +47,14 @@ public class FulfillmentOrdersSetFulfillmentDeadlineGraphQLQuery extends GraphQL
                
     }
 
-    /**
-     * The IDs of the fulfillment orders for which the deadline is being set.
-     */
+    
     public Builder fulfillmentOrderIds(List<String> fulfillmentOrderIds) {
       this.fulfillmentOrderIds = fulfillmentOrderIds;
       this.fieldsSet.add("fulfillmentOrderIds");
       return this;
     }
 
-    /**
-     * The new fulfillment deadline of the fulfillment orders.
-     */
+    
     public Builder fulfillmentDeadline(OffsetDateTime fulfillmentDeadline) {
       this.fulfillmentDeadline = fulfillmentDeadline;
       this.fieldsSet.add("fulfillmentDeadline");

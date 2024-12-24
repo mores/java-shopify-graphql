@@ -6,41 +6,27 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `productDeleteMedia` mutation.
- */
+
 public class ProductDeleteMediaPayload {
-  /**
-   * List of media IDs which were deleted.
-   */
+  
   private List<String> deletedMediaIds;
 
-  /**
-   * List of product image IDs which were deleted.
-   */
+  
   private List<String> deletedProductImageIds;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<MediaUserError> mediaUserErrors;
 
-  /**
-   * The product associated with the deleted media.
-   */
+  
   private Product product;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public ProductDeleteMediaPayload() {
   }
 
-  /**
-   * List of media IDs which were deleted.
-   */
+  
   public List<String> getDeletedMediaIds() {
     return deletedMediaIds;
   }
@@ -49,9 +35,7 @@ public class ProductDeleteMediaPayload {
     this.deletedMediaIds = deletedMediaIds;
   }
 
-  /**
-   * List of product image IDs which were deleted.
-   */
+  
   public List<String> getDeletedProductImageIds() {
     return deletedProductImageIds;
   }
@@ -60,9 +44,7 @@ public class ProductDeleteMediaPayload {
     this.deletedProductImageIds = deletedProductImageIds;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<MediaUserError> getMediaUserErrors() {
     return mediaUserErrors;
   }
@@ -71,9 +53,7 @@ public class ProductDeleteMediaPayload {
     this.mediaUserErrors = mediaUserErrors;
   }
 
-  /**
-   * The product associated with the deleted media.
-   */
+  
   public Product getProduct() {
     return product;
   }
@@ -82,9 +62,7 @@ public class ProductDeleteMediaPayload {
     this.product = product;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -120,29 +98,19 @@ public class ProductDeleteMediaPayload {
   }
 
   public static class Builder {
-    /**
-     * List of media IDs which were deleted.
-     */
+    
     private List<String> deletedMediaIds;
 
-    /**
-     * List of product image IDs which were deleted.
-     */
+    
     private List<String> deletedProductImageIds;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<MediaUserError> mediaUserErrors;
 
-    /**
-     * The product associated with the deleted media.
-     */
+    
     private Product product;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public ProductDeleteMediaPayload build() {
@@ -155,41 +123,31 @@ public class ProductDeleteMediaPayload {
       return result;
     }
 
-    /**
-     * List of media IDs which were deleted.
-     */
+    
     public Builder deletedMediaIds(List<String> deletedMediaIds) {
       this.deletedMediaIds = deletedMediaIds;
       return this;
     }
 
-    /**
-     * List of product image IDs which were deleted.
-     */
+    
     public Builder deletedProductImageIds(List<String> deletedProductImageIds) {
       this.deletedProductImageIds = deletedProductImageIds;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder mediaUserErrors(List<MediaUserError> mediaUserErrors) {
       this.mediaUserErrors = mediaUserErrors;
       return this;
     }
 
-    /**
-     * The product associated with the deleted media.
-     */
+    
     public Builder product(Product product) {
       this.product = product;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

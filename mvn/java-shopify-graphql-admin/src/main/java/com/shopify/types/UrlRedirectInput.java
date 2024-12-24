@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields to create or update a URL redirect.
- */
+
 public class UrlRedirectInput {
-  /**
-   * The old path to be redirected from. When the user visits this path, they will be redirected to the target location.
-   */
+  
   private String path;
 
-  /**
-   * The target location where the user will be redirected to.
-   */
+  
   private String target;
 
   public UrlRedirectInput() {
   }
 
-  /**
-   * The old path to be redirected from. When the user visits this path, they will be redirected to the target location.
-   */
+  
   public String getPath() {
     return path;
   }
@@ -33,9 +25,7 @@ public class UrlRedirectInput {
     this.path = path;
   }
 
-  /**
-   * The target location where the user will be redirected to.
-   */
+  
   public String getTarget() {
     return target;
   }
@@ -68,14 +58,10 @@ public class UrlRedirectInput {
   }
 
   public static class Builder {
-    /**
-     * The old path to be redirected from. When the user visits this path, they will be redirected to the target location.
-     */
+    
     private String path;
 
-    /**
-     * The target location where the user will be redirected to.
-     */
+    
     private String target;
 
     public UrlRedirectInput build() {
@@ -85,17 +71,13 @@ public class UrlRedirectInput {
       return result;
     }
 
-    /**
-     * The old path to be redirected from. When the user visits this path, they will be redirected to the target location.
-     */
+    
     public Builder path(String path) {
       this.path = path;
       return this;
     }
 
-    /**
-     * The target location where the user will be redirected to.
-     */
+    
     public Builder target(String target) {
       this.target = target;
       return this;

@@ -5,43 +5,27 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Defines a relation between two resources via a reference metafield.
- * The referencer owns the joining field with a given namespace and key,
- * while the target is referenced by the field.
- */
+
 public class MetafieldRelation {
-  /**
-   * The key of the field making the reference.
-   */
+  
   private String key;
 
-  /**
-   * The name of the field making the reference.
-   */
+  
   private String name;
 
-  /**
-   * The namespace of the metafield making the reference, or type of the metaobject.
-   */
+  
   private String namespace;
 
-  /**
-   * The resource making the reference.
-   */
+  
   private MetafieldReferencer referencer;
 
-  /**
-   * The referenced resource.
-   */
+  
   private MetafieldReference target;
 
   public MetafieldRelation() {
   }
 
-  /**
-   * The key of the field making the reference.
-   */
+  
   public String getKey() {
     return key;
   }
@@ -50,9 +34,7 @@ public class MetafieldRelation {
     this.key = key;
   }
 
-  /**
-   * The name of the field making the reference.
-   */
+  
   public String getName() {
     return name;
   }
@@ -61,9 +43,7 @@ public class MetafieldRelation {
     this.name = name;
   }
 
-  /**
-   * The namespace of the metafield making the reference, or type of the metaobject.
-   */
+  
   public String getNamespace() {
     return namespace;
   }
@@ -72,9 +52,7 @@ public class MetafieldRelation {
     this.namespace = namespace;
   }
 
-  /**
-   * The resource making the reference.
-   */
+  
   public MetafieldReferencer getReferencer() {
     return referencer;
   }
@@ -83,9 +61,7 @@ public class MetafieldRelation {
     this.referencer = referencer;
   }
 
-  /**
-   * The referenced resource.
-   */
+  
   public MetafieldReference getTarget() {
     return target;
   }
@@ -121,29 +97,19 @@ public class MetafieldRelation {
   }
 
   public static class Builder {
-    /**
-     * The key of the field making the reference.
-     */
+    
     private String key;
 
-    /**
-     * The name of the field making the reference.
-     */
+    
     private String name;
 
-    /**
-     * The namespace of the metafield making the reference, or type of the metaobject.
-     */
+    
     private String namespace;
 
-    /**
-     * The resource making the reference.
-     */
+    
     private MetafieldReferencer referencer;
 
-    /**
-     * The referenced resource.
-     */
+    
     private MetafieldReference target;
 
     public MetafieldRelation build() {
@@ -156,41 +122,31 @@ public class MetafieldRelation {
       return result;
     }
 
-    /**
-     * The key of the field making the reference.
-     */
+    
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
-    /**
-     * The name of the field making the reference.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The namespace of the metafield making the reference, or type of the metaobject.
-     */
+    
     public Builder namespace(String namespace) {
       this.namespace = namespace;
       return this;
     }
 
-    /**
-     * The resource making the reference.
-     */
+    
     public Builder referencer(MetafieldReferencer referencer) {
       this.referencer = referencer;
       return this;
     }
 
-    /**
-     * The referenced resource.
-     */
+    
     public Builder target(MetafieldReference target) {
       this.target = target;
       return this;

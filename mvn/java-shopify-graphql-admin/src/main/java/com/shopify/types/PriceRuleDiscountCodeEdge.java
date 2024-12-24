@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * An auto-generated type which holds one PriceRuleDiscountCode and a cursor during pagination.
- */
+
 public class PriceRuleDiscountCodeEdge {
-  /**
-   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-   */
+  
   private String cursor;
 
-  /**
-   * The item at the end of PriceRuleDiscountCodeEdge.
-   */
+  
   private PriceRuleDiscountCode node;
 
   public PriceRuleDiscountCodeEdge() {
   }
 
-  /**
-   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-   */
+  
   public String getCursor() {
     return cursor;
   }
@@ -33,9 +25,7 @@ public class PriceRuleDiscountCodeEdge {
     this.cursor = cursor;
   }
 
-  /**
-   * The item at the end of PriceRuleDiscountCodeEdge.
-   */
+  
   public PriceRuleDiscountCode getNode() {
     return node;
   }
@@ -68,14 +58,10 @@ public class PriceRuleDiscountCodeEdge {
   }
 
   public static class Builder {
-    /**
-     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     private String cursor;
 
-    /**
-     * The item at the end of PriceRuleDiscountCodeEdge.
-     */
+    
     private PriceRuleDiscountCode node;
 
     public PriceRuleDiscountCodeEdge build() {
@@ -85,17 +71,13 @@ public class PriceRuleDiscountCodeEdge {
       return result;
     }
 
-    /**
-     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     public Builder cursor(String cursor) {
       this.cursor = cursor;
       return this;
     }
 
-    /**
-     * The item at the end of PriceRuleDiscountCodeEdge.
-     */
+    
     public Builder node(PriceRuleDiscountCode node) {
       this.node = node;
       return this;

@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields to add more than one pricing plan to an app subscription.
- */
+
 public class AppSubscriptionLineItemInput {
-  /**
-   * The pricing model for the app subscription.
-   */
+  
   private AppPlanInput plan;
 
   public AppSubscriptionLineItemInput() {
   }
 
-  /**
-   * The pricing model for the app subscription.
-   */
+  
   public AppPlanInput getPlan() {
     return plan;
   }
@@ -51,9 +45,7 @@ public class AppSubscriptionLineItemInput {
   }
 
   public static class Builder {
-    /**
-     * The pricing model for the app subscription.
-     */
+    
     private AppPlanInput plan;
 
     public AppSubscriptionLineItemInput build() {
@@ -62,9 +54,7 @@ public class AppSubscriptionLineItemInput {
       return result;
     }
 
-    /**
-     * The pricing model for the app subscription.
-     */
+    
     public Builder plan(AppPlanInput plan) {
       this.plan = plan;
       return this;

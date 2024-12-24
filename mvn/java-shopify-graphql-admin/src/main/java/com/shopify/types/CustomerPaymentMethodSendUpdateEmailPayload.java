@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `customerPaymentMethodSendUpdateEmail` mutation.
- */
+
 public class CustomerPaymentMethodSendUpdateEmailPayload {
-  /**
-   * The customer to whom an update payment method email was sent.
-   */
+  
   private Customer customer;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public CustomerPaymentMethodSendUpdateEmailPayload() {
   }
 
-  /**
-   * The customer to whom an update payment method email was sent.
-   */
+  
   public Customer getCustomer() {
     return customer;
   }
@@ -34,9 +26,7 @@ public class CustomerPaymentMethodSendUpdateEmailPayload {
     this.customer = customer;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class CustomerPaymentMethodSendUpdateEmailPayload {
   }
 
   public static class Builder {
-    /**
-     * The customer to whom an update payment method email was sent.
-     */
+    
     private Customer customer;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public CustomerPaymentMethodSendUpdateEmailPayload build() {
@@ -86,17 +72,13 @@ public class CustomerPaymentMethodSendUpdateEmailPayload {
       return result;
     }
 
-    /**
-     * The customer to whom an update payment method email was sent.
-     */
+    
     public Builder customer(Customer customer) {
       this.customer = customer;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

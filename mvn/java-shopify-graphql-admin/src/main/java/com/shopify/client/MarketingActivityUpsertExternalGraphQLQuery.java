@@ -7,11 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Creates a new external marketing activity or updates an existing one. When
- * optional fields are absent or null, associated information will be removed
- * from an existing marketing activity.
- */
+
 public class MarketingActivityUpsertExternalGraphQLQuery extends GraphQLQuery {
   public MarketingActivityUpsertExternalGraphQLQuery(MarketingActivityUpsertExternalInput input,
       String queryName, Set<String> fieldsSet) {
@@ -46,9 +42,7 @@ public class MarketingActivityUpsertExternalGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The input field for creating or updating an external marketing activity.
-     */
+    
     public Builder input(MarketingActivityUpsertExternalInput input) {
       this.input = input;
       this.fieldsSet.add("input");

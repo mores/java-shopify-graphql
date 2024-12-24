@@ -6,55 +6,33 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents a customer's visiting activities on a shop's online store.
- */
+
 public class CustomerJourneySummary {
-  /**
-   * The position of the current order within the customer's order history. Test orders aren't included.
-   */
+  
   private Integer customerOrderIndex;
 
-  /**
-   * The number of days between the first session and the order creation date. The
-   * first session represents the first session since the last order, or the first
-   * session within the 30 day attribution window, if more than 30 days have passed
-   * since the last order.
-   */
+  
   private Integer daysToConversion;
 
-  /**
-   * The customer's first session going into the shop.
-   */
+  
   private CustomerVisit firstVisit;
 
-  /**
-   * The last session before an order is made.
-   */
+  
   private CustomerVisit lastVisit;
 
-  /**
-   * The events preceding a customer's order, such as shop sessions.
-   */
+  
   private CustomerMomentConnection moments;
 
-  /**
-   * The total number of customer moments associated with this order. Returns null
-   * if the order is still in the process of being attributed.
-   */
+  
   private Count momentsCount;
 
-  /**
-   * Whether the attributed sessions for the order have been created yet.
-   */
+  
   private boolean ready;
 
   public CustomerJourneySummary() {
   }
 
-  /**
-   * The position of the current order within the customer's order history. Test orders aren't included.
-   */
+  
   public Integer getCustomerOrderIndex() {
     return customerOrderIndex;
   }
@@ -63,12 +41,7 @@ public class CustomerJourneySummary {
     this.customerOrderIndex = customerOrderIndex;
   }
 
-  /**
-   * The number of days between the first session and the order creation date. The
-   * first session represents the first session since the last order, or the first
-   * session within the 30 day attribution window, if more than 30 days have passed
-   * since the last order.
-   */
+  
   public Integer getDaysToConversion() {
     return daysToConversion;
   }
@@ -77,9 +50,7 @@ public class CustomerJourneySummary {
     this.daysToConversion = daysToConversion;
   }
 
-  /**
-   * The customer's first session going into the shop.
-   */
+  
   public CustomerVisit getFirstVisit() {
     return firstVisit;
   }
@@ -88,9 +59,7 @@ public class CustomerJourneySummary {
     this.firstVisit = firstVisit;
   }
 
-  /**
-   * The last session before an order is made.
-   */
+  
   public CustomerVisit getLastVisit() {
     return lastVisit;
   }
@@ -99,9 +68,7 @@ public class CustomerJourneySummary {
     this.lastVisit = lastVisit;
   }
 
-  /**
-   * The events preceding a customer's order, such as shop sessions.
-   */
+  
   public CustomerMomentConnection getMoments() {
     return moments;
   }
@@ -110,10 +77,7 @@ public class CustomerJourneySummary {
     this.moments = moments;
   }
 
-  /**
-   * The total number of customer moments associated with this order. Returns null
-   * if the order is still in the process of being attributed.
-   */
+  
   public Count getMomentsCount() {
     return momentsCount;
   }
@@ -122,9 +86,7 @@ public class CustomerJourneySummary {
     this.momentsCount = momentsCount;
   }
 
-  /**
-   * Whether the attributed sessions for the order have been created yet.
-   */
+  
   public boolean getReady() {
     return ready;
   }
@@ -162,43 +124,25 @@ public class CustomerJourneySummary {
   }
 
   public static class Builder {
-    /**
-     * The position of the current order within the customer's order history. Test orders aren't included.
-     */
+    
     private Integer customerOrderIndex;
 
-    /**
-     * The number of days between the first session and the order creation date. The
-     * first session represents the first session since the last order, or the first
-     * session within the 30 day attribution window, if more than 30 days have passed
-     * since the last order.
-     */
+    
     private Integer daysToConversion;
 
-    /**
-     * The customer's first session going into the shop.
-     */
+    
     private CustomerVisit firstVisit;
 
-    /**
-     * The last session before an order is made.
-     */
+    
     private CustomerVisit lastVisit;
 
-    /**
-     * The events preceding a customer's order, such as shop sessions.
-     */
+    
     private CustomerMomentConnection moments;
 
-    /**
-     * The total number of customer moments associated with this order. Returns null
-     * if the order is still in the process of being attributed.
-     */
+    
     private Count momentsCount;
 
-    /**
-     * Whether the attributed sessions for the order have been created yet.
-     */
+    
     private boolean ready;
 
     public CustomerJourneySummary build() {
@@ -213,61 +157,43 @@ public class CustomerJourneySummary {
       return result;
     }
 
-    /**
-     * The position of the current order within the customer's order history. Test orders aren't included.
-     */
+    
     public Builder customerOrderIndex(Integer customerOrderIndex) {
       this.customerOrderIndex = customerOrderIndex;
       return this;
     }
 
-    /**
-     * The number of days between the first session and the order creation date. The
-     * first session represents the first session since the last order, or the first
-     * session within the 30 day attribution window, if more than 30 days have passed
-     * since the last order.
-     */
+    
     public Builder daysToConversion(Integer daysToConversion) {
       this.daysToConversion = daysToConversion;
       return this;
     }
 
-    /**
-     * The customer's first session going into the shop.
-     */
+    
     public Builder firstVisit(CustomerVisit firstVisit) {
       this.firstVisit = firstVisit;
       return this;
     }
 
-    /**
-     * The last session before an order is made.
-     */
+    
     public Builder lastVisit(CustomerVisit lastVisit) {
       this.lastVisit = lastVisit;
       return this;
     }
 
-    /**
-     * The events preceding a customer's order, such as shop sessions.
-     */
+    
     public Builder moments(CustomerMomentConnection moments) {
       this.moments = moments;
       return this;
     }
 
-    /**
-     * The total number of customer moments associated with this order. Returns null
-     * if the order is still in the process of being attributed.
-     */
+    
     public Builder momentsCount(Count momentsCount) {
       this.momentsCount = momentsCount;
       return this;
     }
 
-    /**
-     * Whether the attributed sessions for the order have been created yet.
-     */
+    
     public Builder ready(boolean ready) {
       this.ready = ready;
       return this;

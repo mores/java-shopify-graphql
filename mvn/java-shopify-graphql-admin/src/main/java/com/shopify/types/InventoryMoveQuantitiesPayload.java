@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `inventoryMoveQuantities` mutation.
- */
+
 public class InventoryMoveQuantitiesPayload {
-  /**
-   * The group of changes made by the operation.
-   */
+  
   private InventoryAdjustmentGroup inventoryAdjustmentGroup;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<InventoryMoveQuantitiesUserError> userErrors;
 
   public InventoryMoveQuantitiesPayload() {
   }
 
-  /**
-   * The group of changes made by the operation.
-   */
+  
   public InventoryAdjustmentGroup getInventoryAdjustmentGroup() {
     return inventoryAdjustmentGroup;
   }
@@ -34,9 +26,7 @@ public class InventoryMoveQuantitiesPayload {
     this.inventoryAdjustmentGroup = inventoryAdjustmentGroup;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<InventoryMoveQuantitiesUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class InventoryMoveQuantitiesPayload {
   }
 
   public static class Builder {
-    /**
-     * The group of changes made by the operation.
-     */
+    
     private InventoryAdjustmentGroup inventoryAdjustmentGroup;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<InventoryMoveQuantitiesUserError> userErrors;
 
     public InventoryMoveQuantitiesPayload build() {
@@ -86,17 +72,13 @@ public class InventoryMoveQuantitiesPayload {
       return result;
     }
 
-    /**
-     * The group of changes made by the operation.
-     */
+    
     public Builder inventoryAdjustmentGroup(InventoryAdjustmentGroup inventoryAdjustmentGroup) {
       this.inventoryAdjustmentGroup = inventoryAdjustmentGroup;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<InventoryMoveQuantitiesUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

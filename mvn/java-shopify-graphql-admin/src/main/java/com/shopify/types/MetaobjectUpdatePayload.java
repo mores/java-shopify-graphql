@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `metaobjectUpdate` mutation.
- */
+
 public class MetaobjectUpdatePayload {
-  /**
-   * The updated metaobject.
-   */
+  
   private Metaobject metaobject;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<MetaobjectUserError> userErrors;
 
   public MetaobjectUpdatePayload() {
   }
 
-  /**
-   * The updated metaobject.
-   */
+  
   public Metaobject getMetaobject() {
     return metaobject;
   }
@@ -34,9 +26,7 @@ public class MetaobjectUpdatePayload {
     this.metaobject = metaobject;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<MetaobjectUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class MetaobjectUpdatePayload {
   }
 
   public static class Builder {
-    /**
-     * The updated metaobject.
-     */
+    
     private Metaobject metaobject;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<MetaobjectUserError> userErrors;
 
     public MetaobjectUpdatePayload build() {
@@ -86,17 +72,13 @@ public class MetaobjectUpdatePayload {
       return result;
     }
 
-    /**
-     * The updated metaobject.
-     */
+    
     public Builder metaobject(Metaobject metaobject) {
       this.metaobject = metaobject;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<MetaobjectUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

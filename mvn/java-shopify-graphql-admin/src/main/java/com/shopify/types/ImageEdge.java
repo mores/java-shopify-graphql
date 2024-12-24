@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * An auto-generated type which holds one Image and a cursor during pagination.
- */
+
 public class ImageEdge {
-  /**
-   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-   */
+  
   private String cursor;
 
-  /**
-   * The item at the end of ImageEdge.
-   */
+  
   private Image node;
 
   public ImageEdge() {
   }
 
-  /**
-   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-   */
+  
   public String getCursor() {
     return cursor;
   }
@@ -33,9 +25,7 @@ public class ImageEdge {
     this.cursor = cursor;
   }
 
-  /**
-   * The item at the end of ImageEdge.
-   */
+  
   public Image getNode() {
     return node;
   }
@@ -68,14 +58,10 @@ public class ImageEdge {
   }
 
   public static class Builder {
-    /**
-     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     private String cursor;
 
-    /**
-     * The item at the end of ImageEdge.
-     */
+    
     private Image node;
 
     public ImageEdge build() {
@@ -85,17 +71,13 @@ public class ImageEdge {
       return result;
     }
 
-    /**
-     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     public Builder cursor(String cursor) {
       this.cursor = cursor;
       return this;
     }
 
-    /**
-     * The item at the end of ImageEdge.
-     */
+    
     public Builder node(Image node) {
       this.node = node;
       return this;

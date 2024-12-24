@@ -5,37 +5,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for a base set of color customizations that's applied to an area of Checkout, from which
- * every component pulls its colors.
- */
+
 public class CheckoutBrandingColorSchemeInput {
-  /**
-   * The main colors of a scheme. Used for the surface background, text, links, and more.
-   */
+  
   private CheckoutBrandingColorRolesInput base;
 
-  /**
-   * The colors of form controls, such as the [`TextField`](https://shopify.dev/docs/api/checkout-ui-extensions/latest/components/forms/textfield) and [`ChoiceList`](https://shopify.dev/docs/api/checkout-ui-extensions/latest/components/forms/choicelist) components.
-   */
+  
   private CheckoutBrandingControlColorRolesInput control;
 
-  /**
-   * The colors of the primary button. For example, the main payment, or **Pay now** button.
-   */
+  
   private CheckoutBrandingButtonColorRolesInput primaryButton;
 
-  /**
-   * The colors of the secondary button, which is used for secondary actions. For example, **Buy again**.
-   */
+  
   private CheckoutBrandingButtonColorRolesInput secondaryButton;
 
   public CheckoutBrandingColorSchemeInput() {
   }
 
-  /**
-   * The main colors of a scheme. Used for the surface background, text, links, and more.
-   */
+  
   public CheckoutBrandingColorRolesInput getBase() {
     return base;
   }
@@ -44,9 +31,7 @@ public class CheckoutBrandingColorSchemeInput {
     this.base = base;
   }
 
-  /**
-   * The colors of form controls, such as the [`TextField`](https://shopify.dev/docs/api/checkout-ui-extensions/latest/components/forms/textfield) and [`ChoiceList`](https://shopify.dev/docs/api/checkout-ui-extensions/latest/components/forms/choicelist) components.
-   */
+  
   public CheckoutBrandingControlColorRolesInput getControl() {
     return control;
   }
@@ -55,9 +40,7 @@ public class CheckoutBrandingColorSchemeInput {
     this.control = control;
   }
 
-  /**
-   * The colors of the primary button. For example, the main payment, or **Pay now** button.
-   */
+  
   public CheckoutBrandingButtonColorRolesInput getPrimaryButton() {
     return primaryButton;
   }
@@ -66,9 +49,7 @@ public class CheckoutBrandingColorSchemeInput {
     this.primaryButton = primaryButton;
   }
 
-  /**
-   * The colors of the secondary button, which is used for secondary actions. For example, **Buy again**.
-   */
+  
   public CheckoutBrandingButtonColorRolesInput getSecondaryButton() {
     return secondaryButton;
   }
@@ -103,24 +84,16 @@ public class CheckoutBrandingColorSchemeInput {
   }
 
   public static class Builder {
-    /**
-     * The main colors of a scheme. Used for the surface background, text, links, and more.
-     */
+    
     private CheckoutBrandingColorRolesInput base;
 
-    /**
-     * The colors of form controls, such as the [`TextField`](https://shopify.dev/docs/api/checkout-ui-extensions/latest/components/forms/textfield) and [`ChoiceList`](https://shopify.dev/docs/api/checkout-ui-extensions/latest/components/forms/choicelist) components.
-     */
+    
     private CheckoutBrandingControlColorRolesInput control;
 
-    /**
-     * The colors of the primary button. For example, the main payment, or **Pay now** button.
-     */
+    
     private CheckoutBrandingButtonColorRolesInput primaryButton;
 
-    /**
-     * The colors of the secondary button, which is used for secondary actions. For example, **Buy again**.
-     */
+    
     private CheckoutBrandingButtonColorRolesInput secondaryButton;
 
     public CheckoutBrandingColorSchemeInput build() {
@@ -132,33 +105,25 @@ public class CheckoutBrandingColorSchemeInput {
       return result;
     }
 
-    /**
-     * The main colors of a scheme. Used for the surface background, text, links, and more.
-     */
+    
     public Builder base(CheckoutBrandingColorRolesInput base) {
       this.base = base;
       return this;
     }
 
-    /**
-     * The colors of form controls, such as the [`TextField`](https://shopify.dev/docs/api/checkout-ui-extensions/latest/components/forms/textfield) and [`ChoiceList`](https://shopify.dev/docs/api/checkout-ui-extensions/latest/components/forms/choicelist) components.
-     */
+    
     public Builder control(CheckoutBrandingControlColorRolesInput control) {
       this.control = control;
       return this;
     }
 
-    /**
-     * The colors of the primary button. For example, the main payment, or **Pay now** button.
-     */
+    
     public Builder primaryButton(CheckoutBrandingButtonColorRolesInput primaryButton) {
       this.primaryButton = primaryButton;
       return this;
     }
 
-    /**
-     * The colors of the secondary button, which is used for secondary actions. For example, **Buy again**.
-     */
+    
     public Builder secondaryButton(CheckoutBrandingButtonColorRolesInput secondaryButton) {
       this.secondaryButton = secondaryButton;
       return this;

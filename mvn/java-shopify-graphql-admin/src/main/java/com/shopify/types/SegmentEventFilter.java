@@ -7,46 +7,30 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * A filter that's used to segment customers based on the date that an event
- * occured. For example, the `product_bought` event filter allows you to segment
- * customers based on what products they've bought.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class SegmentEventFilter implements com.shopify.types.SegmentFilter {
-  /**
-   * The localized name of the filter.
-   */
+  
   private String localizedName;
 
-  /**
-   * Whether a file can have multiple values for a single customer.
-   */
+  
   private boolean multiValue;
 
-  /**
-   * The parameters for an event segment filter.
-   */
+  
   private List<SegmentEventFilterParameter> parameters;
 
-  /**
-   * The query name of the filter.
-   */
+  
   private String queryName;
 
-  /**
-   * The return value type for an event segment filter.
-   */
+  
   private String returnValueType;
 
   public SegmentEventFilter() {
   }
 
-  /**
-   * The localized name of the filter.
-   */
+  
   public String getLocalizedName() {
     return localizedName;
   }
@@ -55,9 +39,7 @@ public class SegmentEventFilter implements com.shopify.types.SegmentFilter {
     this.localizedName = localizedName;
   }
 
-  /**
-   * Whether a file can have multiple values for a single customer.
-   */
+  
   public boolean getMultiValue() {
     return multiValue;
   }
@@ -66,9 +48,7 @@ public class SegmentEventFilter implements com.shopify.types.SegmentFilter {
     this.multiValue = multiValue;
   }
 
-  /**
-   * The parameters for an event segment filter.
-   */
+  
   public List<SegmentEventFilterParameter> getParameters() {
     return parameters;
   }
@@ -77,9 +57,7 @@ public class SegmentEventFilter implements com.shopify.types.SegmentFilter {
     this.parameters = parameters;
   }
 
-  /**
-   * The query name of the filter.
-   */
+  
   public String getQueryName() {
     return queryName;
   }
@@ -88,9 +66,7 @@ public class SegmentEventFilter implements com.shopify.types.SegmentFilter {
     this.queryName = queryName;
   }
 
-  /**
-   * The return value type for an event segment filter.
-   */
+  
   public String getReturnValueType() {
     return returnValueType;
   }
@@ -126,29 +102,19 @@ public class SegmentEventFilter implements com.shopify.types.SegmentFilter {
   }
 
   public static class Builder {
-    /**
-     * The localized name of the filter.
-     */
+    
     private String localizedName;
 
-    /**
-     * Whether a file can have multiple values for a single customer.
-     */
+    
     private boolean multiValue;
 
-    /**
-     * The parameters for an event segment filter.
-     */
+    
     private List<SegmentEventFilterParameter> parameters;
 
-    /**
-     * The query name of the filter.
-     */
+    
     private String queryName;
 
-    /**
-     * The return value type for an event segment filter.
-     */
+    
     private String returnValueType;
 
     public SegmentEventFilter build() {
@@ -161,41 +127,31 @@ public class SegmentEventFilter implements com.shopify.types.SegmentFilter {
       return result;
     }
 
-    /**
-     * The localized name of the filter.
-     */
+    
     public Builder localizedName(String localizedName) {
       this.localizedName = localizedName;
       return this;
     }
 
-    /**
-     * Whether a file can have multiple values for a single customer.
-     */
+    
     public Builder multiValue(boolean multiValue) {
       this.multiValue = multiValue;
       return this;
     }
 
-    /**
-     * The parameters for an event segment filter.
-     */
+    
     public Builder parameters(List<SegmentEventFilterParameter> parameters) {
       this.parameters = parameters;
       return this;
     }
 
-    /**
-     * The query name of the filter.
-     */
+    
     public Builder queryName(String queryName) {
       this.queryName = queryName;
       return this;
     }
 
-    /**
-     * The return value type for an event segment filter.
-     */
+    
     public Builder returnValueType(String returnValueType) {
       this.returnValueType = returnValueType;
       return this;

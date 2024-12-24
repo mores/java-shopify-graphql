@@ -7,10 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Update a customer's attributes. As of API version 2022-10, apps using
- * protected customer data must meet the protected customer data [requirements](https://shopify.dev/apps/store/data-protection/protected-customer-data).
- */
+
 public class CustomerUpdateGraphQLQuery extends GraphQLQuery {
   public CustomerUpdateGraphQLQuery(CustomerInput input, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -44,11 +41,7 @@ public class CustomerUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * Provides updated fields for the customer. To set marketing consent, use the
-     * `customerEmailMarketingConsentUpdate` or `customerSmsMarketingConsentUpdate`
-     * mutations instead.
-     */
+    
     public Builder input(CustomerInput input) {
       this.input = input;
       this.fieldsSet.add("input");

@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `productVariantJoinSellingPlanGroups` mutation.
- */
+
 public class ProductVariantJoinSellingPlanGroupsPayload {
-  /**
-   * The product variant object.
-   */
+  
   private ProductVariant productVariant;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<SellingPlanGroupUserError> userErrors;
 
   public ProductVariantJoinSellingPlanGroupsPayload() {
   }
 
-  /**
-   * The product variant object.
-   */
+  
   public ProductVariant getProductVariant() {
     return productVariant;
   }
@@ -34,9 +26,7 @@ public class ProductVariantJoinSellingPlanGroupsPayload {
     this.productVariant = productVariant;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<SellingPlanGroupUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class ProductVariantJoinSellingPlanGroupsPayload {
   }
 
   public static class Builder {
-    /**
-     * The product variant object.
-     */
+    
     private ProductVariant productVariant;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<SellingPlanGroupUserError> userErrors;
 
     public ProductVariantJoinSellingPlanGroupsPayload build() {
@@ -86,17 +72,13 @@ public class ProductVariantJoinSellingPlanGroupsPayload {
       return result;
     }
 
-    /**
-     * The product variant object.
-     */
+    
     public Builder productVariant(ProductVariant productVariant) {
       this.productVariant = productVariant;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<SellingPlanGroupUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

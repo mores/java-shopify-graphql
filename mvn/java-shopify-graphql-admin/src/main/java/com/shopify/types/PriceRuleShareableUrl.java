@@ -5,36 +5,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Shareable URL for the discount code associated with the price rule.
- */
+
 public class PriceRuleShareableUrl {
-  /**
-   * The image URL of the item (product or collection) to which the discount applies.
-   */
+  
   private Image targetItemImage;
 
-  /**
-   * The type of page that's associated with the URL.
-   */
+  
   private PriceRuleShareableUrlTargetType targetType;
 
-  /**
-   * The title of the page that's associated with the URL.
-   */
+  
   private String title;
 
-  /**
-   * The URL for the discount code.
-   */
+  
   private String url;
 
   public PriceRuleShareableUrl() {
   }
 
-  /**
-   * The image URL of the item (product or collection) to which the discount applies.
-   */
+  
   public Image getTargetItemImage() {
     return targetItemImage;
   }
@@ -43,9 +31,7 @@ public class PriceRuleShareableUrl {
     this.targetItemImage = targetItemImage;
   }
 
-  /**
-   * The type of page that's associated with the URL.
-   */
+  
   public PriceRuleShareableUrlTargetType getTargetType() {
     return targetType;
   }
@@ -54,9 +40,7 @@ public class PriceRuleShareableUrl {
     this.targetType = targetType;
   }
 
-  /**
-   * The title of the page that's associated with the URL.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -65,9 +49,7 @@ public class PriceRuleShareableUrl {
     this.title = title;
   }
 
-  /**
-   * The URL for the discount code.
-   */
+  
   public String getUrl() {
     return url;
   }
@@ -102,24 +84,16 @@ public class PriceRuleShareableUrl {
   }
 
   public static class Builder {
-    /**
-     * The image URL of the item (product or collection) to which the discount applies.
-     */
+    
     private Image targetItemImage;
 
-    /**
-     * The type of page that's associated with the URL.
-     */
+    
     private PriceRuleShareableUrlTargetType targetType;
 
-    /**
-     * The title of the page that's associated with the URL.
-     */
+    
     private String title;
 
-    /**
-     * The URL for the discount code.
-     */
+    
     private String url;
 
     public PriceRuleShareableUrl build() {
@@ -131,33 +105,25 @@ public class PriceRuleShareableUrl {
       return result;
     }
 
-    /**
-     * The image URL of the item (product or collection) to which the discount applies.
-     */
+    
     public Builder targetItemImage(Image targetItemImage) {
       this.targetItemImage = targetItemImage;
       return this;
     }
 
-    /**
-     * The type of page that's associated with the URL.
-     */
+    
     public Builder targetType(PriceRuleShareableUrlTargetType targetType) {
       this.targetType = targetType;
       return this;
     }
 
-    /**
-     * The title of the page that's associated with the URL.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    /**
-     * The URL for the discount code.
-     */
+    
     public Builder url(String url) {
       this.url = url;
       return this;

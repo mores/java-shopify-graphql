@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for prerequisite items and quantity for the discount.
- */
+
 public class DiscountCustomerBuysInput {
-  /**
-   * The quantity of prerequisite items.
-   */
+  
   private DiscountCustomerBuysValueInput value;
 
-  /**
-   * The IDs of items that the customer buys. The items can be either collections or products.
-   */
+  
   private DiscountItemsInput items;
 
   public DiscountCustomerBuysInput() {
   }
 
-  /**
-   * The quantity of prerequisite items.
-   */
+  
   public DiscountCustomerBuysValueInput getValue() {
     return value;
   }
@@ -33,9 +25,7 @@ public class DiscountCustomerBuysInput {
     this.value = value;
   }
 
-  /**
-   * The IDs of items that the customer buys. The items can be either collections or products.
-   */
+  
   public DiscountItemsInput getItems() {
     return items;
   }
@@ -68,14 +58,10 @@ public class DiscountCustomerBuysInput {
   }
 
   public static class Builder {
-    /**
-     * The quantity of prerequisite items.
-     */
+    
     private DiscountCustomerBuysValueInput value;
 
-    /**
-     * The IDs of items that the customer buys. The items can be either collections or products.
-     */
+    
     private DiscountItemsInput items;
 
     public DiscountCustomerBuysInput build() {
@@ -85,17 +71,13 @@ public class DiscountCustomerBuysInput {
       return result;
     }
 
-    /**
-     * The quantity of prerequisite items.
-     */
+    
     public Builder value(DiscountCustomerBuysValueInput value) {
       this.value = value;
       return this;
     }
 
-    /**
-     * The IDs of items that the customer buys. The items can be either collections or products.
-     */
+    
     public Builder items(DiscountItemsInput items) {
       this.items = items;
       return this;

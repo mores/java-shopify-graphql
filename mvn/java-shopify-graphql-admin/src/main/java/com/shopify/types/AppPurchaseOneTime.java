@@ -7,49 +7,33 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * Services and features purchased once by a store.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class AppPurchaseOneTime implements com.shopify.types.AppPurchase, com.shopify.types.Node {
-  /**
-   * The date and time when the app purchase occurred.
-   */
+  
   private OffsetDateTime createdAt;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The name of the app purchase.
-   */
+  
   private String name;
 
-  /**
-   * The amount to be charged to the store for the app purchase.
-   */
+  
   private MoneyV2 price;
 
-  /**
-   * The status of the app purchase.
-   */
+  
   private AppPurchaseStatus status;
 
-  /**
-   * Whether the app purchase is a test transaction.
-   */
+  
   private boolean test;
 
   public AppPurchaseOneTime() {
   }
 
-  /**
-   * The date and time when the app purchase occurred.
-   */
+  
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -58,9 +42,7 @@ public class AppPurchaseOneTime implements com.shopify.types.AppPurchase, com.sh
     this.createdAt = createdAt;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -69,9 +51,7 @@ public class AppPurchaseOneTime implements com.shopify.types.AppPurchase, com.sh
     this.id = id;
   }
 
-  /**
-   * The name of the app purchase.
-   */
+  
   public String getName() {
     return name;
   }
@@ -80,9 +60,7 @@ public class AppPurchaseOneTime implements com.shopify.types.AppPurchase, com.sh
     this.name = name;
   }
 
-  /**
-   * The amount to be charged to the store for the app purchase.
-   */
+  
   public MoneyV2 getPrice() {
     return price;
   }
@@ -91,9 +69,7 @@ public class AppPurchaseOneTime implements com.shopify.types.AppPurchase, com.sh
     this.price = price;
   }
 
-  /**
-   * The status of the app purchase.
-   */
+  
   public AppPurchaseStatus getStatus() {
     return status;
   }
@@ -102,9 +78,7 @@ public class AppPurchaseOneTime implements com.shopify.types.AppPurchase, com.sh
     this.status = status;
   }
 
-  /**
-   * Whether the app purchase is a test transaction.
-   */
+  
   public boolean getTest() {
     return test;
   }
@@ -141,34 +115,22 @@ public class AppPurchaseOneTime implements com.shopify.types.AppPurchase, com.sh
   }
 
   public static class Builder {
-    /**
-     * The date and time when the app purchase occurred.
-     */
+    
     private OffsetDateTime createdAt;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The name of the app purchase.
-     */
+    
     private String name;
 
-    /**
-     * The amount to be charged to the store for the app purchase.
-     */
+    
     private MoneyV2 price;
 
-    /**
-     * The status of the app purchase.
-     */
+    
     private AppPurchaseStatus status;
 
-    /**
-     * Whether the app purchase is a test transaction.
-     */
+    
     private boolean test;
 
     public AppPurchaseOneTime build() {
@@ -182,49 +144,37 @@ public class AppPurchaseOneTime implements com.shopify.types.AppPurchase, com.sh
       return result;
     }
 
-    /**
-     * The date and time when the app purchase occurred.
-     */
+    
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The name of the app purchase.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The amount to be charged to the store for the app purchase.
-     */
+    
     public Builder price(MoneyV2 price) {
       this.price = price;
       return this;
     }
 
-    /**
-     * The status of the app purchase.
-     */
+    
     public Builder status(AppPurchaseStatus status) {
       this.status = status;
       return this;
     }
 
-    /**
-     * Whether the app purchase is a test transaction.
-     */
+    
     public Builder test(boolean test) {
       this.test = test;
       return this;

@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A shipping service and a list of countries that the service is available for.
- */
+
 public class DeliveryAvailableService {
-  /**
-   * The countries the service provider ships to.
-   */
+  
   private DeliveryCountryCodesOrRestOfWorld countries;
 
-  /**
-   * The name of the service.
-   */
+  
   private String name;
 
   public DeliveryAvailableService() {
   }
 
-  /**
-   * The countries the service provider ships to.
-   */
+  
   public DeliveryCountryCodesOrRestOfWorld getCountries() {
     return countries;
   }
@@ -33,9 +25,7 @@ public class DeliveryAvailableService {
     this.countries = countries;
   }
 
-  /**
-   * The name of the service.
-   */
+  
   public String getName() {
     return name;
   }
@@ -68,14 +58,10 @@ public class DeliveryAvailableService {
   }
 
   public static class Builder {
-    /**
-     * The countries the service provider ships to.
-     */
+    
     private DeliveryCountryCodesOrRestOfWorld countries;
 
-    /**
-     * The name of the service.
-     */
+    
     private String name;
 
     public DeliveryAvailableService build() {
@@ -85,17 +71,13 @@ public class DeliveryAvailableService {
       return result;
     }
 
-    /**
-     * The countries the service provider ships to.
-     */
+    
     public Builder countries(DeliveryCountryCodesOrRestOfWorld countries) {
       this.countries = countries;
       return this;
     }
 
-    /**
-     * The name of the service.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;

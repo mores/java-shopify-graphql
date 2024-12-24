@@ -6,24 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * An HTTPS endpoint to which webhook subscriptions send POST requests.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class WebhookHttpEndpoint implements WebhookSubscriptionEndpoint {
-  /**
-   * The URL to which the webhooks events are sent.
-   */
+  
   private String callbackUrl;
 
   public WebhookHttpEndpoint() {
   }
 
-  /**
-   * The URL to which the webhooks events are sent.
-   */
+  
   public String getCallbackUrl() {
     return callbackUrl;
   }
@@ -55,9 +49,7 @@ public class WebhookHttpEndpoint implements WebhookSubscriptionEndpoint {
   }
 
   public static class Builder {
-    /**
-     * The URL to which the webhooks events are sent.
-     */
+    
     private String callbackUrl;
 
     public WebhookHttpEndpoint build() {
@@ -66,9 +58,7 @@ public class WebhookHttpEndpoint implements WebhookSubscriptionEndpoint {
       return result;
     }
 
-    /**
-     * The URL to which the webhooks events are sent.
-     */
+    
     public Builder callbackUrl(String callbackUrl) {
       this.callbackUrl = callbackUrl;
       return this;

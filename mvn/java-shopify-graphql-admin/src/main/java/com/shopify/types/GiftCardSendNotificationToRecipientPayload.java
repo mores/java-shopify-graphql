@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `giftCardSendNotificationToRecipient` mutation.
- */
+
 public class GiftCardSendNotificationToRecipientPayload {
-  /**
-   * The gift card that was sent.
-   */
+  
   private GiftCard giftCard;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<GiftCardSendNotificationToRecipientUserError> userErrors;
 
   public GiftCardSendNotificationToRecipientPayload() {
   }
 
-  /**
-   * The gift card that was sent.
-   */
+  
   public GiftCard getGiftCard() {
     return giftCard;
   }
@@ -34,9 +26,7 @@ public class GiftCardSendNotificationToRecipientPayload {
     this.giftCard = giftCard;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<GiftCardSendNotificationToRecipientUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class GiftCardSendNotificationToRecipientPayload {
   }
 
   public static class Builder {
-    /**
-     * The gift card that was sent.
-     */
+    
     private GiftCard giftCard;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<GiftCardSendNotificationToRecipientUserError> userErrors;
 
     public GiftCardSendNotificationToRecipientPayload build() {
@@ -86,17 +72,13 @@ public class GiftCardSendNotificationToRecipientPayload {
       return result;
     }
 
-    /**
-     * The gift card that was sent.
-     */
+    
     public Builder giftCard(GiftCard giftCard) {
       this.giftCard = giftCard;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<GiftCardSendNotificationToRecipientUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

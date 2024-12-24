@@ -5,36 +5,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for a private metafield.
- */
+
 public class PrivateMetafieldInput {
-  /**
-   * The resource that owns the metafield. If the field is blank, then the `Shop` resource owns the metafield.
-   */
+  
   private String owner;
 
-  /**
-   * The namespace of the private metafield.
-   */
+  
   private String namespace;
 
-  /**
-   * The key of the private metafield.
-   */
+  
   private String key;
 
-  /**
-   * The `value` and `valueType` of the private metafield, wrapped in a `ValueInput` object.
-   */
+  
   private PrivateMetafieldValueInput valueInput;
 
   public PrivateMetafieldInput() {
   }
 
-  /**
-   * The resource that owns the metafield. If the field is blank, then the `Shop` resource owns the metafield.
-   */
+  
   public String getOwner() {
     return owner;
   }
@@ -43,9 +31,7 @@ public class PrivateMetafieldInput {
     this.owner = owner;
   }
 
-  /**
-   * The namespace of the private metafield.
-   */
+  
   public String getNamespace() {
     return namespace;
   }
@@ -54,9 +40,7 @@ public class PrivateMetafieldInput {
     this.namespace = namespace;
   }
 
-  /**
-   * The key of the private metafield.
-   */
+  
   public String getKey() {
     return key;
   }
@@ -65,9 +49,7 @@ public class PrivateMetafieldInput {
     this.key = key;
   }
 
-  /**
-   * The `value` and `valueType` of the private metafield, wrapped in a `ValueInput` object.
-   */
+  
   public PrivateMetafieldValueInput getValueInput() {
     return valueInput;
   }
@@ -102,24 +84,16 @@ public class PrivateMetafieldInput {
   }
 
   public static class Builder {
-    /**
-     * The resource that owns the metafield. If the field is blank, then the `Shop` resource owns the metafield.
-     */
+    
     private String owner;
 
-    /**
-     * The namespace of the private metafield.
-     */
+    
     private String namespace;
 
-    /**
-     * The key of the private metafield.
-     */
+    
     private String key;
 
-    /**
-     * The `value` and `valueType` of the private metafield, wrapped in a `ValueInput` object.
-     */
+    
     private PrivateMetafieldValueInput valueInput;
 
     public PrivateMetafieldInput build() {
@@ -131,33 +105,25 @@ public class PrivateMetafieldInput {
       return result;
     }
 
-    /**
-     * The resource that owns the metafield. If the field is blank, then the `Shop` resource owns the metafield.
-     */
+    
     public Builder owner(String owner) {
       this.owner = owner;
       return this;
     }
 
-    /**
-     * The namespace of the private metafield.
-     */
+    
     public Builder namespace(String namespace) {
       this.namespace = namespace;
       return this;
     }
 
-    /**
-     * The key of the private metafield.
-     */
+    
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
-    /**
-     * The `value` and `valueType` of the private metafield, wrapped in a `ValueInput` object.
-     */
+    
     public Builder valueInput(PrivateMetafieldValueInput valueInput) {
       this.valueInput = valueInput;
       return this;

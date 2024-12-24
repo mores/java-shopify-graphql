@@ -6,24 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The minimum subtotal required for the discount to apply.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DiscountMinimumSubtotal implements DiscountMinimumRequirement {
-  /**
-   * The minimum subtotal that's required for the discount to be applied.
-   */
+  
   private MoneyV2 greaterThanOrEqualToSubtotal;
 
   public DiscountMinimumSubtotal() {
   }
 
-  /**
-   * The minimum subtotal that's required for the discount to be applied.
-   */
+  
   public MoneyV2 getGreaterThanOrEqualToSubtotal() {
     return greaterThanOrEqualToSubtotal;
   }
@@ -55,9 +49,7 @@ public class DiscountMinimumSubtotal implements DiscountMinimumRequirement {
   }
 
   public static class Builder {
-    /**
-     * The minimum subtotal that's required for the discount to be applied.
-     */
+    
     private MoneyV2 greaterThanOrEqualToSubtotal;
 
     public DiscountMinimumSubtotal build() {
@@ -66,9 +58,7 @@ public class DiscountMinimumSubtotal implements DiscountMinimumRequirement {
       return result;
     }
 
-    /**
-     * The minimum subtotal that's required for the discount to be applied.
-     */
+    
     public Builder greaterThanOrEqualToSubtotal(MoneyV2 greaterThanOrEqualToSubtotal) {
       this.greaterThanOrEqualToSubtotal = greaterThanOrEqualToSubtotal;
       return this;

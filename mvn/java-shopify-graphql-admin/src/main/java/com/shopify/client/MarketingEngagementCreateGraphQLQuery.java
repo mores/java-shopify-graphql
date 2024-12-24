@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Creates a new marketing engagement for a marketing activity or a marketing channel.
- */
+
 public class MarketingEngagementCreateGraphQLQuery extends GraphQLQuery {
   public MarketingEngagementCreateGraphQLQuery(String marketingActivityId, String remoteId,
       String channelHandle, MarketingEngagementInput marketingEngagement, String queryName,
@@ -57,44 +55,28 @@ public class MarketingEngagementCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The identifier of the marketing activity for which the engagement metrics
-     * are being provided. This or the remoteId should be set when and only when
-     * providing activity-level engagements. This should be nil when providing
-     * channel-level engagements.
-     */
+    
     public Builder marketingActivityId(String marketingActivityId) {
       this.marketingActivityId = marketingActivityId;
       this.fieldsSet.add("marketingActivityId");
       return this;
     }
 
-    /**
-     * The ID of an activity that's hosted outside of Shopify. This or the
-     * marketingActivityId should be set when and only when providing
-     * activity-level engagements. This should be nil when providing channel-level engagements.
-     */
+    
     public Builder remoteId(String remoteId) {
       this.remoteId = remoteId;
       this.fieldsSet.add("remoteId");
       return this;
     }
 
-    /**
-     * The unique string identifier of the channel to which the engagement metrics
-     * are being provided. This should be set when and only when providing
-     * channel-level engagements. This should be nil when providing activity-level
-     * engagements. For the correct handle for your channel, contact your partner manager.
-     */
+    
     public Builder channelHandle(String channelHandle) {
       this.channelHandle = channelHandle;
       this.fieldsSet.add("channelHandle");
       return this;
     }
 
-    /**
-     * The marketing engagement's attributes.
-     */
+    
     public Builder marketingEngagement(MarketingEngagementInput marketingEngagement) {
       this.marketingEngagement = marketingEngagement;
       this.fieldsSet.add("marketingEngagement");

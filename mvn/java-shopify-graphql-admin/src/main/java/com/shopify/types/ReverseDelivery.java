@@ -6,42 +6,27 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A reverse delivery is a post-fulfillment object that represents a buyer sending a package to a merchant.
- * For example, a buyer requests a return, and a merchant sends the buyer a shipping label.
- * The reverse delivery contains the context of the items sent back, how they're being sent back
- * (for example, a shipping label), and the current state of the delivery (tracking information).
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ReverseDelivery implements com.shopify.types.Node {
-  /**
-   * The deliverable associated with the reverse delivery.
-   */
+  
   private ReverseDeliveryDeliverable deliverable;
 
-  /**
-   * The ID of the reverse delivery.
-   */
+  
   private String id;
 
-  /**
-   * The reverse delivery line items attached to the reverse delivery.
-   */
+  
   private ReverseDeliveryLineItemConnection reverseDeliveryLineItems;
 
-  /**
-   * The `ReverseFulfillmentOrder` associated with the reverse delivery.
-   */
+  
   private ReverseFulfillmentOrder reverseFulfillmentOrder;
 
   public ReverseDelivery() {
   }
 
-  /**
-   * The deliverable associated with the reverse delivery.
-   */
+  
   public ReverseDeliveryDeliverable getDeliverable() {
     return deliverable;
   }
@@ -50,9 +35,7 @@ public class ReverseDelivery implements com.shopify.types.Node {
     this.deliverable = deliverable;
   }
 
-  /**
-   * The ID of the reverse delivery.
-   */
+  
   public String getId() {
     return id;
   }
@@ -61,9 +44,7 @@ public class ReverseDelivery implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The reverse delivery line items attached to the reverse delivery.
-   */
+  
   public ReverseDeliveryLineItemConnection getReverseDeliveryLineItems() {
     return reverseDeliveryLineItems;
   }
@@ -73,9 +54,7 @@ public class ReverseDelivery implements com.shopify.types.Node {
     this.reverseDeliveryLineItems = reverseDeliveryLineItems;
   }
 
-  /**
-   * The `ReverseFulfillmentOrder` associated with the reverse delivery.
-   */
+  
   public ReverseFulfillmentOrder getReverseFulfillmentOrder() {
     return reverseFulfillmentOrder;
   }
@@ -110,24 +89,16 @@ public class ReverseDelivery implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * The deliverable associated with the reverse delivery.
-     */
+    
     private ReverseDeliveryDeliverable deliverable;
 
-    /**
-     * The ID of the reverse delivery.
-     */
+    
     private String id;
 
-    /**
-     * The reverse delivery line items attached to the reverse delivery.
-     */
+    
     private ReverseDeliveryLineItemConnection reverseDeliveryLineItems;
 
-    /**
-     * The `ReverseFulfillmentOrder` associated with the reverse delivery.
-     */
+    
     private ReverseFulfillmentOrder reverseFulfillmentOrder;
 
     public ReverseDelivery build() {
@@ -139,34 +110,26 @@ public class ReverseDelivery implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * The deliverable associated with the reverse delivery.
-     */
+    
     public Builder deliverable(ReverseDeliveryDeliverable deliverable) {
       this.deliverable = deliverable;
       return this;
     }
 
-    /**
-     * The ID of the reverse delivery.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The reverse delivery line items attached to the reverse delivery.
-     */
+    
     public Builder reverseDeliveryLineItems(
         ReverseDeliveryLineItemConnection reverseDeliveryLineItems) {
       this.reverseDeliveryLineItems = reverseDeliveryLineItems;
       return this;
     }
 
-    /**
-     * The `ReverseFulfillmentOrder` associated with the reverse delivery.
-     */
+    
     public Builder reverseFulfillmentOrder(ReverseFulfillmentOrder reverseFulfillmentOrder) {
       this.reverseFulfillmentOrder = reverseFulfillmentOrder;
       return this;

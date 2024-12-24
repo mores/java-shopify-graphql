@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `commentSpam` mutation.
- */
+
 public class CommentSpamPayload {
-  /**
-   * The comment that was marked as spam.
-   */
+  
   private Comment comment;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<CommentSpamUserError> userErrors;
 
   public CommentSpamPayload() {
   }
 
-  /**
-   * The comment that was marked as spam.
-   */
+  
   public Comment getComment() {
     return comment;
   }
@@ -34,9 +26,7 @@ public class CommentSpamPayload {
     this.comment = comment;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<CommentSpamUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class CommentSpamPayload {
   }
 
   public static class Builder {
-    /**
-     * The comment that was marked as spam.
-     */
+    
     private Comment comment;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<CommentSpamUserError> userErrors;
 
     public CommentSpamPayload build() {
@@ -86,17 +72,13 @@ public class CommentSpamPayload {
       return result;
     }
 
-    /**
-     * The comment that was marked as spam.
-     */
+    
     public Builder comment(Comment comment) {
       this.comment = comment;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<CommentSpamUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -6,27 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Specifies the condition by which metaobjects are deleted.
- * Exactly one field of input is required.
- */
+
 public class MetaobjectBulkDeleteWhereCondition {
-  /**
-   * Deletes all metaobjects with the specified `type`.
-   */
+  
   private String type;
 
-  /**
-   * A list of metaobjects IDs to delete.
-   */
+  
   private List<String> ids;
 
   public MetaobjectBulkDeleteWhereCondition() {
   }
 
-  /**
-   * Deletes all metaobjects with the specified `type`.
-   */
+  
   public String getType() {
     return type;
   }
@@ -35,9 +26,7 @@ public class MetaobjectBulkDeleteWhereCondition {
     this.type = type;
   }
 
-  /**
-   * A list of metaobjects IDs to delete.
-   */
+  
   public List<String> getIds() {
     return ids;
   }
@@ -70,14 +59,10 @@ public class MetaobjectBulkDeleteWhereCondition {
   }
 
   public static class Builder {
-    /**
-     * Deletes all metaobjects with the specified `type`.
-     */
+    
     private String type;
 
-    /**
-     * A list of metaobjects IDs to delete.
-     */
+    
     private List<String> ids;
 
     public MetaobjectBulkDeleteWhereCondition build() {
@@ -87,17 +72,13 @@ public class MetaobjectBulkDeleteWhereCondition {
       return result;
     }
 
-    /**
-     * Deletes all metaobjects with the specified `type`.
-     */
+    
     public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    /**
-     * A list of metaobjects IDs to delete.
-     */
+    
     public Builder ids(List<String> ids) {
       this.ids = ids;
       return this;

@@ -6,39 +6,27 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A region that is used to define a shipping zone.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DeliveryProvince implements com.shopify.types.Node {
-  /**
-   * The code of the region.
-   */
+  
   private String code;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The full name of the region.
-   */
+  
   private String name;
 
-  /**
-   * The translated name of the region. The translation returned is based on the system's locale.
-   */
+  
   private String translatedName;
 
   public DeliveryProvince() {
   }
 
-  /**
-   * The code of the region.
-   */
+  
   public String getCode() {
     return code;
   }
@@ -47,9 +35,7 @@ public class DeliveryProvince implements com.shopify.types.Node {
     this.code = code;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -58,9 +44,7 @@ public class DeliveryProvince implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The full name of the region.
-   */
+  
   public String getName() {
     return name;
   }
@@ -69,9 +53,7 @@ public class DeliveryProvince implements com.shopify.types.Node {
     this.name = name;
   }
 
-  /**
-   * The translated name of the region. The translation returned is based on the system's locale.
-   */
+  
   public String getTranslatedName() {
     return translatedName;
   }
@@ -106,24 +88,16 @@ public class DeliveryProvince implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * The code of the region.
-     */
+    
     private String code;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The full name of the region.
-     */
+    
     private String name;
 
-    /**
-     * The translated name of the region. The translation returned is based on the system's locale.
-     */
+    
     private String translatedName;
 
     public DeliveryProvince build() {
@@ -135,33 +109,25 @@ public class DeliveryProvince implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * The code of the region.
-     */
+    
     public Builder code(String code) {
       this.code = code;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The full name of the region.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The translated name of the region. The translation returned is based on the system's locale.
-     */
+    
     public Builder translatedName(String translatedName) {
       this.translatedName = translatedName;
       return this;

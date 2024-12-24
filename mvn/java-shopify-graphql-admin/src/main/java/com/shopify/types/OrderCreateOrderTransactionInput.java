@@ -7,13 +7,9 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * The input fields for a transaction to create for an order.
- */
+
 public class OrderCreateOrderTransactionInput {
-  /**
-   * The amount of the transaction.
-   */
+  
   private MoneyBagInput amountSet;
 
   /**
@@ -21,63 +17,40 @@ public class OrderCreateOrderTransactionInput {
    */
   private String authorizationCode;
 
-  /**
-   * The ID of the device used to process the transaction.
-   */
+  
   private String deviceId;
 
-  /**
-   * The name of the gateway the transaction was issued through.
-   */
+  
   private String gateway;
 
-  /**
-   * The ID of the gift card used for this transaction.
-   */
+  
   private String giftCardId;
 
-  /**
-   * The kind of transaction.
-   */
+  
   private OrderTransactionKind kind = OrderTransactionKind.SALE;
 
-  /**
-   * The ID of the location where the transaction was processed.
-   */
+  
   private String locationId;
 
-  /**
-   * The date and time when the transaction was processed.
-   */
+  
   private OffsetDateTime processedAt;
 
-  /**
-   * The transaction receipt that the payment gateway attaches to the transaction.
-   * The value of this field depends on which payment gateway processed the transaction.
-   */
+  
   private String receiptJson;
 
-  /**
-   * The status of the transaction.
-   */
+  
   private OrderTransactionStatus status = OrderTransactionStatus.SUCCESS;
 
-  /**
-   * Whether the transaction is a test transaction.
-   */
+  
   private Boolean test = false;
 
-  /**
-   * The ID of the user who processed the transaction.
-   */
+  
   private String userId;
 
   public OrderCreateOrderTransactionInput() {
   }
 
-  /**
-   * The amount of the transaction.
-   */
+  
   public MoneyBagInput getAmountSet() {
     return amountSet;
   }
@@ -97,9 +70,7 @@ public class OrderCreateOrderTransactionInput {
     this.authorizationCode = authorizationCode;
   }
 
-  /**
-   * The ID of the device used to process the transaction.
-   */
+  
   public String getDeviceId() {
     return deviceId;
   }
@@ -108,9 +79,7 @@ public class OrderCreateOrderTransactionInput {
     this.deviceId = deviceId;
   }
 
-  /**
-   * The name of the gateway the transaction was issued through.
-   */
+  
   public String getGateway() {
     return gateway;
   }
@@ -119,9 +88,7 @@ public class OrderCreateOrderTransactionInput {
     this.gateway = gateway;
   }
 
-  /**
-   * The ID of the gift card used for this transaction.
-   */
+  
   public String getGiftCardId() {
     return giftCardId;
   }
@@ -130,9 +97,7 @@ public class OrderCreateOrderTransactionInput {
     this.giftCardId = giftCardId;
   }
 
-  /**
-   * The kind of transaction.
-   */
+  
   public OrderTransactionKind getKind() {
     return kind;
   }
@@ -141,9 +106,7 @@ public class OrderCreateOrderTransactionInput {
     this.kind = kind;
   }
 
-  /**
-   * The ID of the location where the transaction was processed.
-   */
+  
   public String getLocationId() {
     return locationId;
   }
@@ -152,9 +115,7 @@ public class OrderCreateOrderTransactionInput {
     this.locationId = locationId;
   }
 
-  /**
-   * The date and time when the transaction was processed.
-   */
+  
   public OffsetDateTime getProcessedAt() {
     return processedAt;
   }
@@ -163,10 +124,7 @@ public class OrderCreateOrderTransactionInput {
     this.processedAt = processedAt;
   }
 
-  /**
-   * The transaction receipt that the payment gateway attaches to the transaction.
-   * The value of this field depends on which payment gateway processed the transaction.
-   */
+  
   public String getReceiptJson() {
     return receiptJson;
   }
@@ -175,9 +133,7 @@ public class OrderCreateOrderTransactionInput {
     this.receiptJson = receiptJson;
   }
 
-  /**
-   * The status of the transaction.
-   */
+  
   public OrderTransactionStatus getStatus() {
     return status;
   }
@@ -186,9 +142,7 @@ public class OrderCreateOrderTransactionInput {
     this.status = status;
   }
 
-  /**
-   * Whether the transaction is a test transaction.
-   */
+  
   public Boolean getTest() {
     return test;
   }
@@ -197,9 +151,7 @@ public class OrderCreateOrderTransactionInput {
     this.test = test;
   }
 
-  /**
-   * The ID of the user who processed the transaction.
-   */
+  
   public String getUserId() {
     return userId;
   }
@@ -242,9 +194,7 @@ public class OrderCreateOrderTransactionInput {
   }
 
   public static class Builder {
-    /**
-     * The amount of the transaction.
-     */
+    
     private MoneyBagInput amountSet;
 
     /**
@@ -252,55 +202,34 @@ public class OrderCreateOrderTransactionInput {
      */
     private String authorizationCode;
 
-    /**
-     * The ID of the device used to process the transaction.
-     */
+    
     private String deviceId;
 
-    /**
-     * The name of the gateway the transaction was issued through.
-     */
+    
     private String gateway;
 
-    /**
-     * The ID of the gift card used for this transaction.
-     */
+    
     private String giftCardId;
 
-    /**
-     * The kind of transaction.
-     */
+    
     private OrderTransactionKind kind = OrderTransactionKind.SALE;
 
-    /**
-     * The ID of the location where the transaction was processed.
-     */
+    
     private String locationId;
 
-    /**
-     * The date and time when the transaction was processed.
-     */
+    
     private OffsetDateTime processedAt;
 
-    /**
-     * The transaction receipt that the payment gateway attaches to the transaction.
-     * The value of this field depends on which payment gateway processed the transaction.
-     */
+    
     private String receiptJson;
 
-    /**
-     * The status of the transaction.
-     */
+    
     private OrderTransactionStatus status = OrderTransactionStatus.SUCCESS;
 
-    /**
-     * Whether the transaction is a test transaction.
-     */
+    
     private Boolean test = false;
 
-    /**
-     * The ID of the user who processed the transaction.
-     */
+    
     private String userId;
 
     public OrderCreateOrderTransactionInput build() {
@@ -320,9 +249,7 @@ public class OrderCreateOrderTransactionInput {
       return result;
     }
 
-    /**
-     * The amount of the transaction.
-     */
+    
     public Builder amountSet(MoneyBagInput amountSet) {
       this.amountSet = amountSet;
       return this;
@@ -336,82 +263,61 @@ public class OrderCreateOrderTransactionInput {
       return this;
     }
 
-    /**
-     * The ID of the device used to process the transaction.
-     */
+    
     public Builder deviceId(String deviceId) {
       this.deviceId = deviceId;
       return this;
     }
 
-    /**
-     * The name of the gateway the transaction was issued through.
-     */
+    
     public Builder gateway(String gateway) {
       this.gateway = gateway;
       return this;
     }
 
-    /**
-     * The ID of the gift card used for this transaction.
-     */
+    
     public Builder giftCardId(String giftCardId) {
       this.giftCardId = giftCardId;
       return this;
     }
 
-    /**
-     * The kind of transaction.
-     */
+    
     public Builder kind(OrderTransactionKind kind) {
       this.kind = kind;
       return this;
     }
 
-    /**
-     * The ID of the location where the transaction was processed.
-     */
+    
     public Builder locationId(String locationId) {
       this.locationId = locationId;
       return this;
     }
 
-    /**
-     * The date and time when the transaction was processed.
-     */
+    
     public Builder processedAt(OffsetDateTime processedAt) {
       this.processedAt = processedAt;
       return this;
     }
 
-    /**
-     * The transaction receipt that the payment gateway attaches to the transaction.
-     * The value of this field depends on which payment gateway processed the transaction.
-     */
+    
     public Builder receiptJson(String receiptJson) {
       this.receiptJson = receiptJson;
       return this;
     }
 
-    /**
-     * The status of the transaction.
-     */
+    
     public Builder status(OrderTransactionStatus status) {
       this.status = status;
       return this;
     }
 
-    /**
-     * Whether the transaction is a test transaction.
-     */
+    
     public Builder test(Boolean test) {
       this.test = test;
       return this;
     }
 
-    /**
-     * The ID of the user who processed the transaction.
-     */
+    
     public Builder userId(String userId) {
       this.userId = userId;
       return this;

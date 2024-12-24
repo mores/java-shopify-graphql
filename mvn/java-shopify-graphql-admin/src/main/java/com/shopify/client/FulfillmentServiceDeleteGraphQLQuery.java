@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Deletes a fulfillment service.
- */
+
 public class FulfillmentServiceDeleteGraphQLQuery extends GraphQLQuery {
   public FulfillmentServiceDeleteGraphQLQuery(String id, String destinationLocationId,
       FulfillmentServiceDeleteInventoryAction inventoryAction, String queryName,
@@ -53,32 +51,21 @@ public class FulfillmentServiceDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the fulfillment service to delete.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * The ID of an active merchant managed location where inventory and commitments will be relocated
-     * after the fulfillment service is deleted.
-     *     
-     * Inventory will only be transferred if the
-     * [`TRANSFER`](https://shopify.dev/api/admin-graphql/latest/enums/FulfillmentServiceDeleteInventoryAction#value-transfer)
-     * inventory action has been chosen.
-     */
+    
     public Builder destinationLocationId(String destinationLocationId) {
       this.destinationLocationId = destinationLocationId;
       this.fieldsSet.add("destinationLocationId");
       return this;
     }
 
-    /**
-     * The action to take with the location after the fulfillment service is deleted.
-     */
+    
     public Builder inventoryAction(FulfillmentServiceDeleteInventoryAction inventoryAction) {
       this.inventoryAction = inventoryAction;
       this.fieldsSet.add("inventoryAction");

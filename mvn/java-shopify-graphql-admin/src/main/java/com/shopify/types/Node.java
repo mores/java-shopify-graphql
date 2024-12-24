@@ -4,12 +4,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.String;
 
-/**
- * An object with an ID field to support global identification, in accordance with the
- * [Relay specification](https://relay.dev/graphql/objectidentification.htm#sec-Node-Interface).
- * This interface is used by the [node](https://shopify.dev/api/admin-graphql/unstable/queries/node)
- * and [nodes](https://shopify.dev/api/admin-graphql/unstable/queries/nodes) queries.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
     include = JsonTypeInfo.As.PROPERTY,
@@ -207,8 +202,6 @@ import java.lang.String;
     @JsonSubTypes.Type(value = WebPixel.class, name = "WebPixel")
 })
 public interface Node {
-  /**
-   * A globally-unique ID.
-   */
+  
   String getId();
 }

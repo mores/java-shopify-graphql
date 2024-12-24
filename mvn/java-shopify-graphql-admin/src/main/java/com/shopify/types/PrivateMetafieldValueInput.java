@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for the value and value type of the private metafield.
- */
+
 public class PrivateMetafieldValueInput {
-  /**
-   * The value of a private metafield.
-   */
+  
   private String value;
 
-  /**
-   * Represents the private metafield value type.
-   */
+  
   private PrivateMetafieldValueType valueType;
 
   public PrivateMetafieldValueInput() {
   }
 
-  /**
-   * The value of a private metafield.
-   */
+  
   public String getValue() {
     return value;
   }
@@ -33,9 +25,7 @@ public class PrivateMetafieldValueInput {
     this.value = value;
   }
 
-  /**
-   * Represents the private metafield value type.
-   */
+  
   public PrivateMetafieldValueType getValueType() {
     return valueType;
   }
@@ -68,14 +58,10 @@ public class PrivateMetafieldValueInput {
   }
 
   public static class Builder {
-    /**
-     * The value of a private metafield.
-     */
+    
     private String value;
 
-    /**
-     * Represents the private metafield value type.
-     */
+    
     private PrivateMetafieldValueType valueType;
 
     public PrivateMetafieldValueInput build() {
@@ -85,17 +71,13 @@ public class PrivateMetafieldValueInput {
       return result;
     }
 
-    /**
-     * The value of a private metafield.
-     */
+    
     public Builder value(String value) {
       this.value = value;
       return this;
     }
 
-    /**
-     * Represents the private metafield value type.
-     */
+    
     public Builder valueType(PrivateMetafieldValueType valueType) {
       this.valueType = valueType;
       return this;

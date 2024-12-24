@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Updates a PayPal billing agreement for a customer.
- */
+
 public class CustomerPaymentMethodPaypalBillingAgreementUpdateGraphQLQuery extends GraphQLQuery {
   public CustomerPaymentMethodPaypalBillingAgreementUpdateGraphQLQuery(String id,
       MailingAddressInput billingAddress, String queryName, Set<String> fieldsSet) {
@@ -48,18 +46,14 @@ public class CustomerPaymentMethodPaypalBillingAgreementUpdateGraphQLQuery exten
                
     }
 
-    /**
-     * The ID of the customer payment method.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * The billing address.
-     */
+    
     public Builder billingAddress(MailingAddressInput billingAddress) {
       this.billingAddress = billingAddress;
       this.fieldsSet.add("billingAddress");

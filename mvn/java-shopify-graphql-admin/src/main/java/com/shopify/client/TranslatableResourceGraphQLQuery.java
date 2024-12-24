@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * A resource that can have localized values for different languages.
- */
+
 public class TranslatableResourceGraphQLQuery extends GraphQLQuery {
   public TranslatableResourceGraphQLQuery(String resourceId, String queryName,
       Set<String> fieldsSet) {
@@ -43,9 +41,7 @@ public class TranslatableResourceGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * Find a translatable resource by ID.
-     */
+    
     public Builder resourceId(String resourceId) {
       this.resourceId = resourceId;
       this.fieldsSet.add("resourceId");

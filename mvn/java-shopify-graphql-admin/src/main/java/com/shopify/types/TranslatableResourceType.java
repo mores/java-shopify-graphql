@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Specifies the type of resources that are translatable.
- */
+
 public enum TranslatableResourceType {
   ARTICLE,
 

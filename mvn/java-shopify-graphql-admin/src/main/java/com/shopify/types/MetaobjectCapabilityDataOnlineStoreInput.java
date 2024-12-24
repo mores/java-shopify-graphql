@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for the Online Store capability to control renderability on the Online Store.
- */
+
 public class MetaobjectCapabilityDataOnlineStoreInput {
-  /**
-   * The theme template used when viewing the metaobject in a store.
-   */
+  
   private String templateSuffix;
 
   public MetaobjectCapabilityDataOnlineStoreInput() {
   }
 
-  /**
-   * The theme template used when viewing the metaobject in a store.
-   */
+  
   public String getTemplateSuffix() {
     return templateSuffix;
   }
@@ -51,9 +45,7 @@ public class MetaobjectCapabilityDataOnlineStoreInput {
   }
 
   public static class Builder {
-    /**
-     * The theme template used when viewing the metaobject in a store.
-     */
+    
     private String templateSuffix;
 
     public MetaobjectCapabilityDataOnlineStoreInput build() {
@@ -62,9 +54,7 @@ public class MetaobjectCapabilityDataOnlineStoreInput {
       return result;
     }
 
-    /**
-     * The theme template used when viewing the metaobject in a store.
-     */
+    
     public Builder templateSuffix(String templateSuffix) {
       this.templateSuffix = templateSuffix;
       return this;

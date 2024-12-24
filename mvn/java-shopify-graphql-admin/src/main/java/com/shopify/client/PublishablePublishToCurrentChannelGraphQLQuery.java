@@ -6,12 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Publishes a resource to current channel. If the resource is a product, then
- * it's visible in the channel only if the product status is `active`. Products
- * that are sold exclusively on subscription (`requiresSellingPlan: true`) can be
- * published only on online stores.
- */
+
 public class PublishablePublishToCurrentChannelGraphQLQuery extends GraphQLQuery {
   public PublishablePublishToCurrentChannelGraphQLQuery(String id, String queryName,
       Set<String> fieldsSet) {
@@ -46,9 +41,7 @@ public class PublishablePublishToCurrentChannelGraphQLQuery extends GraphQLQuery
                
     }
 
-    /**
-     * The resource to create or update publications for.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

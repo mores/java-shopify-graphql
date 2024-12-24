@@ -5,36 +5,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * Represents at rule that's used to assign products to a collection.
- */
+
 public class CollectionRule {
-  /**
-   * The attribute that the rule focuses on. For example, `title` or `product_type`.
-   */
+  
   private CollectionRuleColumn column;
 
-  /**
-   * The value that the operator is applied to. For example, `Hats`.
-   */
+  
   private String condition;
 
-  /**
-   * The value that the operator is applied to.
-   */
+  
   private CollectionRuleConditionObject conditionObject;
 
-  /**
-   * The type of operator that the rule is based on. For example, `equals`, `contains`, or `not_equals`.
-   */
+  
   private CollectionRuleRelation relation;
 
   public CollectionRule() {
   }
 
-  /**
-   * The attribute that the rule focuses on. For example, `title` or `product_type`.
-   */
+  
   public CollectionRuleColumn getColumn() {
     return column;
   }
@@ -43,9 +31,7 @@ public class CollectionRule {
     this.column = column;
   }
 
-  /**
-   * The value that the operator is applied to. For example, `Hats`.
-   */
+  
   public String getCondition() {
     return condition;
   }
@@ -54,9 +40,7 @@ public class CollectionRule {
     this.condition = condition;
   }
 
-  /**
-   * The value that the operator is applied to.
-   */
+  
   public CollectionRuleConditionObject getConditionObject() {
     return conditionObject;
   }
@@ -65,9 +49,7 @@ public class CollectionRule {
     this.conditionObject = conditionObject;
   }
 
-  /**
-   * The type of operator that the rule is based on. For example, `equals`, `contains`, or `not_equals`.
-   */
+  
   public CollectionRuleRelation getRelation() {
     return relation;
   }
@@ -102,24 +84,16 @@ public class CollectionRule {
   }
 
   public static class Builder {
-    /**
-     * The attribute that the rule focuses on. For example, `title` or `product_type`.
-     */
+    
     private CollectionRuleColumn column;
 
-    /**
-     * The value that the operator is applied to. For example, `Hats`.
-     */
+    
     private String condition;
 
-    /**
-     * The value that the operator is applied to.
-     */
+    
     private CollectionRuleConditionObject conditionObject;
 
-    /**
-     * The type of operator that the rule is based on. For example, `equals`, `contains`, or `not_equals`.
-     */
+    
     private CollectionRuleRelation relation;
 
     public CollectionRule build() {
@@ -131,33 +105,25 @@ public class CollectionRule {
       return result;
     }
 
-    /**
-     * The attribute that the rule focuses on. For example, `title` or `product_type`.
-     */
+    
     public Builder column(CollectionRuleColumn column) {
       this.column = column;
       return this;
     }
 
-    /**
-     * The value that the operator is applied to. For example, `Hats`.
-     */
+    
     public Builder condition(String condition) {
       this.condition = condition;
       return this;
     }
 
-    /**
-     * The value that the operator is applied to.
-     */
+    
     public Builder conditionObject(CollectionRuleConditionObject conditionObject) {
       this.conditionObject = conditionObject;
       return this;
     }
 
-    /**
-     * The type of operator that the rule is based on. For example, `equals`, `contains`, or `not_equals`.
-     */
+    
     public Builder relation(CollectionRuleRelation relation) {
       this.relation = relation;
       return this;

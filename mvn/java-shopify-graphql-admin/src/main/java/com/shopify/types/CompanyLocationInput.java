@@ -7,72 +7,45 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields for company location when creating or updating a company location.
- */
+
 public class CompanyLocationInput {
-  /**
-   * The name of the company location.
-   */
+  
   private String name;
 
-  /**
-   * The phone number of the company location.
-   */
+  
   private String phone;
 
-  /**
-   * The preferred locale of the company location.
-   */
+  
   private String locale;
 
-  /**
-   * A unique externally-supplied ID for the company location.
-   */
+  
   private String externalId;
 
-  /**
-   * A note about the company location.
-   */
+  
   private String note;
 
-  /**
-   * The configuration for the buyer's checkout at the company location.
-   */
+  
   private BuyerExperienceConfigurationInput buyerExperienceConfiguration;
 
-  /**
-   * The input fields to create or update the billing address for a company location.
-   */
+  
   private CompanyAddressInput billingAddress;
 
-  /**
-   * The input fields to create or update the shipping address for a company location.
-   */
+  
   private CompanyAddressInput shippingAddress;
 
-  /**
-   * Whether the billing address is the same as the shipping address. If the value
-   * is true, then the input for `billingAddress` is ignored.
-   */
+  
   private Boolean billingSameAsShipping;
 
-  /**
-   * The tax registration ID of the company location.
-   */
+  
   private String taxRegistrationId;
 
-  /**
-   * The list of tax exemptions to apply to the company location.
-   */
+  
   private List<TaxExemption> taxExemptions;
 
   public CompanyLocationInput() {
   }
 
-  /**
-   * The name of the company location.
-   */
+  
   public String getName() {
     return name;
   }
@@ -81,9 +54,7 @@ public class CompanyLocationInput {
     this.name = name;
   }
 
-  /**
-   * The phone number of the company location.
-   */
+  
   public String getPhone() {
     return phone;
   }
@@ -92,9 +63,7 @@ public class CompanyLocationInput {
     this.phone = phone;
   }
 
-  /**
-   * The preferred locale of the company location.
-   */
+  
   public String getLocale() {
     return locale;
   }
@@ -103,9 +72,7 @@ public class CompanyLocationInput {
     this.locale = locale;
   }
 
-  /**
-   * A unique externally-supplied ID for the company location.
-   */
+  
   public String getExternalId() {
     return externalId;
   }
@@ -114,9 +81,7 @@ public class CompanyLocationInput {
     this.externalId = externalId;
   }
 
-  /**
-   * A note about the company location.
-   */
+  
   public String getNote() {
     return note;
   }
@@ -125,9 +90,7 @@ public class CompanyLocationInput {
     this.note = note;
   }
 
-  /**
-   * The configuration for the buyer's checkout at the company location.
-   */
+  
   public BuyerExperienceConfigurationInput getBuyerExperienceConfiguration() {
     return buyerExperienceConfiguration;
   }
@@ -137,9 +100,7 @@ public class CompanyLocationInput {
     this.buyerExperienceConfiguration = buyerExperienceConfiguration;
   }
 
-  /**
-   * The input fields to create or update the billing address for a company location.
-   */
+  
   public CompanyAddressInput getBillingAddress() {
     return billingAddress;
   }
@@ -148,9 +109,7 @@ public class CompanyLocationInput {
     this.billingAddress = billingAddress;
   }
 
-  /**
-   * The input fields to create or update the shipping address for a company location.
-   */
+  
   public CompanyAddressInput getShippingAddress() {
     return shippingAddress;
   }
@@ -159,10 +118,7 @@ public class CompanyLocationInput {
     this.shippingAddress = shippingAddress;
   }
 
-  /**
-   * Whether the billing address is the same as the shipping address. If the value
-   * is true, then the input for `billingAddress` is ignored.
-   */
+  
   public Boolean getBillingSameAsShipping() {
     return billingSameAsShipping;
   }
@@ -171,9 +127,7 @@ public class CompanyLocationInput {
     this.billingSameAsShipping = billingSameAsShipping;
   }
 
-  /**
-   * The tax registration ID of the company location.
-   */
+  
   public String getTaxRegistrationId() {
     return taxRegistrationId;
   }
@@ -182,9 +136,7 @@ public class CompanyLocationInput {
     this.taxRegistrationId = taxRegistrationId;
   }
 
-  /**
-   * The list of tax exemptions to apply to the company location.
-   */
+  
   public List<TaxExemption> getTaxExemptions() {
     return taxExemptions;
   }
@@ -226,60 +178,37 @@ public class CompanyLocationInput {
   }
 
   public static class Builder {
-    /**
-     * The name of the company location.
-     */
+    
     private String name;
 
-    /**
-     * The phone number of the company location.
-     */
+    
     private String phone;
 
-    /**
-     * The preferred locale of the company location.
-     */
+    
     private String locale;
 
-    /**
-     * A unique externally-supplied ID for the company location.
-     */
+    
     private String externalId;
 
-    /**
-     * A note about the company location.
-     */
+    
     private String note;
 
-    /**
-     * The configuration for the buyer's checkout at the company location.
-     */
+    
     private BuyerExperienceConfigurationInput buyerExperienceConfiguration;
 
-    /**
-     * The input fields to create or update the billing address for a company location.
-     */
+    
     private CompanyAddressInput billingAddress;
 
-    /**
-     * The input fields to create or update the shipping address for a company location.
-     */
+    
     private CompanyAddressInput shippingAddress;
 
-    /**
-     * Whether the billing address is the same as the shipping address. If the value
-     * is true, then the input for `billingAddress` is ignored.
-     */
+    
     private Boolean billingSameAsShipping;
 
-    /**
-     * The tax registration ID of the company location.
-     */
+    
     private String taxRegistrationId;
 
-    /**
-     * The list of tax exemptions to apply to the company location.
-     */
+    
     private List<TaxExemption> taxExemptions;
 
     public CompanyLocationInput build() {
@@ -298,91 +227,68 @@ public class CompanyLocationInput {
       return result;
     }
 
-    /**
-     * The name of the company location.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The phone number of the company location.
-     */
+    
     public Builder phone(String phone) {
       this.phone = phone;
       return this;
     }
 
-    /**
-     * The preferred locale of the company location.
-     */
+    
     public Builder locale(String locale) {
       this.locale = locale;
       return this;
     }
 
-    /**
-     * A unique externally-supplied ID for the company location.
-     */
+    
     public Builder externalId(String externalId) {
       this.externalId = externalId;
       return this;
     }
 
-    /**
-     * A note about the company location.
-     */
+    
     public Builder note(String note) {
       this.note = note;
       return this;
     }
 
-    /**
-     * The configuration for the buyer's checkout at the company location.
-     */
+    
     public Builder buyerExperienceConfiguration(
         BuyerExperienceConfigurationInput buyerExperienceConfiguration) {
       this.buyerExperienceConfiguration = buyerExperienceConfiguration;
       return this;
     }
 
-    /**
-     * The input fields to create or update the billing address for a company location.
-     */
+    
     public Builder billingAddress(CompanyAddressInput billingAddress) {
       this.billingAddress = billingAddress;
       return this;
     }
 
-    /**
-     * The input fields to create or update the shipping address for a company location.
-     */
+    
     public Builder shippingAddress(CompanyAddressInput shippingAddress) {
       this.shippingAddress = shippingAddress;
       return this;
     }
 
-    /**
-     * Whether the billing address is the same as the shipping address. If the value
-     * is true, then the input for `billingAddress` is ignored.
-     */
+    
     public Builder billingSameAsShipping(Boolean billingSameAsShipping) {
       this.billingSameAsShipping = billingSameAsShipping;
       return this;
     }
 
-    /**
-     * The tax registration ID of the company location.
-     */
+    
     public Builder taxRegistrationId(String taxRegistrationId) {
       this.taxRegistrationId = taxRegistrationId;
       return this;
     }
 
-    /**
-     * The list of tax exemptions to apply to the company location.
-     */
+    
     public Builder taxExemptions(List<TaxExemption> taxExemptions) {
       this.taxExemptions = taxExemptions;
       return this;

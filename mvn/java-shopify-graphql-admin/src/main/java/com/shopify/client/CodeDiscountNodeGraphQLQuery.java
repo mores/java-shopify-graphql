@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns a [code discount](https://help.shopify.com/manual/discounts/discount-types#discount-codes) resource by ID.
- */
+
 public class CodeDiscountNodeGraphQLQuery extends GraphQLQuery {
   public CodeDiscountNodeGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -42,9 +40,7 @@ public class CodeDiscountNodeGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the `DiscountCodeNode` to return.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

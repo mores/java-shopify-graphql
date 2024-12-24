@@ -5,36 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A configured metafield definition validation.
- *
- * For example, for a metafield definition of `number_integer` type, you can set a validation with the name `max`
- * and a value of `15`. This validation will ensure that the value of the metafield is a number less than or equal to 15.
- *
- * Refer to the [list of supported validations](https://shopify.dev/api/admin/graphql/reference/common-objects/metafieldDefinitionTypes#examples-Fetch_all_metafield_definition_types).
- */
+
 public class MetafieldDefinitionValidation {
-  /**
-   * The validation name.
-   */
+  
   private String name;
 
-  /**
-   * The name for the metafield type of this validation.
-   */
+  
   private String type;
 
-  /**
-   * The validation value.
-   */
+  
   private String value;
 
   public MetafieldDefinitionValidation() {
   }
 
-  /**
-   * The validation name.
-   */
+  
   public String getName() {
     return name;
   }
@@ -43,9 +28,7 @@ public class MetafieldDefinitionValidation {
     this.name = name;
   }
 
-  /**
-   * The name for the metafield type of this validation.
-   */
+  
   public String getType() {
     return type;
   }
@@ -54,9 +37,7 @@ public class MetafieldDefinitionValidation {
     this.type = type;
   }
 
-  /**
-   * The validation value.
-   */
+  
   public String getValue() {
     return value;
   }
@@ -90,19 +71,13 @@ public class MetafieldDefinitionValidation {
   }
 
   public static class Builder {
-    /**
-     * The validation name.
-     */
+    
     private String name;
 
-    /**
-     * The name for the metafield type of this validation.
-     */
+    
     private String type;
 
-    /**
-     * The validation value.
-     */
+    
     private String value;
 
     public MetafieldDefinitionValidation build() {
@@ -113,25 +88,19 @@ public class MetafieldDefinitionValidation {
       return result;
     }
 
-    /**
-     * The validation name.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * The name for the metafield type of this validation.
-     */
+    
     public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    /**
-     * The validation value.
-     */
+    
     public Builder value(String value) {
       this.value = value;
       return this;

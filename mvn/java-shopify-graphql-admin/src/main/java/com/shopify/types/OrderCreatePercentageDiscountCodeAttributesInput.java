@@ -6,26 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for a percentage discount code to apply to an order.
- */
+
 public class OrderCreatePercentageDiscountCodeAttributesInput {
-  /**
-   * The discount code that was entered at checkout.
-   */
+  
   private String code;
 
-  /**
-   * The amount that's deducted from the order total. When you create an order, this value is the percentage to deduct.
-   */
+  
   private Double percentage;
 
   public OrderCreatePercentageDiscountCodeAttributesInput() {
   }
 
-  /**
-   * The discount code that was entered at checkout.
-   */
+  
   public String getCode() {
     return code;
   }
@@ -34,9 +26,7 @@ public class OrderCreatePercentageDiscountCodeAttributesInput {
     this.code = code;
   }
 
-  /**
-   * The amount that's deducted from the order total. When you create an order, this value is the percentage to deduct.
-   */
+  
   public Double getPercentage() {
     return percentage;
   }
@@ -69,14 +59,10 @@ public class OrderCreatePercentageDiscountCodeAttributesInput {
   }
 
   public static class Builder {
-    /**
-     * The discount code that was entered at checkout.
-     */
+    
     private String code;
 
-    /**
-     * The amount that's deducted from the order total. When you create an order, this value is the percentage to deduct.
-     */
+    
     private Double percentage;
 
     public OrderCreatePercentageDiscountCodeAttributesInput build() {
@@ -86,17 +72,13 @@ public class OrderCreatePercentageDiscountCodeAttributesInput {
       return result;
     }
 
-    /**
-     * The discount code that was entered at checkout.
-     */
+    
     public Builder code(String code) {
       this.code = code;
       return this;
     }
 
-    /**
-     * The amount that's deducted from the order total. When you create an order, this value is the percentage to deduct.
-     */
+    
     public Builder percentage(Double percentage) {
       this.percentage = percentage;
       return this;

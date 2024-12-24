@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `orderMarkAsPaid` mutation.
- */
+
 public class OrderMarkAsPaidPayload {
-  /**
-   * The order marked as paid.
-   */
+  
   private Order order;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public OrderMarkAsPaidPayload() {
   }
 
-  /**
-   * The order marked as paid.
-   */
+  
   public Order getOrder() {
     return order;
   }
@@ -34,9 +26,7 @@ public class OrderMarkAsPaidPayload {
     this.order = order;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class OrderMarkAsPaidPayload {
   }
 
   public static class Builder {
-    /**
-     * The order marked as paid.
-     */
+    
     private Order order;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public OrderMarkAsPaidPayload build() {
@@ -86,17 +72,13 @@ public class OrderMarkAsPaidPayload {
       return result;
     }
 
-    /**
-     * The order marked as paid.
-     */
+    
     public Builder order(Order order) {
       this.order = order;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

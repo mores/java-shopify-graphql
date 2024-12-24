@@ -5,41 +5,27 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields required to create or modify a product variant's option value.
- */
+
 public class VariantOptionValueInput {
-  /**
-   * Specifies the product option value by ID.
-   */
+  
   private String id;
 
-  /**
-   * Specifies the product option value by name.
-   */
+  
   private String name;
 
-  /**
-   * Metafield value associated with an option.
-   */
+  
   private String linkedMetafieldValue;
 
-  /**
-   * Specifies the product option by ID.
-   */
+  
   private String optionId;
 
-  /**
-   * Specifies the product option by name.
-   */
+  
   private String optionName;
 
   public VariantOptionValueInput() {
   }
 
-  /**
-   * Specifies the product option value by ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -48,9 +34,7 @@ public class VariantOptionValueInput {
     this.id = id;
   }
 
-  /**
-   * Specifies the product option value by name.
-   */
+  
   public String getName() {
     return name;
   }
@@ -59,9 +43,7 @@ public class VariantOptionValueInput {
     this.name = name;
   }
 
-  /**
-   * Metafield value associated with an option.
-   */
+  
   public String getLinkedMetafieldValue() {
     return linkedMetafieldValue;
   }
@@ -70,9 +52,7 @@ public class VariantOptionValueInput {
     this.linkedMetafieldValue = linkedMetafieldValue;
   }
 
-  /**
-   * Specifies the product option by ID.
-   */
+  
   public String getOptionId() {
     return optionId;
   }
@@ -81,9 +61,7 @@ public class VariantOptionValueInput {
     this.optionId = optionId;
   }
 
-  /**
-   * Specifies the product option by name.
-   */
+  
   public String getOptionName() {
     return optionName;
   }
@@ -119,29 +97,19 @@ public class VariantOptionValueInput {
   }
 
   public static class Builder {
-    /**
-     * Specifies the product option value by ID.
-     */
+    
     private String id;
 
-    /**
-     * Specifies the product option value by name.
-     */
+    
     private String name;
 
-    /**
-     * Metafield value associated with an option.
-     */
+    
     private String linkedMetafieldValue;
 
-    /**
-     * Specifies the product option by ID.
-     */
+    
     private String optionId;
 
-    /**
-     * Specifies the product option by name.
-     */
+    
     private String optionName;
 
     public VariantOptionValueInput build() {
@@ -154,41 +122,31 @@ public class VariantOptionValueInput {
       return result;
     }
 
-    /**
-     * Specifies the product option value by ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * Specifies the product option value by name.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * Metafield value associated with an option.
-     */
+    
     public Builder linkedMetafieldValue(String linkedMetafieldValue) {
       this.linkedMetafieldValue = linkedMetafieldValue;
       return this;
     }
 
-    /**
-     * Specifies the product option by ID.
-     */
+    
     public Builder optionId(String optionId) {
       this.optionId = optionId;
       return this;
     }
 
-    /**
-     * Specifies the product option by name.
-     */
+    
     public Builder optionName(String optionName) {
       this.optionName = optionName;
       return this;

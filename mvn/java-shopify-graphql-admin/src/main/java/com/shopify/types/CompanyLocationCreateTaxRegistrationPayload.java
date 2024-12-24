@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `companyLocationCreateTaxRegistration` mutation.
- */
+
 public class CompanyLocationCreateTaxRegistrationPayload {
-  /**
-   * The company location with the created tax registration.
-   */
+  
   private CompanyLocation companyLocation;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<BusinessCustomerUserError> userErrors;
 
   public CompanyLocationCreateTaxRegistrationPayload() {
   }
 
-  /**
-   * The company location with the created tax registration.
-   */
+  
   public CompanyLocation getCompanyLocation() {
     return companyLocation;
   }
@@ -34,9 +26,7 @@ public class CompanyLocationCreateTaxRegistrationPayload {
     this.companyLocation = companyLocation;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<BusinessCustomerUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class CompanyLocationCreateTaxRegistrationPayload {
   }
 
   public static class Builder {
-    /**
-     * The company location with the created tax registration.
-     */
+    
     private CompanyLocation companyLocation;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<BusinessCustomerUserError> userErrors;
 
     public CompanyLocationCreateTaxRegistrationPayload build() {
@@ -86,17 +72,13 @@ public class CompanyLocationCreateTaxRegistrationPayload {
       return result;
     }
 
-    /**
-     * The company location with the created tax registration.
-     */
+    
     public Builder companyLocation(CompanyLocation companyLocation) {
       this.companyLocation = companyLocation;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<BusinessCustomerUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

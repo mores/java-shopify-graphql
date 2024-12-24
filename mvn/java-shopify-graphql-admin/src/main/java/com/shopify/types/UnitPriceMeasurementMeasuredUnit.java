@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * The valid units of measurement for a unit price measurement.
- */
+
 public enum UnitPriceMeasurementMeasuredUnit {
   ML,
 

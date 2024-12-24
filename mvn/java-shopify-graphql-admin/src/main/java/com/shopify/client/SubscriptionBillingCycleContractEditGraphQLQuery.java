@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Edit the contents of a subscription contract for the specified billing cycle.
- */
+
 public class SubscriptionBillingCycleContractEditGraphQLQuery extends GraphQLQuery {
   public SubscriptionBillingCycleContractEditGraphQLQuery(
       SubscriptionBillingCycleInput billingCycleInput, String queryName, Set<String> fieldsSet) {
@@ -44,9 +42,7 @@ public class SubscriptionBillingCycleContractEditGraphQLQuery extends GraphQLQue
                
     }
 
-    /**
-     * Input object for selecting and using billing cycles.
-     */
+    
     public Builder billingCycleInput(SubscriptionBillingCycleInput billingCycleInput) {
       this.billingCycleInput = billingCycleInput;
       this.fieldsSet.add("billingCycleInput");

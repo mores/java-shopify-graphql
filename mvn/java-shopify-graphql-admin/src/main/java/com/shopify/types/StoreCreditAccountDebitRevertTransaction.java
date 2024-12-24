@@ -7,54 +7,33 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * A debit revert transaction which increases the store credit account balance.
- * Debit revert transactions are created automatically when a [store credit account debit transaction](https://shopify.dev/api/admin-graphql/latest/objects/StoreCreditAccountDebitTransaction) is reverted.
- *
- * Store credit account debit transactions are reverted when an order is cancelled,
- * refunded or in the event of a payment failure at checkout.
- * The amount added to the balance is equal to the amount reverted on the original credit.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class StoreCreditAccountDebitRevertTransaction implements com.shopify.types.Node, com.shopify.types.StoreCreditAccountTransaction {
-  /**
-   * The store credit account that the transaction belongs to.
-   */
+  
   private StoreCreditAccount account;
 
-  /**
-   * The amount of the transaction.
-   */
+  
   private MoneyV2 amount;
 
-  /**
-   * The balance of the account after the transaction.
-   */
+  
   private MoneyV2 balanceAfterTransaction;
 
-  /**
-   * The date and time when the transaction was created.
-   */
+  
   private OffsetDateTime createdAt;
 
-  /**
-   * The reverted debit transaction.
-   */
+  
   private StoreCreditAccountDebitTransaction debitTransaction;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
   public StoreCreditAccountDebitRevertTransaction() {
   }
 
-  /**
-   * The store credit account that the transaction belongs to.
-   */
+  
   public StoreCreditAccount getAccount() {
     return account;
   }
@@ -63,9 +42,7 @@ public class StoreCreditAccountDebitRevertTransaction implements com.shopify.typ
     this.account = account;
   }
 
-  /**
-   * The amount of the transaction.
-   */
+  
   public MoneyV2 getAmount() {
     return amount;
   }
@@ -74,9 +51,7 @@ public class StoreCreditAccountDebitRevertTransaction implements com.shopify.typ
     this.amount = amount;
   }
 
-  /**
-   * The balance of the account after the transaction.
-   */
+  
   public MoneyV2 getBalanceAfterTransaction() {
     return balanceAfterTransaction;
   }
@@ -85,9 +60,7 @@ public class StoreCreditAccountDebitRevertTransaction implements com.shopify.typ
     this.balanceAfterTransaction = balanceAfterTransaction;
   }
 
-  /**
-   * The date and time when the transaction was created.
-   */
+  
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -96,9 +69,7 @@ public class StoreCreditAccountDebitRevertTransaction implements com.shopify.typ
     this.createdAt = createdAt;
   }
 
-  /**
-   * The reverted debit transaction.
-   */
+  
   public StoreCreditAccountDebitTransaction getDebitTransaction() {
     return debitTransaction;
   }
@@ -107,9 +78,7 @@ public class StoreCreditAccountDebitRevertTransaction implements com.shopify.typ
     this.debitTransaction = debitTransaction;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -146,34 +115,22 @@ public class StoreCreditAccountDebitRevertTransaction implements com.shopify.typ
   }
 
   public static class Builder {
-    /**
-     * The store credit account that the transaction belongs to.
-     */
+    
     private StoreCreditAccount account;
 
-    /**
-     * The amount of the transaction.
-     */
+    
     private MoneyV2 amount;
 
-    /**
-     * The balance of the account after the transaction.
-     */
+    
     private MoneyV2 balanceAfterTransaction;
 
-    /**
-     * The date and time when the transaction was created.
-     */
+    
     private OffsetDateTime createdAt;
 
-    /**
-     * The reverted debit transaction.
-     */
+    
     private StoreCreditAccountDebitTransaction debitTransaction;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
     public StoreCreditAccountDebitRevertTransaction build() {
@@ -187,49 +144,37 @@ public class StoreCreditAccountDebitRevertTransaction implements com.shopify.typ
       return result;
     }
 
-    /**
-     * The store credit account that the transaction belongs to.
-     */
+    
     public Builder account(StoreCreditAccount account) {
       this.account = account;
       return this;
     }
 
-    /**
-     * The amount of the transaction.
-     */
+    
     public Builder amount(MoneyV2 amount) {
       this.amount = amount;
       return this;
     }
 
-    /**
-     * The balance of the account after the transaction.
-     */
+    
     public Builder balanceAfterTransaction(MoneyV2 balanceAfterTransaction) {
       this.balanceAfterTransaction = balanceAfterTransaction;
       return this;
     }
 
-    /**
-     * The date and time when the transaction was created.
-     */
+    
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    /**
-     * The reverted debit transaction.
-     */
+    
     public Builder debitTransaction(StoreCreditAccountDebitTransaction debitTransaction) {
       this.debitTransaction = debitTransaction;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;

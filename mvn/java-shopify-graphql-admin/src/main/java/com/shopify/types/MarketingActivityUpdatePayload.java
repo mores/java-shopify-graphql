@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `marketingActivityUpdate` mutation.
- */
+
 public class MarketingActivityUpdatePayload {
-  /**
-   * The updated marketing activity.
-   */
+  
   private MarketingActivity marketingActivity;
 
-  /**
-   * The redirect path from the embedded editor to the Shopify admin.
-   */
+  
   private String redirectPath;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public MarketingActivityUpdatePayload() {
   }
 
-  /**
-   * The updated marketing activity.
-   */
+  
   public MarketingActivity getMarketingActivity() {
     return marketingActivity;
   }
@@ -39,9 +29,7 @@ public class MarketingActivityUpdatePayload {
     this.marketingActivity = marketingActivity;
   }
 
-  /**
-   * The redirect path from the embedded editor to the Shopify admin.
-   */
+  
   public String getRedirectPath() {
     return redirectPath;
   }
@@ -50,9 +38,7 @@ public class MarketingActivityUpdatePayload {
     this.redirectPath = redirectPath;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -86,19 +72,13 @@ public class MarketingActivityUpdatePayload {
   }
 
   public static class Builder {
-    /**
-     * The updated marketing activity.
-     */
+    
     private MarketingActivity marketingActivity;
 
-    /**
-     * The redirect path from the embedded editor to the Shopify admin.
-     */
+    
     private String redirectPath;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public MarketingActivityUpdatePayload build() {
@@ -109,25 +89,19 @@ public class MarketingActivityUpdatePayload {
       return result;
     }
 
-    /**
-     * The updated marketing activity.
-     */
+    
     public Builder marketingActivity(MarketingActivity marketingActivity) {
       this.marketingActivity = marketingActivity;
       return this;
     }
 
-    /**
-     * The redirect path from the embedded editor to the Shopify admin.
-     */
+    
     public Builder redirectPath(String redirectPath) {
       this.redirectPath = redirectPath;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

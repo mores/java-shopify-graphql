@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Returns an abandonment by ID.
- */
+
 public class AbandonmentGraphQLQuery extends GraphQLQuery {
   public AbandonmentGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -42,9 +40,7 @@ public class AbandonmentGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the `Abandonment` to return.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

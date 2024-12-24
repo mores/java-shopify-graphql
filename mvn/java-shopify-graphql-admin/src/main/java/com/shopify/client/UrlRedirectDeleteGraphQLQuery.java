@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Deletes a [`UrlRedirect`](https://shopify.dev/api/admin-graphql/latest/objects/UrlRedirect) object.
- */
+
 public class UrlRedirectDeleteGraphQLQuery extends GraphQLQuery {
   public UrlRedirectDeleteGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -42,9 +40,7 @@ public class UrlRedirectDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the redirect to delete.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

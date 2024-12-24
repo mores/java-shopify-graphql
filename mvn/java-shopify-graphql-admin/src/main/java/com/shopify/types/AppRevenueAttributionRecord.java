@@ -7,56 +7,36 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * Represents app revenue that was captured externally by the partner.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class AppRevenueAttributionRecord implements com.shopify.types.Node {
-  /**
-   * The financial amount captured in this attribution.
-   */
+  
   private MoneyV2 amount;
 
-  /**
-   * The timestamp when the financial amount was captured.
-   */
+  
   private OffsetDateTime capturedAt;
 
-  /**
-   * The timestamp at which this revenue attribution was issued.
-   */
+  
   private OffsetDateTime createdAt;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The unique value submitted during the creation of the app revenue attribution record.
-   * For more information, refer to
-   * [Idempotent requests](https://shopify.dev/api/usage/idempotent-requests).
-   */
+  
   private String idempotencyKey;
 
-  /**
-   * Indicates whether this is a test submission.
-   */
+  
   private boolean test;
 
-  /**
-   * The type of revenue attribution.
-   */
+  
   private AppRevenueAttributionType type;
 
   public AppRevenueAttributionRecord() {
   }
 
-  /**
-   * The financial amount captured in this attribution.
-   */
+  
   public MoneyV2 getAmount() {
     return amount;
   }
@@ -65,9 +45,7 @@ public class AppRevenueAttributionRecord implements com.shopify.types.Node {
     this.amount = amount;
   }
 
-  /**
-   * The timestamp when the financial amount was captured.
-   */
+  
   public OffsetDateTime getCapturedAt() {
     return capturedAt;
   }
@@ -76,9 +54,7 @@ public class AppRevenueAttributionRecord implements com.shopify.types.Node {
     this.capturedAt = capturedAt;
   }
 
-  /**
-   * The timestamp at which this revenue attribution was issued.
-   */
+  
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -87,9 +63,7 @@ public class AppRevenueAttributionRecord implements com.shopify.types.Node {
     this.createdAt = createdAt;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -98,11 +72,7 @@ public class AppRevenueAttributionRecord implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The unique value submitted during the creation of the app revenue attribution record.
-   * For more information, refer to
-   * [Idempotent requests](https://shopify.dev/api/usage/idempotent-requests).
-   */
+  
   public String getIdempotencyKey() {
     return idempotencyKey;
   }
@@ -111,9 +81,7 @@ public class AppRevenueAttributionRecord implements com.shopify.types.Node {
     this.idempotencyKey = idempotencyKey;
   }
 
-  /**
-   * Indicates whether this is a test submission.
-   */
+  
   public boolean getTest() {
     return test;
   }
@@ -122,9 +90,7 @@ public class AppRevenueAttributionRecord implements com.shopify.types.Node {
     this.test = test;
   }
 
-  /**
-   * The type of revenue attribution.
-   */
+  
   public AppRevenueAttributionType getType() {
     return type;
   }
@@ -162,41 +128,25 @@ public class AppRevenueAttributionRecord implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * The financial amount captured in this attribution.
-     */
+    
     private MoneyV2 amount;
 
-    /**
-     * The timestamp when the financial amount was captured.
-     */
+    
     private OffsetDateTime capturedAt;
 
-    /**
-     * The timestamp at which this revenue attribution was issued.
-     */
+    
     private OffsetDateTime createdAt;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The unique value submitted during the creation of the app revenue attribution record.
-     * For more information, refer to
-     * [Idempotent requests](https://shopify.dev/api/usage/idempotent-requests).
-     */
+    
     private String idempotencyKey;
 
-    /**
-     * Indicates whether this is a test submission.
-     */
+    
     private boolean test;
 
-    /**
-     * The type of revenue attribution.
-     */
+    
     private AppRevenueAttributionType type;
 
     public AppRevenueAttributionRecord build() {
@@ -211,59 +161,43 @@ public class AppRevenueAttributionRecord implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * The financial amount captured in this attribution.
-     */
+    
     public Builder amount(MoneyV2 amount) {
       this.amount = amount;
       return this;
     }
 
-    /**
-     * The timestamp when the financial amount was captured.
-     */
+    
     public Builder capturedAt(OffsetDateTime capturedAt) {
       this.capturedAt = capturedAt;
       return this;
     }
 
-    /**
-     * The timestamp at which this revenue attribution was issued.
-     */
+    
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The unique value submitted during the creation of the app revenue attribution record.
-     * For more information, refer to
-     * [Idempotent requests](https://shopify.dev/api/usage/idempotent-requests).
-     */
+    
     public Builder idempotencyKey(String idempotencyKey) {
       this.idempotencyKey = idempotencyKey;
       return this;
     }
 
-    /**
-     * Indicates whether this is a test submission.
-     */
+    
     public Builder test(boolean test) {
       this.test = test;
       return this;
     }
 
-    /**
-     * The type of revenue attribution.
-     */
+    
     public Builder type(AppRevenueAttributionType type) {
       this.type = type;
       return this;

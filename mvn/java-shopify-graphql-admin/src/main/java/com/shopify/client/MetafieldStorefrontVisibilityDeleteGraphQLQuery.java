@@ -6,10 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Deletes a `MetafieldStorefrontVisibility` record. All metafields that belongs to the specified record will no
- * longer be visible in the Storefront API.
- */
+
 public class MetafieldStorefrontVisibilityDeleteGraphQLQuery extends GraphQLQuery {
   public MetafieldStorefrontVisibilityDeleteGraphQLQuery(String id, String queryName,
       Set<String> fieldsSet) {
@@ -44,9 +41,7 @@ public class MetafieldStorefrontVisibilityDeleteGraphQLQuery extends GraphQLQuer
                
     }
 
-    /**
-     * The ID of the `MetafieldStorefrontVisibility` record to delete.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

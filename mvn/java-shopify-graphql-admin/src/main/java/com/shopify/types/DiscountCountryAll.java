@@ -6,24 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The `DiscountCountryAll` object lets you target all countries as shipping destination for discount eligibility.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DiscountCountryAll implements DiscountShippingDestinationSelection {
-  /**
-   * Whether the discount can be applied to all countries as shipping destination. This value is always `true`.
-   */
+  
   private boolean allCountries;
 
   public DiscountCountryAll() {
   }
 
-  /**
-   * Whether the discount can be applied to all countries as shipping destination. This value is always `true`.
-   */
+  
   public boolean getAllCountries() {
     return allCountries;
   }
@@ -55,9 +49,7 @@ public class DiscountCountryAll implements DiscountShippingDestinationSelection 
   }
 
   public static class Builder {
-    /**
-     * Whether the discount can be applied to all countries as shipping destination. This value is always `true`.
-     */
+    
     private boolean allCountries;
 
     public DiscountCountryAll build() {
@@ -66,9 +58,7 @@ public class DiscountCountryAll implements DiscountShippingDestinationSelection 
       return result;
     }
 
-    /**
-     * Whether the discount can be applied to all countries as shipping destination. This value is always `true`.
-     */
+    
     public Builder allCountries(boolean allCountries) {
       this.allCountries = allCountries;
       return this;

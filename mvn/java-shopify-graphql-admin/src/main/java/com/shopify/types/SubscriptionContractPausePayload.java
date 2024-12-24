@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `subscriptionContractPause` mutation.
- */
+
 public class SubscriptionContractPausePayload {
-  /**
-   * The new Subscription Contract object.
-   */
+  
   private SubscriptionContract contract;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<SubscriptionContractStatusUpdateUserError> userErrors;
 
   public SubscriptionContractPausePayload() {
   }
 
-  /**
-   * The new Subscription Contract object.
-   */
+  
   public SubscriptionContract getContract() {
     return contract;
   }
@@ -34,9 +26,7 @@ public class SubscriptionContractPausePayload {
     this.contract = contract;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<SubscriptionContractStatusUpdateUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class SubscriptionContractPausePayload {
   }
 
   public static class Builder {
-    /**
-     * The new Subscription Contract object.
-     */
+    
     private SubscriptionContract contract;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<SubscriptionContractStatusUpdateUserError> userErrors;
 
     public SubscriptionContractPausePayload build() {
@@ -86,17 +72,13 @@ public class SubscriptionContractPausePayload {
       return result;
     }
 
-    /**
-     * The new Subscription Contract object.
-     */
+    
     public Builder contract(SubscriptionContract contract) {
       this.contract = contract;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<SubscriptionContractStatusUpdateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The shop's online store channel.
- */
+
 public class OnlineStore {
-  /**
-   * Storefront password information.
-   */
+  
   private OnlineStorePasswordProtection passwordProtection;
 
   public OnlineStore() {
   }
 
-  /**
-   * Storefront password information.
-   */
+  
   public OnlineStorePasswordProtection getPasswordProtection() {
     return passwordProtection;
   }
@@ -51,9 +45,7 @@ public class OnlineStore {
   }
 
   public static class Builder {
-    /**
-     * Storefront password information.
-     */
+    
     private OnlineStorePasswordProtection passwordProtection;
 
     public OnlineStore build() {
@@ -62,9 +54,7 @@ public class OnlineStore {
       return result;
     }
 
-    /**
-     * Storefront password information.
-     */
+    
     public Builder passwordProtection(OnlineStorePasswordProtection passwordProtection) {
       this.passwordProtection = passwordProtection;
       return this;

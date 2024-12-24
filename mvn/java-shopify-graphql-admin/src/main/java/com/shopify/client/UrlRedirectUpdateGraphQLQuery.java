@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Updates a URL redirect.
- */
+
 public class UrlRedirectUpdateGraphQLQuery extends GraphQLQuery {
   public UrlRedirectUpdateGraphQLQuery(String id, UrlRedirectInput urlRedirect, String queryName,
       Set<String> fieldsSet) {
@@ -48,18 +46,14 @@ public class UrlRedirectUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the URL redirect to update.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * The input fields required to update the URL redirect.
-     */
+    
     public Builder urlRedirect(UrlRedirectInput urlRedirect) {
       this.urlRedirect = urlRedirect;
       this.fieldsSet.add("urlRedirect");

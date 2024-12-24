@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields used to update the color settings for global colors and color schemes.
- */
+
 public class CheckoutBrandingColorsInput {
-  /**
-   * The input to update global colors for customizing the overall look and feel of the user interface.
-   */
+  
   private CheckoutBrandingColorGlobalInput global;
 
-  /**
-   * The input to define color schemes which apply to different areas of the user interface.
-   */
+  
   private CheckoutBrandingColorSchemesInput schemes;
 
   public CheckoutBrandingColorsInput() {
   }
 
-  /**
-   * The input to update global colors for customizing the overall look and feel of the user interface.
-   */
+  
   public CheckoutBrandingColorGlobalInput getGlobal() {
     return global;
   }
@@ -33,9 +25,7 @@ public class CheckoutBrandingColorsInput {
     this.global = global;
   }
 
-  /**
-   * The input to define color schemes which apply to different areas of the user interface.
-   */
+  
   public CheckoutBrandingColorSchemesInput getSchemes() {
     return schemes;
   }
@@ -68,14 +58,10 @@ public class CheckoutBrandingColorsInput {
   }
 
   public static class Builder {
-    /**
-     * The input to update global colors for customizing the overall look and feel of the user interface.
-     */
+    
     private CheckoutBrandingColorGlobalInput global;
 
-    /**
-     * The input to define color schemes which apply to different areas of the user interface.
-     */
+    
     private CheckoutBrandingColorSchemesInput schemes;
 
     public CheckoutBrandingColorsInput build() {
@@ -85,17 +71,13 @@ public class CheckoutBrandingColorsInput {
       return result;
     }
 
-    /**
-     * The input to update global colors for customizing the overall look and feel of the user interface.
-     */
+    
     public Builder global(CheckoutBrandingColorGlobalInput global) {
       this.global = global;
       return this;
     }
 
-    /**
-     * The input to define color schemes which apply to different areas of the user interface.
-     */
+    
     public Builder schemes(CheckoutBrandingColorSchemesInput schemes) {
       this.schemes = schemes;
       return this;

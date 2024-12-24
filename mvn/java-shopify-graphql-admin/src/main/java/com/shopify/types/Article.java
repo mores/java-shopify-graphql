@@ -8,9 +8,7 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * An article in the blogging system.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
@@ -20,129 +18,73 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
    */
   private ArticleAuthor author;
 
-  /**
-   * The blog containing the article.
-   */
+  
   private Blog blog;
 
-  /**
-   * The text of the article's body, complete with HTML markup.
-   */
+  
   private String body;
 
-  /**
-   * List of the article's comments.
-   */
+  
   private CommentConnection comments;
 
-  /**
-   * Count of comments.
-   */
+  
   private Count commentsCount;
 
-  /**
-   * The date and time (ISO 8601 format) when the article was created.
-   */
+  
   private OffsetDateTime createdAt;
 
-  /**
-   * A default [cursor](https://shopify.dev/api/usage/pagination-graphql) that
-   * returns the single next record, sorted ascending by ID.
-   */
+  
   private String defaultCursor;
 
-  /**
-   * The paginated list of events associated with the host subject.
-   */
+  
   private EventConnection events;
 
-  /**
-   * A unique, human-friendly string for the article that's automatically generated from the article's title.
-   * The handle is used in the article's URL.
-   */
+  
   private String handle;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The image associated with the article.
-   */
+  
   private Image image;
 
-  /**
-   * Whether or not the article is visible.
-   */
+  
   private boolean isPublished;
 
-  /**
-   * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-   * including its `namespace` and `key`, that's associated with a Shopify resource
-   * for the purposes of adding and storing additional information.
-   */
+  
   private Metafield metafield;
 
-  /**
-   * List of metafield definitions.
-   */
+  
   private MetafieldDefinitionConnection metafieldDefinitions;
 
-  /**
-   * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-   * that a merchant associates with a Shopify resource.
-   */
+  
   private MetafieldConnection metafields;
 
-  /**
-   * Returns a private metafield by namespace and key that belongs to the resource.
-   */
+  
   private PrivateMetafield privateMetafield;
 
-  /**
-   * List of private metafields that belong to the resource.
-   */
+  
   private PrivateMetafieldConnection privateMetafields;
 
-  /**
-   * The date and time (ISO 8601 format) when the article became or will become visible.
-   * Returns null when the article isn't visible.
-   */
+  
   private OffsetDateTime publishedAt;
 
-  /**
-   * A summary of the article, which can include HTML markup.
-   * The summary is used by the online store theme to display the article on other
-   * pages, such as the home page or the main blog page.
-   */
+  
   private String summary;
 
-  /**
-   * A comma-separated list of tags.
-   * Tags are additional short descriptors formatted as a string of comma-separated values.
-   */
+  
   private List<String> tags;
 
-  /**
-   * The name of the template an article is using if it's using an alternate template.
-   * If an article is using the default `article.liquid` template, then the value returned is `null`.
-   */
+  
   private String templateSuffix;
 
-  /**
-   * The title of the article.
-   */
+  
   private String title;
 
-  /**
-   * The published translations associated with the resource.
-   */
+  
   private List<Translation> translations;
 
-  /**
-   * The date and time (ISO 8601 format) when the article was last updated.
-   */
+  
   private OffsetDateTime updatedAt;
 
   public Article() {
@@ -159,9 +101,7 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
     this.author = author;
   }
 
-  /**
-   * The blog containing the article.
-   */
+  
   public Blog getBlog() {
     return blog;
   }
@@ -170,9 +110,7 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
     this.blog = blog;
   }
 
-  /**
-   * The text of the article's body, complete with HTML markup.
-   */
+  
   public String getBody() {
     return body;
   }
@@ -181,9 +119,7 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
     this.body = body;
   }
 
-  /**
-   * List of the article's comments.
-   */
+  
   public CommentConnection getComments() {
     return comments;
   }
@@ -192,9 +128,7 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
     this.comments = comments;
   }
 
-  /**
-   * Count of comments.
-   */
+  
   public Count getCommentsCount() {
     return commentsCount;
   }
@@ -203,9 +137,7 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
     this.commentsCount = commentsCount;
   }
 
-  /**
-   * The date and time (ISO 8601 format) when the article was created.
-   */
+  
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -214,10 +146,7 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
     this.createdAt = createdAt;
   }
 
-  /**
-   * A default [cursor](https://shopify.dev/api/usage/pagination-graphql) that
-   * returns the single next record, sorted ascending by ID.
-   */
+  
   public String getDefaultCursor() {
     return defaultCursor;
   }
@@ -226,9 +155,7 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
     this.defaultCursor = defaultCursor;
   }
 
-  /**
-   * The paginated list of events associated with the host subject.
-   */
+  
   public EventConnection getEvents() {
     return events;
   }
@@ -237,10 +164,7 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
     this.events = events;
   }
 
-  /**
-   * A unique, human-friendly string for the article that's automatically generated from the article's title.
-   * The handle is used in the article's URL.
-   */
+  
   public String getHandle() {
     return handle;
   }
@@ -249,9 +173,7 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
     this.handle = handle;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -260,9 +182,7 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
     this.id = id;
   }
 
-  /**
-   * The image associated with the article.
-   */
+  
   public Image getImage() {
     return image;
   }
@@ -271,9 +191,7 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
     this.image = image;
   }
 
-  /**
-   * Whether or not the article is visible.
-   */
+  
   public boolean getIsPublished() {
     return isPublished;
   }
@@ -282,11 +200,7 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
     this.isPublished = isPublished;
   }
 
-  /**
-   * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-   * including its `namespace` and `key`, that's associated with a Shopify resource
-   * for the purposes of adding and storing additional information.
-   */
+  
   public Metafield getMetafield() {
     return metafield;
   }
@@ -295,9 +209,7 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
     this.metafield = metafield;
   }
 
-  /**
-   * List of metafield definitions.
-   */
+  
   public MetafieldDefinitionConnection getMetafieldDefinitions() {
     return metafieldDefinitions;
   }
@@ -306,10 +218,7 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
     this.metafieldDefinitions = metafieldDefinitions;
   }
 
-  /**
-   * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-   * that a merchant associates with a Shopify resource.
-   */
+  
   public MetafieldConnection getMetafields() {
     return metafields;
   }
@@ -318,9 +227,7 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
     this.metafields = metafields;
   }
 
-  /**
-   * Returns a private metafield by namespace and key that belongs to the resource.
-   */
+  
   public PrivateMetafield getPrivateMetafield() {
     return privateMetafield;
   }
@@ -329,9 +236,7 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
     this.privateMetafield = privateMetafield;
   }
 
-  /**
-   * List of private metafields that belong to the resource.
-   */
+  
   public PrivateMetafieldConnection getPrivateMetafields() {
     return privateMetafields;
   }
@@ -340,10 +245,7 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
     this.privateMetafields = privateMetafields;
   }
 
-  /**
-   * The date and time (ISO 8601 format) when the article became or will become visible.
-   * Returns null when the article isn't visible.
-   */
+  
   public OffsetDateTime getPublishedAt() {
     return publishedAt;
   }
@@ -352,11 +254,7 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
     this.publishedAt = publishedAt;
   }
 
-  /**
-   * A summary of the article, which can include HTML markup.
-   * The summary is used by the online store theme to display the article on other
-   * pages, such as the home page or the main blog page.
-   */
+  
   public String getSummary() {
     return summary;
   }
@@ -365,10 +263,7 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
     this.summary = summary;
   }
 
-  /**
-   * A comma-separated list of tags.
-   * Tags are additional short descriptors formatted as a string of comma-separated values.
-   */
+  
   public List<String> getTags() {
     return tags;
   }
@@ -377,10 +272,7 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
     this.tags = tags;
   }
 
-  /**
-   * The name of the template an article is using if it's using an alternate template.
-   * If an article is using the default `article.liquid` template, then the value returned is `null`.
-   */
+  
   public String getTemplateSuffix() {
     return templateSuffix;
   }
@@ -389,9 +281,7 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
     this.templateSuffix = templateSuffix;
   }
 
-  /**
-   * The title of the article.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -400,9 +290,7 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
     this.title = title;
   }
 
-  /**
-   * The published translations associated with the resource.
-   */
+  
   public List<Translation> getTranslations() {
     return translations;
   }
@@ -411,9 +299,7 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
     this.translations = translations;
   }
 
-  /**
-   * The date and time (ISO 8601 format) when the article was last updated.
-   */
+  
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
@@ -473,129 +359,73 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
      */
     private ArticleAuthor author;
 
-    /**
-     * The blog containing the article.
-     */
+    
     private Blog blog;
 
-    /**
-     * The text of the article's body, complete with HTML markup.
-     */
+    
     private String body;
 
-    /**
-     * List of the article's comments.
-     */
+    
     private CommentConnection comments;
 
-    /**
-     * Count of comments.
-     */
+    
     private Count commentsCount;
 
-    /**
-     * The date and time (ISO 8601 format) when the article was created.
-     */
+    
     private OffsetDateTime createdAt;
 
-    /**
-     * A default [cursor](https://shopify.dev/api/usage/pagination-graphql) that
-     * returns the single next record, sorted ascending by ID.
-     */
+    
     private String defaultCursor;
 
-    /**
-     * The paginated list of events associated with the host subject.
-     */
+    
     private EventConnection events;
 
-    /**
-     * A unique, human-friendly string for the article that's automatically generated from the article's title.
-     * The handle is used in the article's URL.
-     */
+    
     private String handle;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The image associated with the article.
-     */
+    
     private Image image;
 
-    /**
-     * Whether or not the article is visible.
-     */
+    
     private boolean isPublished;
 
-    /**
-     * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-     * including its `namespace` and `key`, that's associated with a Shopify resource
-     * for the purposes of adding and storing additional information.
-     */
+    
     private Metafield metafield;
 
-    /**
-     * List of metafield definitions.
-     */
+    
     private MetafieldDefinitionConnection metafieldDefinitions;
 
-    /**
-     * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-     * that a merchant associates with a Shopify resource.
-     */
+    
     private MetafieldConnection metafields;
 
-    /**
-     * Returns a private metafield by namespace and key that belongs to the resource.
-     */
+    
     private PrivateMetafield privateMetafield;
 
-    /**
-     * List of private metafields that belong to the resource.
-     */
+    
     private PrivateMetafieldConnection privateMetafields;
 
-    /**
-     * The date and time (ISO 8601 format) when the article became or will become visible.
-     * Returns null when the article isn't visible.
-     */
+    
     private OffsetDateTime publishedAt;
 
-    /**
-     * A summary of the article, which can include HTML markup.
-     * The summary is used by the online store theme to display the article on other
-     * pages, such as the home page or the main blog page.
-     */
+    
     private String summary;
 
-    /**
-     * A comma-separated list of tags.
-     * Tags are additional short descriptors formatted as a string of comma-separated values.
-     */
+    
     private List<String> tags;
 
-    /**
-     * The name of the template an article is using if it's using an alternate template.
-     * If an article is using the default `article.liquid` template, then the value returned is `null`.
-     */
+    
     private String templateSuffix;
 
-    /**
-     * The title of the article.
-     */
+    
     private String title;
 
-    /**
-     * The published translations associated with the resource.
-     */
+    
     private List<Translation> translations;
 
-    /**
-     * The date and time (ISO 8601 format) when the article was last updated.
-     */
+    
     private OffsetDateTime updatedAt;
 
     public Article build() {
@@ -635,195 +465,139 @@ public class Article implements MetafieldReferencer, com.shopify.types.HasEvents
       return this;
     }
 
-    /**
-     * The blog containing the article.
-     */
+    
     public Builder blog(Blog blog) {
       this.blog = blog;
       return this;
     }
 
-    /**
-     * The text of the article's body, complete with HTML markup.
-     */
+    
     public Builder body(String body) {
       this.body = body;
       return this;
     }
 
-    /**
-     * List of the article's comments.
-     */
+    
     public Builder comments(CommentConnection comments) {
       this.comments = comments;
       return this;
     }
 
-    /**
-     * Count of comments.
-     */
+    
     public Builder commentsCount(Count commentsCount) {
       this.commentsCount = commentsCount;
       return this;
     }
 
-    /**
-     * The date and time (ISO 8601 format) when the article was created.
-     */
+    
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    /**
-     * A default [cursor](https://shopify.dev/api/usage/pagination-graphql) that
-     * returns the single next record, sorted ascending by ID.
-     */
+    
     public Builder defaultCursor(String defaultCursor) {
       this.defaultCursor = defaultCursor;
       return this;
     }
 
-    /**
-     * The paginated list of events associated with the host subject.
-     */
+    
     public Builder events(EventConnection events) {
       this.events = events;
       return this;
     }
 
-    /**
-     * A unique, human-friendly string for the article that's automatically generated from the article's title.
-     * The handle is used in the article's URL.
-     */
+    
     public Builder handle(String handle) {
       this.handle = handle;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The image associated with the article.
-     */
+    
     public Builder image(Image image) {
       this.image = image;
       return this;
     }
 
-    /**
-     * Whether or not the article is visible.
-     */
+    
     public Builder isPublished(boolean isPublished) {
       this.isPublished = isPublished;
       return this;
     }
 
-    /**
-     * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
-     * including its `namespace` and `key`, that's associated with a Shopify resource
-     * for the purposes of adding and storing additional information.
-     */
+    
     public Builder metafield(Metafield metafield) {
       this.metafield = metafield;
       return this;
     }
 
-    /**
-     * List of metafield definitions.
-     */
+    
     public Builder metafieldDefinitions(MetafieldDefinitionConnection metafieldDefinitions) {
       this.metafieldDefinitions = metafieldDefinitions;
       return this;
     }
 
-    /**
-     * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
-     * that a merchant associates with a Shopify resource.
-     */
+    
     public Builder metafields(MetafieldConnection metafields) {
       this.metafields = metafields;
       return this;
     }
 
-    /**
-     * Returns a private metafield by namespace and key that belongs to the resource.
-     */
+    
     public Builder privateMetafield(PrivateMetafield privateMetafield) {
       this.privateMetafield = privateMetafield;
       return this;
     }
 
-    /**
-     * List of private metafields that belong to the resource.
-     */
+    
     public Builder privateMetafields(PrivateMetafieldConnection privateMetafields) {
       this.privateMetafields = privateMetafields;
       return this;
     }
 
-    /**
-     * The date and time (ISO 8601 format) when the article became or will become visible.
-     * Returns null when the article isn't visible.
-     */
+    
     public Builder publishedAt(OffsetDateTime publishedAt) {
       this.publishedAt = publishedAt;
       return this;
     }
 
-    /**
-     * A summary of the article, which can include HTML markup.
-     * The summary is used by the online store theme to display the article on other
-     * pages, such as the home page or the main blog page.
-     */
+    
     public Builder summary(String summary) {
       this.summary = summary;
       return this;
     }
 
-    /**
-     * A comma-separated list of tags.
-     * Tags are additional short descriptors formatted as a string of comma-separated values.
-     */
+    
     public Builder tags(List<String> tags) {
       this.tags = tags;
       return this;
     }
 
-    /**
-     * The name of the template an article is using if it's using an alternate template.
-     * If an article is using the default `article.liquid` template, then the value returned is `null`.
-     */
+    
     public Builder templateSuffix(String templateSuffix) {
       this.templateSuffix = templateSuffix;
       return this;
     }
 
-    /**
-     * The title of the article.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    /**
-     * The published translations associated with the resource.
-     */
+    
     public Builder translations(List<Translation> translations) {
       this.translations = translations;
       return this;
     }
 
-    /**
-     * The date and time (ISO 8601 format) when the article was last updated.
-     */
+    
     public Builder updatedAt(OffsetDateTime updatedAt) {
       this.updatedAt = updatedAt;
       return this;

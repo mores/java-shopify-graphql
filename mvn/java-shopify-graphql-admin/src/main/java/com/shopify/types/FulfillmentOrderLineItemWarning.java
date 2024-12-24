@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A fulfillment order line item warning. For example, a warning about why a fulfillment request was rejected.
- */
+
 public class FulfillmentOrderLineItemWarning {
-  /**
-   * The description of warning.
-   */
+  
   private String description;
 
-  /**
-   * The title of warning.
-   */
+  
   private String title;
 
   public FulfillmentOrderLineItemWarning() {
   }
 
-  /**
-   * The description of warning.
-   */
+  
   public String getDescription() {
     return description;
   }
@@ -33,9 +25,7 @@ public class FulfillmentOrderLineItemWarning {
     this.description = description;
   }
 
-  /**
-   * The title of warning.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -68,14 +58,10 @@ public class FulfillmentOrderLineItemWarning {
   }
 
   public static class Builder {
-    /**
-     * The description of warning.
-     */
+    
     private String description;
 
-    /**
-     * The title of warning.
-     */
+    
     private String title;
 
     public FulfillmentOrderLineItemWarning build() {
@@ -85,17 +71,13 @@ public class FulfillmentOrderLineItemWarning {
       return result;
     }
 
-    /**
-     * The description of warning.
-     */
+    
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    /**
-     * The title of warning.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;

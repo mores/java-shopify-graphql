@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `deliveryProfileRemove` mutation.
- */
+
 public class DeliveryProfileRemovePayload {
-  /**
-   * The delivery profile deletion job triggered by the mutation.
-   */
+  
   private Job job;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public DeliveryProfileRemovePayload() {
   }
 
-  /**
-   * The delivery profile deletion job triggered by the mutation.
-   */
+  
   public Job getJob() {
     return job;
   }
@@ -34,9 +26,7 @@ public class DeliveryProfileRemovePayload {
     this.job = job;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class DeliveryProfileRemovePayload {
   }
 
   public static class Builder {
-    /**
-     * The delivery profile deletion job triggered by the mutation.
-     */
+    
     private Job job;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public DeliveryProfileRemovePayload build() {
@@ -86,17 +72,13 @@ public class DeliveryProfileRemovePayload {
       return result;
     }
 
-    /**
-     * The delivery profile deletion job triggered by the mutation.
-     */
+    
     public Builder job(Job job) {
       this.job = job;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

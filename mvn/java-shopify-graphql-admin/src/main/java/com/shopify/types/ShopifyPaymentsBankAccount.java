@@ -7,69 +7,45 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/**
- * A bank account that can receive payouts.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ShopifyPaymentsBankAccount implements com.shopify.types.Node {
-  /**
-   * The account number of the bank account.
-   */
+  
   private String accountNumber;
 
-  /**
-   * The last digits of the account number (the rest is redacted).
-   */
+  
   private String accountNumberLastDigits;
 
-  /**
-   * The name of the bank.
-   */
+  
   private String bankName;
 
-  /**
-   * The country of the bank.
-   */
+  
   private CountryCode country;
 
-  /**
-   * The date that the bank account was created.
-   */
+  
   private OffsetDateTime createdAt;
 
-  /**
-   * The currency of the bank account.
-   */
+  
   private CurrencyCode currency;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * All current and previous payouts made between the account and the bank account.
-   */
+  
   private ShopifyPaymentsPayoutConnection payouts;
 
-  /**
-   * The routing number of the bank account.
-   */
+  
   private String routingNumber;
 
-  /**
-   * The status of the bank account.
-   */
+  
   private ShopifyPaymentsBankAccountStatus status;
 
   public ShopifyPaymentsBankAccount() {
   }
 
-  /**
-   * The account number of the bank account.
-   */
+  
   public String getAccountNumber() {
     return accountNumber;
   }
@@ -78,9 +54,7 @@ public class ShopifyPaymentsBankAccount implements com.shopify.types.Node {
     this.accountNumber = accountNumber;
   }
 
-  /**
-   * The last digits of the account number (the rest is redacted).
-   */
+  
   public String getAccountNumberLastDigits() {
     return accountNumberLastDigits;
   }
@@ -89,9 +63,7 @@ public class ShopifyPaymentsBankAccount implements com.shopify.types.Node {
     this.accountNumberLastDigits = accountNumberLastDigits;
   }
 
-  /**
-   * The name of the bank.
-   */
+  
   public String getBankName() {
     return bankName;
   }
@@ -100,9 +72,7 @@ public class ShopifyPaymentsBankAccount implements com.shopify.types.Node {
     this.bankName = bankName;
   }
 
-  /**
-   * The country of the bank.
-   */
+  
   public CountryCode getCountry() {
     return country;
   }
@@ -111,9 +81,7 @@ public class ShopifyPaymentsBankAccount implements com.shopify.types.Node {
     this.country = country;
   }
 
-  /**
-   * The date that the bank account was created.
-   */
+  
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -122,9 +90,7 @@ public class ShopifyPaymentsBankAccount implements com.shopify.types.Node {
     this.createdAt = createdAt;
   }
 
-  /**
-   * The currency of the bank account.
-   */
+  
   public CurrencyCode getCurrency() {
     return currency;
   }
@@ -133,9 +99,7 @@ public class ShopifyPaymentsBankAccount implements com.shopify.types.Node {
     this.currency = currency;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -144,9 +108,7 @@ public class ShopifyPaymentsBankAccount implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * All current and previous payouts made between the account and the bank account.
-   */
+  
   public ShopifyPaymentsPayoutConnection getPayouts() {
     return payouts;
   }
@@ -155,9 +117,7 @@ public class ShopifyPaymentsBankAccount implements com.shopify.types.Node {
     this.payouts = payouts;
   }
 
-  /**
-   * The routing number of the bank account.
-   */
+  
   public String getRoutingNumber() {
     return routingNumber;
   }
@@ -166,9 +126,7 @@ public class ShopifyPaymentsBankAccount implements com.shopify.types.Node {
     this.routingNumber = routingNumber;
   }
 
-  /**
-   * The status of the bank account.
-   */
+  
   public ShopifyPaymentsBankAccountStatus getStatus() {
     return status;
   }
@@ -209,54 +167,34 @@ public class ShopifyPaymentsBankAccount implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * The account number of the bank account.
-     */
+    
     private String accountNumber;
 
-    /**
-     * The last digits of the account number (the rest is redacted).
-     */
+    
     private String accountNumberLastDigits;
 
-    /**
-     * The name of the bank.
-     */
+    
     private String bankName;
 
-    /**
-     * The country of the bank.
-     */
+    
     private CountryCode country;
 
-    /**
-     * The date that the bank account was created.
-     */
+    
     private OffsetDateTime createdAt;
 
-    /**
-     * The currency of the bank account.
-     */
+    
     private CurrencyCode currency;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * All current and previous payouts made between the account and the bank account.
-     */
+    
     private ShopifyPaymentsPayoutConnection payouts;
 
-    /**
-     * The routing number of the bank account.
-     */
+    
     private String routingNumber;
 
-    /**
-     * The status of the bank account.
-     */
+    
     private ShopifyPaymentsBankAccountStatus status;
 
     public ShopifyPaymentsBankAccount build() {
@@ -274,81 +212,61 @@ public class ShopifyPaymentsBankAccount implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * The account number of the bank account.
-     */
+    
     public Builder accountNumber(String accountNumber) {
       this.accountNumber = accountNumber;
       return this;
     }
 
-    /**
-     * The last digits of the account number (the rest is redacted).
-     */
+    
     public Builder accountNumberLastDigits(String accountNumberLastDigits) {
       this.accountNumberLastDigits = accountNumberLastDigits;
       return this;
     }
 
-    /**
-     * The name of the bank.
-     */
+    
     public Builder bankName(String bankName) {
       this.bankName = bankName;
       return this;
     }
 
-    /**
-     * The country of the bank.
-     */
+    
     public Builder country(CountryCode country) {
       this.country = country;
       return this;
     }
 
-    /**
-     * The date that the bank account was created.
-     */
+    
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    /**
-     * The currency of the bank account.
-     */
+    
     public Builder currency(CurrencyCode currency) {
       this.currency = currency;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * All current and previous payouts made between the account and the bank account.
-     */
+    
     public Builder payouts(ShopifyPaymentsPayoutConnection payouts) {
       this.payouts = payouts;
       return this;
     }
 
-    /**
-     * The routing number of the bank account.
-     */
+    
     public Builder routingNumber(String routingNumber) {
       this.routingNumber = routingNumber;
       return this;
     }
 
-    /**
-     * The status of the bank account.
-     */
+    
     public Builder status(ShopifyPaymentsBankAccountStatus status) {
       this.status = status;
       return this;

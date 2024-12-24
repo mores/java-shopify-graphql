@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `bulkProductResourceFeedbackCreate` mutation.
- */
+
 public class BulkProductResourceFeedbackCreatePayload {
-  /**
-   * The feedback that's created.
-   */
+  
   private List<ProductResourceFeedback> feedback;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<BulkProductResourceFeedbackCreateUserError> userErrors;
 
   public BulkProductResourceFeedbackCreatePayload() {
   }
 
-  /**
-   * The feedback that's created.
-   */
+  
   public List<ProductResourceFeedback> getFeedback() {
     return feedback;
   }
@@ -34,9 +26,7 @@ public class BulkProductResourceFeedbackCreatePayload {
     this.feedback = feedback;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<BulkProductResourceFeedbackCreateUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class BulkProductResourceFeedbackCreatePayload {
   }
 
   public static class Builder {
-    /**
-     * The feedback that's created.
-     */
+    
     private List<ProductResourceFeedback> feedback;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<BulkProductResourceFeedbackCreateUserError> userErrors;
 
     public BulkProductResourceFeedbackCreatePayload build() {
@@ -86,17 +72,13 @@ public class BulkProductResourceFeedbackCreatePayload {
       return result;
     }
 
-    /**
-     * The feedback that's created.
-     */
+    
     public Builder feedback(List<ProductResourceFeedback> feedback) {
       this.feedback = feedback;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<BulkProductResourceFeedbackCreateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * The StaffMember resource, by ID.
- */
+
 public class StaffMemberGraphQLQuery extends GraphQLQuery {
   public StaffMemberGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -42,9 +40,7 @@ public class StaffMemberGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the staff member to return. If no ID is provided, then the staff member making the query (if any) is returned.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

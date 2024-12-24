@@ -6,51 +6,33 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * A menu item for display on the storefront.
- */
+
 public class MenuItem {
-  /**
-   * A globally-unique ID of the online store navigation menu item.
-   */
+  
   private String id;
 
-  /**
-   * List of the menu items nested under this item sorted by position.
-   */
+  
   private List<MenuItem> items;
 
-  /**
-   * The ID of the resource to link to.
-   */
+  
   private String resourceId;
 
-  /**
-   * The menu item's tags to filter a collection.
-   */
+  
   private List<String> tags;
 
-  /**
-   * The menu item's title.
-   */
+  
   private String title;
 
-  /**
-   * The menu item's type.
-   */
+  
   private MenuItemType type;
 
-  /**
-   * The menu item's url.
-   */
+  
   private String url;
 
   public MenuItem() {
   }
 
-  /**
-   * A globally-unique ID of the online store navigation menu item.
-   */
+  
   public String getId() {
     return id;
   }
@@ -59,9 +41,7 @@ public class MenuItem {
     this.id = id;
   }
 
-  /**
-   * List of the menu items nested under this item sorted by position.
-   */
+  
   public List<MenuItem> getItems() {
     return items;
   }
@@ -70,9 +50,7 @@ public class MenuItem {
     this.items = items;
   }
 
-  /**
-   * The ID of the resource to link to.
-   */
+  
   public String getResourceId() {
     return resourceId;
   }
@@ -81,9 +59,7 @@ public class MenuItem {
     this.resourceId = resourceId;
   }
 
-  /**
-   * The menu item's tags to filter a collection.
-   */
+  
   public List<String> getTags() {
     return tags;
   }
@@ -92,9 +68,7 @@ public class MenuItem {
     this.tags = tags;
   }
 
-  /**
-   * The menu item's title.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -103,9 +77,7 @@ public class MenuItem {
     this.title = title;
   }
 
-  /**
-   * The menu item's type.
-   */
+  
   public MenuItemType getType() {
     return type;
   }
@@ -114,9 +86,7 @@ public class MenuItem {
     this.type = type;
   }
 
-  /**
-   * The menu item's url.
-   */
+  
   public String getUrl() {
     return url;
   }
@@ -154,39 +124,25 @@ public class MenuItem {
   }
 
   public static class Builder {
-    /**
-     * A globally-unique ID of the online store navigation menu item.
-     */
+    
     private String id;
 
-    /**
-     * List of the menu items nested under this item sorted by position.
-     */
+    
     private List<MenuItem> items;
 
-    /**
-     * The ID of the resource to link to.
-     */
+    
     private String resourceId;
 
-    /**
-     * The menu item's tags to filter a collection.
-     */
+    
     private List<String> tags;
 
-    /**
-     * The menu item's title.
-     */
+    
     private String title;
 
-    /**
-     * The menu item's type.
-     */
+    
     private MenuItemType type;
 
-    /**
-     * The menu item's url.
-     */
+    
     private String url;
 
     public MenuItem build() {
@@ -201,57 +157,43 @@ public class MenuItem {
       return result;
     }
 
-    /**
-     * A globally-unique ID of the online store navigation menu item.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * List of the menu items nested under this item sorted by position.
-     */
+    
     public Builder items(List<MenuItem> items) {
       this.items = items;
       return this;
     }
 
-    /**
-     * The ID of the resource to link to.
-     */
+    
     public Builder resourceId(String resourceId) {
       this.resourceId = resourceId;
       return this;
     }
 
-    /**
-     * The menu item's tags to filter a collection.
-     */
+    
     public Builder tags(List<String> tags) {
       this.tags = tags;
       return this;
     }
 
-    /**
-     * The menu item's title.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    /**
-     * The menu item's type.
-     */
+    
     public Builder type(MenuItemType type) {
       this.type = type;
       return this;
     }
 
-    /**
-     * The menu item's url.
-     */
+    
     public Builder url(String url) {
       this.url = url;
       return this;

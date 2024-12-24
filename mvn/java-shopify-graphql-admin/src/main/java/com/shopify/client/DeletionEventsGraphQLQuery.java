@@ -11,9 +11,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * The paginated list of deletion events.
- */
+
 public class DeletionEventsGraphQLQuery extends GraphQLQuery {
   public DeletionEventsGraphQLQuery(List<DeletionEventSubjectType> subjectTypes, Integer first,
       String after, Integer last, String before, Boolean reverse, DeletionEventSortKeys sortKey,
@@ -77,79 +75,56 @@ public class DeletionEventsGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * List of subject types to filter by.
-     */
+    
     public Builder subjectTypes(List<DeletionEventSubjectType> subjectTypes) {
       this.subjectTypes = subjectTypes;
       this.fieldsSet.add("subjectTypes");
       return this;
     }
 
-    /**
-     * The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     public Builder first(Integer first) {
       this.first = first;
       this.fieldsSet.add("first");
       return this;
     }
 
-    /**
-     * The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     public Builder after(String after) {
       this.after = after;
       this.fieldsSet.add("after");
       return this;
     }
 
-    /**
-     * The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     public Builder last(Integer last) {
       this.last = last;
       this.fieldsSet.add("last");
       return this;
     }
 
-    /**
-     * The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-     */
+    
     public Builder before(String before) {
       this.before = before;
       this.fieldsSet.add("before");
       return this;
     }
 
-    /**
-     * Reverse the order of the underlying list.
-     */
+    
     public Builder reverse(Boolean reverse) {
       this.reverse = reverse;
       this.fieldsSet.add("reverse");
       return this;
     }
 
-    /**
-     * Sort the underlying list using a key. If your query is slow or returns an
-     * error, then [try specifying a sort key that matches the field used in the search](https://shopify.dev/api/usage/pagination-graphql#search-performance-considerations).
-     */
+    
     public Builder sortKey(DeletionEventSortKeys sortKey) {
       this.sortKey = sortKey;
       this.fieldsSet.add("sortKey");
       return this;
     }
 
-    /**
-     * A filter made up of terms, connectives, modifiers, and comparators.
-     * | name | type | description | acceptable_values | default_value | example_use |
-     * | ---- | ---- | ---- | ---- | ---- | ---- |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
-     * | occurred_at | time |
-     * You can apply one or more filters to a query. Learn more about [Shopify API
-     * search syntax](https://shopify.dev/api/usage/search-syntax).
-     */
+    
     public Builder query(String query) {
       this.query = query;
       this.fieldsSet.add("query");

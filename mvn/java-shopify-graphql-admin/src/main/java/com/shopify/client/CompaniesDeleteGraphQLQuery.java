@@ -7,9 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Deletes a list of companies.
- */
+
 public class CompaniesDeleteGraphQLQuery extends GraphQLQuery {
   public CompaniesDeleteGraphQLQuery(List<String> companyIds, String queryName,
       Set<String> fieldsSet) {
@@ -44,9 +42,7 @@ public class CompaniesDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * A list of IDs of companies to delete.
-     */
+    
     public Builder companyIds(List<String> companyIds) {
       this.companyIds = companyIds;
       this.fieldsSet.add("companyIds");

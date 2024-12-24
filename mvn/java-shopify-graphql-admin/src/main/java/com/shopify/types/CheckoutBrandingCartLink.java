@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The customizations that you can make to cart links at checkout.
- */
+
 public class CheckoutBrandingCartLink {
-  /**
-   * Whether the cart link is visible at checkout.
-   */
+  
   private CheckoutBrandingVisibility visibility;
 
   public CheckoutBrandingCartLink() {
   }
 
-  /**
-   * Whether the cart link is visible at checkout.
-   */
+  
   public CheckoutBrandingVisibility getVisibility() {
     return visibility;
   }
@@ -51,9 +45,7 @@ public class CheckoutBrandingCartLink {
   }
 
   public static class Builder {
-    /**
-     * Whether the cart link is visible at checkout.
-     */
+    
     private CheckoutBrandingVisibility visibility;
 
     public CheckoutBrandingCartLink build() {
@@ -62,9 +54,7 @@ public class CheckoutBrandingCartLink {
       return result;
     }
 
-    /**
-     * Whether the cart link is visible at checkout.
-     */
+    
     public Builder visibility(CheckoutBrandingVisibility visibility) {
       this.visibility = visibility;
       return this;

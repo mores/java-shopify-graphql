@@ -8,9 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Creates a menu.
- */
+
 public class MenuCreateGraphQLQuery extends GraphQLQuery {
   public MenuCreateGraphQLQuery(String title, String handle, List<MenuItemCreateInput> items,
       String queryName, Set<String> fieldsSet) {
@@ -53,27 +51,21 @@ public class MenuCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The menu's title.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       this.fieldsSet.add("title");
       return this;
     }
 
-    /**
-     * The menus's handle.
-     */
+    
     public Builder handle(String handle) {
       this.handle = handle;
       this.fieldsSet.add("handle");
       return this;
     }
 
-    /**
-     * List of the menus' items.
-     */
+    
     public Builder items(List<MenuItemCreateInput> items) {
       this.items = items;
       this.fieldsSet.add("items");

@@ -6,24 +6,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The value of a percent price rule.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class PriceRulePercentValue implements PriceRuleValue {
-  /**
-   * The percent value of the price rule.
-   */
+  
   private double percentage;
 
   public PriceRulePercentValue() {
   }
 
-  /**
-   * The percent value of the price rule.
-   */
+  
   public double getPercentage() {
     return percentage;
   }
@@ -55,9 +49,7 @@ public class PriceRulePercentValue implements PriceRuleValue {
   }
 
   public static class Builder {
-    /**
-     * The percent value of the price rule.
-     */
+    
     private double percentage;
 
     public PriceRulePercentValue build() {
@@ -66,9 +58,7 @@ public class PriceRulePercentValue implements PriceRuleValue {
       return result;
     }
 
-    /**
-     * The percent value of the price rule.
-     */
+    
     public Builder percentage(double percentage) {
       this.percentage = percentage;
       return this;

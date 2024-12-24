@@ -6,49 +6,33 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A fulfillment hold currently applied on a fulfillment order.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class FulfillmentHold implements com.shopify.types.Node {
-  /**
-   * The localized reason for the fulfillment hold for display purposes.
-   */
+  
   private String displayReason;
 
-  /**
-   * The name of the app or service that applied the fulfillment hold.
-   */
+  
   private String heldBy;
 
-  /**
-   * A boolean value that indicates whether the requesting app created the fulfillment hold.
-   */
+  
   private boolean heldByRequestingApp;
 
-  /**
-   * A globally-unique ID.
-   */
+  
   private String id;
 
-  /**
-   * The reason for the fulfillment hold.
-   */
+  
   private FulfillmentHoldReason reason;
 
-  /**
-   * Additional information about the fulfillment hold reason.
-   */
+  
   private String reasonNotes;
 
   public FulfillmentHold() {
   }
 
-  /**
-   * The localized reason for the fulfillment hold for display purposes.
-   */
+  
   public String getDisplayReason() {
     return displayReason;
   }
@@ -57,9 +41,7 @@ public class FulfillmentHold implements com.shopify.types.Node {
     this.displayReason = displayReason;
   }
 
-  /**
-   * The name of the app or service that applied the fulfillment hold.
-   */
+  
   public String getHeldBy() {
     return heldBy;
   }
@@ -68,9 +50,7 @@ public class FulfillmentHold implements com.shopify.types.Node {
     this.heldBy = heldBy;
   }
 
-  /**
-   * A boolean value that indicates whether the requesting app created the fulfillment hold.
-   */
+  
   public boolean getHeldByRequestingApp() {
     return heldByRequestingApp;
   }
@@ -79,9 +59,7 @@ public class FulfillmentHold implements com.shopify.types.Node {
     this.heldByRequestingApp = heldByRequestingApp;
   }
 
-  /**
-   * A globally-unique ID.
-   */
+  
   public String getId() {
     return id;
   }
@@ -90,9 +68,7 @@ public class FulfillmentHold implements com.shopify.types.Node {
     this.id = id;
   }
 
-  /**
-   * The reason for the fulfillment hold.
-   */
+  
   public FulfillmentHoldReason getReason() {
     return reason;
   }
@@ -101,9 +77,7 @@ public class FulfillmentHold implements com.shopify.types.Node {
     this.reason = reason;
   }
 
-  /**
-   * Additional information about the fulfillment hold reason.
-   */
+  
   public String getReasonNotes() {
     return reasonNotes;
   }
@@ -140,34 +114,22 @@ public class FulfillmentHold implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    /**
-     * The localized reason for the fulfillment hold for display purposes.
-     */
+    
     private String displayReason;
 
-    /**
-     * The name of the app or service that applied the fulfillment hold.
-     */
+    
     private String heldBy;
 
-    /**
-     * A boolean value that indicates whether the requesting app created the fulfillment hold.
-     */
+    
     private boolean heldByRequestingApp;
 
-    /**
-     * A globally-unique ID.
-     */
+    
     private String id;
 
-    /**
-     * The reason for the fulfillment hold.
-     */
+    
     private FulfillmentHoldReason reason;
 
-    /**
-     * Additional information about the fulfillment hold reason.
-     */
+    
     private String reasonNotes;
 
     public FulfillmentHold build() {
@@ -181,49 +143,37 @@ public class FulfillmentHold implements com.shopify.types.Node {
       return result;
     }
 
-    /**
-     * The localized reason for the fulfillment hold for display purposes.
-     */
+    
     public Builder displayReason(String displayReason) {
       this.displayReason = displayReason;
       return this;
     }
 
-    /**
-     * The name of the app or service that applied the fulfillment hold.
-     */
+    
     public Builder heldBy(String heldBy) {
       this.heldBy = heldBy;
       return this;
     }
 
-    /**
-     * A boolean value that indicates whether the requesting app created the fulfillment hold.
-     */
+    
     public Builder heldByRequestingApp(boolean heldByRequestingApp) {
       this.heldByRequestingApp = heldByRequestingApp;
       return this;
     }
 
-    /**
-     * A globally-unique ID.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The reason for the fulfillment hold.
-     */
+    
     public Builder reason(FulfillmentHoldReason reason) {
       this.reason = reason;
       return this;
     }
 
-    /**
-     * Additional information about the fulfillment hold reason.
-     */
+    
     public Builder reasonNotes(String reasonNotes) {
       this.reasonNotes = reasonNotes;
       return this;

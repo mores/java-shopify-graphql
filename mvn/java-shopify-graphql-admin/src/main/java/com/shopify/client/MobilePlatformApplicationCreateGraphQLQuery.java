@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Create a mobile platform application.
- */
+
 public class MobilePlatformApplicationCreateGraphQLQuery extends GraphQLQuery {
   public MobilePlatformApplicationCreateGraphQLQuery(MobilePlatformApplicationCreateInput input,
       String queryName, Set<String> fieldsSet) {
@@ -44,9 +42,7 @@ public class MobilePlatformApplicationCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The input to create a mobile platform application.
-     */
+    
     public Builder input(MobilePlatformApplicationCreateInput input) {
       this.input = input;
       this.fieldsSet.add("input");

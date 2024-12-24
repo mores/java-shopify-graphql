@@ -5,21 +5,15 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for a storefront access token.
- */
+
 public class StorefrontAccessTokenInput {
-  /**
-   * A title for the storefront access token.
-   */
+  
   private String title;
 
   public StorefrontAccessTokenInput() {
   }
 
-  /**
-   * A title for the storefront access token.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -51,9 +45,7 @@ public class StorefrontAccessTokenInput {
   }
 
   public static class Builder {
-    /**
-     * A title for the storefront access token.
-     */
+    
     private String title;
 
     public StorefrontAccessTokenInput build() {
@@ -62,9 +54,7 @@ public class StorefrontAccessTokenInput {
       return result;
     }
 
-    /**
-     * A title for the storefront access token.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;

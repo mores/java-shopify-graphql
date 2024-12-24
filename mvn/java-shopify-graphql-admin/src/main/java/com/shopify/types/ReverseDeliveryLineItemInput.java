@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for a reverse delivery line item.
- */
+
 public class ReverseDeliveryLineItemInput {
-  /**
-   * The ID of the related reverse fulfillment order line item.
-   */
+  
   private String reverseFulfillmentOrderLineItemId;
 
-  /**
-   * The quantity of the item to be included in the delivery.
-   */
+  
   private int quantity;
 
   public ReverseDeliveryLineItemInput() {
   }
 
-  /**
-   * The ID of the related reverse fulfillment order line item.
-   */
+  
   public String getReverseFulfillmentOrderLineItemId() {
     return reverseFulfillmentOrderLineItemId;
   }
@@ -33,9 +25,7 @@ public class ReverseDeliveryLineItemInput {
     this.reverseFulfillmentOrderLineItemId = reverseFulfillmentOrderLineItemId;
   }
 
-  /**
-   * The quantity of the item to be included in the delivery.
-   */
+  
   public int getQuantity() {
     return quantity;
   }
@@ -68,14 +58,10 @@ public class ReverseDeliveryLineItemInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the related reverse fulfillment order line item.
-     */
+    
     private String reverseFulfillmentOrderLineItemId;
 
-    /**
-     * The quantity of the item to be included in the delivery.
-     */
+    
     private int quantity;
 
     public ReverseDeliveryLineItemInput build() {
@@ -85,17 +71,13 @@ public class ReverseDeliveryLineItemInput {
       return result;
     }
 
-    /**
-     * The ID of the related reverse fulfillment order line item.
-     */
+    
     public Builder reverseFulfillmentOrderLineItemId(String reverseFulfillmentOrderLineItemId) {
       this.reverseFulfillmentOrderLineItemId = reverseFulfillmentOrderLineItemId;
       return this;
     }
 
-    /**
-     * The quantity of the item to be included in the delivery.
-     */
+    
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;

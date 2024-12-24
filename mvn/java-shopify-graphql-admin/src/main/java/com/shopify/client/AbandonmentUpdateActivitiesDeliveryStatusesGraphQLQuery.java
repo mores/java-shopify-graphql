@@ -8,9 +8,7 @@ import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Updates the marketing activities delivery statuses for an abandonment.
- */
+
 public class AbandonmentUpdateActivitiesDeliveryStatusesGraphQLQuery extends GraphQLQuery {
   public AbandonmentUpdateActivitiesDeliveryStatusesGraphQLQuery(String abandonmentId,
       String marketingActivityId, AbandonmentDeliveryState deliveryStatus,
@@ -63,45 +61,35 @@ public class AbandonmentUpdateActivitiesDeliveryStatusesGraphQLQuery extends Gra
                
     }
 
-    /**
-     * The ID of the abandonment that needs to be updated.
-     */
+    
     public Builder abandonmentId(String abandonmentId) {
       this.abandonmentId = abandonmentId;
       this.fieldsSet.add("abandonmentId");
       return this;
     }
 
-    /**
-     * The ID of the marketing activity that needs to be updated.
-     */
+    
     public Builder marketingActivityId(String marketingActivityId) {
       this.marketingActivityId = marketingActivityId;
       this.fieldsSet.add("marketingActivityId");
       return this;
     }
 
-    /**
-     * The new delivery status of the marketing activity for this abandonment.
-     */
+    
     public Builder deliveryStatus(AbandonmentDeliveryState deliveryStatus) {
       this.deliveryStatus = deliveryStatus;
       this.fieldsSet.add("deliveryStatus");
       return this;
     }
 
-    /**
-     * The delivery timestamp if the activity delivered.
-     */
+    
     public Builder deliveredAt(OffsetDateTime deliveredAt) {
       this.deliveredAt = deliveredAt;
       this.fieldsSet.add("deliveredAt");
       return this;
     }
 
-    /**
-     * The reason why the activity was or was not delivered.
-     */
+    
     public Builder deliveryStatusChangeReason(String deliveryStatusChangeReason) {
       this.deliveryStatusChangeReason = deliveryStatusChangeReason;
       this.fieldsSet.add("deliveryStatusChangeReason");

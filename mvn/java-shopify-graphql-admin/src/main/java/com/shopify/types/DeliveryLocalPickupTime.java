@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible pickup time values that a location enabled for local pickup can have.
- */
+
 public enum DeliveryLocalPickupTime {
   ONE_HOUR,
 

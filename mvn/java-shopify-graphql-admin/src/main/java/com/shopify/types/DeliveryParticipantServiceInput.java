@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for a shipping service provided by a participant.
- */
+
 public class DeliveryParticipantServiceInput {
-  /**
-   * The name of the service.
-   */
+  
   private String name;
 
-  /**
-   * Whether the service is active.
-   */
+  
   private boolean active;
 
   public DeliveryParticipantServiceInput() {
   }
 
-  /**
-   * The name of the service.
-   */
+  
   public String getName() {
     return name;
   }
@@ -33,9 +25,7 @@ public class DeliveryParticipantServiceInput {
     this.name = name;
   }
 
-  /**
-   * Whether the service is active.
-   */
+  
   public boolean getActive() {
     return active;
   }
@@ -68,14 +58,10 @@ public class DeliveryParticipantServiceInput {
   }
 
   public static class Builder {
-    /**
-     * The name of the service.
-     */
+    
     private String name;
 
-    /**
-     * Whether the service is active.
-     */
+    
     private boolean active;
 
     public DeliveryParticipantServiceInput build() {
@@ -85,17 +71,13 @@ public class DeliveryParticipantServiceInput {
       return result;
     }
 
-    /**
-     * The name of the service.
-     */
+    
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    /**
-     * Whether the service is active.
-     */
+    
     public Builder active(boolean active) {
       this.active = active;
       return this;

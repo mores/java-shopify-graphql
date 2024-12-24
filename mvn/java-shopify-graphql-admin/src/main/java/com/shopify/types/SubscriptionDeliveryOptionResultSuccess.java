@@ -7,24 +7,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The delivery option for a subscription contract.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class SubscriptionDeliveryOptionResultSuccess implements SubscriptionDeliveryOptionResult {
-  /**
-   * The available delivery options.
-   */
+  
   private List<SubscriptionDeliveryOption> deliveryOptions;
 
   public SubscriptionDeliveryOptionResultSuccess() {
   }
 
-  /**
-   * The available delivery options.
-   */
+  
   public List<SubscriptionDeliveryOption> getDeliveryOptions() {
     return deliveryOptions;
   }
@@ -56,9 +50,7 @@ public class SubscriptionDeliveryOptionResultSuccess implements SubscriptionDeli
   }
 
   public static class Builder {
-    /**
-     * The available delivery options.
-     */
+    
     private List<SubscriptionDeliveryOption> deliveryOptions;
 
     public SubscriptionDeliveryOptionResultSuccess build() {
@@ -67,9 +59,7 @@ public class SubscriptionDeliveryOptionResultSuccess implements SubscriptionDeli
       return result;
     }
 
-    /**
-     * The available delivery options.
-     */
+    
     public Builder deliveryOptions(List<SubscriptionDeliveryOption> deliveryOptions) {
       this.deliveryOptions = deliveryOptions;
       return this;

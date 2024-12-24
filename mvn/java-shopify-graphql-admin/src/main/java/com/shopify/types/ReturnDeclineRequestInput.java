@@ -6,38 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for declining a customer's return request.
- */
+
 public class ReturnDeclineRequestInput {
-  /**
-   * The ID of the return that's being declined.
-   */
+  
   private String id;
 
-  /**
-   * The reason why the merchant declined the customer's return request.
-   */
+  
   private ReturnDeclineReason declineReason;
 
-  /**
-   * Notify the customer when a return request is declined.
-   * The customer will only receive a notification if `Order.email` is present.
-   */
+  
   private Boolean notifyCustomer = false;
 
-  /**
-   * The notification message that's sent to a customer about their declined return request.
-   * Maximum length: 500 characters.
-   */
+  
   private String declineNote;
 
   public ReturnDeclineRequestInput() {
   }
 
-  /**
-   * The ID of the return that's being declined.
-   */
+  
   public String getId() {
     return id;
   }
@@ -46,9 +32,7 @@ public class ReturnDeclineRequestInput {
     this.id = id;
   }
 
-  /**
-   * The reason why the merchant declined the customer's return request.
-   */
+  
   public ReturnDeclineReason getDeclineReason() {
     return declineReason;
   }
@@ -57,10 +41,7 @@ public class ReturnDeclineRequestInput {
     this.declineReason = declineReason;
   }
 
-  /**
-   * Notify the customer when a return request is declined.
-   * The customer will only receive a notification if `Order.email` is present.
-   */
+  
   public Boolean getNotifyCustomer() {
     return notifyCustomer;
   }
@@ -69,10 +50,7 @@ public class ReturnDeclineRequestInput {
     this.notifyCustomer = notifyCustomer;
   }
 
-  /**
-   * The notification message that's sent to a customer about their declined return request.
-   * Maximum length: 500 characters.
-   */
+  
   public String getDeclineNote() {
     return declineNote;
   }
@@ -107,26 +85,16 @@ public class ReturnDeclineRequestInput {
   }
 
   public static class Builder {
-    /**
-     * The ID of the return that's being declined.
-     */
+    
     private String id;
 
-    /**
-     * The reason why the merchant declined the customer's return request.
-     */
+    
     private ReturnDeclineReason declineReason;
 
-    /**
-     * Notify the customer when a return request is declined.
-     * The customer will only receive a notification if `Order.email` is present.
-     */
+    
     private Boolean notifyCustomer = false;
 
-    /**
-     * The notification message that's sent to a customer about their declined return request.
-     * Maximum length: 500 characters.
-     */
+    
     private String declineNote;
 
     public ReturnDeclineRequestInput build() {
@@ -138,35 +106,25 @@ public class ReturnDeclineRequestInput {
       return result;
     }
 
-    /**
-     * The ID of the return that's being declined.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    /**
-     * The reason why the merchant declined the customer's return request.
-     */
+    
     public Builder declineReason(ReturnDeclineReason declineReason) {
       this.declineReason = declineReason;
       return this;
     }
 
-    /**
-     * Notify the customer when a return request is declined.
-     * The customer will only receive a notification if `Order.email` is present.
-     */
+    
     public Builder notifyCustomer(Boolean notifyCustomer) {
       this.notifyCustomer = notifyCustomer;
       return this;
     }
 
-    /**
-     * The notification message that's sent to a customer about their declined return request.
-     * Maximum length: 500 characters.
-     */
+    
     public Builder declineNote(String declineNote) {
       this.declineNote = declineNote;
       return this;

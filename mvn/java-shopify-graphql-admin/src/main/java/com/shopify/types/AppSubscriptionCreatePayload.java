@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `appSubscriptionCreate` mutation.
- */
+
 public class AppSubscriptionCreatePayload {
-  /**
-   * The newly-created app subscription.
-   */
+  
   private AppSubscription appSubscription;
 
-  /**
-   * The URL pointing to the page where the merchant approves or declines the charges for an app subscription.
-   */
+  
   private String confirmationUrl;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public AppSubscriptionCreatePayload() {
   }
 
-  /**
-   * The newly-created app subscription.
-   */
+  
   public AppSubscription getAppSubscription() {
     return appSubscription;
   }
@@ -39,9 +29,7 @@ public class AppSubscriptionCreatePayload {
     this.appSubscription = appSubscription;
   }
 
-  /**
-   * The URL pointing to the page where the merchant approves or declines the charges for an app subscription.
-   */
+  
   public String getConfirmationUrl() {
     return confirmationUrl;
   }
@@ -50,9 +38,7 @@ public class AppSubscriptionCreatePayload {
     this.confirmationUrl = confirmationUrl;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -86,19 +72,13 @@ public class AppSubscriptionCreatePayload {
   }
 
   public static class Builder {
-    /**
-     * The newly-created app subscription.
-     */
+    
     private AppSubscription appSubscription;
 
-    /**
-     * The URL pointing to the page where the merchant approves or declines the charges for an app subscription.
-     */
+    
     private String confirmationUrl;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public AppSubscriptionCreatePayload build() {
@@ -109,25 +89,19 @@ public class AppSubscriptionCreatePayload {
       return result;
     }
 
-    /**
-     * The newly-created app subscription.
-     */
+    
     public Builder appSubscription(AppSubscription appSubscription) {
       this.appSubscription = appSubscription;
       return this;
     }
 
-    /**
-     * The URL pointing to the page where the merchant approves or declines the charges for an app subscription.
-     */
+    
     public Builder confirmationUrl(String confirmationUrl) {
       this.confirmationUrl = confirmationUrl;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

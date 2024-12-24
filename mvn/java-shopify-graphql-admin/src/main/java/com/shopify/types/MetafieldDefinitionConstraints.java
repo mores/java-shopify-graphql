@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The constraints that determine what subtypes of resources a metafield definition applies to.
- */
+
 public class MetafieldDefinitionConstraints {
-  /**
-   * The category of resource subtypes that the definition applies to.
-   */
+  
   private String key;
 
-  /**
-   * The specific constraint subtype values that the definition applies to.
-   */
+  
   private MetafieldDefinitionConstraintValueConnection values;
 
   public MetafieldDefinitionConstraints() {
   }
 
-  /**
-   * The category of resource subtypes that the definition applies to.
-   */
+  
   public String getKey() {
     return key;
   }
@@ -33,9 +25,7 @@ public class MetafieldDefinitionConstraints {
     this.key = key;
   }
 
-  /**
-   * The specific constraint subtype values that the definition applies to.
-   */
+  
   public MetafieldDefinitionConstraintValueConnection getValues() {
     return values;
   }
@@ -68,14 +58,10 @@ public class MetafieldDefinitionConstraints {
   }
 
   public static class Builder {
-    /**
-     * The category of resource subtypes that the definition applies to.
-     */
+    
     private String key;
 
-    /**
-     * The specific constraint subtype values that the definition applies to.
-     */
+    
     private MetafieldDefinitionConstraintValueConnection values;
 
     public MetafieldDefinitionConstraints build() {
@@ -85,17 +71,13 @@ public class MetafieldDefinitionConstraints {
       return result;
     }
 
-    /**
-     * The category of resource subtypes that the definition applies to.
-     */
+    
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
-    /**
-     * The specific constraint subtype values that the definition applies to.
-     */
+    
     public Builder values(MetafieldDefinitionConstraintValueConnection values) {
       this.values = values;
       return this;

@@ -5,26 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for an attribute.
- */
+
 public class AttributeInput {
-  /**
-   * Key or name of the attribute.
-   */
+  
   private String key;
 
-  /**
-   * Value of the attribute.
-   */
+  
   private String value;
 
   public AttributeInput() {
   }
 
-  /**
-   * Key or name of the attribute.
-   */
+  
   public String getKey() {
     return key;
   }
@@ -33,9 +25,7 @@ public class AttributeInput {
     this.key = key;
   }
 
-  /**
-   * Value of the attribute.
-   */
+  
   public String getValue() {
     return value;
   }
@@ -68,14 +58,10 @@ public class AttributeInput {
   }
 
   public static class Builder {
-    /**
-     * Key or name of the attribute.
-     */
+    
     private String key;
 
-    /**
-     * Value of the attribute.
-     */
+    
     private String value;
 
     public AttributeInput build() {
@@ -85,17 +71,13 @@ public class AttributeInput {
       return result;
     }
 
-    /**
-     * Key or name of the attribute.
-     */
+    
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
-    /**
-     * Value of the attribute.
-     */
+    
     public Builder value(String value) {
       this.value = value;
       return this;

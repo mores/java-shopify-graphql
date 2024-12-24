@@ -6,9 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Deletes a locale for a shop. This also deletes all translations of this locale.
- */
+
 public class ShopLocaleDisableGraphQLQuery extends GraphQLQuery {
   public ShopLocaleDisableGraphQLQuery(String locale, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -42,9 +40,7 @@ public class ShopLocaleDisableGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * ISO code of the locale to delete.
-     */
+    
     public Builder locale(String locale) {
       this.locale = locale;
       this.fieldsSet.add("locale");

@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Possible error codes that can be returned by `InventoryAdjustQuantitiesUserError`.
- */
+
 public enum InventoryAdjustQuantitiesUserErrorCode {
   INTERNAL_LEDGER_DOCUMENT,
 

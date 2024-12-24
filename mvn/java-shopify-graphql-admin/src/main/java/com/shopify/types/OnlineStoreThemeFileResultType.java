@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * Type of a theme file operation result.
- */
+
 public enum OnlineStoreThemeFileResultType {
   SUCCESS,
 

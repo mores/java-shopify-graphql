@@ -6,41 +6,27 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * A preview of the results of a customer merge request.
- */
+
 public class CustomerMergePreview {
-  /**
-   * The fields that can be used to override the default fields.
-   */
+  
   private CustomerMergePreviewAlternateFields alternateFields;
 
-  /**
-   * The fields that will block the merge if the two customers are merged.
-   */
+  
   private CustomerMergePreviewBlockingFields blockingFields;
 
-  /**
-   * The errors blocking the customer merge.
-   */
+  
   private List<CustomerMergeError> customerMergeErrors;
 
-  /**
-   * The fields that will be kept if the two customers are merged.
-   */
+  
   private CustomerMergePreviewDefaultFields defaultFields;
 
-  /**
-   * The resulting customer ID if the two customers are merged.
-   */
+  
   private String resultingCustomerId;
 
   public CustomerMergePreview() {
   }
 
-  /**
-   * The fields that can be used to override the default fields.
-   */
+  
   public CustomerMergePreviewAlternateFields getAlternateFields() {
     return alternateFields;
   }
@@ -49,9 +35,7 @@ public class CustomerMergePreview {
     this.alternateFields = alternateFields;
   }
 
-  /**
-   * The fields that will block the merge if the two customers are merged.
-   */
+  
   public CustomerMergePreviewBlockingFields getBlockingFields() {
     return blockingFields;
   }
@@ -60,9 +44,7 @@ public class CustomerMergePreview {
     this.blockingFields = blockingFields;
   }
 
-  /**
-   * The errors blocking the customer merge.
-   */
+  
   public List<CustomerMergeError> getCustomerMergeErrors() {
     return customerMergeErrors;
   }
@@ -71,9 +53,7 @@ public class CustomerMergePreview {
     this.customerMergeErrors = customerMergeErrors;
   }
 
-  /**
-   * The fields that will be kept if the two customers are merged.
-   */
+  
   public CustomerMergePreviewDefaultFields getDefaultFields() {
     return defaultFields;
   }
@@ -82,9 +62,7 @@ public class CustomerMergePreview {
     this.defaultFields = defaultFields;
   }
 
-  /**
-   * The resulting customer ID if the two customers are merged.
-   */
+  
   public String getResultingCustomerId() {
     return resultingCustomerId;
   }
@@ -120,29 +98,19 @@ public class CustomerMergePreview {
   }
 
   public static class Builder {
-    /**
-     * The fields that can be used to override the default fields.
-     */
+    
     private CustomerMergePreviewAlternateFields alternateFields;
 
-    /**
-     * The fields that will block the merge if the two customers are merged.
-     */
+    
     private CustomerMergePreviewBlockingFields blockingFields;
 
-    /**
-     * The errors blocking the customer merge.
-     */
+    
     private List<CustomerMergeError> customerMergeErrors;
 
-    /**
-     * The fields that will be kept if the two customers are merged.
-     */
+    
     private CustomerMergePreviewDefaultFields defaultFields;
 
-    /**
-     * The resulting customer ID if the two customers are merged.
-     */
+    
     private String resultingCustomerId;
 
     public CustomerMergePreview build() {
@@ -155,41 +123,31 @@ public class CustomerMergePreview {
       return result;
     }
 
-    /**
-     * The fields that can be used to override the default fields.
-     */
+    
     public Builder alternateFields(CustomerMergePreviewAlternateFields alternateFields) {
       this.alternateFields = alternateFields;
       return this;
     }
 
-    /**
-     * The fields that will block the merge if the two customers are merged.
-     */
+    
     public Builder blockingFields(CustomerMergePreviewBlockingFields blockingFields) {
       this.blockingFields = blockingFields;
       return this;
     }
 
-    /**
-     * The errors blocking the customer merge.
-     */
+    
     public Builder customerMergeErrors(List<CustomerMergeError> customerMergeErrors) {
       this.customerMergeErrors = customerMergeErrors;
       return this;
     }
 
-    /**
-     * The fields that will be kept if the two customers are merged.
-     */
+    
     public Builder defaultFields(CustomerMergePreviewDefaultFields defaultFields) {
       this.defaultFields = defaultFields;
       return this;
     }
 
-    /**
-     * The resulting customer ID if the two customers are merged.
-     */
+    
     public Builder resultingCustomerId(String resultingCustomerId) {
       this.resultingCustomerId = resultingCustomerId;
       return this;

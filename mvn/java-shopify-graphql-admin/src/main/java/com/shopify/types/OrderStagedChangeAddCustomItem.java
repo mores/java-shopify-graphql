@@ -6,36 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * A change to the order representing the addition of a
- * custom line item. For example, you might want to add gift wrapping service
- * as a custom line item.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class OrderStagedChangeAddCustomItem implements OrderStagedChange {
-  /**
-   * The price of an individual item without any discounts applied. This value can't be negative.
-   */
+  
   private MoneyV2 originalUnitPrice;
 
-  /**
-   * The quantity of the custom item to add to the order. This value must be greater than zero.
-   */
+  
   private int quantity;
 
-  /**
-   * The title of the custom item.
-   */
+  
   private String title;
 
   public OrderStagedChangeAddCustomItem() {
   }
 
-  /**
-   * The price of an individual item without any discounts applied. This value can't be negative.
-   */
+  
   public MoneyV2 getOriginalUnitPrice() {
     return originalUnitPrice;
   }
@@ -44,9 +32,7 @@ public class OrderStagedChangeAddCustomItem implements OrderStagedChange {
     this.originalUnitPrice = originalUnitPrice;
   }
 
-  /**
-   * The quantity of the custom item to add to the order. This value must be greater than zero.
-   */
+  
   public int getQuantity() {
     return quantity;
   }
@@ -55,9 +41,7 @@ public class OrderStagedChangeAddCustomItem implements OrderStagedChange {
     this.quantity = quantity;
   }
 
-  /**
-   * The title of the custom item.
-   */
+  
   public String getTitle() {
     return title;
   }
@@ -91,19 +75,13 @@ public class OrderStagedChangeAddCustomItem implements OrderStagedChange {
   }
 
   public static class Builder {
-    /**
-     * The price of an individual item without any discounts applied. This value can't be negative.
-     */
+    
     private MoneyV2 originalUnitPrice;
 
-    /**
-     * The quantity of the custom item to add to the order. This value must be greater than zero.
-     */
+    
     private int quantity;
 
-    /**
-     * The title of the custom item.
-     */
+    
     private String title;
 
     public OrderStagedChangeAddCustomItem build() {
@@ -114,25 +92,19 @@ public class OrderStagedChangeAddCustomItem implements OrderStagedChange {
       return result;
     }
 
-    /**
-     * The price of an individual item without any discounts applied. This value can't be negative.
-     */
+    
     public Builder originalUnitPrice(MoneyV2 originalUnitPrice) {
       this.originalUnitPrice = originalUnitPrice;
       return this;
     }
 
-    /**
-     * The quantity of the custom item to add to the order. This value must be greater than zero.
-     */
+    
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    /**
-     * The title of the custom item.
-     */
+    
     public Builder title(String title) {
       this.title = title;
       return this;

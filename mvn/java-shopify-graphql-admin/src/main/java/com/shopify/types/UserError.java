@@ -7,29 +7,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Represents an error in the input of a mutation.
- */
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class UserError implements com.shopify.types.DisplayableError {
-  /**
-   * The path to the input field that caused the error.
-   */
+  
   private List<String> field;
 
-  /**
-   * The error message.
-   */
+  
   private String message;
 
   public UserError() {
   }
 
-  /**
-   * The path to the input field that caused the error.
-   */
+  
   public List<String> getField() {
     return field;
   }
@@ -38,9 +30,7 @@ public class UserError implements com.shopify.types.DisplayableError {
     this.field = field;
   }
 
-  /**
-   * The error message.
-   */
+  
   public String getMessage() {
     return message;
   }
@@ -73,14 +63,10 @@ public class UserError implements com.shopify.types.DisplayableError {
   }
 
   public static class Builder {
-    /**
-     * The path to the input field that caused the error.
-     */
+    
     private List<String> field;
 
-    /**
-     * The error message.
-     */
+    
     private String message;
 
     public UserError build() {
@@ -90,17 +76,13 @@ public class UserError implements com.shopify.types.DisplayableError {
       return result;
     }
 
-    /**
-     * The path to the input field that caused the error.
-     */
+    
     public Builder field(List<String> field) {
       this.field = field;
       return this;
     }
 
-    /**
-     * The error message.
-     */
+    
     public Builder message(String message) {
       this.message = message;
       return this;

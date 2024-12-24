@@ -1,8 +1,6 @@
 package com.shopify.types;
 
-/**
- * The set of valid sort keys for the CompanyContact query.
- */
+
 public enum CompanyContactSortKeys {
   COMPANY_ID,
 

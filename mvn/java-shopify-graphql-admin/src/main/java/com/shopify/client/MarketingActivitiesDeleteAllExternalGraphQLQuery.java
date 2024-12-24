@@ -6,13 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Deletes all external marketing activities. Deletion is performed by a
- * background job, as it may take a bit of time to complete if a large number of
- * activities are to be deleted. Attempting to create or modify external
- * activities before the job has completed will result in the
- * create/update/upsert mutation returning an error.
- */
+
 public class MarketingActivitiesDeleteAllExternalGraphQLQuery extends GraphQLQuery {
   public MarketingActivitiesDeleteAllExternalGraphQLQuery(String queryName) {
     super("mutation", queryName);

@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Creates a payment customization.
- */
+
 public class PaymentCustomizationCreateGraphQLQuery extends GraphQLQuery {
   public PaymentCustomizationCreateGraphQLQuery(PaymentCustomizationInput paymentCustomization,
       String queryName, Set<String> fieldsSet) {
@@ -44,9 +42,7 @@ public class PaymentCustomizationCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The input data used to create the payment customization.
-     */
+    
     public Builder paymentCustomization(PaymentCustomizationInput paymentCustomization) {
       this.paymentCustomization = paymentCustomization;
       this.fieldsSet.add("paymentCustomization");

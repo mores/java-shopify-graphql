@@ -5,28 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields for an explicit access grant to be created or updated for the metafields under this definition.
- *
- * Explicit grants are [deprecated](https://shopify.dev/changelog/deprecating-explicit-access-grants-for-app-owned-metafields).
- */
+
 public class MetafieldAccessGrantInput {
-  /**
-   * The grantee being granted access.
-   */
+  
   private String grantee;
 
-  /**
-   * The level of access being granted.
-   */
+  
   private MetafieldGrantAccessLevel access;
 
   public MetafieldAccessGrantInput() {
   }
 
-  /**
-   * The grantee being granted access.
-   */
+  
   public String getGrantee() {
     return grantee;
   }
@@ -35,9 +25,7 @@ public class MetafieldAccessGrantInput {
     this.grantee = grantee;
   }
 
-  /**
-   * The level of access being granted.
-   */
+  
   public MetafieldGrantAccessLevel getAccess() {
     return access;
   }
@@ -70,14 +58,10 @@ public class MetafieldAccessGrantInput {
   }
 
   public static class Builder {
-    /**
-     * The grantee being granted access.
-     */
+    
     private String grantee;
 
-    /**
-     * The level of access being granted.
-     */
+    
     private MetafieldGrantAccessLevel access;
 
     public MetafieldAccessGrantInput build() {
@@ -87,17 +71,13 @@ public class MetafieldAccessGrantInput {
       return result;
     }
 
-    /**
-     * The grantee being granted access.
-     */
+    
     public Builder grantee(String grantee) {
       this.grantee = grantee;
       return this;
     }
 
-    /**
-     * The level of access being granted.
-     */
+    
     public Builder access(MetafieldGrantAccessLevel access) {
       this.access = access;
       return this;

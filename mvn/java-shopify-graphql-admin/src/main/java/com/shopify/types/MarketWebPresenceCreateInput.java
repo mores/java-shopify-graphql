@@ -6,38 +6,24 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The input fields used to create a web presence for a market.
- */
+
 public class MarketWebPresenceCreateInput {
-  /**
-   * The web presence's domain ID. This field must be `null` if the `subfolderSuffix` isn't `null`.
-   */
+  
   private String domainId;
 
-  /**
-   * The default locale for the market’s web presence.
-   */
+  
   private String defaultLocale;
 
-  /**
-   * The alternate locales for the market’s web presence.
-   */
+  
   private List<String> alternateLocales;
 
-  /**
-   * The market-specific suffix of the subfolders defined by the web presence.
-   * For example: in `/en-us`, the subfolder suffix is `us`.
-   * Only ASCII characters are allowed. This field must be `null` if the `domainId` isn't `null`.
-   */
+  
   private String subfolderSuffix;
 
   public MarketWebPresenceCreateInput() {
   }
 
-  /**
-   * The web presence's domain ID. This field must be `null` if the `subfolderSuffix` isn't `null`.
-   */
+  
   public String getDomainId() {
     return domainId;
   }
@@ -46,9 +32,7 @@ public class MarketWebPresenceCreateInput {
     this.domainId = domainId;
   }
 
-  /**
-   * The default locale for the market’s web presence.
-   */
+  
   public String getDefaultLocale() {
     return defaultLocale;
   }
@@ -57,9 +41,7 @@ public class MarketWebPresenceCreateInput {
     this.defaultLocale = defaultLocale;
   }
 
-  /**
-   * The alternate locales for the market’s web presence.
-   */
+  
   public List<String> getAlternateLocales() {
     return alternateLocales;
   }
@@ -68,11 +50,7 @@ public class MarketWebPresenceCreateInput {
     this.alternateLocales = alternateLocales;
   }
 
-  /**
-   * The market-specific suffix of the subfolders defined by the web presence.
-   * For example: in `/en-us`, the subfolder suffix is `us`.
-   * Only ASCII characters are allowed. This field must be `null` if the `domainId` isn't `null`.
-   */
+  
   public String getSubfolderSuffix() {
     return subfolderSuffix;
   }
@@ -107,26 +85,16 @@ public class MarketWebPresenceCreateInput {
   }
 
   public static class Builder {
-    /**
-     * The web presence's domain ID. This field must be `null` if the `subfolderSuffix` isn't `null`.
-     */
+    
     private String domainId;
 
-    /**
-     * The default locale for the market’s web presence.
-     */
+    
     private String defaultLocale;
 
-    /**
-     * The alternate locales for the market’s web presence.
-     */
+    
     private List<String> alternateLocales;
 
-    /**
-     * The market-specific suffix of the subfolders defined by the web presence.
-     * For example: in `/en-us`, the subfolder suffix is `us`.
-     * Only ASCII characters are allowed. This field must be `null` if the `domainId` isn't `null`.
-     */
+    
     private String subfolderSuffix;
 
     public MarketWebPresenceCreateInput build() {
@@ -138,35 +106,25 @@ public class MarketWebPresenceCreateInput {
       return result;
     }
 
-    /**
-     * The web presence's domain ID. This field must be `null` if the `subfolderSuffix` isn't `null`.
-     */
+    
     public Builder domainId(String domainId) {
       this.domainId = domainId;
       return this;
     }
 
-    /**
-     * The default locale for the market’s web presence.
-     */
+    
     public Builder defaultLocale(String defaultLocale) {
       this.defaultLocale = defaultLocale;
       return this;
     }
 
-    /**
-     * The alternate locales for the market’s web presence.
-     */
+    
     public Builder alternateLocales(List<String> alternateLocales) {
       this.alternateLocales = alternateLocales;
       return this;
     }
 
-    /**
-     * The market-specific suffix of the subfolders defined by the web presence.
-     * For example: in `/en-us`, the subfolder suffix is `us`.
-     * Only ASCII characters are allowed. This field must be `null` if the `domainId` isn't `null`.
-     */
+    
     public Builder subfolderSuffix(String subfolderSuffix) {
       this.subfolderSuffix = subfolderSuffix;
       return this;

@@ -7,26 +7,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `paymentReminderSend` mutation.
- */
+
 public class PaymentReminderSendPayload {
-  /**
-   * Whether the payment reminder email was successfully sent.
-   */
+  
   private Boolean success;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<PaymentReminderSendUserError> userErrors;
 
   public PaymentReminderSendPayload() {
   }
 
-  /**
-   * Whether the payment reminder email was successfully sent.
-   */
+  
   public Boolean getSuccess() {
     return success;
   }
@@ -35,9 +27,7 @@ public class PaymentReminderSendPayload {
     this.success = success;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<PaymentReminderSendUserError> getUserErrors() {
     return userErrors;
   }
@@ -70,14 +60,10 @@ public class PaymentReminderSendPayload {
   }
 
   public static class Builder {
-    /**
-     * Whether the payment reminder email was successfully sent.
-     */
+    
     private Boolean success;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<PaymentReminderSendUserError> userErrors;
 
     public PaymentReminderSendPayload build() {
@@ -87,17 +73,13 @@ public class PaymentReminderSendPayload {
       return result;
     }
 
-    /**
-     * Whether the payment reminder email was successfully sent.
-     */
+    
     public Builder success(Boolean success) {
       this.success = success;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<PaymentReminderSendUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

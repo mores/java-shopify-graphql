@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Updates the capped amount on the usage pricing plan of an app subscription line item.
- */
+
 public class AppSubscriptionLineItemUpdateGraphQLQuery extends GraphQLQuery {
   public AppSubscriptionLineItemUpdateGraphQLQuery(String id, MoneyInput cappedAmount,
       String queryName, Set<String> fieldsSet) {
@@ -48,18 +46,14 @@ public class AppSubscriptionLineItemUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * The ID of the app subscription line item to be updated.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    /**
-     * The new maximum amount of usage charges that can be incurred within a subscription billing interval.
-     */
+    
     public Builder cappedAmount(MoneyInput cappedAmount) {
       this.cappedAmount = cappedAmount;
       this.fieldsSet.add("cappedAmount");

@@ -6,10 +6,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Unpublishes a resource from the current channel. If the resource is a product,
- * then it's visible in the channel only if the product status is `active`.
- */
+
 public class PublishableUnpublishToCurrentChannelGraphQLQuery extends GraphQLQuery {
   public PublishableUnpublishToCurrentChannelGraphQLQuery(String id, String queryName,
       Set<String> fieldsSet) {
@@ -44,9 +41,7 @@ public class PublishableUnpublishToCurrentChannelGraphQLQuery extends GraphQLQue
                
     }
 
-    /**
-     * The resource to delete or update publications for.
-     */
+    
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

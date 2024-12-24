@@ -7,9 +7,7 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Deletes a storefront access token.
- */
+
 public class StorefrontAccessTokenDeleteGraphQLQuery extends GraphQLQuery {
   public StorefrontAccessTokenDeleteGraphQLQuery(StorefrontAccessTokenDeleteInput input,
       String queryName, Set<String> fieldsSet) {
@@ -44,9 +42,7 @@ public class StorefrontAccessTokenDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    /**
-     * Provides the input fields required to delete a storefront access token.
-     */
+    
     public Builder input(StorefrontAccessTokenDeleteInput input) {
       this.input = input;
       this.fieldsSet.add("input");

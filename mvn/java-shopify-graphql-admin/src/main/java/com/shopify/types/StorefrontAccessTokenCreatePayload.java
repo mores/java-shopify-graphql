@@ -6,31 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `storefrontAccessTokenCreate` mutation.
- */
+
 public class StorefrontAccessTokenCreatePayload {
-  /**
-   * The user's shop.
-   */
+  
   private Shop shop;
 
-  /**
-   * The storefront access token.
-   */
+  
   private StorefrontAccessToken storefrontAccessToken;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<UserError> userErrors;
 
   public StorefrontAccessTokenCreatePayload() {
   }
 
-  /**
-   * The user's shop.
-   */
+  
   public Shop getShop() {
     return shop;
   }
@@ -39,9 +29,7 @@ public class StorefrontAccessTokenCreatePayload {
     this.shop = shop;
   }
 
-  /**
-   * The storefront access token.
-   */
+  
   public StorefrontAccessToken getStorefrontAccessToken() {
     return storefrontAccessToken;
   }
@@ -50,9 +38,7 @@ public class StorefrontAccessTokenCreatePayload {
     this.storefrontAccessToken = storefrontAccessToken;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -86,19 +72,13 @@ public class StorefrontAccessTokenCreatePayload {
   }
 
   public static class Builder {
-    /**
-     * The user's shop.
-     */
+    
     private Shop shop;
 
-    /**
-     * The storefront access token.
-     */
+    
     private StorefrontAccessToken storefrontAccessToken;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<UserError> userErrors;
 
     public StorefrontAccessTokenCreatePayload build() {
@@ -109,25 +89,19 @@ public class StorefrontAccessTokenCreatePayload {
       return result;
     }
 
-    /**
-     * The user's shop.
-     */
+    
     public Builder shop(Shop shop) {
       this.shop = shop;
       return this;
     }
 
-    /**
-     * The storefront access token.
-     */
+    
     public Builder storefrontAccessToken(StorefrontAccessToken storefrontAccessToken) {
       this.storefrontAccessToken = storefrontAccessToken;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

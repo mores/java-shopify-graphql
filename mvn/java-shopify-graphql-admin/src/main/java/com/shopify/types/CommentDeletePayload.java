@@ -6,26 +6,18 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Return type for `commentDelete` mutation.
- */
+
 public class CommentDeletePayload {
-  /**
-   * The ID of the comment that was deleted.
-   */
+  
   private String deletedCommentId;
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   private List<CommentDeleteUserError> userErrors;
 
   public CommentDeletePayload() {
   }
 
-  /**
-   * The ID of the comment that was deleted.
-   */
+  
   public String getDeletedCommentId() {
     return deletedCommentId;
   }
@@ -34,9 +26,7 @@ public class CommentDeletePayload {
     this.deletedCommentId = deletedCommentId;
   }
 
-  /**
-   * The list of errors that occurred from executing the mutation.
-   */
+  
   public List<CommentDeleteUserError> getUserErrors() {
     return userErrors;
   }
@@ -69,14 +59,10 @@ public class CommentDeletePayload {
   }
 
   public static class Builder {
-    /**
-     * The ID of the comment that was deleted.
-     */
+    
     private String deletedCommentId;
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     private List<CommentDeleteUserError> userErrors;
 
     public CommentDeletePayload build() {
@@ -86,17 +72,13 @@ public class CommentDeletePayload {
       return result;
     }
 
-    /**
-     * The ID of the comment that was deleted.
-     */
+    
     public Builder deletedCommentId(String deletedCommentId) {
       this.deletedCommentId = deletedCommentId;
       return this;
     }
 
-    /**
-     * The list of errors that occurred from executing the mutation.
-     */
+    
     public Builder userErrors(List<CommentDeleteUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

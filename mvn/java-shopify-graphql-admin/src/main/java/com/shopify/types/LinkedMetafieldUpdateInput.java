@@ -5,29 +5,18 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-/**
- * The input fields required to link a product option to a metafield.
- *
- * This API is currently in early access. See [Metafield-linked product options](https://shopify.dev/docs/api/admin/migrate/new-product-model/metafield-linked)
- * for more details.
- */
+
 public class LinkedMetafieldUpdateInput {
-  /**
-   * The namespace of the metafield this option is linked to.
-   */
+  
   private String namespace;
 
-  /**
-   * The key of the metafield this option is linked to.
-   */
+  
   private String key;
 
   public LinkedMetafieldUpdateInput() {
   }
 
-  /**
-   * The namespace of the metafield this option is linked to.
-   */
+  
   public String getNamespace() {
     return namespace;
   }
@@ -36,9 +25,7 @@ public class LinkedMetafieldUpdateInput {
     this.namespace = namespace;
   }
 
-  /**
-   * The key of the metafield this option is linked to.
-   */
+  
   public String getKey() {
     return key;
   }
@@ -71,14 +58,10 @@ public class LinkedMetafieldUpdateInput {
   }
 
   public static class Builder {
-    /**
-     * The namespace of the metafield this option is linked to.
-     */
+    
     private String namespace;
 
-    /**
-     * The key of the metafield this option is linked to.
-     */
+    
     private String key;
 
     public LinkedMetafieldUpdateInput build() {
@@ -88,17 +71,13 @@ public class LinkedMetafieldUpdateInput {
       return result;
     }
 
-    /**
-     * The namespace of the metafield this option is linked to.
-     */
+    
     public Builder namespace(String namespace) {
       this.namespace = namespace;
       return this;
     }
 
-    /**
-     * The key of the metafield this option is linked to.
-     */
+    
     public Builder key(String key) {
       this.key = key;
       return this;
