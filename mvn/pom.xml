@@ -20,6 +20,13 @@
 		</license>
 	</licenses>
 
+	<developers>
+                <developer>
+                        <id>mores</id>
+                        <name>Stephen More</name>
+                </developer>
+        </developers>
+
 	<scm>
 		<connection>scm:git:git://github.com/mores/java-shopify-graphql.git</connection>
 		<developerConnection>scm:git:ssh://github.com:mores/java-shopify-graphql.git</developerConnection>
