@@ -27,84 +27,81 @@ import org.springframework.web.client.RestTemplate;
 
 import org.junit.Test;
 
-public class AppTest
-{
-        private static org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger( AppTest.class );
+public class AppTest {
+    private static org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(AppTest.class);
 
-	private static final String STORE = <insert you store name here>;
-	private static final String TOKEN = <insert your token here>;
+    private static final String STORE = "<insert you store name here>";
+    private static final String TOKEN = "<insert your token here>";
 
-	private CustomGraphQLClient client;
+    private CustomGraphQLClient client;
 
-	@Test
-	public void testOne() throws Exception
-	{
-		log.info( "testOne" );
+    @Test
+    public void testOne() throws Exception {
+        log.info("testOne");
 
-		String endpointUrl = "https://" + STORE + ".myshopify.com/admin/api/2024-10/graphql.json";
+        String endpointUrl = "https://" + STORE + ".myshopify.com/admin/api/2024-10/graphql.json";
 
-		RestTemplate restTemplate = new RestTemplate();
-		client = GraphQLClient.createCustom(endpointUrl,  (url, headers, body) -> {
+        RestTemplate restTemplate = new RestTemplate();
+        client = GraphQLClient.createCustom(endpointUrl, (url, headers, body) -> {
 
-                        HttpHeaders httpHeaders = new HttpHeaders();
-                        headers.forEach(httpHeaders::addAll);
-                        httpHeaders.add( "X-Shopify-Access-Token", TOKEN );
+            HttpHeaders httpHeaders = new HttpHeaders();
+            headers.forEach(httpHeaders::addAll);
+            httpHeaders.add("X-Shopify-Access-Token", TOKEN);
 
-                        ResponseEntity<String> exchange = restTemplate.exchange(url, HttpMethod.POST, new HttpEntity<>(body, httpHeaders),String.class);
-                        return new HttpResponse( exchange.getStatusCodeValue(), exchange.getBody() );
-                });
+            ResponseEntity<String> exchange = restTemplate.exchange(url, HttpMethod.POST,
+                    new HttpEntity<>(body, httpHeaders), String.class);
+            return new HttpResponse(exchange.getStatusCodeValue(), exchange.getBody());
+        });
 
-		listProducts();
-		createProduct();
-                listProducts();
-	}
+        listProducts();
+        createProduct();
+        listProducts();
+    }
 
-	private void listProducts()
-        {
-                ProductsGraphQLQuery.Builder builder = ProductsGraphQLQuery.newRequest();
-                builder.first( 10 );
-                ProductsGraphQLQuery productsQuery = builder.build();
+    private void listProducts() {
+        ProductsGraphQLQuery.Builder builder = ProductsGraphQLQuery.newRequest();
+        builder.first(10);
+        ProductsGraphQLQuery productsQuery = builder.build();
 
-                ProductsProjectionRoot root = new ProductsProjectionRoot();
-                ProductEdgeProjection edgeProjection = root.edges();
-                ProductProjection productProjection = edgeProjection.node();
-                productProjection.id();
+        ProductsProjectionRoot root = new ProductsProjectionRoot();
+        ProductEdgeProjection edgeProjection = root.edges();
+        ProductProjection productProjection = edgeProjection.node();
+        productProjection.id();
 
-                GraphQLQueryRequest request = new GraphQLQueryRequest( productsQuery, root );
+        GraphQLQueryRequest request = new GraphQLQueryRequest(productsQuery, root);
 
-                GraphQLResponse graphQLResponse = client.executeQuery( request.serialize() );
-                ProductConnection results = graphQLResponse.extractValueAsObject( "products", ProductConnection.class );
+        GraphQLResponse graphQLResponse = client.executeQuery(request.serialize());
+        ProductConnection results = graphQLResponse.extractValueAsObject("products", ProductConnection.class);
 
-                java.util.List<ProductEdge> edges = results.getEdges();
-                for( ProductEdge edge : edges )
-                {
-                        Product product = edge.getNode();
-                        log.info( "Id: " + product.getId() );
-                }
+        java.util.List<ProductEdge> edges = results.getEdges();
+        for (ProductEdge edge : edges) {
+            Product product = edge.getNode();
+            log.info("Id: " + product.getId());
         }
+    }
 
-	private void createProduct()
-        {
-                ProductCreateGraphQLQuery.Builder builder = ProductCreateGraphQLQuery.newRequest();
-                ProductCreateInput productInput = new ProductCreateInput();
-                productInput.setTitle( "Hiking Boots" );
-                builder.product( productInput );
-                ProductCreateGraphQLQuery createQuery = builder.build();
+    private void createProduct() {
+        ProductCreateGraphQLQuery.Builder builder = ProductCreateGraphQLQuery.newRequest();
+        ProductCreateInput productInput = new ProductCreateInput();
+        productInput.setTitle("Hiking Boots");
+        builder.product(productInput);
+        ProductCreateGraphQLQuery createQuery = builder.build();
 
-                // fields we would like returned
-                ProductCreateProjectionRoot root = new ProductCreateProjectionRoot();
-                ProductProjection productProjection = root.product();
-                productProjection.id();
+        // fields we would like returned
+        ProductCreateProjectionRoot root = new ProductCreateProjectionRoot();
+        ProductProjection productProjection = root.product();
+        productProjection.id();
 
-                com.shopify.client.UserErrorProjection userError = root.userErrors();
-                userError.message();
-                userError.field();
+        com.shopify.client.UserErrorProjection userError = root.userErrors();
+        userError.message();
+        userError.field();
 
-                GraphQLQueryRequest request = new GraphQLQueryRequest( createQuery, root );
-                GraphQLResponse productCreateResponse = client.executeQuery( request.serialize() );
+        GraphQLQueryRequest request = new GraphQLQueryRequest(createQuery, root);
+        GraphQLResponse productCreateResponse = client.executeQuery(request.serialize());
 
-                ProductCreatePayload results = productCreateResponse.extractValueAsObject( "productCreate", ProductCreatePayload.class );
-                Product product = results.getProduct();
-                log.info( "Created new product with Id: " + product.getId() );   
-        }
+        ProductCreatePayload results = productCreateResponse.extractValueAsObject("productCreate",
+                ProductCreatePayload.class);
+        Product product = results.getProduct();
+        log.info("Created new product with Id: " + product.getId());
+    }
 }
