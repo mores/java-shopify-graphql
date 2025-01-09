@@ -6,51 +6,79 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Represents a card instrument for customer payment method.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class CustomerCreditCard implements CustomerPaymentInstrument {
-  
+  /**
+   * The billing address of the card.
+   */
   private CustomerCreditCardBillingAddress billingAddress;
 
-  
+  /**
+   * The brand of the card.
+   */
   private String brand;
 
-  
+  /**
+   * Whether the card is about to expire.
+   */
   private boolean expiresSoon;
 
-  
+  /**
+   * The expiry month of the card.
+   */
   private int expiryMonth;
 
-  
+  /**
+   * The expiry year of the card.
+   */
   private int expiryYear;
 
-  
+  /**
+   * The card's BIN number.
+   */
   private String firstDigits;
 
-  
+  /**
+   * The payment method can be revoked if there are no active subscription contracts.
+   */
   private boolean isRevocable;
 
-  
+  /**
+   * The last 4 digits of the card.
+   */
   private String lastDigits;
 
-  
+  /**
+   * The masked card number with only the last 4 digits displayed.
+   */
   private String maskedNumber;
 
-  
+  /**
+   * The name of the card holder.
+   */
   private String name;
 
-  
+  /**
+   * The source of the card if coming from a wallet such as Apple Pay.
+   */
   private String source;
 
-  
+  /**
+   * The last 4 digits of the Device Account Number.
+   */
   private String virtualLastDigits;
 
   public CustomerCreditCard() {
   }
 
-  
+  /**
+   * The billing address of the card.
+   */
   public CustomerCreditCardBillingAddress getBillingAddress() {
     return billingAddress;
   }
@@ -59,7 +87,9 @@ public class CustomerCreditCard implements CustomerPaymentInstrument {
     this.billingAddress = billingAddress;
   }
 
-  
+  /**
+   * The brand of the card.
+   */
   public String getBrand() {
     return brand;
   }
@@ -68,7 +98,9 @@ public class CustomerCreditCard implements CustomerPaymentInstrument {
     this.brand = brand;
   }
 
-  
+  /**
+   * Whether the card is about to expire.
+   */
   public boolean getExpiresSoon() {
     return expiresSoon;
   }
@@ -77,7 +109,9 @@ public class CustomerCreditCard implements CustomerPaymentInstrument {
     this.expiresSoon = expiresSoon;
   }
 
-  
+  /**
+   * The expiry month of the card.
+   */
   public int getExpiryMonth() {
     return expiryMonth;
   }
@@ -86,7 +120,9 @@ public class CustomerCreditCard implements CustomerPaymentInstrument {
     this.expiryMonth = expiryMonth;
   }
 
-  
+  /**
+   * The expiry year of the card.
+   */
   public int getExpiryYear() {
     return expiryYear;
   }
@@ -95,7 +131,9 @@ public class CustomerCreditCard implements CustomerPaymentInstrument {
     this.expiryYear = expiryYear;
   }
 
-  
+  /**
+   * The card's BIN number.
+   */
   public String getFirstDigits() {
     return firstDigits;
   }
@@ -104,7 +142,9 @@ public class CustomerCreditCard implements CustomerPaymentInstrument {
     this.firstDigits = firstDigits;
   }
 
-  
+  /**
+   * The payment method can be revoked if there are no active subscription contracts.
+   */
   public boolean getIsRevocable() {
     return isRevocable;
   }
@@ -113,7 +153,9 @@ public class CustomerCreditCard implements CustomerPaymentInstrument {
     this.isRevocable = isRevocable;
   }
 
-  
+  /**
+   * The last 4 digits of the card.
+   */
   public String getLastDigits() {
     return lastDigits;
   }
@@ -122,7 +164,9 @@ public class CustomerCreditCard implements CustomerPaymentInstrument {
     this.lastDigits = lastDigits;
   }
 
-  
+  /**
+   * The masked card number with only the last 4 digits displayed.
+   */
   public String getMaskedNumber() {
     return maskedNumber;
   }
@@ -131,7 +175,9 @@ public class CustomerCreditCard implements CustomerPaymentInstrument {
     this.maskedNumber = maskedNumber;
   }
 
-  
+  /**
+   * The name of the card holder.
+   */
   public String getName() {
     return name;
   }
@@ -140,7 +186,9 @@ public class CustomerCreditCard implements CustomerPaymentInstrument {
     this.name = name;
   }
 
-  
+  /**
+   * The source of the card if coming from a wallet such as Apple Pay.
+   */
   public String getSource() {
     return source;
   }
@@ -149,7 +197,9 @@ public class CustomerCreditCard implements CustomerPaymentInstrument {
     this.source = source;
   }
 
-  
+  /**
+   * The last 4 digits of the Device Account Number.
+   */
   public String getVirtualLastDigits() {
     return virtualLastDigits;
   }
@@ -192,40 +242,64 @@ public class CustomerCreditCard implements CustomerPaymentInstrument {
   }
 
   public static class Builder {
-    
+    /**
+     * The billing address of the card.
+     */
     private CustomerCreditCardBillingAddress billingAddress;
 
-    
+    /**
+     * The brand of the card.
+     */
     private String brand;
 
-    
+    /**
+     * Whether the card is about to expire.
+     */
     private boolean expiresSoon;
 
-    
+    /**
+     * The expiry month of the card.
+     */
     private int expiryMonth;
 
-    
+    /**
+     * The expiry year of the card.
+     */
     private int expiryYear;
 
-    
+    /**
+     * The card's BIN number.
+     */
     private String firstDigits;
 
-    
+    /**
+     * The payment method can be revoked if there are no active subscription contracts.
+     */
     private boolean isRevocable;
 
-    
+    /**
+     * The last 4 digits of the card.
+     */
     private String lastDigits;
 
-    
+    /**
+     * The masked card number with only the last 4 digits displayed.
+     */
     private String maskedNumber;
 
-    
+    /**
+     * The name of the card holder.
+     */
     private String name;
 
-    
+    /**
+     * The source of the card if coming from a wallet such as Apple Pay.
+     */
     private String source;
 
-    
+    /**
+     * The last 4 digits of the Device Account Number.
+     */
     private String virtualLastDigits;
 
     public CustomerCreditCard build() {
@@ -245,73 +319,97 @@ public class CustomerCreditCard implements CustomerPaymentInstrument {
       return result;
     }
 
-    
+    /**
+     * The billing address of the card.
+     */
     public Builder billingAddress(CustomerCreditCardBillingAddress billingAddress) {
       this.billingAddress = billingAddress;
       return this;
     }
 
-    
+    /**
+     * The brand of the card.
+     */
     public Builder brand(String brand) {
       this.brand = brand;
       return this;
     }
 
-    
+    /**
+     * Whether the card is about to expire.
+     */
     public Builder expiresSoon(boolean expiresSoon) {
       this.expiresSoon = expiresSoon;
       return this;
     }
 
-    
+    /**
+     * The expiry month of the card.
+     */
     public Builder expiryMonth(int expiryMonth) {
       this.expiryMonth = expiryMonth;
       return this;
     }
 
-    
+    /**
+     * The expiry year of the card.
+     */
     public Builder expiryYear(int expiryYear) {
       this.expiryYear = expiryYear;
       return this;
     }
 
-    
+    /**
+     * The card's BIN number.
+     */
     public Builder firstDigits(String firstDigits) {
       this.firstDigits = firstDigits;
       return this;
     }
 
-    
+    /**
+     * The payment method can be revoked if there are no active subscription contracts.
+     */
     public Builder isRevocable(boolean isRevocable) {
       this.isRevocable = isRevocable;
       return this;
     }
 
-    
+    /**
+     * The last 4 digits of the card.
+     */
     public Builder lastDigits(String lastDigits) {
       this.lastDigits = lastDigits;
       return this;
     }
 
-    
+    /**
+     * The masked card number with only the last 4 digits displayed.
+     */
     public Builder maskedNumber(String maskedNumber) {
       this.maskedNumber = maskedNumber;
       return this;
     }
 
-    
+    /**
+     * The name of the card holder.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    
+    /**
+     * The source of the card if coming from a wallet such as Apple Pay.
+     */
     public Builder source(String source) {
       this.source = source;
       return this;
     }
 
-    
+    /**
+     * The last 4 digits of the Device Account Number.
+     */
     public Builder virtualLastDigits(String virtualLastDigits) {
       this.virtualLastDigits = virtualLastDigits;
       return this;

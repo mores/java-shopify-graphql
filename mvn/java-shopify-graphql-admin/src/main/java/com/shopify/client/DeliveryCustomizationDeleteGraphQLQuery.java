@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a delivery customization.
+ */
 public class DeliveryCustomizationDeleteGraphQLQuery extends GraphQLQuery {
   public DeliveryCustomizationDeleteGraphQLQuery(String id, String queryName,
       Set<String> fieldsSet) {
@@ -41,7 +43,9 @@ public class DeliveryCustomizationDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The global ID of the delivery customization.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

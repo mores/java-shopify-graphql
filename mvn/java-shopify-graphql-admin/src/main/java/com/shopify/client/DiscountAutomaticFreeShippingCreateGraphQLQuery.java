@@ -7,7 +7,16 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a
+ * [free shipping discount](https://help.shopify.com/manual/discounts/discount-types/free-shipping)
+ * that's automatically applied on a cart and at checkout.
+ *   
+ * > Note:
+ * > To create code discounts, use the
+ * [`discountCodeFreeShippingCreate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/discountCodeFreeShippingCreate)
+ * mutation.
+ */
 public class DiscountAutomaticFreeShippingCreateGraphQLQuery extends GraphQLQuery {
   public DiscountAutomaticFreeShippingCreateGraphQLQuery(
       DiscountAutomaticFreeShippingInput freeShippingAutomaticDiscount, String queryName,
@@ -43,7 +52,9 @@ public class DiscountAutomaticFreeShippingCreateGraphQLQuery extends GraphQLQuer
                
     }
 
-    
+    /**
+     * The input data used to create the automatic free shipping discount.
+     */
     public Builder freeShippingAutomaticDiscount(
         DiscountAutomaticFreeShippingInput freeShippingAutomaticDiscount) {
       this.freeShippingAutomaticDiscount = freeShippingAutomaticDiscount;

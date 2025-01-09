@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Updates the credit card payment method for a customer.
+ */
 public class CustomerPaymentMethodCreditCardUpdateGraphQLQuery extends GraphQLQuery {
   public CustomerPaymentMethodCreditCardUpdateGraphQLQuery(String id,
       MailingAddressInput billingAddress, String sessionId, String queryName,
@@ -51,21 +53,27 @@ public class CustomerPaymentMethodCreditCardUpdateGraphQLQuery extends GraphQLQu
                
     }
 
-    
+    /**
+     * The ID of the customer payment method.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    
+    /**
+     * The billing address.
+     */
     public Builder billingAddress(MailingAddressInput billingAddress) {
       this.billingAddress = billingAddress;
       this.fieldsSet.add("billingAddress");
       return this;
     }
 
-    
+    /**
+     * The Cardserver session ID.
+     */
     public Builder sessionId(String sessionId) {
       this.sessionId = sessionId;
       this.fieldsSet.add("sessionId");

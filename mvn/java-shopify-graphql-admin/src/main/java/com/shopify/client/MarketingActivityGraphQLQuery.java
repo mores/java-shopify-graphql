@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Returns a MarketingActivity resource by ID.
+ */
 public class MarketingActivityGraphQLQuery extends GraphQLQuery {
   public MarketingActivityGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -40,7 +42,9 @@ public class MarketingActivityGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the `MarketingActivity` to return.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

@@ -6,33 +6,55 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields that are required to update a file object.
+ */
 public class FileUpdateInput {
-  
+  /**
+   * The ID of the file to be updated.
+   */
   private String id;
 
-  
+  /**
+   * The alternative text description of the file.
+   */
   private String alt;
 
-  
+  /**
+   * The source from which to update a media image or generic file.
+   * An external URL (for images only) or a
+   * [staged upload URL](https://shopify.dev/api/admin-graphql/latest/mutations/stageduploadscreate).
+   */
   private String originalSource;
 
-  
+  /**
+   * The source from which to update the media preview image.
+   * May be an external URL or a
+   * [staged upload URL](https://shopify.dev/api/admin-graphql/latest/mutations/stageduploadscreate).
+   */
   private String previewImageSource;
 
-  
+  /**
+   * The name of the file including its extension.
+   */
   private String filename;
 
-  
+  /**
+   * The IDs of the references to add to the file. Currently only accepts product IDs.
+   */
   private List<String> referencesToAdd;
 
-  
+  /**
+   * The IDs of the references to remove from the file. Currently only accepts product IDs.
+   */
   private List<String> referencesToRemove;
 
   public FileUpdateInput() {
   }
 
-  
+  /**
+   * The ID of the file to be updated.
+   */
   public String getId() {
     return id;
   }
@@ -41,7 +63,9 @@ public class FileUpdateInput {
     this.id = id;
   }
 
-  
+  /**
+   * The alternative text description of the file.
+   */
   public String getAlt() {
     return alt;
   }
@@ -50,7 +74,11 @@ public class FileUpdateInput {
     this.alt = alt;
   }
 
-  
+  /**
+   * The source from which to update a media image or generic file.
+   * An external URL (for images only) or a
+   * [staged upload URL](https://shopify.dev/api/admin-graphql/latest/mutations/stageduploadscreate).
+   */
   public String getOriginalSource() {
     return originalSource;
   }
@@ -59,7 +87,11 @@ public class FileUpdateInput {
     this.originalSource = originalSource;
   }
 
-  
+  /**
+   * The source from which to update the media preview image.
+   * May be an external URL or a
+   * [staged upload URL](https://shopify.dev/api/admin-graphql/latest/mutations/stageduploadscreate).
+   */
   public String getPreviewImageSource() {
     return previewImageSource;
   }
@@ -68,7 +100,9 @@ public class FileUpdateInput {
     this.previewImageSource = previewImageSource;
   }
 
-  
+  /**
+   * The name of the file including its extension.
+   */
   public String getFilename() {
     return filename;
   }
@@ -77,7 +111,9 @@ public class FileUpdateInput {
     this.filename = filename;
   }
 
-  
+  /**
+   * The IDs of the references to add to the file. Currently only accepts product IDs.
+   */
   public List<String> getReferencesToAdd() {
     return referencesToAdd;
   }
@@ -86,7 +122,9 @@ public class FileUpdateInput {
     this.referencesToAdd = referencesToAdd;
   }
 
-  
+  /**
+   * The IDs of the references to remove from the file. Currently only accepts product IDs.
+   */
   public List<String> getReferencesToRemove() {
     return referencesToRemove;
   }
@@ -124,25 +162,43 @@ public class FileUpdateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the file to be updated.
+     */
     private String id;
 
-    
+    /**
+     * The alternative text description of the file.
+     */
     private String alt;
 
-    
+    /**
+     * The source from which to update a media image or generic file.
+     * An external URL (for images only) or a
+     * [staged upload URL](https://shopify.dev/api/admin-graphql/latest/mutations/stageduploadscreate).
+     */
     private String originalSource;
 
-    
+    /**
+     * The source from which to update the media preview image.
+     * May be an external URL or a
+     * [staged upload URL](https://shopify.dev/api/admin-graphql/latest/mutations/stageduploadscreate).
+     */
     private String previewImageSource;
 
-    
+    /**
+     * The name of the file including its extension.
+     */
     private String filename;
 
-    
+    /**
+     * The IDs of the references to add to the file. Currently only accepts product IDs.
+     */
     private List<String> referencesToAdd;
 
-    
+    /**
+     * The IDs of the references to remove from the file. Currently only accepts product IDs.
+     */
     private List<String> referencesToRemove;
 
     public FileUpdateInput build() {
@@ -157,43 +213,61 @@ public class FileUpdateInput {
       return result;
     }
 
-    
+    /**
+     * The ID of the file to be updated.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The alternative text description of the file.
+     */
     public Builder alt(String alt) {
       this.alt = alt;
       return this;
     }
 
-    
+    /**
+     * The source from which to update a media image or generic file.
+     * An external URL (for images only) or a
+     * [staged upload URL](https://shopify.dev/api/admin-graphql/latest/mutations/stageduploadscreate).
+     */
     public Builder originalSource(String originalSource) {
       this.originalSource = originalSource;
       return this;
     }
 
-    
+    /**
+     * The source from which to update the media preview image.
+     * May be an external URL or a
+     * [staged upload URL](https://shopify.dev/api/admin-graphql/latest/mutations/stageduploadscreate).
+     */
     public Builder previewImageSource(String previewImageSource) {
       this.previewImageSource = previewImageSource;
       return this;
     }
 
-    
+    /**
+     * The name of the file including its extension.
+     */
     public Builder filename(String filename) {
       this.filename = filename;
       return this;
     }
 
-    
+    /**
+     * The IDs of the references to add to the file. Currently only accepts product IDs.
+     */
     public Builder referencesToAdd(List<String> referencesToAdd) {
       this.referencesToAdd = referencesToAdd;
       return this;
     }
 
-    
+    /**
+     * The IDs of the references to remove from the file. Currently only accepts product IDs.
+     */
     public Builder referencesToRemove(List<String> referencesToRemove) {
       this.referencesToRemove = referencesToRemove;
       return this;

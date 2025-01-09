@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for metaobject capabilities.
+ */
 public class MetaobjectCapabilityDataInput {
-  
+  /**
+   * Publishable capability input.
+   */
   private MetaobjectCapabilityDataPublishableInput publishable;
 
-  
+  /**
+   * Online Store capability input.
+   */
   private MetaobjectCapabilityDataOnlineStoreInput onlineStore;
 
   public MetaobjectCapabilityDataInput() {
   }
 
-  
+  /**
+   * Publishable capability input.
+   */
   public MetaobjectCapabilityDataPublishableInput getPublishable() {
     return publishable;
   }
@@ -25,7 +33,9 @@ public class MetaobjectCapabilityDataInput {
     this.publishable = publishable;
   }
 
-  
+  /**
+   * Online Store capability input.
+   */
   public MetaobjectCapabilityDataOnlineStoreInput getOnlineStore() {
     return onlineStore;
   }
@@ -58,10 +68,14 @@ public class MetaobjectCapabilityDataInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Publishable capability input.
+     */
     private MetaobjectCapabilityDataPublishableInput publishable;
 
-    
+    /**
+     * Online Store capability input.
+     */
     private MetaobjectCapabilityDataOnlineStoreInput onlineStore;
 
     public MetaobjectCapabilityDataInput build() {
@@ -71,13 +85,17 @@ public class MetaobjectCapabilityDataInput {
       return result;
     }
 
-    
+    /**
+     * Publishable capability input.
+     */
     public Builder publishable(MetaobjectCapabilityDataPublishableInput publishable) {
       this.publishable = publishable;
       return this;
     }
 
-    
+    /**
+     * Online Store capability input.
+     */
     public Builder onlineStore(MetaobjectCapabilityDataOnlineStoreInput onlineStore) {
       this.onlineStore = onlineStore;
       return this;

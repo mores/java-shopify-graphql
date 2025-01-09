@@ -5,7 +5,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.Integer;
 import java.lang.String;
 
-
+/**
+ * A font.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
     include = JsonTypeInfo.As.PROPERTY,
@@ -16,9 +18,13 @@ import java.lang.String;
     @JsonSubTypes.Type(value = CheckoutBrandingShopifyFont.class, name = "CheckoutBrandingShopifyFont")
 })
 public interface CheckoutBrandingFont {
-  
+  /**
+   * The font sources.
+   */
   String getSources();
 
-  
+  /**
+   * The font weight.
+   */
   Integer getWeight();
 }

@@ -6,21 +6,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `savedSearchDelete` mutation.
+ */
 public class SavedSearchDeletePayload {
-  
+  /**
+   * The ID of the saved search that was deleted.
+   */
   private String deletedSavedSearchId;
 
-  
+  /**
+   * The shop of the saved search that was deleted.
+   */
   private Shop shop;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public SavedSearchDeletePayload() {
   }
 
-  
+  /**
+   * The ID of the saved search that was deleted.
+   */
   public String getDeletedSavedSearchId() {
     return deletedSavedSearchId;
   }
@@ -29,7 +39,9 @@ public class SavedSearchDeletePayload {
     this.deletedSavedSearchId = deletedSavedSearchId;
   }
 
-  
+  /**
+   * The shop of the saved search that was deleted.
+   */
   public Shop getShop() {
     return shop;
   }
@@ -38,7 +50,9 @@ public class SavedSearchDeletePayload {
     this.shop = shop;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -72,13 +86,19 @@ public class SavedSearchDeletePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the saved search that was deleted.
+     */
     private String deletedSavedSearchId;
 
-    
+    /**
+     * The shop of the saved search that was deleted.
+     */
     private Shop shop;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public SavedSearchDeletePayload build() {
@@ -89,19 +109,25 @@ public class SavedSearchDeletePayload {
       return result;
     }
 
-    
+    /**
+     * The ID of the saved search that was deleted.
+     */
     public Builder deletedSavedSearchId(String deletedSavedSearchId) {
       this.deletedSavedSearchId = deletedSavedSearchId;
       return this;
     }
 
-    
+    /**
+     * The shop of the saved search that was deleted.
+     */
     public Builder shop(Shop shop) {
       this.shop = shop;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -7,24 +7,34 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * A link to direct users to.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class Link implements com.shopify.types.HasPublishedTranslations {
-  
+  /**
+   * A context-sensitive label for the link.
+   */
   private String label;
 
-  
+  /**
+   * The published translations associated with the resource.
+   */
   private List<Translation> translations;
 
-  
+  /**
+   * The URL that the link visits.
+   */
   private String url;
 
   public Link() {
   }
 
-  
+  /**
+   * A context-sensitive label for the link.
+   */
   public String getLabel() {
     return label;
   }
@@ -33,7 +43,9 @@ public class Link implements com.shopify.types.HasPublishedTranslations {
     this.label = label;
   }
 
-  
+  /**
+   * The published translations associated with the resource.
+   */
   public List<Translation> getTranslations() {
     return translations;
   }
@@ -42,7 +54,9 @@ public class Link implements com.shopify.types.HasPublishedTranslations {
     this.translations = translations;
   }
 
-  
+  /**
+   * The URL that the link visits.
+   */
   public String getUrl() {
     return url;
   }
@@ -76,13 +90,19 @@ public class Link implements com.shopify.types.HasPublishedTranslations {
   }
 
   public static class Builder {
-    
+    /**
+     * A context-sensitive label for the link.
+     */
     private String label;
 
-    
+    /**
+     * The published translations associated with the resource.
+     */
     private List<Translation> translations;
 
-    
+    /**
+     * The URL that the link visits.
+     */
     private String url;
 
     public Link build() {
@@ -93,19 +113,25 @@ public class Link implements com.shopify.types.HasPublishedTranslations {
       return result;
     }
 
-    
+    /**
+     * A context-sensitive label for the link.
+     */
     public Builder label(String label) {
       this.label = label;
       return this;
     }
 
-    
+    /**
+     * The published translations associated with the resource.
+     */
     public Builder translations(List<Translation> translations) {
       this.translations = translations;
       return this;
     }
 
-    
+    /**
+     * The URL that the link visits.
+     */
     public Builder url(String url) {
       this.url = url;
       return this;

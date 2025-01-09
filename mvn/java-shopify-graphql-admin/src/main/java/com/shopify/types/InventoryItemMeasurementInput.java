@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for an inventory item measurement.
+ */
 public class InventoryItemMeasurementInput {
-  
+  /**
+   * The weight of the inventory item.
+   */
   private WeightInput weight;
 
   public InventoryItemMeasurementInput() {
   }
 
-  
+  /**
+   * The weight of the inventory item.
+   */
   public WeightInput getWeight() {
     return weight;
   }
@@ -45,7 +51,9 @@ public class InventoryItemMeasurementInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The weight of the inventory item.
+     */
     private WeightInput weight;
 
     public InventoryItemMeasurementInput build() {
@@ -54,7 +62,9 @@ public class InventoryItemMeasurementInput {
       return result;
     }
 
-    
+    /**
+     * The weight of the inventory item.
+     */
     public Builder weight(WeightInput weight) {
       this.weight = weight;
       return this;

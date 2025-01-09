@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Possible error codes that can be returned by `InventoryMoveQuantitiesUserError`.
+ */
 public enum InventoryMoveQuantitiesUserErrorCode {
   INTERNAL_LEDGER_DOCUMENT,
 

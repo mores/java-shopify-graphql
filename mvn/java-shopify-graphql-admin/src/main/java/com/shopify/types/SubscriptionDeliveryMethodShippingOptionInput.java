@@ -5,27 +5,41 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for shipping option.
+ */
 public class SubscriptionDeliveryMethodShippingOptionInput {
-  
+  /**
+   * The title of the shipping option.
+   */
   private String title;
 
-  
+  /**
+   * The presentment title of the shipping option.
+   */
   private String presentmentTitle;
 
-  
+  /**
+   * The description of the shipping option.
+   */
   private String description;
 
-  
+  /**
+   * The code of the shipping option.
+   */
   private String code;
 
-  
+  /**
+   * The carrier service ID of the shipping option.
+   */
   private String carrierServiceId;
 
   public SubscriptionDeliveryMethodShippingOptionInput() {
   }
 
-  
+  /**
+   * The title of the shipping option.
+   */
   public String getTitle() {
     return title;
   }
@@ -34,7 +48,9 @@ public class SubscriptionDeliveryMethodShippingOptionInput {
     this.title = title;
   }
 
-  
+  /**
+   * The presentment title of the shipping option.
+   */
   public String getPresentmentTitle() {
     return presentmentTitle;
   }
@@ -43,7 +59,9 @@ public class SubscriptionDeliveryMethodShippingOptionInput {
     this.presentmentTitle = presentmentTitle;
   }
 
-  
+  /**
+   * The description of the shipping option.
+   */
   public String getDescription() {
     return description;
   }
@@ -52,7 +70,9 @@ public class SubscriptionDeliveryMethodShippingOptionInput {
     this.description = description;
   }
 
-  
+  /**
+   * The code of the shipping option.
+   */
   public String getCode() {
     return code;
   }
@@ -61,7 +81,9 @@ public class SubscriptionDeliveryMethodShippingOptionInput {
     this.code = code;
   }
 
-  
+  /**
+   * The carrier service ID of the shipping option.
+   */
   public String getCarrierServiceId() {
     return carrierServiceId;
   }
@@ -97,19 +119,29 @@ public class SubscriptionDeliveryMethodShippingOptionInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The title of the shipping option.
+     */
     private String title;
 
-    
+    /**
+     * The presentment title of the shipping option.
+     */
     private String presentmentTitle;
 
-    
+    /**
+     * The description of the shipping option.
+     */
     private String description;
 
-    
+    /**
+     * The code of the shipping option.
+     */
     private String code;
 
-    
+    /**
+     * The carrier service ID of the shipping option.
+     */
     private String carrierServiceId;
 
     public SubscriptionDeliveryMethodShippingOptionInput build() {
@@ -122,31 +154,41 @@ public class SubscriptionDeliveryMethodShippingOptionInput {
       return result;
     }
 
-    
+    /**
+     * The title of the shipping option.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    
+    /**
+     * The presentment title of the shipping option.
+     */
     public Builder presentmentTitle(String presentmentTitle) {
       this.presentmentTitle = presentmentTitle;
       return this;
     }
 
-    
+    /**
+     * The description of the shipping option.
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    
+    /**
+     * The code of the shipping option.
+     */
     public Builder code(String code) {
       this.code = code;
       return this;
     }
 
-    
+    /**
+     * The carrier service ID of the shipping option.
+     */
     public Builder carrierServiceId(String carrierServiceId) {
       this.carrierServiceId = carrierServiceId;
       return this;

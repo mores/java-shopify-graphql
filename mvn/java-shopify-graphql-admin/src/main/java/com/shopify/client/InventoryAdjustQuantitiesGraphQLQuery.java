@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Apply changes to inventory quantities.
+ */
 public class InventoryAdjustQuantitiesGraphQLQuery extends GraphQLQuery {
   public InventoryAdjustQuantitiesGraphQLQuery(InventoryAdjustQuantitiesInput input,
       String queryName, Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class InventoryAdjustQuantitiesGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The information required to adjust inventory quantities.
+     */
     public Builder input(InventoryAdjustQuantitiesInput input) {
       this.input = input;
       this.fieldsSet.add("input");

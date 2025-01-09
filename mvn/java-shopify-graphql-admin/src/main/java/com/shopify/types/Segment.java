@@ -7,30 +7,44 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-
+/**
+ * A dynamic collection of customers based on specific criteria.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class Segment implements com.shopify.types.Node {
-  
+  /**
+   * The date and time when the segment was added to the store.
+   */
   private OffsetDateTime creationDate;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The date and time when the segment was last updated.
+   */
   private OffsetDateTime lastEditDate;
 
-  
+  /**
+   * The name of the segment.
+   */
   private String name;
 
-  
+  /**
+   * A precise definition of the segment. The definition is composed of a combination of conditions on facts about customers.
+   */
   private String query;
 
   public Segment() {
   }
 
-  
+  /**
+   * The date and time when the segment was added to the store.
+   */
   public OffsetDateTime getCreationDate() {
     return creationDate;
   }
@@ -39,7 +53,9 @@ public class Segment implements com.shopify.types.Node {
     this.creationDate = creationDate;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -48,7 +64,9 @@ public class Segment implements com.shopify.types.Node {
     this.id = id;
   }
 
-  
+  /**
+   * The date and time when the segment was last updated.
+   */
   public OffsetDateTime getLastEditDate() {
     return lastEditDate;
   }
@@ -57,7 +75,9 @@ public class Segment implements com.shopify.types.Node {
     this.lastEditDate = lastEditDate;
   }
 
-  
+  /**
+   * The name of the segment.
+   */
   public String getName() {
     return name;
   }
@@ -66,7 +86,9 @@ public class Segment implements com.shopify.types.Node {
     this.name = name;
   }
 
-  
+  /**
+   * A precise definition of the segment. The definition is composed of a combination of conditions on facts about customers.
+   */
   public String getQuery() {
     return query;
   }
@@ -102,19 +124,29 @@ public class Segment implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    
+    /**
+     * The date and time when the segment was added to the store.
+     */
     private OffsetDateTime creationDate;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The date and time when the segment was last updated.
+     */
     private OffsetDateTime lastEditDate;
 
-    
+    /**
+     * The name of the segment.
+     */
     private String name;
 
-    
+    /**
+     * A precise definition of the segment. The definition is composed of a combination of conditions on facts about customers.
+     */
     private String query;
 
     public Segment build() {
@@ -127,31 +159,41 @@ public class Segment implements com.shopify.types.Node {
       return result;
     }
 
-    
+    /**
+     * The date and time when the segment was added to the store.
+     */
     public Builder creationDate(OffsetDateTime creationDate) {
       this.creationDate = creationDate;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The date and time when the segment was last updated.
+     */
     public Builder lastEditDate(OffsetDateTime lastEditDate) {
       this.lastEditDate = lastEditDate;
       return this;
     }
 
-    
+    /**
+     * The name of the segment.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    
+    /**
+     * A precise definition of the segment. The definition is composed of a combination of conditions on facts about customers.
+     */
     public Builder query(String query) {
       this.query = query;
       return this;

@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.String;
 
-
+/**
+ * A additional cost, charged by the merchant, on an order. Examples include return shipping fees and restocking fees.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
     include = JsonTypeInfo.As.PROPERTY,
@@ -15,6 +17,8 @@ import java.lang.String;
     @JsonSubTypes.Type(value = ReturnShippingFee.class, name = "ReturnShippingFee")
 })
 public interface Fee {
-  
+  /**
+   * The unique ID for the Fee.
+   */
   String getId();
 }

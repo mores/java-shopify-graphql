@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Represents the settings of price list adjustments.
+ */
 public class PriceListAdjustmentSettings {
-  
+  /**
+   * The type of price list adjustment setting for compare at price.
+   */
   private PriceListCompareAtMode compareAtMode;
 
   public PriceListAdjustmentSettings() {
   }
 
-  
+  /**
+   * The type of price list adjustment setting for compare at price.
+   */
   public PriceListCompareAtMode getCompareAtMode() {
     return compareAtMode;
   }
@@ -45,7 +51,9 @@ public class PriceListAdjustmentSettings {
   }
 
   public static class Builder {
-    
+    /**
+     * The type of price list adjustment setting for compare at price.
+     */
     private PriceListCompareAtMode compareAtMode;
 
     public PriceListAdjustmentSettings build() {
@@ -54,7 +62,9 @@ public class PriceListAdjustmentSettings {
       return result;
     }
 
-    
+    /**
+     * The type of price list adjustment setting for compare at price.
+     */
     public Builder compareAtMode(PriceListCompareAtMode compareAtMode) {
       this.compareAtMode = compareAtMode;
       return this;

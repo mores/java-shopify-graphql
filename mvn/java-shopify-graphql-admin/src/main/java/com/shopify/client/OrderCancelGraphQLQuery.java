@@ -8,7 +8,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Cancels an order.
+ */
 public class OrderCancelGraphQLQuery extends GraphQLQuery {
   public OrderCancelGraphQLQuery(String orderId, boolean refund, boolean restock,
       OrderCancelReason reason, Boolean notifyCustomer, String staffNote, String queryName,
@@ -60,42 +62,56 @@ public class OrderCancelGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the order to be canceled.
+     */
     public Builder orderId(String orderId) {
       this.orderId = orderId;
       this.fieldsSet.add("orderId");
       return this;
     }
 
-    
+    /**
+     * Whether to refund the amount paid by the customer.
+     */
     public Builder refund(boolean refund) {
       this.refund = refund;
       this.fieldsSet.add("refund");
       return this;
     }
 
-    
+    /**
+     * Whether to restock the inventory committed to the order. For unpaid orders
+     * fulfilled from locations that have been deactivated, inventory will not be
+     * restocked to the deactivated locations even if this argument is set to true.
+     */
     public Builder restock(boolean restock) {
       this.restock = restock;
       this.fieldsSet.add("restock");
       return this;
     }
 
-    
+    /**
+     * The reason for canceling the order.
+     */
     public Builder reason(OrderCancelReason reason) {
       this.reason = reason;
       this.fieldsSet.add("reason");
       return this;
     }
 
-    
+    /**
+     * Whether to send a notification to the customer about the order cancellation.
+     */
     public Builder notifyCustomer(Boolean notifyCustomer) {
       this.notifyCustomer = notifyCustomer;
       this.fieldsSet.add("notifyCustomer");
       return this;
     }
 
-    
+    /**
+     * A staff-facing note about the order cancellation. This is not visible to the customer.
+     */
     public Builder staffNote(String staffNote) {
       this.staffNote = staffNote;
       this.fieldsSet.add("staffNote");

@@ -23,4 +23,9 @@ public class StringConnectionProjection<PARENT extends BaseSubProjectionNode<?, 
      getFields().put("pageInfo", projection);
      return projection;
   }
+
+  public StringConnectionProjection<PARENT, ROOT> nodes() {
+    getFields().put("nodes", null);
+    return this;
+  }
 }

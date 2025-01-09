@@ -6,7 +6,11 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * You can organize your metafields in your Shopify admin by pinning/unpinning metafield definitions.
+ * The order of your pinned metafield definitions determines the order in which your metafields are displayed
+ * on the corresponding pages in your Shopify admin. By default, only pinned metafields are automatically displayed.
+ */
 public class MetafieldDefinitionUnpinGraphQLQuery extends GraphQLQuery {
   public MetafieldDefinitionUnpinGraphQLQuery(String definitionId, String queryName,
       Set<String> fieldsSet) {
@@ -41,7 +45,9 @@ public class MetafieldDefinitionUnpinGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the metafield definition to unpin.
+     */
     public Builder definitionId(String definitionId) {
       this.definitionId = definitionId;
       this.fieldsSet.add("definitionId");

@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `customerPaymentMethodGetUpdateUrl` mutation.
+ */
 public class CustomerPaymentMethodGetUpdateUrlPayload {
-  
+  /**
+   * The URL to redirect the customer to update the payment method.
+   */
   private String updatePaymentMethodUrl;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<CustomerPaymentMethodGetUpdateUrlUserError> userErrors;
 
   public CustomerPaymentMethodGetUpdateUrlPayload() {
   }
 
-  
+  /**
+   * The URL to redirect the customer to update the payment method.
+   */
   public String getUpdatePaymentMethodUrl() {
     return updatePaymentMethodUrl;
   }
@@ -26,7 +34,9 @@ public class CustomerPaymentMethodGetUpdateUrlPayload {
     this.updatePaymentMethodUrl = updatePaymentMethodUrl;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<CustomerPaymentMethodGetUpdateUrlUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class CustomerPaymentMethodGetUpdateUrlPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The URL to redirect the customer to update the payment method.
+     */
     private String updatePaymentMethodUrl;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<CustomerPaymentMethodGetUpdateUrlUserError> userErrors;
 
     public CustomerPaymentMethodGetUpdateUrlPayload build() {
@@ -72,13 +86,17 @@ public class CustomerPaymentMethodGetUpdateUrlPayload {
       return result;
     }
 
-    
+    /**
+     * The URL to redirect the customer to update the payment method.
+     */
     public Builder updatePaymentMethodUrl(String updatePaymentMethodUrl) {
       this.updatePaymentMethodUrl = updatePaymentMethodUrl;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<CustomerPaymentMethodGetUpdateUrlUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

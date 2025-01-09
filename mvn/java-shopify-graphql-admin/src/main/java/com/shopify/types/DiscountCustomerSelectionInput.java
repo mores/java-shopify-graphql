@@ -6,21 +6,31 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for the customers who can use this discount.
+ */
 public class DiscountCustomerSelectionInput {
-  
+  /**
+   * Whether all customers can use this discount.
+   */
   private Boolean all;
 
-  
+  /**
+   * The list of customer IDs to add or remove from the list of customers.
+   */
   private DiscountCustomersInput customers;
 
-  
+  /**
+   * The list of customer segment IDs to add or remove from the list of customer segments.
+   */
   private DiscountCustomerSegmentsInput customerSegments;
 
   public DiscountCustomerSelectionInput() {
   }
 
-  
+  /**
+   * Whether all customers can use this discount.
+   */
   public Boolean getAll() {
     return all;
   }
@@ -29,7 +39,9 @@ public class DiscountCustomerSelectionInput {
     this.all = all;
   }
 
-  
+  /**
+   * The list of customer IDs to add or remove from the list of customers.
+   */
   public DiscountCustomersInput getCustomers() {
     return customers;
   }
@@ -38,7 +50,9 @@ public class DiscountCustomerSelectionInput {
     this.customers = customers;
   }
 
-  
+  /**
+   * The list of customer segment IDs to add or remove from the list of customer segments.
+   */
   public DiscountCustomerSegmentsInput getCustomerSegments() {
     return customerSegments;
   }
@@ -72,13 +86,19 @@ public class DiscountCustomerSelectionInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Whether all customers can use this discount.
+     */
     private Boolean all;
 
-    
+    /**
+     * The list of customer IDs to add or remove from the list of customers.
+     */
     private DiscountCustomersInput customers;
 
-    
+    /**
+     * The list of customer segment IDs to add or remove from the list of customer segments.
+     */
     private DiscountCustomerSegmentsInput customerSegments;
 
     public DiscountCustomerSelectionInput build() {
@@ -89,19 +109,25 @@ public class DiscountCustomerSelectionInput {
       return result;
     }
 
-    
+    /**
+     * Whether all customers can use this discount.
+     */
     public Builder all(Boolean all) {
       this.all = all;
       return this;
     }
 
-    
+    /**
+     * The list of customer IDs to add or remove from the list of customers.
+     */
     public Builder customers(DiscountCustomersInput customers) {
       this.customers = customers;
       return this;
     }
 
-    
+    /**
+     * The list of customer segment IDs to add or remove from the list of customer segments.
+     */
     public Builder customerSegments(DiscountCustomerSegmentsInput customerSegments) {
       this.customerSegments = customerSegments;
       return this;

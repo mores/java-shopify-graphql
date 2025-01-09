@@ -8,7 +8,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Uploads multiple images.
+ */
 public class StagedUploadTargetsGenerateGraphQLQuery extends GraphQLQuery {
   public StagedUploadTargetsGenerateGraphQLQuery(List<StageImageInput> input, String queryName,
       Set<String> fieldsSet) {
@@ -43,7 +45,9 @@ public class StagedUploadTargetsGenerateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The input fields for generating staged uploads.
+     */
     public Builder input(List<StageImageInput> input) {
       this.input = input;
       this.fieldsSet.add("input");

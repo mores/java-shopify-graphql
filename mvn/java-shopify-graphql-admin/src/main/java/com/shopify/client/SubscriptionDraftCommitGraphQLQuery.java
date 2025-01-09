@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Commits the updates of a Subscription Contract draft.
+ */
 public class SubscriptionDraftCommitGraphQLQuery extends GraphQLQuery {
   public SubscriptionDraftCommitGraphQLQuery(String draftId, String queryName,
       Set<String> fieldsSet) {
@@ -41,7 +43,9 @@ public class SubscriptionDraftCommitGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The gid of the Subscription Contract draft to commit.
+     */
     public Builder draftId(String draftId) {
       this.draftId = draftId;
       this.fieldsSet.add("draftId");

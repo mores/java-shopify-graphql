@@ -7,21 +7,29 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The shipping destinations where the discount can be applied.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DiscountCountries implements DiscountShippingDestinationSelection {
-  
+  /**
+   * The codes for the countries where the discount can be applied.
+   */
   private List<CountryCode> countries;
 
-  
+  /**
+   * Whether the discount is applicable to countries that haven't been defined in the shop's shipping zones.
+   */
   private boolean includeRestOfWorld;
 
   public DiscountCountries() {
   }
 
-  
+  /**
+   * The codes for the countries where the discount can be applied.
+   */
   public List<CountryCode> getCountries() {
     return countries;
   }
@@ -30,7 +38,9 @@ public class DiscountCountries implements DiscountShippingDestinationSelection {
     this.countries = countries;
   }
 
-  
+  /**
+   * Whether the discount is applicable to countries that haven't been defined in the shop's shipping zones.
+   */
   public boolean getIncludeRestOfWorld() {
     return includeRestOfWorld;
   }
@@ -63,10 +73,14 @@ public class DiscountCountries implements DiscountShippingDestinationSelection {
   }
 
   public static class Builder {
-    
+    /**
+     * The codes for the countries where the discount can be applied.
+     */
     private List<CountryCode> countries;
 
-    
+    /**
+     * Whether the discount is applicable to countries that haven't been defined in the shop's shipping zones.
+     */
     private boolean includeRestOfWorld;
 
     public DiscountCountries build() {
@@ -76,13 +90,17 @@ public class DiscountCountries implements DiscountShippingDestinationSelection {
       return result;
     }
 
-    
+    /**
+     * The codes for the countries where the discount can be applied.
+     */
     public Builder countries(List<CountryCode> countries) {
       this.countries = countries;
       return this;
     }
 
-    
+    /**
+     * Whether the discount is applicable to countries that haven't been defined in the shop's shipping zones.
+     */
     public Builder includeRestOfWorld(boolean includeRestOfWorld) {
       this.includeRestOfWorld = includeRestOfWorld;
       return this;

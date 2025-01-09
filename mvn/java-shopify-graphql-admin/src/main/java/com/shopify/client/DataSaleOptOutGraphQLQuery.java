@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Opt out a customer from data sale.
+ */
 public class DataSaleOptOutGraphQLQuery extends GraphQLQuery {
   public DataSaleOptOutGraphQLQuery(String email, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -40,7 +42,9 @@ public class DataSaleOptOutGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The email address of the customer to opt out of data sale.
+     */
     public Builder email(String email) {
       this.email = email;
       this.fieldsSet.add("email");

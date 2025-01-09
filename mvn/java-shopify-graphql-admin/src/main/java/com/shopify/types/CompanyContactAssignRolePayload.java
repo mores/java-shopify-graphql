@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `companyContactAssignRole` mutation.
+ */
 public class CompanyContactAssignRolePayload {
-  
+  /**
+   * The company contact role assignment.
+   */
   private CompanyContactRoleAssignment companyContactRoleAssignment;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<BusinessCustomerUserError> userErrors;
 
   public CompanyContactAssignRolePayload() {
   }
 
-  
+  /**
+   * The company contact role assignment.
+   */
   public CompanyContactRoleAssignment getCompanyContactRoleAssignment() {
     return companyContactRoleAssignment;
   }
@@ -27,7 +35,9 @@ public class CompanyContactAssignRolePayload {
     this.companyContactRoleAssignment = companyContactRoleAssignment;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<BusinessCustomerUserError> getUserErrors() {
     return userErrors;
   }
@@ -60,10 +70,14 @@ public class CompanyContactAssignRolePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The company contact role assignment.
+     */
     private CompanyContactRoleAssignment companyContactRoleAssignment;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<BusinessCustomerUserError> userErrors;
 
     public CompanyContactAssignRolePayload build() {
@@ -73,14 +87,18 @@ public class CompanyContactAssignRolePayload {
       return result;
     }
 
-    
+    /**
+     * The company contact role assignment.
+     */
     public Builder companyContactRoleAssignment(
         CompanyContactRoleAssignment companyContactRoleAssignment) {
       this.companyContactRoleAssignment = companyContactRoleAssignment;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<BusinessCustomerUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

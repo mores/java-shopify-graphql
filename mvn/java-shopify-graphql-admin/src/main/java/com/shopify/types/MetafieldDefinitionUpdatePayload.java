@@ -6,21 +6,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `metafieldDefinitionUpdate` mutation.
+ */
 public class MetafieldDefinitionUpdatePayload {
-  
+  /**
+   * The metafield definition that was updated.
+   */
   private MetafieldDefinition updatedDefinition;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<MetafieldDefinitionUpdateUserError> userErrors;
 
-  
+  /**
+   * The asynchronous job updating the metafield definition's validation_status.
+   */
   private Job validationJob;
 
   public MetafieldDefinitionUpdatePayload() {
   }
 
-  
+  /**
+   * The metafield definition that was updated.
+   */
   public MetafieldDefinition getUpdatedDefinition() {
     return updatedDefinition;
   }
@@ -29,7 +39,9 @@ public class MetafieldDefinitionUpdatePayload {
     this.updatedDefinition = updatedDefinition;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<MetafieldDefinitionUpdateUserError> getUserErrors() {
     return userErrors;
   }
@@ -38,7 +50,9 @@ public class MetafieldDefinitionUpdatePayload {
     this.userErrors = userErrors;
   }
 
-  
+  /**
+   * The asynchronous job updating the metafield definition's validation_status.
+   */
   public Job getValidationJob() {
     return validationJob;
   }
@@ -72,13 +86,19 @@ public class MetafieldDefinitionUpdatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The metafield definition that was updated.
+     */
     private MetafieldDefinition updatedDefinition;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<MetafieldDefinitionUpdateUserError> userErrors;
 
-    
+    /**
+     * The asynchronous job updating the metafield definition's validation_status.
+     */
     private Job validationJob;
 
     public MetafieldDefinitionUpdatePayload build() {
@@ -89,19 +109,25 @@ public class MetafieldDefinitionUpdatePayload {
       return result;
     }
 
-    
+    /**
+     * The metafield definition that was updated.
+     */
     public Builder updatedDefinition(MetafieldDefinition updatedDefinition) {
       this.updatedDefinition = updatedDefinition;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<MetafieldDefinitionUpdateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;
     }
 
-    
+    /**
+     * The asynchronous job updating the metafield definition's validation_status.
+     */
     public Builder validationJob(Job validationJob) {
       this.validationJob = validationJob;
       return this;

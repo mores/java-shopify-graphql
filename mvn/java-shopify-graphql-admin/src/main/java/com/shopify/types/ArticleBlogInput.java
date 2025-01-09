@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields of a blog when an article is created or updated.
+ */
 public class ArticleBlogInput {
-  
+  /**
+   * The title of the blog.
+   */
   private String title;
 
   public ArticleBlogInput() {
   }
 
-  
+  /**
+   * The title of the blog.
+   */
   public String getTitle() {
     return title;
   }
@@ -45,7 +51,9 @@ public class ArticleBlogInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The title of the blog.
+     */
     private String title;
 
     public ArticleBlogInput build() {
@@ -54,7 +62,9 @@ public class ArticleBlogInput {
       return result;
     }
 
-    
+    /**
+     * The title of the blog.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;

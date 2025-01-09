@@ -46,6 +46,20 @@ public class StoreCreditAccountExpirationTransactionFragmentProjection<PARENT ex
      return projection;
   }
 
+  public StoreCreditSystemEventProjection<StoreCreditAccountExpirationTransactionFragmentProjection<PARENT, ROOT>, ROOT> event(
+      ) {
+     StoreCreditSystemEventProjection<StoreCreditAccountExpirationTransactionFragmentProjection<PARENT, ROOT>, ROOT> projection = new StoreCreditSystemEventProjection<>(this, getRoot());
+     getFields().put("event", projection);
+     return projection;
+  }
+
+  public StoreCreditAccountTransactionOriginProjection<StoreCreditAccountExpirationTransactionFragmentProjection<PARENT, ROOT>, ROOT> origin(
+      ) {
+     StoreCreditAccountTransactionOriginProjection<StoreCreditAccountExpirationTransactionFragmentProjection<PARENT, ROOT>, ROOT> projection = new StoreCreditAccountTransactionOriginProjection<>(this, getRoot());
+     getFields().put("origin", projection);
+     return projection;
+  }
+
   public StoreCreditAccountExpirationTransactionFragmentProjection<PARENT, ROOT> createdAt() {
     getFields().put("createdAt", null);
     return this;

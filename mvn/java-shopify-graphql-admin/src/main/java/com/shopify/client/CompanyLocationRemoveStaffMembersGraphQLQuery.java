@@ -7,7 +7,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Deletes one or more existing mappings between a staff member at a shop and a company location.
+ */
 public class CompanyLocationRemoveStaffMembersGraphQLQuery extends GraphQLQuery {
   public CompanyLocationRemoveStaffMembersGraphQLQuery(
       List<String> companyLocationStaffMemberAssignmentIds, String queryName,
@@ -43,7 +45,9 @@ public class CompanyLocationRemoveStaffMembersGraphQLQuery extends GraphQLQuery 
                
     }
 
-    
+    /**
+     * The list of IDs of the company location staff member assignment to delete.
+     */
     public Builder companyLocationStaffMemberAssignmentIds(
         List<String> companyLocationStaffMemberAssignmentIds) {
       this.companyLocationStaffMemberAssignmentIds = companyLocationStaffMemberAssignmentIds;

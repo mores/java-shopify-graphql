@@ -6,21 +6,29 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A return shipping fee is a fee captured as part of a return to cover the costs of shipping the return.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ReturnShippingFee implements com.shopify.types.Fee {
-  
+  /**
+   * The amount of the return shipping fee, in shop and presentment currencies.
+   */
   private MoneyBag amountSet;
 
-  
+  /**
+   * The unique ID for the Fee.
+   */
   private String id;
 
   public ReturnShippingFee() {
   }
 
-  
+  /**
+   * The amount of the return shipping fee, in shop and presentment currencies.
+   */
   public MoneyBag getAmountSet() {
     return amountSet;
   }
@@ -29,7 +37,9 @@ public class ReturnShippingFee implements com.shopify.types.Fee {
     this.amountSet = amountSet;
   }
 
-  
+  /**
+   * The unique ID for the Fee.
+   */
   public String getId() {
     return id;
   }
@@ -62,10 +72,14 @@ public class ReturnShippingFee implements com.shopify.types.Fee {
   }
 
   public static class Builder {
-    
+    /**
+     * The amount of the return shipping fee, in shop and presentment currencies.
+     */
     private MoneyBag amountSet;
 
-    
+    /**
+     * The unique ID for the Fee.
+     */
     private String id;
 
     public ReturnShippingFee build() {
@@ -75,13 +89,17 @@ public class ReturnShippingFee implements com.shopify.types.Fee {
       return result;
     }
 
-    
+    /**
+     * The amount of the return shipping fee, in shop and presentment currencies.
+     */
     public Builder amountSet(MoneyBag amountSet) {
       this.amountSet = amountSet;
       return this;
     }
 
-    
+    /**
+     * The unique ID for the Fee.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;

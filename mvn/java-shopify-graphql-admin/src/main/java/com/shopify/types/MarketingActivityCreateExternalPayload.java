@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `marketingActivityCreateExternal` mutation.
+ */
 public class MarketingActivityCreateExternalPayload {
-  
+  /**
+   * The external marketing activity that was created.
+   */
   private MarketingActivity marketingActivity;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<MarketingActivityUserError> userErrors;
 
   public MarketingActivityCreateExternalPayload() {
   }
 
-  
+  /**
+   * The external marketing activity that was created.
+   */
   public MarketingActivity getMarketingActivity() {
     return marketingActivity;
   }
@@ -26,7 +34,9 @@ public class MarketingActivityCreateExternalPayload {
     this.marketingActivity = marketingActivity;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<MarketingActivityUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class MarketingActivityCreateExternalPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The external marketing activity that was created.
+     */
     private MarketingActivity marketingActivity;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<MarketingActivityUserError> userErrors;
 
     public MarketingActivityCreateExternalPayload build() {
@@ -72,13 +86,17 @@ public class MarketingActivityCreateExternalPayload {
       return result;
     }
 
-    
+    /**
+     * The external marketing activity that was created.
+     */
     public Builder marketingActivity(MarketingActivity marketingActivity) {
       this.marketingActivity = marketingActivity;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<MarketingActivityUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

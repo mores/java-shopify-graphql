@@ -7,24 +7,34 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The possible errors that can be returned when executing the `locationDeactivate` mutation.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class LocationDeactivateUserError implements com.shopify.types.DisplayableError {
-  
+  /**
+   * The error code.
+   */
   private LocationDeactivateUserErrorCode code;
 
-  
+  /**
+   * The path to the input field that caused the error.
+   */
   private List<String> field;
 
-  
+  /**
+   * The error message.
+   */
   private String message;
 
   public LocationDeactivateUserError() {
   }
 
-  
+  /**
+   * The error code.
+   */
   public LocationDeactivateUserErrorCode getCode() {
     return code;
   }
@@ -33,7 +43,9 @@ public class LocationDeactivateUserError implements com.shopify.types.Displayabl
     this.code = code;
   }
 
-  
+  /**
+   * The path to the input field that caused the error.
+   */
   public List<String> getField() {
     return field;
   }
@@ -42,7 +54,9 @@ public class LocationDeactivateUserError implements com.shopify.types.Displayabl
     this.field = field;
   }
 
-  
+  /**
+   * The error message.
+   */
   public String getMessage() {
     return message;
   }
@@ -76,13 +90,19 @@ public class LocationDeactivateUserError implements com.shopify.types.Displayabl
   }
 
   public static class Builder {
-    
+    /**
+     * The error code.
+     */
     private LocationDeactivateUserErrorCode code;
 
-    
+    /**
+     * The path to the input field that caused the error.
+     */
     private List<String> field;
 
-    
+    /**
+     * The error message.
+     */
     private String message;
 
     public LocationDeactivateUserError build() {
@@ -93,19 +113,25 @@ public class LocationDeactivateUserError implements com.shopify.types.Displayabl
       return result;
     }
 
-    
+    /**
+     * The error code.
+     */
     public Builder code(LocationDeactivateUserErrorCode code) {
       this.code = code;
       return this;
     }
 
-    
+    /**
+     * The path to the input field that caused the error.
+     */
     public Builder field(List<String> field) {
       this.field = field;
       return this;
     }
 
-    
+    /**
+     * The error message.
+     */
     public Builder message(String message) {
       this.message = message;
       return this;

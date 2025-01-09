@@ -7,24 +7,36 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields to specify a country.
+ */
 public class DeliveryCountryInput {
-  
+  /**
+   * The country code of the country in the ISO 3166-1 alpha-2 format.
+   */
   private CountryCode code;
 
-  
+  /**
+   * Whether the country is a part of the 'Rest of World' shipping zone.
+   */
   private Boolean restOfWorld;
 
-  
+  /**
+   * The regions associated with this country.
+   */
   private List<DeliveryProvinceInput> provinces;
 
-  
+  /**
+   * Associate all available provinces with this country.
+   */
   private Boolean includeAllProvinces;
 
   public DeliveryCountryInput() {
   }
 
-  
+  /**
+   * The country code of the country in the ISO 3166-1 alpha-2 format.
+   */
   public CountryCode getCode() {
     return code;
   }
@@ -33,7 +45,9 @@ public class DeliveryCountryInput {
     this.code = code;
   }
 
-  
+  /**
+   * Whether the country is a part of the 'Rest of World' shipping zone.
+   */
   public Boolean getRestOfWorld() {
     return restOfWorld;
   }
@@ -42,7 +56,9 @@ public class DeliveryCountryInput {
     this.restOfWorld = restOfWorld;
   }
 
-  
+  /**
+   * The regions associated with this country.
+   */
   public List<DeliveryProvinceInput> getProvinces() {
     return provinces;
   }
@@ -51,7 +67,9 @@ public class DeliveryCountryInput {
     this.provinces = provinces;
   }
 
-  
+  /**
+   * Associate all available provinces with this country.
+   */
   public Boolean getIncludeAllProvinces() {
     return includeAllProvinces;
   }
@@ -86,16 +104,24 @@ public class DeliveryCountryInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The country code of the country in the ISO 3166-1 alpha-2 format.
+     */
     private CountryCode code;
 
-    
+    /**
+     * Whether the country is a part of the 'Rest of World' shipping zone.
+     */
     private Boolean restOfWorld;
 
-    
+    /**
+     * The regions associated with this country.
+     */
     private List<DeliveryProvinceInput> provinces;
 
-    
+    /**
+     * Associate all available provinces with this country.
+     */
     private Boolean includeAllProvinces;
 
     public DeliveryCountryInput build() {
@@ -107,25 +133,33 @@ public class DeliveryCountryInput {
       return result;
     }
 
-    
+    /**
+     * The country code of the country in the ISO 3166-1 alpha-2 format.
+     */
     public Builder code(CountryCode code) {
       this.code = code;
       return this;
     }
 
-    
+    /**
+     * Whether the country is a part of the 'Rest of World' shipping zone.
+     */
     public Builder restOfWorld(Boolean restOfWorld) {
       this.restOfWorld = restOfWorld;
       return this;
     }
 
-    
+    /**
+     * The regions associated with this country.
+     */
     public Builder provinces(List<DeliveryProvinceInput> provinces) {
       this.provinces = provinces;
       return this;
     }
 
-    
+    /**
+     * Associate all available provinces with this country.
+     */
     public Builder includeAllProvinces(Boolean includeAllProvinces) {
       this.includeAllProvinces = includeAllProvinces;
       return this;

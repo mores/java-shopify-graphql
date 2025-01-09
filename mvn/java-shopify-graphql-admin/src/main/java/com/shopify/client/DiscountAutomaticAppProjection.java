@@ -46,6 +46,11 @@ public class DiscountAutomaticAppProjection<PARENT extends BaseSubProjectionNode
      return projection;
   }
 
+  public DiscountAutomaticAppProjection<PARENT, ROOT> appliesOnOneTimePurchase() {
+    getFields().put("appliesOnOneTimePurchase", null);
+    return this;
+  }
+
   public DiscountAutomaticAppProjection<PARENT, ROOT> appliesOnSubscription() {
     getFields().put("appliesOnSubscription", null);
     return this;

@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `taxAppConfigure` mutation.
+ */
 public class TaxAppConfigurePayload {
-  
+  /**
+   * The updated tax app configuration.
+   */
   private TaxAppConfiguration taxAppConfiguration;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<TaxAppConfigureUserError> userErrors;
 
   public TaxAppConfigurePayload() {
   }
 
-  
+  /**
+   * The updated tax app configuration.
+   */
   public TaxAppConfiguration getTaxAppConfiguration() {
     return taxAppConfiguration;
   }
@@ -26,7 +34,9 @@ public class TaxAppConfigurePayload {
     this.taxAppConfiguration = taxAppConfiguration;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<TaxAppConfigureUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class TaxAppConfigurePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The updated tax app configuration.
+     */
     private TaxAppConfiguration taxAppConfiguration;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<TaxAppConfigureUserError> userErrors;
 
     public TaxAppConfigurePayload build() {
@@ -72,13 +86,17 @@ public class TaxAppConfigurePayload {
       return result;
     }
 
-    
+    /**
+     * The updated tax app configuration.
+     */
     public Builder taxAppConfiguration(TaxAppConfiguration taxAppConfiguration) {
       this.taxAppConfiguration = taxAppConfiguration;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<TaxAppConfigureUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

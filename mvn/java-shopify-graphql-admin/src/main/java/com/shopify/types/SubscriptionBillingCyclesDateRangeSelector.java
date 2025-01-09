@@ -6,18 +6,26 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-
+/**
+ * The input fields to select a subset of subscription billing cycles within a date range.
+ */
 public class SubscriptionBillingCyclesDateRangeSelector {
-  
+  /**
+   * The start date and time for the range.
+   */
   private OffsetDateTime startDate;
 
-  
+  /**
+   * The end date and time for the range.
+   */
   private OffsetDateTime endDate;
 
   public SubscriptionBillingCyclesDateRangeSelector() {
   }
 
-  
+  /**
+   * The start date and time for the range.
+   */
   public OffsetDateTime getStartDate() {
     return startDate;
   }
@@ -26,7 +34,9 @@ public class SubscriptionBillingCyclesDateRangeSelector {
     this.startDate = startDate;
   }
 
-  
+  /**
+   * The end date and time for the range.
+   */
   public OffsetDateTime getEndDate() {
     return endDate;
   }
@@ -59,10 +69,14 @@ public class SubscriptionBillingCyclesDateRangeSelector {
   }
 
   public static class Builder {
-    
+    /**
+     * The start date and time for the range.
+     */
     private OffsetDateTime startDate;
 
-    
+    /**
+     * The end date and time for the range.
+     */
     private OffsetDateTime endDate;
 
     public SubscriptionBillingCyclesDateRangeSelector build() {
@@ -72,13 +86,17 @@ public class SubscriptionBillingCyclesDateRangeSelector {
       return result;
     }
 
-    
+    /**
+     * The start date and time for the range.
+     */
     public Builder startDate(OffsetDateTime startDate) {
       this.startDate = startDate;
       return this;
     }
 
-    
+    /**
+     * The end date and time for the range.
+     */
     public Builder endDate(OffsetDateTime endDate) {
       this.endDate = endDate;
       return this;

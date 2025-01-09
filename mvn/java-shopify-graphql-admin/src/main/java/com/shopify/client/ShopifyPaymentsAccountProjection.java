@@ -167,6 +167,11 @@ public class ShopifyPaymentsAccountProjection<PARENT extends BaseSubProjectionNo
     return projection;
   }
 
+  public ShopifyPaymentsAccountProjection<PARENT, ROOT> accountOpenerName() {
+    getFields().put("accountOpenerName", null);
+    return this;
+  }
+
   public ShopifyPaymentsAccountProjection<PARENT, ROOT> activated() {
     getFields().put("activated", null);
     return this;

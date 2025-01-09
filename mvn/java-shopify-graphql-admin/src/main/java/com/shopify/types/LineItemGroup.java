@@ -7,33 +7,49 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * A line item group (bundle) to which a line item belongs to.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class LineItemGroup implements com.shopify.types.Node {
-  
+  /**
+   * A list of attributes that represent custom features or special requests.
+   */
   private List<Attribute> customAttributes;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * Quantity of the line item group on the order.
+   */
   private int quantity;
 
-  
+  /**
+   * Title of the line item group.
+   */
   private String title;
 
-  
+  /**
+   * ID of the variant of the line item group.
+   */
   private String variantId;
 
-  
+  /**
+   * SKU of the variant of the line item group.
+   */
   private String variantSku;
 
   public LineItemGroup() {
   }
 
-  
+  /**
+   * A list of attributes that represent custom features or special requests.
+   */
   public List<Attribute> getCustomAttributes() {
     return customAttributes;
   }
@@ -42,7 +58,9 @@ public class LineItemGroup implements com.shopify.types.Node {
     this.customAttributes = customAttributes;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -51,7 +69,9 @@ public class LineItemGroup implements com.shopify.types.Node {
     this.id = id;
   }
 
-  
+  /**
+   * Quantity of the line item group on the order.
+   */
   public int getQuantity() {
     return quantity;
   }
@@ -60,7 +80,9 @@ public class LineItemGroup implements com.shopify.types.Node {
     this.quantity = quantity;
   }
 
-  
+  /**
+   * Title of the line item group.
+   */
   public String getTitle() {
     return title;
   }
@@ -69,7 +91,9 @@ public class LineItemGroup implements com.shopify.types.Node {
     this.title = title;
   }
 
-  
+  /**
+   * ID of the variant of the line item group.
+   */
   public String getVariantId() {
     return variantId;
   }
@@ -78,7 +102,9 @@ public class LineItemGroup implements com.shopify.types.Node {
     this.variantId = variantId;
   }
 
-  
+  /**
+   * SKU of the variant of the line item group.
+   */
   public String getVariantSku() {
     return variantSku;
   }
@@ -115,22 +141,34 @@ public class LineItemGroup implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    
+    /**
+     * A list of attributes that represent custom features or special requests.
+     */
     private List<Attribute> customAttributes;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * Quantity of the line item group on the order.
+     */
     private int quantity;
 
-    
+    /**
+     * Title of the line item group.
+     */
     private String title;
 
-    
+    /**
+     * ID of the variant of the line item group.
+     */
     private String variantId;
 
-    
+    /**
+     * SKU of the variant of the line item group.
+     */
     private String variantSku;
 
     public LineItemGroup build() {
@@ -144,37 +182,49 @@ public class LineItemGroup implements com.shopify.types.Node {
       return result;
     }
 
-    
+    /**
+     * A list of attributes that represent custom features or special requests.
+     */
     public Builder customAttributes(List<Attribute> customAttributes) {
       this.customAttributes = customAttributes;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * Quantity of the line item group on the order.
+     */
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    
+    /**
+     * Title of the line item group.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    
+    /**
+     * ID of the variant of the line item group.
+     */
     public Builder variantId(String variantId) {
       this.variantId = variantId;
       return this;
     }
 
-    
+    /**
+     * SKU of the variant of the line item group.
+     */
     public Builder variantSku(String variantSku) {
       this.variantSku = variantSku;
       return this;

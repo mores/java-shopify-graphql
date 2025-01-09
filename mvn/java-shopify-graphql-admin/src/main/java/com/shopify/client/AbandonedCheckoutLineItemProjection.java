@@ -16,6 +16,13 @@ public class AbandonedCheckoutLineItemProjection<PARENT extends BaseSubProjectio
     return this;
   }
 
+  public AbandonedCheckoutLineItemComponentProjection<AbandonedCheckoutLineItemProjection<PARENT, ROOT>, ROOT> components(
+      ) {
+     AbandonedCheckoutLineItemComponentProjection<AbandonedCheckoutLineItemProjection<PARENT, ROOT>, ROOT> projection = new AbandonedCheckoutLineItemComponentProjection<>(this, getRoot());
+     getFields().put("components", projection);
+     return projection;
+  }
+
   public AttributeProjection<AbandonedCheckoutLineItemProjection<PARENT, ROOT>, ROOT> customAttributes(
       ) {
      AttributeProjection<AbandonedCheckoutLineItemProjection<PARENT, ROOT>, ROOT> projection = new AttributeProjection<>(this, getRoot());

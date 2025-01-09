@@ -7,30 +7,59 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * An entity that represents details of an asynchronous
+ * [ProductDuplicate](https://shopify.dev/api/admin-graphql/current/mutations/productDuplicate) mutation.
+ *
+ * By querying this entity with the
+ * [productOperation](https://shopify.dev/api/admin-graphql/current/queries/productOperation) query
+ * using the ID that was returned
+ * [when the product was duplicated](https://shopify.dev/api/admin/migrate/new-product-model/sync-data#create-a-product-with-variants-and-options-asynchronously),
+ * this can be used to check the status of an operation.
+ *
+ * The `status` field indicates whether the operation is `CREATED`, `ACTIVE`, or `COMPLETE`.
+ *
+ * The `product` field provides the details of the original product.
+ *
+ * The `newProduct` field provides the details of the new duplicate of the product.
+ *
+ * The `userErrors` field provides mutation errors that occurred during the operation.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ProductDuplicateOperation implements com.shopify.types.Node, com.shopify.types.ProductOperation {
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The newly created duplicate of the original product.
+   */
   private Product newProduct;
 
-  
+  /**
+   * The product on which the operation is being performed.
+   */
   private Product product;
 
-  
+  /**
+   * The status of this operation.
+   */
   private ProductOperationStatus status;
 
-  
+  /**
+   * Returns mutation errors occurred during background mutation processing.
+   */
   private List<UserError> userErrors;
 
   public ProductDuplicateOperation() {
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -39,7 +68,9 @@ public class ProductDuplicateOperation implements com.shopify.types.Node, com.sh
     this.id = id;
   }
 
-  
+  /**
+   * The newly created duplicate of the original product.
+   */
   public Product getNewProduct() {
     return newProduct;
   }
@@ -48,7 +79,9 @@ public class ProductDuplicateOperation implements com.shopify.types.Node, com.sh
     this.newProduct = newProduct;
   }
 
-  
+  /**
+   * The product on which the operation is being performed.
+   */
   public Product getProduct() {
     return product;
   }
@@ -57,7 +90,9 @@ public class ProductDuplicateOperation implements com.shopify.types.Node, com.sh
     this.product = product;
   }
 
-  
+  /**
+   * The status of this operation.
+   */
   public ProductOperationStatus getStatus() {
     return status;
   }
@@ -66,7 +101,9 @@ public class ProductDuplicateOperation implements com.shopify.types.Node, com.sh
     this.status = status;
   }
 
-  
+  /**
+   * Returns mutation errors occurred during background mutation processing.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -102,19 +139,29 @@ public class ProductDuplicateOperation implements com.shopify.types.Node, com.sh
   }
 
   public static class Builder {
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The newly created duplicate of the original product.
+     */
     private Product newProduct;
 
-    
+    /**
+     * The product on which the operation is being performed.
+     */
     private Product product;
 
-    
+    /**
+     * The status of this operation.
+     */
     private ProductOperationStatus status;
 
-    
+    /**
+     * Returns mutation errors occurred during background mutation processing.
+     */
     private List<UserError> userErrors;
 
     public ProductDuplicateOperation build() {
@@ -127,31 +174,41 @@ public class ProductDuplicateOperation implements com.shopify.types.Node, com.sh
       return result;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The newly created duplicate of the original product.
+     */
     public Builder newProduct(Product newProduct) {
       this.newProduct = newProduct;
       return this;
     }
 
-    
+    /**
+     * The product on which the operation is being performed.
+     */
     public Builder product(Product product) {
       this.product = product;
       return this;
     }
 
-    
+    /**
+     * The status of this operation.
+     */
     public Builder status(ProductOperationStatus status) {
       this.status = status;
       return this;
     }
 
-    
+    /**
+     * Returns mutation errors occurred during background mutation processing.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

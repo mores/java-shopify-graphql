@@ -5,18 +5,27 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for a remote stripe payment method.
+ */
 public class RemoteStripePaymentMethodInput {
-  
+  /**
+   * The customer_id value from the Stripe API.
+   */
   private String customerId;
 
-  
+  /**
+   * The payment_method_id value from the Stripe API. Starting on 2025,
+   * payment_method_id will become mandatory for all API versions.
+   */
   private String paymentMethodId;
 
   public RemoteStripePaymentMethodInput() {
   }
 
-  
+  /**
+   * The customer_id value from the Stripe API.
+   */
   public String getCustomerId() {
     return customerId;
   }
@@ -25,7 +34,10 @@ public class RemoteStripePaymentMethodInput {
     this.customerId = customerId;
   }
 
-  
+  /**
+   * The payment_method_id value from the Stripe API. Starting on 2025,
+   * payment_method_id will become mandatory for all API versions.
+   */
   public String getPaymentMethodId() {
     return paymentMethodId;
   }
@@ -58,10 +70,15 @@ public class RemoteStripePaymentMethodInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The customer_id value from the Stripe API.
+     */
     private String customerId;
 
-    
+    /**
+     * The payment_method_id value from the Stripe API. Starting on 2025,
+     * payment_method_id will become mandatory for all API versions.
+     */
     private String paymentMethodId;
 
     public RemoteStripePaymentMethodInput build() {
@@ -71,13 +88,18 @@ public class RemoteStripePaymentMethodInput {
       return result;
     }
 
-    
+    /**
+     * The customer_id value from the Stripe API.
+     */
     public Builder customerId(String customerId) {
       this.customerId = customerId;
       return this;
     }
 
-    
+    /**
+     * The payment_method_id value from the Stripe API. Starting on 2025,
+     * payment_method_id will become mandatory for all API versions.
+     */
     public Builder paymentMethodId(String paymentMethodId) {
       this.paymentMethodId = paymentMethodId;
       return this;

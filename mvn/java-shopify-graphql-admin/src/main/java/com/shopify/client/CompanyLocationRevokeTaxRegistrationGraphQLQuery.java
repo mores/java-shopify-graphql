@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Revokes tax registration on a company location.
+ */
 public class CompanyLocationRevokeTaxRegistrationGraphQLQuery extends GraphQLQuery {
   public CompanyLocationRevokeTaxRegistrationGraphQLQuery(String companyLocationId,
       String queryName, Set<String> fieldsSet) {
@@ -41,7 +43,9 @@ public class CompanyLocationRevokeTaxRegistrationGraphQLQuery extends GraphQLQue
                
     }
 
-    
+    /**
+     * The location whose tax registration is being revoked.
+     */
     public Builder companyLocationId(String companyLocationId) {
       this.companyLocationId = companyLocationId;
       this.fieldsSet.add("companyLocationId");

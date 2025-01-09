@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Extends the trial of an app subscription.
+ */
 public class AppSubscriptionTrialExtendGraphQLQuery extends GraphQLQuery {
   public AppSubscriptionTrialExtendGraphQLQuery(String id, int days, String queryName,
       Set<String> fieldsSet) {
@@ -43,14 +45,18 @@ public class AppSubscriptionTrialExtendGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the app subscription to extend the trial for.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    
+    /**
+     * The number of days to extend the trial. The value must be greater than 0 and less than or equal to 1000.
+     */
     public Builder days(int days) {
       this.days = days;
       this.fieldsSet.add("days");

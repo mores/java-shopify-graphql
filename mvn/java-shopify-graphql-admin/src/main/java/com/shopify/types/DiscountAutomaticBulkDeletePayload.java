@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `discountAutomaticBulkDelete` mutation.
+ */
 public class DiscountAutomaticBulkDeletePayload {
-  
+  /**
+   * The asynchronous job removing the automatic discounts.
+   */
   private Job job;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<DiscountUserError> userErrors;
 
   public DiscountAutomaticBulkDeletePayload() {
   }
 
-  
+  /**
+   * The asynchronous job removing the automatic discounts.
+   */
   public Job getJob() {
     return job;
   }
@@ -26,7 +34,9 @@ public class DiscountAutomaticBulkDeletePayload {
     this.job = job;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<DiscountUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class DiscountAutomaticBulkDeletePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The asynchronous job removing the automatic discounts.
+     */
     private Job job;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<DiscountUserError> userErrors;
 
     public DiscountAutomaticBulkDeletePayload build() {
@@ -72,13 +86,17 @@ public class DiscountAutomaticBulkDeletePayload {
       return result;
     }
 
-    
+    /**
+     * The asynchronous job removing the automatic discounts.
+     */
     public Builder job(Job job) {
       this.job = job;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<DiscountUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

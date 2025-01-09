@@ -7,36 +7,56 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A shipping option to deliver a subscription contract.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class SubscriptionShippingOption implements SubscriptionDeliveryOption {
-  
+  /**
+   * The carrier service that's providing this shipping option.
+   * This field isn't currently supported and returns null.
+   */
   private DeliveryCarrierService carrierService;
 
-  
+  /**
+   * The code of the shipping option.
+   */
   private String code;
 
-  
+  /**
+   * The description of the shipping option.
+   */
   private String description;
 
-  
+  /**
+   * If a phone number is required for the shipping option.
+   */
   private Boolean phoneRequired;
 
-  
+  /**
+   * The presentment title of the shipping option.
+   */
   private String presentmentTitle;
 
-  
+  /**
+   * The price of the shipping option.
+   */
   private MoneyV2 price;
 
-  
+  /**
+   * The title of the shipping option.
+   */
   private String title;
 
   public SubscriptionShippingOption() {
   }
 
-  
+  /**
+   * The carrier service that's providing this shipping option.
+   * This field isn't currently supported and returns null.
+   */
   public DeliveryCarrierService getCarrierService() {
     return carrierService;
   }
@@ -45,7 +65,9 @@ public class SubscriptionShippingOption implements SubscriptionDeliveryOption {
     this.carrierService = carrierService;
   }
 
-  
+  /**
+   * The code of the shipping option.
+   */
   public String getCode() {
     return code;
   }
@@ -54,7 +76,9 @@ public class SubscriptionShippingOption implements SubscriptionDeliveryOption {
     this.code = code;
   }
 
-  
+  /**
+   * The description of the shipping option.
+   */
   public String getDescription() {
     return description;
   }
@@ -63,7 +87,9 @@ public class SubscriptionShippingOption implements SubscriptionDeliveryOption {
     this.description = description;
   }
 
-  
+  /**
+   * If a phone number is required for the shipping option.
+   */
   public Boolean getPhoneRequired() {
     return phoneRequired;
   }
@@ -72,7 +98,9 @@ public class SubscriptionShippingOption implements SubscriptionDeliveryOption {
     this.phoneRequired = phoneRequired;
   }
 
-  
+  /**
+   * The presentment title of the shipping option.
+   */
   public String getPresentmentTitle() {
     return presentmentTitle;
   }
@@ -81,7 +109,9 @@ public class SubscriptionShippingOption implements SubscriptionDeliveryOption {
     this.presentmentTitle = presentmentTitle;
   }
 
-  
+  /**
+   * The price of the shipping option.
+   */
   public MoneyV2 getPrice() {
     return price;
   }
@@ -90,7 +120,9 @@ public class SubscriptionShippingOption implements SubscriptionDeliveryOption {
     this.price = price;
   }
 
-  
+  /**
+   * The title of the shipping option.
+   */
   public String getTitle() {
     return title;
   }
@@ -128,25 +160,40 @@ public class SubscriptionShippingOption implements SubscriptionDeliveryOption {
   }
 
   public static class Builder {
-    
+    /**
+     * The carrier service that's providing this shipping option.
+     * This field isn't currently supported and returns null.
+     */
     private DeliveryCarrierService carrierService;
 
-    
+    /**
+     * The code of the shipping option.
+     */
     private String code;
 
-    
+    /**
+     * The description of the shipping option.
+     */
     private String description;
 
-    
+    /**
+     * If a phone number is required for the shipping option.
+     */
     private Boolean phoneRequired;
 
-    
+    /**
+     * The presentment title of the shipping option.
+     */
     private String presentmentTitle;
 
-    
+    /**
+     * The price of the shipping option.
+     */
     private MoneyV2 price;
 
-    
+    /**
+     * The title of the shipping option.
+     */
     private String title;
 
     public SubscriptionShippingOption build() {
@@ -161,43 +208,58 @@ public class SubscriptionShippingOption implements SubscriptionDeliveryOption {
       return result;
     }
 
-    
+    /**
+     * The carrier service that's providing this shipping option.
+     * This field isn't currently supported and returns null.
+     */
     public Builder carrierService(DeliveryCarrierService carrierService) {
       this.carrierService = carrierService;
       return this;
     }
 
-    
+    /**
+     * The code of the shipping option.
+     */
     public Builder code(String code) {
       this.code = code;
       return this;
     }
 
-    
+    /**
+     * The description of the shipping option.
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    
+    /**
+     * If a phone number is required for the shipping option.
+     */
     public Builder phoneRequired(Boolean phoneRequired) {
       this.phoneRequired = phoneRequired;
       return this;
     }
 
-    
+    /**
+     * The presentment title of the shipping option.
+     */
     public Builder presentmentTitle(String presentmentTitle) {
       this.presentmentTitle = presentmentTitle;
       return this;
     }
 
-    
+    /**
+     * The price of the shipping option.
+     */
     public Builder price(MoneyV2 price) {
       this.price = price;
       return this;
     }
 
-    
+    /**
+     * The title of the shipping option.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;

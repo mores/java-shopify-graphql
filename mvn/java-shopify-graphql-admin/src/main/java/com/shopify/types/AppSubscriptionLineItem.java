@@ -5,21 +5,31 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The plan attached to an app subscription.
+ */
 public class AppSubscriptionLineItem {
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The pricing model for the app subscription.
+   */
   private AppPlanV2 plan;
 
-  
+  /**
+   * A list of the store's usage records for a usage pricing plan.
+   */
   private AppUsageRecordConnection usageRecords;
 
   public AppSubscriptionLineItem() {
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -28,7 +38,9 @@ public class AppSubscriptionLineItem {
     this.id = id;
   }
 
-  
+  /**
+   * The pricing model for the app subscription.
+   */
   public AppPlanV2 getPlan() {
     return plan;
   }
@@ -37,7 +49,9 @@ public class AppSubscriptionLineItem {
     this.plan = plan;
   }
 
-  
+  /**
+   * A list of the store's usage records for a usage pricing plan.
+   */
   public AppUsageRecordConnection getUsageRecords() {
     return usageRecords;
   }
@@ -71,13 +85,19 @@ public class AppSubscriptionLineItem {
   }
 
   public static class Builder {
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The pricing model for the app subscription.
+     */
     private AppPlanV2 plan;
 
-    
+    /**
+     * A list of the store's usage records for a usage pricing plan.
+     */
     private AppUsageRecordConnection usageRecords;
 
     public AppSubscriptionLineItem build() {
@@ -88,19 +108,25 @@ public class AppSubscriptionLineItem {
       return result;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The pricing model for the app subscription.
+     */
     public Builder plan(AppPlanV2 plan) {
       this.plan = plan;
       return this;
     }
 
-    
+    /**
+     * A list of the store's usage records for a usage pricing plan.
+     */
     public Builder usageRecords(AppUsageRecordConnection usageRecords) {
       this.usageRecords = usageRecords;
       return this;

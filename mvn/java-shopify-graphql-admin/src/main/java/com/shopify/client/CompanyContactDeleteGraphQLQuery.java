@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Deletes a company contact.
+ */
 public class CompanyContactDeleteGraphQLQuery extends GraphQLQuery {
   public CompanyContactDeleteGraphQLQuery(String companyContactId, String queryName,
       Set<String> fieldsSet) {
@@ -41,7 +43,9 @@ public class CompanyContactDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the company contact to delete.
+     */
     public Builder companyContactId(String companyContactId) {
       this.companyContactId = companyContactId;
       this.fieldsSet.add("companyContactId");

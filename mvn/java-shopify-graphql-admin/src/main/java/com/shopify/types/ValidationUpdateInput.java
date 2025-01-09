@@ -8,24 +8,36 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields required to update a validation.
+ */
 public class ValidationUpdateInput {
-  
+  /**
+   * Whether the validation should be live on the merchant checkout.
+   */
   private Boolean enable = false;
 
-  
+  /**
+   * Whether the validation should block on failures other than expected violations.
+   */
   private Boolean blockOnFailure = false;
 
-  
+  /**
+   * Additional metafields to associate to the validation.
+   */
   private List<MetafieldInput> metafields = Collections.emptyList();
 
-  
+  /**
+   * The title of the validation.
+   */
   private String title;
 
   public ValidationUpdateInput() {
   }
 
-  
+  /**
+   * Whether the validation should be live on the merchant checkout.
+   */
   public Boolean getEnable() {
     return enable;
   }
@@ -34,7 +46,9 @@ public class ValidationUpdateInput {
     this.enable = enable;
   }
 
-  
+  /**
+   * Whether the validation should block on failures other than expected violations.
+   */
   public Boolean getBlockOnFailure() {
     return blockOnFailure;
   }
@@ -43,7 +57,9 @@ public class ValidationUpdateInput {
     this.blockOnFailure = blockOnFailure;
   }
 
-  
+  /**
+   * Additional metafields to associate to the validation.
+   */
   public List<MetafieldInput> getMetafields() {
     return metafields;
   }
@@ -52,7 +68,9 @@ public class ValidationUpdateInput {
     this.metafields = metafields;
   }
 
-  
+  /**
+   * The title of the validation.
+   */
   public String getTitle() {
     return title;
   }
@@ -87,16 +105,24 @@ public class ValidationUpdateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Whether the validation should be live on the merchant checkout.
+     */
     private Boolean enable = false;
 
-    
+    /**
+     * Whether the validation should block on failures other than expected violations.
+     */
     private Boolean blockOnFailure = false;
 
-    
+    /**
+     * Additional metafields to associate to the validation.
+     */
     private List<MetafieldInput> metafields = Collections.emptyList();
 
-    
+    /**
+     * The title of the validation.
+     */
     private String title;
 
     public ValidationUpdateInput build() {
@@ -108,25 +134,33 @@ public class ValidationUpdateInput {
       return result;
     }
 
-    
+    /**
+     * Whether the validation should be live on the merchant checkout.
+     */
     public Builder enable(Boolean enable) {
       this.enable = enable;
       return this;
     }
 
-    
+    /**
+     * Whether the validation should block on failures other than expected violations.
+     */
     public Builder blockOnFailure(Boolean blockOnFailure) {
       this.blockOnFailure = blockOnFailure;
       return this;
     }
 
-    
+    /**
+     * Additional metafields to associate to the validation.
+     */
     public Builder metafields(List<MetafieldInput> metafields) {
       this.metafields = metafields;
       return this;
     }
 
-    
+    /**
+     * The title of the validation.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;

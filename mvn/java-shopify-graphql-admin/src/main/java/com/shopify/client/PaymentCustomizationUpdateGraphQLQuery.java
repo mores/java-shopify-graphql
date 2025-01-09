@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Updates a payment customization.
+ */
 public class PaymentCustomizationUpdateGraphQLQuery extends GraphQLQuery {
   public PaymentCustomizationUpdateGraphQLQuery(String id,
       PaymentCustomizationInput paymentCustomization, String queryName, Set<String> fieldsSet) {
@@ -46,14 +48,18 @@ public class PaymentCustomizationUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The global ID of the payment customization.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    
+    /**
+     * The input data used to update the payment customization.
+     */
     public Builder paymentCustomization(PaymentCustomizationInput paymentCustomization) {
       this.paymentCustomization = paymentCustomization;
       this.fieldsSet.add("paymentCustomization");

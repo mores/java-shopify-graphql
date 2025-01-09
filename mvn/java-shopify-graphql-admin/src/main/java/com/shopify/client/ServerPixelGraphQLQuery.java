@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * The server pixel configured by the app.
+ */
 public class ServerPixelGraphQLQuery extends GraphQLQuery {
   public ServerPixelGraphQLQuery(String queryName) {
     super("query", queryName);

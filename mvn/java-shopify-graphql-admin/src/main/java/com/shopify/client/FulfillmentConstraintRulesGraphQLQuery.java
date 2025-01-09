@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * The fulfillment constraint rules that belong to a shop.
+ */
 public class FulfillmentConstraintRulesGraphQLQuery extends GraphQLQuery {
   public FulfillmentConstraintRulesGraphQLQuery(String queryName) {
     super("query", queryName);

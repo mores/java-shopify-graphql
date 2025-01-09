@@ -6,18 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Targets all items the cart for a specified discount.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class AllDiscountItems implements DiscountItems {
-  
+  /**
+   * Whether all items are eligible for the discount. This value always returns `true`.
+   */
   private boolean allItems;
 
   public AllDiscountItems() {
   }
 
-  
+  /**
+   * Whether all items are eligible for the discount. This value always returns `true`.
+   */
   public boolean getAllItems() {
     return allItems;
   }
@@ -49,7 +55,9 @@ public class AllDiscountItems implements DiscountItems {
   }
 
   public static class Builder {
-    
+    /**
+     * Whether all items are eligible for the discount. This value always returns `true`.
+     */
     private boolean allItems;
 
     public AllDiscountItems build() {
@@ -58,7 +66,9 @@ public class AllDiscountItems implements DiscountItems {
       return result;
     }
 
-    
+    /**
+     * Whether all items are eligible for the discount. This value always returns `true`.
+     */
     public Builder allItems(boolean allItems) {
       this.allItems = allItems;
       return this;

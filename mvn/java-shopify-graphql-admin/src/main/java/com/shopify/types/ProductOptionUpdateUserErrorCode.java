@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Possible error codes that can be returned by `ProductOptionUpdateUserError`.
+ */
 public enum ProductOptionUpdateUserErrorCode {
   PRODUCT_DOES_NOT_EXIST,
 

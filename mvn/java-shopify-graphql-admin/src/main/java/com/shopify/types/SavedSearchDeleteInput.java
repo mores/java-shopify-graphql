@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields to delete a saved search.
+ */
 public class SavedSearchDeleteInput {
-  
+  /**
+   * ID of the saved search to delete.
+   */
   private String id;
 
   public SavedSearchDeleteInput() {
   }
 
-  
+  /**
+   * ID of the saved search to delete.
+   */
   public String getId() {
     return id;
   }
@@ -45,7 +51,9 @@ public class SavedSearchDeleteInput {
   }
 
   public static class Builder {
-    
+    /**
+     * ID of the saved search to delete.
+     */
     private String id;
 
     public SavedSearchDeleteInput build() {
@@ -54,7 +62,9 @@ public class SavedSearchDeleteInput {
       return result;
     }
 
-    
+    /**
+     * ID of the saved search to delete.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;

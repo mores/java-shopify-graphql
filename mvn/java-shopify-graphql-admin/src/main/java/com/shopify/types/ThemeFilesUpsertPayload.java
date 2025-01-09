@@ -6,21 +6,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `themeFilesUpsert` mutation.
+ */
 public class ThemeFilesUpsertPayload {
-  
+  /**
+   * The theme files write job triggered by the mutation.
+   */
   private Job job;
 
-  
+  /**
+   * The resulting theme files.
+   */
   private List<OnlineStoreThemeFileOperationResult> upsertedThemeFiles;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<OnlineStoreThemeFilesUserErrors> userErrors;
 
   public ThemeFilesUpsertPayload() {
   }
 
-  
+  /**
+   * The theme files write job triggered by the mutation.
+   */
   public Job getJob() {
     return job;
   }
@@ -29,7 +39,9 @@ public class ThemeFilesUpsertPayload {
     this.job = job;
   }
 
-  
+  /**
+   * The resulting theme files.
+   */
   public List<OnlineStoreThemeFileOperationResult> getUpsertedThemeFiles() {
     return upsertedThemeFiles;
   }
@@ -38,7 +50,9 @@ public class ThemeFilesUpsertPayload {
     this.upsertedThemeFiles = upsertedThemeFiles;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<OnlineStoreThemeFilesUserErrors> getUserErrors() {
     return userErrors;
   }
@@ -72,13 +86,19 @@ public class ThemeFilesUpsertPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The theme files write job triggered by the mutation.
+     */
     private Job job;
 
-    
+    /**
+     * The resulting theme files.
+     */
     private List<OnlineStoreThemeFileOperationResult> upsertedThemeFiles;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<OnlineStoreThemeFilesUserErrors> userErrors;
 
     public ThemeFilesUpsertPayload build() {
@@ -89,20 +109,26 @@ public class ThemeFilesUpsertPayload {
       return result;
     }
 
-    
+    /**
+     * The theme files write job triggered by the mutation.
+     */
     public Builder job(Job job) {
       this.job = job;
       return this;
     }
 
-    
+    /**
+     * The resulting theme files.
+     */
     public Builder upsertedThemeFiles(
         List<OnlineStoreThemeFileOperationResult> upsertedThemeFiles) {
       this.upsertedThemeFiles = upsertedThemeFiles;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<OnlineStoreThemeFilesUserErrors> userErrors) {
       this.userErrors = userErrors;
       return this;

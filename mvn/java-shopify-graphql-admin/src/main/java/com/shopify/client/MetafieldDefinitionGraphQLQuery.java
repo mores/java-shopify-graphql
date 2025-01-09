@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Returns a metafield definition by identifier.
+ */
 public class MetafieldDefinitionGraphQLQuery extends GraphQLQuery {
   public MetafieldDefinitionGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -40,7 +42,9 @@ public class MetafieldDefinitionGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the MetafieldDefinition to return.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

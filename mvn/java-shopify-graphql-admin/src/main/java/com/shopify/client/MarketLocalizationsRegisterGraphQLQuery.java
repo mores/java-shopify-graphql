@@ -8,7 +8,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Creates or updates market localizations.
+ */
 public class MarketLocalizationsRegisterGraphQLQuery extends GraphQLQuery {
   public MarketLocalizationsRegisterGraphQLQuery(String resourceId,
       List<MarketLocalizationRegisterInput> marketLocalizations, String queryName,
@@ -48,14 +50,18 @@ public class MarketLocalizationsRegisterGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the resource that is being localized within the context of a market.
+     */
     public Builder resourceId(String resourceId) {
       this.resourceId = resourceId;
       this.fieldsSet.add("resourceId");
       return this;
     }
 
-    
+    /**
+     * The input fields for a market localization.
+     */
     public Builder marketLocalizations(List<MarketLocalizationRegisterInput> marketLocalizations) {
       this.marketLocalizations = marketLocalizations;
       this.fieldsSet.add("marketLocalizations");

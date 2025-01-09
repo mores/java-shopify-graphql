@@ -6,24 +6,36 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `subscriptionDraftLineRemove` mutation.
+ */
 public class SubscriptionDraftLineRemovePayload {
-  
+  /**
+   * The list of updated subscription discounts impacted by the removed line.
+   */
   private List<SubscriptionManualDiscount> discountsUpdated;
 
-  
+  /**
+   * The Subscription Contract draft object.
+   */
   private SubscriptionDraft draft;
 
-  
+  /**
+   * The removed Subscription Line.
+   */
   private SubscriptionLine lineRemoved;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<SubscriptionDraftUserError> userErrors;
 
   public SubscriptionDraftLineRemovePayload() {
   }
 
-  
+  /**
+   * The list of updated subscription discounts impacted by the removed line.
+   */
   public List<SubscriptionManualDiscount> getDiscountsUpdated() {
     return discountsUpdated;
   }
@@ -32,7 +44,9 @@ public class SubscriptionDraftLineRemovePayload {
     this.discountsUpdated = discountsUpdated;
   }
 
-  
+  /**
+   * The Subscription Contract draft object.
+   */
   public SubscriptionDraft getDraft() {
     return draft;
   }
@@ -41,7 +55,9 @@ public class SubscriptionDraftLineRemovePayload {
     this.draft = draft;
   }
 
-  
+  /**
+   * The removed Subscription Line.
+   */
   public SubscriptionLine getLineRemoved() {
     return lineRemoved;
   }
@@ -50,7 +66,9 @@ public class SubscriptionDraftLineRemovePayload {
     this.lineRemoved = lineRemoved;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<SubscriptionDraftUserError> getUserErrors() {
     return userErrors;
   }
@@ -85,16 +103,24 @@ public class SubscriptionDraftLineRemovePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The list of updated subscription discounts impacted by the removed line.
+     */
     private List<SubscriptionManualDiscount> discountsUpdated;
 
-    
+    /**
+     * The Subscription Contract draft object.
+     */
     private SubscriptionDraft draft;
 
-    
+    /**
+     * The removed Subscription Line.
+     */
     private SubscriptionLine lineRemoved;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<SubscriptionDraftUserError> userErrors;
 
     public SubscriptionDraftLineRemovePayload build() {
@@ -106,25 +132,33 @@ public class SubscriptionDraftLineRemovePayload {
       return result;
     }
 
-    
+    /**
+     * The list of updated subscription discounts impacted by the removed line.
+     */
     public Builder discountsUpdated(List<SubscriptionManualDiscount> discountsUpdated) {
       this.discountsUpdated = discountsUpdated;
       return this;
     }
 
-    
+    /**
+     * The Subscription Contract draft object.
+     */
     public Builder draft(SubscriptionDraft draft) {
       this.draft = draft;
       return this;
     }
 
-    
+    /**
+     * The removed Subscription Line.
+     */
     public Builder lineRemoved(SubscriptionLine lineRemoved) {
       this.lineRemoved = lineRemoved;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<SubscriptionDraftUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

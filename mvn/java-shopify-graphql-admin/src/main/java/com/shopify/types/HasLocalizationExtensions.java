@@ -3,7 +3,9 @@ package com.shopify.types;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
-
+/**
+ * Localization extensions associated with the specified resource. For example, the tax id for government invoice.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
     include = JsonTypeInfo.As.PROPERTY,
@@ -14,6 +16,8 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
     @JsonSubTypes.Type(value = Order.class, name = "Order")
 })
 public interface HasLocalizationExtensions {
-  
+  /**
+   * List of localization extensions for the resource.
+   */
   LocalizationExtensionConnection getLocalizationExtensions();
 }

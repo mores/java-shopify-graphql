@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `subscriptionBillingCycleScheduleEdit` mutation.
+ */
 public class SubscriptionBillingCycleScheduleEditPayload {
-  
+  /**
+   * The updated billing cycle.
+   */
   private SubscriptionBillingCycle billingCycle;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<SubscriptionBillingCycleUserError> userErrors;
 
   public SubscriptionBillingCycleScheduleEditPayload() {
   }
 
-  
+  /**
+   * The updated billing cycle.
+   */
   public SubscriptionBillingCycle getBillingCycle() {
     return billingCycle;
   }
@@ -26,7 +34,9 @@ public class SubscriptionBillingCycleScheduleEditPayload {
     this.billingCycle = billingCycle;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<SubscriptionBillingCycleUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class SubscriptionBillingCycleScheduleEditPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The updated billing cycle.
+     */
     private SubscriptionBillingCycle billingCycle;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<SubscriptionBillingCycleUserError> userErrors;
 
     public SubscriptionBillingCycleScheduleEditPayload build() {
@@ -72,13 +86,17 @@ public class SubscriptionBillingCycleScheduleEditPayload {
       return result;
     }
 
-    
+    /**
+     * The updated billing cycle.
+     */
     public Builder billingCycle(SubscriptionBillingCycle billingCycle) {
       this.billingCycle = billingCycle;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<SubscriptionBillingCycleUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

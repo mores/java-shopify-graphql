@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Possible error codes that can be returned by `MetafieldDefinitionUpdateUserError`.
+ */
 public enum MetafieldDefinitionUpdateUserErrorCode {
   PRESENT,
 
@@ -10,9 +12,13 @@ public enum MetafieldDefinitionUpdateUserErrorCode {
 
   INVALID_INPUT,
 
+  CAPABILITY_REQUIRED_BUT_DISABLED,
+
   PINNED_LIMIT_REACHED,
 
   INTERNAL_ERROR,
+
+  UNSUPPORTED_PINNING,
 
   TYPE_NOT_ALLOWED_FOR_CONDITIONS,
 
@@ -26,7 +32,11 @@ public enum MetafieldDefinitionUpdateUserErrorCode {
 
   INVALID_INPUT_COMBINATION,
 
+  INVALID_CONSTRAINTS,
+
   INVALID_CAPABILITY,
 
-  CAPABILITY_CANNOT_BE_DISABLED
+  CAPABILITY_CANNOT_BE_DISABLED,
+
+  ADMIN_ACCESS_INPUT_NOT_ALLOWED
 }

@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `paymentCustomizationUpdate` mutation.
+ */
 public class PaymentCustomizationUpdatePayload {
-  
+  /**
+   * Returns the updated payment customization.
+   */
   private PaymentCustomization paymentCustomization;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<PaymentCustomizationError> userErrors;
 
   public PaymentCustomizationUpdatePayload() {
   }
 
-  
+  /**
+   * Returns the updated payment customization.
+   */
   public PaymentCustomization getPaymentCustomization() {
     return paymentCustomization;
   }
@@ -26,7 +34,9 @@ public class PaymentCustomizationUpdatePayload {
     this.paymentCustomization = paymentCustomization;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<PaymentCustomizationError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class PaymentCustomizationUpdatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * Returns the updated payment customization.
+     */
     private PaymentCustomization paymentCustomization;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<PaymentCustomizationError> userErrors;
 
     public PaymentCustomizationUpdatePayload build() {
@@ -72,13 +86,17 @@ public class PaymentCustomizationUpdatePayload {
       return result;
     }
 
-    
+    /**
+     * Returns the updated payment customization.
+     */
     public Builder paymentCustomization(PaymentCustomization paymentCustomization) {
       this.paymentCustomization = paymentCustomization;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<PaymentCustomizationError> userErrors) {
       this.userErrors = userErrors;
       return this;

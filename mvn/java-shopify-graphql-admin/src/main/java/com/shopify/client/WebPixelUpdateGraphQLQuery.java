@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Updates the web pixel settings.
+ */
 public class WebPixelUpdateGraphQLQuery extends GraphQLQuery {
   public WebPixelUpdateGraphQLQuery(String id, WebPixelInput webPixel, String queryName,
       Set<String> fieldsSet) {
@@ -46,14 +48,18 @@ public class WebPixelUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the web pixel to update.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    
+    /**
+     * The web pixel settings in JSON format.
+     */
     public Builder webPixel(WebPixelInput webPixel) {
       this.webPixel = webPixel;
       this.fieldsSet.add("webPixel");

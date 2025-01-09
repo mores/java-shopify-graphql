@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A mail service provided by the participant.
+ */
 public class DeliveryParticipantService {
-  
+  /**
+   * Whether the service is active.
+   */
   private boolean active;
 
-  
+  /**
+   * The name of the service.
+   */
   private String name;
 
   public DeliveryParticipantService() {
   }
 
-  
+  /**
+   * Whether the service is active.
+   */
   public boolean getActive() {
     return active;
   }
@@ -25,7 +33,9 @@ public class DeliveryParticipantService {
     this.active = active;
   }
 
-  
+  /**
+   * The name of the service.
+   */
   public String getName() {
     return name;
   }
@@ -58,10 +68,14 @@ public class DeliveryParticipantService {
   }
 
   public static class Builder {
-    
+    /**
+     * Whether the service is active.
+     */
     private boolean active;
 
-    
+    /**
+     * The name of the service.
+     */
     private String name;
 
     public DeliveryParticipantService build() {
@@ -71,13 +85,17 @@ public class DeliveryParticipantService {
       return result;
     }
 
-    
+    /**
+     * Whether the service is active.
+     */
     public Builder active(boolean active) {
       this.active = active;
       return this;
     }
 
-    
+    /**
+     * The name of the service.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;

@@ -3,7 +3,9 @@ package com.shopify.types;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
-
+/**
+ * An entity that represents details of an asynchronous operation on a product.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
     include = JsonTypeInfo.As.PROPERTY,
@@ -16,9 +18,13 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
     @JsonSubTypes.Type(value = ProductSetOperation.class, name = "ProductSetOperation")
 })
 public interface ProductOperation {
-  
+  /**
+   * The product on which the operation is being performed.
+   */
   Product getProduct();
 
-  
+  /**
+   * The status of this operation.
+   */
   ProductOperationStatus getStatus();
 }

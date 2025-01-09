@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Possible error codes that can be returned by `MetaobjectUserError`.
+ */
 public enum MetaobjectUserErrorCode {
   INVALID,
 
@@ -47,6 +49,8 @@ public enum MetaobjectUserErrorCode {
   RESERVED_NAME,
 
   DISPLAY_NAME_CONFLICT,
+
+  ADMIN_ACCESS_INPUT_NOT_ALLOWED,
 
   CAPABILITY_NOT_ENABLED,
 

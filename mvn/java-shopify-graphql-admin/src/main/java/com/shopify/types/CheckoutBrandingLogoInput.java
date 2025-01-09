@@ -6,21 +6,31 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields used to update the logo customizations.
+ */
 public class CheckoutBrandingLogoInput {
-  
+  /**
+   * The logo image (must not be of SVG format).
+   */
   private CheckoutBrandingImageInput image;
 
-  
+  /**
+   * The maximum width of the logo.
+   */
   private Integer maxWidth;
 
-  
+  /**
+   * The visibility of the logo.
+   */
   private CheckoutBrandingVisibility visibility;
 
   public CheckoutBrandingLogoInput() {
   }
 
-  
+  /**
+   * The logo image (must not be of SVG format).
+   */
   public CheckoutBrandingImageInput getImage() {
     return image;
   }
@@ -29,7 +39,9 @@ public class CheckoutBrandingLogoInput {
     this.image = image;
   }
 
-  
+  /**
+   * The maximum width of the logo.
+   */
   public Integer getMaxWidth() {
     return maxWidth;
   }
@@ -38,7 +50,9 @@ public class CheckoutBrandingLogoInput {
     this.maxWidth = maxWidth;
   }
 
-  
+  /**
+   * The visibility of the logo.
+   */
   public CheckoutBrandingVisibility getVisibility() {
     return visibility;
   }
@@ -72,13 +86,19 @@ public class CheckoutBrandingLogoInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The logo image (must not be of SVG format).
+     */
     private CheckoutBrandingImageInput image;
 
-    
+    /**
+     * The maximum width of the logo.
+     */
     private Integer maxWidth;
 
-    
+    /**
+     * The visibility of the logo.
+     */
     private CheckoutBrandingVisibility visibility;
 
     public CheckoutBrandingLogoInput build() {
@@ -89,19 +109,25 @@ public class CheckoutBrandingLogoInput {
       return result;
     }
 
-    
+    /**
+     * The logo image (must not be of SVG format).
+     */
     public Builder image(CheckoutBrandingImageInput image) {
       this.image = image;
       return this;
     }
 
-    
+    /**
+     * The maximum width of the logo.
+     */
     public Builder maxWidth(Integer maxWidth) {
       this.maxWidth = maxWidth;
       return this;
     }
 
-    
+    /**
+     * The visibility of the logo.
+     */
     public Builder visibility(CheckoutBrandingVisibility visibility) {
       this.visibility = visibility;
       return this;

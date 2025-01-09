@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * This type combines budget amount and its marketing budget type.
+ */
 public class MarketingBudget {
-  
+  /**
+   * The budget type for a marketing activity.
+   */
   private MarketingBudgetBudgetType budgetType;
 
-  
+  /**
+   * The amount of budget for marketing activity.
+   */
   private MoneyV2 total;
 
   public MarketingBudget() {
   }
 
-  
+  /**
+   * The budget type for a marketing activity.
+   */
   public MarketingBudgetBudgetType getBudgetType() {
     return budgetType;
   }
@@ -25,7 +33,9 @@ public class MarketingBudget {
     this.budgetType = budgetType;
   }
 
-  
+  /**
+   * The amount of budget for marketing activity.
+   */
   public MoneyV2 getTotal() {
     return total;
   }
@@ -58,10 +68,14 @@ public class MarketingBudget {
   }
 
   public static class Builder {
-    
+    /**
+     * The budget type for a marketing activity.
+     */
     private MarketingBudgetBudgetType budgetType;
 
-    
+    /**
+     * The amount of budget for marketing activity.
+     */
     private MoneyV2 total;
 
     public MarketingBudget build() {
@@ -71,13 +85,17 @@ public class MarketingBudget {
       return result;
     }
 
-    
+    /**
+     * The budget type for a marketing activity.
+     */
     public Builder budgetType(MarketingBudgetBudgetType budgetType) {
       this.budgetType = budgetType;
       return this;
     }
 
-    
+    /**
+     * The amount of budget for marketing activity.
+     */
     public Builder total(MoneyV2 total) {
       this.total = total;
       return this;

@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for Theme attributes to update.
+ */
 public class OnlineStoreThemeInput {
-  
+  /**
+   * The new name of the theme.
+   */
   private String name;
 
   public OnlineStoreThemeInput() {
   }
 
-  
+  /**
+   * The new name of the theme.
+   */
   public String getName() {
     return name;
   }
@@ -45,7 +51,9 @@ public class OnlineStoreThemeInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The new name of the theme.
+     */
     private String name;
 
     public OnlineStoreThemeInput build() {
@@ -54,7 +62,9 @@ public class OnlineStoreThemeInput {
       return result;
     }
 
-    
+    /**
+     * The new name of the theme.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;

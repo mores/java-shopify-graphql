@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `marketLocalizationsRemove` mutation.
+ */
 public class MarketLocalizationsRemovePayload {
-  
+  /**
+   * The market localizations that were deleted.
+   */
   private List<MarketLocalization> marketLocalizations;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<TranslationUserError> userErrors;
 
   public MarketLocalizationsRemovePayload() {
   }
 
-  
+  /**
+   * The market localizations that were deleted.
+   */
   public List<MarketLocalization> getMarketLocalizations() {
     return marketLocalizations;
   }
@@ -26,7 +34,9 @@ public class MarketLocalizationsRemovePayload {
     this.marketLocalizations = marketLocalizations;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<TranslationUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class MarketLocalizationsRemovePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The market localizations that were deleted.
+     */
     private List<MarketLocalization> marketLocalizations;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<TranslationUserError> userErrors;
 
     public MarketLocalizationsRemovePayload build() {
@@ -72,13 +86,17 @@ public class MarketLocalizationsRemovePayload {
       return result;
     }
 
-    
+    /**
+     * The market localizations that were deleted.
+     */
     public Builder marketLocalizations(List<MarketLocalization> marketLocalizations) {
       this.marketLocalizations = marketLocalizations;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<TranslationUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Returns a Fulfillment resource by ID.
+ */
 public class FulfillmentGraphQLQuery extends GraphQLQuery {
   public FulfillmentGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -40,7 +42,9 @@ public class FulfillmentGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the Fulfillment to return.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

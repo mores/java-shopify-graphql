@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields used to identify a subtype of a resource for the purposes of metafield definition constraints.
+ */
 public class MetafieldDefinitionConstraintSubtypeIdentifier {
-  
+  /**
+   * The category of the resource subtype.
+   */
   private String key;
 
-  
+  /**
+   * The specific subtype value within the identified subtype category.
+   */
   private String value;
 
   public MetafieldDefinitionConstraintSubtypeIdentifier() {
   }
 
-  
+  /**
+   * The category of the resource subtype.
+   */
   public String getKey() {
     return key;
   }
@@ -25,7 +33,9 @@ public class MetafieldDefinitionConstraintSubtypeIdentifier {
     this.key = key;
   }
 
-  
+  /**
+   * The specific subtype value within the identified subtype category.
+   */
   public String getValue() {
     return value;
   }
@@ -58,10 +68,14 @@ public class MetafieldDefinitionConstraintSubtypeIdentifier {
   }
 
   public static class Builder {
-    
+    /**
+     * The category of the resource subtype.
+     */
     private String key;
 
-    
+    /**
+     * The specific subtype value within the identified subtype category.
+     */
     private String value;
 
     public MetafieldDefinitionConstraintSubtypeIdentifier build() {
@@ -71,13 +85,17 @@ public class MetafieldDefinitionConstraintSubtypeIdentifier {
       return result;
     }
 
-    
+    /**
+     * The category of the resource subtype.
+     */
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
-    
+    /**
+     * The specific subtype value within the identified subtype category.
+     */
     public Builder value(String value) {
       this.value = value;
       return this;

@@ -6,24 +6,34 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A server pixel stores configuration for streaming customer interactions to an EventBridge or PubSub endpoint.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ServerPixel implements com.shopify.types.Node {
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The current state of this server pixel.
+   */
   private ServerPixelStatus status;
 
-  
+  /**
+   * Address of the EventBridge or PubSub endpoint.
+   */
   private String webhookEndpointAddress;
 
   public ServerPixel() {
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -32,7 +42,9 @@ public class ServerPixel implements com.shopify.types.Node {
     this.id = id;
   }
 
-  
+  /**
+   * The current state of this server pixel.
+   */
   public ServerPixelStatus getStatus() {
     return status;
   }
@@ -41,7 +53,9 @@ public class ServerPixel implements com.shopify.types.Node {
     this.status = status;
   }
 
-  
+  /**
+   * Address of the EventBridge or PubSub endpoint.
+   */
   public String getWebhookEndpointAddress() {
     return webhookEndpointAddress;
   }
@@ -75,13 +89,19 @@ public class ServerPixel implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The current state of this server pixel.
+     */
     private ServerPixelStatus status;
 
-    
+    /**
+     * Address of the EventBridge or PubSub endpoint.
+     */
     private String webhookEndpointAddress;
 
     public ServerPixel build() {
@@ -92,19 +112,25 @@ public class ServerPixel implements com.shopify.types.Node {
       return result;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The current state of this server pixel.
+     */
     public Builder status(ServerPixelStatus status) {
       this.status = status;
       return this;
     }
 
-    
+    /**
+     * Address of the EventBridge or PubSub endpoint.
+     */
     public Builder webhookEndpointAddress(String webhookEndpointAddress) {
       this.webhookEndpointAddress = webhookEndpointAddress;
       return this;

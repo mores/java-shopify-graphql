@@ -5,27 +5,41 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields required to create a catalog.
+ */
 public class CatalogCreateInput {
-  
+  /**
+   * The name of the catalog.
+   */
   private String title;
 
-  
+  /**
+   * The status of the catalog.
+   */
   private CatalogStatus status;
 
-  
+  /**
+   * The context associated with the catalog.
+   */
   private CatalogContextInput context;
 
-  
+  /**
+   * The ID of the price list to associate to the catalog.
+   */
   private String priceListId;
 
-  
+  /**
+   * The ID of the publication to associate to the catalog.
+   */
   private String publicationId;
 
   public CatalogCreateInput() {
   }
 
-  
+  /**
+   * The name of the catalog.
+   */
   public String getTitle() {
     return title;
   }
@@ -34,7 +48,9 @@ public class CatalogCreateInput {
     this.title = title;
   }
 
-  
+  /**
+   * The status of the catalog.
+   */
   public CatalogStatus getStatus() {
     return status;
   }
@@ -43,7 +59,9 @@ public class CatalogCreateInput {
     this.status = status;
   }
 
-  
+  /**
+   * The context associated with the catalog.
+   */
   public CatalogContextInput getContext() {
     return context;
   }
@@ -52,7 +70,9 @@ public class CatalogCreateInput {
     this.context = context;
   }
 
-  
+  /**
+   * The ID of the price list to associate to the catalog.
+   */
   public String getPriceListId() {
     return priceListId;
   }
@@ -61,7 +81,9 @@ public class CatalogCreateInput {
     this.priceListId = priceListId;
   }
 
-  
+  /**
+   * The ID of the publication to associate to the catalog.
+   */
   public String getPublicationId() {
     return publicationId;
   }
@@ -97,19 +119,29 @@ public class CatalogCreateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The name of the catalog.
+     */
     private String title;
 
-    
+    /**
+     * The status of the catalog.
+     */
     private CatalogStatus status;
 
-    
+    /**
+     * The context associated with the catalog.
+     */
     private CatalogContextInput context;
 
-    
+    /**
+     * The ID of the price list to associate to the catalog.
+     */
     private String priceListId;
 
-    
+    /**
+     * The ID of the publication to associate to the catalog.
+     */
     private String publicationId;
 
     public CatalogCreateInput build() {
@@ -122,31 +154,41 @@ public class CatalogCreateInput {
       return result;
     }
 
-    
+    /**
+     * The name of the catalog.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    
+    /**
+     * The status of the catalog.
+     */
     public Builder status(CatalogStatus status) {
       this.status = status;
       return this;
     }
 
-    
+    /**
+     * The context associated with the catalog.
+     */
     public Builder context(CatalogContextInput context) {
       this.context = context;
       return this;
     }
 
-    
+    /**
+     * The ID of the price list to associate to the catalog.
+     */
     public Builder priceListId(String priceListId) {
       this.priceListId = priceListId;
       return this;
     }
 
-    
+    /**
+     * The ID of the publication to associate to the catalog.
+     */
     public Builder publicationId(String publicationId) {
       this.publicationId = publicationId;
       return this;

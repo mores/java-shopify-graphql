@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `validationUpdate` mutation.
+ */
 public class ValidationUpdatePayload {
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<ValidationUserError> userErrors;
 
-  
+  /**
+   * The updated validation.
+   */
   private Validation validation;
 
   public ValidationUpdatePayload() {
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<ValidationUserError> getUserErrors() {
     return userErrors;
   }
@@ -26,7 +34,9 @@ public class ValidationUpdatePayload {
     this.userErrors = userErrors;
   }
 
-  
+  /**
+   * The updated validation.
+   */
   public Validation getValidation() {
     return validation;
   }
@@ -59,10 +69,14 @@ public class ValidationUpdatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<ValidationUserError> userErrors;
 
-    
+    /**
+     * The updated validation.
+     */
     private Validation validation;
 
     public ValidationUpdatePayload build() {
@@ -72,13 +86,17 @@ public class ValidationUpdatePayload {
       return result;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<ValidationUserError> userErrors) {
       this.userErrors = userErrors;
       return this;
     }
 
-    
+    /**
+     * The updated validation.
+     */
     public Builder validation(Validation validation) {
       this.validation = validation;
       return this;

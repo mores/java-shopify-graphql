@@ -149,6 +149,16 @@ public class CalculatedDraftOrderProjection<PARENT extends BaseSubProjectionNode
     return this;
   }
 
+  public CalculatedDraftOrderProjection<PARENT, ROOT> allVariantPricesOverridden() {
+    getFields().put("allVariantPricesOverridden", null);
+    return this;
+  }
+
+  public CalculatedDraftOrderProjection<PARENT, ROOT> anyVariantPricesOverridden() {
+    getFields().put("anyVariantPricesOverridden", null);
+    return this;
+  }
+
   public CalculatedDraftOrderProjection<PARENT, ROOT> billingAddressMatchesShippingAddress() {
     getFields().put("billingAddressMatchesShippingAddress", null);
     return this;

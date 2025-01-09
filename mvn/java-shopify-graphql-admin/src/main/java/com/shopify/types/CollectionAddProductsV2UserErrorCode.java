@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Possible error codes that can be returned by `CollectionAddProductsV2UserError`.
+ */
 public enum CollectionAddProductsV2UserErrorCode {
   CANT_ADD_TO_SMART_COLLECTION,
 

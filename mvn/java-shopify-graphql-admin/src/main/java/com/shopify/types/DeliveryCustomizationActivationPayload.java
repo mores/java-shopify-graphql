@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `deliveryCustomizationActivation` mutation.
+ */
 public class DeliveryCustomizationActivationPayload {
-  
+  /**
+   * The IDs of the updated delivery customizations.
+   */
   private List<String> ids;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<DeliveryCustomizationError> userErrors;
 
   public DeliveryCustomizationActivationPayload() {
   }
 
-  
+  /**
+   * The IDs of the updated delivery customizations.
+   */
   public List<String> getIds() {
     return ids;
   }
@@ -26,7 +34,9 @@ public class DeliveryCustomizationActivationPayload {
     this.ids = ids;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<DeliveryCustomizationError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class DeliveryCustomizationActivationPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The IDs of the updated delivery customizations.
+     */
     private List<String> ids;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<DeliveryCustomizationError> userErrors;
 
     public DeliveryCustomizationActivationPayload build() {
@@ -72,13 +86,17 @@ public class DeliveryCustomizationActivationPayload {
       return result;
     }
 
-    
+    /**
+     * The IDs of the updated delivery customizations.
+     */
     public Builder ids(List<String> ids) {
       this.ids = ids;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<DeliveryCustomizationError> userErrors) {
       this.userErrors = userErrors;
       return this;

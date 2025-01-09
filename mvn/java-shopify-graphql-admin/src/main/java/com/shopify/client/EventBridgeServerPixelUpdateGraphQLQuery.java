@@ -6,7 +6,10 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Updates the server pixel to connect to an EventBridge endpoint.
+ * Running this mutation deletes any previous subscriptions for the server pixel.
+ */
 public class EventBridgeServerPixelUpdateGraphQLQuery extends GraphQLQuery {
   public EventBridgeServerPixelUpdateGraphQLQuery(String arn, String queryName,
       Set<String> fieldsSet) {
@@ -41,7 +44,9 @@ public class EventBridgeServerPixelUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ARN for the EventBridge endpoint to which customer events are to be sent.
+     */
     public Builder arn(String arn) {
       this.arn = arn;
       this.fieldsSet.add("arn");

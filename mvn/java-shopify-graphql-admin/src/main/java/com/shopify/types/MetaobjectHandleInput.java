@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for retrieving a metaobject by handle.
+ */
 public class MetaobjectHandleInput {
-  
+  /**
+   * The type of the metaobject. Must match an existing metaobject definition type.
+   */
   private String type;
 
-  
+  /**
+   * The handle of the metaobject to create or update.
+   */
   private String handle;
 
   public MetaobjectHandleInput() {
   }
 
-  
+  /**
+   * The type of the metaobject. Must match an existing metaobject definition type.
+   */
   public String getType() {
     return type;
   }
@@ -25,7 +33,9 @@ public class MetaobjectHandleInput {
     this.type = type;
   }
 
-  
+  /**
+   * The handle of the metaobject to create or update.
+   */
   public String getHandle() {
     return handle;
   }
@@ -58,10 +68,14 @@ public class MetaobjectHandleInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The type of the metaobject. Must match an existing metaobject definition type.
+     */
     private String type;
 
-    
+    /**
+     * The handle of the metaobject to create or update.
+     */
     private String handle;
 
     public MetaobjectHandleInput build() {
@@ -71,13 +85,17 @@ public class MetaobjectHandleInput {
       return result;
     }
 
-    
+    /**
+     * The type of the metaobject. Must match an existing metaobject definition type.
+     */
     public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    
+    /**
+     * The handle of the metaobject to create or update.
+     */
     public Builder handle(String handle) {
       this.handle = handle;
       return this;

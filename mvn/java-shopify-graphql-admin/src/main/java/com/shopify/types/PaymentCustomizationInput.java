@@ -8,24 +8,36 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields to create and update a payment customization.
+ */
 public class PaymentCustomizationInput {
-  
+  /**
+   * The ID of the function providing the payment customization.
+   */
   private String functionId;
 
-  
+  /**
+   * The title of the payment customization.
+   */
   private String title;
 
-  
+  /**
+   * The enabled status of the payment customization.
+   */
   private Boolean enabled;
 
-  
+  /**
+   * Additional metafields to associate to the payment customization.
+   */
   private List<MetafieldInput> metafields = Collections.emptyList();
 
   public PaymentCustomizationInput() {
   }
 
-  
+  /**
+   * The ID of the function providing the payment customization.
+   */
   public String getFunctionId() {
     return functionId;
   }
@@ -34,7 +46,9 @@ public class PaymentCustomizationInput {
     this.functionId = functionId;
   }
 
-  
+  /**
+   * The title of the payment customization.
+   */
   public String getTitle() {
     return title;
   }
@@ -43,7 +57,9 @@ public class PaymentCustomizationInput {
     this.title = title;
   }
 
-  
+  /**
+   * The enabled status of the payment customization.
+   */
   public Boolean getEnabled() {
     return enabled;
   }
@@ -52,7 +68,9 @@ public class PaymentCustomizationInput {
     this.enabled = enabled;
   }
 
-  
+  /**
+   * Additional metafields to associate to the payment customization.
+   */
   public List<MetafieldInput> getMetafields() {
     return metafields;
   }
@@ -87,16 +105,24 @@ public class PaymentCustomizationInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the function providing the payment customization.
+     */
     private String functionId;
 
-    
+    /**
+     * The title of the payment customization.
+     */
     private String title;
 
-    
+    /**
+     * The enabled status of the payment customization.
+     */
     private Boolean enabled;
 
-    
+    /**
+     * Additional metafields to associate to the payment customization.
+     */
     private List<MetafieldInput> metafields = Collections.emptyList();
 
     public PaymentCustomizationInput build() {
@@ -108,25 +134,33 @@ public class PaymentCustomizationInput {
       return result;
     }
 
-    
+    /**
+     * The ID of the function providing the payment customization.
+     */
     public Builder functionId(String functionId) {
       this.functionId = functionId;
       return this;
     }
 
-    
+    /**
+     * The title of the payment customization.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    
+    /**
+     * The enabled status of the payment customization.
+     */
     public Builder enabled(Boolean enabled) {
       this.enabled = enabled;
       return this;
     }
 
-    
+    /**
+     * Additional metafields to associate to the payment customization.
+     */
     public Builder metafields(List<MetafieldInput> metafields) {
       this.metafields = metafields;
       return this;

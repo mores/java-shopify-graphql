@@ -6,7 +6,12 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates and runs a bulk operation mutation.
+ *   
+ * To learn how to bulk import large volumes of data asynchronously, refer to the
+ * [bulk import data guide](https://shopify.dev/api/usage/bulk-operations/imports).
+ */
 public class BulkOperationRunMutationGraphQLQuery extends GraphQLQuery {
   public BulkOperationRunMutationGraphQLQuery(String mutation, String stagedUploadPath,
       String clientIdentifier, String queryName, Set<String> fieldsSet) {
@@ -49,21 +54,27 @@ public class BulkOperationRunMutationGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The mutation to be executed in bulk.
+     */
     public Builder mutation(String mutation) {
       this.mutation = mutation;
       this.fieldsSet.add("mutation");
       return this;
     }
 
-    
+    /**
+     * The staged upload path of the file containing mutation variables.
+     */
     public Builder stagedUploadPath(String stagedUploadPath) {
       this.stagedUploadPath = stagedUploadPath;
       this.fieldsSet.add("stagedUploadPath");
       return this;
     }
 
-    
+    /**
+     * An optional identifier which may be used for querying.
+     */
     public Builder clientIdentifier(String clientIdentifier) {
       this.clientIdentifier = clientIdentifier;
       this.fieldsSet.add("clientIdentifier");

@@ -6,30 +6,45 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * An app extension page for the customer account navigation menu.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class CustomerAccountAppExtensionPage implements com.shopify.types.CustomerAccountPage, com.shopify.types.Navigable, com.shopify.types.Node {
-  
+  /**
+   * The UUID of the app extension.
+   */
   private String appExtensionUuid;
 
-  
+  /**
+   * A default [cursor](https://shopify.dev/api/usage/pagination-graphql) that
+   * returns the single next record, sorted ascending by ID.
+   */
   private String defaultCursor;
 
-  
+  /**
+   * A unique, human-friendly string for the customer account page.
+   */
   private String handle;
 
-  
+  /**
+   * The unique ID for the customer account page.
+   */
   private String id;
 
-  
+  /**
+   * The title of the customer account page.
+   */
   private String title;
 
   public CustomerAccountAppExtensionPage() {
   }
 
-  
+  /**
+   * The UUID of the app extension.
+   */
   public String getAppExtensionUuid() {
     return appExtensionUuid;
   }
@@ -38,7 +53,10 @@ public class CustomerAccountAppExtensionPage implements com.shopify.types.Custom
     this.appExtensionUuid = appExtensionUuid;
   }
 
-  
+  /**
+   * A default [cursor](https://shopify.dev/api/usage/pagination-graphql) that
+   * returns the single next record, sorted ascending by ID.
+   */
   public String getDefaultCursor() {
     return defaultCursor;
   }
@@ -47,7 +65,9 @@ public class CustomerAccountAppExtensionPage implements com.shopify.types.Custom
     this.defaultCursor = defaultCursor;
   }
 
-  
+  /**
+   * A unique, human-friendly string for the customer account page.
+   */
   public String getHandle() {
     return handle;
   }
@@ -56,7 +76,9 @@ public class CustomerAccountAppExtensionPage implements com.shopify.types.Custom
     this.handle = handle;
   }
 
-  
+  /**
+   * The unique ID for the customer account page.
+   */
   public String getId() {
     return id;
   }
@@ -65,7 +87,9 @@ public class CustomerAccountAppExtensionPage implements com.shopify.types.Custom
     this.id = id;
   }
 
-  
+  /**
+   * The title of the customer account page.
+   */
   public String getTitle() {
     return title;
   }
@@ -101,19 +125,30 @@ public class CustomerAccountAppExtensionPage implements com.shopify.types.Custom
   }
 
   public static class Builder {
-    
+    /**
+     * The UUID of the app extension.
+     */
     private String appExtensionUuid;
 
-    
+    /**
+     * A default [cursor](https://shopify.dev/api/usage/pagination-graphql) that
+     * returns the single next record, sorted ascending by ID.
+     */
     private String defaultCursor;
 
-    
+    /**
+     * A unique, human-friendly string for the customer account page.
+     */
     private String handle;
 
-    
+    /**
+     * The unique ID for the customer account page.
+     */
     private String id;
 
-    
+    /**
+     * The title of the customer account page.
+     */
     private String title;
 
     public CustomerAccountAppExtensionPage build() {
@@ -126,31 +161,42 @@ public class CustomerAccountAppExtensionPage implements com.shopify.types.Custom
       return result;
     }
 
-    
+    /**
+     * The UUID of the app extension.
+     */
     public Builder appExtensionUuid(String appExtensionUuid) {
       this.appExtensionUuid = appExtensionUuid;
       return this;
     }
 
-    
+    /**
+     * A default [cursor](https://shopify.dev/api/usage/pagination-graphql) that
+     * returns the single next record, sorted ascending by ID.
+     */
     public Builder defaultCursor(String defaultCursor) {
       this.defaultCursor = defaultCursor;
       return this;
     }
 
-    
+    /**
+     * A unique, human-friendly string for the customer account page.
+     */
     public Builder handle(String handle) {
       this.handle = handle;
       return this;
     }
 
-    
+    /**
+     * The unique ID for the customer account page.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The title of the customer account page.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;

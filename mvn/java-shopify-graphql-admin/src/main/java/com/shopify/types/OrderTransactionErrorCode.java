@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * A standardized error code, independent of the payment provider.
+ */
 public enum OrderTransactionErrorCode {
   INCORRECT_NUMBER,
 

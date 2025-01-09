@@ -6,7 +6,11 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Returns encrypted data that can be used to duplicate the payment method in another shop within the same organization.
+ *   
+ * Currently, this only supports Shop Pay payment methods. This is only available for selected partner apps.
+ */
 public class CustomerPaymentMethodGetDuplicationDataGraphQLQuery extends GraphQLQuery {
   public CustomerPaymentMethodGetDuplicationDataGraphQLQuery(String customerPaymentMethodId,
       String targetShopId, String targetCustomerId, String queryName, Set<String> fieldsSet) {
@@ -49,21 +53,27 @@ public class CustomerPaymentMethodGetDuplicationDataGraphQLQuery extends GraphQL
                
     }
 
-    
+    /**
+     * The payment method to be duplicated.
+     */
     public Builder customerPaymentMethodId(String customerPaymentMethodId) {
       this.customerPaymentMethodId = customerPaymentMethodId;
       this.fieldsSet.add("customerPaymentMethodId");
       return this;
     }
 
-    
+    /**
+     * The shop the payment method will be duplicated into.
+     */
     public Builder targetShopId(String targetShopId) {
       this.targetShopId = targetShopId;
       this.fieldsSet.add("targetShopId");
       return this;
     }
 
-    
+    /**
+     * The customer the payment method will be duplicated into.
+     */
     public Builder targetCustomerId(String targetCustomerId) {
       this.targetCustomerId = targetCustomerId;
       this.fieldsSet.add("targetCustomerId");

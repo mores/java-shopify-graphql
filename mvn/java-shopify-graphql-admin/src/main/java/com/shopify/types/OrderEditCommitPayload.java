@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `orderEditCommit` mutation.
+ */
 public class OrderEditCommitPayload {
-  
+  /**
+   * The order with changes applied.
+   */
   private Order order;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public OrderEditCommitPayload() {
   }
 
-  
+  /**
+   * The order with changes applied.
+   */
   public Order getOrder() {
     return order;
   }
@@ -26,7 +34,9 @@ public class OrderEditCommitPayload {
     this.order = order;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class OrderEditCommitPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The order with changes applied.
+     */
     private Order order;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public OrderEditCommitPayload build() {
@@ -72,13 +86,17 @@ public class OrderEditCommitPayload {
       return result;
     }
 
-    
+    /**
+     * The order with changes applied.
+     */
     public Builder order(Order order) {
       this.order = order;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

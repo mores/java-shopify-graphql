@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * The different states that an `OrderTransaction` can have.
+ */
 public enum OrderTransactionStatus {
   SUCCESS,
 

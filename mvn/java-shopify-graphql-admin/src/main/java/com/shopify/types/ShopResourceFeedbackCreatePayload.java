@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `shopResourceFeedbackCreate` mutation.
+ */
 public class ShopResourceFeedbackCreatePayload {
-  
+  /**
+   * The shop feedback that's created.
+   */
   private AppFeedback feedback;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<ShopResourceFeedbackCreateUserError> userErrors;
 
   public ShopResourceFeedbackCreatePayload() {
   }
 
-  
+  /**
+   * The shop feedback that's created.
+   */
   public AppFeedback getFeedback() {
     return feedback;
   }
@@ -26,7 +34,9 @@ public class ShopResourceFeedbackCreatePayload {
     this.feedback = feedback;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<ShopResourceFeedbackCreateUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class ShopResourceFeedbackCreatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The shop feedback that's created.
+     */
     private AppFeedback feedback;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<ShopResourceFeedbackCreateUserError> userErrors;
 
     public ShopResourceFeedbackCreatePayload build() {
@@ -72,13 +86,17 @@ public class ShopResourceFeedbackCreatePayload {
       return result;
     }
 
-    
+    /**
+     * The shop feedback that's created.
+     */
     public Builder feedback(AppFeedback feedback) {
       this.feedback = feedback;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<ShopResourceFeedbackCreateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

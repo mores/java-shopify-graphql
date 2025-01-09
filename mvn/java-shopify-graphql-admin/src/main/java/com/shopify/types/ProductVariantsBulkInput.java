@@ -7,54 +7,90 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields for specifying a product variant to create as part of a variant bulk mutation.
+ */
 public class ProductVariantsBulkInput {
-  
+  /**
+   * The value of the barcode associated with the product variant.
+   */
   private String barcode;
 
-  
+  /**
+   * The compare-at price of the variant.
+   */
   private String compareAtPrice;
 
-  
+  /**
+   * Specifies the product variant to update or delete.
+   */
   private String id;
 
-  
+  /**
+   * The URL of the media to associate with the variant.
+   */
   private List<String> mediaSrc;
 
-  
+  /**
+   * Whether customers are allowed to place an order for the variant when it's out of stock.
+   */
   private ProductVariantInventoryPolicy inventoryPolicy;
 
-  
+  /**
+   * The inventory quantities at each location where the variant is stocked. The number of elements
+   * in the array of inventory quantities can't exceed the amount specified for the plan.
+   * Supported as input with the `productVariantsBulkCreate` mutation only.
+   */
   private List<InventoryLevelInput> inventoryQuantities;
 
-  
+  /**
+   * The inventory item associated with the variant, used for unit cost.
+   */
   private InventoryItemInput inventoryItem;
 
-  
+  /**
+   * The ID of the media that's associated with the variant.
+   */
   private String mediaId;
 
-  
+  /**
+   * The additional customizable information about the product variant.
+   */
   private List<MetafieldInput> metafields;
 
-  
+  /**
+   * The custom properties that a shop owner uses to define product variants.
+   */
   private List<VariantOptionValueInput> optionValues;
 
-  
+  /**
+   * The price of the variant.
+   */
   private String price;
 
-  
+  /**
+   * Whether the variant is taxable.
+   */
   private Boolean taxable;
 
-  
+  /**
+   * The tax code associated with the variant.
+   */
   private String taxCode;
 
-  
+  /**
+   * Whether a product variant requires components. The default value is `false`.
+   * If `true`, then the product variant can only be purchased as a parent bundle with components and it will be
+   * omitted from channels that don't support bundles.
+   */
   private Boolean requiresComponents;
 
   public ProductVariantsBulkInput() {
   }
 
-  
+  /**
+   * The value of the barcode associated with the product variant.
+   */
   public String getBarcode() {
     return barcode;
   }
@@ -63,7 +99,9 @@ public class ProductVariantsBulkInput {
     this.barcode = barcode;
   }
 
-  
+  /**
+   * The compare-at price of the variant.
+   */
   public String getCompareAtPrice() {
     return compareAtPrice;
   }
@@ -72,7 +110,9 @@ public class ProductVariantsBulkInput {
     this.compareAtPrice = compareAtPrice;
   }
 
-  
+  /**
+   * Specifies the product variant to update or delete.
+   */
   public String getId() {
     return id;
   }
@@ -81,7 +121,9 @@ public class ProductVariantsBulkInput {
     this.id = id;
   }
 
-  
+  /**
+   * The URL of the media to associate with the variant.
+   */
   public List<String> getMediaSrc() {
     return mediaSrc;
   }
@@ -90,7 +132,9 @@ public class ProductVariantsBulkInput {
     this.mediaSrc = mediaSrc;
   }
 
-  
+  /**
+   * Whether customers are allowed to place an order for the variant when it's out of stock.
+   */
   public ProductVariantInventoryPolicy getInventoryPolicy() {
     return inventoryPolicy;
   }
@@ -99,7 +143,11 @@ public class ProductVariantsBulkInput {
     this.inventoryPolicy = inventoryPolicy;
   }
 
-  
+  /**
+   * The inventory quantities at each location where the variant is stocked. The number of elements
+   * in the array of inventory quantities can't exceed the amount specified for the plan.
+   * Supported as input with the `productVariantsBulkCreate` mutation only.
+   */
   public List<InventoryLevelInput> getInventoryQuantities() {
     return inventoryQuantities;
   }
@@ -108,7 +156,9 @@ public class ProductVariantsBulkInput {
     this.inventoryQuantities = inventoryQuantities;
   }
 
-  
+  /**
+   * The inventory item associated with the variant, used for unit cost.
+   */
   public InventoryItemInput getInventoryItem() {
     return inventoryItem;
   }
@@ -117,7 +167,9 @@ public class ProductVariantsBulkInput {
     this.inventoryItem = inventoryItem;
   }
 
-  
+  /**
+   * The ID of the media that's associated with the variant.
+   */
   public String getMediaId() {
     return mediaId;
   }
@@ -126,7 +178,9 @@ public class ProductVariantsBulkInput {
     this.mediaId = mediaId;
   }
 
-  
+  /**
+   * The additional customizable information about the product variant.
+   */
   public List<MetafieldInput> getMetafields() {
     return metafields;
   }
@@ -135,7 +189,9 @@ public class ProductVariantsBulkInput {
     this.metafields = metafields;
   }
 
-  
+  /**
+   * The custom properties that a shop owner uses to define product variants.
+   */
   public List<VariantOptionValueInput> getOptionValues() {
     return optionValues;
   }
@@ -144,7 +200,9 @@ public class ProductVariantsBulkInput {
     this.optionValues = optionValues;
   }
 
-  
+  /**
+   * The price of the variant.
+   */
   public String getPrice() {
     return price;
   }
@@ -153,7 +211,9 @@ public class ProductVariantsBulkInput {
     this.price = price;
   }
 
-  
+  /**
+   * Whether the variant is taxable.
+   */
   public Boolean getTaxable() {
     return taxable;
   }
@@ -162,7 +222,9 @@ public class ProductVariantsBulkInput {
     this.taxable = taxable;
   }
 
-  
+  /**
+   * The tax code associated with the variant.
+   */
   public String getTaxCode() {
     return taxCode;
   }
@@ -171,7 +233,11 @@ public class ProductVariantsBulkInput {
     this.taxCode = taxCode;
   }
 
-  
+  /**
+   * Whether a product variant requires components. The default value is `false`.
+   * If `true`, then the product variant can only be purchased as a parent bundle with components and it will be
+   * omitted from channels that don't support bundles.
+   */
   public Boolean getRequiresComponents() {
     return requiresComponents;
   }
@@ -216,46 +282,78 @@ public class ProductVariantsBulkInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The value of the barcode associated with the product variant.
+     */
     private String barcode;
 
-    
+    /**
+     * The compare-at price of the variant.
+     */
     private String compareAtPrice;
 
-    
+    /**
+     * Specifies the product variant to update or delete.
+     */
     private String id;
 
-    
+    /**
+     * The URL of the media to associate with the variant.
+     */
     private List<String> mediaSrc;
 
-    
+    /**
+     * Whether customers are allowed to place an order for the variant when it's out of stock.
+     */
     private ProductVariantInventoryPolicy inventoryPolicy;
 
-    
+    /**
+     * The inventory quantities at each location where the variant is stocked. The number of elements
+     * in the array of inventory quantities can't exceed the amount specified for the plan.
+     * Supported as input with the `productVariantsBulkCreate` mutation only.
+     */
     private List<InventoryLevelInput> inventoryQuantities;
 
-    
+    /**
+     * The inventory item associated with the variant, used for unit cost.
+     */
     private InventoryItemInput inventoryItem;
 
-    
+    /**
+     * The ID of the media that's associated with the variant.
+     */
     private String mediaId;
 
-    
+    /**
+     * The additional customizable information about the product variant.
+     */
     private List<MetafieldInput> metafields;
 
-    
+    /**
+     * The custom properties that a shop owner uses to define product variants.
+     */
     private List<VariantOptionValueInput> optionValues;
 
-    
+    /**
+     * The price of the variant.
+     */
     private String price;
 
-    
+    /**
+     * Whether the variant is taxable.
+     */
     private Boolean taxable;
 
-    
+    /**
+     * The tax code associated with the variant.
+     */
     private String taxCode;
 
-    
+    /**
+     * Whether a product variant requires components. The default value is `false`.
+     * If `true`, then the product variant can only be purchased as a parent bundle with components and it will be
+     * omitted from channels that don't support bundles.
+     */
     private Boolean requiresComponents;
 
     public ProductVariantsBulkInput build() {
@@ -277,85 +375,117 @@ public class ProductVariantsBulkInput {
       return result;
     }
 
-    
+    /**
+     * The value of the barcode associated with the product variant.
+     */
     public Builder barcode(String barcode) {
       this.barcode = barcode;
       return this;
     }
 
-    
+    /**
+     * The compare-at price of the variant.
+     */
     public Builder compareAtPrice(String compareAtPrice) {
       this.compareAtPrice = compareAtPrice;
       return this;
     }
 
-    
+    /**
+     * Specifies the product variant to update or delete.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The URL of the media to associate with the variant.
+     */
     public Builder mediaSrc(List<String> mediaSrc) {
       this.mediaSrc = mediaSrc;
       return this;
     }
 
-    
+    /**
+     * Whether customers are allowed to place an order for the variant when it's out of stock.
+     */
     public Builder inventoryPolicy(ProductVariantInventoryPolicy inventoryPolicy) {
       this.inventoryPolicy = inventoryPolicy;
       return this;
     }
 
-    
+    /**
+     * The inventory quantities at each location where the variant is stocked. The number of elements
+     * in the array of inventory quantities can't exceed the amount specified for the plan.
+     * Supported as input with the `productVariantsBulkCreate` mutation only.
+     */
     public Builder inventoryQuantities(List<InventoryLevelInput> inventoryQuantities) {
       this.inventoryQuantities = inventoryQuantities;
       return this;
     }
 
-    
+    /**
+     * The inventory item associated with the variant, used for unit cost.
+     */
     public Builder inventoryItem(InventoryItemInput inventoryItem) {
       this.inventoryItem = inventoryItem;
       return this;
     }
 
-    
+    /**
+     * The ID of the media that's associated with the variant.
+     */
     public Builder mediaId(String mediaId) {
       this.mediaId = mediaId;
       return this;
     }
 
-    
+    /**
+     * The additional customizable information about the product variant.
+     */
     public Builder metafields(List<MetafieldInput> metafields) {
       this.metafields = metafields;
       return this;
     }
 
-    
+    /**
+     * The custom properties that a shop owner uses to define product variants.
+     */
     public Builder optionValues(List<VariantOptionValueInput> optionValues) {
       this.optionValues = optionValues;
       return this;
     }
 
-    
+    /**
+     * The price of the variant.
+     */
     public Builder price(String price) {
       this.price = price;
       return this;
     }
 
-    
+    /**
+     * Whether the variant is taxable.
+     */
     public Builder taxable(Boolean taxable) {
       this.taxable = taxable;
       return this;
     }
 
-    
+    /**
+     * The tax code associated with the variant.
+     */
     public Builder taxCode(String taxCode) {
       this.taxCode = taxCode;
       return this;
     }
 
-    
+    /**
+     * Whether a product variant requires components. The default value is `false`.
+     * If `true`, then the product variant can only be purchased as a parent bundle with components and it will be
+     * omitted from channels that don't support bundles.
+     */
     public Builder requiresComponents(Boolean requiresComponents) {
       this.requiresComponents = requiresComponents;
       return this;

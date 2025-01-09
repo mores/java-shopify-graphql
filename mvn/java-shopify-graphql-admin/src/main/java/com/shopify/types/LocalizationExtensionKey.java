@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * The key of a localization extension.
+ */
 public enum LocalizationExtensionKey {
   TAX_CREDENTIAL_BR,
 
@@ -43,6 +45,8 @@ public enum LocalizationExtensionKey {
   TAX_CREDENTIAL_MY,
 
   SHIPPING_CREDENTIAL_MY,
+
+  SHIPPING_CREDENTIAL_MX,
 
   TAX_CREDENTIAL_MX,
 

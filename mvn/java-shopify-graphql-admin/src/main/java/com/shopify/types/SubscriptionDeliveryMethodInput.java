@@ -5,21 +5,33 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Specifies delivery method fields for a subscription draft.
+ * This is an input union: one, and only one, field can be provided.
+ * The field provided will determine which delivery method is to be used.
+ */
 public class SubscriptionDeliveryMethodInput {
-  
+  /**
+   * The input fields for the shipping delivery method.
+   */
   private SubscriptionDeliveryMethodShippingInput shipping;
 
-  
+  /**
+   * The input fields for the local delivery method.
+   */
   private SubscriptionDeliveryMethodLocalDeliveryInput localDelivery;
 
-  
+  /**
+   * The input fields for the pickup delivery method.
+   */
   private SubscriptionDeliveryMethodPickupInput pickup;
 
   public SubscriptionDeliveryMethodInput() {
   }
 
-  
+  /**
+   * The input fields for the shipping delivery method.
+   */
   public SubscriptionDeliveryMethodShippingInput getShipping() {
     return shipping;
   }
@@ -28,7 +40,9 @@ public class SubscriptionDeliveryMethodInput {
     this.shipping = shipping;
   }
 
-  
+  /**
+   * The input fields for the local delivery method.
+   */
   public SubscriptionDeliveryMethodLocalDeliveryInput getLocalDelivery() {
     return localDelivery;
   }
@@ -37,7 +51,9 @@ public class SubscriptionDeliveryMethodInput {
     this.localDelivery = localDelivery;
   }
 
-  
+  /**
+   * The input fields for the pickup delivery method.
+   */
   public SubscriptionDeliveryMethodPickupInput getPickup() {
     return pickup;
   }
@@ -71,13 +87,19 @@ public class SubscriptionDeliveryMethodInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The input fields for the shipping delivery method.
+     */
     private SubscriptionDeliveryMethodShippingInput shipping;
 
-    
+    /**
+     * The input fields for the local delivery method.
+     */
     private SubscriptionDeliveryMethodLocalDeliveryInput localDelivery;
 
-    
+    /**
+     * The input fields for the pickup delivery method.
+     */
     private SubscriptionDeliveryMethodPickupInput pickup;
 
     public SubscriptionDeliveryMethodInput build() {
@@ -88,19 +110,25 @@ public class SubscriptionDeliveryMethodInput {
       return result;
     }
 
-    
+    /**
+     * The input fields for the shipping delivery method.
+     */
     public Builder shipping(SubscriptionDeliveryMethodShippingInput shipping) {
       this.shipping = shipping;
       return this;
     }
 
-    
+    /**
+     * The input fields for the local delivery method.
+     */
     public Builder localDelivery(SubscriptionDeliveryMethodLocalDeliveryInput localDelivery) {
       this.localDelivery = localDelivery;
       return this;
     }
 
-    
+    /**
+     * The input fields for the pickup delivery method.
+     */
     public Builder pickup(SubscriptionDeliveryMethodPickupInput pickup) {
       this.pickup = pickup;
       return this;

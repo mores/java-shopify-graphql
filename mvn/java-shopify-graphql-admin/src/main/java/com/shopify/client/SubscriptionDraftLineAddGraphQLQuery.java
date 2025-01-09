@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Adds a subscription line to a subscription draft.
+ */
 public class SubscriptionDraftLineAddGraphQLQuery extends GraphQLQuery {
   public SubscriptionDraftLineAddGraphQLQuery(String draftId, SubscriptionLineInput input,
       String queryName, Set<String> fieldsSet) {
@@ -46,14 +48,18 @@ public class SubscriptionDraftLineAddGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The gid of the Subscription Contract draft to add a subscription line to.
+     */
     public Builder draftId(String draftId) {
       this.draftId = draftId;
       this.fieldsSet.add("draftId");
       return this;
     }
 
-    
+    /**
+     * The properties of the new Subscription Line.
+     */
     public Builder input(SubscriptionLineInput input) {
       this.input = input;
       this.fieldsSet.add("input");

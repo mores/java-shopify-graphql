@@ -6,24 +6,36 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A filter that takes a value that's associated with an object. For example, the
+ * `tags` field is associated with the
+ * [`Customer`](/api/admin-graphql/latest/objects/Customer) object.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class SegmentAssociationFilter implements com.shopify.types.SegmentFilter {
-  
+  /**
+   * The localized name of the filter.
+   */
   private String localizedName;
 
-  
+  /**
+   * Whether a file can have multiple values for a single customer.
+   */
   private boolean multiValue;
 
-  
+  /**
+   * The query name of the filter.
+   */
   private String queryName;
 
   public SegmentAssociationFilter() {
   }
 
-  
+  /**
+   * The localized name of the filter.
+   */
   public String getLocalizedName() {
     return localizedName;
   }
@@ -32,7 +44,9 @@ public class SegmentAssociationFilter implements com.shopify.types.SegmentFilter
     this.localizedName = localizedName;
   }
 
-  
+  /**
+   * Whether a file can have multiple values for a single customer.
+   */
   public boolean getMultiValue() {
     return multiValue;
   }
@@ -41,7 +55,9 @@ public class SegmentAssociationFilter implements com.shopify.types.SegmentFilter
     this.multiValue = multiValue;
   }
 
-  
+  /**
+   * The query name of the filter.
+   */
   public String getQueryName() {
     return queryName;
   }
@@ -75,13 +91,19 @@ public class SegmentAssociationFilter implements com.shopify.types.SegmentFilter
   }
 
   public static class Builder {
-    
+    /**
+     * The localized name of the filter.
+     */
     private String localizedName;
 
-    
+    /**
+     * Whether a file can have multiple values for a single customer.
+     */
     private boolean multiValue;
 
-    
+    /**
+     * The query name of the filter.
+     */
     private String queryName;
 
     public SegmentAssociationFilter build() {
@@ -92,19 +114,25 @@ public class SegmentAssociationFilter implements com.shopify.types.SegmentFilter
       return result;
     }
 
-    
+    /**
+     * The localized name of the filter.
+     */
     public Builder localizedName(String localizedName) {
       this.localizedName = localizedName;
       return this;
     }
 
-    
+    /**
+     * Whether a file can have multiple values for a single customer.
+     */
     public Builder multiValue(boolean multiValue) {
       this.multiValue = multiValue;
       return this;
     }
 
-    
+    /**
+     * The query name of the filter.
+     */
     public Builder queryName(String queryName) {
       this.queryName = queryName;
       return this;

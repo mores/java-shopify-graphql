@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.util.List;
 
-
+/**
+ * Published translations associated with the resource.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
     include = JsonTypeInfo.As.PROPERTY,
@@ -28,6 +30,8 @@ import java.util.List;
     @JsonSubTypes.Type(value = ShopPolicy.class, name = "ShopPolicy")
 })
 public interface HasPublishedTranslations {
-  
+  /**
+   * The published translations associated with the resource.
+   */
   List<Translation> getTranslations();
 }

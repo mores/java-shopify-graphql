@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Returns a CustomerPaymentMethod resource by its ID.
+ */
 public class CustomerPaymentMethodGraphQLQuery extends GraphQLQuery {
   public CustomerPaymentMethodGraphQLQuery(String id, Boolean showRevoked, String queryName,
       Set<String> fieldsSet) {
@@ -46,14 +48,18 @@ public class CustomerPaymentMethodGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the CustomerPaymentMethod to return.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    
+    /**
+     * Whether to show the customer's revoked payment method.
+     */
     public Builder showRevoked(Boolean showRevoked) {
       this.showRevoked = showRevoked;
       this.fieldsSet.add("showRevoked");

@@ -5,21 +5,33 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields used to update the typography. Refer to the [typography
+ * tutorial](https://shopify.dev/docs/apps/checkout/styling/customize-typography)
+ * for more information on how to set these fields.
+ */
 public class CheckoutBrandingTypographyInput {
-  
+  /**
+   * The font size.
+   */
   private CheckoutBrandingFontSizeInput size;
 
-  
+  /**
+   * A font group used for most components such as text, buttons and form controls.
+   */
   private CheckoutBrandingFontGroupInput primary;
 
-  
+  /**
+   * A font group used for heading components by default.
+   */
   private CheckoutBrandingFontGroupInput secondary;
 
   public CheckoutBrandingTypographyInput() {
   }
 
-  
+  /**
+   * The font size.
+   */
   public CheckoutBrandingFontSizeInput getSize() {
     return size;
   }
@@ -28,7 +40,9 @@ public class CheckoutBrandingTypographyInput {
     this.size = size;
   }
 
-  
+  /**
+   * A font group used for most components such as text, buttons and form controls.
+   */
   public CheckoutBrandingFontGroupInput getPrimary() {
     return primary;
   }
@@ -37,7 +51,9 @@ public class CheckoutBrandingTypographyInput {
     this.primary = primary;
   }
 
-  
+  /**
+   * A font group used for heading components by default.
+   */
   public CheckoutBrandingFontGroupInput getSecondary() {
     return secondary;
   }
@@ -71,13 +87,19 @@ public class CheckoutBrandingTypographyInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The font size.
+     */
     private CheckoutBrandingFontSizeInput size;
 
-    
+    /**
+     * A font group used for most components such as text, buttons and form controls.
+     */
     private CheckoutBrandingFontGroupInput primary;
 
-    
+    /**
+     * A font group used for heading components by default.
+     */
     private CheckoutBrandingFontGroupInput secondary;
 
     public CheckoutBrandingTypographyInput build() {
@@ -88,19 +110,25 @@ public class CheckoutBrandingTypographyInput {
       return result;
     }
 
-    
+    /**
+     * The font size.
+     */
     public Builder size(CheckoutBrandingFontSizeInput size) {
       this.size = size;
       return this;
     }
 
-    
+    /**
+     * A font group used for most components such as text, buttons and form controls.
+     */
     public Builder primary(CheckoutBrandingFontGroupInput primary) {
       this.primary = primary;
       return this;
     }
 
-    
+    /**
+     * A font group used for heading components by default.
+     */
     public Builder secondary(CheckoutBrandingFontGroupInput secondary) {
       this.secondary = secondary;
       return this;

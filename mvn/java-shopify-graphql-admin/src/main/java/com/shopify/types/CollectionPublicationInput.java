@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for publications to which a collection will be published.
+ */
 public class CollectionPublicationInput {
-  
+  /**
+   * The ID of the publication.
+   */
   private String publicationId;
 
   public CollectionPublicationInput() {
   }
 
-  
+  /**
+   * The ID of the publication.
+   */
   public String getPublicationId() {
     return publicationId;
   }
@@ -45,7 +51,9 @@ public class CollectionPublicationInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the publication.
+     */
     private String publicationId;
 
     public CollectionPublicationInput build() {
@@ -54,7 +62,9 @@ public class CollectionPublicationInput {
       return result;
     }
 
-    
+    /**
+     * The ID of the publication.
+     */
     public Builder publicationId(String publicationId) {
       this.publicationId = publicationId;
       return this;

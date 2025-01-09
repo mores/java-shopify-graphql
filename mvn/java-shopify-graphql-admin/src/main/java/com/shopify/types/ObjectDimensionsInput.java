@@ -5,24 +5,36 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for dimensions of an object.
+ */
 public class ObjectDimensionsInput {
-  
+  /**
+   * The length in `unit`s.
+   */
   private double length;
 
-  
+  /**
+   * The width in `unit`s.
+   */
   private double width;
 
-  
+  /**
+   * The height in `unit`s.
+   */
   private double height;
 
-  
+  /**
+   * Unit of measurement for `length`, `width`, and `height`.
+   */
   private LengthUnit unit;
 
   public ObjectDimensionsInput() {
   }
 
-  
+  /**
+   * The length in `unit`s.
+   */
   public double getLength() {
     return length;
   }
@@ -31,7 +43,9 @@ public class ObjectDimensionsInput {
     this.length = length;
   }
 
-  
+  /**
+   * The width in `unit`s.
+   */
   public double getWidth() {
     return width;
   }
@@ -40,7 +54,9 @@ public class ObjectDimensionsInput {
     this.width = width;
   }
 
-  
+  /**
+   * The height in `unit`s.
+   */
   public double getHeight() {
     return height;
   }
@@ -49,7 +65,9 @@ public class ObjectDimensionsInput {
     this.height = height;
   }
 
-  
+  /**
+   * Unit of measurement for `length`, `width`, and `height`.
+   */
   public LengthUnit getUnit() {
     return unit;
   }
@@ -84,16 +102,24 @@ public class ObjectDimensionsInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The length in `unit`s.
+     */
     private double length;
 
-    
+    /**
+     * The width in `unit`s.
+     */
     private double width;
 
-    
+    /**
+     * The height in `unit`s.
+     */
     private double height;
 
-    
+    /**
+     * Unit of measurement for `length`, `width`, and `height`.
+     */
     private LengthUnit unit;
 
     public ObjectDimensionsInput build() {
@@ -105,25 +131,33 @@ public class ObjectDimensionsInput {
       return result;
     }
 
-    
+    /**
+     * The length in `unit`s.
+     */
     public Builder length(double length) {
       this.length = length;
       return this;
     }
 
-    
+    /**
+     * The width in `unit`s.
+     */
     public Builder width(double width) {
       this.width = width;
       return this;
     }
 
-    
+    /**
+     * The height in `unit`s.
+     */
     public Builder height(double height) {
       this.height = height;
       return this;
     }
 
-    
+    /**
+     * Unit of measurement for `length`, `width`, and `height`.
+     */
     public Builder unit(LengthUnit unit) {
       this.unit = unit;
       return this;

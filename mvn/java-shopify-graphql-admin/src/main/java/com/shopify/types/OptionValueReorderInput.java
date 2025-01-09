@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for reordering a product option value.
+ */
 public class OptionValueReorderInput {
-  
+  /**
+   * Specifies the product option value by ID.
+   */
   private String id;
 
-  
+  /**
+   * Specifies the product option value by name.
+   */
   private String name;
 
   public OptionValueReorderInput() {
   }
 
-  
+  /**
+   * Specifies the product option value by ID.
+   */
   public String getId() {
     return id;
   }
@@ -25,7 +33,9 @@ public class OptionValueReorderInput {
     this.id = id;
   }
 
-  
+  /**
+   * Specifies the product option value by name.
+   */
   public String getName() {
     return name;
   }
@@ -58,10 +68,14 @@ public class OptionValueReorderInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Specifies the product option value by ID.
+     */
     private String id;
 
-    
+    /**
+     * Specifies the product option value by name.
+     */
     private String name;
 
     public OptionValueReorderInput build() {
@@ -71,13 +85,17 @@ public class OptionValueReorderInput {
       return result;
     }
 
-    
+    /**
+     * Specifies the product option value by ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * Specifies the product option value by name.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;

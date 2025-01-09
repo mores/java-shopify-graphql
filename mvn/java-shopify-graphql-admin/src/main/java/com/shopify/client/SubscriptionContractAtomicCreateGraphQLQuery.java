@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a Subscription Contract.
+ */
 public class SubscriptionContractAtomicCreateGraphQLQuery extends GraphQLQuery {
   public SubscriptionContractAtomicCreateGraphQLQuery(SubscriptionContractAtomicCreateInput input,
       String queryName, Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class SubscriptionContractAtomicCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The properties of the new Subscription Contract.
+     */
     public Builder input(SubscriptionContractAtomicCreateInput input) {
       this.input = input;
       this.fieldsSet.add("input");

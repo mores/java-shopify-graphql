@@ -7,7 +7,12 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Mark line items associated with a fulfillment order as being ready for pickup by a customer.
+ *   
+ * Sends a Ready For Pickup notification to the customer to let them know that their order is ready
+ * to be picked up.
+ */
 public class FulfillmentOrderLineItemsPreparedForPickupGraphQLQuery extends GraphQLQuery {
   public FulfillmentOrderLineItemsPreparedForPickupGraphQLQuery(
       FulfillmentOrderLineItemsPreparedForPickupInput input, String queryName,
@@ -43,7 +48,9 @@ public class FulfillmentOrderLineItemsPreparedForPickupGraphQLQuery extends Grap
                
     }
 
-    
+    /**
+     * The input for marking fulfillment order line items as ready for pickup.
+     */
     public Builder input(FulfillmentOrderLineItemsPreparedForPickupInput input) {
       this.input = input;
       this.fieldsSet.add("input");

@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `bulkOperationRunQuery` mutation.
+ */
 public class BulkOperationRunQueryPayload {
-  
+  /**
+   * The newly created bulk operation.
+   */
   private BulkOperation bulkOperation;
 
-  
-  private List<UserError> userErrors;
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
+  private List<BulkOperationUserError> userErrors;
 
   public BulkOperationRunQueryPayload() {
   }
 
-  
+  /**
+   * The newly created bulk operation.
+   */
   public BulkOperation getBulkOperation() {
     return bulkOperation;
   }
@@ -26,12 +34,14 @@ public class BulkOperationRunQueryPayload {
     this.bulkOperation = bulkOperation;
   }
 
-  
-  public List<UserError> getUserErrors() {
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
+  public List<BulkOperationUserError> getUserErrors() {
     return userErrors;
   }
 
-  public void setUserErrors(List<UserError> userErrors) {
+  public void setUserErrors(List<BulkOperationUserError> userErrors) {
     this.userErrors = userErrors;
   }
 
@@ -59,11 +69,15 @@ public class BulkOperationRunQueryPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The newly created bulk operation.
+     */
     private BulkOperation bulkOperation;
 
-    
-    private List<UserError> userErrors;
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
+    private List<BulkOperationUserError> userErrors;
 
     public BulkOperationRunQueryPayload build() {
       BulkOperationRunQueryPayload result = new BulkOperationRunQueryPayload();
@@ -72,14 +86,18 @@ public class BulkOperationRunQueryPayload {
       return result;
     }
 
-    
+    /**
+     * The newly created bulk operation.
+     */
     public Builder bulkOperation(BulkOperation bulkOperation) {
       this.bulkOperation = bulkOperation;
       return this;
     }
 
-    
-    public Builder userErrors(List<UserError> userErrors) {
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
+    public Builder userErrors(List<BulkOperationUserError> userErrors) {
       this.userErrors = userErrors;
       return this;
     }

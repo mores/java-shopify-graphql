@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for a note attribute for an order.
+ */
 public class OrderCreateCustomAttributeInput {
-  
+  /**
+   * The key or name of the custom attribute.
+   */
   private String key;
 
-  
+  /**
+   * The value of the custom attribute.
+   */
   private String value;
 
   public OrderCreateCustomAttributeInput() {
   }
 
-  
+  /**
+   * The key or name of the custom attribute.
+   */
   public String getKey() {
     return key;
   }
@@ -25,7 +33,9 @@ public class OrderCreateCustomAttributeInput {
     this.key = key;
   }
 
-  
+  /**
+   * The value of the custom attribute.
+   */
   public String getValue() {
     return value;
   }
@@ -58,10 +68,14 @@ public class OrderCreateCustomAttributeInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The key or name of the custom attribute.
+     */
     private String key;
 
-    
+    /**
+     * The value of the custom attribute.
+     */
     private String value;
 
     public OrderCreateCustomAttributeInput build() {
@@ -71,13 +85,17 @@ public class OrderCreateCustomAttributeInput {
       return result;
     }
 
-    
+    /**
+     * The key or name of the custom attribute.
+     */
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
-    
+    /**
+     * The value of the custom attribute.
+     */
     public Builder value(String value) {
       this.value = value;
       return this;

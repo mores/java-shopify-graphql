@@ -33,6 +33,20 @@ public class StoreCreditAccountDebitTransactionProjection<PARENT extends BaseSub
      return projection;
   }
 
+  public StoreCreditSystemEventProjection<StoreCreditAccountDebitTransactionProjection<PARENT, ROOT>, ROOT> event(
+      ) {
+     StoreCreditSystemEventProjection<StoreCreditAccountDebitTransactionProjection<PARENT, ROOT>, ROOT> projection = new StoreCreditSystemEventProjection<>(this, getRoot());
+     getFields().put("event", projection);
+     return projection;
+  }
+
+  public StoreCreditAccountTransactionOriginProjection<StoreCreditAccountDebitTransactionProjection<PARENT, ROOT>, ROOT> origin(
+      ) {
+     StoreCreditAccountTransactionOriginProjection<StoreCreditAccountDebitTransactionProjection<PARENT, ROOT>, ROOT> projection = new StoreCreditAccountTransactionOriginProjection<>(this, getRoot());
+     getFields().put("origin", projection);
+     return projection;
+  }
+
   public StoreCreditAccountDebitTransactionProjection<PARENT, ROOT> createdAt() {
     getFields().put("createdAt", null);
     return this;

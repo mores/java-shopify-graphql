@@ -7,21 +7,31 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-
+/**
+ * The input fields for parameters to modify the schedule of a specific billing cycle.
+ */
 public class SubscriptionBillingCycleScheduleEditInput {
-  
+  /**
+   * Sets the skip status for the billing cycle.
+   */
   private Boolean skip;
 
-  
+  /**
+   * Sets the expected billing date for the billing cycle.
+   */
   private OffsetDateTime billingDate;
 
-  
+  /**
+   * The reason for editing.
+   */
   private SubscriptionBillingCycleScheduleEditInputScheduleEditReason reason;
 
   public SubscriptionBillingCycleScheduleEditInput() {
   }
 
-  
+  /**
+   * Sets the skip status for the billing cycle.
+   */
   public Boolean getSkip() {
     return skip;
   }
@@ -30,7 +40,9 @@ public class SubscriptionBillingCycleScheduleEditInput {
     this.skip = skip;
   }
 
-  
+  /**
+   * Sets the expected billing date for the billing cycle.
+   */
   public OffsetDateTime getBillingDate() {
     return billingDate;
   }
@@ -39,7 +51,9 @@ public class SubscriptionBillingCycleScheduleEditInput {
     this.billingDate = billingDate;
   }
 
-  
+  /**
+   * The reason for editing.
+   */
   public SubscriptionBillingCycleScheduleEditInputScheduleEditReason getReason() {
     return reason;
   }
@@ -73,13 +87,19 @@ public class SubscriptionBillingCycleScheduleEditInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Sets the skip status for the billing cycle.
+     */
     private Boolean skip;
 
-    
+    /**
+     * Sets the expected billing date for the billing cycle.
+     */
     private OffsetDateTime billingDate;
 
-    
+    /**
+     * The reason for editing.
+     */
     private SubscriptionBillingCycleScheduleEditInputScheduleEditReason reason;
 
     public SubscriptionBillingCycleScheduleEditInput build() {
@@ -90,19 +110,25 @@ public class SubscriptionBillingCycleScheduleEditInput {
       return result;
     }
 
-    
+    /**
+     * Sets the skip status for the billing cycle.
+     */
     public Builder skip(Boolean skip) {
       this.skip = skip;
       return this;
     }
 
-    
+    /**
+     * Sets the expected billing date for the billing cycle.
+     */
     public Builder billingDate(OffsetDateTime billingDate) {
       this.billingDate = billingDate;
       return this;
     }
 
-    
+    /**
+     * The reason for editing.
+     */
     public Builder reason(SubscriptionBillingCycleScheduleEditInputScheduleEditReason reason) {
       this.reason = reason;
       return this;

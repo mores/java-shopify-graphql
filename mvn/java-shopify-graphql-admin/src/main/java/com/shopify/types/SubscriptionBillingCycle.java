@@ -6,42 +6,66 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-
+/**
+ * A subscription billing cycle.
+ */
 public class SubscriptionBillingCycle {
-  
+  /**
+   * The date on which the billing attempt is expected to be made.
+   */
   private OffsetDateTime billingAttemptExpectedDate;
 
-  
+  /**
+   * The list of billing attempts associated with the billing cycle.
+   */
   private SubscriptionBillingAttemptConnection billingAttempts;
 
-  
+  /**
+   * The end date of the billing cycle.
+   */
   private OffsetDateTime cycleEndAt;
 
-  
+  /**
+   * The index of the billing cycle.
+   */
   private int cycleIndex;
 
-  
+  /**
+   * The start date of the billing cycle.
+   */
   private OffsetDateTime cycleStartAt;
 
-  
+  /**
+   * Whether this billing cycle was edited.
+   */
   private boolean edited;
 
-  
+  /**
+   * The active edited contract for the billing cycle.
+   */
   private SubscriptionBillingCycleEditedContract editedContract;
 
-  
+  /**
+   * Whether this billing cycle was skipped.
+   */
   private boolean skipped;
 
-  
+  /**
+   * The subscription contract that the billing cycle belongs to.
+   */
   private SubscriptionContract sourceContract;
 
-  
+  /**
+   * The status of the billing cycle.
+   */
   private SubscriptionBillingCycleBillingCycleStatus status;
 
   public SubscriptionBillingCycle() {
   }
 
-  
+  /**
+   * The date on which the billing attempt is expected to be made.
+   */
   public OffsetDateTime getBillingAttemptExpectedDate() {
     return billingAttemptExpectedDate;
   }
@@ -50,7 +74,9 @@ public class SubscriptionBillingCycle {
     this.billingAttemptExpectedDate = billingAttemptExpectedDate;
   }
 
-  
+  /**
+   * The list of billing attempts associated with the billing cycle.
+   */
   public SubscriptionBillingAttemptConnection getBillingAttempts() {
     return billingAttempts;
   }
@@ -59,7 +85,9 @@ public class SubscriptionBillingCycle {
     this.billingAttempts = billingAttempts;
   }
 
-  
+  /**
+   * The end date of the billing cycle.
+   */
   public OffsetDateTime getCycleEndAt() {
     return cycleEndAt;
   }
@@ -68,7 +96,9 @@ public class SubscriptionBillingCycle {
     this.cycleEndAt = cycleEndAt;
   }
 
-  
+  /**
+   * The index of the billing cycle.
+   */
   public int getCycleIndex() {
     return cycleIndex;
   }
@@ -77,7 +107,9 @@ public class SubscriptionBillingCycle {
     this.cycleIndex = cycleIndex;
   }
 
-  
+  /**
+   * The start date of the billing cycle.
+   */
   public OffsetDateTime getCycleStartAt() {
     return cycleStartAt;
   }
@@ -86,7 +118,9 @@ public class SubscriptionBillingCycle {
     this.cycleStartAt = cycleStartAt;
   }
 
-  
+  /**
+   * Whether this billing cycle was edited.
+   */
   public boolean getEdited() {
     return edited;
   }
@@ -95,7 +129,9 @@ public class SubscriptionBillingCycle {
     this.edited = edited;
   }
 
-  
+  /**
+   * The active edited contract for the billing cycle.
+   */
   public SubscriptionBillingCycleEditedContract getEditedContract() {
     return editedContract;
   }
@@ -104,7 +140,9 @@ public class SubscriptionBillingCycle {
     this.editedContract = editedContract;
   }
 
-  
+  /**
+   * Whether this billing cycle was skipped.
+   */
   public boolean getSkipped() {
     return skipped;
   }
@@ -113,7 +151,9 @@ public class SubscriptionBillingCycle {
     this.skipped = skipped;
   }
 
-  
+  /**
+   * The subscription contract that the billing cycle belongs to.
+   */
   public SubscriptionContract getSourceContract() {
     return sourceContract;
   }
@@ -122,7 +162,9 @@ public class SubscriptionBillingCycle {
     this.sourceContract = sourceContract;
   }
 
-  
+  /**
+   * The status of the billing cycle.
+   */
   public SubscriptionBillingCycleBillingCycleStatus getStatus() {
     return status;
   }
@@ -163,34 +205,54 @@ public class SubscriptionBillingCycle {
   }
 
   public static class Builder {
-    
+    /**
+     * The date on which the billing attempt is expected to be made.
+     */
     private OffsetDateTime billingAttemptExpectedDate;
 
-    
+    /**
+     * The list of billing attempts associated with the billing cycle.
+     */
     private SubscriptionBillingAttemptConnection billingAttempts;
 
-    
+    /**
+     * The end date of the billing cycle.
+     */
     private OffsetDateTime cycleEndAt;
 
-    
+    /**
+     * The index of the billing cycle.
+     */
     private int cycleIndex;
 
-    
+    /**
+     * The start date of the billing cycle.
+     */
     private OffsetDateTime cycleStartAt;
 
-    
+    /**
+     * Whether this billing cycle was edited.
+     */
     private boolean edited;
 
-    
+    /**
+     * The active edited contract for the billing cycle.
+     */
     private SubscriptionBillingCycleEditedContract editedContract;
 
-    
+    /**
+     * Whether this billing cycle was skipped.
+     */
     private boolean skipped;
 
-    
+    /**
+     * The subscription contract that the billing cycle belongs to.
+     */
     private SubscriptionContract sourceContract;
 
-    
+    /**
+     * The status of the billing cycle.
+     */
     private SubscriptionBillingCycleBillingCycleStatus status;
 
     public SubscriptionBillingCycle build() {
@@ -208,61 +270,81 @@ public class SubscriptionBillingCycle {
       return result;
     }
 
-    
+    /**
+     * The date on which the billing attempt is expected to be made.
+     */
     public Builder billingAttemptExpectedDate(OffsetDateTime billingAttemptExpectedDate) {
       this.billingAttemptExpectedDate = billingAttemptExpectedDate;
       return this;
     }
 
-    
+    /**
+     * The list of billing attempts associated with the billing cycle.
+     */
     public Builder billingAttempts(SubscriptionBillingAttemptConnection billingAttempts) {
       this.billingAttempts = billingAttempts;
       return this;
     }
 
-    
+    /**
+     * The end date of the billing cycle.
+     */
     public Builder cycleEndAt(OffsetDateTime cycleEndAt) {
       this.cycleEndAt = cycleEndAt;
       return this;
     }
 
-    
+    /**
+     * The index of the billing cycle.
+     */
     public Builder cycleIndex(int cycleIndex) {
       this.cycleIndex = cycleIndex;
       return this;
     }
 
-    
+    /**
+     * The start date of the billing cycle.
+     */
     public Builder cycleStartAt(OffsetDateTime cycleStartAt) {
       this.cycleStartAt = cycleStartAt;
       return this;
     }
 
-    
+    /**
+     * Whether this billing cycle was edited.
+     */
     public Builder edited(boolean edited) {
       this.edited = edited;
       return this;
     }
 
-    
+    /**
+     * The active edited contract for the billing cycle.
+     */
     public Builder editedContract(SubscriptionBillingCycleEditedContract editedContract) {
       this.editedContract = editedContract;
       return this;
     }
 
-    
+    /**
+     * Whether this billing cycle was skipped.
+     */
     public Builder skipped(boolean skipped) {
       this.skipped = skipped;
       return this;
     }
 
-    
+    /**
+     * The subscription contract that the billing cycle belongs to.
+     */
     public Builder sourceContract(SubscriptionContract sourceContract) {
       this.sourceContract = sourceContract;
       return this;
     }
 
-    
+    /**
+     * The status of the billing cycle.
+     */
     public Builder status(SubscriptionBillingCycleBillingCycleStatus status) {
       this.status = status;
       return this;

@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Specifies the sort order for the products in the collection.
+ */
 public enum CollectionSortOrder {
   ALPHA_ASC,
 

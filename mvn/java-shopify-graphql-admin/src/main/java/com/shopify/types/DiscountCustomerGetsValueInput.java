@@ -6,21 +6,31 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for the quantity of items discounted and the discount value.
+ */
 public class DiscountCustomerGetsValueInput {
-  
+  /**
+   * The quantity of the items that are discounted and the discount value.
+   */
   private DiscountOnQuantityInput discountOnQuantity;
 
-  
+  /**
+   * The percentage value of the discount. Value must be between 0.00 - 1.00.
+   */
   private Double percentage;
 
-  
+  /**
+   * The value of the discount.
+   */
   private DiscountAmountInput discountAmount;
 
   public DiscountCustomerGetsValueInput() {
   }
 
-  
+  /**
+   * The quantity of the items that are discounted and the discount value.
+   */
   public DiscountOnQuantityInput getDiscountOnQuantity() {
     return discountOnQuantity;
   }
@@ -29,7 +39,9 @@ public class DiscountCustomerGetsValueInput {
     this.discountOnQuantity = discountOnQuantity;
   }
 
-  
+  /**
+   * The percentage value of the discount. Value must be between 0.00 - 1.00.
+   */
   public Double getPercentage() {
     return percentage;
   }
@@ -38,7 +50,9 @@ public class DiscountCustomerGetsValueInput {
     this.percentage = percentage;
   }
 
-  
+  /**
+   * The value of the discount.
+   */
   public DiscountAmountInput getDiscountAmount() {
     return discountAmount;
   }
@@ -72,13 +86,19 @@ public class DiscountCustomerGetsValueInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The quantity of the items that are discounted and the discount value.
+     */
     private DiscountOnQuantityInput discountOnQuantity;
 
-    
+    /**
+     * The percentage value of the discount. Value must be between 0.00 - 1.00.
+     */
     private Double percentage;
 
-    
+    /**
+     * The value of the discount.
+     */
     private DiscountAmountInput discountAmount;
 
     public DiscountCustomerGetsValueInput build() {
@@ -89,19 +109,25 @@ public class DiscountCustomerGetsValueInput {
       return result;
     }
 
-    
+    /**
+     * The quantity of the items that are discounted and the discount value.
+     */
     public Builder discountOnQuantity(DiscountOnQuantityInput discountOnQuantity) {
       this.discountOnQuantity = discountOnQuantity;
       return this;
     }
 
-    
+    /**
+     * The percentage value of the discount. Value must be between 0.00 - 1.00.
+     */
     public Builder percentage(Double percentage) {
       this.percentage = percentage;
       return this;
     }
 
-    
+    /**
+     * The value of the discount.
+     */
     public Builder discountAmount(DiscountAmountInput discountAmount) {
       this.discountAmount = discountAmount;
       return this;

@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * The possible color schemes.
+ */
 public enum CheckoutBrandingColorSchemeSelection {
   TRANSPARENT,
 

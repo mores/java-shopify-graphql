@@ -7,72 +7,122 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Represents the shipping details that the customer chose for their order.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget {
-  
+  /**
+   * A reference to the carrier service that provided the rate.
+   * Present when the rate was computed by a third-party carrier service.
+   */
   private String carrierIdentifier;
 
-  
+  /**
+   * A reference to the shipping method.
+   */
   private String code;
 
-  
+  /**
+   * The current shipping price after applying refunds, after applying discounts.
+   * If the parent `order.taxesIncluded`` field is true, then this price includes
+   * taxes. Otherwise, this field is the pre-tax price.
+   */
   private MoneyBag currentDiscountedPriceSet;
 
-  
+  /**
+   * Whether the shipping line is custom or not.
+   */
   private boolean custom;
 
-  
+  /**
+   * The general classification of the delivery method.
+   */
   private String deliveryCategory;
 
-  
+  /**
+   * The discounts that have been allocated to the shipping line.
+   */
   private List<DiscountAllocation> discountAllocations;
 
-  
+  /**
+   * The pre-tax shipping price with discounts applied.
+   * As of API version 2024-07, this will be calculated including cart level discounts, such as the free shipping discount.
+   */
   private MoneyV2 discountedPrice;
 
-  
+  /**
+   * The shipping price after applying discounts. If the parent order.taxesIncluded
+   * field is true, then this price includes taxes. If not, it's the pre-tax price.
+   * As of API version 2024-07, this will be calculated including cart level discounts, such as the free shipping discount.
+   */
   private MoneyBag discountedPriceSet;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * Whether the shipping line has been removed.
+   */
   private boolean isRemoved;
 
-  
+  /**
+   * The pre-tax shipping price without any discounts applied.
+   */
   private MoneyV2 originalPrice;
 
-  
+  /**
+   * The pre-tax shipping price without any discounts applied.
+   */
   private MoneyBag originalPriceSet;
 
-  
+  /**
+   * The phone number at the shipping address.
+   */
   private String phone;
 
-  
+  /**
+   * Returns the price of the shipping line.
+   */
   private String price;
 
-  
+  /**
+   * The fulfillment service requested for the shipping method.
+   * Present if the shipping method requires processing by a third party fulfillment service.
+   */
   private FulfillmentService requestedFulfillmentService;
 
-  
+  /**
+   * A unique identifier for the shipping rate. The format can change without notice and isn't meant to be shown to users.
+   */
   private String shippingRateHandle;
 
-  
+  /**
+   * Returns the rate source for the shipping line.
+   */
   private String source;
 
-  
+  /**
+   * The TaxLine objects connected to this shipping line.
+   */
   private List<TaxLine> taxLines;
 
-  
+  /**
+   * Returns the title of the shipping line.
+   */
   private String title;
 
   public ShippingLine() {
   }
 
-  
+  /**
+   * A reference to the carrier service that provided the rate.
+   * Present when the rate was computed by a third-party carrier service.
+   */
   public String getCarrierIdentifier() {
     return carrierIdentifier;
   }
@@ -81,7 +131,9 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
     this.carrierIdentifier = carrierIdentifier;
   }
 
-  
+  /**
+   * A reference to the shipping method.
+   */
   public String getCode() {
     return code;
   }
@@ -90,7 +142,11 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
     this.code = code;
   }
 
-  
+  /**
+   * The current shipping price after applying refunds, after applying discounts.
+   * If the parent `order.taxesIncluded`` field is true, then this price includes
+   * taxes. Otherwise, this field is the pre-tax price.
+   */
   public MoneyBag getCurrentDiscountedPriceSet() {
     return currentDiscountedPriceSet;
   }
@@ -99,7 +155,9 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
     this.currentDiscountedPriceSet = currentDiscountedPriceSet;
   }
 
-  
+  /**
+   * Whether the shipping line is custom or not.
+   */
   public boolean getCustom() {
     return custom;
   }
@@ -108,7 +166,9 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
     this.custom = custom;
   }
 
-  
+  /**
+   * The general classification of the delivery method.
+   */
   public String getDeliveryCategory() {
     return deliveryCategory;
   }
@@ -117,7 +177,9 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
     this.deliveryCategory = deliveryCategory;
   }
 
-  
+  /**
+   * The discounts that have been allocated to the shipping line.
+   */
   public List<DiscountAllocation> getDiscountAllocations() {
     return discountAllocations;
   }
@@ -126,7 +188,10 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
     this.discountAllocations = discountAllocations;
   }
 
-  
+  /**
+   * The pre-tax shipping price with discounts applied.
+   * As of API version 2024-07, this will be calculated including cart level discounts, such as the free shipping discount.
+   */
   public MoneyV2 getDiscountedPrice() {
     return discountedPrice;
   }
@@ -135,7 +200,11 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
     this.discountedPrice = discountedPrice;
   }
 
-  
+  /**
+   * The shipping price after applying discounts. If the parent order.taxesIncluded
+   * field is true, then this price includes taxes. If not, it's the pre-tax price.
+   * As of API version 2024-07, this will be calculated including cart level discounts, such as the free shipping discount.
+   */
   public MoneyBag getDiscountedPriceSet() {
     return discountedPriceSet;
   }
@@ -144,7 +213,9 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
     this.discountedPriceSet = discountedPriceSet;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -153,7 +224,9 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
     this.id = id;
   }
 
-  
+  /**
+   * Whether the shipping line has been removed.
+   */
   public boolean getIsRemoved() {
     return isRemoved;
   }
@@ -162,7 +235,9 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
     this.isRemoved = isRemoved;
   }
 
-  
+  /**
+   * The pre-tax shipping price without any discounts applied.
+   */
   public MoneyV2 getOriginalPrice() {
     return originalPrice;
   }
@@ -171,7 +246,9 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
     this.originalPrice = originalPrice;
   }
 
-  
+  /**
+   * The pre-tax shipping price without any discounts applied.
+   */
   public MoneyBag getOriginalPriceSet() {
     return originalPriceSet;
   }
@@ -180,7 +257,9 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
     this.originalPriceSet = originalPriceSet;
   }
 
-  
+  /**
+   * The phone number at the shipping address.
+   */
   public String getPhone() {
     return phone;
   }
@@ -189,7 +268,9 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
     this.phone = phone;
   }
 
-  
+  /**
+   * Returns the price of the shipping line.
+   */
   public String getPrice() {
     return price;
   }
@@ -198,7 +279,10 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
     this.price = price;
   }
 
-  
+  /**
+   * The fulfillment service requested for the shipping method.
+   * Present if the shipping method requires processing by a third party fulfillment service.
+   */
   public FulfillmentService getRequestedFulfillmentService() {
     return requestedFulfillmentService;
   }
@@ -207,7 +291,9 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
     this.requestedFulfillmentService = requestedFulfillmentService;
   }
 
-  
+  /**
+   * A unique identifier for the shipping rate. The format can change without notice and isn't meant to be shown to users.
+   */
   public String getShippingRateHandle() {
     return shippingRateHandle;
   }
@@ -216,7 +302,9 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
     this.shippingRateHandle = shippingRateHandle;
   }
 
-  
+  /**
+   * Returns the rate source for the shipping line.
+   */
   public String getSource() {
     return source;
   }
@@ -225,7 +313,9 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
     this.source = source;
   }
 
-  
+  /**
+   * The TaxLine objects connected to this shipping line.
+   */
   public List<TaxLine> getTaxLines() {
     return taxLines;
   }
@@ -234,7 +324,9 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
     this.taxLines = taxLines;
   }
 
-  
+  /**
+   * Returns the title of the shipping line.
+   */
   public String getTitle() {
     return title;
   }
@@ -284,61 +376,106 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
   }
 
   public static class Builder {
-    
+    /**
+     * A reference to the carrier service that provided the rate.
+     * Present when the rate was computed by a third-party carrier service.
+     */
     private String carrierIdentifier;
 
-    
+    /**
+     * A reference to the shipping method.
+     */
     private String code;
 
-    
+    /**
+     * The current shipping price after applying refunds, after applying discounts.
+     * If the parent `order.taxesIncluded`` field is true, then this price includes
+     * taxes. Otherwise, this field is the pre-tax price.
+     */
     private MoneyBag currentDiscountedPriceSet;
 
-    
+    /**
+     * Whether the shipping line is custom or not.
+     */
     private boolean custom;
 
-    
+    /**
+     * The general classification of the delivery method.
+     */
     private String deliveryCategory;
 
-    
+    /**
+     * The discounts that have been allocated to the shipping line.
+     */
     private List<DiscountAllocation> discountAllocations;
 
-    
+    /**
+     * The pre-tax shipping price with discounts applied.
+     * As of API version 2024-07, this will be calculated including cart level discounts, such as the free shipping discount.
+     */
     private MoneyV2 discountedPrice;
 
-    
+    /**
+     * The shipping price after applying discounts. If the parent order.taxesIncluded
+     * field is true, then this price includes taxes. If not, it's the pre-tax price.
+     * As of API version 2024-07, this will be calculated including cart level discounts, such as the free shipping discount.
+     */
     private MoneyBag discountedPriceSet;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * Whether the shipping line has been removed.
+     */
     private boolean isRemoved;
 
-    
+    /**
+     * The pre-tax shipping price without any discounts applied.
+     */
     private MoneyV2 originalPrice;
 
-    
+    /**
+     * The pre-tax shipping price without any discounts applied.
+     */
     private MoneyBag originalPriceSet;
 
-    
+    /**
+     * The phone number at the shipping address.
+     */
     private String phone;
 
-    
+    /**
+     * Returns the price of the shipping line.
+     */
     private String price;
 
-    
+    /**
+     * The fulfillment service requested for the shipping method.
+     * Present if the shipping method requires processing by a third party fulfillment service.
+     */
     private FulfillmentService requestedFulfillmentService;
 
-    
+    /**
+     * A unique identifier for the shipping rate. The format can change without notice and isn't meant to be shown to users.
+     */
     private String shippingRateHandle;
 
-    
+    /**
+     * Returns the rate source for the shipping line.
+     */
     private String source;
 
-    
+    /**
+     * The TaxLine objects connected to this shipping line.
+     */
     private List<TaxLine> taxLines;
 
-    
+    /**
+     * Returns the title of the shipping line.
+     */
     private String title;
 
     public ShippingLine build() {
@@ -365,115 +502,160 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
       return result;
     }
 
-    
+    /**
+     * A reference to the carrier service that provided the rate.
+     * Present when the rate was computed by a third-party carrier service.
+     */
     public Builder carrierIdentifier(String carrierIdentifier) {
       this.carrierIdentifier = carrierIdentifier;
       return this;
     }
 
-    
+    /**
+     * A reference to the shipping method.
+     */
     public Builder code(String code) {
       this.code = code;
       return this;
     }
 
-    
+    /**
+     * The current shipping price after applying refunds, after applying discounts.
+     * If the parent `order.taxesIncluded`` field is true, then this price includes
+     * taxes. Otherwise, this field is the pre-tax price.
+     */
     public Builder currentDiscountedPriceSet(MoneyBag currentDiscountedPriceSet) {
       this.currentDiscountedPriceSet = currentDiscountedPriceSet;
       return this;
     }
 
-    
+    /**
+     * Whether the shipping line is custom or not.
+     */
     public Builder custom(boolean custom) {
       this.custom = custom;
       return this;
     }
 
-    
+    /**
+     * The general classification of the delivery method.
+     */
     public Builder deliveryCategory(String deliveryCategory) {
       this.deliveryCategory = deliveryCategory;
       return this;
     }
 
-    
+    /**
+     * The discounts that have been allocated to the shipping line.
+     */
     public Builder discountAllocations(List<DiscountAllocation> discountAllocations) {
       this.discountAllocations = discountAllocations;
       return this;
     }
 
-    
+    /**
+     * The pre-tax shipping price with discounts applied.
+     * As of API version 2024-07, this will be calculated including cart level discounts, such as the free shipping discount.
+     */
     public Builder discountedPrice(MoneyV2 discountedPrice) {
       this.discountedPrice = discountedPrice;
       return this;
     }
 
-    
+    /**
+     * The shipping price after applying discounts. If the parent order.taxesIncluded
+     * field is true, then this price includes taxes. If not, it's the pre-tax price.
+     * As of API version 2024-07, this will be calculated including cart level discounts, such as the free shipping discount.
+     */
     public Builder discountedPriceSet(MoneyBag discountedPriceSet) {
       this.discountedPriceSet = discountedPriceSet;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * Whether the shipping line has been removed.
+     */
     public Builder isRemoved(boolean isRemoved) {
       this.isRemoved = isRemoved;
       return this;
     }
 
-    
+    /**
+     * The pre-tax shipping price without any discounts applied.
+     */
     public Builder originalPrice(MoneyV2 originalPrice) {
       this.originalPrice = originalPrice;
       return this;
     }
 
-    
+    /**
+     * The pre-tax shipping price without any discounts applied.
+     */
     public Builder originalPriceSet(MoneyBag originalPriceSet) {
       this.originalPriceSet = originalPriceSet;
       return this;
     }
 
-    
+    /**
+     * The phone number at the shipping address.
+     */
     public Builder phone(String phone) {
       this.phone = phone;
       return this;
     }
 
-    
+    /**
+     * Returns the price of the shipping line.
+     */
     public Builder price(String price) {
       this.price = price;
       return this;
     }
 
-    
+    /**
+     * The fulfillment service requested for the shipping method.
+     * Present if the shipping method requires processing by a third party fulfillment service.
+     */
     public Builder requestedFulfillmentService(FulfillmentService requestedFulfillmentService) {
       this.requestedFulfillmentService = requestedFulfillmentService;
       return this;
     }
 
-    
+    /**
+     * A unique identifier for the shipping rate. The format can change without notice and isn't meant to be shown to users.
+     */
     public Builder shippingRateHandle(String shippingRateHandle) {
       this.shippingRateHandle = shippingRateHandle;
       return this;
     }
 
-    
+    /**
+     * Returns the rate source for the shipping line.
+     */
     public Builder source(String source) {
       this.source = source;
       return this;
     }
 
-    
+    /**
+     * The TaxLine objects connected to this shipping line.
+     */
     public Builder taxLines(List<TaxLine> taxLines) {
       this.taxLines = taxLines;
       return this;
     }
 
-    
+    /**
+     * Returns the title of the shipping line.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;

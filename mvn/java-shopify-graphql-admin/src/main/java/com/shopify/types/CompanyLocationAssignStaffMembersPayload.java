@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `companyLocationAssignStaffMembers` mutation.
+ */
 public class CompanyLocationAssignStaffMembersPayload {
-  
+  /**
+   * The list of created staff member assignments.
+   */
   private List<CompanyLocationStaffMemberAssignment> companyLocationStaffMemberAssignments;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<BusinessCustomerUserError> userErrors;
 
   public CompanyLocationAssignStaffMembersPayload() {
   }
 
-  
+  /**
+   * The list of created staff member assignments.
+   */
   public List<CompanyLocationStaffMemberAssignment> getCompanyLocationStaffMemberAssignments() {
     return companyLocationStaffMemberAssignments;
   }
@@ -27,7 +35,9 @@ public class CompanyLocationAssignStaffMembersPayload {
     this.companyLocationStaffMemberAssignments = companyLocationStaffMemberAssignments;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<BusinessCustomerUserError> getUserErrors() {
     return userErrors;
   }
@@ -60,10 +70,14 @@ public class CompanyLocationAssignStaffMembersPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The list of created staff member assignments.
+     */
     private List<CompanyLocationStaffMemberAssignment> companyLocationStaffMemberAssignments;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<BusinessCustomerUserError> userErrors;
 
     public CompanyLocationAssignStaffMembersPayload build() {
@@ -73,14 +87,18 @@ public class CompanyLocationAssignStaffMembersPayload {
       return result;
     }
 
-    
+    /**
+     * The list of created staff member assignments.
+     */
     public Builder companyLocationStaffMemberAssignments(
         List<CompanyLocationStaffMemberAssignment> companyLocationStaffMemberAssignments) {
       this.companyLocationStaffMemberAssignments = companyLocationStaffMemberAssignments;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<BusinessCustomerUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

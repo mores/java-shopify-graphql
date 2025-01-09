@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `eventBridgeWebhookSubscriptionCreate` mutation.
+ */
 public class EventBridgeWebhookSubscriptionCreatePayload {
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
-  
+  /**
+   * The webhook subscription that was created.
+   */
   private WebhookSubscription webhookSubscription;
 
   public EventBridgeWebhookSubscriptionCreatePayload() {
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -26,7 +34,9 @@ public class EventBridgeWebhookSubscriptionCreatePayload {
     this.userErrors = userErrors;
   }
 
-  
+  /**
+   * The webhook subscription that was created.
+   */
   public WebhookSubscription getWebhookSubscription() {
     return webhookSubscription;
   }
@@ -59,10 +69,14 @@ public class EventBridgeWebhookSubscriptionCreatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
-    
+    /**
+     * The webhook subscription that was created.
+     */
     private WebhookSubscription webhookSubscription;
 
     public EventBridgeWebhookSubscriptionCreatePayload build() {
@@ -72,13 +86,17 @@ public class EventBridgeWebhookSubscriptionCreatePayload {
       return result;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;
     }
 
-    
+    /**
+     * The webhook subscription that was created.
+     */
     public Builder webhookSubscription(WebhookSubscription webhookSubscription) {
       this.webhookSubscription = webhookSubscription;
       return this;

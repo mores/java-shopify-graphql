@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * An auto-generated type which holds one AppUsageRecord and a cursor during pagination.
+ */
 public class AppUsageRecordEdge {
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   private String cursor;
 
-  
+  /**
+   * The item at the end of AppUsageRecordEdge.
+   */
   private AppUsageRecord node;
 
   public AppUsageRecordEdge() {
   }
 
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   public String getCursor() {
     return cursor;
   }
@@ -25,7 +33,9 @@ public class AppUsageRecordEdge {
     this.cursor = cursor;
   }
 
-  
+  /**
+   * The item at the end of AppUsageRecordEdge.
+   */
   public AppUsageRecord getNode() {
     return node;
   }
@@ -58,10 +68,14 @@ public class AppUsageRecordEdge {
   }
 
   public static class Builder {
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     private String cursor;
 
-    
+    /**
+     * The item at the end of AppUsageRecordEdge.
+     */
     private AppUsageRecord node;
 
     public AppUsageRecordEdge build() {
@@ -71,13 +85,17 @@ public class AppUsageRecordEdge {
       return result;
     }
 
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder cursor(String cursor) {
       this.cursor = cursor;
       return this;
     }
 
-    
+    /**
+     * The item at the end of AppUsageRecordEdge.
+     */
     public Builder node(AppUsageRecord node) {
       this.node = node;
       return this;

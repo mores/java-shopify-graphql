@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields used to include the quantity of the fulfillment order line item that should be fulfilled.
+ */
 public class FulfillmentOrderLineItemInput {
-  
+  /**
+   * The ID of the fulfillment order line item.
+   */
   private String id;
 
-  
+  /**
+   * The quantity of the fulfillment order line item.
+   */
   private int quantity;
 
   public FulfillmentOrderLineItemInput() {
   }
 
-  
+  /**
+   * The ID of the fulfillment order line item.
+   */
   public String getId() {
     return id;
   }
@@ -25,7 +33,9 @@ public class FulfillmentOrderLineItemInput {
     this.id = id;
   }
 
-  
+  /**
+   * The quantity of the fulfillment order line item.
+   */
   public int getQuantity() {
     return quantity;
   }
@@ -58,10 +68,14 @@ public class FulfillmentOrderLineItemInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the fulfillment order line item.
+     */
     private String id;
 
-    
+    /**
+     * The quantity of the fulfillment order line item.
+     */
     private int quantity;
 
     public FulfillmentOrderLineItemInput build() {
@@ -71,13 +85,17 @@ public class FulfillmentOrderLineItemInput {
       return result;
     }
 
-    
+    /**
+     * The ID of the fulfillment order line item.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The quantity of the fulfillment order line item.
+     */
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;

@@ -6,18 +6,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields of the Online Store capability.
+ */
 public class MetaobjectCapabilityDefinitionDataOnlineStoreInput {
-  
+  /**
+   * The URL handle for accessing pages of this metaobject type in the Online Store.
+   */
   private String urlHandle;
 
-  
+  /**
+   * Whether to redirect published metaobjects automatically when the URL handle changes.
+   */
   private Boolean createRedirects = false;
 
   public MetaobjectCapabilityDefinitionDataOnlineStoreInput() {
   }
 
-  
+  /**
+   * The URL handle for accessing pages of this metaobject type in the Online Store.
+   */
   public String getUrlHandle() {
     return urlHandle;
   }
@@ -26,7 +34,9 @@ public class MetaobjectCapabilityDefinitionDataOnlineStoreInput {
     this.urlHandle = urlHandle;
   }
 
-  
+  /**
+   * Whether to redirect published metaobjects automatically when the URL handle changes.
+   */
   public Boolean getCreateRedirects() {
     return createRedirects;
   }
@@ -59,10 +69,14 @@ public class MetaobjectCapabilityDefinitionDataOnlineStoreInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The URL handle for accessing pages of this metaobject type in the Online Store.
+     */
     private String urlHandle;
 
-    
+    /**
+     * Whether to redirect published metaobjects automatically when the URL handle changes.
+     */
     private Boolean createRedirects = false;
 
     public MetaobjectCapabilityDefinitionDataOnlineStoreInput build() {
@@ -72,13 +86,17 @@ public class MetaobjectCapabilityDefinitionDataOnlineStoreInput {
       return result;
     }
 
-    
+    /**
+     * The URL handle for accessing pages of this metaobject type in the Online Store.
+     */
     public Builder urlHandle(String urlHandle) {
       this.urlHandle = urlHandle;
       return this;
     }
 
-    
+    /**
+     * Whether to redirect published metaobjects automatically when the URL handle changes.
+     */
     public Builder createRedirects(Boolean createRedirects) {
       this.createRedirects = createRedirects;
       return this;

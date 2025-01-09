@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields required to create a product option value.
+ */
 public class OptionValueCreateInput {
-  
+  /**
+   * Value associated with an option.
+   */
   private String name;
 
-  
+  /**
+   * Metafield value associated with an option.
+   */
   private String linkedMetafieldValue;
 
   public OptionValueCreateInput() {
   }
 
-  
+  /**
+   * Value associated with an option.
+   */
   public String getName() {
     return name;
   }
@@ -25,7 +33,9 @@ public class OptionValueCreateInput {
     this.name = name;
   }
 
-  
+  /**
+   * Metafield value associated with an option.
+   */
   public String getLinkedMetafieldValue() {
     return linkedMetafieldValue;
   }
@@ -58,10 +68,14 @@ public class OptionValueCreateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Value associated with an option.
+     */
     private String name;
 
-    
+    /**
+     * Metafield value associated with an option.
+     */
     private String linkedMetafieldValue;
 
     public OptionValueCreateInput build() {
@@ -71,13 +85,17 @@ public class OptionValueCreateInput {
       return result;
     }
 
-    
+    /**
+     * Value associated with an option.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    
+    /**
+     * Metafield value associated with an option.
+     */
     public Builder linkedMetafieldValue(String linkedMetafieldValue) {
       this.linkedMetafieldValue = linkedMetafieldValue;
       return this;

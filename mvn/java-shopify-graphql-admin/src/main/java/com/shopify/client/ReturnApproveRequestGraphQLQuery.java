@@ -7,7 +7,11 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Approves a customer's return request.
+ * If this mutation is successful, then the `Return.status` field of the
+ * approved return is set to `OPEN`.
+ */
 public class ReturnApproveRequestGraphQLQuery extends GraphQLQuery {
   public ReturnApproveRequestGraphQLQuery(ReturnApproveRequestInput input, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +46,9 @@ public class ReturnApproveRequestGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The input fields to approve a return.
+     */
     public Builder input(ReturnApproveRequestInput input) {
       this.input = input;
       this.fieldsSet.add("input");

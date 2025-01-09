@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * An auto-generated type which holds one MetafieldRelation and a cursor during pagination.
+ */
 public class MetafieldRelationEdge {
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   private String cursor;
 
-  
+  /**
+   * The item at the end of MetafieldRelationEdge.
+   */
   private MetafieldRelation node;
 
   public MetafieldRelationEdge() {
   }
 
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   public String getCursor() {
     return cursor;
   }
@@ -25,7 +33,9 @@ public class MetafieldRelationEdge {
     this.cursor = cursor;
   }
 
-  
+  /**
+   * The item at the end of MetafieldRelationEdge.
+   */
   public MetafieldRelation getNode() {
     return node;
   }
@@ -58,10 +68,14 @@ public class MetafieldRelationEdge {
   }
 
   public static class Builder {
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     private String cursor;
 
-    
+    /**
+     * The item at the end of MetafieldRelationEdge.
+     */
     private MetafieldRelation node;
 
     public MetafieldRelationEdge build() {
@@ -71,13 +85,17 @@ public class MetafieldRelationEdge {
       return result;
     }
 
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder cursor(String cursor) {
       this.cursor = cursor;
       return this;
     }
 
-    
+    /**
+     * The item at the end of MetafieldRelationEdge.
+     */
     public Builder node(MetafieldRelation node) {
       this.node = node;
       return this;

@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields for merging fulfillment orders into a single merged fulfillment order.
+ */
 public class FulfillmentOrderMergeInputMergeIntent {
-  
+  /**
+   * The fulfillment order line items to be merged.
+   */
   private List<FulfillmentOrderLineItemInput> fulfillmentOrderLineItems;
 
-  
+  /**
+   * The ID of the fulfillment order to be merged.
+   */
   private String fulfillmentOrderId;
 
   public FulfillmentOrderMergeInputMergeIntent() {
   }
 
-  
+  /**
+   * The fulfillment order line items to be merged.
+   */
   public List<FulfillmentOrderLineItemInput> getFulfillmentOrderLineItems() {
     return fulfillmentOrderLineItems;
   }
@@ -27,7 +35,9 @@ public class FulfillmentOrderMergeInputMergeIntent {
     this.fulfillmentOrderLineItems = fulfillmentOrderLineItems;
   }
 
-  
+  /**
+   * The ID of the fulfillment order to be merged.
+   */
   public String getFulfillmentOrderId() {
     return fulfillmentOrderId;
   }
@@ -60,10 +70,14 @@ public class FulfillmentOrderMergeInputMergeIntent {
   }
 
   public static class Builder {
-    
+    /**
+     * The fulfillment order line items to be merged.
+     */
     private List<FulfillmentOrderLineItemInput> fulfillmentOrderLineItems;
 
-    
+    /**
+     * The ID of the fulfillment order to be merged.
+     */
     private String fulfillmentOrderId;
 
     public FulfillmentOrderMergeInputMergeIntent build() {
@@ -73,14 +87,18 @@ public class FulfillmentOrderMergeInputMergeIntent {
       return result;
     }
 
-    
+    /**
+     * The fulfillment order line items to be merged.
+     */
     public Builder fulfillmentOrderLineItems(
         List<FulfillmentOrderLineItemInput> fulfillmentOrderLineItems) {
       this.fulfillmentOrderLineItems = fulfillmentOrderLineItems;
       return this;
     }
 
-    
+    /**
+     * The ID of the fulfillment order to be merged.
+     */
     public Builder fulfillmentOrderId(String fulfillmentOrderId) {
       this.fulfillmentOrderId = fulfillmentOrderId;
       return this;

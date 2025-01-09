@@ -7,24 +7,34 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Error codes for failed bulk product variants reorder operation.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ProductVariantsBulkReorderUserError implements com.shopify.types.DisplayableError {
-  
+  /**
+   * The error code.
+   */
   private ProductVariantsBulkReorderUserErrorCode code;
 
-  
+  /**
+   * The path to the input field that caused the error.
+   */
   private List<String> field;
 
-  
+  /**
+   * The error message.
+   */
   private String message;
 
   public ProductVariantsBulkReorderUserError() {
   }
 
-  
+  /**
+   * The error code.
+   */
   public ProductVariantsBulkReorderUserErrorCode getCode() {
     return code;
   }
@@ -33,7 +43,9 @@ public class ProductVariantsBulkReorderUserError implements com.shopify.types.Di
     this.code = code;
   }
 
-  
+  /**
+   * The path to the input field that caused the error.
+   */
   public List<String> getField() {
     return field;
   }
@@ -42,7 +54,9 @@ public class ProductVariantsBulkReorderUserError implements com.shopify.types.Di
     this.field = field;
   }
 
-  
+  /**
+   * The error message.
+   */
   public String getMessage() {
     return message;
   }
@@ -76,13 +90,19 @@ public class ProductVariantsBulkReorderUserError implements com.shopify.types.Di
   }
 
   public static class Builder {
-    
+    /**
+     * The error code.
+     */
     private ProductVariantsBulkReorderUserErrorCode code;
 
-    
+    /**
+     * The path to the input field that caused the error.
+     */
     private List<String> field;
 
-    
+    /**
+     * The error message.
+     */
     private String message;
 
     public ProductVariantsBulkReorderUserError build() {
@@ -93,19 +113,25 @@ public class ProductVariantsBulkReorderUserError implements com.shopify.types.Di
       return result;
     }
 
-    
+    /**
+     * The error code.
+     */
     public Builder code(ProductVariantsBulkReorderUserErrorCode code) {
       this.code = code;
       return this;
     }
 
-    
+    /**
+     * The path to the input field that caused the error.
+     */
     public Builder field(List<String> field) {
       this.field = field;
       return this;
     }
 
-    
+    /**
+     * The error message.
+     */
     public Builder message(String message) {
       this.message = message;
       return this;

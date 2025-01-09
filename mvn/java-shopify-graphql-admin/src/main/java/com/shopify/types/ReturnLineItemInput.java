@@ -5,27 +5,43 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for a return line item.
+ */
 public class ReturnLineItemInput {
-  
+  /**
+   * The quantity of the item to be returned.
+   */
   private int quantity;
 
-  
+  /**
+   * The reason for the item to be returned.
+   */
   private ReturnReason returnReason;
 
-  
+  /**
+   * A note about the reason that the item is being returned.
+   * Maximum length: 255 characters.
+   */
   private String returnReasonNote = "";
 
-  
+  /**
+   * The ID of the fulfillment line item to be returned.
+   * Specifically, this field expects a `FulfillmentLineItem.id`.
+   */
   private String fulfillmentLineItemId;
 
-  
+  /**
+   * The restocking fee to capture.
+   */
   private RestockingFeeInput restockingFee;
 
   public ReturnLineItemInput() {
   }
 
-  
+  /**
+   * The quantity of the item to be returned.
+   */
   public int getQuantity() {
     return quantity;
   }
@@ -34,7 +50,9 @@ public class ReturnLineItemInput {
     this.quantity = quantity;
   }
 
-  
+  /**
+   * The reason for the item to be returned.
+   */
   public ReturnReason getReturnReason() {
     return returnReason;
   }
@@ -43,7 +61,10 @@ public class ReturnLineItemInput {
     this.returnReason = returnReason;
   }
 
-  
+  /**
+   * A note about the reason that the item is being returned.
+   * Maximum length: 255 characters.
+   */
   public String getReturnReasonNote() {
     return returnReasonNote;
   }
@@ -52,7 +73,10 @@ public class ReturnLineItemInput {
     this.returnReasonNote = returnReasonNote;
   }
 
-  
+  /**
+   * The ID of the fulfillment line item to be returned.
+   * Specifically, this field expects a `FulfillmentLineItem.id`.
+   */
   public String getFulfillmentLineItemId() {
     return fulfillmentLineItemId;
   }
@@ -61,7 +85,9 @@ public class ReturnLineItemInput {
     this.fulfillmentLineItemId = fulfillmentLineItemId;
   }
 
-  
+  /**
+   * The restocking fee to capture.
+   */
   public RestockingFeeInput getRestockingFee() {
     return restockingFee;
   }
@@ -97,19 +123,31 @@ public class ReturnLineItemInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The quantity of the item to be returned.
+     */
     private int quantity;
 
-    
+    /**
+     * The reason for the item to be returned.
+     */
     private ReturnReason returnReason;
 
-    
+    /**
+     * A note about the reason that the item is being returned.
+     * Maximum length: 255 characters.
+     */
     private String returnReasonNote = "";
 
-    
+    /**
+     * The ID of the fulfillment line item to be returned.
+     * Specifically, this field expects a `FulfillmentLineItem.id`.
+     */
     private String fulfillmentLineItemId;
 
-    
+    /**
+     * The restocking fee to capture.
+     */
     private RestockingFeeInput restockingFee;
 
     public ReturnLineItemInput build() {
@@ -122,31 +160,43 @@ public class ReturnLineItemInput {
       return result;
     }
 
-    
+    /**
+     * The quantity of the item to be returned.
+     */
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    
+    /**
+     * The reason for the item to be returned.
+     */
     public Builder returnReason(ReturnReason returnReason) {
       this.returnReason = returnReason;
       return this;
     }
 
-    
+    /**
+     * A note about the reason that the item is being returned.
+     * Maximum length: 255 characters.
+     */
     public Builder returnReasonNote(String returnReasonNote) {
       this.returnReasonNote = returnReasonNote;
       return this;
     }
 
-    
+    /**
+     * The ID of the fulfillment line item to be returned.
+     * Specifically, this field expects a `FulfillmentLineItem.id`.
+     */
     public Builder fulfillmentLineItemId(String fulfillmentLineItemId) {
       this.fulfillmentLineItemId = fulfillmentLineItemId;
       return this;
     }
 
-    
+    /**
+     * The restocking fee to capture.
+     */
     public Builder restockingFee(RestockingFeeInput restockingFee) {
       this.restockingFee = restockingFee;
       return this;

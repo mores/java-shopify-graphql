@@ -6,18 +6,25 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A purchase amount in the context of a discount. This object can be used to
+ * define the minimum purchase amount required for a discount to be applicable.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DiscountPurchaseAmount implements DiscountCustomerBuysValue {
-  
+  /**
+   * The purchase amount in decimal format.
+   */
   private String amount;
 
   public DiscountPurchaseAmount() {
   }
 
-  
+  /**
+   * The purchase amount in decimal format.
+   */
   public String getAmount() {
     return amount;
   }
@@ -49,7 +56,9 @@ public class DiscountPurchaseAmount implements DiscountCustomerBuysValue {
   }
 
   public static class Builder {
-    
+    /**
+     * The purchase amount in decimal format.
+     */
     private String amount;
 
     public DiscountPurchaseAmount build() {
@@ -58,7 +67,9 @@ public class DiscountPurchaseAmount implements DiscountCustomerBuysValue {
       return result;
     }
 
-    
+    /**
+     * The purchase amount in decimal format.
+     */
     public Builder amount(String amount) {
       this.amount = amount;
       return this;

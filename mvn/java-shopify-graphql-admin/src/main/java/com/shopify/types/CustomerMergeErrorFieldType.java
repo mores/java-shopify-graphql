@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * The types of the hard blockers preventing a customer from being merged to another customer.
+ */
 public enum CustomerMergeErrorFieldType {
   DELETED_AT,
 

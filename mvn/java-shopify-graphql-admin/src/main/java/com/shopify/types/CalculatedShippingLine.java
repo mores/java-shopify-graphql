@@ -5,24 +5,38 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A shipping line item involved in order editing that may be newly added or have new changes applied.
+ */
 public class CalculatedShippingLine {
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The price of the shipping line when sold and before applying discounts. This
+   * field includes taxes if `Order.taxesIncluded` is true. Otherwise, this field
+   * doesn't include taxes for the shipping line.
+   */
   private MoneyBag price;
 
-  
+  /**
+   * The staged status of the shipping line.
+   */
   private CalculatedShippingLineStagedStatus stagedStatus;
 
-  
+  /**
+   * The title of the shipping line.
+   */
   private String title;
 
   public CalculatedShippingLine() {
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -31,7 +45,11 @@ public class CalculatedShippingLine {
     this.id = id;
   }
 
-  
+  /**
+   * The price of the shipping line when sold and before applying discounts. This
+   * field includes taxes if `Order.taxesIncluded` is true. Otherwise, this field
+   * doesn't include taxes for the shipping line.
+   */
   public MoneyBag getPrice() {
     return price;
   }
@@ -40,7 +58,9 @@ public class CalculatedShippingLine {
     this.price = price;
   }
 
-  
+  /**
+   * The staged status of the shipping line.
+   */
   public CalculatedShippingLineStagedStatus getStagedStatus() {
     return stagedStatus;
   }
@@ -49,7 +69,9 @@ public class CalculatedShippingLine {
     this.stagedStatus = stagedStatus;
   }
 
-  
+  /**
+   * The title of the shipping line.
+   */
   public String getTitle() {
     return title;
   }
@@ -84,16 +106,26 @@ public class CalculatedShippingLine {
   }
 
   public static class Builder {
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The price of the shipping line when sold and before applying discounts. This
+     * field includes taxes if `Order.taxesIncluded` is true. Otherwise, this field
+     * doesn't include taxes for the shipping line.
+     */
     private MoneyBag price;
 
-    
+    /**
+     * The staged status of the shipping line.
+     */
     private CalculatedShippingLineStagedStatus stagedStatus;
 
-    
+    /**
+     * The title of the shipping line.
+     */
     private String title;
 
     public CalculatedShippingLine build() {
@@ -105,25 +137,35 @@ public class CalculatedShippingLine {
       return result;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The price of the shipping line when sold and before applying discounts. This
+     * field includes taxes if `Order.taxesIncluded` is true. Otherwise, this field
+     * doesn't include taxes for the shipping line.
+     */
     public Builder price(MoneyBag price) {
       this.price = price;
       return this;
     }
 
-    
+    /**
+     * The staged status of the shipping line.
+     */
     public Builder stagedStatus(CalculatedShippingLineStagedStatus stagedStatus) {
       this.stagedStatus = stagedStatus;
       return this;
     }
 
-    
+    /**
+     * The title of the shipping line.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;

@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Possible error codes that can be returned by `StandardMetafieldDefinitionEnableUserError`.
+ */
 public enum StandardMetafieldDefinitionEnableUserErrorCode {
   INVALID,
 
@@ -13,6 +15,12 @@ public enum StandardMetafieldDefinitionEnableUserErrorCode {
   UNSTRUCTURED_ALREADY_EXISTS,
 
   TYPE_NOT_ALLOWED_FOR_CONDITIONS,
+
+  INVALID_CAPABILITY,
+
+  UNSUPPORTED_PINNING,
+
+  ADMIN_ACCESS_INPUT_NOT_ALLOWED,
 
   INVALID_INPUT_COMBINATION
 }

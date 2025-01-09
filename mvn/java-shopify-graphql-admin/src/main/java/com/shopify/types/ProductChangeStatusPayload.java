@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `productChangeStatus` mutation.
+ */
 public class ProductChangeStatusPayload {
-  
+  /**
+   * The product object.
+   */
   private Product product;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<ProductChangeStatusUserError> userErrors;
 
   public ProductChangeStatusPayload() {
   }
 
-  
+  /**
+   * The product object.
+   */
   public Product getProduct() {
     return product;
   }
@@ -26,7 +34,9 @@ public class ProductChangeStatusPayload {
     this.product = product;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<ProductChangeStatusUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class ProductChangeStatusPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The product object.
+     */
     private Product product;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<ProductChangeStatusUserError> userErrors;
 
     public ProductChangeStatusPayload build() {
@@ -72,13 +86,17 @@ public class ProductChangeStatusPayload {
       return result;
     }
 
-    
+    /**
+     * The product object.
+     */
     public Builder product(Product product) {
       this.product = product;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<ProductChangeStatusUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `customerPaymentMethodRevoke` mutation.
+ */
 public class CustomerPaymentMethodRevokePayload {
-  
+  /**
+   * The ID of the revoked customer payment method.
+   */
   private String revokedCustomerPaymentMethodId;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public CustomerPaymentMethodRevokePayload() {
   }
 
-  
+  /**
+   * The ID of the revoked customer payment method.
+   */
   public String getRevokedCustomerPaymentMethodId() {
     return revokedCustomerPaymentMethodId;
   }
@@ -26,7 +34,9 @@ public class CustomerPaymentMethodRevokePayload {
     this.revokedCustomerPaymentMethodId = revokedCustomerPaymentMethodId;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class CustomerPaymentMethodRevokePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the revoked customer payment method.
+     */
     private String revokedCustomerPaymentMethodId;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public CustomerPaymentMethodRevokePayload build() {
@@ -72,13 +86,17 @@ public class CustomerPaymentMethodRevokePayload {
       return result;
     }
 
-    
+    /**
+     * The ID of the revoked customer payment method.
+     */
     public Builder revokedCustomerPaymentMethodId(String revokedCustomerPaymentMethodId) {
       this.revokedCustomerPaymentMethodId = revokedCustomerPaymentMethodId;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

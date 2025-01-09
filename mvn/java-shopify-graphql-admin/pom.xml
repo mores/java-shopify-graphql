@@ -6,12 +6,12 @@
         <parent>
                 <groupId>io.github.mores</groupId>
                 <artifactId>java-shopify-graphql</artifactId>
-                <version>2024.10.001</version>
+                <version>2025.01.001</version>
         </parent>
 
         <modelVersion>4.0.0</modelVersion>
         <artifactId>java-shopify-graphql-admin</artifactId>
-        <version>2024.10.001</version>
+        <version>2025.01.001</version>
         <packaging>jar</packaging>
 
 	<name>java-shopify-graphql-admin</name>
@@ -57,7 +57,7 @@
 		<dependency>
                         <groupId>com.netflix.graphql.dgs</groupId>
                         <artifactId>graphql-dgs-client</artifactId>
-                        <version>9.2.2</version>
+                        <version>10.0.1</version>
 			<scope>test</scope>
                 </dependency>
 
@@ -78,6 +78,27 @@
 
 	<build>
 		<plugins>
+			<plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-enforcer-plugin</artifactId>
+                                <version>3.5.0</version>
+                                <executions>
+                                        <execution>
+                                                <id>enforce-maven</id>
+                                                <goals>
+                                                        <goal>enforce</goal>
+                                                </goals>
+                                                <configuration>
+                                                        <rules>
+                                                                <requireMavenVersion>
+                                                                        <version>3.6.3</version>
+                                                                </requireMavenVersion>
+                                                        </rules>
+                                                </configuration>
+                                        </execution>
+                                </executions>
+                        </plugin>
+
 			<plugin>
 				<groupId>net.revelc.code.formatter</groupId>
 				<artifactId>formatter-maven-plugin</artifactId>

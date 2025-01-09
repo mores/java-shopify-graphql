@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * An auto-generated type which holds one Product and a cursor during pagination.
+ */
 public class ProductEdge {
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   private String cursor;
 
-  
+  /**
+   * The item at the end of ProductEdge.
+   */
   private Product node;
 
   public ProductEdge() {
   }
 
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   public String getCursor() {
     return cursor;
   }
@@ -25,7 +33,9 @@ public class ProductEdge {
     this.cursor = cursor;
   }
 
-  
+  /**
+   * The item at the end of ProductEdge.
+   */
   public Product getNode() {
     return node;
   }
@@ -58,10 +68,14 @@ public class ProductEdge {
   }
 
   public static class Builder {
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     private String cursor;
 
-    
+    /**
+     * The item at the end of ProductEdge.
+     */
     private Product node;
 
     public ProductEdge build() {
@@ -71,13 +85,17 @@ public class ProductEdge {
       return result;
     }
 
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder cursor(String cursor) {
       this.cursor = cursor;
       return this;
     }
 
-    
+    /**
+     * The item at the end of ProductEdge.
+     */
     public Builder node(Product node) {
       this.node = node;
       return this;

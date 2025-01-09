@@ -5,21 +5,36 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for specifying the shipping details for the draft order.
+ *
+ * > Note:
+ * > A custom shipping line includes a title and price with `shippingRateHandle`
+ * set to `nil`. A shipping line with a carrier-provided shipping rate (currently
+ * set via the Shopify admin) includes the shipping rate handle.
+ */
 public class ShippingLineInput {
-  
+  /**
+   * Price of the shipping rate with currency. If provided, `price` will be ignored.
+   */
   private MoneyInput priceWithCurrency;
 
-  
+  /**
+   * A unique identifier for the shipping rate.
+   */
   private String shippingRateHandle;
 
-  
+  /**
+   * Title of the shipping rate.
+   */
   private String title;
 
   public ShippingLineInput() {
   }
 
-  
+  /**
+   * Price of the shipping rate with currency. If provided, `price` will be ignored.
+   */
   public MoneyInput getPriceWithCurrency() {
     return priceWithCurrency;
   }
@@ -28,7 +43,9 @@ public class ShippingLineInput {
     this.priceWithCurrency = priceWithCurrency;
   }
 
-  
+  /**
+   * A unique identifier for the shipping rate.
+   */
   public String getShippingRateHandle() {
     return shippingRateHandle;
   }
@@ -37,7 +54,9 @@ public class ShippingLineInput {
     this.shippingRateHandle = shippingRateHandle;
   }
 
-  
+  /**
+   * Title of the shipping rate.
+   */
   public String getTitle() {
     return title;
   }
@@ -71,13 +90,19 @@ public class ShippingLineInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Price of the shipping rate with currency. If provided, `price` will be ignored.
+     */
     private MoneyInput priceWithCurrency;
 
-    
+    /**
+     * A unique identifier for the shipping rate.
+     */
     private String shippingRateHandle;
 
-    
+    /**
+     * Title of the shipping rate.
+     */
     private String title;
 
     public ShippingLineInput build() {
@@ -88,19 +113,25 @@ public class ShippingLineInput {
       return result;
     }
 
-    
+    /**
+     * Price of the shipping rate with currency. If provided, `price` will be ignored.
+     */
     public Builder priceWithCurrency(MoneyInput priceWithCurrency) {
       this.priceWithCurrency = priceWithCurrency;
       return this;
     }
 
-    
+    /**
+     * A unique identifier for the shipping rate.
+     */
     public Builder shippingRateHandle(String shippingRateHandle) {
       this.shippingRateHandle = shippingRateHandle;
       return this;
     }
 
-    
+    /**
+     * Title of the shipping rate.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;

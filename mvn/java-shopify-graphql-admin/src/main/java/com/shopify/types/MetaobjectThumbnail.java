@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Provides attributes for visual representation.
+ */
 public class MetaobjectThumbnail {
-  
+  /**
+   * The file to be used for visual representation of this metaobject.
+   */
   private File file;
 
-  
+  /**
+   * The hexadecimal color code to be used for respresenting this metaobject.
+   */
   private String hex;
 
   public MetaobjectThumbnail() {
   }
 
-  
+  /**
+   * The file to be used for visual representation of this metaobject.
+   */
   public File getFile() {
     return file;
   }
@@ -25,7 +33,9 @@ public class MetaobjectThumbnail {
     this.file = file;
   }
 
-  
+  /**
+   * The hexadecimal color code to be used for respresenting this metaobject.
+   */
   public String getHex() {
     return hex;
   }
@@ -58,10 +68,14 @@ public class MetaobjectThumbnail {
   }
 
   public static class Builder {
-    
+    /**
+     * The file to be used for visual representation of this metaobject.
+     */
     private File file;
 
-    
+    /**
+     * The hexadecimal color code to be used for respresenting this metaobject.
+     */
     private String hex;
 
     public MetaobjectThumbnail build() {
@@ -71,13 +85,17 @@ public class MetaobjectThumbnail {
       return result;
     }
 
-    
+    /**
+     * The file to be used for visual representation of this metaobject.
+     */
     public Builder file(File file) {
       this.file = file;
       return this;
     }
 
-    
+    /**
+     * The hexadecimal color code to be used for respresenting this metaobject.
+     */
     public Builder hex(String hex) {
       this.hex = hex;
       return this;

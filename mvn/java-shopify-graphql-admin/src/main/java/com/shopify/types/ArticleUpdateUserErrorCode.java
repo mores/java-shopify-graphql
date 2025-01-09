@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Possible error codes that can be returned by `ArticleUpdateUserError`.
+ */
 public enum ArticleUpdateUserErrorCode {
   AMBIGUOUS_AUTHOR,
 

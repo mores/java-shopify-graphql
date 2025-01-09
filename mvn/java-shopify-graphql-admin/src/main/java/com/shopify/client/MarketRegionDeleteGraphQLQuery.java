@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Deletes a market region.
+ */
 public class MarketRegionDeleteGraphQLQuery extends GraphQLQuery {
   public MarketRegionDeleteGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -40,7 +42,9 @@ public class MarketRegionDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the market region to delete.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

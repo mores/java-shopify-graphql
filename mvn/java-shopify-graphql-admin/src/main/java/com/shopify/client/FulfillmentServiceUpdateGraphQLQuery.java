@@ -7,7 +7,16 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Updates a fulfillment service.
+ *   
+ * If you are using API version `2023-10` or later,
+ * and you need to update the location managed by the fulfillment service
+ * (for example, to change the address of a fulfillment service),
+ * use the
+ * [LocationEdit](https://shopify.dev/api/admin-graphql/latest/mutations/locationEdit)
+ * mutation.
+ */
 public class FulfillmentServiceUpdateGraphQLQuery extends GraphQLQuery {
   public FulfillmentServiceUpdateGraphQLQuery(String id, String name, String callbackUrl,
       Boolean trackingSupport, Boolean inventoryManagement, String queryName,
@@ -59,35 +68,52 @@ public class FulfillmentServiceUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The id of the fulfillment service.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    
+    /**
+     * The name of the fulfillment service.
+     */
     public Builder name(String name) {
       this.name = name;
       this.fieldsSet.add("name");
       return this;
     }
 
-    
+    /**
+     * The URL to send requests for the fulfillment service. The following considerations apply:
+     *     
+     * - Shopify queries the <code>callback_url/fetch_tracking_numbers</code> endpoint to retrieve tracking numbers
+     *     for orders, if `trackingSupport` is set to `true`.
+     * - Shopify queries the <code>callback_url/fetch_stock</code> endpoint to retrieve inventory levels,
+     *     if `inventoryManagement` is set to `true`.
+     * - Shopify uses the <code>callback_url/fulfillment_order_notification</code> endpoint to send
+     *     [fulfillment and cancellation requests](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments#step-2-receive-fulfillment-requests-and-cancellations).
+     */
     public Builder callbackUrl(String callbackUrl) {
       this.callbackUrl = callbackUrl;
       this.fieldsSet.add("callbackUrl");
       return this;
     }
 
-    
+    /**
+     * Whether the fulfillment service provides tracking numbers for packages.
+     */
     public Builder trackingSupport(Boolean trackingSupport) {
       this.trackingSupport = trackingSupport;
       this.fieldsSet.add("trackingSupport");
       return this;
     }
 
-    
+    /**
+     * Whether the fulfillment service tracks product inventory and provides updates to Shopify.
+     */
     public Builder inventoryManagement(Boolean inventoryManagement) {
       this.inventoryManagement = inventoryManagement;
       this.fieldsSet.add("inventoryManagement");

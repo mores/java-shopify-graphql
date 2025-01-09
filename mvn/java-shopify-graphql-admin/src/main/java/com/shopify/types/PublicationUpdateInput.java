@@ -8,21 +8,31 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields for updating a publication.
+ */
 public class PublicationUpdateInput {
-  
+  /**
+   * A list of publishable IDs to add. The maximum number of publishables to update simultaneously is 50.
+   */
   private List<String> publishablesToAdd = Collections.emptyList();
 
-  
+  /**
+   * A list of publishable IDs to remove. The maximum number of publishables to update simultaneously is 50.
+   */
   private List<String> publishablesToRemove = Collections.emptyList();
 
-  
+  /**
+   * Whether new products should be automatically published to the publication.
+   */
   private Boolean autoPublish;
 
   public PublicationUpdateInput() {
   }
 
-  
+  /**
+   * A list of publishable IDs to add. The maximum number of publishables to update simultaneously is 50.
+   */
   public List<String> getPublishablesToAdd() {
     return publishablesToAdd;
   }
@@ -31,7 +41,9 @@ public class PublicationUpdateInput {
     this.publishablesToAdd = publishablesToAdd;
   }
 
-  
+  /**
+   * A list of publishable IDs to remove. The maximum number of publishables to update simultaneously is 50.
+   */
   public List<String> getPublishablesToRemove() {
     return publishablesToRemove;
   }
@@ -40,7 +52,9 @@ public class PublicationUpdateInput {
     this.publishablesToRemove = publishablesToRemove;
   }
 
-  
+  /**
+   * Whether new products should be automatically published to the publication.
+   */
   public Boolean getAutoPublish() {
     return autoPublish;
   }
@@ -74,13 +88,19 @@ public class PublicationUpdateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * A list of publishable IDs to add. The maximum number of publishables to update simultaneously is 50.
+     */
     private List<String> publishablesToAdd = Collections.emptyList();
 
-    
+    /**
+     * A list of publishable IDs to remove. The maximum number of publishables to update simultaneously is 50.
+     */
     private List<String> publishablesToRemove = Collections.emptyList();
 
-    
+    /**
+     * Whether new products should be automatically published to the publication.
+     */
     private Boolean autoPublish;
 
     public PublicationUpdateInput build() {
@@ -91,19 +111,25 @@ public class PublicationUpdateInput {
       return result;
     }
 
-    
+    /**
+     * A list of publishable IDs to add. The maximum number of publishables to update simultaneously is 50.
+     */
     public Builder publishablesToAdd(List<String> publishablesToAdd) {
       this.publishablesToAdd = publishablesToAdd;
       return this;
     }
 
-    
+    /**
+     * A list of publishable IDs to remove. The maximum number of publishables to update simultaneously is 50.
+     */
     public Builder publishablesToRemove(List<String> publishablesToRemove) {
       this.publishablesToRemove = publishablesToRemove;
       return this;
     }
 
-    
+    /**
+     * Whether new products should be automatically published to the publication.
+     */
     public Builder autoPublish(Boolean autoPublish) {
       this.autoPublish = autoPublish;
       return this;

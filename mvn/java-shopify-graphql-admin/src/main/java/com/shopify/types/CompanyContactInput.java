@@ -5,30 +5,46 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for company contact attributes when creating or updating a company contact.
+ */
 public class CompanyContactInput {
-  
+  /**
+   * The company contact's first name.
+   */
   private String firstName;
 
-  
+  /**
+   * The company contact's last name.
+   */
   private String lastName;
 
-  
+  /**
+   * The unique email address of the company contact.
+   */
   private String email;
 
-  
+  /**
+   * The title of the company contact.
+   */
   private String title;
 
-  
+  /**
+   * The contact's locale.
+   */
   private String locale;
 
-  
+  /**
+   * The phone number of the company contact.
+   */
   private String phone;
 
   public CompanyContactInput() {
   }
 
-  
+  /**
+   * The company contact's first name.
+   */
   public String getFirstName() {
     return firstName;
   }
@@ -37,7 +53,9 @@ public class CompanyContactInput {
     this.firstName = firstName;
   }
 
-  
+  /**
+   * The company contact's last name.
+   */
   public String getLastName() {
     return lastName;
   }
@@ -46,7 +64,9 @@ public class CompanyContactInput {
     this.lastName = lastName;
   }
 
-  
+  /**
+   * The unique email address of the company contact.
+   */
   public String getEmail() {
     return email;
   }
@@ -55,7 +75,9 @@ public class CompanyContactInput {
     this.email = email;
   }
 
-  
+  /**
+   * The title of the company contact.
+   */
   public String getTitle() {
     return title;
   }
@@ -64,7 +86,9 @@ public class CompanyContactInput {
     this.title = title;
   }
 
-  
+  /**
+   * The contact's locale.
+   */
   public String getLocale() {
     return locale;
   }
@@ -73,7 +97,9 @@ public class CompanyContactInput {
     this.locale = locale;
   }
 
-  
+  /**
+   * The phone number of the company contact.
+   */
   public String getPhone() {
     return phone;
   }
@@ -110,22 +136,34 @@ public class CompanyContactInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The company contact's first name.
+     */
     private String firstName;
 
-    
+    /**
+     * The company contact's last name.
+     */
     private String lastName;
 
-    
+    /**
+     * The unique email address of the company contact.
+     */
     private String email;
 
-    
+    /**
+     * The title of the company contact.
+     */
     private String title;
 
-    
+    /**
+     * The contact's locale.
+     */
     private String locale;
 
-    
+    /**
+     * The phone number of the company contact.
+     */
     private String phone;
 
     public CompanyContactInput build() {
@@ -139,37 +177,49 @@ public class CompanyContactInput {
       return result;
     }
 
-    
+    /**
+     * The company contact's first name.
+     */
     public Builder firstName(String firstName) {
       this.firstName = firstName;
       return this;
     }
 
-    
+    /**
+     * The company contact's last name.
+     */
     public Builder lastName(String lastName) {
       this.lastName = lastName;
       return this;
     }
 
-    
+    /**
+     * The unique email address of the company contact.
+     */
     public Builder email(String email) {
       this.email = email;
       return this;
     }
 
-    
+    /**
+     * The title of the company contact.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    
+    /**
+     * The contact's locale.
+     */
     public Builder locale(String locale) {
       this.locale = locale;
       return this;
     }
 
-    
+    /**
+     * The phone number of the company contact.
+     */
     public Builder phone(String phone) {
       this.phone = phone;
       return this;

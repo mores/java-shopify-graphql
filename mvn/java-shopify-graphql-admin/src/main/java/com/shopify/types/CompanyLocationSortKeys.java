@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * The set of valid sort keys for the CompanyLocation query.
+ */
 public enum CompanyLocationSortKeys {
   COMPANY_AND_LOCATION_NAME,
 

@@ -6,21 +6,31 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-
+/**
+ * The input fields for a gift card credit transaction.
+ */
 public class GiftCardCreditInput {
-  
+  /**
+   * The amount to credit the gift card.
+   */
   private MoneyInput creditAmount;
 
-  
+  /**
+   * A note about the credit.
+   */
   private String note;
 
-  
+  /**
+   * The date and time the credit was processed. Defaults to current date and time.
+   */
   private OffsetDateTime processedAt;
 
   public GiftCardCreditInput() {
   }
 
-  
+  /**
+   * The amount to credit the gift card.
+   */
   public MoneyInput getCreditAmount() {
     return creditAmount;
   }
@@ -29,7 +39,9 @@ public class GiftCardCreditInput {
     this.creditAmount = creditAmount;
   }
 
-  
+  /**
+   * A note about the credit.
+   */
   public String getNote() {
     return note;
   }
@@ -38,7 +50,9 @@ public class GiftCardCreditInput {
     this.note = note;
   }
 
-  
+  /**
+   * The date and time the credit was processed. Defaults to current date and time.
+   */
   public OffsetDateTime getProcessedAt() {
     return processedAt;
   }
@@ -72,13 +86,19 @@ public class GiftCardCreditInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The amount to credit the gift card.
+     */
     private MoneyInput creditAmount;
 
-    
+    /**
+     * A note about the credit.
+     */
     private String note;
 
-    
+    /**
+     * The date and time the credit was processed. Defaults to current date and time.
+     */
     private OffsetDateTime processedAt;
 
     public GiftCardCreditInput build() {
@@ -89,19 +109,25 @@ public class GiftCardCreditInput {
       return result;
     }
 
-    
+    /**
+     * The amount to credit the gift card.
+     */
     public Builder creditAmount(MoneyInput creditAmount) {
       this.creditAmount = creditAmount;
       return this;
     }
 
-    
+    /**
+     * A note about the credit.
+     */
     public Builder note(String note) {
       this.note = note;
       return this;
     }
 
-    
+    /**
+     * The date and time the credit was processed. Defaults to current date and time.
+     */
     public Builder processedAt(OffsetDateTime processedAt) {
       this.processedAt = processedAt;
       return this;

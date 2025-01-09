@@ -6,24 +6,36 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `productUpdateMedia` mutation.
+ */
 public class ProductUpdateMediaPayload {
-  
+  /**
+   * The updated media object.
+   */
   private List<Media> media;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<MediaUserError> mediaUserErrors;
 
-  
+  /**
+   * The product on which media was updated.
+   */
   private Product product;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public ProductUpdateMediaPayload() {
   }
 
-  
+  /**
+   * The updated media object.
+   */
   public List<Media> getMedia() {
     return media;
   }
@@ -32,7 +44,9 @@ public class ProductUpdateMediaPayload {
     this.media = media;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<MediaUserError> getMediaUserErrors() {
     return mediaUserErrors;
   }
@@ -41,7 +55,9 @@ public class ProductUpdateMediaPayload {
     this.mediaUserErrors = mediaUserErrors;
   }
 
-  
+  /**
+   * The product on which media was updated.
+   */
   public Product getProduct() {
     return product;
   }
@@ -50,7 +66,9 @@ public class ProductUpdateMediaPayload {
     this.product = product;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -85,16 +103,24 @@ public class ProductUpdateMediaPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The updated media object.
+     */
     private List<Media> media;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<MediaUserError> mediaUserErrors;
 
-    
+    /**
+     * The product on which media was updated.
+     */
     private Product product;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public ProductUpdateMediaPayload build() {
@@ -106,25 +132,33 @@ public class ProductUpdateMediaPayload {
       return result;
     }
 
-    
+    /**
+     * The updated media object.
+     */
     public Builder media(List<Media> media) {
       this.media = media;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder mediaUserErrors(List<MediaUserError> mediaUserErrors) {
       this.mediaUserErrors = mediaUserErrors;
       return this;
     }
 
-    
+    /**
+     * The product on which media was updated.
+     */
     public Builder product(Product product) {
       this.product = product;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

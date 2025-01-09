@@ -7,7 +7,10 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Updates a price list.
+ * If you modify the currency, then any fixed prices set on the price list will be deleted.
+ */
 public class PriceListUpdateGraphQLQuery extends GraphQLQuery {
   public PriceListUpdateGraphQLQuery(String id, PriceListUpdateInput input, String queryName,
       Set<String> fieldsSet) {
@@ -46,14 +49,18 @@ public class PriceListUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the price list to update.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    
+    /**
+     * The input data used to update the price list.
+     */
     public Builder input(PriceListUpdateInput input) {
       this.input = input;
       this.fieldsSet.add("input");

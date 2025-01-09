@@ -6,33 +6,51 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields required to update a valid Menu item.
+ */
 public class MenuItemUpdateInput {
-  
+  /**
+   * The menu item's title.
+   */
   private String title;
 
-  
+  /**
+   * The menu item's type.
+   */
   private MenuItemType type;
 
-  
+  /**
+   * The menu item's association with an existing resource.
+   */
   private String resourceId;
 
-  
+  /**
+   * The menu item's url to be used when the item doesn't point to a resource.
+   */
   private String url;
 
-  
+  /**
+   * The menu item's tags to filter a collection.
+   */
   private List<String> tags;
 
-  
+  /**
+   * A globally-unique ID of the online store navigation menu item.
+   */
   private String id;
 
-  
+  /**
+   * List of the menu items nested under this item sorted by position.
+   */
   private List<MenuItemUpdateInput> items;
 
   public MenuItemUpdateInput() {
   }
 
-  
+  /**
+   * The menu item's title.
+   */
   public String getTitle() {
     return title;
   }
@@ -41,7 +59,9 @@ public class MenuItemUpdateInput {
     this.title = title;
   }
 
-  
+  /**
+   * The menu item's type.
+   */
   public MenuItemType getType() {
     return type;
   }
@@ -50,7 +70,9 @@ public class MenuItemUpdateInput {
     this.type = type;
   }
 
-  
+  /**
+   * The menu item's association with an existing resource.
+   */
   public String getResourceId() {
     return resourceId;
   }
@@ -59,7 +81,9 @@ public class MenuItemUpdateInput {
     this.resourceId = resourceId;
   }
 
-  
+  /**
+   * The menu item's url to be used when the item doesn't point to a resource.
+   */
   public String getUrl() {
     return url;
   }
@@ -68,7 +92,9 @@ public class MenuItemUpdateInput {
     this.url = url;
   }
 
-  
+  /**
+   * The menu item's tags to filter a collection.
+   */
   public List<String> getTags() {
     return tags;
   }
@@ -77,7 +103,9 @@ public class MenuItemUpdateInput {
     this.tags = tags;
   }
 
-  
+  /**
+   * A globally-unique ID of the online store navigation menu item.
+   */
   public String getId() {
     return id;
   }
@@ -86,7 +114,9 @@ public class MenuItemUpdateInput {
     this.id = id;
   }
 
-  
+  /**
+   * List of the menu items nested under this item sorted by position.
+   */
   public List<MenuItemUpdateInput> getItems() {
     return items;
   }
@@ -124,25 +154,39 @@ public class MenuItemUpdateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The menu item's title.
+     */
     private String title;
 
-    
+    /**
+     * The menu item's type.
+     */
     private MenuItemType type;
 
-    
+    /**
+     * The menu item's association with an existing resource.
+     */
     private String resourceId;
 
-    
+    /**
+     * The menu item's url to be used when the item doesn't point to a resource.
+     */
     private String url;
 
-    
+    /**
+     * The menu item's tags to filter a collection.
+     */
     private List<String> tags;
 
-    
+    /**
+     * A globally-unique ID of the online store navigation menu item.
+     */
     private String id;
 
-    
+    /**
+     * List of the menu items nested under this item sorted by position.
+     */
     private List<MenuItemUpdateInput> items;
 
     public MenuItemUpdateInput build() {
@@ -157,43 +201,57 @@ public class MenuItemUpdateInput {
       return result;
     }
 
-    
+    /**
+     * The menu item's title.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    
+    /**
+     * The menu item's type.
+     */
     public Builder type(MenuItemType type) {
       this.type = type;
       return this;
     }
 
-    
+    /**
+     * The menu item's association with an existing resource.
+     */
     public Builder resourceId(String resourceId) {
       this.resourceId = resourceId;
       return this;
     }
 
-    
+    /**
+     * The menu item's url to be used when the item doesn't point to a resource.
+     */
     public Builder url(String url) {
       this.url = url;
       return this;
     }
 
-    
+    /**
+     * The menu item's tags to filter a collection.
+     */
     public Builder tags(List<String> tags) {
       this.tags = tags;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID of the online store navigation menu item.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * List of the menu items nested under this item sorted by position.
+     */
     public Builder items(List<MenuItemUpdateInput> items) {
       this.items = items;
       return this;

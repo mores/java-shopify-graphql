@@ -7,36 +7,47 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * A fulfillment constraint rule.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class FulfillmentConstraintRule implements com.shopify.types.HasMetafields, com.shopify.types.Node {
-  
+  /**
+   * Delivery method types that the function is associated with.
+   */
   private List<DeliveryMethodType> deliveryMethodTypes;
 
-  
+  /**
+   * The ID for the fulfillment constraint function.
+   */
   private ShopifyFunction function;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
+   * including its `namespace` and `key`, that's associated with a Shopify resource
+   * for the purposes of adding and storing additional information.
+   */
   private Metafield metafield;
 
-  
+  /**
+   * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
+   * that a merchant associates with a Shopify resource.
+   */
   private MetafieldConnection metafields;
-
-  
-  private PrivateMetafield privateMetafield;
-
-  
-  private PrivateMetafieldConnection privateMetafields;
 
   public FulfillmentConstraintRule() {
   }
 
-  
+  /**
+   * Delivery method types that the function is associated with.
+   */
   public List<DeliveryMethodType> getDeliveryMethodTypes() {
     return deliveryMethodTypes;
   }
@@ -45,7 +56,9 @@ public class FulfillmentConstraintRule implements com.shopify.types.HasMetafield
     this.deliveryMethodTypes = deliveryMethodTypes;
   }
 
-  
+  /**
+   * The ID for the fulfillment constraint function.
+   */
   public ShopifyFunction getFunction() {
     return function;
   }
@@ -54,7 +67,9 @@ public class FulfillmentConstraintRule implements com.shopify.types.HasMetafield
     this.function = function;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -63,7 +78,11 @@ public class FulfillmentConstraintRule implements com.shopify.types.HasMetafield
     this.id = id;
   }
 
-  
+  /**
+   * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
+   * including its `namespace` and `key`, that's associated with a Shopify resource
+   * for the purposes of adding and storing additional information.
+   */
   public Metafield getMetafield() {
     return metafield;
   }
@@ -72,7 +91,10 @@ public class FulfillmentConstraintRule implements com.shopify.types.HasMetafield
     this.metafield = metafield;
   }
 
-  
+  /**
+   * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
+   * that a merchant associates with a Shopify resource.
+   */
   public MetafieldConnection getMetafields() {
     return metafields;
   }
@@ -81,27 +103,9 @@ public class FulfillmentConstraintRule implements com.shopify.types.HasMetafield
     this.metafields = metafields;
   }
 
-  
-  public PrivateMetafield getPrivateMetafield() {
-    return privateMetafield;
-  }
-
-  public void setPrivateMetafield(PrivateMetafield privateMetafield) {
-    this.privateMetafield = privateMetafield;
-  }
-
-  
-  public PrivateMetafieldConnection getPrivateMetafields() {
-    return privateMetafields;
-  }
-
-  public void setPrivateMetafields(PrivateMetafieldConnection privateMetafields) {
-    this.privateMetafields = privateMetafields;
-  }
-
   @Override
   public String toString() {
-    return "FulfillmentConstraintRule{deliveryMethodTypes='" + deliveryMethodTypes + "', function='" + function + "', id='" + id + "', metafield='" + metafield + "', metafields='" + metafields + "', privateMetafield='" + privateMetafield + "', privateMetafields='" + privateMetafields + "'}";
+    return "FulfillmentConstraintRule{deliveryMethodTypes='" + deliveryMethodTypes + "', function='" + function + "', id='" + id + "', metafield='" + metafield + "', metafields='" + metafields + "'}";
   }
 
   @Override
@@ -113,14 +117,12 @@ public class FulfillmentConstraintRule implements com.shopify.types.HasMetafield
         Objects.equals(function, that.function) &&
         Objects.equals(id, that.id) &&
         Objects.equals(metafield, that.metafield) &&
-        Objects.equals(metafields, that.metafields) &&
-        Objects.equals(privateMetafield, that.privateMetafield) &&
-        Objects.equals(privateMetafields, that.privateMetafields);
+        Objects.equals(metafields, that.metafields);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deliveryMethodTypes, function, id, metafield, metafields, privateMetafield, privateMetafields);
+    return Objects.hash(deliveryMethodTypes, function, id, metafield, metafields);
   }
 
   public static Builder newBuilder() {
@@ -128,26 +130,33 @@ public class FulfillmentConstraintRule implements com.shopify.types.HasMetafield
   }
 
   public static class Builder {
-    
+    /**
+     * Delivery method types that the function is associated with.
+     */
     private List<DeliveryMethodType> deliveryMethodTypes;
 
-    
+    /**
+     * The ID for the fulfillment constraint function.
+     */
     private ShopifyFunction function;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
+     * including its `namespace` and `key`, that's associated with a Shopify resource
+     * for the purposes of adding and storing additional information.
+     */
     private Metafield metafield;
 
-    
+    /**
+     * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
+     * that a merchant associates with a Shopify resource.
+     */
     private MetafieldConnection metafields;
-
-    
-    private PrivateMetafield privateMetafield;
-
-    
-    private PrivateMetafieldConnection privateMetafields;
 
     public FulfillmentConstraintRule build() {
       FulfillmentConstraintRule result = new FulfillmentConstraintRule();
@@ -156,50 +165,49 @@ public class FulfillmentConstraintRule implements com.shopify.types.HasMetafield
       result.id = this.id;
       result.metafield = this.metafield;
       result.metafields = this.metafields;
-      result.privateMetafield = this.privateMetafield;
-      result.privateMetafields = this.privateMetafields;
       return result;
     }
 
-    
+    /**
+     * Delivery method types that the function is associated with.
+     */
     public Builder deliveryMethodTypes(List<DeliveryMethodType> deliveryMethodTypes) {
       this.deliveryMethodTypes = deliveryMethodTypes;
       return this;
     }
 
-    
+    /**
+     * The ID for the fulfillment constraint function.
+     */
     public Builder function(ShopifyFunction function) {
       this.function = function;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
+     * including its `namespace` and `key`, that's associated with a Shopify resource
+     * for the purposes of adding and storing additional information.
+     */
     public Builder metafield(Metafield metafield) {
       this.metafield = metafield;
       return this;
     }
 
-    
+    /**
+     * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
+     * that a merchant associates with a Shopify resource.
+     */
     public Builder metafields(MetafieldConnection metafields) {
       this.metafields = metafields;
-      return this;
-    }
-
-    
-    public Builder privateMetafield(PrivateMetafield privateMetafield) {
-      this.privateMetafield = privateMetafield;
-      return this;
-    }
-
-    
-    public Builder privateMetafields(PrivateMetafieldConnection privateMetafields) {
-      this.privateMetafields = privateMetafields;
       return this;
     }
   }

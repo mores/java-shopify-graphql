@@ -5,21 +5,31 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields required to update a media object.
+ */
 public class UpdateMediaInput {
-  
+  /**
+   * Specifies the media to update.
+   */
   private String id;
 
-  
+  /**
+   * The source from which to update the media preview image. May be an external URL or staged upload URL.
+   */
   private String previewImageSource;
 
-  
+  /**
+   * The alt text associated to the media.
+   */
   private String alt;
 
   public UpdateMediaInput() {
   }
 
-  
+  /**
+   * Specifies the media to update.
+   */
   public String getId() {
     return id;
   }
@@ -28,7 +38,9 @@ public class UpdateMediaInput {
     this.id = id;
   }
 
-  
+  /**
+   * The source from which to update the media preview image. May be an external URL or staged upload URL.
+   */
   public String getPreviewImageSource() {
     return previewImageSource;
   }
@@ -37,7 +49,9 @@ public class UpdateMediaInput {
     this.previewImageSource = previewImageSource;
   }
 
-  
+  /**
+   * The alt text associated to the media.
+   */
   public String getAlt() {
     return alt;
   }
@@ -71,13 +85,19 @@ public class UpdateMediaInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Specifies the media to update.
+     */
     private String id;
 
-    
+    /**
+     * The source from which to update the media preview image. May be an external URL or staged upload URL.
+     */
     private String previewImageSource;
 
-    
+    /**
+     * The alt text associated to the media.
+     */
     private String alt;
 
     public UpdateMediaInput build() {
@@ -88,19 +108,25 @@ public class UpdateMediaInput {
       return result;
     }
 
-    
+    /**
+     * Specifies the media to update.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The source from which to update the media preview image. May be an external URL or staged upload URL.
+     */
     public Builder previewImageSource(String previewImageSource) {
       this.previewImageSource = previewImageSource;
       return this;
     }
 
-    
+    /**
+     * The alt text associated to the media.
+     */
     public Builder alt(String alt) {
       this.alt = alt;
       return this;

@@ -5,21 +5,31 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for providing the fields and values to use when creating or updating a fixed price list price.
+ */
 public class PriceListPriceInput {
-  
+  /**
+   * The product variant ID associated with the price list price.
+   */
   private String variantId;
 
-  
+  /**
+   * The price of the product variant on this price list.
+   */
   private MoneyInput price;
 
-  
+  /**
+   * The compare-at price of the product variant on this price list.
+   */
   private MoneyInput compareAtPrice;
 
   public PriceListPriceInput() {
   }
 
-  
+  /**
+   * The product variant ID associated with the price list price.
+   */
   public String getVariantId() {
     return variantId;
   }
@@ -28,7 +38,9 @@ public class PriceListPriceInput {
     this.variantId = variantId;
   }
 
-  
+  /**
+   * The price of the product variant on this price list.
+   */
   public MoneyInput getPrice() {
     return price;
   }
@@ -37,7 +49,9 @@ public class PriceListPriceInput {
     this.price = price;
   }
 
-  
+  /**
+   * The compare-at price of the product variant on this price list.
+   */
   public MoneyInput getCompareAtPrice() {
     return compareAtPrice;
   }
@@ -71,13 +85,19 @@ public class PriceListPriceInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The product variant ID associated with the price list price.
+     */
     private String variantId;
 
-    
+    /**
+     * The price of the product variant on this price list.
+     */
     private MoneyInput price;
 
-    
+    /**
+     * The compare-at price of the product variant on this price list.
+     */
     private MoneyInput compareAtPrice;
 
     public PriceListPriceInput build() {
@@ -88,19 +108,25 @@ public class PriceListPriceInput {
       return result;
     }
 
-    
+    /**
+     * The product variant ID associated with the price list price.
+     */
     public Builder variantId(String variantId) {
       this.variantId = variantId;
       return this;
     }
 
-    
+    /**
+     * The price of the product variant on this price list.
+     */
     public Builder price(MoneyInput price) {
       this.price = price;
       return this;
     }
 
-    
+    /**
+     * The compare-at price of the product variant on this price list.
+     */
     public Builder compareAtPrice(MoneyInput compareAtPrice) {
       this.compareAtPrice = compareAtPrice;
       return this;

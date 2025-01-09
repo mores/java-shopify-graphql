@@ -7,18 +7,27 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields for a shop locale.
+ */
 public class ShopLocaleInput {
-  
+  /**
+   * Whether the locale is published. Only published locales are visible to the buyer.
+   */
   private Boolean published;
 
-  
+  /**
+   * The market web presences on which the locale should be enabled. Pass in an
+   * empty array to remove the locale across all market web presences.
+   */
   private List<String> marketWebPresenceIds;
 
   public ShopLocaleInput() {
   }
 
-  
+  /**
+   * Whether the locale is published. Only published locales are visible to the buyer.
+   */
   public Boolean getPublished() {
     return published;
   }
@@ -27,7 +36,10 @@ public class ShopLocaleInput {
     this.published = published;
   }
 
-  
+  /**
+   * The market web presences on which the locale should be enabled. Pass in an
+   * empty array to remove the locale across all market web presences.
+   */
   public List<String> getMarketWebPresenceIds() {
     return marketWebPresenceIds;
   }
@@ -60,10 +72,15 @@ public class ShopLocaleInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Whether the locale is published. Only published locales are visible to the buyer.
+     */
     private Boolean published;
 
-    
+    /**
+     * The market web presences on which the locale should be enabled. Pass in an
+     * empty array to remove the locale across all market web presences.
+     */
     private List<String> marketWebPresenceIds;
 
     public ShopLocaleInput build() {
@@ -73,13 +90,18 @@ public class ShopLocaleInput {
       return result;
     }
 
-    
+    /**
+     * Whether the locale is published. Only published locales are visible to the buyer.
+     */
     public Builder published(Boolean published) {
       this.published = published;
       return this;
     }
 
-    
+    /**
+     * The market web presences on which the locale should be enabled. Pass in an
+     * empty array to remove the locale across all market web presences.
+     */
     public Builder marketWebPresenceIds(List<String> marketWebPresenceIds) {
       this.marketWebPresenceIds = marketWebPresenceIds;
       return this;

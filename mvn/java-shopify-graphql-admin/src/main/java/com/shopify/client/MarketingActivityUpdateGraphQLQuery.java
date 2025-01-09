@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Updates a marketing activity with the latest information.
+ */
 public class MarketingActivityUpdateGraphQLQuery extends GraphQLQuery {
   public MarketingActivityUpdateGraphQLQuery(MarketingActivityUpdateInput input, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class MarketingActivityUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The Input of the marketing activity.
+     */
     public Builder input(MarketingActivityUpdateInput input) {
       this.input = input;
       this.fieldsSet.add("input");

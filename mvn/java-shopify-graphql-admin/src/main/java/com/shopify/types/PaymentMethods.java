@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Some of the payment methods used in Shopify.
+ */
 public enum PaymentMethods {
   VISA,
 

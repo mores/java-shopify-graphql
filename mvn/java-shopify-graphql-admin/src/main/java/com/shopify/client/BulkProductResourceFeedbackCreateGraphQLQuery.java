@@ -8,7 +8,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Creates product feedback for multiple products.
+ */
 public class BulkProductResourceFeedbackCreateGraphQLQuery extends GraphQLQuery {
   public BulkProductResourceFeedbackCreateGraphQLQuery(
       List<ProductResourceFeedbackInput> feedbackInput, String queryName, Set<String> fieldsSet) {
@@ -43,7 +45,9 @@ public class BulkProductResourceFeedbackCreateGraphQLQuery extends GraphQLQuery 
                
     }
 
-    
+    /**
+     * An array of inputs to create the feedback. Limited to 50.
+     */
     public Builder feedbackInput(List<ProductResourceFeedbackInput> feedbackInput) {
       this.feedbackInput = feedbackInput;
       this.fieldsSet.add("feedbackInput");

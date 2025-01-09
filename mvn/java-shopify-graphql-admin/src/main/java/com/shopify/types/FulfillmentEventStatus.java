@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * The status that describes a fulfillment or delivery event.
+ */
 public enum FulfillmentEventStatus {
   LABEL_PURCHASED,
 
@@ -15,6 +17,8 @@ public enum FulfillmentEventStatus {
   OUT_FOR_DELIVERY,
 
   ATTEMPTED_DELIVERY,
+
+  DELAYED,
 
   DELIVERED,
 

@@ -7,24 +7,44 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields required to create a market.
+ */
 public class MarketCreateInput {
-  
+  /**
+   * The name of the market. Not shown to customers.
+   */
   private String name;
 
-  
+  /**
+   * A unique identifier for the market. For example `"ca"`.
+   * If the handle isn't provided, then the handle is auto-generated based on the country or name.
+   */
   private String handle;
 
-  
+  /**
+   * Whether the market is enabled to receive visitors and sales. If a
+   * value isn't provided, then the market is enabled by default if all
+   * included regions have shipping rates, and disabled if any regions don't
+   * have shipping rates.
+   *   
+   * **Note**: Regions in inactive markets can't be selected on the
+   * storefront or in checkout.
+   */
   private Boolean enabled;
 
-  
+  /**
+   * The regions to be included in the market. Each region can only be included in one market at
+   * a time.
+   */
   private List<MarketRegionCreateInput> regions;
 
   public MarketCreateInput() {
   }
 
-  
+  /**
+   * The name of the market. Not shown to customers.
+   */
   public String getName() {
     return name;
   }
@@ -33,7 +53,10 @@ public class MarketCreateInput {
     this.name = name;
   }
 
-  
+  /**
+   * A unique identifier for the market. For example `"ca"`.
+   * If the handle isn't provided, then the handle is auto-generated based on the country or name.
+   */
   public String getHandle() {
     return handle;
   }
@@ -42,7 +65,15 @@ public class MarketCreateInput {
     this.handle = handle;
   }
 
-  
+  /**
+   * Whether the market is enabled to receive visitors and sales. If a
+   * value isn't provided, then the market is enabled by default if all
+   * included regions have shipping rates, and disabled if any regions don't
+   * have shipping rates.
+   *   
+   * **Note**: Regions in inactive markets can't be selected on the
+   * storefront or in checkout.
+   */
   public Boolean getEnabled() {
     return enabled;
   }
@@ -51,7 +82,10 @@ public class MarketCreateInput {
     this.enabled = enabled;
   }
 
-  
+  /**
+   * The regions to be included in the market. Each region can only be included in one market at
+   * a time.
+   */
   public List<MarketRegionCreateInput> getRegions() {
     return regions;
   }
@@ -86,16 +120,32 @@ public class MarketCreateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The name of the market. Not shown to customers.
+     */
     private String name;
 
-    
+    /**
+     * A unique identifier for the market. For example `"ca"`.
+     * If the handle isn't provided, then the handle is auto-generated based on the country or name.
+     */
     private String handle;
 
-    
+    /**
+     * Whether the market is enabled to receive visitors and sales. If a
+     * value isn't provided, then the market is enabled by default if all
+     * included regions have shipping rates, and disabled if any regions don't
+     * have shipping rates.
+     *   
+     * **Note**: Regions in inactive markets can't be selected on the
+     * storefront or in checkout.
+     */
     private Boolean enabled;
 
-    
+    /**
+     * The regions to be included in the market. Each region can only be included in one market at
+     * a time.
+     */
     private List<MarketRegionCreateInput> regions;
 
     public MarketCreateInput build() {
@@ -107,25 +157,41 @@ public class MarketCreateInput {
       return result;
     }
 
-    
+    /**
+     * The name of the market. Not shown to customers.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    
+    /**
+     * A unique identifier for the market. For example `"ca"`.
+     * If the handle isn't provided, then the handle is auto-generated based on the country or name.
+     */
     public Builder handle(String handle) {
       this.handle = handle;
       return this;
     }
 
-    
+    /**
+     * Whether the market is enabled to receive visitors and sales. If a
+     * value isn't provided, then the market is enabled by default if all
+     * included regions have shipping rates, and disabled if any regions don't
+     * have shipping rates.
+     *   
+     * **Note**: Regions in inactive markets can't be selected on the
+     * storefront or in checkout.
+     */
     public Builder enabled(Boolean enabled) {
       this.enabled = enabled;
       return this;
     }
 
-    
+    /**
+     * The regions to be included in the market. Each region can only be included in one market at
+     * a time.
+     */
     public Builder regions(List<MarketRegionCreateInput> regions) {
       this.regions = regions;
       return this;

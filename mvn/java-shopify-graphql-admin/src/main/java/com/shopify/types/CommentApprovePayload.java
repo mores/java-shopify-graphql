@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `commentApprove` mutation.
+ */
 public class CommentApprovePayload {
-  
+  /**
+   * The comment that was approved.
+   */
   private Comment comment;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<CommentApproveUserError> userErrors;
 
   public CommentApprovePayload() {
   }
 
-  
+  /**
+   * The comment that was approved.
+   */
   public Comment getComment() {
     return comment;
   }
@@ -26,7 +34,9 @@ public class CommentApprovePayload {
     this.comment = comment;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<CommentApproveUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class CommentApprovePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The comment that was approved.
+     */
     private Comment comment;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<CommentApproveUserError> userErrors;
 
     public CommentApprovePayload build() {
@@ -72,13 +86,17 @@ public class CommentApprovePayload {
       return result;
     }
 
-    
+    /**
+     * The comment that was approved.
+     */
     public Builder comment(Comment comment) {
       this.comment = comment;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<CommentApproveUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

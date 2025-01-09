@@ -5,18 +5,30 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The parameters required to authenticate a file upload request using a
+ * [StagedMediaUploadTarget's url field](https://shopify.dev/api/admin-graphql/latest/objects/StagedMediaUploadTarget#field-stagedmediauploadtarget-url).
+ *
+ * For more information on the upload process, refer to
+ * [Upload media to Shopify](https://shopify.dev/apps/online-store/media/products#step-1-upload-media-to-shopify).
+ */
 public class StagedUploadParameter {
-  
+  /**
+   * The parameter's name.
+   */
   private String name;
 
-  
+  /**
+   * The parameter's value.
+   */
   private String value;
 
   public StagedUploadParameter() {
   }
 
-  
+  /**
+   * The parameter's name.
+   */
   public String getName() {
     return name;
   }
@@ -25,7 +37,9 @@ public class StagedUploadParameter {
     this.name = name;
   }
 
-  
+  /**
+   * The parameter's value.
+   */
   public String getValue() {
     return value;
   }
@@ -58,10 +72,14 @@ public class StagedUploadParameter {
   }
 
   public static class Builder {
-    
+    /**
+     * The parameter's name.
+     */
     private String name;
 
-    
+    /**
+     * The parameter's value.
+     */
     private String value;
 
     public StagedUploadParameter build() {
@@ -71,13 +89,17 @@ public class StagedUploadParameter {
       return result;
     }
 
-    
+    /**
+     * The parameter's name.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    
+    /**
+     * The parameter's value.
+     */
     public Builder value(String value) {
       this.value = value;
       return this;

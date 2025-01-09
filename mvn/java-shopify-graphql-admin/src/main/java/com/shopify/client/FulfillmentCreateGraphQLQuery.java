@@ -7,7 +7,10 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a fulfillment for one or many fulfillment orders.
+ * The fulfillment orders are associated with the same order and are assigned to the same location.
+ */
 public class FulfillmentCreateGraphQLQuery extends GraphQLQuery {
   public FulfillmentCreateGraphQLQuery(FulfillmentInput fulfillment, String message,
       String queryName, Set<String> fieldsSet) {
@@ -46,14 +49,18 @@ public class FulfillmentCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The input fields used to create a fulfillment from fulfillment orders.
+     */
     public Builder fulfillment(FulfillmentInput fulfillment) {
       this.fulfillment = fulfillment;
       this.fieldsSet.add("fulfillment");
       return this;
     }
 
-    
+    /**
+     * An optional message for the fulfillment request.
+     */
     public Builder message(String message) {
       this.message = message;
       this.fieldsSet.add("message");

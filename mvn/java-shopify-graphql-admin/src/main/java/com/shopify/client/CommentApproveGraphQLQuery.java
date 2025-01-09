@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Approves a comment.
+ */
 public class CommentApproveGraphQLQuery extends GraphQLQuery {
   public CommentApproveGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -40,7 +42,9 @@ public class CommentApproveGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the comment to be approved.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Marks a scheduled fulfillment order as open.
+ */
 public class FulfillmentOrderOpenGraphQLQuery extends GraphQLQuery {
   public FulfillmentOrderOpenGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -40,7 +42,9 @@ public class FulfillmentOrderOpenGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the fulfillment order to mark as open.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

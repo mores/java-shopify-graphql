@@ -6,51 +6,82 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-
+/**
+ * The input fields required to update an externally managed marketing activity.
+ */
 public class MarketingActivityUpdateExternalInput {
-  
+  /**
+   * The title of the marketing activity.
+   */
   private String title;
 
-  
+  /**
+   * The budget for this marketing activity.
+   */
   private MarketingActivityBudgetInput budget;
 
-  
+  /**
+   * The amount spent on the marketing activity.
+   */
   private MoneyInput adSpend;
 
-  
+  /**
+   * The URL for viewing and/or managing the activity outside of Shopify.
+   */
   private String remoteUrl;
 
-  
+  /**
+   * The URL for a preview image that's used for the marketing activity.
+   */
   private String remotePreviewImageUrl;
 
-  
+  /**
+   * The method of marketing used for this marketing activity. The marketing tactic
+   * determines which default fields are included in the marketing activity.
+   */
   private MarketingTactic tactic;
 
-  
+  /**
+   * The medium through which the marketing activity and event reached consumers. This is used for reporting aggregation.
+   */
   private MarketingChannel marketingChannelType;
 
-  
+  /**
+   * The domain from which ad clicks are forwarded to the shop.
+   */
   private String referringDomain;
 
-  
+  /**
+   * The date and time at which the activity is scheduled to start.
+   */
   private OffsetDateTime scheduledStart;
 
-  
+  /**
+   * The date and time at which the activity is scheduled to end.
+   */
   private OffsetDateTime scheduledEnd;
 
-  
+  /**
+   * The date and time at which the activity started.
+   */
   private OffsetDateTime start;
 
-  
+  /**
+   * The date and time at which the activity ended.
+   */
   private OffsetDateTime end;
 
-  
+  /**
+   * The status of the marketing activity.
+   */
   private MarketingActivityExternalStatus status;
 
   public MarketingActivityUpdateExternalInput() {
   }
 
-  
+  /**
+   * The title of the marketing activity.
+   */
   public String getTitle() {
     return title;
   }
@@ -59,7 +90,9 @@ public class MarketingActivityUpdateExternalInput {
     this.title = title;
   }
 
-  
+  /**
+   * The budget for this marketing activity.
+   */
   public MarketingActivityBudgetInput getBudget() {
     return budget;
   }
@@ -68,7 +101,9 @@ public class MarketingActivityUpdateExternalInput {
     this.budget = budget;
   }
 
-  
+  /**
+   * The amount spent on the marketing activity.
+   */
   public MoneyInput getAdSpend() {
     return adSpend;
   }
@@ -77,7 +112,9 @@ public class MarketingActivityUpdateExternalInput {
     this.adSpend = adSpend;
   }
 
-  
+  /**
+   * The URL for viewing and/or managing the activity outside of Shopify.
+   */
   public String getRemoteUrl() {
     return remoteUrl;
   }
@@ -86,7 +123,9 @@ public class MarketingActivityUpdateExternalInput {
     this.remoteUrl = remoteUrl;
   }
 
-  
+  /**
+   * The URL for a preview image that's used for the marketing activity.
+   */
   public String getRemotePreviewImageUrl() {
     return remotePreviewImageUrl;
   }
@@ -95,7 +134,10 @@ public class MarketingActivityUpdateExternalInput {
     this.remotePreviewImageUrl = remotePreviewImageUrl;
   }
 
-  
+  /**
+   * The method of marketing used for this marketing activity. The marketing tactic
+   * determines which default fields are included in the marketing activity.
+   */
   public MarketingTactic getTactic() {
     return tactic;
   }
@@ -104,7 +146,9 @@ public class MarketingActivityUpdateExternalInput {
     this.tactic = tactic;
   }
 
-  
+  /**
+   * The medium through which the marketing activity and event reached consumers. This is used for reporting aggregation.
+   */
   public MarketingChannel getMarketingChannelType() {
     return marketingChannelType;
   }
@@ -113,7 +157,9 @@ public class MarketingActivityUpdateExternalInput {
     this.marketingChannelType = marketingChannelType;
   }
 
-  
+  /**
+   * The domain from which ad clicks are forwarded to the shop.
+   */
   public String getReferringDomain() {
     return referringDomain;
   }
@@ -122,7 +168,9 @@ public class MarketingActivityUpdateExternalInput {
     this.referringDomain = referringDomain;
   }
 
-  
+  /**
+   * The date and time at which the activity is scheduled to start.
+   */
   public OffsetDateTime getScheduledStart() {
     return scheduledStart;
   }
@@ -131,7 +179,9 @@ public class MarketingActivityUpdateExternalInput {
     this.scheduledStart = scheduledStart;
   }
 
-  
+  /**
+   * The date and time at which the activity is scheduled to end.
+   */
   public OffsetDateTime getScheduledEnd() {
     return scheduledEnd;
   }
@@ -140,7 +190,9 @@ public class MarketingActivityUpdateExternalInput {
     this.scheduledEnd = scheduledEnd;
   }
 
-  
+  /**
+   * The date and time at which the activity started.
+   */
   public OffsetDateTime getStart() {
     return start;
   }
@@ -149,7 +201,9 @@ public class MarketingActivityUpdateExternalInput {
     this.start = start;
   }
 
-  
+  /**
+   * The date and time at which the activity ended.
+   */
   public OffsetDateTime getEnd() {
     return end;
   }
@@ -158,7 +212,9 @@ public class MarketingActivityUpdateExternalInput {
     this.end = end;
   }
 
-  
+  /**
+   * The status of the marketing activity.
+   */
   public MarketingActivityExternalStatus getStatus() {
     return status;
   }
@@ -202,43 +258,70 @@ public class MarketingActivityUpdateExternalInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The title of the marketing activity.
+     */
     private String title;
 
-    
+    /**
+     * The budget for this marketing activity.
+     */
     private MarketingActivityBudgetInput budget;
 
-    
+    /**
+     * The amount spent on the marketing activity.
+     */
     private MoneyInput adSpend;
 
-    
+    /**
+     * The URL for viewing and/or managing the activity outside of Shopify.
+     */
     private String remoteUrl;
 
-    
+    /**
+     * The URL for a preview image that's used for the marketing activity.
+     */
     private String remotePreviewImageUrl;
 
-    
+    /**
+     * The method of marketing used for this marketing activity. The marketing tactic
+     * determines which default fields are included in the marketing activity.
+     */
     private MarketingTactic tactic;
 
-    
+    /**
+     * The medium through which the marketing activity and event reached consumers. This is used for reporting aggregation.
+     */
     private MarketingChannel marketingChannelType;
 
-    
+    /**
+     * The domain from which ad clicks are forwarded to the shop.
+     */
     private String referringDomain;
 
-    
+    /**
+     * The date and time at which the activity is scheduled to start.
+     */
     private OffsetDateTime scheduledStart;
 
-    
+    /**
+     * The date and time at which the activity is scheduled to end.
+     */
     private OffsetDateTime scheduledEnd;
 
-    
+    /**
+     * The date and time at which the activity started.
+     */
     private OffsetDateTime start;
 
-    
+    /**
+     * The date and time at which the activity ended.
+     */
     private OffsetDateTime end;
 
-    
+    /**
+     * The status of the marketing activity.
+     */
     private MarketingActivityExternalStatus status;
 
     public MarketingActivityUpdateExternalInput build() {
@@ -259,79 +342,106 @@ public class MarketingActivityUpdateExternalInput {
       return result;
     }
 
-    
+    /**
+     * The title of the marketing activity.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    
+    /**
+     * The budget for this marketing activity.
+     */
     public Builder budget(MarketingActivityBudgetInput budget) {
       this.budget = budget;
       return this;
     }
 
-    
+    /**
+     * The amount spent on the marketing activity.
+     */
     public Builder adSpend(MoneyInput adSpend) {
       this.adSpend = adSpend;
       return this;
     }
 
-    
+    /**
+     * The URL for viewing and/or managing the activity outside of Shopify.
+     */
     public Builder remoteUrl(String remoteUrl) {
       this.remoteUrl = remoteUrl;
       return this;
     }
 
-    
+    /**
+     * The URL for a preview image that's used for the marketing activity.
+     */
     public Builder remotePreviewImageUrl(String remotePreviewImageUrl) {
       this.remotePreviewImageUrl = remotePreviewImageUrl;
       return this;
     }
 
-    
+    /**
+     * The method of marketing used for this marketing activity. The marketing tactic
+     * determines which default fields are included in the marketing activity.
+     */
     public Builder tactic(MarketingTactic tactic) {
       this.tactic = tactic;
       return this;
     }
 
-    
+    /**
+     * The medium through which the marketing activity and event reached consumers. This is used for reporting aggregation.
+     */
     public Builder marketingChannelType(MarketingChannel marketingChannelType) {
       this.marketingChannelType = marketingChannelType;
       return this;
     }
 
-    
+    /**
+     * The domain from which ad clicks are forwarded to the shop.
+     */
     public Builder referringDomain(String referringDomain) {
       this.referringDomain = referringDomain;
       return this;
     }
 
-    
+    /**
+     * The date and time at which the activity is scheduled to start.
+     */
     public Builder scheduledStart(OffsetDateTime scheduledStart) {
       this.scheduledStart = scheduledStart;
       return this;
     }
 
-    
+    /**
+     * The date and time at which the activity is scheduled to end.
+     */
     public Builder scheduledEnd(OffsetDateTime scheduledEnd) {
       this.scheduledEnd = scheduledEnd;
       return this;
     }
 
-    
+    /**
+     * The date and time at which the activity started.
+     */
     public Builder start(OffsetDateTime start) {
       this.start = start;
       return this;
     }
 
-    
+    /**
+     * The date and time at which the activity ended.
+     */
     public Builder end(OffsetDateTime end) {
       this.end = end;
       return this;
     }
 
-    
+    /**
+     * The status of the marketing activity.
+     */
     public Builder status(MarketingActivityExternalStatus status) {
       this.status = status;
       return this;

@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `metaobjectDefinitionUpdate` mutation.
+ */
 public class MetaobjectDefinitionUpdatePayload {
-  
+  /**
+   * The updated metaobject definition.
+   */
   private MetaobjectDefinition metaobjectDefinition;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<MetaobjectUserError> userErrors;
 
   public MetaobjectDefinitionUpdatePayload() {
   }
 
-  
+  /**
+   * The updated metaobject definition.
+   */
   public MetaobjectDefinition getMetaobjectDefinition() {
     return metaobjectDefinition;
   }
@@ -26,7 +34,9 @@ public class MetaobjectDefinitionUpdatePayload {
     this.metaobjectDefinition = metaobjectDefinition;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<MetaobjectUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class MetaobjectDefinitionUpdatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The updated metaobject definition.
+     */
     private MetaobjectDefinition metaobjectDefinition;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<MetaobjectUserError> userErrors;
 
     public MetaobjectDefinitionUpdatePayload build() {
@@ -72,13 +86,17 @@ public class MetaobjectDefinitionUpdatePayload {
       return result;
     }
 
-    
+    /**
+     * The updated metaobject definition.
+     */
     public Builder metaobjectDefinition(MetaobjectDefinition metaobjectDefinition) {
       this.metaobjectDefinition = metaobjectDefinition;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<MetaobjectUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

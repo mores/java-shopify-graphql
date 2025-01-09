@@ -9,7 +9,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Creates a fulfillment constraint rule and its metafield.
+ */
 public class FulfillmentConstraintRuleCreateGraphQLQuery extends GraphQLQuery {
   public FulfillmentConstraintRuleCreateGraphQLQuery(String functionId,
       List<DeliveryMethodType> deliveryMethodTypes, List<MetafieldInput> metafields,
@@ -53,21 +55,27 @@ public class FulfillmentConstraintRuleCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The identifier of the function providing the constraint rule.
+     */
     public Builder functionId(String functionId) {
       this.functionId = functionId;
       this.fieldsSet.add("functionId");
       return this;
     }
 
-    
+    /**
+     * Associate the function with one or multiple delivery method types.
+     */
     public Builder deliveryMethodTypes(List<DeliveryMethodType> deliveryMethodTypes) {
       this.deliveryMethodTypes = deliveryMethodTypes;
       this.fieldsSet.add("deliveryMethodTypes");
       return this;
     }
 
-    
+    /**
+     * Metafields to associate to the fulfillment constraint rule.
+     */
     public Builder metafields(List<MetafieldInput> metafields) {
       this.metafields = metafields;
       this.fieldsSet.add("metafields");

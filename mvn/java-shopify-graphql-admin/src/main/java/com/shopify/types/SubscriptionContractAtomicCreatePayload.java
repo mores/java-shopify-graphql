@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `subscriptionContractAtomicCreate` mutation.
+ */
 public class SubscriptionContractAtomicCreatePayload {
-  
+  /**
+   * The new Subscription Contract object.
+   */
   private SubscriptionContract contract;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<SubscriptionDraftUserError> userErrors;
 
   public SubscriptionContractAtomicCreatePayload() {
   }
 
-  
+  /**
+   * The new Subscription Contract object.
+   */
   public SubscriptionContract getContract() {
     return contract;
   }
@@ -26,7 +34,9 @@ public class SubscriptionContractAtomicCreatePayload {
     this.contract = contract;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<SubscriptionDraftUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class SubscriptionContractAtomicCreatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The new Subscription Contract object.
+     */
     private SubscriptionContract contract;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<SubscriptionDraftUserError> userErrors;
 
     public SubscriptionContractAtomicCreatePayload build() {
@@ -72,13 +86,17 @@ public class SubscriptionContractAtomicCreatePayload {
       return result;
     }
 
-    
+    /**
+     * The new Subscription Contract object.
+     */
     public Builder contract(SubscriptionContract contract) {
       this.contract = contract;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<SubscriptionDraftUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

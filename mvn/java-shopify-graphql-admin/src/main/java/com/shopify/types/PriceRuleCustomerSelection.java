@@ -6,21 +6,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * A selection of customers for whom the price rule applies.
+ */
 public class PriceRuleCustomerSelection {
-  
+  /**
+   * List of customers to whom the price rule applies.
+   */
   private CustomerConnection customers;
 
-  
+  /**
+   * Whether the price rule applies to all customers.
+   */
   private boolean forAllCustomers;
 
-  
+  /**
+   * A list of customer segments that contain the customers who can use the price rule.
+   */
   private List<Segment> segments;
 
   public PriceRuleCustomerSelection() {
   }
 
-  
+  /**
+   * List of customers to whom the price rule applies.
+   */
   public CustomerConnection getCustomers() {
     return customers;
   }
@@ -29,7 +39,9 @@ public class PriceRuleCustomerSelection {
     this.customers = customers;
   }
 
-  
+  /**
+   * Whether the price rule applies to all customers.
+   */
   public boolean getForAllCustomers() {
     return forAllCustomers;
   }
@@ -38,7 +50,9 @@ public class PriceRuleCustomerSelection {
     this.forAllCustomers = forAllCustomers;
   }
 
-  
+  /**
+   * A list of customer segments that contain the customers who can use the price rule.
+   */
   public List<Segment> getSegments() {
     return segments;
   }
@@ -72,13 +86,19 @@ public class PriceRuleCustomerSelection {
   }
 
   public static class Builder {
-    
+    /**
+     * List of customers to whom the price rule applies.
+     */
     private CustomerConnection customers;
 
-    
+    /**
+     * Whether the price rule applies to all customers.
+     */
     private boolean forAllCustomers;
 
-    
+    /**
+     * A list of customer segments that contain the customers who can use the price rule.
+     */
     private List<Segment> segments;
 
     public PriceRuleCustomerSelection build() {
@@ -89,19 +109,25 @@ public class PriceRuleCustomerSelection {
       return result;
     }
 
-    
+    /**
+     * List of customers to whom the price rule applies.
+     */
     public Builder customers(CustomerConnection customers) {
       this.customers = customers;
       return this;
     }
 
-    
+    /**
+     * Whether the price rule applies to all customers.
+     */
     public Builder forAllCustomers(boolean forAllCustomers) {
       this.forAllCustomers = forAllCustomers;
       return this;
     }
 
-    
+    /**
+     * A list of customer segments that contain the customers who can use the price rule.
+     */
     public Builder segments(List<Segment> segments) {
       this.segments = segments;
       return this;

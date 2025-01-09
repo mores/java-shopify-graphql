@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * The revocation reason types for a customer payment method.
+ */
 public enum CustomerPaymentMethodRevocationReason {
   AUTHORIZE_NET_GATEWAY_NOT_ENABLED,
 
@@ -25,6 +27,10 @@ public enum CustomerPaymentMethodRevocationReason {
   BRAINTREE_RETURNED_NO_PAYMENT_METHOD,
 
   BRAINTREE_PAYMENT_METHOD_NOT_CARD,
+
+  PAYMENT_METHOD_VERIFICATION_FAILED,
+
+  THREE_D_SECURE_FLOW_IN_VERIFICATION_NOT_IMPLEMENTED,
 
   MANUALLY_REVOKED,
 

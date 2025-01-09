@@ -32,6 +32,20 @@ public class StoreCreditAccountTransactionProjection<PARENT extends BaseSubProje
      return projection;
   }
 
+  public StoreCreditSystemEventProjection<StoreCreditAccountTransactionProjection<PARENT, ROOT>, ROOT> event(
+      ) {
+     StoreCreditSystemEventProjection<StoreCreditAccountTransactionProjection<PARENT, ROOT>, ROOT> projection = new StoreCreditSystemEventProjection<>(this, getRoot());
+     getFields().put("event", projection);
+     return projection;
+  }
+
+  public StoreCreditAccountTransactionOriginProjection<StoreCreditAccountTransactionProjection<PARENT, ROOT>, ROOT> origin(
+      ) {
+     StoreCreditAccountTransactionOriginProjection<StoreCreditAccountTransactionProjection<PARENT, ROOT>, ROOT> projection = new StoreCreditAccountTransactionOriginProjection<>(this, getRoot());
+     getFields().put("origin", projection);
+     return projection;
+  }
+
   public StoreCreditAccountTransactionProjection<PARENT, ROOT> createdAt() {
     getFields().put("createdAt", null);
     return this;

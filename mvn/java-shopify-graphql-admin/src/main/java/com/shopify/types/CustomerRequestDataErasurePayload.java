@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `customerRequestDataErasure` mutation.
+ */
 public class CustomerRequestDataErasurePayload {
-  
+  /**
+   * The ID of the customer that will be erased.
+   */
   private String customerId;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<CustomerRequestDataErasureUserError> userErrors;
 
   public CustomerRequestDataErasurePayload() {
   }
 
-  
+  /**
+   * The ID of the customer that will be erased.
+   */
   public String getCustomerId() {
     return customerId;
   }
@@ -26,7 +34,9 @@ public class CustomerRequestDataErasurePayload {
     this.customerId = customerId;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<CustomerRequestDataErasureUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class CustomerRequestDataErasurePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the customer that will be erased.
+     */
     private String customerId;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<CustomerRequestDataErasureUserError> userErrors;
 
     public CustomerRequestDataErasurePayload build() {
@@ -72,13 +86,17 @@ public class CustomerRequestDataErasurePayload {
       return result;
     }
 
-    
+    /**
+     * The ID of the customer that will be erased.
+     */
     public Builder customerId(String customerId) {
       this.customerId = customerId;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<CustomerRequestDataErasureUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

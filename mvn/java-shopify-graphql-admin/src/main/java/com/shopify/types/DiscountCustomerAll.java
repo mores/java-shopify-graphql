@@ -6,18 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The `DiscountCustomerAll` object lets you target all customers for discount eligibility.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DiscountCustomerAll implements DiscountCustomerSelection {
-  
+  /**
+   * Whether the discount can be applied by all customers. This value is always `true`.
+   */
   private boolean allCustomers;
 
   public DiscountCustomerAll() {
   }
 
-  
+  /**
+   * Whether the discount can be applied by all customers. This value is always `true`.
+   */
   public boolean getAllCustomers() {
     return allCustomers;
   }
@@ -49,7 +55,9 @@ public class DiscountCustomerAll implements DiscountCustomerSelection {
   }
 
   public static class Builder {
-    
+    /**
+     * Whether the discount can be applied by all customers. This value is always `true`.
+     */
     private boolean allCustomers;
 
     public DiscountCustomerAll build() {
@@ -58,7 +66,9 @@ public class DiscountCustomerAll implements DiscountCustomerSelection {
       return result;
     }
 
-    
+    /**
+     * Whether the discount can be applied by all customers. This value is always `true`.
+     */
     public Builder allCustomers(boolean allCustomers) {
       this.allCustomers = allCustomers;
       return this;

@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `returnReopen` mutation.
+ */
 public class ReturnReopenPayload {
-  
+  /**
+   * The reopened return.
+   */
   private Return _return;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<ReturnUserError> userErrors;
 
   public ReturnReopenPayload() {
   }
 
-  
+  /**
+   * The reopened return.
+   */
   public Return getReturn() {
     return _return;
   }
@@ -26,7 +34,9 @@ public class ReturnReopenPayload {
     this._return = _return;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<ReturnUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class ReturnReopenPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The reopened return.
+     */
     private Return _return;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<ReturnUserError> userErrors;
 
     public ReturnReopenPayload build() {
@@ -72,13 +86,17 @@ public class ReturnReopenPayload {
       return result;
     }
 
-    
+    /**
+     * The reopened return.
+     */
     public Builder _return(Return _return) {
       this._return = _return;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<ReturnUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -5,21 +5,32 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Represents a media error. This typically occurs when there is an issue with the media itself causing it to fail validation.
+ * Check the media before attempting to upload again.
+ */
 public class MediaError {
-  
+  /**
+   * Code representing the type of error.
+   */
   private MediaErrorCode code;
 
-  
+  /**
+   * Additional details regarding the error.
+   */
   private String details;
 
-  
+  /**
+   * Translated error message.
+   */
   private String message;
 
   public MediaError() {
   }
 
-  
+  /**
+   * Code representing the type of error.
+   */
   public MediaErrorCode getCode() {
     return code;
   }
@@ -28,7 +39,9 @@ public class MediaError {
     this.code = code;
   }
 
-  
+  /**
+   * Additional details regarding the error.
+   */
   public String getDetails() {
     return details;
   }
@@ -37,7 +50,9 @@ public class MediaError {
     this.details = details;
   }
 
-  
+  /**
+   * Translated error message.
+   */
   public String getMessage() {
     return message;
   }
@@ -71,13 +86,19 @@ public class MediaError {
   }
 
   public static class Builder {
-    
+    /**
+     * Code representing the type of error.
+     */
     private MediaErrorCode code;
 
-    
+    /**
+     * Additional details regarding the error.
+     */
     private String details;
 
-    
+    /**
+     * Translated error message.
+     */
     private String message;
 
     public MediaError build() {
@@ -88,19 +109,25 @@ public class MediaError {
       return result;
     }
 
-    
+    /**
+     * Code representing the type of error.
+     */
     public Builder code(MediaErrorCode code) {
       this.code = code;
       return this;
     }
 
-    
+    /**
+     * Additional details regarding the error.
+     */
     public Builder details(String details) {
       this.details = details;
       return this;
     }
 
-    
+    /**
+     * Translated error message.
+     */
     public Builder message(String message) {
       this.message = message;
       return this;

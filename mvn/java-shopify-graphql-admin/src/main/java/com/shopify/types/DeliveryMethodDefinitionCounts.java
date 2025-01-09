@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The number of method definitions for a zone, separated into merchant-owned and participant definitions.
+ */
 public class DeliveryMethodDefinitionCounts {
-  
+  /**
+   * The number of participant method definitions for the specified zone.
+   */
   private int participantDefinitionsCount;
 
-  
+  /**
+   * The number of merchant-defined method definitions for the specified zone.
+   */
   private int rateDefinitionsCount;
 
   public DeliveryMethodDefinitionCounts() {
   }
 
-  
+  /**
+   * The number of participant method definitions for the specified zone.
+   */
   public int getParticipantDefinitionsCount() {
     return participantDefinitionsCount;
   }
@@ -25,7 +33,9 @@ public class DeliveryMethodDefinitionCounts {
     this.participantDefinitionsCount = participantDefinitionsCount;
   }
 
-  
+  /**
+   * The number of merchant-defined method definitions for the specified zone.
+   */
   public int getRateDefinitionsCount() {
     return rateDefinitionsCount;
   }
@@ -58,10 +68,14 @@ public class DeliveryMethodDefinitionCounts {
   }
 
   public static class Builder {
-    
+    /**
+     * The number of participant method definitions for the specified zone.
+     */
     private int participantDefinitionsCount;
 
-    
+    /**
+     * The number of merchant-defined method definitions for the specified zone.
+     */
     private int rateDefinitionsCount;
 
     public DeliveryMethodDefinitionCounts build() {
@@ -71,13 +85,17 @@ public class DeliveryMethodDefinitionCounts {
       return result;
     }
 
-    
+    /**
+     * The number of participant method definitions for the specified zone.
+     */
     public Builder participantDefinitionsCount(int participantDefinitionsCount) {
       this.participantDefinitionsCount = participantDefinitionsCount;
       return this;
     }
 
-    
+    /**
+     * The number of merchant-defined method definitions for the specified zone.
+     */
     public Builder rateDefinitionsCount(int rateDefinitionsCount) {
       this.rateDefinitionsCount = rateDefinitionsCount;
       return this;

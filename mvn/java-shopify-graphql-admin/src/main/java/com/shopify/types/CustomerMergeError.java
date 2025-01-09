@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The error blocking a customer merge.
+ */
 public class CustomerMergeError {
-  
+  /**
+   * The list of fields preventing the customer from being merged.
+   */
   private List<CustomerMergeErrorFieldType> errorFields;
 
-  
+  /**
+   * The customer merge error message.
+   */
   private String message;
 
   public CustomerMergeError() {
   }
 
-  
+  /**
+   * The list of fields preventing the customer from being merged.
+   */
   public List<CustomerMergeErrorFieldType> getErrorFields() {
     return errorFields;
   }
@@ -26,7 +34,9 @@ public class CustomerMergeError {
     this.errorFields = errorFields;
   }
 
-  
+  /**
+   * The customer merge error message.
+   */
   public String getMessage() {
     return message;
   }
@@ -59,10 +69,14 @@ public class CustomerMergeError {
   }
 
   public static class Builder {
-    
+    /**
+     * The list of fields preventing the customer from being merged.
+     */
     private List<CustomerMergeErrorFieldType> errorFields;
 
-    
+    /**
+     * The customer merge error message.
+     */
     private String message;
 
     public CustomerMergeError build() {
@@ -72,13 +86,17 @@ public class CustomerMergeError {
       return result;
     }
 
-    
+    /**
+     * The list of fields preventing the customer from being merged.
+     */
     public Builder errorFields(List<CustomerMergeErrorFieldType> errorFields) {
       this.errorFields = errorFields;
       return this;
     }
 
-    
+    /**
+     * The customer merge error message.
+     */
     public Builder message(String message) {
       this.message = message;
       return this;

@@ -5,21 +5,31 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields required to update a custom font group.
+ */
 public class CheckoutBrandingCustomFontGroupInput {
-  
+  /**
+   * The base font.
+   */
   private CheckoutBrandingCustomFontInput base;
 
-  
+  /**
+   * The bold font.
+   */
   private CheckoutBrandingCustomFontInput bold;
 
-  
+  /**
+   * The font loading strategy.
+   */
   private CheckoutBrandingFontLoadingStrategy loadingStrategy;
 
   public CheckoutBrandingCustomFontGroupInput() {
   }
 
-  
+  /**
+   * The base font.
+   */
   public CheckoutBrandingCustomFontInput getBase() {
     return base;
   }
@@ -28,7 +38,9 @@ public class CheckoutBrandingCustomFontGroupInput {
     this.base = base;
   }
 
-  
+  /**
+   * The bold font.
+   */
   public CheckoutBrandingCustomFontInput getBold() {
     return bold;
   }
@@ -37,7 +49,9 @@ public class CheckoutBrandingCustomFontGroupInput {
     this.bold = bold;
   }
 
-  
+  /**
+   * The font loading strategy.
+   */
   public CheckoutBrandingFontLoadingStrategy getLoadingStrategy() {
     return loadingStrategy;
   }
@@ -71,13 +85,19 @@ public class CheckoutBrandingCustomFontGroupInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The base font.
+     */
     private CheckoutBrandingCustomFontInput base;
 
-    
+    /**
+     * The bold font.
+     */
     private CheckoutBrandingCustomFontInput bold;
 
-    
+    /**
+     * The font loading strategy.
+     */
     private CheckoutBrandingFontLoadingStrategy loadingStrategy;
 
     public CheckoutBrandingCustomFontGroupInput build() {
@@ -88,19 +108,25 @@ public class CheckoutBrandingCustomFontGroupInput {
       return result;
     }
 
-    
+    /**
+     * The base font.
+     */
     public Builder base(CheckoutBrandingCustomFontInput base) {
       this.base = base;
       return this;
     }
 
-    
+    /**
+     * The bold font.
+     */
     public Builder bold(CheckoutBrandingCustomFontInput bold) {
       this.bold = bold;
       return this;
     }
 
-    
+    /**
+     * The font loading strategy.
+     */
     public Builder loadingStrategy(CheckoutBrandingFontLoadingStrategy loadingStrategy) {
       this.loadingStrategy = loadingStrategy;
       return this;

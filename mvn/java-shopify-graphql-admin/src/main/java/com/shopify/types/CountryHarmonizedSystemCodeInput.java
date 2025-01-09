@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields required to specify a harmonized system code.
+ */
 public class CountryHarmonizedSystemCodeInput {
-  
+  /**
+   * Country specific harmonized system code.
+   */
   private String harmonizedSystemCode;
 
-  
+  /**
+   * The ISO 3166-1 alpha-2 country code for the country that issued the specified harmonized system code.
+   */
   private CountryCode countryCode;
 
   public CountryHarmonizedSystemCodeInput() {
   }
 
-  
+  /**
+   * Country specific harmonized system code.
+   */
   public String getHarmonizedSystemCode() {
     return harmonizedSystemCode;
   }
@@ -25,7 +33,9 @@ public class CountryHarmonizedSystemCodeInput {
     this.harmonizedSystemCode = harmonizedSystemCode;
   }
 
-  
+  /**
+   * The ISO 3166-1 alpha-2 country code for the country that issued the specified harmonized system code.
+   */
   public CountryCode getCountryCode() {
     return countryCode;
   }
@@ -58,10 +68,14 @@ public class CountryHarmonizedSystemCodeInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Country specific harmonized system code.
+     */
     private String harmonizedSystemCode;
 
-    
+    /**
+     * The ISO 3166-1 alpha-2 country code for the country that issued the specified harmonized system code.
+     */
     private CountryCode countryCode;
 
     public CountryHarmonizedSystemCodeInput build() {
@@ -71,13 +85,17 @@ public class CountryHarmonizedSystemCodeInput {
       return result;
     }
 
-    
+    /**
+     * Country specific harmonized system code.
+     */
     public Builder harmonizedSystemCode(String harmonizedSystemCode) {
       this.harmonizedSystemCode = harmonizedSystemCode;
       return this;
     }
 
-    
+    /**
+     * The ISO 3166-1 alpha-2 country code for the country that issued the specified harmonized system code.
+     */
     public Builder countryCode(CountryCode countryCode) {
       this.countryCode = countryCode;
       return this;

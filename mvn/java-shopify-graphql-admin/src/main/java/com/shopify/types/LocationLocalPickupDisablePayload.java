@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `locationLocalPickupDisable` mutation.
+ */
 public class LocationLocalPickupDisablePayload {
-  
+  /**
+   * The ID of the location for which local pickup was disabled.
+   */
   private String locationId;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<DeliveryLocationLocalPickupSettingsError> userErrors;
 
   public LocationLocalPickupDisablePayload() {
   }
 
-  
+  /**
+   * The ID of the location for which local pickup was disabled.
+   */
   public String getLocationId() {
     return locationId;
   }
@@ -26,7 +34,9 @@ public class LocationLocalPickupDisablePayload {
     this.locationId = locationId;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<DeliveryLocationLocalPickupSettingsError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class LocationLocalPickupDisablePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the location for which local pickup was disabled.
+     */
     private String locationId;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<DeliveryLocationLocalPickupSettingsError> userErrors;
 
     public LocationLocalPickupDisablePayload build() {
@@ -72,13 +86,17 @@ public class LocationLocalPickupDisablePayload {
       return result;
     }
 
-    
+    /**
+     * The ID of the location for which local pickup was disabled.
+     */
     public Builder locationId(String locationId) {
       this.locationId = locationId;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<DeliveryLocationLocalPickupSettingsError> userErrors) {
       this.userErrors = userErrors;
       return this;

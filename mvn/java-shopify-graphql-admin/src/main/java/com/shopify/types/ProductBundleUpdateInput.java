@@ -6,21 +6,32 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields for updating a componentized product.
+ */
 public class ProductBundleUpdateInput {
-  
+  /**
+   * The ID of the componentized product to update.
+   */
   private String productId;
 
-  
+  /**
+   * The title to rename the componentized product to, if provided.
+   */
   private String title;
 
-  
+  /**
+   * The components to update existing ones. If none provided, no changes occur.
+   * Note: This replaces, not adds to, current components.
+   */
   private List<ProductBundleComponentInput> components;
 
   public ProductBundleUpdateInput() {
   }
 
-  
+  /**
+   * The ID of the componentized product to update.
+   */
   public String getProductId() {
     return productId;
   }
@@ -29,7 +40,9 @@ public class ProductBundleUpdateInput {
     this.productId = productId;
   }
 
-  
+  /**
+   * The title to rename the componentized product to, if provided.
+   */
   public String getTitle() {
     return title;
   }
@@ -38,7 +51,10 @@ public class ProductBundleUpdateInput {
     this.title = title;
   }
 
-  
+  /**
+   * The components to update existing ones. If none provided, no changes occur.
+   * Note: This replaces, not adds to, current components.
+   */
   public List<ProductBundleComponentInput> getComponents() {
     return components;
   }
@@ -72,13 +88,20 @@ public class ProductBundleUpdateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the componentized product to update.
+     */
     private String productId;
 
-    
+    /**
+     * The title to rename the componentized product to, if provided.
+     */
     private String title;
 
-    
+    /**
+     * The components to update existing ones. If none provided, no changes occur.
+     * Note: This replaces, not adds to, current components.
+     */
     private List<ProductBundleComponentInput> components;
 
     public ProductBundleUpdateInput build() {
@@ -89,19 +112,26 @@ public class ProductBundleUpdateInput {
       return result;
     }
 
-    
+    /**
+     * The ID of the componentized product to update.
+     */
     public Builder productId(String productId) {
       this.productId = productId;
       return this;
     }
 
-    
+    /**
+     * The title to rename the componentized product to, if provided.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    
+    /**
+     * The components to update existing ones. If none provided, no changes occur.
+     * Note: This replaces, not adds to, current components.
+     */
     public Builder components(List<ProductBundleComponentInput> components) {
       this.components = components;
       return this;

@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Represents the result of a read operation performed on a theme asset.
+ */
 public class OnlineStoreThemeFileReadResult {
-  
+  /**
+   * Type that indicates the result of the operation.
+   */
   private OnlineStoreThemeFileResultType code;
 
-  
+  /**
+   * Unique identifier associated with the operation and the theme file.
+   */
   private String filename;
 
   public OnlineStoreThemeFileReadResult() {
   }
 
-  
+  /**
+   * Type that indicates the result of the operation.
+   */
   public OnlineStoreThemeFileResultType getCode() {
     return code;
   }
@@ -25,7 +33,9 @@ public class OnlineStoreThemeFileReadResult {
     this.code = code;
   }
 
-  
+  /**
+   * Unique identifier associated with the operation and the theme file.
+   */
   public String getFilename() {
     return filename;
   }
@@ -58,10 +68,14 @@ public class OnlineStoreThemeFileReadResult {
   }
 
   public static class Builder {
-    
+    /**
+     * Type that indicates the result of the operation.
+     */
     private OnlineStoreThemeFileResultType code;
 
-    
+    /**
+     * Unique identifier associated with the operation and the theme file.
+     */
     private String filename;
 
     public OnlineStoreThemeFileReadResult build() {
@@ -71,13 +85,17 @@ public class OnlineStoreThemeFileReadResult {
       return result;
     }
 
-    
+    /**
+     * Type that indicates the result of the operation.
+     */
     public Builder code(OnlineStoreThemeFileResultType code) {
       this.code = code;
       return this;
     }
 
-    
+    /**
+     * Unique identifier associated with the operation and the theme file.
+     */
     public Builder filename(String filename) {
       this.filename = filename;
       return this;

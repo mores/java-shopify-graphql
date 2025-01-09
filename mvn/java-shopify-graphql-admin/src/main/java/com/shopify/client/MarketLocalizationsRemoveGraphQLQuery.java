@@ -7,7 +7,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Deletes market localizations.
+ */
 public class MarketLocalizationsRemoveGraphQLQuery extends GraphQLQuery {
   public MarketLocalizationsRemoveGraphQLQuery(String resourceId,
       List<String> marketLocalizationKeys, List<String> marketIds, String queryName,
@@ -51,21 +53,27 @@ public class MarketLocalizationsRemoveGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the resource for which market localizations are being deleted.
+     */
     public Builder resourceId(String resourceId) {
       this.resourceId = resourceId;
       this.fieldsSet.add("resourceId");
       return this;
     }
 
-    
+    /**
+     * The list of market localization keys.
+     */
     public Builder marketLocalizationKeys(List<String> marketLocalizationKeys) {
       this.marketLocalizationKeys = marketLocalizationKeys;
       this.fieldsSet.add("marketLocalizationKeys");
       return this;
     }
 
-    
+    /**
+     * The list of market IDs.
+     */
     public Builder marketIds(List<String> marketIds) {
       this.marketIds = marketIds;
       this.fieldsSet.add("marketIds");

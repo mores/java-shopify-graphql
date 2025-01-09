@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Updates the fields of an order.
+ */
 public class OrderUpdateGraphQLQuery extends GraphQLQuery {
   public OrderUpdateGraphQLQuery(OrderInput input, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -41,7 +43,9 @@ public class OrderUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The input for the mutation.
+     */
     public Builder input(OrderInput input) {
       this.input = input;
       this.fieldsSet.add("input");

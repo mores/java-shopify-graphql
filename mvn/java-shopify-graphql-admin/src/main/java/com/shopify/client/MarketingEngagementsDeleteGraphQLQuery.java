@@ -7,7 +7,11 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Marks channel-level engagement data such that it no longer appears in reports.
+ *           Activity-level data cannot be deleted directly, instead the MarketingActivity itself should be deleted to
+ *           hide it from reports.
+ */
 public class MarketingEngagementsDeleteGraphQLQuery extends GraphQLQuery {
   public MarketingEngagementsDeleteGraphQLQuery(String channelHandle,
       Boolean deleteEngagementsForAllChannels, String queryName, Set<String> fieldsSet) {
@@ -46,14 +50,18 @@ public class MarketingEngagementsDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The handle of the channel for which engagement data should be deleted.
+     */
     public Builder channelHandle(String channelHandle) {
       this.channelHandle = channelHandle;
       this.fieldsSet.add("channelHandle");
       return this;
     }
 
-    
+    /**
+     * When true, engagements for all channels that belong to the api client will be deleted.
+     */
     public Builder deleteEngagementsForAllChannels(Boolean deleteEngagementsForAllChannels) {
       this.deleteEngagementsForAllChannels = deleteEngagementsForAllChannels;
       this.fieldsSet.add("deleteEngagementsForAllChannels");

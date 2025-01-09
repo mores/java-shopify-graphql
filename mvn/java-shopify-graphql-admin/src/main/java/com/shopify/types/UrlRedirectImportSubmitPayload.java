@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `urlRedirectImportSubmit` mutation.
+ */
 public class UrlRedirectImportSubmitPayload {
-  
+  /**
+   * The asynchronous job importing the redirects.
+   */
   private Job job;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UrlRedirectImportUserError> userErrors;
 
   public UrlRedirectImportSubmitPayload() {
   }
 
-  
+  /**
+   * The asynchronous job importing the redirects.
+   */
   public Job getJob() {
     return job;
   }
@@ -26,7 +34,9 @@ public class UrlRedirectImportSubmitPayload {
     this.job = job;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UrlRedirectImportUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class UrlRedirectImportSubmitPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The asynchronous job importing the redirects.
+     */
     private Job job;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UrlRedirectImportUserError> userErrors;
 
     public UrlRedirectImportSubmitPayload build() {
@@ -72,13 +86,17 @@ public class UrlRedirectImportSubmitPayload {
       return result;
     }
 
-    
+    /**
+     * The asynchronous job importing the redirects.
+     */
     public Builder job(Job job) {
       this.job = job;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UrlRedirectImportUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

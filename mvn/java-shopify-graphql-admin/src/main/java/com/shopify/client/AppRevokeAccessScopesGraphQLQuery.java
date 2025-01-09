@@ -7,7 +7,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Revokes access scopes previously granted for an app installation.
+ */
 public class AppRevokeAccessScopesGraphQLQuery extends GraphQLQuery {
   public AppRevokeAccessScopesGraphQLQuery(List<String> scopes, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class AppRevokeAccessScopesGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The list of scope handles to revoke.
+     */
     public Builder scopes(List<String> scopes) {
       this.scopes = scopes;
       this.fieldsSet.add("scopes");

@@ -8,7 +8,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Appends media from a product to variants of the product.
+ */
 public class ProductVariantAppendMediaGraphQLQuery extends GraphQLQuery {
   public ProductVariantAppendMediaGraphQLQuery(String productId,
       List<ProductVariantAppendMediaInput> variantMedia, String queryName, Set<String> fieldsSet) {
@@ -47,14 +49,18 @@ public class ProductVariantAppendMediaGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Specifies the product associated to the media.
+     */
     public Builder productId(String productId) {
       this.productId = productId;
       this.fieldsSet.add("productId");
       return this;
     }
 
-    
+    /**
+     * A list of pairs of variants and media to be attached to the variants.
+     */
     public Builder variantMedia(List<ProductVariantAppendMediaInput> variantMedia) {
       this.variantMedia = variantMedia;
       this.fieldsSet.add("variantMedia");

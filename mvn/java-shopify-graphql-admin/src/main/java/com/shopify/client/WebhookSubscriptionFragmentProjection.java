@@ -81,11 +81,6 @@ public class WebhookSubscriptionFragmentProjection<PARENT extends BaseSubProject
     return this;
   }
 
-  public WebhookSubscriptionFragmentProjection<PARENT, ROOT> privateMetafieldNamespaces() {
-    getFields().put("privateMetafieldNamespaces", null);
-    return this;
-  }
-
   public WebhookSubscriptionFragmentProjection<PARENT, ROOT> updatedAt() {
     getFields().put("updatedAt", null);
     return this;

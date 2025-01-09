@@ -6,18 +6,28 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `marketingActivitiesDeleteAllExternal` mutation.
+ */
 public class MarketingActivitiesDeleteAllExternalPayload {
-  
+  /**
+   * The asynchronous job that performs the deletion. The status of the job may be
+   * used to determine when it's safe again to create new activities.
+   */
   private Job job;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<MarketingActivityUserError> userErrors;
 
   public MarketingActivitiesDeleteAllExternalPayload() {
   }
 
-  
+  /**
+   * The asynchronous job that performs the deletion. The status of the job may be
+   * used to determine when it's safe again to create new activities.
+   */
   public Job getJob() {
     return job;
   }
@@ -26,7 +36,9 @@ public class MarketingActivitiesDeleteAllExternalPayload {
     this.job = job;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<MarketingActivityUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +71,15 @@ public class MarketingActivitiesDeleteAllExternalPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The asynchronous job that performs the deletion. The status of the job may be
+     * used to determine when it's safe again to create new activities.
+     */
     private Job job;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<MarketingActivityUserError> userErrors;
 
     public MarketingActivitiesDeleteAllExternalPayload build() {
@@ -72,13 +89,18 @@ public class MarketingActivitiesDeleteAllExternalPayload {
       return result;
     }
 
-    
+    /**
+     * The asynchronous job that performs the deletion. The status of the job may be
+     * used to determine when it's safe again to create new activities.
+     */
     public Builder job(Job job) {
       this.job = job;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<MarketingActivityUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

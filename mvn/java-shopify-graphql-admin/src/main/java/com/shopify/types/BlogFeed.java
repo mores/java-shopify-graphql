@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * FeedBurner provider details. Any blogs that aren't already integrated with FeedBurner can't use the service.
+ */
 public class BlogFeed {
-  
+  /**
+   * Blog feed provider url.
+   */
   private String location;
 
-  
+  /**
+   * Blog feed provider path.
+   */
   private String path;
 
   public BlogFeed() {
   }
 
-  
+  /**
+   * Blog feed provider url.
+   */
   public String getLocation() {
     return location;
   }
@@ -25,7 +33,9 @@ public class BlogFeed {
     this.location = location;
   }
 
-  
+  /**
+   * Blog feed provider path.
+   */
   public String getPath() {
     return path;
   }
@@ -58,10 +68,14 @@ public class BlogFeed {
   }
 
   public static class Builder {
-    
+    /**
+     * Blog feed provider url.
+     */
     private String location;
 
-    
+    /**
+     * Blog feed provider path.
+     */
     private String path;
 
     public BlogFeed build() {
@@ -71,13 +85,17 @@ public class BlogFeed {
       return result;
     }
 
-    
+    /**
+     * Blog feed provider url.
+     */
     public Builder location(String location) {
       this.location = location;
       return this;
     }
 
-    
+    /**
+     * Blog feed provider path.
+     */
     public Builder path(String path) {
       this.path = path;
       return this;

@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `segmentUpdate` mutation.
+ */
 public class SegmentUpdatePayload {
-  
+  /**
+   * The updated segment.
+   */
   private Segment segment;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public SegmentUpdatePayload() {
   }
 
-  
+  /**
+   * The updated segment.
+   */
   public Segment getSegment() {
     return segment;
   }
@@ -26,7 +34,9 @@ public class SegmentUpdatePayload {
     this.segment = segment;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class SegmentUpdatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The updated segment.
+     */
     private Segment segment;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public SegmentUpdatePayload build() {
@@ -72,13 +86,17 @@ public class SegmentUpdatePayload {
       return result;
     }
 
-    
+    /**
+     * The updated segment.
+     */
     public Builder segment(Segment segment) {
       this.segment = segment;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

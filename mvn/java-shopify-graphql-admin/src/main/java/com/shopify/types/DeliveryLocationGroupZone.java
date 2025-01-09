@@ -5,21 +5,31 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Links a location group with a zone and the associated method definitions.
+ */
 public class DeliveryLocationGroupZone {
-  
+  /**
+   * The number of method definitions for the zone.
+   */
   private DeliveryMethodDefinitionCounts methodDefinitionCounts;
 
-  
+  /**
+   * The method definitions associated to a zone and location group.
+   */
   private DeliveryMethodDefinitionConnection methodDefinitions;
 
-  
+  /**
+   * The zone associated to a location group.
+   */
   private DeliveryZone zone;
 
   public DeliveryLocationGroupZone() {
   }
 
-  
+  /**
+   * The number of method definitions for the zone.
+   */
   public DeliveryMethodDefinitionCounts getMethodDefinitionCounts() {
     return methodDefinitionCounts;
   }
@@ -28,7 +38,9 @@ public class DeliveryLocationGroupZone {
     this.methodDefinitionCounts = methodDefinitionCounts;
   }
 
-  
+  /**
+   * The method definitions associated to a zone and location group.
+   */
   public DeliveryMethodDefinitionConnection getMethodDefinitions() {
     return methodDefinitions;
   }
@@ -37,7 +49,9 @@ public class DeliveryLocationGroupZone {
     this.methodDefinitions = methodDefinitions;
   }
 
-  
+  /**
+   * The zone associated to a location group.
+   */
   public DeliveryZone getZone() {
     return zone;
   }
@@ -71,13 +85,19 @@ public class DeliveryLocationGroupZone {
   }
 
   public static class Builder {
-    
+    /**
+     * The number of method definitions for the zone.
+     */
     private DeliveryMethodDefinitionCounts methodDefinitionCounts;
 
-    
+    /**
+     * The method definitions associated to a zone and location group.
+     */
     private DeliveryMethodDefinitionConnection methodDefinitions;
 
-    
+    /**
+     * The zone associated to a location group.
+     */
     private DeliveryZone zone;
 
     public DeliveryLocationGroupZone build() {
@@ -88,19 +108,25 @@ public class DeliveryLocationGroupZone {
       return result;
     }
 
-    
+    /**
+     * The number of method definitions for the zone.
+     */
     public Builder methodDefinitionCounts(DeliveryMethodDefinitionCounts methodDefinitionCounts) {
       this.methodDefinitionCounts = methodDefinitionCounts;
       return this;
     }
 
-    
+    /**
+     * The method definitions associated to a zone and location group.
+     */
     public Builder methodDefinitions(DeliveryMethodDefinitionConnection methodDefinitions) {
       this.methodDefinitions = methodDefinitions;
       return this;
     }
 
-    
+    /**
+     * The zone associated to a location group.
+     */
     public Builder zone(DeliveryZone zone) {
       this.zone = zone;
       return this;

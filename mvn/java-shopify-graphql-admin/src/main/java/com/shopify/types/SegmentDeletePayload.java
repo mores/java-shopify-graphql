@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `segmentDelete` mutation.
+ */
 public class SegmentDeletePayload {
-  
+  /**
+   * ID of the deleted segment.
+   */
   private String deletedSegmentId;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public SegmentDeletePayload() {
   }
 
-  
+  /**
+   * ID of the deleted segment.
+   */
   public String getDeletedSegmentId() {
     return deletedSegmentId;
   }
@@ -26,7 +34,9 @@ public class SegmentDeletePayload {
     this.deletedSegmentId = deletedSegmentId;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class SegmentDeletePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * ID of the deleted segment.
+     */
     private String deletedSegmentId;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public SegmentDeletePayload build() {
@@ -72,13 +86,17 @@ public class SegmentDeletePayload {
       return result;
     }
 
-    
+    /**
+     * ID of the deleted segment.
+     */
     public Builder deletedSegmentId(String deletedSegmentId) {
       this.deletedSegmentId = deletedSegmentId;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

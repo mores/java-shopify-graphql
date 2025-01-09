@@ -5,21 +5,31 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Represents the Bundles feature configuration for the shop.
+ */
 public class BundlesFeature {
-  
+  /**
+   * Whether a shop is configured properly to sell bundles.
+   */
   private boolean eligibleForBundles;
 
-  
+  /**
+   * The reason why a shop is not eligible for bundles.
+   */
   private String ineligibilityReason;
 
-  
+  /**
+   * Whether a shop has any fixed bundle products or has a cartTransform function installed.
+   */
   private boolean sellsBundles;
 
   public BundlesFeature() {
   }
 
-  
+  /**
+   * Whether a shop is configured properly to sell bundles.
+   */
   public boolean getEligibleForBundles() {
     return eligibleForBundles;
   }
@@ -28,7 +38,9 @@ public class BundlesFeature {
     this.eligibleForBundles = eligibleForBundles;
   }
 
-  
+  /**
+   * The reason why a shop is not eligible for bundles.
+   */
   public String getIneligibilityReason() {
     return ineligibilityReason;
   }
@@ -37,7 +49,9 @@ public class BundlesFeature {
     this.ineligibilityReason = ineligibilityReason;
   }
 
-  
+  /**
+   * Whether a shop has any fixed bundle products or has a cartTransform function installed.
+   */
   public boolean getSellsBundles() {
     return sellsBundles;
   }
@@ -71,13 +85,19 @@ public class BundlesFeature {
   }
 
   public static class Builder {
-    
+    /**
+     * Whether a shop is configured properly to sell bundles.
+     */
     private boolean eligibleForBundles;
 
-    
+    /**
+     * The reason why a shop is not eligible for bundles.
+     */
     private String ineligibilityReason;
 
-    
+    /**
+     * Whether a shop has any fixed bundle products or has a cartTransform function installed.
+     */
     private boolean sellsBundles;
 
     public BundlesFeature build() {
@@ -88,19 +108,25 @@ public class BundlesFeature {
       return result;
     }
 
-    
+    /**
+     * Whether a shop is configured properly to sell bundles.
+     */
     public Builder eligibleForBundles(boolean eligibleForBundles) {
       this.eligibleForBundles = eligibleForBundles;
       return this;
     }
 
-    
+    /**
+     * The reason why a shop is not eligible for bundles.
+     */
     public Builder ineligibilityReason(String ineligibilityReason) {
       this.ineligibilityReason = ineligibilityReason;
       return this;
     }
 
-    
+    /**
+     * Whether a shop has any fixed bundle products or has a cartTransform function installed.
+     */
     public Builder sellsBundles(boolean sellsBundles) {
       this.sellsBundles = sellsBundles;
       return this;

@@ -84,58 +84,93 @@ import java.util.Objects;
     use = JsonTypeInfo.Id.NONE
 )
 public class BasicEvent implements com.shopify.types.Event, com.shopify.types.Node {
-  
+  /**
+   * The action that occured.
+   */
   private String action;
 
-  
+  /**
+   * Provides additional content for collapsible timeline events.
+   */
   private String additionalContent;
 
-  
+  /**
+   * Provides additional data for event consumers.
+   */
   private String additionalData;
 
-  
+  /**
+   * The name of the app that created the event.
+   */
   private String appTitle;
 
-  
+  /**
+   * Refers to a certain event and its resources.
+   */
   private String arguments;
 
-  
+  /**
+   * Whether the event was created by an app.
+   */
   private boolean attributeToApp;
 
-  
+  /**
+   * Whether the event was caused by an admin user.
+   */
   private boolean attributeToUser;
 
-  
+  /**
+   * The date and time when the event was created.
+   */
   private OffsetDateTime createdAt;
 
-  
+  /**
+   * Whether the event is critical.
+   */
   private boolean criticalAlert;
 
-  
+  /**
+   * Whether this event has additional content.
+   */
   private boolean hasAdditionalContent;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * Human readable text that describes the event.
+   */
   private String message;
 
-  
+  /**
+   * Human readable text that supports the event message.
+   */
   private String secondaryMessage;
 
-  
+  /**
+   * The resource that generated the event. To see a list of possible types,
+   * refer to [HasEvents](https://shopify.dev/docs/api/admin-graphql/unstable/interfaces/HasEvents#implemented-in).
+   */
   private HasEvents subject;
 
-  
+  /**
+   * The ID of the resource that generated the event.
+   */
   private String subjectId;
 
-  
+  /**
+   * The type of the resource that generated the event.
+   */
   private EventSubjectType subjectType;
 
   public BasicEvent() {
   }
 
-  
+  /**
+   * The action that occured.
+   */
   public String getAction() {
     return action;
   }
@@ -144,7 +179,9 @@ public class BasicEvent implements com.shopify.types.Event, com.shopify.types.No
     this.action = action;
   }
 
-  
+  /**
+   * Provides additional content for collapsible timeline events.
+   */
   public String getAdditionalContent() {
     return additionalContent;
   }
@@ -153,7 +190,9 @@ public class BasicEvent implements com.shopify.types.Event, com.shopify.types.No
     this.additionalContent = additionalContent;
   }
 
-  
+  /**
+   * Provides additional data for event consumers.
+   */
   public String getAdditionalData() {
     return additionalData;
   }
@@ -162,7 +201,9 @@ public class BasicEvent implements com.shopify.types.Event, com.shopify.types.No
     this.additionalData = additionalData;
   }
 
-  
+  /**
+   * The name of the app that created the event.
+   */
   public String getAppTitle() {
     return appTitle;
   }
@@ -171,7 +212,9 @@ public class BasicEvent implements com.shopify.types.Event, com.shopify.types.No
     this.appTitle = appTitle;
   }
 
-  
+  /**
+   * Refers to a certain event and its resources.
+   */
   public String getArguments() {
     return arguments;
   }
@@ -180,7 +223,9 @@ public class BasicEvent implements com.shopify.types.Event, com.shopify.types.No
     this.arguments = arguments;
   }
 
-  
+  /**
+   * Whether the event was created by an app.
+   */
   public boolean getAttributeToApp() {
     return attributeToApp;
   }
@@ -189,7 +234,9 @@ public class BasicEvent implements com.shopify.types.Event, com.shopify.types.No
     this.attributeToApp = attributeToApp;
   }
 
-  
+  /**
+   * Whether the event was caused by an admin user.
+   */
   public boolean getAttributeToUser() {
     return attributeToUser;
   }
@@ -198,7 +245,9 @@ public class BasicEvent implements com.shopify.types.Event, com.shopify.types.No
     this.attributeToUser = attributeToUser;
   }
 
-  
+  /**
+   * The date and time when the event was created.
+   */
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -207,7 +256,9 @@ public class BasicEvent implements com.shopify.types.Event, com.shopify.types.No
     this.createdAt = createdAt;
   }
 
-  
+  /**
+   * Whether the event is critical.
+   */
   public boolean getCriticalAlert() {
     return criticalAlert;
   }
@@ -216,7 +267,9 @@ public class BasicEvent implements com.shopify.types.Event, com.shopify.types.No
     this.criticalAlert = criticalAlert;
   }
 
-  
+  /**
+   * Whether this event has additional content.
+   */
   public boolean getHasAdditionalContent() {
     return hasAdditionalContent;
   }
@@ -225,7 +278,9 @@ public class BasicEvent implements com.shopify.types.Event, com.shopify.types.No
     this.hasAdditionalContent = hasAdditionalContent;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -234,7 +289,9 @@ public class BasicEvent implements com.shopify.types.Event, com.shopify.types.No
     this.id = id;
   }
 
-  
+  /**
+   * Human readable text that describes the event.
+   */
   public String getMessage() {
     return message;
   }
@@ -243,7 +300,9 @@ public class BasicEvent implements com.shopify.types.Event, com.shopify.types.No
     this.message = message;
   }
 
-  
+  /**
+   * Human readable text that supports the event message.
+   */
   public String getSecondaryMessage() {
     return secondaryMessage;
   }
@@ -252,7 +311,10 @@ public class BasicEvent implements com.shopify.types.Event, com.shopify.types.No
     this.secondaryMessage = secondaryMessage;
   }
 
-  
+  /**
+   * The resource that generated the event. To see a list of possible types,
+   * refer to [HasEvents](https://shopify.dev/docs/api/admin-graphql/unstable/interfaces/HasEvents#implemented-in).
+   */
   public HasEvents getSubject() {
     return subject;
   }
@@ -261,7 +323,9 @@ public class BasicEvent implements com.shopify.types.Event, com.shopify.types.No
     this.subject = subject;
   }
 
-  
+  /**
+   * The ID of the resource that generated the event.
+   */
   public String getSubjectId() {
     return subjectId;
   }
@@ -270,7 +334,9 @@ public class BasicEvent implements com.shopify.types.Event, com.shopify.types.No
     this.subjectId = subjectId;
   }
 
-  
+  /**
+   * The type of the resource that generated the event.
+   */
   public EventSubjectType getSubjectType() {
     return subjectType;
   }
@@ -317,52 +383,85 @@ public class BasicEvent implements com.shopify.types.Event, com.shopify.types.No
   }
 
   public static class Builder {
-    
+    /**
+     * The action that occured.
+     */
     private String action;
 
-    
+    /**
+     * Provides additional content for collapsible timeline events.
+     */
     private String additionalContent;
 
-    
+    /**
+     * Provides additional data for event consumers.
+     */
     private String additionalData;
 
-    
+    /**
+     * The name of the app that created the event.
+     */
     private String appTitle;
 
-    
+    /**
+     * Refers to a certain event and its resources.
+     */
     private String arguments;
 
-    
+    /**
+     * Whether the event was created by an app.
+     */
     private boolean attributeToApp;
 
-    
+    /**
+     * Whether the event was caused by an admin user.
+     */
     private boolean attributeToUser;
 
-    
+    /**
+     * The date and time when the event was created.
+     */
     private OffsetDateTime createdAt;
 
-    
+    /**
+     * Whether the event is critical.
+     */
     private boolean criticalAlert;
 
-    
+    /**
+     * Whether this event has additional content.
+     */
     private boolean hasAdditionalContent;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * Human readable text that describes the event.
+     */
     private String message;
 
-    
+    /**
+     * Human readable text that supports the event message.
+     */
     private String secondaryMessage;
 
-    
+    /**
+     * The resource that generated the event. To see a list of possible types,
+     * refer to [HasEvents](https://shopify.dev/docs/api/admin-graphql/unstable/interfaces/HasEvents#implemented-in).
+     */
     private HasEvents subject;
 
-    
+    /**
+     * The ID of the resource that generated the event.
+     */
     private String subjectId;
 
-    
+    /**
+     * The type of the resource that generated the event.
+     */
     private EventSubjectType subjectType;
 
     public BasicEvent build() {
@@ -386,97 +485,130 @@ public class BasicEvent implements com.shopify.types.Event, com.shopify.types.No
       return result;
     }
 
-    
+    /**
+     * The action that occured.
+     */
     public Builder action(String action) {
       this.action = action;
       return this;
     }
 
-    
+    /**
+     * Provides additional content for collapsible timeline events.
+     */
     public Builder additionalContent(String additionalContent) {
       this.additionalContent = additionalContent;
       return this;
     }
 
-    
+    /**
+     * Provides additional data for event consumers.
+     */
     public Builder additionalData(String additionalData) {
       this.additionalData = additionalData;
       return this;
     }
 
-    
+    /**
+     * The name of the app that created the event.
+     */
     public Builder appTitle(String appTitle) {
       this.appTitle = appTitle;
       return this;
     }
 
-    
+    /**
+     * Refers to a certain event and its resources.
+     */
     public Builder arguments(String arguments) {
       this.arguments = arguments;
       return this;
     }
 
-    
+    /**
+     * Whether the event was created by an app.
+     */
     public Builder attributeToApp(boolean attributeToApp) {
       this.attributeToApp = attributeToApp;
       return this;
     }
 
-    
+    /**
+     * Whether the event was caused by an admin user.
+     */
     public Builder attributeToUser(boolean attributeToUser) {
       this.attributeToUser = attributeToUser;
       return this;
     }
 
-    
+    /**
+     * The date and time when the event was created.
+     */
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    
+    /**
+     * Whether the event is critical.
+     */
     public Builder criticalAlert(boolean criticalAlert) {
       this.criticalAlert = criticalAlert;
       return this;
     }
 
-    
+    /**
+     * Whether this event has additional content.
+     */
     public Builder hasAdditionalContent(boolean hasAdditionalContent) {
       this.hasAdditionalContent = hasAdditionalContent;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * Human readable text that describes the event.
+     */
     public Builder message(String message) {
       this.message = message;
       return this;
     }
 
-    
+    /**
+     * Human readable text that supports the event message.
+     */
     public Builder secondaryMessage(String secondaryMessage) {
       this.secondaryMessage = secondaryMessage;
       return this;
     }
 
-    
+    /**
+     * The resource that generated the event. To see a list of possible types,
+     * refer to [HasEvents](https://shopify.dev/docs/api/admin-graphql/unstable/interfaces/HasEvents#implemented-in).
+     */
     public Builder subject(HasEvents subject) {
       this.subject = subject;
       return this;
     }
 
-    
+    /**
+     * The ID of the resource that generated the event.
+     */
     public Builder subjectId(String subjectId) {
       this.subjectId = subjectId;
       return this;
     }
 
-    
+    /**
+     * The type of the resource that generated the event.
+     */
     public Builder subjectType(EventSubjectType subjectType) {
       this.subjectType = subjectType;
       return this;

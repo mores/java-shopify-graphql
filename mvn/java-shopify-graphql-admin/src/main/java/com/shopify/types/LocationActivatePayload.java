@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `locationActivate` mutation.
+ */
 public class LocationActivatePayload {
-  
+  /**
+   * The location that was activated.
+   */
   private Location location;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<LocationActivateUserError> locationActivateUserErrors;
 
   public LocationActivatePayload() {
   }
 
-  
+  /**
+   * The location that was activated.
+   */
   public Location getLocation() {
     return location;
   }
@@ -26,7 +34,9 @@ public class LocationActivatePayload {
     this.location = location;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<LocationActivateUserError> getLocationActivateUserErrors() {
     return locationActivateUserErrors;
   }
@@ -60,10 +70,14 @@ public class LocationActivatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The location that was activated.
+     */
     private Location location;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<LocationActivateUserError> locationActivateUserErrors;
 
     public LocationActivatePayload build() {
@@ -73,13 +87,17 @@ public class LocationActivatePayload {
       return result;
     }
 
-    
+    /**
+     * The location that was activated.
+     */
     public Builder location(Location location) {
       this.location = location;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder locationActivateUserErrors(
         List<LocationActivateUserError> locationActivateUserErrors) {
       this.locationActivateUserErrors = locationActivateUserErrors;

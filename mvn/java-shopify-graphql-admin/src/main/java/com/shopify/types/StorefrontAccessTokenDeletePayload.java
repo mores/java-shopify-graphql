@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `storefrontAccessTokenDelete` mutation.
+ */
 public class StorefrontAccessTokenDeletePayload {
-  
+  /**
+   * The ID of the deleted storefront access token.
+   */
   private String deletedStorefrontAccessTokenId;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public StorefrontAccessTokenDeletePayload() {
   }
 
-  
+  /**
+   * The ID of the deleted storefront access token.
+   */
   public String getDeletedStorefrontAccessTokenId() {
     return deletedStorefrontAccessTokenId;
   }
@@ -26,7 +34,9 @@ public class StorefrontAccessTokenDeletePayload {
     this.deletedStorefrontAccessTokenId = deletedStorefrontAccessTokenId;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class StorefrontAccessTokenDeletePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the deleted storefront access token.
+     */
     private String deletedStorefrontAccessTokenId;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public StorefrontAccessTokenDeletePayload build() {
@@ -72,13 +86,17 @@ public class StorefrontAccessTokenDeletePayload {
       return result;
     }
 
-    
+    /**
+     * The ID of the deleted storefront access token.
+     */
     public Builder deletedStorefrontAccessTokenId(String deletedStorefrontAccessTokenId) {
       this.deletedStorefrontAccessTokenId = deletedStorefrontAccessTokenId;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

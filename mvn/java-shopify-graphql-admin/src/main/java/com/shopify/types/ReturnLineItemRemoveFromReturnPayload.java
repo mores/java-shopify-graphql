@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `returnLineItemRemoveFromReturn` mutation.
+ */
 public class ReturnLineItemRemoveFromReturnPayload {
-  
+  /**
+   * The modified return.
+   */
   private Return _return;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<ReturnUserError> userErrors;
 
   public ReturnLineItemRemoveFromReturnPayload() {
   }
 
-  
+  /**
+   * The modified return.
+   */
   public Return getReturn() {
     return _return;
   }
@@ -26,7 +34,9 @@ public class ReturnLineItemRemoveFromReturnPayload {
     this._return = _return;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<ReturnUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class ReturnLineItemRemoveFromReturnPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The modified return.
+     */
     private Return _return;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<ReturnUserError> userErrors;
 
     public ReturnLineItemRemoveFromReturnPayload build() {
@@ -72,13 +86,17 @@ public class ReturnLineItemRemoveFromReturnPayload {
       return result;
     }
 
-    
+    /**
+     * The modified return.
+     */
     public Builder _return(Return _return) {
       this._return = _return;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<ReturnUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

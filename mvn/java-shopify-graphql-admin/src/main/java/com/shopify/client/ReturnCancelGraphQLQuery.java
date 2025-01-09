@@ -6,7 +6,11 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Cancels a return and restores the items back to being fulfilled.
+ * Canceling a return is only available before any work has been done
+ * on the return (such as an inspection or refund).
+ */
 public class ReturnCancelGraphQLQuery extends GraphQLQuery {
   public ReturnCancelGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -40,7 +44,9 @@ public class ReturnCancelGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the return to cancel.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

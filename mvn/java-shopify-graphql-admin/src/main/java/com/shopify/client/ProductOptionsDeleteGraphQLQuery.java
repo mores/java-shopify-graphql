@@ -8,7 +8,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Deletes the specified options.
+ */
 public class ProductOptionsDeleteGraphQLQuery extends GraphQLQuery {
   public ProductOptionsDeleteGraphQLQuery(String productId, List<String> options,
       ProductOptionDeleteStrategy strategy, String queryName, Set<String> fieldsSet) {
@@ -51,21 +53,28 @@ public class ProductOptionsDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * ID of the product from which to delete the options.
+     */
     public Builder productId(String productId) {
       this.productId = productId;
       this.fieldsSet.add("productId");
       return this;
     }
 
-    
+    /**
+     * IDs of the options to delete from the product.
+     */
     public Builder options(List<String> options) {
       this.options = options;
       this.fieldsSet.add("options");
       return this;
     }
 
-    
+    /**
+     * The strategy defines which behavior the mutation should observe,such as how
+     * to handle a situation where deleting an option would result in duplicate variants.
+     */
     public Builder strategy(ProductOptionDeleteStrategy strategy) {
       this.strategy = strategy;
       this.fieldsSet.add("strategy");

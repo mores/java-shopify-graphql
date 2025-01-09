@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `translationsRegister` mutation.
+ */
 public class TranslationsRegisterPayload {
-  
+  /**
+   * The translations that were created or updated.
+   */
   private List<Translation> translations;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<TranslationUserError> userErrors;
 
   public TranslationsRegisterPayload() {
   }
 
-  
+  /**
+   * The translations that were created or updated.
+   */
   public List<Translation> getTranslations() {
     return translations;
   }
@@ -26,7 +34,9 @@ public class TranslationsRegisterPayload {
     this.translations = translations;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<TranslationUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class TranslationsRegisterPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The translations that were created or updated.
+     */
     private List<Translation> translations;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<TranslationUserError> userErrors;
 
     public TranslationsRegisterPayload build() {
@@ -72,13 +86,17 @@ public class TranslationsRegisterPayload {
       return result;
     }
 
-    
+    /**
+     * The translations that were created or updated.
+     */
     public Builder translations(List<Translation> translations) {
       this.translations = translations;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<TranslationUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

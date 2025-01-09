@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `webPixelUpdate` mutation.
+ */
 public class WebPixelUpdatePayload {
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<ErrorsWebPixelUserError> userErrors;
 
-  
+  /**
+   * The updated web pixel settings.
+   */
   private WebPixel webPixel;
 
   public WebPixelUpdatePayload() {
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<ErrorsWebPixelUserError> getUserErrors() {
     return userErrors;
   }
@@ -26,7 +34,9 @@ public class WebPixelUpdatePayload {
     this.userErrors = userErrors;
   }
 
-  
+  /**
+   * The updated web pixel settings.
+   */
   public WebPixel getWebPixel() {
     return webPixel;
   }
@@ -59,10 +69,14 @@ public class WebPixelUpdatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<ErrorsWebPixelUserError> userErrors;
 
-    
+    /**
+     * The updated web pixel settings.
+     */
     private WebPixel webPixel;
 
     public WebPixelUpdatePayload build() {
@@ -72,13 +86,17 @@ public class WebPixelUpdatePayload {
       return result;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<ErrorsWebPixelUserError> userErrors) {
       this.userErrors = userErrors;
       return this;
     }
 
-    
+    /**
+     * The updated web pixel settings.
+     */
     public Builder webPixel(WebPixel webPixel) {
       this.webPixel = webPixel;
       return this;

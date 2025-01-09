@@ -6,21 +6,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `publishablePublish` mutation.
+ */
 public class PublishablePublishPayload {
-  
+  /**
+   * Resource that has been published.
+   */
   private Publishable publishable;
 
-  
+  /**
+   * The user's shop.
+   */
   private Shop shop;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public PublishablePublishPayload() {
   }
 
-  
+  /**
+   * Resource that has been published.
+   */
   public Publishable getPublishable() {
     return publishable;
   }
@@ -29,7 +39,9 @@ public class PublishablePublishPayload {
     this.publishable = publishable;
   }
 
-  
+  /**
+   * The user's shop.
+   */
   public Shop getShop() {
     return shop;
   }
@@ -38,7 +50,9 @@ public class PublishablePublishPayload {
     this.shop = shop;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -72,13 +86,19 @@ public class PublishablePublishPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * Resource that has been published.
+     */
     private Publishable publishable;
 
-    
+    /**
+     * The user's shop.
+     */
     private Shop shop;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public PublishablePublishPayload build() {
@@ -89,19 +109,25 @@ public class PublishablePublishPayload {
       return result;
     }
 
-    
+    /**
+     * Resource that has been published.
+     */
     public Builder publishable(Publishable publishable) {
       this.publishable = publishable;
       return this;
     }
 
-    
+    /**
+     * The user's shop.
+     */
     public Builder shop(Shop shop) {
       this.shop = shop;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `shopLocaleEnable` mutation.
+ */
 public class ShopLocaleEnablePayload {
-  
+  /**
+   * ISO code of the locale that was enabled.
+   */
   private ShopLocale shopLocale;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public ShopLocaleEnablePayload() {
   }
 
-  
+  /**
+   * ISO code of the locale that was enabled.
+   */
   public ShopLocale getShopLocale() {
     return shopLocale;
   }
@@ -26,7 +34,9 @@ public class ShopLocaleEnablePayload {
     this.shopLocale = shopLocale;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class ShopLocaleEnablePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * ISO code of the locale that was enabled.
+     */
     private ShopLocale shopLocale;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public ShopLocaleEnablePayload build() {
@@ -72,13 +86,17 @@ public class ShopLocaleEnablePayload {
       return result;
     }
 
-    
+    /**
+     * ISO code of the locale that was enabled.
+     */
     public Builder shopLocale(ShopLocale shopLocale) {
       this.shopLocale = shopLocale;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

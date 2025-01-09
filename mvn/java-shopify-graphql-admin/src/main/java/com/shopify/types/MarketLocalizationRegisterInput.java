@@ -5,24 +5,36 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields and values for creating or updating a market localization.
+ */
 public class MarketLocalizationRegisterInput {
-  
+  /**
+   * The ID of the market that the localization is specific to.
+   */
   private String marketId;
 
-  
+  /**
+   * A reference to the value being localized on the resource that this market localization belongs to.
+   */
   private String key;
 
-  
+  /**
+   * The value of the market localization.
+   */
   private String value;
 
-  
+  /**
+   * A hash digest representation of the content being localized.
+   */
   private String marketLocalizableContentDigest;
 
   public MarketLocalizationRegisterInput() {
   }
 
-  
+  /**
+   * The ID of the market that the localization is specific to.
+   */
   public String getMarketId() {
     return marketId;
   }
@@ -31,7 +43,9 @@ public class MarketLocalizationRegisterInput {
     this.marketId = marketId;
   }
 
-  
+  /**
+   * A reference to the value being localized on the resource that this market localization belongs to.
+   */
   public String getKey() {
     return key;
   }
@@ -40,7 +54,9 @@ public class MarketLocalizationRegisterInput {
     this.key = key;
   }
 
-  
+  /**
+   * The value of the market localization.
+   */
   public String getValue() {
     return value;
   }
@@ -49,7 +65,9 @@ public class MarketLocalizationRegisterInput {
     this.value = value;
   }
 
-  
+  /**
+   * A hash digest representation of the content being localized.
+   */
   public String getMarketLocalizableContentDigest() {
     return marketLocalizableContentDigest;
   }
@@ -84,16 +102,24 @@ public class MarketLocalizationRegisterInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the market that the localization is specific to.
+     */
     private String marketId;
 
-    
+    /**
+     * A reference to the value being localized on the resource that this market localization belongs to.
+     */
     private String key;
 
-    
+    /**
+     * The value of the market localization.
+     */
     private String value;
 
-    
+    /**
+     * A hash digest representation of the content being localized.
+     */
     private String marketLocalizableContentDigest;
 
     public MarketLocalizationRegisterInput build() {
@@ -105,25 +131,33 @@ public class MarketLocalizationRegisterInput {
       return result;
     }
 
-    
+    /**
+     * The ID of the market that the localization is specific to.
+     */
     public Builder marketId(String marketId) {
       this.marketId = marketId;
       return this;
     }
 
-    
+    /**
+     * A reference to the value being localized on the resource that this market localization belongs to.
+     */
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
-    
+    /**
+     * The value of the market localization.
+     */
     public Builder value(String value) {
       this.value = value;
       return this;
     }
 
-    
+    /**
+     * A hash digest representation of the content being localized.
+     */
     public Builder marketLocalizableContentDigest(String marketLocalizableContentDigest) {
       this.marketLocalizableContentDigest = marketLocalizableContentDigest;
       return this;

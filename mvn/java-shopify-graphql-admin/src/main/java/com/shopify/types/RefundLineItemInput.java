@@ -5,24 +5,36 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields required to reimburse line items on a refund.
+ */
 public class RefundLineItemInput {
-  
+  /**
+   * The ID of the line item in the refund.
+   */
   private String lineItemId;
 
-  
+  /**
+   * The quantity of the associated line item to be refunded.
+   */
   private int quantity;
 
-  
+  /**
+   * The type of restock for this line item.
+   */
   private RefundLineItemRestockType restockType;
 
-  
+  /**
+   * The intended location for restocking. If the `restockType` is set to `NO_RESTOCK`, then this value is empty.
+   */
   private String locationId;
 
   public RefundLineItemInput() {
   }
 
-  
+  /**
+   * The ID of the line item in the refund.
+   */
   public String getLineItemId() {
     return lineItemId;
   }
@@ -31,7 +43,9 @@ public class RefundLineItemInput {
     this.lineItemId = lineItemId;
   }
 
-  
+  /**
+   * The quantity of the associated line item to be refunded.
+   */
   public int getQuantity() {
     return quantity;
   }
@@ -40,7 +54,9 @@ public class RefundLineItemInput {
     this.quantity = quantity;
   }
 
-  
+  /**
+   * The type of restock for this line item.
+   */
   public RefundLineItemRestockType getRestockType() {
     return restockType;
   }
@@ -49,7 +65,9 @@ public class RefundLineItemInput {
     this.restockType = restockType;
   }
 
-  
+  /**
+   * The intended location for restocking. If the `restockType` is set to `NO_RESTOCK`, then this value is empty.
+   */
   public String getLocationId() {
     return locationId;
   }
@@ -84,16 +102,24 @@ public class RefundLineItemInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the line item in the refund.
+     */
     private String lineItemId;
 
-    
+    /**
+     * The quantity of the associated line item to be refunded.
+     */
     private int quantity;
 
-    
+    /**
+     * The type of restock for this line item.
+     */
     private RefundLineItemRestockType restockType;
 
-    
+    /**
+     * The intended location for restocking. If the `restockType` is set to `NO_RESTOCK`, then this value is empty.
+     */
     private String locationId;
 
     public RefundLineItemInput build() {
@@ -105,25 +131,33 @@ public class RefundLineItemInput {
       return result;
     }
 
-    
+    /**
+     * The ID of the line item in the refund.
+     */
     public Builder lineItemId(String lineItemId) {
       this.lineItemId = lineItemId;
       return this;
     }
 
-    
+    /**
+     * The quantity of the associated line item to be refunded.
+     */
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    
+    /**
+     * The type of restock for this line item.
+     */
     public Builder restockType(RefundLineItemRestockType restockType) {
       this.restockType = restockType;
       return this;
     }
 
-    
+    /**
+     * The intended location for restocking. If the `restockType` is set to `NO_RESTOCK`, then this value is empty.
+     */
     public Builder locationId(String locationId) {
       this.locationId = locationId;
       return this;

@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for enabling and disabling the Online Store capability.
+ */
 public class MetaobjectCapabilityOnlineStoreInput {
-  
+  /**
+   * Indicates whether the capability should be enabled or disabled.
+   */
   private boolean enabled;
 
-  
+  /**
+   * The data associated with the Online Store capability.
+   */
   private MetaobjectCapabilityDefinitionDataOnlineStoreInput data;
 
   public MetaobjectCapabilityOnlineStoreInput() {
   }
 
-  
+  /**
+   * Indicates whether the capability should be enabled or disabled.
+   */
   public boolean getEnabled() {
     return enabled;
   }
@@ -25,7 +33,9 @@ public class MetaobjectCapabilityOnlineStoreInput {
     this.enabled = enabled;
   }
 
-  
+  /**
+   * The data associated with the Online Store capability.
+   */
   public MetaobjectCapabilityDefinitionDataOnlineStoreInput getData() {
     return data;
   }
@@ -58,10 +68,14 @@ public class MetaobjectCapabilityOnlineStoreInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Indicates whether the capability should be enabled or disabled.
+     */
     private boolean enabled;
 
-    
+    /**
+     * The data associated with the Online Store capability.
+     */
     private MetaobjectCapabilityDefinitionDataOnlineStoreInput data;
 
     public MetaobjectCapabilityOnlineStoreInput build() {
@@ -71,13 +85,17 @@ public class MetaobjectCapabilityOnlineStoreInput {
       return result;
     }
 
-    
+    /**
+     * Indicates whether the capability should be enabled or disabled.
+     */
     public Builder enabled(boolean enabled) {
       this.enabled = enabled;
       return this;
     }
 
-    
+    /**
+     * The data associated with the Online Store capability.
+     */
     public Builder data(MetaobjectCapabilityDefinitionDataOnlineStoreInput data) {
       this.data = data;
       return this;

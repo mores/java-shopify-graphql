@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A filter in a search query represented by a key value pair.
+ */
 public class SearchFilter {
-  
+  /**
+   * The key of the search filter.
+   */
   private String key;
 
-  
+  /**
+   * The value of the search filter.
+   */
   private String value;
 
   public SearchFilter() {
   }
 
-  
+  /**
+   * The key of the search filter.
+   */
   public String getKey() {
     return key;
   }
@@ -25,7 +33,9 @@ public class SearchFilter {
     this.key = key;
   }
 
-  
+  /**
+   * The value of the search filter.
+   */
   public String getValue() {
     return value;
   }
@@ -58,10 +68,14 @@ public class SearchFilter {
   }
 
   public static class Builder {
-    
+    /**
+     * The key of the search filter.
+     */
     private String key;
 
-    
+    /**
+     * The value of the search filter.
+     */
     private String value;
 
     public SearchFilter build() {
@@ -71,13 +85,17 @@ public class SearchFilter {
       return result;
     }
 
-    
+    /**
+     * The key of the search filter.
+     */
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
-    
+    /**
+     * The value of the search filter.
+     */
     public Builder value(String value) {
       this.value = value;
       return this;

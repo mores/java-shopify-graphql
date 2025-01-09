@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `sellingPlanGroupRemoveProducts` mutation.
+ */
 public class SellingPlanGroupRemoveProductsPayload {
-  
+  /**
+   * The removed product ids.
+   */
   private List<String> removedProductIds;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<SellingPlanGroupUserError> userErrors;
 
   public SellingPlanGroupRemoveProductsPayload() {
   }
 
-  
+  /**
+   * The removed product ids.
+   */
   public List<String> getRemovedProductIds() {
     return removedProductIds;
   }
@@ -26,7 +34,9 @@ public class SellingPlanGroupRemoveProductsPayload {
     this.removedProductIds = removedProductIds;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<SellingPlanGroupUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class SellingPlanGroupRemoveProductsPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The removed product ids.
+     */
     private List<String> removedProductIds;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<SellingPlanGroupUserError> userErrors;
 
     public SellingPlanGroupRemoveProductsPayload build() {
@@ -72,13 +86,17 @@ public class SellingPlanGroupRemoveProductsPayload {
       return result;
     }
 
-    
+    /**
+     * The removed product ids.
+     */
     public Builder removedProductIds(List<String> removedProductIds) {
       this.removedProductIds = removedProductIds;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<SellingPlanGroupUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

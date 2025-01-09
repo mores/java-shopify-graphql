@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * An auto-generated type which holds one MetafieldDefinitionConstraintValue and a cursor during pagination.
+ */
 public class MetafieldDefinitionConstraintValueEdge {
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   private String cursor;
 
-  
+  /**
+   * The item at the end of MetafieldDefinitionConstraintValueEdge.
+   */
   private MetafieldDefinitionConstraintValue node;
 
   public MetafieldDefinitionConstraintValueEdge() {
   }
 
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   public String getCursor() {
     return cursor;
   }
@@ -25,7 +33,9 @@ public class MetafieldDefinitionConstraintValueEdge {
     this.cursor = cursor;
   }
 
-  
+  /**
+   * The item at the end of MetafieldDefinitionConstraintValueEdge.
+   */
   public MetafieldDefinitionConstraintValue getNode() {
     return node;
   }
@@ -58,10 +68,14 @@ public class MetafieldDefinitionConstraintValueEdge {
   }
 
   public static class Builder {
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     private String cursor;
 
-    
+    /**
+     * The item at the end of MetafieldDefinitionConstraintValueEdge.
+     */
     private MetafieldDefinitionConstraintValue node;
 
     public MetafieldDefinitionConstraintValueEdge build() {
@@ -71,13 +85,17 @@ public class MetafieldDefinitionConstraintValueEdge {
       return result;
     }
 
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder cursor(String cursor) {
       this.cursor = cursor;
       return this;
     }
 
-    
+    /**
+     * The item at the end of MetafieldDefinitionConstraintValueEdge.
+     */
     public Builder node(MetafieldDefinitionConstraintValue node) {
       this.node = node;
       return this;

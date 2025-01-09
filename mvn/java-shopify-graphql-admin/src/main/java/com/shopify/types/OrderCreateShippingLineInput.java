@@ -6,27 +6,41 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields for a shipping line to create for an order.
+ */
 public class OrderCreateShippingLineInput {
-  
+  /**
+   * A reference to the shipping method.
+   */
   private String code;
 
-  
+  /**
+   * The price of this shipping method in the shop currency. Can't be negative.
+   */
   private MoneyBagInput priceSet;
 
-  
+  /**
+   * The source of the shipping method.
+   */
   private String source;
 
-  
+  /**
+   * A list of tax line objects, each of which details a tax applicable to this shipping line.
+   */
   private List<OrderCreateTaxLineInput> taxLines;
 
-  
+  /**
+   * The title of the shipping method.
+   */
   private String title;
 
   public OrderCreateShippingLineInput() {
   }
 
-  
+  /**
+   * A reference to the shipping method.
+   */
   public String getCode() {
     return code;
   }
@@ -35,7 +49,9 @@ public class OrderCreateShippingLineInput {
     this.code = code;
   }
 
-  
+  /**
+   * The price of this shipping method in the shop currency. Can't be negative.
+   */
   public MoneyBagInput getPriceSet() {
     return priceSet;
   }
@@ -44,7 +60,9 @@ public class OrderCreateShippingLineInput {
     this.priceSet = priceSet;
   }
 
-  
+  /**
+   * The source of the shipping method.
+   */
   public String getSource() {
     return source;
   }
@@ -53,7 +71,9 @@ public class OrderCreateShippingLineInput {
     this.source = source;
   }
 
-  
+  /**
+   * A list of tax line objects, each of which details a tax applicable to this shipping line.
+   */
   public List<OrderCreateTaxLineInput> getTaxLines() {
     return taxLines;
   }
@@ -62,7 +82,9 @@ public class OrderCreateShippingLineInput {
     this.taxLines = taxLines;
   }
 
-  
+  /**
+   * The title of the shipping method.
+   */
   public String getTitle() {
     return title;
   }
@@ -98,19 +120,29 @@ public class OrderCreateShippingLineInput {
   }
 
   public static class Builder {
-    
+    /**
+     * A reference to the shipping method.
+     */
     private String code;
 
-    
+    /**
+     * The price of this shipping method in the shop currency. Can't be negative.
+     */
     private MoneyBagInput priceSet;
 
-    
+    /**
+     * The source of the shipping method.
+     */
     private String source;
 
-    
+    /**
+     * A list of tax line objects, each of which details a tax applicable to this shipping line.
+     */
     private List<OrderCreateTaxLineInput> taxLines;
 
-    
+    /**
+     * The title of the shipping method.
+     */
     private String title;
 
     public OrderCreateShippingLineInput build() {
@@ -123,31 +155,41 @@ public class OrderCreateShippingLineInput {
       return result;
     }
 
-    
+    /**
+     * A reference to the shipping method.
+     */
     public Builder code(String code) {
       this.code = code;
       return this;
     }
 
-    
+    /**
+     * The price of this shipping method in the shop currency. Can't be negative.
+     */
     public Builder priceSet(MoneyBagInput priceSet) {
       this.priceSet = priceSet;
       return this;
     }
 
-    
+    /**
+     * The source of the shipping method.
+     */
     public Builder source(String source) {
       this.source = source;
       return this;
     }
 
-    
+    /**
+     * A list of tax line objects, each of which details a tax applicable to this shipping line.
+     */
     public Builder taxLines(List<OrderCreateTaxLineInput> taxLines) {
       this.taxLines = taxLines;
       return this;
     }
 
-    
+    /**
+     * The title of the shipping method.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;

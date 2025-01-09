@@ -6,21 +6,29 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A Google Cloud Pub/Sub topic to which webhook subscriptions publish events.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class WebhookPubSubEndpoint implements WebhookSubscriptionEndpoint {
-  
+  /**
+   * The Google Cloud Pub/Sub project ID.
+   */
   private String pubSubProject;
 
-  
+  /**
+   * The Google Cloud Pub/Sub topic ID.
+   */
   private String pubSubTopic;
 
   public WebhookPubSubEndpoint() {
   }
 
-  
+  /**
+   * The Google Cloud Pub/Sub project ID.
+   */
   public String getPubSubProject() {
     return pubSubProject;
   }
@@ -29,7 +37,9 @@ public class WebhookPubSubEndpoint implements WebhookSubscriptionEndpoint {
     this.pubSubProject = pubSubProject;
   }
 
-  
+  /**
+   * The Google Cloud Pub/Sub topic ID.
+   */
   public String getPubSubTopic() {
     return pubSubTopic;
   }
@@ -62,10 +72,14 @@ public class WebhookPubSubEndpoint implements WebhookSubscriptionEndpoint {
   }
 
   public static class Builder {
-    
+    /**
+     * The Google Cloud Pub/Sub project ID.
+     */
     private String pubSubProject;
 
-    
+    /**
+     * The Google Cloud Pub/Sub topic ID.
+     */
     private String pubSubTopic;
 
     public WebhookPubSubEndpoint build() {
@@ -75,13 +89,17 @@ public class WebhookPubSubEndpoint implements WebhookSubscriptionEndpoint {
       return result;
     }
 
-    
+    /**
+     * The Google Cloud Pub/Sub project ID.
+     */
     public Builder pubSubProject(String pubSubProject) {
       this.pubSubProject = pubSubProject;
       return this;
     }
 
-    
+    /**
+     * The Google Cloud Pub/Sub topic ID.
+     */
     public Builder pubSubTopic(String pubSubTopic) {
       this.pubSubTopic = pubSubTopic;
       return this;

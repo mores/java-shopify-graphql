@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Possible error codes that can be returned by `ProductSetUserError`.
+ */
 public enum ProductSetUserErrorCode {
   GENERIC_ERROR,
 
@@ -54,5 +56,7 @@ public enum ProductSetUserErrorCode {
 
   LINKED_METAFIELD_DEFINITION_NOT_FOUND,
 
-  DUPLICATED_VALUE
+  DUPLICATED_VALUE,
+
+  HANDLE_NOT_UNIQUE
 }

@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `companyLocationsDelete` mutation.
+ */
 public class CompanyLocationsDeletePayload {
-  
+  /**
+   * A list of IDs of the deleted company locations.
+   */
   private List<String> deletedCompanyLocationIds;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<BusinessCustomerUserError> userErrors;
 
   public CompanyLocationsDeletePayload() {
   }
 
-  
+  /**
+   * A list of IDs of the deleted company locations.
+   */
   public List<String> getDeletedCompanyLocationIds() {
     return deletedCompanyLocationIds;
   }
@@ -26,7 +34,9 @@ public class CompanyLocationsDeletePayload {
     this.deletedCompanyLocationIds = deletedCompanyLocationIds;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<BusinessCustomerUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class CompanyLocationsDeletePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * A list of IDs of the deleted company locations.
+     */
     private List<String> deletedCompanyLocationIds;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<BusinessCustomerUserError> userErrors;
 
     public CompanyLocationsDeletePayload build() {
@@ -72,13 +86,17 @@ public class CompanyLocationsDeletePayload {
       return result;
     }
 
-    
+    /**
+     * A list of IDs of the deleted company locations.
+     */
     public Builder deletedCompanyLocationIds(List<String> deletedCompanyLocationIds) {
       this.deletedCompanyLocationIds = deletedCompanyLocationIds;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<BusinessCustomerUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

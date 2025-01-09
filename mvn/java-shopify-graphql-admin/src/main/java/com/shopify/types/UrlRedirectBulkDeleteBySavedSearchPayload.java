@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `urlRedirectBulkDeleteBySavedSearch` mutation.
+ */
 public class UrlRedirectBulkDeleteBySavedSearchPayload {
-  
+  /**
+   * The asynchronous job removing the redirects.
+   */
   private Job job;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UrlRedirectBulkDeleteBySavedSearchUserError> userErrors;
 
   public UrlRedirectBulkDeleteBySavedSearchPayload() {
   }
 
-  
+  /**
+   * The asynchronous job removing the redirects.
+   */
   public Job getJob() {
     return job;
   }
@@ -26,7 +34,9 @@ public class UrlRedirectBulkDeleteBySavedSearchPayload {
     this.job = job;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UrlRedirectBulkDeleteBySavedSearchUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class UrlRedirectBulkDeleteBySavedSearchPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The asynchronous job removing the redirects.
+     */
     private Job job;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UrlRedirectBulkDeleteBySavedSearchUserError> userErrors;
 
     public UrlRedirectBulkDeleteBySavedSearchPayload build() {
@@ -72,13 +86,17 @@ public class UrlRedirectBulkDeleteBySavedSearchPayload {
       return result;
     }
 
-    
+    /**
+     * The asynchronous job removing the redirects.
+     */
     public Builder job(Job job) {
       this.job = job;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UrlRedirectBulkDeleteBySavedSearchUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

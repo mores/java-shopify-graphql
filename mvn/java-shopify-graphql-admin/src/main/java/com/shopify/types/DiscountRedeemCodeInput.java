@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for the redeem code to attach to a discount.
+ */
 public class DiscountRedeemCodeInput {
-  
+  /**
+   * The code that a customer can use at checkout to receive the associated discount.
+   */
   private String code;
 
   public DiscountRedeemCodeInput() {
   }
 
-  
+  /**
+   * The code that a customer can use at checkout to receive the associated discount.
+   */
   public String getCode() {
     return code;
   }
@@ -45,7 +51,9 @@ public class DiscountRedeemCodeInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The code that a customer can use at checkout to receive the associated discount.
+     */
     private String code;
 
     public DiscountRedeemCodeInput build() {
@@ -54,7 +62,9 @@ public class DiscountRedeemCodeInput {
       return result;
     }
 
-    
+    /**
+     * The code that a customer can use at checkout to receive the associated discount.
+     */
     public Builder code(String code) {
       this.code = code;
       return this;

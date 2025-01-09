@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for a return shipping fee.
+ */
 public class ReturnShippingFeeInput {
-  
+  /**
+   * The value of the fee as a fixed amount in the presentment currency of the order.
+   */
   private MoneyInput amount;
 
   public ReturnShippingFeeInput() {
   }
 
-  
+  /**
+   * The value of the fee as a fixed amount in the presentment currency of the order.
+   */
   public MoneyInput getAmount() {
     return amount;
   }
@@ -45,7 +51,9 @@ public class ReturnShippingFeeInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The value of the fee as a fixed amount in the presentment currency of the order.
+     */
     private MoneyInput amount;
 
     public ReturnShippingFeeInput build() {
@@ -54,7 +62,9 @@ public class ReturnShippingFeeInput {
       return result;
     }
 
-    
+    /**
+     * The value of the fee as a fixed amount in the presentment currency of the order.
+     */
     public Builder amount(MoneyInput amount) {
       this.amount = amount;
       return this;

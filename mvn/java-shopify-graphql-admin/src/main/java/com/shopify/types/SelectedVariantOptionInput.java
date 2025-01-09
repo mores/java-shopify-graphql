@@ -5,21 +5,31 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for the selected variant option of the combined listing.
+ */
 public class SelectedVariantOptionInput {
-  
+  /**
+   * The name of the parent product's option.
+   */
   private String name;
 
-  
+  /**
+   * The selected option value of the parent product's option.
+   */
   private String value;
 
-  
+  /**
+   * The metaobject value of the linked metafield.
+   */
   private String linkedMetafieldValue;
 
   public SelectedVariantOptionInput() {
   }
 
-  
+  /**
+   * The name of the parent product's option.
+   */
   public String getName() {
     return name;
   }
@@ -28,7 +38,9 @@ public class SelectedVariantOptionInput {
     this.name = name;
   }
 
-  
+  /**
+   * The selected option value of the parent product's option.
+   */
   public String getValue() {
     return value;
   }
@@ -37,7 +49,9 @@ public class SelectedVariantOptionInput {
     this.value = value;
   }
 
-  
+  /**
+   * The metaobject value of the linked metafield.
+   */
   public String getLinkedMetafieldValue() {
     return linkedMetafieldValue;
   }
@@ -71,13 +85,19 @@ public class SelectedVariantOptionInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The name of the parent product's option.
+     */
     private String name;
 
-    
+    /**
+     * The selected option value of the parent product's option.
+     */
     private String value;
 
-    
+    /**
+     * The metaobject value of the linked metafield.
+     */
     private String linkedMetafieldValue;
 
     public SelectedVariantOptionInput build() {
@@ -88,19 +108,25 @@ public class SelectedVariantOptionInput {
       return result;
     }
 
-    
+    /**
+     * The name of the parent product's option.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    
+    /**
+     * The selected option value of the parent product's option.
+     */
     public Builder value(String value) {
       this.value = value;
       return this;
     }
 
-    
+    /**
+     * The metaobject value of the linked metafield.
+     */
     public Builder linkedMetafieldValue(String linkedMetafieldValue) {
       this.linkedMetafieldValue = linkedMetafieldValue;
       return this;

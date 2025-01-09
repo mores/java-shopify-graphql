@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `discountCodeAppCreate` mutation.
+ */
 public class DiscountCodeAppCreatePayload {
-  
+  /**
+   * The discount that the app provides.
+   */
   private DiscountCodeApp codeAppDiscount;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<DiscountUserError> userErrors;
 
   public DiscountCodeAppCreatePayload() {
   }
 
-  
+  /**
+   * The discount that the app provides.
+   */
   public DiscountCodeApp getCodeAppDiscount() {
     return codeAppDiscount;
   }
@@ -26,7 +34,9 @@ public class DiscountCodeAppCreatePayload {
     this.codeAppDiscount = codeAppDiscount;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<DiscountUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class DiscountCodeAppCreatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The discount that the app provides.
+     */
     private DiscountCodeApp codeAppDiscount;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<DiscountUserError> userErrors;
 
     public DiscountCodeAppCreatePayload build() {
@@ -72,13 +86,17 @@ public class DiscountCodeAppCreatePayload {
       return result;
     }
 
-    
+    /**
+     * The discount that the app provides.
+     */
     public Builder codeAppDiscount(DiscountCodeApp codeAppDiscount) {
       this.codeAppDiscount = codeAppDiscount;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<DiscountUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

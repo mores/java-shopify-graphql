@@ -8,7 +8,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Revokes tax exemptions from the company location.
+ */
 public class CompanyLocationRevokeTaxExemptionsGraphQLQuery extends GraphQLQuery {
   public CompanyLocationRevokeTaxExemptionsGraphQLQuery(String companyLocationId,
       List<TaxExemption> taxExemptions, String queryName, Set<String> fieldsSet) {
@@ -47,14 +49,18 @@ public class CompanyLocationRevokeTaxExemptionsGraphQLQuery extends GraphQLQuery
                
     }
 
-    
+    /**
+     * The location from which the tax exemptions will be revoked.
+     */
     public Builder companyLocationId(String companyLocationId) {
       this.companyLocationId = companyLocationId;
       this.fieldsSet.add("companyLocationId");
       return this;
     }
 
-    
+    /**
+     * The tax exemptions that are being revoked from the location.
+     */
     public Builder taxExemptions(List<TaxExemption> taxExemptions) {
       this.taxExemptions = taxExemptions;
       this.fieldsSet.add("taxExemptions");

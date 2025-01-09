@@ -9,7 +9,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Sends a fulfillment request to the fulfillment service of a fulfillment order.
+ */
 public class FulfillmentOrderSubmitFulfillmentRequestGraphQLQuery extends GraphQLQuery {
   public FulfillmentOrderSubmitFulfillmentRequestGraphQLQuery(String id, String message,
       Boolean notifyCustomer, List<FulfillmentOrderLineItemInput> fulfillmentOrderLineItems,
@@ -57,28 +59,37 @@ public class FulfillmentOrderSubmitFulfillmentRequestGraphQLQuery extends GraphQ
                
     }
 
-    
+    /**
+     * The ID of the fulfillment order associated with fulfillment request.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    
+    /**
+     * An optional message for the fulfillment request.
+     */
     public Builder message(String message) {
       this.message = message;
       this.fieldsSet.add("message");
       return this;
     }
 
-    
+    /**
+     * Whether the customer should be notified when fulfillments are created for this fulfillment order.
+     */
     public Builder notifyCustomer(Boolean notifyCustomer) {
       this.notifyCustomer = notifyCustomer;
       this.fieldsSet.add("notifyCustomer");
       return this;
     }
 
-    
+    /**
+     * The fulfillment order line items to be requested for fulfillment.
+     * If left blank, all line items of the fulfillment order are requested for fulfillment.
+     */
     public Builder fulfillmentOrderLineItems(
         List<FulfillmentOrderLineItemInput> fulfillmentOrderLineItems) {
       this.fulfillmentOrderLineItems = fulfillmentOrderLineItems;

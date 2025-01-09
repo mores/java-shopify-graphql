@@ -7,39 +7,61 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-
+/**
+ * The properties and status of a bulk discount redeem code creation operation.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DiscountRedeemCodeBulkCreation implements com.shopify.types.Node {
-  
+  /**
+   * The result of each code creation operation associated with the bulk creation
+   * operation including any errors that might have occurred during the operation.
+   */
   private DiscountRedeemCodeBulkCreationCodeConnection codes;
 
-  
+  /**
+   * The number of codes to create.
+   */
   private int codesCount;
 
-  
+  /**
+   * The date and time when the bulk creation was created.
+   */
   private OffsetDateTime createdAt;
 
-  
+  /**
+   * The code discount associated with the created codes.
+   */
   private DiscountCodeNode discountCode;
 
-  
+  /**
+   * Whether the bulk creation is still queued (`false`) or has been run (`true`).
+   */
   private boolean done;
 
-  
+  /**
+   * The number of codes that weren't created successfully.
+   */
   private int failedCount;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The number of codes created successfully.
+   */
   private int importedCount;
 
   public DiscountRedeemCodeBulkCreation() {
   }
 
-  
+  /**
+   * The result of each code creation operation associated with the bulk creation
+   * operation including any errors that might have occurred during the operation.
+   */
   public DiscountRedeemCodeBulkCreationCodeConnection getCodes() {
     return codes;
   }
@@ -48,7 +70,9 @@ public class DiscountRedeemCodeBulkCreation implements com.shopify.types.Node {
     this.codes = codes;
   }
 
-  
+  /**
+   * The number of codes to create.
+   */
   public int getCodesCount() {
     return codesCount;
   }
@@ -57,7 +81,9 @@ public class DiscountRedeemCodeBulkCreation implements com.shopify.types.Node {
     this.codesCount = codesCount;
   }
 
-  
+  /**
+   * The date and time when the bulk creation was created.
+   */
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -66,7 +92,9 @@ public class DiscountRedeemCodeBulkCreation implements com.shopify.types.Node {
     this.createdAt = createdAt;
   }
 
-  
+  /**
+   * The code discount associated with the created codes.
+   */
   public DiscountCodeNode getDiscountCode() {
     return discountCode;
   }
@@ -75,7 +103,9 @@ public class DiscountRedeemCodeBulkCreation implements com.shopify.types.Node {
     this.discountCode = discountCode;
   }
 
-  
+  /**
+   * Whether the bulk creation is still queued (`false`) or has been run (`true`).
+   */
   public boolean getDone() {
     return done;
   }
@@ -84,7 +114,9 @@ public class DiscountRedeemCodeBulkCreation implements com.shopify.types.Node {
     this.done = done;
   }
 
-  
+  /**
+   * The number of codes that weren't created successfully.
+   */
   public int getFailedCount() {
     return failedCount;
   }
@@ -93,7 +125,9 @@ public class DiscountRedeemCodeBulkCreation implements com.shopify.types.Node {
     this.failedCount = failedCount;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -102,7 +136,9 @@ public class DiscountRedeemCodeBulkCreation implements com.shopify.types.Node {
     this.id = id;
   }
 
-  
+  /**
+   * The number of codes created successfully.
+   */
   public int getImportedCount() {
     return importedCount;
   }
@@ -141,28 +177,45 @@ public class DiscountRedeemCodeBulkCreation implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    
+    /**
+     * The result of each code creation operation associated with the bulk creation
+     * operation including any errors that might have occurred during the operation.
+     */
     private DiscountRedeemCodeBulkCreationCodeConnection codes;
 
-    
+    /**
+     * The number of codes to create.
+     */
     private int codesCount;
 
-    
+    /**
+     * The date and time when the bulk creation was created.
+     */
     private OffsetDateTime createdAt;
 
-    
+    /**
+     * The code discount associated with the created codes.
+     */
     private DiscountCodeNode discountCode;
 
-    
+    /**
+     * Whether the bulk creation is still queued (`false`) or has been run (`true`).
+     */
     private boolean done;
 
-    
+    /**
+     * The number of codes that weren't created successfully.
+     */
     private int failedCount;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The number of codes created successfully.
+     */
     private int importedCount;
 
     public DiscountRedeemCodeBulkCreation build() {
@@ -178,49 +231,66 @@ public class DiscountRedeemCodeBulkCreation implements com.shopify.types.Node {
       return result;
     }
 
-    
+    /**
+     * The result of each code creation operation associated with the bulk creation
+     * operation including any errors that might have occurred during the operation.
+     */
     public Builder codes(DiscountRedeemCodeBulkCreationCodeConnection codes) {
       this.codes = codes;
       return this;
     }
 
-    
+    /**
+     * The number of codes to create.
+     */
     public Builder codesCount(int codesCount) {
       this.codesCount = codesCount;
       return this;
     }
 
-    
+    /**
+     * The date and time when the bulk creation was created.
+     */
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    
+    /**
+     * The code discount associated with the created codes.
+     */
     public Builder discountCode(DiscountCodeNode discountCode) {
       this.discountCode = discountCode;
       return this;
     }
 
-    
+    /**
+     * Whether the bulk creation is still queued (`false`) or has been run (`true`).
+     */
     public Builder done(boolean done) {
       this.done = done;
       return this;
     }
 
-    
+    /**
+     * The number of codes that weren't created successfully.
+     */
     public Builder failedCount(int failedCount) {
       this.failedCount = failedCount;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The number of codes created successfully.
+     */
     public Builder importedCount(int importedCount) {
       this.importedCount = importedCount;
       return this;

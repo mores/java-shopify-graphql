@@ -108,11 +108,6 @@ public class ShopFeaturesProjection<PARENT extends BaseSubProjectionNode<?, ?>, 
     return this;
   }
 
-  public ShopFeaturesProjection<PARENT, ROOT> multiLocation() {
-    getFields().put("multiLocation", null);
-    return this;
-  }
-
   public ShopFeaturesProjection<PARENT, ROOT> onboardingVisual() {
     getFields().put("onboardingVisual", null);
     return this;

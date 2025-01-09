@@ -6,21 +6,30 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A subscription delivery method for local delivery.
+ * The other subscription delivery methods can be found in the `SubscriptionDeliveryMethod` union type.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class SubscriptionDeliveryMethodLocalDelivery implements SubscriptionDeliveryMethod {
-  
+  /**
+   * The address to deliver to.
+   */
   private SubscriptionMailingAddress address;
 
-  
+  /**
+   * The details of the local delivery method to use.
+   */
   private SubscriptionDeliveryMethodLocalDeliveryOption localDeliveryOption;
 
   public SubscriptionDeliveryMethodLocalDelivery() {
   }
 
-  
+  /**
+   * The address to deliver to.
+   */
   public SubscriptionMailingAddress getAddress() {
     return address;
   }
@@ -29,7 +38,9 @@ public class SubscriptionDeliveryMethodLocalDelivery implements SubscriptionDeli
     this.address = address;
   }
 
-  
+  /**
+   * The details of the local delivery method to use.
+   */
   public SubscriptionDeliveryMethodLocalDeliveryOption getLocalDeliveryOption() {
     return localDeliveryOption;
   }
@@ -63,10 +74,14 @@ public class SubscriptionDeliveryMethodLocalDelivery implements SubscriptionDeli
   }
 
   public static class Builder {
-    
+    /**
+     * The address to deliver to.
+     */
     private SubscriptionMailingAddress address;
 
-    
+    /**
+     * The details of the local delivery method to use.
+     */
     private SubscriptionDeliveryMethodLocalDeliveryOption localDeliveryOption;
 
     public SubscriptionDeliveryMethodLocalDelivery build() {
@@ -76,13 +91,17 @@ public class SubscriptionDeliveryMethodLocalDelivery implements SubscriptionDeli
       return result;
     }
 
-    
+    /**
+     * The address to deliver to.
+     */
     public Builder address(SubscriptionMailingAddress address) {
       this.address = address;
       return this;
     }
 
-    
+    /**
+     * The details of the local delivery method to use.
+     */
     public Builder localDeliveryOption(
         SubscriptionDeliveryMethodLocalDeliveryOption localDeliveryOption) {
       this.localDeliveryOption = localDeliveryOption;

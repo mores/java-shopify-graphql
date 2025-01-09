@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * An auto-generated type which holds one ShippingLine and a cursor during pagination.
+ */
 public class ShippingLineEdge {
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   private String cursor;
 
-  
+  /**
+   * The item at the end of ShippingLineEdge.
+   */
   private ShippingLine node;
 
   public ShippingLineEdge() {
   }
 
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   public String getCursor() {
     return cursor;
   }
@@ -25,7 +33,9 @@ public class ShippingLineEdge {
     this.cursor = cursor;
   }
 
-  
+  /**
+   * The item at the end of ShippingLineEdge.
+   */
   public ShippingLine getNode() {
     return node;
   }
@@ -58,10 +68,14 @@ public class ShippingLineEdge {
   }
 
   public static class Builder {
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     private String cursor;
 
-    
+    /**
+     * The item at the end of ShippingLineEdge.
+     */
     private ShippingLine node;
 
     public ShippingLineEdge build() {
@@ -71,13 +85,17 @@ public class ShippingLineEdge {
       return result;
     }
 
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder cursor(String cursor) {
       this.cursor = cursor;
       return this;
     }
 
-    
+    /**
+     * The item at the end of ShippingLineEdge.
+     */
     public Builder node(ShippingLine node) {
       this.node = node;
       return this;

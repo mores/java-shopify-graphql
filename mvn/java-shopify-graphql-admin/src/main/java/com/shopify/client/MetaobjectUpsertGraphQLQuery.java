@@ -8,7 +8,10 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Retrieves a metaobject by handle, then updates it with the provided input values.
+ * If no matching metaobject is found, a new metaobject is created with the provided input values.
+ */
 public class MetaobjectUpsertGraphQLQuery extends GraphQLQuery {
   public MetaobjectUpsertGraphQLQuery(MetaobjectHandleInput handle,
       MetaobjectUpsertInput metaobject, String queryName, Set<String> fieldsSet) {
@@ -47,14 +50,18 @@ public class MetaobjectUpsertGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The identifier of the metaobject to upsert.
+     */
     public Builder handle(MetaobjectHandleInput handle) {
       this.handle = handle;
       this.fieldsSet.add("handle");
       return this;
     }
 
-    
+    /**
+     * The parameters to upsert the metaobject.
+     */
     public Builder metaobject(MetaobjectUpsertInput metaobject) {
       this.metaobject = metaobject;
       this.fieldsSet.add("metaobject");

@@ -8,27 +8,41 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields for a Subscription Billing Policy.
+ */
 public class SubscriptionBillingPolicyInput {
-  
+  /**
+   * The kind of interval that's associated with this schedule (e.g. Monthly, Weekly, etc).
+   */
   private SellingPlanInterval interval;
 
-  
+  /**
+   * The number of billing intervals between invoices.
+   */
   private int intervalCount;
 
-  
+  /**
+   * Minimum amount of cycles required in the subscription.
+   */
   private Integer minCycles;
 
-  
+  /**
+   * Maximum amount of cycles required in the subscription.
+   */
   private Integer maxCycles;
 
-  
+  /**
+   * Specific anchor dates upon which the billing interval calculations should be made.
+   */
   private List<SellingPlanAnchorInput> anchors = Collections.emptyList();
 
   public SubscriptionBillingPolicyInput() {
   }
 
-  
+  /**
+   * The kind of interval that's associated with this schedule (e.g. Monthly, Weekly, etc).
+   */
   public SellingPlanInterval getInterval() {
     return interval;
   }
@@ -37,7 +51,9 @@ public class SubscriptionBillingPolicyInput {
     this.interval = interval;
   }
 
-  
+  /**
+   * The number of billing intervals between invoices.
+   */
   public int getIntervalCount() {
     return intervalCount;
   }
@@ -46,7 +62,9 @@ public class SubscriptionBillingPolicyInput {
     this.intervalCount = intervalCount;
   }
 
-  
+  /**
+   * Minimum amount of cycles required in the subscription.
+   */
   public Integer getMinCycles() {
     return minCycles;
   }
@@ -55,7 +73,9 @@ public class SubscriptionBillingPolicyInput {
     this.minCycles = minCycles;
   }
 
-  
+  /**
+   * Maximum amount of cycles required in the subscription.
+   */
   public Integer getMaxCycles() {
     return maxCycles;
   }
@@ -64,7 +84,9 @@ public class SubscriptionBillingPolicyInput {
     this.maxCycles = maxCycles;
   }
 
-  
+  /**
+   * Specific anchor dates upon which the billing interval calculations should be made.
+   */
   public List<SellingPlanAnchorInput> getAnchors() {
     return anchors;
   }
@@ -100,19 +122,29 @@ public class SubscriptionBillingPolicyInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The kind of interval that's associated with this schedule (e.g. Monthly, Weekly, etc).
+     */
     private SellingPlanInterval interval;
 
-    
+    /**
+     * The number of billing intervals between invoices.
+     */
     private int intervalCount;
 
-    
+    /**
+     * Minimum amount of cycles required in the subscription.
+     */
     private Integer minCycles;
 
-    
+    /**
+     * Maximum amount of cycles required in the subscription.
+     */
     private Integer maxCycles;
 
-    
+    /**
+     * Specific anchor dates upon which the billing interval calculations should be made.
+     */
     private List<SellingPlanAnchorInput> anchors = Collections.emptyList();
 
     public SubscriptionBillingPolicyInput build() {
@@ -125,31 +157,41 @@ public class SubscriptionBillingPolicyInput {
       return result;
     }
 
-    
+    /**
+     * The kind of interval that's associated with this schedule (e.g. Monthly, Weekly, etc).
+     */
     public Builder interval(SellingPlanInterval interval) {
       this.interval = interval;
       return this;
     }
 
-    
+    /**
+     * The number of billing intervals between invoices.
+     */
     public Builder intervalCount(int intervalCount) {
       this.intervalCount = intervalCount;
       return this;
     }
 
-    
+    /**
+     * Minimum amount of cycles required in the subscription.
+     */
     public Builder minCycles(Integer minCycles) {
       this.minCycles = minCycles;
       return this;
     }
 
-    
+    /**
+     * Maximum amount of cycles required in the subscription.
+     */
     public Builder maxCycles(Integer maxCycles) {
       this.maxCycles = maxCycles;
       return this;
     }
 
-    
+    /**
+     * Specific anchor dates upon which the billing interval calculations should be made.
+     */
     public Builder anchors(List<SellingPlanAnchorInput> anchors) {
       this.anchors = anchors;
       return this;

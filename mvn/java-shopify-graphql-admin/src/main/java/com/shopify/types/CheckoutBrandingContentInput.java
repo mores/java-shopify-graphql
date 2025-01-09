@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields used to update the content container customizations.
+ */
 public class CheckoutBrandingContentInput {
-  
+  /**
+   * Divider style and visibility on the content container.
+   */
   private CheckoutBrandingContainerDividerInput divider;
 
   public CheckoutBrandingContentInput() {
   }
 
-  
+  /**
+   * Divider style and visibility on the content container.
+   */
   public CheckoutBrandingContainerDividerInput getDivider() {
     return divider;
   }
@@ -45,7 +51,9 @@ public class CheckoutBrandingContentInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Divider style and visibility on the content container.
+     */
     private CheckoutBrandingContainerDividerInput divider;
 
     public CheckoutBrandingContentInput build() {
@@ -54,7 +62,9 @@ public class CheckoutBrandingContentInput {
       return result;
     }
 
-    
+    /**
+     * Divider style and visibility on the content container.
+     */
     public Builder divider(CheckoutBrandingContainerDividerInput divider) {
       this.divider = divider;
       return this;

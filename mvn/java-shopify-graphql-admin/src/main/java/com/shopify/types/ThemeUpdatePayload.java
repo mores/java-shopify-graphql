@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `themeUpdate` mutation.
+ */
 public class ThemeUpdatePayload {
-  
+  /**
+   * The theme that was updated.
+   */
   private OnlineStoreTheme theme;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<ThemeUpdateUserError> userErrors;
 
   public ThemeUpdatePayload() {
   }
 
-  
+  /**
+   * The theme that was updated.
+   */
   public OnlineStoreTheme getTheme() {
     return theme;
   }
@@ -26,7 +34,9 @@ public class ThemeUpdatePayload {
     this.theme = theme;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<ThemeUpdateUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class ThemeUpdatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The theme that was updated.
+     */
     private OnlineStoreTheme theme;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<ThemeUpdateUserError> userErrors;
 
     public ThemeUpdatePayload build() {
@@ -72,13 +86,17 @@ public class ThemeUpdatePayload {
       return result;
     }
 
-    
+    /**
+     * The theme that was updated.
+     */
     public Builder theme(OnlineStoreTheme theme) {
       this.theme = theme;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<ThemeUpdateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

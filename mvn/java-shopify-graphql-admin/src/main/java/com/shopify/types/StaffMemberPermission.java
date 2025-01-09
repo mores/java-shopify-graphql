@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Represents access permissions for a staff member.
+ */
 public enum StaffMemberPermission {
   APPLICATIONS,
 

@@ -74,11 +74,6 @@ public class WebhookSubscriptionProjection<PARENT extends BaseSubProjectionNode<
     return this;
   }
 
-  public WebhookSubscriptionProjection<PARENT, ROOT> privateMetafieldNamespaces() {
-    getFields().put("privateMetafieldNamespaces", null);
-    return this;
-  }
-
   public WebhookSubscriptionProjection<PARENT, ROOT> updatedAt() {
     getFields().put("updatedAt", null);
     return this;

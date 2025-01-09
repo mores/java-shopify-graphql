@@ -19,9 +19,9 @@ public class BulkOperationRunQueryProjectionRoot<PARENT extends BaseSubProjectio
     return projection;
   }
 
-  public UserErrorProjection<BulkOperationRunQueryProjectionRoot<PARENT, ROOT>, BulkOperationRunQueryProjectionRoot<PARENT, ROOT>> userErrors(
+  public BulkOperationUserErrorProjection<BulkOperationRunQueryProjectionRoot<PARENT, ROOT>, BulkOperationRunQueryProjectionRoot<PARENT, ROOT>> userErrors(
       ) {
-    UserErrorProjection<BulkOperationRunQueryProjectionRoot<PARENT, ROOT>, BulkOperationRunQueryProjectionRoot<PARENT, ROOT>> projection = new UserErrorProjection<>(this, this);    
+    BulkOperationUserErrorProjection<BulkOperationRunQueryProjectionRoot<PARENT, ROOT>, BulkOperationRunQueryProjectionRoot<PARENT, ROOT>> projection = new BulkOperationUserErrorProjection<>(this, this);    
     getFields().put("userErrors", projection);
     return projection;
   }

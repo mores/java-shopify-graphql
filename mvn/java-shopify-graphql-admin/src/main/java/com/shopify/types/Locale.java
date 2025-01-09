@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A locale.
+ */
 public class Locale {
-  
+  /**
+   * Locale ISO code.
+   */
   private String isoCode;
 
-  
+  /**
+   * Human-readable locale name.
+   */
   private String name;
 
   public Locale() {
   }
 
-  
+  /**
+   * Locale ISO code.
+   */
   public String getIsoCode() {
     return isoCode;
   }
@@ -25,7 +33,9 @@ public class Locale {
     this.isoCode = isoCode;
   }
 
-  
+  /**
+   * Human-readable locale name.
+   */
   public String getName() {
     return name;
   }
@@ -58,10 +68,14 @@ public class Locale {
   }
 
   public static class Builder {
-    
+    /**
+     * Locale ISO code.
+     */
     private String isoCode;
 
-    
+    /**
+     * Human-readable locale name.
+     */
     private String name;
 
     public Locale build() {
@@ -71,13 +85,17 @@ public class Locale {
       return result;
     }
 
-    
+    /**
+     * Locale ISO code.
+     */
     public Builder isoCode(String isoCode) {
       this.isoCode = isoCode;
       return this;
     }
 
-    
+    /**
+     * Human-readable locale name.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;

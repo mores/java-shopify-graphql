@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for a metaobject field value.
+ */
 public class MetaobjectFieldInput {
-  
+  /**
+   * The key of the field.
+   */
   private String key;
 
-  
+  /**
+   * The value of the field.
+   */
   private String value;
 
   public MetaobjectFieldInput() {
   }
 
-  
+  /**
+   * The key of the field.
+   */
   public String getKey() {
     return key;
   }
@@ -25,7 +33,9 @@ public class MetaobjectFieldInput {
     this.key = key;
   }
 
-  
+  /**
+   * The value of the field.
+   */
   public String getValue() {
     return value;
   }
@@ -58,10 +68,14 @@ public class MetaobjectFieldInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The key of the field.
+     */
     private String key;
 
-    
+    /**
+     * The value of the field.
+     */
     private String value;
 
     public MetaobjectFieldInput build() {
@@ -71,13 +85,17 @@ public class MetaobjectFieldInput {
       return result;
     }
 
-    
+    /**
+     * The key of the field.
+     */
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
-    
+    /**
+     * The value of the field.
+     */
     public Builder value(String value) {
       this.value = value;
       return this;

@@ -6,18 +6,27 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Summary of risk characteristics for an order.
+ */
 public class OrderRiskSummary {
-  
+  /**
+   * The list of risk assessments for the order.
+   */
   private List<OrderRiskAssessment> assessments;
 
-  
+  /**
+   * The recommendation for the order based on the results of the risk assessments.
+   * This suggests the action the merchant should take with regards to its risk of fraud.
+   */
   private OrderRiskRecommendationResult recommendation;
 
   public OrderRiskSummary() {
   }
 
-  
+  /**
+   * The list of risk assessments for the order.
+   */
   public List<OrderRiskAssessment> getAssessments() {
     return assessments;
   }
@@ -26,7 +35,10 @@ public class OrderRiskSummary {
     this.assessments = assessments;
   }
 
-  
+  /**
+   * The recommendation for the order based on the results of the risk assessments.
+   * This suggests the action the merchant should take with regards to its risk of fraud.
+   */
   public OrderRiskRecommendationResult getRecommendation() {
     return recommendation;
   }
@@ -59,10 +71,15 @@ public class OrderRiskSummary {
   }
 
   public static class Builder {
-    
+    /**
+     * The list of risk assessments for the order.
+     */
     private List<OrderRiskAssessment> assessments;
 
-    
+    /**
+     * The recommendation for the order based on the results of the risk assessments.
+     * This suggests the action the merchant should take with regards to its risk of fraud.
+     */
     private OrderRiskRecommendationResult recommendation;
 
     public OrderRiskSummary build() {
@@ -72,13 +89,18 @@ public class OrderRiskSummary {
       return result;
     }
 
-    
+    /**
+     * The list of risk assessments for the order.
+     */
     public Builder assessments(List<OrderRiskAssessment> assessments) {
       this.assessments = assessments;
       return this;
     }
 
-    
+    /**
+     * The recommendation for the order based on the results of the risk assessments.
+     * This suggests the action the merchant should take with regards to its risk of fraud.
+     */
     public Builder recommendation(OrderRiskRecommendationResult recommendation) {
       this.recommendation = recommendation;
       return this;

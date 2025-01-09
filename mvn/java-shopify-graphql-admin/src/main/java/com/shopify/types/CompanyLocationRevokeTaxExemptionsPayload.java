@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `companyLocationRevokeTaxExemptions` mutation.
+ */
 public class CompanyLocationRevokeTaxExemptionsPayload {
-  
+  /**
+   * The updated company location.
+   */
   private CompanyLocation companyLocation;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<BusinessCustomerUserError> userErrors;
 
   public CompanyLocationRevokeTaxExemptionsPayload() {
   }
 
-  
+  /**
+   * The updated company location.
+   */
   public CompanyLocation getCompanyLocation() {
     return companyLocation;
   }
@@ -26,7 +34,9 @@ public class CompanyLocationRevokeTaxExemptionsPayload {
     this.companyLocation = companyLocation;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<BusinessCustomerUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class CompanyLocationRevokeTaxExemptionsPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The updated company location.
+     */
     private CompanyLocation companyLocation;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<BusinessCustomerUserError> userErrors;
 
     public CompanyLocationRevokeTaxExemptionsPayload build() {
@@ -72,13 +86,17 @@ public class CompanyLocationRevokeTaxExemptionsPayload {
       return result;
     }
 
-    
+    /**
+     * The updated company location.
+     */
     public Builder companyLocation(CompanyLocation companyLocation) {
       this.companyLocation = companyLocation;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<BusinessCustomerUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

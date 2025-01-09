@@ -5,21 +5,31 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for the access settings for the metafields under the definition.
+ */
 public class MetafieldAccessUpdateInput {
-  
+  /**
+   * The admin access setting to use for the metafields under this definition.
+   */
   private MetafieldAdminAccessInput admin;
 
-  
+  /**
+   * The storefront access setting to use for the metafields under this definition.
+   */
   private MetafieldStorefrontAccessInput storefront;
 
-  
+  /**
+   * The Customer Account API access setting to use for the metafields under this definition.
+   */
   private MetafieldCustomerAccountAccessInput customerAccount;
 
   public MetafieldAccessUpdateInput() {
   }
 
-  
+  /**
+   * The admin access setting to use for the metafields under this definition.
+   */
   public MetafieldAdminAccessInput getAdmin() {
     return admin;
   }
@@ -28,7 +38,9 @@ public class MetafieldAccessUpdateInput {
     this.admin = admin;
   }
 
-  
+  /**
+   * The storefront access setting to use for the metafields under this definition.
+   */
   public MetafieldStorefrontAccessInput getStorefront() {
     return storefront;
   }
@@ -37,7 +49,9 @@ public class MetafieldAccessUpdateInput {
     this.storefront = storefront;
   }
 
-  
+  /**
+   * The Customer Account API access setting to use for the metafields under this definition.
+   */
   public MetafieldCustomerAccountAccessInput getCustomerAccount() {
     return customerAccount;
   }
@@ -71,13 +85,19 @@ public class MetafieldAccessUpdateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The admin access setting to use for the metafields under this definition.
+     */
     private MetafieldAdminAccessInput admin;
 
-    
+    /**
+     * The storefront access setting to use for the metafields under this definition.
+     */
     private MetafieldStorefrontAccessInput storefront;
 
-    
+    /**
+     * The Customer Account API access setting to use for the metafields under this definition.
+     */
     private MetafieldCustomerAccountAccessInput customerAccount;
 
     public MetafieldAccessUpdateInput build() {
@@ -88,19 +108,25 @@ public class MetafieldAccessUpdateInput {
       return result;
     }
 
-    
+    /**
+     * The admin access setting to use for the metafields under this definition.
+     */
     public Builder admin(MetafieldAdminAccessInput admin) {
       this.admin = admin;
       return this;
     }
 
-    
+    /**
+     * The storefront access setting to use for the metafields under this definition.
+     */
     public Builder storefront(MetafieldStorefrontAccessInput storefront) {
       this.storefront = storefront;
       return this;
     }
 
-    
+    /**
+     * The Customer Account API access setting to use for the metafields under this definition.
+     */
     public Builder customerAccount(MetafieldCustomerAccountAccessInput customerAccount) {
       this.customerAccount = customerAccount;
       return this;

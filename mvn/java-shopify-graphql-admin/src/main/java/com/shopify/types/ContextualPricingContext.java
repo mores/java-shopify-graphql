@@ -5,18 +5,27 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for the context data that determines the pricing of a variant. Refer to [Product](https://shopify.dev/docs/api/admin-graphql/latest/queries/product?example=Get+the+price+range+for+a+product+for+buyers+from+Canada)for
+ * more information on how to use this input object.
+ */
 public class ContextualPricingContext {
-  
+  /**
+   * The country code used to fetch country-specific prices.
+   */
   private CountryCode country;
 
-  
+  /**
+   * The CompanyLocation ID used to fetch company location specific prices.
+   */
   private String companyLocationId;
 
   public ContextualPricingContext() {
   }
 
-  
+  /**
+   * The country code used to fetch country-specific prices.
+   */
   public CountryCode getCountry() {
     return country;
   }
@@ -25,7 +34,9 @@ public class ContextualPricingContext {
     this.country = country;
   }
 
-  
+  /**
+   * The CompanyLocation ID used to fetch company location specific prices.
+   */
   public String getCompanyLocationId() {
     return companyLocationId;
   }
@@ -58,10 +69,14 @@ public class ContextualPricingContext {
   }
 
   public static class Builder {
-    
+    /**
+     * The country code used to fetch country-specific prices.
+     */
     private CountryCode country;
 
-    
+    /**
+     * The CompanyLocation ID used to fetch company location specific prices.
+     */
     private String companyLocationId;
 
     public ContextualPricingContext build() {
@@ -71,13 +86,17 @@ public class ContextualPricingContext {
       return result;
     }
 
-    
+    /**
+     * The country code used to fetch country-specific prices.
+     */
     public Builder country(CountryCode country) {
       this.country = country;
       return this;
     }
 
-    
+    /**
+     * The CompanyLocation ID used to fetch company location specific prices.
+     */
     public Builder companyLocationId(String companyLocationId) {
       this.companyLocationId = companyLocationId;
       return this;

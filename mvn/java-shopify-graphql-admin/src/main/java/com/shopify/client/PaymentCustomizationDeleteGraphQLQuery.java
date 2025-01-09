@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Deletes a payment customization.
+ */
 public class PaymentCustomizationDeleteGraphQLQuery extends GraphQLQuery {
   public PaymentCustomizationDeleteGraphQLQuery(String id, String queryName,
       Set<String> fieldsSet) {
@@ -41,7 +43,9 @@ public class PaymentCustomizationDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The global ID of the payment customization.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

@@ -7,63 +7,106 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * An order with edits applied but not saved.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class CalculatedOrder implements com.shopify.types.Node {
-  
+  /**
+   * Returns only the new discount applications being added to the order in the current edit.
+   */
   private CalculatedDiscountApplicationConnection addedDiscountApplications;
 
-  
+  /**
+   * Returns only the new line items being added to the order during the current edit.
+   */
   private CalculatedLineItemConnection addedLineItems;
 
-  
+  /**
+   * Amount of the order-level discount (doesn't contain any line item discounts) in shop and presentment currencies.
+   */
   private MoneyBag cartDiscountAmountSet;
 
-  
+  /**
+   * Whether the changes have been applied and saved to the order.
+   */
   private boolean committed;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * Returns all items on the order that existed before starting the edit.
+   * Will include any changes that have been made.
+   * Will not include line items added during the current edit.
+   */
   private CalculatedLineItemConnection lineItems;
 
-  
+  /**
+   * The HTML of the customer notification for the order edit.
+   */
   private String notificationPreviewHtml;
 
-  
+  /**
+   * The customer notification title.
+   */
   private String notificationPreviewTitle;
 
-  
+  /**
+   * The order without any changes applied.
+   */
   private Order originalOrder;
 
-  
+  /**
+   * Returns the shipping lines on the order that existed before starting the edit.
+   * Will include any changes that have been made as well as shipping lines added during the current edit.
+   * Returns only the first 250 shipping lines.
+   */
   private List<CalculatedShippingLine> shippingLines;
 
-  
+  /**
+   * List of changes made to the order during the current edit.
+   */
   private OrderStagedChangeConnection stagedChanges;
 
-  
+  /**
+   * The sum of the quantities for the line items that contribute to the order's subtotal.
+   */
   private int subtotalLineItemsQuantity;
 
-  
+  /**
+   * The subtotal of the line items, in shop and presentment currencies, after all
+   * the discounts are applied.  The subtotal doesn't include shipping.  The
+   * subtotal includes taxes for taxes-included orders and excludes taxes for
+   * taxes-excluded orders.
+   */
   private MoneyBag subtotalPriceSet;
 
-  
+  /**
+   * Taxes charged for the line item.
+   */
   private List<TaxLine> taxLines;
 
-  
+  /**
+   * Total price of the order less the total amount received from the customer in shop and presentment currencies.
+   */
   private MoneyBag totalOutstandingSet;
 
-  
+  /**
+   * Total amount of the order (includes taxes and discounts) in shop and presentment currencies.
+   */
   private MoneyBag totalPriceSet;
 
   public CalculatedOrder() {
   }
 
-  
+  /**
+   * Returns only the new discount applications being added to the order in the current edit.
+   */
   public CalculatedDiscountApplicationConnection getAddedDiscountApplications() {
     return addedDiscountApplications;
   }
@@ -73,7 +116,9 @@ public class CalculatedOrder implements com.shopify.types.Node {
     this.addedDiscountApplications = addedDiscountApplications;
   }
 
-  
+  /**
+   * Returns only the new line items being added to the order during the current edit.
+   */
   public CalculatedLineItemConnection getAddedLineItems() {
     return addedLineItems;
   }
@@ -82,7 +127,9 @@ public class CalculatedOrder implements com.shopify.types.Node {
     this.addedLineItems = addedLineItems;
   }
 
-  
+  /**
+   * Amount of the order-level discount (doesn't contain any line item discounts) in shop and presentment currencies.
+   */
   public MoneyBag getCartDiscountAmountSet() {
     return cartDiscountAmountSet;
   }
@@ -91,7 +138,9 @@ public class CalculatedOrder implements com.shopify.types.Node {
     this.cartDiscountAmountSet = cartDiscountAmountSet;
   }
 
-  
+  /**
+   * Whether the changes have been applied and saved to the order.
+   */
   public boolean getCommitted() {
     return committed;
   }
@@ -100,7 +149,9 @@ public class CalculatedOrder implements com.shopify.types.Node {
     this.committed = committed;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -109,7 +160,11 @@ public class CalculatedOrder implements com.shopify.types.Node {
     this.id = id;
   }
 
-  
+  /**
+   * Returns all items on the order that existed before starting the edit.
+   * Will include any changes that have been made.
+   * Will not include line items added during the current edit.
+   */
   public CalculatedLineItemConnection getLineItems() {
     return lineItems;
   }
@@ -118,7 +173,9 @@ public class CalculatedOrder implements com.shopify.types.Node {
     this.lineItems = lineItems;
   }
 
-  
+  /**
+   * The HTML of the customer notification for the order edit.
+   */
   public String getNotificationPreviewHtml() {
     return notificationPreviewHtml;
   }
@@ -127,7 +184,9 @@ public class CalculatedOrder implements com.shopify.types.Node {
     this.notificationPreviewHtml = notificationPreviewHtml;
   }
 
-  
+  /**
+   * The customer notification title.
+   */
   public String getNotificationPreviewTitle() {
     return notificationPreviewTitle;
   }
@@ -136,7 +195,9 @@ public class CalculatedOrder implements com.shopify.types.Node {
     this.notificationPreviewTitle = notificationPreviewTitle;
   }
 
-  
+  /**
+   * The order without any changes applied.
+   */
   public Order getOriginalOrder() {
     return originalOrder;
   }
@@ -145,7 +206,11 @@ public class CalculatedOrder implements com.shopify.types.Node {
     this.originalOrder = originalOrder;
   }
 
-  
+  /**
+   * Returns the shipping lines on the order that existed before starting the edit.
+   * Will include any changes that have been made as well as shipping lines added during the current edit.
+   * Returns only the first 250 shipping lines.
+   */
   public List<CalculatedShippingLine> getShippingLines() {
     return shippingLines;
   }
@@ -154,7 +219,9 @@ public class CalculatedOrder implements com.shopify.types.Node {
     this.shippingLines = shippingLines;
   }
 
-  
+  /**
+   * List of changes made to the order during the current edit.
+   */
   public OrderStagedChangeConnection getStagedChanges() {
     return stagedChanges;
   }
@@ -163,7 +230,9 @@ public class CalculatedOrder implements com.shopify.types.Node {
     this.stagedChanges = stagedChanges;
   }
 
-  
+  /**
+   * The sum of the quantities for the line items that contribute to the order's subtotal.
+   */
   public int getSubtotalLineItemsQuantity() {
     return subtotalLineItemsQuantity;
   }
@@ -172,7 +241,12 @@ public class CalculatedOrder implements com.shopify.types.Node {
     this.subtotalLineItemsQuantity = subtotalLineItemsQuantity;
   }
 
-  
+  /**
+   * The subtotal of the line items, in shop and presentment currencies, after all
+   * the discounts are applied.  The subtotal doesn't include shipping.  The
+   * subtotal includes taxes for taxes-included orders and excludes taxes for
+   * taxes-excluded orders.
+   */
   public MoneyBag getSubtotalPriceSet() {
     return subtotalPriceSet;
   }
@@ -181,7 +255,9 @@ public class CalculatedOrder implements com.shopify.types.Node {
     this.subtotalPriceSet = subtotalPriceSet;
   }
 
-  
+  /**
+   * Taxes charged for the line item.
+   */
   public List<TaxLine> getTaxLines() {
     return taxLines;
   }
@@ -190,7 +266,9 @@ public class CalculatedOrder implements com.shopify.types.Node {
     this.taxLines = taxLines;
   }
 
-  
+  /**
+   * Total price of the order less the total amount received from the customer in shop and presentment currencies.
+   */
   public MoneyBag getTotalOutstandingSet() {
     return totalOutstandingSet;
   }
@@ -199,7 +277,9 @@ public class CalculatedOrder implements com.shopify.types.Node {
     this.totalOutstandingSet = totalOutstandingSet;
   }
 
-  
+  /**
+   * Total amount of the order (includes taxes and discounts) in shop and presentment currencies.
+   */
   public MoneyBag getTotalPriceSet() {
     return totalPriceSet;
   }
@@ -246,52 +326,91 @@ public class CalculatedOrder implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    
+    /**
+     * Returns only the new discount applications being added to the order in the current edit.
+     */
     private CalculatedDiscountApplicationConnection addedDiscountApplications;
 
-    
+    /**
+     * Returns only the new line items being added to the order during the current edit.
+     */
     private CalculatedLineItemConnection addedLineItems;
 
-    
+    /**
+     * Amount of the order-level discount (doesn't contain any line item discounts) in shop and presentment currencies.
+     */
     private MoneyBag cartDiscountAmountSet;
 
-    
+    /**
+     * Whether the changes have been applied and saved to the order.
+     */
     private boolean committed;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * Returns all items on the order that existed before starting the edit.
+     * Will include any changes that have been made.
+     * Will not include line items added during the current edit.
+     */
     private CalculatedLineItemConnection lineItems;
 
-    
+    /**
+     * The HTML of the customer notification for the order edit.
+     */
     private String notificationPreviewHtml;
 
-    
+    /**
+     * The customer notification title.
+     */
     private String notificationPreviewTitle;
 
-    
+    /**
+     * The order without any changes applied.
+     */
     private Order originalOrder;
 
-    
+    /**
+     * Returns the shipping lines on the order that existed before starting the edit.
+     * Will include any changes that have been made as well as shipping lines added during the current edit.
+     * Returns only the first 250 shipping lines.
+     */
     private List<CalculatedShippingLine> shippingLines;
 
-    
+    /**
+     * List of changes made to the order during the current edit.
+     */
     private OrderStagedChangeConnection stagedChanges;
 
-    
+    /**
+     * The sum of the quantities for the line items that contribute to the order's subtotal.
+     */
     private int subtotalLineItemsQuantity;
 
-    
+    /**
+     * The subtotal of the line items, in shop and presentment currencies, after all
+     * the discounts are applied.  The subtotal doesn't include shipping.  The
+     * subtotal includes taxes for taxes-included orders and excludes taxes for
+     * taxes-excluded orders.
+     */
     private MoneyBag subtotalPriceSet;
 
-    
+    /**
+     * Taxes charged for the line item.
+     */
     private List<TaxLine> taxLines;
 
-    
+    /**
+     * Total price of the order less the total amount received from the customer in shop and presentment currencies.
+     */
     private MoneyBag totalOutstandingSet;
 
-    
+    /**
+     * Total amount of the order (includes taxes and discounts) in shop and presentment currencies.
+     */
     private MoneyBag totalPriceSet;
 
     public CalculatedOrder build() {
@@ -315,98 +434,137 @@ public class CalculatedOrder implements com.shopify.types.Node {
       return result;
     }
 
-    
+    /**
+     * Returns only the new discount applications being added to the order in the current edit.
+     */
     public Builder addedDiscountApplications(
         CalculatedDiscountApplicationConnection addedDiscountApplications) {
       this.addedDiscountApplications = addedDiscountApplications;
       return this;
     }
 
-    
+    /**
+     * Returns only the new line items being added to the order during the current edit.
+     */
     public Builder addedLineItems(CalculatedLineItemConnection addedLineItems) {
       this.addedLineItems = addedLineItems;
       return this;
     }
 
-    
+    /**
+     * Amount of the order-level discount (doesn't contain any line item discounts) in shop and presentment currencies.
+     */
     public Builder cartDiscountAmountSet(MoneyBag cartDiscountAmountSet) {
       this.cartDiscountAmountSet = cartDiscountAmountSet;
       return this;
     }
 
-    
+    /**
+     * Whether the changes have been applied and saved to the order.
+     */
     public Builder committed(boolean committed) {
       this.committed = committed;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * Returns all items on the order that existed before starting the edit.
+     * Will include any changes that have been made.
+     * Will not include line items added during the current edit.
+     */
     public Builder lineItems(CalculatedLineItemConnection lineItems) {
       this.lineItems = lineItems;
       return this;
     }
 
-    
+    /**
+     * The HTML of the customer notification for the order edit.
+     */
     public Builder notificationPreviewHtml(String notificationPreviewHtml) {
       this.notificationPreviewHtml = notificationPreviewHtml;
       return this;
     }
 
-    
+    /**
+     * The customer notification title.
+     */
     public Builder notificationPreviewTitle(String notificationPreviewTitle) {
       this.notificationPreviewTitle = notificationPreviewTitle;
       return this;
     }
 
-    
+    /**
+     * The order without any changes applied.
+     */
     public Builder originalOrder(Order originalOrder) {
       this.originalOrder = originalOrder;
       return this;
     }
 
-    
+    /**
+     * Returns the shipping lines on the order that existed before starting the edit.
+     * Will include any changes that have been made as well as shipping lines added during the current edit.
+     * Returns only the first 250 shipping lines.
+     */
     public Builder shippingLines(List<CalculatedShippingLine> shippingLines) {
       this.shippingLines = shippingLines;
       return this;
     }
 
-    
+    /**
+     * List of changes made to the order during the current edit.
+     */
     public Builder stagedChanges(OrderStagedChangeConnection stagedChanges) {
       this.stagedChanges = stagedChanges;
       return this;
     }
 
-    
+    /**
+     * The sum of the quantities for the line items that contribute to the order's subtotal.
+     */
     public Builder subtotalLineItemsQuantity(int subtotalLineItemsQuantity) {
       this.subtotalLineItemsQuantity = subtotalLineItemsQuantity;
       return this;
     }
 
-    
+    /**
+     * The subtotal of the line items, in shop and presentment currencies, after all
+     * the discounts are applied.  The subtotal doesn't include shipping.  The
+     * subtotal includes taxes for taxes-included orders and excludes taxes for
+     * taxes-excluded orders.
+     */
     public Builder subtotalPriceSet(MoneyBag subtotalPriceSet) {
       this.subtotalPriceSet = subtotalPriceSet;
       return this;
     }
 
-    
+    /**
+     * Taxes charged for the line item.
+     */
     public Builder taxLines(List<TaxLine> taxLines) {
       this.taxLines = taxLines;
       return this;
     }
 
-    
+    /**
+     * Total price of the order less the total amount received from the customer in shop and presentment currencies.
+     */
     public Builder totalOutstandingSet(MoneyBag totalOutstandingSet) {
       this.totalOutstandingSet = totalOutstandingSet;
       return this;
     }
 
-    
+    /**
+     * Total amount of the order (includes taxes and discounts) in shop and presentment currencies.
+     */
     public Builder totalPriceSet(MoneyBag totalPriceSet) {
       this.totalPriceSet = totalPriceSet;
       return this;

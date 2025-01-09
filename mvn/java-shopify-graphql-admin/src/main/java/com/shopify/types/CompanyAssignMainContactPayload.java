@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `companyAssignMainContact` mutation.
+ */
 public class CompanyAssignMainContactPayload {
-  
+  /**
+   * The company for which the main contact is assigned.
+   */
   private Company company;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<BusinessCustomerUserError> userErrors;
 
   public CompanyAssignMainContactPayload() {
   }
 
-  
+  /**
+   * The company for which the main contact is assigned.
+   */
   public Company getCompany() {
     return company;
   }
@@ -26,7 +34,9 @@ public class CompanyAssignMainContactPayload {
     this.company = company;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<BusinessCustomerUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class CompanyAssignMainContactPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The company for which the main contact is assigned.
+     */
     private Company company;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<BusinessCustomerUserError> userErrors;
 
     public CompanyAssignMainContactPayload build() {
@@ -72,13 +86,17 @@ public class CompanyAssignMainContactPayload {
       return result;
     }
 
-    
+    /**
+     * The company for which the main contact is assigned.
+     */
     public Builder company(Company company) {
       this.company = company;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<BusinessCustomerUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -6,21 +6,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `subscriptionDraftLineUpdate` mutation.
+ */
 public class SubscriptionDraftLineUpdatePayload {
-  
+  /**
+   * The Subscription Contract draft object.
+   */
   private SubscriptionDraft draft;
 
-  
+  /**
+   * The updated Subscription Line.
+   */
   private SubscriptionLine lineUpdated;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<SubscriptionDraftUserError> userErrors;
 
   public SubscriptionDraftLineUpdatePayload() {
   }
 
-  
+  /**
+   * The Subscription Contract draft object.
+   */
   public SubscriptionDraft getDraft() {
     return draft;
   }
@@ -29,7 +39,9 @@ public class SubscriptionDraftLineUpdatePayload {
     this.draft = draft;
   }
 
-  
+  /**
+   * The updated Subscription Line.
+   */
   public SubscriptionLine getLineUpdated() {
     return lineUpdated;
   }
@@ -38,7 +50,9 @@ public class SubscriptionDraftLineUpdatePayload {
     this.lineUpdated = lineUpdated;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<SubscriptionDraftUserError> getUserErrors() {
     return userErrors;
   }
@@ -72,13 +86,19 @@ public class SubscriptionDraftLineUpdatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The Subscription Contract draft object.
+     */
     private SubscriptionDraft draft;
 
-    
+    /**
+     * The updated Subscription Line.
+     */
     private SubscriptionLine lineUpdated;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<SubscriptionDraftUserError> userErrors;
 
     public SubscriptionDraftLineUpdatePayload build() {
@@ -89,19 +109,25 @@ public class SubscriptionDraftLineUpdatePayload {
       return result;
     }
 
-    
+    /**
+     * The Subscription Contract draft object.
+     */
     public Builder draft(SubscriptionDraft draft) {
       this.draft = draft;
       return this;
     }
 
-    
+    /**
+     * The updated Subscription Line.
+     */
     public Builder lineUpdated(SubscriptionLine lineUpdated) {
       this.lineUpdated = lineUpdated;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<SubscriptionDraftUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

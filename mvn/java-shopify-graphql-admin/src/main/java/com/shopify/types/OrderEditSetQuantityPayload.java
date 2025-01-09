@@ -6,21 +6,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `orderEditSetQuantity` mutation.
+ */
 public class OrderEditSetQuantityPayload {
-  
+  /**
+   * The calculated line item with the edits applied but not saved.
+   */
   private CalculatedLineItem calculatedLineItem;
 
-  
+  /**
+   * The calculated order with the edits applied but not saved.
+   */
   private CalculatedOrder calculatedOrder;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public OrderEditSetQuantityPayload() {
   }
 
-  
+  /**
+   * The calculated line item with the edits applied but not saved.
+   */
   public CalculatedLineItem getCalculatedLineItem() {
     return calculatedLineItem;
   }
@@ -29,7 +39,9 @@ public class OrderEditSetQuantityPayload {
     this.calculatedLineItem = calculatedLineItem;
   }
 
-  
+  /**
+   * The calculated order with the edits applied but not saved.
+   */
   public CalculatedOrder getCalculatedOrder() {
     return calculatedOrder;
   }
@@ -38,7 +50,9 @@ public class OrderEditSetQuantityPayload {
     this.calculatedOrder = calculatedOrder;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -72,13 +86,19 @@ public class OrderEditSetQuantityPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The calculated line item with the edits applied but not saved.
+     */
     private CalculatedLineItem calculatedLineItem;
 
-    
+    /**
+     * The calculated order with the edits applied but not saved.
+     */
     private CalculatedOrder calculatedOrder;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public OrderEditSetQuantityPayload build() {
@@ -89,19 +109,25 @@ public class OrderEditSetQuantityPayload {
       return result;
     }
 
-    
+    /**
+     * The calculated line item with the edits applied but not saved.
+     */
     public Builder calculatedLineItem(CalculatedLineItem calculatedLineItem) {
       this.calculatedLineItem = calculatedLineItem;
       return this;
     }
 
-    
+    /**
+     * The calculated order with the edits applied but not saved.
+     */
     public Builder calculatedOrder(CalculatedOrder calculatedOrder) {
       this.calculatedOrder = calculatedOrder;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

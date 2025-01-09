@@ -7,33 +7,49 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-
+/**
+ * A customer's payment method.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class CustomerPaymentMethod implements com.shopify.types.Node {
-  
+  /**
+   * The customer to whom the payment method belongs.
+   */
   private Customer customer;
 
-  
+  /**
+   * The ID of this payment method.
+   */
   private String id;
 
-  
+  /**
+   * The instrument for this payment method.
+   */
   private CustomerPaymentInstrument instrument;
 
-  
+  /**
+   * The time that the payment method was revoked.
+   */
   private OffsetDateTime revokedAt;
 
-  
+  /**
+   * The revocation reason for this payment method.
+   */
   private CustomerPaymentMethodRevocationReason revokedReason;
 
-  
+  /**
+   * List Subscription Contracts.
+   */
   private SubscriptionContractConnection subscriptionContracts;
 
   public CustomerPaymentMethod() {
   }
 
-  
+  /**
+   * The customer to whom the payment method belongs.
+   */
   public Customer getCustomer() {
     return customer;
   }
@@ -42,7 +58,9 @@ public class CustomerPaymentMethod implements com.shopify.types.Node {
     this.customer = customer;
   }
 
-  
+  /**
+   * The ID of this payment method.
+   */
   public String getId() {
     return id;
   }
@@ -51,7 +69,9 @@ public class CustomerPaymentMethod implements com.shopify.types.Node {
     this.id = id;
   }
 
-  
+  /**
+   * The instrument for this payment method.
+   */
   public CustomerPaymentInstrument getInstrument() {
     return instrument;
   }
@@ -60,7 +80,9 @@ public class CustomerPaymentMethod implements com.shopify.types.Node {
     this.instrument = instrument;
   }
 
-  
+  /**
+   * The time that the payment method was revoked.
+   */
   public OffsetDateTime getRevokedAt() {
     return revokedAt;
   }
@@ -69,7 +91,9 @@ public class CustomerPaymentMethod implements com.shopify.types.Node {
     this.revokedAt = revokedAt;
   }
 
-  
+  /**
+   * The revocation reason for this payment method.
+   */
   public CustomerPaymentMethodRevocationReason getRevokedReason() {
     return revokedReason;
   }
@@ -78,7 +102,9 @@ public class CustomerPaymentMethod implements com.shopify.types.Node {
     this.revokedReason = revokedReason;
   }
 
-  
+  /**
+   * List Subscription Contracts.
+   */
   public SubscriptionContractConnection getSubscriptionContracts() {
     return subscriptionContracts;
   }
@@ -115,22 +141,34 @@ public class CustomerPaymentMethod implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    
+    /**
+     * The customer to whom the payment method belongs.
+     */
     private Customer customer;
 
-    
+    /**
+     * The ID of this payment method.
+     */
     private String id;
 
-    
+    /**
+     * The instrument for this payment method.
+     */
     private CustomerPaymentInstrument instrument;
 
-    
+    /**
+     * The time that the payment method was revoked.
+     */
     private OffsetDateTime revokedAt;
 
-    
+    /**
+     * The revocation reason for this payment method.
+     */
     private CustomerPaymentMethodRevocationReason revokedReason;
 
-    
+    /**
+     * List Subscription Contracts.
+     */
     private SubscriptionContractConnection subscriptionContracts;
 
     public CustomerPaymentMethod build() {
@@ -144,37 +182,49 @@ public class CustomerPaymentMethod implements com.shopify.types.Node {
       return result;
     }
 
-    
+    /**
+     * The customer to whom the payment method belongs.
+     */
     public Builder customer(Customer customer) {
       this.customer = customer;
       return this;
     }
 
-    
+    /**
+     * The ID of this payment method.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The instrument for this payment method.
+     */
     public Builder instrument(CustomerPaymentInstrument instrument) {
       this.instrument = instrument;
       return this;
     }
 
-    
+    /**
+     * The time that the payment method was revoked.
+     */
     public Builder revokedAt(OffsetDateTime revokedAt) {
       this.revokedAt = revokedAt;
       return this;
     }
 
-    
+    /**
+     * The revocation reason for this payment method.
+     */
     public Builder revokedReason(CustomerPaymentMethodRevocationReason revokedReason) {
       this.revokedReason = revokedReason;
       return this;
     }
 
-    
+    /**
+     * List Subscription Contracts.
+     */
     public Builder subscriptionContracts(SubscriptionContractConnection subscriptionContracts) {
       this.subscriptionContracts = subscriptionContracts;
       return this;

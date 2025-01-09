@@ -6,15 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `inventoryDeactivate` mutation.
+ */
 public class InventoryDeactivatePayload {
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public InventoryDeactivatePayload() {
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -46,7 +52,9 @@ public class InventoryDeactivatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public InventoryDeactivatePayload build() {
@@ -55,7 +63,9 @@ public class InventoryDeactivatePayload {
       return result;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

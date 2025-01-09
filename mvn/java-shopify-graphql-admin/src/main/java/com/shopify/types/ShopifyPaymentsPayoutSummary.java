@@ -5,48 +5,77 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Breakdown of the total fees and gross of each of the different types of transactions associated
+ * with the payout.
+ */
 public class ShopifyPaymentsPayoutSummary {
-  
+  /**
+   * Total fees for all adjustments including disputes.
+   */
   private MoneyV2 adjustmentsFee;
 
-  
+  /**
+   * Total gross amount for all adjustments including disputes.
+   */
   private MoneyV2 adjustmentsGross;
 
-  
+  /**
+   * Total fees for all advances.
+   */
   private MoneyV2 advanceFees;
 
-  
+  /**
+   * Total gross amount for all advances.
+   */
   private MoneyV2 advanceGross;
 
-  
+  /**
+   * Total fees for all charges.
+   */
   private MoneyV2 chargesFee;
 
-  
+  /**
+   * Total gross amount for all charges.
+   */
   private MoneyV2 chargesGross;
 
-  
+  /**
+   * Total fees for all refunds.
+   */
   private MoneyV2 refundsFee;
 
-  
+  /**
+   * Total gross amount for all refunds.
+   */
   private MoneyV2 refundsFeeGross;
 
-  
+  /**
+   * Total fees for all reserved funds.
+   */
   private MoneyV2 reservedFundsFee;
 
-  
+  /**
+   * Total gross amount for all reserved funds.
+   */
   private MoneyV2 reservedFundsGross;
 
-  
+  /**
+   * Total fees for all retried payouts.
+   */
   private MoneyV2 retriedPayoutsFee;
 
-  
+  /**
+   * Total gross amount for all retried payouts.
+   */
   private MoneyV2 retriedPayoutsGross;
 
   public ShopifyPaymentsPayoutSummary() {
   }
 
-  
+  /**
+   * Total fees for all adjustments including disputes.
+   */
   public MoneyV2 getAdjustmentsFee() {
     return adjustmentsFee;
   }
@@ -55,7 +84,9 @@ public class ShopifyPaymentsPayoutSummary {
     this.adjustmentsFee = adjustmentsFee;
   }
 
-  
+  /**
+   * Total gross amount for all adjustments including disputes.
+   */
   public MoneyV2 getAdjustmentsGross() {
     return adjustmentsGross;
   }
@@ -64,7 +95,9 @@ public class ShopifyPaymentsPayoutSummary {
     this.adjustmentsGross = adjustmentsGross;
   }
 
-  
+  /**
+   * Total fees for all advances.
+   */
   public MoneyV2 getAdvanceFees() {
     return advanceFees;
   }
@@ -73,7 +106,9 @@ public class ShopifyPaymentsPayoutSummary {
     this.advanceFees = advanceFees;
   }
 
-  
+  /**
+   * Total gross amount for all advances.
+   */
   public MoneyV2 getAdvanceGross() {
     return advanceGross;
   }
@@ -82,7 +117,9 @@ public class ShopifyPaymentsPayoutSummary {
     this.advanceGross = advanceGross;
   }
 
-  
+  /**
+   * Total fees for all charges.
+   */
   public MoneyV2 getChargesFee() {
     return chargesFee;
   }
@@ -91,7 +128,9 @@ public class ShopifyPaymentsPayoutSummary {
     this.chargesFee = chargesFee;
   }
 
-  
+  /**
+   * Total gross amount for all charges.
+   */
   public MoneyV2 getChargesGross() {
     return chargesGross;
   }
@@ -100,7 +139,9 @@ public class ShopifyPaymentsPayoutSummary {
     this.chargesGross = chargesGross;
   }
 
-  
+  /**
+   * Total fees for all refunds.
+   */
   public MoneyV2 getRefundsFee() {
     return refundsFee;
   }
@@ -109,7 +150,9 @@ public class ShopifyPaymentsPayoutSummary {
     this.refundsFee = refundsFee;
   }
 
-  
+  /**
+   * Total gross amount for all refunds.
+   */
   public MoneyV2 getRefundsFeeGross() {
     return refundsFeeGross;
   }
@@ -118,7 +161,9 @@ public class ShopifyPaymentsPayoutSummary {
     this.refundsFeeGross = refundsFeeGross;
   }
 
-  
+  /**
+   * Total fees for all reserved funds.
+   */
   public MoneyV2 getReservedFundsFee() {
     return reservedFundsFee;
   }
@@ -127,7 +172,9 @@ public class ShopifyPaymentsPayoutSummary {
     this.reservedFundsFee = reservedFundsFee;
   }
 
-  
+  /**
+   * Total gross amount for all reserved funds.
+   */
   public MoneyV2 getReservedFundsGross() {
     return reservedFundsGross;
   }
@@ -136,7 +183,9 @@ public class ShopifyPaymentsPayoutSummary {
     this.reservedFundsGross = reservedFundsGross;
   }
 
-  
+  /**
+   * Total fees for all retried payouts.
+   */
   public MoneyV2 getRetriedPayoutsFee() {
     return retriedPayoutsFee;
   }
@@ -145,7 +194,9 @@ public class ShopifyPaymentsPayoutSummary {
     this.retriedPayoutsFee = retriedPayoutsFee;
   }
 
-  
+  /**
+   * Total gross amount for all retried payouts.
+   */
   public MoneyV2 getRetriedPayoutsGross() {
     return retriedPayoutsGross;
   }
@@ -188,40 +239,64 @@ public class ShopifyPaymentsPayoutSummary {
   }
 
   public static class Builder {
-    
+    /**
+     * Total fees for all adjustments including disputes.
+     */
     private MoneyV2 adjustmentsFee;
 
-    
+    /**
+     * Total gross amount for all adjustments including disputes.
+     */
     private MoneyV2 adjustmentsGross;
 
-    
+    /**
+     * Total fees for all advances.
+     */
     private MoneyV2 advanceFees;
 
-    
+    /**
+     * Total gross amount for all advances.
+     */
     private MoneyV2 advanceGross;
 
-    
+    /**
+     * Total fees for all charges.
+     */
     private MoneyV2 chargesFee;
 
-    
+    /**
+     * Total gross amount for all charges.
+     */
     private MoneyV2 chargesGross;
 
-    
+    /**
+     * Total fees for all refunds.
+     */
     private MoneyV2 refundsFee;
 
-    
+    /**
+     * Total gross amount for all refunds.
+     */
     private MoneyV2 refundsFeeGross;
 
-    
+    /**
+     * Total fees for all reserved funds.
+     */
     private MoneyV2 reservedFundsFee;
 
-    
+    /**
+     * Total gross amount for all reserved funds.
+     */
     private MoneyV2 reservedFundsGross;
 
-    
+    /**
+     * Total fees for all retried payouts.
+     */
     private MoneyV2 retriedPayoutsFee;
 
-    
+    /**
+     * Total gross amount for all retried payouts.
+     */
     private MoneyV2 retriedPayoutsGross;
 
     public ShopifyPaymentsPayoutSummary build() {
@@ -241,73 +316,97 @@ public class ShopifyPaymentsPayoutSummary {
       return result;
     }
 
-    
+    /**
+     * Total fees for all adjustments including disputes.
+     */
     public Builder adjustmentsFee(MoneyV2 adjustmentsFee) {
       this.adjustmentsFee = adjustmentsFee;
       return this;
     }
 
-    
+    /**
+     * Total gross amount for all adjustments including disputes.
+     */
     public Builder adjustmentsGross(MoneyV2 adjustmentsGross) {
       this.adjustmentsGross = adjustmentsGross;
       return this;
     }
 
-    
+    /**
+     * Total fees for all advances.
+     */
     public Builder advanceFees(MoneyV2 advanceFees) {
       this.advanceFees = advanceFees;
       return this;
     }
 
-    
+    /**
+     * Total gross amount for all advances.
+     */
     public Builder advanceGross(MoneyV2 advanceGross) {
       this.advanceGross = advanceGross;
       return this;
     }
 
-    
+    /**
+     * Total fees for all charges.
+     */
     public Builder chargesFee(MoneyV2 chargesFee) {
       this.chargesFee = chargesFee;
       return this;
     }
 
-    
+    /**
+     * Total gross amount for all charges.
+     */
     public Builder chargesGross(MoneyV2 chargesGross) {
       this.chargesGross = chargesGross;
       return this;
     }
 
-    
+    /**
+     * Total fees for all refunds.
+     */
     public Builder refundsFee(MoneyV2 refundsFee) {
       this.refundsFee = refundsFee;
       return this;
     }
 
-    
+    /**
+     * Total gross amount for all refunds.
+     */
     public Builder refundsFeeGross(MoneyV2 refundsFeeGross) {
       this.refundsFeeGross = refundsFeeGross;
       return this;
     }
 
-    
+    /**
+     * Total fees for all reserved funds.
+     */
     public Builder reservedFundsFee(MoneyV2 reservedFundsFee) {
       this.reservedFundsFee = reservedFundsFee;
       return this;
     }
 
-    
+    /**
+     * Total gross amount for all reserved funds.
+     */
     public Builder reservedFundsGross(MoneyV2 reservedFundsGross) {
       this.reservedFundsGross = reservedFundsGross;
       return this;
     }
 
-    
+    /**
+     * Total fees for all retried payouts.
+     */
     public Builder retriedPayoutsFee(MoneyV2 retriedPayoutsFee) {
       this.retriedPayoutsFee = retriedPayoutsFee;
       return this;
     }
 
-    
+    /**
+     * Total gross amount for all retried payouts.
+     */
     public Builder retriedPayoutsGross(MoneyV2 retriedPayoutsGross) {
       this.retriedPayoutsGross = retriedPayoutsGross;
       return this;

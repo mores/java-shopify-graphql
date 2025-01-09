@@ -6,24 +6,34 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A product variant component associated with a product variant.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ProductVariantComponent implements com.shopify.types.Node {
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The product variant associated with the component.
+   */
   private ProductVariant productVariant;
 
-  
+  /**
+   * The required quantity of the component.
+   */
   private int quantity;
 
   public ProductVariantComponent() {
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -32,7 +42,9 @@ public class ProductVariantComponent implements com.shopify.types.Node {
     this.id = id;
   }
 
-  
+  /**
+   * The product variant associated with the component.
+   */
   public ProductVariant getProductVariant() {
     return productVariant;
   }
@@ -41,7 +53,9 @@ public class ProductVariantComponent implements com.shopify.types.Node {
     this.productVariant = productVariant;
   }
 
-  
+  /**
+   * The required quantity of the component.
+   */
   public int getQuantity() {
     return quantity;
   }
@@ -75,13 +89,19 @@ public class ProductVariantComponent implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The product variant associated with the component.
+     */
     private ProductVariant productVariant;
 
-    
+    /**
+     * The required quantity of the component.
+     */
     private int quantity;
 
     public ProductVariantComponent build() {
@@ -92,19 +112,25 @@ public class ProductVariantComponent implements com.shopify.types.Node {
       return result;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The product variant associated with the component.
+     */
     public Builder productVariant(ProductVariant productVariant) {
       this.productVariant = productVariant;
       return this;
     }
 
-    
+    /**
+     * The required quantity of the component.
+     */
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;

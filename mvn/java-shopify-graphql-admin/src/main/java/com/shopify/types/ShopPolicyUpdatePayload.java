@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `shopPolicyUpdate` mutation.
+ */
 public class ShopPolicyUpdatePayload {
-  
+  /**
+   * The shop policy that has been updated.
+   */
   private ShopPolicy shopPolicy;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<ShopPolicyUserError> userErrors;
 
   public ShopPolicyUpdatePayload() {
   }
 
-  
+  /**
+   * The shop policy that has been updated.
+   */
   public ShopPolicy getShopPolicy() {
     return shopPolicy;
   }
@@ -26,7 +34,9 @@ public class ShopPolicyUpdatePayload {
     this.shopPolicy = shopPolicy;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<ShopPolicyUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class ShopPolicyUpdatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The shop policy that has been updated.
+     */
     private ShopPolicy shopPolicy;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<ShopPolicyUserError> userErrors;
 
     public ShopPolicyUpdatePayload build() {
@@ -72,13 +86,17 @@ public class ShopPolicyUpdatePayload {
       return result;
     }
 
-    
+    /**
+     * The shop policy that has been updated.
+     */
     public Builder shopPolicy(ShopPolicy shopPolicy) {
       this.shopPolicy = shopPolicy;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<ShopPolicyUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

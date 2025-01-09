@@ -6,21 +6,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Represents feedback from apps about a resource, and the steps required to set up the apps on the shop.
+ */
 public class ResourceFeedback {
-  
+  /**
+   * Feedback from an app about the steps a merchant needs to take to set up the app on their store.
+   */
   private List<AppFeedback> appFeedback;
 
-  
+  /**
+   * List of AppFeedback detailing issues regarding a resource.
+   */
   private List<AppFeedback> details;
 
-  
+  /**
+   * Summary of resource feedback pertaining to the resource.
+   */
   private String summary;
 
   public ResourceFeedback() {
   }
 
-  
+  /**
+   * Feedback from an app about the steps a merchant needs to take to set up the app on their store.
+   */
   public List<AppFeedback> getAppFeedback() {
     return appFeedback;
   }
@@ -29,7 +39,9 @@ public class ResourceFeedback {
     this.appFeedback = appFeedback;
   }
 
-  
+  /**
+   * List of AppFeedback detailing issues regarding a resource.
+   */
   public List<AppFeedback> getDetails() {
     return details;
   }
@@ -38,7 +50,9 @@ public class ResourceFeedback {
     this.details = details;
   }
 
-  
+  /**
+   * Summary of resource feedback pertaining to the resource.
+   */
   public String getSummary() {
     return summary;
   }
@@ -72,13 +86,19 @@ public class ResourceFeedback {
   }
 
   public static class Builder {
-    
+    /**
+     * Feedback from an app about the steps a merchant needs to take to set up the app on their store.
+     */
     private List<AppFeedback> appFeedback;
 
-    
+    /**
+     * List of AppFeedback detailing issues regarding a resource.
+     */
     private List<AppFeedback> details;
 
-    
+    /**
+     * Summary of resource feedback pertaining to the resource.
+     */
     private String summary;
 
     public ResourceFeedback build() {
@@ -89,19 +109,25 @@ public class ResourceFeedback {
       return result;
     }
 
-    
+    /**
+     * Feedback from an app about the steps a merchant needs to take to set up the app on their store.
+     */
     public Builder appFeedback(List<AppFeedback> appFeedback) {
       this.appFeedback = appFeedback;
       return this;
     }
 
-    
+    /**
+     * List of AppFeedback detailing issues regarding a resource.
+     */
     public Builder details(List<AppFeedback> details) {
       this.details = details;
       return this;
     }
 
-    
+    /**
+     * Summary of resource feedback pertaining to the resource.
+     */
     public Builder summary(String summary) {
       this.summary = summary;
       return this;

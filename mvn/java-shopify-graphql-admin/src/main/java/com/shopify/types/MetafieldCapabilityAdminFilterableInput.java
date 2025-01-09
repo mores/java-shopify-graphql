@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for enabling and disabling the admin filterable capability.
+ */
 public class MetafieldCapabilityAdminFilterableInput {
-  
+  /**
+   * Indicates whether the capability should be enabled or disabled.
+   */
   private boolean enabled;
 
   public MetafieldCapabilityAdminFilterableInput() {
   }
 
-  
+  /**
+   * Indicates whether the capability should be enabled or disabled.
+   */
   public boolean getEnabled() {
     return enabled;
   }
@@ -45,7 +51,9 @@ public class MetafieldCapabilityAdminFilterableInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Indicates whether the capability should be enabled or disabled.
+     */
     private boolean enabled;
 
     public MetafieldCapabilityAdminFilterableInput build() {
@@ -54,7 +62,9 @@ public class MetafieldCapabilityAdminFilterableInput {
       return result;
     }
 
-    
+    /**
+     * Indicates whether the capability should be enabled or disabled.
+     */
     public Builder enabled(boolean enabled) {
       this.enabled = enabled;
       return this;

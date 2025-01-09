@@ -6,18 +6,28 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The blocking fields of a customer merge preview. These fields will block customer merge unless edited.
+ */
 public class CustomerMergePreviewBlockingFields {
-  
+  /**
+   * The merged note resulting from a customer merge. The merged note is over the
+   * 5000 character limit and will block customer merge.
+   */
   private String note;
 
-  
+  /**
+   * The merged tags resulting from a customer merge. The merged tags are over the 250 limit and will block customer merge.
+   */
   private List<String> tags;
 
   public CustomerMergePreviewBlockingFields() {
   }
 
-  
+  /**
+   * The merged note resulting from a customer merge. The merged note is over the
+   * 5000 character limit and will block customer merge.
+   */
   public String getNote() {
     return note;
   }
@@ -26,7 +36,9 @@ public class CustomerMergePreviewBlockingFields {
     this.note = note;
   }
 
-  
+  /**
+   * The merged tags resulting from a customer merge. The merged tags are over the 250 limit and will block customer merge.
+   */
   public List<String> getTags() {
     return tags;
   }
@@ -59,10 +71,15 @@ public class CustomerMergePreviewBlockingFields {
   }
 
   public static class Builder {
-    
+    /**
+     * The merged note resulting from a customer merge. The merged note is over the
+     * 5000 character limit and will block customer merge.
+     */
     private String note;
 
-    
+    /**
+     * The merged tags resulting from a customer merge. The merged tags are over the 250 limit and will block customer merge.
+     */
     private List<String> tags;
 
     public CustomerMergePreviewBlockingFields build() {
@@ -72,13 +89,18 @@ public class CustomerMergePreviewBlockingFields {
       return result;
     }
 
-    
+    /**
+     * The merged note resulting from a customer merge. The merged note is over the
+     * 5000 character limit and will block customer merge.
+     */
     public Builder note(String note) {
       this.note = note;
       return this;
     }
 
-    
+    /**
+     * The merged tags resulting from a customer merge. The merged tags are over the 250 limit and will block customer merge.
+     */
     public Builder tags(List<String> tags) {
       this.tags = tags;
       return this;

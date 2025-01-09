@@ -6,18 +6,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields that are required to reimburse shipping costs.
+ */
 public class ShippingRefundInput {
-  
+  /**
+   * The monetary value of the shipping fees to be reimbursed.
+   */
   private String amount;
 
-  
+  /**
+   * Whether a full refund is provided.
+   */
   private Boolean fullRefund;
 
   public ShippingRefundInput() {
   }
 
-  
+  /**
+   * The monetary value of the shipping fees to be reimbursed.
+   */
   public String getAmount() {
     return amount;
   }
@@ -26,7 +34,9 @@ public class ShippingRefundInput {
     this.amount = amount;
   }
 
-  
+  /**
+   * Whether a full refund is provided.
+   */
   public Boolean getFullRefund() {
     return fullRefund;
   }
@@ -59,10 +69,14 @@ public class ShippingRefundInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The monetary value of the shipping fees to be reimbursed.
+     */
     private String amount;
 
-    
+    /**
+     * Whether a full refund is provided.
+     */
     private Boolean fullRefund;
 
     public ShippingRefundInput build() {
@@ -72,13 +86,17 @@ public class ShippingRefundInput {
       return result;
     }
 
-    
+    /**
+     * The monetary value of the shipping fees to be reimbursed.
+     */
     public Builder amount(String amount) {
       this.amount = amount;
       return this;
     }
 
-    
+    /**
+     * Whether a full refund is provided.
+     */
     public Builder fullRefund(Boolean fullRefund) {
       this.fullRefund = fullRefund;
       return this;

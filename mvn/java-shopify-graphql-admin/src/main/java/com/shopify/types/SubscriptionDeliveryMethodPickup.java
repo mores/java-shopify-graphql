@@ -6,18 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A delivery method with a pickup option.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class SubscriptionDeliveryMethodPickup implements SubscriptionDeliveryMethod {
-  
+  /**
+   * The details of the pickup delivery method to use.
+   */
   private SubscriptionDeliveryMethodPickupOption pickupOption;
 
   public SubscriptionDeliveryMethodPickup() {
   }
 
-  
+  /**
+   * The details of the pickup delivery method to use.
+   */
   public SubscriptionDeliveryMethodPickupOption getPickupOption() {
     return pickupOption;
   }
@@ -49,7 +55,9 @@ public class SubscriptionDeliveryMethodPickup implements SubscriptionDeliveryMet
   }
 
   public static class Builder {
-    
+    /**
+     * The details of the pickup delivery method to use.
+     */
     private SubscriptionDeliveryMethodPickupOption pickupOption;
 
     public SubscriptionDeliveryMethodPickup build() {
@@ -58,7 +66,9 @@ public class SubscriptionDeliveryMethodPickup implements SubscriptionDeliveryMet
       return result;
     }
 
-    
+    /**
+     * The details of the pickup delivery method to use.
+     */
     public Builder pickupOption(SubscriptionDeliveryMethodPickupOption pickupOption) {
       this.pickupOption = pickupOption;
       return this;

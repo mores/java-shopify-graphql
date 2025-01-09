@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Returns a `CompanyContact` object by ID.
+ */
 public class CompanyContactGraphQLQuery extends GraphQLQuery {
   public CompanyContactGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -40,7 +42,9 @@ public class CompanyContactGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the `CompanyContact` to return.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

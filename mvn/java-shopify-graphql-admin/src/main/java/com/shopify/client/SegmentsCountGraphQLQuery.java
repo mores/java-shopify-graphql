@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * The number of segments for a shop.
+ */
 public class SegmentsCountGraphQLQuery extends GraphQLQuery {
   public SegmentsCountGraphQLQuery(String queryName) {
     super("query", queryName);

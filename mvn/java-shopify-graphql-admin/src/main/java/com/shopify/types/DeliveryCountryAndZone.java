@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The country details and the associated shipping zone.
+ */
 public class DeliveryCountryAndZone {
-  
+  /**
+   * The country details.
+   */
   private DeliveryCountry country;
 
-  
+  /**
+   * The name of the shipping zone.
+   */
   private String zone;
 
   public DeliveryCountryAndZone() {
   }
 
-  
+  /**
+   * The country details.
+   */
   public DeliveryCountry getCountry() {
     return country;
   }
@@ -25,7 +33,9 @@ public class DeliveryCountryAndZone {
     this.country = country;
   }
 
-  
+  /**
+   * The name of the shipping zone.
+   */
   public String getZone() {
     return zone;
   }
@@ -58,10 +68,14 @@ public class DeliveryCountryAndZone {
   }
 
   public static class Builder {
-    
+    /**
+     * The country details.
+     */
     private DeliveryCountry country;
 
-    
+    /**
+     * The name of the shipping zone.
+     */
     private String zone;
 
     public DeliveryCountryAndZone build() {
@@ -71,13 +85,17 @@ public class DeliveryCountryAndZone {
       return result;
     }
 
-    
+    /**
+     * The country details.
+     */
     public Builder country(DeliveryCountry country) {
       this.country = country;
       return this;
     }
 
-    
+    /**
+     * The name of the shipping zone.
+     */
     public Builder zone(String zone) {
       this.zone = zone;
       return this;

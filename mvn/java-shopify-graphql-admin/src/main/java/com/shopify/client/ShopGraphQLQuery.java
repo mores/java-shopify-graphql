@@ -6,7 +6,10 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Returns the Shop resource corresponding to the access token used in the request. The Shop resource contains
+ * business and store management settings for the shop.
+ */
 public class ShopGraphQLQuery extends GraphQLQuery {
   public ShopGraphQLQuery(String queryName) {
     super("query", queryName);

@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a merchant checkout for the given draft order.
+ */
 public class DraftOrderCreateMerchantCheckoutGraphQLQuery extends GraphQLQuery {
   public DraftOrderCreateMerchantCheckoutGraphQLQuery(String id, String queryName,
       Set<String> fieldsSet) {
@@ -41,7 +43,9 @@ public class DraftOrderCreateMerchantCheckoutGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Specifies the Draft order's id that we create the checkout for.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

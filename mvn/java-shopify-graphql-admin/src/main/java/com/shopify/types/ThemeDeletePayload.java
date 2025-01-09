@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `themeDelete` mutation.
+ */
 public class ThemeDeletePayload {
-  
+  /**
+   * The ID of the deleted theme.
+   */
   private String deletedThemeId;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<ThemeDeleteUserError> userErrors;
 
   public ThemeDeletePayload() {
   }
 
-  
+  /**
+   * The ID of the deleted theme.
+   */
   public String getDeletedThemeId() {
     return deletedThemeId;
   }
@@ -26,7 +34,9 @@ public class ThemeDeletePayload {
     this.deletedThemeId = deletedThemeId;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<ThemeDeleteUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class ThemeDeletePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the deleted theme.
+     */
     private String deletedThemeId;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<ThemeDeleteUserError> userErrors;
 
     public ThemeDeletePayload build() {
@@ -72,13 +86,17 @@ public class ThemeDeletePayload {
       return result;
     }
 
-    
+    /**
+     * The ID of the deleted theme.
+     */
     public Builder deletedThemeId(String deletedThemeId) {
       this.deletedThemeId = deletedThemeId;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<ThemeDeleteUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

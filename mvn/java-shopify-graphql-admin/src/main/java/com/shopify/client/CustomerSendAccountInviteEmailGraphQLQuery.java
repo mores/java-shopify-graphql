@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Sends the customer an account invite email.
+ */
 public class CustomerSendAccountInviteEmailGraphQLQuery extends GraphQLQuery {
   public CustomerSendAccountInviteEmailGraphQLQuery(String customerId, EmailInput email,
       String queryName, Set<String> fieldsSet) {
@@ -46,14 +48,18 @@ public class CustomerSendAccountInviteEmailGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the customer to whom an account invite email is to be sent.
+     */
     public Builder customerId(String customerId) {
       this.customerId = customerId;
       this.fieldsSet.add("customerId");
       return this;
     }
 
-    
+    /**
+     * Specifies the account invite email fields.
+     */
     public Builder email(EmailInput email) {
       this.email = email;
       this.fieldsSet.add("email");

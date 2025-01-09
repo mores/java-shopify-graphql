@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `discountAutomaticAppCreate` mutation.
+ */
 public class DiscountAutomaticAppCreatePayload {
-  
+  /**
+   * The automatic discount that the app manages.
+   */
   private DiscountAutomaticApp automaticAppDiscount;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<DiscountUserError> userErrors;
 
   public DiscountAutomaticAppCreatePayload() {
   }
 
-  
+  /**
+   * The automatic discount that the app manages.
+   */
   public DiscountAutomaticApp getAutomaticAppDiscount() {
     return automaticAppDiscount;
   }
@@ -26,7 +34,9 @@ public class DiscountAutomaticAppCreatePayload {
     this.automaticAppDiscount = automaticAppDiscount;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<DiscountUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class DiscountAutomaticAppCreatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The automatic discount that the app manages.
+     */
     private DiscountAutomaticApp automaticAppDiscount;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<DiscountUserError> userErrors;
 
     public DiscountAutomaticAppCreatePayload build() {
@@ -72,13 +86,17 @@ public class DiscountAutomaticAppCreatePayload {
       return result;
     }
 
-    
+    /**
+     * The automatic discount that the app manages.
+     */
     public Builder automaticAppDiscount(DiscountAutomaticApp automaticAppDiscount) {
       this.automaticAppDiscount = automaticAppDiscount;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<DiscountUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * The actions that can be taken on a fulfillment order.
+ */
 public enum FulfillmentOrderAction {
   CREATE_FULFILLMENT,
 

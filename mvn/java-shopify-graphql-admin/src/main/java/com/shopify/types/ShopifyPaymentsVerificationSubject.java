@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The verification subject represents an individual that has to be verified.
+ */
 public class ShopifyPaymentsVerificationSubject {
-  
+  /**
+   * The family name of the individual to verify.
+   */
   private String familyName;
 
-  
+  /**
+   * The given name of the individual to verify.
+   */
   private String givenName;
 
   public ShopifyPaymentsVerificationSubject() {
   }
 
-  
+  /**
+   * The family name of the individual to verify.
+   */
   public String getFamilyName() {
     return familyName;
   }
@@ -25,7 +33,9 @@ public class ShopifyPaymentsVerificationSubject {
     this.familyName = familyName;
   }
 
-  
+  /**
+   * The given name of the individual to verify.
+   */
   public String getGivenName() {
     return givenName;
   }
@@ -58,10 +68,14 @@ public class ShopifyPaymentsVerificationSubject {
   }
 
   public static class Builder {
-    
+    /**
+     * The family name of the individual to verify.
+     */
     private String familyName;
 
-    
+    /**
+     * The given name of the individual to verify.
+     */
     private String givenName;
 
     public ShopifyPaymentsVerificationSubject build() {
@@ -71,13 +85,17 @@ public class ShopifyPaymentsVerificationSubject {
       return result;
     }
 
-    
+    /**
+     * The family name of the individual to verify.
+     */
     public Builder familyName(String familyName) {
       this.familyName = familyName;
       return this;
     }
 
-    
+    /**
+     * The given name of the individual to verify.
+     */
     public Builder givenName(String givenName) {
       this.givenName = givenName;
       return this;

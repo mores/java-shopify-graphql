@@ -34,6 +34,13 @@ public class SubscriptionBillingAttemptFragmentProjection<PARENT extends BaseSub
      return projection;
   }
 
+  public SubscriptionBillingAttemptProcessingErrorProjection<SubscriptionBillingAttemptFragmentProjection<PARENT, ROOT>, ROOT> processingError(
+      ) {
+     SubscriptionBillingAttemptProcessingErrorProjection<SubscriptionBillingAttemptFragmentProjection<PARENT, ROOT>, ROOT> projection = new SubscriptionBillingAttemptProcessingErrorProjection<>(this, getRoot());
+     getFields().put("processingError", projection);
+     return projection;
+  }
+
   public SubscriptionContractProjection<SubscriptionBillingAttemptFragmentProjection<PARENT, ROOT>, ROOT> subscriptionContract(
       ) {
      SubscriptionContractProjection<SubscriptionBillingAttemptFragmentProjection<PARENT, ROOT>, ROOT> projection = new SubscriptionContractProjection<>(this, getRoot());
@@ -113,6 +120,11 @@ public class SubscriptionBillingAttemptFragmentProjection<PARENT extends BaseSub
 
   public SubscriptionBillingAttemptFragmentProjection<PARENT, ROOT> ready() {
     getFields().put("ready", null);
+    return this;
+  }
+
+  public SubscriptionBillingAttemptFragmentProjection<PARENT, ROOT> respectInventoryPolicy() {
+    getFields().put("respectInventoryPolicy", null);
     return this;
   }
 

@@ -5,27 +5,45 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Represents information about pricing for a product variant
+ *         as defined on a price list, such as the price, compare at price, and
+ * origin type. You can use a `PriceListPrice` to specify a fixed price for a
+ * specific product variant. For examples, refer to [PriceListFixedPricesAdd](https://shopify.dev/api/admin-graphql/latest/mutations/priceListFixedPricesAdd) and [PriceList](https://shopify.dev/api/admin-graphql/latest/queries/priceList#section-examples).
+ */
 public class PriceListPrice {
-  
+  /**
+   * The compare-at price of the product variant on this price list.
+   */
   private MoneyV2 compareAtPrice;
 
-  
+  /**
+   * The origin of a price, either fixed (defined on the price list) or relative
+   * (calculated using a price list adjustment configuration).
+   */
   private PriceListPriceOriginType originType;
 
-  
+  /**
+   * The price of the product variant on this price list.
+   */
   private MoneyV2 price;
 
-  
+  /**
+   * A list of quantity breaks for the product variant.
+   */
   private QuantityPriceBreakConnection quantityPriceBreaks;
 
-  
+  /**
+   * The product variant associated with this price.
+   */
   private ProductVariant variant;
 
   public PriceListPrice() {
   }
 
-  
+  /**
+   * The compare-at price of the product variant on this price list.
+   */
   public MoneyV2 getCompareAtPrice() {
     return compareAtPrice;
   }
@@ -34,7 +52,10 @@ public class PriceListPrice {
     this.compareAtPrice = compareAtPrice;
   }
 
-  
+  /**
+   * The origin of a price, either fixed (defined on the price list) or relative
+   * (calculated using a price list adjustment configuration).
+   */
   public PriceListPriceOriginType getOriginType() {
     return originType;
   }
@@ -43,7 +64,9 @@ public class PriceListPrice {
     this.originType = originType;
   }
 
-  
+  /**
+   * The price of the product variant on this price list.
+   */
   public MoneyV2 getPrice() {
     return price;
   }
@@ -52,7 +75,9 @@ public class PriceListPrice {
     this.price = price;
   }
 
-  
+  /**
+   * A list of quantity breaks for the product variant.
+   */
   public QuantityPriceBreakConnection getQuantityPriceBreaks() {
     return quantityPriceBreaks;
   }
@@ -61,7 +86,9 @@ public class PriceListPrice {
     this.quantityPriceBreaks = quantityPriceBreaks;
   }
 
-  
+  /**
+   * The product variant associated with this price.
+   */
   public ProductVariant getVariant() {
     return variant;
   }
@@ -97,19 +124,30 @@ public class PriceListPrice {
   }
 
   public static class Builder {
-    
+    /**
+     * The compare-at price of the product variant on this price list.
+     */
     private MoneyV2 compareAtPrice;
 
-    
+    /**
+     * The origin of a price, either fixed (defined on the price list) or relative
+     * (calculated using a price list adjustment configuration).
+     */
     private PriceListPriceOriginType originType;
 
-    
+    /**
+     * The price of the product variant on this price list.
+     */
     private MoneyV2 price;
 
-    
+    /**
+     * A list of quantity breaks for the product variant.
+     */
     private QuantityPriceBreakConnection quantityPriceBreaks;
 
-    
+    /**
+     * The product variant associated with this price.
+     */
     private ProductVariant variant;
 
     public PriceListPrice build() {
@@ -122,31 +160,42 @@ public class PriceListPrice {
       return result;
     }
 
-    
+    /**
+     * The compare-at price of the product variant on this price list.
+     */
     public Builder compareAtPrice(MoneyV2 compareAtPrice) {
       this.compareAtPrice = compareAtPrice;
       return this;
     }
 
-    
+    /**
+     * The origin of a price, either fixed (defined on the price list) or relative
+     * (calculated using a price list adjustment configuration).
+     */
     public Builder originType(PriceListPriceOriginType originType) {
       this.originType = originType;
       return this;
     }
 
-    
+    /**
+     * The price of the product variant on this price list.
+     */
     public Builder price(MoneyV2 price) {
       this.price = price;
       return this;
     }
 
-    
+    /**
+     * A list of quantity breaks for the product variant.
+     */
     public Builder quantityPriceBreaks(QuantityPriceBreakConnection quantityPriceBreaks) {
       this.quantityPriceBreaks = quantityPriceBreaks;
       return this;
     }
 
-    
+    /**
+     * The product variant associated with this price.
+     */
     public Builder variant(ProductVariant variant) {
       this.variant = variant;
       return this;

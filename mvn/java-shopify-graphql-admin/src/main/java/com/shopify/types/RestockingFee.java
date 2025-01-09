@@ -6,24 +6,35 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A restocking fee is a fee captured as part of a return to cover the costs of handling a return line item.
+ * Typically, this would cover the costs of inspecting, repackaging, and restocking the item.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class RestockingFee implements com.shopify.types.Fee {
-  
+  /**
+   * The amount of the restocking fee, in shop and presentment currencies.
+   */
   private MoneyBag amountSet;
 
-  
+  /**
+   * The unique ID for the Fee.
+   */
   private String id;
 
-  
+  /**
+   * The value of the fee as a percentage.
+   */
   private double percentage;
 
   public RestockingFee() {
   }
 
-  
+  /**
+   * The amount of the restocking fee, in shop and presentment currencies.
+   */
   public MoneyBag getAmountSet() {
     return amountSet;
   }
@@ -32,7 +43,9 @@ public class RestockingFee implements com.shopify.types.Fee {
     this.amountSet = amountSet;
   }
 
-  
+  /**
+   * The unique ID for the Fee.
+   */
   public String getId() {
     return id;
   }
@@ -41,7 +54,9 @@ public class RestockingFee implements com.shopify.types.Fee {
     this.id = id;
   }
 
-  
+  /**
+   * The value of the fee as a percentage.
+   */
   public double getPercentage() {
     return percentage;
   }
@@ -75,13 +90,19 @@ public class RestockingFee implements com.shopify.types.Fee {
   }
 
   public static class Builder {
-    
+    /**
+     * The amount of the restocking fee, in shop and presentment currencies.
+     */
     private MoneyBag amountSet;
 
-    
+    /**
+     * The unique ID for the Fee.
+     */
     private String id;
 
-    
+    /**
+     * The value of the fee as a percentage.
+     */
     private double percentage;
 
     public RestockingFee build() {
@@ -92,19 +113,25 @@ public class RestockingFee implements com.shopify.types.Fee {
       return result;
     }
 
-    
+    /**
+     * The amount of the restocking fee, in shop and presentment currencies.
+     */
     public Builder amountSet(MoneyBag amountSet) {
       this.amountSet = amountSet;
       return this;
     }
 
-    
+    /**
+     * The unique ID for the Fee.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The value of the fee as a percentage.
+     */
     public Builder percentage(double percentage) {
       this.percentage = percentage;
       return this;

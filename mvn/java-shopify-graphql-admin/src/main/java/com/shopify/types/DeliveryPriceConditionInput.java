@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for a price-based condition of a delivery method definition.
+ */
 public class DeliveryPriceConditionInput {
-  
+  /**
+   * The monetary value to compare the price of an order to.
+   */
   private MoneyInput criteria;
 
-  
+  /**
+   * The operator to use for comparison.
+   */
   private DeliveryConditionOperator operator;
 
   public DeliveryPriceConditionInput() {
   }
 
-  
+  /**
+   * The monetary value to compare the price of an order to.
+   */
   public MoneyInput getCriteria() {
     return criteria;
   }
@@ -25,7 +33,9 @@ public class DeliveryPriceConditionInput {
     this.criteria = criteria;
   }
 
-  
+  /**
+   * The operator to use for comparison.
+   */
   public DeliveryConditionOperator getOperator() {
     return operator;
   }
@@ -58,10 +68,14 @@ public class DeliveryPriceConditionInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The monetary value to compare the price of an order to.
+     */
     private MoneyInput criteria;
 
-    
+    /**
+     * The operator to use for comparison.
+     */
     private DeliveryConditionOperator operator;
 
     public DeliveryPriceConditionInput build() {
@@ -71,13 +85,17 @@ public class DeliveryPriceConditionInput {
       return result;
     }
 
-    
+    /**
+     * The monetary value to compare the price of an order to.
+     */
     public Builder criteria(MoneyInput criteria) {
       this.criteria = criteria;
       return this;
     }
 
-    
+    /**
+     * The operator to use for comparison.
+     */
     public Builder operator(DeliveryConditionOperator operator) {
       this.operator = operator;
       return this;

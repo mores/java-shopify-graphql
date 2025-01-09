@@ -6,21 +6,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `appSubscriptionLineItemUpdate` mutation.
+ */
 public class AppSubscriptionLineItemUpdatePayload {
-  
+  /**
+   * The updated app subscription.
+   */
   private AppSubscription appSubscription;
 
-  
+  /**
+   * The URL where the merchant approves or declines the updated app subscription line item.
+   */
   private String confirmationUrl;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public AppSubscriptionLineItemUpdatePayload() {
   }
 
-  
+  /**
+   * The updated app subscription.
+   */
   public AppSubscription getAppSubscription() {
     return appSubscription;
   }
@@ -29,7 +39,9 @@ public class AppSubscriptionLineItemUpdatePayload {
     this.appSubscription = appSubscription;
   }
 
-  
+  /**
+   * The URL where the merchant approves or declines the updated app subscription line item.
+   */
   public String getConfirmationUrl() {
     return confirmationUrl;
   }
@@ -38,7 +50,9 @@ public class AppSubscriptionLineItemUpdatePayload {
     this.confirmationUrl = confirmationUrl;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -72,13 +86,19 @@ public class AppSubscriptionLineItemUpdatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The updated app subscription.
+     */
     private AppSubscription appSubscription;
 
-    
+    /**
+     * The URL where the merchant approves or declines the updated app subscription line item.
+     */
     private String confirmationUrl;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public AppSubscriptionLineItemUpdatePayload build() {
@@ -89,19 +109,25 @@ public class AppSubscriptionLineItemUpdatePayload {
       return result;
     }
 
-    
+    /**
+     * The updated app subscription.
+     */
     public Builder appSubscription(AppSubscription appSubscription) {
       this.appSubscription = appSubscription;
       return this;
     }
 
-    
+    /**
+     * The URL where the merchant approves or declines the updated app subscription line item.
+     */
     public Builder confirmationUrl(String confirmationUrl) {
       this.confirmationUrl = confirmationUrl;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -6,63 +6,101 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields required to update a dispute evidence object.
+ */
 public class ShopifyPaymentsDisputeEvidenceUpdateInput {
-  
+  /**
+   * Customer email address.
+   */
   private String customerEmailAddress;
 
-  
+  /**
+   * Customer last name.
+   */
   private String customerLastName;
 
-  
+  /**
+   * Customer first name.
+   */
   private String customerFirstName;
 
-  
+  /**
+   * The shipping address associated with the dispute evidence.
+   */
   private MailingAddressInput shippingAddress;
 
-  
+  /**
+   * Uncategorized text.
+   */
   private String uncategorizedText;
 
-  
+  /**
+   * Activity logs.
+   */
   private String accessActivityLog;
 
-  
+  /**
+   * Cancellation policy disclosure.
+   */
   private String cancellationPolicyDisclosure;
 
-  
+  /**
+   * Cancellation rebuttal.
+   */
   private String cancellationRebuttal;
 
-  
+  /**
+   * Refund policy disclosure.
+   */
   private String refundPolicyDisclosure;
 
-  
+  /**
+   * Refund refusal explanation.
+   */
   private String refundRefusalExplanation;
 
-  
+  /**
+   * Cancellation policy file.
+   */
   private ShopifyPaymentsDisputeFileUploadUpdateInput cancellationPolicyFile;
 
-  
+  /**
+   * Customer communication file.
+   */
   private ShopifyPaymentsDisputeFileUploadUpdateInput customerCommunicationFile;
 
-  
+  /**
+   * Refund policy file.
+   */
   private ShopifyPaymentsDisputeFileUploadUpdateInput refundPolicyFile;
 
-  
+  /**
+   * Shipping documentation file.
+   */
   private ShopifyPaymentsDisputeFileUploadUpdateInput shippingDocumentationFile;
 
-  
+  /**
+   * Uncategorized file.
+   */
   private ShopifyPaymentsDisputeFileUploadUpdateInput uncategorizedFile;
 
-  
+  /**
+   * Service documentation file.
+   */
   private ShopifyPaymentsDisputeFileUploadUpdateInput serviceDocumentationFile;
 
-  
+  /**
+   * Whether to submit the evidence.
+   */
   private Boolean submitEvidence = false;
 
   public ShopifyPaymentsDisputeEvidenceUpdateInput() {
   }
 
-  
+  /**
+   * Customer email address.
+   */
   public String getCustomerEmailAddress() {
     return customerEmailAddress;
   }
@@ -71,7 +109,9 @@ public class ShopifyPaymentsDisputeEvidenceUpdateInput {
     this.customerEmailAddress = customerEmailAddress;
   }
 
-  
+  /**
+   * Customer last name.
+   */
   public String getCustomerLastName() {
     return customerLastName;
   }
@@ -80,7 +120,9 @@ public class ShopifyPaymentsDisputeEvidenceUpdateInput {
     this.customerLastName = customerLastName;
   }
 
-  
+  /**
+   * Customer first name.
+   */
   public String getCustomerFirstName() {
     return customerFirstName;
   }
@@ -89,7 +131,9 @@ public class ShopifyPaymentsDisputeEvidenceUpdateInput {
     this.customerFirstName = customerFirstName;
   }
 
-  
+  /**
+   * The shipping address associated with the dispute evidence.
+   */
   public MailingAddressInput getShippingAddress() {
     return shippingAddress;
   }
@@ -98,7 +142,9 @@ public class ShopifyPaymentsDisputeEvidenceUpdateInput {
     this.shippingAddress = shippingAddress;
   }
 
-  
+  /**
+   * Uncategorized text.
+   */
   public String getUncategorizedText() {
     return uncategorizedText;
   }
@@ -107,7 +153,9 @@ public class ShopifyPaymentsDisputeEvidenceUpdateInput {
     this.uncategorizedText = uncategorizedText;
   }
 
-  
+  /**
+   * Activity logs.
+   */
   public String getAccessActivityLog() {
     return accessActivityLog;
   }
@@ -116,7 +164,9 @@ public class ShopifyPaymentsDisputeEvidenceUpdateInput {
     this.accessActivityLog = accessActivityLog;
   }
 
-  
+  /**
+   * Cancellation policy disclosure.
+   */
   public String getCancellationPolicyDisclosure() {
     return cancellationPolicyDisclosure;
   }
@@ -125,7 +175,9 @@ public class ShopifyPaymentsDisputeEvidenceUpdateInput {
     this.cancellationPolicyDisclosure = cancellationPolicyDisclosure;
   }
 
-  
+  /**
+   * Cancellation rebuttal.
+   */
   public String getCancellationRebuttal() {
     return cancellationRebuttal;
   }
@@ -134,7 +186,9 @@ public class ShopifyPaymentsDisputeEvidenceUpdateInput {
     this.cancellationRebuttal = cancellationRebuttal;
   }
 
-  
+  /**
+   * Refund policy disclosure.
+   */
   public String getRefundPolicyDisclosure() {
     return refundPolicyDisclosure;
   }
@@ -143,7 +197,9 @@ public class ShopifyPaymentsDisputeEvidenceUpdateInput {
     this.refundPolicyDisclosure = refundPolicyDisclosure;
   }
 
-  
+  /**
+   * Refund refusal explanation.
+   */
   public String getRefundRefusalExplanation() {
     return refundRefusalExplanation;
   }
@@ -152,7 +208,9 @@ public class ShopifyPaymentsDisputeEvidenceUpdateInput {
     this.refundRefusalExplanation = refundRefusalExplanation;
   }
 
-  
+  /**
+   * Cancellation policy file.
+   */
   public ShopifyPaymentsDisputeFileUploadUpdateInput getCancellationPolicyFile() {
     return cancellationPolicyFile;
   }
@@ -162,7 +220,9 @@ public class ShopifyPaymentsDisputeEvidenceUpdateInput {
     this.cancellationPolicyFile = cancellationPolicyFile;
   }
 
-  
+  /**
+   * Customer communication file.
+   */
   public ShopifyPaymentsDisputeFileUploadUpdateInput getCustomerCommunicationFile() {
     return customerCommunicationFile;
   }
@@ -172,7 +232,9 @@ public class ShopifyPaymentsDisputeEvidenceUpdateInput {
     this.customerCommunicationFile = customerCommunicationFile;
   }
 
-  
+  /**
+   * Refund policy file.
+   */
   public ShopifyPaymentsDisputeFileUploadUpdateInput getRefundPolicyFile() {
     return refundPolicyFile;
   }
@@ -181,7 +243,9 @@ public class ShopifyPaymentsDisputeEvidenceUpdateInput {
     this.refundPolicyFile = refundPolicyFile;
   }
 
-  
+  /**
+   * Shipping documentation file.
+   */
   public ShopifyPaymentsDisputeFileUploadUpdateInput getShippingDocumentationFile() {
     return shippingDocumentationFile;
   }
@@ -191,7 +255,9 @@ public class ShopifyPaymentsDisputeEvidenceUpdateInput {
     this.shippingDocumentationFile = shippingDocumentationFile;
   }
 
-  
+  /**
+   * Uncategorized file.
+   */
   public ShopifyPaymentsDisputeFileUploadUpdateInput getUncategorizedFile() {
     return uncategorizedFile;
   }
@@ -200,7 +266,9 @@ public class ShopifyPaymentsDisputeEvidenceUpdateInput {
     this.uncategorizedFile = uncategorizedFile;
   }
 
-  
+  /**
+   * Service documentation file.
+   */
   public ShopifyPaymentsDisputeFileUploadUpdateInput getServiceDocumentationFile() {
     return serviceDocumentationFile;
   }
@@ -210,7 +278,9 @@ public class ShopifyPaymentsDisputeEvidenceUpdateInput {
     this.serviceDocumentationFile = serviceDocumentationFile;
   }
 
-  
+  /**
+   * Whether to submit the evidence.
+   */
   public Boolean getSubmitEvidence() {
     return submitEvidence;
   }
@@ -258,55 +328,89 @@ public class ShopifyPaymentsDisputeEvidenceUpdateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Customer email address.
+     */
     private String customerEmailAddress;
 
-    
+    /**
+     * Customer last name.
+     */
     private String customerLastName;
 
-    
+    /**
+     * Customer first name.
+     */
     private String customerFirstName;
 
-    
+    /**
+     * The shipping address associated with the dispute evidence.
+     */
     private MailingAddressInput shippingAddress;
 
-    
+    /**
+     * Uncategorized text.
+     */
     private String uncategorizedText;
 
-    
+    /**
+     * Activity logs.
+     */
     private String accessActivityLog;
 
-    
+    /**
+     * Cancellation policy disclosure.
+     */
     private String cancellationPolicyDisclosure;
 
-    
+    /**
+     * Cancellation rebuttal.
+     */
     private String cancellationRebuttal;
 
-    
+    /**
+     * Refund policy disclosure.
+     */
     private String refundPolicyDisclosure;
 
-    
+    /**
+     * Refund refusal explanation.
+     */
     private String refundRefusalExplanation;
 
-    
+    /**
+     * Cancellation policy file.
+     */
     private ShopifyPaymentsDisputeFileUploadUpdateInput cancellationPolicyFile;
 
-    
+    /**
+     * Customer communication file.
+     */
     private ShopifyPaymentsDisputeFileUploadUpdateInput customerCommunicationFile;
 
-    
+    /**
+     * Refund policy file.
+     */
     private ShopifyPaymentsDisputeFileUploadUpdateInput refundPolicyFile;
 
-    
+    /**
+     * Shipping documentation file.
+     */
     private ShopifyPaymentsDisputeFileUploadUpdateInput shippingDocumentationFile;
 
-    
+    /**
+     * Uncategorized file.
+     */
     private ShopifyPaymentsDisputeFileUploadUpdateInput uncategorizedFile;
 
-    
+    /**
+     * Service documentation file.
+     */
     private ShopifyPaymentsDisputeFileUploadUpdateInput serviceDocumentationFile;
 
-    
+    /**
+     * Whether to submit the evidence.
+     */
     private Boolean submitEvidence = false;
 
     public ShopifyPaymentsDisputeEvidenceUpdateInput build() {
@@ -331,108 +435,142 @@ public class ShopifyPaymentsDisputeEvidenceUpdateInput {
       return result;
     }
 
-    
+    /**
+     * Customer email address.
+     */
     public Builder customerEmailAddress(String customerEmailAddress) {
       this.customerEmailAddress = customerEmailAddress;
       return this;
     }
 
-    
+    /**
+     * Customer last name.
+     */
     public Builder customerLastName(String customerLastName) {
       this.customerLastName = customerLastName;
       return this;
     }
 
-    
+    /**
+     * Customer first name.
+     */
     public Builder customerFirstName(String customerFirstName) {
       this.customerFirstName = customerFirstName;
       return this;
     }
 
-    
+    /**
+     * The shipping address associated with the dispute evidence.
+     */
     public Builder shippingAddress(MailingAddressInput shippingAddress) {
       this.shippingAddress = shippingAddress;
       return this;
     }
 
-    
+    /**
+     * Uncategorized text.
+     */
     public Builder uncategorizedText(String uncategorizedText) {
       this.uncategorizedText = uncategorizedText;
       return this;
     }
 
-    
+    /**
+     * Activity logs.
+     */
     public Builder accessActivityLog(String accessActivityLog) {
       this.accessActivityLog = accessActivityLog;
       return this;
     }
 
-    
+    /**
+     * Cancellation policy disclosure.
+     */
     public Builder cancellationPolicyDisclosure(String cancellationPolicyDisclosure) {
       this.cancellationPolicyDisclosure = cancellationPolicyDisclosure;
       return this;
     }
 
-    
+    /**
+     * Cancellation rebuttal.
+     */
     public Builder cancellationRebuttal(String cancellationRebuttal) {
       this.cancellationRebuttal = cancellationRebuttal;
       return this;
     }
 
-    
+    /**
+     * Refund policy disclosure.
+     */
     public Builder refundPolicyDisclosure(String refundPolicyDisclosure) {
       this.refundPolicyDisclosure = refundPolicyDisclosure;
       return this;
     }
 
-    
+    /**
+     * Refund refusal explanation.
+     */
     public Builder refundRefusalExplanation(String refundRefusalExplanation) {
       this.refundRefusalExplanation = refundRefusalExplanation;
       return this;
     }
 
-    
+    /**
+     * Cancellation policy file.
+     */
     public Builder cancellationPolicyFile(
         ShopifyPaymentsDisputeFileUploadUpdateInput cancellationPolicyFile) {
       this.cancellationPolicyFile = cancellationPolicyFile;
       return this;
     }
 
-    
+    /**
+     * Customer communication file.
+     */
     public Builder customerCommunicationFile(
         ShopifyPaymentsDisputeFileUploadUpdateInput customerCommunicationFile) {
       this.customerCommunicationFile = customerCommunicationFile;
       return this;
     }
 
-    
+    /**
+     * Refund policy file.
+     */
     public Builder refundPolicyFile(ShopifyPaymentsDisputeFileUploadUpdateInput refundPolicyFile) {
       this.refundPolicyFile = refundPolicyFile;
       return this;
     }
 
-    
+    /**
+     * Shipping documentation file.
+     */
     public Builder shippingDocumentationFile(
         ShopifyPaymentsDisputeFileUploadUpdateInput shippingDocumentationFile) {
       this.shippingDocumentationFile = shippingDocumentationFile;
       return this;
     }
 
-    
+    /**
+     * Uncategorized file.
+     */
     public Builder uncategorizedFile(
         ShopifyPaymentsDisputeFileUploadUpdateInput uncategorizedFile) {
       this.uncategorizedFile = uncategorizedFile;
       return this;
     }
 
-    
+    /**
+     * Service documentation file.
+     */
     public Builder serviceDocumentationFile(
         ShopifyPaymentsDisputeFileUploadUpdateInput serviceDocumentationFile) {
       this.serviceDocumentationFile = serviceDocumentationFile;
       return this;
     }
 
-    
+    /**
+     * Whether to submit the evidence.
+     */
     public Builder submitEvidence(Boolean submitEvidence) {
       this.submitEvidence = submitEvidence;
       return this;

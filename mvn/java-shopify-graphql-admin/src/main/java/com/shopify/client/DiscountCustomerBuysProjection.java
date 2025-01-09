@@ -24,4 +24,14 @@ public class DiscountCustomerBuysProjection<PARENT extends BaseSubProjectionNode
      getFields().put("value", projection);
      return projection;
   }
+
+  public DiscountCustomerBuysProjection<PARENT, ROOT> isOneTimePurchase() {
+    getFields().put("isOneTimePurchase", null);
+    return this;
+  }
+
+  public DiscountCustomerBuysProjection<PARENT, ROOT> isSubscription() {
+    getFields().put("isSubscription", null);
+    return this;
+  }
 }

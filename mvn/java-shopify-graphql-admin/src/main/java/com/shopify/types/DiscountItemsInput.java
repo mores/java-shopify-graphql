@@ -6,21 +6,31 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for the items attached to a discount. You can specify the discount items by product ID or collection ID.
+ */
 public class DiscountItemsInput {
-  
+  /**
+   * The products and product variants that are attached to a discount.
+   */
   private DiscountProductsInput products;
 
-  
+  /**
+   * The collections that are attached to a discount.
+   */
   private DiscountCollectionsInput collections;
 
-  
+  /**
+   * Whether all items should be selected.
+   */
   private Boolean all;
 
   public DiscountItemsInput() {
   }
 
-  
+  /**
+   * The products and product variants that are attached to a discount.
+   */
   public DiscountProductsInput getProducts() {
     return products;
   }
@@ -29,7 +39,9 @@ public class DiscountItemsInput {
     this.products = products;
   }
 
-  
+  /**
+   * The collections that are attached to a discount.
+   */
   public DiscountCollectionsInput getCollections() {
     return collections;
   }
@@ -38,7 +50,9 @@ public class DiscountItemsInput {
     this.collections = collections;
   }
 
-  
+  /**
+   * Whether all items should be selected.
+   */
   public Boolean getAll() {
     return all;
   }
@@ -72,13 +86,19 @@ public class DiscountItemsInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The products and product variants that are attached to a discount.
+     */
     private DiscountProductsInput products;
 
-    
+    /**
+     * The collections that are attached to a discount.
+     */
     private DiscountCollectionsInput collections;
 
-    
+    /**
+     * Whether all items should be selected.
+     */
     private Boolean all;
 
     public DiscountItemsInput build() {
@@ -89,19 +109,25 @@ public class DiscountItemsInput {
       return result;
     }
 
-    
+    /**
+     * The products and product variants that are attached to a discount.
+     */
     public Builder products(DiscountProductsInput products) {
       this.products = products;
       return this;
     }
 
-    
+    /**
+     * The collections that are attached to a discount.
+     */
     public Builder collections(DiscountCollectionsInput collections) {
       this.collections = collections;
       return this;
     }
 
-    
+    /**
+     * Whether all items should be selected.
+     */
     public Builder all(Boolean all) {
       this.all = all;
       return this;

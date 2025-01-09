@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `blogUpdate` mutation.
+ */
 public class BlogUpdatePayload {
-  
+  /**
+   * The blog that was updated.
+   */
   private Blog blog;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<BlogUpdateUserError> userErrors;
 
   public BlogUpdatePayload() {
   }
 
-  
+  /**
+   * The blog that was updated.
+   */
   public Blog getBlog() {
     return blog;
   }
@@ -26,7 +34,9 @@ public class BlogUpdatePayload {
     this.blog = blog;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<BlogUpdateUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class BlogUpdatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The blog that was updated.
+     */
     private Blog blog;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<BlogUpdateUserError> userErrors;
 
     public BlogUpdatePayload build() {
@@ -72,13 +86,17 @@ public class BlogUpdatePayload {
       return result;
     }
 
-    
+    /**
+     * The blog that was updated.
+     */
     public Builder blog(Blog blog) {
       this.blog = blog;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<BlogUpdateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

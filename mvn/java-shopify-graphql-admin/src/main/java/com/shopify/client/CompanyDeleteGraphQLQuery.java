@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Deletes a company.
+ */
 public class CompanyDeleteGraphQLQuery extends GraphQLQuery {
   public CompanyDeleteGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -40,7 +42,9 @@ public class CompanyDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the company to delete.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

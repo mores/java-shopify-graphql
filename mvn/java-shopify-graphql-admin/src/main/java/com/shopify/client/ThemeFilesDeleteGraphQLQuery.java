@@ -7,7 +7,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Deletes a theme's files.
+ */
 public class ThemeFilesDeleteGraphQLQuery extends GraphQLQuery {
   public ThemeFilesDeleteGraphQLQuery(String themeId, List<String> files, String queryName,
       Set<String> fieldsSet) {
@@ -46,14 +48,18 @@ public class ThemeFilesDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Specifies the theme to deleted.
+     */
     public Builder themeId(String themeId) {
       this.themeId = themeId;
       this.fieldsSet.add("themeId");
       return this;
     }
 
-    
+    /**
+     * The files to delete.
+     */
     public Builder files(List<String> files) {
       this.files = files;
       this.fieldsSet.add("files");

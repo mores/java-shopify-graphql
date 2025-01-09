@@ -5,27 +5,41 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Represents an email address.
+ */
 public class CustomerEmailAddress {
-  
+  /**
+   * The customer's default email address.
+   */
   private String emailAddress;
 
-  
+  /**
+   * Whether the customer has subscribed to email marketing.
+   */
   private CustomerEmailAddressMarketingState marketingState;
 
-  
+  /**
+   * The URL to unsubscribe a member from all mailing lists.
+   */
   private String marketingUnsubscribeUrl;
 
-  
+  /**
+   * Whether the customer has opted in to having their opened emails tracked.
+   */
   private CustomerEmailAddressOpenTrackingLevel openTrackingLevel;
 
-  
+  /**
+   * The URL that can be used to opt a customer in or out of email open tracking.
+   */
   private String openTrackingUrl;
 
   public CustomerEmailAddress() {
   }
 
-  
+  /**
+   * The customer's default email address.
+   */
   public String getEmailAddress() {
     return emailAddress;
   }
@@ -34,7 +48,9 @@ public class CustomerEmailAddress {
     this.emailAddress = emailAddress;
   }
 
-  
+  /**
+   * Whether the customer has subscribed to email marketing.
+   */
   public CustomerEmailAddressMarketingState getMarketingState() {
     return marketingState;
   }
@@ -43,7 +59,9 @@ public class CustomerEmailAddress {
     this.marketingState = marketingState;
   }
 
-  
+  /**
+   * The URL to unsubscribe a member from all mailing lists.
+   */
   public String getMarketingUnsubscribeUrl() {
     return marketingUnsubscribeUrl;
   }
@@ -52,7 +70,9 @@ public class CustomerEmailAddress {
     this.marketingUnsubscribeUrl = marketingUnsubscribeUrl;
   }
 
-  
+  /**
+   * Whether the customer has opted in to having their opened emails tracked.
+   */
   public CustomerEmailAddressOpenTrackingLevel getOpenTrackingLevel() {
     return openTrackingLevel;
   }
@@ -61,7 +81,9 @@ public class CustomerEmailAddress {
     this.openTrackingLevel = openTrackingLevel;
   }
 
-  
+  /**
+   * The URL that can be used to opt a customer in or out of email open tracking.
+   */
   public String getOpenTrackingUrl() {
     return openTrackingUrl;
   }
@@ -97,19 +119,29 @@ public class CustomerEmailAddress {
   }
 
   public static class Builder {
-    
+    /**
+     * The customer's default email address.
+     */
     private String emailAddress;
 
-    
+    /**
+     * Whether the customer has subscribed to email marketing.
+     */
     private CustomerEmailAddressMarketingState marketingState;
 
-    
+    /**
+     * The URL to unsubscribe a member from all mailing lists.
+     */
     private String marketingUnsubscribeUrl;
 
-    
+    /**
+     * Whether the customer has opted in to having their opened emails tracked.
+     */
     private CustomerEmailAddressOpenTrackingLevel openTrackingLevel;
 
-    
+    /**
+     * The URL that can be used to opt a customer in or out of email open tracking.
+     */
     private String openTrackingUrl;
 
     public CustomerEmailAddress build() {
@@ -122,31 +154,41 @@ public class CustomerEmailAddress {
       return result;
     }
 
-    
+    /**
+     * The customer's default email address.
+     */
     public Builder emailAddress(String emailAddress) {
       this.emailAddress = emailAddress;
       return this;
     }
 
-    
+    /**
+     * Whether the customer has subscribed to email marketing.
+     */
     public Builder marketingState(CustomerEmailAddressMarketingState marketingState) {
       this.marketingState = marketingState;
       return this;
     }
 
-    
+    /**
+     * The URL to unsubscribe a member from all mailing lists.
+     */
     public Builder marketingUnsubscribeUrl(String marketingUnsubscribeUrl) {
       this.marketingUnsubscribeUrl = marketingUnsubscribeUrl;
       return this;
     }
 
-    
+    /**
+     * Whether the customer has opted in to having their opened emails tracked.
+     */
     public Builder openTrackingLevel(CustomerEmailAddressOpenTrackingLevel openTrackingLevel) {
       this.openTrackingLevel = openTrackingLevel;
       return this;
     }
 
-    
+    /**
+     * The URL that can be used to opt a customer in or out of email open tracking.
+     */
     public Builder openTrackingUrl(String openTrackingUrl) {
       this.openTrackingUrl = openTrackingUrl;
       return this;

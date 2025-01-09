@@ -6,27 +6,43 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Represents a customer's visiting activities on a shop's online store.
+ */
 public class CustomerJourney {
-  
+  /**
+   * The position of the current order within the customer's order history.
+   */
   private int customerOrderIndex;
 
-  
+  /**
+   * The amount of days between first session and order creation date. First
+   * session represents first session since the last order, or first session within
+   * the 30 day attribution window, if more than 30 days has passed since the last order.
+   */
   private int daysToConversion;
 
-  
+  /**
+   * The customer's first session going into the shop.
+   */
   private CustomerVisit firstVisit;
 
-  
+  /**
+   * The last session before an order is made.
+   */
   private CustomerVisit lastVisit;
 
-  
+  /**
+   * Events preceding a customer order, such as shop sessions.
+   */
   private List<CustomerMoment> moments;
 
   public CustomerJourney() {
   }
 
-  
+  /**
+   * The position of the current order within the customer's order history.
+   */
   public int getCustomerOrderIndex() {
     return customerOrderIndex;
   }
@@ -35,7 +51,11 @@ public class CustomerJourney {
     this.customerOrderIndex = customerOrderIndex;
   }
 
-  
+  /**
+   * The amount of days between first session and order creation date. First
+   * session represents first session since the last order, or first session within
+   * the 30 day attribution window, if more than 30 days has passed since the last order.
+   */
   public int getDaysToConversion() {
     return daysToConversion;
   }
@@ -44,7 +64,9 @@ public class CustomerJourney {
     this.daysToConversion = daysToConversion;
   }
 
-  
+  /**
+   * The customer's first session going into the shop.
+   */
   public CustomerVisit getFirstVisit() {
     return firstVisit;
   }
@@ -53,7 +75,9 @@ public class CustomerJourney {
     this.firstVisit = firstVisit;
   }
 
-  
+  /**
+   * The last session before an order is made.
+   */
   public CustomerVisit getLastVisit() {
     return lastVisit;
   }
@@ -62,7 +86,9 @@ public class CustomerJourney {
     this.lastVisit = lastVisit;
   }
 
-  
+  /**
+   * Events preceding a customer order, such as shop sessions.
+   */
   public List<CustomerMoment> getMoments() {
     return moments;
   }
@@ -98,19 +124,31 @@ public class CustomerJourney {
   }
 
   public static class Builder {
-    
+    /**
+     * The position of the current order within the customer's order history.
+     */
     private int customerOrderIndex;
 
-    
+    /**
+     * The amount of days between first session and order creation date. First
+     * session represents first session since the last order, or first session within
+     * the 30 day attribution window, if more than 30 days has passed since the last order.
+     */
     private int daysToConversion;
 
-    
+    /**
+     * The customer's first session going into the shop.
+     */
     private CustomerVisit firstVisit;
 
-    
+    /**
+     * The last session before an order is made.
+     */
     private CustomerVisit lastVisit;
 
-    
+    /**
+     * Events preceding a customer order, such as shop sessions.
+     */
     private List<CustomerMoment> moments;
 
     public CustomerJourney build() {
@@ -123,31 +161,43 @@ public class CustomerJourney {
       return result;
     }
 
-    
+    /**
+     * The position of the current order within the customer's order history.
+     */
     public Builder customerOrderIndex(int customerOrderIndex) {
       this.customerOrderIndex = customerOrderIndex;
       return this;
     }
 
-    
+    /**
+     * The amount of days between first session and order creation date. First
+     * session represents first session since the last order, or first session within
+     * the 30 day attribution window, if more than 30 days has passed since the last order.
+     */
     public Builder daysToConversion(int daysToConversion) {
       this.daysToConversion = daysToConversion;
       return this;
     }
 
-    
+    /**
+     * The customer's first session going into the shop.
+     */
     public Builder firstVisit(CustomerVisit firstVisit) {
       this.firstVisit = firstVisit;
       return this;
     }
 
-    
+    /**
+     * The last session before an order is made.
+     */
     public Builder lastVisit(CustomerVisit lastVisit) {
       this.lastVisit = lastVisit;
       return this;
     }
 
-    
+    /**
+     * Events preceding a customer order, such as shop sessions.
+     */
     public Builder moments(List<CustomerMoment> moments) {
       this.moments = moments;
       return this;

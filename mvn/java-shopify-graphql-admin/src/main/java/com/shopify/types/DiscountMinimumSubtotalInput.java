@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for the minimum subtotal required for a discount.
+ */
 public class DiscountMinimumSubtotalInput {
-  
+  /**
+   * The minimum subtotal that's required for the discount to be applied.
+   */
   private String greaterThanOrEqualToSubtotal;
 
   public DiscountMinimumSubtotalInput() {
   }
 
-  
+  /**
+   * The minimum subtotal that's required for the discount to be applied.
+   */
   public String getGreaterThanOrEqualToSubtotal() {
     return greaterThanOrEqualToSubtotal;
   }
@@ -45,7 +51,9 @@ public class DiscountMinimumSubtotalInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The minimum subtotal that's required for the discount to be applied.
+     */
     private String greaterThanOrEqualToSubtotal;
 
     public DiscountMinimumSubtotalInput build() {
@@ -54,7 +62,9 @@ public class DiscountMinimumSubtotalInput {
       return result;
     }
 
-    
+    /**
+     * The minimum subtotal that's required for the discount to be applied.
+     */
     public Builder greaterThanOrEqualToSubtotal(String greaterThanOrEqualToSubtotal) {
       this.greaterThanOrEqualToSubtotal = greaterThanOrEqualToSubtotal;
       return this;

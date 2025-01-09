@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Updates a shop policy.
+ */
 public class ShopPolicyUpdateGraphQLQuery extends GraphQLQuery {
   public ShopPolicyUpdateGraphQLQuery(ShopPolicyInput shopPolicy, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class ShopPolicyUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The properties to use when updating the shop policy.
+     */
     public Builder shopPolicy(ShopPolicyInput shopPolicy) {
       this.shopPolicy = shopPolicy;
       this.fieldsSet.add("shopPolicy");

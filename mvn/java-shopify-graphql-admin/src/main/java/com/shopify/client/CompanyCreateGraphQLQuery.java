@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a company.
+ */
 public class CompanyCreateGraphQLQuery extends GraphQLQuery {
   public CompanyCreateGraphQLQuery(CompanyCreateInput input, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class CompanyCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The fields to use when creating the company.
+     */
     public Builder input(CompanyCreateInput input) {
       this.input = input;
       this.fieldsSet.add("input");

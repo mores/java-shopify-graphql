@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Skips a Subscription Billing Cycle.
+ */
 public class SubscriptionBillingCycleSkipGraphQLQuery extends GraphQLQuery {
   public SubscriptionBillingCycleSkipGraphQLQuery(SubscriptionBillingCycleInput billingCycleInput,
       String queryName, Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class SubscriptionBillingCycleSkipGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Input object for selecting and using billing cycles.
+     */
     public Builder billingCycleInput(SubscriptionBillingCycleInput billingCycleInput) {
       this.billingCycleInput = billingCycleInput;
       this.fieldsSet.add("billingCycleInput");

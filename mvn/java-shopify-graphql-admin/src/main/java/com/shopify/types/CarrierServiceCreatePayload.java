@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `carrierServiceCreate` mutation.
+ */
 public class CarrierServiceCreatePayload {
-  
+  /**
+   * The created carrier service.
+   */
   private DeliveryCarrierService carrierService;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<CarrierServiceCreateUserError> userErrors;
 
   public CarrierServiceCreatePayload() {
   }
 
-  
+  /**
+   * The created carrier service.
+   */
   public DeliveryCarrierService getCarrierService() {
     return carrierService;
   }
@@ -26,7 +34,9 @@ public class CarrierServiceCreatePayload {
     this.carrierService = carrierService;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<CarrierServiceCreateUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class CarrierServiceCreatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The created carrier service.
+     */
     private DeliveryCarrierService carrierService;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<CarrierServiceCreateUserError> userErrors;
 
     public CarrierServiceCreatePayload build() {
@@ -72,13 +86,17 @@ public class CarrierServiceCreatePayload {
       return result;
     }
 
-    
+    /**
+     * The created carrier service.
+     */
     public Builder carrierService(DeliveryCarrierService carrierService) {
       this.carrierService = carrierService;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<CarrierServiceCreateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

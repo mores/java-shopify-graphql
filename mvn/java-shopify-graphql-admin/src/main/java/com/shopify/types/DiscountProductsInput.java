@@ -6,24 +6,36 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields for the products and product variants attached to a discount.
+ */
 public class DiscountProductsInput {
-  
+  /**
+   * Specifies list of product ids to add.
+   */
   private List<String> productsToAdd;
 
-  
+  /**
+   * Specifies list of product ids to remove.
+   */
   private List<String> productsToRemove;
 
-  
+  /**
+   * Specifies list of product variant ids to add.
+   */
   private List<String> productVariantsToAdd;
 
-  
+  /**
+   * Specifies list of product variant ids to remove.
+   */
   private List<String> productVariantsToRemove;
 
   public DiscountProductsInput() {
   }
 
-  
+  /**
+   * Specifies list of product ids to add.
+   */
   public List<String> getProductsToAdd() {
     return productsToAdd;
   }
@@ -32,7 +44,9 @@ public class DiscountProductsInput {
     this.productsToAdd = productsToAdd;
   }
 
-  
+  /**
+   * Specifies list of product ids to remove.
+   */
   public List<String> getProductsToRemove() {
     return productsToRemove;
   }
@@ -41,7 +55,9 @@ public class DiscountProductsInput {
     this.productsToRemove = productsToRemove;
   }
 
-  
+  /**
+   * Specifies list of product variant ids to add.
+   */
   public List<String> getProductVariantsToAdd() {
     return productVariantsToAdd;
   }
@@ -50,7 +66,9 @@ public class DiscountProductsInput {
     this.productVariantsToAdd = productVariantsToAdd;
   }
 
-  
+  /**
+   * Specifies list of product variant ids to remove.
+   */
   public List<String> getProductVariantsToRemove() {
     return productVariantsToRemove;
   }
@@ -85,16 +103,24 @@ public class DiscountProductsInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Specifies list of product ids to add.
+     */
     private List<String> productsToAdd;
 
-    
+    /**
+     * Specifies list of product ids to remove.
+     */
     private List<String> productsToRemove;
 
-    
+    /**
+     * Specifies list of product variant ids to add.
+     */
     private List<String> productVariantsToAdd;
 
-    
+    /**
+     * Specifies list of product variant ids to remove.
+     */
     private List<String> productVariantsToRemove;
 
     public DiscountProductsInput build() {
@@ -106,25 +132,33 @@ public class DiscountProductsInput {
       return result;
     }
 
-    
+    /**
+     * Specifies list of product ids to add.
+     */
     public Builder productsToAdd(List<String> productsToAdd) {
       this.productsToAdd = productsToAdd;
       return this;
     }
 
-    
+    /**
+     * Specifies list of product ids to remove.
+     */
     public Builder productsToRemove(List<String> productsToRemove) {
       this.productsToRemove = productsToRemove;
       return this;
     }
 
-    
+    /**
+     * Specifies list of product variant ids to add.
+     */
     public Builder productVariantsToAdd(List<String> productVariantsToAdd) {
       this.productVariantsToAdd = productVariantsToAdd;
       return this;
     }
 
-    
+    /**
+     * Specifies list of product variant ids to remove.
+     */
     public Builder productVariantsToRemove(List<String> productVariantsToRemove) {
       this.productVariantsToRemove = productVariantsToRemove;
       return this;

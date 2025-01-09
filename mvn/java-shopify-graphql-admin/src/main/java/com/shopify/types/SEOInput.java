@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for SEO information.
+ */
 public class SEOInput {
-  
+  /**
+   * SEO title of the product.
+   */
   private String title;
 
-  
+  /**
+   * SEO description of the product.
+   */
   private String description;
 
   public SEOInput() {
   }
 
-  
+  /**
+   * SEO title of the product.
+   */
   public String getTitle() {
     return title;
   }
@@ -25,7 +33,9 @@ public class SEOInput {
     this.title = title;
   }
 
-  
+  /**
+   * SEO description of the product.
+   */
   public String getDescription() {
     return description;
   }
@@ -58,10 +68,14 @@ public class SEOInput {
   }
 
   public static class Builder {
-    
+    /**
+     * SEO title of the product.
+     */
     private String title;
 
-    
+    /**
+     * SEO description of the product.
+     */
     private String description;
 
     public SEOInput build() {
@@ -71,13 +85,17 @@ public class SEOInput {
       return result;
     }
 
-    
+    /**
+     * SEO title of the product.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    
+    /**
+     * SEO description of the product.
+     */
     public Builder description(String description) {
       this.description = description;
       return this;

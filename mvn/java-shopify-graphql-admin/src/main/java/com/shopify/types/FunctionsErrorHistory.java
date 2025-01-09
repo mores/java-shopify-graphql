@@ -6,24 +6,36 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-
+/**
+ * The error history from running a Shopify Function.
+ */
 public class FunctionsErrorHistory {
-  
+  /**
+   * The date and time that the first error occurred.
+   */
   private OffsetDateTime errorsFirstOccurredAt;
 
-  
+  /**
+   * The date and time that the first error occurred.
+   */
   private OffsetDateTime firstOccurredAt;
 
-  
+  /**
+   * Whether the merchant has shared all the recent errors with the developer.
+   */
   private boolean hasBeenSharedSinceLastError;
 
-  
+  /**
+   * Whether the merchant has shared all the recent errors with the developer.
+   */
   private boolean hasSharedRecentErrors;
 
   public FunctionsErrorHistory() {
   }
 
-  
+  /**
+   * The date and time that the first error occurred.
+   */
   public OffsetDateTime getErrorsFirstOccurredAt() {
     return errorsFirstOccurredAt;
   }
@@ -32,7 +44,9 @@ public class FunctionsErrorHistory {
     this.errorsFirstOccurredAt = errorsFirstOccurredAt;
   }
 
-  
+  /**
+   * The date and time that the first error occurred.
+   */
   public OffsetDateTime getFirstOccurredAt() {
     return firstOccurredAt;
   }
@@ -41,7 +55,9 @@ public class FunctionsErrorHistory {
     this.firstOccurredAt = firstOccurredAt;
   }
 
-  
+  /**
+   * Whether the merchant has shared all the recent errors with the developer.
+   */
   public boolean getHasBeenSharedSinceLastError() {
     return hasBeenSharedSinceLastError;
   }
@@ -50,7 +66,9 @@ public class FunctionsErrorHistory {
     this.hasBeenSharedSinceLastError = hasBeenSharedSinceLastError;
   }
 
-  
+  /**
+   * Whether the merchant has shared all the recent errors with the developer.
+   */
   public boolean getHasSharedRecentErrors() {
     return hasSharedRecentErrors;
   }
@@ -85,16 +103,24 @@ public class FunctionsErrorHistory {
   }
 
   public static class Builder {
-    
+    /**
+     * The date and time that the first error occurred.
+     */
     private OffsetDateTime errorsFirstOccurredAt;
 
-    
+    /**
+     * The date and time that the first error occurred.
+     */
     private OffsetDateTime firstOccurredAt;
 
-    
+    /**
+     * Whether the merchant has shared all the recent errors with the developer.
+     */
     private boolean hasBeenSharedSinceLastError;
 
-    
+    /**
+     * Whether the merchant has shared all the recent errors with the developer.
+     */
     private boolean hasSharedRecentErrors;
 
     public FunctionsErrorHistory build() {
@@ -106,25 +132,33 @@ public class FunctionsErrorHistory {
       return result;
     }
 
-    
+    /**
+     * The date and time that the first error occurred.
+     */
     public Builder errorsFirstOccurredAt(OffsetDateTime errorsFirstOccurredAt) {
       this.errorsFirstOccurredAt = errorsFirstOccurredAt;
       return this;
     }
 
-    
+    /**
+     * The date and time that the first error occurred.
+     */
     public Builder firstOccurredAt(OffsetDateTime firstOccurredAt) {
       this.firstOccurredAt = firstOccurredAt;
       return this;
     }
 
-    
+    /**
+     * Whether the merchant has shared all the recent errors with the developer.
+     */
     public Builder hasBeenSharedSinceLastError(boolean hasBeenSharedSinceLastError) {
       this.hasBeenSharedSinceLastError = hasBeenSharedSinceLastError;
       return this;
     }
 
-    
+    /**
+     * Whether the merchant has shared all the recent errors with the developer.
+     */
     public Builder hasSharedRecentErrors(boolean hasSharedRecentErrors) {
       this.hasSharedRecentErrors = hasSharedRecentErrors;
       return this;

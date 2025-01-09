@@ -10,7 +10,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Updates multiple variants in a single product. This mutation can be called directly or via the bulkOperation.
+ */
 public class ProductVariantsBulkUpdateGraphQLQuery extends GraphQLQuery {
   public ProductVariantsBulkUpdateGraphQLQuery(List<ProductVariantsBulkInput> variants,
       String productId, List<CreateMediaInput> media, Boolean allowPartialUpdates, String queryName,
@@ -58,28 +60,38 @@ public class ProductVariantsBulkUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * An array of product variants to update.
+     */
     public Builder variants(List<ProductVariantsBulkInput> variants) {
       this.variants = variants;
       this.fieldsSet.add("variants");
       return this;
     }
 
-    
+    /**
+     * The ID of the product associated with the variants to update.
+     */
     public Builder productId(String productId) {
       this.productId = productId;
       this.fieldsSet.add("productId");
       return this;
     }
 
-    
+    /**
+     * List of new media to be added to the product.
+     */
     public Builder media(List<CreateMediaInput> media) {
       this.media = media;
       this.fieldsSet.add("media");
       return this;
     }
 
-    
+    /**
+     * When partial updates are allowed, valid variant changes may be persisted even if some of
+     * the variants updated have invalid data and cannot be persisted.
+     * When partial updates are not allowed, any error will prevent all variants from updating.
+     */
     public Builder allowPartialUpdates(Boolean allowPartialUpdates) {
       this.allowPartialUpdates = allowPartialUpdates;
       this.fieldsSet.add("allowPartialUpdates");

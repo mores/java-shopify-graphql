@@ -5,30 +5,46 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for company location when creating or updating a company location.
+ */
 public class CompanyLocationUpdateInput {
-  
+  /**
+   * The name of the company location.
+   */
   private String name;
 
-  
+  /**
+   * The phone number of the company location.
+   */
   private String phone;
 
-  
+  /**
+   * The preferred locale of the company location.
+   */
   private String locale;
 
-  
+  /**
+   * A unique externally-supplied ID for the company location.
+   */
   private String externalId;
 
-  
+  /**
+   * A note about the company location.
+   */
   private String note;
 
-  
+  /**
+   * The configuration for the buyer's checkout at the company location.
+   */
   private BuyerExperienceConfigurationInput buyerExperienceConfiguration;
 
   public CompanyLocationUpdateInput() {
   }
 
-  
+  /**
+   * The name of the company location.
+   */
   public String getName() {
     return name;
   }
@@ -37,7 +53,9 @@ public class CompanyLocationUpdateInput {
     this.name = name;
   }
 
-  
+  /**
+   * The phone number of the company location.
+   */
   public String getPhone() {
     return phone;
   }
@@ -46,7 +64,9 @@ public class CompanyLocationUpdateInput {
     this.phone = phone;
   }
 
-  
+  /**
+   * The preferred locale of the company location.
+   */
   public String getLocale() {
     return locale;
   }
@@ -55,7 +75,9 @@ public class CompanyLocationUpdateInput {
     this.locale = locale;
   }
 
-  
+  /**
+   * A unique externally-supplied ID for the company location.
+   */
   public String getExternalId() {
     return externalId;
   }
@@ -64,7 +86,9 @@ public class CompanyLocationUpdateInput {
     this.externalId = externalId;
   }
 
-  
+  /**
+   * A note about the company location.
+   */
   public String getNote() {
     return note;
   }
@@ -73,7 +97,9 @@ public class CompanyLocationUpdateInput {
     this.note = note;
   }
 
-  
+  /**
+   * The configuration for the buyer's checkout at the company location.
+   */
   public BuyerExperienceConfigurationInput getBuyerExperienceConfiguration() {
     return buyerExperienceConfiguration;
   }
@@ -111,22 +137,34 @@ public class CompanyLocationUpdateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The name of the company location.
+     */
     private String name;
 
-    
+    /**
+     * The phone number of the company location.
+     */
     private String phone;
 
-    
+    /**
+     * The preferred locale of the company location.
+     */
     private String locale;
 
-    
+    /**
+     * A unique externally-supplied ID for the company location.
+     */
     private String externalId;
 
-    
+    /**
+     * A note about the company location.
+     */
     private String note;
 
-    
+    /**
+     * The configuration for the buyer's checkout at the company location.
+     */
     private BuyerExperienceConfigurationInput buyerExperienceConfiguration;
 
     public CompanyLocationUpdateInput build() {
@@ -140,37 +178,49 @@ public class CompanyLocationUpdateInput {
       return result;
     }
 
-    
+    /**
+     * The name of the company location.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    
+    /**
+     * The phone number of the company location.
+     */
     public Builder phone(String phone) {
       this.phone = phone;
       return this;
     }
 
-    
+    /**
+     * The preferred locale of the company location.
+     */
     public Builder locale(String locale) {
       this.locale = locale;
       return this;
     }
 
-    
+    /**
+     * A unique externally-supplied ID for the company location.
+     */
     public Builder externalId(String externalId) {
       this.externalId = externalId;
       return this;
     }
 
-    
+    /**
+     * A note about the company location.
+     */
     public Builder note(String note) {
       this.note = note;
       return this;
     }
 
-    
+    /**
+     * The configuration for the buyer's checkout at the company location.
+     */
     public Builder buyerExperienceConfiguration(
         BuyerExperienceConfigurationInput buyerExperienceConfiguration) {
       this.buyerExperienceConfiguration = buyerExperienceConfiguration;

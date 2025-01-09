@@ -5,21 +5,31 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The tax allocated to a sale from a single tax line.
+ */
 public class SaleTax {
-  
+  /**
+   * The portion of the total tax amount on the related sale that comes from the associated tax line.
+   */
   private MoneyBag amount;
 
-  
+  /**
+   * The unique ID for the sale tax.
+   */
   private String id;
 
-  
+  /**
+   * The tax line associated with the sale.
+   */
   private TaxLine taxLine;
 
   public SaleTax() {
   }
 
-  
+  /**
+   * The portion of the total tax amount on the related sale that comes from the associated tax line.
+   */
   public MoneyBag getAmount() {
     return amount;
   }
@@ -28,7 +38,9 @@ public class SaleTax {
     this.amount = amount;
   }
 
-  
+  /**
+   * The unique ID for the sale tax.
+   */
   public String getId() {
     return id;
   }
@@ -37,7 +49,9 @@ public class SaleTax {
     this.id = id;
   }
 
-  
+  /**
+   * The tax line associated with the sale.
+   */
   public TaxLine getTaxLine() {
     return taxLine;
   }
@@ -71,13 +85,19 @@ public class SaleTax {
   }
 
   public static class Builder {
-    
+    /**
+     * The portion of the total tax amount on the related sale that comes from the associated tax line.
+     */
     private MoneyBag amount;
 
-    
+    /**
+     * The unique ID for the sale tax.
+     */
     private String id;
 
-    
+    /**
+     * The tax line associated with the sale.
+     */
     private TaxLine taxLine;
 
     public SaleTax build() {
@@ -88,19 +108,25 @@ public class SaleTax {
       return result;
     }
 
-    
+    /**
+     * The portion of the total tax amount on the related sale that comes from the associated tax line.
+     */
     public Builder amount(MoneyBag amount) {
       this.amount = amount;
       return this;
     }
 
-    
+    /**
+     * The unique ID for the sale tax.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The tax line associated with the sale.
+     */
     public Builder taxLine(TaxLine taxLine) {
       this.taxLine = taxLine;
       return this;

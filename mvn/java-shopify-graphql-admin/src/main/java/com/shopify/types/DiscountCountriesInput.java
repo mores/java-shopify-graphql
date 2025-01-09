@@ -7,21 +7,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields for a list of countries to add or remove from the free shipping discount.
+ */
 public class DiscountCountriesInput {
-  
+  /**
+   * The country codes to add to the list of countries where the discount applies.
+   */
   private List<CountryCode> add;
 
-  
+  /**
+   * The country codes to remove from the list of countries where the discount applies.
+   */
   private List<CountryCode> remove;
 
-  
+  /**
+   * Whether the discount code is applicable to countries that haven't been defined in the shop's shipping zones.
+   */
   private Boolean includeRestOfWorld = false;
 
   public DiscountCountriesInput() {
   }
 
-  
+  /**
+   * The country codes to add to the list of countries where the discount applies.
+   */
   public List<CountryCode> getAdd() {
     return add;
   }
@@ -30,7 +40,9 @@ public class DiscountCountriesInput {
     this.add = add;
   }
 
-  
+  /**
+   * The country codes to remove from the list of countries where the discount applies.
+   */
   public List<CountryCode> getRemove() {
     return remove;
   }
@@ -39,7 +51,9 @@ public class DiscountCountriesInput {
     this.remove = remove;
   }
 
-  
+  /**
+   * Whether the discount code is applicable to countries that haven't been defined in the shop's shipping zones.
+   */
   public Boolean getIncludeRestOfWorld() {
     return includeRestOfWorld;
   }
@@ -73,13 +87,19 @@ public class DiscountCountriesInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The country codes to add to the list of countries where the discount applies.
+     */
     private List<CountryCode> add;
 
-    
+    /**
+     * The country codes to remove from the list of countries where the discount applies.
+     */
     private List<CountryCode> remove;
 
-    
+    /**
+     * Whether the discount code is applicable to countries that haven't been defined in the shop's shipping zones.
+     */
     private Boolean includeRestOfWorld = false;
 
     public DiscountCountriesInput build() {
@@ -90,19 +110,25 @@ public class DiscountCountriesInput {
       return result;
     }
 
-    
+    /**
+     * The country codes to add to the list of countries where the discount applies.
+     */
     public Builder add(List<CountryCode> add) {
       this.add = add;
       return this;
     }
 
-    
+    /**
+     * The country codes to remove from the list of countries where the discount applies.
+     */
     public Builder remove(List<CountryCode> remove) {
       this.remove = remove;
       return this;
     }
 
-    
+    /**
+     * Whether the discount code is applicable to countries that haven't been defined in the shop's shipping zones.
+     */
     public Builder includeRestOfWorld(Boolean includeRestOfWorld) {
       this.includeRestOfWorld = includeRestOfWorld;
       return this;

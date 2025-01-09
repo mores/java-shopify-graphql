@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields for resource association with a Selling Plan Group.
+ */
 public class SellingPlanGroupResourceInput {
-  
+  /**
+   * The IDs of the Variants to add to the Selling Plan Group.
+   */
   private List<String> productVariantIds;
 
-  
+  /**
+   * The IDs of the Products to add to the Selling Plan Group.
+   */
   private List<String> productIds;
 
   public SellingPlanGroupResourceInput() {
   }
 
-  
+  /**
+   * The IDs of the Variants to add to the Selling Plan Group.
+   */
   public List<String> getProductVariantIds() {
     return productVariantIds;
   }
@@ -26,7 +34,9 @@ public class SellingPlanGroupResourceInput {
     this.productVariantIds = productVariantIds;
   }
 
-  
+  /**
+   * The IDs of the Products to add to the Selling Plan Group.
+   */
   public List<String> getProductIds() {
     return productIds;
   }
@@ -59,10 +69,14 @@ public class SellingPlanGroupResourceInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The IDs of the Variants to add to the Selling Plan Group.
+     */
     private List<String> productVariantIds;
 
-    
+    /**
+     * The IDs of the Products to add to the Selling Plan Group.
+     */
     private List<String> productIds;
 
     public SellingPlanGroupResourceInput build() {
@@ -72,13 +86,17 @@ public class SellingPlanGroupResourceInput {
       return result;
     }
 
-    
+    /**
+     * The IDs of the Variants to add to the Selling Plan Group.
+     */
     public Builder productVariantIds(List<String> productVariantIds) {
       this.productVariantIds = productVariantIds;
       return this;
     }
 
-    
+    /**
+     * The IDs of the Products to add to the Selling Plan Group.
+     */
     public Builder productIds(List<String> productIds) {
       this.productIds = productIds;
       return this;

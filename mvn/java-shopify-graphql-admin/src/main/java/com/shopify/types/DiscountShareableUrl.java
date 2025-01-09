@@ -5,24 +5,36 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A shareable URL for a discount code.
+ */
 public class DiscountShareableUrl {
-  
+  /**
+   * The image URL of the item (product or collection) to which the discount applies.
+   */
   private Image targetItemImage;
 
-  
+  /**
+   * The type of page that's associated with the URL.
+   */
   private DiscountShareableUrlTargetType targetType;
 
-  
+  /**
+   * The title of the page that's associated with the URL.
+   */
   private String title;
 
-  
+  /**
+   * The URL for the discount code.
+   */
   private String url;
 
   public DiscountShareableUrl() {
   }
 
-  
+  /**
+   * The image URL of the item (product or collection) to which the discount applies.
+   */
   public Image getTargetItemImage() {
     return targetItemImage;
   }
@@ -31,7 +43,9 @@ public class DiscountShareableUrl {
     this.targetItemImage = targetItemImage;
   }
 
-  
+  /**
+   * The type of page that's associated with the URL.
+   */
   public DiscountShareableUrlTargetType getTargetType() {
     return targetType;
   }
@@ -40,7 +54,9 @@ public class DiscountShareableUrl {
     this.targetType = targetType;
   }
 
-  
+  /**
+   * The title of the page that's associated with the URL.
+   */
   public String getTitle() {
     return title;
   }
@@ -49,7 +65,9 @@ public class DiscountShareableUrl {
     this.title = title;
   }
 
-  
+  /**
+   * The URL for the discount code.
+   */
   public String getUrl() {
     return url;
   }
@@ -84,16 +102,24 @@ public class DiscountShareableUrl {
   }
 
   public static class Builder {
-    
+    /**
+     * The image URL of the item (product or collection) to which the discount applies.
+     */
     private Image targetItemImage;
 
-    
+    /**
+     * The type of page that's associated with the URL.
+     */
     private DiscountShareableUrlTargetType targetType;
 
-    
+    /**
+     * The title of the page that's associated with the URL.
+     */
     private String title;
 
-    
+    /**
+     * The URL for the discount code.
+     */
     private String url;
 
     public DiscountShareableUrl build() {
@@ -105,25 +131,33 @@ public class DiscountShareableUrl {
       return result;
     }
 
-    
+    /**
+     * The image URL of the item (product or collection) to which the discount applies.
+     */
     public Builder targetItemImage(Image targetItemImage) {
       this.targetItemImage = targetItemImage;
       return this;
     }
 
-    
+    /**
+     * The type of page that's associated with the URL.
+     */
     public Builder targetType(DiscountShareableUrlTargetType targetType) {
       this.targetType = targetType;
       return this;
     }
 
-    
+    /**
+     * The title of the page that's associated with the URL.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    
+    /**
+     * The URL for the discount code.
+     */
     public Builder url(String url) {
       this.url = url;
       return this;

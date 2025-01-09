@@ -7,7 +7,12 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a Subscription Contract Draft.
+ * You can submit all the desired information for the draft using [Subscription Draft Input object](https://shopify.dev/docs/api/admin-graphql/latest/input-objects/SubscriptionDraftInput).
+ * You can also update the draft using the [Subscription Contract Update](https://shopify.dev/docs/api/admin-graphql/latest/mutations/subscriptionContractUpdate) mutation.
+ * The draft is not saved until you call the [Subscription Draft Commit](https://shopify.dev/docs/api/admin-graphql/latest/mutations/subscriptionDraftCommit) mutation.
+ */
 public class SubscriptionContractCreateGraphQLQuery extends GraphQLQuery {
   public SubscriptionContractCreateGraphQLQuery(SubscriptionContractCreateInput input,
       String queryName, Set<String> fieldsSet) {
@@ -42,7 +47,9 @@ public class SubscriptionContractCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The properties of the new Subscription Contract.
+     */
     public Builder input(SubscriptionContractCreateInput input) {
       this.input = input;
       this.fieldsSet.add("input");

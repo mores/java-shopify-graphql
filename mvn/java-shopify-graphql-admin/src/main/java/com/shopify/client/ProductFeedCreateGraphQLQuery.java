@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a product feed for a specific publication.
+ */
 public class ProductFeedCreateGraphQLQuery extends GraphQLQuery {
   public ProductFeedCreateGraphQLQuery(ProductFeedInput input, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class ProductFeedCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The properties of the new product feed.
+     */
     public Builder input(ProductFeedInput input) {
       this.input = input;
       this.fieldsSet.add("input");

@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Returns a particular theme for the shop.
+ */
 public class ThemeGraphQLQuery extends GraphQLQuery {
   public ThemeGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -40,7 +42,9 @@ public class ThemeGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the theme.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

@@ -8,42 +8,65 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The quantities of an inventory item that are related to a specific location.
+ * Learn [more about the relationships between inventory objects](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#inventory-object-relationships).
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class InventoryLevel implements com.shopify.types.Node {
-  
+  /**
+   * Whether the inventory items associated with the inventory level can be deactivated.
+   */
   private boolean canDeactivate;
 
-  
+  /**
+   * The date and time when the inventory level was created.
+   */
   private OffsetDateTime createdAt;
 
-  
+  /**
+   * Describes either the impact of deactivating the inventory level, or why the inventory level can't be deactivated.
+   */
   private String deactivationAlert;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * Inventory item associated with the inventory level.
+   */
   private InventoryItem item;
 
-  
+  /**
+   * The location associated with the inventory level.
+   */
   private Location location;
 
-  
+  /**
+   * Quantities for the requested names.
+   */
   private List<InventoryQuantity> quantities;
 
-  
+  /**
+   * Scheduled changes for the requested quantity names.
+   */
   private InventoryScheduledChangeConnection scheduledChanges;
 
-  
+  /**
+   * The date and time when the inventory level was updated.
+   */
   private OffsetDateTime updatedAt;
 
   public InventoryLevel() {
   }
 
-  
+  /**
+   * Whether the inventory items associated with the inventory level can be deactivated.
+   */
   public boolean getCanDeactivate() {
     return canDeactivate;
   }
@@ -52,7 +75,9 @@ public class InventoryLevel implements com.shopify.types.Node {
     this.canDeactivate = canDeactivate;
   }
 
-  
+  /**
+   * The date and time when the inventory level was created.
+   */
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -61,7 +86,9 @@ public class InventoryLevel implements com.shopify.types.Node {
     this.createdAt = createdAt;
   }
 
-  
+  /**
+   * Describes either the impact of deactivating the inventory level, or why the inventory level can't be deactivated.
+   */
   public String getDeactivationAlert() {
     return deactivationAlert;
   }
@@ -70,7 +97,9 @@ public class InventoryLevel implements com.shopify.types.Node {
     this.deactivationAlert = deactivationAlert;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -79,7 +108,9 @@ public class InventoryLevel implements com.shopify.types.Node {
     this.id = id;
   }
 
-  
+  /**
+   * Inventory item associated with the inventory level.
+   */
   public InventoryItem getItem() {
     return item;
   }
@@ -88,7 +119,9 @@ public class InventoryLevel implements com.shopify.types.Node {
     this.item = item;
   }
 
-  
+  /**
+   * The location associated with the inventory level.
+   */
   public Location getLocation() {
     return location;
   }
@@ -97,7 +130,9 @@ public class InventoryLevel implements com.shopify.types.Node {
     this.location = location;
   }
 
-  
+  /**
+   * Quantities for the requested names.
+   */
   public List<InventoryQuantity> getQuantities() {
     return quantities;
   }
@@ -106,7 +141,9 @@ public class InventoryLevel implements com.shopify.types.Node {
     this.quantities = quantities;
   }
 
-  
+  /**
+   * Scheduled changes for the requested quantity names.
+   */
   public InventoryScheduledChangeConnection getScheduledChanges() {
     return scheduledChanges;
   }
@@ -115,7 +152,9 @@ public class InventoryLevel implements com.shopify.types.Node {
     this.scheduledChanges = scheduledChanges;
   }
 
-  
+  /**
+   * The date and time when the inventory level was updated.
+   */
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
@@ -155,31 +194,49 @@ public class InventoryLevel implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    
+    /**
+     * Whether the inventory items associated with the inventory level can be deactivated.
+     */
     private boolean canDeactivate;
 
-    
+    /**
+     * The date and time when the inventory level was created.
+     */
     private OffsetDateTime createdAt;
 
-    
+    /**
+     * Describes either the impact of deactivating the inventory level, or why the inventory level can't be deactivated.
+     */
     private String deactivationAlert;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * Inventory item associated with the inventory level.
+     */
     private InventoryItem item;
 
-    
+    /**
+     * The location associated with the inventory level.
+     */
     private Location location;
 
-    
+    /**
+     * Quantities for the requested names.
+     */
     private List<InventoryQuantity> quantities;
 
-    
+    /**
+     * Scheduled changes for the requested quantity names.
+     */
     private InventoryScheduledChangeConnection scheduledChanges;
 
-    
+    /**
+     * The date and time when the inventory level was updated.
+     */
     private OffsetDateTime updatedAt;
 
     public InventoryLevel build() {
@@ -196,55 +253,73 @@ public class InventoryLevel implements com.shopify.types.Node {
       return result;
     }
 
-    
+    /**
+     * Whether the inventory items associated with the inventory level can be deactivated.
+     */
     public Builder canDeactivate(boolean canDeactivate) {
       this.canDeactivate = canDeactivate;
       return this;
     }
 
-    
+    /**
+     * The date and time when the inventory level was created.
+     */
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    
+    /**
+     * Describes either the impact of deactivating the inventory level, or why the inventory level can't be deactivated.
+     */
     public Builder deactivationAlert(String deactivationAlert) {
       this.deactivationAlert = deactivationAlert;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * Inventory item associated with the inventory level.
+     */
     public Builder item(InventoryItem item) {
       this.item = item;
       return this;
     }
 
-    
+    /**
+     * The location associated with the inventory level.
+     */
     public Builder location(Location location) {
       this.location = location;
       return this;
     }
 
-    
+    /**
+     * Quantities for the requested names.
+     */
     public Builder quantities(List<InventoryQuantity> quantities) {
       this.quantities = quantities;
       return this;
     }
 
-    
+    /**
+     * Scheduled changes for the requested quantity names.
+     */
     public Builder scheduledChanges(InventoryScheduledChangeConnection scheduledChanges) {
       this.scheduledChanges = scheduledChanges;
       return this;
     }
 
-    
+    /**
+     * The date and time when the inventory level was updated.
+     */
     public Builder updatedAt(OffsetDateTime updatedAt) {
       this.updatedAt = updatedAt;
       return this;

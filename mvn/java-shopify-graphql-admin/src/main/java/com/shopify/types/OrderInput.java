@@ -6,36 +6,63 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields for specifying the information to be updated on an order when using the orderUpdate mutation.
+ */
 public class OrderInput {
-  
+  /**
+   * The ID of the order to update.
+   */
   private String id;
 
-  
+  /**
+   * A new customer email address for the order. Overwrites the existing email address.
+   */
   private String email;
 
-  
+  /**
+   * The new contents for the note associated with the order. Overwrites the existing note.
+   */
   private String note;
 
-  
+  /**
+   * A new list of tags for the order. Overwrites the existing tags.
+   */
   private List<String> tags;
 
-  
+  /**
+   * The new shipping address for the order. Overwrites the existing shipping address.
+   */
   private MailingAddressInput shippingAddress;
 
-  
+  /**
+   * A new list of custom attributes for the order. Overwrites the existing custom attributes.
+   */
   private List<AttributeInput> customAttributes;
 
-  
+  /**
+   * A list of new metafields to add to the existing metafields for the order.
+   */
   private List<MetafieldInput> metafields;
 
-  
+  /**
+   * A list of new [localized
+   * fields](https://shopify.dev/api/admin-graphql/latest/objects/localizedfield)
+   * to add to the existing list of localized fields for the order.
+   */
+  private List<LocalizedFieldInput> localizedFields;
+
+  /**
+   * The new purchase order number for the order.
+   */
   private String poNumber;
 
   public OrderInput() {
   }
 
-  
+  /**
+   * The ID of the order to update.
+   */
   public String getId() {
     return id;
   }
@@ -44,7 +71,9 @@ public class OrderInput {
     this.id = id;
   }
 
-  
+  /**
+   * A new customer email address for the order. Overwrites the existing email address.
+   */
   public String getEmail() {
     return email;
   }
@@ -53,7 +82,9 @@ public class OrderInput {
     this.email = email;
   }
 
-  
+  /**
+   * The new contents for the note associated with the order. Overwrites the existing note.
+   */
   public String getNote() {
     return note;
   }
@@ -62,7 +93,9 @@ public class OrderInput {
     this.note = note;
   }
 
-  
+  /**
+   * A new list of tags for the order. Overwrites the existing tags.
+   */
   public List<String> getTags() {
     return tags;
   }
@@ -71,7 +104,9 @@ public class OrderInput {
     this.tags = tags;
   }
 
-  
+  /**
+   * The new shipping address for the order. Overwrites the existing shipping address.
+   */
   public MailingAddressInput getShippingAddress() {
     return shippingAddress;
   }
@@ -80,7 +115,9 @@ public class OrderInput {
     this.shippingAddress = shippingAddress;
   }
 
-  
+  /**
+   * A new list of custom attributes for the order. Overwrites the existing custom attributes.
+   */
   public List<AttributeInput> getCustomAttributes() {
     return customAttributes;
   }
@@ -89,7 +126,9 @@ public class OrderInput {
     this.customAttributes = customAttributes;
   }
 
-  
+  /**
+   * A list of new metafields to add to the existing metafields for the order.
+   */
   public List<MetafieldInput> getMetafields() {
     return metafields;
   }
@@ -98,7 +137,22 @@ public class OrderInput {
     this.metafields = metafields;
   }
 
-  
+  /**
+   * A list of new [localized
+   * fields](https://shopify.dev/api/admin-graphql/latest/objects/localizedfield)
+   * to add to the existing list of localized fields for the order.
+   */
+  public List<LocalizedFieldInput> getLocalizedFields() {
+    return localizedFields;
+  }
+
+  public void setLocalizedFields(List<LocalizedFieldInput> localizedFields) {
+    this.localizedFields = localizedFields;
+  }
+
+  /**
+   * The new purchase order number for the order.
+   */
   public String getPoNumber() {
     return poNumber;
   }
@@ -109,7 +163,7 @@ public class OrderInput {
 
   @Override
   public String toString() {
-    return "OrderInput{id='" + id + "', email='" + email + "', note='" + note + "', tags='" + tags + "', shippingAddress='" + shippingAddress + "', customAttributes='" + customAttributes + "', metafields='" + metafields + "', poNumber='" + poNumber + "'}";
+    return "OrderInput{id='" + id + "', email='" + email + "', note='" + note + "', tags='" + tags + "', shippingAddress='" + shippingAddress + "', customAttributes='" + customAttributes + "', metafields='" + metafields + "', localizedFields='" + localizedFields + "', poNumber='" + poNumber + "'}";
   }
 
   @Override
@@ -124,12 +178,13 @@ public class OrderInput {
         Objects.equals(shippingAddress, that.shippingAddress) &&
         Objects.equals(customAttributes, that.customAttributes) &&
         Objects.equals(metafields, that.metafields) &&
+        Objects.equals(localizedFields, that.localizedFields) &&
         Objects.equals(poNumber, that.poNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, email, note, tags, shippingAddress, customAttributes, metafields, poNumber);
+    return Objects.hash(id, email, note, tags, shippingAddress, customAttributes, metafields, localizedFields, poNumber);
   }
 
   public static Builder newBuilder() {
@@ -137,28 +192,51 @@ public class OrderInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the order to update.
+     */
     private String id;
 
-    
+    /**
+     * A new customer email address for the order. Overwrites the existing email address.
+     */
     private String email;
 
-    
+    /**
+     * The new contents for the note associated with the order. Overwrites the existing note.
+     */
     private String note;
 
-    
+    /**
+     * A new list of tags for the order. Overwrites the existing tags.
+     */
     private List<String> tags;
 
-    
+    /**
+     * The new shipping address for the order. Overwrites the existing shipping address.
+     */
     private MailingAddressInput shippingAddress;
 
-    
+    /**
+     * A new list of custom attributes for the order. Overwrites the existing custom attributes.
+     */
     private List<AttributeInput> customAttributes;
 
-    
+    /**
+     * A list of new metafields to add to the existing metafields for the order.
+     */
     private List<MetafieldInput> metafields;
 
-    
+    /**
+     * A list of new [localized
+     * fields](https://shopify.dev/api/admin-graphql/latest/objects/localizedfield)
+     * to add to the existing list of localized fields for the order.
+     */
+    private List<LocalizedFieldInput> localizedFields;
+
+    /**
+     * The new purchase order number for the order.
+     */
     private String poNumber;
 
     public OrderInput build() {
@@ -170,53 +248,80 @@ public class OrderInput {
       result.shippingAddress = this.shippingAddress;
       result.customAttributes = this.customAttributes;
       result.metafields = this.metafields;
+      result.localizedFields = this.localizedFields;
       result.poNumber = this.poNumber;
       return result;
     }
 
-    
+    /**
+     * The ID of the order to update.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * A new customer email address for the order. Overwrites the existing email address.
+     */
     public Builder email(String email) {
       this.email = email;
       return this;
     }
 
-    
+    /**
+     * The new contents for the note associated with the order. Overwrites the existing note.
+     */
     public Builder note(String note) {
       this.note = note;
       return this;
     }
 
-    
+    /**
+     * A new list of tags for the order. Overwrites the existing tags.
+     */
     public Builder tags(List<String> tags) {
       this.tags = tags;
       return this;
     }
 
-    
+    /**
+     * The new shipping address for the order. Overwrites the existing shipping address.
+     */
     public Builder shippingAddress(MailingAddressInput shippingAddress) {
       this.shippingAddress = shippingAddress;
       return this;
     }
 
-    
+    /**
+     * A new list of custom attributes for the order. Overwrites the existing custom attributes.
+     */
     public Builder customAttributes(List<AttributeInput> customAttributes) {
       this.customAttributes = customAttributes;
       return this;
     }
 
-    
+    /**
+     * A list of new metafields to add to the existing metafields for the order.
+     */
     public Builder metafields(List<MetafieldInput> metafields) {
       this.metafields = metafields;
       return this;
     }
 
-    
+    /**
+     * A list of new [localized
+     * fields](https://shopify.dev/api/admin-graphql/latest/objects/localizedfield)
+     * to add to the existing list of localized fields for the order.
+     */
+    public Builder localizedFields(List<LocalizedFieldInput> localizedFields) {
+      this.localizedFields = localizedFields;
+      return this;
+    }
+
+    /**
+     * The new purchase order number for the order.
+     */
     public Builder poNumber(String poNumber) {
       this.poNumber = poNumber;
       return this;

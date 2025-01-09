@@ -29,6 +29,13 @@ public class SubscriptionBillingAttemptProjection<PARENT extends BaseSubProjecti
      return projection;
   }
 
+  public SubscriptionBillingAttemptProcessingErrorProjection<SubscriptionBillingAttemptProjection<PARENT, ROOT>, ROOT> processingError(
+      ) {
+     SubscriptionBillingAttemptProcessingErrorProjection<SubscriptionBillingAttemptProjection<PARENT, ROOT>, ROOT> projection = new SubscriptionBillingAttemptProcessingErrorProjection<>(this, getRoot());
+     getFields().put("processingError", projection);
+     return projection;
+  }
+
   public SubscriptionContractProjection<SubscriptionBillingAttemptProjection<PARENT, ROOT>, ROOT> subscriptionContract(
       ) {
      SubscriptionContractProjection<SubscriptionBillingAttemptProjection<PARENT, ROOT>, ROOT> projection = new SubscriptionContractProjection<>(this, getRoot());
@@ -108,6 +115,11 @@ public class SubscriptionBillingAttemptProjection<PARENT extends BaseSubProjecti
 
   public SubscriptionBillingAttemptProjection<PARENT, ROOT> ready() {
     getFields().put("ready", null);
+    return this;
+  }
+
+  public SubscriptionBillingAttemptProjection<PARENT, ROOT> respectInventoryPolicy() {
+    getFields().put("respectInventoryPolicy", null);
     return this;
   }
 }

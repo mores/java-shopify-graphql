@@ -6,15 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `productFullSync` mutation.
+ */
 public class ProductFullSyncPayload {
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<ProductFullSyncUserError> userErrors;
 
   public ProductFullSyncPayload() {
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<ProductFullSyncUserError> getUserErrors() {
     return userErrors;
   }
@@ -46,7 +52,9 @@ public class ProductFullSyncPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<ProductFullSyncUserError> userErrors;
 
     public ProductFullSyncPayload build() {
@@ -55,7 +63,9 @@ public class ProductFullSyncPayload {
       return result;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<ProductFullSyncUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

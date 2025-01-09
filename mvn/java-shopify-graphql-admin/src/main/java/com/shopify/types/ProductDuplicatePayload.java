@@ -6,27 +6,41 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `productDuplicate` mutation.
+ */
 public class ProductDuplicatePayload {
-  
+  /**
+   * The asynchronous job that duplicates the product images.
+   */
   private Job imageJob;
 
-  
+  /**
+   * The duplicated product.
+   */
   private Product newProduct;
 
-  
+  /**
+   * The product duplicate operation, returned when run in asynchronous mode.
+   */
   private ProductDuplicateOperation productDuplicateOperation;
 
-  
+  /**
+   * The user's shop.
+   */
   private Shop shop;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public ProductDuplicatePayload() {
   }
 
-  
+  /**
+   * The asynchronous job that duplicates the product images.
+   */
   public Job getImageJob() {
     return imageJob;
   }
@@ -35,7 +49,9 @@ public class ProductDuplicatePayload {
     this.imageJob = imageJob;
   }
 
-  
+  /**
+   * The duplicated product.
+   */
   public Product getNewProduct() {
     return newProduct;
   }
@@ -44,7 +60,9 @@ public class ProductDuplicatePayload {
     this.newProduct = newProduct;
   }
 
-  
+  /**
+   * The product duplicate operation, returned when run in asynchronous mode.
+   */
   public ProductDuplicateOperation getProductDuplicateOperation() {
     return productDuplicateOperation;
   }
@@ -53,7 +71,9 @@ public class ProductDuplicatePayload {
     this.productDuplicateOperation = productDuplicateOperation;
   }
 
-  
+  /**
+   * The user's shop.
+   */
   public Shop getShop() {
     return shop;
   }
@@ -62,7 +82,9 @@ public class ProductDuplicatePayload {
     this.shop = shop;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -98,19 +120,29 @@ public class ProductDuplicatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The asynchronous job that duplicates the product images.
+     */
     private Job imageJob;
 
-    
+    /**
+     * The duplicated product.
+     */
     private Product newProduct;
 
-    
+    /**
+     * The product duplicate operation, returned when run in asynchronous mode.
+     */
     private ProductDuplicateOperation productDuplicateOperation;
 
-    
+    /**
+     * The user's shop.
+     */
     private Shop shop;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public ProductDuplicatePayload build() {
@@ -123,31 +155,41 @@ public class ProductDuplicatePayload {
       return result;
     }
 
-    
+    /**
+     * The asynchronous job that duplicates the product images.
+     */
     public Builder imageJob(Job imageJob) {
       this.imageJob = imageJob;
       return this;
     }
 
-    
+    /**
+     * The duplicated product.
+     */
     public Builder newProduct(Product newProduct) {
       this.newProduct = newProduct;
       return this;
     }
 
-    
+    /**
+     * The product duplicate operation, returned when run in asynchronous mode.
+     */
     public Builder productDuplicateOperation(ProductDuplicateOperation productDuplicateOperation) {
       this.productDuplicateOperation = productDuplicateOperation;
       return this;
     }
 
-    
+    /**
+     * The user's shop.
+     */
     public Builder shop(Shop shop) {
       this.shop = shop;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

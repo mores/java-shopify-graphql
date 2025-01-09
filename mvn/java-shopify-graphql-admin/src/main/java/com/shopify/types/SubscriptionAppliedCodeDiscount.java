@@ -6,24 +6,34 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Represents an applied code discount.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class SubscriptionAppliedCodeDiscount implements SubscriptionDiscount {
-  
+  /**
+   * The unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The redeem code of the discount that applies on the subscription.
+   */
   private String redeemCode;
 
-  
+  /**
+   * The reason that the discount on the subscription draft is rejected.
+   */
   private SubscriptionDiscountRejectionReason rejectionReason;
 
   public SubscriptionAppliedCodeDiscount() {
   }
 
-  
+  /**
+   * The unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -32,7 +42,9 @@ public class SubscriptionAppliedCodeDiscount implements SubscriptionDiscount {
     this.id = id;
   }
 
-  
+  /**
+   * The redeem code of the discount that applies on the subscription.
+   */
   public String getRedeemCode() {
     return redeemCode;
   }
@@ -41,7 +53,9 @@ public class SubscriptionAppliedCodeDiscount implements SubscriptionDiscount {
     this.redeemCode = redeemCode;
   }
 
-  
+  /**
+   * The reason that the discount on the subscription draft is rejected.
+   */
   public SubscriptionDiscountRejectionReason getRejectionReason() {
     return rejectionReason;
   }
@@ -75,13 +89,19 @@ public class SubscriptionAppliedCodeDiscount implements SubscriptionDiscount {
   }
 
   public static class Builder {
-    
+    /**
+     * The unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The redeem code of the discount that applies on the subscription.
+     */
     private String redeemCode;
 
-    
+    /**
+     * The reason that the discount on the subscription draft is rejected.
+     */
     private SubscriptionDiscountRejectionReason rejectionReason;
 
     public SubscriptionAppliedCodeDiscount build() {
@@ -92,19 +112,25 @@ public class SubscriptionAppliedCodeDiscount implements SubscriptionDiscount {
       return result;
     }
 
-    
+    /**
+     * The unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The redeem code of the discount that applies on the subscription.
+     */
     public Builder redeemCode(String redeemCode) {
       this.redeemCode = redeemCode;
       return this;
     }
 
-    
+    /**
+     * The reason that the discount on the subscription draft is rejected.
+     */
     public Builder rejectionReason(SubscriptionDiscountRejectionReason rejectionReason) {
       this.rejectionReason = rejectionReason;
       return this;

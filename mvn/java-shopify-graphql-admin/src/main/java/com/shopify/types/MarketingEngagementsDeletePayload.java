@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `marketingEngagementsDelete` mutation.
+ */
 public class MarketingEngagementsDeletePayload {
-  
+  /**
+   * Informational message about the engagement data that has been marked for deletion.
+   */
   private String result;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<MarketingActivityUserError> userErrors;
 
   public MarketingEngagementsDeletePayload() {
   }
 
-  
+  /**
+   * Informational message about the engagement data that has been marked for deletion.
+   */
   public String getResult() {
     return result;
   }
@@ -26,7 +34,9 @@ public class MarketingEngagementsDeletePayload {
     this.result = result;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<MarketingActivityUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class MarketingEngagementsDeletePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * Informational message about the engagement data that has been marked for deletion.
+     */
     private String result;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<MarketingActivityUserError> userErrors;
 
     public MarketingEngagementsDeletePayload build() {
@@ -72,13 +86,17 @@ public class MarketingEngagementsDeletePayload {
       return result;
     }
 
-    
+    /**
+     * Informational message about the engagement data that has been marked for deletion.
+     */
     public Builder result(String result) {
       this.result = result;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<MarketingActivityUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

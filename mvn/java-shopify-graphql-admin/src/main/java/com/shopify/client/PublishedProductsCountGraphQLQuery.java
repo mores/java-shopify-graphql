@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Returns a count of published products by publication ID.
+ */
 public class PublishedProductsCountGraphQLQuery extends GraphQLQuery {
   public PublishedProductsCountGraphQLQuery(String publicationId, String queryName,
       Set<String> fieldsSet) {
@@ -41,7 +43,9 @@ public class PublishedProductsCountGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the publication that the products are published to.
+     */
     public Builder publicationId(String publicationId) {
       this.publicationId = publicationId;
       this.fieldsSet.add("publicationId");

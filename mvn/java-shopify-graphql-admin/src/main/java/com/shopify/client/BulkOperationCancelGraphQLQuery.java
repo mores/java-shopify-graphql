@@ -6,7 +6,11 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Starts the cancelation process of a running bulk operation.
+ *   
+ * There may be a short delay from when a cancelation starts until the operation is actually canceled.
+ */
 public class BulkOperationCancelGraphQLQuery extends GraphQLQuery {
   public BulkOperationCancelGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -40,7 +44,9 @@ public class BulkOperationCancelGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the bulk operation to cancel.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

@@ -6,18 +6,28 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `orderEditRemoveShippingLine` mutation.
+ */
 public class OrderEditRemoveShippingLinePayload {
-  
+  /**
+   * The [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
+   * with the edits applied but not saved.
+   */
   private CalculatedOrder calculatedOrder;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<OrderEditRemoveShippingLineUserError> userErrors;
 
   public OrderEditRemoveShippingLinePayload() {
   }
 
-  
+  /**
+   * The [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
+   * with the edits applied but not saved.
+   */
   public CalculatedOrder getCalculatedOrder() {
     return calculatedOrder;
   }
@@ -26,7 +36,9 @@ public class OrderEditRemoveShippingLinePayload {
     this.calculatedOrder = calculatedOrder;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<OrderEditRemoveShippingLineUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +71,15 @@ public class OrderEditRemoveShippingLinePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
+     * with the edits applied but not saved.
+     */
     private CalculatedOrder calculatedOrder;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<OrderEditRemoveShippingLineUserError> userErrors;
 
     public OrderEditRemoveShippingLinePayload build() {
@@ -72,13 +89,18 @@ public class OrderEditRemoveShippingLinePayload {
       return result;
     }
 
-    
+    /**
+     * The [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
+     * with the edits applied but not saved.
+     */
     public Builder calculatedOrder(CalculatedOrder calculatedOrder) {
       this.calculatedOrder = calculatedOrder;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<OrderEditRemoveShippingLineUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

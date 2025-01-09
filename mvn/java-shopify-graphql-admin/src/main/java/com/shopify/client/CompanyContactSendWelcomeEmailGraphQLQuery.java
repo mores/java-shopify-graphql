@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Sends the company contact a welcome email.
+ */
 public class CompanyContactSendWelcomeEmailGraphQLQuery extends GraphQLQuery {
   public CompanyContactSendWelcomeEmailGraphQLQuery(String companyContactId, EmailInput email,
       String queryName, Set<String> fieldsSet) {
@@ -46,14 +48,18 @@ public class CompanyContactSendWelcomeEmailGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the company contact to send welcome email to.
+     */
     public Builder companyContactId(String companyContactId) {
       this.companyContactId = companyContactId;
       this.fieldsSet.add("companyContactId");
       return this;
     }
 
-    
+    /**
+     * The welcome email fields.
+     */
     public Builder email(EmailInput email) {
       this.email = email;
       this.fieldsSet.add("email");

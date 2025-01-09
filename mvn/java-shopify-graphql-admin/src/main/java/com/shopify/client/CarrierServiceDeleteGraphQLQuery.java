@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Removes an existing carrier service.
+ */
 public class CarrierServiceDeleteGraphQLQuery extends GraphQLQuery {
   public CarrierServiceDeleteGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -40,7 +42,9 @@ public class CarrierServiceDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The global ID of the carrier service to delete.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

@@ -6,21 +6,31 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The quantity of items discounted, the discount value, and how the discount will be applied.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DiscountOnQuantity implements DiscountCustomerGetsValue {
-  
+  /**
+   * The discount's effect on qualifying items.
+   */
   private DiscountEffect effect;
 
-  
+  /**
+   * The number of items being discounted. The customer must have at least this
+   * many items of specified products or product variants in their order to be
+   * eligible for the discount.
+   */
   private DiscountQuantity quantity;
 
   public DiscountOnQuantity() {
   }
 
-  
+  /**
+   * The discount's effect on qualifying items.
+   */
   public DiscountEffect getEffect() {
     return effect;
   }
@@ -29,7 +39,11 @@ public class DiscountOnQuantity implements DiscountCustomerGetsValue {
     this.effect = effect;
   }
 
-  
+  /**
+   * The number of items being discounted. The customer must have at least this
+   * many items of specified products or product variants in their order to be
+   * eligible for the discount.
+   */
   public DiscountQuantity getQuantity() {
     return quantity;
   }
@@ -62,10 +76,16 @@ public class DiscountOnQuantity implements DiscountCustomerGetsValue {
   }
 
   public static class Builder {
-    
+    /**
+     * The discount's effect on qualifying items.
+     */
     private DiscountEffect effect;
 
-    
+    /**
+     * The number of items being discounted. The customer must have at least this
+     * many items of specified products or product variants in their order to be
+     * eligible for the discount.
+     */
     private DiscountQuantity quantity;
 
     public DiscountOnQuantity build() {
@@ -75,13 +95,19 @@ public class DiscountOnQuantity implements DiscountCustomerGetsValue {
       return result;
     }
 
-    
+    /**
+     * The discount's effect on qualifying items.
+     */
     public Builder effect(DiscountEffect effect) {
       this.effect = effect;
       return this;
     }
 
-    
+    /**
+     * The number of items being discounted. The customer must have at least this
+     * many items of specified products or product variants in their order to be
+     * eligible for the discount.
+     */
     public Builder quantity(DiscountQuantity quantity) {
       this.quantity = quantity;
       return this;

@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Marks an order as paid. You can only mark an order as paid if it isn't already fully paid.
+ */
 public class OrderMarkAsPaidGraphQLQuery extends GraphQLQuery {
   public OrderMarkAsPaidGraphQLQuery(OrderMarkAsPaidInput input, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class OrderMarkAsPaidGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The input for the mutation.
+     */
     public Builder input(OrderMarkAsPaidInput input) {
       this.input = input;
       this.fieldsSet.add("input");

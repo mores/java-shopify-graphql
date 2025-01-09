@@ -7,24 +7,34 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Represents a customer segment members query custom error.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class CustomerSegmentMembersQueryUserError implements com.shopify.types.DisplayableError {
-  
+  /**
+   * The error code.
+   */
   private CustomerSegmentMembersQueryUserErrorCode code;
 
-  
+  /**
+   * The path to the input field that caused the error.
+   */
   private List<String> field;
 
-  
+  /**
+   * The error message.
+   */
   private String message;
 
   public CustomerSegmentMembersQueryUserError() {
   }
 
-  
+  /**
+   * The error code.
+   */
   public CustomerSegmentMembersQueryUserErrorCode getCode() {
     return code;
   }
@@ -33,7 +43,9 @@ public class CustomerSegmentMembersQueryUserError implements com.shopify.types.D
     this.code = code;
   }
 
-  
+  /**
+   * The path to the input field that caused the error.
+   */
   public List<String> getField() {
     return field;
   }
@@ -42,7 +54,9 @@ public class CustomerSegmentMembersQueryUserError implements com.shopify.types.D
     this.field = field;
   }
 
-  
+  /**
+   * The error message.
+   */
   public String getMessage() {
     return message;
   }
@@ -76,13 +90,19 @@ public class CustomerSegmentMembersQueryUserError implements com.shopify.types.D
   }
 
   public static class Builder {
-    
+    /**
+     * The error code.
+     */
     private CustomerSegmentMembersQueryUserErrorCode code;
 
-    
+    /**
+     * The path to the input field that caused the error.
+     */
     private List<String> field;
 
-    
+    /**
+     * The error message.
+     */
     private String message;
 
     public CustomerSegmentMembersQueryUserError build() {
@@ -93,19 +113,25 @@ public class CustomerSegmentMembersQueryUserError implements com.shopify.types.D
       return result;
     }
 
-    
+    /**
+     * The error code.
+     */
     public Builder code(CustomerSegmentMembersQueryUserErrorCode code) {
       this.code = code;
       return this;
     }
 
-    
+    /**
+     * The path to the input field that caused the error.
+     */
     public Builder field(List<String> field) {
       this.field = field;
       return this;
     }
 
-    
+    /**
+     * The error message.
+     */
     public Builder message(String message) {
       this.message = message;
       return this;

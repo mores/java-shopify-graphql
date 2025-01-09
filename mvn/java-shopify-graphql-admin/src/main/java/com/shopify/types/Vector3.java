@@ -5,21 +5,33 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Representation of 3d vectors and points. It can represent
+ * either the coordinates of a point in space, a direction, or
+ * size. Presented as an object with three floating-point values.
+ */
 public class Vector3 {
-  
+  /**
+   * The x coordinate of Vector3.
+   */
   private double x;
 
-  
+  /**
+   * The y coordinate of Vector3.
+   */
   private double y;
 
-  
+  /**
+   * The z coordinate of Vector3.
+   */
   private double z;
 
   public Vector3() {
   }
 
-  
+  /**
+   * The x coordinate of Vector3.
+   */
   public double getX() {
     return x;
   }
@@ -28,7 +40,9 @@ public class Vector3 {
     this.x = x;
   }
 
-  
+  /**
+   * The y coordinate of Vector3.
+   */
   public double getY() {
     return y;
   }
@@ -37,7 +51,9 @@ public class Vector3 {
     this.y = y;
   }
 
-  
+  /**
+   * The z coordinate of Vector3.
+   */
   public double getZ() {
     return z;
   }
@@ -71,13 +87,19 @@ public class Vector3 {
   }
 
   public static class Builder {
-    
+    /**
+     * The x coordinate of Vector3.
+     */
     private double x;
 
-    
+    /**
+     * The y coordinate of Vector3.
+     */
     private double y;
 
-    
+    /**
+     * The z coordinate of Vector3.
+     */
     private double z;
 
     public Vector3 build() {
@@ -88,19 +110,25 @@ public class Vector3 {
       return result;
     }
 
-    
+    /**
+     * The x coordinate of Vector3.
+     */
     public Builder x(double x) {
       this.x = x;
       return this;
     }
 
-    
+    /**
+     * The y coordinate of Vector3.
+     */
     public Builder y(double y) {
       this.y = y;
       return this;
     }
 
-    
+    /**
+     * The z coordinate of Vector3.
+     */
     public Builder z(double z) {
       this.z = z;
       return this;

@@ -6,42 +6,64 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Represents a Shop Pay card instrument for customer payment method.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class CustomerShopPayAgreement implements CustomerPaymentInstrument {
-  
+  /**
+   * The billing address of the card.
+   */
   private CustomerCreditCardBillingAddress billingAddress;
 
-  
+  /**
+   * Whether the card is about to expire.
+   */
   private boolean expiresSoon;
 
-  
+  /**
+   * The expiry month of the card.
+   */
   private int expiryMonth;
 
-  
+  /**
+   * The expiry year of the card.
+   */
   private int expiryYear;
 
-  
+  /**
+   * Whether the Shop Pay billing agreement is inactive.
+   */
   private boolean inactive;
 
-  
+  /**
+   * The payment method can be revoked if there are no active subscription contracts.
+   */
   private boolean isRevocable;
 
-  
+  /**
+   * The last 4 digits of the card.
+   */
   private String lastDigits;
 
-  
+  /**
+   * The masked card number with only the last 4 digits displayed.
+   */
   private String maskedNumber;
 
-  
+  /**
+   * The name of the card holder.
+   */
   private String name;
 
   public CustomerShopPayAgreement() {
   }
 
-  
+  /**
+   * The billing address of the card.
+   */
   public CustomerCreditCardBillingAddress getBillingAddress() {
     return billingAddress;
   }
@@ -50,7 +72,9 @@ public class CustomerShopPayAgreement implements CustomerPaymentInstrument {
     this.billingAddress = billingAddress;
   }
 
-  
+  /**
+   * Whether the card is about to expire.
+   */
   public boolean getExpiresSoon() {
     return expiresSoon;
   }
@@ -59,7 +83,9 @@ public class CustomerShopPayAgreement implements CustomerPaymentInstrument {
     this.expiresSoon = expiresSoon;
   }
 
-  
+  /**
+   * The expiry month of the card.
+   */
   public int getExpiryMonth() {
     return expiryMonth;
   }
@@ -68,7 +94,9 @@ public class CustomerShopPayAgreement implements CustomerPaymentInstrument {
     this.expiryMonth = expiryMonth;
   }
 
-  
+  /**
+   * The expiry year of the card.
+   */
   public int getExpiryYear() {
     return expiryYear;
   }
@@ -77,7 +105,9 @@ public class CustomerShopPayAgreement implements CustomerPaymentInstrument {
     this.expiryYear = expiryYear;
   }
 
-  
+  /**
+   * Whether the Shop Pay billing agreement is inactive.
+   */
   public boolean getInactive() {
     return inactive;
   }
@@ -86,7 +116,9 @@ public class CustomerShopPayAgreement implements CustomerPaymentInstrument {
     this.inactive = inactive;
   }
 
-  
+  /**
+   * The payment method can be revoked if there are no active subscription contracts.
+   */
   public boolean getIsRevocable() {
     return isRevocable;
   }
@@ -95,7 +127,9 @@ public class CustomerShopPayAgreement implements CustomerPaymentInstrument {
     this.isRevocable = isRevocable;
   }
 
-  
+  /**
+   * The last 4 digits of the card.
+   */
   public String getLastDigits() {
     return lastDigits;
   }
@@ -104,7 +138,9 @@ public class CustomerShopPayAgreement implements CustomerPaymentInstrument {
     this.lastDigits = lastDigits;
   }
 
-  
+  /**
+   * The masked card number with only the last 4 digits displayed.
+   */
   public String getMaskedNumber() {
     return maskedNumber;
   }
@@ -113,7 +149,9 @@ public class CustomerShopPayAgreement implements CustomerPaymentInstrument {
     this.maskedNumber = maskedNumber;
   }
 
-  
+  /**
+   * The name of the card holder.
+   */
   public String getName() {
     return name;
   }
@@ -153,31 +191,49 @@ public class CustomerShopPayAgreement implements CustomerPaymentInstrument {
   }
 
   public static class Builder {
-    
+    /**
+     * The billing address of the card.
+     */
     private CustomerCreditCardBillingAddress billingAddress;
 
-    
+    /**
+     * Whether the card is about to expire.
+     */
     private boolean expiresSoon;
 
-    
+    /**
+     * The expiry month of the card.
+     */
     private int expiryMonth;
 
-    
+    /**
+     * The expiry year of the card.
+     */
     private int expiryYear;
 
-    
+    /**
+     * Whether the Shop Pay billing agreement is inactive.
+     */
     private boolean inactive;
 
-    
+    /**
+     * The payment method can be revoked if there are no active subscription contracts.
+     */
     private boolean isRevocable;
 
-    
+    /**
+     * The last 4 digits of the card.
+     */
     private String lastDigits;
 
-    
+    /**
+     * The masked card number with only the last 4 digits displayed.
+     */
     private String maskedNumber;
 
-    
+    /**
+     * The name of the card holder.
+     */
     private String name;
 
     public CustomerShopPayAgreement build() {
@@ -194,55 +250,73 @@ public class CustomerShopPayAgreement implements CustomerPaymentInstrument {
       return result;
     }
 
-    
+    /**
+     * The billing address of the card.
+     */
     public Builder billingAddress(CustomerCreditCardBillingAddress billingAddress) {
       this.billingAddress = billingAddress;
       return this;
     }
 
-    
+    /**
+     * Whether the card is about to expire.
+     */
     public Builder expiresSoon(boolean expiresSoon) {
       this.expiresSoon = expiresSoon;
       return this;
     }
 
-    
+    /**
+     * The expiry month of the card.
+     */
     public Builder expiryMonth(int expiryMonth) {
       this.expiryMonth = expiryMonth;
       return this;
     }
 
-    
+    /**
+     * The expiry year of the card.
+     */
     public Builder expiryYear(int expiryYear) {
       this.expiryYear = expiryYear;
       return this;
     }
 
-    
+    /**
+     * Whether the Shop Pay billing agreement is inactive.
+     */
     public Builder inactive(boolean inactive) {
       this.inactive = inactive;
       return this;
     }
 
-    
+    /**
+     * The payment method can be revoked if there are no active subscription contracts.
+     */
     public Builder isRevocable(boolean isRevocable) {
       this.isRevocable = isRevocable;
       return this;
     }
 
-    
+    /**
+     * The last 4 digits of the card.
+     */
     public Builder lastDigits(String lastDigits) {
       this.lastDigits = lastDigits;
       return this;
     }
 
-    
+    /**
+     * The masked card number with only the last 4 digits displayed.
+     */
     public Builder maskedNumber(String maskedNumber) {
       this.maskedNumber = maskedNumber;
       return this;
     }
 
-    
+    /**
+     * The name of the card holder.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;

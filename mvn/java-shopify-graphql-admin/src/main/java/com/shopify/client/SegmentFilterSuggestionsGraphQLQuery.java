@@ -6,7 +6,10 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * A list of filter suggestions associated with a segment. A segment is a group
+ * of members (commonly customers) that meet specific criteria.
+ */
 public class SegmentFilterSuggestionsGraphQLQuery extends GraphQLQuery {
   public SegmentFilterSuggestionsGraphQLQuery(String search, int first, String after,
       String queryName, Set<String> fieldsSet) {
@@ -47,21 +50,27 @@ public class SegmentFilterSuggestionsGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Returns the elements of a list by keyword or term.
+     */
     public Builder search(String search) {
       this.search = search;
       this.fieldsSet.add("search");
       return this;
     }
 
-    
+    /**
+     * The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder first(int first) {
       this.first = first;
       this.fieldsSet.add("first");
       return this;
     }
 
-    
+    /**
+     * The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder after(String after) {
       this.after = after;
       this.fieldsSet.add("after");

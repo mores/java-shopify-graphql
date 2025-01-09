@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Deletes a segment.
+ */
 public class SegmentDeleteGraphQLQuery extends GraphQLQuery {
   public SegmentDeleteGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -40,7 +42,9 @@ public class SegmentDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Specifies the segment to delete.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

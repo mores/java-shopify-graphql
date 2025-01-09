@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for a free shipping discount code to apply to an order.
+ */
 public class OrderCreateFreeShippingDiscountCodeAttributesInput {
-  
+  /**
+   * The discount code that was entered at checkout.
+   */
   private String code;
 
   public OrderCreateFreeShippingDiscountCodeAttributesInput() {
   }
 
-  
+  /**
+   * The discount code that was entered at checkout.
+   */
   public String getCode() {
     return code;
   }
@@ -45,7 +51,9 @@ public class OrderCreateFreeShippingDiscountCodeAttributesInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The discount code that was entered at checkout.
+     */
     private String code;
 
     public OrderCreateFreeShippingDiscountCodeAttributesInput build() {
@@ -54,7 +62,9 @@ public class OrderCreateFreeShippingDiscountCodeAttributesInput {
       return result;
     }
 
-    
+    /**
+     * The discount code that was entered at checkout.
+     */
     public Builder code(String code) {
       this.code = code;
       return this;

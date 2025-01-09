@@ -8,24 +8,36 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields to create and update a delivery customization.
+ */
 public class DeliveryCustomizationInput {
-  
+  /**
+   * The ID of the function providing the delivery customization.
+   */
   private String functionId;
 
-  
+  /**
+   * The title of the delivery customization.
+   */
   private String title;
 
-  
+  /**
+   * The enabled status of the delivery customization.
+   */
   private Boolean enabled;
 
-  
+  /**
+   * Additional metafields to associate to the delivery customization.
+   */
   private List<MetafieldInput> metafields = Collections.emptyList();
 
   public DeliveryCustomizationInput() {
   }
 
-  
+  /**
+   * The ID of the function providing the delivery customization.
+   */
   public String getFunctionId() {
     return functionId;
   }
@@ -34,7 +46,9 @@ public class DeliveryCustomizationInput {
     this.functionId = functionId;
   }
 
-  
+  /**
+   * The title of the delivery customization.
+   */
   public String getTitle() {
     return title;
   }
@@ -43,7 +57,9 @@ public class DeliveryCustomizationInput {
     this.title = title;
   }
 
-  
+  /**
+   * The enabled status of the delivery customization.
+   */
   public Boolean getEnabled() {
     return enabled;
   }
@@ -52,7 +68,9 @@ public class DeliveryCustomizationInput {
     this.enabled = enabled;
   }
 
-  
+  /**
+   * Additional metafields to associate to the delivery customization.
+   */
   public List<MetafieldInput> getMetafields() {
     return metafields;
   }
@@ -87,16 +105,24 @@ public class DeliveryCustomizationInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the function providing the delivery customization.
+     */
     private String functionId;
 
-    
+    /**
+     * The title of the delivery customization.
+     */
     private String title;
 
-    
+    /**
+     * The enabled status of the delivery customization.
+     */
     private Boolean enabled;
 
-    
+    /**
+     * Additional metafields to associate to the delivery customization.
+     */
     private List<MetafieldInput> metafields = Collections.emptyList();
 
     public DeliveryCustomizationInput build() {
@@ -108,25 +134,33 @@ public class DeliveryCustomizationInput {
       return result;
     }
 
-    
+    /**
+     * The ID of the function providing the delivery customization.
+     */
     public Builder functionId(String functionId) {
       this.functionId = functionId;
       return this;
     }
 
-    
+    /**
+     * The title of the delivery customization.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    
+    /**
+     * The enabled status of the delivery customization.
+     */
     public Builder enabled(Boolean enabled) {
       this.enabled = enabled;
       return this;
     }
 
-    
+    /**
+     * Additional metafields to associate to the delivery customization.
+     */
     public Builder metafields(List<MetafieldInput> metafields) {
       this.metafields = metafields;
       return this;

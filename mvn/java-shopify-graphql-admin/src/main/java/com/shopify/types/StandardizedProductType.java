@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Represents the details of a specific type of product within the [Shopify product taxonomy](https://shopify.github.io/product-taxonomy/releases/unstable/?categoryId=sg-4-17-2-17).
+ */
 public class StandardizedProductType {
-  
+  /**
+   * The product taxonomy node associated with the standardized product type.
+   */
   private ProductTaxonomyNode productTaxonomyNode;
 
   public StandardizedProductType() {
   }
 
-  
+  /**
+   * The product taxonomy node associated with the standardized product type.
+   */
   public ProductTaxonomyNode getProductTaxonomyNode() {
     return productTaxonomyNode;
   }
@@ -45,7 +51,9 @@ public class StandardizedProductType {
   }
 
   public static class Builder {
-    
+    /**
+     * The product taxonomy node associated with the standardized product type.
+     */
     private ProductTaxonomyNode productTaxonomyNode;
 
     public StandardizedProductType build() {
@@ -54,7 +62,9 @@ public class StandardizedProductType {
       return result;
     }
 
-    
+    /**
+     * The product taxonomy node associated with the standardized product type.
+     */
     public Builder productTaxonomyNode(ProductTaxonomyNode productTaxonomyNode) {
       this.productTaxonomyNode = productTaxonomyNode;
       return this;

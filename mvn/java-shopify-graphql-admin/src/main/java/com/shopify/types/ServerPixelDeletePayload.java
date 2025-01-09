@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `serverPixelDelete` mutation.
+ */
 public class ServerPixelDeletePayload {
-  
+  /**
+   * The ID of the server pixel that was deleted, if one was deleted.
+   */
   private String deletedServerPixelId;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<ErrorsServerPixelUserError> userErrors;
 
   public ServerPixelDeletePayload() {
   }
 
-  
+  /**
+   * The ID of the server pixel that was deleted, if one was deleted.
+   */
   public String getDeletedServerPixelId() {
     return deletedServerPixelId;
   }
@@ -26,7 +34,9 @@ public class ServerPixelDeletePayload {
     this.deletedServerPixelId = deletedServerPixelId;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<ErrorsServerPixelUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class ServerPixelDeletePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the server pixel that was deleted, if one was deleted.
+     */
     private String deletedServerPixelId;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<ErrorsServerPixelUserError> userErrors;
 
     public ServerPixelDeletePayload build() {
@@ -72,13 +86,17 @@ public class ServerPixelDeletePayload {
       return result;
     }
 
-    
+    /**
+     * The ID of the server pixel that was deleted, if one was deleted.
+     */
     public Builder deletedServerPixelId(String deletedServerPixelId) {
       this.deletedServerPixelId = deletedServerPixelId;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<ErrorsServerPixelUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

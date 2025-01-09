@@ -22,7 +22,9 @@ import com.shopify.types.CommentSortKeys;
 import com.shopify.types.CompanyLocationSortKeys;
 import com.shopify.types.CompanySortKeys;
 import com.shopify.types.CountryCode;
+import com.shopify.types.CustomerIdentifierInput;
 import com.shopify.types.CustomerMergeOverrideFields;
+import com.shopify.types.CustomerSavedSearchSortKeys;
 import com.shopify.types.CustomerSortKeys;
 import com.shopify.types.DeletionEventSortKeys;
 import com.shopify.types.DeletionEventSubjectType;
@@ -48,6 +50,7 @@ import com.shopify.types.MetaobjectHandleInput;
 import com.shopify.types.OrderSortKeys;
 import com.shopify.types.PaymentTermsType;
 import com.shopify.types.PriceListSortKeys;
+import com.shopify.types.ProductIdentifierInput;
 import com.shopify.types.ProductSortKeys;
 import com.shopify.types.ProductVariantSortKeys;
 import com.shopify.types.SegmentSortKeys;
@@ -1314,6 +1317,22 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     return projection;
   }
 
+  public CustomerProjection<QueryProjection<PARENT, ROOT>, ROOT> customerByIdentifier() {
+     CustomerProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new CustomerProjection<>(this, getRoot());
+     getFields().put("customerByIdentifier", projection);
+     return projection;
+  }
+
+  public CustomerProjection<QueryProjection<PARENT, ROOT>, ROOT> customerByIdentifier(
+      CustomerIdentifierInput identifier) {
+    CustomerProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new CustomerProjection<>(this, getRoot());    
+    getFields().put("customerByIdentifier", projection);
+    getInputArguments().computeIfAbsent("customerByIdentifier", k -> new ArrayList<>());                      
+    InputArgument identifierArg = new InputArgument("identifier", identifier);
+    getInputArguments().get("customerByIdentifier").add(identifierArg);
+    return projection;
+  }
+
   public CustomerMergeRequestProjection<QueryProjection<PARENT, ROOT>, ROOT> customerMergeJobStatus(
       ) {
      CustomerMergeRequestProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new CustomerMergeRequestProjection<>(this, getRoot());
@@ -1368,6 +1387,36 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     getInputArguments().get("customerPaymentMethod").add(idArg);
     InputArgument showRevokedArg = new InputArgument("showRevoked", showRevoked);
     getInputArguments().get("customerPaymentMethod").add(showRevokedArg);
+    return projection;
+  }
+
+  public SavedSearchConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> customerSavedSearches(
+      ) {
+     SavedSearchConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new SavedSearchConnectionProjection<>(this, getRoot());
+     getFields().put("customerSavedSearches", projection);
+     return projection;
+  }
+
+  public SavedSearchConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> customerSavedSearches(
+      Integer first, String after, Integer last, String before, Boolean reverse,
+      CustomerSavedSearchSortKeys sortKey, String query) {
+    SavedSearchConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new SavedSearchConnectionProjection<>(this, getRoot());    
+    getFields().put("customerSavedSearches", projection);
+    getInputArguments().computeIfAbsent("customerSavedSearches", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("customerSavedSearches").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("customerSavedSearches").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("customerSavedSearches").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("customerSavedSearches").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    getInputArguments().get("customerSavedSearches").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    getInputArguments().get("customerSavedSearches").add(sortKeyArg);
+    InputArgument queryArg = new InputArgument("query", query);
+    getInputArguments().get("customerSavedSearches").add(queryArg);
     return projection;
   }
 
@@ -1605,6 +1654,36 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     return projection;
   }
 
+  public PromiseParticipantConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> deliveryPromiseParticipants(
+      ) {
+     PromiseParticipantConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new PromiseParticipantConnectionProjection<>(this, getRoot());
+     getFields().put("deliveryPromiseParticipants", projection);
+     return projection;
+  }
+
+  public PromiseParticipantConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> deliveryPromiseParticipants(
+      List<String> ownerIds, String brandedPromiseHandle, Integer first, String after, Integer last,
+      String before, Boolean reverse) {
+    PromiseParticipantConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new PromiseParticipantConnectionProjection<>(this, getRoot());    
+    getFields().put("deliveryPromiseParticipants", projection);
+    getInputArguments().computeIfAbsent("deliveryPromiseParticipants", k -> new ArrayList<>());                      
+    InputArgument ownerIdsArg = new InputArgument("ownerIds", ownerIds);
+    getInputArguments().get("deliveryPromiseParticipants").add(ownerIdsArg);
+    InputArgument brandedPromiseHandleArg = new InputArgument("brandedPromiseHandle", brandedPromiseHandle);
+    getInputArguments().get("deliveryPromiseParticipants").add(brandedPromiseHandleArg);
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("deliveryPromiseParticipants").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("deliveryPromiseParticipants").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("deliveryPromiseParticipants").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("deliveryPromiseParticipants").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    getInputArguments().get("deliveryPromiseParticipants").add(reverseArg);
+    return projection;
+  }
+
   public DeliveryPromiseProviderProjection<QueryProjection<PARENT, ROOT>, ROOT> deliveryPromiseProvider(
       ) {
      DeliveryPromiseProviderProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new DeliveryPromiseProviderProjection<>(this, getRoot());
@@ -1620,6 +1699,13 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     InputArgument locationIdArg = new InputArgument("locationId", locationId);
     getInputArguments().get("deliveryPromiseProvider").add(locationIdArg);
     return projection;
+  }
+
+  public DeliveryPromiseSettingProjection<QueryProjection<PARENT, ROOT>, ROOT> deliveryPromiseSettings(
+      ) {
+     DeliveryPromiseSettingProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new DeliveryPromiseSettingProjection<>(this, getRoot());
+     getFields().put("deliveryPromiseSettings", projection);
+     return projection;
   }
 
   public DeliverySettingProjection<QueryProjection<PARENT, ROOT>, ROOT> deliverySettings() {
@@ -2717,50 +2803,6 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     return projection;
   }
 
-  public MetafieldStorefrontVisibilityConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> metafieldStorefrontVisibilities(
-      ) {
-     MetafieldStorefrontVisibilityConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new MetafieldStorefrontVisibilityConnectionProjection<>(this, getRoot());
-     getFields().put("metafieldStorefrontVisibilities", projection);
-     return projection;
-  }
-
-  public MetafieldStorefrontVisibilityConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> metafieldStorefrontVisibilities(
-      String namespace, Integer first, String after, Integer last, String before, Boolean reverse) {
-    MetafieldStorefrontVisibilityConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new MetafieldStorefrontVisibilityConnectionProjection<>(this, getRoot());    
-    getFields().put("metafieldStorefrontVisibilities", projection);
-    getInputArguments().computeIfAbsent("metafieldStorefrontVisibilities", k -> new ArrayList<>());                      
-    InputArgument namespaceArg = new InputArgument("namespace", namespace);
-    getInputArguments().get("metafieldStorefrontVisibilities").add(namespaceArg);
-    InputArgument firstArg = new InputArgument("first", first);
-    getInputArguments().get("metafieldStorefrontVisibilities").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("metafieldStorefrontVisibilities").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
-    getInputArguments().get("metafieldStorefrontVisibilities").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("metafieldStorefrontVisibilities").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
-    getInputArguments().get("metafieldStorefrontVisibilities").add(reverseArg);
-    return projection;
-  }
-
-  public MetafieldStorefrontVisibilityProjection<QueryProjection<PARENT, ROOT>, ROOT> metafieldStorefrontVisibility(
-      ) {
-     MetafieldStorefrontVisibilityProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new MetafieldStorefrontVisibilityProjection<>(this, getRoot());
-     getFields().put("metafieldStorefrontVisibility", projection);
-     return projection;
-  }
-
-  public MetafieldStorefrontVisibilityProjection<QueryProjection<PARENT, ROOT>, ROOT> metafieldStorefrontVisibility(
-      String id) {
-    MetafieldStorefrontVisibilityProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new MetafieldStorefrontVisibilityProjection<>(this, getRoot());    
-    getFields().put("metafieldStorefrontVisibility", projection);
-    getInputArguments().computeIfAbsent("metafieldStorefrontVisibility", k -> new ArrayList<>());                      
-    InputArgument idArg = new InputArgument("id", id);
-    getInputArguments().get("metafieldStorefrontVisibility").add(idArg);
-    return projection;
-  }
-
   public MetaobjectProjection<QueryProjection<PARENT, ROOT>, ROOT> metaobject() {
      MetaobjectProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new MetaobjectProjection<>(this, getRoot());
      getFields().put("metaobject", projection);
@@ -3228,52 +3270,6 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
      return projection;
   }
 
-  public PrivateMetafieldProjection<QueryProjection<PARENT, ROOT>, ROOT> privateMetafield() {
-     PrivateMetafieldProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new PrivateMetafieldProjection<>(this, getRoot());
-     getFields().put("privateMetafield", projection);
-     return projection;
-  }
-
-  public PrivateMetafieldProjection<QueryProjection<PARENT, ROOT>, ROOT> privateMetafield(
-      String id) {
-    PrivateMetafieldProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new PrivateMetafieldProjection<>(this, getRoot());    
-    getFields().put("privateMetafield", projection);
-    getInputArguments().computeIfAbsent("privateMetafield", k -> new ArrayList<>());                      
-    InputArgument idArg = new InputArgument("id", id);
-    getInputArguments().get("privateMetafield").add(idArg);
-    return projection;
-  }
-
-  public PrivateMetafieldConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> privateMetafields(
-      ) {
-     PrivateMetafieldConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new PrivateMetafieldConnectionProjection<>(this, getRoot());
-     getFields().put("privateMetafields", projection);
-     return projection;
-  }
-
-  public PrivateMetafieldConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> privateMetafields(
-      String namespace, String owner, Integer first, String after, Integer last, String before,
-      Boolean reverse) {
-    PrivateMetafieldConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new PrivateMetafieldConnectionProjection<>(this, getRoot());    
-    getFields().put("privateMetafields", projection);
-    getInputArguments().computeIfAbsent("privateMetafields", k -> new ArrayList<>());                      
-    InputArgument namespaceArg = new InputArgument("namespace", namespace);
-    getInputArguments().get("privateMetafields").add(namespaceArg);
-    InputArgument ownerArg = new InputArgument("owner", owner);
-    getInputArguments().get("privateMetafields").add(ownerArg);
-    InputArgument firstArg = new InputArgument("first", first);
-    getInputArguments().get("privateMetafields").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("privateMetafields").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
-    getInputArguments().get("privateMetafields").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("privateMetafields").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
-    getInputArguments().get("privateMetafields").add(reverseArg);
-    return projection;
-  }
-
   public ProductProjection<QueryProjection<PARENT, ROOT>, ROOT> product() {
      ProductProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new ProductProjection<>(this, getRoot());
      getFields().put("product", projection);
@@ -3301,6 +3297,22 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     getInputArguments().computeIfAbsent("productByHandle", k -> new ArrayList<>());                      
     InputArgument handleArg = new InputArgument("handle", handle);
     getInputArguments().get("productByHandle").add(handleArg);
+    return projection;
+  }
+
+  public ProductProjection<QueryProjection<PARENT, ROOT>, ROOT> productByIdentifier() {
+     ProductProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new ProductProjection<>(this, getRoot());
+     getFields().put("productByIdentifier", projection);
+     return projection;
+  }
+
+  public ProductProjection<QueryProjection<PARENT, ROOT>, ROOT> productByIdentifier(
+      ProductIdentifierInput identifier) {
+    ProductProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new ProductProjection<>(this, getRoot());    
+    getFields().put("productByIdentifier", projection);
+    getInputArguments().computeIfAbsent("productByIdentifier", k -> new ArrayList<>());                      
+    InputArgument identifierArg = new InputArgument("identifier", identifier);
+    getInputArguments().get("productByIdentifier").add(identifierArg);
     return projection;
   }
 
@@ -3417,6 +3429,54 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     return projection;
   }
 
+  public StringConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> productTags() {
+     StringConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new StringConnectionProjection<>(this, getRoot());
+     getFields().put("productTags", projection);
+     return projection;
+  }
+
+  public StringConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> productTags(Integer first,
+      String after, Integer last, String before, Boolean reverse) {
+    StringConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new StringConnectionProjection<>(this, getRoot());    
+    getFields().put("productTags", projection);
+    getInputArguments().computeIfAbsent("productTags", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("productTags").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("productTags").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("productTags").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("productTags").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    getInputArguments().get("productTags").add(reverseArg);
+    return projection;
+  }
+
+  public StringConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> productTypes() {
+     StringConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new StringConnectionProjection<>(this, getRoot());
+     getFields().put("productTypes", projection);
+     return projection;
+  }
+
+  public StringConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> productTypes(Integer first,
+      String after, Integer last, String before, Boolean reverse) {
+    StringConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new StringConnectionProjection<>(this, getRoot());    
+    getFields().put("productTypes", projection);
+    getInputArguments().computeIfAbsent("productTypes", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("productTypes").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("productTypes").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("productTypes").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("productTypes").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    getInputArguments().get("productTypes").add(reverseArg);
+    return projection;
+  }
+
   public ProductVariantProjection<QueryProjection<PARENT, ROOT>, ROOT> productVariant() {
      ProductVariantProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantProjection<>(this, getRoot());
      getFields().put("productVariant", projection);
@@ -3475,6 +3535,30 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     getInputArguments().computeIfAbsent("productVariantsCount", k -> new ArrayList<>());                      
     InputArgument queryArg = new InputArgument("query", query);
     getInputArguments().get("productVariantsCount").add(queryArg);
+    return projection;
+  }
+
+  public StringConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> productVendors() {
+     StringConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new StringConnectionProjection<>(this, getRoot());
+     getFields().put("productVendors", projection);
+     return projection;
+  }
+
+  public StringConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> productVendors(
+      Integer first, String after, Integer last, String before, Boolean reverse) {
+    StringConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new StringConnectionProjection<>(this, getRoot());    
+    getFields().put("productVendors", projection);
+    getInputArguments().computeIfAbsent("productVendors", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("productVendors").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("productVendors").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("productVendors").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("productVendors").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    getInputArguments().get("productVendors").add(reverseArg);
     return projection;
   }
 

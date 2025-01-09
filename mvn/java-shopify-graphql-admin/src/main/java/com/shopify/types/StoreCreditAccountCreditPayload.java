@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `storeCreditAccountCredit` mutation.
+ */
 public class StoreCreditAccountCreditPayload {
-  
+  /**
+   * The store credit account transaction that was created.
+   */
   private StoreCreditAccountCreditTransaction storeCreditAccountTransaction;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<StoreCreditAccountCreditUserError> userErrors;
 
   public StoreCreditAccountCreditPayload() {
   }
 
-  
+  /**
+   * The store credit account transaction that was created.
+   */
   public StoreCreditAccountCreditTransaction getStoreCreditAccountTransaction() {
     return storeCreditAccountTransaction;
   }
@@ -27,7 +35,9 @@ public class StoreCreditAccountCreditPayload {
     this.storeCreditAccountTransaction = storeCreditAccountTransaction;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<StoreCreditAccountCreditUserError> getUserErrors() {
     return userErrors;
   }
@@ -60,10 +70,14 @@ public class StoreCreditAccountCreditPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The store credit account transaction that was created.
+     */
     private StoreCreditAccountCreditTransaction storeCreditAccountTransaction;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<StoreCreditAccountCreditUserError> userErrors;
 
     public StoreCreditAccountCreditPayload build() {
@@ -73,14 +87,18 @@ public class StoreCreditAccountCreditPayload {
       return result;
     }
 
-    
+    /**
+     * The store credit account transaction that was created.
+     */
     public Builder storeCreditAccountTransaction(
         StoreCreditAccountCreditTransaction storeCreditAccountTransaction) {
       this.storeCreditAccountTransaction = storeCreditAccountTransaction;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<StoreCreditAccountCreditUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

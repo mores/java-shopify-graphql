@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for the theme file body.
+ */
 public class OnlineStoreThemeFileBodyInput {
-  
+  /**
+   * The input type of the theme file body.
+   */
   private OnlineStoreThemeFileBodyInputType type;
 
-  
+  /**
+   * The body of the theme file.
+   */
   private String value;
 
   public OnlineStoreThemeFileBodyInput() {
   }
 
-  
+  /**
+   * The input type of the theme file body.
+   */
   public OnlineStoreThemeFileBodyInputType getType() {
     return type;
   }
@@ -25,7 +33,9 @@ public class OnlineStoreThemeFileBodyInput {
     this.type = type;
   }
 
-  
+  /**
+   * The body of the theme file.
+   */
   public String getValue() {
     return value;
   }
@@ -58,10 +68,14 @@ public class OnlineStoreThemeFileBodyInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The input type of the theme file body.
+     */
     private OnlineStoreThemeFileBodyInputType type;
 
-    
+    /**
+     * The body of the theme file.
+     */
     private String value;
 
     public OnlineStoreThemeFileBodyInput build() {
@@ -71,13 +85,17 @@ public class OnlineStoreThemeFileBodyInput {
       return result;
     }
 
-    
+    /**
+     * The input type of the theme file body.
+     */
     public Builder type(OnlineStoreThemeFileBodyInputType type) {
       this.type = type;
       return this;
     }
 
-    
+    /**
+     * The body of the theme file.
+     */
     public Builder value(String value) {
       this.value = value;
       return this;

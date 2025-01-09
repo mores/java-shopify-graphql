@@ -6,7 +6,15 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Returns a webhook subscription by ID.
+ *   
+ * Building an app? If you only use app-specific webhooks, you won't need this.
+ * App-specific webhook subscriptions specified in your `shopify.app.toml` may be
+ * easier. They are automatically kept up to date by Shopify & require less
+ * maintenance. Please read [About managing webhook
+ * subscriptions](https://shopify.dev/docs/apps/build/webhooks/subscribe).
+ */
 public class WebhookSubscriptionGraphQLQuery extends GraphQLQuery {
   public WebhookSubscriptionGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -40,7 +48,9 @@ public class WebhookSubscriptionGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the `WebhookSubscription` to return.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

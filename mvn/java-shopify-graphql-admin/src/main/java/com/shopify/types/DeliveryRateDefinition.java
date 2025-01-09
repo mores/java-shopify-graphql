@@ -6,21 +6,29 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The merchant-defined rate of the [DeliveryMethodDefinition](https://shopify.dev/api/admin-graphql/latest/objects/DeliveryMethodDefinition).
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DeliveryRateDefinition implements DeliveryRateProvider, com.shopify.types.Node {
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The price of this rate.
+   */
   private MoneyV2 price;
 
   public DeliveryRateDefinition() {
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -29,7 +37,9 @@ public class DeliveryRateDefinition implements DeliveryRateProvider, com.shopify
     this.id = id;
   }
 
-  
+  /**
+   * The price of this rate.
+   */
   public MoneyV2 getPrice() {
     return price;
   }
@@ -62,10 +72,14 @@ public class DeliveryRateDefinition implements DeliveryRateProvider, com.shopify
   }
 
   public static class Builder {
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The price of this rate.
+     */
     private MoneyV2 price;
 
     public DeliveryRateDefinition build() {
@@ -75,13 +89,17 @@ public class DeliveryRateDefinition implements DeliveryRateProvider, com.shopify
       return result;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The price of this rate.
+     */
     public Builder price(MoneyV2 price) {
       this.price = price;
       return this;

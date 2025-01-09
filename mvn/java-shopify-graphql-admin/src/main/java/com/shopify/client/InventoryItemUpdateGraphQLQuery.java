@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Updates an inventory item.
+ */
 public class InventoryItemUpdateGraphQLQuery extends GraphQLQuery {
   public InventoryItemUpdateGraphQLQuery(String id, InventoryItemInput input, String queryName,
       Set<String> fieldsSet) {
@@ -46,14 +48,19 @@ public class InventoryItemUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the inventory item to update.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    
+    /**
+     * The input fields that update an
+     * [`inventoryItem`](https://shopify.dev/api/admin-graphql/latest/queries/inventoryitem).
+     */
     public Builder input(InventoryItemInput input) {
       this.input = input;
       this.fieldsSet.add("input");

@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for deleting a metaobject field definition.
+ */
 public class MetaobjectFieldDefinitionDeleteInput {
-  
+  /**
+   * The key of the field definition to delete.
+   */
   private String key;
 
   public MetaobjectFieldDefinitionDeleteInput() {
   }
 
-  
+  /**
+   * The key of the field definition to delete.
+   */
   public String getKey() {
     return key;
   }
@@ -45,7 +51,9 @@ public class MetaobjectFieldDefinitionDeleteInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The key of the field definition to delete.
+     */
     private String key;
 
     public MetaobjectFieldDefinitionDeleteInput build() {
@@ -54,7 +62,9 @@ public class MetaobjectFieldDefinitionDeleteInput {
       return result;
     }
 
-    
+    /**
+     * The key of the field definition to delete.
+     */
     public Builder key(String key) {
       this.key = key;
       return this;

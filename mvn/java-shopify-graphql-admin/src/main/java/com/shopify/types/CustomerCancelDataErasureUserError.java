@@ -7,24 +7,34 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * An error that occurs when cancelling a customer data erasure request.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class CustomerCancelDataErasureUserError implements com.shopify.types.DisplayableError {
-  
+  /**
+   * The error code.
+   */
   private CustomerCancelDataErasureErrorCode code;
 
-  
+  /**
+   * The path to the input field that caused the error.
+   */
   private List<String> field;
 
-  
+  /**
+   * The error message.
+   */
   private String message;
 
   public CustomerCancelDataErasureUserError() {
   }
 
-  
+  /**
+   * The error code.
+   */
   public CustomerCancelDataErasureErrorCode getCode() {
     return code;
   }
@@ -33,7 +43,9 @@ public class CustomerCancelDataErasureUserError implements com.shopify.types.Dis
     this.code = code;
   }
 
-  
+  /**
+   * The path to the input field that caused the error.
+   */
   public List<String> getField() {
     return field;
   }
@@ -42,7 +54,9 @@ public class CustomerCancelDataErasureUserError implements com.shopify.types.Dis
     this.field = field;
   }
 
-  
+  /**
+   * The error message.
+   */
   public String getMessage() {
     return message;
   }
@@ -76,13 +90,19 @@ public class CustomerCancelDataErasureUserError implements com.shopify.types.Dis
   }
 
   public static class Builder {
-    
+    /**
+     * The error code.
+     */
     private CustomerCancelDataErasureErrorCode code;
 
-    
+    /**
+     * The path to the input field that caused the error.
+     */
     private List<String> field;
 
-    
+    /**
+     * The error message.
+     */
     private String message;
 
     public CustomerCancelDataErasureUserError build() {
@@ -93,19 +113,25 @@ public class CustomerCancelDataErasureUserError implements com.shopify.types.Dis
       return result;
     }
 
-    
+    /**
+     * The error code.
+     */
     public Builder code(CustomerCancelDataErasureErrorCode code) {
       this.code = code;
       return this;
     }
 
-    
+    /**
+     * The path to the input field that caused the error.
+     */
     public Builder field(List<String> field) {
       this.field = field;
       return this;
     }
 
-    
+    /**
+     * The error message.
+     */
     public Builder message(String message) {
       this.message = message;
       return this;

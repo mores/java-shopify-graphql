@@ -7,27 +7,43 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Reports the status of shops and their resources and displays this information
+ * within Shopify admin. AppFeedback is used to notify merchants about steps they need to take
+ * to set up an app on their store.
+ */
 public class AppFeedback {
-  
+  /**
+   * The application associated to the feedback.
+   */
   private App app;
 
-  
+  /**
+   * The date and time when the app feedback was generated.
+   */
   private OffsetDateTime feedbackGeneratedAt;
 
-  
+  /**
+   * A link to where merchants can resolve errors.
+   */
   private Link link;
 
-  
+  /**
+   * The feedback message presented to the merchant.
+   */
   private List<UserError> messages;
 
-  
+  /**
+   * Conveys the state of the feedback and whether it requires merchant action or not.
+   */
   private ResourceFeedbackState state;
 
   public AppFeedback() {
   }
 
-  
+  /**
+   * The application associated to the feedback.
+   */
   public App getApp() {
     return app;
   }
@@ -36,7 +52,9 @@ public class AppFeedback {
     this.app = app;
   }
 
-  
+  /**
+   * The date and time when the app feedback was generated.
+   */
   public OffsetDateTime getFeedbackGeneratedAt() {
     return feedbackGeneratedAt;
   }
@@ -45,7 +63,9 @@ public class AppFeedback {
     this.feedbackGeneratedAt = feedbackGeneratedAt;
   }
 
-  
+  /**
+   * A link to where merchants can resolve errors.
+   */
   public Link getLink() {
     return link;
   }
@@ -54,7 +74,9 @@ public class AppFeedback {
     this.link = link;
   }
 
-  
+  /**
+   * The feedback message presented to the merchant.
+   */
   public List<UserError> getMessages() {
     return messages;
   }
@@ -63,7 +85,9 @@ public class AppFeedback {
     this.messages = messages;
   }
 
-  
+  /**
+   * Conveys the state of the feedback and whether it requires merchant action or not.
+   */
   public ResourceFeedbackState getState() {
     return state;
   }
@@ -99,19 +123,29 @@ public class AppFeedback {
   }
 
   public static class Builder {
-    
+    /**
+     * The application associated to the feedback.
+     */
     private App app;
 
-    
+    /**
+     * The date and time when the app feedback was generated.
+     */
     private OffsetDateTime feedbackGeneratedAt;
 
-    
+    /**
+     * A link to where merchants can resolve errors.
+     */
     private Link link;
 
-    
+    /**
+     * The feedback message presented to the merchant.
+     */
     private List<UserError> messages;
 
-    
+    /**
+     * Conveys the state of the feedback and whether it requires merchant action or not.
+     */
     private ResourceFeedbackState state;
 
     public AppFeedback build() {
@@ -124,31 +158,41 @@ public class AppFeedback {
       return result;
     }
 
-    
+    /**
+     * The application associated to the feedback.
+     */
     public Builder app(App app) {
       this.app = app;
       return this;
     }
 
-    
+    /**
+     * The date and time when the app feedback was generated.
+     */
     public Builder feedbackGeneratedAt(OffsetDateTime feedbackGeneratedAt) {
       this.feedbackGeneratedAt = feedbackGeneratedAt;
       return this;
     }
 
-    
+    /**
+     * A link to where merchants can resolve errors.
+     */
     public Builder link(Link link) {
       this.link = link;
       return this;
     }
 
-    
+    /**
+     * The feedback message presented to the merchant.
+     */
     public Builder messages(List<UserError> messages) {
       this.messages = messages;
       return this;
     }
 
-    
+    /**
+     * Conveys the state of the feedback and whether it requires merchant action or not.
+     */
     public Builder state(ResourceFeedbackState state) {
       this.state = state;
       return this;

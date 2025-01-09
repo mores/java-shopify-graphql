@@ -178,6 +178,11 @@ public class OrderTransactionFragmentProjection<PARENT extends BaseSubProjection
     return this;
   }
 
+  public OrderTransactionFragmentProjection<PARENT, ROOT> manualPaymentGateway() {
+    getFields().put("manualPaymentGateway", null);
+    return this;
+  }
+
   public OrderTransactionFragmentProjection<PARENT, ROOT> manuallyCapturable() {
     getFields().put("manuallyCapturable", null);
     return this;

@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Set inventory on-hand quantities using absolute values.
+ */
 public class InventorySetOnHandQuantitiesGraphQLQuery extends GraphQLQuery {
   public InventorySetOnHandQuantitiesGraphQLQuery(InventorySetOnHandQuantitiesInput input,
       String queryName, Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class InventorySetOnHandQuantitiesGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The information required to set inventory on hand quantities.
+     */
     public Builder input(InventorySetOnHandQuantitiesInput input) {
       this.input = input;
       this.fieldsSet.add("input");

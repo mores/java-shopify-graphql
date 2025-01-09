@@ -7,7 +7,11 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * The list of suggested values corresponding to a particular filter for a
+ * segment. A segment is a group of members, such as customers, that meet
+ * specific criteria.
+ */
 public class SegmentValueSuggestionsGraphQLQuery extends GraphQLQuery {
   public SegmentValueSuggestionsGraphQLQuery(String search, String filterQueryName,
       String functionParameterQueryName, Integer first, String after, Integer last, String before,
@@ -67,49 +71,63 @@ public class SegmentValueSuggestionsGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Returns the elements of a list by keyword or term.
+     */
     public Builder search(String search) {
       this.search = search;
       this.fieldsSet.add("search");
       return this;
     }
 
-    
+    /**
+     * Returns the elements of a list by filter handle.
+     */
     public Builder filterQueryName(String filterQueryName) {
       this.filterQueryName = filterQueryName;
       this.fieldsSet.add("filterQueryName");
       return this;
     }
 
-    
+    /**
+     * Returns the elements of a list by filter parameter name.
+     */
     public Builder functionParameterQueryName(String functionParameterQueryName) {
       this.functionParameterQueryName = functionParameterQueryName;
       this.fieldsSet.add("functionParameterQueryName");
       return this;
     }
 
-    
+    /**
+     * The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder first(Integer first) {
       this.first = first;
       this.fieldsSet.add("first");
       return this;
     }
 
-    
+    /**
+     * The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder after(String after) {
       this.after = after;
       this.fieldsSet.add("after");
       return this;
     }
 
-    
+    /**
+     * The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder last(Integer last) {
       this.last = last;
       this.fieldsSet.add("last");
       return this;
     }
 
-    
+    /**
+     * The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder before(String before) {
       this.before = before;
       this.fieldsSet.add("before");

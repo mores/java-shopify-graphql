@@ -7,27 +7,39 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The additional fee details for a line item.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class SaleAdditionalFee implements com.shopify.types.Node {
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The name of the additional fee.
+   */
   private String name;
 
-  
+  /**
+   * The price of the additional fee.
+   */
   private MoneyBag price;
 
-  
+  /**
+   * A list of taxes charged on the additional fee.
+   */
   private List<TaxLine> taxLines;
 
   public SaleAdditionalFee() {
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -36,7 +48,9 @@ public class SaleAdditionalFee implements com.shopify.types.Node {
     this.id = id;
   }
 
-  
+  /**
+   * The name of the additional fee.
+   */
   public String getName() {
     return name;
   }
@@ -45,7 +59,9 @@ public class SaleAdditionalFee implements com.shopify.types.Node {
     this.name = name;
   }
 
-  
+  /**
+   * The price of the additional fee.
+   */
   public MoneyBag getPrice() {
     return price;
   }
@@ -54,7 +70,9 @@ public class SaleAdditionalFee implements com.shopify.types.Node {
     this.price = price;
   }
 
-  
+  /**
+   * A list of taxes charged on the additional fee.
+   */
   public List<TaxLine> getTaxLines() {
     return taxLines;
   }
@@ -89,16 +107,24 @@ public class SaleAdditionalFee implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The name of the additional fee.
+     */
     private String name;
 
-    
+    /**
+     * The price of the additional fee.
+     */
     private MoneyBag price;
 
-    
+    /**
+     * A list of taxes charged on the additional fee.
+     */
     private List<TaxLine> taxLines;
 
     public SaleAdditionalFee build() {
@@ -110,25 +136,33 @@ public class SaleAdditionalFee implements com.shopify.types.Node {
       return result;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The name of the additional fee.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    
+    /**
+     * The price of the additional fee.
+     */
     public Builder price(MoneyBag price) {
       this.price = price;
       return this;
     }
 
-    
+    /**
+     * A list of taxes charged on the additional fee.
+     */
     public Builder taxLines(List<TaxLine> taxLines) {
       this.taxLines = taxLines;
       return this;

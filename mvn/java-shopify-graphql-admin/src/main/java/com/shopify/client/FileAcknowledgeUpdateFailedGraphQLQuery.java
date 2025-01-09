@@ -7,7 +7,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Acknowledges file update failure by resetting FAILED status to READY and clearing any media errors.
+ */
 public class FileAcknowledgeUpdateFailedGraphQLQuery extends GraphQLQuery {
   public FileAcknowledgeUpdateFailedGraphQLQuery(List<String> fileIds, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class FileAcknowledgeUpdateFailedGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Specifies the file(s) to acknowledge the failed updates of.
+     */
     public Builder fileIds(List<String> fileIds) {
       this.fileIds = fileIds;
       this.fieldsSet.add("fileIds");

@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `fulfillmentOrderClose` mutation.
+ */
 public class FulfillmentOrderClosePayload {
-  
+  /**
+   * The fulfillment order that was marked as incomplete.
+   */
   private FulfillmentOrder fulfillmentOrder;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public FulfillmentOrderClosePayload() {
   }
 
-  
+  /**
+   * The fulfillment order that was marked as incomplete.
+   */
   public FulfillmentOrder getFulfillmentOrder() {
     return fulfillmentOrder;
   }
@@ -26,7 +34,9 @@ public class FulfillmentOrderClosePayload {
     this.fulfillmentOrder = fulfillmentOrder;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class FulfillmentOrderClosePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The fulfillment order that was marked as incomplete.
+     */
     private FulfillmentOrder fulfillmentOrder;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public FulfillmentOrderClosePayload build() {
@@ -72,13 +86,17 @@ public class FulfillmentOrderClosePayload {
       return result;
     }
 
-    
+    /**
+     * The fulfillment order that was marked as incomplete.
+     */
     public Builder fulfillmentOrder(FulfillmentOrder fulfillmentOrder) {
       this.fulfillmentOrder = fulfillmentOrder;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

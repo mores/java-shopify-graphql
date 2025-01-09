@@ -6,7 +6,15 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Deletes a webhook subscription.
+ *   
+ * Building an app? If you only use app-specific webhooks, you won't need this.
+ * App-specific webhook subscriptions specified in your `shopify.app.toml` may be
+ * easier. They are automatically kept up to date by Shopify & require less
+ * maintenance. Please read [About managing webhook
+ * subscriptions](https://shopify.dev/docs/apps/build/webhooks/subscribe).
+ */
 public class WebhookSubscriptionDeleteGraphQLQuery extends GraphQLQuery {
   public WebhookSubscriptionDeleteGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -40,7 +48,9 @@ public class WebhookSubscriptionDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the webhook subscription to delete.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

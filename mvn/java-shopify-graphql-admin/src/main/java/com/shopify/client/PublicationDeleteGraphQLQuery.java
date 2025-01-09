@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Deletes a publication.
+ */
 public class PublicationDeleteGraphQLQuery extends GraphQLQuery {
   public PublicationDeleteGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -40,7 +42,9 @@ public class PublicationDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the publication to delete.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

@@ -5,21 +5,31 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for possible operations for modifying field definitions. Exactly one option is required.
+ */
 public class MetaobjectFieldDefinitionOperationInput {
-  
+  /**
+   * The input fields for creating a metaobject field definition.
+   */
   private MetaobjectFieldDefinitionCreateInput create;
 
-  
+  /**
+   * The input fields for updating a metaobject field definition.
+   */
   private MetaobjectFieldDefinitionUpdateInput update;
 
-  
+  /**
+   * The input fields for deleting a metaobject field definition.
+   */
   private MetaobjectFieldDefinitionDeleteInput delete;
 
   public MetaobjectFieldDefinitionOperationInput() {
   }
 
-  
+  /**
+   * The input fields for creating a metaobject field definition.
+   */
   public MetaobjectFieldDefinitionCreateInput getCreate() {
     return create;
   }
@@ -28,7 +38,9 @@ public class MetaobjectFieldDefinitionOperationInput {
     this.create = create;
   }
 
-  
+  /**
+   * The input fields for updating a metaobject field definition.
+   */
   public MetaobjectFieldDefinitionUpdateInput getUpdate() {
     return update;
   }
@@ -37,7 +49,9 @@ public class MetaobjectFieldDefinitionOperationInput {
     this.update = update;
   }
 
-  
+  /**
+   * The input fields for deleting a metaobject field definition.
+   */
   public MetaobjectFieldDefinitionDeleteInput getDelete() {
     return delete;
   }
@@ -71,13 +85,19 @@ public class MetaobjectFieldDefinitionOperationInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The input fields for creating a metaobject field definition.
+     */
     private MetaobjectFieldDefinitionCreateInput create;
 
-    
+    /**
+     * The input fields for updating a metaobject field definition.
+     */
     private MetaobjectFieldDefinitionUpdateInput update;
 
-    
+    /**
+     * The input fields for deleting a metaobject field definition.
+     */
     private MetaobjectFieldDefinitionDeleteInput delete;
 
     public MetaobjectFieldDefinitionOperationInput build() {
@@ -88,19 +108,25 @@ public class MetaobjectFieldDefinitionOperationInput {
       return result;
     }
 
-    
+    /**
+     * The input fields for creating a metaobject field definition.
+     */
     public Builder create(MetaobjectFieldDefinitionCreateInput create) {
       this.create = create;
       return this;
     }
 
-    
+    /**
+     * The input fields for updating a metaobject field definition.
+     */
     public Builder update(MetaobjectFieldDefinitionUpdateInput update) {
       this.update = update;
       return this;
     }
 
-    
+    /**
+     * The input fields for deleting a metaobject field definition.
+     */
     public Builder delete(MetaobjectFieldDefinitionDeleteInput delete) {
       this.delete = delete;
       return this;

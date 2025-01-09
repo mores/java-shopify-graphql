@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Asynchronously delete redirects in bulk.
+ */
 public class UrlRedirectBulkDeleteBySearchGraphQLQuery extends GraphQLQuery {
   public UrlRedirectBulkDeleteBySearchGraphQLQuery(String search, String queryName,
       Set<String> fieldsSet) {
@@ -41,7 +43,9 @@ public class UrlRedirectBulkDeleteBySearchGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Search query for filtering redirects on (both Redirect from and Redirect to fields).
+     */
     public Builder search(String search) {
       this.search = search;
       this.fieldsSet.add("search");

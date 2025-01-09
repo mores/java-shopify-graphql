@@ -6,21 +6,29 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A reverse shipping deliverable that may include a label and tracking information.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ReverseDeliveryShippingDeliverable implements ReverseDeliveryDeliverable {
-  
+  /**
+   * The return label attached to the reverse delivery.
+   */
   private ReverseDeliveryLabelV2 label;
 
-  
+  /**
+   * The information to track the reverse delivery.
+   */
   private ReverseDeliveryTrackingV2 tracking;
 
   public ReverseDeliveryShippingDeliverable() {
   }
 
-  
+  /**
+   * The return label attached to the reverse delivery.
+   */
   public ReverseDeliveryLabelV2 getLabel() {
     return label;
   }
@@ -29,7 +37,9 @@ public class ReverseDeliveryShippingDeliverable implements ReverseDeliveryDelive
     this.label = label;
   }
 
-  
+  /**
+   * The information to track the reverse delivery.
+   */
   public ReverseDeliveryTrackingV2 getTracking() {
     return tracking;
   }
@@ -62,10 +72,14 @@ public class ReverseDeliveryShippingDeliverable implements ReverseDeliveryDelive
   }
 
   public static class Builder {
-    
+    /**
+     * The return label attached to the reverse delivery.
+     */
     private ReverseDeliveryLabelV2 label;
 
-    
+    /**
+     * The information to track the reverse delivery.
+     */
     private ReverseDeliveryTrackingV2 tracking;
 
     public ReverseDeliveryShippingDeliverable build() {
@@ -75,13 +89,17 @@ public class ReverseDeliveryShippingDeliverable implements ReverseDeliveryDelive
       return result;
     }
 
-    
+    /**
+     * The return label attached to the reverse delivery.
+     */
     public Builder label(ReverseDeliveryLabelV2 label) {
       this.label = label;
       return this;
     }
 
-    
+    /**
+     * The information to track the reverse delivery.
+     */
     public Builder tracking(ReverseDeliveryTrackingV2 tracking) {
       this.tracking = tracking;
       return this;

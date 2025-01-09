@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `orderClose` mutation.
+ */
 public class OrderClosePayload {
-  
+  /**
+   * The closed order.
+   */
   private Order order;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public OrderClosePayload() {
   }
 
-  
+  /**
+   * The closed order.
+   */
   public Order getOrder() {
     return order;
   }
@@ -26,7 +34,9 @@ public class OrderClosePayload {
     this.order = order;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class OrderClosePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The closed order.
+     */
     private Order order;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public OrderClosePayload build() {
@@ -72,13 +86,17 @@ public class OrderClosePayload {
       return result;
     }
 
-    
+    /**
+     * The closed order.
+     */
     public Builder order(Order order) {
       this.order = order;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

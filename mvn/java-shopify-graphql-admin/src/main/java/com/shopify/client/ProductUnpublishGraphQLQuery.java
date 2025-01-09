@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Unpublishes a product.
+ */
 public class ProductUnpublishGraphQLQuery extends GraphQLQuery {
   public ProductUnpublishGraphQLQuery(ProductUnpublishInput input, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class ProductUnpublishGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Specifies the product to unpublish and the channel to unpublish it from.
+     */
     public Builder input(ProductUnpublishInput input) {
       this.input = input;
       this.fieldsSet.add("input");

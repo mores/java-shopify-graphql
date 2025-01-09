@@ -6,21 +6,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `subscriptionDraftDiscountUpdate` mutation.
+ */
 public class SubscriptionDraftDiscountUpdatePayload {
-  
+  /**
+   * The updated Subscription Discount.
+   */
   private SubscriptionManualDiscount discountUpdated;
 
-  
+  /**
+   * The Subscription Contract draft object.
+   */
   private SubscriptionDraft draft;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<SubscriptionDraftUserError> userErrors;
 
   public SubscriptionDraftDiscountUpdatePayload() {
   }
 
-  
+  /**
+   * The updated Subscription Discount.
+   */
   public SubscriptionManualDiscount getDiscountUpdated() {
     return discountUpdated;
   }
@@ -29,7 +39,9 @@ public class SubscriptionDraftDiscountUpdatePayload {
     this.discountUpdated = discountUpdated;
   }
 
-  
+  /**
+   * The Subscription Contract draft object.
+   */
   public SubscriptionDraft getDraft() {
     return draft;
   }
@@ -38,7 +50,9 @@ public class SubscriptionDraftDiscountUpdatePayload {
     this.draft = draft;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<SubscriptionDraftUserError> getUserErrors() {
     return userErrors;
   }
@@ -72,13 +86,19 @@ public class SubscriptionDraftDiscountUpdatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The updated Subscription Discount.
+     */
     private SubscriptionManualDiscount discountUpdated;
 
-    
+    /**
+     * The Subscription Contract draft object.
+     */
     private SubscriptionDraft draft;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<SubscriptionDraftUserError> userErrors;
 
     public SubscriptionDraftDiscountUpdatePayload build() {
@@ -89,19 +109,25 @@ public class SubscriptionDraftDiscountUpdatePayload {
       return result;
     }
 
-    
+    /**
+     * The updated Subscription Discount.
+     */
     public Builder discountUpdated(SubscriptionManualDiscount discountUpdated) {
       this.discountUpdated = discountUpdated;
       return this;
     }
 
-    
+    /**
+     * The Subscription Contract draft object.
+     */
     public Builder draft(SubscriptionDraft draft) {
       this.draft = draft;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<SubscriptionDraftUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

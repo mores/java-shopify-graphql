@@ -8,36 +8,62 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields to update a page.
+ */
 public class PageUpdateInput {
-  
+  /**
+   * A unique, human-friendly string for the page. If no handle is specified, a
+   * handle will be generated automatically from the page title.
+   * In themes, the Liquid templating language refers to a page by its handle.
+   */
   private String handle;
 
-  
+  /**
+   * The text content of the page, complete with HTML markup.
+   */
   private String body;
 
-  
+  /**
+   * Whether or not the page should be visible. Defaults to `true` if no publish date is specified.
+   */
   private Boolean isPublished;
 
-  
+  /**
+   * The date and time (ISO 8601 format) when the page should become visible.
+   */
   private OffsetDateTime publishDate;
 
-  
+  /**
+   * The suffix of the template that's used to render the page.
+   * If the value is an empty string or `null`, then the default page template is used.
+   */
   private String templateSuffix;
 
-  
+  /**
+   * The input fields to create or update a metafield.
+   */
   private List<MetafieldInput> metafields;
 
-  
+  /**
+   * The title of the page.
+   */
   private String title;
 
-  
+  /**
+   * Whether a redirect is required after a new handle has been provided.
+   * If `true`, then the old handle is redirected to the new one automatically.
+   */
   private Boolean redirectNewHandle = false;
 
   public PageUpdateInput() {
   }
 
-  
+  /**
+   * A unique, human-friendly string for the page. If no handle is specified, a
+   * handle will be generated automatically from the page title.
+   * In themes, the Liquid templating language refers to a page by its handle.
+   */
   public String getHandle() {
     return handle;
   }
@@ -46,7 +72,9 @@ public class PageUpdateInput {
     this.handle = handle;
   }
 
-  
+  /**
+   * The text content of the page, complete with HTML markup.
+   */
   public String getBody() {
     return body;
   }
@@ -55,7 +83,9 @@ public class PageUpdateInput {
     this.body = body;
   }
 
-  
+  /**
+   * Whether or not the page should be visible. Defaults to `true` if no publish date is specified.
+   */
   public Boolean getIsPublished() {
     return isPublished;
   }
@@ -64,7 +94,9 @@ public class PageUpdateInput {
     this.isPublished = isPublished;
   }
 
-  
+  /**
+   * The date and time (ISO 8601 format) when the page should become visible.
+   */
   public OffsetDateTime getPublishDate() {
     return publishDate;
   }
@@ -73,7 +105,10 @@ public class PageUpdateInput {
     this.publishDate = publishDate;
   }
 
-  
+  /**
+   * The suffix of the template that's used to render the page.
+   * If the value is an empty string or `null`, then the default page template is used.
+   */
   public String getTemplateSuffix() {
     return templateSuffix;
   }
@@ -82,7 +117,9 @@ public class PageUpdateInput {
     this.templateSuffix = templateSuffix;
   }
 
-  
+  /**
+   * The input fields to create or update a metafield.
+   */
   public List<MetafieldInput> getMetafields() {
     return metafields;
   }
@@ -91,7 +128,9 @@ public class PageUpdateInput {
     this.metafields = metafields;
   }
 
-  
+  /**
+   * The title of the page.
+   */
   public String getTitle() {
     return title;
   }
@@ -100,7 +139,10 @@ public class PageUpdateInput {
     this.title = title;
   }
 
-  
+  /**
+   * Whether a redirect is required after a new handle has been provided.
+   * If `true`, then the old handle is redirected to the new one automatically.
+   */
   public Boolean getRedirectNewHandle() {
     return redirectNewHandle;
   }
@@ -139,28 +181,48 @@ public class PageUpdateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * A unique, human-friendly string for the page. If no handle is specified, a
+     * handle will be generated automatically from the page title.
+     * In themes, the Liquid templating language refers to a page by its handle.
+     */
     private String handle;
 
-    
+    /**
+     * The text content of the page, complete with HTML markup.
+     */
     private String body;
 
-    
+    /**
+     * Whether or not the page should be visible. Defaults to `true` if no publish date is specified.
+     */
     private Boolean isPublished;
 
-    
+    /**
+     * The date and time (ISO 8601 format) when the page should become visible.
+     */
     private OffsetDateTime publishDate;
 
-    
+    /**
+     * The suffix of the template that's used to render the page.
+     * If the value is an empty string or `null`, then the default page template is used.
+     */
     private String templateSuffix;
 
-    
+    /**
+     * The input fields to create or update a metafield.
+     */
     private List<MetafieldInput> metafields;
 
-    
+    /**
+     * The title of the page.
+     */
     private String title;
 
-    
+    /**
+     * Whether a redirect is required after a new handle has been provided.
+     * If `true`, then the old handle is redirected to the new one automatically.
+     */
     private Boolean redirectNewHandle = false;
 
     public PageUpdateInput build() {
@@ -176,49 +238,69 @@ public class PageUpdateInput {
       return result;
     }
 
-    
+    /**
+     * A unique, human-friendly string for the page. If no handle is specified, a
+     * handle will be generated automatically from the page title.
+     * In themes, the Liquid templating language refers to a page by its handle.
+     */
     public Builder handle(String handle) {
       this.handle = handle;
       return this;
     }
 
-    
+    /**
+     * The text content of the page, complete with HTML markup.
+     */
     public Builder body(String body) {
       this.body = body;
       return this;
     }
 
-    
+    /**
+     * Whether or not the page should be visible. Defaults to `true` if no publish date is specified.
+     */
     public Builder isPublished(Boolean isPublished) {
       this.isPublished = isPublished;
       return this;
     }
 
-    
+    /**
+     * The date and time (ISO 8601 format) when the page should become visible.
+     */
     public Builder publishDate(OffsetDateTime publishDate) {
       this.publishDate = publishDate;
       return this;
     }
 
-    
+    /**
+     * The suffix of the template that's used to render the page.
+     * If the value is an empty string or `null`, then the default page template is used.
+     */
     public Builder templateSuffix(String templateSuffix) {
       this.templateSuffix = templateSuffix;
       return this;
     }
 
-    
+    /**
+     * The input fields to create or update a metafield.
+     */
     public Builder metafields(List<MetafieldInput> metafields) {
       this.metafields = metafields;
       return this;
     }
 
-    
+    /**
+     * The title of the page.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    
+    /**
+     * Whether a redirect is required after a new handle has been provided.
+     * If `true`, then the old handle is redirected to the new one automatically.
+     */
     public Builder redirectNewHandle(Boolean redirectNewHandle) {
       this.redirectNewHandle = redirectNewHandle;
       return this;

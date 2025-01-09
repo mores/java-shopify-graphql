@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields to specify a region.
+ */
 public class DeliveryProvinceInput {
-  
+  /**
+   * The code of the region.
+   */
   private String code;
 
   public DeliveryProvinceInput() {
   }
 
-  
+  /**
+   * The code of the region.
+   */
   public String getCode() {
     return code;
   }
@@ -45,7 +51,9 @@ public class DeliveryProvinceInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The code of the region.
+     */
     private String code;
 
     public DeliveryProvinceInput build() {
@@ -54,7 +62,9 @@ public class DeliveryProvinceInput {
       return result;
     }
 
-    
+    /**
+     * The code of the region.
+     */
     public Builder code(String code) {
       this.code = code;
       return this;

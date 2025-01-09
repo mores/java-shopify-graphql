@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The publishable capability for the parent metaobject.
+ */
 public class MetaobjectCapabilityDataPublishable {
-  
+  /**
+   * The visibility status of this metaobject across all channels.
+   */
   private MetaobjectStatus status;
 
   public MetaobjectCapabilityDataPublishable() {
   }
 
-  
+  /**
+   * The visibility status of this metaobject across all channels.
+   */
   public MetaobjectStatus getStatus() {
     return status;
   }
@@ -45,7 +51,9 @@ public class MetaobjectCapabilityDataPublishable {
   }
 
   public static class Builder {
-    
+    /**
+     * The visibility status of this metaobject across all channels.
+     */
     private MetaobjectStatus status;
 
     public MetaobjectCapabilityDataPublishable build() {
@@ -54,7 +62,9 @@ public class MetaobjectCapabilityDataPublishable {
       return result;
     }
 
-    
+    /**
+     * The visibility status of this metaobject across all channels.
+     */
     public Builder status(MetaobjectStatus status) {
       this.status = status;
       return this;

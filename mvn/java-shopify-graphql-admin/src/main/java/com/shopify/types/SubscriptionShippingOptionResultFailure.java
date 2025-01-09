@@ -6,18 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Failure determining available shipping options for delivery of a subscription contract.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class SubscriptionShippingOptionResultFailure implements SubscriptionShippingOptionResult {
-  
+  /**
+   * Failure reason.
+   */
   private String message;
 
   public SubscriptionShippingOptionResultFailure() {
   }
 
-  
+  /**
+   * Failure reason.
+   */
   public String getMessage() {
     return message;
   }
@@ -49,7 +55,9 @@ public class SubscriptionShippingOptionResultFailure implements SubscriptionShip
   }
 
   public static class Builder {
-    
+    /**
+     * Failure reason.
+     */
     private String message;
 
     public SubscriptionShippingOptionResultFailure build() {
@@ -58,7 +66,9 @@ public class SubscriptionShippingOptionResultFailure implements SubscriptionShip
       return result;
     }
 
-    
+    /**
+     * Failure reason.
+     */
     public Builder message(String message) {
       this.message = message;
       return this;

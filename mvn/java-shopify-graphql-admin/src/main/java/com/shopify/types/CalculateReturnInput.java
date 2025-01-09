@@ -7,24 +7,36 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields to calculate return amounts associated with an order.
+ */
 public class CalculateReturnInput {
-  
+  /**
+   * The ID of the order that will be returned.
+   */
   private String orderId;
 
-  
+  /**
+   * The line items from the order to include in the return.
+   */
   private List<CalculateReturnLineItemInput> returnLineItems = Collections.emptyList();
 
-  
+  /**
+   * The exchange line items to add to the order.
+   */
   private List<CalculateExchangeLineItemInput> exchangeLineItems = Collections.emptyList();
 
-  
+  /**
+   * The return shipping fee associated with the return.
+   */
   private ReturnShippingFeeInput returnShippingFee;
 
   public CalculateReturnInput() {
   }
 
-  
+  /**
+   * The ID of the order that will be returned.
+   */
   public String getOrderId() {
     return orderId;
   }
@@ -33,7 +45,9 @@ public class CalculateReturnInput {
     this.orderId = orderId;
   }
 
-  
+  /**
+   * The line items from the order to include in the return.
+   */
   public List<CalculateReturnLineItemInput> getReturnLineItems() {
     return returnLineItems;
   }
@@ -42,7 +56,9 @@ public class CalculateReturnInput {
     this.returnLineItems = returnLineItems;
   }
 
-  
+  /**
+   * The exchange line items to add to the order.
+   */
   public List<CalculateExchangeLineItemInput> getExchangeLineItems() {
     return exchangeLineItems;
   }
@@ -51,7 +67,9 @@ public class CalculateReturnInput {
     this.exchangeLineItems = exchangeLineItems;
   }
 
-  
+  /**
+   * The return shipping fee associated with the return.
+   */
   public ReturnShippingFeeInput getReturnShippingFee() {
     return returnShippingFee;
   }
@@ -86,16 +104,24 @@ public class CalculateReturnInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the order that will be returned.
+     */
     private String orderId;
 
-    
+    /**
+     * The line items from the order to include in the return.
+     */
     private List<CalculateReturnLineItemInput> returnLineItems = Collections.emptyList();
 
-    
+    /**
+     * The exchange line items to add to the order.
+     */
     private List<CalculateExchangeLineItemInput> exchangeLineItems = Collections.emptyList();
 
-    
+    /**
+     * The return shipping fee associated with the return.
+     */
     private ReturnShippingFeeInput returnShippingFee;
 
     public CalculateReturnInput build() {
@@ -107,25 +133,33 @@ public class CalculateReturnInput {
       return result;
     }
 
-    
+    /**
+     * The ID of the order that will be returned.
+     */
     public Builder orderId(String orderId) {
       this.orderId = orderId;
       return this;
     }
 
-    
+    /**
+     * The line items from the order to include in the return.
+     */
     public Builder returnLineItems(List<CalculateReturnLineItemInput> returnLineItems) {
       this.returnLineItems = returnLineItems;
       return this;
     }
 
-    
+    /**
+     * The exchange line items to add to the order.
+     */
     public Builder exchangeLineItems(List<CalculateExchangeLineItemInput> exchangeLineItems) {
       this.exchangeLineItems = exchangeLineItems;
       return this;
     }
 
-    
+    /**
+     * The return shipping fee associated with the return.
+     */
     public Builder returnShippingFee(ReturnShippingFeeInput returnShippingFee) {
       this.returnShippingFee = returnShippingFee;
       return this;

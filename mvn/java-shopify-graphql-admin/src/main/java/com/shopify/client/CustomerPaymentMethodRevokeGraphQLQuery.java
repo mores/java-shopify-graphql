@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Revokes a customer's payment method.
+ */
 public class CustomerPaymentMethodRevokeGraphQLQuery extends GraphQLQuery {
   public CustomerPaymentMethodRevokeGraphQLQuery(String customerPaymentMethodId, String queryName,
       Set<String> fieldsSet) {
@@ -41,7 +43,9 @@ public class CustomerPaymentMethodRevokeGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the customer payment method to be revoked.
+     */
     public Builder customerPaymentMethodId(String customerPaymentMethodId) {
       this.customerPaymentMethodId = customerPaymentMethodId;
       this.fieldsSet.add("customerPaymentMethodId");

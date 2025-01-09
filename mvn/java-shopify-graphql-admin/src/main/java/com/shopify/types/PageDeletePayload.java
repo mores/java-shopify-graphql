@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `pageDelete` mutation.
+ */
 public class PageDeletePayload {
-  
+  /**
+   * The ID of the deleted page.
+   */
   private String deletedPageId;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<PageDeleteUserError> userErrors;
 
   public PageDeletePayload() {
   }
 
-  
+  /**
+   * The ID of the deleted page.
+   */
   public String getDeletedPageId() {
     return deletedPageId;
   }
@@ -26,7 +34,9 @@ public class PageDeletePayload {
     this.deletedPageId = deletedPageId;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<PageDeleteUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class PageDeletePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the deleted page.
+     */
     private String deletedPageId;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<PageDeleteUserError> userErrors;
 
     public PageDeletePayload build() {
@@ -72,13 +86,17 @@ public class PageDeletePayload {
       return result;
     }
 
-    
+    /**
+     * The ID of the deleted page.
+     */
     public Builder deletedPageId(String deletedPageId) {
       this.deletedPageId = deletedPageId;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<PageDeleteUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

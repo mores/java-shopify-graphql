@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Returns a Business Entity by ID.
+ */
 public class BusinessEntityGraphQLQuery extends GraphQLQuery {
   public BusinessEntityGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -40,7 +42,9 @@ public class BusinessEntityGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the Business Entity to return. Returns the primary Business Entity if not provided.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

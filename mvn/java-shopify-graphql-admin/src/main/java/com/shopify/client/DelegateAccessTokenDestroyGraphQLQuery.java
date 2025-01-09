@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Destroys a delegate access token.
+ */
 public class DelegateAccessTokenDestroyGraphQLQuery extends GraphQLQuery {
   public DelegateAccessTokenDestroyGraphQLQuery(String accessToken, String queryName,
       Set<String> fieldsSet) {
@@ -41,7 +43,9 @@ public class DelegateAccessTokenDestroyGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Provides the delegate access token to destroy.
+     */
     public Builder accessToken(String accessToken) {
       this.accessToken = accessToken;
       this.fieldsSet.add("accessToken");

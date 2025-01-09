@@ -8,54 +8,93 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields for specifying a product variant to create or update.
+ */
 public class ProductVariantSetInput {
-  
+  /**
+   * Whether a product variant requires components. The default value is `false`.
+   * If `true`, then the product variant can only be purchased as a parent bundle with components and it will be omitted
+   * from channels that don't support bundles.
+   */
   private Boolean requiresComponents;
 
-  
+  /**
+   * The value of the barcode associated with the product.
+   */
   private String barcode;
 
-  
+  /**
+   * The compare-at price of the variant.
+   */
   private String compareAtPrice;
 
-  
+  /**
+   * Specifies the product variant to update or create a new variant if absent.
+   */
   private String id;
 
-  
+  /**
+   * The file to associate with the variant.
+   * Any file specified here must also be specified in the `files` input for the product.
+   */
   private FileSetInput file;
 
-  
+  /**
+   * Whether customers are allowed to place an order for the product variant when it's out of stock.
+   */
   private ProductVariantInventoryPolicy inventoryPolicy;
 
-  
+  /**
+   * The inventory quantities at each location where the variant is stocked.
+   * If you're updating an existing variant, then you can only update the
+   * quantities at locations where the variant is already stocked.
+   */
   private List<ProductSetInventoryInput> inventoryQuantities;
 
-  
+  /**
+   * Additional customizable information about the product variant.
+   */
   private List<MetafieldInput> metafields;
 
-  
+  /**
+   * The custom properties that a shop owner uses to define product variants.
+   */
   private List<VariantOptionValueInput> optionValues;
 
-  
+  /**
+   * The order of the product variant in the list of product variants. The first position in the list is 1.
+   */
   private Integer position;
 
-  
+  /**
+   * The price of the variant.
+   */
   private String price;
 
-  
+  /**
+   * The SKU for the variant. Case-sensitive string.
+   */
   private String sku;
 
-  
+  /**
+   * Whether the variant is taxable.
+   */
   private Boolean taxable;
 
-  
+  /**
+   * The tax code associated with the variant.
+   */
   private String taxCode;
 
   public ProductVariantSetInput() {
   }
 
-  
+  /**
+   * Whether a product variant requires components. The default value is `false`.
+   * If `true`, then the product variant can only be purchased as a parent bundle with components and it will be omitted
+   * from channels that don't support bundles.
+   */
   public Boolean getRequiresComponents() {
     return requiresComponents;
   }
@@ -64,7 +103,9 @@ public class ProductVariantSetInput {
     this.requiresComponents = requiresComponents;
   }
 
-  
+  /**
+   * The value of the barcode associated with the product.
+   */
   public String getBarcode() {
     return barcode;
   }
@@ -73,7 +114,9 @@ public class ProductVariantSetInput {
     this.barcode = barcode;
   }
 
-  
+  /**
+   * The compare-at price of the variant.
+   */
   public String getCompareAtPrice() {
     return compareAtPrice;
   }
@@ -82,7 +125,9 @@ public class ProductVariantSetInput {
     this.compareAtPrice = compareAtPrice;
   }
 
-  
+  /**
+   * Specifies the product variant to update or create a new variant if absent.
+   */
   public String getId() {
     return id;
   }
@@ -91,7 +136,10 @@ public class ProductVariantSetInput {
     this.id = id;
   }
 
-  
+  /**
+   * The file to associate with the variant.
+   * Any file specified here must also be specified in the `files` input for the product.
+   */
   public FileSetInput getFile() {
     return file;
   }
@@ -100,7 +148,9 @@ public class ProductVariantSetInput {
     this.file = file;
   }
 
-  
+  /**
+   * Whether customers are allowed to place an order for the product variant when it's out of stock.
+   */
   public ProductVariantInventoryPolicy getInventoryPolicy() {
     return inventoryPolicy;
   }
@@ -109,7 +159,11 @@ public class ProductVariantSetInput {
     this.inventoryPolicy = inventoryPolicy;
   }
 
-  
+  /**
+   * The inventory quantities at each location where the variant is stocked.
+   * If you're updating an existing variant, then you can only update the
+   * quantities at locations where the variant is already stocked.
+   */
   public List<ProductSetInventoryInput> getInventoryQuantities() {
     return inventoryQuantities;
   }
@@ -118,7 +172,9 @@ public class ProductVariantSetInput {
     this.inventoryQuantities = inventoryQuantities;
   }
 
-  
+  /**
+   * Additional customizable information about the product variant.
+   */
   public List<MetafieldInput> getMetafields() {
     return metafields;
   }
@@ -127,7 +183,9 @@ public class ProductVariantSetInput {
     this.metafields = metafields;
   }
 
-  
+  /**
+   * The custom properties that a shop owner uses to define product variants.
+   */
   public List<VariantOptionValueInput> getOptionValues() {
     return optionValues;
   }
@@ -136,7 +194,9 @@ public class ProductVariantSetInput {
     this.optionValues = optionValues;
   }
 
-  
+  /**
+   * The order of the product variant in the list of product variants. The first position in the list is 1.
+   */
   public Integer getPosition() {
     return position;
   }
@@ -145,7 +205,9 @@ public class ProductVariantSetInput {
     this.position = position;
   }
 
-  
+  /**
+   * The price of the variant.
+   */
   public String getPrice() {
     return price;
   }
@@ -154,7 +216,9 @@ public class ProductVariantSetInput {
     this.price = price;
   }
 
-  
+  /**
+   * The SKU for the variant. Case-sensitive string.
+   */
   public String getSku() {
     return sku;
   }
@@ -163,7 +227,9 @@ public class ProductVariantSetInput {
     this.sku = sku;
   }
 
-  
+  /**
+   * Whether the variant is taxable.
+   */
   public Boolean getTaxable() {
     return taxable;
   }
@@ -172,7 +238,9 @@ public class ProductVariantSetInput {
     this.taxable = taxable;
   }
 
-  
+  /**
+   * The tax code associated with the variant.
+   */
   public String getTaxCode() {
     return taxCode;
   }
@@ -217,46 +285,79 @@ public class ProductVariantSetInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Whether a product variant requires components. The default value is `false`.
+     * If `true`, then the product variant can only be purchased as a parent bundle with components and it will be omitted
+     * from channels that don't support bundles.
+     */
     private Boolean requiresComponents;
 
-    
+    /**
+     * The value of the barcode associated with the product.
+     */
     private String barcode;
 
-    
+    /**
+     * The compare-at price of the variant.
+     */
     private String compareAtPrice;
 
-    
+    /**
+     * Specifies the product variant to update or create a new variant if absent.
+     */
     private String id;
 
-    
+    /**
+     * The file to associate with the variant.
+     * Any file specified here must also be specified in the `files` input for the product.
+     */
     private FileSetInput file;
 
-    
+    /**
+     * Whether customers are allowed to place an order for the product variant when it's out of stock.
+     */
     private ProductVariantInventoryPolicy inventoryPolicy;
 
-    
+    /**
+     * The inventory quantities at each location where the variant is stocked.
+     * If you're updating an existing variant, then you can only update the
+     * quantities at locations where the variant is already stocked.
+     */
     private List<ProductSetInventoryInput> inventoryQuantities;
 
-    
+    /**
+     * Additional customizable information about the product variant.
+     */
     private List<MetafieldInput> metafields;
 
-    
+    /**
+     * The custom properties that a shop owner uses to define product variants.
+     */
     private List<VariantOptionValueInput> optionValues;
 
-    
+    /**
+     * The order of the product variant in the list of product variants. The first position in the list is 1.
+     */
     private Integer position;
 
-    
+    /**
+     * The price of the variant.
+     */
     private String price;
 
-    
+    /**
+     * The SKU for the variant. Case-sensitive string.
+     */
     private String sku;
 
-    
+    /**
+     * Whether the variant is taxable.
+     */
     private Boolean taxable;
 
-    
+    /**
+     * The tax code associated with the variant.
+     */
     private String taxCode;
 
     public ProductVariantSetInput build() {
@@ -278,85 +379,118 @@ public class ProductVariantSetInput {
       return result;
     }
 
-    
+    /**
+     * Whether a product variant requires components. The default value is `false`.
+     * If `true`, then the product variant can only be purchased as a parent bundle with components and it will be omitted
+     * from channels that don't support bundles.
+     */
     public Builder requiresComponents(Boolean requiresComponents) {
       this.requiresComponents = requiresComponents;
       return this;
     }
 
-    
+    /**
+     * The value of the barcode associated with the product.
+     */
     public Builder barcode(String barcode) {
       this.barcode = barcode;
       return this;
     }
 
-    
+    /**
+     * The compare-at price of the variant.
+     */
     public Builder compareAtPrice(String compareAtPrice) {
       this.compareAtPrice = compareAtPrice;
       return this;
     }
 
-    
+    /**
+     * Specifies the product variant to update or create a new variant if absent.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The file to associate with the variant.
+     * Any file specified here must also be specified in the `files` input for the product.
+     */
     public Builder file(FileSetInput file) {
       this.file = file;
       return this;
     }
 
-    
+    /**
+     * Whether customers are allowed to place an order for the product variant when it's out of stock.
+     */
     public Builder inventoryPolicy(ProductVariantInventoryPolicy inventoryPolicy) {
       this.inventoryPolicy = inventoryPolicy;
       return this;
     }
 
-    
+    /**
+     * The inventory quantities at each location where the variant is stocked.
+     * If you're updating an existing variant, then you can only update the
+     * quantities at locations where the variant is already stocked.
+     */
     public Builder inventoryQuantities(List<ProductSetInventoryInput> inventoryQuantities) {
       this.inventoryQuantities = inventoryQuantities;
       return this;
     }
 
-    
+    /**
+     * Additional customizable information about the product variant.
+     */
     public Builder metafields(List<MetafieldInput> metafields) {
       this.metafields = metafields;
       return this;
     }
 
-    
+    /**
+     * The custom properties that a shop owner uses to define product variants.
+     */
     public Builder optionValues(List<VariantOptionValueInput> optionValues) {
       this.optionValues = optionValues;
       return this;
     }
 
-    
+    /**
+     * The order of the product variant in the list of product variants. The first position in the list is 1.
+     */
     public Builder position(Integer position) {
       this.position = position;
       return this;
     }
 
-    
+    /**
+     * The price of the variant.
+     */
     public Builder price(String price) {
       this.price = price;
       return this;
     }
 
-    
+    /**
+     * The SKU for the variant. Case-sensitive string.
+     */
     public Builder sku(String sku) {
       this.sku = sku;
       return this;
     }
 
-    
+    /**
+     * Whether the variant is taxable.
+     */
     public Builder taxable(Boolean taxable) {
       this.taxable = taxable;
       return this;
     }
 
-    
+    /**
+     * The tax code associated with the variant.
+     */
     public Builder taxCode(String taxCode) {
       this.taxCode = taxCode;
       return this;

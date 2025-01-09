@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Additional information included on a delivery method that will help during the delivery process.
+ */
 public class DeliveryMethodAdditionalInformation {
-  
+  /**
+   * The delivery instructions to follow when performing the delivery.
+   */
   private String instructions;
 
-  
+  /**
+   * The phone number to contact when performing the delivery.
+   */
   private String phone;
 
   public DeliveryMethodAdditionalInformation() {
   }
 
-  
+  /**
+   * The delivery instructions to follow when performing the delivery.
+   */
   public String getInstructions() {
     return instructions;
   }
@@ -25,7 +33,9 @@ public class DeliveryMethodAdditionalInformation {
     this.instructions = instructions;
   }
 
-  
+  /**
+   * The phone number to contact when performing the delivery.
+   */
   public String getPhone() {
     return phone;
   }
@@ -58,10 +68,14 @@ public class DeliveryMethodAdditionalInformation {
   }
 
   public static class Builder {
-    
+    /**
+     * The delivery instructions to follow when performing the delivery.
+     */
     private String instructions;
 
-    
+    /**
+     * The phone number to contact when performing the delivery.
+     */
     private String phone;
 
     public DeliveryMethodAdditionalInformation build() {
@@ -71,13 +85,17 @@ public class DeliveryMethodAdditionalInformation {
       return result;
     }
 
-    
+    /**
+     * The delivery instructions to follow when performing the delivery.
+     */
     public Builder instructions(String instructions) {
       this.instructions = instructions;
       return this;
     }
 
-    
+    /**
+     * The phone number to contact when performing the delivery.
+     */
     public Builder phone(String phone) {
       this.phone = phone;
       return this;

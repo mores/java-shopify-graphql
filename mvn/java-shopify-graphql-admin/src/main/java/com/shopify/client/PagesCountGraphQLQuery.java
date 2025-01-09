@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Count of pages.
+ */
 public class PagesCountGraphQLQuery extends GraphQLQuery {
   public PagesCountGraphQLQuery(String queryName) {
     super("query", queryName);

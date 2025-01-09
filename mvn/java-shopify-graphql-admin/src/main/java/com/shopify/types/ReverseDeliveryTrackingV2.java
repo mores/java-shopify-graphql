@@ -5,21 +5,31 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Represents the information used to track a reverse delivery.
+ */
 public class ReverseDeliveryTrackingV2 {
-  
+  /**
+   * The provider of the tracking information, in a human-readable format for display purposes.
+   */
   private String carrierName;
 
-  
+  /**
+   * The identifier used by the courier to identify the shipment.
+   */
   private String number;
 
-  
+  /**
+   * The URL to track a shipment.
+   */
   private String url;
 
   public ReverseDeliveryTrackingV2() {
   }
 
-  
+  /**
+   * The provider of the tracking information, in a human-readable format for display purposes.
+   */
   public String getCarrierName() {
     return carrierName;
   }
@@ -28,7 +38,9 @@ public class ReverseDeliveryTrackingV2 {
     this.carrierName = carrierName;
   }
 
-  
+  /**
+   * The identifier used by the courier to identify the shipment.
+   */
   public String getNumber() {
     return number;
   }
@@ -37,7 +49,9 @@ public class ReverseDeliveryTrackingV2 {
     this.number = number;
   }
 
-  
+  /**
+   * The URL to track a shipment.
+   */
   public String getUrl() {
     return url;
   }
@@ -71,13 +85,19 @@ public class ReverseDeliveryTrackingV2 {
   }
 
   public static class Builder {
-    
+    /**
+     * The provider of the tracking information, in a human-readable format for display purposes.
+     */
     private String carrierName;
 
-    
+    /**
+     * The identifier used by the courier to identify the shipment.
+     */
     private String number;
 
-    
+    /**
+     * The URL to track a shipment.
+     */
     private String url;
 
     public ReverseDeliveryTrackingV2 build() {
@@ -88,19 +108,25 @@ public class ReverseDeliveryTrackingV2 {
       return result;
     }
 
-    
+    /**
+     * The provider of the tracking information, in a human-readable format for display purposes.
+     */
     public Builder carrierName(String carrierName) {
       this.carrierName = carrierName;
       return this;
     }
 
-    
+    /**
+     * The identifier used by the courier to identify the shipment.
+     */
     public Builder number(String number) {
       this.number = number;
       return this;
     }
 
-    
+    /**
+     * The URL to track a shipment.
+     */
     public Builder url(String url) {
       this.url = url;
       return this;

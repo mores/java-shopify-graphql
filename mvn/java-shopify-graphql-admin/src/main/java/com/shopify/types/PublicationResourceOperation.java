@@ -7,27 +7,39 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A bulk update operation on a publication.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class PublicationResourceOperation implements PublicationOperation, com.shopify.types.Node, com.shopify.types.ResourceOperation {
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The count of processed rows, summing imported, failed, and skipped rows.
+   */
   private Integer processedRowCount;
 
-  
+  /**
+   * Represents a rows objects within this background operation.
+   */
   private RowCount rowCount;
 
-  
+  /**
+   * The status of this operation.
+   */
   private ResourceOperationStatus status;
 
   public PublicationResourceOperation() {
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -36,7 +48,9 @@ public class PublicationResourceOperation implements PublicationOperation, com.s
     this.id = id;
   }
 
-  
+  /**
+   * The count of processed rows, summing imported, failed, and skipped rows.
+   */
   public Integer getProcessedRowCount() {
     return processedRowCount;
   }
@@ -45,7 +59,9 @@ public class PublicationResourceOperation implements PublicationOperation, com.s
     this.processedRowCount = processedRowCount;
   }
 
-  
+  /**
+   * Represents a rows objects within this background operation.
+   */
   public RowCount getRowCount() {
     return rowCount;
   }
@@ -54,7 +70,9 @@ public class PublicationResourceOperation implements PublicationOperation, com.s
     this.rowCount = rowCount;
   }
 
-  
+  /**
+   * The status of this operation.
+   */
   public ResourceOperationStatus getStatus() {
     return status;
   }
@@ -89,16 +107,24 @@ public class PublicationResourceOperation implements PublicationOperation, com.s
   }
 
   public static class Builder {
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The count of processed rows, summing imported, failed, and skipped rows.
+     */
     private Integer processedRowCount;
 
-    
+    /**
+     * Represents a rows objects within this background operation.
+     */
     private RowCount rowCount;
 
-    
+    /**
+     * The status of this operation.
+     */
     private ResourceOperationStatus status;
 
     public PublicationResourceOperation build() {
@@ -110,25 +136,33 @@ public class PublicationResourceOperation implements PublicationOperation, com.s
       return result;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The count of processed rows, summing imported, failed, and skipped rows.
+     */
     public Builder processedRowCount(Integer processedRowCount) {
       this.processedRowCount = processedRowCount;
       return this;
     }
 
-    
+    /**
+     * Represents a rows objects within this background operation.
+     */
     public Builder rowCount(RowCount rowCount) {
       this.rowCount = rowCount;
       return this;
     }
 
-    
+    /**
+     * The status of this operation.
+     */
     public Builder status(ResourceOperationStatus status) {
       this.status = status;
       return this;

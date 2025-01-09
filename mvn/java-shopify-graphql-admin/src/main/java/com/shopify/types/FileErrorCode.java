@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * The error types for a file.
+ */
 public enum FileErrorCode {
   UNKNOWN,
 

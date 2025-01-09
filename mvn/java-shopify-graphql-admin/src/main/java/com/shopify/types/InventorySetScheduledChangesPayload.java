@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `inventorySetScheduledChanges` mutation.
+ */
 public class InventorySetScheduledChangesPayload {
-  
+  /**
+   * The scheduled changes that were created.
+   */
   private List<InventoryScheduledChange> scheduledChanges;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<InventorySetScheduledChangesUserError> userErrors;
 
   public InventorySetScheduledChangesPayload() {
   }
 
-  
+  /**
+   * The scheduled changes that were created.
+   */
   public List<InventoryScheduledChange> getScheduledChanges() {
     return scheduledChanges;
   }
@@ -26,7 +34,9 @@ public class InventorySetScheduledChangesPayload {
     this.scheduledChanges = scheduledChanges;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<InventorySetScheduledChangesUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class InventorySetScheduledChangesPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The scheduled changes that were created.
+     */
     private List<InventoryScheduledChange> scheduledChanges;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<InventorySetScheduledChangesUserError> userErrors;
 
     public InventorySetScheduledChangesPayload build() {
@@ -72,13 +86,17 @@ public class InventorySetScheduledChangesPayload {
       return result;
     }
 
-    
+    /**
+     * The scheduled changes that were created.
+     */
     public Builder scheduledChanges(List<InventoryScheduledChange> scheduledChanges) {
       this.scheduledChanges = scheduledChanges;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<InventorySetScheduledChangesUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

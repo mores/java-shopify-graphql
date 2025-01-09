@@ -90,6 +90,8 @@ public class DgsConstants {
   public static class ABANDONEDCHECKOUTLINEITEM {
     public static final String TYPE_NAME = "AbandonedCheckoutLineItem";
 
+    public static final String Components = "components";
+
     public static final String CustomAttributes = "customAttributes";
 
     public static final String DiscountAllocations = "discountAllocations";
@@ -133,6 +135,20 @@ public class DgsConstants {
 
       public static final String Reverse = "reverse";
     }
+  }
+
+  public static class ABANDONEDCHECKOUTLINEITEMCOMPONENT {
+    public static final String TYPE_NAME = "AbandonedCheckoutLineItemComponent";
+
+    public static final String Id = "id";
+
+    public static final String Image = "image";
+
+    public static final String Quantity = "quantity";
+
+    public static final String Title = "title";
+
+    public static final String VariantTitle = "variantTitle";
   }
 
   public static class ABANDONEDCHECKOUTLINEITEMCONNECTION {
@@ -588,10 +604,6 @@ public class DgsConstants {
 
     public static final String OneTimePurchases = "oneTimePurchases";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static final String Publication = "publication";
 
     public static final String RevenueAttributionRecords = "revenueAttributionRecords";
@@ -662,26 +674,6 @@ public class DgsConstants {
       public static final String Reverse = "reverse";
 
       public static final String SortKey = "sortKey";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
     }
 
     public static class REVENUEATTRIBUTIONRECORDS_INPUT_ARGUMENT {
@@ -1068,10 +1060,6 @@ public class DgsConstants {
 
     public static final String Metafields = "metafields";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static final String PublishedAt = "publishedAt";
 
     public static final String Summary = "summary";
@@ -1150,26 +1138,6 @@ public class DgsConstants {
       public static final String Namespace = "namespace";
 
       public static final String Keys = "keys";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
 
       public static final String First = "first";
 
@@ -1370,10 +1338,6 @@ public class DgsConstants {
 
     public static final String Metafields = "metafields";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static final String Tags = "tags";
 
     public static final String TemplateSuffix = "templateSuffix";
@@ -1442,26 +1406,6 @@ public class DgsConstants {
       public static final String Namespace = "namespace";
 
       public static final String Keys = "keys";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
 
       public static final String First = "first";
 
@@ -1623,6 +1567,16 @@ public class DgsConstants {
     public static final String UserErrors = "userErrors";
   }
 
+  public static class BULKOPERATIONUSERERROR {
+    public static final String TYPE_NAME = "BulkOperationUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
   public static class BULKPRODUCTRESOURCEFEEDBACKCREATEPAYLOAD {
     public static final String TYPE_NAME = "BulkProductResourceFeedbackCreatePayload";
 
@@ -1778,6 +1732,10 @@ public class DgsConstants {
 
     public static final String Alerts = "alerts";
 
+    public static final String AllVariantPricesOverridden = "allVariantPricesOverridden";
+
+    public static final String AnyVariantPricesOverridden = "anyVariantPricesOverridden";
+
     public static final String AppliedDiscount = "appliedDiscount";
 
     public static final String AvailableShippingRates = "availableShippingRates";
@@ -1879,6 +1837,8 @@ public class DgsConstants {
     public static final String OriginalUnitPriceSet = "originalUnitPriceSet";
 
     public static final String OriginalUnitPriceWithCurrency = "originalUnitPriceWithCurrency";
+
+    public static final String PriceOverride = "priceOverride";
 
     public static final String Product = "product";
 
@@ -2262,10 +2222,6 @@ public class DgsConstants {
 
     public static final String Metafields = "metafields";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static class METAFIELD_INPUT_ARGUMENT {
       public static final String Namespace = "namespace";
 
@@ -2276,26 +2232,6 @@ public class DgsConstants {
       public static final String Namespace = "namespace";
 
       public static final String Keys = "keys";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
 
       public static final String First = "first";
 
@@ -3150,9 +3086,19 @@ public class DgsConstants {
   public static class CHECKOUTBRANDINGMERCHANDISETHUMBNAIL {
     public static final String TYPE_NAME = "CheckoutBrandingMerchandiseThumbnail";
 
+    public static final String Badge = "badge";
+
     public static final String Border = "border";
 
     public static final String CornerRadius = "cornerRadius";
+
+    public static final String Fit = "fit";
+  }
+
+  public static class CHECKOUTBRANDINGMERCHANDISETHUMBNAILBADGE {
+    public static final String TYPE_NAME = "CheckoutBrandingMerchandiseThumbnailBadge";
+
+    public static final String Background = "background";
   }
 
   public static class CHECKOUTBRANDINGORDERSUMMARY {
@@ -3326,10 +3272,6 @@ public class DgsConstants {
 
     public static final String Metafields = "metafields";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static final String Products = "products";
 
     public static final String ProductsCount = "productsCount";
@@ -3426,26 +3368,6 @@ public class DgsConstants {
       public static final String Namespace = "namespace";
 
       public static final String Keys = "keys";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
 
       public static final String First = "first";
 
@@ -4080,10 +4002,6 @@ public class DgsConstants {
 
     public static final String OrdersCount = "ordersCount";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static final String TotalSpent = "totalSpent";
 
     public static final String UpdatedAt = "updatedAt";
@@ -4220,26 +4138,6 @@ public class DgsConstants {
       public static final String Reverse = "reverse";
 
       public static final String SortKey = "sortKey";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
     }
   }
 
@@ -4636,10 +4534,6 @@ public class DgsConstants {
 
     public static final String Phone = "phone";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static final String RoleAssignments = "roleAssignments";
 
     public static final String ShippingAddress = "shippingAddress";
@@ -4649,6 +4543,8 @@ public class DgsConstants {
     public static final String TaxExemptions = "taxExemptions";
 
     public static final String TaxRegistrationId = "taxRegistrationId";
+
+    public static final String TaxSettings = "taxSettings";
 
     public static final String TotalSpent = "totalSpent";
 
@@ -4756,26 +4652,6 @@ public class DgsConstants {
       public static final String Reverse = "reverse";
 
       public static final String SortKey = "sortKey";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
     }
 
     public static class ROLEASSIGNMENTS_INPUT_ARGUMENT {
@@ -4989,6 +4865,24 @@ public class DgsConstants {
     public static final String Node = "node";
   }
 
+  public static class COMPANYLOCATIONTAXSETTINGS {
+    public static final String TYPE_NAME = "CompanyLocationTaxSettings";
+
+    public static final String TaxExempt = "taxExempt";
+
+    public static final String TaxExemptions = "taxExemptions";
+
+    public static final String TaxRegistrationId = "taxRegistrationId";
+  }
+
+  public static class COMPANYLOCATIONTAXSETTINGSUPDATEPAYLOAD {
+    public static final String TYPE_NAME = "CompanyLocationTaxSettingsUpdatePayload";
+
+    public static final String CompanyLocation = "companyLocation";
+
+    public static final String UserErrors = "userErrors";
+  }
+
   public static class COMPANYLOCATIONUPDATEPAYLOAD {
     public static final String TYPE_NAME = "CompanyLocationUpdatePayload";
 
@@ -5164,10 +5058,6 @@ public class DgsConstants {
 
     public static final String Phone = "phone";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static final String ProductSubscriberStatus = "productSubscriberStatus";
 
     public static final String SmsMarketingConsent = "smsMarketingConsent";
@@ -5286,26 +5176,6 @@ public class DgsConstants {
 
     public static class PAYMENTMETHODS_INPUT_ARGUMENT {
       public static final String ShowRevoked = "showRevoked";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
 
       public static final String First = "first";
 
@@ -5985,14 +5855,6 @@ public class DgsConstants {
     public static final String UserErrors = "userErrors";
   }
 
-  public static class CUSTOMERPAYMENTMETHODREMOTECREDITCARDCREATEPAYLOAD {
-    public static final String TYPE_NAME = "CustomerPaymentMethodRemoteCreditCardCreatePayload";
-
-    public static final String CustomerPaymentMethod = "customerPaymentMethod";
-
-    public static final String UserErrors = "userErrors";
-  }
-
   public static class CUSTOMERPAYMENTMETHODREMOTEUSERERROR {
     public static final String TYPE_NAME = "CustomerPaymentMethodRemoteUserError";
 
@@ -6114,10 +5976,6 @@ public class DgsConstants {
 
     public static final String NumberOfOrders = "numberOfOrders";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static class METAFIELD_INPUT_ARGUMENT {
       public static final String Namespace = "namespace";
 
@@ -6128,26 +5986,6 @@ public class DgsConstants {
       public static final String Namespace = "namespace";
 
       public static final String Keys = "keys";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
 
       public static final String First = "first";
 
@@ -6590,10 +6428,6 @@ public class DgsConstants {
 
     public static final String Metafields = "metafields";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static final String ShopifyFunction = "shopifyFunction";
 
     public static final String Title = "title";
@@ -6628,26 +6462,6 @@ public class DgsConstants {
       public static final String Namespace = "namespace";
 
       public static final String Keys = "keys";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
 
       public static final String First = "first";
 
@@ -7105,6 +6919,14 @@ public class DgsConstants {
     public static final String UserErrors = "userErrors";
   }
 
+  public static class DELIVERYPROMISEPARTICIPANTSUPDATEPAYLOAD {
+    public static final String TYPE_NAME = "DeliveryPromiseParticipantsUpdatePayload";
+
+    public static final String PromiseParticipants = "promiseParticipants";
+
+    public static final String UserErrors = "userErrors";
+  }
+
   public static class DELIVERYPROMISEPROVIDER {
     public static final String TYPE_NAME = "DeliveryPromiseProvider";
 
@@ -7135,6 +6957,14 @@ public class DgsConstants {
     public static final String Field = "field";
 
     public static final String Message = "message";
+  }
+
+  public static class DELIVERYPROMISESETTING {
+    public static final String TYPE_NAME = "DeliveryPromiseSetting";
+
+    public static final String DeliveryDatesEnabled = "deliveryDatesEnabled";
+
+    public static final String ProcessingTime = "processingTime";
   }
 
   public static class DELIVERYPROVINCE {
@@ -7261,6 +7091,8 @@ public class DgsConstants {
     public static final String TYPE_NAME = "DiscountAutomaticApp";
 
     public static final String AppDiscountType = "appDiscountType";
+
+    public static final String AppliesOnOneTimePurchase = "appliesOnOneTimePurchase";
 
     public static final String AppliesOnSubscription = "appliesOnSubscription";
 
@@ -7538,10 +7370,6 @@ public class DgsConstants {
 
     public static final String Metafields = "metafields";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static class EVENTS_INPUT_ARGUMENT {
       public static final String First = "first";
 
@@ -7599,26 +7427,6 @@ public class DgsConstants {
 
       public static final String Reverse = "reverse";
     }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
   }
 
   public static class DISCOUNTAUTOMATICNODECONNECTION {
@@ -7651,6 +7459,10 @@ public class DgsConstants {
     public static final String TYPE_NAME = "DiscountCodeApp";
 
     public static final String AppDiscountType = "appDiscountType";
+
+    public static final String AppliesOnOneTimePurchase = "appliesOnOneTimePurchase";
+
+    public static final String AppliesOnSubscription = "appliesOnSubscription";
 
     public static final String AppliesOncePerCustomer = "appliesOncePerCustomer";
 
@@ -8048,10 +7860,6 @@ public class DgsConstants {
 
     public static final String Metafields = "metafields";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static class EVENTS_INPUT_ARGUMENT {
       public static final String First = "first";
 
@@ -8098,26 +7906,6 @@ public class DgsConstants {
       public static final String Namespace = "namespace";
 
       public static final String Keys = "keys";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
 
       public static final String First = "first";
 
@@ -8208,6 +7996,10 @@ public class DgsConstants {
   public static class DISCOUNTCUSTOMERBUYS {
     public static final String TYPE_NAME = "DiscountCustomerBuys";
 
+    public static final String IsOneTimePurchase = "isOneTimePurchase";
+
+    public static final String IsSubscription = "isSubscription";
+
     public static final String Items = "items";
 
     public static final String Value = "value";
@@ -8264,10 +8056,6 @@ public class DgsConstants {
 
     public static final String Metafields = "metafields";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static class EVENTS_INPUT_ARGUMENT {
       public static final String First = "first";
 
@@ -8314,26 +8102,6 @@ public class DgsConstants {
       public static final String Namespace = "namespace";
 
       public static final String Keys = "keys";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
 
       public static final String First = "first";
 
@@ -8594,7 +8362,11 @@ public class DgsConstants {
 
     public static final String AcceptAutomaticDiscounts = "acceptAutomaticDiscounts";
 
+    public static final String AllVariantPricesOverridden = "allVariantPricesOverridden";
+
     public static final String AllowDiscountCodesInCheckout = "allowDiscountCodesInCheckout";
+
+    public static final String AnyVariantPricesOverridden = "anyVariantPricesOverridden";
 
     public static final String AppliedDiscount = "appliedDiscount";
 
@@ -8638,6 +8410,8 @@ public class DgsConstants {
 
     public static final String LocalizationExtensions = "localizationExtensions";
 
+    public static final String LocalizedFields = "localizedFields";
+
     public static final String MarketName = "marketName";
 
     public static final String MarketRegionCountryCode = "marketRegionCountryCode";
@@ -8661,10 +8435,6 @@ public class DgsConstants {
     public static final String PoNumber = "poNumber";
 
     public static final String PresentmentCurrencyCode = "presentmentCurrencyCode";
-
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
 
     public static final String PurchasingEntity = "purchasingEntity";
 
@@ -8762,16 +8532,10 @@ public class DgsConstants {
       public static final String Reverse = "reverse";
     }
 
-    public static class METAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
+    public static class LOCALIZEDFIELDS_INPUT_ARGUMENT {
+      public static final String CountryCodes = "countryCodes";
 
-      public static final String Key = "key";
-    }
-
-    public static class METAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Keys = "keys";
+      public static final String Purposes = "purposes";
 
       public static final String First = "first";
 
@@ -8784,14 +8548,16 @@ public class DgsConstants {
       public static final String Reverse = "reverse";
     }
 
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
+    public static class METAFIELD_INPUT_ARGUMENT {
       public static final String Namespace = "namespace";
 
       public static final String Key = "key";
     }
 
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
+    public static class METAFIELDS_INPUT_ARGUMENT {
       public static final String Namespace = "namespace";
+
+      public static final String Keys = "keys";
 
       public static final String First = "first";
 
@@ -9007,6 +8773,8 @@ public class DgsConstants {
     public static final String OriginalUnitPriceSet = "originalUnitPriceSet";
 
     public static final String OriginalUnitPriceWithCurrency = "originalUnitPriceWithCurrency";
+
+    public static final String PriceOverride = "priceOverride";
 
     public static final String Product = "product";
 
@@ -9666,10 +9434,6 @@ public class DgsConstants {
 
     public static final String Metafields = "metafields";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static class METAFIELD_INPUT_ARGUMENT {
       public static final String Namespace = "namespace";
 
@@ -9680,26 +9444,6 @@ public class DgsConstants {
       public static final String Namespace = "namespace";
 
       public static final String Keys = "keys";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
 
       public static final String First = "first";
 
@@ -9852,7 +9596,9 @@ public class DgsConstants {
 
     public static final String DisplayReason = "displayReason";
 
-    public static final String HeldBy = "heldBy";
+    public static final String Handle = "handle";
+
+    public static final String HeldByApp = "heldByApp";
 
     public static final String HeldByRequestingApp = "heldByRequestingApp";
 
@@ -10730,10 +10476,6 @@ public class DgsConstants {
 
     public static final String Note = "note";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static final String ProcessedAt = "processedAt";
 
     public static class METAFIELD_INPUT_ARGUMENT {
@@ -10746,26 +10488,6 @@ public class DgsConstants {
       public static final String Namespace = "namespace";
 
       public static final String Keys = "keys";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
 
       public static final String First = "first";
 
@@ -10820,10 +10542,6 @@ public class DgsConstants {
 
     public static final String Note = "note";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static final String ProcessedAt = "processedAt";
 
     public static class METAFIELD_INPUT_ARGUMENT {
@@ -10836,26 +10554,6 @@ public class DgsConstants {
       public static final String Namespace = "namespace";
 
       public static final String Keys = "keys";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
 
       public static final String First = "first";
 
@@ -11010,10 +10708,6 @@ public class DgsConstants {
 
     public static final String OriginalSrc = "originalSrc";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static final String Src = "src";
 
     public static final String TransformedSrc = "transformedSrc";
@@ -11032,26 +10726,6 @@ public class DgsConstants {
       public static final String Namespace = "namespace";
 
       public static final String Keys = "keys";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
 
       public static final String First = "first";
 
@@ -11735,6 +11409,38 @@ public class DgsConstants {
     public static final String Node = "node";
   }
 
+  public static class LOCALIZEDFIELD {
+    public static final String TYPE_NAME = "LocalizedField";
+
+    public static final String CountryCode = "countryCode";
+
+    public static final String Key = "key";
+
+    public static final String Purpose = "purpose";
+
+    public static final String Title = "title";
+
+    public static final String Value = "value";
+  }
+
+  public static class LOCALIZEDFIELDCONNECTION {
+    public static final String TYPE_NAME = "LocalizedFieldConnection";
+
+    public static final String Edges = "edges";
+
+    public static final String Nodes = "nodes";
+
+    public static final String PageInfo = "pageInfo";
+  }
+
+  public static class LOCALIZEDFIELDEDGE {
+    public static final String TYPE_NAME = "LocalizedFieldEdge";
+
+    public static final String Cursor = "cursor";
+
+    public static final String Node = "node";
+  }
+
   public static class LOCALPAYMENTMETHODSPAYMENTDETAILS {
     public static final String TYPE_NAME = "LocalPaymentMethodsPaymentDetails";
 
@@ -11792,10 +11498,6 @@ public class DgsConstants {
 
     public static final String Name = "name";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static final String ShipsInventory = "shipsInventory";
 
     public static final String SuggestedAddresses = "suggestedAddresses";
@@ -11850,26 +11552,6 @@ public class DgsConstants {
       public static final String Namespace = "namespace";
 
       public static final String Keys = "keys";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
 
       public static final String First = "first";
 
@@ -12174,10 +11856,6 @@ public class DgsConstants {
 
     public static final String Primary = "primary";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static final String Regions = "regions";
 
     public static final String WebPresence = "webPresence";
@@ -12226,26 +11904,6 @@ public class DgsConstants {
       public static final String Namespace = "namespace";
 
       public static final String Keys = "keys";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
 
       public static final String First = "first";
 
@@ -12956,10 +12614,6 @@ public class DgsConstants {
 
     public static final String Preview = "preview";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static final String Status = "status";
 
     public static final String UpdatedAt = "updatedAt";
@@ -12974,26 +12628,6 @@ public class DgsConstants {
       public static final String Namespace = "namespace";
 
       public static final String Keys = "keys";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
 
       public static final String First = "first";
 
@@ -13239,6 +12873,8 @@ public class DgsConstants {
     public static final String AdminFilterable = "adminFilterable";
 
     public static final String SmartCollectionCondition = "smartCollectionCondition";
+
+    public static final String UniqueValues = "uniqueValues";
   }
 
   public static class METAFIELDCAPABILITYADMINFILTERABLE {
@@ -13253,6 +12889,14 @@ public class DgsConstants {
 
   public static class METAFIELDCAPABILITYSMARTCOLLECTIONCONDITION {
     public static final String TYPE_NAME = "MetafieldCapabilitySmartCollectionCondition";
+
+    public static final String Eligible = "eligible";
+
+    public static final String Enabled = "enabled";
+  }
+
+  public static class METAFIELDCAPABILITYUNIQUEVALUES {
+    public static final String TYPE_NAME = "MetafieldCapabilityUniqueValues";
 
     public static final String Eligible = "eligible";
 
@@ -13305,8 +12949,6 @@ public class DgsConstants {
     public static final String ValidationStatus = "validationStatus";
 
     public static final String Validations = "validations";
-
-    public static final String VisibleToStorefrontApi = "visibleToStorefrontApi";
 
     public static class METAFIELDS_INPUT_ARGUMENT {
       public static final String ValidationStatus = "validationStatus";
@@ -13517,14 +13159,6 @@ public class DgsConstants {
     public static final String Value = "value";
   }
 
-  public static class METAFIELDDELETEPAYLOAD {
-    public static final String TYPE_NAME = "MetafieldDeletePayload";
-
-    public static final String DeletedId = "deletedId";
-
-    public static final String UserErrors = "userErrors";
-  }
-
   public static class METAFIELDEDGE {
     public static final String TYPE_NAME = "MetafieldEdge";
 
@@ -13619,58 +13253,6 @@ public class DgsConstants {
     public static final String Field = "field";
 
     public static final String Message = "message";
-  }
-
-  public static class METAFIELDSTOREFRONTVISIBILITY {
-    public static final String TYPE_NAME = "MetafieldStorefrontVisibility";
-
-    public static final String CreatedAt = "createdAt";
-
-    public static final String Id = "id";
-
-    public static final String Key = "key";
-
-    public static final String LegacyResourceId = "legacyResourceId";
-
-    public static final String Namespace = "namespace";
-
-    public static final String OwnerType = "ownerType";
-
-    public static final String UpdatedAt = "updatedAt";
-  }
-
-  public static class METAFIELDSTOREFRONTVISIBILITYCONNECTION {
-    public static final String TYPE_NAME = "MetafieldStorefrontVisibilityConnection";
-
-    public static final String Edges = "edges";
-
-    public static final String Nodes = "nodes";
-
-    public static final String PageInfo = "pageInfo";
-  }
-
-  public static class METAFIELDSTOREFRONTVISIBILITYCREATEPAYLOAD {
-    public static final String TYPE_NAME = "MetafieldStorefrontVisibilityCreatePayload";
-
-    public static final String MetafieldStorefrontVisibility = "metafieldStorefrontVisibility";
-
-    public static final String UserErrors = "userErrors";
-  }
-
-  public static class METAFIELDSTOREFRONTVISIBILITYDELETEPAYLOAD {
-    public static final String TYPE_NAME = "MetafieldStorefrontVisibilityDeletePayload";
-
-    public static final String DeletedMetafieldStorefrontVisibilityId = "deletedMetafieldStorefrontVisibilityId";
-
-    public static final String UserErrors = "userErrors";
-  }
-
-  public static class METAFIELDSTOREFRONTVISIBILITYEDGE {
-    public static final String TYPE_NAME = "MetafieldStorefrontVisibilityEdge";
-
-    public static final String Cursor = "cursor";
-
-    public static final String Node = "node";
   }
 
   public static class METAOBJECT {
@@ -14280,6 +13862,8 @@ public class DgsConstants {
 
     public static final String CompanyLocationRevokeTaxRegistration = "companyLocationRevokeTaxRegistration";
 
+    public static final String CompanyLocationTaxSettingsUpdate = "companyLocationTaxSettingsUpdate";
+
     public static final String CompanyLocationUpdate = "companyLocationUpdate";
 
     public static final String CompanyLocationsDelete = "companyLocationsDelete";
@@ -14317,8 +13901,6 @@ public class DgsConstants {
     public static final String CustomerPaymentMethodPaypalBillingAgreementUpdate = "customerPaymentMethodPaypalBillingAgreementUpdate";
 
     public static final String CustomerPaymentMethodRemoteCreate = "customerPaymentMethodRemoteCreate";
-
-    public static final String CustomerPaymentMethodRemoteCreditCardCreate = "customerPaymentMethodRemoteCreditCardCreate";
 
     public static final String CustomerPaymentMethodRevoke = "customerPaymentMethodRevoke";
 
@@ -14359,6 +13941,8 @@ public class DgsConstants {
     public static final String DeliveryProfileRemove = "deliveryProfileRemove";
 
     public static final String DeliveryProfileUpdate = "deliveryProfileUpdate";
+
+    public static final String DeliveryPromiseParticipantsUpdate = "deliveryPromiseParticipantsUpdate";
 
     public static final String DeliveryPromiseProviderUpsert = "deliveryPromiseProviderUpsert";
 
@@ -14630,12 +14214,6 @@ public class DgsConstants {
 
     public static final String MetafieldDefinitionUpdate = "metafieldDefinitionUpdate";
 
-    public static final String MetafieldDelete = "metafieldDelete";
-
-    public static final String MetafieldStorefrontVisibilityCreate = "metafieldStorefrontVisibilityCreate";
-
-    public static final String MetafieldStorefrontVisibilityDelete = "metafieldStorefrontVisibilityDelete";
-
     public static final String MetafieldsDelete = "metafieldsDelete";
 
     public static final String MetafieldsSet = "metafieldsSet";
@@ -14743,10 +14321,6 @@ public class DgsConstants {
     public static final String PriceListFixedPricesUpdate = "priceListFixedPricesUpdate";
 
     public static final String PriceListUpdate = "priceListUpdate";
-
-    public static final String PrivateMetafieldDelete = "privateMetafieldDelete";
-
-    public static final String PrivateMetafieldUpsert = "privateMetafieldUpsert";
 
     public static final String ProductBundleCreate = "productBundleCreate";
 
@@ -15468,6 +15042,18 @@ public class DgsConstants {
       public static final String CompanyLocationId = "companyLocationId";
     }
 
+    public static class COMPANYLOCATIONTAXSETTINGSUPDATE_INPUT_ARGUMENT {
+      public static final String CompanyLocationId = "companyLocationId";
+
+      public static final String TaxRegistrationId = "taxRegistrationId";
+
+      public static final String TaxExempt = "taxExempt";
+
+      public static final String ExemptionsToAssign = "exemptionsToAssign";
+
+      public static final String ExemptionsToRemove = "exemptionsToRemove";
+    }
+
     public static class COMPANYLOCATIONUPDATE_INPUT_ARGUMENT {
       public static final String CompanyLocationId = "companyLocationId";
 
@@ -15580,14 +15166,6 @@ public class DgsConstants {
       public static final String RemoteReference = "remoteReference";
     }
 
-    public static class CUSTOMERPAYMENTMETHODREMOTECREDITCARDCREATE_INPUT_ARGUMENT {
-      public static final String CustomerId = "customerId";
-
-      public static final String StripeCustomerId = "stripeCustomerId";
-
-      public static final String StripePaymentMethodId = "stripePaymentMethodId";
-    }
-
     public static class CUSTOMERPAYMENTMETHODREVOKE_INPUT_ARGUMENT {
       public static final String CustomerPaymentMethodId = "customerPaymentMethodId";
     }
@@ -15684,6 +15262,14 @@ public class DgsConstants {
       public static final String Profile = "profile";
 
       public static final String LeaveLegacyModeProfiles = "leaveLegacyModeProfiles";
+    }
+
+    public static class DELIVERYPROMISEPARTICIPANTSUPDATE_INPUT_ARGUMENT {
+      public static final String BrandedPromiseHandle = "brandedPromiseHandle";
+
+      public static final String OwnersToAdd = "ownersToAdd";
+
+      public static final String OwnersToRemove = "ownersToRemove";
     }
 
     public static class DELIVERYPROMISEPROVIDERUPSERT_INPUT_ARGUMENT {
@@ -16442,18 +16028,6 @@ public class DgsConstants {
       public static final String Definition = "definition";
     }
 
-    public static class METAFIELDDELETE_INPUT_ARGUMENT {
-      public static final String Input = "input";
-    }
-
-    public static class METAFIELDSTOREFRONTVISIBILITYCREATE_INPUT_ARGUMENT {
-      public static final String Input = "input";
-    }
-
-    public static class METAFIELDSTOREFRONTVISIBILITYDELETE_INPUT_ARGUMENT {
-      public static final String Id = "id";
-    }
-
     public static class METAFIELDSDELETE_INPUT_ARGUMENT {
       public static final String Metafields = "metafields";
     }
@@ -16771,14 +16345,6 @@ public class DgsConstants {
     public static class PRICELISTUPDATE_INPUT_ARGUMENT {
       public static final String Id = "id";
 
-      public static final String Input = "input";
-    }
-
-    public static class PRIVATEMETAFIELDDELETE_INPUT_ARGUMENT {
-      public static final String Input = "input";
-    }
-
-    public static class PRIVATEMETAFIELDUPSERT_INPUT_ARGUMENT {
       public static final String Input = "input";
     }
 
@@ -17275,6 +16841,8 @@ public class DgsConstants {
 
       public static final String UseAsCollectionCondition = "useAsCollectionCondition";
 
+      public static final String Capabilities = "capabilities";
+
       public static final String Access = "access";
     }
 
@@ -17312,6 +16880,8 @@ public class DgsConstants {
       public static final String BillingAttemptExpectedDateRange = "billingAttemptExpectedDateRange";
 
       public static final String Filters = "filters";
+
+      public static final String InventoryPolicy = "inventoryPolicy";
     }
 
     public static class SUBSCRIPTIONBILLINGCYCLEBULKSEARCH_INPUT_ARGUMENT {
@@ -17324,6 +16894,8 @@ public class DgsConstants {
       public static final String SubscriptionContractId = "subscriptionContractId";
 
       public static final String BillingCycleSelector = "billingCycleSelector";
+
+      public static final String InventoryPolicy = "inventoryPolicy";
     }
 
     public static class SUBSCRIPTIONBILLINGCYCLECONTRACTDRAFTCOMMIT_INPUT_ARGUMENT {
@@ -17936,6 +17508,8 @@ public class DgsConstants {
 
     public static final String LocalizationExtensions = "localizationExtensions";
 
+    public static final String LocalizedFields = "localizedFields";
+
     public static final String MerchantBusinessEntity = "merchantBusinessEntity";
 
     public static final String MerchantEditable = "merchantEditable";
@@ -17979,10 +17553,6 @@ public class DgsConstants {
     public static final String PoNumber = "poNumber";
 
     public static final String PresentmentCurrencyCode = "presentmentCurrencyCode";
-
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
 
     public static final String ProcessedAt = "processedAt";
 
@@ -18206,6 +17776,22 @@ public class DgsConstants {
       public static final String Reverse = "reverse";
     }
 
+    public static class LOCALIZEDFIELDS_INPUT_ARGUMENT {
+      public static final String CountryCodes = "countryCodes";
+
+      public static final String Purposes = "purposes";
+
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+    }
+
     public static class METAFIELD_INPUT_ARGUMENT {
       public static final String Namespace = "namespace";
 
@@ -18249,26 +17835,6 @@ public class DgsConstants {
     }
 
     public static class NONFULFILLABLELINEITEMS_INPUT_ARGUMENT {
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
       public static final String First = "first";
 
       public static final String After = "after";
@@ -18936,6 +18502,8 @@ public class DgsConstants {
 
     public static final String Kind = "kind";
 
+    public static final String ManualPaymentGateway = "manualPaymentGateway";
+
     public static final String ManuallyCapturable = "manuallyCapturable";
 
     public static final String MaximumRefundable = "maximumRefundable";
@@ -19030,10 +18598,6 @@ public class DgsConstants {
 
     public static final String Metafields = "metafields";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static final String PublishedAt = "publishedAt";
 
     public static final String TemplateSuffix = "templateSuffix";
@@ -19090,26 +18654,6 @@ public class DgsConstants {
       public static final String Namespace = "namespace";
 
       public static final String Keys = "keys";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
 
       public static final String First = "first";
 
@@ -19230,10 +18774,6 @@ public class DgsConstants {
 
     public static final String Metafields = "metafields";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static final String ShopifyFunction = "shopifyFunction";
 
     public static final String Title = "title";
@@ -19268,26 +18808,6 @@ public class DgsConstants {
       public static final String Namespace = "namespace";
 
       public static final String Keys = "keys";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
 
       public static final String First = "first";
 
@@ -20113,58 +19633,6 @@ public class DgsConstants {
     public static final String Percentage = "percentage";
   }
 
-  public static class PRIVATEMETAFIELD {
-    public static final String TYPE_NAME = "PrivateMetafield";
-
-    public static final String CreatedAt = "createdAt";
-
-    public static final String Id = "id";
-
-    public static final String Key = "key";
-
-    public static final String Namespace = "namespace";
-
-    public static final String UpdatedAt = "updatedAt";
-
-    public static final String Value = "value";
-
-    public static final String ValueType = "valueType";
-  }
-
-  public static class PRIVATEMETAFIELDCONNECTION {
-    public static final String TYPE_NAME = "PrivateMetafieldConnection";
-
-    public static final String Edges = "edges";
-
-    public static final String Nodes = "nodes";
-
-    public static final String PageInfo = "pageInfo";
-  }
-
-  public static class PRIVATEMETAFIELDDELETEPAYLOAD {
-    public static final String TYPE_NAME = "PrivateMetafieldDeletePayload";
-
-    public static final String DeletedPrivateMetafieldId = "deletedPrivateMetafieldId";
-
-    public static final String UserErrors = "userErrors";
-  }
-
-  public static class PRIVATEMETAFIELDEDGE {
-    public static final String TYPE_NAME = "PrivateMetafieldEdge";
-
-    public static final String Cursor = "cursor";
-
-    public static final String Node = "node";
-  }
-
-  public static class PRIVATEMETAFIELDUPSERTPAYLOAD {
-    public static final String TYPE_NAME = "PrivateMetafieldUpsertPayload";
-
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String UserErrors = "userErrors";
-  }
-
   public static class PRODUCT {
     public static final String TYPE_NAME = "Product";
 
@@ -20245,10 +19713,6 @@ public class DgsConstants {
     public static final String PriceRange = "priceRange";
 
     public static final String PriceRangeV2 = "priceRangeV2";
-
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
 
     public static final String ProductCategory = "productCategory";
 
@@ -20454,26 +19918,6 @@ public class DgsConstants {
 
     public static class OPTIONS_INPUT_ARGUMENT {
       public static final String First = "first";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
     }
 
     public static class PRODUCTPUBLICATIONS_INPUT_ARGUMENT {
@@ -21348,10 +20792,6 @@ public class DgsConstants {
 
     public static final String Price = "price";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static final String Product = "product";
 
     public static final String ProductVariantComponents = "productVariantComponents";
@@ -21460,26 +20900,6 @@ public class DgsConstants {
 
     public static class PRESENTMENTPRICES_INPUT_ARGUMENT {
       public static final String PresentmentCurrencies = "presentmentCurrencies";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
 
       public static final String First = "first";
 
@@ -21749,6 +21169,34 @@ public class DgsConstants {
     public static final String Field = "field";
 
     public static final String Message = "message";
+  }
+
+  public static class PROMISEPARTICIPANT {
+    public static final String TYPE_NAME = "PromiseParticipant";
+
+    public static final String Id = "id";
+
+    public static final String Owner = "owner";
+
+    public static final String OwnerType = "ownerType";
+  }
+
+  public static class PROMISEPARTICIPANTCONNECTION {
+    public static final String TYPE_NAME = "PromiseParticipantConnection";
+
+    public static final String Edges = "edges";
+
+    public static final String Nodes = "nodes";
+
+    public static final String PageInfo = "pageInfo";
+  }
+
+  public static class PROMISEPARTICIPANTEDGE {
+    public static final String TYPE_NAME = "PromiseParticipantEdge";
+
+    public static final String Cursor = "cursor";
+
+    public static final String Node = "node";
   }
 
   public static class PUBLICATION {
@@ -22234,11 +21682,15 @@ public class DgsConstants {
 
     public static final String CustomerAccountPages = "customerAccountPages";
 
+    public static final String CustomerByIdentifier = "customerByIdentifier";
+
     public static final String CustomerMergeJobStatus = "customerMergeJobStatus";
 
     public static final String CustomerMergePreview = "customerMergePreview";
 
     public static final String CustomerPaymentMethod = "customerPaymentMethod";
+
+    public static final String CustomerSavedSearches = "customerSavedSearches";
 
     public static final String CustomerSegmentMembers = "customerSegmentMembers";
 
@@ -22260,7 +21712,11 @@ public class DgsConstants {
 
     public static final String DeliveryProfiles = "deliveryProfiles";
 
+    public static final String DeliveryPromiseParticipants = "deliveryPromiseParticipants";
+
     public static final String DeliveryPromiseProvider = "deliveryPromiseProvider";
+
+    public static final String DeliveryPromiseSettings = "deliveryPromiseSettings";
 
     public static final String DeliverySettings = "deliverySettings";
 
@@ -22370,10 +21826,6 @@ public class DgsConstants {
 
     public static final String MetafieldDefinitions = "metafieldDefinitions";
 
-    public static final String MetafieldStorefrontVisibilities = "metafieldStorefrontVisibilities";
-
-    public static final String MetafieldStorefrontVisibility = "metafieldStorefrontVisibility";
-
     public static final String Metaobject = "metaobject";
 
     public static final String MetaobjectByHandle = "metaobjectByHandle";
@@ -22426,13 +21878,11 @@ public class DgsConstants {
 
     public static final String PrimaryMarket = "primaryMarket";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static final String Product = "product";
 
     public static final String ProductByHandle = "productByHandle";
+
+    public static final String ProductByIdentifier = "productByIdentifier";
 
     public static final String ProductDuplicateJob = "productDuplicateJob";
 
@@ -22446,11 +21896,17 @@ public class DgsConstants {
 
     public static final String ProductSavedSearches = "productSavedSearches";
 
+    public static final String ProductTags = "productTags";
+
+    public static final String ProductTypes = "productTypes";
+
     public static final String ProductVariant = "productVariant";
 
     public static final String ProductVariants = "productVariants";
 
     public static final String ProductVariantsCount = "productVariantsCount";
+
+    public static final String ProductVendors = "productVendors";
 
     public static final String Products = "products";
 
@@ -23070,6 +22526,10 @@ public class DgsConstants {
       public static final String Reverse = "reverse";
     }
 
+    public static class CUSTOMERBYIDENTIFIER_INPUT_ARGUMENT {
+      public static final String Identifier = "identifier";
+    }
+
     public static class CUSTOMERMERGEJOBSTATUS_INPUT_ARGUMENT {
       public static final String JobId = "jobId";
     }
@@ -23086,6 +22546,22 @@ public class DgsConstants {
       public static final String Id = "id";
 
       public static final String ShowRevoked = "showRevoked";
+    }
+
+    public static class CUSTOMERSAVEDSEARCHES_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+
+      public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
     }
 
     public static class CUSTOMERSEGMENTMEMBERS_INPUT_ARGUMENT {
@@ -23182,6 +22658,22 @@ public class DgsConstants {
 
     public static class DELIVERYPROFILES_INPUT_ARGUMENT {
       public static final String MerchantOwnedOnly = "merchantOwnedOnly";
+
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+    }
+
+    public static class DELIVERYPROMISEPARTICIPANTS_INPUT_ARGUMENT {
+      public static final String OwnerIds = "ownerIds";
+
+      public static final String BrandedPromiseHandle = "brandedPromiseHandle";
 
       public static final String First = "first";
 
@@ -23658,24 +23150,6 @@ public class DgsConstants {
       public static final String Query = "query";
     }
 
-    public static class METAFIELDSTOREFRONTVISIBILITIES_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class METAFIELDSTOREFRONTVISIBILITY_INPUT_ARGUMENT {
-      public static final String Id = "id";
-    }
-
     public static class METAOBJECT_INPUT_ARGUMENT {
       public static final String Id = "id";
     }
@@ -23850,32 +23324,16 @@ public class DgsConstants {
       public static final String SortKey = "sortKey";
     }
 
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Id = "id";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Owner = "owner";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
     public static class PRODUCT_INPUT_ARGUMENT {
       public static final String Id = "id";
     }
 
     public static class PRODUCTBYHANDLE_INPUT_ARGUMENT {
       public static final String Handle = "handle";
+    }
+
+    public static class PRODUCTBYIDENTIFIER_INPUT_ARGUMENT {
+      public static final String Identifier = "identifier";
     }
 
     public static class PRODUCTDUPLICATEJOB_INPUT_ARGUMENT {
@@ -23918,6 +23376,30 @@ public class DgsConstants {
       public static final String Reverse = "reverse";
     }
 
+    public static class PRODUCTTAGS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+    }
+
+    public static class PRODUCTTYPES_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+    }
+
     public static class PRODUCTVARIANT_INPUT_ARGUMENT {
       public static final String Id = "id";
     }
@@ -23942,6 +23424,18 @@ public class DgsConstants {
 
     public static class PRODUCTVARIANTSCOUNT_INPUT_ARGUMENT {
       public static final String Query = "query";
+    }
+
+    public static class PRODUCTVENDORS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
     }
 
     public static class PRODUCTS_INPUT_ARGUMENT {
@@ -25924,10 +25418,6 @@ public class DgsConstants {
 
     public static final String PricingPolicies = "pricingPolicies";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static final String Translations = "translations";
 
     public static class METAFIELD_INPUT_ARGUMENT {
@@ -25960,26 +25450,6 @@ public class DgsConstants {
       public static final String Namespace = "namespace";
 
       public static final String Keys = "keys";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
 
       public static final String First = "first";
 
@@ -26514,10 +25984,6 @@ public class DgsConstants {
 
     public static final String CheckoutApiSupported = "checkoutApiSupported";
 
-    public static final String CollectionByHandle = "collectionByHandle";
-
-    public static final String CollectionSavedSearches = "collectionSavedSearches";
-
     public static final String Collections = "collections";
 
     public static final String ContactEmail = "contactEmail";
@@ -26536,8 +26002,6 @@ public class DgsConstants {
 
     public static final String CustomerAccountsV2 = "customerAccountsV2";
 
-    public static final String CustomerSavedSearches = "customerSavedSearches";
-
     public static final String CustomerTags = "customerTags";
 
     public static final String Customers = "customers";
@@ -26545,8 +26009,6 @@ public class DgsConstants {
     public static final String Description = "description";
 
     public static final String Domains = "domains";
-
-    public static final String DraftOrderSavedSearches = "draftOrderSavedSearches";
 
     public static final String DraftOrderTags = "draftOrderTags";
 
@@ -26572,8 +26034,6 @@ public class DgsConstants {
 
     public static final String Locations = "locations";
 
-    public static final String MarketingEvents = "marketingEvents";
-
     public static final String MarketingSmsConsentEnabledAtCheckout = "marketingSmsConsentEnabledAtCheckout";
 
     public static final String MerchantApprovalSignals = "merchantApprovalSignals";
@@ -26592,8 +26052,6 @@ public class DgsConstants {
 
     public static final String OrderNumberFormatSuffix = "orderNumberFormatSuffix";
 
-    public static final String OrderSavedSearches = "orderSavedSearches";
-
     public static final String OrderTags = "orderTags";
 
     public static final String Orders = "orders";
@@ -26604,15 +26062,7 @@ public class DgsConstants {
 
     public static final String PrimaryDomain = "primaryDomain";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
-    public static final String ProductByHandle = "productByHandle";
-
     public static final String ProductImages = "productImages";
-
-    public static final String ProductSavedSearches = "productSavedSearches";
 
     public static final String ProductTags = "productTags";
 
@@ -26666,8 +26116,6 @@ public class DgsConstants {
 
     public static final String UpdatedAt = "updatedAt";
 
-    public static final String UploadedImagesByIds = "uploadedImagesByIds";
-
     public static final String Url = "url";
 
     public static final String WeightUnit = "weightUnit";
@@ -26714,22 +26162,6 @@ public class DgsConstants {
       public static final String Reverse = "reverse";
     }
 
-    public static class COLLECTIONBYHANDLE_INPUT_ARGUMENT {
-      public static final String Handle = "handle";
-    }
-
-    public static class COLLECTIONSAVEDSEARCHES_INPUT_ARGUMENT {
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
     public static class COLLECTIONS_INPUT_ARGUMENT {
       public static final String First = "first";
 
@@ -26760,22 +26192,6 @@ public class DgsConstants {
       public static final String Reverse = "reverse";
     }
 
-    public static class CUSTOMERSAVEDSEARCHES_INPUT_ARGUMENT {
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-
-      public static final String SortKey = "sortKey";
-
-      public static final String Query = "query";
-    }
-
     public static class CUSTOMERTAGS_INPUT_ARGUMENT {
       public static final String First = "first";
     }
@@ -26794,18 +26210,6 @@ public class DgsConstants {
       public static final String SortKey = "sortKey";
 
       public static final String Query = "query";
-    }
-
-    public static class DRAFTORDERSAVEDSEARCHES_INPUT_ARGUMENT {
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
     }
 
     public static class DRAFTORDERTAGS_INPUT_ARGUMENT {
@@ -26880,22 +26284,6 @@ public class DgsConstants {
       public static final String IncludeInactive = "includeInactive";
     }
 
-    public static class MARKETINGEVENTS_INPUT_ARGUMENT {
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-
-      public static final String SortKey = "sortKey";
-
-      public static final String Query = "query";
-    }
-
     public static class METAFIELD_INPUT_ARGUMENT {
       public static final String Namespace = "namespace";
 
@@ -26907,18 +26295,6 @@ public class DgsConstants {
 
       public static final String Keys = "keys";
 
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class ORDERSAVEDSEARCHES_INPUT_ARGUMENT {
       public static final String First = "first";
 
       public static final String After = "after";
@@ -26952,30 +26328,6 @@ public class DgsConstants {
       public static final String Query = "query";
     }
 
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class PRODUCTBYHANDLE_INPUT_ARGUMENT {
-      public static final String Handle = "handle";
-    }
-
     public static class PRODUCTIMAGES_INPUT_ARGUMENT {
       public static final String First = "first";
 
@@ -26988,18 +26340,6 @@ public class DgsConstants {
       public static final String Reverse = "reverse";
 
       public static final String SortKey = "sortKey";
-    }
-
-    public static class PRODUCTSAVEDSEARCHES_INPUT_ARGUMENT {
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
     }
 
     public static class PRODUCTTAGS_INPUT_ARGUMENT {
@@ -27086,10 +26426,6 @@ public class DgsConstants {
       public static final String Locale = "locale";
 
       public static final String MarketId = "marketId";
-    }
-
-    public static class UPLOADEDIMAGESBYIDS_INPUT_ARGUMENT {
-      public static final String ImageIds = "imageIds";
     }
   }
 
@@ -27200,8 +26536,6 @@ public class DgsConstants {
 
     public static final String LiveView = "liveView";
 
-    public static final String MultiLocation = "multiLocation";
-
     public static final String OnboardingVisual = "onboardingVisual";
 
     public static final String PaypalExpressSubscriptionGatewayStatus = "paypalExpressSubscriptionGatewayStatus";
@@ -27263,6 +26597,8 @@ public class DgsConstants {
 
   public static class SHOPIFYPAYMENTSACCOUNT {
     public static final String TYPE_NAME = "ShopifyPaymentsAccount";
+
+    public static final String AccountOpenerName = "accountOpenerName";
 
     public static final String Activated = "activated";
 
@@ -27440,8 +26776,6 @@ public class DgsConstants {
   public static class SHOPIFYPAYMENTSBANKACCOUNT {
     public static final String TYPE_NAME = "ShopifyPaymentsBankAccount";
 
-    public static final String AccountNumber = "accountNumber";
-
     public static final String AccountNumberLastDigits = "accountNumberLastDigits";
 
     public static final String BankName = "bankName";
@@ -27455,8 +26789,6 @@ public class DgsConstants {
     public static final String Id = "id";
 
     public static final String Payouts = "payouts";
-
-    public static final String RoutingNumber = "routingNumber";
 
     public static final String Status = "status";
 
@@ -28158,9 +27490,13 @@ public class DgsConstants {
 
     public static final String CreatedAt = "createdAt";
 
+    public static final String Event = "event";
+
     public static final String ExpiresAt = "expiresAt";
 
     public static final String Id = "id";
+
+    public static final String Origin = "origin";
 
     public static final String RemainingAmount = "remainingAmount";
   }
@@ -28196,7 +27532,11 @@ public class DgsConstants {
 
     public static final String DebitTransaction = "debitTransaction";
 
+    public static final String Event = "event";
+
     public static final String Id = "id";
+
+    public static final String Origin = "origin";
   }
 
   public static class STORECREDITACCOUNTDEBITTRANSACTION {
@@ -28210,7 +27550,11 @@ public class DgsConstants {
 
     public static final String CreatedAt = "createdAt";
 
+    public static final String Event = "event";
+
     public static final String Id = "id";
+
+    public static final String Origin = "origin";
   }
 
   public static class STORECREDITACCOUNTDEBITUSERERROR {
@@ -28243,6 +27587,10 @@ public class DgsConstants {
     public static final String CreatedAt = "createdAt";
 
     public static final String CreditTransaction = "creditTransaction";
+
+    public static final String Event = "event";
+
+    public static final String Origin = "origin";
   }
 
   public static class STORECREDITACCOUNTTRANSACTIONCONNECTION {
@@ -28320,6 +27668,8 @@ public class DgsConstants {
 
     public static final String Edges = "edges";
 
+    public static final String Nodes = "nodes";
+
     public static final String PageInfo = "pageInfo";
   }
 
@@ -28366,7 +27716,11 @@ public class DgsConstants {
 
     public static final String PaymentSessionId = "paymentSessionId";
 
+    public static final String ProcessingError = "processingError";
+
     public static final String Ready = "ready";
+
+    public static final String RespectInventoryPolicy = "respectInventoryPolicy";
 
     public static final String SubscriptionContract = "subscriptionContract";
 
@@ -28409,6 +27763,58 @@ public class DgsConstants {
     public static final String Cursor = "cursor";
 
     public static final String Node = "node";
+  }
+
+  public static class SUBSCRIPTIONBILLINGATTEMPTGENERICERROR {
+    public static final String TYPE_NAME = "SubscriptionBillingAttemptGenericError";
+
+    public static final String Code = "code";
+
+    public static final String Message = "message";
+  }
+
+  public static class SUBSCRIPTIONBILLINGATTEMPTINSUFFICIENTSTOCKPRODUCTVARIANTSERROR {
+    public static final String TYPE_NAME = "SubscriptionBillingAttemptInsufficientStockProductVariantsError";
+
+    public static final String Code = "code";
+
+    public static final String InsufficientStockProductVariants = "insufficientStockProductVariants";
+
+    public static final String Message = "message";
+
+    public static class INSUFFICIENTSTOCKPRODUCTVARIANTS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+    }
+  }
+
+  public static class SUBSCRIPTIONBILLINGATTEMPTOUTOFSTOCKPRODUCTVARIANTSERROR {
+    public static final String TYPE_NAME = "SubscriptionBillingAttemptOutOfStockProductVariantsError";
+
+    public static final String Code = "code";
+
+    public static final String Message = "message";
+
+    public static final String OutOfStockProductVariants = "outOfStockProductVariants";
+
+    public static class OUTOFSTOCKPRODUCTVARIANTS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+    }
   }
 
   public static class SUBSCRIPTIONBILLINGCYCLE {
@@ -29369,6 +28775,8 @@ public class DgsConstants {
 
   public static class SUBSCRIPTIONLINE {
     public static final String TYPE_NAME = "SubscriptionLine";
+
+    public static final String ConcatenatedOriginContract = "concatenatedOriginContract";
 
     public static final String CurrentPrice = "currentPrice";
 
@@ -30466,10 +29874,6 @@ public class DgsConstants {
 
     public static final String Metafields = "metafields";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static final String ShopifyFunction = "shopifyFunction";
 
     public static final String Title = "title";
@@ -30504,26 +29908,6 @@ public class DgsConstants {
       public static final String Namespace = "namespace";
 
       public static final String Keys = "keys";
-
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-
-    public static class PRIVATEMETAFIELD_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
-
-      public static final String Key = "key";
-    }
-
-    public static class PRIVATEMETAFIELDS_INPUT_ARGUMENT {
-      public static final String Namespace = "namespace";
 
       public static final String First = "first";
 
@@ -30719,8 +30103,6 @@ public class DgsConstants {
     public static final String LegacyResourceId = "legacyResourceId";
 
     public static final String MetafieldNamespaces = "metafieldNamespaces";
-
-    public static final String PrivateMetafieldNamespaces = "privateMetafieldNamespaces";
 
     public static final String Topic = "topic";
 
@@ -31483,12 +30865,22 @@ public class DgsConstants {
     public static final String Padding = "padding";
   }
 
+  public static class CHECKOUTBRANDINGMERCHANDISETHUMBNAILBADGEINPUT {
+    public static final String TYPE_NAME = "CheckoutBrandingMerchandiseThumbnailBadgeInput";
+
+    public static final String Background = "background";
+  }
+
   public static class CHECKOUTBRANDINGMERCHANDISETHUMBNAILINPUT {
     public static final String TYPE_NAME = "CheckoutBrandingMerchandiseThumbnailInput";
 
     public static final String Border = "border";
 
     public static final String CornerRadius = "cornerRadius";
+
+    public static final String Fit = "fit";
+
+    public static final String Badge = "badge";
   }
 
   public static class CHECKOUTBRANDINGORDERSUMMARYINPUT {
@@ -31761,6 +31153,8 @@ public class DgsConstants {
     public static final String TaxRegistrationId = "taxRegistrationId";
 
     public static final String TaxExemptions = "taxExemptions";
+
+    public static final String TaxExempt = "taxExempt";
   }
 
   public static class COMPANYLOCATIONROLEASSIGN {
@@ -31843,6 +31237,18 @@ public class DgsConstants {
     public static final String CustomerId = "customerId";
 
     public static final String EmailMarketingConsent = "emailMarketingConsent";
+  }
+
+  public static class CUSTOMERIDENTIFIERINPUT {
+    public static final String TYPE_NAME = "CustomerIdentifierInput";
+
+    public static final String Id = "id";
+
+    public static final String CustomId = "customId";
+
+    public static final String EmailAddress = "emailAddress";
+
+    public static final String PhoneNumber = "phoneNumber";
   }
 
   public static class CUSTOMERINPUT {
@@ -32202,6 +31608,8 @@ public class DgsConstants {
 
     public static final String AppliesOnSubscription = "appliesOnSubscription";
 
+    public static final String AppliesOnOneTimePurchase = "appliesOnOneTimePurchase";
+
     public static final String RecurringCycleLimit = "recurringCycleLimit";
   }
 
@@ -32285,6 +31693,12 @@ public class DgsConstants {
     public static final String CustomerSelection = "customerSelection";
 
     public static final String Code = "code";
+
+    public static final String AppliesOnSubscription = "appliesOnSubscription";
+
+    public static final String AppliesOnOneTimePurchase = "appliesOnOneTimePurchase";
+
+    public static final String RecurringCycleLimit = "recurringCycleLimit";
 
     public static final String Metafields = "metafields";
   }
@@ -32576,6 +31990,8 @@ public class DgsConstants {
 
     public static final String Metafields = "metafields";
 
+    public static final String LocalizedFields = "localizedFields";
+
     public static final String Note = "note";
 
     public static final String ShippingAddress = "shippingAddress";
@@ -32637,6 +32053,10 @@ public class DgsConstants {
     public static final String Uuid = "uuid";
 
     public static final String BundleComponents = "bundleComponents";
+
+    public static final String GeneratePriceOverride = "generatePriceOverride";
+
+    public static final String PriceOverride = "priceOverride";
   }
 
   public static class EMAILINPUT {
@@ -32795,6 +32215,8 @@ public class DgsConstants {
     public static final String NotifyMerchant = "notifyMerchant";
 
     public static final String ExternalId = "externalId";
+
+    public static final String Handle = "handle";
 
     public static final String FulfillmentOrderLineItems = "fulfillmentOrderLineItems";
   }
@@ -33189,6 +32611,14 @@ public class DgsConstants {
 
   public static class LOCALIZATIONEXTENSIONINPUT {
     public static final String TYPE_NAME = "LocalizationExtensionInput";
+
+    public static final String Key = "key";
+
+    public static final String Value = "value";
+  }
+
+  public static class LOCALIZEDFIELDINPUT {
+    public static final String TYPE_NAME = "LocalizedFieldInput";
 
     public static final String Key = "key";
 
@@ -33601,30 +33031,6 @@ public class DgsConstants {
     public static final String Items = "items";
   }
 
-  public static class METAFIELDACCESSGRANTDELETEINPUT {
-    public static final String TYPE_NAME = "MetafieldAccessGrantDeleteInput";
-
-    public static final String Grantee = "grantee";
-  }
-
-  public static class METAFIELDACCESSGRANTINPUT {
-    public static final String TYPE_NAME = "MetafieldAccessGrantInput";
-
-    public static final String Grantee = "grantee";
-
-    public static final String Access = "access";
-  }
-
-  public static class METAFIELDACCESSGRANTOPERATIONINPUT {
-    public static final String TYPE_NAME = "MetafieldAccessGrantOperationInput";
-
-    public static final String Create = "create";
-
-    public static final String Update = "update";
-
-    public static final String Delete = "delete";
-  }
-
   public static class METAFIELDACCESSINPUT {
     public static final String TYPE_NAME = "MetafieldAccessInput";
 
@@ -33657,10 +33063,18 @@ public class DgsConstants {
     public static final String SmartCollectionCondition = "smartCollectionCondition";
 
     public static final String AdminFilterable = "adminFilterable";
+
+    public static final String UniqueValues = "uniqueValues";
   }
 
   public static class METAFIELDCAPABILITYSMARTCOLLECTIONCONDITIONINPUT {
     public static final String TYPE_NAME = "MetafieldCapabilitySmartCollectionConditionInput";
+
+    public static final String Enabled = "enabled";
+  }
+
+  public static class METAFIELDCAPABILITYUNIQUEVALUESINPUT {
+    public static final String TYPE_NAME = "MetafieldCapabilityUniqueValuesInput";
 
     public static final String Enabled = "enabled";
   }
@@ -33671,6 +33085,16 @@ public class DgsConstants {
     public static final String SmartCollectionCondition = "smartCollectionCondition";
 
     public static final String AdminFilterable = "adminFilterable";
+
+    public static final String UniqueValues = "uniqueValues";
+  }
+
+  public static class METAFIELDDEFINITIONCONSTRAINTSINPUT {
+    public static final String TYPE_NAME = "MetafieldDefinitionConstraintsInput";
+
+    public static final String Key = "key";
+
+    public static final String Values = "values";
   }
 
   public static class METAFIELDDEFINITIONCONSTRAINTSUBTYPEIDENTIFIER {
@@ -33679,6 +33103,22 @@ public class DgsConstants {
     public static final String Key = "key";
 
     public static final String Value = "value";
+  }
+
+  public static class METAFIELDDEFINITIONCONSTRAINTSUPDATESINPUT {
+    public static final String TYPE_NAME = "MetafieldDefinitionConstraintsUpdatesInput";
+
+    public static final String Key = "key";
+
+    public static final String Values = "values";
+  }
+
+  public static class METAFIELDDEFINITIONCONSTRAINTVALUEUPDATEINPUT {
+    public static final String TYPE_NAME = "MetafieldDefinitionConstraintValueUpdateInput";
+
+    public static final String Create = "create";
+
+    public static final String Delete = "delete";
   }
 
   public static class METAFIELDDEFINITIONINPUT {
@@ -33702,6 +33142,8 @@ public class DgsConstants {
 
     public static final String Access = "access";
 
+    public static final String Constraints = "constraints";
+
     public static final String Capabilities = "capabilities";
   }
 
@@ -33724,6 +33166,8 @@ public class DgsConstants {
 
     public static final String Access = "access";
 
+    public static final String ConstraintsUpdates = "constraintsUpdates";
+
     public static final String Capabilities = "capabilities";
   }
 
@@ -33733,12 +33177,6 @@ public class DgsConstants {
     public static final String Name = "name";
 
     public static final String Value = "value";
-  }
-
-  public static class METAFIELDDELETEINPUT {
-    public static final String TYPE_NAME = "MetafieldDeleteInput";
-
-    public static final String Id = "id";
   }
 
   public static class METAFIELDIDENTIFIERINPUT {
@@ -33779,16 +33217,6 @@ public class DgsConstants {
     public static final String CompareDigest = "compareDigest";
 
     public static final String Type = "type";
-  }
-
-  public static class METAFIELDSTOREFRONTVISIBILITYINPUT {
-    public static final String TYPE_NAME = "MetafieldStorefrontVisibilityInput";
-
-    public static final String Namespace = "namespace";
-
-    public static final String Key = "key";
-
-    public static final String OwnerType = "ownerType";
   }
 
   public static class METAOBJECTACCESSINPUT {
@@ -34263,12 +33691,52 @@ public class DgsConstants {
     public static final String Id = "id";
   }
 
+  public static class ORDERCREATEASSOCIATECUSTOMERATTRIBUTESINPUT {
+    public static final String TYPE_NAME = "OrderCreateAssociateCustomerAttributesInput";
+
+    public static final String Id = "id";
+
+    public static final String Email = "email";
+  }
+
   public static class ORDERCREATECUSTOMATTRIBUTEINPUT {
     public static final String TYPE_NAME = "OrderCreateCustomAttributeInput";
 
     public static final String Key = "key";
 
     public static final String Value = "value";
+  }
+
+  public static class ORDERCREATECUSTOMERADDRESSINPUT {
+    public static final String TYPE_NAME = "OrderCreateCustomerAddressInput";
+
+    public static final String Address1 = "address1";
+
+    public static final String Address2 = "address2";
+
+    public static final String City = "city";
+
+    public static final String Company = "company";
+
+    public static final String Country = "country";
+
+    public static final String FirstName = "firstName";
+
+    public static final String LastName = "lastName";
+
+    public static final String Phone = "phone";
+
+    public static final String Province = "province";
+
+    public static final String Zip = "zip";
+  }
+
+  public static class ORDERCREATECUSTOMERINPUT {
+    public static final String TYPE_NAME = "OrderCreateCustomerInput";
+
+    public static final String ToAssociate = "toAssociate";
+
+    public static final String ToUpsert = "toUpsert";
   }
 
   public static class ORDERCREATEDISCOUNTCODEINPUT {
@@ -34375,6 +33843,8 @@ public class DgsConstants {
     public static final String Currency = "currency";
 
     public static final String CustomAttributes = "customAttributes";
+
+    public static final String Customer = "customer";
 
     public static final String DiscountCode = "discountCode";
 
@@ -34489,6 +33959,30 @@ public class DgsConstants {
     public static final String Title = "title";
   }
 
+  public static class ORDERCREATEUPSERTCUSTOMERATTRIBUTESINPUT {
+    public static final String TYPE_NAME = "OrderCreateUpsertCustomerAttributesInput";
+
+    public static final String Addresses = "addresses";
+
+    public static final String Email = "email";
+
+    public static final String FirstName = "firstName";
+
+    public static final String Id = "id";
+
+    public static final String LastName = "lastName";
+
+    public static final String MultipassIdentifier = "multipassIdentifier";
+
+    public static final String Note = "note";
+
+    public static final String Phone = "phone";
+
+    public static final String Tags = "tags";
+
+    public static final String TaxExempt = "taxExempt";
+  }
+
   public static class ORDEREDITADDSHIPPINGLINEINPUT {
     public static final String TYPE_NAME = "OrderEditAddShippingLineInput";
 
@@ -34531,6 +34025,8 @@ public class DgsConstants {
     public static final String CustomAttributes = "customAttributes";
 
     public static final String Metafields = "metafields";
+
+    public static final String LocalizedFields = "localizedFields";
 
     public static final String PoNumber = "poNumber";
   }
@@ -34753,36 +34249,6 @@ public class DgsConstants {
     public static final String CatalogId = "catalogId";
   }
 
-  public static class PRIVATEMETAFIELDDELETEINPUT {
-    public static final String TYPE_NAME = "PrivateMetafieldDeleteInput";
-
-    public static final String Owner = "owner";
-
-    public static final String Namespace = "namespace";
-
-    public static final String Key = "key";
-  }
-
-  public static class PRIVATEMETAFIELDINPUT {
-    public static final String TYPE_NAME = "PrivateMetafieldInput";
-
-    public static final String Owner = "owner";
-
-    public static final String Namespace = "namespace";
-
-    public static final String Key = "key";
-
-    public static final String ValueInput = "valueInput";
-  }
-
-  public static class PRIVATEMETAFIELDVALUEINPUT {
-    public static final String TYPE_NAME = "PrivateMetafieldValueInput";
-
-    public static final String Value = "value";
-
-    public static final String ValueType = "valueType";
-  }
-
   public static class PRODUCTBUNDLECOMPONENTINPUT {
     public static final String TYPE_NAME = "ProductBundleComponentInput";
 
@@ -34897,6 +34363,16 @@ public class DgsConstants {
     public static final String Language = "language";
 
     public static final String Country = "country";
+  }
+
+  public static class PRODUCTIDENTIFIERINPUT {
+    public static final String TYPE_NAME = "ProductIdentifierInput";
+
+    public static final String Id = "id";
+
+    public static final String Handle = "handle";
+
+    public static final String CustomId = "customId";
   }
 
   public static class PRODUCTINPUT {
@@ -35071,6 +34547,8 @@ public class DgsConstants {
     public static final String CollectionsToJoin = "collectionsToJoin";
 
     public static final String CollectionsToLeave = "collectionsToLeave";
+
+    public static final String DeleteConflictingConstrainedMetafields = "deleteConflictingConstrainedMetafields";
 
     public static final String Metafields = "metafields";
 
@@ -35415,8 +34893,6 @@ public class DgsConstants {
     public static final String ReturnLineItems = "returnLineItems";
 
     public static final String ReturnShippingFee = "returnShippingFee";
-
-    public static final String NotifyCustomer = "notifyCustomer";
   }
 
   public static class RETURNLINEITEMINPUT {
@@ -35975,6 +35451,8 @@ public class DgsConstants {
     public static final String OriginTime = "originTime";
 
     public static final String BillingCycleSelector = "billingCycleSelector";
+
+    public static final String InventoryPolicy = "inventoryPolicy";
   }
 
   public static class SUBSCRIPTIONBILLINGCYCLEBULKFILTERS {
@@ -36317,6 +35795,16 @@ public class DgsConstants {
     public static final String MarketId = "marketId";
   }
 
+  public static class UNIQUEMETAFIELDVALUEINPUT {
+    public static final String TYPE_NAME = "UniqueMetafieldValueInput";
+
+    public static final String Namespace = "namespace";
+
+    public static final String Key = "key";
+
+    public static final String Value = "value";
+  }
+
   public static class UPDATEMEDIAINPUT {
     public static final String TYPE_NAME = "UpdateMediaInput";
 
@@ -36600,10 +36088,6 @@ public class DgsConstants {
 
     public static final String Note = "note";
 
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
-
     public static final String ProcessedAt = "processedAt";
   }
 
@@ -36625,6 +36109,12 @@ public class DgsConstants {
     public static final String LocalizationExtensions = "localizationExtensions";
   }
 
+  public static class HASLOCALIZEDFIELDS {
+    public static final String TYPE_NAME = "HasLocalizedFields";
+
+    public static final String LocalizedFields = "localizedFields";
+  }
+
   public static class HASMETAFIELDDEFINITIONS {
     public static final String TYPE_NAME = "HasMetafieldDefinitions";
 
@@ -36637,10 +36127,6 @@ public class DgsConstants {
     public static final String Metafield = "metafield";
 
     public static final String Metafields = "metafields";
-
-    public static final String PrivateMetafield = "privateMetafield";
-
-    public static final String PrivateMetafields = "privateMetafields";
   }
 
   public static class HASPUBLISHEDTRANSLATIONS {
@@ -36851,6 +36337,18 @@ public class DgsConstants {
     public static final String BalanceAfterTransaction = "balanceAfterTransaction";
 
     public static final String CreatedAt = "createdAt";
+
+    public static final String Event = "event";
+
+    public static final String Origin = "origin";
+  }
+
+  public static class SUBSCRIPTIONBILLINGATTEMPTPROCESSINGERROR {
+    public static final String TYPE_NAME = "SubscriptionBillingAttemptProcessingError";
+
+    public static final String Code = "code";
+
+    public static final String Message = "message";
   }
 
   public static class SUBSCRIPTIONCONTRACTBASE {

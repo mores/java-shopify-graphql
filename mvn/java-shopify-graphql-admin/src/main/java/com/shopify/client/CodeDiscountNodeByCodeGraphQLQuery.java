@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Returns a code discount identified by its discount code.
+ */
 public class CodeDiscountNodeByCodeGraphQLQuery extends GraphQLQuery {
   public CodeDiscountNodeByCodeGraphQLQuery(String code, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -40,7 +42,9 @@ public class CodeDiscountNodeByCodeGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The case-insensitive code of the `DiscountCodeNode` to return.
+     */
     public Builder code(String code) {
       this.code = code;
       this.fieldsSet.add("code");

@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * The assigment status to be used to filter fulfillment orders.
+ */
 public enum FulfillmentOrderAssignmentStatus {
   CANCELLATION_REQUESTED,
 

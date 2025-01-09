@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * SEO information.
+ */
 public class SEO {
-  
+  /**
+   * SEO Description.
+   */
   private String description;
 
-  
+  /**
+   * SEO Title.
+   */
   private String title;
 
   public SEO() {
   }
 
-  
+  /**
+   * SEO Description.
+   */
   public String getDescription() {
     return description;
   }
@@ -25,7 +33,9 @@ public class SEO {
     this.description = description;
   }
 
-  
+  /**
+   * SEO Title.
+   */
   public String getTitle() {
     return title;
   }
@@ -58,10 +68,14 @@ public class SEO {
   }
 
   public static class Builder {
-    
+    /**
+     * SEO Description.
+     */
     private String description;
 
-    
+    /**
+     * SEO Title.
+     */
     private String title;
 
     public SEO build() {
@@ -71,13 +85,17 @@ public class SEO {
       return result;
     }
 
-    
+    /**
+     * SEO Description.
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    
+    /**
+     * SEO Title.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;

@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `pubSubWebhookSubscriptionUpdate` mutation.
+ */
 public class PubSubWebhookSubscriptionUpdatePayload {
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<PubSubWebhookSubscriptionUpdateUserError> userErrors;
 
-  
+  /**
+   * The webhook subscription that was updated.
+   */
   private WebhookSubscription webhookSubscription;
 
   public PubSubWebhookSubscriptionUpdatePayload() {
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<PubSubWebhookSubscriptionUpdateUserError> getUserErrors() {
     return userErrors;
   }
@@ -26,7 +34,9 @@ public class PubSubWebhookSubscriptionUpdatePayload {
     this.userErrors = userErrors;
   }
 
-  
+  /**
+   * The webhook subscription that was updated.
+   */
   public WebhookSubscription getWebhookSubscription() {
     return webhookSubscription;
   }
@@ -59,10 +69,14 @@ public class PubSubWebhookSubscriptionUpdatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<PubSubWebhookSubscriptionUpdateUserError> userErrors;
 
-    
+    /**
+     * The webhook subscription that was updated.
+     */
     private WebhookSubscription webhookSubscription;
 
     public PubSubWebhookSubscriptionUpdatePayload build() {
@@ -72,13 +86,17 @@ public class PubSubWebhookSubscriptionUpdatePayload {
       return result;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<PubSubWebhookSubscriptionUpdateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;
     }
 
-    
+    /**
+     * The webhook subscription that was updated.
+     */
     public Builder webhookSubscription(WebhookSubscription webhookSubscription) {
       this.webhookSubscription = webhookSubscription;
       return this;

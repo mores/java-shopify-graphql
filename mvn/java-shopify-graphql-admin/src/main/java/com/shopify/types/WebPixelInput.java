@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields to use to update a web pixel.
+ */
 public class WebPixelInput {
-  
+  /**
+   * The web pixel settings in JSON format.
+   */
   private String settings;
 
   public WebPixelInput() {
   }
 
-  
+  /**
+   * The web pixel settings in JSON format.
+   */
   public String getSettings() {
     return settings;
   }
@@ -45,7 +51,9 @@ public class WebPixelInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The web pixel settings in JSON format.
+     */
     private String settings;
 
     public WebPixelInput build() {
@@ -54,7 +62,9 @@ public class WebPixelInput {
       return result;
     }
 
-    
+    /**
+     * The web pixel settings in JSON format.
+     */
     public Builder settings(String settings) {
       this.settings = settings;
       return this;

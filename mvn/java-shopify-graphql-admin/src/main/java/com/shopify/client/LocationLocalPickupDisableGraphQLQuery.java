@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Disables local pickup for a location.
+ */
 public class LocationLocalPickupDisableGraphQLQuery extends GraphQLQuery {
   public LocationLocalPickupDisableGraphQLQuery(String locationId, String queryName,
       Set<String> fieldsSet) {
@@ -41,7 +43,9 @@ public class LocationLocalPickupDisableGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the location to disable local pickup for.
+     */
     public Builder locationId(String locationId) {
       this.locationId = locationId;
       this.fieldsSet.add("locationId");

@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a validation.
+ */
 public class ValidationCreateGraphQLQuery extends GraphQLQuery {
   public ValidationCreateGraphQLQuery(ValidationCreateInput validation, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class ValidationCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The input fields for a new validation.
+     */
     public Builder validation(ValidationCreateInput validation) {
       this.validation = validation;
       this.fieldsSet.add("validation");

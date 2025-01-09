@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * The transfer status of the payout.
+ */
 public enum ShopifyPaymentsPayoutStatus {
   SCHEDULED,
 

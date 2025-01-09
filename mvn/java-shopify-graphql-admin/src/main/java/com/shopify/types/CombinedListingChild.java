@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A child of a combined listing.
+ */
 public class CombinedListingChild {
-  
+  /**
+   * The parent variant.
+   */
   private ProductVariant parentVariant;
 
-  
+  /**
+   * The child product.
+   */
   private Product product;
 
   public CombinedListingChild() {
   }
 
-  
+  /**
+   * The parent variant.
+   */
   public ProductVariant getParentVariant() {
     return parentVariant;
   }
@@ -25,7 +33,9 @@ public class CombinedListingChild {
     this.parentVariant = parentVariant;
   }
 
-  
+  /**
+   * The child product.
+   */
   public Product getProduct() {
     return product;
   }
@@ -58,10 +68,14 @@ public class CombinedListingChild {
   }
 
   public static class Builder {
-    
+    /**
+     * The parent variant.
+     */
     private ProductVariant parentVariant;
 
-    
+    /**
+     * The child product.
+     */
     private Product product;
 
     public CombinedListingChild build() {
@@ -71,13 +85,17 @@ public class CombinedListingChild {
       return result;
     }
 
-    
+    /**
+     * The parent variant.
+     */
     public Builder parentVariant(ProductVariant parentVariant) {
       this.parentVariant = parentVariant;
       return this;
     }
 
-    
+    /**
+     * The child product.
+     */
     public Builder product(Product product) {
       this.product = product;
       return this;

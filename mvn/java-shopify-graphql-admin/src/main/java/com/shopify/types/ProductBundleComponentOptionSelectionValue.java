@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A component option value related to a bundle line.
+ */
 public class ProductBundleComponentOptionSelectionValue {
-  
+  /**
+   * Selection status of the option.
+   */
   private ProductBundleComponentOptionSelectionStatus selectionStatus;
 
-  
+  /**
+   * The value of the option.
+   */
   private String value;
 
   public ProductBundleComponentOptionSelectionValue() {
   }
 
-  
+  /**
+   * Selection status of the option.
+   */
   public ProductBundleComponentOptionSelectionStatus getSelectionStatus() {
     return selectionStatus;
   }
@@ -25,7 +33,9 @@ public class ProductBundleComponentOptionSelectionValue {
     this.selectionStatus = selectionStatus;
   }
 
-  
+  /**
+   * The value of the option.
+   */
   public String getValue() {
     return value;
   }
@@ -58,10 +68,14 @@ public class ProductBundleComponentOptionSelectionValue {
   }
 
   public static class Builder {
-    
+    /**
+     * Selection status of the option.
+     */
     private ProductBundleComponentOptionSelectionStatus selectionStatus;
 
-    
+    /**
+     * The value of the option.
+     */
     private String value;
 
     public ProductBundleComponentOptionSelectionValue build() {
@@ -71,13 +85,17 @@ public class ProductBundleComponentOptionSelectionValue {
       return result;
     }
 
-    
+    /**
+     * Selection status of the option.
+     */
     public Builder selectionStatus(ProductBundleComponentOptionSelectionStatus selectionStatus) {
       this.selectionStatus = selectionStatus;
       return this;
     }
 
-    
+    /**
+     * The value of the option.
+     */
     public Builder value(String value) {
       this.value = value;
       return this;

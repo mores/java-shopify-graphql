@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * An auto-generated type which holds one FulfillmentOrderLocationForMove and a cursor during pagination.
+ */
 public class FulfillmentOrderLocationForMoveEdge {
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   private String cursor;
 
-  
+  /**
+   * The item at the end of FulfillmentOrderLocationForMoveEdge.
+   */
   private FulfillmentOrderLocationForMove node;
 
   public FulfillmentOrderLocationForMoveEdge() {
   }
 
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   public String getCursor() {
     return cursor;
   }
@@ -25,7 +33,9 @@ public class FulfillmentOrderLocationForMoveEdge {
     this.cursor = cursor;
   }
 
-  
+  /**
+   * The item at the end of FulfillmentOrderLocationForMoveEdge.
+   */
   public FulfillmentOrderLocationForMove getNode() {
     return node;
   }
@@ -58,10 +68,14 @@ public class FulfillmentOrderLocationForMoveEdge {
   }
 
   public static class Builder {
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     private String cursor;
 
-    
+    /**
+     * The item at the end of FulfillmentOrderLocationForMoveEdge.
+     */
     private FulfillmentOrderLocationForMove node;
 
     public FulfillmentOrderLocationForMoveEdge build() {
@@ -71,13 +85,17 @@ public class FulfillmentOrderLocationForMoveEdge {
       return result;
     }
 
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder cursor(String cursor) {
       this.cursor = cursor;
       return this;
     }
 
-    
+    /**
+     * The item at the end of FulfillmentOrderLocationForMoveEdge.
+     */
     public Builder node(FulfillmentOrderLocationForMove node) {
       this.node = node;
       return this;

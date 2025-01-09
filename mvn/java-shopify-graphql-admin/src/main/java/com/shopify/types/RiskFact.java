@@ -5,18 +5,28 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A risk fact belongs to a single risk assessment and serves to provide additional
+ * context for an assessment. Risk facts are not necessarily tied to the result of
+ * the recommendation.
+ */
 public class RiskFact {
-  
+  /**
+   * A description of the fact.
+   */
   private String description;
 
-  
+  /**
+   * Indicates whether the fact is a negative, neutral or positive contributor with regards to risk.
+   */
   private RiskFactSentiment sentiment;
 
   public RiskFact() {
   }
 
-  
+  /**
+   * A description of the fact.
+   */
   public String getDescription() {
     return description;
   }
@@ -25,7 +35,9 @@ public class RiskFact {
     this.description = description;
   }
 
-  
+  /**
+   * Indicates whether the fact is a negative, neutral or positive contributor with regards to risk.
+   */
   public RiskFactSentiment getSentiment() {
     return sentiment;
   }
@@ -58,10 +70,14 @@ public class RiskFact {
   }
 
   public static class Builder {
-    
+    /**
+     * A description of the fact.
+     */
     private String description;
 
-    
+    /**
+     * Indicates whether the fact is a negative, neutral or positive contributor with regards to risk.
+     */
     private RiskFactSentiment sentiment;
 
     public RiskFact build() {
@@ -71,13 +87,17 @@ public class RiskFact {
       return result;
     }
 
-    
+    /**
+     * A description of the fact.
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    
+    /**
+     * Indicates whether the fact is a negative, neutral or positive contributor with regards to risk.
+     */
     public Builder sentiment(RiskFactSentiment sentiment) {
       this.sentiment = sentiment;
       return this;

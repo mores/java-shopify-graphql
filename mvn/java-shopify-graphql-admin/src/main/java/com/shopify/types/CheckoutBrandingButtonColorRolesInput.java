@@ -5,33 +5,51 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields to set colors for buttons.
+ */
 public class CheckoutBrandingButtonColorRolesInput {
-  
+  /**
+   * The color of the background.
+   */
   private String background;
 
-  
+  /**
+   * The color of text.
+   */
   private String text;
 
-  
+  /**
+   * The color of borders.
+   */
   private String border;
 
-  
+  /**
+   * The color of icons.
+   */
   private String icon;
 
-  
+  /**
+   * The color of accented objects (links and focused state).
+   */
   private String accent;
 
-  
+  /**
+   * The decorative color for highlighting specific parts of the user interface.
+   */
   private String decorative;
 
-  
+  /**
+   * The colors of the button on hover.
+   */
   private CheckoutBrandingColorRolesInput hover;
 
   public CheckoutBrandingButtonColorRolesInput() {
   }
 
-  
+  /**
+   * The color of the background.
+   */
   public String getBackground() {
     return background;
   }
@@ -40,7 +58,9 @@ public class CheckoutBrandingButtonColorRolesInput {
     this.background = background;
   }
 
-  
+  /**
+   * The color of text.
+   */
   public String getText() {
     return text;
   }
@@ -49,7 +69,9 @@ public class CheckoutBrandingButtonColorRolesInput {
     this.text = text;
   }
 
-  
+  /**
+   * The color of borders.
+   */
   public String getBorder() {
     return border;
   }
@@ -58,7 +80,9 @@ public class CheckoutBrandingButtonColorRolesInput {
     this.border = border;
   }
 
-  
+  /**
+   * The color of icons.
+   */
   public String getIcon() {
     return icon;
   }
@@ -67,7 +91,9 @@ public class CheckoutBrandingButtonColorRolesInput {
     this.icon = icon;
   }
 
-  
+  /**
+   * The color of accented objects (links and focused state).
+   */
   public String getAccent() {
     return accent;
   }
@@ -76,7 +102,9 @@ public class CheckoutBrandingButtonColorRolesInput {
     this.accent = accent;
   }
 
-  
+  /**
+   * The decorative color for highlighting specific parts of the user interface.
+   */
   public String getDecorative() {
     return decorative;
   }
@@ -85,7 +113,9 @@ public class CheckoutBrandingButtonColorRolesInput {
     this.decorative = decorative;
   }
 
-  
+  /**
+   * The colors of the button on hover.
+   */
   public CheckoutBrandingColorRolesInput getHover() {
     return hover;
   }
@@ -123,25 +153,39 @@ public class CheckoutBrandingButtonColorRolesInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The color of the background.
+     */
     private String background;
 
-    
+    /**
+     * The color of text.
+     */
     private String text;
 
-    
+    /**
+     * The color of borders.
+     */
     private String border;
 
-    
+    /**
+     * The color of icons.
+     */
     private String icon;
 
-    
+    /**
+     * The color of accented objects (links and focused state).
+     */
     private String accent;
 
-    
+    /**
+     * The decorative color for highlighting specific parts of the user interface.
+     */
     private String decorative;
 
-    
+    /**
+     * The colors of the button on hover.
+     */
     private CheckoutBrandingColorRolesInput hover;
 
     public CheckoutBrandingButtonColorRolesInput build() {
@@ -156,43 +200,57 @@ public class CheckoutBrandingButtonColorRolesInput {
       return result;
     }
 
-    
+    /**
+     * The color of the background.
+     */
     public Builder background(String background) {
       this.background = background;
       return this;
     }
 
-    
+    /**
+     * The color of text.
+     */
     public Builder text(String text) {
       this.text = text;
       return this;
     }
 
-    
+    /**
+     * The color of borders.
+     */
     public Builder border(String border) {
       this.border = border;
       return this;
     }
 
-    
+    /**
+     * The color of icons.
+     */
     public Builder icon(String icon) {
       this.icon = icon;
       return this;
     }
 
-    
+    /**
+     * The color of accented objects (links and focused state).
+     */
     public Builder accent(String accent) {
       this.accent = accent;
       return this;
     }
 
-    
+    /**
+     * The decorative color for highlighting specific parts of the user interface.
+     */
     public Builder decorative(String decorative) {
       this.decorative = decorative;
       return this;
     }
 
-    
+    /**
+     * The colors of the button on hover.
+     */
     public Builder hover(CheckoutBrandingColorRolesInput hover) {
       this.hover = hover;
       return this;

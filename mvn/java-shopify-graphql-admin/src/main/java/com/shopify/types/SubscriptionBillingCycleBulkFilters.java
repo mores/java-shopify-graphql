@@ -6,21 +6,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields for filtering subscription billing cycles in bulk actions.
+ */
 public class SubscriptionBillingCycleBulkFilters {
-  
+  /**
+   * Filters the billing cycles based on their status.
+   */
   private List<SubscriptionBillingCycleBillingCycleStatus> billingCycleStatus;
 
-  
+  /**
+   * Filters the billing cycles based on the status of their associated subscription contracts.
+   */
   private List<SubscriptionContractSubscriptionStatus> contractStatus;
 
-  
+  /**
+   * Filters the billing cycles based on the presence of billing attempts.
+   */
   private SubscriptionBillingCycleBillingAttemptStatus billingAttemptStatus = SubscriptionBillingCycleBillingAttemptStatus.ANY;
 
   public SubscriptionBillingCycleBulkFilters() {
   }
 
-  
+  /**
+   * Filters the billing cycles based on their status.
+   */
   public List<SubscriptionBillingCycleBillingCycleStatus> getBillingCycleStatus() {
     return billingCycleStatus;
   }
@@ -30,7 +40,9 @@ public class SubscriptionBillingCycleBulkFilters {
     this.billingCycleStatus = billingCycleStatus;
   }
 
-  
+  /**
+   * Filters the billing cycles based on the status of their associated subscription contracts.
+   */
   public List<SubscriptionContractSubscriptionStatus> getContractStatus() {
     return contractStatus;
   }
@@ -39,7 +51,9 @@ public class SubscriptionBillingCycleBulkFilters {
     this.contractStatus = contractStatus;
   }
 
-  
+  /**
+   * Filters the billing cycles based on the presence of billing attempts.
+   */
   public SubscriptionBillingCycleBillingAttemptStatus getBillingAttemptStatus() {
     return billingAttemptStatus;
   }
@@ -74,13 +88,19 @@ public class SubscriptionBillingCycleBulkFilters {
   }
 
   public static class Builder {
-    
+    /**
+     * Filters the billing cycles based on their status.
+     */
     private List<SubscriptionBillingCycleBillingCycleStatus> billingCycleStatus;
 
-    
+    /**
+     * Filters the billing cycles based on the status of their associated subscription contracts.
+     */
     private List<SubscriptionContractSubscriptionStatus> contractStatus;
 
-    
+    /**
+     * Filters the billing cycles based on the presence of billing attempts.
+     */
     private SubscriptionBillingCycleBillingAttemptStatus billingAttemptStatus = SubscriptionBillingCycleBillingAttemptStatus.ANY;
 
     public SubscriptionBillingCycleBulkFilters build() {
@@ -91,20 +111,26 @@ public class SubscriptionBillingCycleBulkFilters {
       return result;
     }
 
-    
+    /**
+     * Filters the billing cycles based on their status.
+     */
     public Builder billingCycleStatus(
         List<SubscriptionBillingCycleBillingCycleStatus> billingCycleStatus) {
       this.billingCycleStatus = billingCycleStatus;
       return this;
     }
 
-    
+    /**
+     * Filters the billing cycles based on the status of their associated subscription contracts.
+     */
     public Builder contractStatus(List<SubscriptionContractSubscriptionStatus> contractStatus) {
       this.contractStatus = contractStatus;
       return this;
     }
 
-    
+    /**
+     * Filters the billing cycles based on the presence of billing attempts.
+     */
     public Builder billingAttemptStatus(
         SubscriptionBillingCycleBillingAttemptStatus billingAttemptStatus) {
       this.billingAttemptStatus = billingAttemptStatus;

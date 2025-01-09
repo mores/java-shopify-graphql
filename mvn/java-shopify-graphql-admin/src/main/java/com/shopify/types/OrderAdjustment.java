@@ -6,27 +6,39 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * An order adjustment accounts for the difference between a calculated and actual refund amount.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class OrderAdjustment implements com.shopify.types.Node {
-  
+  /**
+   * The amount of the order adjustment in shop and presentment currencies.
+   */
   private MoneyBag amountSet;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * An optional reason that explains a discrepancy between calculated and actual refund amounts.
+   */
   private OrderAdjustmentDiscrepancyReason reason;
 
-  
+  /**
+   * The tax amount of the order adjustment in shop and presentment currencies.
+   */
   private MoneyBag taxAmountSet;
 
   public OrderAdjustment() {
   }
 
-  
+  /**
+   * The amount of the order adjustment in shop and presentment currencies.
+   */
   public MoneyBag getAmountSet() {
     return amountSet;
   }
@@ -35,7 +47,9 @@ public class OrderAdjustment implements com.shopify.types.Node {
     this.amountSet = amountSet;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -44,7 +58,9 @@ public class OrderAdjustment implements com.shopify.types.Node {
     this.id = id;
   }
 
-  
+  /**
+   * An optional reason that explains a discrepancy between calculated and actual refund amounts.
+   */
   public OrderAdjustmentDiscrepancyReason getReason() {
     return reason;
   }
@@ -53,7 +69,9 @@ public class OrderAdjustment implements com.shopify.types.Node {
     this.reason = reason;
   }
 
-  
+  /**
+   * The tax amount of the order adjustment in shop and presentment currencies.
+   */
   public MoneyBag getTaxAmountSet() {
     return taxAmountSet;
   }
@@ -88,16 +106,24 @@ public class OrderAdjustment implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    
+    /**
+     * The amount of the order adjustment in shop and presentment currencies.
+     */
     private MoneyBag amountSet;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * An optional reason that explains a discrepancy between calculated and actual refund amounts.
+     */
     private OrderAdjustmentDiscrepancyReason reason;
 
-    
+    /**
+     * The tax amount of the order adjustment in shop and presentment currencies.
+     */
     private MoneyBag taxAmountSet;
 
     public OrderAdjustment build() {
@@ -109,25 +135,33 @@ public class OrderAdjustment implements com.shopify.types.Node {
       return result;
     }
 
-    
+    /**
+     * The amount of the order adjustment in shop and presentment currencies.
+     */
     public Builder amountSet(MoneyBag amountSet) {
       this.amountSet = amountSet;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * An optional reason that explains a discrepancy between calculated and actual refund amounts.
+     */
     public Builder reason(OrderAdjustmentDiscrepancyReason reason) {
       this.reason = reason;
       return this;
     }
 
-    
+    /**
+     * The tax amount of the order adjustment in shop and presentment currencies.
+     */
     public Builder taxAmountSet(MoneyBag taxAmountSet) {
       this.taxAmountSet = taxAmountSet;
       return this;

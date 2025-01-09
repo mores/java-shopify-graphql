@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `menuCreate` mutation.
+ */
 public class MenuCreatePayload {
-  
+  /**
+   * The created menu.
+   */
   private Menu menu;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<MenuCreateUserError> userErrors;
 
   public MenuCreatePayload() {
   }
 
-  
+  /**
+   * The created menu.
+   */
   public Menu getMenu() {
     return menu;
   }
@@ -26,7 +34,9 @@ public class MenuCreatePayload {
     this.menu = menu;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<MenuCreateUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class MenuCreatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The created menu.
+     */
     private Menu menu;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<MenuCreateUserError> userErrors;
 
     public MenuCreatePayload build() {
@@ -72,13 +86,17 @@ public class MenuCreatePayload {
       return result;
     }
 
-    
+    /**
+     * The created menu.
+     */
     public Builder menu(Menu menu) {
       this.menu = menu;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<MenuCreateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

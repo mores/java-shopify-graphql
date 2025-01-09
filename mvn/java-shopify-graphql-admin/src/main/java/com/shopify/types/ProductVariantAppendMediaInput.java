@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields required to append media to a single variant.
+ */
 public class ProductVariantAppendMediaInput {
-  
+  /**
+   * Specifies the variant to which media will be appended.
+   */
   private String variantId;
 
-  
+  /**
+   * Specifies the media to append to the variant.
+   */
   private List<String> mediaIds;
 
   public ProductVariantAppendMediaInput() {
   }
 
-  
+  /**
+   * Specifies the variant to which media will be appended.
+   */
   public String getVariantId() {
     return variantId;
   }
@@ -26,7 +34,9 @@ public class ProductVariantAppendMediaInput {
     this.variantId = variantId;
   }
 
-  
+  /**
+   * Specifies the media to append to the variant.
+   */
   public List<String> getMediaIds() {
     return mediaIds;
   }
@@ -59,10 +69,14 @@ public class ProductVariantAppendMediaInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Specifies the variant to which media will be appended.
+     */
     private String variantId;
 
-    
+    /**
+     * Specifies the media to append to the variant.
+     */
     private List<String> mediaIds;
 
     public ProductVariantAppendMediaInput build() {
@@ -72,13 +86,17 @@ public class ProductVariantAppendMediaInput {
       return result;
     }
 
-    
+    /**
+     * Specifies the variant to which media will be appended.
+     */
     public Builder variantId(String variantId) {
       this.variantId = variantId;
       return this;
     }
 
-    
+    /**
+     * Specifies the media to append to the variant.
+     */
     public Builder mediaIds(List<String> mediaIds) {
       this.mediaIds = mediaIds;
       return this;

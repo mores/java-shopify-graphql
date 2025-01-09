@@ -7,7 +7,10 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Create payment terms on an order. To create payment terms on a draft order,
+ * use a draft order mutation and include the request with the `DraftOrderInput`.
+ */
 public class PaymentTermsCreateGraphQLQuery extends GraphQLQuery {
   public PaymentTermsCreateGraphQLQuery(String referenceId,
       PaymentTermsCreateInput paymentTermsAttributes, String queryName, Set<String> fieldsSet) {
@@ -46,14 +49,18 @@ public class PaymentTermsCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Specifies the reference orderId to add the payment terms for.
+     */
     public Builder referenceId(String referenceId) {
       this.referenceId = referenceId;
       this.fieldsSet.add("referenceId");
       return this;
     }
 
-    
+    /**
+     * The attributes used to create the payment terms.
+     */
     public Builder paymentTermsAttributes(PaymentTermsCreateInput paymentTermsAttributes) {
       this.paymentTermsAttributes = paymentTermsAttributes;
       this.fieldsSet.add("paymentTermsAttributes");

@@ -7,21 +7,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `customerPaymentMethodCreditCardCreate` mutation.
+ */
 public class CustomerPaymentMethodCreditCardCreatePayload {
-  
+  /**
+   * The customer payment method.
+   */
   private CustomerPaymentMethod customerPaymentMethod;
 
-  
+  /**
+   * If the card verification result is processing. When this is true, customer_payment_method will be null.
+   */
   private Boolean processing;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public CustomerPaymentMethodCreditCardCreatePayload() {
   }
 
-  
+  /**
+   * The customer payment method.
+   */
   public CustomerPaymentMethod getCustomerPaymentMethod() {
     return customerPaymentMethod;
   }
@@ -30,7 +40,9 @@ public class CustomerPaymentMethodCreditCardCreatePayload {
     this.customerPaymentMethod = customerPaymentMethod;
   }
 
-  
+  /**
+   * If the card verification result is processing. When this is true, customer_payment_method will be null.
+   */
   public Boolean getProcessing() {
     return processing;
   }
@@ -39,7 +51,9 @@ public class CustomerPaymentMethodCreditCardCreatePayload {
     this.processing = processing;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -73,13 +87,19 @@ public class CustomerPaymentMethodCreditCardCreatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The customer payment method.
+     */
     private CustomerPaymentMethod customerPaymentMethod;
 
-    
+    /**
+     * If the card verification result is processing. When this is true, customer_payment_method will be null.
+     */
     private Boolean processing;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public CustomerPaymentMethodCreditCardCreatePayload build() {
@@ -90,19 +110,25 @@ public class CustomerPaymentMethodCreditCardCreatePayload {
       return result;
     }
 
-    
+    /**
+     * The customer payment method.
+     */
     public Builder customerPaymentMethod(CustomerPaymentMethod customerPaymentMethod) {
       this.customerPaymentMethod = customerPaymentMethod;
       return this;
     }
 
-    
+    /**
+     * If the card verification result is processing. When this is true, customer_payment_method will be null.
+     */
     public Builder processing(Boolean processing) {
       this.processing = processing;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

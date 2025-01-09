@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Asynchronously delete metaobjects and their associated metafields in bulk.
+ */
 public class MetaobjectBulkDeleteGraphQLQuery extends GraphQLQuery {
   public MetaobjectBulkDeleteGraphQLQuery(MetaobjectBulkDeleteWhereCondition where,
       String queryName, Set<String> fieldsSet) {
@@ -42,7 +44,10 @@ public class MetaobjectBulkDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Specifies the condition by which metaobjects are deleted.
+     * Exactly one field of input is required.
+     */
     public Builder where(MetaobjectBulkDeleteWhereCondition where) {
       this.where = where;
       this.fieldsSet.add("where");

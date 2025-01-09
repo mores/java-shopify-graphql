@@ -8,7 +8,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates or updates a delivery promise provider. Currently restricted to select approved delivery promise partners.
+ */
 public class DeliveryPromiseProviderUpsertGraphQLQuery extends GraphQLQuery {
   public DeliveryPromiseProviderUpsertGraphQLQuery(Boolean active, Integer fulfillmentDelay,
       String timeZone, String locationId, String queryName, Set<String> fieldsSet) {
@@ -55,28 +57,40 @@ public class DeliveryPromiseProviderUpsertGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Whether the delivery promise provider is active. Defaults to `true` when creating a provider.
+     */
     public Builder active(Boolean active) {
       this.active = active;
       this.fieldsSet.add("active");
       return this;
     }
 
-    
+    /**
+     * The number of seconds to add to the current time as a buffer when looking up
+     * delivery promises. Represents how long the shop requires before releasing an
+     * order to the fulfillment provider.
+     */
     public Builder fulfillmentDelay(Integer fulfillmentDelay) {
       this.fulfillmentDelay = fulfillmentDelay;
       this.fieldsSet.add("fulfillmentDelay");
       return this;
     }
 
-    
+    /**
+     * The time zone to be used for interpreting day of week and cutoff times in
+     * delivery schedules when looking up delivery promises. Defaults to `UTC` when
+     * creating a provider.
+     */
     public Builder timeZone(String timeZone) {
       this.timeZone = timeZone;
       this.fieldsSet.add("timeZone");
       return this;
     }
 
-    
+    /**
+     * The ID of the location that will be associated with the delivery promise provider.
+     */
     public Builder locationId(String locationId) {
       this.locationId = locationId;
       this.fieldsSet.add("locationId");

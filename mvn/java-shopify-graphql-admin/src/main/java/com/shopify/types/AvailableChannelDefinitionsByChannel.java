@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Represents an object containing all information for channels available to a shop.
+ */
 public class AvailableChannelDefinitionsByChannel {
-  
+  /**
+   * The channel definitions for channels installed on a shop.
+   */
   private List<ChannelDefinition> channelDefinitions;
 
-  
+  /**
+   * The name of the channel.
+   */
   private String channelName;
 
   public AvailableChannelDefinitionsByChannel() {
   }
 
-  
+  /**
+   * The channel definitions for channels installed on a shop.
+   */
   public List<ChannelDefinition> getChannelDefinitions() {
     return channelDefinitions;
   }
@@ -26,7 +34,9 @@ public class AvailableChannelDefinitionsByChannel {
     this.channelDefinitions = channelDefinitions;
   }
 
-  
+  /**
+   * The name of the channel.
+   */
   public String getChannelName() {
     return channelName;
   }
@@ -59,10 +69,14 @@ public class AvailableChannelDefinitionsByChannel {
   }
 
   public static class Builder {
-    
+    /**
+     * The channel definitions for channels installed on a shop.
+     */
     private List<ChannelDefinition> channelDefinitions;
 
-    
+    /**
+     * The name of the channel.
+     */
     private String channelName;
 
     public AvailableChannelDefinitionsByChannel build() {
@@ -72,13 +86,17 @@ public class AvailableChannelDefinitionsByChannel {
       return result;
     }
 
-    
+    /**
+     * The channel definitions for channels installed on a shop.
+     */
     public Builder channelDefinitions(List<ChannelDefinition> channelDefinitions) {
       this.channelDefinitions = channelDefinitions;
       return this;
     }
 
-    
+    /**
+     * The name of the channel.
+     */
     public Builder channelName(String channelName) {
       this.channelName = channelName;
       return this;

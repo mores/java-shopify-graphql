@@ -6,24 +6,37 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-
+/**
+ * The input fields for company attributes when creating or updating a company.
+ */
 public class CompanyInput {
-  
+  /**
+   * The name of the company.
+   */
   private String name;
 
-  
+  /**
+   * A note about the company.
+   */
   private String note;
 
-  
+  /**
+   * A unique externally-supplied ID for the company.
+   */
   private String externalId;
 
-  
+  /**
+   * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) at
+   *           which the company became the customer.
+   */
   private OffsetDateTime customerSince;
 
   public CompanyInput() {
   }
 
-  
+  /**
+   * The name of the company.
+   */
   public String getName() {
     return name;
   }
@@ -32,7 +45,9 @@ public class CompanyInput {
     this.name = name;
   }
 
-  
+  /**
+   * A note about the company.
+   */
   public String getNote() {
     return note;
   }
@@ -41,7 +56,9 @@ public class CompanyInput {
     this.note = note;
   }
 
-  
+  /**
+   * A unique externally-supplied ID for the company.
+   */
   public String getExternalId() {
     return externalId;
   }
@@ -50,7 +67,10 @@ public class CompanyInput {
     this.externalId = externalId;
   }
 
-  
+  /**
+   * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) at
+   *           which the company became the customer.
+   */
   public OffsetDateTime getCustomerSince() {
     return customerSince;
   }
@@ -85,16 +105,25 @@ public class CompanyInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The name of the company.
+     */
     private String name;
 
-    
+    /**
+     * A note about the company.
+     */
     private String note;
 
-    
+    /**
+     * A unique externally-supplied ID for the company.
+     */
     private String externalId;
 
-    
+    /**
+     * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) at
+     *           which the company became the customer.
+     */
     private OffsetDateTime customerSince;
 
     public CompanyInput build() {
@@ -106,25 +135,34 @@ public class CompanyInput {
       return result;
     }
 
-    
+    /**
+     * The name of the company.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    
+    /**
+     * A note about the company.
+     */
     public Builder note(String note) {
       this.note = note;
       return this;
     }
 
-    
+    /**
+     * A unique externally-supplied ID for the company.
+     */
     public Builder externalId(String externalId) {
       this.externalId = externalId;
       return this;
     }
 
-    
+    /**
+     * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) at
+     *           which the company became the customer.
+     */
     public Builder customerSince(OffsetDateTime customerSince) {
       this.customerSince = customerSince;
       return this;

@@ -158,52 +158,6 @@ public class CollectionFragmentProjection<PARENT extends BaseSubProjectionNode<?
     return projection;
   }
 
-  public PrivateMetafieldProjection<CollectionFragmentProjection<PARENT, ROOT>, ROOT> privateMetafield(
-      ) {
-     PrivateMetafieldProjection<CollectionFragmentProjection<PARENT, ROOT>, ROOT> projection = new PrivateMetafieldProjection<>(this, getRoot());
-     getFields().put("privateMetafield", projection);
-     return projection;
-  }
-
-  public PrivateMetafieldProjection<CollectionFragmentProjection<PARENT, ROOT>, ROOT> privateMetafield(
-      String namespace, String key) {
-    PrivateMetafieldProjection<CollectionFragmentProjection<PARENT, ROOT>, ROOT> projection = new PrivateMetafieldProjection<>(this, getRoot());    
-    getFields().put("privateMetafield", projection);
-    getInputArguments().computeIfAbsent("privateMetafield", k -> new ArrayList<>());                      
-    InputArgument namespaceArg = new InputArgument("namespace", namespace);
-    getInputArguments().get("privateMetafield").add(namespaceArg);
-    InputArgument keyArg = new InputArgument("key", key);
-    getInputArguments().get("privateMetafield").add(keyArg);
-    return projection;
-  }
-
-  public PrivateMetafieldConnectionProjection<CollectionFragmentProjection<PARENT, ROOT>, ROOT> privateMetafields(
-      ) {
-     PrivateMetafieldConnectionProjection<CollectionFragmentProjection<PARENT, ROOT>, ROOT> projection = new PrivateMetafieldConnectionProjection<>(this, getRoot());
-     getFields().put("privateMetafields", projection);
-     return projection;
-  }
-
-  public PrivateMetafieldConnectionProjection<CollectionFragmentProjection<PARENT, ROOT>, ROOT> privateMetafields(
-      String namespace, Integer first, String after, Integer last, String before, Boolean reverse) {
-    PrivateMetafieldConnectionProjection<CollectionFragmentProjection<PARENT, ROOT>, ROOT> projection = new PrivateMetafieldConnectionProjection<>(this, getRoot());    
-    getFields().put("privateMetafields", projection);
-    getInputArguments().computeIfAbsent("privateMetafields", k -> new ArrayList<>());                      
-    InputArgument namespaceArg = new InputArgument("namespace", namespace);
-    getInputArguments().get("privateMetafields").add(namespaceArg);
-    InputArgument firstArg = new InputArgument("first", first);
-    getInputArguments().get("privateMetafields").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("privateMetafields").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
-    getInputArguments().get("privateMetafields").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("privateMetafields").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
-    getInputArguments().get("privateMetafields").add(reverseArg);
-    return projection;
-  }
-
   public ProductConnectionProjection<CollectionFragmentProjection<PARENT, ROOT>, ROOT> products() {
      ProductConnectionProjection<CollectionFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductConnectionProjection<>(this, getRoot());
      getFields().put("products", projection);

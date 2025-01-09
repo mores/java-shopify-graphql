@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Enables the specified standard metaobject definition from its template.
+ */
 public class StandardMetaobjectDefinitionEnableGraphQLQuery extends GraphQLQuery {
   public StandardMetaobjectDefinitionEnableGraphQLQuery(String type, String queryName,
       Set<String> fieldsSet) {
@@ -41,7 +43,9 @@ public class StandardMetaobjectDefinitionEnableGraphQLQuery extends GraphQLQuery
                
     }
 
-    
+    /**
+     * The type of the metaobject definition to enable.
+     */
     public Builder type(String type) {
       this.type = type;
       this.fieldsSet.add("type");

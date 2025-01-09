@@ -147,9 +147,4 @@ public class MetafieldDefinitionProjection<PARENT extends BaseSubProjectionNode<
     getFields().put("useAsCollectionCondition", null);
     return this;
   }
-
-  public MetafieldDefinitionProjection<PARENT, ROOT> visibleToStorefrontApi() {
-    getFields().put("visibleToStorefrontApi", null);
-    return this;
-  }
 }

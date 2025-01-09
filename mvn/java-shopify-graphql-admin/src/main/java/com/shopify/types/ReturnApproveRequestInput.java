@@ -6,18 +6,27 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for approving a customer's return request.
+ */
 public class ReturnApproveRequestInput {
-  
+  /**
+   * The ID of the return that's being approved.
+   */
   private String id;
 
-  
+  /**
+   * Notify the customer when a return request is approved.
+   * The customer will only receive a notification if `Order.email` is present.
+   */
   private Boolean notifyCustomer = false;
 
   public ReturnApproveRequestInput() {
   }
 
-  
+  /**
+   * The ID of the return that's being approved.
+   */
   public String getId() {
     return id;
   }
@@ -26,7 +35,10 @@ public class ReturnApproveRequestInput {
     this.id = id;
   }
 
-  
+  /**
+   * Notify the customer when a return request is approved.
+   * The customer will only receive a notification if `Order.email` is present.
+   */
   public Boolean getNotifyCustomer() {
     return notifyCustomer;
   }
@@ -59,10 +71,15 @@ public class ReturnApproveRequestInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the return that's being approved.
+     */
     private String id;
 
-    
+    /**
+     * Notify the customer when a return request is approved.
+     * The customer will only receive a notification if `Order.email` is present.
+     */
     private Boolean notifyCustomer = false;
 
     public ReturnApproveRequestInput build() {
@@ -72,13 +89,18 @@ public class ReturnApproveRequestInput {
       return result;
     }
 
-    
+    /**
+     * The ID of the return that's being approved.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * Notify the customer when a return request is approved.
+     * The customer will only receive a notification if `Order.email` is present.
+     */
     public Builder notifyCustomer(Boolean notifyCustomer) {
       this.notifyCustomer = notifyCustomer;
       return this;

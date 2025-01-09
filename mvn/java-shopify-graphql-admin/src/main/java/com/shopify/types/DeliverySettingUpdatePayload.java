@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `deliverySettingUpdate` mutation.
+ */
 public class DeliverySettingUpdatePayload {
-  
+  /**
+   * The updated delivery shop level settings.
+   */
   private DeliverySetting setting;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public DeliverySettingUpdatePayload() {
   }
 
-  
+  /**
+   * The updated delivery shop level settings.
+   */
   public DeliverySetting getSetting() {
     return setting;
   }
@@ -26,7 +34,9 @@ public class DeliverySettingUpdatePayload {
     this.setting = setting;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class DeliverySettingUpdatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The updated delivery shop level settings.
+     */
     private DeliverySetting setting;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public DeliverySettingUpdatePayload build() {
@@ -72,13 +86,17 @@ public class DeliverySettingUpdatePayload {
       return result;
     }
 
-    
+    /**
+     * The updated delivery shop level settings.
+     */
     public Builder setting(DeliverySetting setting) {
       this.setting = setting;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

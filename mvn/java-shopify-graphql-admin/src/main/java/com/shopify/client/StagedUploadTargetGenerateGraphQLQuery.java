@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Generates the URL and signed paramaters needed to upload an asset to Shopify.
+ */
 public class StagedUploadTargetGenerateGraphQLQuery extends GraphQLQuery {
   public StagedUploadTargetGenerateGraphQLQuery(StagedUploadTargetGenerateInput input,
       String queryName, Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class StagedUploadTargetGenerateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The input fields for generating a staged upload.
+     */
     public Builder input(StagedUploadTargetGenerateInput input) {
       this.input = input;
       this.fieldsSet.add("input");

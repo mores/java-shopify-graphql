@@ -172,6 +172,11 @@ public class ShopifyPaymentsAccountFragmentProjection<PARENT extends BaseSubProj
     return projection;
   }
 
+  public ShopifyPaymentsAccountFragmentProjection<PARENT, ROOT> accountOpenerName() {
+    getFields().put("accountOpenerName", null);
+    return this;
+  }
+
   public ShopifyPaymentsAccountFragmentProjection<PARENT, ROOT> activated() {
     getFields().put("activated", null);
     return this;

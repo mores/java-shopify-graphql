@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * A list of available locales.
+ */
 public class AvailableLocalesGraphQLQuery extends GraphQLQuery {
   public AvailableLocalesGraphQLQuery(String queryName) {
     super("query", queryName);

@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Possible error codes that can be returned by `ProductOptionsCreateUserError`.
+ */
 public enum ProductOptionsCreateUserErrorCode {
   OPTION_ALREADY_EXISTS,
 

@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields for line items that the discount refers to.
+ */
 public class SubscriptionManualDiscountLinesInput {
-  
+  /**
+   * The ID of the lines to add to the subscription discount.
+   */
   private List<String> add;
 
-  
+  /**
+   * The ID of the lines to remove from the subscription discount.
+   */
   private List<String> remove;
 
   public SubscriptionManualDiscountLinesInput() {
   }
 
-  
+  /**
+   * The ID of the lines to add to the subscription discount.
+   */
   public List<String> getAdd() {
     return add;
   }
@@ -26,7 +34,9 @@ public class SubscriptionManualDiscountLinesInput {
     this.add = add;
   }
 
-  
+  /**
+   * The ID of the lines to remove from the subscription discount.
+   */
   public List<String> getRemove() {
     return remove;
   }
@@ -59,10 +69,14 @@ public class SubscriptionManualDiscountLinesInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the lines to add to the subscription discount.
+     */
     private List<String> add;
 
-    
+    /**
+     * The ID of the lines to remove from the subscription discount.
+     */
     private List<String> remove;
 
     public SubscriptionManualDiscountLinesInput build() {
@@ -72,13 +86,17 @@ public class SubscriptionManualDiscountLinesInput {
       return result;
     }
 
-    
+    /**
+     * The ID of the lines to add to the subscription discount.
+     */
     public Builder add(List<String> add) {
       this.add = add;
       return this;
     }
 
-    
+    /**
+     * The ID of the lines to remove from the subscription discount.
+     */
     public Builder remove(List<String> remove) {
       this.remove = remove;
       return this;

@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The statistics of a given segment.
+ */
 public class SegmentStatistics {
-  
+  /**
+   * The statistics of a given attribute.
+   */
   private SegmentAttributeStatistics attributeStatistics;
 
   public SegmentStatistics() {
   }
 
-  
+  /**
+   * The statistics of a given attribute.
+   */
   public SegmentAttributeStatistics getAttributeStatistics() {
     return attributeStatistics;
   }
@@ -45,7 +51,9 @@ public class SegmentStatistics {
   }
 
   public static class Builder {
-    
+    /**
+     * The statistics of a given attribute.
+     */
     private SegmentAttributeStatistics attributeStatistics;
 
     public SegmentStatistics build() {
@@ -54,7 +62,9 @@ public class SegmentStatistics {
       return result;
     }
 
-    
+    /**
+     * The statistics of a given attribute.
+     */
     public Builder attributeStatistics(SegmentAttributeStatistics attributeStatistics) {
       this.attributeStatistics = attributeStatistics;
       return this;
