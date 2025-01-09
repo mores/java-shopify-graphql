@@ -79,7 +79,7 @@ public class AppTest {
     public void testOne() throws Exception {
         log.info("testOne");
 
-        String endpointUrl = "https://" + STORE + ".myshopify.com/admin/api/2024-10/graphql.json";
+        String endpointUrl = "https://" + STORE + ".myshopify.com/admin/api/2025-01/graphql.json";
 
         RestTemplate restTemplate = new RestTemplate();
         client = GraphQLClient.createCustom(endpointUrl, (url, headers, body) -> {
