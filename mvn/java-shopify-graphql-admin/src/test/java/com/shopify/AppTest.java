@@ -6,58 +6,8 @@ import com.netflix.graphql.dgs.client.GraphQLClient;
 import com.netflix.graphql.dgs.client.GraphQLResponse;
 import com.netflix.graphql.dgs.client.HttpResponse;
 
-import com.shopify.client.MediaProjection;
-import com.shopify.client.MediaUserErrorProjection;
-import com.shopify.client.PageInfoProjection;
-import com.shopify.client.ProductCreateGraphQLQuery;
-import com.shopify.client.ProductCreateMediaGraphQLQuery;
-import com.shopify.client.ProductCreateMediaProjectionRoot;
-import com.shopify.client.ProductCreateProjectionRoot;
-import com.shopify.client.ProductEdgeProjection;
-import com.shopify.client.ProductProjection;
-import com.shopify.client.ProductsGraphQLQuery;
-import com.shopify.client.ProductsProjectionRoot;
-import com.shopify.client.ProductVariantConnectionProjection;
-import com.shopify.client.ProductVariantEdgeProjection;
-import com.shopify.client.ProductVariantProjection;
-import com.shopify.client.ProductVariantsBulkCreateGraphQLQuery;
-import com.shopify.client.ProductVariantsBulkCreateProjectionRoot;
-import com.shopify.client.ProductVariantsBulkCreateUserErrorProjection;
-import com.shopify.client.ProductVariantsBulkUpdateGraphQLQuery;
-import com.shopify.client.ProductVariantsBulkUpdateProjectionRoot;
-import com.shopify.client.ProductVariantsBulkUpdateUserErrorProjection;
-import com.shopify.client.StagedMediaUploadTargetProjection;
-import com.shopify.client.StagedUploadParameterProjection;
-import com.shopify.client.StagedUploadsCreateGraphQLQuery;
-import com.shopify.client.StagedUploadsCreateProjectionRoot;
-import com.shopify.client.UserErrorProjection;
-
-import com.shopify.types.CreateMediaInput;
-import com.shopify.types.MediaContentType;
-import com.shopify.types.MediaUserError;
-import com.shopify.types.OptionCreateInput;
-import com.shopify.types.OptionValueCreateInput;
-import com.shopify.types.PageInfo;
-import com.shopify.types.Product;
-import com.shopify.types.ProductConnection;
-import com.shopify.types.ProductCreateInput;
-import com.shopify.types.ProductCreateMediaPayload;
-import com.shopify.types.ProductCreatePayload;
-import com.shopify.types.ProductEdge;
-import com.shopify.types.ProductVariant;
-import com.shopify.types.ProductVariantsBulkCreatePayload;
-import com.shopify.types.ProductVariantsBulkInput;
-import com.shopify.types.ProductVariantConnection;
-import com.shopify.types.ProductVariantEdge;
-import com.shopify.types.ProductVariantsBulkUpdatePayload;
-import com.shopify.types.StagedMediaUploadTarget;
-import com.shopify.types.StagedUploadHttpMethodType;
-import com.shopify.types.StagedUploadInput;
-import com.shopify.types.StagedUploadParameter;
-import com.shopify.types.StagedUploadsCreatePayload;
-import com.shopify.types.StagedUploadTargetGenerateUploadResource;
-import com.shopify.types.UserError;
-import com.shopify.types.VariantOptionValueInput;
+import com.shopify.client.*;
+import com.shopify.types.*;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -94,6 +44,7 @@ public class AppTest {
         });
 
         listProducts(null);
+        createProductAdvanced();
         createProduct();
         listProducts(null);
     }
@@ -110,13 +61,16 @@ public class AppTest {
         ProductEdgeProjection edgeProjection = root.edges();
         ProductProjection productProjection = edgeProjection.node();
         productProjection.id();
+        productProjection.tags();
 
         ProductVariantConnectionProjection variantConnectionProjection = productProjection.variants(10, null, null,
                 null, null, null);
         ProductVariantEdgeProjection vEdgeProjection = variantConnectionProjection.edges();
         ProductVariantProjection variantProjection = vEdgeProjection.node();
+        variantProjection.barcode();
         variantProjection.id();
         variantProjection.price();
+        variantProjection.sku();
 
         PageInfoProjection pageInfoProjection = root.pageInfo();
         pageInfoProjection.endCursor();
@@ -131,13 +85,14 @@ public class AppTest {
         java.util.List<ProductEdge> edges = results.getEdges();
         for (ProductEdge edge : edges) {
             Product product = edge.getNode();
-            log.info("Id: " + product.getId());
+            log.info("Id: " + product.getId() + "\t" + product.getTags());
 
             ProductVariantConnection variants = product.getVariants();
             java.util.List<ProductVariantEdge> vEdges = variants.getEdges();
             for (ProductVariantEdge vEdge : vEdges) {
                 ProductVariant variant = vEdge.getNode();
-                log.info("\t" + variant.getPrice() + "\t" + variant.getId());
+                log.info("\t" + variant.getPrice() + "\t" + variant.getId() + "\t" + variant.getBarcode() + "\t"
+                        + variant.getSku());
             }
         }
 
@@ -147,6 +102,7 @@ public class AppTest {
         }
     }
 
+    // simpler option for initial product creation
     private void createProduct() throws Exception {
         ProductCreateGraphQLQuery.Builder builder = ProductCreateGraphQLQuery.newRequest();
         ProductCreateInput productInput = new ProductCreateInput();
@@ -162,6 +118,12 @@ public class AppTest {
         option.setValues(values);
         options.add(option);
         productInput.setProductOptions(options);
+        java.util.List<String> tags = new java.util.ArrayList<>();
+        tags.add("Red");
+        tags.add("Blue");
+        tags.add("Green");
+        tags.add("White");
+        productInput.setTags(tags);
         productInput.setTitle("Lollipops");
         builder.product(productInput);
         ProductCreateGraphQLQuery createQuery = builder.build();
@@ -208,6 +170,105 @@ public class AppTest {
         uploadImage(product, file);
     }
 
+    private void createProductAdvanced() throws Exception {
+
+        ProductSetGraphQLQuery.Builder builder = ProductSetGraphQLQuery.newRequest();
+
+        ProductSetInput productSetInput = new ProductSetInput();
+
+        java.util.List<OptionSetInput> productOptions = new java.util.ArrayList<>();
+
+        OptionSetInput sizeOption = new OptionSetInput();
+        sizeOption.setName("Size");
+
+        java.util.List<OptionValueSetInput> values = new java.util.ArrayList<>();
+
+        OptionValueSetInput option1 = new OptionValueSetInput();
+        option1.setName("100");
+        values.add(option1);
+
+        OptionValueSetInput option2 = new OptionValueSetInput();
+        option2.setName("200");
+        values.add(option2);
+
+        sizeOption.setValues(values);
+        productOptions.add(sizeOption);
+        productSetInput.setProductOptions(productOptions);
+
+        java.util.List<String> tags = new java.util.ArrayList<>();
+        tags.add("Red");
+        tags.add("Blue");
+        tags.add("Green");
+        tags.add("White");
+        productSetInput.setTags(tags);
+        productSetInput.setTitle("Lollipops - Advanced");
+
+        java.util.List<ProductVariantSetInput> variants = new java.util.ArrayList<>();
+
+        java.util.List<VariantOptionValueInput> optionValues200 = new java.util.ArrayList<>();
+        VariantOptionValueInput optionValue200 = new VariantOptionValueInput();
+        optionValue200.setName("200");
+        optionValue200.setOptionName("Size");
+        optionValues200.add(optionValue200);
+
+        ProductVariantSetInput variant1 = new ProductVariantSetInput();
+        variant1.setOptionValues(optionValues200);
+        variant1.setBarcode("8410031950656");
+        variant1.setPrice("6.89");
+        variant1.setSku("loli200");
+        variants.add(variant1);
+
+        java.util.List<VariantOptionValueInput> optionValues100 = new java.util.ArrayList<>();
+        VariantOptionValueInput optionValue100 = new VariantOptionValueInput();
+        optionValue100.setName("100");
+        optionValue100.setOptionName("Size");
+        optionValues100.add(optionValue100);
+
+        ProductVariantSetInput variant2 = new ProductVariantSetInput();
+        variant2.setOptionValues(optionValues100);
+        variant2.setBarcode("8410031950656");
+        variant2.setPrice("3.45");
+        variant2.setSku("loli100");
+        variants.add(variant2);
+
+        productSetInput.setVariants(variants);
+        builder.input(productSetInput);
+        ProductSetGraphQLQuery createQuery = builder.build();
+
+        // fields we would like returned
+        ProductSetProjectionRoot root = new ProductSetProjectionRoot();
+        ProductProjection productProjection = root.product();
+        productProjection.id();
+
+        ProductVariantConnectionProjection variantConnectionProjection = productProjection.variants(10, null, null,
+                null, null, null);
+        ProductVariantEdgeProjection vEdgeProjection = variantConnectionProjection.edges();
+        ProductVariantProjection variantProjection = vEdgeProjection.node();
+        variantProjection.id();
+        variantProjection.price();
+
+        com.shopify.client.ProductSetUserErrorProjection userError = root.userErrors();
+        userError.message();
+        userError.field();
+
+        GraphQLQueryRequest request = new GraphQLQueryRequest(createQuery, root);
+        log.debug("request:" + request.serialize());
+        GraphQLResponse response = client.executeQuery(request.serialize());
+        log.debug("response: " + response);
+
+        ProductSetPayload payload = response.extractValueAsObject("productSet", ProductSetPayload.class);
+        Product product = payload.getProduct();
+        java.util.List<ProductSetUserError> errors = payload.getUserErrors();
+        for (ProductSetUserError error : errors) {
+            log.error("Error: " + error.toString());
+        }
+
+        log.info("Created new product with Id: " + product.getId());
+
+        java.io.File file = new java.io.File("src/test/resources/lollipops.jpg");
+        uploadImage(product, file);
+    }
+
     private void createVariants(Product product) throws Exception {
         java.util.List<ProductVariantsBulkInput> variants = new java.util.ArrayList<>();
 
@@ -219,6 +280,7 @@ public class AppTest {
 
         ProductVariantsBulkInput variant1 = new ProductVariantsBulkInput();
         variant1.setOptionValues(optionValues200);
+        variant1.setBarcode("8410031950656");
         variant1.setPrice("6.89");
         variants.add(variant1);
 
@@ -244,6 +306,7 @@ public class AppTest {
     private void updateVariant(Product product, ProductVariant productVariant, String price) {
         java.util.List<ProductVariantsBulkInput> variants = new java.util.ArrayList();
         ProductVariantsBulkInput variant = new ProductVariantsBulkInput();
+        variant.setBarcode("8410031950656");
         variant.setId(productVariant.getId());
         variant.setPrice(price);
         variants.add(variant);
