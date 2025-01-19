@@ -44,9 +44,115 @@ public class AppTest {
         });
 
         listProducts(null);
-        createProductAdvanced();
+        createProductAdvanced("Lollipops - Advanced");
         createProduct();
+        createProductBundle();
         listProducts(null);
+    }
+
+    private ProductOperationStatus getStatus(String id) throws Exception {
+
+        ProductOperationGraphQLQuery.Builder builder = ProductOperationGraphQLQuery.newRequest();
+        builder.id(id);
+        ProductOperationGraphQLQuery query = builder.build();
+
+        ProductOperationProjectionRoot root = new ProductOperationProjectionRoot();
+        ProductBundleOperationFragmentProjection fragment = root.onProductBundleOperation();
+        ProductProjection product = fragment.product();
+        product.id();
+        fragment.status();
+
+        ProductBundleMutationUserErrorProjection userErrors = fragment.userErrors();
+        userErrors.code();
+        userErrors.field();
+        userErrors.message();
+
+        GraphQLQueryRequest request = new GraphQLQueryRequest(query, root);
+        log.debug("Request: " + request.serialize());
+        GraphQLResponse response = client.executeQuery(request.serialize());
+        log.debug("Response: " + response);
+
+        ProductOperation results = response.extractValueAsObject("productOperation", ProductOperation.class);
+        ProductOperationStatus status = results.getStatus();
+        return status;
+    }
+
+    private void createProductBundle() throws Exception {
+
+        Product shampoo = createProductAdvanced("Shampoo");
+        ProductOption shampooOption = shampoo.getOptions().get(0);
+        log.info("shampooOption: " + shampooOption.getId());
+
+        Product soap = createProductAdvanced("Soap");
+        ProductOption soapOption = soap.getOptions().get(0);
+        log.info("soapOption: " + soapOption.getId());
+
+        ProductBundleCreateGraphQLQuery.Builder builder = ProductBundleCreateGraphQLQuery.newRequest();
+
+        ProductBundleCreateInput productBundleCreateInput = new ProductBundleCreateInput();
+        productBundleCreateInput.setTitle("The hair and skin bundle");
+
+        java.util.List<ProductBundleComponentInput> components = new java.util.ArrayList<>();
+
+        ProductBundleComponentInput component1 = new ProductBundleComponentInput();
+        java.util.List<ProductBundleComponentOptionSelectionInput> component1options = new java.util.ArrayList<>();
+        ProductBundleComponentOptionSelectionInput component1option = new ProductBundleComponentOptionSelectionInput();
+        component1option.setComponentOptionId(shampooOption.getId());
+        component1option.setName("Shampoo Size");
+        java.util.List<String> values1 = new java.util.ArrayList<>();
+        values1.add("100");
+        values1.add("200");
+        component1option.setValues(values1);
+        component1options.add(component1option);
+        component1.setOptionSelections(component1options);
+        component1.setProductId(shampoo.getId());
+        component1.setQuantity(1);
+        components.add(component1);
+
+        ProductBundleComponentInput component2 = new ProductBundleComponentInput();
+        java.util.List<ProductBundleComponentOptionSelectionInput> component2options = new java.util.ArrayList<>();
+        ProductBundleComponentOptionSelectionInput component2option = new ProductBundleComponentOptionSelectionInput();
+        component2option.setComponentOptionId(soapOption.getId());
+        component2option.setName("Soap Size");
+        java.util.List<String> values2 = new java.util.ArrayList<>();
+        values2.add("100");
+        values2.add("200");
+        component2option.setValues(values2);
+        component2options.add(component2option);
+        component2.setOptionSelections(component2options);
+        component2.setProductId(soap.getId());
+        component2.setQuantity(1);
+        components.add(component2);
+
+        productBundleCreateInput.setComponents(components);
+
+        builder.input(productBundleCreateInput);
+        ProductBundleCreateGraphQLQuery query = builder.build();
+
+        ProductBundleCreateProjectionRoot root = new ProductBundleCreateProjectionRoot();
+
+        ProductBundleOperationProjection operation = root.productBundleOperation();
+        operation.id();
+
+        UserErrorProjection userError = root.userErrors();
+        userError.message();
+        userError.field();
+
+        GraphQLQueryRequest request = new GraphQLQueryRequest(query, root);
+        log.debug("request:" + request.serialize());
+        GraphQLResponse response = client.executeQuery(request.serialize());
+        log.debug("response: " + response);
+
+        ProductBundleCreatePayload payload = response.extractValueAsObject("productBundleCreate",
+                ProductBundleCreatePayload.class);
+        ProductBundleOperation operationPayload = payload.getProductBundleOperation();
+        String id = operationPayload.getId();
+
+        ProductOperationStatus status = getStatus(id);
+        while (ProductOperationStatus.ACTIVE == status) {
+            Thread.sleep(1000);
+            status = getStatus(id);
+        }
     }
 
     private void listProducts(String after) {
@@ -79,8 +185,8 @@ public class AppTest {
 
         GraphQLQueryRequest request = new GraphQLQueryRequest(productsQuery, root);
 
-        GraphQLResponse graphQLResponse = client.executeQuery(request.serialize());
-        ProductConnection results = graphQLResponse.extractValueAsObject("products", ProductConnection.class);
+        GraphQLResponse response = client.executeQuery(request.serialize());
+        ProductConnection results = response.extractValueAsObject("products", ProductConnection.class);
 
         java.util.List<ProductEdge> edges = results.getEdges();
         for (ProductEdge edge : edges) {
@@ -126,7 +232,7 @@ public class AppTest {
         productInput.setTags(tags);
         productInput.setTitle("Lollipops");
         builder.product(productInput);
-        ProductCreateGraphQLQuery createQuery = builder.build();
+        ProductCreateGraphQLQuery query = builder.build();
 
         // fields we would like returned
         ProductCreateProjectionRoot root = new ProductCreateProjectionRoot();
@@ -144,11 +250,10 @@ public class AppTest {
         userError.message();
         userError.field();
 
-        GraphQLQueryRequest request = new GraphQLQueryRequest(createQuery, root);
-        GraphQLResponse productCreateResponse = client.executeQuery(request.serialize());
+        GraphQLQueryRequest request = new GraphQLQueryRequest(query, root);
+        GraphQLResponse response = client.executeQuery(request.serialize());
 
-        ProductCreatePayload payload = productCreateResponse.extractValueAsObject("productCreate",
-                ProductCreatePayload.class);
+        ProductCreatePayload payload = response.extractValueAsObject("productCreate", ProductCreatePayload.class);
         Product product = payload.getProduct();
         java.util.List<UserError> errors = payload.getUserErrors();
         for (UserError error : errors) {
@@ -170,7 +275,7 @@ public class AppTest {
         uploadImage(product, file);
     }
 
-    private void createProductAdvanced() throws Exception {
+    private Product createProductAdvanced(String title) throws Exception {
 
         ProductSetGraphQLQuery.Builder builder = ProductSetGraphQLQuery.newRequest();
 
@@ -201,7 +306,7 @@ public class AppTest {
         tags.add("Green");
         tags.add("White");
         productSetInput.setTags(tags);
-        productSetInput.setTitle("Lollipops - Advanced");
+        productSetInput.setTitle(title);
 
         java.util.List<ProductVariantSetInput> variants = new java.util.ArrayList<>();
 
@@ -233,12 +338,14 @@ public class AppTest {
 
         productSetInput.setVariants(variants);
         builder.input(productSetInput);
-        ProductSetGraphQLQuery createQuery = builder.build();
+        ProductSetGraphQLQuery query = builder.build();
 
         // fields we would like returned
         ProductSetProjectionRoot root = new ProductSetProjectionRoot();
         ProductProjection productProjection = root.product();
         productProjection.id();
+        ProductOptionProjection productOption = productProjection.options();
+        productOption.id();
 
         ProductVariantConnectionProjection variantConnectionProjection = productProjection.variants(10, null, null,
                 null, null, null);
@@ -251,22 +358,24 @@ public class AppTest {
         userError.message();
         userError.field();
 
-        GraphQLQueryRequest request = new GraphQLQueryRequest(createQuery, root);
+        GraphQLQueryRequest request = new GraphQLQueryRequest(query, root);
         log.debug("request:" + request.serialize());
         GraphQLResponse response = client.executeQuery(request.serialize());
         log.debug("response: " + response);
 
         ProductSetPayload payload = response.extractValueAsObject("productSet", ProductSetPayload.class);
-        Product product = payload.getProduct();
         java.util.List<ProductSetUserError> errors = payload.getUserErrors();
         for (ProductSetUserError error : errors) {
             log.error("Error: " + error.toString());
         }
+        Product product = payload.getProduct();
 
         log.info("Created new product with Id: " + product.getId());
 
         java.io.File file = new java.io.File("src/test/resources/lollipops.jpg");
         uploadImage(product, file);
+
+        return product;
     }
 
     private void createVariants(Product product) throws Exception {
