@@ -43,10 +43,12 @@ public class AppTest {
             return new HttpResponse(exchange.getStatusCodeValue(), exchange.getBody());
         });
 
+        listLocations();
         listProducts(null);
         createProductAdvanced("Lollipops - Advanced");
-        createProduct();
-        createProductBundle();
+        createProduct("Lollipops");
+        createProductFixedBundle();
+        createVariantFixedBundle();
         listProducts(null);
     }
 
@@ -77,20 +79,20 @@ public class AppTest {
         return status;
     }
 
-    private void createProductBundle() throws Exception {
+    private void createProductFixedBundle() throws Exception {
 
-        Product shampoo = createProductAdvanced("Shampoo");
+        Product shampoo = createProductAdvanced("ABC Shampoo");
         ProductOption shampooOption = shampoo.getOptions().get(0);
         log.info("shampooOption: " + shampooOption.getId());
 
-        Product soap = createProductAdvanced("Soap");
+        Product soap = createProductAdvanced("ABC Soap");
         ProductOption soapOption = soap.getOptions().get(0);
         log.info("soapOption: " + soapOption.getId());
 
         ProductBundleCreateGraphQLQuery.Builder builder = ProductBundleCreateGraphQLQuery.newRequest();
 
         ProductBundleCreateInput productBundleCreateInput = new ProductBundleCreateInput();
-        productBundleCreateInput.setTitle("The hair and skin bundle");
+        productBundleCreateInput.setTitle("ABC The hair and skin bundle");
 
         java.util.List<ProductBundleComponentInput> components = new java.util.ArrayList<>();
 
@@ -155,13 +157,119 @@ public class AppTest {
         }
     }
 
+    public void createVariantFixedBundle() throws Exception {
+
+        Product bundle = createProduct("XYZ The Hair And Skin Bundle");
+        ProductVariant bundleVariant = null;
+        ProductVariantConnection variants = bundle.getVariants();
+        java.util.List<ProductVariantEdge> vEdges = variants.getEdges();
+        for (ProductVariantEdge vEdge : vEdges) {
+            bundleVariant = vEdge.getNode();
+        }
+
+        Product shampoo = createProduct("XYZ Shampoo");
+        ProductVariant shampooVariant = null;
+        variants = shampoo.getVariants();
+        vEdges = variants.getEdges();
+        for (ProductVariantEdge vEdge : vEdges) {
+            shampooVariant = vEdge.getNode();
+        }
+
+        Product soap = createProduct("XYZ Soap");
+        ProductVariant soapVariant = null;
+        variants = soap.getVariants();
+        vEdges = variants.getEdges();
+        for (ProductVariantEdge vEdge : vEdges) {
+            soapVariant = vEdge.getNode();
+        }
+
+        log.info("Parent: " + bundleVariant.getId());
+        log.info("\t" + shampooVariant.getId());
+        log.info("\t" + soapVariant.getId());
+
+        ProductVariantRelationshipBulkUpdateGraphQLQuery.Builder builder = ProductVariantRelationshipBulkUpdateGraphQLQuery
+                .newRequest();
+
+        java.util.List<ProductVariantRelationshipUpdateInput> inputs = new java.util.ArrayList<>();
+
+        ProductVariantRelationshipUpdateInput input = new ProductVariantRelationshipUpdateInput();
+        input.setParentProductVariantId(bundleVariant.getId());
+        java.util.List<ProductVariantGroupRelationshipInput> components = new java.util.ArrayList<>();
+
+        ProductVariantGroupRelationshipInput component1 = new ProductVariantGroupRelationshipInput();
+        component1.setId(shampooVariant.getId());
+        component1.setQuantity(1);
+        components.add(component1);
+
+        ProductVariantGroupRelationshipInput component2 = new ProductVariantGroupRelationshipInput();
+        component2.setId(soapVariant.getId());
+        component2.setQuantity(1);
+        components.add(component2);
+
+        input.setProductVariantRelationshipsToCreate(components);
+        inputs.add(input);
+
+        builder.input(inputs);
+
+        ProductVariantRelationshipBulkUpdateGraphQLQuery query = builder.build();
+
+        ProductVariantRelationshipBulkUpdateProjectionRoot root = new ProductVariantRelationshipBulkUpdateProjectionRoot();
+
+        ProductVariantRelationshipBulkUpdateUserErrorProjection userErrors = root.userErrors();
+        userErrors.field();
+        userErrors.message();
+
+        GraphQLQueryRequest request = new GraphQLQueryRequest(query, root);
+        log.debug(request.serialize());
+
+        GraphQLResponse response = client.executeQuery(request.serialize());
+        log.debug("Response: " + response);
+
+        ProductVariantRelationshipBulkUpdatePayload payload = response.extractValueAsObject(
+                "productVariantRelationshipBulkUpdate", ProductVariantRelationshipBulkUpdatePayload.class);
+
+        java.util.List<ProductVariantRelationshipBulkUpdateUserError> errors = payload.getUserErrors();
+        for (ProductVariantRelationshipBulkUpdateUserError error : errors) {
+            log.error("Error: " + error.getField() + " -> " + error.getMessage());
+        }
+    }
+
+    private java.util.List<Location> listLocations() {
+        java.util.List<Location> locations = new java.util.ArrayList<>();
+
+        LocationsGraphQLQuery.Builder builder = LocationsGraphQLQuery.newRequest();
+        builder.first(250);
+        LocationsGraphQLQuery query = builder.build();
+
+        LocationsProjectionRoot root = new LocationsProjectionRoot();
+        LocationEdgeProjection edgeProjection = root.edges();
+        LocationProjection locationProjection = edgeProjection.node();
+        locationProjection.id();
+        locationProjection.name();
+
+        GraphQLQueryRequest request = new GraphQLQueryRequest(query, root);
+        log.debug(request.serialize());
+        GraphQLResponse response = client.executeQuery(request.serialize());
+        log.debug("Response: " + response);
+        LocationConnection results = response.extractValueAsObject("locations", LocationConnection.class);
+
+        java.util.List<LocationEdge> edges = results.getEdges();
+        for (LocationEdge edge : edges) {
+            Location location = edge.getNode();
+            log.debug("Id: " + location.getId() + "\t" + location.getName());
+            locations.add(location);
+        }
+
+        return locations;
+    }
+
     private void listProducts(String after) {
         ProductsGraphQLQuery.Builder builder = ProductsGraphQLQuery.newRequest();
         if (after != null) {
             builder.after(after);
         }
         builder.first(250);
-        ProductsGraphQLQuery productsQuery = builder.build();
+        ProductsGraphQLQuery query = builder.build();
 
         ProductsProjectionRoot root = new ProductsProjectionRoot();
         ProductEdgeProjection edgeProjection = root.edges();
@@ -183,7 +291,7 @@ public class AppTest {
         pageInfoProjection.hasNextPage();
         pageInfoProjection.startCursor();
 
-        GraphQLQueryRequest request = new GraphQLQueryRequest(productsQuery, root);
+        GraphQLQueryRequest request = new GraphQLQueryRequest(query, root);
 
         GraphQLResponse response = client.executeQuery(request.serialize());
         ProductConnection results = response.extractValueAsObject("products", ProductConnection.class);
@@ -209,7 +317,7 @@ public class AppTest {
     }
 
     // simpler option for initial product creation
-    private void createProduct() throws Exception {
+    private Product createProduct(String title) throws Exception {
         ProductCreateGraphQLQuery.Builder builder = ProductCreateGraphQLQuery.newRequest();
         ProductCreateInput productInput = new ProductCreateInput();
         java.util.List<OptionCreateInput> options = new java.util.ArrayList<>();
@@ -230,7 +338,7 @@ public class AppTest {
         tags.add("Green");
         tags.add("White");
         productInput.setTags(tags);
-        productInput.setTitle("Lollipops");
+        productInput.setTitle(title);
         builder.product(productInput);
         ProductCreateGraphQLQuery query = builder.build();
 
@@ -269,13 +377,18 @@ public class AppTest {
         }
 
         updateVariant(product, variant, "3.45");
-        createVariants(product);
+        // createVariants(product);
 
         java.io.File file = new java.io.File("src/test/resources/lollipops.jpg");
         uploadImage(product, file);
+
+        return product;
     }
 
     private Product createProductAdvanced(String title) throws Exception {
+
+        java.util.List<Location> locations = listLocations();
+        Location location = locations.get(0);
 
         ProductSetGraphQLQuery.Builder builder = ProductSetGraphQLQuery.newRequest();
 
@@ -319,6 +432,8 @@ public class AppTest {
         ProductVariantSetInput variant1 = new ProductVariantSetInput();
         variant1.setOptionValues(optionValues200);
         variant1.setBarcode("8410031950656");
+        variant1.setInventoryPolicy(ProductVariantInventoryPolicy.DENY);
+
         variant1.setPrice("6.89");
         variant1.setSku("loli200");
         variants.add(variant1);
@@ -332,6 +447,7 @@ public class AppTest {
         ProductVariantSetInput variant2 = new ProductVariantSetInput();
         variant2.setOptionValues(optionValues100);
         variant2.setBarcode("8410031950656");
+        variant2.setInventoryPolicy(ProductVariantInventoryPolicy.DENY);
         variant2.setPrice("3.45");
         variant2.setSku("loli100");
         variants.add(variant2);
@@ -413,10 +529,13 @@ public class AppTest {
     }
 
     private void updateVariant(Product product, ProductVariant productVariant, String price) {
+
         java.util.List<ProductVariantsBulkInput> variants = new java.util.ArrayList();
+
         ProductVariantsBulkInput variant = new ProductVariantsBulkInput();
         variant.setBarcode("8410031950656");
         variant.setId(productVariant.getId());
+        variant.setInventoryPolicy(ProductVariantInventoryPolicy.DENY);
         variant.setPrice(price);
         variants.add(variant);
 
@@ -440,8 +559,8 @@ public class AppTest {
                 ProductVariantsBulkUpdatePayload.class);
 
         java.util.List<com.shopify.types.ProductVariantsBulkUpdateUserError> errors = payload.getUserErrors();
-        if (errors.size() > 0) {
-            log.error("Variant Error Count: " + errors.size());
+        for (com.shopify.types.ProductVariantsBulkUpdateUserError error : errors) {
+            log.error(error.getField() + "\t" + error.getMessage());
         }
     }
 
