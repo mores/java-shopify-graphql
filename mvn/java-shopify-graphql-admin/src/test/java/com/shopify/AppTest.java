@@ -43,13 +43,58 @@ public class AppTest {
             return new HttpResponse(exchange.getStatusCodeValue(), exchange.getBody());
         });
 
-        listLocations();
         listProducts(null);
         createProductAdvanced("Lollipops - Advanced");
         createProduct("Lollipops");
         createProductFixedBundle();
         createVariantFixedBundle();
         listProducts(null);
+        setInventory();
+    }
+
+    private void setInventory() {
+        java.util.List<Location> locations = listLocations();
+        Location location = locations.get(0);
+
+        int count = 9;
+
+        java.util.List<Product> products = listProducts(null);
+        for (Product product : products) {
+            ProductVariantConnection variants = product.getVariants();
+            java.util.List<ProductVariantEdge> vEdges = variants.getEdges();
+            for (ProductVariantEdge vEdge : vEdges) {
+                ProductVariant variant = vEdge.getNode();
+                InventoryItem inventoryItem = variant.getInventoryItem();
+                log.info("\t\t" + inventoryItem.getId());
+
+                InventorySetQuantitiesGraphQLQuery.Builder builder = InventorySetQuantitiesGraphQLQuery.newRequest();
+                InventorySetQuantitiesInput input = new InventorySetQuantitiesInput();
+                input.setName("available");
+                input.setIgnoreCompareQuantity(true);
+                input.setReason("quality_control");
+                java.util.List<InventoryQuantityInput> quantities = new java.util.ArrayList<>();
+                InventoryQuantityInput quantity = new InventoryQuantityInput();
+                quantity.setInventoryItemId(inventoryItem.getId());
+                quantity.setLocationId(location.getId());
+                quantity.setQuantity(count);
+                count = count + 9;
+                quantities.add(quantity);
+                input.setQuantities(quantities);
+                builder.input(input);
+                InventorySetQuantitiesGraphQLQuery query = builder.build();
+
+                InventorySetQuantitiesProjectionRoot root = new InventorySetQuantitiesProjectionRoot();
+
+                InventorySetQuantitiesUserErrorProjection userErrors = root.userErrors();
+                userErrors.field();
+                userErrors.message();
+
+                GraphQLQueryRequest request = new GraphQLQueryRequest(query, root);
+                log.info("Request: " + request.serialize());
+                GraphQLResponse response = client.executeQuery(request.serialize());
+                log.info("Response: " + response);
+            }
+        }
     }
 
     private ProductOperationStatus getStatus(String id) throws Exception {
@@ -263,7 +308,10 @@ public class AppTest {
         return locations;
     }
 
-    private void listProducts(String after) {
+    private java.util.List<Product> listProducts(String after) {
+
+        java.util.List<Product> products = new java.util.ArrayList<>();
+
         ProductsGraphQLQuery.Builder builder = ProductsGraphQLQuery.newRequest();
         if (after != null) {
             builder.after(after);
@@ -283,6 +331,8 @@ public class AppTest {
         ProductVariantProjection variantProjection = vEdgeProjection.node();
         variantProjection.barcode();
         variantProjection.id();
+        InventoryItemProjection inventoryItemProjection = variantProjection.inventoryItem();
+        inventoryItemProjection.id();
         variantProjection.price();
         variantProjection.sku();
 
@@ -299,6 +349,7 @@ public class AppTest {
         java.util.List<ProductEdge> edges = results.getEdges();
         for (ProductEdge edge : edges) {
             Product product = edge.getNode();
+            products.add(product);
             log.info("Id: " + product.getId() + "\t" + product.getTags());
 
             ProductVariantConnection variants = product.getVariants();
@@ -307,13 +358,17 @@ public class AppTest {
                 ProductVariant variant = vEdge.getNode();
                 log.info("\t" + variant.getPrice() + "\t" + variant.getId() + "\t" + variant.getBarcode() + "\t"
                         + variant.getSku());
+                InventoryItem inventoryItem = variant.getInventoryItem();
+                log.info("\t\t" + inventoryItem.getId());
             }
         }
 
         PageInfo pageInfo = results.getPageInfo();
         if (pageInfo.getHasNextPage()) {
-            listProducts(pageInfo.getEndCursor());
+            products.addAll(listProducts(pageInfo.getEndCursor()));
         }
+
+        return products;
     }
 
     // simpler option for initial product creation
@@ -377,7 +432,7 @@ public class AppTest {
         }
 
         updateVariant(product, variant, "3.45");
-        // createVariants(product);
+        createVariants(product);
 
         java.io.File file = new java.io.File("src/test/resources/lollipops.jpg");
         uploadImage(product, file);
@@ -386,9 +441,6 @@ public class AppTest {
     }
 
     private Product createProductAdvanced(String title) throws Exception {
-
-        java.util.List<Location> locations = listLocations();
-        Location location = locations.get(0);
 
         ProductSetGraphQLQuery.Builder builder = ProductSetGraphQLQuery.newRequest();
 
@@ -495,6 +547,7 @@ public class AppTest {
     }
 
     private void createVariants(Product product) throws Exception {
+
         java.util.List<ProductVariantsBulkInput> variants = new java.util.ArrayList<>();
 
         java.util.List<VariantOptionValueInput> optionValues200 = new java.util.ArrayList<>();
@@ -506,6 +559,19 @@ public class AppTest {
         ProductVariantsBulkInput variant1 = new ProductVariantsBulkInput();
         variant1.setOptionValues(optionValues200);
         variant1.setBarcode("8410031950656");
+        InventoryItemInput inventoryItemInput = new InventoryItemInput();
+        InventoryItemMeasurementInput measurement = new InventoryItemMeasurementInput();
+        WeightInput weight = new WeightInput();
+        weight.setValue(89.9);
+        weight.setUnit(WeightUnit.POUNDS);
+        measurement.setWeight(weight);
+        inventoryItemInput.setMeasurement(measurement);
+        inventoryItemInput.setRequiresShipping(true);
+        inventoryItemInput.setSku("SKU");
+        inventoryItemInput.setTracked(true);
+        inventoryItemInput.setRequiresShipping(true);
+
+        variant1.setInventoryItem(inventoryItemInput);
         variant1.setPrice("6.89");
         variants.add(variant1);
 
@@ -535,6 +601,19 @@ public class AppTest {
         ProductVariantsBulkInput variant = new ProductVariantsBulkInput();
         variant.setBarcode("8410031950656");
         variant.setId(productVariant.getId());
+        InventoryItemInput inventoryItemInput = new InventoryItemInput();
+        InventoryItemMeasurementInput measurement = new InventoryItemMeasurementInput();
+        WeightInput weight = new WeightInput();
+        weight.setValue(99.9);
+        weight.setUnit(WeightUnit.POUNDS);
+        measurement.setWeight(weight);
+        inventoryItemInput.setMeasurement(measurement);
+        inventoryItemInput.setRequiresShipping(true);
+        inventoryItemInput.setSku("SKU");
+        inventoryItemInput.setTracked(true);
+        inventoryItemInput.setRequiresShipping(true);
+
+        variant.setInventoryItem(inventoryItemInput);
         variant.setInventoryPolicy(ProductVariantInventoryPolicy.DENY);
         variant.setPrice(price);
         variants.add(variant);
