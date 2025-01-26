@@ -43,6 +43,7 @@ public class AppTest {
             return new HttpResponse(exchange.getStatusCodeValue(), exchange.getBody());
         });
 
+        listCollections();
         listProducts(null);
         createProductAdvanced("Lollipops - Advanced");
         createProduct("Lollipops");
@@ -279,6 +280,49 @@ public class AppTest {
         }
     }
 
+    private java.util.List<Collection> listCollections() {
+        java.util.List<Collection> collections = new java.util.ArrayList<>();
+
+        CollectionsGraphQLQuery.Builder builder = CollectionsGraphQLQuery.newRequest();
+        builder.first(250);
+        CollectionsGraphQLQuery query = builder.build();
+
+        CollectionsProjectionRoot root = new CollectionsProjectionRoot();
+        CollectionEdgeProjection edgeProjection = root.edges();
+        CollectionProjection collectionProjection = edgeProjection.node();
+        collectionProjection.id();
+        collectionProjection.title();
+        CollectionRuleSetProjection ruleset = collectionProjection.ruleSet();
+        ruleset.appliedDisjunctively();
+        CollectionRuleProjection rules = ruleset.rules();
+        rules.column();
+        rules.condition();
+        rules.relation();
+
+        GraphQLQueryRequest request = new GraphQLQueryRequest(query, root);
+        log.debug(request.serialize());
+        GraphQLResponse response = client.executeQuery(request.serialize());
+        log.debug("Response: " + response);
+        CollectionConnection results = response.extractValueAsObject("collections", CollectionConnection.class);
+
+        java.util.List<CollectionEdge> edges = results.getEdges();
+        for (CollectionEdge edge : edges) {
+            Collection collection = edge.getNode();
+            collections.add(collection);
+            log.info("Id: " + collection.getId() + "\t" + collection.getTitle());
+            CollectionRuleSet ruleSet = collection.getRuleSet();
+            if (ruleSet == null) {
+                continue;
+            }
+            log.info("\tMust Match any: " + ruleSet.getAppliedDisjunctively());
+            for (CollectionRule rule : ruleSet.getRules()) {
+                log.info("\t\t" + rule.getColumn() + "\t" + rule.getRelation() + "\t" + rule.getCondition());
+            }
+        }
+
+        return collections;
+    }
+
     private java.util.List<Location> listLocations() {
         java.util.List<Location> locations = new java.util.ArrayList<>();
 
@@ -322,7 +366,10 @@ public class AppTest {
         ProductsProjectionRoot root = new ProductsProjectionRoot();
         ProductEdgeProjection edgeProjection = root.edges();
         ProductProjection productProjection = edgeProjection.node();
+
+        productProjection.handle();
         productProjection.id();
+        productProjection.status();
         productProjection.tags();
 
         ProductVariantConnectionProjection variantConnectionProjection = productProjection.variants(10, null, null,
@@ -330,11 +377,14 @@ public class AppTest {
         ProductVariantEdgeProjection vEdgeProjection = variantConnectionProjection.edges();
         ProductVariantProjection variantProjection = vEdgeProjection.node();
         variantProjection.barcode();
+        variantProjection.compareAtPrice();
         variantProjection.id();
         InventoryItemProjection inventoryItemProjection = variantProjection.inventoryItem();
         inventoryItemProjection.id();
         variantProjection.price();
         variantProjection.sku();
+
+        productProjection.vendor();
 
         PageInfoProjection pageInfoProjection = root.pageInfo();
         pageInfoProjection.endCursor();
@@ -344,20 +394,22 @@ public class AppTest {
         GraphQLQueryRequest request = new GraphQLQueryRequest(query, root);
 
         GraphQLResponse response = client.executeQuery(request.serialize());
+        log.debug("Response: " + response);
         ProductConnection results = response.extractValueAsObject("products", ProductConnection.class);
 
         java.util.List<ProductEdge> edges = results.getEdges();
         for (ProductEdge edge : edges) {
             Product product = edge.getNode();
             products.add(product);
-            log.info("Id: " + product.getId() + "\t" + product.getTags());
+            log.info("Id: " + product.getId() + "\t" + product.getHandle() + "\t" + product.getStatus() + "\t"
+                    + product.getVendor() + product.getTags());
 
             ProductVariantConnection variants = product.getVariants();
             java.util.List<ProductVariantEdge> vEdges = variants.getEdges();
             for (ProductVariantEdge vEdge : vEdges) {
                 ProductVariant variant = vEdge.getNode();
-                log.info("\t" + variant.getPrice() + "\t" + variant.getId() + "\t" + variant.getBarcode() + "\t"
-                        + variant.getSku());
+                log.info("\t" + variant.getPrice() + "\t" + variant.getCompareAtPrice() + "\t" + variant.getId() + "\t"
+                        + variant.getBarcode() + "\t" + variant.getSku());
                 InventoryItem inventoryItem = variant.getInventoryItem();
                 log.info("\t\t" + inventoryItem.getId());
             }
@@ -374,7 +426,16 @@ public class AppTest {
     // simpler option for initial product creation
     private Product createProduct(String title) throws Exception {
         ProductCreateGraphQLQuery.Builder builder = ProductCreateGraphQLQuery.newRequest();
+
         ProductCreateInput productInput = new ProductCreateInput();
+        productInput.setDescriptionHtml("Bag of Lollipops");
+        productInput.setHandle("url/handle/pop");
+
+        SEOInput seo = new SEOInput();
+        seo.setDescription("SEO META");
+        seo.setTitle("SEO Title");
+        productInput.setSeo(seo);
+
         java.util.List<OptionCreateInput> options = new java.util.ArrayList<>();
         OptionCreateInput option = new OptionCreateInput();
 
@@ -394,6 +455,7 @@ public class AppTest {
         tags.add("White");
         productInput.setTags(tags);
         productInput.setTitle(title);
+        productInput.setVendor("ACME");
         builder.product(productInput);
         ProductCreateGraphQLQuery query = builder.build();
 
@@ -431,7 +493,7 @@ public class AppTest {
             variant = vEdge.getNode();
         }
 
-        updateVariant(product, variant, "3.45");
+        updateVariant(product, variant, "3.45", "6.99");
         createVariants(product);
 
         java.io.File file = new java.io.File("src/test/resources/lollipops.jpg");
@@ -594,12 +656,13 @@ public class AppTest {
                 ProductVariantsBulkCreatePayload.class);
     }
 
-    private void updateVariant(Product product, ProductVariant productVariant, String price) {
+    private void updateVariant(Product product, ProductVariant productVariant, String price, String compareAt) {
 
         java.util.List<ProductVariantsBulkInput> variants = new java.util.ArrayList();
 
         ProductVariantsBulkInput variant = new ProductVariantsBulkInput();
         variant.setBarcode("8410031950656");
+        variant.setCompareAtPrice(compareAt);
         variant.setId(productVariant.getId());
         InventoryItemInput inventoryItemInput = new InventoryItemInput();
         InventoryItemMeasurementInput measurement = new InventoryItemMeasurementInput();
