@@ -20,6 +20,10 @@ import org.junit.Test;
 public class AppTest {
     private static org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(AppTest.class);
 
+    private static final String PROD_META_KEY = "key";
+    private static final String PROD_META_NAME = "The Name";
+    private static final String PROD_META_NAMESPACE = "custom";
+
     private static final String STORE = "<insert you store name here>";
     private static final String TOKEN = "<insert your token here>";
 
@@ -43,10 +47,13 @@ public class AppTest {
             return new HttpResponse(exchange.getStatusCodeValue(), exchange.getBody());
         });
 
+        createMetafieldDefinition();
+        listMetafieldDefinitions();
+        listMetaobjectDefinitions();
         listCollections();
         listProducts(null);
         createProductAdvanced("Lollipops - Advanced");
-        createProduct("Lollipops");
+        createProduct("Lollipops", "lolli");
         createProductFixedBundle();
         createVariantFixedBundle();
         listProducts(null);
@@ -86,14 +93,26 @@ public class AppTest {
 
                 InventorySetQuantitiesProjectionRoot root = new InventorySetQuantitiesProjectionRoot();
 
+                InventoryAdjustmentGroupProjection group = root.inventoryAdjustmentGroup();
+                group.id();
+
                 InventorySetQuantitiesUserErrorProjection userErrors = root.userErrors();
                 userErrors.field();
                 userErrors.message();
 
                 GraphQLQueryRequest request = new GraphQLQueryRequest(query, root);
-                log.info("Request: " + request.serialize());
+                log.debug("Request: " + request.serialize());
                 GraphQLResponse response = client.executeQuery(request.serialize());
-                log.info("Response: " + response);
+                log.debug("Response: " + response);
+
+                InventorySetQuantitiesPayload payload = response.extractValueAsObject("inventorySetQuantities",
+                        InventorySetQuantitiesPayload.class);
+                InventoryAdjustmentGroup inventoryAdjustment = payload.getInventoryAdjustmentGroup();
+                if (inventoryAdjustment != null) {
+                    log.info("Adjusted: " + inventoryAdjustment.getId());
+                } else {
+                    log.error("Response: " + response);
+                }
             }
         }
     }
@@ -123,6 +142,44 @@ public class AppTest {
         ProductOperation results = response.extractValueAsObject("productOperation", ProductOperation.class);
         ProductOperationStatus status = results.getStatus();
         return status;
+    }
+
+    private void createMetafieldDefinition() throws Exception {
+        MetafieldDefinitionCreateGraphQLQuery.Builder builder = MetafieldDefinitionCreateGraphQLQuery.newRequest();
+
+        MetafieldDefinitionInput definition = new MetafieldDefinitionInput();
+        definition.setKey(PROD_META_KEY);
+        definition.setName(PROD_META_NAME);
+        definition.setNamespace(PROD_META_NAMESPACE);
+        definition.setOwnerType(MetafieldOwnerType.PRODUCT);
+        definition.setPin(true);
+
+        // Valid types are: boolean, color, date_time, date, dimension, id, json, language, list.color, list.date_time,
+        // list.date, list.dimension, list.number_decimal, list.number_integer, list.rating,
+        // list.single_line_text_field, list.url, list.volume, list.weight, money, multi_line_text_field,
+        // number_decimal, number_integer, rating, rich_text_field, single_line_text_field, url, link, list.link,
+        // volume, weight, company_reference, list.company_reference, customer_reference, list.customer_reference,
+        // product_reference, list.product_reference, collection_reference, list.collection_reference,
+        // variant_reference, list.variant_reference, file_reference, list.file_reference,
+        // product_taxonomy_value_reference, list.product_taxonomy_value_reference, metaobject_reference,
+        // list.metaobject_reference, mixed_reference, list.mixed_reference, page_reference, list.page_reference,
+        // order_reference.
+        definition.setType("single_line_text_field");
+
+        builder.definition(definition);
+
+        MetafieldDefinitionCreateGraphQLQuery query = builder.build();
+
+        MetafieldDefinitionCreateProjectionRoot root = new MetafieldDefinitionCreateProjectionRoot();
+
+        MetafieldDefinitionCreateUserErrorProjection userErrors = root.userErrors();
+        userErrors.field();
+        userErrors.message();
+
+        GraphQLQueryRequest request = new GraphQLQueryRequest(query, root);
+        log.info("request:" + request.serialize());
+        GraphQLResponse response = client.executeQuery(request.serialize());
+        log.info("response: " + response);
     }
 
     private void createProductFixedBundle() throws Exception {
@@ -205,7 +262,7 @@ public class AppTest {
 
     public void createVariantFixedBundle() throws Exception {
 
-        Product bundle = createProduct("XYZ The Hair And Skin Bundle");
+        Product bundle = createProduct("XYZ The Hair And Skin Bundle", "xyz");
         ProductVariant bundleVariant = null;
         ProductVariantConnection variants = bundle.getVariants();
         java.util.List<ProductVariantEdge> vEdges = variants.getEdges();
@@ -213,7 +270,7 @@ public class AppTest {
             bundleVariant = vEdge.getNode();
         }
 
-        Product shampoo = createProduct("XYZ Shampoo");
+        Product shampoo = createProduct("XYZ Shampoo", "shampoo");
         ProductVariant shampooVariant = null;
         variants = shampoo.getVariants();
         vEdges = variants.getEdges();
@@ -221,7 +278,7 @@ public class AppTest {
             shampooVariant = vEdge.getNode();
         }
 
-        Product soap = createProduct("XYZ Soap");
+        Product soap = createProduct("XYZ Soap", "soap");
         ProductVariant soapVariant = null;
         variants = soap.getVariants();
         vEdges = variants.getEdges();
@@ -352,6 +409,72 @@ public class AppTest {
         return locations;
     }
 
+    private void listMetafieldDefinitions() {
+
+        MetafieldDefinitionsGraphQLQuery.Builder builder = MetafieldDefinitionsGraphQLQuery.newRequest();
+        builder.first(250);
+        builder.ownerType(MetafieldOwnerType.PRODUCT);
+        MetafieldDefinitionsGraphQLQuery query = builder.build();
+
+        MetafieldDefinitionsProjectionRoot root = new MetafieldDefinitionsProjectionRoot();
+        MetafieldDefinitionEdgeProjection edges = root.edges();
+        MetafieldDefinitionProjection node = edges.node();
+
+        node.id();
+        node.key();
+        node.namespace();
+
+        MetafieldOwnerTypeProjection ownerType = node.ownerType();
+
+        GraphQLQueryRequest request = new GraphQLQueryRequest(query, root);
+        log.debug("Query: " + request.serialize());
+        GraphQLResponse response = client.executeQuery(request.serialize());
+        log.debug("Response: " + response);
+
+        MetafieldConnection results = response.extractValueAsObject("metafieldDefinitions", MetafieldConnection.class);
+
+        java.util.List<MetafieldEdge> metaEdges = results.getEdges();
+        for (MetafieldEdge edge : metaEdges) {
+            Metafield metafield = edge.getNode();
+            log.info("Id: " + metafield.getId() + "\t" + metafield.getNamespace() + "\t" + metafield.getKey());
+        }
+
+    }
+
+    private void listMetaobjectDefinitions() {
+
+        MetaobjectDefinitionsGraphQLQuery.Builder builder = MetaobjectDefinitionsGraphQLQuery.newRequest();
+        builder.first(250);
+        MetaobjectDefinitionsGraphQLQuery query = builder.build();
+
+        MetaobjectDefinitionsProjectionRoot root = new MetaobjectDefinitionsProjectionRoot();
+
+        MetaobjectDefinitionEdgeProjection edgeProjection = root.edges();
+        MetaobjectDefinitionProjection nodeProjection = edgeProjection.node();
+        nodeProjection.description();
+        nodeProjection.id();
+        nodeProjection.type();
+
+        MetaobjectDefinitionProjection metaProjection = root.nodes();
+        metaProjection.description();
+        metaProjection.id();
+        metaProjection.type();
+
+        GraphQLQueryRequest request = new GraphQLQueryRequest(query, root);
+        log.debug("Query: " + request.serialize());
+        GraphQLResponse response = client.executeQuery(request.serialize());
+        log.debug("Response: " + response);
+
+        MetaobjectDefinitionConnection results = response.extractValueAsObject("metaobjectDefinitions",
+                MetaobjectDefinitionConnection.class);
+
+        java.util.List<MetaobjectDefinitionEdge> metaEdges = results.getEdges();
+        for (MetaobjectDefinitionEdge edge : metaEdges) {
+            MetaobjectDefinition metaobject = edge.getNode();
+            log.info("Id: " + metaobject.getId() + "\t" + metaobject.getType() + "\t" + metaobject.getDescription());
+        }
+    }
+
     private java.util.List<Product> listProducts(String after) {
 
         java.util.List<Product> products = new java.util.ArrayList<>();
@@ -424,12 +547,24 @@ public class AppTest {
     }
 
     // simpler option for initial product creation
-    private Product createProduct(String title) throws Exception {
+    private Product createProduct(String title, String handle) throws Exception {
         ProductCreateGraphQLQuery.Builder builder = ProductCreateGraphQLQuery.newRequest();
 
         ProductCreateInput productInput = new ProductCreateInput();
         productInput.setDescriptionHtml("Bag of Lollipops");
-        productInput.setHandle("url/handle/pop");
+        productInput.setHandle(handle);
+
+        java.util.List<MetafieldInput> metafields = new java.util.ArrayList<>();
+
+        MetafieldInput metaInput = new MetafieldInput();
+
+        metaInput.setKey(PROD_META_KEY);
+        metaInput.setNamespace(PROD_META_NAMESPACE);
+        metaInput.setValue("Yummy");
+
+        metafields.add(metaInput);
+
+        productInput.setMetafields(metafields);
 
         SEOInput seo = new SEOInput();
         seo.setDescription("SEO META");
@@ -448,6 +583,7 @@ public class AppTest {
         option.setValues(values);
         options.add(option);
         productInput.setProductOptions(options);
+
         java.util.List<String> tags = new java.util.ArrayList<>();
         tags.add("Red");
         tags.add("Blue");
@@ -456,6 +592,7 @@ public class AppTest {
         productInput.setTags(tags);
         productInput.setTitle(title);
         productInput.setVendor("ACME");
+
         builder.product(productInput);
         ProductCreateGraphQLQuery query = builder.build();
 
