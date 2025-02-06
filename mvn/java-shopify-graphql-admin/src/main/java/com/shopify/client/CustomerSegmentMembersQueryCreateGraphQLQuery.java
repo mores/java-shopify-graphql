@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a customer segment members query.
+ */
 public class CustomerSegmentMembersQueryCreateGraphQLQuery extends GraphQLQuery {
   public CustomerSegmentMembersQueryCreateGraphQLQuery(CustomerSegmentMembersQueryInput input,
       String queryName, Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class CustomerSegmentMembersQueryCreateGraphQLQuery extends GraphQLQuery 
                
     }
 
-    
+    /**
+     * The input fields to create a customer segment members query.
+     */
     public Builder input(CustomerSegmentMembersQueryInput input) {
       this.input = input;
       this.fieldsSet.add("input");

@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Possible error codes that can be returned by `InventorySetOnHandQuantitiesUserError`.
+ */
 public enum InventorySetOnHandQuantitiesUserErrorCode {
   INVALID_INVENTORY_ITEM,
 

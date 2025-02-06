@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Possible error codes that can be returned by `DiscountUserError`.
+ */
 public enum DiscountErrorCode {
   BLANK,
 
@@ -50,5 +52,11 @@ public enum DiscountErrorCode {
 
   INVALID_DISCOUNT_CLASS_FOR_PRICE_RULE,
 
-  MAX_APP_DISCOUNTS
+  MAX_APP_DISCOUNTS,
+
+  APPLIES_ON_NOTHING,
+
+  RECURRING_CYCLE_LIMIT_NOT_A_VALID_INTEGER,
+
+  MULTIPLE_RECURRING_CYCLE_LIMIT_FOR_NON_SUBSCRIPTION_ITEMS
 }

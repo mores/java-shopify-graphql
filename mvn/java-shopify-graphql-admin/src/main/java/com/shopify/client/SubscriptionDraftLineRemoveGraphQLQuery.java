@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Removes a subscription line from a subscription draft.
+ */
 public class SubscriptionDraftLineRemoveGraphQLQuery extends GraphQLQuery {
   public SubscriptionDraftLineRemoveGraphQLQuery(String draftId, String lineId, String queryName,
       Set<String> fieldsSet) {
@@ -45,14 +47,18 @@ public class SubscriptionDraftLineRemoveGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The gid of the Subscription Contract draft to remove a subscription line from.
+     */
     public Builder draftId(String draftId) {
       this.draftId = draftId;
       this.fieldsSet.add("draftId");
       return this;
     }
 
-    
+    /**
+     * The gid of the Subscription Line to remove.
+     */
     public Builder lineId(String lineId) {
       this.lineId = lineId;
       this.fieldsSet.add("lineId");

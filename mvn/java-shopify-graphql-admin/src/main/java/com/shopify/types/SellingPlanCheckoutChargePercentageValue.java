@@ -6,18 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The percentage value of the price used for checkout charge.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class SellingPlanCheckoutChargePercentageValue implements SellingPlanCheckoutChargeValue {
-  
+  /**
+   * The percentage value of the price used for checkout charge.
+   */
   private double percentage;
 
   public SellingPlanCheckoutChargePercentageValue() {
   }
 
-  
+  /**
+   * The percentage value of the price used for checkout charge.
+   */
   public double getPercentage() {
     return percentage;
   }
@@ -49,7 +55,9 @@ public class SellingPlanCheckoutChargePercentageValue implements SellingPlanChec
   }
 
   public static class Builder {
-    
+    /**
+     * The percentage value of the price used for checkout charge.
+     */
     private double percentage;
 
     public SellingPlanCheckoutChargePercentageValue build() {
@@ -58,7 +66,9 @@ public class SellingPlanCheckoutChargePercentageValue implements SellingPlanChec
       return result;
     }
 
-    
+    /**
+     * The percentage value of the price used for checkout charge.
+     */
     public Builder percentage(double percentage) {
       this.percentage = percentage;
       return this;

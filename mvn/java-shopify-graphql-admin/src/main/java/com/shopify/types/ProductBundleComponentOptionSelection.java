@@ -6,21 +6,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * A relationship between a component option and a parent option.
+ */
 public class ProductBundleComponentOptionSelection {
-  
+  /**
+   * The option that existed on the component product prior to the fixed bundle creation.
+   */
   private ProductOption componentOption;
 
-  
+  /**
+   * The option that was created on the parent product.
+   */
   private ProductOption parentOption;
 
-  
+  /**
+   * The component option values that are actively selected for this relationship.
+   */
   private List<ProductBundleComponentOptionSelectionValue> values;
 
   public ProductBundleComponentOptionSelection() {
   }
 
-  
+  /**
+   * The option that existed on the component product prior to the fixed bundle creation.
+   */
   public ProductOption getComponentOption() {
     return componentOption;
   }
@@ -29,7 +39,9 @@ public class ProductBundleComponentOptionSelection {
     this.componentOption = componentOption;
   }
 
-  
+  /**
+   * The option that was created on the parent product.
+   */
   public ProductOption getParentOption() {
     return parentOption;
   }
@@ -38,7 +50,9 @@ public class ProductBundleComponentOptionSelection {
     this.parentOption = parentOption;
   }
 
-  
+  /**
+   * The component option values that are actively selected for this relationship.
+   */
   public List<ProductBundleComponentOptionSelectionValue> getValues() {
     return values;
   }
@@ -72,13 +86,19 @@ public class ProductBundleComponentOptionSelection {
   }
 
   public static class Builder {
-    
+    /**
+     * The option that existed on the component product prior to the fixed bundle creation.
+     */
     private ProductOption componentOption;
 
-    
+    /**
+     * The option that was created on the parent product.
+     */
     private ProductOption parentOption;
 
-    
+    /**
+     * The component option values that are actively selected for this relationship.
+     */
     private List<ProductBundleComponentOptionSelectionValue> values;
 
     public ProductBundleComponentOptionSelection build() {
@@ -89,19 +109,25 @@ public class ProductBundleComponentOptionSelection {
       return result;
     }
 
-    
+    /**
+     * The option that existed on the component product prior to the fixed bundle creation.
+     */
     public Builder componentOption(ProductOption componentOption) {
       this.componentOption = componentOption;
       return this;
     }
 
-    
+    /**
+     * The option that was created on the parent product.
+     */
     public Builder parentOption(ProductOption parentOption) {
       this.parentOption = parentOption;
       return this;
     }
 
-    
+    /**
+     * The component option values that are actively selected for this relationship.
+     */
     public Builder values(List<ProductBundleComponentOptionSelectionValue> values) {
       this.values = values;
       return this;

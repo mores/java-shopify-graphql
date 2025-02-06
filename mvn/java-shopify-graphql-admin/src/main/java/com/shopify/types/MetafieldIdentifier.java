@@ -5,21 +5,31 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Identifies a metafield by its owner resource, namespace, and key.
+ */
 public class MetafieldIdentifier {
-  
+  /**
+   * The key of the metafield.
+   */
   private String key;
 
-  
+  /**
+   * The namespace of the metafield.
+   */
   private String namespace;
 
-  
+  /**
+   * GID of the owner resource that the metafield belongs to.
+   */
   private String ownerId;
 
   public MetafieldIdentifier() {
   }
 
-  
+  /**
+   * The key of the metafield.
+   */
   public String getKey() {
     return key;
   }
@@ -28,7 +38,9 @@ public class MetafieldIdentifier {
     this.key = key;
   }
 
-  
+  /**
+   * The namespace of the metafield.
+   */
   public String getNamespace() {
     return namespace;
   }
@@ -37,7 +49,9 @@ public class MetafieldIdentifier {
     this.namespace = namespace;
   }
 
-  
+  /**
+   * GID of the owner resource that the metafield belongs to.
+   */
   public String getOwnerId() {
     return ownerId;
   }
@@ -71,13 +85,19 @@ public class MetafieldIdentifier {
   }
 
   public static class Builder {
-    
+    /**
+     * The key of the metafield.
+     */
     private String key;
 
-    
+    /**
+     * The namespace of the metafield.
+     */
     private String namespace;
 
-    
+    /**
+     * GID of the owner resource that the metafield belongs to.
+     */
     private String ownerId;
 
     public MetafieldIdentifier build() {
@@ -88,19 +108,25 @@ public class MetafieldIdentifier {
       return result;
     }
 
-    
+    /**
+     * The key of the metafield.
+     */
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
-    
+    /**
+     * The namespace of the metafield.
+     */
     public Builder namespace(String namespace) {
       this.namespace = namespace;
       return this;
     }
 
-    
+    /**
+     * GID of the owner resource that the metafield belongs to.
+     */
     public Builder ownerId(String ownerId) {
       this.ownerId = ownerId;
       return this;

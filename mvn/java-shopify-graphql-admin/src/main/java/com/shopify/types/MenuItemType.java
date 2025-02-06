@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * A menu item type.
+ */
 public enum MenuItemType {
   FRONTPAGE,
 

@@ -6,21 +6,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `orderEditRemoveLineItemDiscount` mutation.
+ */
 public class OrderEditRemoveLineItemDiscountPayload {
-  
+  /**
+   * The calculated line item after removal of the discount.
+   */
   private CalculatedLineItem calculatedLineItem;
 
-  
+  /**
+   * An order with the edits applied but not saved.
+   */
   private CalculatedOrder calculatedOrder;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public OrderEditRemoveLineItemDiscountPayload() {
   }
 
-  
+  /**
+   * The calculated line item after removal of the discount.
+   */
   public CalculatedLineItem getCalculatedLineItem() {
     return calculatedLineItem;
   }
@@ -29,7 +39,9 @@ public class OrderEditRemoveLineItemDiscountPayload {
     this.calculatedLineItem = calculatedLineItem;
   }
 
-  
+  /**
+   * An order with the edits applied but not saved.
+   */
   public CalculatedOrder getCalculatedOrder() {
     return calculatedOrder;
   }
@@ -38,7 +50,9 @@ public class OrderEditRemoveLineItemDiscountPayload {
     this.calculatedOrder = calculatedOrder;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -72,13 +86,19 @@ public class OrderEditRemoveLineItemDiscountPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The calculated line item after removal of the discount.
+     */
     private CalculatedLineItem calculatedLineItem;
 
-    
+    /**
+     * An order with the edits applied but not saved.
+     */
     private CalculatedOrder calculatedOrder;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public OrderEditRemoveLineItemDiscountPayload build() {
@@ -89,19 +109,25 @@ public class OrderEditRemoveLineItemDiscountPayload {
       return result;
     }
 
-    
+    /**
+     * The calculated line item after removal of the discount.
+     */
     public Builder calculatedLineItem(CalculatedLineItem calculatedLineItem) {
       this.calculatedLineItem = calculatedLineItem;
       return this;
     }
 
-    
+    /**
+     * An order with the edits applied but not saved.
+     */
     public Builder calculatedOrder(CalculatedOrder calculatedOrder) {
       this.calculatedOrder = calculatedOrder;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

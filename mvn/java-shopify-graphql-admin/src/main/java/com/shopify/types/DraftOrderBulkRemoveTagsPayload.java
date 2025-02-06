@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `draftOrderBulkRemoveTags` mutation.
+ */
 public class DraftOrderBulkRemoveTagsPayload {
-  
+  /**
+   * The asynchronous job for removing tags from the draft orders.
+   */
   private Job job;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public DraftOrderBulkRemoveTagsPayload() {
   }
 
-  
+  /**
+   * The asynchronous job for removing tags from the draft orders.
+   */
   public Job getJob() {
     return job;
   }
@@ -26,7 +34,9 @@ public class DraftOrderBulkRemoveTagsPayload {
     this.job = job;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class DraftOrderBulkRemoveTagsPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The asynchronous job for removing tags from the draft orders.
+     */
     private Job job;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public DraftOrderBulkRemoveTagsPayload build() {
@@ -72,13 +86,17 @@ public class DraftOrderBulkRemoveTagsPayload {
       return result;
     }
 
-    
+    /**
+     * The asynchronous job for removing tags from the draft orders.
+     */
     public Builder job(Job job) {
       this.job = job;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

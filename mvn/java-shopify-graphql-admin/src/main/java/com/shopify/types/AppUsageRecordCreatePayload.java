@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `appUsageRecordCreate` mutation.
+ */
 public class AppUsageRecordCreatePayload {
-  
+  /**
+   * The newly created app usage record.
+   */
   private AppUsageRecord appUsageRecord;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public AppUsageRecordCreatePayload() {
   }
 
-  
+  /**
+   * The newly created app usage record.
+   */
   public AppUsageRecord getAppUsageRecord() {
     return appUsageRecord;
   }
@@ -26,7 +34,9 @@ public class AppUsageRecordCreatePayload {
     this.appUsageRecord = appUsageRecord;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class AppUsageRecordCreatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The newly created app usage record.
+     */
     private AppUsageRecord appUsageRecord;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public AppUsageRecordCreatePayload build() {
@@ -72,13 +86,17 @@ public class AppUsageRecordCreatePayload {
       return result;
     }
 
-    
+    /**
+     * The newly created app usage record.
+     */
     public Builder appUsageRecord(AppUsageRecord appUsageRecord) {
       this.appUsageRecord = appUsageRecord;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

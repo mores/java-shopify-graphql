@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `collectionAddProductsV2` mutation.
+ */
 public class CollectionAddProductsV2Payload {
-  
+  /**
+   * The asynchronous job adding the products.
+   */
   private Job job;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<CollectionAddProductsV2UserError> userErrors;
 
   public CollectionAddProductsV2Payload() {
   }
 
-  
+  /**
+   * The asynchronous job adding the products.
+   */
   public Job getJob() {
     return job;
   }
@@ -26,7 +34,9 @@ public class CollectionAddProductsV2Payload {
     this.job = job;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<CollectionAddProductsV2UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class CollectionAddProductsV2Payload {
   }
 
   public static class Builder {
-    
+    /**
+     * The asynchronous job adding the products.
+     */
     private Job job;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<CollectionAddProductsV2UserError> userErrors;
 
     public CollectionAddProductsV2Payload build() {
@@ -72,13 +86,17 @@ public class CollectionAddProductsV2Payload {
       return result;
     }
 
-    
+    /**
+     * The asynchronous job adding the products.
+     */
     public Builder job(Job job) {
       this.job = job;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<CollectionAddProductsV2UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

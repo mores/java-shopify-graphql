@@ -7,7 +7,9 @@ import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Runs the full product sync for a given shop.
+ */
 public class ProductFullSyncGraphQLQuery extends GraphQLQuery {
   public ProductFullSyncGraphQLQuery(OffsetDateTime beforeUpdatedAt, String id,
       OffsetDateTime updatedAtSince, String queryName, Set<String> fieldsSet) {
@@ -50,21 +52,27 @@ public class ProductFullSyncGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Syncs only products that haven't changed since the specified timestamp.
+     */
     public Builder beforeUpdatedAt(OffsetDateTime beforeUpdatedAt) {
       this.beforeUpdatedAt = beforeUpdatedAt;
       this.fieldsSet.add("beforeUpdatedAt");
       return this;
     }
 
-    
+    /**
+     * The product feed which needs syncing.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    
+    /**
+     * Syncs only products that have changed since the specified timestamp.
+     */
     public Builder updatedAtSince(OffsetDateTime updatedAtSince) {
       this.updatedAtSince = updatedAtSince;
       this.fieldsSet.add("updatedAtSince");

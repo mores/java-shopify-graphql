@@ -53,6 +53,11 @@ public class DiscountAutomaticAppFragmentProjection<PARENT extends BaseSubProjec
      return projection;
   }
 
+  public DiscountAutomaticAppFragmentProjection<PARENT, ROOT> appliesOnOneTimePurchase() {
+    getFields().put("appliesOnOneTimePurchase", null);
+    return this;
+  }
+
   public DiscountAutomaticAppFragmentProjection<PARENT, ROOT> appliesOnSubscription() {
     getFields().put("appliesOnSubscription", null);
     return this;

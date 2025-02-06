@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Allows tax app configurations for tax partners.
+ */
 public class TaxAppConfigureGraphQLQuery extends GraphQLQuery {
   public TaxAppConfigureGraphQLQuery(boolean ready, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -38,7 +40,9 @@ public class TaxAppConfigureGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Configures whether the tax app is correctly configured and ready to be used.
+     */
     public Builder ready(boolean ready) {
       this.ready = ready;
       this.fieldsSet.add("ready");

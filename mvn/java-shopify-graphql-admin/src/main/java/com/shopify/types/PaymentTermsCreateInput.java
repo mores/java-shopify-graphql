@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields used to create a payment terms.
+ */
 public class PaymentTermsCreateInput {
-  
+  /**
+   * Specifies the payment terms template ID used to generate payment terms.
+   */
   private String paymentTermsTemplateId;
 
-  
+  /**
+   * Specifies the payment schedules for the payment terms.
+   */
   private List<PaymentScheduleInput> paymentSchedules;
 
   public PaymentTermsCreateInput() {
   }
 
-  
+  /**
+   * Specifies the payment terms template ID used to generate payment terms.
+   */
   public String getPaymentTermsTemplateId() {
     return paymentTermsTemplateId;
   }
@@ -26,7 +34,9 @@ public class PaymentTermsCreateInput {
     this.paymentTermsTemplateId = paymentTermsTemplateId;
   }
 
-  
+  /**
+   * Specifies the payment schedules for the payment terms.
+   */
   public List<PaymentScheduleInput> getPaymentSchedules() {
     return paymentSchedules;
   }
@@ -59,10 +69,14 @@ public class PaymentTermsCreateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Specifies the payment terms template ID used to generate payment terms.
+     */
     private String paymentTermsTemplateId;
 
-    
+    /**
+     * Specifies the payment schedules for the payment terms.
+     */
     private List<PaymentScheduleInput> paymentSchedules;
 
     public PaymentTermsCreateInput build() {
@@ -72,13 +86,17 @@ public class PaymentTermsCreateInput {
       return result;
     }
 
-    
+    /**
+     * Specifies the payment terms template ID used to generate payment terms.
+     */
     public Builder paymentTermsTemplateId(String paymentTermsTemplateId) {
       this.paymentTermsTemplateId = paymentTermsTemplateId;
       return this;
     }
 
-    
+    /**
+     * Specifies the payment schedules for the payment terms.
+     */
     public Builder paymentSchedules(List<PaymentScheduleInput> paymentSchedules) {
       this.paymentSchedules = paymentSchedules;
       return this;

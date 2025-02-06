@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Possible error codes that can be returned by `MenuDeleteUserError`.
+ */
 public enum MenuDeleteUserErrorCode {
   MENU_DOES_NOT_EXIST,
 

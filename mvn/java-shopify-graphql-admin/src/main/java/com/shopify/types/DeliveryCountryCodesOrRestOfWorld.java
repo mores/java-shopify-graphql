@@ -6,18 +6,27 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The list of country codes and information whether the countries
+ * are a part of the 'Rest Of World' shipping zone.
+ */
 public class DeliveryCountryCodesOrRestOfWorld {
-  
+  /**
+   * List of applicable country codes in the ISO 3166-1 alpha-2 format.
+   */
   private List<CountryCode> countryCodes;
 
-  
+  /**
+   * Whether the countries are a part of the 'Rest of World' shipping zone.
+   */
   private boolean restOfWorld;
 
   public DeliveryCountryCodesOrRestOfWorld() {
   }
 
-  
+  /**
+   * List of applicable country codes in the ISO 3166-1 alpha-2 format.
+   */
   public List<CountryCode> getCountryCodes() {
     return countryCodes;
   }
@@ -26,7 +35,9 @@ public class DeliveryCountryCodesOrRestOfWorld {
     this.countryCodes = countryCodes;
   }
 
-  
+  /**
+   * Whether the countries are a part of the 'Rest of World' shipping zone.
+   */
   public boolean getRestOfWorld() {
     return restOfWorld;
   }
@@ -59,10 +70,14 @@ public class DeliveryCountryCodesOrRestOfWorld {
   }
 
   public static class Builder {
-    
+    /**
+     * List of applicable country codes in the ISO 3166-1 alpha-2 format.
+     */
     private List<CountryCode> countryCodes;
 
-    
+    /**
+     * Whether the countries are a part of the 'Rest of World' shipping zone.
+     */
     private boolean restOfWorld;
 
     public DeliveryCountryCodesOrRestOfWorld build() {
@@ -72,13 +87,17 @@ public class DeliveryCountryCodesOrRestOfWorld {
       return result;
     }
 
-    
+    /**
+     * List of applicable country codes in the ISO 3166-1 alpha-2 format.
+     */
     public Builder countryCodes(List<CountryCode> countryCodes) {
       this.countryCodes = countryCodes;
       return this;
     }
 
-    
+    /**
+     * Whether the countries are a part of the 'Rest of World' shipping zone.
+     */
     public Builder restOfWorld(boolean restOfWorld) {
       this.restOfWorld = restOfWorld;
       return this;

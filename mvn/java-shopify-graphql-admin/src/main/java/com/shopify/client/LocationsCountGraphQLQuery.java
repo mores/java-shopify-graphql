@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Returns the count of locations for the given shop. Limited to a maximum of 10000.
+ */
 public class LocationsCountGraphQLQuery extends GraphQLQuery {
   public LocationsCountGraphQLQuery(String query, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -40,7 +42,29 @@ public class LocationsCountGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * A filter made up of terms, connectives, modifiers, and comparators.
+     * | name | type | description | acceptable_values | default_value | example_use |
+     * | ---- | ---- | ---- | ---- | ---- | ---- |
+     * | default | string | Filter by a case-insensitive search of multiple fields
+     * in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
+     * | active | string |
+     * | address1 | string |
+     * | address2 | string |
+     * | city | string |
+     * | country | string |
+     * | created_at | time |
+     * | geolocated | boolean |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
+     * | legacy | boolean |
+     * | location_id | id |
+     * | name | string |
+     * | pickup_in_store | string | | - `enabled`<br/> - `disabled` |
+     * | province | string |
+     * | zip | string |
+     * You can apply one or more filters to a query. Learn more about [Shopify API
+     * search syntax](https://shopify.dev/api/usage/search-syntax).
+     */
     public Builder query(String query) {
       this.query = query;
       this.fieldsSet.add("query");

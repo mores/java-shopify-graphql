@@ -6,36 +6,57 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields used to update the header customizations.
+ */
 public class CheckoutBrandingHeaderInput {
-  
+  /**
+   * The header alignment.
+   */
   private CheckoutBrandingHeaderAlignment alignment;
 
-  
+  /**
+   * The header position.
+   */
   private CheckoutBrandingHeaderPosition position;
 
-  
+  /**
+   * The store logo.
+   */
   private CheckoutBrandingLogoInput logo;
 
-  
+  /**
+   * The background image of the header (must not be of SVG format).
+   */
   private CheckoutBrandingImageInput banner;
 
-  
+  /**
+   * The divided setting.
+   */
   private Boolean divided;
 
-  
+  /**
+   * The input for cart link customizations for 1-page checkout. This field allows
+   * to customize the cart icon that renders by default on 1-page checkout.
+   */
   private CheckoutBrandingHeaderCartLinkInput cartLink;
 
-  
+  /**
+   * The selected color scheme of the header container.
+   */
   private CheckoutBrandingColorSchemeSelection colorScheme;
 
-  
+  /**
+   * The padding of the header container.
+   */
   private CheckoutBrandingSpacingKeyword padding;
 
   public CheckoutBrandingHeaderInput() {
   }
 
-  
+  /**
+   * The header alignment.
+   */
   public CheckoutBrandingHeaderAlignment getAlignment() {
     return alignment;
   }
@@ -44,7 +65,9 @@ public class CheckoutBrandingHeaderInput {
     this.alignment = alignment;
   }
 
-  
+  /**
+   * The header position.
+   */
   public CheckoutBrandingHeaderPosition getPosition() {
     return position;
   }
@@ -53,7 +76,9 @@ public class CheckoutBrandingHeaderInput {
     this.position = position;
   }
 
-  
+  /**
+   * The store logo.
+   */
   public CheckoutBrandingLogoInput getLogo() {
     return logo;
   }
@@ -62,7 +87,9 @@ public class CheckoutBrandingHeaderInput {
     this.logo = logo;
   }
 
-  
+  /**
+   * The background image of the header (must not be of SVG format).
+   */
   public CheckoutBrandingImageInput getBanner() {
     return banner;
   }
@@ -71,7 +98,9 @@ public class CheckoutBrandingHeaderInput {
     this.banner = banner;
   }
 
-  
+  /**
+   * The divided setting.
+   */
   public Boolean getDivided() {
     return divided;
   }
@@ -80,7 +109,10 @@ public class CheckoutBrandingHeaderInput {
     this.divided = divided;
   }
 
-  
+  /**
+   * The input for cart link customizations for 1-page checkout. This field allows
+   * to customize the cart icon that renders by default on 1-page checkout.
+   */
   public CheckoutBrandingHeaderCartLinkInput getCartLink() {
     return cartLink;
   }
@@ -89,7 +121,9 @@ public class CheckoutBrandingHeaderInput {
     this.cartLink = cartLink;
   }
 
-  
+  /**
+   * The selected color scheme of the header container.
+   */
   public CheckoutBrandingColorSchemeSelection getColorScheme() {
     return colorScheme;
   }
@@ -98,7 +132,9 @@ public class CheckoutBrandingHeaderInput {
     this.colorScheme = colorScheme;
   }
 
-  
+  /**
+   * The padding of the header container.
+   */
   public CheckoutBrandingSpacingKeyword getPadding() {
     return padding;
   }
@@ -137,28 +173,45 @@ public class CheckoutBrandingHeaderInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The header alignment.
+     */
     private CheckoutBrandingHeaderAlignment alignment;
 
-    
+    /**
+     * The header position.
+     */
     private CheckoutBrandingHeaderPosition position;
 
-    
+    /**
+     * The store logo.
+     */
     private CheckoutBrandingLogoInput logo;
 
-    
+    /**
+     * The background image of the header (must not be of SVG format).
+     */
     private CheckoutBrandingImageInput banner;
 
-    
+    /**
+     * The divided setting.
+     */
     private Boolean divided;
 
-    
+    /**
+     * The input for cart link customizations for 1-page checkout. This field allows
+     * to customize the cart icon that renders by default on 1-page checkout.
+     */
     private CheckoutBrandingHeaderCartLinkInput cartLink;
 
-    
+    /**
+     * The selected color scheme of the header container.
+     */
     private CheckoutBrandingColorSchemeSelection colorScheme;
 
-    
+    /**
+     * The padding of the header container.
+     */
     private CheckoutBrandingSpacingKeyword padding;
 
     public CheckoutBrandingHeaderInput build() {
@@ -174,49 +227,66 @@ public class CheckoutBrandingHeaderInput {
       return result;
     }
 
-    
+    /**
+     * The header alignment.
+     */
     public Builder alignment(CheckoutBrandingHeaderAlignment alignment) {
       this.alignment = alignment;
       return this;
     }
 
-    
+    /**
+     * The header position.
+     */
     public Builder position(CheckoutBrandingHeaderPosition position) {
       this.position = position;
       return this;
     }
 
-    
+    /**
+     * The store logo.
+     */
     public Builder logo(CheckoutBrandingLogoInput logo) {
       this.logo = logo;
       return this;
     }
 
-    
+    /**
+     * The background image of the header (must not be of SVG format).
+     */
     public Builder banner(CheckoutBrandingImageInput banner) {
       this.banner = banner;
       return this;
     }
 
-    
+    /**
+     * The divided setting.
+     */
     public Builder divided(Boolean divided) {
       this.divided = divided;
       return this;
     }
 
-    
+    /**
+     * The input for cart link customizations for 1-page checkout. This field allows
+     * to customize the cart icon that renders by default on 1-page checkout.
+     */
     public Builder cartLink(CheckoutBrandingHeaderCartLinkInput cartLink) {
       this.cartLink = cartLink;
       return this;
     }
 
-    
+    /**
+     * The selected color scheme of the header container.
+     */
     public Builder colorScheme(CheckoutBrandingColorSchemeSelection colorScheme) {
       this.colorScheme = colorScheme;
       return this;
     }
 
-    
+    /**
+     * The padding of the header container.
+     */
     public Builder padding(CheckoutBrandingSpacingKeyword padding) {
       this.padding = padding;
       return this;

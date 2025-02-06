@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Returns an Article resource by ID.
+ */
 public class ArticleGraphQLQuery extends GraphQLQuery {
   public ArticleGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -40,7 +42,9 @@ public class ArticleGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the `Article` to return.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

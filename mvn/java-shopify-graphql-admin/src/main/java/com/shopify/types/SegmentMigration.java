@@ -5,21 +5,32 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A segment and its corresponding saved search. 
+ * For example, you can use `SegmentMigration` to retrieve the segment ID that corresponds to a saved search ID.
+ */
 public class SegmentMigration {
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The ID of the saved search.
+   */
   private String savedSearchId;
 
-  
+  /**
+   * The ID of the segment.
+   */
   private String segmentId;
 
   public SegmentMigration() {
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -28,7 +39,9 @@ public class SegmentMigration {
     this.id = id;
   }
 
-  
+  /**
+   * The ID of the saved search.
+   */
   public String getSavedSearchId() {
     return savedSearchId;
   }
@@ -37,7 +50,9 @@ public class SegmentMigration {
     this.savedSearchId = savedSearchId;
   }
 
-  
+  /**
+   * The ID of the segment.
+   */
   public String getSegmentId() {
     return segmentId;
   }
@@ -71,13 +86,19 @@ public class SegmentMigration {
   }
 
   public static class Builder {
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The ID of the saved search.
+     */
     private String savedSearchId;
 
-    
+    /**
+     * The ID of the segment.
+     */
     private String segmentId;
 
     public SegmentMigration build() {
@@ -88,19 +109,25 @@ public class SegmentMigration {
       return result;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The ID of the saved search.
+     */
     public Builder savedSearchId(String savedSearchId) {
       this.savedSearchId = savedSearchId;
       return this;
     }
 
-    
+    /**
+     * The ID of the segment.
+     */
     public Builder segmentId(String segmentId) {
       this.segmentId = segmentId;
       return this;

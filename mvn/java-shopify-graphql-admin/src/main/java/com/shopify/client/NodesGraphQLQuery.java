@@ -7,7 +7,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Returns the list of nodes (any objects that implement the
+ * [Node](https://shopify.dev/api/admin-graphql/latest/interfaces/Node)
+ * interface) with the given IDs, in accordance with the
+ * [Relay specification](https://relay.dev/docs/guides/graphql-server-specification/#object-identification).
+ */
 public class NodesGraphQLQuery extends GraphQLQuery {
   public NodesGraphQLQuery(List<String> ids, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -41,7 +46,9 @@ public class NodesGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The IDs of the Nodes to return.
+     */
     public Builder ids(List<String> ids) {
       this.ids = ids;
       this.fieldsSet.add("ids");

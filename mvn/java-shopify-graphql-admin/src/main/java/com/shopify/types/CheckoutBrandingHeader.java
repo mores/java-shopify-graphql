@@ -6,36 +6,57 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The header customizations.
+ */
 public class CheckoutBrandingHeader {
-  
+  /**
+   * The header alignment.
+   */
   private CheckoutBrandingHeaderAlignment alignment;
 
-  
+  /**
+   * The background image of the header.
+   */
   private CheckoutBrandingImage banner;
 
-  
+  /**
+   * The cart link customizations for 1-page checkout. This field allows to
+   * customize the cart icon that renders by default on 1-page checkout.
+   */
   private CheckoutBrandingHeaderCartLink cartLink;
 
-  
+  /**
+   * The selected color scheme of the header container.
+   */
   private CheckoutBrandingColorSchemeSelection colorScheme;
 
-  
+  /**
+   * The divided setting.
+   */
   private Boolean divided;
 
-  
+  /**
+   * The store logo.
+   */
   private CheckoutBrandingLogo logo;
 
-  
+  /**
+   * The padding of the header container.
+   */
   private CheckoutBrandingSpacingKeyword padding;
 
-  
+  /**
+   * The header position.
+   */
   private CheckoutBrandingHeaderPosition position;
 
   public CheckoutBrandingHeader() {
   }
 
-  
+  /**
+   * The header alignment.
+   */
   public CheckoutBrandingHeaderAlignment getAlignment() {
     return alignment;
   }
@@ -44,7 +65,9 @@ public class CheckoutBrandingHeader {
     this.alignment = alignment;
   }
 
-  
+  /**
+   * The background image of the header.
+   */
   public CheckoutBrandingImage getBanner() {
     return banner;
   }
@@ -53,7 +76,10 @@ public class CheckoutBrandingHeader {
     this.banner = banner;
   }
 
-  
+  /**
+   * The cart link customizations for 1-page checkout. This field allows to
+   * customize the cart icon that renders by default on 1-page checkout.
+   */
   public CheckoutBrandingHeaderCartLink getCartLink() {
     return cartLink;
   }
@@ -62,7 +88,9 @@ public class CheckoutBrandingHeader {
     this.cartLink = cartLink;
   }
 
-  
+  /**
+   * The selected color scheme of the header container.
+   */
   public CheckoutBrandingColorSchemeSelection getColorScheme() {
     return colorScheme;
   }
@@ -71,7 +99,9 @@ public class CheckoutBrandingHeader {
     this.colorScheme = colorScheme;
   }
 
-  
+  /**
+   * The divided setting.
+   */
   public Boolean getDivided() {
     return divided;
   }
@@ -80,7 +110,9 @@ public class CheckoutBrandingHeader {
     this.divided = divided;
   }
 
-  
+  /**
+   * The store logo.
+   */
   public CheckoutBrandingLogo getLogo() {
     return logo;
   }
@@ -89,7 +121,9 @@ public class CheckoutBrandingHeader {
     this.logo = logo;
   }
 
-  
+  /**
+   * The padding of the header container.
+   */
   public CheckoutBrandingSpacingKeyword getPadding() {
     return padding;
   }
@@ -98,7 +132,9 @@ public class CheckoutBrandingHeader {
     this.padding = padding;
   }
 
-  
+  /**
+   * The header position.
+   */
   public CheckoutBrandingHeaderPosition getPosition() {
     return position;
   }
@@ -137,28 +173,45 @@ public class CheckoutBrandingHeader {
   }
 
   public static class Builder {
-    
+    /**
+     * The header alignment.
+     */
     private CheckoutBrandingHeaderAlignment alignment;
 
-    
+    /**
+     * The background image of the header.
+     */
     private CheckoutBrandingImage banner;
 
-    
+    /**
+     * The cart link customizations for 1-page checkout. This field allows to
+     * customize the cart icon that renders by default on 1-page checkout.
+     */
     private CheckoutBrandingHeaderCartLink cartLink;
 
-    
+    /**
+     * The selected color scheme of the header container.
+     */
     private CheckoutBrandingColorSchemeSelection colorScheme;
 
-    
+    /**
+     * The divided setting.
+     */
     private Boolean divided;
 
-    
+    /**
+     * The store logo.
+     */
     private CheckoutBrandingLogo logo;
 
-    
+    /**
+     * The padding of the header container.
+     */
     private CheckoutBrandingSpacingKeyword padding;
 
-    
+    /**
+     * The header position.
+     */
     private CheckoutBrandingHeaderPosition position;
 
     public CheckoutBrandingHeader build() {
@@ -174,49 +227,66 @@ public class CheckoutBrandingHeader {
       return result;
     }
 
-    
+    /**
+     * The header alignment.
+     */
     public Builder alignment(CheckoutBrandingHeaderAlignment alignment) {
       this.alignment = alignment;
       return this;
     }
 
-    
+    /**
+     * The background image of the header.
+     */
     public Builder banner(CheckoutBrandingImage banner) {
       this.banner = banner;
       return this;
     }
 
-    
+    /**
+     * The cart link customizations for 1-page checkout. This field allows to
+     * customize the cart icon that renders by default on 1-page checkout.
+     */
     public Builder cartLink(CheckoutBrandingHeaderCartLink cartLink) {
       this.cartLink = cartLink;
       return this;
     }
 
-    
+    /**
+     * The selected color scheme of the header container.
+     */
     public Builder colorScheme(CheckoutBrandingColorSchemeSelection colorScheme) {
       this.colorScheme = colorScheme;
       return this;
     }
 
-    
+    /**
+     * The divided setting.
+     */
     public Builder divided(Boolean divided) {
       this.divided = divided;
       return this;
     }
 
-    
+    /**
+     * The store logo.
+     */
     public Builder logo(CheckoutBrandingLogo logo) {
       this.logo = logo;
       return this;
     }
 
-    
+    /**
+     * The padding of the header container.
+     */
     public Builder padding(CheckoutBrandingSpacingKeyword padding) {
       this.padding = padding;
       return this;
     }
 
-    
+    /**
+     * The header position.
+     */
     public Builder position(CheckoutBrandingHeaderPosition position) {
       this.position = position;
       return this;

@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The renderable capability data for the metaobject definition.
+ */
 public class MetaobjectCapabilityDefinitionDataRenderable {
-  
+  /**
+   * The metaobject field used as an alias for the SEO page description.
+   */
   private String metaDescriptionKey;
 
-  
+  /**
+   * The metaobject field used as an alias for the SEO page title.
+   */
   private String metaTitleKey;
 
   public MetaobjectCapabilityDefinitionDataRenderable() {
   }
 
-  
+  /**
+   * The metaobject field used as an alias for the SEO page description.
+   */
   public String getMetaDescriptionKey() {
     return metaDescriptionKey;
   }
@@ -25,7 +33,9 @@ public class MetaobjectCapabilityDefinitionDataRenderable {
     this.metaDescriptionKey = metaDescriptionKey;
   }
 
-  
+  /**
+   * The metaobject field used as an alias for the SEO page title.
+   */
   public String getMetaTitleKey() {
     return metaTitleKey;
   }
@@ -58,10 +68,14 @@ public class MetaobjectCapabilityDefinitionDataRenderable {
   }
 
   public static class Builder {
-    
+    /**
+     * The metaobject field used as an alias for the SEO page description.
+     */
     private String metaDescriptionKey;
 
-    
+    /**
+     * The metaobject field used as an alias for the SEO page title.
+     */
     private String metaTitleKey;
 
     public MetaobjectCapabilityDefinitionDataRenderable build() {
@@ -71,13 +85,17 @@ public class MetaobjectCapabilityDefinitionDataRenderable {
       return result;
     }
 
-    
+    /**
+     * The metaobject field used as an alias for the SEO page description.
+     */
     public Builder metaDescriptionKey(String metaDescriptionKey) {
       this.metaDescriptionKey = metaDescriptionKey;
       return this;
     }
 
-    
+    /**
+     * The metaobject field used as an alias for the SEO page title.
+     */
     public Builder metaTitleKey(String metaTitleKey) {
       this.metaTitleKey = metaTitleKey;
       return this;

@@ -6,7 +6,10 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Indicates a return is complete, either when a refund has been made and items restocked,
+ * or simply when it has been marked as returned in the system.
+ */
 public class ReturnCloseGraphQLQuery extends GraphQLQuery {
   public ReturnCloseGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -40,7 +43,9 @@ public class ReturnCloseGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the return to close.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

@@ -5,21 +5,32 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Single or multiple line item products, product variants or collections required
+ * for the price rule to be applicable, can also be provided in combination.
+ */
 public class PriceRuleLineItemPrerequisites {
-  
+  /**
+   * The collections required for the price rule to be applicable.
+   */
   private CollectionConnection collections;
 
-  
+  /**
+   * The product variants required for the price rule to be applicable.
+   */
   private ProductVariantConnection productVariants;
 
-  
+  /**
+   * The products required for the price rule to be applicable.
+   */
   private ProductConnection products;
 
   public PriceRuleLineItemPrerequisites() {
   }
 
-  
+  /**
+   * The collections required for the price rule to be applicable.
+   */
   public CollectionConnection getCollections() {
     return collections;
   }
@@ -28,7 +39,9 @@ public class PriceRuleLineItemPrerequisites {
     this.collections = collections;
   }
 
-  
+  /**
+   * The product variants required for the price rule to be applicable.
+   */
   public ProductVariantConnection getProductVariants() {
     return productVariants;
   }
@@ -37,7 +50,9 @@ public class PriceRuleLineItemPrerequisites {
     this.productVariants = productVariants;
   }
 
-  
+  /**
+   * The products required for the price rule to be applicable.
+   */
   public ProductConnection getProducts() {
     return products;
   }
@@ -71,13 +86,19 @@ public class PriceRuleLineItemPrerequisites {
   }
 
   public static class Builder {
-    
+    /**
+     * The collections required for the price rule to be applicable.
+     */
     private CollectionConnection collections;
 
-    
+    /**
+     * The product variants required for the price rule to be applicable.
+     */
     private ProductVariantConnection productVariants;
 
-    
+    /**
+     * The products required for the price rule to be applicable.
+     */
     private ProductConnection products;
 
     public PriceRuleLineItemPrerequisites build() {
@@ -88,19 +109,25 @@ public class PriceRuleLineItemPrerequisites {
       return result;
     }
 
-    
+    /**
+     * The collections required for the price rule to be applicable.
+     */
     public Builder collections(CollectionConnection collections) {
       this.collections = collections;
       return this;
     }
 
-    
+    /**
+     * The product variants required for the price rule to be applicable.
+     */
     public Builder productVariants(ProductVariantConnection productVariants) {
       this.productVariants = productVariants;
       return this;
     }
 
-    
+    /**
+     * The products required for the price rule to be applicable.
+     */
     public Builder products(ProductConnection products) {
       this.products = products;
       return this;

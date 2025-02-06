@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * The possible types of transactions.
+ */
 public enum ShopifyPaymentsTransactionType {
   CHARGEBACK_PROTECTION_CREDIT,
 

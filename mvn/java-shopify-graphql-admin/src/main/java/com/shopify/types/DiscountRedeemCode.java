@@ -5,24 +5,40 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A code that a customer can use at checkout to receive a discount. For example, a
+ * customer can use the redeem code 'SUMMER20' at checkout to receive a 20%
+ * discount on their entire order.
+ */
 public class DiscountRedeemCode {
-  
+  /**
+   * The number of times that the discount redeem code has been used. This value is
+   * updated asynchronously and can be different than the actual usage count.
+   */
   private int asyncUsageCount;
 
-  
+  /**
+   * The code that a customer can use at checkout to receive a discount.
+   */
   private String code;
 
-  
+  /**
+   * The application that created the discount redeem code.
+   */
   private App createdBy;
 
-  
+  /**
+   * A globally-unique ID of the discount redeem code.
+   */
   private String id;
 
   public DiscountRedeemCode() {
   }
 
-  
+  /**
+   * The number of times that the discount redeem code has been used. This value is
+   * updated asynchronously and can be different than the actual usage count.
+   */
   public int getAsyncUsageCount() {
     return asyncUsageCount;
   }
@@ -31,7 +47,9 @@ public class DiscountRedeemCode {
     this.asyncUsageCount = asyncUsageCount;
   }
 
-  
+  /**
+   * The code that a customer can use at checkout to receive a discount.
+   */
   public String getCode() {
     return code;
   }
@@ -40,7 +58,9 @@ public class DiscountRedeemCode {
     this.code = code;
   }
 
-  
+  /**
+   * The application that created the discount redeem code.
+   */
   public App getCreatedBy() {
     return createdBy;
   }
@@ -49,7 +69,9 @@ public class DiscountRedeemCode {
     this.createdBy = createdBy;
   }
 
-  
+  /**
+   * A globally-unique ID of the discount redeem code.
+   */
   public String getId() {
     return id;
   }
@@ -84,16 +106,25 @@ public class DiscountRedeemCode {
   }
 
   public static class Builder {
-    
+    /**
+     * The number of times that the discount redeem code has been used. This value is
+     * updated asynchronously and can be different than the actual usage count.
+     */
     private int asyncUsageCount;
 
-    
+    /**
+     * The code that a customer can use at checkout to receive a discount.
+     */
     private String code;
 
-    
+    /**
+     * The application that created the discount redeem code.
+     */
     private App createdBy;
 
-    
+    /**
+     * A globally-unique ID of the discount redeem code.
+     */
     private String id;
 
     public DiscountRedeemCode build() {
@@ -105,25 +136,34 @@ public class DiscountRedeemCode {
       return result;
     }
 
-    
+    /**
+     * The number of times that the discount redeem code has been used. This value is
+     * updated asynchronously and can be different than the actual usage count.
+     */
     public Builder asyncUsageCount(int asyncUsageCount) {
       this.asyncUsageCount = asyncUsageCount;
       return this;
     }
 
-    
+    /**
+     * The code that a customer can use at checkout to receive a discount.
+     */
     public Builder code(String code) {
       this.code = code;
       return this;
     }
 
-    
+    /**
+     * The application that created the discount redeem code.
+     */
     public Builder createdBy(App createdBy) {
       this.createdBy = createdBy;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID of the discount redeem code.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;

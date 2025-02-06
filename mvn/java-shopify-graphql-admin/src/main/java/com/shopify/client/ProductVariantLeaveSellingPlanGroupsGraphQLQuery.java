@@ -7,7 +7,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Remove multiple groups from a product variant.
+ */
 public class ProductVariantLeaveSellingPlanGroupsGraphQLQuery extends GraphQLQuery {
   public ProductVariantLeaveSellingPlanGroupsGraphQLQuery(String id,
       List<String> sellingPlanGroupIds, String queryName, Set<String> fieldsSet) {
@@ -46,14 +48,18 @@ public class ProductVariantLeaveSellingPlanGroupsGraphQLQuery extends GraphQLQue
                
     }
 
-    
+    /**
+     * The ID of the product variant.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    
+    /**
+     * The IDs of the selling plan groups to leave.
+     */
     public Builder sellingPlanGroupIds(List<String> sellingPlanGroupIds) {
       this.sellingPlanGroupIds = sellingPlanGroupIds;
       this.fieldsSet.add("sellingPlanGroupIds");

@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Enables local pickup for a location.
+ */
 public class LocationLocalPickupEnableGraphQLQuery extends GraphQLQuery {
   public LocationLocalPickupEnableGraphQLQuery(
       DeliveryLocationLocalPickupEnableInput localPickupSettings, String queryName,
@@ -43,7 +45,9 @@ public class LocationLocalPickupEnableGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The settings required to enable local pickup for a location.
+     */
     public Builder localPickupSettings(DeliveryLocationLocalPickupEnableInput localPickupSettings) {
       this.localPickupSettings = localPickupSettings;
       this.fieldsSet.add("localPickupSettings");

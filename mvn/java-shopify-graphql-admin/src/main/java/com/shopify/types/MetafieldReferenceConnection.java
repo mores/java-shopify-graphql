@@ -6,21 +6,35 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * An auto-generated type for paginating through multiple MetafieldReferences.
+ */
 public class MetafieldReferenceConnection {
-  
+  /**
+   * The connection between the node and its parent. Each edge contains a minimum of the edge's cursor and the node.
+   */
   private List<MetafieldReferenceEdge> edges;
 
-  
+  /**
+   * A list of nodes that are contained in MetafieldReferenceEdge. You can fetch
+   * data about an individual node, or you can follow the edges to fetch data about
+   * a collection of related nodes. At each node, you specify the fields that you
+   * want to retrieve.
+   */
   private List<MetafieldReference> nodes;
 
-  
+  /**
+   * An object that’s used to retrieve [cursor
+   * information](https://shopify.dev/api/usage/pagination-graphql) about the current page.
+   */
   private PageInfo pageInfo;
 
   public MetafieldReferenceConnection() {
   }
 
-  
+  /**
+   * The connection between the node and its parent. Each edge contains a minimum of the edge's cursor and the node.
+   */
   public List<MetafieldReferenceEdge> getEdges() {
     return edges;
   }
@@ -29,7 +43,12 @@ public class MetafieldReferenceConnection {
     this.edges = edges;
   }
 
-  
+  /**
+   * A list of nodes that are contained in MetafieldReferenceEdge. You can fetch
+   * data about an individual node, or you can follow the edges to fetch data about
+   * a collection of related nodes. At each node, you specify the fields that you
+   * want to retrieve.
+   */
   public List<MetafieldReference> getNodes() {
     return nodes;
   }
@@ -38,7 +57,10 @@ public class MetafieldReferenceConnection {
     this.nodes = nodes;
   }
 
-  
+  /**
+   * An object that’s used to retrieve [cursor
+   * information](https://shopify.dev/api/usage/pagination-graphql) about the current page.
+   */
   public PageInfo getPageInfo() {
     return pageInfo;
   }
@@ -72,13 +94,23 @@ public class MetafieldReferenceConnection {
   }
 
   public static class Builder {
-    
+    /**
+     * The connection between the node and its parent. Each edge contains a minimum of the edge's cursor and the node.
+     */
     private List<MetafieldReferenceEdge> edges;
 
-    
+    /**
+     * A list of nodes that are contained in MetafieldReferenceEdge. You can fetch
+     * data about an individual node, or you can follow the edges to fetch data about
+     * a collection of related nodes. At each node, you specify the fields that you
+     * want to retrieve.
+     */
     private List<MetafieldReference> nodes;
 
-    
+    /**
+     * An object that’s used to retrieve [cursor
+     * information](https://shopify.dev/api/usage/pagination-graphql) about the current page.
+     */
     private PageInfo pageInfo;
 
     public MetafieldReferenceConnection build() {
@@ -89,19 +121,29 @@ public class MetafieldReferenceConnection {
       return result;
     }
 
-    
+    /**
+     * The connection between the node and its parent. Each edge contains a minimum of the edge's cursor and the node.
+     */
     public Builder edges(List<MetafieldReferenceEdge> edges) {
       this.edges = edges;
       return this;
     }
 
-    
+    /**
+     * A list of nodes that are contained in MetafieldReferenceEdge. You can fetch
+     * data about an individual node, or you can follow the edges to fetch data about
+     * a collection of related nodes. At each node, you specify the fields that you
+     * want to retrieve.
+     */
     public Builder nodes(List<MetafieldReference> nodes) {
       this.nodes = nodes;
       return this;
     }
 
-    
+    /**
+     * An object that’s used to retrieve [cursor
+     * information](https://shopify.dev/api/usage/pagination-graphql) about the current page.
+     */
     public Builder pageInfo(PageInfo pageInfo) {
       this.pageInfo = pageInfo;
       return this;

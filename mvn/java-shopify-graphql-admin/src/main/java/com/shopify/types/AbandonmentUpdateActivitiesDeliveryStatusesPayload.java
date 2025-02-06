@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `abandonmentUpdateActivitiesDeliveryStatuses` mutation.
+ */
 public class AbandonmentUpdateActivitiesDeliveryStatusesPayload {
-  
+  /**
+   * The updated abandonment.
+   */
   private Abandonment abandonment;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<AbandonmentUpdateActivitiesDeliveryStatusesUserError> userErrors;
 
   public AbandonmentUpdateActivitiesDeliveryStatusesPayload() {
   }
 
-  
+  /**
+   * The updated abandonment.
+   */
   public Abandonment getAbandonment() {
     return abandonment;
   }
@@ -26,7 +34,9 @@ public class AbandonmentUpdateActivitiesDeliveryStatusesPayload {
     this.abandonment = abandonment;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<AbandonmentUpdateActivitiesDeliveryStatusesUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class AbandonmentUpdateActivitiesDeliveryStatusesPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The updated abandonment.
+     */
     private Abandonment abandonment;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<AbandonmentUpdateActivitiesDeliveryStatusesUserError> userErrors;
 
     public AbandonmentUpdateActivitiesDeliveryStatusesPayload build() {
@@ -72,13 +86,17 @@ public class AbandonmentUpdateActivitiesDeliveryStatusesPayload {
       return result;
     }
 
-    
+    /**
+     * The updated abandonment.
+     */
     public Builder abandonment(Abandonment abandonment) {
       this.abandonment = abandonment;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(
         List<AbandonmentUpdateActivitiesDeliveryStatusesUserError> userErrors) {
       this.userErrors = userErrors;

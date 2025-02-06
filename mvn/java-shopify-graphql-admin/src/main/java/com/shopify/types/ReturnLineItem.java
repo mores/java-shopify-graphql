@@ -6,48 +6,75 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A return line item.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ReturnLineItem implements com.shopify.types.Node, com.shopify.types.ReturnLineItemType {
-  
+  /**
+   * A note from the customer that describes the item to be returned. Maximum length: 300 characters.
+   */
   private String customerNote;
 
-  
+  /**
+   * The fulfillment line item from which items are returned.
+   */
   private FulfillmentLineItem fulfillmentLineItem;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The quantity being returned.
+   */
   private int quantity;
 
-  
+  /**
+   * The quantity that can be refunded.
+   */
   private int refundableQuantity;
 
-  
+  /**
+   * The quantity that was refunded.
+   */
   private int refundedQuantity;
 
-  
+  /**
+   * The restocking fee for the return line item.
+   */
   private RestockingFee restockingFee;
 
-  
+  /**
+   * The reason for returning the item.
+   */
   private ReturnReason returnReason;
 
-  
+  /**
+   * Additional information about the reason for the return. Maximum length: 255 characters.
+   */
   private String returnReasonNote;
 
-  
+  /**
+   * The total weight of the item.
+   */
   private Weight totalWeight;
 
-  
+  /**
+   * The total line price after all discounts on the line item, including both line
+   * item level discounts and code-based line item discounts, are applied.
+   */
   private MoneyBag withCodeDiscountedTotalPriceSet;
 
   public ReturnLineItem() {
   }
 
-  
+  /**
+   * A note from the customer that describes the item to be returned. Maximum length: 300 characters.
+   */
   public String getCustomerNote() {
     return customerNote;
   }
@@ -56,7 +83,9 @@ public class ReturnLineItem implements com.shopify.types.Node, com.shopify.types
     this.customerNote = customerNote;
   }
 
-  
+  /**
+   * The fulfillment line item from which items are returned.
+   */
   public FulfillmentLineItem getFulfillmentLineItem() {
     return fulfillmentLineItem;
   }
@@ -65,7 +94,9 @@ public class ReturnLineItem implements com.shopify.types.Node, com.shopify.types
     this.fulfillmentLineItem = fulfillmentLineItem;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -74,7 +105,9 @@ public class ReturnLineItem implements com.shopify.types.Node, com.shopify.types
     this.id = id;
   }
 
-  
+  /**
+   * The quantity being returned.
+   */
   public int getQuantity() {
     return quantity;
   }
@@ -83,7 +116,9 @@ public class ReturnLineItem implements com.shopify.types.Node, com.shopify.types
     this.quantity = quantity;
   }
 
-  
+  /**
+   * The quantity that can be refunded.
+   */
   public int getRefundableQuantity() {
     return refundableQuantity;
   }
@@ -92,7 +127,9 @@ public class ReturnLineItem implements com.shopify.types.Node, com.shopify.types
     this.refundableQuantity = refundableQuantity;
   }
 
-  
+  /**
+   * The quantity that was refunded.
+   */
   public int getRefundedQuantity() {
     return refundedQuantity;
   }
@@ -101,7 +138,9 @@ public class ReturnLineItem implements com.shopify.types.Node, com.shopify.types
     this.refundedQuantity = refundedQuantity;
   }
 
-  
+  /**
+   * The restocking fee for the return line item.
+   */
   public RestockingFee getRestockingFee() {
     return restockingFee;
   }
@@ -110,7 +149,9 @@ public class ReturnLineItem implements com.shopify.types.Node, com.shopify.types
     this.restockingFee = restockingFee;
   }
 
-  
+  /**
+   * The reason for returning the item.
+   */
   public ReturnReason getReturnReason() {
     return returnReason;
   }
@@ -119,7 +160,9 @@ public class ReturnLineItem implements com.shopify.types.Node, com.shopify.types
     this.returnReason = returnReason;
   }
 
-  
+  /**
+   * Additional information about the reason for the return. Maximum length: 255 characters.
+   */
   public String getReturnReasonNote() {
     return returnReasonNote;
   }
@@ -128,7 +171,9 @@ public class ReturnLineItem implements com.shopify.types.Node, com.shopify.types
     this.returnReasonNote = returnReasonNote;
   }
 
-  
+  /**
+   * The total weight of the item.
+   */
   public Weight getTotalWeight() {
     return totalWeight;
   }
@@ -137,7 +182,10 @@ public class ReturnLineItem implements com.shopify.types.Node, com.shopify.types
     this.totalWeight = totalWeight;
   }
 
-  
+  /**
+   * The total line price after all discounts on the line item, including both line
+   * item level discounts and code-based line item discounts, are applied.
+   */
   public MoneyBag getWithCodeDiscountedTotalPriceSet() {
     return withCodeDiscountedTotalPriceSet;
   }
@@ -179,37 +227,60 @@ public class ReturnLineItem implements com.shopify.types.Node, com.shopify.types
   }
 
   public static class Builder {
-    
+    /**
+     * A note from the customer that describes the item to be returned. Maximum length: 300 characters.
+     */
     private String customerNote;
 
-    
+    /**
+     * The fulfillment line item from which items are returned.
+     */
     private FulfillmentLineItem fulfillmentLineItem;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The quantity being returned.
+     */
     private int quantity;
 
-    
+    /**
+     * The quantity that can be refunded.
+     */
     private int refundableQuantity;
 
-    
+    /**
+     * The quantity that was refunded.
+     */
     private int refundedQuantity;
 
-    
+    /**
+     * The restocking fee for the return line item.
+     */
     private RestockingFee restockingFee;
 
-    
+    /**
+     * The reason for returning the item.
+     */
     private ReturnReason returnReason;
 
-    
+    /**
+     * Additional information about the reason for the return. Maximum length: 255 characters.
+     */
     private String returnReasonNote;
 
-    
+    /**
+     * The total weight of the item.
+     */
     private Weight totalWeight;
 
-    
+    /**
+     * The total line price after all discounts on the line item, including both line
+     * item level discounts and code-based line item discounts, are applied.
+     */
     private MoneyBag withCodeDiscountedTotalPriceSet;
 
     public ReturnLineItem build() {
@@ -228,67 +299,90 @@ public class ReturnLineItem implements com.shopify.types.Node, com.shopify.types
       return result;
     }
 
-    
+    /**
+     * A note from the customer that describes the item to be returned. Maximum length: 300 characters.
+     */
     public Builder customerNote(String customerNote) {
       this.customerNote = customerNote;
       return this;
     }
 
-    
+    /**
+     * The fulfillment line item from which items are returned.
+     */
     public Builder fulfillmentLineItem(FulfillmentLineItem fulfillmentLineItem) {
       this.fulfillmentLineItem = fulfillmentLineItem;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The quantity being returned.
+     */
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    
+    /**
+     * The quantity that can be refunded.
+     */
     public Builder refundableQuantity(int refundableQuantity) {
       this.refundableQuantity = refundableQuantity;
       return this;
     }
 
-    
+    /**
+     * The quantity that was refunded.
+     */
     public Builder refundedQuantity(int refundedQuantity) {
       this.refundedQuantity = refundedQuantity;
       return this;
     }
 
-    
+    /**
+     * The restocking fee for the return line item.
+     */
     public Builder restockingFee(RestockingFee restockingFee) {
       this.restockingFee = restockingFee;
       return this;
     }
 
-    
+    /**
+     * The reason for returning the item.
+     */
     public Builder returnReason(ReturnReason returnReason) {
       this.returnReason = returnReason;
       return this;
     }
 
-    
+    /**
+     * Additional information about the reason for the return. Maximum length: 255 characters.
+     */
     public Builder returnReasonNote(String returnReasonNote) {
       this.returnReasonNote = returnReasonNote;
       return this;
     }
 
-    
+    /**
+     * The total weight of the item.
+     */
     public Builder totalWeight(Weight totalWeight) {
       this.totalWeight = totalWeight;
       return this;
     }
 
-    
+    /**
+     * The total line price after all discounts on the line item, including both line
+     * item level discounts and code-based line item discounts, are applied.
+     */
     public Builder withCodeDiscountedTotalPriceSet(MoneyBag withCodeDiscountedTotalPriceSet) {
       this.withCodeDiscountedTotalPriceSet = withCodeDiscountedTotalPriceSet;
       return this;

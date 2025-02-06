@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields required to create or update an inventory policy.
+ */
 public class SellingPlanInventoryPolicyInput {
-  
+  /**
+   * When to reserve inventory for the order. The value must be ON_FULFILLMENT or ON_SALE.
+   */
   private SellingPlanReserve reserve;
 
   public SellingPlanInventoryPolicyInput() {
   }
 
-  
+  /**
+   * When to reserve inventory for the order. The value must be ON_FULFILLMENT or ON_SALE.
+   */
   public SellingPlanReserve getReserve() {
     return reserve;
   }
@@ -45,7 +51,9 @@ public class SellingPlanInventoryPolicyInput {
   }
 
   public static class Builder {
-    
+    /**
+     * When to reserve inventory for the order. The value must be ON_FULFILLMENT or ON_SALE.
+     */
     private SellingPlanReserve reserve;
 
     public SellingPlanInventoryPolicyInput build() {
@@ -54,7 +62,9 @@ public class SellingPlanInventoryPolicyInput {
       return result;
     }
 
-    
+    /**
+     * When to reserve inventory for the order. The value must be ON_FULFILLMENT or ON_SALE.
+     */
     public Builder reserve(SellingPlanReserve reserve) {
       this.reserve = reserve;
       return this;

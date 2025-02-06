@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `fulfillmentConstraintRuleUpdate` mutation.
+ */
 public class FulfillmentConstraintRuleUpdatePayload {
-  
+  /**
+   * The updated fulfillment constraint rule.
+   */
   private FulfillmentConstraintRule fulfillmentConstraintRule;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<FulfillmentConstraintRuleUpdateUserError> userErrors;
 
   public FulfillmentConstraintRuleUpdatePayload() {
   }
 
-  
+  /**
+   * The updated fulfillment constraint rule.
+   */
   public FulfillmentConstraintRule getFulfillmentConstraintRule() {
     return fulfillmentConstraintRule;
   }
@@ -26,7 +34,9 @@ public class FulfillmentConstraintRuleUpdatePayload {
     this.fulfillmentConstraintRule = fulfillmentConstraintRule;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<FulfillmentConstraintRuleUpdateUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class FulfillmentConstraintRuleUpdatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The updated fulfillment constraint rule.
+     */
     private FulfillmentConstraintRule fulfillmentConstraintRule;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<FulfillmentConstraintRuleUpdateUserError> userErrors;
 
     public FulfillmentConstraintRuleUpdatePayload build() {
@@ -72,13 +86,17 @@ public class FulfillmentConstraintRuleUpdatePayload {
       return result;
     }
 
-    
+    /**
+     * The updated fulfillment constraint rule.
+     */
     public Builder fulfillmentConstraintRule(FulfillmentConstraintRule fulfillmentConstraintRule) {
       this.fulfillmentConstraintRule = fulfillmentConstraintRule;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<FulfillmentConstraintRuleUpdateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

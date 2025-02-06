@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The text fields customizations.
+ */
 public class CheckoutBrandingTextField {
-  
+  /**
+   * The border used for text fields.
+   */
   private CheckoutBrandingBorder border;
 
-  
+  /**
+   * The typography customizations used for text fields.
+   */
   private CheckoutBrandingTypographyStyle typography;
 
   public CheckoutBrandingTextField() {
   }
 
-  
+  /**
+   * The border used for text fields.
+   */
   public CheckoutBrandingBorder getBorder() {
     return border;
   }
@@ -25,7 +33,9 @@ public class CheckoutBrandingTextField {
     this.border = border;
   }
 
-  
+  /**
+   * The typography customizations used for text fields.
+   */
   public CheckoutBrandingTypographyStyle getTypography() {
     return typography;
   }
@@ -58,10 +68,14 @@ public class CheckoutBrandingTextField {
   }
 
   public static class Builder {
-    
+    /**
+     * The border used for text fields.
+     */
     private CheckoutBrandingBorder border;
 
-    
+    /**
+     * The typography customizations used for text fields.
+     */
     private CheckoutBrandingTypographyStyle typography;
 
     public CheckoutBrandingTextField build() {
@@ -71,13 +85,17 @@ public class CheckoutBrandingTextField {
       return result;
     }
 
-    
+    /**
+     * The border used for text fields.
+     */
     public Builder border(CheckoutBrandingBorder border) {
       this.border = border;
       return this;
     }
 
-    
+    /**
+     * The typography customizations used for text fields.
+     */
     public Builder typography(CheckoutBrandingTypographyStyle typography) {
       this.typography = typography;
       return this;

@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Returns an Abandonment by the Abandoned Checkout ID.
+ */
 public class AbandonmentByAbandonedCheckoutIdGraphQLQuery extends GraphQLQuery {
   public AbandonmentByAbandonedCheckoutIdGraphQLQuery(String abandonedCheckoutId, String queryName,
       Set<String> fieldsSet) {
@@ -41,7 +43,9 @@ public class AbandonmentByAbandonedCheckoutIdGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the Abandoned Checkout ID to query by.
+     */
     public Builder abandonedCheckoutId(String abandonedCheckoutId) {
       this.abandonedCheckoutId = abandonedCheckoutId;
       this.fieldsSet.add("abandonedCheckoutId");

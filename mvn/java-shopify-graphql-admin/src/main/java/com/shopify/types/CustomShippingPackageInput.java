@@ -6,27 +6,41 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for a custom shipping package used to pack shipment.
+ */
 public class CustomShippingPackageInput {
-  
+  /**
+   * Weight of the empty shipping package.
+   */
   private WeightInput weight;
 
-  
+  /**
+   * Outside dimensions of the empty shipping package.
+   */
   private ObjectDimensionsInput dimensions;
 
-  
+  /**
+   * The default package is the one used to calculate shipping costs on checkout.
+   */
   private Boolean _default = false;
 
-  
+  /**
+   * Descriptive name for the package.
+   */
   private String name;
 
-  
+  /**
+   * Type of package.
+   */
   private ShippingPackageType type;
 
   public CustomShippingPackageInput() {
   }
 
-  
+  /**
+   * Weight of the empty shipping package.
+   */
   public WeightInput getWeight() {
     return weight;
   }
@@ -35,7 +49,9 @@ public class CustomShippingPackageInput {
     this.weight = weight;
   }
 
-  
+  /**
+   * Outside dimensions of the empty shipping package.
+   */
   public ObjectDimensionsInput getDimensions() {
     return dimensions;
   }
@@ -44,7 +60,9 @@ public class CustomShippingPackageInput {
     this.dimensions = dimensions;
   }
 
-  
+  /**
+   * The default package is the one used to calculate shipping costs on checkout.
+   */
   public Boolean getDefault() {
     return _default;
   }
@@ -53,7 +71,9 @@ public class CustomShippingPackageInput {
     this._default = _default;
   }
 
-  
+  /**
+   * Descriptive name for the package.
+   */
   public String getName() {
     return name;
   }
@@ -62,7 +82,9 @@ public class CustomShippingPackageInput {
     this.name = name;
   }
 
-  
+  /**
+   * Type of package.
+   */
   public ShippingPackageType getType() {
     return type;
   }
@@ -98,19 +120,29 @@ public class CustomShippingPackageInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Weight of the empty shipping package.
+     */
     private WeightInput weight;
 
-    
+    /**
+     * Outside dimensions of the empty shipping package.
+     */
     private ObjectDimensionsInput dimensions;
 
-    
+    /**
+     * The default package is the one used to calculate shipping costs on checkout.
+     */
     private Boolean _default = false;
 
-    
+    /**
+     * Descriptive name for the package.
+     */
     private String name;
 
-    
+    /**
+     * Type of package.
+     */
     private ShippingPackageType type;
 
     public CustomShippingPackageInput build() {
@@ -123,31 +155,41 @@ public class CustomShippingPackageInput {
       return result;
     }
 
-    
+    /**
+     * Weight of the empty shipping package.
+     */
     public Builder weight(WeightInput weight) {
       this.weight = weight;
       return this;
     }
 
-    
+    /**
+     * Outside dimensions of the empty shipping package.
+     */
     public Builder dimensions(ObjectDimensionsInput dimensions) {
       this.dimensions = dimensions;
       return this;
     }
 
-    
+    /**
+     * The default package is the one used to calculate shipping costs on checkout.
+     */
     public Builder _default(Boolean _default) {
       this._default = _default;
       return this;
     }
 
-    
+    /**
+     * Descriptive name for the package.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    
+    /**
+     * Type of package.
+     */
     public Builder type(ShippingPackageType type) {
       this.type = type;
       return this;

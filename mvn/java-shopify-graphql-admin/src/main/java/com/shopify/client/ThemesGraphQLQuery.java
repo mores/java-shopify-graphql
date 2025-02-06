@@ -10,7 +10,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Returns a paginated list of themes for the shop.
+ */
 public class ThemesGraphQLQuery extends GraphQLQuery {
   public ThemesGraphQLQuery(List<ThemeRole> roles, List<String> names, Integer first, String after,
       Integer last, String before, Boolean reverse, String queryName, Set<String> fieldsSet) {
@@ -69,49 +71,63 @@ public class ThemesGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The theme roles to filter by.
+     */
     public Builder roles(List<ThemeRole> roles) {
       this.roles = roles;
       this.fieldsSet.add("roles");
       return this;
     }
 
-    
+    /**
+     * The theme names to filter by. Use '*' to match zero or more characters.
+     */
     public Builder names(List<String> names) {
       this.names = names;
       this.fieldsSet.add("names");
       return this;
     }
 
-    
+    /**
+     * The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder first(Integer first) {
       this.first = first;
       this.fieldsSet.add("first");
       return this;
     }
 
-    
+    /**
+     * The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder after(String after) {
       this.after = after;
       this.fieldsSet.add("after");
       return this;
     }
 
-    
+    /**
+     * The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder last(Integer last) {
       this.last = last;
       this.fieldsSet.add("last");
       return this;
     }
 
-    
+    /**
+     * The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder before(String before) {
       this.before = before;
       this.fieldsSet.add("before");
       return this;
     }
 
-    
+    /**
+     * Reverse the order of the underlying list.
+     */
     public Builder reverse(Boolean reverse) {
       this.reverse = reverse;
       this.fieldsSet.add("reverse");

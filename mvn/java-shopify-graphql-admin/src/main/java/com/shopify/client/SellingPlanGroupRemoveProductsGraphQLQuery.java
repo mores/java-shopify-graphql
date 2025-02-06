@@ -7,7 +7,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Removes multiple products from a selling plan group.
+ */
 public class SellingPlanGroupRemoveProductsGraphQLQuery extends GraphQLQuery {
   public SellingPlanGroupRemoveProductsGraphQLQuery(String id, List<String> productIds,
       String queryName, Set<String> fieldsSet) {
@@ -46,14 +48,18 @@ public class SellingPlanGroupRemoveProductsGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the selling plan group.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    
+    /**
+     * The IDs of the products to remove.
+     */
     public Builder productIds(List<String> productIds) {
       this.productIds = productIds;
       this.fieldsSet.add("productIds");

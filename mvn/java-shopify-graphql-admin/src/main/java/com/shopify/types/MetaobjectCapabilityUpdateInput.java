@@ -5,24 +5,36 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for updating a metaobject capability.
+ */
 public class MetaobjectCapabilityUpdateInput {
-  
+  /**
+   * The input for updating the publishable capability.
+   */
   private MetaobjectCapabilityPublishableInput publishable;
 
-  
+  /**
+   * The input for updating the translatable capability.
+   */
   private MetaobjectCapabilityTranslatableInput translatable;
 
-  
+  /**
+   * The input for enabling the renderable capability.
+   */
   private MetaobjectCapabilityRenderableInput renderable;
 
-  
+  /**
+   * The input for enabling the Online Store capability.
+   */
   private MetaobjectCapabilityOnlineStoreInput onlineStore;
 
   public MetaobjectCapabilityUpdateInput() {
   }
 
-  
+  /**
+   * The input for updating the publishable capability.
+   */
   public MetaobjectCapabilityPublishableInput getPublishable() {
     return publishable;
   }
@@ -31,7 +43,9 @@ public class MetaobjectCapabilityUpdateInput {
     this.publishable = publishable;
   }
 
-  
+  /**
+   * The input for updating the translatable capability.
+   */
   public MetaobjectCapabilityTranslatableInput getTranslatable() {
     return translatable;
   }
@@ -40,7 +54,9 @@ public class MetaobjectCapabilityUpdateInput {
     this.translatable = translatable;
   }
 
-  
+  /**
+   * The input for enabling the renderable capability.
+   */
   public MetaobjectCapabilityRenderableInput getRenderable() {
     return renderable;
   }
@@ -49,7 +65,9 @@ public class MetaobjectCapabilityUpdateInput {
     this.renderable = renderable;
   }
 
-  
+  /**
+   * The input for enabling the Online Store capability.
+   */
   public MetaobjectCapabilityOnlineStoreInput getOnlineStore() {
     return onlineStore;
   }
@@ -84,16 +102,24 @@ public class MetaobjectCapabilityUpdateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The input for updating the publishable capability.
+     */
     private MetaobjectCapabilityPublishableInput publishable;
 
-    
+    /**
+     * The input for updating the translatable capability.
+     */
     private MetaobjectCapabilityTranslatableInput translatable;
 
-    
+    /**
+     * The input for enabling the renderable capability.
+     */
     private MetaobjectCapabilityRenderableInput renderable;
 
-    
+    /**
+     * The input for enabling the Online Store capability.
+     */
     private MetaobjectCapabilityOnlineStoreInput onlineStore;
 
     public MetaobjectCapabilityUpdateInput build() {
@@ -105,25 +131,33 @@ public class MetaobjectCapabilityUpdateInput {
       return result;
     }
 
-    
+    /**
+     * The input for updating the publishable capability.
+     */
     public Builder publishable(MetaobjectCapabilityPublishableInput publishable) {
       this.publishable = publishable;
       return this;
     }
 
-    
+    /**
+     * The input for updating the translatable capability.
+     */
     public Builder translatable(MetaobjectCapabilityTranslatableInput translatable) {
       this.translatable = translatable;
       return this;
     }
 
-    
+    /**
+     * The input for enabling the renderable capability.
+     */
     public Builder renderable(MetaobjectCapabilityRenderableInput renderable) {
       this.renderable = renderable;
       return this;
     }
 
-    
+    /**
+     * The input for enabling the Online Store capability.
+     */
     public Builder onlineStore(MetaobjectCapabilityOnlineStoreInput onlineStore) {
       this.onlineStore = onlineStore;
       return this;

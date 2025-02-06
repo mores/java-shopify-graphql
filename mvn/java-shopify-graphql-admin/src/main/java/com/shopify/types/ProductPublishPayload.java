@@ -6,24 +6,36 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `productPublish` mutation.
+ */
 public class ProductPublishPayload {
-  
+  /**
+   * The product that has been published.
+   */
   private Product product;
 
-  
+  /**
+   * The channels where the product is published.
+   */
   private List<ProductPublication> productPublications;
 
-  
+  /**
+   * The user's shop.
+   */
   private Shop shop;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public ProductPublishPayload() {
   }
 
-  
+  /**
+   * The product that has been published.
+   */
   public Product getProduct() {
     return product;
   }
@@ -32,7 +44,9 @@ public class ProductPublishPayload {
     this.product = product;
   }
 
-  
+  /**
+   * The channels where the product is published.
+   */
   public List<ProductPublication> getProductPublications() {
     return productPublications;
   }
@@ -41,7 +55,9 @@ public class ProductPublishPayload {
     this.productPublications = productPublications;
   }
 
-  
+  /**
+   * The user's shop.
+   */
   public Shop getShop() {
     return shop;
   }
@@ -50,7 +66,9 @@ public class ProductPublishPayload {
     this.shop = shop;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -85,16 +103,24 @@ public class ProductPublishPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The product that has been published.
+     */
     private Product product;
 
-    
+    /**
+     * The channels where the product is published.
+     */
     private List<ProductPublication> productPublications;
 
-    
+    /**
+     * The user's shop.
+     */
     private Shop shop;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public ProductPublishPayload build() {
@@ -106,25 +132,33 @@ public class ProductPublishPayload {
       return result;
     }
 
-    
+    /**
+     * The product that has been published.
+     */
     public Builder product(Product product) {
       this.product = product;
       return this;
     }
 
-    
+    /**
+     * The channels where the product is published.
+     */
     public Builder productPublications(List<ProductPublication> productPublications) {
       this.productPublications = productPublications;
       return this;
     }
 
-    
+    /**
+     * The user's shop.
+     */
     public Builder shop(Shop shop) {
       this.shop = shop;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

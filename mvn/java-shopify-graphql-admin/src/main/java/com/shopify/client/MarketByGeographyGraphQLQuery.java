@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Returns the applicable market for a customer based on where they are in the world.
+ */
 public class MarketByGeographyGraphQLQuery extends GraphQLQuery {
   public MarketByGeographyGraphQLQuery(CountryCode countryCode, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class MarketByGeographyGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The code for the country where the customer is.
+     */
     public Builder countryCode(CountryCode countryCode) {
       this.countryCode = countryCode;
       this.fieldsSet.add("countryCode");

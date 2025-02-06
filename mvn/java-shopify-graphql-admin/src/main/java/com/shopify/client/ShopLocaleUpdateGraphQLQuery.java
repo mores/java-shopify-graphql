@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Updates a locale for a shop.
+ */
 public class ShopLocaleUpdateGraphQLQuery extends GraphQLQuery {
   public ShopLocaleUpdateGraphQLQuery(String locale, ShopLocaleInput shopLocale, String queryName,
       Set<String> fieldsSet) {
@@ -46,14 +48,18 @@ public class ShopLocaleUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * ISO code of the locale to update.
+     */
     public Builder locale(String locale) {
       this.locale = locale;
       this.fieldsSet.add("locale");
       return this;
     }
 
-    
+    /**
+     * Specifies the input fields for a shop locale.
+     */
     public Builder shopLocale(ShopLocaleInput shopLocale) {
       this.shopLocale = shopLocale;
       this.fieldsSet.add("shopLocale");

@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Provides metaobject definition's access configuration.
+ */
 public class MetaobjectAccess {
-  
+  /**
+   * Access configuration for Admin API surface areas, including the GraphQL Admin API.
+   */
   private MetaobjectAdminAccess admin;
 
-  
+  /**
+   * Access configuration for Storefront surface areas, including the GraphQL Storefront API and Liquid.
+   */
   private MetaobjectStorefrontAccess storefront;
 
   public MetaobjectAccess() {
   }
 
-  
+  /**
+   * Access configuration for Admin API surface areas, including the GraphQL Admin API.
+   */
   public MetaobjectAdminAccess getAdmin() {
     return admin;
   }
@@ -25,7 +33,9 @@ public class MetaobjectAccess {
     this.admin = admin;
   }
 
-  
+  /**
+   * Access configuration for Storefront surface areas, including the GraphQL Storefront API and Liquid.
+   */
   public MetaobjectStorefrontAccess getStorefront() {
     return storefront;
   }
@@ -58,10 +68,14 @@ public class MetaobjectAccess {
   }
 
   public static class Builder {
-    
+    /**
+     * Access configuration for Admin API surface areas, including the GraphQL Admin API.
+     */
     private MetaobjectAdminAccess admin;
 
-    
+    /**
+     * Access configuration for Storefront surface areas, including the GraphQL Storefront API and Liquid.
+     */
     private MetaobjectStorefrontAccess storefront;
 
     public MetaobjectAccess build() {
@@ -71,13 +85,17 @@ public class MetaobjectAccess {
       return result;
     }
 
-    
+    /**
+     * Access configuration for Admin API surface areas, including the GraphQL Admin API.
+     */
     public Builder admin(MetaobjectAdminAccess admin) {
       this.admin = admin;
       return this;
     }
 
-    
+    /**
+     * Access configuration for Storefront surface areas, including the GraphQL Storefront API and Liquid.
+     */
     public Builder storefront(MetaobjectStorefrontAccess storefront) {
       this.storefront = storefront;
       return this;

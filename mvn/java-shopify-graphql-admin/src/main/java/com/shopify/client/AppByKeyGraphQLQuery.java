@@ -6,7 +6,10 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Fetches an app by its client ID.
+ * Returns null if the app doesn't exist.
+ */
 public class AppByKeyGraphQLQuery extends GraphQLQuery {
   public AppByKeyGraphQLQuery(String apiKey, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -40,7 +43,9 @@ public class AppByKeyGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Client ID of the app.
+     */
     public Builder apiKey(String apiKey) {
       this.apiKey = apiKey;
       this.fieldsSet.add("apiKey");

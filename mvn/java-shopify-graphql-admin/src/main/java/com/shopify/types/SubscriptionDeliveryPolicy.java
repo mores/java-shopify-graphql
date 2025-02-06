@@ -6,21 +6,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Represents a Subscription Delivery Policy.
+ */
 public class SubscriptionDeliveryPolicy {
-  
+  /**
+   * The specific anchor dates upon which the delivery interval calculations should be made.
+   */
   private List<SellingPlanAnchor> anchors;
 
-  
+  /**
+   * The kind of interval that's associated with this schedule (e.g. Monthly, Weekly, etc).
+   */
   private SellingPlanInterval interval;
 
-  
+  /**
+   * The number of delivery intervals between deliveries.
+   */
   private int intervalCount;
 
   public SubscriptionDeliveryPolicy() {
   }
 
-  
+  /**
+   * The specific anchor dates upon which the delivery interval calculations should be made.
+   */
   public List<SellingPlanAnchor> getAnchors() {
     return anchors;
   }
@@ -29,7 +39,9 @@ public class SubscriptionDeliveryPolicy {
     this.anchors = anchors;
   }
 
-  
+  /**
+   * The kind of interval that's associated with this schedule (e.g. Monthly, Weekly, etc).
+   */
   public SellingPlanInterval getInterval() {
     return interval;
   }
@@ -38,7 +50,9 @@ public class SubscriptionDeliveryPolicy {
     this.interval = interval;
   }
 
-  
+  /**
+   * The number of delivery intervals between deliveries.
+   */
   public int getIntervalCount() {
     return intervalCount;
   }
@@ -72,13 +86,19 @@ public class SubscriptionDeliveryPolicy {
   }
 
   public static class Builder {
-    
+    /**
+     * The specific anchor dates upon which the delivery interval calculations should be made.
+     */
     private List<SellingPlanAnchor> anchors;
 
-    
+    /**
+     * The kind of interval that's associated with this schedule (e.g. Monthly, Weekly, etc).
+     */
     private SellingPlanInterval interval;
 
-    
+    /**
+     * The number of delivery intervals between deliveries.
+     */
     private int intervalCount;
 
     public SubscriptionDeliveryPolicy build() {
@@ -89,19 +109,25 @@ public class SubscriptionDeliveryPolicy {
       return result;
     }
 
-    
+    /**
+     * The specific anchor dates upon which the delivery interval calculations should be made.
+     */
     public Builder anchors(List<SellingPlanAnchor> anchors) {
       this.anchors = anchors;
       return this;
     }
 
-    
+    /**
+     * The kind of interval that's associated with this schedule (e.g. Monthly, Weekly, etc).
+     */
     public Builder interval(SellingPlanInterval interval) {
       this.interval = interval;
       return this;
     }
 
-    
+    /**
+     * The number of delivery intervals between deliveries.
+     */
     public Builder intervalCount(int intervalCount) {
       this.intervalCount = intervalCount;
       return this;

@@ -5,18 +5,28 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A collection of monetary values in their respective currencies. Typically used
+ * in the context of multi-currency pricing and transactions,
+ * when an amount in the shop's currency is converted to the customer's currency of choice (the presentment currency).
+ */
 public class MoneyBag {
-  
+  /**
+   * Amount in presentment currency.
+   */
   private MoneyV2 presentmentMoney;
 
-  
+  /**
+   * Amount in shop currency.
+   */
   private MoneyV2 shopMoney;
 
   public MoneyBag() {
   }
 
-  
+  /**
+   * Amount in presentment currency.
+   */
   public MoneyV2 getPresentmentMoney() {
     return presentmentMoney;
   }
@@ -25,7 +35,9 @@ public class MoneyBag {
     this.presentmentMoney = presentmentMoney;
   }
 
-  
+  /**
+   * Amount in shop currency.
+   */
   public MoneyV2 getShopMoney() {
     return shopMoney;
   }
@@ -58,10 +70,14 @@ public class MoneyBag {
   }
 
   public static class Builder {
-    
+    /**
+     * Amount in presentment currency.
+     */
     private MoneyV2 presentmentMoney;
 
-    
+    /**
+     * Amount in shop currency.
+     */
     private MoneyV2 shopMoney;
 
     public MoneyBag build() {
@@ -71,13 +87,17 @@ public class MoneyBag {
       return result;
     }
 
-    
+    /**
+     * Amount in presentment currency.
+     */
     public Builder presentmentMoney(MoneyV2 presentmentMoney) {
       this.presentmentMoney = presentmentMoney;
       return this;
     }
 
-    
+    /**
+     * Amount in shop currency.
+     */
     public Builder shopMoney(MoneyV2 shopMoney) {
       this.shopMoney = shopMoney;
       return this;

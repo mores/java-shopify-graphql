@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `scriptTagUpdate` mutation.
+ */
 public class ScriptTagUpdatePayload {
-  
+  /**
+   * The script tag that was updated.
+   */
   private ScriptTag scriptTag;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public ScriptTagUpdatePayload() {
   }
 
-  
+  /**
+   * The script tag that was updated.
+   */
   public ScriptTag getScriptTag() {
     return scriptTag;
   }
@@ -26,7 +34,9 @@ public class ScriptTagUpdatePayload {
     this.scriptTag = scriptTag;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class ScriptTagUpdatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The script tag that was updated.
+     */
     private ScriptTag scriptTag;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public ScriptTagUpdatePayload build() {
@@ -72,13 +86,17 @@ public class ScriptTagUpdatePayload {
       return result;
     }
 
-    
+    /**
+     * The script tag that was updated.
+     */
     public Builder scriptTag(ScriptTag scriptTag) {
       this.scriptTag = scriptTag;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

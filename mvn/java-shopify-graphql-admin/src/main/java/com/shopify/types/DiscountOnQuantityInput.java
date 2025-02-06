@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for the quantity of items discounted and the discount value.
+ */
 public class DiscountOnQuantityInput {
-  
+  /**
+   * The quantity of items that are discounted.
+   */
   private String quantity;
 
-  
+  /**
+   * The percentage value of the discount.
+   */
   private DiscountEffectInput effect;
 
   public DiscountOnQuantityInput() {
   }
 
-  
+  /**
+   * The quantity of items that are discounted.
+   */
   public String getQuantity() {
     return quantity;
   }
@@ -25,7 +33,9 @@ public class DiscountOnQuantityInput {
     this.quantity = quantity;
   }
 
-  
+  /**
+   * The percentage value of the discount.
+   */
   public DiscountEffectInput getEffect() {
     return effect;
   }
@@ -58,10 +68,14 @@ public class DiscountOnQuantityInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The quantity of items that are discounted.
+     */
     private String quantity;
 
-    
+    /**
+     * The percentage value of the discount.
+     */
     private DiscountEffectInput effect;
 
     public DiscountOnQuantityInput build() {
@@ -71,13 +85,17 @@ public class DiscountOnQuantityInput {
       return result;
     }
 
-    
+    /**
+     * The quantity of items that are discounted.
+     */
     public Builder quantity(String quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    
+    /**
+     * The percentage value of the discount.
+     */
     public Builder effect(DiscountEffectInput effect) {
       this.effect = effect;
       return this;

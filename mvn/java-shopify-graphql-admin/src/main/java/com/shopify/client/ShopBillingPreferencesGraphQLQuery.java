@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * The shop's billing preferences.
+ */
 public class ShopBillingPreferencesGraphQLQuery extends GraphQLQuery {
   public ShopBillingPreferencesGraphQLQuery(String queryName) {
     super("query", queryName);

@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Storefront password information.
+ */
 public class OnlineStorePasswordProtection {
-  
+  /**
+   * Whether the storefront password is enabled.
+   */
   private boolean enabled;
 
   public OnlineStorePasswordProtection() {
   }
 
-  
+  /**
+   * Whether the storefront password is enabled.
+   */
   public boolean getEnabled() {
     return enabled;
   }
@@ -45,7 +51,9 @@ public class OnlineStorePasswordProtection {
   }
 
   public static class Builder {
-    
+    /**
+     * Whether the storefront password is enabled.
+     */
     private boolean enabled;
 
     public OnlineStorePasswordProtection build() {
@@ -54,7 +62,9 @@ public class OnlineStorePasswordProtection {
       return result;
     }
 
-    
+    /**
+     * Whether the storefront password is enabled.
+     */
     public Builder enabled(boolean enabled) {
       this.enabled = enabled;
       return this;

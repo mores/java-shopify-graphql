@@ -7,18 +7,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `fulfillmentConstraintRuleDelete` mutation.
+ */
 public class FulfillmentConstraintRuleDeletePayload {
-  
+  /**
+   * Whether or not the fulfillment constraint rule was successfully deleted.
+   */
   private Boolean success;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<FulfillmentConstraintRuleDeleteUserError> userErrors;
 
   public FulfillmentConstraintRuleDeletePayload() {
   }
 
-  
+  /**
+   * Whether or not the fulfillment constraint rule was successfully deleted.
+   */
   public Boolean getSuccess() {
     return success;
   }
@@ -27,7 +35,9 @@ public class FulfillmentConstraintRuleDeletePayload {
     this.success = success;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<FulfillmentConstraintRuleDeleteUserError> getUserErrors() {
     return userErrors;
   }
@@ -60,10 +70,14 @@ public class FulfillmentConstraintRuleDeletePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * Whether or not the fulfillment constraint rule was successfully deleted.
+     */
     private Boolean success;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<FulfillmentConstraintRuleDeleteUserError> userErrors;
 
     public FulfillmentConstraintRuleDeletePayload build() {
@@ -73,13 +87,17 @@ public class FulfillmentConstraintRuleDeletePayload {
       return result;
     }
 
-    
+    /**
+     * Whether or not the fulfillment constraint rule was successfully deleted.
+     */
     public Builder success(Boolean success) {
       this.success = success;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<FulfillmentConstraintRuleDeleteUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

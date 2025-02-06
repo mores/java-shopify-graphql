@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for a return refund line item.
+ */
 public class ReturnRefundLineItemInput {
-  
+  /**
+   * The ID of the return line item to be refunded.
+   */
   private String returnLineItemId;
 
-  
+  /**
+   * The quantity of the return line item to be refunded.
+   */
   private int quantity;
 
   public ReturnRefundLineItemInput() {
   }
 
-  
+  /**
+   * The ID of the return line item to be refunded.
+   */
   public String getReturnLineItemId() {
     return returnLineItemId;
   }
@@ -25,7 +33,9 @@ public class ReturnRefundLineItemInput {
     this.returnLineItemId = returnLineItemId;
   }
 
-  
+  /**
+   * The quantity of the return line item to be refunded.
+   */
   public int getQuantity() {
     return quantity;
   }
@@ -58,10 +68,14 @@ public class ReturnRefundLineItemInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the return line item to be refunded.
+     */
     private String returnLineItemId;
 
-    
+    /**
+     * The quantity of the return line item to be refunded.
+     */
     private int quantity;
 
     public ReturnRefundLineItemInput build() {
@@ -71,13 +85,17 @@ public class ReturnRefundLineItemInput {
       return result;
     }
 
-    
+    /**
+     * The ID of the return line item to be refunded.
+     */
     public Builder returnLineItemId(String returnLineItemId) {
       this.returnLineItemId = returnLineItemId;
       return this;
     }
 
-    
+    /**
+     * The quantity of the return line item to be refunded.
+     */
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;

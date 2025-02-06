@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `metafieldDefinitionUnpin` mutation.
+ */
 public class MetafieldDefinitionUnpinPayload {
-  
+  /**
+   * The metafield definition that was unpinned.
+   */
   private MetafieldDefinition unpinnedDefinition;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<MetafieldDefinitionUnpinUserError> userErrors;
 
   public MetafieldDefinitionUnpinPayload() {
   }
 
-  
+  /**
+   * The metafield definition that was unpinned.
+   */
   public MetafieldDefinition getUnpinnedDefinition() {
     return unpinnedDefinition;
   }
@@ -26,7 +34,9 @@ public class MetafieldDefinitionUnpinPayload {
     this.unpinnedDefinition = unpinnedDefinition;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<MetafieldDefinitionUnpinUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class MetafieldDefinitionUnpinPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The metafield definition that was unpinned.
+     */
     private MetafieldDefinition unpinnedDefinition;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<MetafieldDefinitionUnpinUserError> userErrors;
 
     public MetafieldDefinitionUnpinPayload build() {
@@ -72,13 +86,17 @@ public class MetafieldDefinitionUnpinPayload {
       return result;
     }
 
-    
+    /**
+     * The metafield definition that was unpinned.
+     */
     public Builder unpinnedDefinition(MetafieldDefinition unpinnedDefinition) {
       this.unpinnedDefinition = unpinnedDefinition;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<MetafieldDefinitionUnpinUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Destroy a cart transform function from the Shop.
+ */
 public class CartTransformDeleteGraphQLQuery extends GraphQLQuery {
   public CartTransformDeleteGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -40,7 +42,9 @@ public class CartTransformDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * A globally-unique identifier for the cart transform.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

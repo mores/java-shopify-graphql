@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Represents a generic custom attribute, such as whether an order is a customer's first.
+ */
 public class Attribute {
-  
+  /**
+   * The key or name of the attribute. For example, `"customersFirstOrder"`.
+   */
   private String key;
 
-  
+  /**
+   * The value of the attribute. For example, `"true"`.
+   */
   private String value;
 
   public Attribute() {
   }
 
-  
+  /**
+   * The key or name of the attribute. For example, `"customersFirstOrder"`.
+   */
   public String getKey() {
     return key;
   }
@@ -25,7 +33,9 @@ public class Attribute {
     this.key = key;
   }
 
-  
+  /**
+   * The value of the attribute. For example, `"true"`.
+   */
   public String getValue() {
     return value;
   }
@@ -58,10 +68,14 @@ public class Attribute {
   }
 
   public static class Builder {
-    
+    /**
+     * The key or name of the attribute. For example, `"customersFirstOrder"`.
+     */
     private String key;
 
-    
+    /**
+     * The value of the attribute. For example, `"true"`.
+     */
     private String value;
 
     public Attribute build() {
@@ -71,13 +85,17 @@ public class Attribute {
       return result;
     }
 
-    
+    /**
+     * The key or name of the attribute. For example, `"customersFirstOrder"`.
+     */
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
-    
+    /**
+     * The value of the attribute. For example, `"true"`.
+     */
     public Builder value(String value) {
       this.value = value;
       return this;

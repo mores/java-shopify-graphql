@@ -8,7 +8,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Updates fixed prices on a price list. You can use the
+ * `priceListFixedPricesUpdate` mutation to set a fixed price for specific
+ * product variants or to delete prices for variants associated with the price list.
+ */
 public class PriceListFixedPricesUpdateGraphQLQuery extends GraphQLQuery {
   public PriceListFixedPricesUpdateGraphQLQuery(String priceListId,
       List<PriceListPriceInput> pricesToAdd, List<String> variantIdsToDelete, String queryName,
@@ -52,21 +56,27 @@ public class PriceListFixedPricesUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The price list that the prices will be updated against.
+     */
     public Builder priceListId(String priceListId) {
       this.priceListId = priceListId;
       this.fieldsSet.add("priceListId");
       return this;
     }
 
-    
+    /**
+     * The fixed prices to add.
+     */
     public Builder pricesToAdd(List<PriceListPriceInput> pricesToAdd) {
       this.pricesToAdd = pricesToAdd;
       this.fieldsSet.add("pricesToAdd");
       return this;
     }
 
-    
+    /**
+     * A list of product variant IDs to remove from the price list.
+     */
     public Builder variantIdsToDelete(List<String> variantIdsToDelete) {
       this.variantIdsToDelete = variantIdsToDelete;
       this.fieldsSet.add("variantIdsToDelete");

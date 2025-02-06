@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `draftOrderCalculate` mutation.
+ */
 public class DraftOrderCalculatePayload {
-  
+  /**
+   * The calculated properties for a draft order.
+   */
   private CalculatedDraftOrder calculatedDraftOrder;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public DraftOrderCalculatePayload() {
   }
 
-  
+  /**
+   * The calculated properties for a draft order.
+   */
   public CalculatedDraftOrder getCalculatedDraftOrder() {
     return calculatedDraftOrder;
   }
@@ -26,7 +34,9 @@ public class DraftOrderCalculatePayload {
     this.calculatedDraftOrder = calculatedDraftOrder;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class DraftOrderCalculatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The calculated properties for a draft order.
+     */
     private CalculatedDraftOrder calculatedDraftOrder;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public DraftOrderCalculatePayload build() {
@@ -72,13 +86,17 @@ public class DraftOrderCalculatePayload {
       return result;
     }
 
-    
+    /**
+     * The calculated properties for a draft order.
+     */
     public Builder calculatedDraftOrder(CalculatedDraftOrder calculatedDraftOrder) {
       this.calculatedDraftOrder = calculatedDraftOrder;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

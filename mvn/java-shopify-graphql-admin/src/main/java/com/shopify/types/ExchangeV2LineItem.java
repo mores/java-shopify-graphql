@@ -6,72 +6,123 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Contains information about an item in the exchange.
+ */
 public class ExchangeV2LineItem {
-  
+  /**
+   * A list of attributes that represent custom features or special requests.
+   */
   private List<Attribute> customAttributes;
 
-  
+  /**
+   * The total line price, in shop and presentment currencies, after discounts are applied.
+   */
   private MoneyBag discountedTotalSet;
 
-  
+  /**
+   * The price, in shop and presentment currencies,
+   * of a single variant unit after line item discounts are applied.
+   */
   private MoneyBag discountedUnitPriceSet;
 
-  
+  /**
+   * Name of the service provider who fulfilled the order.
+   *   
+   * Valid values are either **manual** or the name of the provider.
+   * For example, **amazon**, **shipwire**.
+   *   
+   * Deleted fulfillment services will return null.
+   */
   private FulfillmentService fulfillmentService;
 
-  
+  /**
+   * Indiciates if this line item is a gift card.
+   */
   private boolean giftCard;
 
-  
+  /**
+   * The gift cards associated with the line item.
+   */
   private List<GiftCard> giftCards;
 
-  
+  /**
+   * Whether the line item represents the purchase of a gift card.
+   */
   private boolean isGiftCard;
 
-  
+  /**
+   * The line item associated with this object.
+   */
   private LineItem lineItem;
 
-  
+  /**
+   * The name of the product.
+   */
   private String name;
 
-  
+  /**
+   * The total price, in shop and presentment currencies, before discounts are applied.
+   */
   private MoneyBag originalTotalSet;
 
-  
+  /**
+   * The price, in shop and presentment currencies,
+   * of a single variant unit before line item discounts are applied.
+   */
   private MoneyBag originalUnitPriceSet;
 
-  
+  /**
+   * The number of products that were purchased.
+   */
   private int quantity;
 
-  
+  /**
+   * Whether physical shipping is required for the variant.
+   */
   private boolean requiresShipping;
 
-  
+  /**
+   * The SKU number of the product variant.
+   */
   private String sku;
 
-  
+  /**
+   * The TaxLine object connected to this line item.
+   */
   private List<TaxLine> taxLines;
 
-  
+  /**
+   * Whether the variant is taxable.
+   */
   private boolean taxable;
 
-  
+  /**
+   * The title of the product or variant. This field only applies to custom line items.
+   */
   private String title;
 
-  
+  /**
+   * The product variant of the line item.
+   */
   private ProductVariant variant;
 
-  
+  /**
+   * The name of the variant.
+   */
   private String variantTitle;
 
-  
+  /**
+   * The name of the vendor who created the product variant.
+   */
   private String vendor;
 
   public ExchangeV2LineItem() {
   }
 
-  
+  /**
+   * A list of attributes that represent custom features or special requests.
+   */
   public List<Attribute> getCustomAttributes() {
     return customAttributes;
   }
@@ -80,7 +131,9 @@ public class ExchangeV2LineItem {
     this.customAttributes = customAttributes;
   }
 
-  
+  /**
+   * The total line price, in shop and presentment currencies, after discounts are applied.
+   */
   public MoneyBag getDiscountedTotalSet() {
     return discountedTotalSet;
   }
@@ -89,7 +142,10 @@ public class ExchangeV2LineItem {
     this.discountedTotalSet = discountedTotalSet;
   }
 
-  
+  /**
+   * The price, in shop and presentment currencies,
+   * of a single variant unit after line item discounts are applied.
+   */
   public MoneyBag getDiscountedUnitPriceSet() {
     return discountedUnitPriceSet;
   }
@@ -98,7 +154,14 @@ public class ExchangeV2LineItem {
     this.discountedUnitPriceSet = discountedUnitPriceSet;
   }
 
-  
+  /**
+   * Name of the service provider who fulfilled the order.
+   *   
+   * Valid values are either **manual** or the name of the provider.
+   * For example, **amazon**, **shipwire**.
+   *   
+   * Deleted fulfillment services will return null.
+   */
   public FulfillmentService getFulfillmentService() {
     return fulfillmentService;
   }
@@ -107,7 +170,9 @@ public class ExchangeV2LineItem {
     this.fulfillmentService = fulfillmentService;
   }
 
-  
+  /**
+   * Indiciates if this line item is a gift card.
+   */
   public boolean getGiftCard() {
     return giftCard;
   }
@@ -116,7 +181,9 @@ public class ExchangeV2LineItem {
     this.giftCard = giftCard;
   }
 
-  
+  /**
+   * The gift cards associated with the line item.
+   */
   public List<GiftCard> getGiftCards() {
     return giftCards;
   }
@@ -125,7 +192,9 @@ public class ExchangeV2LineItem {
     this.giftCards = giftCards;
   }
 
-  
+  /**
+   * Whether the line item represents the purchase of a gift card.
+   */
   public boolean getIsGiftCard() {
     return isGiftCard;
   }
@@ -134,7 +203,9 @@ public class ExchangeV2LineItem {
     this.isGiftCard = isGiftCard;
   }
 
-  
+  /**
+   * The line item associated with this object.
+   */
   public LineItem getLineItem() {
     return lineItem;
   }
@@ -143,7 +214,9 @@ public class ExchangeV2LineItem {
     this.lineItem = lineItem;
   }
 
-  
+  /**
+   * The name of the product.
+   */
   public String getName() {
     return name;
   }
@@ -152,7 +225,9 @@ public class ExchangeV2LineItem {
     this.name = name;
   }
 
-  
+  /**
+   * The total price, in shop and presentment currencies, before discounts are applied.
+   */
   public MoneyBag getOriginalTotalSet() {
     return originalTotalSet;
   }
@@ -161,7 +236,10 @@ public class ExchangeV2LineItem {
     this.originalTotalSet = originalTotalSet;
   }
 
-  
+  /**
+   * The price, in shop and presentment currencies,
+   * of a single variant unit before line item discounts are applied.
+   */
   public MoneyBag getOriginalUnitPriceSet() {
     return originalUnitPriceSet;
   }
@@ -170,7 +248,9 @@ public class ExchangeV2LineItem {
     this.originalUnitPriceSet = originalUnitPriceSet;
   }
 
-  
+  /**
+   * The number of products that were purchased.
+   */
   public int getQuantity() {
     return quantity;
   }
@@ -179,7 +259,9 @@ public class ExchangeV2LineItem {
     this.quantity = quantity;
   }
 
-  
+  /**
+   * Whether physical shipping is required for the variant.
+   */
   public boolean getRequiresShipping() {
     return requiresShipping;
   }
@@ -188,7 +270,9 @@ public class ExchangeV2LineItem {
     this.requiresShipping = requiresShipping;
   }
 
-  
+  /**
+   * The SKU number of the product variant.
+   */
   public String getSku() {
     return sku;
   }
@@ -197,7 +281,9 @@ public class ExchangeV2LineItem {
     this.sku = sku;
   }
 
-  
+  /**
+   * The TaxLine object connected to this line item.
+   */
   public List<TaxLine> getTaxLines() {
     return taxLines;
   }
@@ -206,7 +292,9 @@ public class ExchangeV2LineItem {
     this.taxLines = taxLines;
   }
 
-  
+  /**
+   * Whether the variant is taxable.
+   */
   public boolean getTaxable() {
     return taxable;
   }
@@ -215,7 +303,9 @@ public class ExchangeV2LineItem {
     this.taxable = taxable;
   }
 
-  
+  /**
+   * The title of the product or variant. This field only applies to custom line items.
+   */
   public String getTitle() {
     return title;
   }
@@ -224,7 +314,9 @@ public class ExchangeV2LineItem {
     this.title = title;
   }
 
-  
+  /**
+   * The product variant of the line item.
+   */
   public ProductVariant getVariant() {
     return variant;
   }
@@ -233,7 +325,9 @@ public class ExchangeV2LineItem {
     this.variant = variant;
   }
 
-  
+  /**
+   * The name of the variant.
+   */
   public String getVariantTitle() {
     return variantTitle;
   }
@@ -242,7 +336,9 @@ public class ExchangeV2LineItem {
     this.variantTitle = variantTitle;
   }
 
-  
+  /**
+   * The name of the vendor who created the product variant.
+   */
   public String getVendor() {
     return vendor;
   }
@@ -293,64 +389,111 @@ public class ExchangeV2LineItem {
   }
 
   public static class Builder {
-    
+    /**
+     * A list of attributes that represent custom features or special requests.
+     */
     private List<Attribute> customAttributes;
 
-    
+    /**
+     * The total line price, in shop and presentment currencies, after discounts are applied.
+     */
     private MoneyBag discountedTotalSet;
 
-    
+    /**
+     * The price, in shop and presentment currencies,
+     * of a single variant unit after line item discounts are applied.
+     */
     private MoneyBag discountedUnitPriceSet;
 
-    
+    /**
+     * Name of the service provider who fulfilled the order.
+     *   
+     * Valid values are either **manual** or the name of the provider.
+     * For example, **amazon**, **shipwire**.
+     *   
+     * Deleted fulfillment services will return null.
+     */
     private FulfillmentService fulfillmentService;
 
-    
+    /**
+     * Indiciates if this line item is a gift card.
+     */
     private boolean giftCard;
 
-    
+    /**
+     * The gift cards associated with the line item.
+     */
     private List<GiftCard> giftCards;
 
-    
+    /**
+     * Whether the line item represents the purchase of a gift card.
+     */
     private boolean isGiftCard;
 
-    
+    /**
+     * The line item associated with this object.
+     */
     private LineItem lineItem;
 
-    
+    /**
+     * The name of the product.
+     */
     private String name;
 
-    
+    /**
+     * The total price, in shop and presentment currencies, before discounts are applied.
+     */
     private MoneyBag originalTotalSet;
 
-    
+    /**
+     * The price, in shop and presentment currencies,
+     * of a single variant unit before line item discounts are applied.
+     */
     private MoneyBag originalUnitPriceSet;
 
-    
+    /**
+     * The number of products that were purchased.
+     */
     private int quantity;
 
-    
+    /**
+     * Whether physical shipping is required for the variant.
+     */
     private boolean requiresShipping;
 
-    
+    /**
+     * The SKU number of the product variant.
+     */
     private String sku;
 
-    
+    /**
+     * The TaxLine object connected to this line item.
+     */
     private List<TaxLine> taxLines;
 
-    
+    /**
+     * Whether the variant is taxable.
+     */
     private boolean taxable;
 
-    
+    /**
+     * The title of the product or variant. This field only applies to custom line items.
+     */
     private String title;
 
-    
+    /**
+     * The product variant of the line item.
+     */
     private ProductVariant variant;
 
-    
+    /**
+     * The name of the variant.
+     */
     private String variantTitle;
 
-    
+    /**
+     * The name of the vendor who created the product variant.
+     */
     private String vendor;
 
     public ExchangeV2LineItem build() {
@@ -378,121 +521,168 @@ public class ExchangeV2LineItem {
       return result;
     }
 
-    
+    /**
+     * A list of attributes that represent custom features or special requests.
+     */
     public Builder customAttributes(List<Attribute> customAttributes) {
       this.customAttributes = customAttributes;
       return this;
     }
 
-    
+    /**
+     * The total line price, in shop and presentment currencies, after discounts are applied.
+     */
     public Builder discountedTotalSet(MoneyBag discountedTotalSet) {
       this.discountedTotalSet = discountedTotalSet;
       return this;
     }
 
-    
+    /**
+     * The price, in shop and presentment currencies,
+     * of a single variant unit after line item discounts are applied.
+     */
     public Builder discountedUnitPriceSet(MoneyBag discountedUnitPriceSet) {
       this.discountedUnitPriceSet = discountedUnitPriceSet;
       return this;
     }
 
-    
+    /**
+     * Name of the service provider who fulfilled the order.
+     *   
+     * Valid values are either **manual** or the name of the provider.
+     * For example, **amazon**, **shipwire**.
+     *   
+     * Deleted fulfillment services will return null.
+     */
     public Builder fulfillmentService(FulfillmentService fulfillmentService) {
       this.fulfillmentService = fulfillmentService;
       return this;
     }
 
-    
+    /**
+     * Indiciates if this line item is a gift card.
+     */
     public Builder giftCard(boolean giftCard) {
       this.giftCard = giftCard;
       return this;
     }
 
-    
+    /**
+     * The gift cards associated with the line item.
+     */
     public Builder giftCards(List<GiftCard> giftCards) {
       this.giftCards = giftCards;
       return this;
     }
 
-    
+    /**
+     * Whether the line item represents the purchase of a gift card.
+     */
     public Builder isGiftCard(boolean isGiftCard) {
       this.isGiftCard = isGiftCard;
       return this;
     }
 
-    
+    /**
+     * The line item associated with this object.
+     */
     public Builder lineItem(LineItem lineItem) {
       this.lineItem = lineItem;
       return this;
     }
 
-    
+    /**
+     * The name of the product.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    
+    /**
+     * The total price, in shop and presentment currencies, before discounts are applied.
+     */
     public Builder originalTotalSet(MoneyBag originalTotalSet) {
       this.originalTotalSet = originalTotalSet;
       return this;
     }
 
-    
+    /**
+     * The price, in shop and presentment currencies,
+     * of a single variant unit before line item discounts are applied.
+     */
     public Builder originalUnitPriceSet(MoneyBag originalUnitPriceSet) {
       this.originalUnitPriceSet = originalUnitPriceSet;
       return this;
     }
 
-    
+    /**
+     * The number of products that were purchased.
+     */
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    
+    /**
+     * Whether physical shipping is required for the variant.
+     */
     public Builder requiresShipping(boolean requiresShipping) {
       this.requiresShipping = requiresShipping;
       return this;
     }
 
-    
+    /**
+     * The SKU number of the product variant.
+     */
     public Builder sku(String sku) {
       this.sku = sku;
       return this;
     }
 
-    
+    /**
+     * The TaxLine object connected to this line item.
+     */
     public Builder taxLines(List<TaxLine> taxLines) {
       this.taxLines = taxLines;
       return this;
     }
 
-    
+    /**
+     * Whether the variant is taxable.
+     */
     public Builder taxable(boolean taxable) {
       this.taxable = taxable;
       return this;
     }
 
-    
+    /**
+     * The title of the product or variant. This field only applies to custom line items.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    
+    /**
+     * The product variant of the line item.
+     */
     public Builder variant(ProductVariant variant) {
       this.variant = variant;
       return this;
     }
 
-    
+    /**
+     * The name of the variant.
+     */
     public Builder variantTitle(String variantTitle) {
       this.variantTitle = variantTitle;
       return this;
     }
 
-    
+    /**
+     * The name of the vendor who created the product variant.
+     */
     public Builder vendor(String vendor) {
       this.vendor = vendor;
       return this;

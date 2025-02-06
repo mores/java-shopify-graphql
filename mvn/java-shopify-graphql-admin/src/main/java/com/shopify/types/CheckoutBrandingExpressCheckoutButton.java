@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The Express Checkout button customizations.
+ */
 public class CheckoutBrandingExpressCheckoutButton {
-  
+  /**
+   * The corner radius used for the Express Checkout buttons.
+   */
   private CheckoutBrandingCornerRadius cornerRadius;
 
   public CheckoutBrandingExpressCheckoutButton() {
   }
 
-  
+  /**
+   * The corner radius used for the Express Checkout buttons.
+   */
   public CheckoutBrandingCornerRadius getCornerRadius() {
     return cornerRadius;
   }
@@ -45,7 +51,9 @@ public class CheckoutBrandingExpressCheckoutButton {
   }
 
   public static class Builder {
-    
+    /**
+     * The corner radius used for the Express Checkout buttons.
+     */
     private CheckoutBrandingCornerRadius cornerRadius;
 
     public CheckoutBrandingExpressCheckoutButton build() {
@@ -54,7 +62,9 @@ public class CheckoutBrandingExpressCheckoutButton {
       return result;
     }
 
-    
+    /**
+     * The corner radius used for the Express Checkout buttons.
+     */
     public Builder cornerRadius(CheckoutBrandingCornerRadius cornerRadius) {
       this.cornerRadius = cornerRadius;
       return this;

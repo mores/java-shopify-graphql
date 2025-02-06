@@ -5,21 +5,37 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Represents a fraud check on an order.
+ * As of version 2024-04 this resource is deprecated. Risk Assessments can be queried via the
+ * [OrderRisk Assessments API](https://shopify.dev/api/admin-graphql/2024-04/objects/OrderRiskAssessment).
+ */
 public class OrderRisk {
-  
+  /**
+   * Whether the risk level is shown in the Shopify admin. If false, then this
+   * order risk is ignored when Shopify determines the overall risk level for the order.
+   */
   private boolean display;
 
-  
+  /**
+   * The likelihood that an order is fraudulent, based on this order risk.
+   *   
+   * The level can be set by Shopify risk analysis or by an app.
+   */
   private OrderRiskLevel level;
 
-  
+  /**
+   * The risk message that's shown to the merchant in the Shopify admin.
+   */
   private String message;
 
   public OrderRisk() {
   }
 
-  
+  /**
+   * Whether the risk level is shown in the Shopify admin. If false, then this
+   * order risk is ignored when Shopify determines the overall risk level for the order.
+   */
   public boolean getDisplay() {
     return display;
   }
@@ -28,7 +44,11 @@ public class OrderRisk {
     this.display = display;
   }
 
-  
+  /**
+   * The likelihood that an order is fraudulent, based on this order risk.
+   *   
+   * The level can be set by Shopify risk analysis or by an app.
+   */
   public OrderRiskLevel getLevel() {
     return level;
   }
@@ -37,7 +57,9 @@ public class OrderRisk {
     this.level = level;
   }
 
-  
+  /**
+   * The risk message that's shown to the merchant in the Shopify admin.
+   */
   public String getMessage() {
     return message;
   }
@@ -71,13 +93,22 @@ public class OrderRisk {
   }
 
   public static class Builder {
-    
+    /**
+     * Whether the risk level is shown in the Shopify admin. If false, then this
+     * order risk is ignored when Shopify determines the overall risk level for the order.
+     */
     private boolean display;
 
-    
+    /**
+     * The likelihood that an order is fraudulent, based on this order risk.
+     *   
+     * The level can be set by Shopify risk analysis or by an app.
+     */
     private OrderRiskLevel level;
 
-    
+    /**
+     * The risk message that's shown to the merchant in the Shopify admin.
+     */
     private String message;
 
     public OrderRisk build() {
@@ -88,19 +119,28 @@ public class OrderRisk {
       return result;
     }
 
-    
+    /**
+     * Whether the risk level is shown in the Shopify admin. If false, then this
+     * order risk is ignored when Shopify determines the overall risk level for the order.
+     */
     public Builder display(boolean display) {
       this.display = display;
       return this;
     }
 
-    
+    /**
+     * The likelihood that an order is fraudulent, based on this order risk.
+     *   
+     * The level can be set by Shopify risk analysis or by an app.
+     */
     public Builder level(OrderRiskLevel level) {
       this.level = level;
       return this;
     }
 
-    
+    /**
+     * The risk message that's shown to the merchant in the Shopify admin.
+     */
     public Builder message(String message) {
       this.message = message;
       return this;

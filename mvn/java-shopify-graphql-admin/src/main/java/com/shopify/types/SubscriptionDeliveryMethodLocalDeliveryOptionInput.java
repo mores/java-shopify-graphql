@@ -5,30 +5,47 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for local delivery option.
+ */
 public class SubscriptionDeliveryMethodLocalDeliveryOptionInput {
-  
+  /**
+   * The title of the local delivery option.
+   */
   private String title;
 
-  
+  /**
+   * The presentment title of the local delivery option.
+   */
   private String presentmentTitle;
 
-  
+  /**
+   * The details displayed to the customer to describe the local delivery option.
+   */
   private String description;
 
-  
+  /**
+   * A custom reference to the delivery method for use with automations.
+   */
   private String code;
 
-  
+  /**
+   * The phone number that the customer must provide to the merchant.
+   * Formatted using E.164 standard. For example, `+16135551111`.
+   */
   private String phone;
 
-  
+  /**
+   * The delivery instructions that the customer can provide to the merchant.
+   */
   private String instructions;
 
   public SubscriptionDeliveryMethodLocalDeliveryOptionInput() {
   }
 
-  
+  /**
+   * The title of the local delivery option.
+   */
   public String getTitle() {
     return title;
   }
@@ -37,7 +54,9 @@ public class SubscriptionDeliveryMethodLocalDeliveryOptionInput {
     this.title = title;
   }
 
-  
+  /**
+   * The presentment title of the local delivery option.
+   */
   public String getPresentmentTitle() {
     return presentmentTitle;
   }
@@ -46,7 +65,9 @@ public class SubscriptionDeliveryMethodLocalDeliveryOptionInput {
     this.presentmentTitle = presentmentTitle;
   }
 
-  
+  /**
+   * The details displayed to the customer to describe the local delivery option.
+   */
   public String getDescription() {
     return description;
   }
@@ -55,7 +76,9 @@ public class SubscriptionDeliveryMethodLocalDeliveryOptionInput {
     this.description = description;
   }
 
-  
+  /**
+   * A custom reference to the delivery method for use with automations.
+   */
   public String getCode() {
     return code;
   }
@@ -64,7 +87,10 @@ public class SubscriptionDeliveryMethodLocalDeliveryOptionInput {
     this.code = code;
   }
 
-  
+  /**
+   * The phone number that the customer must provide to the merchant.
+   * Formatted using E.164 standard. For example, `+16135551111`.
+   */
   public String getPhone() {
     return phone;
   }
@@ -73,7 +99,9 @@ public class SubscriptionDeliveryMethodLocalDeliveryOptionInput {
     this.phone = phone;
   }
 
-  
+  /**
+   * The delivery instructions that the customer can provide to the merchant.
+   */
   public String getInstructions() {
     return instructions;
   }
@@ -110,22 +138,35 @@ public class SubscriptionDeliveryMethodLocalDeliveryOptionInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The title of the local delivery option.
+     */
     private String title;
 
-    
+    /**
+     * The presentment title of the local delivery option.
+     */
     private String presentmentTitle;
 
-    
+    /**
+     * The details displayed to the customer to describe the local delivery option.
+     */
     private String description;
 
-    
+    /**
+     * A custom reference to the delivery method for use with automations.
+     */
     private String code;
 
-    
+    /**
+     * The phone number that the customer must provide to the merchant.
+     * Formatted using E.164 standard. For example, `+16135551111`.
+     */
     private String phone;
 
-    
+    /**
+     * The delivery instructions that the customer can provide to the merchant.
+     */
     private String instructions;
 
     public SubscriptionDeliveryMethodLocalDeliveryOptionInput build() {
@@ -139,37 +180,50 @@ public class SubscriptionDeliveryMethodLocalDeliveryOptionInput {
       return result;
     }
 
-    
+    /**
+     * The title of the local delivery option.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    
+    /**
+     * The presentment title of the local delivery option.
+     */
     public Builder presentmentTitle(String presentmentTitle) {
       this.presentmentTitle = presentmentTitle;
       return this;
     }
 
-    
+    /**
+     * The details displayed to the customer to describe the local delivery option.
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    
+    /**
+     * A custom reference to the delivery method for use with automations.
+     */
     public Builder code(String code) {
       this.code = code;
       return this;
     }
 
-    
+    /**
+     * The phone number that the customer must provide to the merchant.
+     * Formatted using E.164 standard. For example, `+16135551111`.
+     */
     public Builder phone(String phone) {
       this.phone = phone;
       return this;
     }
 
-    
+    /**
+     * The delivery instructions that the customer can provide to the merchant.
+     */
     public Builder instructions(String instructions) {
       this.instructions = instructions;
       return this;

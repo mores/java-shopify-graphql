@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for enabling and disabling the renderable capability.
+ */
 public class MetaobjectCapabilityRenderableInput {
-  
+  /**
+   * Indicates whether the capability should be enabled or disabled.
+   */
   private boolean enabled;
 
-  
+  /**
+   * The data associated with the renderable capability.
+   */
   private MetaobjectCapabilityDefinitionDataRenderableInput data;
 
   public MetaobjectCapabilityRenderableInput() {
   }
 
-  
+  /**
+   * Indicates whether the capability should be enabled or disabled.
+   */
   public boolean getEnabled() {
     return enabled;
   }
@@ -25,7 +33,9 @@ public class MetaobjectCapabilityRenderableInput {
     this.enabled = enabled;
   }
 
-  
+  /**
+   * The data associated with the renderable capability.
+   */
   public MetaobjectCapabilityDefinitionDataRenderableInput getData() {
     return data;
   }
@@ -58,10 +68,14 @@ public class MetaobjectCapabilityRenderableInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Indicates whether the capability should be enabled or disabled.
+     */
     private boolean enabled;
 
-    
+    /**
+     * The data associated with the renderable capability.
+     */
     private MetaobjectCapabilityDefinitionDataRenderableInput data;
 
     public MetaobjectCapabilityRenderableInput build() {
@@ -71,13 +85,17 @@ public class MetaobjectCapabilityRenderableInput {
       return result;
     }
 
-    
+    /**
+     * Indicates whether the capability should be enabled or disabled.
+     */
     public Builder enabled(boolean enabled) {
       this.enabled = enabled;
       return this;
     }
 
-    
+    /**
+     * The data associated with the renderable capability.
+     */
     public Builder data(MetaobjectCapabilityDefinitionDataRenderableInput data) {
       this.data = data;
       return this;

@@ -170,6 +170,9 @@ type AbandonedCheckoutEdge {
 
 """A single line item in an abandoned checkout."""
 type AbandonedCheckoutLineItem implements Node {
+  """A list of line item components for this line item."""
+  components: [AbandonedCheckoutLineItemComponent!]
+
   """A list of extra information that has been added to the line item."""
   customAttributes: [Attribute!]!
 
@@ -262,6 +265,27 @@ type AbandonedCheckoutLineItem implements Node {
   Title of the variant for this line item.
   NULL for custom line items and products that don't have distinct variants.
   """
+  variantTitle: String
+}
+
+"""The list of line item components that belong to a line item."""
+type AbandonedCheckoutLineItemComponent {
+  """A globally-unique ID."""
+  id: ID!
+
+  """
+  The variant image associated with the line item component.
+  NULL if the variant associated doesn't have an image.
+  """
+  image: Image
+
+  """The quantity of the line item component."""
+  quantity: Int!
+
+  """Title of the line item component."""
+  title: String!
+
+  """The name of the variant."""
   variantTitle: String
 }
 
@@ -1320,46 +1344,6 @@ type AppInstallation implements HasMetafields & Node {
     """
     sortKey: AppTransactionSortKeys = CREATED_AT
   ): AppPurchaseOneTimeConnection!
-
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
 
   """The publication associated with the installed application."""
   publication: Publication
@@ -2627,46 +2611,6 @@ type Article implements HasEvents & HasMetafieldDefinitions & HasMetafields & Ha
   ): MetafieldConnection!
 
   """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """
   The date and time (ISO 8601 format) when the article became or will become visible.
   Returns null when the article isn't visible.
   """
@@ -3635,46 +3579,6 @@ type Blog implements HasEvents & HasMetafieldDefinitions & HasMetafields & HasPu
     reverse: Boolean = false
   ): MetafieldConnection!
 
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
   """A list of tags associated with the 200 most recent blog articles."""
   tags: [String!]!
 
@@ -4088,7 +3992,7 @@ type BulkOperationRunQueryPayload {
   bulkOperation: BulkOperation
 
   """The list of errors that occurred from executing the mutation."""
-  userErrors: [UserError!]!
+  userErrors: [BulkOperationUserError!]!
 }
 
 """The valid values for the status of a bulk operation."""
@@ -4128,6 +4032,27 @@ enum BulkOperationType {
 
   """The bulk operation is a mutation."""
   MUTATION
+}
+
+"""Represents an error in the input of a mutation."""
+type BulkOperationUserError implements DisplayableError {
+  """The error code."""
+  code: BulkOperationUserErrorCode
+
+  """The path to the input field that caused the error."""
+  field: [String!]
+
+  """The error message."""
+  message: String!
+}
+
+"""Possible error codes that can be returned by `BulkOperationUserError`."""
+enum BulkOperationUserErrorCode {
+  """A bulk operation is already in progress."""
+  OPERATION_IN_PROGRESS
+
+  """The input value is invalid."""
+  INVALID
 }
 
 """Return type for `bulkProductResourceFeedbackCreate` mutation."""
@@ -4509,6 +4434,12 @@ type CalculatedDraftOrder {
   """The list of alerts raised while calculating."""
   alerts: [ResourceAlert!]!
 
+  """Whether all variant prices have been overridden."""
+  allVariantPricesOverridden: Boolean!
+
+  """Whether any variant prices have been overridden."""
+  anyVariantPricesOverridden: Boolean!
+
   """The custom order-level discount applied."""
   appliedDiscount: DraftOrderAppliedDiscount
 
@@ -4702,6 +4633,9 @@ type CalculatedDraftOrderLineItem {
   """The original custom line item input price."""
   originalUnitPriceWithCurrency: MoneyV2
 
+  """The price override for the line item."""
+  priceOverride: MoneyV2
+
   """The product for the line item."""
   product: Product
 
@@ -4778,7 +4712,7 @@ type CalculatedExchangeLineItem {
   totalTaxSet: MoneyBag!
 
   """The variant being exchanged."""
-  variant: ProductVariant!
+  variant: ProductVariant
 }
 
 """
@@ -5258,7 +5192,7 @@ input CalculateExchangeLineItemInput {
   """
   The ID of the product variant to be added to the order as part of an exchange.
   """
-  variantId: ID!
+  variantId: ID
 
   """The quantity of the item to be added."""
   quantity: Int!
@@ -5510,46 +5444,6 @@ type CartTransform implements HasMetafields & Node {
     """Reverse the order of the underlying list."""
     reverse: Boolean = false
   ): MetafieldConnection!
-
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
 }
 
 """An auto-generated type for paginating through multiple CartTransforms."""
@@ -8170,11 +8064,42 @@ input CheckoutBrandingMainSectionInput {
 
 """The merchandise thumbnails customizations."""
 type CheckoutBrandingMerchandiseThumbnail {
+  """The settings for the merchandise thumbnail badge."""
+  badge: CheckoutBrandingMerchandiseThumbnailBadge
+
   """The border used for merchandise thumbnails."""
   border: CheckoutBrandingSimpleBorder
 
   """The corner radius used for merchandise thumbnails."""
   cornerRadius: CheckoutBrandingCornerRadius
+
+  """
+  The property used to customize how the product image fits within merchandise thumbnails.
+  """
+  fit: CheckoutBrandingObjectFit
+}
+
+"""The merchandise thumbnail badges customizations."""
+type CheckoutBrandingMerchandiseThumbnailBadge {
+  """The background used for merchandise thumbnail badges."""
+  background: CheckoutBrandingMerchandiseThumbnailBadgeBackground
+}
+
+"""The merchandise thumbnail badge background."""
+enum CheckoutBrandingMerchandiseThumbnailBadgeBackground {
+  """The Accent background."""
+  ACCENT
+
+  """The Base background."""
+  BASE
+}
+
+"""
+The input fields used to update the merchandise thumbnail badges customizations.
+"""
+input CheckoutBrandingMerchandiseThumbnailBadgeInput {
+  """The background used for merchandise thumbnail badges."""
+  background: CheckoutBrandingMerchandiseThumbnailBadgeBackground
 }
 
 """
@@ -8186,6 +8111,32 @@ input CheckoutBrandingMerchandiseThumbnailInput {
 
   """The corner radius used for merchandise thumbnails."""
   cornerRadius: CheckoutBrandingCornerRadius
+
+  """
+  The property used to customize how the product image fits within merchandise thumbnails.
+  """
+  fit: CheckoutBrandingObjectFit
+
+  """The settings for the merchandise thumbnail badge."""
+  badge: CheckoutBrandingMerchandiseThumbnailBadgeInput
+}
+
+"""Possible values for object fit."""
+enum CheckoutBrandingObjectFit {
+  """
+  The Contain value for fit. The image is scaled to maintain its aspect ratio
+  while fitting within the containing box. The entire image is made to fill the
+  box, while preserving its aspect ratio, so the image will be "letterboxed" if
+  its aspect ratio does not match the aspect ratio of the box. This is the default value.
+  """
+  CONTAIN
+
+  """
+  The Cover value for fit. The image is sized to maintain its aspect ratio while
+  filling the entire containing box. If the image’s aspect ratio does not match
+  the aspect ratio of the containing box, then the object will be clipped to fit.
+  """
+  COVER
 }
 
 """The order summary customizations."""
@@ -9014,46 +8965,6 @@ type Collection implements HasEvents & HasMetafieldDefinitions & HasMetafields &
     """Reverse the order of the underlying list."""
     reverse: Boolean = false
   ): MetafieldConnection!
-
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
 
   """The products that are included in the collection."""
   products(
@@ -10099,6 +10010,9 @@ enum CombinedListingUpdateUserErrorCode {
   """Linked options are currently not supported for this shop."""
   LINKED_OPTIONS_NOT_SUPPORTED_FOR_SHOP
 
+  """The optionsAndValues field is required for this operation."""
+  MISSING_OPTION_VALUES
+
   """Selected option values cannot be empty."""
   MUST_HAVE_SELECTED_OPTION_VALUES
 
@@ -10988,46 +10902,6 @@ type Company implements CommentEventSubject & HasEvents & HasMetafieldDefinition
   The total number of orders placed for this company, across all its locations.
   """
   ordersCount: Count
-
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
 
   """The total amount spent by this company, across all its locations."""
   totalSpent: MoneyV2!
@@ -12179,46 +12053,6 @@ type CompanyLocation implements CommentEventSubject & HasEvents & HasMetafieldDe
   """The phone number of the company location."""
   phone: String
 
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
   """The list of roles assigned to the company location."""
   roleAssignments(
     """
@@ -12321,6 +12155,9 @@ type CompanyLocation implements CommentEventSubject & HasEvents & HasMetafieldDe
 
   """The tax registration ID for the company location."""
   taxRegistrationId: String @deprecated(reason: "Use `taxSettings` instead.")
+
+  """The tax settings for the company location."""
+  taxSettings: CompanyLocationTaxSettings!
 
   """The total amount spent by the location."""
   totalSpent: MoneyV2!
@@ -12551,6 +12388,9 @@ input CompanyLocationInput {
 
   """The list of tax exemptions to apply to the company location."""
   taxExemptions: [TaxExemption!]
+
+  """Whether the location is exempt from taxes."""
+  taxExempt: Boolean
 }
 
 """Return type for `companyLocationRemoveStaffMembers` mutation."""
@@ -12710,6 +12550,27 @@ enum CompanyLocationStaffMemberAssignmentSortKeys {
 
   """Sort by the `updated_at` value."""
   UPDATED_AT
+}
+
+"""Represents the tax settings for a company location."""
+type CompanyLocationTaxSettings {
+  """Whether the location is exempt from taxes."""
+  taxExempt: Boolean!
+
+  """The list of tax exemptions applied to the location."""
+  taxExemptions: [TaxExemption!]!
+
+  """The tax registration ID for the company location."""
+  taxRegistrationId: String
+}
+
+"""Return type for `companyLocationTaxSettingsUpdate` mutation."""
+type CompanyLocationTaxSettingsUpdatePayload {
+  """The company location with the updated tax settings."""
+  companyLocation: CompanyLocation
+
+  """The list of errors that occurred from executing the mutation."""
+  userErrors: [BusinessCustomerUserError!]!
 }
 
 """
@@ -14720,46 +14581,6 @@ type Customer implements CommentEventSubject & HasEvents & HasMetafieldDefinitio
   phone: String
 
   """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """
   Possible subscriber states of a customer defined by their subscription contracts.
   """
   productSubscriberStatus: CustomerProductSubscriberStatus!
@@ -15406,6 +15227,21 @@ type CustomerGenerateAccountActivationUrlPayload {
 
   """The list of errors that occurred from executing the mutation."""
   userErrors: [UserError!]!
+}
+
+"""The input fields for identifying a customer."""
+input CustomerIdentifierInput {
+  """The ID of the customer."""
+  id: ID
+
+  """The custom ID of the customer."""
+  customId: UniqueMetafieldValueInput
+
+  """The email address of the customer."""
+  emailAddress: String
+
+  """The phone number of the customer."""
+  phoneNumber: String
 }
 
 """
@@ -16342,17 +16178,6 @@ type CustomerPaymentMethodRemoteCreatePayload {
 }
 
 """
-Return type for `customerPaymentMethodRemoteCreditCardCreate` mutation.
-"""
-type CustomerPaymentMethodRemoteCreditCardCreatePayload {
-  """The customer payment method."""
-  customerPaymentMethod: CustomerPaymentMethod
-
-  """The list of errors that occurred from executing the mutation."""
-  userErrors: [CustomerPaymentMethodUserError!]!
-}
-
-"""
 The input fields for a remote gateway payment method, only one remote reference permitted.
 """
 input CustomerPaymentMethodRemoteInput {
@@ -16446,6 +16271,14 @@ enum CustomerPaymentMethodRevocationReason {
   The Braintree payment method type should be a credit card or Apple Pay card.
   """
   BRAINTREE_PAYMENT_METHOD_NOT_CARD
+
+  """Verification of payment method failed."""
+  PAYMENT_METHOD_VERIFICATION_FAILED
+
+  """
+  Verification of the payment method failed due to 3DS not being supported.
+  """
+  THREE_D_SECURE_FLOW_IN_VERIFICATION_NOT_IMPLEMENTED
 
   """The payment method was manually revoked."""
   MANUALLY_REVOKED
@@ -16744,46 +16577,6 @@ type CustomerSegmentMember implements HasMetafields {
 
   """The total number of orders that the member has made."""
   numberOfOrders: UnsignedInt64
-
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
 }
 
 """The connection type for the `CustomerSegmentMembers` object."""
@@ -18169,46 +17962,6 @@ type DeliveryCustomization implements HasMetafieldDefinitions & HasMetafields & 
     reverse: Boolean = false
   ): MetafieldConnection!
 
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
   """The Shopify Function implementing the delivery customization."""
   shopifyFunction: ShopifyFunction!
 
@@ -18480,6 +18233,7 @@ type DeliveryLocationGroup implements Node {
     | geolocated | boolean |
     | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
     | legacy | boolean |
+    | location_id | id |
     | name | string |
     | pickup_in_store | string | | - `enabled`<br/> - `disabled` |
     | province | string |
@@ -19338,6 +19092,24 @@ type DeliveryProfileUpdatePayload {
   userErrors: [UserError!]!
 }
 
+"""Return type for `deliveryPromiseParticipantsUpdate` mutation."""
+type DeliveryPromiseParticipantsUpdatePayload {
+  """The promise participants that were added."""
+  promiseParticipants: [PromiseParticipant!]
+
+  """The list of errors that occurred from executing the mutation."""
+  userErrors: [UserError!]!
+}
+
+"""The type of object that the participant is attached to."""
+enum DeliveryPromisePromiseParticipantParticipantOwnerType {
+  """A product variant."""
+  PRODUCTVARIANT
+}
+
+"""The object that the participant references."""
+union DeliveryPromisePromiseParticipantPromiseParticipantOwner = ProductVariant
+
 """
 A delivery promise provider. Currently restricted to select approved delivery promise partners.
 """
@@ -19405,6 +19177,18 @@ enum DeliveryPromiseProviderUpsertUserErrorCode {
 
   """The time zone is invalid."""
   INVALID_TIME_ZONE
+}
+
+"""The delivery promise settings."""
+type DeliveryPromiseSetting {
+  """Whether delivery dates is enabled."""
+  deliveryDatesEnabled: Boolean!
+
+  """
+  The number of business days required for processing the order before the
+  package is handed off to the carrier. Expressed as an ISO8601 duration.
+  """
+  processingTime: String
 }
 
 """A region that is used to define a shipping zone."""
@@ -19830,6 +19614,9 @@ type DiscountAutomaticApp {
   """
   appDiscountType: AppDiscountType!
 
+  """Whether the discount applies on one-time purchases."""
+  appliesOnOneTimePurchase: Boolean!
+
   """
   Whether the discount applies on subscription items.
   [Subscriptions](https://shopify.dev/docs/apps/launch/billing/subscription-billing/offer-subscription-discounts)
@@ -19980,6 +19767,9 @@ input DiscountAutomaticAppInput {
   """
   appliesOnSubscription: Boolean = false
 
+  """Whether the discount applies on one-time purchases."""
+  appliesOnOneTimePurchase: Boolean = true
+
   """
   The number of billing cycles for which the discount can be applied,
   which is useful for subscription-based discounts. For example, if you set this field
@@ -20060,7 +19850,7 @@ type DiscountAutomaticBasic {
   """
   The minimum subtotal or quantity of items that are required for the discount to be applied.
   """
-  minimumRequirement: DiscountMinimumRequirement!
+  minimumRequirement: DiscountMinimumRequirement
 
   """
   The number of billing cycles for which the discount can be applied,
@@ -20547,7 +20337,7 @@ type DiscountAutomaticFreeShipping {
   """
   The minimum subtotal or quantity of items that are required for the discount to be applied.
   """
-  minimumRequirement: DiscountMinimumRequirement!
+  minimumRequirement: DiscountMinimumRequirement
 
   """
   The number of billing cycles for which the discount can be applied,
@@ -20862,46 +20652,6 @@ type DiscountAutomaticNode implements HasEvents & HasMetafieldDefinitions & HasM
     """Reverse the order of the underlying list."""
     reverse: Boolean = false
   ): MetafieldConnection!
-
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
 }
 
 """
@@ -21015,6 +20765,12 @@ type DiscountCodeApp {
   and other metadata about the discount type, including the discount type's name and description.
   """
   appDiscountType: AppDiscountType!
+
+  """Whether the discount applies on regular one-time-purchase items."""
+  appliesOnOneTimePurchase: Boolean!
+
+  """Whether the discount applies to subscriptions items."""
+  appliesOnSubscription: Boolean!
 
   """Whether a customer can only use the discount once."""
   appliesOncePerCustomer: Boolean!
@@ -21237,6 +20993,18 @@ input DiscountCodeAppInput {
 
   """The code that customers need to enter to redeem the discount."""
   code: String
+
+  """Whether the discount applies to subscriptions items."""
+  appliesOnSubscription: Boolean = false
+
+  """Whether the discount applies on regular one-time-purchase items."""
+  appliesOnOneTimePurchase: Boolean = true
+
+  """
+  The number of times a discount applies on recurring purchases (subscriptions).
+          0 will apply infinitely whereas 1 will only apply to the first checkout.
+  """
+  recurringCycleLimit: Int = 1
 
   """
   Additional metafields to associate to the discount.
@@ -22368,46 +22136,6 @@ type DiscountCodeNode implements HasEvents & HasMetafieldDefinitions & HasMetafi
     """Reverse the order of the underlying list."""
     reverse: Boolean = false
   ): MetafieldConnection!
-
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
 }
 
 """
@@ -22628,6 +22356,16 @@ type DiscountCustomerAll {
 The prerequisite items and prerequisite value that a customer must have on the order for the discount to be applicable.
 """
 type DiscountCustomerBuys {
+  """
+  If the discount is applicable when a customer buys a one-time purchase.
+  """
+  isOneTimePurchase: Boolean!
+
+  """
+  If the discount is applicable when a customer buys a subscription purchase.
+  """
+  isSubscription: Boolean!
+
   """The items required for the discount to be applicable."""
   items: DiscountItems!
 
@@ -22909,6 +22647,21 @@ enum DiscountErrorCode {
   a limit on the number of app discounts that can be active at any given time.
   """
   MAX_APP_DISCOUNTS
+
+  """
+  A discount cannot have both appliesOnOneTimePurchase and appliesOnSubscription set to false.
+  """
+  APPLIES_ON_NOTHING
+
+  """
+  Recurring cycle limit must be a valid integer greater than or equal to 0.
+  """
+  RECURRING_CYCLE_LIMIT_NOT_A_VALID_INTEGER
+
+  """
+  Recurring cycle limit must be 1 when discount does not apply to subscription items.
+  """
+  MULTIPLE_RECURRING_CYCLE_LIMIT_FOR_NON_SUBSCRIPTION_ITEMS
 }
 
 """
@@ -23181,46 +22934,6 @@ type DiscountNode implements HasEvents & HasMetafieldDefinitions & HasMetafields
     """Reverse the order of the underlying list."""
     reverse: Boolean = false
   ): MetafieldConnection!
-
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
 }
 
 """An auto-generated type for paginating through multiple DiscountNodes."""
@@ -23851,7 +23564,7 @@ Shopify will restrict [access to
 scopes](https://shopify.dev/api/usage/access-scopes) for apps that don't have a
 legitimate use for the associated data.
 """
-type DraftOrder implements CommentEventSubject & HasEvents & HasLocalizationExtensions & HasMetafields & LegacyInteroperability & Navigable & Node {
+type DraftOrder implements CommentEventSubject & HasEvents & HasLocalizationExtensions & HasLocalizedFields & HasMetafields & LegacyInteroperability & Navigable & Node {
   """
   Whether or not to accept automatic discounts on the draft order during calculation.
   If false, only discount codes and custom draft order discounts (see `appliedDiscount`) will be applied.
@@ -23859,10 +23572,16 @@ type DraftOrder implements CommentEventSubject & HasEvents & HasLocalizationExte
   """
   acceptAutomaticDiscounts: Boolean
 
+  """Whether all variant prices have been overridden."""
+  allVariantPricesOverridden: Boolean!
+
   """
   Whether discount codes are allowed during checkout of this draft order.
   """
   allowDiscountCodesInCheckout: Boolean!
+
+  """Whether any variant prices have been overridden."""
+  anyVariantPricesOverridden: Boolean!
 
   """The custom order-level discount applied."""
   appliedDiscount: DraftOrderAppliedDiscount
@@ -24042,6 +23761,38 @@ type DraftOrder implements CommentEventSubject & HasEvents & HasLocalizationExte
     reverse: Boolean = false
   ): LocalizationExtensionConnection! @deprecated(reason: "This connection will be removed in a future version. Use `localizedFields` instead.")
 
+  """List of localized fields for the resource."""
+  localizedFields(
+    """The country codes of the extensions."""
+    countryCodes: [CountryCode!]
+
+    """The purpose of the extensions."""
+    purposes: [LocalizedFieldPurpose!]
+
+    """
+    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    first: Int
+
+    """
+    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    after: String
+
+    """
+    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    last: Int
+
+    """
+    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    before: String
+
+    """Reverse the order of the underlying list."""
+    reverse: Boolean = false
+  ): LocalizedFieldConnection!
+
   """The name of the selected market."""
   marketName: String! @deprecated(reason: "This field is now incompatible with Markets.")
 
@@ -24127,46 +23878,6 @@ type DraftOrder implements CommentEventSubject & HasEvents & HasLocalizationExte
 
   """The payment currency used for calculation."""
   presentmentCurrencyCode: CurrencyCode!
-
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
 
   """The purchasing entity."""
   purchasingEntity: PurchasingEntity
@@ -24547,6 +24258,11 @@ input DraftOrderInput {
   metafields: [MetafieldInput!]
 
   """
+  The localized fields attached to the draft order. For example, Tax IDs.
+  """
+  localizedFields: [LocalizedFieldInput!]
+
+  """
   The text of an optional note that a shop owner can attach to the draft order.
   """
   note: String
@@ -24728,6 +24444,9 @@ type DraftOrderLineItem implements Node {
   """The original custom line item input price."""
   originalUnitPriceWithCurrency: MoneyV2
 
+  """The price override for the line item."""
+  priceOverride: MoneyV2
+
   """The product for the line item."""
   product: Product
 
@@ -24875,6 +24594,27 @@ input DraftOrderLineItemInput {
 
   """The bundle components when the line item is a bundle."""
   bundleComponents: [BundlesDraftOrderBundleLineItemComponentInput!]
+
+  """
+  If the line item doesn't already have a price override input, setting `generatePriceOverride` to `true` will
+  create a price override from the current price.
+  """
+  generatePriceOverride: Boolean
+
+  """
+  The price override for the line item. Should be set in presentment currency.
+  
+  This price will be used in place of the product variant's catalog price in this draft order.
+  
+  If the override's presentment currency doesn't match the draft order's presentment currency, it will be
+  converted over to match the draft order's presentment currency. This will occur if the input is defined in a
+  differing currency, or if some other event causes the draft order's currency to change.
+  
+  Price overrides can't be applied to bundle components. If this line item becomes part of a bundle the price
+  override will be removed. In the case of a cart transform, this may mean that a price override is applied to
+  this line item earlier in its lifecycle, and is removed later when the transform occurs.
+  """
+  priceOverride: MoneyInput
 }
 
 """The platform discounts applied to the draft order."""
@@ -26616,46 +26356,6 @@ type FulfillmentConstraintRule implements HasMetafields & Node {
     """Reverse the order of the underlying list."""
     reverse: Boolean = false
   ): MetafieldConnection!
-
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
 }
 
 """Return type for `fulfillmentConstraintRuleCreate` mutation."""
@@ -26813,6 +26513,9 @@ enum FulfillmentDisplayStatus {
 
   """Displayed as **Confirmed**."""
   CONFIRMED
+
+  """Displayed as **Delayed**."""
+  DELAYED
 
   """Displayed as **Delivered**."""
   DELIVERED
@@ -27038,6 +26741,9 @@ enum FulfillmentEventStatus {
   """A delivery was attempted."""
   ATTEMPTED_DELIVERY
 
+  """The fulfillment is delayed."""
+  DELAYED
+
   """The fulfillment was successfully delivered."""
   DELIVERED
 
@@ -27050,8 +26756,14 @@ type FulfillmentHold implements Node {
   """The localized reason for the fulfillment hold for display purposes."""
   displayReason: String!
 
-  """The name of the app or service that applied the fulfillment hold."""
-  heldBy: String @deprecated(reason: "Use `heldByApp.title` instead.\nFor more information, see the following [changelog post](https://shopify.dev/changelog/update-to-fulfillmenthold-heldbyapp-field-from-fulfillmenthold-heldby-field).\n")
+  """
+  An identifier an app can use to reference one of many holds it applied to a fulfillment order.
+  This field must be unique among the holds that a single app applies to a single fulfillment order.
+  """
+  handle: String
+
+  """The app that created the fulfillment hold."""
+  heldByApp: App
 
   """
   A boolean value that indicates whether the requesting app created the fulfillment hold.
@@ -27511,6 +27223,7 @@ type FulfillmentOrder implements Node {
     | geolocated | boolean |
     | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
     | legacy | boolean |
+    | location_id | id |
     | name | string |
     | pickup_in_store | string | | - `enabled`<br/> - `disabled` |
     | province | string |
@@ -27915,9 +27628,31 @@ input FulfillmentOrderHoldInput {
   externalId: String
 
   """
+  An identifier that an app can use to reference one of the holds that it applies to a
+  fulfillment order.
+  
+  This field must be unique among the holds that a single app applies to a single fulfillment order.
+  It prevents apps from inadvertently creating duplicate holds.
+  This field cannot exceed 64 characters.
+  
+  For example, an app can place multiple holds on a single fulfillment order each with a different `handle`.
+  If an app attempts to place two holds with the same `handle`, the second hold will be rejected with
+  [a duplicate hold user error](https://shopify.dev/api/admin-graphql/latest/enums/FulfillmentOrderHoldUserErrorCode#value-duplicatefulfillmentholdhandle).
+  The same `handle` can however be re-used on different fulfillment orders and by different apps.
+  
+  By default, `handle` will be an empty string. If an app wishes to place multiple holds on a single
+  fulfillment order, then a different `handle` must be provided for each.
+  """
+  handle: String = ""
+
+  """
   The fulfillment order line items to be placed on hold.
   
   If left blank, all line items of the fulfillment order are placed on hold.
+  
+  Not supported when placing a hold on a fulfillment order that is already held.
+  If supplied when a fulfillment order is already on hold, [a user error](https://shopify.dev/api/admin-graphql/latest/enums/FulfillmentOrderHoldUserErrorCode#value-fulfillmentordernotsplittable)
+  will be returned indicating that the fulfillment order is not able to be split.
   """
   fulfillmentOrderLineItems: [FulfillmentOrderLineItemInput!] = []
 }
@@ -27967,8 +27702,23 @@ enum FulfillmentOrderHoldUserErrorCode {
   """The fulfillment order line item quantity must be greater than 0."""
   GREATER_THAN_ZERO
 
+  """
+  The maximum number of fulfillment holds for this fulfillment order has been
+  reached for this app. An app can only have up to 10 holds on a single
+  fulfillment order at any one time.
+  """
+  FULFILLMENT_ORDER_HOLD_LIMIT_REACHED
+
+  """
+  The handle provided for the fulfillment hold is already in use by this app for another hold on this fulfillment order.
+  """
+  DUPLICATE_FULFILLMENT_HOLD_HANDLE
+
   """The fulfillment order line item quantity is invalid."""
   INVALID_LINE_ITEM_QUANTITY
+
+  """The fulfillment order is not in a splittable state."""
+  FULFILLMENT_ORDER_NOT_SPLITTABLE
 }
 
 """The international duties relevant to a fulfillment order."""
@@ -29714,46 +29464,6 @@ type GiftCardCreditTransaction implements GiftCardTransaction & HasMetafields & 
   """A note about the transaction."""
   note: String
 
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
   """The date and time when the transaction was processed."""
   processedAt: DateTime!
 }
@@ -29877,46 +29587,6 @@ type GiftCardDebitTransaction implements GiftCardTransaction & HasMetafields & N
 
   """A note about the transaction."""
   note: String
-
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
 
   """The date and time when the transaction was processed."""
   processedAt: DateTime!
@@ -30219,46 +29889,6 @@ interface GiftCardTransaction {
   """A note about the transaction."""
   note: String
 
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
   """The date and time when the transaction was processed."""
   processedAt: DateTime!
 }
@@ -30492,6 +30122,41 @@ interface HasLocalizationExtensions {
   ): LocalizationExtensionConnection! @deprecated(reason: "This connection will be removed in a future version. Use `localizedFields` instead.")
 }
 
+"""Localized fields associated with the specified resource."""
+interface HasLocalizedFields {
+  """List of localized fields for the resource."""
+  localizedFields(
+    """The country codes of the extensions."""
+    countryCodes: [CountryCode!]
+
+    """The purpose of the extensions."""
+    purposes: [LocalizedFieldPurpose!]
+
+    """
+    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    first: Int
+
+    """
+    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    after: String
+
+    """
+    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    last: Int
+
+    """
+    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    before: String
+
+    """Reverse the order of the underlying list."""
+    reverse: Boolean = false
+  ): LocalizedFieldConnection!
+}
+
 """Resources that metafield definitions can be applied to."""
 interface HasMetafieldDefinitions {
   """List of metafield definitions."""
@@ -30617,46 +30282,6 @@ interface HasMetafields {
     """Reverse the order of the underlying list."""
     reverse: Boolean = false
   ): MetafieldConnection!
-
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
 }
 
 """Published translations associated with the resource."""
@@ -30797,46 +30422,6 @@ type Image implements HasMetafields {
   If there are any existing transformations in the original source URL, they will remain and not be stripped.
   """
   originalSrc: URL! @deprecated(reason: "Use `url` instead.")
-
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
 
   """The location of the image as a URL."""
   src: URL! @deprecated(reason: "Use `url` instead.")
@@ -32179,6 +31764,11 @@ enum InventorySetQuantitiesUserErrorCode {
 
   """The combination of inventoryItemId and locationId must be unique."""
   NO_DUPLICATE_INVENTORY_ITEM_ID_GROUP_ID_PAIR
+
+  """
+  The specified inventory item is not allowed to be adjusted via API. Example: if the inventory item is a parent bundle.
+  """
+  NON_MUTABLE_INVENTORY_ITEM
 }
 
 """
@@ -33376,6 +32966,9 @@ enum LocalizationExtensionKey {
   """Extension key 'shipping_credential_my' for country MY."""
   SHIPPING_CREDENTIAL_MY
 
+  """Extension key 'shipping_credential_mx' for country MX."""
+  SHIPPING_CREDENTIAL_MX
+
   """Extension key 'tax_credential_mx' for country MX."""
   TAX_CREDENTIAL_MX
 
@@ -33430,6 +33023,202 @@ enum LocalizationExtensionPurpose {
   SHIPPING
 
   """Extensions that are used for taxes purposes, for example, invoicing."""
+  TAX
+}
+
+"""
+Represents the value captured by a localized field. Localized fields are
+additional fields required by certain countries on international orders. For
+example, some countries require additional fields for customs information or tax
+identification numbers.
+"""
+type LocalizedField {
+  """Country ISO 3166-1 alpha-2 code."""
+  countryCode: CountryCode!
+
+  """The localized field keys that are allowed."""
+  key: LocalizedFieldKey!
+
+  """The purpose of this localized field."""
+  purpose: LocalizedFieldPurpose!
+
+  """The localized field title."""
+  title: String!
+
+  """The value of the field."""
+  value: String!
+}
+
+"""
+An auto-generated type for paginating through multiple LocalizedFields.
+"""
+type LocalizedFieldConnection {
+  """
+  The connection between the node and its parent. Each edge contains a minimum of the edge's cursor and the node.
+  """
+  edges: [LocalizedFieldEdge!]!
+
+  """
+  A list of nodes that are contained in LocalizedFieldEdge. You can fetch data
+  about an individual node, or you can follow the edges to fetch data about a
+  collection of related nodes. At each node, you specify the fields that you
+  want to retrieve.
+  """
+  nodes: [LocalizedField!]!
+
+  """
+  An object that’s used to retrieve [cursor
+  information](https://shopify.dev/api/usage/pagination-graphql) about the current page.
+  """
+  pageInfo: PageInfo!
+}
+
+"""
+An auto-generated type which holds one LocalizedField and a cursor during pagination.
+"""
+type LocalizedFieldEdge {
+  """
+  The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+  """
+  cursor: String!
+
+  """The item at the end of LocalizedFieldEdge."""
+  node: LocalizedField!
+}
+
+"""The input fields for a LocalizedFieldInput."""
+input LocalizedFieldInput {
+  """The key for the localized field."""
+  key: LocalizedFieldKey!
+
+  """The localized field value."""
+  value: String!
+}
+
+"""The key of a localized field."""
+enum LocalizedFieldKey {
+  """Localized field key 'tax_credential_br' for country Brazil."""
+  TAX_CREDENTIAL_BR
+
+  """Localized field key 'shipping_credential_br' for country Brazil."""
+  SHIPPING_CREDENTIAL_BR
+
+  """Localized field key 'tax_credential_cl' for country Chile."""
+  TAX_CREDENTIAL_CL
+
+  """Localized field key 'shipping_credential_cl' for country Chile."""
+  SHIPPING_CREDENTIAL_CL
+
+  """Localized field key 'shipping_credential_cn' for country China."""
+  SHIPPING_CREDENTIAL_CN
+
+  """Localized field key 'tax_credential_co' for country Colombia."""
+  TAX_CREDENTIAL_CO
+
+  """Localized field key 'tax_credential_type_co' for country Colombia."""
+  TAX_CREDENTIAL_TYPE_CO
+
+  """Localized field key 'shipping_credential_co' for country Colombia."""
+  SHIPPING_CREDENTIAL_CO
+
+  """
+  Localized field key 'shipping_credential_type_co' for country Colombia.
+  """
+  SHIPPING_CREDENTIAL_TYPE_CO
+
+  """Localized field key 'tax_credential_cr' for country Costa Rica."""
+  TAX_CREDENTIAL_CR
+
+  """Localized field key 'shipping_credential_cr' for country Costa Rica."""
+  SHIPPING_CREDENTIAL_CR
+
+  """Localized field key 'tax_credential_ec' for country Ecuador."""
+  TAX_CREDENTIAL_EC
+
+  """Localized field key 'shipping_credential_ec' for country Ecuador."""
+  SHIPPING_CREDENTIAL_EC
+
+  """Localized field key 'tax_credential_gt' for country Guatemala."""
+  TAX_CREDENTIAL_GT
+
+  """Localized field key 'shipping_credential_gt' for country Guatemala."""
+  SHIPPING_CREDENTIAL_GT
+
+  """Localized field key 'tax_credential_id' for country Indonesia."""
+  TAX_CREDENTIAL_ID
+
+  """Localized field key 'shipping_credential_id' for country Indonesia."""
+  SHIPPING_CREDENTIAL_ID
+
+  """Localized field key 'tax_credential_it' for country Italy."""
+  TAX_CREDENTIAL_IT
+
+  """Localized field key 'tax_email_it' for country Italy."""
+  TAX_EMAIL_IT
+
+  """Localized field key 'tax_credential_my' for country Malaysia."""
+  TAX_CREDENTIAL_MY
+
+  """Localized field key 'shipping_credential_my' for country Malaysia."""
+  SHIPPING_CREDENTIAL_MY
+
+  """Localized field key 'shipping_credential_mx' for country Mexico."""
+  SHIPPING_CREDENTIAL_MX
+
+  """Localized field key 'tax_credential_mx' for country Mexico."""
+  TAX_CREDENTIAL_MX
+
+  """Localized field key 'tax_credential_type_mx' for country Mexico."""
+  TAX_CREDENTIAL_TYPE_MX
+
+  """Localized field key 'tax_credential_use_mx' for country Mexico."""
+  TAX_CREDENTIAL_USE_MX
+
+  """Localized field key 'tax_credential_py' for country Paraguay."""
+  TAX_CREDENTIAL_PY
+
+  """Localized field key 'shipping_credential_py' for country Paraguay."""
+  SHIPPING_CREDENTIAL_PY
+
+  """Localized field key 'tax_credential_pe' for country Peru."""
+  TAX_CREDENTIAL_PE
+
+  """Localized field key 'shipping_credential_pe' for country Peru."""
+  SHIPPING_CREDENTIAL_PE
+
+  """Localized field key 'tax_credential_pt' for country Portugal."""
+  TAX_CREDENTIAL_PT
+
+  """Localized field key 'shipping_credential_pt' for country Portugal."""
+  SHIPPING_CREDENTIAL_PT
+
+  """Localized field key 'shipping_credential_kr' for country South Korea."""
+  SHIPPING_CREDENTIAL_KR
+
+  """Localized field key 'tax_credential_es' for country Spain."""
+  TAX_CREDENTIAL_ES
+
+  """Localized field key 'shipping_credential_es' for country Spain."""
+  SHIPPING_CREDENTIAL_ES
+
+  """Localized field key 'shipping_credential_tw' for country Taiwan."""
+  SHIPPING_CREDENTIAL_TW
+
+  """Localized field key 'tax_credential_tr' for country Turkey."""
+  TAX_CREDENTIAL_TR
+
+  """Localized field key 'shipping_credential_tr' for country Turkey."""
+  SHIPPING_CREDENTIAL_TR
+}
+
+"""The purpose of a localized field."""
+enum LocalizedFieldPurpose {
+  """
+  Fields that are used for shipping purposes, for example, customs clearance.
+  """
+  SHIPPING
+
+  """Fields that are used for taxes purposes, for example, invoicing."""
   TAX
 }
 
@@ -33692,46 +33481,6 @@ type Location implements HasMetafieldDefinitions & HasMetafields & LegacyInterop
 
   """The name of the location."""
   name: String!
-
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
 
   """
   Whether this location is used for calculating shipping rates. In multi-origin shipping mode, this flag is ignored.
@@ -34736,46 +34485,6 @@ type Market implements HasMetafieldDefinitions & HasMetafields & Node {
 
   """Whether the market is the shop’s primary market."""
   primary: Boolean!
-
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
 
   """The regions that comprise the market."""
   regions(
@@ -36053,7 +35762,10 @@ type MarketingEngagement {
   marketingActivity: MarketingActivity
 
   """
-  The date for which the metrics are being reported, from 0:00:00 to 23:59:59 in the time zone specified by `timeZone`.
+  The calendar date (in the time zone offset specified by the utcOffset field)
+  for which the metrics are being reported. For example, a shop in UTC-5 would
+  set utcOffset="-05:00" and aggregate all engagements from 05:00:00Z up to
+  29:00:00Z (5am UTC next day) for each call.
   """
   occurredOn: Date!
 
@@ -36103,7 +35815,10 @@ type MarketingEngagement {
   unsubscribesCount: Int
 
   """
-  The time difference, in hours, between UTC and the time zone used to aggregate these metrics.
+  The UTC offset for the time zone in which the metrics are being reported, in
+  the format `"+HH:MM"` or `"-HH:MM"`. Used in combination with occurredOn when
+  aggregating daily metrics. Must match the account settings for the shop to
+  minimize eventual discrepancies in reporting.
   """
   utcOffset: UtcOffset!
 
@@ -36131,7 +35846,10 @@ type MarketingEngagementCreatePayload {
 """The input fields for a marketing engagement."""
 input MarketingEngagementInput {
   """
-  The date for which the metrics are being reported, from 0:00:00 to 23:59:59 in the time zone specified by `timeZone`.
+  The calendar date (in the time zone offset specified by the utcOffset field)
+  for which the metrics are being reported. For example, a shop in UTC-5 would
+  set utcOffset="-05:00" and aggregate all engagements from 05:00:00Z up to
+  29:00:00Z (5am UTC next day) for each call.
   """
   occurredOn: Date!
 
@@ -36224,7 +35942,10 @@ input MarketingEngagementInput {
   isCumulative: Boolean!
 
   """
-  The time difference, in hours, between UTC and the time zone used to aggregate these metrics.
+  The UTC offset for the time zone in which the metrics are being reported, in
+  the format `"+HH:MM"` or `"-HH:MM"`. Used in combination with occurredOn when
+  aggregating daily metrics. Must match the account settings for the shop to
+  minimize eventual discrepancies in reporting.
   """
   utcOffset: UtcOffset!
 
@@ -37317,46 +37038,6 @@ type MediaImage implements File & HasMetafields & Media & Node {
   """The preview image for the media."""
   preview: MediaPreviewImage
 
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
   """Current status of the media."""
   status: MediaStatus!
 
@@ -37994,60 +37675,13 @@ type MetafieldAccessGrant {
 }
 
 """
-The input fields for an explicit access grant to be deleted for the metafields under this definition.
-"""
-input MetafieldAccessGrantDeleteInput {
-  """The grantee whose grant should be deleted."""
-  grantee: String!
-}
-
-"""
-The input fields for an explicit access grant to be created or updated for the metafields under this definition.
-
-Explicit grants are [deprecated](https://shopify.dev/changelog/deprecating-explicit-access-grants-for-app-owned-metafields).
-"""
-input MetafieldAccessGrantInput {
-  """The grantee being granted access."""
-  grantee: String!
-
-  """The level of access being granted."""
-  access: MetafieldGrantAccessLevel!
-}
-
-"""
-The input fields for possible operations for modifying access grants. Exactly one option is required.
-
-Explicit grants are [deprecated](https://shopify.dev/changelog/deprecating-explicit-access-grants-for-app-owned-metafields).
-"""
-input MetafieldAccessGrantOperationInput {
-  """
-  The input fields for an explicit access grant to be created or updated for the metafields under this definition.
-  
-  Explicit grants are [deprecated](https://shopify.dev/changelog/deprecating-explicit-access-grants-for-app-owned-metafields).
-  """
-  create: MetafieldAccessGrantInput
-
-  """
-  The input fields for an explicit access grant to be created or updated for the metafields under this definition.
-  
-  Explicit grants are [deprecated](https://shopify.dev/changelog/deprecating-explicit-access-grants-for-app-owned-metafields).
-  """
-  update: MetafieldAccessGrantInput
-
-  """
-  The input fields for an explicit access grant to be deleted for the metafields under this definition.
-  """
-  delete: MetafieldAccessGrantDeleteInput
-}
-
-"""
 The input fields for the access settings for the metafields under the definition.
 """
 input MetafieldAccessInput {
   """
   The admin access setting to use for the metafields under this definition.
   """
-  admin: MetafieldAdminAccessInput!
+  admin: MetafieldAdminAccessInput
 
   """
   The storefront access setting to use for the metafields under this definition.
@@ -38067,7 +37701,7 @@ input MetafieldAccessUpdateInput {
   """
   The admin access setting to use for the metafields under this definition.
   """
-  admin: MetafieldAdminAccessInput!
+  admin: MetafieldAdminAccessInput
 
   """
   The storefront access setting to use for the metafields under this definition.
@@ -38108,19 +37742,6 @@ enum MetafieldAdminAccess {
 
 """The possible values for setting metafield Admin API access."""
 enum MetafieldAdminAccessInput {
-  """Owner gets full access. No one else has access rights."""
-  PRIVATE
-
-  """
-  Owner gets full access. All applications and the merchant have read-only access.
-  """
-  PUBLIC_READ
-
-  """
-  Owner gets full access. All applications and the merchant have read and write access.
-  """
-  PUBLIC_READ_WRITE
-
   """
   Owner gets full access. The merchant has read-only access. No one else has access rights.
   """
@@ -38141,6 +37762,11 @@ type MetafieldCapabilities {
   Indicate whether a metafield definition can be used as a smart collection condition.
   """
   smartCollectionCondition: MetafieldCapabilitySmartCollectionCondition!
+
+  """
+  Indicate whether the metafield values for a metafield definition are required to be unique.
+  """
+  uniqueValues: MetafieldCapabilityUniqueValues!
 }
 
 """
@@ -38174,6 +37800,9 @@ input MetafieldCapabilityCreateInput {
 
   """The input for updating the admin filterable capability."""
   adminFilterable: MetafieldCapabilityAdminFilterableInput
+
+  """The input for updating the unique values capability."""
+  uniqueValues: MetafieldCapabilityUniqueValuesInput
 }
 
 """
@@ -38195,6 +37824,25 @@ input MetafieldCapabilitySmartCollectionConditionInput {
   enabled: Boolean!
 }
 
+"""
+Information about the unique values capability on a metafield definition.
+"""
+type MetafieldCapabilityUniqueValues {
+  """Indicates if the definition is eligible to have the capability."""
+  eligible: Boolean!
+
+  """Indicates if the capability is enabled."""
+  enabled: Boolean!
+}
+
+"""
+The input fields for enabling and disabling the unique values capability.
+"""
+input MetafieldCapabilityUniqueValuesInput {
+  """Indicates whether the capability should be enabled or disabled."""
+  enabled: Boolean!
+}
+
 """The input fields for updating a metafield capability."""
 input MetafieldCapabilityUpdateInput {
   """The input for updating the smart collection condition capability."""
@@ -38202,6 +37850,9 @@ input MetafieldCapabilityUpdateInput {
 
   """The input for updating the admin filterable capability."""
   adminFilterable: MetafieldCapabilityAdminFilterableInput
+
+  """The input for updating the unique values capability."""
+  uniqueValues: MetafieldCapabilityUniqueValuesInput
 }
 
 """An auto-generated type for paginating through multiple Metafields."""
@@ -38356,11 +38007,6 @@ type MetafieldDefinition implements Node {
   store dates after the specified minimum.
   """
   validations: [MetafieldDefinitionValidation!]!
-
-  """
-  Whether each of the metafields that belong to the metafield definition are visible from the Storefront API.
-  """
-  visibleToStorefrontApi: Boolean! @deprecated(reason: "Use `access.storefront` instead.")
 }
 
 """
@@ -38443,6 +38089,18 @@ type MetafieldDefinitionConstraints {
 }
 
 """
+The input fields required to create metafield definition constraints. Each constraint applies a metafield
+definition to a subtype of a resource.
+"""
+input MetafieldDefinitionConstraintsInput {
+  """The category of resource subtypes that the definition applies to."""
+  key: String!
+
+  """The specific constraint subtype values that the definition applies to."""
+  values: [String!]!
+}
+
+"""
 Metafield definition constraint criteria to filter metafield definitions by.
 """
 enum MetafieldDefinitionConstraintStatus {
@@ -38469,6 +38127,22 @@ input MetafieldDefinitionConstraintSubtypeIdentifier {
 
   """The specific subtype value within the identified subtype category."""
   value: String!
+}
+
+"""
+The input fields required to update metafield definition constraints. Each constraint applies a metafield
+definition to a subtype of a resource.
+"""
+input MetafieldDefinitionConstraintsUpdatesInput {
+  """
+  The category of resource subtypes that the definition applies to.
+  If omitted and the definition is already constrained, the existing constraint key will be used.
+  If set to `null`, all constraints will be removed.
+  """
+  key: String
+
+  """The specific constraint subtype values to create or delete."""
+  values: [MetafieldDefinitionConstraintValueUpdateInput!]
 }
 
 """A constraint subtype value that the metafield definition applies to."""
@@ -38512,6 +38186,18 @@ type MetafieldDefinitionConstraintValueEdge {
 
   """The item at the end of MetafieldDefinitionConstraintValueEdge."""
   node: MetafieldDefinitionConstraintValue!
+}
+
+"""
+The inputs fields for modifying a metafield definition's constraint subtype values.
+Exactly one option is required.
+"""
+input MetafieldDefinitionConstraintValueUpdateInput {
+  """The constraint subtype value to create."""
+  create: String
+
+  """The constraint subtype value to delete."""
+  delete: String
 }
 
 """Return type for `metafieldDefinitionCreate` mutation."""
@@ -38562,6 +38248,9 @@ enum MetafieldDefinitionCreateUserErrorCode {
   """The input value is too short."""
   TOO_SHORT
 
+  """A capability is required for the definition type but is disabled."""
+  CAPABILITY_REQUIRED_BUT_DISABLED
+
   """The definition limit per owner type has exceeded."""
   RESOURCE_TYPE_LIMIT_EXCEEDED
 
@@ -38587,6 +38276,9 @@ enum MetafieldDefinitionCreateUserErrorCode {
   """
   UNSTRUCTURED_ALREADY_EXISTS
 
+  """The metafield definition does not support pinning."""
+  UNSUPPORTED_PINNING
+
   """A field contains an invalid character."""
   INVALID_CHARACTER
 
@@ -38600,6 +38292,9 @@ enum MetafieldDefinitionCreateUserErrorCode {
   """
   OWNER_TYPE_LIMIT_EXCEEDED_FOR_AUTOMATED_COLLECTIONS
 
+  """The metafield definition constraints are invalid."""
+  INVALID_CONSTRAINTS
+
   """The maximum limit of grants per definition type has been exceeded."""
   GRANT_LIMIT_EXCEEDED
 
@@ -38608,6 +38303,11 @@ enum MetafieldDefinitionCreateUserErrorCode {
 
   """The metafield definition capability is invalid."""
   INVALID_CAPABILITY
+
+  """
+  Admin access can only be specified for app-owned metafield definitions.
+  """
+  ADMIN_ACCESS_INPUT_NOT_ALLOWED
 }
 
 """Return type for `metafieldDefinitionDelete` mutation."""
@@ -38645,6 +38345,11 @@ enum MetafieldDefinitionDeleteUserErrorCode {
 
   """An internal error occurred."""
   INTERNAL_ERROR
+
+  """
+  Deleting an id type metafield definition requires deletion of its associated metafields.
+  """
+  ID_TYPE_DELETION_ERROR
 
   """
   Deleting a reference type metafield definition requires deletion of its associated metafields.
@@ -38727,6 +38432,11 @@ input MetafieldDefinitionInput {
   """
   access: MetafieldAccessInput
 
+  """
+  The constraints that determine what resources a metafield definition applies to.
+  """
+  constraints: MetafieldDefinitionConstraintsInput
+
   """The capabilities of the metafield definition."""
   capabilities: MetafieldCapabilityCreateInput
 }
@@ -38779,6 +38489,9 @@ enum MetafieldDefinitionPinUserErrorCode {
 
   """An internal error occurred."""
   INTERNAL_ERROR
+
+  """The metafield definition does not support pinning."""
+  UNSUPPORTED_PINNING
 
   """Owner type can't be used in this mutation."""
   DISALLOWED_OWNER_TYPE
@@ -38923,6 +38636,11 @@ input MetafieldDefinitionUpdateInput {
   """
   access: MetafieldAccessUpdateInput
 
+  """
+  The constraints that determine what resources a metafield definition applies to.
+  """
+  constraintsUpdates: MetafieldDefinitionConstraintsUpdatesInput
+
   """The capabilities of the metafield definition."""
   capabilities: MetafieldCapabilityUpdateInput
 }
@@ -38974,11 +38692,17 @@ enum MetafieldDefinitionUpdateUserErrorCode {
   """An invalid input."""
   INVALID_INPUT
 
+  """A capability is required for the definition type but is disabled."""
+  CAPABILITY_REQUIRED_BUT_DISABLED
+
   """The pinned limit has been reached for the owner type."""
   PINNED_LIMIT_REACHED
 
   """An internal error occurred."""
   INTERNAL_ERROR
+
+  """The metafield definition does not support pinning."""
+  UNSUPPORTED_PINNING
 
   """
   The definition type is not eligible to be used as collection condition.
@@ -39004,11 +38728,19 @@ enum MetafieldDefinitionUpdateUserErrorCode {
   """The input combination is invalid."""
   INVALID_INPUT_COMBINATION
 
+  """The metafield definition constraints are invalid."""
+  INVALID_CONSTRAINTS
+
   """The metafield definition capability is invalid."""
   INVALID_CAPABILITY
 
   """The metafield definition capability cannot be disabled."""
   CAPABILITY_CANNOT_BE_DISABLED
+
+  """
+  Admin access can only be specified for app-owned metafield definitions.
+  """
+  ADMIN_ACCESS_INPUT_NOT_ALLOWED
 }
 
 """
@@ -39059,21 +38791,6 @@ enum MetafieldDefinitionValidationStatus {
 
   """Some of this definition's metafields are invalid."""
   SOME_INVALID
-}
-
-"""The input fields to delete a metafield."""
-input MetafieldDeleteInput {
-  """The ID of the metafield to delete."""
-  id: ID!
-}
-
-"""Return type for `metafieldDelete` mutation."""
-type MetafieldDeletePayload {
-  """The ID of the deleted metafield."""
-  deletedId: ID
-
-  """The list of errors that occurred from executing the mutation."""
-  userErrors: [UserError!]!
 }
 
 """
@@ -39456,6 +39173,9 @@ enum MetafieldsSetUserErrorCode {
   """The input value isn't included in the list."""
   INCLUSION
 
+  """The input value is already taken."""
+  TAKEN
+
   """The input value needs to be blank."""
   PRESENT
 
@@ -39489,12 +39209,6 @@ enum MetafieldStorefrontAccess {
 
   """Metafields are not accessible in any Storefront API surface area."""
   NONE
-
-  """
-  Metafields are accessible in online store Liquid templates but not in the
-  GraphQL Storefront API. This access level is deprecated and can not be set.
-  """
-  LEGACY_LIQUID_ONLY
 }
 
 """
@@ -39509,111 +39223,6 @@ enum MetafieldStorefrontAccessInput {
 
   """Metafields are not accessible in any Storefront API surface area."""
   NONE
-}
-
-"""
-By default, the Storefront API can't read metafields. To make specific metafields visible in the Storefront API,
-you need to create a `MetafieldStorefrontVisibility` record. A `MetafieldStorefrontVisibility` record is a list
-of the metafields, defined by the `owner_type`, `namespace`, and `key`, to make visible in the Storefront API.
-
-Learn about [exposing metafields in the Storefront API]
-(https://shopify.dev/custom-storefronts/products-collections/metafields)
-for more details.
-"""
-type MetafieldStorefrontVisibility implements LegacyInteroperability & Node {
-  """
-  The date and time when the metafield was set to visible in the Storefront API.
-  """
-  createdAt: DateTime!
-
-  """A globally-unique ID."""
-  id: ID!
-
-  """The key of a metafield to make visible in the Storefront API."""
-  key: String!
-
-  """The ID of the corresponding resource in the REST Admin API."""
-  legacyResourceId: UnsignedInt64!
-
-  """The namespace of a metafield to make visible in the Storefront API."""
-  namespace: String!
-
-  """The owner type of a metafield to make visible in the Storefront API."""
-  ownerType: MetafieldOwnerType!
-
-  """
-  The date and time when the `MetafieldStorefrontVisilibty` record was updated.
-  """
-  updatedAt: DateTime!
-}
-
-"""
-An auto-generated type for paginating through multiple MetafieldStorefrontVisibilities.
-"""
-type MetafieldStorefrontVisibilityConnection {
-  """
-  The connection between the node and its parent. Each edge contains a minimum of the edge's cursor and the node.
-  """
-  edges: [MetafieldStorefrontVisibilityEdge!]!
-
-  """
-  A list of nodes that are contained in MetafieldStorefrontVisibilityEdge. You
-  can fetch data about an individual node, or you can follow the edges to fetch
-  data about a collection of related nodes. At each node, you specify the fields
-  that you want to retrieve.
-  """
-  nodes: [MetafieldStorefrontVisibility!]!
-
-  """
-  An object that’s used to retrieve [cursor
-  information](https://shopify.dev/api/usage/pagination-graphql) about the current page.
-  """
-  pageInfo: PageInfo!
-}
-
-"""Return type for `metafieldStorefrontVisibilityCreate` mutation."""
-type MetafieldStorefrontVisibilityCreatePayload {
-  """The `MetafieldStorefrontVisibility` that was created."""
-  metafieldStorefrontVisibility: MetafieldStorefrontVisibility
-
-  """The list of errors that occurred from executing the mutation."""
-  userErrors: [UserError!]!
-}
-
-"""Return type for `metafieldStorefrontVisibilityDelete` mutation."""
-type MetafieldStorefrontVisibilityDeletePayload {
-  """The ID of the deleted `MetafieldStorefrontVisibility` record."""
-  deletedMetafieldStorefrontVisibilityId: ID
-
-  """The list of errors that occurred from executing the mutation."""
-  userErrors: [UserError!]!
-}
-
-"""
-An auto-generated type which holds one MetafieldStorefrontVisibility and a cursor during pagination.
-"""
-type MetafieldStorefrontVisibilityEdge {
-  """
-  The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-  """
-  cursor: String!
-
-  """The item at the end of MetafieldStorefrontVisibilityEdge."""
-  node: MetafieldStorefrontVisibility!
-}
-
-"""The input fields to create a MetafieldStorefrontVisibility record."""
-input MetafieldStorefrontVisibilityInput {
-  """
-  The namespace of a metafield to make visible in the Storefront API. If omitted the app reserved namespace will be used.
-  """
-  namespace: String
-
-  """The key of a metafield to make visible in the Storefront API."""
-  key: String!
-
-  """The owner type of a metafield to make visible in the Storefront API."""
-  ownerType: MetafieldOwnerType!
 }
 
 """Possible metafield validation statuses."""
@@ -39744,7 +39353,7 @@ input MetaobjectAccessInput {
   """
   Access configuration for Admin API surface areas, including the GraphQL Admin API.
   """
-  admin: MetaobjectAdminAccess
+  admin: MetaobjectAdminAccessInput
 
   """
   Access configuration for Storefront API surface areas, including the GraphQL Storefront API and Liquid.
@@ -39781,6 +39390,23 @@ enum MetaobjectAdminAccess {
   All applications with the `metaobjects` access scope can read and write metaobjects.
   """
   PUBLIC_READ_WRITE
+}
+
+"""
+Defines how the metaobjects of a definition can be accessed in admin API surface areas.
+"""
+enum MetaobjectAdminAccessInput {
+  """
+  Applications that act on behalf of merchants can read metaobjects.
+  Only the owning application can write metaobjects.
+  """
+  MERCHANT_READ
+
+  """
+  The owning application, as well as applications that act on behalf of merchants can read and write metaobjects.
+  No other applications can read or write metaobjects.
+  """
+  MERCHANT_READ_WRITE
 }
 
 """Return type for `metaobjectBulkDelete` mutation."""
@@ -40623,6 +40249,11 @@ enum MetaobjectUserErrorCode {
   The display name cannot be the same when using the metaobject as a product option.
   """
   DISPLAY_NAME_CONFLICT
+
+  """
+  Admin access can only be specified on metaobject definitions that have an app-reserved type.
+  """
+  ADMIN_ACCESS_INPUT_NOT_ALLOWED
 
   """The capability you are using is not enabled."""
   CAPABILITY_NOT_ENABLED
@@ -41751,6 +41382,24 @@ type Mutation {
     companyLocationId: ID!
   ): CompanyLocationRevokeTaxRegistrationPayload @deprecated(reason: "Use `companyLocationTaxSettingsUpdate` instead.")
 
+  """Sets the tax settings for a company location."""
+  companyLocationTaxSettingsUpdate(
+    """The ID of the company location that the tax settings get assigned to."""
+    companyLocationId: ID!
+
+    """The unique tax registration ID for the company location."""
+    taxRegistrationId: String
+
+    """Whether the location is exempt from taxes."""
+    taxExempt: Boolean
+
+    """The list of tax exemptions to assign to the company location."""
+    exemptionsToAssign: [TaxExemption!]
+
+    """The list of tax exemptions to remove from the company location."""
+    exemptionsToRemove: [TaxExemption!]
+  ): CompanyLocationTaxSettingsUpdatePayload
+
   """Updates a company location."""
   companyLocationUpdate(
     """The ID of the company location to update."""
@@ -41960,20 +41609,6 @@ type Mutation {
     remoteReference: CustomerPaymentMethodRemoteInput!
   ): CustomerPaymentMethodRemoteCreatePayload
 
-  """Create a payment method from a credit card stored by Stripe."""
-  customerPaymentMethodRemoteCreditCardCreate(
-    """The ID of the customer."""
-    customerId: ID!
-
-    """The Stripe Customer ID."""
-    stripeCustomerId: String!
-
-    """
-    The Stripe Payment Method ID. Starting on 2025, stripe_payment_method_id will become mandatory for all API versions.
-    """
-    stripePaymentMethodId: String
-  ): CustomerPaymentMethodRemoteCreditCardCreatePayload @deprecated(reason: "Use `customerPaymentMethodRemoteCreate` instead.")
-
   """Revokes a customer's payment method."""
   customerPaymentMethodRevoke(
     """The ID of the customer payment method to be revoked."""
@@ -42150,6 +41785,22 @@ type Mutation {
     """Whether this delivery profile should leave legacy mode."""
     leaveLegacyModeProfiles: Boolean
   ): DeliveryProfileUpdatePayload
+
+  """
+  Updates the delivery promise participants by adding or removing owners based on a branded promise handle.
+  """
+  deliveryPromiseParticipantsUpdate(
+    """
+    The branded promise handle to update the delivery promise participants for.
+    """
+    brandedPromiseHandle: String!
+
+    """The owners to add to the delivery promise participants."""
+    ownersToAdd: [ID!] = []
+
+    """The owners to remove from the delivery promise participants."""
+    ownersToRemove: [ID!] = []
+  ): DeliveryPromiseParticipantsUpdatePayload
 
   """
   Creates or updates a delivery promise provider. Currently restricted to select approved delivery promise partners.
@@ -43011,9 +42662,22 @@ type Mutation {
   ): FulfillmentOrderCancelPayload
 
   """
-  Marks an in-progress fulfillment order as incomplete, indicating the
-  fulfillment service is unable to ship any remaining items and intends to close
-  the fulfillment order.
+  Marks an in-progress fulfillment order as incomplete,
+  indicating the fulfillment service is unable to ship any remaining items,
+  and closes the fulfillment request.
+  
+  This mutation can only be called for fulfillment orders that meet the following criteria:
+    - Assigned to a fulfillment service location,
+    - The fulfillment request has been accepted,
+    - The fulfillment order status is `IN_PROGRESS`.
+  
+  This mutation can only be called by the fulfillment service app that accepted the fulfillment request.
+  Calling this mutation returns the control of the fulfillment order to the merchant, allowing them to
+  move the fulfillment order line items to another location and fulfill from there,
+  remove and refund the line items, or to request fulfillment from the same fulfillment service again.
+  
+  Closing a fulfillment order is explained in
+  [the fulfillment service guide](https://shopify.dev/apps/build/orders-fulfillment/fulfillment-service-apps/build-for-fulfillment-services#step-7-optional-close-a-fulfillment-order).
   """
   fulfillmentOrderClose(
     """The ID of the fulfillment order to mark as incomplete."""
@@ -43932,29 +43596,6 @@ type Mutation {
     definition: MetafieldDefinitionUpdateInput!
   ): MetafieldDefinitionUpdatePayload
 
-  """Deletes a metafield."""
-  metafieldDelete(input: MetafieldDeleteInput!): MetafieldDeletePayload @deprecated(reason: "This mutation will be removed in a future version. Use `metafieldsDelete` instead.")
-
-  """
-  Creates a `MetafieldStorefrontVisibility` record to make all metafields that belong to the specified resource
-  and have the established `namespace` and `key` combination visible in the Storefront API.
-  """
-  metafieldStorefrontVisibilityCreate(
-    """
-    Specifies the input fields for a `MetafieldStorefrontVisibility` record.
-    """
-    input: MetafieldStorefrontVisibilityInput!
-  ): MetafieldStorefrontVisibilityCreatePayload @deprecated(reason: "This mutation will be removed in a future version. Use the `metafieldDefinitionCreate` or `metafieldDefinitionUpdate` mutations with `access.storefront` set instead.\n")
-
-  """
-  Deletes a `MetafieldStorefrontVisibility` record. All metafields that belongs to the specified record will no
-  longer be visible in the Storefront API.
-  """
-  metafieldStorefrontVisibilityDelete(
-    """The ID of the `MetafieldStorefrontVisibility` record to delete."""
-    id: ID!
-  ): MetafieldStorefrontVisibilityDeletePayload @deprecated(reason: "This mutation will be removed in a future version. Use the `metafieldDefinitionUpdate` mutation with `access.storefront` set instead.\n")
-
   """Deletes multiple metafields in bulk."""
   metafieldsDelete(
     """
@@ -44630,27 +44271,6 @@ type Mutation {
     """The input data used to update the price list."""
     input: PriceListUpdateInput!
   ): PriceListUpdatePayload
-
-  """
-  Deletes a private metafield.
-  Private metafields are automatically deleted when the app that created them is uninstalled.
-  """
-  privateMetafieldDelete(
-    """The input fields for the private metafield to delete."""
-    input: PrivateMetafieldDeleteInput!
-  ): PrivateMetafieldDeletePayload @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """
-  Creates or updates a private metafield. Use private metafields when you don't
-  want the metafield data to be accessible by merchants or other apps.
-  Private metafields are accessible only by the application that created them and only from the GraphQL Admin API.
-  
-  An application can create a maximum of 10 private metafields per shop resource.
-  """
-  privateMetafieldUpsert(
-    """Specifies the input fields for the private metafield."""
-    input: PrivateMetafieldInput!
-  ): PrivateMetafieldUpsertPayload @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
 
   """Creates a new componentized product."""
   productBundleCreate(
@@ -45780,6 +45400,9 @@ type Mutation {
     """
     useAsCollectionCondition: Boolean = false
 
+    """The capabilities of the metafield definition."""
+    capabilities: MetafieldCapabilityCreateInput
+
     """
     The access settings that apply to each of the metafields that belong to the metafield definition.
     """
@@ -45862,6 +45485,9 @@ type Mutation {
 
     """Criteria to filter the billing cycles on which the action is executed."""
     filters: SubscriptionBillingCycleBulkFilters
+
+    """The behaviour to use when updating inventory."""
+    inventoryPolicy: SubscriptionBillingAttemptInventoryPolicy = PRODUCT_VARIANT_INVENTORY_POLICY
   ): SubscriptionBillingCycleBulkChargePayload
 
   """
@@ -45896,6 +45522,9 @@ type Mutation {
     is in the future, the originTime will be the current time.
     """
     billingCycleSelector: SubscriptionBillingCycleSelector!
+
+    """The behaviour to use when updating inventory."""
+    inventoryPolicy: SubscriptionBillingAttemptInventoryPolicy = PRODUCT_VARIANT_INVENTORY_POLICY
   ): SubscriptionBillingCycleChargePayload
 
   """Commits the updates of a Subscription Billing Cycle Contract draft."""
@@ -47020,7 +46649,7 @@ Shopify will restrict [access to
 scopes](https://shopify.dev/api/usage/access-scopes) for apps that don't have a
 legitimate use for the associated data.
 """
-type Order implements CommentEventSubject & HasEvents & HasLocalizationExtensions & HasMetafieldDefinitions & HasMetafields & LegacyInteroperability & Node {
+type Order implements CommentEventSubject & HasEvents & HasLocalizationExtensions & HasLocalizedFields & HasMetafieldDefinitions & HasMetafields & LegacyInteroperability & Node {
   """A list of additional fees applied to the order."""
   additionalFees: [AdditionalFee!]!
 
@@ -47547,6 +47176,38 @@ type Order implements CommentEventSubject & HasEvents & HasLocalizationExtension
     reverse: Boolean = false
   ): LocalizationExtensionConnection! @deprecated(reason: "This connection will be removed in a future version. Use `localizedFields` instead.")
 
+  """List of localized fields for the resource."""
+  localizedFields(
+    """The country codes of the extensions."""
+    countryCodes: [CountryCode!]
+
+    """The purpose of the extensions."""
+    purposes: [LocalizedFieldPurpose!]
+
+    """
+    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    first: Int
+
+    """
+    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    after: String
+
+    """
+    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    last: Int
+
+    """
+    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    before: String
+
+    """Reverse the order of the underlying list."""
+    reverse: Boolean = false
+  ): LocalizedFieldConnection!
+
   """The merchant's business entity associated with the order."""
   merchantBusinessEntity: BusinessEntity!
 
@@ -47781,46 +47442,6 @@ type Order implements CommentEventSubject & HasEvents & HasLocalizationExtension
 
   """The payment `CurrencyCode` of the customer for the order."""
   presentmentCurrencyCode: CurrencyCode!
-
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
 
   """
   The date and time when the order was processed.
@@ -48512,6 +48133,17 @@ type OrderConnection {
   pageInfo: PageInfo!
 }
 
+"""
+The input fields for identifying an existing customer to associate with the order.
+"""
+input OrderCreateAssociateCustomerAttributesInput {
+  """The customer to associate to the order."""
+  id: ID
+
+  """The email of the customer to associate to the order."""
+  email: String
+}
+
 """The input fields for a note attribute for an order."""
 input OrderCreateCustomAttributeInput {
   """The key or name of the custom attribute."""
@@ -48519,6 +48151,56 @@ input OrderCreateCustomAttributeInput {
 
   """The value of the custom attribute."""
   value: String!
+}
+
+"""The input fields for creating a customer's mailing address."""
+input OrderCreateCustomerAddressInput {
+  """
+  The first line of the address. Typically the street address or PO Box number.
+  """
+  address1: String
+
+  """
+  The second line of the address. Typically the number of the apartment, suite, or unit.
+  """
+  address2: String
+
+  """The name of the city, district, village, or town."""
+  city: String
+
+  """The name of the customer's company or organization."""
+  company: String
+
+  """The name of the country."""
+  country: String
+
+  """The first name of the customer."""
+  firstName: String
+
+  """The last name of the customer."""
+  lastName: String
+
+  """
+  A unique phone number for the customer. Formatted using E.164 standard. For example, _+16135551111_.
+  """
+  phone: String
+
+  """The region of the address, such as the province, state, or district."""
+  province: String
+
+  """The zip or postal code of the address."""
+  zip: String
+}
+
+"""
+The input fields for a customer to associate with an order. Allows creation of a new customer or specifying an existing one.
+"""
+input OrderCreateCustomerInput {
+  """An existing customer to associate with the order, specified by ID."""
+  toAssociate: OrderCreateAssociateCustomerAttributesInput
+
+  """A new customer to create or update and associate with the order."""
+  toUpsert: OrderCreateUpsertCustomerAttributesInput
 }
 
 """
@@ -48839,6 +48521,9 @@ input OrderCreateOrderInput {
   """
   customAttributes: [OrderCreateCustomAttributeInput!]
 
+  """The customer to associate to the order."""
+  customer: OrderCreateCustomerInput
+
   """A discount code applied to the order."""
   discountCode: OrderCreateDiscountCodeInput
 
@@ -49078,6 +48763,62 @@ input OrderCreateTaxLineInput {
   title: String!
 }
 
+"""
+The input fields for creating a new customer object or identifying an existing
+customer to update & associate with the order.
+"""
+input OrderCreateUpsertCustomerAttributesInput {
+  """A list of addresses to associate with the customer."""
+  addresses: [OrderCreateCustomerAddressInput!]
+
+  """
+  The email address to update the customer with. If no `id` is provided, this is used to uniquely identify the customer.
+  """
+  email: String
+
+  """The first name of the customer."""
+  firstName: String
+
+  """The id of the customer to associate to the order."""
+  id: ID
+
+  """The last name of the customer."""
+  lastName: String
+
+  """
+  A unique identifier for the customer that's used with [Multipass login](https://shopify.dev/api/multipass).
+  """
+  multipassIdentifier: String
+
+  """A note about the customer."""
+  note: String
+
+  """
+  The unique phone number ([E.164 format](https://en.wikipedia.org/wiki/E.164)) for this customer.
+                   Attempting to assign the same phone number to multiple customers returns an error. The property can be
+                   set using different formats, but each format must represent a number that can be dialed from anywhere
+                   in the world. The following formats are all valid:
+                    - 6135551212
+                    - +16135551212
+                    - (613)555-1212
+                    - +1 613-555-1212
+  """
+  phone: String
+
+  """
+  Tags that the shop owner has attached to the customer. A customer can have up
+  to 250 tags. Each tag can have up to 255 characters.
+  """
+  tags: [String!]
+
+  """
+  Whether the customer is exempt from paying taxes on their order. If `true`,
+  then taxes won't be applied to an order at checkout. If `false`, then taxes
+  will be applied at checkout.
+  """
+  taxExempt: Boolean
+}
+
 """An error that occurs during the execution of `OrderCreate`."""
 type OrderCreateUserError implements DisplayableError {
   """The error code."""
@@ -49110,6 +48851,14 @@ enum OrderCreateUserErrorCode {
   Indicates that the tax line rate is missing - only enforced for LineItem or ShippingLine-level tax lines.
   """
   TAX_LINE_RATE_MISSING
+
+  """
+  Indicates that both customer_id and customer were provided - only one is permitted.
+  """
+  REDUNDANT_CUSTOMER_FIELDS
+
+  """Indicates that the shop is dormant and cannot create orders."""
+  SHOP_DORMANT
 }
 
 """Return type for `orderDelete` mutation."""
@@ -49616,6 +49365,13 @@ input OrderInput {
   A list of new metafields to add to the existing metafields for the order.
   """
   metafields: [MetafieldInput!]
+
+  """
+  A list of new [localized
+  fields](https://shopify.dev/api/admin-graphql/latest/objects/localizedfield)
+  to add to the existing list of localized fields for the order.
+  """
+  localizedFields: [LocalizedFieldInput!]
 
   """The new purchase order number for the order."""
   poNumber: String
@@ -50161,6 +49917,9 @@ type OrderTransaction implements Node {
   """The kind of transaction."""
   kind: OrderTransactionKind!
 
+  """Whether the transaction is processed by manual payment gateway."""
+  manualPaymentGateway: Boolean!
+
   """Whether the transaction can be manually captured."""
   manuallyCapturable: Boolean!
 
@@ -50670,46 +50429,6 @@ type Page implements HasEvents & HasMetafieldDefinitions & HasMetafields & HasPu
   ): MetafieldConnection!
 
   """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """
   The date and time (ISO 8601 format) when the page became or will become visible.
   Returns null when the page isn't visible.
   """
@@ -51106,46 +50825,6 @@ type PaymentCustomization implements HasMetafieldDefinitions & HasMetafields & N
     """Reverse the order of the underlying list."""
     reverse: Boolean = false
   ): MetafieldConnection!
-
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
 
   """The Shopify Function implementing the payment customization."""
   shopifyFunction: ShopifyFunction!
@@ -52386,25 +52065,8 @@ enum PriceListUserErrorCode {
   """The price list is currently being modified. Please try again later."""
   PRICE_LIST_LOCKED
 
-  """
-  Cannot save the price list with context rule because the limit of context rules per shop was reached.
-  """
-  CONTEXT_RULE_LIMIT_REACHED @deprecated(reason: "The limit is removed.")
-
-  """A price list context rule cannot have more than one country."""
-  CONTEXT_RULE_COUNTRIES_LIMIT
-
-  """A price list’s currency must be of the pricing rule’s country."""
-  CURRENCY_COUNTRY_MISMATCH
-
-  """A country in a context rule must use a valid currency."""
-  COUNTRY_CURRENCY_MISMATCH
-
   """A price list’s currency must be the market currency."""
   CURRENCY_MARKET_MISMATCH
-
-  """The context rule's market does not use the price list currency."""
-  MARKET_CURRENCY_MISMATCH
 
   """
   The adjustment value must be a positive value and not be greater than 100% for
@@ -52423,9 +52085,6 @@ enum PriceListUserErrorCode {
   """
   INVALID_ADJUSTMENT_MAX_VALUE
 
-  """A price list for this country is already taken."""
-  CONTEXT_RULE_COUNTRY_TAKEN
-
   """Quantity rules can be associated only with company location catalogs."""
   CATALOG_CONTEXT_DOES_NOT_SUPPORT_QUANTITY_RULES
 
@@ -52436,12 +52095,6 @@ enum PriceListUserErrorCode {
 
   """Only one context rule option may be specified."""
   CONTEXT_RULE_LIMIT_ONE_OPTION
-
-  """The specified market wasn't found."""
-  CONTEXT_RULE_MARKET_NOT_FOUND
-
-  """A price list for this market is already taken."""
-  CONTEXT_RULE_MARKET_TAKEN
 
   """
   The price list currency is not supported by the shop's payment gateway.
@@ -53241,149 +52894,6 @@ might give the customer a monetary value in a given currency off an order.
 union PricingValue = MoneyV2 | PricingPercentageValue
 
 """
-Private metafields represent custom metadata that is attached to a resource.
-Private metafields are accessible only by the application that created them and only from the GraphQL Admin API.
-
-An application can create a maximum of 10 private metafields per shop resource.
-
-Private metafields are deprecated. Metafields created using a reserved namespace are private by default. See our guide for
-[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).
-"""
-type PrivateMetafield implements Node {
-  """The date and time when the private metafield was created."""
-  createdAt: DateTime!
-
-  """The ID of the private metafield."""
-  id: ID!
-
-  """The key name of the private metafield."""
-  key: String!
-
-  """The namespace of the private metafield."""
-  namespace: String!
-
-  """The date and time when the private metafield was updated."""
-  updatedAt: DateTime!
-
-  """The value of a private metafield."""
-  value: String!
-
-  """Represents the private metafield value type."""
-  valueType: PrivateMetafieldValueType!
-}
-
-"""
-An auto-generated type for paginating through multiple PrivateMetafields.
-"""
-type PrivateMetafieldConnection {
-  """
-  The connection between the node and its parent. Each edge contains a minimum of the edge's cursor and the node.
-  """
-  edges: [PrivateMetafieldEdge!]!
-
-  """
-  A list of nodes that are contained in PrivateMetafieldEdge. You can fetch data
-  about an individual node, or you can follow the edges to fetch data about a
-  collection of related nodes. At each node, you specify the fields that you
-  want to retrieve.
-  """
-  nodes: [PrivateMetafield!]!
-
-  """
-  An object that’s used to retrieve [cursor
-  information](https://shopify.dev/api/usage/pagination-graphql) about the current page.
-  """
-  pageInfo: PageInfo!
-}
-
-"""The input fields for the private metafield to delete."""
-input PrivateMetafieldDeleteInput {
-  """
-  The ID of the resource that owns the metafield. If the field is blank, then the `Shop` resource owns the metafield.
-  """
-  owner: ID
-
-  """The namespace of the private metafield."""
-  namespace: String!
-
-  """The key of the private metafield."""
-  key: String!
-}
-
-"""Return type for `privateMetafieldDelete` mutation."""
-type PrivateMetafieldDeletePayload {
-  """The ID of private metafield that was deleted."""
-  deletedPrivateMetafieldId: ID
-
-  """The list of errors that occurred from executing the mutation."""
-  userErrors: [UserError!]!
-}
-
-"""
-An auto-generated type which holds one PrivateMetafield and a cursor during pagination.
-"""
-type PrivateMetafieldEdge {
-  """
-  The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
-  """
-  cursor: String!
-
-  """The item at the end of PrivateMetafieldEdge."""
-  node: PrivateMetafield!
-}
-
-"""The input fields for a private metafield."""
-input PrivateMetafieldInput {
-  """
-  The resource that owns the metafield. If the field is blank, then the `Shop` resource owns the metafield.
-  """
-  owner: ID
-
-  """The namespace of the private metafield."""
-  namespace: String!
-
-  """The key of the private metafield."""
-  key: String!
-
-  """
-  The `value` and `valueType` of the private metafield, wrapped in a `ValueInput` object.
-  """
-  valueInput: PrivateMetafieldValueInput!
-}
-
-"""Return type for `privateMetafieldUpsert` mutation."""
-type PrivateMetafieldUpsertPayload {
-  """The private metafield that was created or updated."""
-  privateMetafield: PrivateMetafield
-
-  """The list of errors that occurred from executing the mutation."""
-  userErrors: [UserError!]!
-}
-
-"""
-The input fields for the value and value type of the private metafield.
-"""
-input PrivateMetafieldValueInput {
-  """The value of a private metafield."""
-  value: String!
-
-  """Represents the private metafield value type."""
-  valueType: PrivateMetafieldValueType!
-}
-
-"""Supported private metafield value types."""
-enum PrivateMetafieldValueType {
-  """A string metafield."""
-  STRING
-
-  """An integer metafield."""
-  INTEGER
-
-  """A JSON string metafield."""
-  JSON_STRING
-}
-
-"""
 The `Product` object lets you manage products in a merchant’s store.
 
 Products are the goods and services that merchants offer to customers. They can
@@ -53944,46 +53454,6 @@ type Product implements HasEvents & HasMetafieldDefinitions & HasMetafields & Ha
   """
   priceRangeV2: ProductPriceRangeV2!
 
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
   """The product category specified by the merchant."""
   productCategory: ProductCategory @deprecated(reason: "Deprecated in API version 2024-04. Use `category` instead.")
 
@@ -54400,6 +53870,7 @@ type Product implements HasEvents & HasMetafieldDefinitions & HasMetafields & Ha
 
   """
   A list of [variants](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant) associated with the product.
+  If querying a single product at the root, you can fetch up to 2000 variants.
   """
   variants(
     """
@@ -55356,6 +54827,18 @@ Possible error codes that can be returned by `ProductFullSyncUserError`.
 enum ProductFullSyncUserErrorCode {
   """The input value is invalid."""
   INVALID
+}
+
+"""The input fields for identifying a product."""
+input ProductIdentifierInput {
+  """The ID of the product."""
+  id: ID
+
+  """The handle of the product."""
+  handle: String
+
+  """The custom ID of the product."""
+  customId: UniqueMetafieldValueInput
 }
 
 """The set of valid sort keys for the ProductImage query."""
@@ -56553,6 +56036,9 @@ enum ProductSetUserErrorCode {
 
   """Duplicated value."""
   DUPLICATED_VALUE
+
+  """Handle already in use. Please provide a new handle."""
+  HANDLE_NOT_UNIQUE
 }
 
 """The set of valid sort keys for the Product query."""
@@ -56735,6 +56221,12 @@ input ProductUpdateInput {
 
   """The collection IDs to disassociate from the product."""
   collectionsToLeave: [ID!]
+
+  """
+  Whether to delete metafields whose constraints don't match the product's category.
+  Can only be used when updating the product's category.
+  """
+  deleteConflictingConstrainedMetafields: Boolean = false
 
   """
   The [custom fields](https://shopify.dev/docs/apps/build/custom-data) to associate with the product
@@ -57072,46 +56564,6 @@ type ProductVariant implements HasEvents & HasMetafieldDefinitions & HasMetafiel
 
   """The price of the product variant in the default shop currency."""
   price: Money!
-
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
 
   """The product that this variant belongs to."""
   product: Product!
@@ -58125,6 +57577,55 @@ enum ProfileItemSortKeys {
 
   """Sort by the `vendor` value."""
   VENDOR
+}
+
+"""Returns enabled delivery promise participants."""
+type PromiseParticipant implements Node {
+  """The ID of the promise participant."""
+  id: ID!
+
+  """The resource that the participant is attached to."""
+  owner: DeliveryPromisePromiseParticipantPromiseParticipantOwner
+
+  """The owner type of the participant."""
+  ownerType: DeliveryPromisePromiseParticipantParticipantOwnerType!
+}
+
+"""
+An auto-generated type for paginating through multiple PromiseParticipants.
+"""
+type PromiseParticipantConnection {
+  """
+  The connection between the node and its parent. Each edge contains a minimum of the edge's cursor and the node.
+  """
+  edges: [PromiseParticipantEdge!]!
+
+  """
+  A list of nodes that are contained in PromiseParticipantEdge. You can fetch
+  data about an individual node, or you can follow the edges to fetch data about
+  a collection of related nodes. At each node, you specify the fields that you
+  want to retrieve.
+  """
+  nodes: [PromiseParticipant!]!
+
+  """
+  An object that’s used to retrieve [cursor
+  information](https://shopify.dev/api/usage/pagination-graphql) about the current page.
+  """
+  pageInfo: PageInfo!
+}
+
+"""
+An auto-generated type which holds one PromiseParticipant and a cursor during pagination.
+"""
+type PromiseParticipantEdge {
+  """
+  The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+  """
+  cursor: String!
+
+  """The item at the end of PromiseParticipantEdge."""
+  node: PromiseParticipant!
 }
 
 """
@@ -60755,6 +60256,12 @@ type Query {
     reverse: Boolean = false
   ): CustomerAccountPageConnection
 
+  """Return a customer by an identifier."""
+  customerByIdentifier(
+    """The identifier of the customer."""
+    identifier: CustomerIdentifierInput!
+  ): Customer
+
   """Returns the status of a customer merge request job."""
   customerMergeJobStatus(
     """The ID of the job performing the customer merge request."""
@@ -60781,6 +60288,52 @@ type Query {
     """Whether to show the customer's revoked payment method."""
     showRevoked: Boolean = false
   ): CustomerPaymentMethod
+
+  """List of the shop's customer saved searches."""
+  customerSavedSearches(
+    """
+    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    first: Int
+
+    """
+    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    after: String
+
+    """
+    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    last: Int
+
+    """
+    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    before: String
+
+    """Reverse the order of the underlying list."""
+    reverse: Boolean = false
+
+    """
+    Sort the underlying list using a key. If your query is slow or returns an
+    error, then [try specifying a sort key that matches the field used in the search](https://shopify.dev/api/usage/pagination-graphql#search-performance-considerations).
+    """
+    sortKey: CustomerSavedSearchSortKeys = ID
+
+    """
+    A filter made up of terms, connectives, modifiers, and comparators.
+    | name | type | description | acceptable_values | default_value | example_use |
+    | ---- | ---- | ---- | ---- | ---- | ---- |
+    | default | string | Filter by a case-insensitive search of multiple fields
+    in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
+    | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+    | name | string |
+    You can apply one or more filters to a query. Learn more about [Shopify API
+    search syntax](https://shopify.dev/api/usage/search-syntax).
+    
+    """
+    query: String
+  ): SavedSearchConnection!
 
   """
   The list of members, such as customers, that's associated with an individual segment.
@@ -61053,11 +60606,46 @@ type Query {
     reverse: Boolean = false
   ): DeliveryProfileConnection!
 
+  """Returns delivery promise participants."""
+  deliveryPromiseParticipants(
+    """The product variant ID to filter by."""
+    ownerIds: [ID!]
+
+    """The branded promise handle to filter by."""
+    brandedPromiseHandle: String!
+
+    """
+    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    first: Int
+
+    """
+    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    after: String
+
+    """
+    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    last: Int
+
+    """
+    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    before: String
+
+    """Reverse the order of the underlying list."""
+    reverse: Boolean = false
+  ): PromiseParticipantConnection
+
   """Lookup a delivery promise provider."""
   deliveryPromiseProvider(
     """The ID of the location associated with the delivery promise provider."""
     locationId: ID!
   ): DeliveryPromiseProvider
+
+  """Represents the delivery promise settings for a shop."""
+  deliveryPromiseSettings: DeliveryPromiseSetting!
 
   """Returns the shop-wide shipping settings."""
   deliverySettings: DeliverySetting
@@ -61122,6 +60710,7 @@ type Query {
     | ---- | ---- | ---- | ---- | ---- | ---- |
     | default | string | Filter by a case-insensitive search of multiple fields
     in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
+    | code | string | Filter by the discount code. Not supported for bulk discounts. | | | - `code:WELCOME10` |
     | combines_with | string | Filter by the [Shopify Functions discount
     classes](https://shopify.dev/docs/apps/build/discounts#discount-classes)
     that the [discount type](https://shopify.dev/docs/api/admin-graphql/latest/queries/discountnodes#argument-query-filter-discount_type)
@@ -61180,6 +60769,7 @@ type Query {
     | ---- | ---- | ---- | ---- | ---- | ---- |
     | default | string | Filter by a case-insensitive search of multiple fields
     in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
+    | code | string | Filter by the discount code. Not supported for bulk discounts. | | | - `code:WELCOME10` |
     | combines_with | string | Filter by the [Shopify Functions discount
     classes](https://shopify.dev/docs/apps/build/discounts#discount-classes)
     that the [discount type](https://shopify.dev/docs/api/admin-graphql/latest/queries/discountnodes#argument-query-filter-discount_type)
@@ -61906,6 +61496,7 @@ type Query {
     | geolocated | boolean |
     | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
     | legacy | boolean |
+    | location_id | id |
     | name | string |
     | pickup_in_store | string | | - `enabled`<br/> - `disabled` |
     | province | string |
@@ -61975,6 +61566,7 @@ type Query {
     | geolocated | boolean |
     | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
     | legacy | boolean |
+    | location_id | id |
     | name | string |
     | pickup_in_store | string | | - `enabled`<br/> - `disabled` |
     | province | string |
@@ -62403,44 +61995,6 @@ type Query {
     """
     query: String
   ): MetafieldDefinitionConnection!
-
-  """List of the `MetafieldStorefrontVisibility` records."""
-  metafieldStorefrontVisibilities(
-    """Filter the visible metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): MetafieldStorefrontVisibilityConnection! @deprecated(reason: "This query will be removed in a future version. Use the `access.storefront` field for nodes inside the `metafieldDefinitions` query instead.\n")
-
-  """
-  Returns a `MetafieldStorefrontVisibility` record by ID. A `MetafieldStorefrontVisibility` record lists the
-  metafields to make visible in the Storefront API.
-  """
-  metafieldStorefrontVisibility(
-    """The ID of the `MetafieldStorefrontVisibility` to return."""
-    id: ID!
-  ): MetafieldStorefrontVisibility @deprecated(reason: "This query will be removed in a future version. Use the `access.storefront` field inside the `metafieldDefinition` query instead.\n")
 
   """Retrieves a metaobject by ID."""
   metaobject(
@@ -63036,49 +62590,6 @@ type Query {
   """The primary market of the shop."""
   primaryMarket: Market!
 
-  """
-  Returns a private metafield by ID.
-  Private metafields are accessible only by the application that created them.
-  """
-  privateMetafield(
-    """The ID of the `PrivateMetafield` to return."""
-    id: ID!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """Returns a list of private metafields associated to a resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    Retrieve the private metafields of a certain resource, specified by the resource ID.
-    """
-    owner: ID!
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
   """Returns a Product resource by ID."""
   product(
     """The ID of the `Product` to return."""
@@ -63100,6 +62611,12 @@ type Query {
     """
     handle: String!
   ): Product @deprecated(reason: "Use `productByIdentifier` instead.")
+
+  """Return a product by an identifier."""
+  productByIdentifier(
+    """The identifier of the product."""
+    identifier: ProductIdentifierInput!
+  ): Product
 
   """Returns the product duplicate job."""
   productDuplicateJob(
@@ -63195,6 +62712,64 @@ type Query {
     """Reverse the order of the underlying list."""
     reverse: Boolean = false
   ): SavedSearchConnection!
+
+  """
+  A list of tags that have been added to products.
+  The maximum page size is 5000.
+  """
+  productTags(
+    """
+    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    first: Int
+
+    """
+    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    after: String
+
+    """
+    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    last: Int
+
+    """
+    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    before: String
+
+    """Reverse the order of the underlying list."""
+    reverse: Boolean = false
+  ): StringConnection
+
+  """
+  The list of types added to products.
+  The maximum page size is 1000.
+  """
+  productTypes(
+    """
+    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    first: Int
+
+    """
+    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    after: String
+
+    """
+    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    last: Int
+
+    """
+    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    before: String
+
+    """Reverse the order of the underlying list."""
+    reverse: Boolean = false
+  ): StringConnection
 
   """Returns a ProductVariant resource by ID."""
   productVariant(
@@ -63338,6 +62913,35 @@ type Query {
     """No supported search fields."""
     query: String
   ): Count
+
+  """
+  The list of vendors added to products.
+  The maximum page size is 1000.
+  """
+  productVendors(
+    """
+    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    first: Int
+
+    """
+    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    after: String
+
+    """
+    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    last: Int
+
+    """
+    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    before: String
+
+    """Reverse the order of the underlying list."""
+    reverse: Boolean = false
+  ): StringConnection
 
   """Returns a list of products."""
   products(
@@ -66209,11 +65813,6 @@ input ReturnInput {
 
   """The return shipping fee to capture."""
   returnShippingFee: ReturnShippingFeeInput
-
-  """
-  When `true` the customer will receive a notification if there's an `Order.email` present.
-  """
-  notifyCustomer: Boolean = false
 }
 
 """A return line item."""
@@ -66834,7 +66433,7 @@ type ReverseFulfillmentOrder implements Node {
   ): ReverseFulfillmentOrderLineItemConnection!
 
   """The order associated with the reverse fulfillment order."""
-  order: Order! @deprecated(reason: "Order will be nullable as of API version 2025-01. Older versions will return an error when order is null.")
+  order: Order
 
   """The list of reverse deliveries for the reverse fulfillment order."""
   reverseDeliveries(
@@ -68434,46 +68033,6 @@ type SellingPlan implements HasMetafieldDefinitions & HasMetafields & HasPublish
 
   """Selling plan pricing details."""
   pricingPolicies: [SellingPlanPricingPolicy!]!
-
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
 
   """The published translations associated with the resource."""
   translations(
@@ -70298,38 +69857,6 @@ type Shop implements HasMetafields & HasPublishedTranslations & Node {
   """Specifies whether the shop supports checkouts via Checkout API."""
   checkoutApiSupported: Boolean!
 
-  """Return a collection by its handle."""
-  collectionByHandle(
-    """The handle of the collection."""
-    handle: String!
-  ): Collection @deprecated(reason: "Use `Query.collectionByHandle` instead.")
-
-  """List of the shop's collection saved searches."""
-  collectionSavedSearches(
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): SavedSearchConnection! @deprecated(reason: "Use `Query.collectionSavedSearches` instead.")
-
   """List of the shop's collections."""
   collections(
     """
@@ -70463,52 +69990,6 @@ type Shop implements HasMetafields & HasPublishedTranslations & Node {
   """Information about the shop's customer accounts."""
   customerAccountsV2: CustomerAccountsV2!
 
-  """List of the shop's customer saved searches."""
-  customerSavedSearches(
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-
-    """
-    Sort the underlying list using a key. If your query is slow or returns an
-    error, then [try specifying a sort key that matches the field used in the search](https://shopify.dev/api/usage/pagination-graphql#search-performance-considerations).
-    """
-    sortKey: CustomerSavedSearchSortKeys = ID
-
-    """
-    A filter made up of terms, connectives, modifiers, and comparators.
-    | name | type | description | acceptable_values | default_value | example_use |
-    | ---- | ---- | ---- | ---- | ---- | ---- |
-    | default | string | Filter by a case-insensitive search of multiple fields
-    in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
-    | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
-    | name | string |
-    You can apply one or more filters to a query. Learn more about [Shopify API
-    search syntax](https://shopify.dev/api/usage/search-syntax).
-    
-    """
-    query: String
-  ): SavedSearchConnection! @deprecated(reason: "Use `Query.customerSavedSearches` instead.")
-
   """A list of tags that have been added to customer accounts."""
   customerTags(
     """
@@ -70579,32 +70060,6 @@ type Shop implements HasMetafields & HasPublishedTranslations & Node {
 
   """The domains configured for the shop."""
   domains: [Domain!]! @deprecated(reason: "Use `domainsPaginated` instead.")
-
-  """List of the shop's draft order saved searches."""
-  draftOrderSavedSearches(
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): SavedSearchConnection! @deprecated(reason: "Use `Query.draftOrderSavedSearches` instead.")
 
   """A list of tags that have been added to draft orders."""
   draftOrderTags(
@@ -70834,6 +70289,7 @@ type Shop implements HasMetafields & HasPublishedTranslations & Node {
     | geolocated | boolean |
     | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
     | legacy | boolean |
+    | location_id | id |
     | name | string |
     | pickup_in_store | string | | - `enabled`<br/> - `disabled` |
     | province | string |
@@ -70850,53 +70306,6 @@ type Shop implements HasMetafields & HasPublishedTranslations & Node {
     """Whether to include the locations that are deactivated."""
     includeInactive: Boolean = false
   ): LocationConnection! @deprecated(reason: "Use `Query.locations` instead.")
-
-  """List of a shop's marketing events."""
-  marketingEvents(
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-
-    """
-    Sort the underlying list using a key. If your query is slow or returns an
-    error, then [try specifying a sort key that matches the field used in the search](https://shopify.dev/api/usage/pagination-graphql#search-performance-considerations).
-    """
-    sortKey: MarketingEventSortKeys = ID
-
-    """
-    A filter made up of terms, connectives, modifiers, and comparators.
-    | name | type | description | acceptable_values | default_value | example_use |
-    | ---- | ---- | ---- | ---- | ---- | ---- |
-    | app_id | id |
-    | description | string |
-    | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
-    | started_at | time |
-    | type | string |
-    You can apply one or more filters to a query. Learn more about [Shopify API
-    search syntax](https://shopify.dev/api/usage/search-syntax).
-    
-    """
-    query: String
-  ): MarketingEventConnection! @deprecated(reason: "Use `Query.marketingEvents` instead.")
 
   """
   Whether SMS marketing has been enabled on the shop's checkout configuration settings.
@@ -70974,32 +70383,6 @@ type Shop implements HasMetafields & HasPublishedTranslations & Node {
 
   """The suffix that appears after order numbers."""
   orderNumberFormatSuffix: String!
-
-  """List of the shop's order saved searches."""
-  orderSavedSearches(
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): SavedSearchConnection! @deprecated(reason: "Use `Query.orderSavedSearches` instead.")
 
   """A list of tags that have been added to orders."""
   orderTags(
@@ -71159,62 +70542,6 @@ type Shop implements HasMetafields & HasPublishedTranslations & Node {
   """The primary domain of the shop's online store."""
   primaryDomain: Domain!
 
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """Return a product by its handle."""
-  productByHandle(
-    """
-    A unique string that identifies the product. Handles are automatically
-    generated based on the product's title, and are always lowercase. Whitespace
-    and special characters are replaced with a hyphen: `-`. If there are
-    multiple consecutive whitespace or special characters, then they're replaced
-    with a single hyphen. Whitespace or special characters at the beginning are
-    removed. If a duplicate product title is used, then the handle is
-    auto-incremented by one. For example, if you had two products called
-    `Potion`, then their handles would be `potion` and `potion-1`. After a
-    product has been created, changing the product title doesn't update the handle.
-    """
-    handle: String!
-  ): Product @deprecated(reason: "Use `Query.productByHandle` instead.")
-
   """The list of all images of all products for the shop."""
   productImages(
     """
@@ -71246,32 +70573,6 @@ type Shop implements HasMetafields & HasPublishedTranslations & Node {
     """
     sortKey: ProductImageSortKeys = CREATED_AT
   ): ImageConnection! @deprecated(reason: "Use `files` instead. See [filesQuery](https://shopify.dev/docs/api/admin-graphql/latest/queries/files) and its [query](https://shopify.dev/docs/api/admin-graphql/2024-01/queries/files#argument-query) argument for more information.")
-
-  """List of the shop's product saved searches."""
-  productSavedSearches(
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): SavedSearchConnection! @deprecated(reason: "Use `Query.productSavedSearches` instead.")
 
   """A list of tags that have been added to products."""
   productTags(
@@ -71715,12 +71016,6 @@ type Shop implements HasMetafields & HasPublishedTranslations & Node {
   """The date and time when the shop was last updated."""
   updatedAt: DateTime!
 
-  """Fetches a list of images uploaded to the shop by their IDs."""
-  uploadedImagesByIds(
-    """The IDs of the uploaded images."""
-    imageIds: [ID!]!
-  ): [Image!]! @deprecated(reason: "Use `files` instead. See [filesQuery](https://shopify.dev/docs/api/admin-graphql/latest/queries/files) and its [query](https://shopify.dev/docs/api/admin-graphql/2024-01/queries/files#argument-query) argument for more information.")
-
   """The URL of the shop's online store."""
   url: URL!
 
@@ -71944,9 +71239,6 @@ type ShopFeatures {
   """
   liveView: Boolean!
 
-  """Whether a shop has multi-location functionality."""
-  multiLocation: Boolean! @deprecated(reason: "All shops support multi-location inventory. Use `Query.locations` to determine whether shop has more than one location.\n")
-
   """Whether a shop has access to the onboarding visual."""
   onboardingVisual: Boolean! @deprecated(reason: "No longer supported.")
 
@@ -72053,6 +71345,9 @@ account. Balance includes all balances for the currencies supported by the shop.
 You can also query for a list of payouts, where each payout includes the corresponding currencyCode field.
 """
 type ShopifyPaymentsAccount implements Node {
+  """The name of the account opener."""
+  accountOpenerName: String
+
   """Whether the Shopify Payments setup is completed."""
   activated: Boolean!
 
@@ -72442,9 +71737,6 @@ enum ShopifyPaymentsBalanceTransactionPayoutStatus {
 
 """A bank account that can receive payouts."""
 type ShopifyPaymentsBankAccount implements Node {
-  """The account number of the bank account."""
-  accountNumber: String!
-
   """The last digits of the account number (the rest is redacted)."""
   accountNumberLastDigits: String!
 
@@ -72525,9 +71817,6 @@ type ShopifyPaymentsBankAccount implements Node {
     """
     savedSearchId: ID
   ): ShopifyPaymentsPayoutConnection!
-
-  """The routing number of the bank account."""
-  routingNumber: String!
 
   """The status of the bank account."""
   status: ShopifyPaymentsBankAccountStatus!
@@ -74389,7 +73678,7 @@ input StandardMetafieldDefinitionAccessInput {
   """
   The Admin API access setting to use for the metafields under this definition.
   """
-  admin: MetafieldAdminAccessInput!
+  admin: MetafieldAdminAccessInput
 
   """
   The Storefront API access setting to use for the metafields under this definition.
@@ -74448,6 +73737,17 @@ enum StandardMetafieldDefinitionEnableUserErrorCode {
   The definition type is not eligible to be used as collection condition.
   """
   TYPE_NOT_ALLOWED_FOR_CONDITIONS
+
+  """The metafield definition capability is invalid."""
+  INVALID_CAPABILITY
+
+  """The metafield definition does not support pinning."""
+  UNSUPPORTED_PINNING
+
+  """
+  Admin access can only be specified for app-owned metafield definitions.
+  """
+  ADMIN_ACCESS_INPUT_NOT_ALLOWED
 
   """The input combination is invalid."""
   INVALID_INPUT_COMBINATION
@@ -74672,6 +73972,9 @@ type StoreCreditAccountCreditTransaction implements Node & StoreCreditAccountTra
   """The date and time when the transaction was created."""
   createdAt: DateTime!
 
+  """The event that caused the store credit account transaction."""
+  event: StoreCreditSystemEvent!
+
   """
   The time at which the transaction expires.
   Debit transactions will always spend the soonest expiring credit first.
@@ -74680,6 +73983,9 @@ type StoreCreditAccountCreditTransaction implements Node & StoreCreditAccountTra
 
   """A globally-unique ID."""
   id: ID!
+
+  """The origin of the store credit account transaction."""
+  origin: StoreCreditAccountTransactionOrigin
 
   """
   The remaining amount of the credit.
@@ -74771,8 +74077,14 @@ type StoreCreditAccountDebitRevertTransaction implements Node & StoreCreditAccou
   """The reverted debit transaction."""
   debitTransaction: StoreCreditAccountDebitTransaction!
 
+  """The event that caused the store credit account transaction."""
+  event: StoreCreditSystemEvent!
+
   """A globally-unique ID."""
   id: ID!
+
+  """The origin of the store credit account transaction."""
+  origin: StoreCreditAccountTransactionOrigin
 }
 
 """A debit transaction which decreases the store credit account balance."""
@@ -74789,8 +74101,14 @@ type StoreCreditAccountDebitTransaction implements Node & StoreCreditAccountTran
   """The date and time when the transaction was created."""
   createdAt: DateTime!
 
+  """The event that caused the store credit account transaction."""
+  event: StoreCreditSystemEvent!
+
   """A globally-unique ID."""
   id: ID!
+
+  """The origin of the store credit account transaction."""
+  origin: StoreCreditAccountTransactionOrigin
 }
 
 """
@@ -74862,6 +74180,12 @@ type StoreCreditAccountExpirationTransaction implements StoreCreditAccountTransa
 
   """The credit transaction which expired."""
   creditTransaction: StoreCreditAccountCreditTransaction!
+
+  """The event that caused the store credit account transaction."""
+  event: StoreCreditSystemEvent!
+
+  """The origin of the store credit account transaction."""
+  origin: StoreCreditAccountTransactionOrigin
 }
 
 """Interface for a store credit account transaction."""
@@ -74877,6 +74201,12 @@ interface StoreCreditAccountTransaction {
 
   """The date and time when the transaction was created."""
   createdAt: DateTime!
+
+  """The event that caused the store credit account transaction."""
+  event: StoreCreditSystemEvent!
+
+  """The origin of the store credit account transaction."""
+  origin: StoreCreditAccountTransactionOrigin
 }
 
 """
@@ -74914,6 +74244,37 @@ type StoreCreditAccountTransactionEdge {
 
   """The item at the end of StoreCreditAccountTransactionEdge."""
   node: StoreCreditAccountTransaction!
+}
+
+"""The origin of a store credit account transaction."""
+union StoreCreditAccountTransactionOrigin = OrderTransaction
+
+"""The event that caused the store credit account transaction."""
+enum StoreCreditSystemEvent {
+  """An adjustment was made to the store credit account."""
+  ADJUSTMENT
+
+  """Store credit was used as payment for an order."""
+  ORDER_PAYMENT
+
+  """Store credit was refunded from an order."""
+  ORDER_REFUND
+
+  """
+  A store credit payment was reverted due to another payment method failing.
+  """
+  PAYMENT_FAILURE
+
+  """
+  A smaller amount of store credit was captured than was originally authorized.
+  """
+  PAYMENT_RETURNED
+
+  """Store credit was returned when an authorized payment was voided."""
+  ORDER_CANCELLATION
+
+  """Tax finalization affected the store credit payment."""
+  TAX_FINALIZATION
 }
 
 """
@@ -75034,6 +74395,13 @@ type StringConnection {
   edges: [StringEdge!]!
 
   """
+  A list of nodes that are contained in StringEdge. You can fetch data about an
+  individual node, or you can follow the edges to fetch data about a collection
+  of related nodes. At each node, you specify the fields that you want to retrieve.
+  """
+  nodes: [String!]!
+
+  """
   An object that’s used to retrieve [cursor
   information](https://shopify.dev/api/usage/pagination-graphql) about the current page.
   """
@@ -75135,8 +74503,14 @@ type SubscriptionBillingAttempt implements Node {
   """
   paymentSessionId: String
 
+  """Error information from processing the billing attempt."""
+  processingError: SubscriptionBillingAttemptProcessingError
+
   """Whether the billing attempt is still processing."""
   ready: Boolean!
+
+  """Whether the billing attempt respects the merchant's inventory policy."""
+  respectInventoryPolicy: Boolean!
 
   """The subscription contract."""
   subscriptionContract: SubscriptionContract!
@@ -75298,6 +74672,15 @@ enum SubscriptionBillingAttemptErrorCode {
   FRAUD_SUSPECTED
 }
 
+"""A base error type that applies to all uncategorized error classes."""
+type SubscriptionBillingAttemptGenericError implements SubscriptionBillingAttemptProcessingError {
+  """The code for the error."""
+  code: SubscriptionBillingAttemptErrorCode!
+
+  """An explanation of the error."""
+  message: String!
+}
+
 """The input fields required to complete a subscription billing attempt."""
 input SubscriptionBillingAttemptInput {
   """
@@ -75319,6 +74702,112 @@ input SubscriptionBillingAttemptInput {
   Default to bill the current billing cycle if not specified.
   """
   billingCycleSelector: SubscriptionBillingCycleSelector
+
+  """
+  The behaviour to follow when creating an order for a product variant
+        when it's out of stock.
+  """
+  inventoryPolicy: SubscriptionBillingAttemptInventoryPolicy = PRODUCT_VARIANT_INVENTORY_POLICY
+}
+
+"""
+An inventory error caused by an issue with one or more of the contract merchandise lines.
+"""
+type SubscriptionBillingAttemptInsufficientStockProductVariantsError implements SubscriptionBillingAttemptProcessingError {
+  """The code for the error."""
+  code: SubscriptionBillingAttemptErrorCode!
+
+  """
+  A list of product variants that caused the insufficient inventory error.
+  """
+  insufficientStockProductVariants(
+    """
+    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    first: Int
+
+    """
+    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    after: String
+
+    """
+    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    last: Int
+
+    """
+    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    before: String
+
+    """Reverse the order of the underlying list."""
+    reverse: Boolean = false
+  ): ProductVariantConnection!
+
+  """An explanation of the error."""
+  message: String!
+}
+
+"""The inventory policy for a billing attempt."""
+enum SubscriptionBillingAttemptInventoryPolicy {
+  """
+  Respect the merchant's product variant
+          inventory policy for this billing attempt.
+  """
+  PRODUCT_VARIANT_INVENTORY_POLICY
+
+  """
+  Override the merchant's product variant
+           inventory policy and allow overselling for this billing attempt.
+  """
+  ALLOW_OVERSELLING
+}
+
+"""
+An inventory error caused by an issue with one or more of the contract merchandise lines.
+"""
+type SubscriptionBillingAttemptOutOfStockProductVariantsError implements SubscriptionBillingAttemptProcessingError {
+  """The code for the error."""
+  code: SubscriptionBillingAttemptErrorCode!
+
+  """An explanation of the error."""
+  message: String!
+
+  """A list of responsible product variants."""
+  outOfStockProductVariants(
+    """
+    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    first: Int
+
+    """
+    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    after: String
+
+    """
+    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    last: Int
+
+    """
+    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+    """
+    before: String
+
+    """Reverse the order of the underlying list."""
+    reverse: Boolean = false
+  ): ProductVariantConnection! @deprecated(reason: "Use `subscriptionBillingAttemptInsufficientStockProductVariantsError` type instead.")
+}
+
+"""An error that prevented a billing attempt."""
+interface SubscriptionBillingAttemptProcessingError {
+  """The code for the error."""
+  code: SubscriptionBillingAttemptErrorCode!
+
+  """An explanation of the error."""
+  message: String!
 }
 
 """The set of valid sort keys for the SubscriptionBillingAttempts query."""
@@ -77673,6 +77162,11 @@ input SubscriptionFreeShippingDiscountInput {
 """Represents a Subscription Line."""
 type SubscriptionLine {
   """
+  The origin contract of the line if it was concatenated from another contract.
+  """
+  concatenatedOriginContract: SubscriptionContract
+
+  """
   The price per unit for the subscription line in the contract's currency.
   """
   currentPrice: MoneyV2!
@@ -79886,6 +79380,20 @@ type TypedAttribute {
   value: String!
 }
 
+"""The input fields that identify a unique valued metafield."""
+input UniqueMetafieldValueInput {
+  """
+  The container the metafield belongs to. If omitted, the app-reserved namespace will be used.
+  """
+  namespace: String
+
+  """The key for the metafield."""
+  key: String!
+
+  """The value of the metafield."""
+  value: String!
+}
+
 """
 The measurement used to calculate a unit price for a product variant (e.g. $9.99 / 100ml).
 """
@@ -80590,46 +80098,6 @@ type Validation implements HasMetafieldDefinitions & HasMetafields & Node {
     reverse: Boolean = false
   ): MetafieldConnection!
 
-  """
-  Returns a private metafield by namespace and key that belongs to the resource.
-  """
-  privateMetafield(
-    """The namespace for the private metafield."""
-    namespace: String!
-
-    """The key for the private metafield."""
-    key: String!
-  ): PrivateMetafield @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """List of private metafields that belong to the resource."""
-  privateMetafields(
-    """Filter the private metafields by namespace."""
-    namespace: String
-
-    """
-    The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    first: Int
-
-    """
-    The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    after: String
-
-    """
-    The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    last: Int
-
-    """
-    The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
-    """
-    before: String
-
-    """Reverse the order of the underlying list."""
-    reverse: Boolean = false
-  ): PrivateMetafieldConnection! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
   """The Shopify Function implementing the validation."""
   shopifyFunction: ShopifyFunction!
 
@@ -81071,11 +80539,6 @@ type WebhookSubscription implements LegacyInteroperability & Node {
   metafieldNamespaces: [String!]!
 
   """
-  The list of namespaces for private metafields that should be included in the webhook subscription.
-  """
-  privateMetafieldNamespaces: [String!]! @deprecated(reason: "Metafields created using a reserved namespace are private by default. See our guide for\n[migrating private metafields](https://shopify.dev/docs/apps/custom-data/metafields/migrate-private-metafields).\n")
-
-  """
   The type of event that triggers the webhook. The topic determines when the
   webhook subscription sends a webhook, as well as what class of data object
   that webhook contains.
@@ -81380,6 +80843,12 @@ enum WebhookSubscriptionTopic {
   CUSTOMERS_UPDATE
 
   """
+  The webhook topic for `customers/purchasing_summary` events. Occurs when a
+  customer sales history change. Requires the `read_customers` scope.
+  """
+  CUSTOMERS_PURCHASING_SUMMARY
+
+  """
   The webhook topic for `customers_marketing_consent/update` events. Occurs
   whenever a customer's SMS marketing consent is updated. Requires the
   `read_customers` scope.
@@ -81582,6 +81051,17 @@ enum WebhookSubscriptionTopic {
   FULFILLMENT_ORDERS_SCHEDULED_FULFILLMENT_ORDER_READY
 
   """
+  The webhook topic for `fulfillment_holds/released` events. Occurs each time
+  that a hold is released from a fulfillment order.
+  For cases where multiple holds are released from a fulfillment order a the
+  same time, this webhook will trigger for each released hold.
+   Requires at least one of the following scopes:
+  read_merchant_managed_fulfillment_orders, read_assigned_fulfillment_orders,
+  read_third_party_fulfillment_orders, read_marketplace_fulfillment_orders.
+  """
+  FULFILLMENT_HOLDS_RELEASED
+
+  """
   The webhook topic for `fulfillment_orders/order_routing_complete` events.
   Occurs when an order has finished being routed and it's fulfillment orders
   assigned to a fulfillment service's location. Requires at least one of the
@@ -81663,6 +81143,16 @@ enum WebhookSubscriptionTopic {
   read_third_party_fulfillment_orders, read_marketplace_fulfillment_orders.
   """
   FULFILLMENT_ORDERS_FULFILLMENT_REQUEST_ACCEPTED
+
+  """
+  The webhook topic for `fulfillment_holds/added` events. Occurs each time that a hold is added to a fulfillment order.
+  
+  For cases where multiple holds are applied to a fulfillment order, this webhook will trigger after each hold is applied.
+   Requires at least one of the following scopes:
+  read_merchant_managed_fulfillment_orders, read_assigned_fulfillment_orders,
+  read_third_party_fulfillment_orders, read_marketplace_fulfillment_orders.
+  """
+  FULFILLMENT_HOLDS_ADDED
 
   """
   The webhook topic for
@@ -82375,6 +81865,18 @@ enum WebhookSubscriptionTopic {
   CUSTOMER_ACCOUNT_SETTINGS_UPDATE
 
   """
+  The webhook topic for `customer.joined_segment` events. Triggers when a
+  customer joins a segment. Requires the `read_customers` scope.
+  """
+  CUSTOMER_JOINED_SEGMENT
+
+  """
+  The webhook topic for `customer.left_segment` events. Triggers when a customer
+  leaves a segment. Requires the `read_customers` scope.
+  """
+  CUSTOMER_LEFT_SEGMENT
+
+  """
   The webhook topic for `company_contact_roles/assign` events. Occurs whenever a
   role is assigned to a contact at a location. Requires at least one of the
   following scopes: read_customers, read_companies.
@@ -82501,6 +82003,12 @@ enum WebhookSubscriptionTopic {
   metafield definition is deleted. Requires the `read_content` scope.
   """
   METAFIELD_DEFINITIONS_DELETE
+
+  """
+  The webhook topic for `delivery_promise_settings/update` events. Occurs when a
+  promise setting is updated. Requires the `read_shipping` scope.
+  """
+  DELIVERY_PROMISE_SETTINGS_UPDATE
 }
 
 """Return type for `webhookSubscriptionUpdate` mutation."""

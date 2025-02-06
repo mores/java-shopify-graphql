@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * An auto-generated type which holds one MarketLocalizableResource and a cursor during pagination.
+ */
 public class MarketLocalizableResourceEdge {
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   private String cursor;
 
-  
+  /**
+   * The item at the end of MarketLocalizableResourceEdge.
+   */
   private MarketLocalizableResource node;
 
   public MarketLocalizableResourceEdge() {
   }
 
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   public String getCursor() {
     return cursor;
   }
@@ -25,7 +33,9 @@ public class MarketLocalizableResourceEdge {
     this.cursor = cursor;
   }
 
-  
+  /**
+   * The item at the end of MarketLocalizableResourceEdge.
+   */
   public MarketLocalizableResource getNode() {
     return node;
   }
@@ -58,10 +68,14 @@ public class MarketLocalizableResourceEdge {
   }
 
   public static class Builder {
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     private String cursor;
 
-    
+    /**
+     * The item at the end of MarketLocalizableResourceEdge.
+     */
     private MarketLocalizableResource node;
 
     public MarketLocalizableResourceEdge build() {
@@ -71,13 +85,17 @@ public class MarketLocalizableResourceEdge {
       return result;
     }
 
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder cursor(String cursor) {
       this.cursor = cursor;
       return this;
     }
 
-    
+    /**
+     * The item at the end of MarketLocalizableResourceEdge.
+     */
     public Builder node(MarketLocalizableResource node) {
       this.node = node;
       return this;

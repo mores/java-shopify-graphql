@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a draft order.
+ */
 public class DraftOrderCreateGraphQLQuery extends GraphQLQuery {
   public DraftOrderCreateGraphQLQuery(DraftOrderInput input, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class DraftOrderCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The fields used to create the draft order.
+     */
     public Builder input(DraftOrderInput input) {
       this.input = input;
       this.fieldsSet.add("input");

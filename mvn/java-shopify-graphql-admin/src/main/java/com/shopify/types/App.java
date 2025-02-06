@@ -7,120 +7,202 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * A Shopify application.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class App implements com.shopify.types.Node {
-  
+  /**
+   * A unique application API identifier.
+   */
   private String apiKey;
 
-  
+  /**
+   * App store page URL of the app.
+   */
   private String appStoreAppUrl;
 
-  
+  /**
+   * App store page URL of the developer who created the app.
+   */
   private String appStoreDeveloperUrl;
 
-  
+  /**
+   * All requestable access scopes available to the app.
+   */
   private List<AccessScope> availableAccessScopes;
 
-  
+  /**
+   * Banner image for the app.
+   */
   private Image banner;
 
-  
+  /**
+   * Description of the app.
+   */
   private String description;
 
-  
+  /**
+   * The name of the app developer.
+   */
   private String developerName;
 
-  
+  /**
+   * The type of app developer.
+   */
   private AppDeveloperType developerType;
 
-  
+  /**
+   * Website of the developer who created the app.
+   */
   private String developerUrl;
 
-  
+  /**
+   * Whether the app uses the Embedded App SDK.
+   */
   private boolean embedded;
 
-  
+  /**
+   * Requirements that must be met before the app can be installed.
+   */
   private List<FailedRequirement> failedRequirements;
 
-  
+  /**
+   * A list of app features that are shown in the Shopify App Store listing.
+   */
   private List<String> features;
 
-  
+  /**
+   * Feedback from this app about the store.
+   */
   private AppFeedback feedback;
 
-  
+  /**
+   * Handle of the app.
+   */
   private String handle;
 
-  
+  /**
+   * Icon that represents the app.
+   */
   private Image icon;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * Webpage where you can install the app.
+   */
   private String installUrl;
 
-  
+  /**
+   * Corresponding AppInstallation for this shop and App.
+   * Returns null if the App is not installed.
+   */
   private AppInstallation installation;
 
-  
+  /**
+   * Whether the app is the [post purchase](https://shopify.dev/apps/checkout/post-purchase) app in use.
+   */
   private boolean isPostPurchaseAppInUse;
 
-  
+  /**
+   * Webpage that the app starts in.
+   */
   private String launchUrl;
 
-  
+  /**
+   * Menu items for the app, which also appear as submenu items in left navigation sidebar in the Shopify admin.
+   */
   private List<NavigationItem> navigationItems;
 
-  
+  /**
+   * The optional scopes requested by the app. Lists the optional access scopes the
+   * app has declared in its configuration. These scopes are optionally requested
+   * by the app after installation.
+   */
   private List<AccessScope> optionalAccessScopes;
 
-  
+  /**
+   * Whether the app was previously installed on the current shop.
+   */
   private boolean previouslyInstalled;
 
-  
+  /**
+   * Detailed information about the app pricing.
+   */
   private String pricingDetails;
 
-  
+  /**
+   * Summary of the app pricing details.
+   */
   private String pricingDetailsSummary;
 
-  
+  /**
+   * Link to app privacy policy.
+   */
   private String privacyPolicyUrl;
 
-  
+  /**
+   * The public category for the app.
+   */
   private AppPublicCategory publicCategory;
 
-  
+  /**
+   * Whether the app is published to the Shopify App Store.
+   */
   private boolean published;
 
-  
+  /**
+   * The access scopes requested by the app. Lists the access scopes the app has
+   * declared in its configuration. Merchant must grant approval to these scopes
+   * for the app to be installed.
+   */
   private List<AccessScope> requestedAccessScopes;
 
-  
+  /**
+   * Screenshots of the app.
+   */
   private List<Image> screenshots;
 
-  
+  /**
+   * Whether the app was developed by Shopify.
+   */
   private boolean shopifyDeveloped;
 
-  
+  /**
+   * Name of the app.
+   */
   private String title;
 
-  
+  /**
+   * Message that appears when the app is uninstalled. For example:
+   * By removing this app, you will no longer be able to publish products to
+   * MySocialSite or view this app in your Shopify admin. You can re-enable this
+   * channel at any time.
+   */
   private String uninstallMessage;
 
-  
+  /**
+   * Webpage where you can uninstall the app.
+   */
   private String uninstallUrl;
 
-  
+  /**
+   * The webhook API version for the app.
+   */
   private String webhookApiVersion;
 
   public App() {
   }
 
-  
+  /**
+   * A unique application API identifier.
+   */
   public String getApiKey() {
     return apiKey;
   }
@@ -129,7 +211,9 @@ public class App implements com.shopify.types.Node {
     this.apiKey = apiKey;
   }
 
-  
+  /**
+   * App store page URL of the app.
+   */
   public String getAppStoreAppUrl() {
     return appStoreAppUrl;
   }
@@ -138,7 +222,9 @@ public class App implements com.shopify.types.Node {
     this.appStoreAppUrl = appStoreAppUrl;
   }
 
-  
+  /**
+   * App store page URL of the developer who created the app.
+   */
   public String getAppStoreDeveloperUrl() {
     return appStoreDeveloperUrl;
   }
@@ -147,7 +233,9 @@ public class App implements com.shopify.types.Node {
     this.appStoreDeveloperUrl = appStoreDeveloperUrl;
   }
 
-  
+  /**
+   * All requestable access scopes available to the app.
+   */
   public List<AccessScope> getAvailableAccessScopes() {
     return availableAccessScopes;
   }
@@ -156,7 +244,9 @@ public class App implements com.shopify.types.Node {
     this.availableAccessScopes = availableAccessScopes;
   }
 
-  
+  /**
+   * Banner image for the app.
+   */
   public Image getBanner() {
     return banner;
   }
@@ -165,7 +255,9 @@ public class App implements com.shopify.types.Node {
     this.banner = banner;
   }
 
-  
+  /**
+   * Description of the app.
+   */
   public String getDescription() {
     return description;
   }
@@ -174,7 +266,9 @@ public class App implements com.shopify.types.Node {
     this.description = description;
   }
 
-  
+  /**
+   * The name of the app developer.
+   */
   public String getDeveloperName() {
     return developerName;
   }
@@ -183,7 +277,9 @@ public class App implements com.shopify.types.Node {
     this.developerName = developerName;
   }
 
-  
+  /**
+   * The type of app developer.
+   */
   public AppDeveloperType getDeveloperType() {
     return developerType;
   }
@@ -192,7 +288,9 @@ public class App implements com.shopify.types.Node {
     this.developerType = developerType;
   }
 
-  
+  /**
+   * Website of the developer who created the app.
+   */
   public String getDeveloperUrl() {
     return developerUrl;
   }
@@ -201,7 +299,9 @@ public class App implements com.shopify.types.Node {
     this.developerUrl = developerUrl;
   }
 
-  
+  /**
+   * Whether the app uses the Embedded App SDK.
+   */
   public boolean getEmbedded() {
     return embedded;
   }
@@ -210,7 +310,9 @@ public class App implements com.shopify.types.Node {
     this.embedded = embedded;
   }
 
-  
+  /**
+   * Requirements that must be met before the app can be installed.
+   */
   public List<FailedRequirement> getFailedRequirements() {
     return failedRequirements;
   }
@@ -219,7 +321,9 @@ public class App implements com.shopify.types.Node {
     this.failedRequirements = failedRequirements;
   }
 
-  
+  /**
+   * A list of app features that are shown in the Shopify App Store listing.
+   */
   public List<String> getFeatures() {
     return features;
   }
@@ -228,7 +332,9 @@ public class App implements com.shopify.types.Node {
     this.features = features;
   }
 
-  
+  /**
+   * Feedback from this app about the store.
+   */
   public AppFeedback getFeedback() {
     return feedback;
   }
@@ -237,7 +343,9 @@ public class App implements com.shopify.types.Node {
     this.feedback = feedback;
   }
 
-  
+  /**
+   * Handle of the app.
+   */
   public String getHandle() {
     return handle;
   }
@@ -246,7 +354,9 @@ public class App implements com.shopify.types.Node {
     this.handle = handle;
   }
 
-  
+  /**
+   * Icon that represents the app.
+   */
   public Image getIcon() {
     return icon;
   }
@@ -255,7 +365,9 @@ public class App implements com.shopify.types.Node {
     this.icon = icon;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -264,7 +376,9 @@ public class App implements com.shopify.types.Node {
     this.id = id;
   }
 
-  
+  /**
+   * Webpage where you can install the app.
+   */
   public String getInstallUrl() {
     return installUrl;
   }
@@ -273,7 +387,10 @@ public class App implements com.shopify.types.Node {
     this.installUrl = installUrl;
   }
 
-  
+  /**
+   * Corresponding AppInstallation for this shop and App.
+   * Returns null if the App is not installed.
+   */
   public AppInstallation getInstallation() {
     return installation;
   }
@@ -282,7 +399,9 @@ public class App implements com.shopify.types.Node {
     this.installation = installation;
   }
 
-  
+  /**
+   * Whether the app is the [post purchase](https://shopify.dev/apps/checkout/post-purchase) app in use.
+   */
   public boolean getIsPostPurchaseAppInUse() {
     return isPostPurchaseAppInUse;
   }
@@ -291,7 +410,9 @@ public class App implements com.shopify.types.Node {
     this.isPostPurchaseAppInUse = isPostPurchaseAppInUse;
   }
 
-  
+  /**
+   * Webpage that the app starts in.
+   */
   public String getLaunchUrl() {
     return launchUrl;
   }
@@ -300,7 +421,9 @@ public class App implements com.shopify.types.Node {
     this.launchUrl = launchUrl;
   }
 
-  
+  /**
+   * Menu items for the app, which also appear as submenu items in left navigation sidebar in the Shopify admin.
+   */
   public List<NavigationItem> getNavigationItems() {
     return navigationItems;
   }
@@ -309,7 +432,11 @@ public class App implements com.shopify.types.Node {
     this.navigationItems = navigationItems;
   }
 
-  
+  /**
+   * The optional scopes requested by the app. Lists the optional access scopes the
+   * app has declared in its configuration. These scopes are optionally requested
+   * by the app after installation.
+   */
   public List<AccessScope> getOptionalAccessScopes() {
     return optionalAccessScopes;
   }
@@ -318,7 +445,9 @@ public class App implements com.shopify.types.Node {
     this.optionalAccessScopes = optionalAccessScopes;
   }
 
-  
+  /**
+   * Whether the app was previously installed on the current shop.
+   */
   public boolean getPreviouslyInstalled() {
     return previouslyInstalled;
   }
@@ -327,7 +456,9 @@ public class App implements com.shopify.types.Node {
     this.previouslyInstalled = previouslyInstalled;
   }
 
-  
+  /**
+   * Detailed information about the app pricing.
+   */
   public String getPricingDetails() {
     return pricingDetails;
   }
@@ -336,7 +467,9 @@ public class App implements com.shopify.types.Node {
     this.pricingDetails = pricingDetails;
   }
 
-  
+  /**
+   * Summary of the app pricing details.
+   */
   public String getPricingDetailsSummary() {
     return pricingDetailsSummary;
   }
@@ -345,7 +478,9 @@ public class App implements com.shopify.types.Node {
     this.pricingDetailsSummary = pricingDetailsSummary;
   }
 
-  
+  /**
+   * Link to app privacy policy.
+   */
   public String getPrivacyPolicyUrl() {
     return privacyPolicyUrl;
   }
@@ -354,7 +489,9 @@ public class App implements com.shopify.types.Node {
     this.privacyPolicyUrl = privacyPolicyUrl;
   }
 
-  
+  /**
+   * The public category for the app.
+   */
   public AppPublicCategory getPublicCategory() {
     return publicCategory;
   }
@@ -363,7 +500,9 @@ public class App implements com.shopify.types.Node {
     this.publicCategory = publicCategory;
   }
 
-  
+  /**
+   * Whether the app is published to the Shopify App Store.
+   */
   public boolean getPublished() {
     return published;
   }
@@ -372,7 +511,11 @@ public class App implements com.shopify.types.Node {
     this.published = published;
   }
 
-  
+  /**
+   * The access scopes requested by the app. Lists the access scopes the app has
+   * declared in its configuration. Merchant must grant approval to these scopes
+   * for the app to be installed.
+   */
   public List<AccessScope> getRequestedAccessScopes() {
     return requestedAccessScopes;
   }
@@ -381,7 +524,9 @@ public class App implements com.shopify.types.Node {
     this.requestedAccessScopes = requestedAccessScopes;
   }
 
-  
+  /**
+   * Screenshots of the app.
+   */
   public List<Image> getScreenshots() {
     return screenshots;
   }
@@ -390,7 +535,9 @@ public class App implements com.shopify.types.Node {
     this.screenshots = screenshots;
   }
 
-  
+  /**
+   * Whether the app was developed by Shopify.
+   */
   public boolean getShopifyDeveloped() {
     return shopifyDeveloped;
   }
@@ -399,7 +546,9 @@ public class App implements com.shopify.types.Node {
     this.shopifyDeveloped = shopifyDeveloped;
   }
 
-  
+  /**
+   * Name of the app.
+   */
   public String getTitle() {
     return title;
   }
@@ -408,7 +557,12 @@ public class App implements com.shopify.types.Node {
     this.title = title;
   }
 
-  
+  /**
+   * Message that appears when the app is uninstalled. For example:
+   * By removing this app, you will no longer be able to publish products to
+   * MySocialSite or view this app in your Shopify admin. You can re-enable this
+   * channel at any time.
+   */
   public String getUninstallMessage() {
     return uninstallMessage;
   }
@@ -417,7 +571,9 @@ public class App implements com.shopify.types.Node {
     this.uninstallMessage = uninstallMessage;
   }
 
-  
+  /**
+   * Webpage where you can uninstall the app.
+   */
   public String getUninstallUrl() {
     return uninstallUrl;
   }
@@ -426,7 +582,9 @@ public class App implements com.shopify.types.Node {
     this.uninstallUrl = uninstallUrl;
   }
 
-  
+  /**
+   * The webhook API version for the app.
+   */
   public String getWebhookApiVersion() {
     return webhookApiVersion;
   }
@@ -492,109 +650,187 @@ public class App implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    
+    /**
+     * A unique application API identifier.
+     */
     private String apiKey;
 
-    
+    /**
+     * App store page URL of the app.
+     */
     private String appStoreAppUrl;
 
-    
+    /**
+     * App store page URL of the developer who created the app.
+     */
     private String appStoreDeveloperUrl;
 
-    
+    /**
+     * All requestable access scopes available to the app.
+     */
     private List<AccessScope> availableAccessScopes;
 
-    
+    /**
+     * Banner image for the app.
+     */
     private Image banner;
 
-    
+    /**
+     * Description of the app.
+     */
     private String description;
 
-    
+    /**
+     * The name of the app developer.
+     */
     private String developerName;
 
-    
+    /**
+     * The type of app developer.
+     */
     private AppDeveloperType developerType;
 
-    
+    /**
+     * Website of the developer who created the app.
+     */
     private String developerUrl;
 
-    
+    /**
+     * Whether the app uses the Embedded App SDK.
+     */
     private boolean embedded;
 
-    
+    /**
+     * Requirements that must be met before the app can be installed.
+     */
     private List<FailedRequirement> failedRequirements;
 
-    
+    /**
+     * A list of app features that are shown in the Shopify App Store listing.
+     */
     private List<String> features;
 
-    
+    /**
+     * Feedback from this app about the store.
+     */
     private AppFeedback feedback;
 
-    
+    /**
+     * Handle of the app.
+     */
     private String handle;
 
-    
+    /**
+     * Icon that represents the app.
+     */
     private Image icon;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * Webpage where you can install the app.
+     */
     private String installUrl;
 
-    
+    /**
+     * Corresponding AppInstallation for this shop and App.
+     * Returns null if the App is not installed.
+     */
     private AppInstallation installation;
 
-    
+    /**
+     * Whether the app is the [post purchase](https://shopify.dev/apps/checkout/post-purchase) app in use.
+     */
     private boolean isPostPurchaseAppInUse;
 
-    
+    /**
+     * Webpage that the app starts in.
+     */
     private String launchUrl;
 
-    
+    /**
+     * Menu items for the app, which also appear as submenu items in left navigation sidebar in the Shopify admin.
+     */
     private List<NavigationItem> navigationItems;
 
-    
+    /**
+     * The optional scopes requested by the app. Lists the optional access scopes the
+     * app has declared in its configuration. These scopes are optionally requested
+     * by the app after installation.
+     */
     private List<AccessScope> optionalAccessScopes;
 
-    
+    /**
+     * Whether the app was previously installed on the current shop.
+     */
     private boolean previouslyInstalled;
 
-    
+    /**
+     * Detailed information about the app pricing.
+     */
     private String pricingDetails;
 
-    
+    /**
+     * Summary of the app pricing details.
+     */
     private String pricingDetailsSummary;
 
-    
+    /**
+     * Link to app privacy policy.
+     */
     private String privacyPolicyUrl;
 
-    
+    /**
+     * The public category for the app.
+     */
     private AppPublicCategory publicCategory;
 
-    
+    /**
+     * Whether the app is published to the Shopify App Store.
+     */
     private boolean published;
 
-    
+    /**
+     * The access scopes requested by the app. Lists the access scopes the app has
+     * declared in its configuration. Merchant must grant approval to these scopes
+     * for the app to be installed.
+     */
     private List<AccessScope> requestedAccessScopes;
 
-    
+    /**
+     * Screenshots of the app.
+     */
     private List<Image> screenshots;
 
-    
+    /**
+     * Whether the app was developed by Shopify.
+     */
     private boolean shopifyDeveloped;
 
-    
+    /**
+     * Name of the app.
+     */
     private String title;
 
-    
+    /**
+     * Message that appears when the app is uninstalled. For example:
+     * By removing this app, you will no longer be able to publish products to
+     * MySocialSite or view this app in your Shopify admin. You can re-enable this
+     * channel at any time.
+     */
     private String uninstallMessage;
 
-    
+    /**
+     * Webpage where you can uninstall the app.
+     */
     private String uninstallUrl;
 
-    
+    /**
+     * The webhook API version for the app.
+     */
     private String webhookApiVersion;
 
     public App build() {
@@ -637,211 +873,289 @@ public class App implements com.shopify.types.Node {
       return result;
     }
 
-    
+    /**
+     * A unique application API identifier.
+     */
     public Builder apiKey(String apiKey) {
       this.apiKey = apiKey;
       return this;
     }
 
-    
+    /**
+     * App store page URL of the app.
+     */
     public Builder appStoreAppUrl(String appStoreAppUrl) {
       this.appStoreAppUrl = appStoreAppUrl;
       return this;
     }
 
-    
+    /**
+     * App store page URL of the developer who created the app.
+     */
     public Builder appStoreDeveloperUrl(String appStoreDeveloperUrl) {
       this.appStoreDeveloperUrl = appStoreDeveloperUrl;
       return this;
     }
 
-    
+    /**
+     * All requestable access scopes available to the app.
+     */
     public Builder availableAccessScopes(List<AccessScope> availableAccessScopes) {
       this.availableAccessScopes = availableAccessScopes;
       return this;
     }
 
-    
+    /**
+     * Banner image for the app.
+     */
     public Builder banner(Image banner) {
       this.banner = banner;
       return this;
     }
 
-    
+    /**
+     * Description of the app.
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    
+    /**
+     * The name of the app developer.
+     */
     public Builder developerName(String developerName) {
       this.developerName = developerName;
       return this;
     }
 
-    
+    /**
+     * The type of app developer.
+     */
     public Builder developerType(AppDeveloperType developerType) {
       this.developerType = developerType;
       return this;
     }
 
-    
+    /**
+     * Website of the developer who created the app.
+     */
     public Builder developerUrl(String developerUrl) {
       this.developerUrl = developerUrl;
       return this;
     }
 
-    
+    /**
+     * Whether the app uses the Embedded App SDK.
+     */
     public Builder embedded(boolean embedded) {
       this.embedded = embedded;
       return this;
     }
 
-    
+    /**
+     * Requirements that must be met before the app can be installed.
+     */
     public Builder failedRequirements(List<FailedRequirement> failedRequirements) {
       this.failedRequirements = failedRequirements;
       return this;
     }
 
-    
+    /**
+     * A list of app features that are shown in the Shopify App Store listing.
+     */
     public Builder features(List<String> features) {
       this.features = features;
       return this;
     }
 
-    
+    /**
+     * Feedback from this app about the store.
+     */
     public Builder feedback(AppFeedback feedback) {
       this.feedback = feedback;
       return this;
     }
 
-    
+    /**
+     * Handle of the app.
+     */
     public Builder handle(String handle) {
       this.handle = handle;
       return this;
     }
 
-    
+    /**
+     * Icon that represents the app.
+     */
     public Builder icon(Image icon) {
       this.icon = icon;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * Webpage where you can install the app.
+     */
     public Builder installUrl(String installUrl) {
       this.installUrl = installUrl;
       return this;
     }
 
-    
+    /**
+     * Corresponding AppInstallation for this shop and App.
+     * Returns null if the App is not installed.
+     */
     public Builder installation(AppInstallation installation) {
       this.installation = installation;
       return this;
     }
 
-    
+    /**
+     * Whether the app is the [post purchase](https://shopify.dev/apps/checkout/post-purchase) app in use.
+     */
     public Builder isPostPurchaseAppInUse(boolean isPostPurchaseAppInUse) {
       this.isPostPurchaseAppInUse = isPostPurchaseAppInUse;
       return this;
     }
 
-    
+    /**
+     * Webpage that the app starts in.
+     */
     public Builder launchUrl(String launchUrl) {
       this.launchUrl = launchUrl;
       return this;
     }
 
-    
+    /**
+     * Menu items for the app, which also appear as submenu items in left navigation sidebar in the Shopify admin.
+     */
     public Builder navigationItems(List<NavigationItem> navigationItems) {
       this.navigationItems = navigationItems;
       return this;
     }
 
-    
+    /**
+     * The optional scopes requested by the app. Lists the optional access scopes the
+     * app has declared in its configuration. These scopes are optionally requested
+     * by the app after installation.
+     */
     public Builder optionalAccessScopes(List<AccessScope> optionalAccessScopes) {
       this.optionalAccessScopes = optionalAccessScopes;
       return this;
     }
 
-    
+    /**
+     * Whether the app was previously installed on the current shop.
+     */
     public Builder previouslyInstalled(boolean previouslyInstalled) {
       this.previouslyInstalled = previouslyInstalled;
       return this;
     }
 
-    
+    /**
+     * Detailed information about the app pricing.
+     */
     public Builder pricingDetails(String pricingDetails) {
       this.pricingDetails = pricingDetails;
       return this;
     }
 
-    
+    /**
+     * Summary of the app pricing details.
+     */
     public Builder pricingDetailsSummary(String pricingDetailsSummary) {
       this.pricingDetailsSummary = pricingDetailsSummary;
       return this;
     }
 
-    
+    /**
+     * Link to app privacy policy.
+     */
     public Builder privacyPolicyUrl(String privacyPolicyUrl) {
       this.privacyPolicyUrl = privacyPolicyUrl;
       return this;
     }
 
-    
+    /**
+     * The public category for the app.
+     */
     public Builder publicCategory(AppPublicCategory publicCategory) {
       this.publicCategory = publicCategory;
       return this;
     }
 
-    
+    /**
+     * Whether the app is published to the Shopify App Store.
+     */
     public Builder published(boolean published) {
       this.published = published;
       return this;
     }
 
-    
+    /**
+     * The access scopes requested by the app. Lists the access scopes the app has
+     * declared in its configuration. Merchant must grant approval to these scopes
+     * for the app to be installed.
+     */
     public Builder requestedAccessScopes(List<AccessScope> requestedAccessScopes) {
       this.requestedAccessScopes = requestedAccessScopes;
       return this;
     }
 
-    
+    /**
+     * Screenshots of the app.
+     */
     public Builder screenshots(List<Image> screenshots) {
       this.screenshots = screenshots;
       return this;
     }
 
-    
+    /**
+     * Whether the app was developed by Shopify.
+     */
     public Builder shopifyDeveloped(boolean shopifyDeveloped) {
       this.shopifyDeveloped = shopifyDeveloped;
       return this;
     }
 
-    
+    /**
+     * Name of the app.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    
+    /**
+     * Message that appears when the app is uninstalled. For example:
+     * By removing this app, you will no longer be able to publish products to
+     * MySocialSite or view this app in your Shopify admin. You can re-enable this
+     * channel at any time.
+     */
     public Builder uninstallMessage(String uninstallMessage) {
       this.uninstallMessage = uninstallMessage;
       return this;
     }
 
-    
+    /**
+     * Webpage where you can uninstall the app.
+     */
     public Builder uninstallUrl(String uninstallUrl) {
       this.uninstallUrl = uninstallUrl;
       return this;
     }
 
-    
+    /**
+     * The webhook API version for the app.
+     */
     public Builder webhookApiVersion(String webhookApiVersion) {
       this.webhookApiVersion = webhookApiVersion;
       return this;

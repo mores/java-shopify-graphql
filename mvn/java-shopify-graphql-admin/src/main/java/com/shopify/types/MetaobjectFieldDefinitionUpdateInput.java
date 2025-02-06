@@ -7,27 +7,41 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields for updating a metaobject field definition.
+ */
 public class MetaobjectFieldDefinitionUpdateInput {
-  
+  /**
+   * The key of the field definition to update.
+   */
   private String key;
 
-  
+  /**
+   * A human-readable name for the field.
+   */
   private String name;
 
-  
+  /**
+   * An administrative description of the field.
+   */
   private String description;
 
-  
+  /**
+   * Whether metaobjects require a saved value for the field.
+   */
   private Boolean required;
 
-  
+  /**
+   * Custom validations that apply to values assigned to the field.
+   */
   private List<MetafieldDefinitionValidationInput> validations;
 
   public MetaobjectFieldDefinitionUpdateInput() {
   }
 
-  
+  /**
+   * The key of the field definition to update.
+   */
   public String getKey() {
     return key;
   }
@@ -36,7 +50,9 @@ public class MetaobjectFieldDefinitionUpdateInput {
     this.key = key;
   }
 
-  
+  /**
+   * A human-readable name for the field.
+   */
   public String getName() {
     return name;
   }
@@ -45,7 +61,9 @@ public class MetaobjectFieldDefinitionUpdateInput {
     this.name = name;
   }
 
-  
+  /**
+   * An administrative description of the field.
+   */
   public String getDescription() {
     return description;
   }
@@ -54,7 +72,9 @@ public class MetaobjectFieldDefinitionUpdateInput {
     this.description = description;
   }
 
-  
+  /**
+   * Whether metaobjects require a saved value for the field.
+   */
   public Boolean getRequired() {
     return required;
   }
@@ -63,7 +83,9 @@ public class MetaobjectFieldDefinitionUpdateInput {
     this.required = required;
   }
 
-  
+  /**
+   * Custom validations that apply to values assigned to the field.
+   */
   public List<MetafieldDefinitionValidationInput> getValidations() {
     return validations;
   }
@@ -99,19 +121,29 @@ public class MetaobjectFieldDefinitionUpdateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The key of the field definition to update.
+     */
     private String key;
 
-    
+    /**
+     * A human-readable name for the field.
+     */
     private String name;
 
-    
+    /**
+     * An administrative description of the field.
+     */
     private String description;
 
-    
+    /**
+     * Whether metaobjects require a saved value for the field.
+     */
     private Boolean required;
 
-    
+    /**
+     * Custom validations that apply to values assigned to the field.
+     */
     private List<MetafieldDefinitionValidationInput> validations;
 
     public MetaobjectFieldDefinitionUpdateInput build() {
@@ -124,31 +156,41 @@ public class MetaobjectFieldDefinitionUpdateInput {
       return result;
     }
 
-    
+    /**
+     * The key of the field definition to update.
+     */
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
-    
+    /**
+     * A human-readable name for the field.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    
+    /**
+     * An administrative description of the field.
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    
+    /**
+     * Whether metaobjects require a saved value for the field.
+     */
     public Builder required(Boolean required) {
       this.required = required;
       return this;
     }
 
-    
+    /**
+     * Custom validations that apply to values assigned to the field.
+     */
     public Builder validations(List<MetafieldDefinitionValidationInput> validations) {
       this.validations = validations;
       return this;

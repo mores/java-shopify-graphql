@@ -4,6 +4,7 @@ import com.netflix.graphql.dgs.client.codegen.BaseSubProjectionNode;
 import com.shopify.types.CountryCode;
 import com.shopify.types.EventSortKeys;
 import com.shopify.types.LocalizationExtensionPurpose;
+import com.shopify.types.LocalizedFieldPurpose;
 import com.shopify.types.MetafieldDefinitionPinnedStatus;
 import com.shopify.types.MetafieldDefinitionSortKeys;
 import com.shopify.types.RefundDutyInput;
@@ -431,6 +432,36 @@ public class OrderProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROO
     return projection;
   }
 
+  public LocalizedFieldConnectionProjection<OrderProjectionRoot<PARENT, ROOT>, OrderProjectionRoot<PARENT, ROOT>> localizedFields(
+      ) {
+    LocalizedFieldConnectionProjection<OrderProjectionRoot<PARENT, ROOT>, OrderProjectionRoot<PARENT, ROOT>> projection = new LocalizedFieldConnectionProjection<>(this, this);    
+    getFields().put("localizedFields", projection);
+    return projection;
+  }
+
+  public LocalizedFieldConnectionProjection<OrderProjectionRoot<PARENT, ROOT>, OrderProjectionRoot<PARENT, ROOT>> localizedFields(
+      List<CountryCode> countryCodes, List<LocalizedFieldPurpose> purposes, Integer first,
+      String after, Integer last, String before, Boolean reverse) {
+    LocalizedFieldConnectionProjection<OrderProjectionRoot<PARENT, ROOT>, OrderProjectionRoot<PARENT, ROOT>> projection = new LocalizedFieldConnectionProjection<>(this, this);    
+    getFields().put("localizedFields", projection);
+    getInputArguments().computeIfAbsent("localizedFields", k -> new ArrayList<>());                      
+    InputArgument countryCodesArg = new InputArgument("countryCodes", countryCodes);
+    getInputArguments().get("localizedFields").add(countryCodesArg);
+    InputArgument purposesArg = new InputArgument("purposes", purposes);
+    getInputArguments().get("localizedFields").add(purposesArg);
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("localizedFields").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("localizedFields").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("localizedFields").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("localizedFields").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    getInputArguments().get("localizedFields").add(reverseArg);
+    return projection;
+  }
+
   public BusinessEntityProjection<OrderProjectionRoot<PARENT, ROOT>, OrderProjectionRoot<PARENT, ROOT>> merchantBusinessEntity(
       ) {
     BusinessEntityProjection<OrderProjectionRoot<PARENT, ROOT>, OrderProjectionRoot<PARENT, ROOT>> projection = new BusinessEntityProjection<>(this, this);    
@@ -607,52 +638,6 @@ public class OrderProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROO
       ) {
     CurrencyCodeProjection<OrderProjectionRoot<PARENT, ROOT>, OrderProjectionRoot<PARENT, ROOT>> projection = new CurrencyCodeProjection<>(this, this);    
     getFields().put("presentmentCurrencyCode", projection);
-    return projection;
-  }
-
-  public PrivateMetafieldProjection<OrderProjectionRoot<PARENT, ROOT>, OrderProjectionRoot<PARENT, ROOT>> privateMetafield(
-      ) {
-    PrivateMetafieldProjection<OrderProjectionRoot<PARENT, ROOT>, OrderProjectionRoot<PARENT, ROOT>> projection = new PrivateMetafieldProjection<>(this, this);    
-    getFields().put("privateMetafield", projection);
-    return projection;
-  }
-
-  public PrivateMetafieldProjection<OrderProjectionRoot<PARENT, ROOT>, OrderProjectionRoot<PARENT, ROOT>> privateMetafield(
-      String namespace, String key) {
-    PrivateMetafieldProjection<OrderProjectionRoot<PARENT, ROOT>, OrderProjectionRoot<PARENT, ROOT>> projection = new PrivateMetafieldProjection<>(this, this);    
-    getFields().put("privateMetafield", projection);
-    getInputArguments().computeIfAbsent("privateMetafield", k -> new ArrayList<>());                      
-    InputArgument namespaceArg = new InputArgument("namespace", namespace);
-    getInputArguments().get("privateMetafield").add(namespaceArg);
-    InputArgument keyArg = new InputArgument("key", key);
-    getInputArguments().get("privateMetafield").add(keyArg);
-    return projection;
-  }
-
-  public PrivateMetafieldConnectionProjection<OrderProjectionRoot<PARENT, ROOT>, OrderProjectionRoot<PARENT, ROOT>> privateMetafields(
-      ) {
-    PrivateMetafieldConnectionProjection<OrderProjectionRoot<PARENT, ROOT>, OrderProjectionRoot<PARENT, ROOT>> projection = new PrivateMetafieldConnectionProjection<>(this, this);    
-    getFields().put("privateMetafields", projection);
-    return projection;
-  }
-
-  public PrivateMetafieldConnectionProjection<OrderProjectionRoot<PARENT, ROOT>, OrderProjectionRoot<PARENT, ROOT>> privateMetafields(
-      String namespace, Integer first, String after, Integer last, String before, Boolean reverse) {
-    PrivateMetafieldConnectionProjection<OrderProjectionRoot<PARENT, ROOT>, OrderProjectionRoot<PARENT, ROOT>> projection = new PrivateMetafieldConnectionProjection<>(this, this);    
-    getFields().put("privateMetafields", projection);
-    getInputArguments().computeIfAbsent("privateMetafields", k -> new ArrayList<>());                      
-    InputArgument namespaceArg = new InputArgument("namespace", namespace);
-    getInputArguments().get("privateMetafields").add(namespaceArg);
-    InputArgument firstArg = new InputArgument("first", first);
-    getInputArguments().get("privateMetafields").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("privateMetafields").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
-    getInputArguments().get("privateMetafields").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("privateMetafields").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
-    getInputArguments().get("privateMetafields").add(reverseArg);
     return projection;
   }
 

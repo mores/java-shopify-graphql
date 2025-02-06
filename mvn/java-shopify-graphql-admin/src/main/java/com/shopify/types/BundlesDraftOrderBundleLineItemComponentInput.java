@@ -5,21 +5,32 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields representing the components of a bundle line item.
+ */
 public class BundlesDraftOrderBundleLineItemComponentInput {
-  
+  /**
+   * The ID of the product variant corresponding to the bundle component.
+   */
   private String variantId;
 
-  
+  /**
+   * The quantity of the bundle component.
+   */
   private int quantity;
 
-  
+  /**
+   * The UUID of the bundle component. Must be unique and consistent across requests.
+   * This field is mandatory in order to manipulate drafts with bundles.
+   */
   private String uuid;
 
   public BundlesDraftOrderBundleLineItemComponentInput() {
   }
 
-  
+  /**
+   * The ID of the product variant corresponding to the bundle component.
+   */
   public String getVariantId() {
     return variantId;
   }
@@ -28,7 +39,9 @@ public class BundlesDraftOrderBundleLineItemComponentInput {
     this.variantId = variantId;
   }
 
-  
+  /**
+   * The quantity of the bundle component.
+   */
   public int getQuantity() {
     return quantity;
   }
@@ -37,7 +50,10 @@ public class BundlesDraftOrderBundleLineItemComponentInput {
     this.quantity = quantity;
   }
 
-  
+  /**
+   * The UUID of the bundle component. Must be unique and consistent across requests.
+   * This field is mandatory in order to manipulate drafts with bundles.
+   */
   public String getUuid() {
     return uuid;
   }
@@ -71,13 +87,20 @@ public class BundlesDraftOrderBundleLineItemComponentInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the product variant corresponding to the bundle component.
+     */
     private String variantId;
 
-    
+    /**
+     * The quantity of the bundle component.
+     */
     private int quantity;
 
-    
+    /**
+     * The UUID of the bundle component. Must be unique and consistent across requests.
+     * This field is mandatory in order to manipulate drafts with bundles.
+     */
     private String uuid;
 
     public BundlesDraftOrderBundleLineItemComponentInput build() {
@@ -88,19 +111,26 @@ public class BundlesDraftOrderBundleLineItemComponentInput {
       return result;
     }
 
-    
+    /**
+     * The ID of the product variant corresponding to the bundle component.
+     */
     public Builder variantId(String variantId) {
       this.variantId = variantId;
       return this;
     }
 
-    
+    /**
+     * The quantity of the bundle component.
+     */
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    
+    /**
+     * The UUID of the bundle component. Must be unique and consistent across requests.
+     * This field is mandatory in order to manipulate drafts with bundles.
+     */
     public Builder uuid(String uuid) {
       this.uuid = uuid;
       return this;

@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a [`UrlRedirect`](https://shopify.dev/api/admin-graphql/latest/objects/UrlRedirect) object.
+ */
 public class UrlRedirectCreateGraphQLQuery extends GraphQLQuery {
   public UrlRedirectCreateGraphQLQuery(UrlRedirectInput urlRedirect, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class UrlRedirectCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The fields to use when creating the redirect.
+     */
     public Builder urlRedirect(UrlRedirectInput urlRedirect) {
       this.urlRedirect = urlRedirect;
       this.fieldsSet.add("urlRedirect");

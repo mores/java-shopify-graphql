@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `discountCodeRedeemCodeBulkDelete` mutation.
+ */
 public class DiscountCodeRedeemCodeBulkDeletePayload {
-  
+  /**
+   * The asynchronous job that deletes the discount redeem codes.
+   */
   private Job job;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<DiscountUserError> userErrors;
 
   public DiscountCodeRedeemCodeBulkDeletePayload() {
   }
 
-  
+  /**
+   * The asynchronous job that deletes the discount redeem codes.
+   */
   public Job getJob() {
     return job;
   }
@@ -26,7 +34,9 @@ public class DiscountCodeRedeemCodeBulkDeletePayload {
     this.job = job;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<DiscountUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class DiscountCodeRedeemCodeBulkDeletePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The asynchronous job that deletes the discount redeem codes.
+     */
     private Job job;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<DiscountUserError> userErrors;
 
     public DiscountCodeRedeemCodeBulkDeletePayload build() {
@@ -72,13 +86,17 @@ public class DiscountCodeRedeemCodeBulkDeletePayload {
       return result;
     }
 
-    
+    /**
+     * The asynchronous job that deletes the discount redeem codes.
+     */
     public Builder job(Job job) {
       this.job = job;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<DiscountUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

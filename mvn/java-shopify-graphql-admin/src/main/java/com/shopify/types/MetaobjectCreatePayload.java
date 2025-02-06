@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `metaobjectCreate` mutation.
+ */
 public class MetaobjectCreatePayload {
-  
+  /**
+   * The created metaobject.
+   */
   private Metaobject metaobject;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<MetaobjectUserError> userErrors;
 
   public MetaobjectCreatePayload() {
   }
 
-  
+  /**
+   * The created metaobject.
+   */
   public Metaobject getMetaobject() {
     return metaobject;
   }
@@ -26,7 +34,9 @@ public class MetaobjectCreatePayload {
     this.metaobject = metaobject;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<MetaobjectUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class MetaobjectCreatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The created metaobject.
+     */
     private Metaobject metaobject;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<MetaobjectUserError> userErrors;
 
     public MetaobjectCreatePayload build() {
@@ -72,13 +86,17 @@ public class MetaobjectCreatePayload {
       return result;
     }
 
-    
+    /**
+     * The created metaobject.
+     */
     public Builder metaobject(Metaobject metaobject) {
       this.metaobject = metaobject;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<MetaobjectUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

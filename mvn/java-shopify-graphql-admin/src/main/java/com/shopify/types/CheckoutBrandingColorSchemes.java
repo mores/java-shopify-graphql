@@ -5,24 +5,36 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The color schemes.
+ */
 public class CheckoutBrandingColorSchemes {
-  
+  /**
+   * The primary scheme. By default, it’s used for the main area of the interface.
+   */
   private CheckoutBrandingColorScheme scheme1;
 
-  
+  /**
+   * The secondary scheme. By default, it’s used for secondary areas, like Checkout’s Order Summary.
+   */
   private CheckoutBrandingColorScheme scheme2;
 
-  
+  /**
+   * An extra scheme available to customize more surfaces, components or specific states of the user interface.
+   */
   private CheckoutBrandingColorScheme scheme3;
 
-  
+  /**
+   * An extra scheme available to customize more surfaces, components or specific states of the user interface.
+   */
   private CheckoutBrandingColorScheme scheme4;
 
   public CheckoutBrandingColorSchemes() {
   }
 
-  
+  /**
+   * The primary scheme. By default, it’s used for the main area of the interface.
+   */
   public CheckoutBrandingColorScheme getScheme1() {
     return scheme1;
   }
@@ -31,7 +43,9 @@ public class CheckoutBrandingColorSchemes {
     this.scheme1 = scheme1;
   }
 
-  
+  /**
+   * The secondary scheme. By default, it’s used for secondary areas, like Checkout’s Order Summary.
+   */
   public CheckoutBrandingColorScheme getScheme2() {
     return scheme2;
   }
@@ -40,7 +54,9 @@ public class CheckoutBrandingColorSchemes {
     this.scheme2 = scheme2;
   }
 
-  
+  /**
+   * An extra scheme available to customize more surfaces, components or specific states of the user interface.
+   */
   public CheckoutBrandingColorScheme getScheme3() {
     return scheme3;
   }
@@ -49,7 +65,9 @@ public class CheckoutBrandingColorSchemes {
     this.scheme3 = scheme3;
   }
 
-  
+  /**
+   * An extra scheme available to customize more surfaces, components or specific states of the user interface.
+   */
   public CheckoutBrandingColorScheme getScheme4() {
     return scheme4;
   }
@@ -84,16 +102,24 @@ public class CheckoutBrandingColorSchemes {
   }
 
   public static class Builder {
-    
+    /**
+     * The primary scheme. By default, it’s used for the main area of the interface.
+     */
     private CheckoutBrandingColorScheme scheme1;
 
-    
+    /**
+     * The secondary scheme. By default, it’s used for secondary areas, like Checkout’s Order Summary.
+     */
     private CheckoutBrandingColorScheme scheme2;
 
-    
+    /**
+     * An extra scheme available to customize more surfaces, components or specific states of the user interface.
+     */
     private CheckoutBrandingColorScheme scheme3;
 
-    
+    /**
+     * An extra scheme available to customize more surfaces, components or specific states of the user interface.
+     */
     private CheckoutBrandingColorScheme scheme4;
 
     public CheckoutBrandingColorSchemes build() {
@@ -105,25 +131,33 @@ public class CheckoutBrandingColorSchemes {
       return result;
     }
 
-    
+    /**
+     * The primary scheme. By default, it’s used for the main area of the interface.
+     */
     public Builder scheme1(CheckoutBrandingColorScheme scheme1) {
       this.scheme1 = scheme1;
       return this;
     }
 
-    
+    /**
+     * The secondary scheme. By default, it’s used for secondary areas, like Checkout’s Order Summary.
+     */
     public Builder scheme2(CheckoutBrandingColorScheme scheme2) {
       this.scheme2 = scheme2;
       return this;
     }
 
-    
+    /**
+     * An extra scheme available to customize more surfaces, components or specific states of the user interface.
+     */
     public Builder scheme3(CheckoutBrandingColorScheme scheme3) {
       this.scheme3 = scheme3;
       return this;
     }
 
-    
+    /**
+     * An extra scheme available to customize more surfaces, components or specific states of the user interface.
+     */
     public Builder scheme4(CheckoutBrandingColorScheme scheme4) {
       this.scheme4 = scheme4;
       return this;

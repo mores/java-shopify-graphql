@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Lookup a channel by ID.
+ */
 public class ChannelGraphQLQuery extends GraphQLQuery {
   public ChannelGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -40,7 +42,9 @@ public class ChannelGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the `Channel` to return.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

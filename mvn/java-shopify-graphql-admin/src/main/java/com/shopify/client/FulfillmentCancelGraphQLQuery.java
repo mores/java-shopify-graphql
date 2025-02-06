@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Cancels a fulfillment.
+ */
 public class FulfillmentCancelGraphQLQuery extends GraphQLQuery {
   public FulfillmentCancelGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -40,7 +42,9 @@ public class FulfillmentCancelGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the fulfillment to be canceled.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

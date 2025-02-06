@@ -5,30 +5,46 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The parameters for an event segment filter.
+ */
 public class SegmentEventFilterParameter {
-  
+  /**
+   * Whether the parameter accepts a list of values.
+   */
   private boolean acceptsMultipleValues;
 
-  
+  /**
+   * The localized description of the parameter.
+   */
   private String localizedDescription;
 
-  
+  /**
+   * The localized name of the parameter.
+   */
   private String localizedName;
 
-  
+  /**
+   * Whether the parameter is optional.
+   */
   private boolean optional;
 
-  
+  /**
+   * The type of the parameter.
+   */
   private String parameterType;
 
-  
+  /**
+   * The query name of the parameter.
+   */
   private String queryName;
 
   public SegmentEventFilterParameter() {
   }
 
-  
+  /**
+   * Whether the parameter accepts a list of values.
+   */
   public boolean getAcceptsMultipleValues() {
     return acceptsMultipleValues;
   }
@@ -37,7 +53,9 @@ public class SegmentEventFilterParameter {
     this.acceptsMultipleValues = acceptsMultipleValues;
   }
 
-  
+  /**
+   * The localized description of the parameter.
+   */
   public String getLocalizedDescription() {
     return localizedDescription;
   }
@@ -46,7 +64,9 @@ public class SegmentEventFilterParameter {
     this.localizedDescription = localizedDescription;
   }
 
-  
+  /**
+   * The localized name of the parameter.
+   */
   public String getLocalizedName() {
     return localizedName;
   }
@@ -55,7 +75,9 @@ public class SegmentEventFilterParameter {
     this.localizedName = localizedName;
   }
 
-  
+  /**
+   * Whether the parameter is optional.
+   */
   public boolean getOptional() {
     return optional;
   }
@@ -64,7 +86,9 @@ public class SegmentEventFilterParameter {
     this.optional = optional;
   }
 
-  
+  /**
+   * The type of the parameter.
+   */
   public String getParameterType() {
     return parameterType;
   }
@@ -73,7 +97,9 @@ public class SegmentEventFilterParameter {
     this.parameterType = parameterType;
   }
 
-  
+  /**
+   * The query name of the parameter.
+   */
   public String getQueryName() {
     return queryName;
   }
@@ -110,22 +136,34 @@ public class SegmentEventFilterParameter {
   }
 
   public static class Builder {
-    
+    /**
+     * Whether the parameter accepts a list of values.
+     */
     private boolean acceptsMultipleValues;
 
-    
+    /**
+     * The localized description of the parameter.
+     */
     private String localizedDescription;
 
-    
+    /**
+     * The localized name of the parameter.
+     */
     private String localizedName;
 
-    
+    /**
+     * Whether the parameter is optional.
+     */
     private boolean optional;
 
-    
+    /**
+     * The type of the parameter.
+     */
     private String parameterType;
 
-    
+    /**
+     * The query name of the parameter.
+     */
     private String queryName;
 
     public SegmentEventFilterParameter build() {
@@ -139,37 +177,49 @@ public class SegmentEventFilterParameter {
       return result;
     }
 
-    
+    /**
+     * Whether the parameter accepts a list of values.
+     */
     public Builder acceptsMultipleValues(boolean acceptsMultipleValues) {
       this.acceptsMultipleValues = acceptsMultipleValues;
       return this;
     }
 
-    
+    /**
+     * The localized description of the parameter.
+     */
     public Builder localizedDescription(String localizedDescription) {
       this.localizedDescription = localizedDescription;
       return this;
     }
 
-    
+    /**
+     * The localized name of the parameter.
+     */
     public Builder localizedName(String localizedName) {
       this.localizedName = localizedName;
       return this;
     }
 
-    
+    /**
+     * Whether the parameter is optional.
+     */
     public Builder optional(boolean optional) {
       this.optional = optional;
       return this;
     }
 
-    
+    /**
+     * The type of the parameter.
+     */
     public Builder parameterType(String parameterType) {
       this.parameterType = parameterType;
       return this;
     }
 
-    
+    /**
+     * The query name of the parameter.
+     */
     public Builder queryName(String queryName) {
       this.queryName = queryName;
       return this;

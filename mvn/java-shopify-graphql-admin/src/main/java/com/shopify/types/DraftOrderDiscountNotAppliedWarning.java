@@ -6,33 +6,49 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A warning indicating that a discount cannot be applied to a draft order.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DraftOrderDiscountNotAppliedWarning implements com.shopify.types.DraftOrderWarning {
-  
+  /**
+   * The code of the discount that can't be applied.
+   */
   private String discountCode;
 
-  
+  /**
+   * The title of the discount that can't be applied.
+   */
   private String discountTitle;
 
-  
+  /**
+   * The error code.
+   */
   private String errorCode;
 
-  
+  /**
+   * The input field that the warning applies to.
+   */
   private String field;
 
-  
+  /**
+   * The warning message.
+   */
   private String message;
 
-  
+  /**
+   * The price rule that can't be applied.
+   */
   private PriceRule priceRule;
 
   public DraftOrderDiscountNotAppliedWarning() {
   }
 
-  
+  /**
+   * The code of the discount that can't be applied.
+   */
   public String getDiscountCode() {
     return discountCode;
   }
@@ -41,7 +57,9 @@ public class DraftOrderDiscountNotAppliedWarning implements com.shopify.types.Dr
     this.discountCode = discountCode;
   }
 
-  
+  /**
+   * The title of the discount that can't be applied.
+   */
   public String getDiscountTitle() {
     return discountTitle;
   }
@@ -50,7 +68,9 @@ public class DraftOrderDiscountNotAppliedWarning implements com.shopify.types.Dr
     this.discountTitle = discountTitle;
   }
 
-  
+  /**
+   * The error code.
+   */
   public String getErrorCode() {
     return errorCode;
   }
@@ -59,7 +79,9 @@ public class DraftOrderDiscountNotAppliedWarning implements com.shopify.types.Dr
     this.errorCode = errorCode;
   }
 
-  
+  /**
+   * The input field that the warning applies to.
+   */
   public String getField() {
     return field;
   }
@@ -68,7 +90,9 @@ public class DraftOrderDiscountNotAppliedWarning implements com.shopify.types.Dr
     this.field = field;
   }
 
-  
+  /**
+   * The warning message.
+   */
   public String getMessage() {
     return message;
   }
@@ -77,7 +101,9 @@ public class DraftOrderDiscountNotAppliedWarning implements com.shopify.types.Dr
     this.message = message;
   }
 
-  
+  /**
+   * The price rule that can't be applied.
+   */
   public PriceRule getPriceRule() {
     return priceRule;
   }
@@ -114,22 +140,34 @@ public class DraftOrderDiscountNotAppliedWarning implements com.shopify.types.Dr
   }
 
   public static class Builder {
-    
+    /**
+     * The code of the discount that can't be applied.
+     */
     private String discountCode;
 
-    
+    /**
+     * The title of the discount that can't be applied.
+     */
     private String discountTitle;
 
-    
+    /**
+     * The error code.
+     */
     private String errorCode;
 
-    
+    /**
+     * The input field that the warning applies to.
+     */
     private String field;
 
-    
+    /**
+     * The warning message.
+     */
     private String message;
 
-    
+    /**
+     * The price rule that can't be applied.
+     */
     private PriceRule priceRule;
 
     public DraftOrderDiscountNotAppliedWarning build() {
@@ -143,37 +181,49 @@ public class DraftOrderDiscountNotAppliedWarning implements com.shopify.types.Dr
       return result;
     }
 
-    
+    /**
+     * The code of the discount that can't be applied.
+     */
     public Builder discountCode(String discountCode) {
       this.discountCode = discountCode;
       return this;
     }
 
-    
+    /**
+     * The title of the discount that can't be applied.
+     */
     public Builder discountTitle(String discountTitle) {
       this.discountTitle = discountTitle;
       return this;
     }
 
-    
+    /**
+     * The error code.
+     */
     public Builder errorCode(String errorCode) {
       this.errorCode = errorCode;
       return this;
     }
 
-    
+    /**
+     * The input field that the warning applies to.
+     */
     public Builder field(String field) {
       this.field = field;
       return this;
     }
 
-    
+    /**
+     * The warning message.
+     */
     public Builder message(String message) {
       this.message = message;
       return this;
     }
 
-    
+    /**
+     * The price rule that can't be applied.
+     */
     public Builder priceRule(PriceRule priceRule) {
       this.priceRule = priceRule;
       return this;

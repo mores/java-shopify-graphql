@@ -7,39 +7,73 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields required to update a metafield definition.
+ */
 public class MetafieldDefinitionUpdateInput {
-  
+  /**
+   * The container for a group of metafields that the metafield definition is associated with. Used to help identify
+   * the metafield definition, but cannot be updated itself. If omitted, the app-reserved namespace will be used.
+   */
   private String namespace;
 
-  
+  /**
+   * The unique identifier for the metafield definition within its namespace. Used to help identify the metafield
+   * definition, but can't be updated itself.
+   */
   private String key;
 
-  
+  /**
+   * The human-readable name for the metafield definition.
+   */
   private String name;
 
-  
+  /**
+   * The description for the metafield definition.
+   */
   private String description;
 
-  
+  /**
+   * The resource type that the metafield definition is attached to. Used to help identify the metafield definition,
+   * but can't be updated itself.
+   */
   private MetafieldOwnerType ownerType;
 
-  
+  /**
+   * A list of [validation options](https://shopify.dev/apps/metafields/definitions/validation) for
+   * the metafields that belong to the metafield definition. For example, for a metafield definition with the
+   * type `date`, you can set a minimum date validation so that each of the metafields that belong to it can only
+   * store dates after the specified minimum.
+   */
   private List<MetafieldDefinitionValidationInput> validations;
 
-  
+  /**
+   * Whether to pin the metafield definition.
+   */
   private Boolean pin;
 
-  
+  /**
+   * The access settings that apply to each of the metafields that belong to the metafield definition.
+   */
   private MetafieldAccessUpdateInput access;
 
-  
+  /**
+   * The constraints that determine what resources a metafield definition applies to.
+   */
+  private MetafieldDefinitionConstraintsUpdatesInput constraintsUpdates;
+
+  /**
+   * The capabilities of the metafield definition.
+   */
   private MetafieldCapabilityUpdateInput capabilities;
 
   public MetafieldDefinitionUpdateInput() {
   }
 
-  
+  /**
+   * The container for a group of metafields that the metafield definition is associated with. Used to help identify
+   * the metafield definition, but cannot be updated itself. If omitted, the app-reserved namespace will be used.
+   */
   public String getNamespace() {
     return namespace;
   }
@@ -48,7 +82,10 @@ public class MetafieldDefinitionUpdateInput {
     this.namespace = namespace;
   }
 
-  
+  /**
+   * The unique identifier for the metafield definition within its namespace. Used to help identify the metafield
+   * definition, but can't be updated itself.
+   */
   public String getKey() {
     return key;
   }
@@ -57,7 +94,9 @@ public class MetafieldDefinitionUpdateInput {
     this.key = key;
   }
 
-  
+  /**
+   * The human-readable name for the metafield definition.
+   */
   public String getName() {
     return name;
   }
@@ -66,7 +105,9 @@ public class MetafieldDefinitionUpdateInput {
     this.name = name;
   }
 
-  
+  /**
+   * The description for the metafield definition.
+   */
   public String getDescription() {
     return description;
   }
@@ -75,7 +116,10 @@ public class MetafieldDefinitionUpdateInput {
     this.description = description;
   }
 
-  
+  /**
+   * The resource type that the metafield definition is attached to. Used to help identify the metafield definition,
+   * but can't be updated itself.
+   */
   public MetafieldOwnerType getOwnerType() {
     return ownerType;
   }
@@ -84,7 +128,12 @@ public class MetafieldDefinitionUpdateInput {
     this.ownerType = ownerType;
   }
 
-  
+  /**
+   * A list of [validation options](https://shopify.dev/apps/metafields/definitions/validation) for
+   * the metafields that belong to the metafield definition. For example, for a metafield definition with the
+   * type `date`, you can set a minimum date validation so that each of the metafields that belong to it can only
+   * store dates after the specified minimum.
+   */
   public List<MetafieldDefinitionValidationInput> getValidations() {
     return validations;
   }
@@ -93,7 +142,9 @@ public class MetafieldDefinitionUpdateInput {
     this.validations = validations;
   }
 
-  
+  /**
+   * Whether to pin the metafield definition.
+   */
   public Boolean getPin() {
     return pin;
   }
@@ -102,7 +153,9 @@ public class MetafieldDefinitionUpdateInput {
     this.pin = pin;
   }
 
-  
+  /**
+   * The access settings that apply to each of the metafields that belong to the metafield definition.
+   */
   public MetafieldAccessUpdateInput getAccess() {
     return access;
   }
@@ -111,7 +164,20 @@ public class MetafieldDefinitionUpdateInput {
     this.access = access;
   }
 
-  
+  /**
+   * The constraints that determine what resources a metafield definition applies to.
+   */
+  public MetafieldDefinitionConstraintsUpdatesInput getConstraintsUpdates() {
+    return constraintsUpdates;
+  }
+
+  public void setConstraintsUpdates(MetafieldDefinitionConstraintsUpdatesInput constraintsUpdates) {
+    this.constraintsUpdates = constraintsUpdates;
+  }
+
+  /**
+   * The capabilities of the metafield definition.
+   */
   public MetafieldCapabilityUpdateInput getCapabilities() {
     return capabilities;
   }
@@ -122,7 +188,7 @@ public class MetafieldDefinitionUpdateInput {
 
   @Override
   public String toString() {
-    return "MetafieldDefinitionUpdateInput{namespace='" + namespace + "', key='" + key + "', name='" + name + "', description='" + description + "', ownerType='" + ownerType + "', validations='" + validations + "', pin='" + pin + "', access='" + access + "', capabilities='" + capabilities + "'}";
+    return "MetafieldDefinitionUpdateInput{namespace='" + namespace + "', key='" + key + "', name='" + name + "', description='" + description + "', ownerType='" + ownerType + "', validations='" + validations + "', pin='" + pin + "', access='" + access + "', constraintsUpdates='" + constraintsUpdates + "', capabilities='" + capabilities + "'}";
   }
 
   @Override
@@ -138,12 +204,13 @@ public class MetafieldDefinitionUpdateInput {
         Objects.equals(validations, that.validations) &&
         Objects.equals(pin, that.pin) &&
         Objects.equals(access, that.access) &&
+        Objects.equals(constraintsUpdates, that.constraintsUpdates) &&
         Objects.equals(capabilities, that.capabilities);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespace, key, name, description, ownerType, validations, pin, access, capabilities);
+    return Objects.hash(namespace, key, name, description, ownerType, validations, pin, access, constraintsUpdates, capabilities);
   }
 
   public static Builder newBuilder() {
@@ -151,31 +218,60 @@ public class MetafieldDefinitionUpdateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The container for a group of metafields that the metafield definition is associated with. Used to help identify
+     * the metafield definition, but cannot be updated itself. If omitted, the app-reserved namespace will be used.
+     */
     private String namespace;
 
-    
+    /**
+     * The unique identifier for the metafield definition within its namespace. Used to help identify the metafield
+     * definition, but can't be updated itself.
+     */
     private String key;
 
-    
+    /**
+     * The human-readable name for the metafield definition.
+     */
     private String name;
 
-    
+    /**
+     * The description for the metafield definition.
+     */
     private String description;
 
-    
+    /**
+     * The resource type that the metafield definition is attached to. Used to help identify the metafield definition,
+     * but can't be updated itself.
+     */
     private MetafieldOwnerType ownerType;
 
-    
+    /**
+     * A list of [validation options](https://shopify.dev/apps/metafields/definitions/validation) for
+     * the metafields that belong to the metafield definition. For example, for a metafield definition with the
+     * type `date`, you can set a minimum date validation so that each of the metafields that belong to it can only
+     * store dates after the specified minimum.
+     */
     private List<MetafieldDefinitionValidationInput> validations;
 
-    
+    /**
+     * Whether to pin the metafield definition.
+     */
     private Boolean pin;
 
-    
+    /**
+     * The access settings that apply to each of the metafields that belong to the metafield definition.
+     */
     private MetafieldAccessUpdateInput access;
 
-    
+    /**
+     * The constraints that determine what resources a metafield definition applies to.
+     */
+    private MetafieldDefinitionConstraintsUpdatesInput constraintsUpdates;
+
+    /**
+     * The capabilities of the metafield definition.
+     */
     private MetafieldCapabilityUpdateInput capabilities;
 
     public MetafieldDefinitionUpdateInput build() {
@@ -188,59 +284,93 @@ public class MetafieldDefinitionUpdateInput {
       result.validations = this.validations;
       result.pin = this.pin;
       result.access = this.access;
+      result.constraintsUpdates = this.constraintsUpdates;
       result.capabilities = this.capabilities;
       return result;
     }
 
-    
+    /**
+     * The container for a group of metafields that the metafield definition is associated with. Used to help identify
+     * the metafield definition, but cannot be updated itself. If omitted, the app-reserved namespace will be used.
+     */
     public Builder namespace(String namespace) {
       this.namespace = namespace;
       return this;
     }
 
-    
+    /**
+     * The unique identifier for the metafield definition within its namespace. Used to help identify the metafield
+     * definition, but can't be updated itself.
+     */
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
-    
+    /**
+     * The human-readable name for the metafield definition.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    
+    /**
+     * The description for the metafield definition.
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    
+    /**
+     * The resource type that the metafield definition is attached to. Used to help identify the metafield definition,
+     * but can't be updated itself.
+     */
     public Builder ownerType(MetafieldOwnerType ownerType) {
       this.ownerType = ownerType;
       return this;
     }
 
-    
+    /**
+     * A list of [validation options](https://shopify.dev/apps/metafields/definitions/validation) for
+     * the metafields that belong to the metafield definition. For example, for a metafield definition with the
+     * type `date`, you can set a minimum date validation so that each of the metafields that belong to it can only
+     * store dates after the specified minimum.
+     */
     public Builder validations(List<MetafieldDefinitionValidationInput> validations) {
       this.validations = validations;
       return this;
     }
 
-    
+    /**
+     * Whether to pin the metafield definition.
+     */
     public Builder pin(Boolean pin) {
       this.pin = pin;
       return this;
     }
 
-    
+    /**
+     * The access settings that apply to each of the metafields that belong to the metafield definition.
+     */
     public Builder access(MetafieldAccessUpdateInput access) {
       this.access = access;
       return this;
     }
 
-    
+    /**
+     * The constraints that determine what resources a metafield definition applies to.
+     */
+    public Builder constraintsUpdates(
+        MetafieldDefinitionConstraintsUpdatesInput constraintsUpdates) {
+      this.constraintsUpdates = constraintsUpdates;
+      return this;
+    }
+
+    /**
+     * The capabilities of the metafield definition.
+     */
     public Builder capabilities(MetafieldCapabilityUpdateInput capabilities) {
       this.capabilities = capabilities;
       return this;

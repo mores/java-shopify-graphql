@@ -6,30 +6,46 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A container for the footer section customizations.
+ */
 public class CheckoutBrandingFooter {
-  
+  /**
+   * The footer alignment.
+   */
   private CheckoutBrandingFooterAlignment alignment;
 
-  
+  /**
+   * The selected color scheme of the footer container.
+   */
   private CheckoutBrandingColorSchemeSelection colorScheme;
 
-  
+  /**
+   * The footer content settings.
+   */
   private CheckoutBrandingFooterContent content;
 
-  
+  /**
+   * The divided setting.
+   */
   private Boolean divided;
 
-  
+  /**
+   * The padding of the footer container.
+   */
   private CheckoutBrandingSpacingKeyword padding;
 
-  
+  /**
+   * The footer position.
+   */
   private CheckoutBrandingFooterPosition position;
 
   public CheckoutBrandingFooter() {
   }
 
-  
+  /**
+   * The footer alignment.
+   */
   public CheckoutBrandingFooterAlignment getAlignment() {
     return alignment;
   }
@@ -38,7 +54,9 @@ public class CheckoutBrandingFooter {
     this.alignment = alignment;
   }
 
-  
+  /**
+   * The selected color scheme of the footer container.
+   */
   public CheckoutBrandingColorSchemeSelection getColorScheme() {
     return colorScheme;
   }
@@ -47,7 +65,9 @@ public class CheckoutBrandingFooter {
     this.colorScheme = colorScheme;
   }
 
-  
+  /**
+   * The footer content settings.
+   */
   public CheckoutBrandingFooterContent getContent() {
     return content;
   }
@@ -56,7 +76,9 @@ public class CheckoutBrandingFooter {
     this.content = content;
   }
 
-  
+  /**
+   * The divided setting.
+   */
   public Boolean getDivided() {
     return divided;
   }
@@ -65,7 +87,9 @@ public class CheckoutBrandingFooter {
     this.divided = divided;
   }
 
-  
+  /**
+   * The padding of the footer container.
+   */
   public CheckoutBrandingSpacingKeyword getPadding() {
     return padding;
   }
@@ -74,7 +98,9 @@ public class CheckoutBrandingFooter {
     this.padding = padding;
   }
 
-  
+  /**
+   * The footer position.
+   */
   public CheckoutBrandingFooterPosition getPosition() {
     return position;
   }
@@ -111,22 +137,34 @@ public class CheckoutBrandingFooter {
   }
 
   public static class Builder {
-    
+    /**
+     * The footer alignment.
+     */
     private CheckoutBrandingFooterAlignment alignment;
 
-    
+    /**
+     * The selected color scheme of the footer container.
+     */
     private CheckoutBrandingColorSchemeSelection colorScheme;
 
-    
+    /**
+     * The footer content settings.
+     */
     private CheckoutBrandingFooterContent content;
 
-    
+    /**
+     * The divided setting.
+     */
     private Boolean divided;
 
-    
+    /**
+     * The padding of the footer container.
+     */
     private CheckoutBrandingSpacingKeyword padding;
 
-    
+    /**
+     * The footer position.
+     */
     private CheckoutBrandingFooterPosition position;
 
     public CheckoutBrandingFooter build() {
@@ -140,37 +178,49 @@ public class CheckoutBrandingFooter {
       return result;
     }
 
-    
+    /**
+     * The footer alignment.
+     */
     public Builder alignment(CheckoutBrandingFooterAlignment alignment) {
       this.alignment = alignment;
       return this;
     }
 
-    
+    /**
+     * The selected color scheme of the footer container.
+     */
     public Builder colorScheme(CheckoutBrandingColorSchemeSelection colorScheme) {
       this.colorScheme = colorScheme;
       return this;
     }
 
-    
+    /**
+     * The footer content settings.
+     */
     public Builder content(CheckoutBrandingFooterContent content) {
       this.content = content;
       return this;
     }
 
-    
+    /**
+     * The divided setting.
+     */
     public Builder divided(Boolean divided) {
       this.divided = divided;
       return this;
     }
 
-    
+    /**
+     * The padding of the footer container.
+     */
     public Builder padding(CheckoutBrandingSpacingKeyword padding) {
       this.padding = padding;
       return this;
     }
 
-    
+    /**
+     * The footer position.
+     */
     public Builder position(CheckoutBrandingFooterPosition position) {
       this.position = position;
       return this;

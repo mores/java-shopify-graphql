@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `collectionCreate` mutation.
+ */
 public class CollectionCreatePayload {
-  
+  /**
+   * The collection that has been created.
+   */
   private Collection collection;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public CollectionCreatePayload() {
   }
 
-  
+  /**
+   * The collection that has been created.
+   */
   public Collection getCollection() {
     return collection;
   }
@@ -26,7 +34,9 @@ public class CollectionCreatePayload {
     this.collection = collection;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class CollectionCreatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The collection that has been created.
+     */
     private Collection collection;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public CollectionCreatePayload build() {
@@ -72,13 +86,17 @@ public class CollectionCreatePayload {
       return result;
     }
 
-    
+    /**
+     * The collection that has been created.
+     */
     public Builder collection(Collection collection) {
       this.collection = collection;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

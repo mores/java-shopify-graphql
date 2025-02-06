@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for a restocking fee.
+ */
 public class RestockingFeeInput {
-  
+  /**
+   * The value of the fee as a percentage.
+   */
   private double percentage;
 
   public RestockingFeeInput() {
   }
 
-  
+  /**
+   * The value of the fee as a percentage.
+   */
   public double getPercentage() {
     return percentage;
   }
@@ -45,7 +51,9 @@ public class RestockingFeeInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The value of the fee as a percentage.
+     */
     private double percentage;
 
     public RestockingFeeInput build() {
@@ -54,7 +62,9 @@ public class RestockingFeeInput {
       return result;
     }
 
-    
+    /**
+     * The value of the fee as a percentage.
+     */
     public Builder percentage(double percentage) {
       this.percentage = percentage;
       return this;

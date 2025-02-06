@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `paymentTermsDelete` mutation.
+ */
 public class PaymentTermsDeletePayload {
-  
+  /**
+   * The deleted payment terms ID.
+   */
   private String deletedId;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<PaymentTermsDeleteUserError> userErrors;
 
   public PaymentTermsDeletePayload() {
   }
 
-  
+  /**
+   * The deleted payment terms ID.
+   */
   public String getDeletedId() {
     return deletedId;
   }
@@ -26,7 +34,9 @@ public class PaymentTermsDeletePayload {
     this.deletedId = deletedId;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<PaymentTermsDeleteUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class PaymentTermsDeletePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The deleted payment terms ID.
+     */
     private String deletedId;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<PaymentTermsDeleteUserError> userErrors;
 
     public PaymentTermsDeletePayload build() {
@@ -72,13 +86,17 @@ public class PaymentTermsDeletePayload {
       return result;
     }
 
-    
+    /**
+     * The deleted payment terms ID.
+     */
     public Builder deletedId(String deletedId) {
       this.deletedId = deletedId;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<PaymentTermsDeleteUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

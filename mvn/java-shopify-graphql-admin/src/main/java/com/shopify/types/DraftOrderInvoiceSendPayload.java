@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `draftOrderInvoiceSend` mutation.
+ */
 public class DraftOrderInvoiceSendPayload {
-  
+  /**
+   * The draft order an invoice email is sent for.
+   */
   private DraftOrder draftOrder;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public DraftOrderInvoiceSendPayload() {
   }
 
-  
+  /**
+   * The draft order an invoice email is sent for.
+   */
   public DraftOrder getDraftOrder() {
     return draftOrder;
   }
@@ -26,7 +34,9 @@ public class DraftOrderInvoiceSendPayload {
     this.draftOrder = draftOrder;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class DraftOrderInvoiceSendPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The draft order an invoice email is sent for.
+     */
     private DraftOrder draftOrder;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public DraftOrderInvoiceSendPayload build() {
@@ -72,13 +86,17 @@ public class DraftOrderInvoiceSendPayload {
       return result;
     }
 
-    
+    /**
+     * The draft order an invoice email is sent for.
+     */
     public Builder draftOrder(DraftOrder draftOrder) {
       this.draftOrder = draftOrder;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

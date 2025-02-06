@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a tax registration for a company location.
+ */
 public class CompanyLocationCreateTaxRegistrationGraphQLQuery extends GraphQLQuery {
   public CompanyLocationCreateTaxRegistrationGraphQLQuery(String locationId, String taxId,
       String queryName, Set<String> fieldsSet) {
@@ -45,14 +47,18 @@ public class CompanyLocationCreateTaxRegistrationGraphQLQuery extends GraphQLQue
                
     }
 
-    
+    /**
+     * The ID of the company location that the tax registration gets assigned to.
+     */
     public Builder locationId(String locationId) {
       this.locationId = locationId;
       this.fieldsSet.add("locationId");
       return this;
     }
 
-    
+    /**
+     * The unique tax id for the tax registration.
+     */
     public Builder taxId(String taxId) {
       this.taxId = taxId;
       this.fieldsSet.add("taxId");

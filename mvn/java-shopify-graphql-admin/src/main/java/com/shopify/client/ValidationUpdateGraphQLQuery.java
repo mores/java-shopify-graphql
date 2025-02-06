@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Update a validation.
+ */
 public class ValidationUpdateGraphQLQuery extends GraphQLQuery {
   public ValidationUpdateGraphQLQuery(ValidationUpdateInput validation, String id, String queryName,
       Set<String> fieldsSet) {
@@ -46,14 +48,18 @@ public class ValidationUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The input fields to update a validation.
+     */
     public Builder validation(ValidationUpdateInput validation) {
       this.validation = validation;
       this.fieldsSet.add("validation");
       return this;
     }
 
-    
+    /**
+     * The ID representing the validation to update.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

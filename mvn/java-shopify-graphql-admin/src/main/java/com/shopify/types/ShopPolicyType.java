@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Available shop policy types.
+ */
 public enum ShopPolicyType {
   REFUND_POLICY,
 

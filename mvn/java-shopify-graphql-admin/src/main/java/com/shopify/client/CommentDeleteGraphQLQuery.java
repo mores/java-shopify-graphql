@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Deletes a comment.
+ */
 public class CommentDeleteGraphQLQuery extends GraphQLQuery {
   public CommentDeleteGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -40,7 +42,9 @@ public class CommentDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the comment to be deleted.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

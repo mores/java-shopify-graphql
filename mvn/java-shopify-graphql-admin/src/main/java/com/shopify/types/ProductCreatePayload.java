@@ -6,21 +6,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `productCreate` mutation.
+ */
 public class ProductCreatePayload {
-  
+  /**
+   * The product object.
+   */
   private Product product;
 
-  
+  /**
+   * The shop associated with the product.
+   */
   private Shop shop;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public ProductCreatePayload() {
   }
 
-  
+  /**
+   * The product object.
+   */
   public Product getProduct() {
     return product;
   }
@@ -29,7 +39,9 @@ public class ProductCreatePayload {
     this.product = product;
   }
 
-  
+  /**
+   * The shop associated with the product.
+   */
   public Shop getShop() {
     return shop;
   }
@@ -38,7 +50,9 @@ public class ProductCreatePayload {
     this.shop = shop;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -72,13 +86,19 @@ public class ProductCreatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The product object.
+     */
     private Product product;
 
-    
+    /**
+     * The shop associated with the product.
+     */
     private Shop shop;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public ProductCreatePayload build() {
@@ -89,19 +109,25 @@ public class ProductCreatePayload {
       return result;
     }
 
-    
+    /**
+     * The product object.
+     */
     public Builder product(Product product) {
       this.product = product;
       return this;
     }
 
-    
+    /**
+     * The shop associated with the product.
+     */
     public Builder shop(Shop shop) {
       this.shop = shop;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

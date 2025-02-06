@@ -7,7 +7,11 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Declines a return on an order.
+ * When a return is declined, each `ReturnLineItem.fulfillmentLineItem` can be associated to a new return.
+ * Use the `ReturnCreate` or `ReturnRequest` mutation to initiate a new return.
+ */
 public class ReturnDeclineRequestGraphQLQuery extends GraphQLQuery {
   public ReturnDeclineRequestGraphQLQuery(ReturnDeclineRequestInput input, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +46,9 @@ public class ReturnDeclineRequestGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The input fields for declining a customer's return request.
+     */
     public Builder input(ReturnDeclineRequestInput input) {
       this.input = input;
       this.fieldsSet.add("input");

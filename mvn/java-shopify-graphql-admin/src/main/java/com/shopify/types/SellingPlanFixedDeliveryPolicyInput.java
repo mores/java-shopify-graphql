@@ -8,30 +8,46 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields required to create or update a fixed delivery policy.
+ */
 public class SellingPlanFixedDeliveryPolicyInput {
-  
+  /**
+   * The specific anchor dates upon which the delivery interval calculations should be made.
+   */
   private List<SellingPlanAnchorInput> anchors;
 
-  
+  /**
+   * What triggers the fulfillment.
+   */
   private SellingPlanFulfillmentTrigger fulfillmentTrigger;
 
-  
+  /**
+   * The date and time when the fulfillment should trigger.
+   */
   private OffsetDateTime fulfillmentExactTime;
 
-  
+  /**
+   * A buffer period for orders to be included in a cycle.
+   */
   private Integer cutoff;
 
-  
+  /**
+   * Whether the delivery policy is merchant or buyer-centric.
+   */
   private SellingPlanFixedDeliveryPolicyIntent intent;
 
-  
+  /**
+   * The pre-anchor behavior.
+   */
   private SellingPlanFixedDeliveryPolicyPreAnchorBehavior preAnchorBehavior;
 
   public SellingPlanFixedDeliveryPolicyInput() {
   }
 
-  
+  /**
+   * The specific anchor dates upon which the delivery interval calculations should be made.
+   */
   public List<SellingPlanAnchorInput> getAnchors() {
     return anchors;
   }
@@ -40,7 +56,9 @@ public class SellingPlanFixedDeliveryPolicyInput {
     this.anchors = anchors;
   }
 
-  
+  /**
+   * What triggers the fulfillment.
+   */
   public SellingPlanFulfillmentTrigger getFulfillmentTrigger() {
     return fulfillmentTrigger;
   }
@@ -49,7 +67,9 @@ public class SellingPlanFixedDeliveryPolicyInput {
     this.fulfillmentTrigger = fulfillmentTrigger;
   }
 
-  
+  /**
+   * The date and time when the fulfillment should trigger.
+   */
   public OffsetDateTime getFulfillmentExactTime() {
     return fulfillmentExactTime;
   }
@@ -58,7 +78,9 @@ public class SellingPlanFixedDeliveryPolicyInput {
     this.fulfillmentExactTime = fulfillmentExactTime;
   }
 
-  
+  /**
+   * A buffer period for orders to be included in a cycle.
+   */
   public Integer getCutoff() {
     return cutoff;
   }
@@ -67,7 +89,9 @@ public class SellingPlanFixedDeliveryPolicyInput {
     this.cutoff = cutoff;
   }
 
-  
+  /**
+   * Whether the delivery policy is merchant or buyer-centric.
+   */
   public SellingPlanFixedDeliveryPolicyIntent getIntent() {
     return intent;
   }
@@ -76,7 +100,9 @@ public class SellingPlanFixedDeliveryPolicyInput {
     this.intent = intent;
   }
 
-  
+  /**
+   * The pre-anchor behavior.
+   */
   public SellingPlanFixedDeliveryPolicyPreAnchorBehavior getPreAnchorBehavior() {
     return preAnchorBehavior;
   }
@@ -114,22 +140,34 @@ public class SellingPlanFixedDeliveryPolicyInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The specific anchor dates upon which the delivery interval calculations should be made.
+     */
     private List<SellingPlanAnchorInput> anchors;
 
-    
+    /**
+     * What triggers the fulfillment.
+     */
     private SellingPlanFulfillmentTrigger fulfillmentTrigger;
 
-    
+    /**
+     * The date and time when the fulfillment should trigger.
+     */
     private OffsetDateTime fulfillmentExactTime;
 
-    
+    /**
+     * A buffer period for orders to be included in a cycle.
+     */
     private Integer cutoff;
 
-    
+    /**
+     * Whether the delivery policy is merchant or buyer-centric.
+     */
     private SellingPlanFixedDeliveryPolicyIntent intent;
 
-    
+    /**
+     * The pre-anchor behavior.
+     */
     private SellingPlanFixedDeliveryPolicyPreAnchorBehavior preAnchorBehavior;
 
     public SellingPlanFixedDeliveryPolicyInput build() {
@@ -143,37 +181,49 @@ public class SellingPlanFixedDeliveryPolicyInput {
       return result;
     }
 
-    
+    /**
+     * The specific anchor dates upon which the delivery interval calculations should be made.
+     */
     public Builder anchors(List<SellingPlanAnchorInput> anchors) {
       this.anchors = anchors;
       return this;
     }
 
-    
+    /**
+     * What triggers the fulfillment.
+     */
     public Builder fulfillmentTrigger(SellingPlanFulfillmentTrigger fulfillmentTrigger) {
       this.fulfillmentTrigger = fulfillmentTrigger;
       return this;
     }
 
-    
+    /**
+     * The date and time when the fulfillment should trigger.
+     */
     public Builder fulfillmentExactTime(OffsetDateTime fulfillmentExactTime) {
       this.fulfillmentExactTime = fulfillmentExactTime;
       return this;
     }
 
-    
+    /**
+     * A buffer period for orders to be included in a cycle.
+     */
     public Builder cutoff(Integer cutoff) {
       this.cutoff = cutoff;
       return this;
     }
 
-    
+    /**
+     * Whether the delivery policy is merchant or buyer-centric.
+     */
     public Builder intent(SellingPlanFixedDeliveryPolicyIntent intent) {
       this.intent = intent;
       return this;
     }
 
-    
+    /**
+     * The pre-anchor behavior.
+     */
     public Builder preAnchorBehavior(
         SellingPlanFixedDeliveryPolicyPreAnchorBehavior preAnchorBehavior) {
       this.preAnchorBehavior = preAnchorBehavior;

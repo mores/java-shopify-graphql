@@ -5,18 +5,28 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for the information needed to create an order transaction.
+ */
 public class OrderTransactionInput {
-  
+  /**
+   * The amount of money for this transaction.
+   */
   private String amount;
 
-  
+  /**
+   * The payment gateway to use for this transaction.
+   */
   private String gateway;
 
-  
+  /**
+   * The kind of transaction.
+   */
   private OrderTransactionKind kind;
 
-  
+  /**
+   * The ID of the order associated with the transaction.
+   */
   private String orderId;
 
   /**
@@ -27,7 +37,9 @@ public class OrderTransactionInput {
   public OrderTransactionInput() {
   }
 
-  
+  /**
+   * The amount of money for this transaction.
+   */
   public String getAmount() {
     return amount;
   }
@@ -36,7 +48,9 @@ public class OrderTransactionInput {
     this.amount = amount;
   }
 
-  
+  /**
+   * The payment gateway to use for this transaction.
+   */
   public String getGateway() {
     return gateway;
   }
@@ -45,7 +59,9 @@ public class OrderTransactionInput {
     this.gateway = gateway;
   }
 
-  
+  /**
+   * The kind of transaction.
+   */
   public OrderTransactionKind getKind() {
     return kind;
   }
@@ -54,7 +70,9 @@ public class OrderTransactionInput {
     this.kind = kind;
   }
 
-  
+  /**
+   * The ID of the order associated with the transaction.
+   */
   public String getOrderId() {
     return orderId;
   }
@@ -101,16 +119,24 @@ public class OrderTransactionInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The amount of money for this transaction.
+     */
     private String amount;
 
-    
+    /**
+     * The payment gateway to use for this transaction.
+     */
     private String gateway;
 
-    
+    /**
+     * The kind of transaction.
+     */
     private OrderTransactionKind kind;
 
-    
+    /**
+     * The ID of the order associated with the transaction.
+     */
     private String orderId;
 
     /**
@@ -128,25 +154,33 @@ public class OrderTransactionInput {
       return result;
     }
 
-    
+    /**
+     * The amount of money for this transaction.
+     */
     public Builder amount(String amount) {
       this.amount = amount;
       return this;
     }
 
-    
+    /**
+     * The payment gateway to use for this transaction.
+     */
     public Builder gateway(String gateway) {
       this.gateway = gateway;
       return this;
     }
 
-    
+    /**
+     * The kind of transaction.
+     */
     public Builder kind(OrderTransactionKind kind) {
       this.kind = kind;
       return this;
     }
 
-    
+    /**
+     * The ID of the order associated with the transaction.
+     */
     public Builder orderId(String orderId) {
       this.orderId = orderId;
       return this;

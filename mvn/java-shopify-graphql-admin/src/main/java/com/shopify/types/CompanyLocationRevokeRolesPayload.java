@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `companyLocationRevokeRoles` mutation.
+ */
 public class CompanyLocationRevokeRolesPayload {
-  
+  /**
+   * A list of role assignment IDs that were removed from the company location.
+   */
   private List<String> revokedRoleAssignmentIds;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<BusinessCustomerUserError> userErrors;
 
   public CompanyLocationRevokeRolesPayload() {
   }
 
-  
+  /**
+   * A list of role assignment IDs that were removed from the company location.
+   */
   public List<String> getRevokedRoleAssignmentIds() {
     return revokedRoleAssignmentIds;
   }
@@ -26,7 +34,9 @@ public class CompanyLocationRevokeRolesPayload {
     this.revokedRoleAssignmentIds = revokedRoleAssignmentIds;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<BusinessCustomerUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class CompanyLocationRevokeRolesPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * A list of role assignment IDs that were removed from the company location.
+     */
     private List<String> revokedRoleAssignmentIds;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<BusinessCustomerUserError> userErrors;
 
     public CompanyLocationRevokeRolesPayload build() {
@@ -72,13 +86,17 @@ public class CompanyLocationRevokeRolesPayload {
       return result;
     }
 
-    
+    /**
+     * A list of role assignment IDs that were removed from the company location.
+     */
     public Builder revokedRoleAssignmentIds(List<String> revokedRoleAssignmentIds) {
       this.revokedRoleAssignmentIds = revokedRoleAssignmentIds;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<BusinessCustomerUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

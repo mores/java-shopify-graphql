@@ -6,33 +6,51 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields to override default customer merge rules.
+ */
 public class CustomerMergeOverrideFields {
-  
+  /**
+   * The ID of the customer whose first name will be kept.
+   */
   private String customerIdOfFirstNameToKeep;
 
-  
+  /**
+   * The ID of the customer whose last name will be kept.
+   */
   private String customerIdOfLastNameToKeep;
 
-  
+  /**
+   * The ID of the customer whose email will be kept.
+   */
   private String customerIdOfEmailToKeep;
 
-  
+  /**
+   * The ID of the customer whose phone number will be kept.
+   */
   private String customerIdOfPhoneNumberToKeep;
 
-  
+  /**
+   * The ID of the customer whose default address will be kept.
+   */
   private String customerIdOfDefaultAddressToKeep;
 
-  
+  /**
+   * The note to keep.
+   */
   private String note;
 
-  
+  /**
+   * The tags to keep.
+   */
   private List<String> tags;
 
   public CustomerMergeOverrideFields() {
   }
 
-  
+  /**
+   * The ID of the customer whose first name will be kept.
+   */
   public String getCustomerIdOfFirstNameToKeep() {
     return customerIdOfFirstNameToKeep;
   }
@@ -41,7 +59,9 @@ public class CustomerMergeOverrideFields {
     this.customerIdOfFirstNameToKeep = customerIdOfFirstNameToKeep;
   }
 
-  
+  /**
+   * The ID of the customer whose last name will be kept.
+   */
   public String getCustomerIdOfLastNameToKeep() {
     return customerIdOfLastNameToKeep;
   }
@@ -50,7 +70,9 @@ public class CustomerMergeOverrideFields {
     this.customerIdOfLastNameToKeep = customerIdOfLastNameToKeep;
   }
 
-  
+  /**
+   * The ID of the customer whose email will be kept.
+   */
   public String getCustomerIdOfEmailToKeep() {
     return customerIdOfEmailToKeep;
   }
@@ -59,7 +81,9 @@ public class CustomerMergeOverrideFields {
     this.customerIdOfEmailToKeep = customerIdOfEmailToKeep;
   }
 
-  
+  /**
+   * The ID of the customer whose phone number will be kept.
+   */
   public String getCustomerIdOfPhoneNumberToKeep() {
     return customerIdOfPhoneNumberToKeep;
   }
@@ -68,7 +92,9 @@ public class CustomerMergeOverrideFields {
     this.customerIdOfPhoneNumberToKeep = customerIdOfPhoneNumberToKeep;
   }
 
-  
+  /**
+   * The ID of the customer whose default address will be kept.
+   */
   public String getCustomerIdOfDefaultAddressToKeep() {
     return customerIdOfDefaultAddressToKeep;
   }
@@ -77,7 +103,9 @@ public class CustomerMergeOverrideFields {
     this.customerIdOfDefaultAddressToKeep = customerIdOfDefaultAddressToKeep;
   }
 
-  
+  /**
+   * The note to keep.
+   */
   public String getNote() {
     return note;
   }
@@ -86,7 +114,9 @@ public class CustomerMergeOverrideFields {
     this.note = note;
   }
 
-  
+  /**
+   * The tags to keep.
+   */
   public List<String> getTags() {
     return tags;
   }
@@ -124,25 +154,39 @@ public class CustomerMergeOverrideFields {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the customer whose first name will be kept.
+     */
     private String customerIdOfFirstNameToKeep;
 
-    
+    /**
+     * The ID of the customer whose last name will be kept.
+     */
     private String customerIdOfLastNameToKeep;
 
-    
+    /**
+     * The ID of the customer whose email will be kept.
+     */
     private String customerIdOfEmailToKeep;
 
-    
+    /**
+     * The ID of the customer whose phone number will be kept.
+     */
     private String customerIdOfPhoneNumberToKeep;
 
-    
+    /**
+     * The ID of the customer whose default address will be kept.
+     */
     private String customerIdOfDefaultAddressToKeep;
 
-    
+    /**
+     * The note to keep.
+     */
     private String note;
 
-    
+    /**
+     * The tags to keep.
+     */
     private List<String> tags;
 
     public CustomerMergeOverrideFields build() {
@@ -157,43 +201,57 @@ public class CustomerMergeOverrideFields {
       return result;
     }
 
-    
+    /**
+     * The ID of the customer whose first name will be kept.
+     */
     public Builder customerIdOfFirstNameToKeep(String customerIdOfFirstNameToKeep) {
       this.customerIdOfFirstNameToKeep = customerIdOfFirstNameToKeep;
       return this;
     }
 
-    
+    /**
+     * The ID of the customer whose last name will be kept.
+     */
     public Builder customerIdOfLastNameToKeep(String customerIdOfLastNameToKeep) {
       this.customerIdOfLastNameToKeep = customerIdOfLastNameToKeep;
       return this;
     }
 
-    
+    /**
+     * The ID of the customer whose email will be kept.
+     */
     public Builder customerIdOfEmailToKeep(String customerIdOfEmailToKeep) {
       this.customerIdOfEmailToKeep = customerIdOfEmailToKeep;
       return this;
     }
 
-    
+    /**
+     * The ID of the customer whose phone number will be kept.
+     */
     public Builder customerIdOfPhoneNumberToKeep(String customerIdOfPhoneNumberToKeep) {
       this.customerIdOfPhoneNumberToKeep = customerIdOfPhoneNumberToKeep;
       return this;
     }
 
-    
+    /**
+     * The ID of the customer whose default address will be kept.
+     */
     public Builder customerIdOfDefaultAddressToKeep(String customerIdOfDefaultAddressToKeep) {
       this.customerIdOfDefaultAddressToKeep = customerIdOfDefaultAddressToKeep;
       return this;
     }
 
-    
+    /**
+     * The note to keep.
+     */
     public Builder note(String note) {
       this.note = note;
       return this;
     }
 
-    
+    /**
+     * The tags to keep.
+     */
     public Builder tags(List<String> tags) {
       this.tags = tags;
       return this;

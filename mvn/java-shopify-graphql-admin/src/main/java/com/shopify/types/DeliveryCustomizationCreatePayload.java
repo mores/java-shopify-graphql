@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `deliveryCustomizationCreate` mutation.
+ */
 public class DeliveryCustomizationCreatePayload {
-  
+  /**
+   * Returns the created delivery customization.
+   */
   private DeliveryCustomization deliveryCustomization;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<DeliveryCustomizationError> userErrors;
 
   public DeliveryCustomizationCreatePayload() {
   }
 
-  
+  /**
+   * Returns the created delivery customization.
+   */
   public DeliveryCustomization getDeliveryCustomization() {
     return deliveryCustomization;
   }
@@ -26,7 +34,9 @@ public class DeliveryCustomizationCreatePayload {
     this.deliveryCustomization = deliveryCustomization;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<DeliveryCustomizationError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class DeliveryCustomizationCreatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * Returns the created delivery customization.
+     */
     private DeliveryCustomization deliveryCustomization;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<DeliveryCustomizationError> userErrors;
 
     public DeliveryCustomizationCreatePayload build() {
@@ -72,13 +86,17 @@ public class DeliveryCustomizationCreatePayload {
       return result;
     }
 
-    
+    /**
+     * Returns the created delivery customization.
+     */
     public Builder deliveryCustomization(DeliveryCustomization deliveryCustomization) {
       this.deliveryCustomization = deliveryCustomization;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<DeliveryCustomizationError> userErrors) {
       this.userErrors = userErrors;
       return this;

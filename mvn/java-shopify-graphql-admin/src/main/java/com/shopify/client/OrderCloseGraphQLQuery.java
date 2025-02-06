@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Closes an open order.
+ */
 public class OrderCloseGraphQLQuery extends GraphQLQuery {
   public OrderCloseGraphQLQuery(OrderCloseInput input, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -41,7 +43,9 @@ public class OrderCloseGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The input for the mutation.
+     */
     public Builder input(OrderCloseInput input) {
       this.input = input;
       this.fieldsSet.add("input");

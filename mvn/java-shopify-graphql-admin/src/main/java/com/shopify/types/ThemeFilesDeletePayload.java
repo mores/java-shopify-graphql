@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `themeFilesDelete` mutation.
+ */
 public class ThemeFilesDeletePayload {
-  
+  /**
+   * The resulting theme files.
+   */
   private List<OnlineStoreThemeFileOperationResult> deletedThemeFiles;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<OnlineStoreThemeFilesUserErrors> userErrors;
 
   public ThemeFilesDeletePayload() {
   }
 
-  
+  /**
+   * The resulting theme files.
+   */
   public List<OnlineStoreThemeFileOperationResult> getDeletedThemeFiles() {
     return deletedThemeFiles;
   }
@@ -26,7 +34,9 @@ public class ThemeFilesDeletePayload {
     this.deletedThemeFiles = deletedThemeFiles;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<OnlineStoreThemeFilesUserErrors> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class ThemeFilesDeletePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The resulting theme files.
+     */
     private List<OnlineStoreThemeFileOperationResult> deletedThemeFiles;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<OnlineStoreThemeFilesUserErrors> userErrors;
 
     public ThemeFilesDeletePayload build() {
@@ -72,13 +86,17 @@ public class ThemeFilesDeletePayload {
       return result;
     }
 
-    
+    /**
+     * The resulting theme files.
+     */
     public Builder deletedThemeFiles(List<OnlineStoreThemeFileOperationResult> deletedThemeFiles) {
       this.deletedThemeFiles = deletedThemeFiles;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<OnlineStoreThemeFilesUserErrors> userErrors) {
       this.userErrors = userErrors;
       return this;

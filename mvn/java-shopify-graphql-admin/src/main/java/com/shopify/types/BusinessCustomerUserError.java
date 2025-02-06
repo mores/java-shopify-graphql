@@ -7,24 +7,34 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * An error that happens during the execution of a business customer mutation.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class BusinessCustomerUserError implements com.shopify.types.DisplayableError {
-  
+  /**
+   * The error code.
+   */
   private BusinessCustomerErrorCode code;
 
-  
+  /**
+   * The path to the input field that caused the error.
+   */
   private List<String> field;
 
-  
+  /**
+   * The error message.
+   */
   private String message;
 
   public BusinessCustomerUserError() {
   }
 
-  
+  /**
+   * The error code.
+   */
   public BusinessCustomerErrorCode getCode() {
     return code;
   }
@@ -33,7 +43,9 @@ public class BusinessCustomerUserError implements com.shopify.types.DisplayableE
     this.code = code;
   }
 
-  
+  /**
+   * The path to the input field that caused the error.
+   */
   public List<String> getField() {
     return field;
   }
@@ -42,7 +54,9 @@ public class BusinessCustomerUserError implements com.shopify.types.DisplayableE
     this.field = field;
   }
 
-  
+  /**
+   * The error message.
+   */
   public String getMessage() {
     return message;
   }
@@ -76,13 +90,19 @@ public class BusinessCustomerUserError implements com.shopify.types.DisplayableE
   }
 
   public static class Builder {
-    
+    /**
+     * The error code.
+     */
     private BusinessCustomerErrorCode code;
 
-    
+    /**
+     * The path to the input field that caused the error.
+     */
     private List<String> field;
 
-    
+    /**
+     * The error message.
+     */
     private String message;
 
     public BusinessCustomerUserError build() {
@@ -93,19 +113,25 @@ public class BusinessCustomerUserError implements com.shopify.types.DisplayableE
       return result;
     }
 
-    
+    /**
+     * The error code.
+     */
     public Builder code(BusinessCustomerErrorCode code) {
       this.code = code;
       return this;
     }
 
-    
+    /**
+     * The path to the input field that caused the error.
+     */
     public Builder field(List<String> field) {
       this.field = field;
       return this;
     }
 
-    
+    /**
+     * The error message.
+     */
     public Builder message(String message) {
       this.message = message;
       return this;

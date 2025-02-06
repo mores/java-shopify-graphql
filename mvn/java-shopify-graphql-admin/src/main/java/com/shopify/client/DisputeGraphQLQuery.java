@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Returns dispute details based on ID.
+ */
 public class DisputeGraphQLQuery extends GraphQLQuery {
   public DisputeGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -40,7 +42,9 @@ public class DisputeGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the `ShopifyPaymentsDispute` to return.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

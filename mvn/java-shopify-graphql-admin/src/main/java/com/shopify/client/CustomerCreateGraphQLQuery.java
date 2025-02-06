@@ -7,7 +7,10 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Create a new customer. As of API version 2022-10, apps using protected
+ * customer data must meet the protected customer data [requirements](https://shopify.dev/apps/store/data-protection/protected-customer-data).
+ */
 public class CustomerCreateGraphQLQuery extends GraphQLQuery {
   public CustomerCreateGraphQLQuery(CustomerInput input, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -41,7 +44,9 @@ public class CustomerCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The input fields to create a customer.
+     */
     public Builder input(CustomerInput input) {
       this.input = input;
       this.fieldsSet.add("input");

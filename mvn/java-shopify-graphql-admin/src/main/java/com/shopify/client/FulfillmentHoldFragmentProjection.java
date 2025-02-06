@@ -18,6 +18,12 @@ public class FulfillmentHoldFragmentProjection<PARENT extends BaseSubProjectionN
     return this;
   }
 
+  public AppProjection<FulfillmentHoldFragmentProjection<PARENT, ROOT>, ROOT> heldByApp() {
+     AppProjection<FulfillmentHoldFragmentProjection<PARENT, ROOT>, ROOT> projection = new AppProjection<>(this, getRoot());
+     getFields().put("heldByApp", projection);
+     return projection;
+  }
+
   public FulfillmentHoldReasonProjection<FulfillmentHoldFragmentProjection<PARENT, ROOT>, ROOT> reason(
       ) {
      FulfillmentHoldReasonProjection<FulfillmentHoldFragmentProjection<PARENT, ROOT>, ROOT> projection = new FulfillmentHoldReasonProjection<>(this, getRoot());
@@ -30,8 +36,8 @@ public class FulfillmentHoldFragmentProjection<PARENT extends BaseSubProjectionN
     return this;
   }
 
-  public FulfillmentHoldFragmentProjection<PARENT, ROOT> heldBy() {
-    getFields().put("heldBy", null);
+  public FulfillmentHoldFragmentProjection<PARENT, ROOT> handle() {
+    getFields().put("handle", null);
     return this;
   }
 

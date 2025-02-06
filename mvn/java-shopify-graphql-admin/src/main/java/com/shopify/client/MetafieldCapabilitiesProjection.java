@@ -25,4 +25,11 @@ public class MetafieldCapabilitiesProjection<PARENT extends BaseSubProjectionNod
      getFields().put("smartCollectionCondition", projection);
      return projection;
   }
+
+  public MetafieldCapabilityUniqueValuesProjection<MetafieldCapabilitiesProjection<PARENT, ROOT>, ROOT> uniqueValues(
+      ) {
+     MetafieldCapabilityUniqueValuesProjection<MetafieldCapabilitiesProjection<PARENT, ROOT>, ROOT> projection = new MetafieldCapabilityUniqueValuesProjection<>(this, getRoot());
+     getFields().put("uniqueValues", projection);
+     return projection;
+  }
 }

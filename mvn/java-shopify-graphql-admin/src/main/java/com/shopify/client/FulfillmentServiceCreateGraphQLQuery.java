@@ -7,7 +7,22 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a fulfillment service.
+ *   
+ * ## Fulfillment service location
+ *   
+ * When creating a fulfillment service, a new location will be automatically created on the shop
+ * and will be associated with this fulfillment service.
+ * This location will be named after the fulfillment service and inherit the shop's address.
+ *   
+ * If you are using API version `2023-10` or later, and you need to specify
+ * custom attributes for the fulfillment service location
+ * (for example, to change its address to a country different from the shop's country),
+ * use the
+ * [LocationEdit](https://shopify.dev/api/admin-graphql/latest/mutations/locationEdit)
+ * mutation after creating the fulfillment service.
+ */
 public class FulfillmentServiceCreateGraphQLQuery extends GraphQLQuery {
   public FulfillmentServiceCreateGraphQLQuery(String name, String callbackUrl,
       Boolean trackingSupport, Boolean inventoryManagement, String queryName,
@@ -55,28 +70,43 @@ public class FulfillmentServiceCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The name of the fulfillment service.
+     */
     public Builder name(String name) {
       this.name = name;
       this.fieldsSet.add("name");
       return this;
     }
 
-    
+    /**
+     * The URL to send requests for the fulfillment service. The following considerations apply:
+     *     
+     * - Shopify queries the <code>callback_url/fetch_tracking_numbers</code> endpoint to retrieve tracking numbers
+     *     for orders, if `trackingSupport` is set to `true`.
+     * - Shopify queries the <code>callback_url/fetch_stock</code> endpoint to retrieve inventory levels,
+     *     if `inventoryManagement` is set to `true`.
+     * - Shopify uses the <code>callback_url/fulfillment_order_notification</code> endpoint to send
+     *     [fulfillment and cancellation requests](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments#step-2-receive-fulfillment-requests-and-cancellations).
+     */
     public Builder callbackUrl(String callbackUrl) {
       this.callbackUrl = callbackUrl;
       this.fieldsSet.add("callbackUrl");
       return this;
     }
 
-    
+    /**
+     * Whether the fulfillment service provides tracking numbers for packages.
+     */
     public Builder trackingSupport(Boolean trackingSupport) {
       this.trackingSupport = trackingSupport;
       this.fieldsSet.add("trackingSupport");
       return this;
     }
 
-    
+    /**
+     * Whether the fulfillment service manages product inventory and provides updates to Shopify.
+     */
     public Builder inventoryManagement(Boolean inventoryManagement) {
       this.inventoryManagement = inventoryManagement;
       this.fieldsSet.add("inventoryManagement");

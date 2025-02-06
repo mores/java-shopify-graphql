@@ -7,7 +7,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Deletes a list of market regions.
+ */
 public class MarketRegionsDeleteGraphQLQuery extends GraphQLQuery {
   public MarketRegionsDeleteGraphQLQuery(List<String> ids, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class MarketRegionsDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * A list of IDs of the market regions to delete.
+     */
     public Builder ids(List<String> ids) {
       this.ids = ids;
       this.fieldsSet.add("ids");

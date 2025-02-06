@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a blog.
+ */
 public class BlogCreateGraphQLQuery extends GraphQLQuery {
   public BlogCreateGraphQLQuery(BlogCreateInput blog, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -41,7 +43,9 @@ public class BlogCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The properties of the new blog.
+     */
     public Builder blog(BlogCreateInput blog) {
       this.blog = blog;
       this.fieldsSet.add("blog");

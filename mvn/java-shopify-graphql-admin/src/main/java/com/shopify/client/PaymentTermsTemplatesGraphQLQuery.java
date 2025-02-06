@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * The list of payment terms templates eligible for all shops and users.
+ */
 public class PaymentTermsTemplatesGraphQLQuery extends GraphQLQuery {
   public PaymentTermsTemplatesGraphQLQuery(PaymentTermsType paymentTermsType, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class PaymentTermsTemplatesGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The payment terms type to filter the payment terms templates list.
+     */
     public Builder paymentTermsType(PaymentTermsType paymentTermsType) {
       this.paymentTermsType = paymentTermsType;
       this.fieldsSet.add("paymentTermsType");

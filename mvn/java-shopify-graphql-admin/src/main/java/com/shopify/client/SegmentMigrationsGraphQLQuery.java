@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * A list of a shop's segment migrations.
+ */
 public class SegmentMigrationsGraphQLQuery extends GraphQLQuery {
   public SegmentMigrationsGraphQLQuery(String savedSearchId, Integer first, String after,
       Integer last, String before, String queryName, Set<String> fieldsSet) {
@@ -58,35 +60,45 @@ public class SegmentMigrationsGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Search a segment migration by its saved search ID.
+     */
     public Builder savedSearchId(String savedSearchId) {
       this.savedSearchId = savedSearchId;
       this.fieldsSet.add("savedSearchId");
       return this;
     }
 
-    
+    /**
+     * The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder first(Integer first) {
       this.first = first;
       this.fieldsSet.add("first");
       return this;
     }
 
-    
+    /**
+     * The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder after(String after) {
       this.after = after;
       this.fieldsSet.add("after");
       return this;
     }
 
-    
+    /**
+     * The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder last(Integer last) {
       this.last = last;
       this.fieldsSet.add("last");
       return this;
     }
 
-    
+    /**
+     * The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder before(String before) {
       this.before = before;
       this.fieldsSet.add("before");

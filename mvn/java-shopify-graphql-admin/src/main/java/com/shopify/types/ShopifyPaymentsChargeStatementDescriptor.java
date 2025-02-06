@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.String;
 
-
+/**
+ * The charge descriptors for a payments account.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
     include = JsonTypeInfo.As.PROPERTY,
@@ -15,9 +17,13 @@ import java.lang.String;
     @JsonSubTypes.Type(value = ShopifyPaymentsJpChargeStatementDescriptor.class, name = "ShopifyPaymentsJpChargeStatementDescriptor")
 })
 public interface ShopifyPaymentsChargeStatementDescriptor {
-  
+  /**
+   * The default charge statement descriptor.
+   */
   String getDefault();
 
-  
+  /**
+   * The prefix of the statement descriptor.
+   */
   String getPrefix();
 }

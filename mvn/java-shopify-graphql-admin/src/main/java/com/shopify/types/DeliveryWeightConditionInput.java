@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for a weight-based condition of a delivery method definition.
+ */
 public class DeliveryWeightConditionInput {
-  
+  /**
+   * The weight value to compare the weight of an order to.
+   */
   private WeightInput criteria;
 
-  
+  /**
+   * The operator to use for comparison.
+   */
   private DeliveryConditionOperator operator;
 
   public DeliveryWeightConditionInput() {
   }
 
-  
+  /**
+   * The weight value to compare the weight of an order to.
+   */
   public WeightInput getCriteria() {
     return criteria;
   }
@@ -25,7 +33,9 @@ public class DeliveryWeightConditionInput {
     this.criteria = criteria;
   }
 
-  
+  /**
+   * The operator to use for comparison.
+   */
   public DeliveryConditionOperator getOperator() {
     return operator;
   }
@@ -58,10 +68,14 @@ public class DeliveryWeightConditionInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The weight value to compare the weight of an order to.
+     */
     private WeightInput criteria;
 
-    
+    /**
+     * The operator to use for comparison.
+     */
     private DeliveryConditionOperator operator;
 
     public DeliveryWeightConditionInput build() {
@@ -71,13 +85,17 @@ public class DeliveryWeightConditionInput {
       return result;
     }
 
-    
+    /**
+     * The weight value to compare the weight of an order to.
+     */
     public Builder criteria(WeightInput criteria) {
       this.criteria = criteria;
       return this;
     }
 
-    
+    /**
+     * The operator to use for comparison.
+     */
     public Builder operator(DeliveryConditionOperator operator) {
       this.operator = operator;
       return this;

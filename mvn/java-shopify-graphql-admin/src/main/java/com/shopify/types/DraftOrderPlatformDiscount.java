@@ -6,51 +6,81 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The platform discounts applied to the draft order.
+ */
 public class DraftOrderPlatformDiscount {
-  
+  /**
+   * Price reduction allocations across the draft order's lines.
+   */
   private List<DraftOrderPlatformDiscountAllocation> allocations;
 
-  
+  /**
+   * Whether the discount is an automatic discount.
+   */
   private boolean automaticDiscount;
 
-  
+  /**
+   * Whether the discount is a buy x get y discount.
+   */
   private boolean bxgyDiscount;
 
-  
+  /**
+   * If a code-based discount, the code used to add the discount.
+   */
   private String code;
 
-  
+  /**
+   * The discount class.
+   */
   private DiscountClass discountClass;
 
-  
+  /**
+   * The discount node for the platform discount.
+   */
   private DiscountNode discountNode;
 
-  
+  /**
+   * The ID of the discount.
+   */
   private String id;
 
-  
+  /**
+   * Whether the discount is line, order or shipping level.
+   */
   private String presentationLevel;
 
-  
+  /**
+   * The short summary of the discount.
+   */
   private String shortSummary;
 
-  
+  /**
+   * The summary of the discount.
+   */
   private String summary;
 
-  
+  /**
+   * The name of the discount.
+   */
   private String title;
 
-  
+  /**
+   * The discount total amount in shop currency.
+   */
   private MoneyV2 totalAmount;
 
-  
+  /**
+   * The amount of money discounted, with values shown in both shop currency and presentment currency.
+   */
   private MoneyBag totalAmountPriceSet;
 
   public DraftOrderPlatformDiscount() {
   }
 
-  
+  /**
+   * Price reduction allocations across the draft order's lines.
+   */
   public List<DraftOrderPlatformDiscountAllocation> getAllocations() {
     return allocations;
   }
@@ -59,7 +89,9 @@ public class DraftOrderPlatformDiscount {
     this.allocations = allocations;
   }
 
-  
+  /**
+   * Whether the discount is an automatic discount.
+   */
   public boolean getAutomaticDiscount() {
     return automaticDiscount;
   }
@@ -68,7 +100,9 @@ public class DraftOrderPlatformDiscount {
     this.automaticDiscount = automaticDiscount;
   }
 
-  
+  /**
+   * Whether the discount is a buy x get y discount.
+   */
   public boolean getBxgyDiscount() {
     return bxgyDiscount;
   }
@@ -77,7 +111,9 @@ public class DraftOrderPlatformDiscount {
     this.bxgyDiscount = bxgyDiscount;
   }
 
-  
+  /**
+   * If a code-based discount, the code used to add the discount.
+   */
   public String getCode() {
     return code;
   }
@@ -86,7 +122,9 @@ public class DraftOrderPlatformDiscount {
     this.code = code;
   }
 
-  
+  /**
+   * The discount class.
+   */
   public DiscountClass getDiscountClass() {
     return discountClass;
   }
@@ -95,7 +133,9 @@ public class DraftOrderPlatformDiscount {
     this.discountClass = discountClass;
   }
 
-  
+  /**
+   * The discount node for the platform discount.
+   */
   public DiscountNode getDiscountNode() {
     return discountNode;
   }
@@ -104,7 +144,9 @@ public class DraftOrderPlatformDiscount {
     this.discountNode = discountNode;
   }
 
-  
+  /**
+   * The ID of the discount.
+   */
   public String getId() {
     return id;
   }
@@ -113,7 +155,9 @@ public class DraftOrderPlatformDiscount {
     this.id = id;
   }
 
-  
+  /**
+   * Whether the discount is line, order or shipping level.
+   */
   public String getPresentationLevel() {
     return presentationLevel;
   }
@@ -122,7 +166,9 @@ public class DraftOrderPlatformDiscount {
     this.presentationLevel = presentationLevel;
   }
 
-  
+  /**
+   * The short summary of the discount.
+   */
   public String getShortSummary() {
     return shortSummary;
   }
@@ -131,7 +177,9 @@ public class DraftOrderPlatformDiscount {
     this.shortSummary = shortSummary;
   }
 
-  
+  /**
+   * The summary of the discount.
+   */
   public String getSummary() {
     return summary;
   }
@@ -140,7 +188,9 @@ public class DraftOrderPlatformDiscount {
     this.summary = summary;
   }
 
-  
+  /**
+   * The name of the discount.
+   */
   public String getTitle() {
     return title;
   }
@@ -149,7 +199,9 @@ public class DraftOrderPlatformDiscount {
     this.title = title;
   }
 
-  
+  /**
+   * The discount total amount in shop currency.
+   */
   public MoneyV2 getTotalAmount() {
     return totalAmount;
   }
@@ -158,7 +210,9 @@ public class DraftOrderPlatformDiscount {
     this.totalAmount = totalAmount;
   }
 
-  
+  /**
+   * The amount of money discounted, with values shown in both shop currency and presentment currency.
+   */
   public MoneyBag getTotalAmountPriceSet() {
     return totalAmountPriceSet;
   }
@@ -202,43 +256,69 @@ public class DraftOrderPlatformDiscount {
   }
 
   public static class Builder {
-    
+    /**
+     * Price reduction allocations across the draft order's lines.
+     */
     private List<DraftOrderPlatformDiscountAllocation> allocations;
 
-    
+    /**
+     * Whether the discount is an automatic discount.
+     */
     private boolean automaticDiscount;
 
-    
+    /**
+     * Whether the discount is a buy x get y discount.
+     */
     private boolean bxgyDiscount;
 
-    
+    /**
+     * If a code-based discount, the code used to add the discount.
+     */
     private String code;
 
-    
+    /**
+     * The discount class.
+     */
     private DiscountClass discountClass;
 
-    
+    /**
+     * The discount node for the platform discount.
+     */
     private DiscountNode discountNode;
 
-    
+    /**
+     * The ID of the discount.
+     */
     private String id;
 
-    
+    /**
+     * Whether the discount is line, order or shipping level.
+     */
     private String presentationLevel;
 
-    
+    /**
+     * The short summary of the discount.
+     */
     private String shortSummary;
 
-    
+    /**
+     * The summary of the discount.
+     */
     private String summary;
 
-    
+    /**
+     * The name of the discount.
+     */
     private String title;
 
-    
+    /**
+     * The discount total amount in shop currency.
+     */
     private MoneyV2 totalAmount;
 
-    
+    /**
+     * The amount of money discounted, with values shown in both shop currency and presentment currency.
+     */
     private MoneyBag totalAmountPriceSet;
 
     public DraftOrderPlatformDiscount build() {
@@ -259,79 +339,105 @@ public class DraftOrderPlatformDiscount {
       return result;
     }
 
-    
+    /**
+     * Price reduction allocations across the draft order's lines.
+     */
     public Builder allocations(List<DraftOrderPlatformDiscountAllocation> allocations) {
       this.allocations = allocations;
       return this;
     }
 
-    
+    /**
+     * Whether the discount is an automatic discount.
+     */
     public Builder automaticDiscount(boolean automaticDiscount) {
       this.automaticDiscount = automaticDiscount;
       return this;
     }
 
-    
+    /**
+     * Whether the discount is a buy x get y discount.
+     */
     public Builder bxgyDiscount(boolean bxgyDiscount) {
       this.bxgyDiscount = bxgyDiscount;
       return this;
     }
 
-    
+    /**
+     * If a code-based discount, the code used to add the discount.
+     */
     public Builder code(String code) {
       this.code = code;
       return this;
     }
 
-    
+    /**
+     * The discount class.
+     */
     public Builder discountClass(DiscountClass discountClass) {
       this.discountClass = discountClass;
       return this;
     }
 
-    
+    /**
+     * The discount node for the platform discount.
+     */
     public Builder discountNode(DiscountNode discountNode) {
       this.discountNode = discountNode;
       return this;
     }
 
-    
+    /**
+     * The ID of the discount.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * Whether the discount is line, order or shipping level.
+     */
     public Builder presentationLevel(String presentationLevel) {
       this.presentationLevel = presentationLevel;
       return this;
     }
 
-    
+    /**
+     * The short summary of the discount.
+     */
     public Builder shortSummary(String shortSummary) {
       this.shortSummary = shortSummary;
       return this;
     }
 
-    
+    /**
+     * The summary of the discount.
+     */
     public Builder summary(String summary) {
       this.summary = summary;
       return this;
     }
 
-    
+    /**
+     * The name of the discount.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    
+    /**
+     * The discount total amount in shop currency.
+     */
     public Builder totalAmount(MoneyV2 totalAmount) {
       this.totalAmount = totalAmount;
       return this;
     }
 
-    
+    /**
+     * The amount of money discounted, with values shown in both shop currency and presentment currency.
+     */
     public Builder totalAmountPriceSet(MoneyBag totalAmountPriceSet) {
       this.totalAmountPriceSet = totalAmountPriceSet;
       return this;

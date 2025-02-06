@@ -8,7 +8,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates an order.
+ */
 public class OrderCreateGraphQLQuery extends GraphQLQuery {
   public OrderCreateGraphQLQuery(OrderCreateOrderInput order, OrderCreateOptionsInput options,
       String queryName, Set<String> fieldsSet) {
@@ -47,14 +49,18 @@ public class OrderCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The input for the mutation.
+     */
     public Builder order(OrderCreateOrderInput order) {
       this.order = order;
       this.fieldsSet.add("order");
       return this;
     }
 
-    
+    /**
+     * Service options for the mutation.
+     */
     public Builder options(OrderCreateOptionsInput options) {
       this.options = options;
       this.fieldsSet.add("options");

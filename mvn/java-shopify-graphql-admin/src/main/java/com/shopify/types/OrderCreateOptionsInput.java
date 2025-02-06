@@ -6,21 +6,31 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields which control certain side affects.
+ */
 public class OrderCreateOptionsInput {
-  
+  /**
+   * The behaviour to use when updating inventory.
+   */
   private OrderCreateInputsInventoryBehavior inventoryBehaviour = OrderCreateInputsInventoryBehavior.BYPASS;
 
-  
+  /**
+   * Whether to send an order confirmation to the customer.
+   */
   private Boolean sendReceipt = false;
 
-  
+  /**
+   * Whether to send a shipping confirmation to the customer.
+   */
   private Boolean sendFulfillmentReceipt = false;
 
   public OrderCreateOptionsInput() {
   }
 
-  
+  /**
+   * The behaviour to use when updating inventory.
+   */
   public OrderCreateInputsInventoryBehavior getInventoryBehaviour() {
     return inventoryBehaviour;
   }
@@ -29,7 +39,9 @@ public class OrderCreateOptionsInput {
     this.inventoryBehaviour = inventoryBehaviour;
   }
 
-  
+  /**
+   * Whether to send an order confirmation to the customer.
+   */
   public Boolean getSendReceipt() {
     return sendReceipt;
   }
@@ -38,7 +50,9 @@ public class OrderCreateOptionsInput {
     this.sendReceipt = sendReceipt;
   }
 
-  
+  /**
+   * Whether to send a shipping confirmation to the customer.
+   */
   public Boolean getSendFulfillmentReceipt() {
     return sendFulfillmentReceipt;
   }
@@ -72,13 +86,19 @@ public class OrderCreateOptionsInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The behaviour to use when updating inventory.
+     */
     private OrderCreateInputsInventoryBehavior inventoryBehaviour = OrderCreateInputsInventoryBehavior.BYPASS;
 
-    
+    /**
+     * Whether to send an order confirmation to the customer.
+     */
     private Boolean sendReceipt = false;
 
-    
+    /**
+     * Whether to send a shipping confirmation to the customer.
+     */
     private Boolean sendFulfillmentReceipt = false;
 
     public OrderCreateOptionsInput build() {
@@ -89,19 +109,25 @@ public class OrderCreateOptionsInput {
       return result;
     }
 
-    
+    /**
+     * The behaviour to use when updating inventory.
+     */
     public Builder inventoryBehaviour(OrderCreateInputsInventoryBehavior inventoryBehaviour) {
       this.inventoryBehaviour = inventoryBehaviour;
       return this;
     }
 
-    
+    /**
+     * Whether to send an order confirmation to the customer.
+     */
     public Builder sendReceipt(Boolean sendReceipt) {
       this.sendReceipt = sendReceipt;
       return this;
     }
 
-    
+    /**
+     * Whether to send a shipping confirmation to the customer.
+     */
     public Builder sendFulfillmentReceipt(Boolean sendFulfillmentReceipt) {
       this.sendFulfillmentReceipt = sendFulfillmentReceipt;
       return this;

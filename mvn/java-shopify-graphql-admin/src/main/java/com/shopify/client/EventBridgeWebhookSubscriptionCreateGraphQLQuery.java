@@ -8,7 +8,15 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a new Amazon EventBridge webhook subscription.
+ *   
+ * Building an app? If you only use app-specific webhooks, you won't need this.
+ * App-specific webhook subscriptions specified in your `shopify.app.toml` may be
+ * easier. They are automatically kept up to date by Shopify &amp; require less
+ * maintenance. Please read [About managing webhook
+ * subscriptions](https://shopify.dev/docs/apps/build/webhooks/subscribe).
+ */
 public class EventBridgeWebhookSubscriptionCreateGraphQLQuery extends GraphQLQuery {
   public EventBridgeWebhookSubscriptionCreateGraphQLQuery(WebhookSubscriptionTopic topic,
       EventBridgeWebhookSubscriptionInput webhookSubscription, String queryName,
@@ -48,14 +56,18 @@ public class EventBridgeWebhookSubscriptionCreateGraphQLQuery extends GraphQLQue
                
     }
 
-    
+    /**
+     * The type of event that triggers the webhook.
+     */
     public Builder topic(WebhookSubscriptionTopic topic) {
       this.topic = topic;
       this.fieldsSet.add("topic");
       return this;
     }
 
-    
+    /**
+     * Specifies the input fields for an EventBridge webhook subscription.
+     */
     public Builder webhookSubscription(EventBridgeWebhookSubscriptionInput webhookSubscription) {
       this.webhookSubscription = webhookSubscription;
       this.fieldsSet.add("webhookSubscription");

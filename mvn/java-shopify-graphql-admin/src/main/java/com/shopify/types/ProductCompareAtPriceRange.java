@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The compare-at price range of the product.
+ */
 public class ProductCompareAtPriceRange {
-  
+  /**
+   * The highest variant's compare-at price.
+   */
   private MoneyV2 maxVariantCompareAtPrice;
 
-  
+  /**
+   * The lowest variant's compare-at price.
+   */
   private MoneyV2 minVariantCompareAtPrice;
 
   public ProductCompareAtPriceRange() {
   }
 
-  
+  /**
+   * The highest variant's compare-at price.
+   */
   public MoneyV2 getMaxVariantCompareAtPrice() {
     return maxVariantCompareAtPrice;
   }
@@ -25,7 +33,9 @@ public class ProductCompareAtPriceRange {
     this.maxVariantCompareAtPrice = maxVariantCompareAtPrice;
   }
 
-  
+  /**
+   * The lowest variant's compare-at price.
+   */
   public MoneyV2 getMinVariantCompareAtPrice() {
     return minVariantCompareAtPrice;
   }
@@ -58,10 +68,14 @@ public class ProductCompareAtPriceRange {
   }
 
   public static class Builder {
-    
+    /**
+     * The highest variant's compare-at price.
+     */
     private MoneyV2 maxVariantCompareAtPrice;
 
-    
+    /**
+     * The lowest variant's compare-at price.
+     */
     private MoneyV2 minVariantCompareAtPrice;
 
     public ProductCompareAtPriceRange build() {
@@ -71,13 +85,17 @@ public class ProductCompareAtPriceRange {
       return result;
     }
 
-    
+    /**
+     * The highest variant's compare-at price.
+     */
     public Builder maxVariantCompareAtPrice(MoneyV2 maxVariantCompareAtPrice) {
       this.maxVariantCompareAtPrice = maxVariantCompareAtPrice;
       return this;
     }
 
-    
+    /**
+     * The lowest variant's compare-at price.
+     */
     public Builder minVariantCompareAtPrice(MoneyV2 minVariantCompareAtPrice) {
       this.minVariantCompareAtPrice = minVariantCompareAtPrice;
       return this;

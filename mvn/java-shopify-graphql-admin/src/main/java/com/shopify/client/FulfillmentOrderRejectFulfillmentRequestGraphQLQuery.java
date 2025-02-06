@@ -9,7 +9,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Rejects a fulfillment request sent to a fulfillment service for a fulfillment order.
+ */
 public class FulfillmentOrderRejectFulfillmentRequestGraphQLQuery extends GraphQLQuery {
   public FulfillmentOrderRejectFulfillmentRequestGraphQLQuery(String id,
       FulfillmentOrderRejectionReason reason, String message,
@@ -57,28 +59,41 @@ public class FulfillmentOrderRejectFulfillmentRequestGraphQLQuery extends GraphQ
                
     }
 
-    
+    /**
+     * The ID of the fulfillment order associated with the fulfillment request.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    
+    /**
+     * The reason for the fulfillment order rejection.
+     */
     public Builder reason(FulfillmentOrderRejectionReason reason) {
       this.reason = reason;
       this.fieldsSet.add("reason");
       return this;
     }
 
-    
+    /**
+     * An optional reason for rejecting the fulfillment request.
+     */
     public Builder message(String message) {
       this.message = message;
       this.fieldsSet.add("message");
       return this;
     }
 
-    
+    /**
+     * An optional array of line item rejection details. If none are provided, all
+     * line items will be assumed to be unfulfillable.
+     *     
+     * **Note**: After the fulfillment request has been rejected, none of the line
+     * items will be able to be fulfilled. This field documents which line items
+     * specifically were unable to be fulfilled and why.
+     */
     public Builder lineItems(List<IncomingRequestLineItemInput> lineItems) {
       this.lineItems = lineItems;
       this.fieldsSet.add("lineItems");

@@ -8,7 +8,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Updates an existing file asset that was uploaded to Shopify.
+ */
 public class FileUpdateGraphQLQuery extends GraphQLQuery {
   public FileUpdateGraphQLQuery(List<FileUpdateInput> files, String queryName,
       Set<String> fieldsSet) {
@@ -43,7 +45,9 @@ public class FileUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * List of files to be updated.
+     */
     public Builder files(List<FileUpdateInput> files) {
       this.files = files;
       this.fieldsSet.add("files");

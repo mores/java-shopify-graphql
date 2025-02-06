@@ -6,21 +6,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `productVariantsBulkCreate` mutation.
+ */
 public class ProductVariantsBulkCreatePayload {
-  
+  /**
+   * The updated product object.
+   */
   private Product product;
 
-  
+  /**
+   * The newly created variants.
+   */
   private List<ProductVariant> productVariants;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<ProductVariantsBulkCreateUserError> userErrors;
 
   public ProductVariantsBulkCreatePayload() {
   }
 
-  
+  /**
+   * The updated product object.
+   */
   public Product getProduct() {
     return product;
   }
@@ -29,7 +39,9 @@ public class ProductVariantsBulkCreatePayload {
     this.product = product;
   }
 
-  
+  /**
+   * The newly created variants.
+   */
   public List<ProductVariant> getProductVariants() {
     return productVariants;
   }
@@ -38,7 +50,9 @@ public class ProductVariantsBulkCreatePayload {
     this.productVariants = productVariants;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<ProductVariantsBulkCreateUserError> getUserErrors() {
     return userErrors;
   }
@@ -72,13 +86,19 @@ public class ProductVariantsBulkCreatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The updated product object.
+     */
     private Product product;
 
-    
+    /**
+     * The newly created variants.
+     */
     private List<ProductVariant> productVariants;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<ProductVariantsBulkCreateUserError> userErrors;
 
     public ProductVariantsBulkCreatePayload build() {
@@ -89,19 +109,25 @@ public class ProductVariantsBulkCreatePayload {
       return result;
     }
 
-    
+    /**
+     * The updated product object.
+     */
     public Builder product(Product product) {
       this.product = product;
       return this;
     }
 
-    
+    /**
+     * The newly created variants.
+     */
     public Builder productVariants(List<ProductVariant> productVariants) {
       this.productVariants = productVariants;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<ProductVariantsBulkCreateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

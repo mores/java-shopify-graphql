@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The footer content customizations.
+ */
 public class CheckoutBrandingFooterContent {
-  
+  /**
+   * The visibility settings for footer content.
+   */
   private CheckoutBrandingVisibility visibility;
 
   public CheckoutBrandingFooterContent() {
   }
 
-  
+  /**
+   * The visibility settings for footer content.
+   */
   public CheckoutBrandingVisibility getVisibility() {
     return visibility;
   }
@@ -45,7 +51,9 @@ public class CheckoutBrandingFooterContent {
   }
 
   public static class Builder {
-    
+    /**
+     * The visibility settings for footer content.
+     */
     private CheckoutBrandingVisibility visibility;
 
     public CheckoutBrandingFooterContent build() {
@@ -54,7 +62,9 @@ public class CheckoutBrandingFooterContent {
       return result;
     }
 
-    
+    /**
+     * The visibility settings for footer content.
+     */
     public Builder visibility(CheckoutBrandingVisibility visibility) {
       this.visibility = visibility;
       return this;

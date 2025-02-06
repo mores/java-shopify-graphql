@@ -6,7 +6,11 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Starts editing an order. Mutations are operating on `OrderEdit`.
+ * All order edits start with `orderEditBegin`, have any number of `orderEdit`*
+ * mutations made, and end with `orderEditCommit`.
+ */
 public class OrderEditBeginGraphQLQuery extends GraphQLQuery {
   public OrderEditBeginGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -40,7 +44,9 @@ public class OrderEditBeginGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the order to begin editing.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

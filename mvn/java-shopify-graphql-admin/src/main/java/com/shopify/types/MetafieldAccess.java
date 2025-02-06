@@ -6,24 +6,37 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The access settings for this metafield definition.
+ */
 public class MetafieldAccess {
-  
+  /**
+   * The default admin access setting used for the metafields under this definition.
+   */
   private MetafieldAdminAccess admin;
 
-  
+  /**
+   * The customer account access setting used for the metafields under this definition.
+   */
   private MetafieldCustomerAccountAccess customerAccount;
 
-  
+  /**
+   * The explicit grants for this metafield definition, superseding the default admin access
+   * for the specified grantees.
+   */
   private List<MetafieldAccessGrant> grants;
 
-  
+  /**
+   * The storefront access setting used for the metafields under this definition.
+   */
   private MetafieldStorefrontAccess storefront;
 
   public MetafieldAccess() {
   }
 
-  
+  /**
+   * The default admin access setting used for the metafields under this definition.
+   */
   public MetafieldAdminAccess getAdmin() {
     return admin;
   }
@@ -32,7 +45,9 @@ public class MetafieldAccess {
     this.admin = admin;
   }
 
-  
+  /**
+   * The customer account access setting used for the metafields under this definition.
+   */
   public MetafieldCustomerAccountAccess getCustomerAccount() {
     return customerAccount;
   }
@@ -41,7 +56,10 @@ public class MetafieldAccess {
     this.customerAccount = customerAccount;
   }
 
-  
+  /**
+   * The explicit grants for this metafield definition, superseding the default admin access
+   * for the specified grantees.
+   */
   public List<MetafieldAccessGrant> getGrants() {
     return grants;
   }
@@ -50,7 +68,9 @@ public class MetafieldAccess {
     this.grants = grants;
   }
 
-  
+  /**
+   * The storefront access setting used for the metafields under this definition.
+   */
   public MetafieldStorefrontAccess getStorefront() {
     return storefront;
   }
@@ -85,16 +105,25 @@ public class MetafieldAccess {
   }
 
   public static class Builder {
-    
+    /**
+     * The default admin access setting used for the metafields under this definition.
+     */
     private MetafieldAdminAccess admin;
 
-    
+    /**
+     * The customer account access setting used for the metafields under this definition.
+     */
     private MetafieldCustomerAccountAccess customerAccount;
 
-    
+    /**
+     * The explicit grants for this metafield definition, superseding the default admin access
+     * for the specified grantees.
+     */
     private List<MetafieldAccessGrant> grants;
 
-    
+    /**
+     * The storefront access setting used for the metafields under this definition.
+     */
     private MetafieldStorefrontAccess storefront;
 
     public MetafieldAccess build() {
@@ -106,25 +135,34 @@ public class MetafieldAccess {
       return result;
     }
 
-    
+    /**
+     * The default admin access setting used for the metafields under this definition.
+     */
     public Builder admin(MetafieldAdminAccess admin) {
       this.admin = admin;
       return this;
     }
 
-    
+    /**
+     * The customer account access setting used for the metafields under this definition.
+     */
     public Builder customerAccount(MetafieldCustomerAccountAccess customerAccount) {
       this.customerAccount = customerAccount;
       return this;
     }
 
-    
+    /**
+     * The explicit grants for this metafield definition, superseding the default admin access
+     * for the specified grantees.
+     */
     public Builder grants(List<MetafieldAccessGrant> grants) {
       this.grants = grants;
       return this;
     }
 
-    
+    /**
+     * The storefront access setting used for the metafields under this definition.
+     */
     public Builder storefront(MetafieldStorefrontAccess storefront) {
       this.storefront = storefront;
       return this;

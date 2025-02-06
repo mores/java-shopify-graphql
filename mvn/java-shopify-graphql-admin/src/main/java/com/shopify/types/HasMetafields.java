@@ -3,7 +3,9 @@ package com.shopify.types;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
-
+/**
+ * Represents information about the metafields associated to the specified resource.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
     include = JsonTypeInfo.As.PROPERTY,
@@ -41,15 +43,16 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
     @JsonSubTypes.Type(value = Validation.class, name = "Validation")
 })
 public interface HasMetafields {
-  
+  /**
+   * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
+   * including its `namespace` and `key`, that's associated with a Shopify resource
+   * for the purposes of adding and storing additional information.
+   */
   Metafield getMetafield();
 
-  
+  /**
+   * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
+   * that a merchant associates with a Shopify resource.
+   */
   MetafieldConnection getMetafields();
-
-  
-  PrivateMetafield getPrivateMetafield();
-
-  
-  PrivateMetafieldConnection getPrivateMetafields();
 }

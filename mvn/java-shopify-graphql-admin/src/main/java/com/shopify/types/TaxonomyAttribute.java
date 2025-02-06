@@ -6,18 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A Shopify product taxonomy attribute.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class TaxonomyAttribute implements TaxonomyCategoryAttribute, com.shopify.types.Node {
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
   public TaxonomyAttribute() {
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -49,7 +55,9 @@ public class TaxonomyAttribute implements TaxonomyCategoryAttribute, com.shopify
   }
 
   public static class Builder {
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
     public TaxonomyAttribute build() {
@@ -58,7 +66,9 @@ public class TaxonomyAttribute implements TaxonomyCategoryAttribute, com.shopify
       return result;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;

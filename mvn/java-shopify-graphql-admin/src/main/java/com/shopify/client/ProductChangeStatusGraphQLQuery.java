@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Changes the status of a product. This allows you to set the availability of the product across all channels.
+ */
 public class ProductChangeStatusGraphQLQuery extends GraphQLQuery {
   public ProductChangeStatusGraphQLQuery(String productId, ProductStatus status, String queryName,
       Set<String> fieldsSet) {
@@ -46,14 +48,18 @@ public class ProductChangeStatusGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the product.
+     */
     public Builder productId(String productId) {
       this.productId = productId;
       this.fieldsSet.add("productId");
       return this;
     }
 
-    
+    /**
+     * The status to be assigned to the product.
+     */
     public Builder status(ProductStatus status) {
       this.status = status;
       this.fieldsSet.add("status");

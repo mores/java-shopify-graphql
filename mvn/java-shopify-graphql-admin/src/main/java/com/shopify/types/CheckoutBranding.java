@@ -5,18 +5,31 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The settings of checkout visual customizations.
+ *
+ * To learn more about updating checkout branding settings, refer to the
+ * [checkoutBrandingUpsert](https://shopify.dev/api/admin-graphql/unstable/mutations/checkoutBrandingUpsert) mutation.
+ */
 public class CheckoutBranding {
-  
+  /**
+   * The customizations that apply to specific components or areas of the user interface.
+   */
   private CheckoutBrandingCustomizations customizations;
 
-  
+  /**
+   * The design system allows you to set values that represent specific attributes
+   * of your brand like color and font. These attributes are used throughout the user
+   * interface. This brings consistency and allows you to easily make broad design changes.
+   */
   private CheckoutBrandingDesignSystem designSystem;
 
   public CheckoutBranding() {
   }
 
-  
+  /**
+   * The customizations that apply to specific components or areas of the user interface.
+   */
   public CheckoutBrandingCustomizations getCustomizations() {
     return customizations;
   }
@@ -25,7 +38,11 @@ public class CheckoutBranding {
     this.customizations = customizations;
   }
 
-  
+  /**
+   * The design system allows you to set values that represent specific attributes
+   * of your brand like color and font. These attributes are used throughout the user
+   * interface. This brings consistency and allows you to easily make broad design changes.
+   */
   public CheckoutBrandingDesignSystem getDesignSystem() {
     return designSystem;
   }
@@ -58,10 +75,16 @@ public class CheckoutBranding {
   }
 
   public static class Builder {
-    
+    /**
+     * The customizations that apply to specific components or areas of the user interface.
+     */
     private CheckoutBrandingCustomizations customizations;
 
-    
+    /**
+     * The design system allows you to set values that represent specific attributes
+     * of your brand like color and font. These attributes are used throughout the user
+     * interface. This brings consistency and allows you to easily make broad design changes.
+     */
     private CheckoutBrandingDesignSystem designSystem;
 
     public CheckoutBranding build() {
@@ -71,13 +94,19 @@ public class CheckoutBranding {
       return result;
     }
 
-    
+    /**
+     * The customizations that apply to specific components or areas of the user interface.
+     */
     public Builder customizations(CheckoutBrandingCustomizations customizations) {
       this.customizations = customizations;
       return this;
     }
 
-    
+    /**
+     * The design system allows you to set values that represent specific attributes
+     * of your brand like color and font. These attributes are used throughout the user
+     * interface. This brings consistency and allows you to easily make broad design changes.
+     */
     public Builder designSystem(CheckoutBrandingDesignSystem designSystem) {
       this.designSystem = designSystem;
       return this;

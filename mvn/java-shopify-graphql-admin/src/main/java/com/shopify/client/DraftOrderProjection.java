@@ -4,6 +4,7 @@ import com.netflix.graphql.dgs.client.codegen.BaseSubProjectionNode;
 import com.shopify.types.CountryCode;
 import com.shopify.types.EventSortKeys;
 import com.shopify.types.LocalizationExtensionPurpose;
+import com.shopify.types.LocalizedFieldPurpose;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -141,6 +142,36 @@ public class DraftOrderProjection<PARENT extends BaseSubProjectionNode<?, ?>, RO
     return projection;
   }
 
+  public LocalizedFieldConnectionProjection<DraftOrderProjection<PARENT, ROOT>, ROOT> localizedFields(
+      ) {
+     LocalizedFieldConnectionProjection<DraftOrderProjection<PARENT, ROOT>, ROOT> projection = new LocalizedFieldConnectionProjection<>(this, getRoot());
+     getFields().put("localizedFields", projection);
+     return projection;
+  }
+
+  public LocalizedFieldConnectionProjection<DraftOrderProjection<PARENT, ROOT>, ROOT> localizedFields(
+      List<CountryCode> countryCodes, List<LocalizedFieldPurpose> purposes, Integer first,
+      String after, Integer last, String before, Boolean reverse) {
+    LocalizedFieldConnectionProjection<DraftOrderProjection<PARENT, ROOT>, ROOT> projection = new LocalizedFieldConnectionProjection<>(this, getRoot());    
+    getFields().put("localizedFields", projection);
+    getInputArguments().computeIfAbsent("localizedFields", k -> new ArrayList<>());                      
+    InputArgument countryCodesArg = new InputArgument("countryCodes", countryCodes);
+    getInputArguments().get("localizedFields").add(countryCodesArg);
+    InputArgument purposesArg = new InputArgument("purposes", purposes);
+    getInputArguments().get("localizedFields").add(purposesArg);
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("localizedFields").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("localizedFields").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("localizedFields").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("localizedFields").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    getInputArguments().get("localizedFields").add(reverseArg);
+    return projection;
+  }
+
   public CountryCodeProjection<DraftOrderProjection<PARENT, ROOT>, ROOT> marketRegionCountryCode() {
      CountryCodeProjection<DraftOrderProjection<PARENT, ROOT>, ROOT> projection = new CountryCodeProjection<>(this, getRoot());
      getFields().put("marketRegionCountryCode", projection);
@@ -220,51 +251,6 @@ public class DraftOrderProjection<PARENT extends BaseSubProjectionNode<?, ?>, RO
      return projection;
   }
 
-  public PrivateMetafieldProjection<DraftOrderProjection<PARENT, ROOT>, ROOT> privateMetafield() {
-     PrivateMetafieldProjection<DraftOrderProjection<PARENT, ROOT>, ROOT> projection = new PrivateMetafieldProjection<>(this, getRoot());
-     getFields().put("privateMetafield", projection);
-     return projection;
-  }
-
-  public PrivateMetafieldProjection<DraftOrderProjection<PARENT, ROOT>, ROOT> privateMetafield(
-      String namespace, String key) {
-    PrivateMetafieldProjection<DraftOrderProjection<PARENT, ROOT>, ROOT> projection = new PrivateMetafieldProjection<>(this, getRoot());    
-    getFields().put("privateMetafield", projection);
-    getInputArguments().computeIfAbsent("privateMetafield", k -> new ArrayList<>());                      
-    InputArgument namespaceArg = new InputArgument("namespace", namespace);
-    getInputArguments().get("privateMetafield").add(namespaceArg);
-    InputArgument keyArg = new InputArgument("key", key);
-    getInputArguments().get("privateMetafield").add(keyArg);
-    return projection;
-  }
-
-  public PrivateMetafieldConnectionProjection<DraftOrderProjection<PARENT, ROOT>, ROOT> privateMetafields(
-      ) {
-     PrivateMetafieldConnectionProjection<DraftOrderProjection<PARENT, ROOT>, ROOT> projection = new PrivateMetafieldConnectionProjection<>(this, getRoot());
-     getFields().put("privateMetafields", projection);
-     return projection;
-  }
-
-  public PrivateMetafieldConnectionProjection<DraftOrderProjection<PARENT, ROOT>, ROOT> privateMetafields(
-      String namespace, Integer first, String after, Integer last, String before, Boolean reverse) {
-    PrivateMetafieldConnectionProjection<DraftOrderProjection<PARENT, ROOT>, ROOT> projection = new PrivateMetafieldConnectionProjection<>(this, getRoot());    
-    getFields().put("privateMetafields", projection);
-    getInputArguments().computeIfAbsent("privateMetafields", k -> new ArrayList<>());                      
-    InputArgument namespaceArg = new InputArgument("namespace", namespace);
-    getInputArguments().get("privateMetafields").add(namespaceArg);
-    InputArgument firstArg = new InputArgument("first", first);
-    getInputArguments().get("privateMetafields").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("privateMetafields").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
-    getInputArguments().get("privateMetafields").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("privateMetafields").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
-    getInputArguments().get("privateMetafields").add(reverseArg);
-    return projection;
-  }
-
   public PurchasingEntityProjection<DraftOrderProjection<PARENT, ROOT>, ROOT> purchasingEntity() {
      PurchasingEntityProjection<DraftOrderProjection<PARENT, ROOT>, ROOT> projection = new PurchasingEntityProjection<>(this, getRoot());
      getFields().put("purchasingEntity", projection);
@@ -342,8 +328,18 @@ public class DraftOrderProjection<PARENT extends BaseSubProjectionNode<?, ?>, RO
     return this;
   }
 
+  public DraftOrderProjection<PARENT, ROOT> allVariantPricesOverridden() {
+    getFields().put("allVariantPricesOverridden", null);
+    return this;
+  }
+
   public DraftOrderProjection<PARENT, ROOT> allowDiscountCodesInCheckout() {
     getFields().put("allowDiscountCodesInCheckout", null);
+    return this;
+  }
+
+  public DraftOrderProjection<PARENT, ROOT> anyVariantPricesOverridden() {
+    getFields().put("anyVariantPricesOverridden", null);
     return this;
   }
 

@@ -6,30 +6,44 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Represents a [Shopify product taxonomy](https://shopify.github.io/product-taxonomy/releases/unstable/?categoryId=sg-4-17-2-17) node.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ProductTaxonomyNode implements com.shopify.types.Node {
-  
+  /**
+   * The full name of the product taxonomy node. For example,  Animals &amp; Pet Supplies > Pet Supplies > Dog Supplies > Dog Beds.
+   */
   private String fullName;
 
-  
+  /**
+   * The ID of the product taxonomy node.
+   */
   private String id;
 
-  
+  /**
+   * Whether the node is a leaf node.
+   */
   private boolean isLeaf;
 
-  
+  /**
+   * Whether the node is a root node.
+   */
   private boolean isRoot;
 
-  
+  /**
+   * The name of the product taxonomy node. For example, Dog Beds.
+   */
   private String name;
 
   public ProductTaxonomyNode() {
   }
 
-  
+  /**
+   * The full name of the product taxonomy node. For example,  Animals &amp; Pet Supplies > Pet Supplies > Dog Supplies > Dog Beds.
+   */
   public String getFullName() {
     return fullName;
   }
@@ -38,7 +52,9 @@ public class ProductTaxonomyNode implements com.shopify.types.Node {
     this.fullName = fullName;
   }
 
-  
+  /**
+   * The ID of the product taxonomy node.
+   */
   public String getId() {
     return id;
   }
@@ -47,7 +63,9 @@ public class ProductTaxonomyNode implements com.shopify.types.Node {
     this.id = id;
   }
 
-  
+  /**
+   * Whether the node is a leaf node.
+   */
   public boolean getIsLeaf() {
     return isLeaf;
   }
@@ -56,7 +74,9 @@ public class ProductTaxonomyNode implements com.shopify.types.Node {
     this.isLeaf = isLeaf;
   }
 
-  
+  /**
+   * Whether the node is a root node.
+   */
   public boolean getIsRoot() {
     return isRoot;
   }
@@ -65,7 +85,9 @@ public class ProductTaxonomyNode implements com.shopify.types.Node {
     this.isRoot = isRoot;
   }
 
-  
+  /**
+   * The name of the product taxonomy node. For example, Dog Beds.
+   */
   public String getName() {
     return name;
   }
@@ -101,19 +123,29 @@ public class ProductTaxonomyNode implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    
+    /**
+     * The full name of the product taxonomy node. For example,  Animals &amp; Pet Supplies > Pet Supplies > Dog Supplies > Dog Beds.
+     */
     private String fullName;
 
-    
+    /**
+     * The ID of the product taxonomy node.
+     */
     private String id;
 
-    
+    /**
+     * Whether the node is a leaf node.
+     */
     private boolean isLeaf;
 
-    
+    /**
+     * Whether the node is a root node.
+     */
     private boolean isRoot;
 
-    
+    /**
+     * The name of the product taxonomy node. For example, Dog Beds.
+     */
     private String name;
 
     public ProductTaxonomyNode build() {
@@ -126,31 +158,41 @@ public class ProductTaxonomyNode implements com.shopify.types.Node {
       return result;
     }
 
-    
+    /**
+     * The full name of the product taxonomy node. For example,  Animals &amp; Pet Supplies > Pet Supplies > Dog Supplies > Dog Beds.
+     */
     public Builder fullName(String fullName) {
       this.fullName = fullName;
       return this;
     }
 
-    
+    /**
+     * The ID of the product taxonomy node.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * Whether the node is a leaf node.
+     */
     public Builder isLeaf(boolean isLeaf) {
       this.isLeaf = isLeaf;
       return this;
     }
 
-    
+    /**
+     * Whether the node is a root node.
+     */
     public Builder isRoot(boolean isRoot) {
       this.isRoot = isRoot;
       return this;
     }
 
-    
+    /**
+     * The name of the product taxonomy node. For example, Dog Beds.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;

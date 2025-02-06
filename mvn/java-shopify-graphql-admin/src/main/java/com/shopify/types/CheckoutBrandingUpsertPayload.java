@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `checkoutBrandingUpsert` mutation.
+ */
 public class CheckoutBrandingUpsertPayload {
-  
+  /**
+   * Returns the new checkout branding settings.
+   */
   private CheckoutBranding checkoutBranding;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<CheckoutBrandingUpsertUserError> userErrors;
 
   public CheckoutBrandingUpsertPayload() {
   }
 
-  
+  /**
+   * Returns the new checkout branding settings.
+   */
   public CheckoutBranding getCheckoutBranding() {
     return checkoutBranding;
   }
@@ -26,7 +34,9 @@ public class CheckoutBrandingUpsertPayload {
     this.checkoutBranding = checkoutBranding;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<CheckoutBrandingUpsertUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class CheckoutBrandingUpsertPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * Returns the new checkout branding settings.
+     */
     private CheckoutBranding checkoutBranding;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<CheckoutBrandingUpsertUserError> userErrors;
 
     public CheckoutBrandingUpsertPayload build() {
@@ -72,13 +86,17 @@ public class CheckoutBrandingUpsertPayload {
       return result;
     }
 
-    
+    /**
+     * Returns the new checkout branding settings.
+     */
     public Builder checkoutBranding(CheckoutBranding checkoutBranding) {
       this.checkoutBranding = checkoutBranding;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<CheckoutBrandingUpsertUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

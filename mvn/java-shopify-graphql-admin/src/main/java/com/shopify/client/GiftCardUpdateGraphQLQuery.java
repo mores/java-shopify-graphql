@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Update a gift card.
+ */
 public class GiftCardUpdateGraphQLQuery extends GraphQLQuery {
   public GiftCardUpdateGraphQLQuery(String id, GiftCardUpdateInput input, String queryName,
       Set<String> fieldsSet) {
@@ -46,14 +48,18 @@ public class GiftCardUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the gift card to be updated.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    
+    /**
+     * The input fields to update the gift card.
+     */
     public Builder input(GiftCardUpdateInput input) {
       this.input = input;
       this.fieldsSet.add("input");

@@ -6,18 +6,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for how the discount will be applied. Currently, only percentage off is supported.
+ */
 public class DiscountEffectInput {
-  
+  /**
+   * The percentage value of the discount. Value must be between 0.00 - 1.00.
+   */
   private Double percentage;
 
-  
+  /**
+   * The value of the discount.
+   */
   private String amount;
 
   public DiscountEffectInput() {
   }
 
-  
+  /**
+   * The percentage value of the discount. Value must be between 0.00 - 1.00.
+   */
   public Double getPercentage() {
     return percentage;
   }
@@ -26,7 +34,9 @@ public class DiscountEffectInput {
     this.percentage = percentage;
   }
 
-  
+  /**
+   * The value of the discount.
+   */
   public String getAmount() {
     return amount;
   }
@@ -59,10 +69,14 @@ public class DiscountEffectInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The percentage value of the discount. Value must be between 0.00 - 1.00.
+     */
     private Double percentage;
 
-    
+    /**
+     * The value of the discount.
+     */
     private String amount;
 
     public DiscountEffectInput build() {
@@ -72,13 +86,17 @@ public class DiscountEffectInput {
       return result;
     }
 
-    
+    /**
+     * The percentage value of the discount. Value must be between 0.00 - 1.00.
+     */
     public Builder percentage(Double percentage) {
       this.percentage = percentage;
       return this;
     }
 
-    
+    /**
+     * The value of the discount.
+     */
     public Builder amount(String amount) {
       this.amount = amount;
       return this;

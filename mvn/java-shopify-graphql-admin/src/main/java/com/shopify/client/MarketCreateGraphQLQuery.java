@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a new market.
+ */
 public class MarketCreateGraphQLQuery extends GraphQLQuery {
   public MarketCreateGraphQLQuery(MarketCreateInput input, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class MarketCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The properties of the new market.
+     */
     public Builder input(MarketCreateInput input) {
       this.input = input;
       this.fieldsSet.add("input");

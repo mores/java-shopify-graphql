@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Refunds a return when its status is `OPEN` or `CLOSED` and associates it with the related return request.
+ */
 public class ReturnRefundGraphQLQuery extends GraphQLQuery {
   public ReturnRefundGraphQLQuery(ReturnRefundInput returnRefundInput, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class ReturnRefundGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The input fields to refund a return.
+     */
     public Builder returnRefundInput(ReturnRefundInput returnRefundInput) {
       this.returnRefundInput = returnRefundInput;
       this.fieldsSet.add("returnRefundInput");

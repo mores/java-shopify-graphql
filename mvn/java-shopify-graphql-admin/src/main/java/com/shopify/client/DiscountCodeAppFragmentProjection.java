@@ -114,6 +114,16 @@ public class DiscountCodeAppFragmentProjection<PARENT extends BaseSubProjectionN
      return projection;
   }
 
+  public DiscountCodeAppFragmentProjection<PARENT, ROOT> appliesOnOneTimePurchase() {
+    getFields().put("appliesOnOneTimePurchase", null);
+    return this;
+  }
+
+  public DiscountCodeAppFragmentProjection<PARENT, ROOT> appliesOnSubscription() {
+    getFields().put("appliesOnSubscription", null);
+    return this;
+  }
+
   public DiscountCodeAppFragmentProjection<PARENT, ROOT> appliesOncePerCustomer() {
     getFields().put("appliesOncePerCustomer", null);
     return this;

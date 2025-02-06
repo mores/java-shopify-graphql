@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Updates a customer's default address.
+ */
 public class CustomerUpdateDefaultAddressGraphQLQuery extends GraphQLQuery {
   public CustomerUpdateDefaultAddressGraphQLQuery(String customerId, String addressId,
       String queryName, Set<String> fieldsSet) {
@@ -45,14 +47,18 @@ public class CustomerUpdateDefaultAddressGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the customer whose default address is being updated.
+     */
     public Builder customerId(String customerId) {
       this.customerId = customerId;
       this.fieldsSet.add("customerId");
       return this;
     }
 
-    
+    /**
+     * The ID of the customer's new default address.
+     */
     public Builder addressId(String addressId) {
       this.addressId = addressId;
       this.fieldsSet.add("addressId");

@@ -2,13 +2,11 @@ package com.shopify.client;
 
 import com.netflix.graphql.dgs.client.codegen.BaseSubProjectionNode;
 import com.shopify.types.CollectionSortKeys;
-import com.shopify.types.CustomerSavedSearchSortKeys;
 import com.shopify.types.CustomerSortKeys;
 import com.shopify.types.DraftOrderSortKeys;
 import com.shopify.types.FulfillmentOrderAssignmentStatus;
 import com.shopify.types.FulfillmentOrderSortKeys;
 import com.shopify.types.LocationSortKeys;
-import com.shopify.types.MarketingEventSortKeys;
 import com.shopify.types.OrderSortKeys;
 import com.shopify.types.ProductImageSortKeys;
 import com.shopify.types.ProductSortKeys;
@@ -157,47 +155,6 @@ public class ShopFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>, 
     return projection;
   }
 
-  public CollectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> collectionByHandle() {
-     CollectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new CollectionProjection<>(this, getRoot());
-     getFields().put("collectionByHandle", projection);
-     return projection;
-  }
-
-  public CollectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> collectionByHandle(
-      String handle) {
-    CollectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new CollectionProjection<>(this, getRoot());    
-    getFields().put("collectionByHandle", projection);
-    getInputArguments().computeIfAbsent("collectionByHandle", k -> new ArrayList<>());                      
-    InputArgument handleArg = new InputArgument("handle", handle);
-    getInputArguments().get("collectionByHandle").add(handleArg);
-    return projection;
-  }
-
-  public SavedSearchConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> collectionSavedSearches(
-      ) {
-     SavedSearchConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new SavedSearchConnectionProjection<>(this, getRoot());
-     getFields().put("collectionSavedSearches", projection);
-     return projection;
-  }
-
-  public SavedSearchConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> collectionSavedSearches(
-      Integer first, String after, Integer last, String before, Boolean reverse) {
-    SavedSearchConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new SavedSearchConnectionProjection<>(this, getRoot());    
-    getFields().put("collectionSavedSearches", projection);
-    getInputArguments().computeIfAbsent("collectionSavedSearches", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
-    getInputArguments().get("collectionSavedSearches").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("collectionSavedSearches").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
-    getInputArguments().get("collectionSavedSearches").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("collectionSavedSearches").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
-    getInputArguments().get("collectionSavedSearches").add(reverseArg);
-    return projection;
-  }
-
   public CollectionConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> collections() {
      CollectionConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new CollectionConnectionProjection<>(this, getRoot());
      getFields().put("collections", projection);
@@ -287,36 +244,6 @@ public class ShopFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>, 
      return projection;
   }
 
-  public SavedSearchConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> customerSavedSearches(
-      ) {
-     SavedSearchConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new SavedSearchConnectionProjection<>(this, getRoot());
-     getFields().put("customerSavedSearches", projection);
-     return projection;
-  }
-
-  public SavedSearchConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> customerSavedSearches(
-      Integer first, String after, Integer last, String before, Boolean reverse,
-      CustomerSavedSearchSortKeys sortKey, String query) {
-    SavedSearchConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new SavedSearchConnectionProjection<>(this, getRoot());    
-    getFields().put("customerSavedSearches", projection);
-    getInputArguments().computeIfAbsent("customerSavedSearches", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
-    getInputArguments().get("customerSavedSearches").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("customerSavedSearches").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
-    getInputArguments().get("customerSavedSearches").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("customerSavedSearches").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
-    getInputArguments().get("customerSavedSearches").add(reverseArg);
-    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
-    getInputArguments().get("customerSavedSearches").add(sortKeyArg);
-    InputArgument queryArg = new InputArgument("query", query);
-    getInputArguments().get("customerSavedSearches").add(queryArg);
-    return projection;
-  }
-
   public StringConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> customerTags() {
      StringConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new StringConnectionProjection<>(this, getRoot());
      getFields().put("customerTags", projection);
@@ -366,31 +293,6 @@ public class ShopFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>, 
      DomainProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new DomainProjection<>(this, getRoot());
      getFields().put("domains", projection);
      return projection;
-  }
-
-  public SavedSearchConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> draftOrderSavedSearches(
-      ) {
-     SavedSearchConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new SavedSearchConnectionProjection<>(this, getRoot());
-     getFields().put("draftOrderSavedSearches", projection);
-     return projection;
-  }
-
-  public SavedSearchConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> draftOrderSavedSearches(
-      Integer first, String after, Integer last, String before, Boolean reverse) {
-    SavedSearchConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new SavedSearchConnectionProjection<>(this, getRoot());    
-    getFields().put("draftOrderSavedSearches", projection);
-    getInputArguments().computeIfAbsent("draftOrderSavedSearches", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
-    getInputArguments().get("draftOrderSavedSearches").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("draftOrderSavedSearches").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
-    getInputArguments().get("draftOrderSavedSearches").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("draftOrderSavedSearches").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
-    getInputArguments().get("draftOrderSavedSearches").add(reverseArg);
-    return projection;
   }
 
   public StringConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> draftOrderTags() {
@@ -557,36 +459,6 @@ public class ShopFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>, 
     return projection;
   }
 
-  public MarketingEventConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> marketingEvents(
-      ) {
-     MarketingEventConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new MarketingEventConnectionProjection<>(this, getRoot());
-     getFields().put("marketingEvents", projection);
-     return projection;
-  }
-
-  public MarketingEventConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> marketingEvents(
-      Integer first, String after, Integer last, String before, Boolean reverse,
-      MarketingEventSortKeys sortKey, String query) {
-    MarketingEventConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new MarketingEventConnectionProjection<>(this, getRoot());    
-    getFields().put("marketingEvents", projection);
-    getInputArguments().computeIfAbsent("marketingEvents", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
-    getInputArguments().get("marketingEvents").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("marketingEvents").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
-    getInputArguments().get("marketingEvents").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("marketingEvents").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
-    getInputArguments().get("marketingEvents").add(reverseArg);
-    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
-    getInputArguments().get("marketingEvents").add(sortKeyArg);
-    InputArgument queryArg = new InputArgument("query", query);
-    getInputArguments().get("marketingEvents").add(queryArg);
-    return projection;
-  }
-
   public MerchantApprovalSignalsProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> merchantApprovalSignals(
       ) {
      MerchantApprovalSignalsProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new MerchantApprovalSignalsProjection<>(this, getRoot());
@@ -645,31 +517,6 @@ public class ShopFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>, 
      NavigationItemProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new NavigationItemProjection<>(this, getRoot());
      getFields().put("navigationSettings", projection);
      return projection;
-  }
-
-  public SavedSearchConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> orderSavedSearches(
-      ) {
-     SavedSearchConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new SavedSearchConnectionProjection<>(this, getRoot());
-     getFields().put("orderSavedSearches", projection);
-     return projection;
-  }
-
-  public SavedSearchConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> orderSavedSearches(
-      Integer first, String after, Integer last, String before, Boolean reverse) {
-    SavedSearchConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new SavedSearchConnectionProjection<>(this, getRoot());    
-    getFields().put("orderSavedSearches", projection);
-    getInputArguments().computeIfAbsent("orderSavedSearches", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
-    getInputArguments().get("orderSavedSearches").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("orderSavedSearches").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
-    getInputArguments().get("orderSavedSearches").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("orderSavedSearches").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
-    getInputArguments().get("orderSavedSearches").add(reverseArg);
-    return projection;
   }
 
   public StringConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> orderTags() {
@@ -737,67 +584,6 @@ public class ShopFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>, 
      return projection;
   }
 
-  public PrivateMetafieldProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> privateMetafield() {
-     PrivateMetafieldProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new PrivateMetafieldProjection<>(this, getRoot());
-     getFields().put("privateMetafield", projection);
-     return projection;
-  }
-
-  public PrivateMetafieldProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> privateMetafield(
-      String namespace, String key) {
-    PrivateMetafieldProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new PrivateMetafieldProjection<>(this, getRoot());    
-    getFields().put("privateMetafield", projection);
-    getInputArguments().computeIfAbsent("privateMetafield", k -> new ArrayList<>());                      
-    InputArgument namespaceArg = new InputArgument("namespace", namespace);
-    getInputArguments().get("privateMetafield").add(namespaceArg);
-    InputArgument keyArg = new InputArgument("key", key);
-    getInputArguments().get("privateMetafield").add(keyArg);
-    return projection;
-  }
-
-  public PrivateMetafieldConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> privateMetafields(
-      ) {
-     PrivateMetafieldConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new PrivateMetafieldConnectionProjection<>(this, getRoot());
-     getFields().put("privateMetafields", projection);
-     return projection;
-  }
-
-  public PrivateMetafieldConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> privateMetafields(
-      String namespace, Integer first, String after, Integer last, String before, Boolean reverse) {
-    PrivateMetafieldConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new PrivateMetafieldConnectionProjection<>(this, getRoot());    
-    getFields().put("privateMetafields", projection);
-    getInputArguments().computeIfAbsent("privateMetafields", k -> new ArrayList<>());                      
-    InputArgument namespaceArg = new InputArgument("namespace", namespace);
-    getInputArguments().get("privateMetafields").add(namespaceArg);
-    InputArgument firstArg = new InputArgument("first", first);
-    getInputArguments().get("privateMetafields").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("privateMetafields").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
-    getInputArguments().get("privateMetafields").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("privateMetafields").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
-    getInputArguments().get("privateMetafields").add(reverseArg);
-    return projection;
-  }
-
-  public ProductProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> productByHandle() {
-     ProductProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductProjection<>(this, getRoot());
-     getFields().put("productByHandle", projection);
-     return projection;
-  }
-
-  public ProductProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> productByHandle(
-      String handle) {
-    ProductProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductProjection<>(this, getRoot());    
-    getFields().put("productByHandle", projection);
-    getInputArguments().computeIfAbsent("productByHandle", k -> new ArrayList<>());                      
-    InputArgument handleArg = new InputArgument("handle", handle);
-    getInputArguments().get("productByHandle").add(handleArg);
-    return projection;
-  }
-
   public ImageConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> productImages() {
      ImageConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new ImageConnectionProjection<>(this, getRoot());
      getFields().put("productImages", projection);
@@ -822,31 +608,6 @@ public class ShopFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>, 
     getInputArguments().get("productImages").add(reverseArg);
     InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
     getInputArguments().get("productImages").add(sortKeyArg);
-    return projection;
-  }
-
-  public SavedSearchConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> productSavedSearches(
-      ) {
-     SavedSearchConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new SavedSearchConnectionProjection<>(this, getRoot());
-     getFields().put("productSavedSearches", projection);
-     return projection;
-  }
-
-  public SavedSearchConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> productSavedSearches(
-      Integer first, String after, Integer last, String before, Boolean reverse) {
-    SavedSearchConnectionProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new SavedSearchConnectionProjection<>(this, getRoot());    
-    getFields().put("productSavedSearches", projection);
-    getInputArguments().computeIfAbsent("productSavedSearches", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
-    getInputArguments().get("productSavedSearches").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("productSavedSearches").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
-    getInputArguments().get("productSavedSearches").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("productSavedSearches").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
-    getInputArguments().get("productSavedSearches").add(reverseArg);
     return projection;
   }
 
@@ -1077,22 +838,6 @@ public class ShopFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>, 
      UnitSystemProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new UnitSystemProjection<>(this, getRoot());
      getFields().put("unitSystem", projection);
      return projection;
-  }
-
-  public ImageProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> uploadedImagesByIds() {
-     ImageProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new ImageProjection<>(this, getRoot());
-     getFields().put("uploadedImagesByIds", projection);
-     return projection;
-  }
-
-  public ImageProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> uploadedImagesByIds(
-      List<String> imageIds) {
-    ImageProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new ImageProjection<>(this, getRoot());    
-    getFields().put("uploadedImagesByIds", projection);
-    getInputArguments().computeIfAbsent("uploadedImagesByIds", k -> new ArrayList<>());                      
-    InputArgument imageIdsArg = new InputArgument("imageIds", imageIds);
-    getInputArguments().get("uploadedImagesByIds").add(imageIdsArg);
-    return projection;
   }
 
   public WeightUnitProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> weightUnit() {

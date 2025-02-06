@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The App Bridge information for a Shopify Function.
+ */
 public class FunctionsAppBridge {
-  
+  /**
+   * The relative path for creating a customization.
+   */
   private String createPath;
 
-  
+  /**
+   * The relative path for viewing a customization.
+   */
   private String detailsPath;
 
   public FunctionsAppBridge() {
   }
 
-  
+  /**
+   * The relative path for creating a customization.
+   */
   public String getCreatePath() {
     return createPath;
   }
@@ -25,7 +33,9 @@ public class FunctionsAppBridge {
     this.createPath = createPath;
   }
 
-  
+  /**
+   * The relative path for viewing a customization.
+   */
   public String getDetailsPath() {
     return detailsPath;
   }
@@ -58,10 +68,14 @@ public class FunctionsAppBridge {
   }
 
   public static class Builder {
-    
+    /**
+     * The relative path for creating a customization.
+     */
     private String createPath;
 
-    
+    /**
+     * The relative path for viewing a customization.
+     */
     private String detailsPath;
 
     public FunctionsAppBridge build() {
@@ -71,13 +85,17 @@ public class FunctionsAppBridge {
       return result;
     }
 
-    
+    /**
+     * The relative path for creating a customization.
+     */
     public Builder createPath(String createPath) {
       this.createPath = createPath;
       return this;
     }
 
-    
+    /**
+     * The relative path for viewing a customization.
+     */
     public Builder detailsPath(String detailsPath) {
       this.detailsPath = detailsPath;
       return this;

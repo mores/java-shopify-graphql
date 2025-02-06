@@ -8,7 +8,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Deletes multiple metafields in bulk.
+ */
 public class MetafieldsDeleteGraphQLQuery extends GraphQLQuery {
   public MetafieldsDeleteGraphQLQuery(List<MetafieldIdentifierInput> metafields, String queryName,
       Set<String> fieldsSet) {
@@ -43,7 +45,9 @@ public class MetafieldsDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * A list of identifiers specifying metafields to delete. At least one identifier must be specified.
+     */
     public Builder metafields(List<MetafieldIdentifierInput> metafields) {
       this.metafields = metafields;
       this.fieldsSet.add("metafields");

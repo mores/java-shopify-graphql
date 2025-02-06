@@ -8,7 +8,17 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Deletes a product, including all associated variants and media.
+ *   
+ * As of API version `2023-01`, if you need to delete a large product, such as one that has many
+ * [variants](https://shopify.dev/api/admin-graphql/latest/input-objects/ProductVariantInput)
+ * that are active at several
+ * [locations](https://shopify.dev/api/admin-graphql/latest/input-objects/InventoryLevelInput),
+ * you may encounter timeout errors. To avoid these timeout errors, you can instead use the asynchronous
+ * [ProductDeleteAsync](https://shopify.dev/api/admin-graphql/latest/mutations/productDeleteAsync)
+ * mutation.
+ */
 public class ProductDeleteGraphQLQuery extends GraphQLQuery {
   public ProductDeleteGraphQLQuery(ProductDeleteInput input, Boolean synchronous, String queryName,
       Set<String> fieldsSet) {
@@ -47,14 +57,18 @@ public class ProductDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Specifies the product to delete by its ID.
+     */
     public Builder input(ProductDeleteInput input) {
       this.input = input;
       this.fieldsSet.add("input");
       return this;
     }
 
-    
+    /**
+     * Specifies whether or not to run the mutation synchronously.
+     */
     public Builder synchronous(Boolean synchronous) {
       this.synchronous = synchronous;
       this.fieldsSet.add("synchronous");

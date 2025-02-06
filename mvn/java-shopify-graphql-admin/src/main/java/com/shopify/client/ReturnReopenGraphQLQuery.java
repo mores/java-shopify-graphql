@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Reopens a closed return.
+ */
 public class ReturnReopenGraphQLQuery extends GraphQLQuery {
   public ReturnReopenGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -40,7 +42,9 @@ public class ReturnReopenGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the return to reopen.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

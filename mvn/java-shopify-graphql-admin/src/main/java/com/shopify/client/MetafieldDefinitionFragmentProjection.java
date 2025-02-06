@@ -155,11 +155,6 @@ public class MetafieldDefinitionFragmentProjection<PARENT extends BaseSubProject
     return this;
   }
 
-  public MetafieldDefinitionFragmentProjection<PARENT, ROOT> visibleToStorefrontApi() {
-    getFields().put("visibleToStorefrontApi", null);
-    return this;
-  }
-
   @Override
   public String toString() {
     StringBuilder builder = new StringBuilder();

@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `paymentCustomizationDelete` mutation.
+ */
 public class PaymentCustomizationDeletePayload {
-  
+  /**
+   * Returns the deleted payment customization ID.
+   */
   private String deletedId;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<PaymentCustomizationError> userErrors;
 
   public PaymentCustomizationDeletePayload() {
   }
 
-  
+  /**
+   * Returns the deleted payment customization ID.
+   */
   public String getDeletedId() {
     return deletedId;
   }
@@ -26,7 +34,9 @@ public class PaymentCustomizationDeletePayload {
     this.deletedId = deletedId;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<PaymentCustomizationError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class PaymentCustomizationDeletePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * Returns the deleted payment customization ID.
+     */
     private String deletedId;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<PaymentCustomizationError> userErrors;
 
     public PaymentCustomizationDeletePayload build() {
@@ -72,13 +86,17 @@ public class PaymentCustomizationDeletePayload {
       return result;
     }
 
-    
+    /**
+     * Returns the deleted payment customization ID.
+     */
     public Builder deletedId(String deletedId) {
       this.deletedId = deletedId;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<PaymentCustomizationError> userErrors) {
       this.userErrors = userErrors;
       return this;

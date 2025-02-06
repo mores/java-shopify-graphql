@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * An auto-generated type which holds one App and a cursor during pagination.
+ */
 public class AppEdge {
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   private String cursor;
 
-  
+  /**
+   * The item at the end of AppEdge.
+   */
   private App node;
 
   public AppEdge() {
   }
 
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   public String getCursor() {
     return cursor;
   }
@@ -25,7 +33,9 @@ public class AppEdge {
     this.cursor = cursor;
   }
 
-  
+  /**
+   * The item at the end of AppEdge.
+   */
   public App getNode() {
     return node;
   }
@@ -58,10 +68,14 @@ public class AppEdge {
   }
 
   public static class Builder {
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     private String cursor;
 
-    
+    /**
+     * The item at the end of AppEdge.
+     */
     private App node;
 
     public AppEdge build() {
@@ -71,13 +85,17 @@ public class AppEdge {
       return result;
     }
 
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder cursor(String cursor) {
       this.cursor = cursor;
       return this;
     }
 
-    
+    /**
+     * The item at the end of AppEdge.
+     */
     public Builder node(App node) {
       this.node = node;
       return this;

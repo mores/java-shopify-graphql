@@ -5,21 +5,31 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A job corresponds to some long running task that the client should poll for status.
+ */
 public class Job {
-  
+  /**
+   * This indicates if the job is still queued or has been run.
+   */
   private boolean done;
 
-  
+  /**
+   * A globally-unique ID that's returned when running an asynchronous mutation.
+   */
   private String id;
 
-  
+  /**
+   * This field will only resolve once the job is done. Can be used to ask for object(s) that have been changed by the job.
+   */
   private String query;
 
   public Job() {
   }
 
-  
+  /**
+   * This indicates if the job is still queued or has been run.
+   */
   public boolean getDone() {
     return done;
   }
@@ -28,7 +38,9 @@ public class Job {
     this.done = done;
   }
 
-  
+  /**
+   * A globally-unique ID that's returned when running an asynchronous mutation.
+   */
   public String getId() {
     return id;
   }
@@ -37,7 +49,9 @@ public class Job {
     this.id = id;
   }
 
-  
+  /**
+   * This field will only resolve once the job is done. Can be used to ask for object(s) that have been changed by the job.
+   */
   public String getQuery() {
     return query;
   }
@@ -71,13 +85,19 @@ public class Job {
   }
 
   public static class Builder {
-    
+    /**
+     * This indicates if the job is still queued or has been run.
+     */
     private boolean done;
 
-    
+    /**
+     * A globally-unique ID that's returned when running an asynchronous mutation.
+     */
     private String id;
 
-    
+    /**
+     * This field will only resolve once the job is done. Can be used to ask for object(s) that have been changed by the job.
+     */
     private String query;
 
     public Job build() {
@@ -88,19 +108,25 @@ public class Job {
       return result;
     }
 
-    
+    /**
+     * This indicates if the job is still queued or has been run.
+     */
     public Builder done(boolean done) {
       this.done = done;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID that's returned when running an asynchronous mutation.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * This field will only resolve once the job is done. Can be used to ask for object(s) that have been changed by the job.
+     */
     public Builder query(String query) {
       this.query = query;
       return this;

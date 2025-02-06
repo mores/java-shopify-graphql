@@ -7,24 +7,34 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Error codes for failed market multi-currency operations.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class MarketCurrencySettingsUserError implements com.shopify.types.DisplayableError {
-  
+  /**
+   * The error code.
+   */
   private MarketCurrencySettingsUserErrorCode code;
 
-  
+  /**
+   * The path to the input field that caused the error.
+   */
   private List<String> field;
 
-  
+  /**
+   * The error message.
+   */
   private String message;
 
   public MarketCurrencySettingsUserError() {
   }
 
-  
+  /**
+   * The error code.
+   */
   public MarketCurrencySettingsUserErrorCode getCode() {
     return code;
   }
@@ -33,7 +43,9 @@ public class MarketCurrencySettingsUserError implements com.shopify.types.Displa
     this.code = code;
   }
 
-  
+  /**
+   * The path to the input field that caused the error.
+   */
   public List<String> getField() {
     return field;
   }
@@ -42,7 +54,9 @@ public class MarketCurrencySettingsUserError implements com.shopify.types.Displa
     this.field = field;
   }
 
-  
+  /**
+   * The error message.
+   */
   public String getMessage() {
     return message;
   }
@@ -76,13 +90,19 @@ public class MarketCurrencySettingsUserError implements com.shopify.types.Displa
   }
 
   public static class Builder {
-    
+    /**
+     * The error code.
+     */
     private MarketCurrencySettingsUserErrorCode code;
 
-    
+    /**
+     * The path to the input field that caused the error.
+     */
     private List<String> field;
 
-    
+    /**
+     * The error message.
+     */
     private String message;
 
     public MarketCurrencySettingsUserError build() {
@@ -93,19 +113,25 @@ public class MarketCurrencySettingsUserError implements com.shopify.types.Displa
       return result;
     }
 
-    
+    /**
+     * The error code.
+     */
     public Builder code(MarketCurrencySettingsUserErrorCode code) {
       this.code = code;
       return this;
     }
 
-    
+    /**
+     * The path to the input field that caused the error.
+     */
     public Builder field(List<String> field) {
       this.field = field;
       return this;
     }
 
-    
+    /**
+     * The error message.
+     */
     public Builder message(String message) {
       this.message = message;
       return this;

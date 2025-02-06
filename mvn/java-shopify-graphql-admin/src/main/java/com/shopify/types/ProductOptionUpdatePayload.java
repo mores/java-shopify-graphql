@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `productOptionUpdate` mutation.
+ */
 public class ProductOptionUpdatePayload {
-  
+  /**
+   * The product with which the option being updated is associated.
+   */
   private Product product;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<ProductOptionUpdateUserError> userErrors;
 
   public ProductOptionUpdatePayload() {
   }
 
-  
+  /**
+   * The product with which the option being updated is associated.
+   */
   public Product getProduct() {
     return product;
   }
@@ -26,7 +34,9 @@ public class ProductOptionUpdatePayload {
     this.product = product;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<ProductOptionUpdateUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class ProductOptionUpdatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The product with which the option being updated is associated.
+     */
     private Product product;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<ProductOptionUpdateUserError> userErrors;
 
     public ProductOptionUpdatePayload build() {
@@ -72,13 +86,17 @@ public class ProductOptionUpdatePayload {
       return result;
     }
 
-    
+    /**
+     * The product with which the option being updated is associated.
+     */
     public Builder product(Product product) {
       this.product = product;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<ProductOptionUpdateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

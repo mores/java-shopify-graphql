@@ -6,21 +6,29 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A web pixel settings.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class WebPixel implements com.shopify.types.Node {
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The settings JSON object for the web pixel.
+   */
   private String settings;
 
   public WebPixel() {
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -29,7 +37,9 @@ public class WebPixel implements com.shopify.types.Node {
     this.id = id;
   }
 
-  
+  /**
+   * The settings JSON object for the web pixel.
+   */
   public String getSettings() {
     return settings;
   }
@@ -62,10 +72,14 @@ public class WebPixel implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The settings JSON object for the web pixel.
+     */
     private String settings;
 
     public WebPixel build() {
@@ -75,13 +89,17 @@ public class WebPixel implements com.shopify.types.Node {
       return result;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The settings JSON object for the web pixel.
+     */
     public Builder settings(String settings) {
       this.settings = settings;
       return this;

@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a company location.
+ */
 public class CompanyLocationCreateGraphQLQuery extends GraphQLQuery {
   public CompanyLocationCreateGraphQLQuery(String companyId, CompanyLocationInput input,
       String queryName, Set<String> fieldsSet) {
@@ -46,14 +48,18 @@ public class CompanyLocationCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the company that the company location belongs to.
+     */
     public Builder companyId(String companyId) {
       this.companyId = companyId;
       this.fieldsSet.add("companyId");
       return this;
     }
 
-    
+    /**
+     * The fields to use to create the company location.
+     */
     public Builder input(CompanyLocationInput input) {
       this.input = input;
       this.fieldsSet.add("input");

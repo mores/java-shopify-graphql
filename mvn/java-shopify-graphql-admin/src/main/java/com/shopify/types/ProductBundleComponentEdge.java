@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * An auto-generated type which holds one ProductBundleComponent and a cursor during pagination.
+ */
 public class ProductBundleComponentEdge {
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   private String cursor;
 
-  
+  /**
+   * The item at the end of ProductBundleComponentEdge.
+   */
   private ProductBundleComponent node;
 
   public ProductBundleComponentEdge() {
   }
 
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   public String getCursor() {
     return cursor;
   }
@@ -25,7 +33,9 @@ public class ProductBundleComponentEdge {
     this.cursor = cursor;
   }
 
-  
+  /**
+   * The item at the end of ProductBundleComponentEdge.
+   */
   public ProductBundleComponent getNode() {
     return node;
   }
@@ -58,10 +68,14 @@ public class ProductBundleComponentEdge {
   }
 
   public static class Builder {
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     private String cursor;
 
-    
+    /**
+     * The item at the end of ProductBundleComponentEdge.
+     */
     private ProductBundleComponent node;
 
     public ProductBundleComponentEdge build() {
@@ -71,13 +85,17 @@ public class ProductBundleComponentEdge {
       return result;
     }
 
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder cursor(String cursor) {
       this.cursor = cursor;
       return this;
     }
 
-    
+    /**
+     * The item at the end of ProductBundleComponentEdge.
+     */
     public Builder node(ProductBundleComponent node) {
       this.node = node;
       return this;

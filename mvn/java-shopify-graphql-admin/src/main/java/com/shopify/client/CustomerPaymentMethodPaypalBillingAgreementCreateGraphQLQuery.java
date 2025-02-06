@@ -8,7 +8,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a PayPal billing agreement for a customer.
+ */
 public class CustomerPaymentMethodPaypalBillingAgreementCreateGraphQLQuery extends GraphQLQuery {
   public CustomerPaymentMethodPaypalBillingAgreementCreateGraphQLQuery(String customerId,
       MailingAddressInput billingAddress, String billingAgreementId, Boolean inactive,
@@ -56,28 +58,36 @@ public class CustomerPaymentMethodPaypalBillingAgreementCreateGraphQLQuery exten
                
     }
 
-    
+    /**
+     * The ID of the customer.
+     */
     public Builder customerId(String customerId) {
       this.customerId = customerId;
       this.fieldsSet.add("customerId");
       return this;
     }
 
-    
+    /**
+     * The billing address.
+     */
     public Builder billingAddress(MailingAddressInput billingAddress) {
       this.billingAddress = billingAddress;
       this.fieldsSet.add("billingAddress");
       return this;
     }
 
-    
+    /**
+     * The billing agreement ID from PayPal that starts with 'B-' (for example, `B-1234XXXXX`).
+     */
     public Builder billingAgreementId(String billingAgreementId) {
       this.billingAgreementId = billingAgreementId;
       this.fieldsSet.add("billingAgreementId");
       return this;
     }
 
-    
+    /**
+     * Whether the PayPal billing agreement is inactive.
+     */
     public Builder inactive(Boolean inactive) {
       this.inactive = inactive;
       this.fieldsSet.add("inactive");

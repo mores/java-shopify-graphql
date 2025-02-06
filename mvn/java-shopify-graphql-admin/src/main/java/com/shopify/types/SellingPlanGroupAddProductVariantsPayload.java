@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `sellingPlanGroupAddProductVariants` mutation.
+ */
 public class SellingPlanGroupAddProductVariantsPayload {
-  
+  /**
+   * The updated selling plan group.
+   */
   private SellingPlanGroup sellingPlanGroup;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<SellingPlanGroupUserError> userErrors;
 
   public SellingPlanGroupAddProductVariantsPayload() {
   }
 
-  
+  /**
+   * The updated selling plan group.
+   */
   public SellingPlanGroup getSellingPlanGroup() {
     return sellingPlanGroup;
   }
@@ -26,7 +34,9 @@ public class SellingPlanGroupAddProductVariantsPayload {
     this.sellingPlanGroup = sellingPlanGroup;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<SellingPlanGroupUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class SellingPlanGroupAddProductVariantsPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The updated selling plan group.
+     */
     private SellingPlanGroup sellingPlanGroup;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<SellingPlanGroupUserError> userErrors;
 
     public SellingPlanGroupAddProductVariantsPayload build() {
@@ -72,13 +86,17 @@ public class SellingPlanGroupAddProductVariantsPayload {
       return result;
     }
 
-    
+    /**
+     * The updated selling plan group.
+     */
     public Builder sellingPlanGroup(SellingPlanGroup sellingPlanGroup) {
       this.sellingPlanGroup = sellingPlanGroup;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<SellingPlanGroupUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

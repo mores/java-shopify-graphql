@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `metafieldDefinitionDelete` mutation.
+ */
 public class MetafieldDefinitionDeletePayload {
-  
+  /**
+   * The ID of the deleted metafield definition.
+   */
   private String deletedDefinitionId;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<MetafieldDefinitionDeleteUserError> userErrors;
 
   public MetafieldDefinitionDeletePayload() {
   }
 
-  
+  /**
+   * The ID of the deleted metafield definition.
+   */
   public String getDeletedDefinitionId() {
     return deletedDefinitionId;
   }
@@ -26,7 +34,9 @@ public class MetafieldDefinitionDeletePayload {
     this.deletedDefinitionId = deletedDefinitionId;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<MetafieldDefinitionDeleteUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class MetafieldDefinitionDeletePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the deleted metafield definition.
+     */
     private String deletedDefinitionId;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<MetafieldDefinitionDeleteUserError> userErrors;
 
     public MetafieldDefinitionDeletePayload build() {
@@ -72,13 +86,17 @@ public class MetafieldDefinitionDeletePayload {
       return result;
     }
 
-    
+    /**
+     * The ID of the deleted metafield definition.
+     */
     public Builder deletedDefinitionId(String deletedDefinitionId) {
       this.deletedDefinitionId = deletedDefinitionId;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<MetafieldDefinitionDeleteUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

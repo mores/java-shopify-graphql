@@ -6,18 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The value of a fixed amount price rule.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class PriceRuleFixedAmountValue implements PriceRuleValue {
-  
+  /**
+   * The monetary value of the price rule.
+   */
   private String amount;
 
   public PriceRuleFixedAmountValue() {
   }
 
-  
+  /**
+   * The monetary value of the price rule.
+   */
   public String getAmount() {
     return amount;
   }
@@ -49,7 +55,9 @@ public class PriceRuleFixedAmountValue implements PriceRuleValue {
   }
 
   public static class Builder {
-    
+    /**
+     * The monetary value of the price rule.
+     */
     private String amount;
 
     public PriceRuleFixedAmountValue build() {
@@ -58,7 +66,9 @@ public class PriceRuleFixedAmountValue implements PriceRuleValue {
       return result;
     }
 
-    
+    /**
+     * The monetary value of the price rule.
+     */
     public Builder amount(String amount) {
       this.amount = amount;
       return this;

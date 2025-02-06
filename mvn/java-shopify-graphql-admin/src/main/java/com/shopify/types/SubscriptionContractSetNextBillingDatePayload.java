@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `subscriptionContractSetNextBillingDate` mutation.
+ */
 public class SubscriptionContractSetNextBillingDatePayload {
-  
+  /**
+   * The updated Subscription Contract object.
+   */
   private SubscriptionContract contract;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<SubscriptionContractUserError> userErrors;
 
   public SubscriptionContractSetNextBillingDatePayload() {
   }
 
-  
+  /**
+   * The updated Subscription Contract object.
+   */
   public SubscriptionContract getContract() {
     return contract;
   }
@@ -26,7 +34,9 @@ public class SubscriptionContractSetNextBillingDatePayload {
     this.contract = contract;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<SubscriptionContractUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class SubscriptionContractSetNextBillingDatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The updated Subscription Contract object.
+     */
     private SubscriptionContract contract;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<SubscriptionContractUserError> userErrors;
 
     public SubscriptionContractSetNextBillingDatePayload build() {
@@ -72,13 +86,17 @@ public class SubscriptionContractSetNextBillingDatePayload {
       return result;
     }
 
-    
+    /**
+     * The updated Subscription Contract object.
+     */
     public Builder contract(SubscriptionContract contract) {
       this.contract = contract;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<SubscriptionContractUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

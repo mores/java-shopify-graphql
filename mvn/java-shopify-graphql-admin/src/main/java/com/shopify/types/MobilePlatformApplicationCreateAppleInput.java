@@ -6,27 +6,41 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for an Apple based mobile platform application.
+ */
 public class MobilePlatformApplicationCreateAppleInput {
-  
+  /**
+   * Apple application ID.
+   */
   private String appId;
 
-  
+  /**
+   * Whether Apple Universal Links are supported by this app.
+   */
   private boolean universalLinksEnabled;
 
-  
+  /**
+   * Whether Apple shared web credentials are enabled for this app.
+   */
   private boolean sharedWebCredentialsEnabled;
 
-  
+  /**
+   * Whether Apple app clips are enabled for this app.
+   */
   private Boolean appClipsEnabled;
 
-  
+  /**
+   * The Apple app clip application ID.
+   */
   private String appClipApplicationId;
 
   public MobilePlatformApplicationCreateAppleInput() {
   }
 
-  
+  /**
+   * Apple application ID.
+   */
   public String getAppId() {
     return appId;
   }
@@ -35,7 +49,9 @@ public class MobilePlatformApplicationCreateAppleInput {
     this.appId = appId;
   }
 
-  
+  /**
+   * Whether Apple Universal Links are supported by this app.
+   */
   public boolean getUniversalLinksEnabled() {
     return universalLinksEnabled;
   }
@@ -44,7 +60,9 @@ public class MobilePlatformApplicationCreateAppleInput {
     this.universalLinksEnabled = universalLinksEnabled;
   }
 
-  
+  /**
+   * Whether Apple shared web credentials are enabled for this app.
+   */
   public boolean getSharedWebCredentialsEnabled() {
     return sharedWebCredentialsEnabled;
   }
@@ -53,7 +71,9 @@ public class MobilePlatformApplicationCreateAppleInput {
     this.sharedWebCredentialsEnabled = sharedWebCredentialsEnabled;
   }
 
-  
+  /**
+   * Whether Apple app clips are enabled for this app.
+   */
   public Boolean getAppClipsEnabled() {
     return appClipsEnabled;
   }
@@ -62,7 +82,9 @@ public class MobilePlatformApplicationCreateAppleInput {
     this.appClipsEnabled = appClipsEnabled;
   }
 
-  
+  /**
+   * The Apple app clip application ID.
+   */
   public String getAppClipApplicationId() {
     return appClipApplicationId;
   }
@@ -98,19 +120,29 @@ public class MobilePlatformApplicationCreateAppleInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Apple application ID.
+     */
     private String appId;
 
-    
+    /**
+     * Whether Apple Universal Links are supported by this app.
+     */
     private boolean universalLinksEnabled;
 
-    
+    /**
+     * Whether Apple shared web credentials are enabled for this app.
+     */
     private boolean sharedWebCredentialsEnabled;
 
-    
+    /**
+     * Whether Apple app clips are enabled for this app.
+     */
     private Boolean appClipsEnabled;
 
-    
+    /**
+     * The Apple app clip application ID.
+     */
     private String appClipApplicationId;
 
     public MobilePlatformApplicationCreateAppleInput build() {
@@ -123,31 +155,41 @@ public class MobilePlatformApplicationCreateAppleInput {
       return result;
     }
 
-    
+    /**
+     * Apple application ID.
+     */
     public Builder appId(String appId) {
       this.appId = appId;
       return this;
     }
 
-    
+    /**
+     * Whether Apple Universal Links are supported by this app.
+     */
     public Builder universalLinksEnabled(boolean universalLinksEnabled) {
       this.universalLinksEnabled = universalLinksEnabled;
       return this;
     }
 
-    
+    /**
+     * Whether Apple shared web credentials are enabled for this app.
+     */
     public Builder sharedWebCredentialsEnabled(boolean sharedWebCredentialsEnabled) {
       this.sharedWebCredentialsEnabled = sharedWebCredentialsEnabled;
       return this;
     }
 
-    
+    /**
+     * Whether Apple app clips are enabled for this app.
+     */
     public Builder appClipsEnabled(Boolean appClipsEnabled) {
       this.appClipsEnabled = appClipsEnabled;
       return this;
     }
 
-    
+    /**
+     * The Apple app clip application ID.
+     */
     public Builder appClipApplicationId(String appClipApplicationId) {
       this.appClipApplicationId = appClipApplicationId;
       return this;

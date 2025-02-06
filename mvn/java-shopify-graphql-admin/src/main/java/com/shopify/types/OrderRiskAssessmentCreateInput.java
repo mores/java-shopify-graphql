@@ -6,21 +6,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields for an order risk assessment.
+ */
 public class OrderRiskAssessmentCreateInput {
-  
+  /**
+   * The ID of the order receiving the fraud assessment.
+   */
   private String orderId;
 
-  
+  /**
+   * The risk level of the fraud assessment.
+   */
   private RiskAssessmentResult riskLevel;
 
-  
+  /**
+   * The list of facts used to determine the fraud assessment.
+   */
   private List<OrderRiskAssessmentFactInput> facts;
 
   public OrderRiskAssessmentCreateInput() {
   }
 
-  
+  /**
+   * The ID of the order receiving the fraud assessment.
+   */
   public String getOrderId() {
     return orderId;
   }
@@ -29,7 +39,9 @@ public class OrderRiskAssessmentCreateInput {
     this.orderId = orderId;
   }
 
-  
+  /**
+   * The risk level of the fraud assessment.
+   */
   public RiskAssessmentResult getRiskLevel() {
     return riskLevel;
   }
@@ -38,7 +50,9 @@ public class OrderRiskAssessmentCreateInput {
     this.riskLevel = riskLevel;
   }
 
-  
+  /**
+   * The list of facts used to determine the fraud assessment.
+   */
   public List<OrderRiskAssessmentFactInput> getFacts() {
     return facts;
   }
@@ -72,13 +86,19 @@ public class OrderRiskAssessmentCreateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the order receiving the fraud assessment.
+     */
     private String orderId;
 
-    
+    /**
+     * The risk level of the fraud assessment.
+     */
     private RiskAssessmentResult riskLevel;
 
-    
+    /**
+     * The list of facts used to determine the fraud assessment.
+     */
     private List<OrderRiskAssessmentFactInput> facts;
 
     public OrderRiskAssessmentCreateInput build() {
@@ -89,19 +109,25 @@ public class OrderRiskAssessmentCreateInput {
       return result;
     }
 
-    
+    /**
+     * The ID of the order receiving the fraud assessment.
+     */
     public Builder orderId(String orderId) {
       this.orderId = orderId;
       return this;
     }
 
-    
+    /**
+     * The risk level of the fraud assessment.
+     */
     public Builder riskLevel(RiskAssessmentResult riskLevel) {
       this.riskLevel = riskLevel;
       return this;
     }
 
-    
+    /**
+     * The list of facts used to determine the fraud assessment.
+     */
     public Builder facts(List<OrderRiskAssessmentFactInput> facts) {
       this.facts = facts;
       return this;

@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a web presence for a market.
+ */
 public class MarketWebPresenceCreateGraphQLQuery extends GraphQLQuery {
   public MarketWebPresenceCreateGraphQLQuery(String marketId,
       MarketWebPresenceCreateInput webPresence, String queryName, Set<String> fieldsSet) {
@@ -46,14 +48,18 @@ public class MarketWebPresenceCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the market for which to create a web presence.
+     */
     public Builder marketId(String marketId) {
       this.marketId = marketId;
       this.fieldsSet.add("marketId");
       return this;
     }
 
-    
+    /**
+     * The details of the web presence to be created.
+     */
     public Builder webPresence(MarketWebPresenceCreateInput webPresence) {
       this.webPresence = webPresence;
       this.fieldsSet.add("webPresence");

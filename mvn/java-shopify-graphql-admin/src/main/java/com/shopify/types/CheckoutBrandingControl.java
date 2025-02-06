@@ -5,24 +5,40 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The form controls customizations.
+ */
 public class CheckoutBrandingControl {
-  
+  /**
+   * The border used for form controls.
+   */
   private CheckoutBrandingSimpleBorder border;
 
-  
+  /**
+   * Set to TRANSPARENT to define transparent form controls. If null, form controls
+   * inherit colors from their scheme settings (for example, the main section
+   * inherits from `design_system.colors.schemes.scheme1.control` by default). Note
+   * that usage of the `customizations.control.color` setting to customize the form
+   * control color is deprecated.
+   */
   private CheckoutBrandingColorSelection color;
 
-  
+  /**
+   * The corner radius used for form controls.
+   */
   private CheckoutBrandingCornerRadius cornerRadius;
 
-  
+  /**
+   * The label position used for form controls.
+   */
   private CheckoutBrandingLabelPosition labelPosition;
 
   public CheckoutBrandingControl() {
   }
 
-  
+  /**
+   * The border used for form controls.
+   */
   public CheckoutBrandingSimpleBorder getBorder() {
     return border;
   }
@@ -31,7 +47,13 @@ public class CheckoutBrandingControl {
     this.border = border;
   }
 
-  
+  /**
+   * Set to TRANSPARENT to define transparent form controls. If null, form controls
+   * inherit colors from their scheme settings (for example, the main section
+   * inherits from `design_system.colors.schemes.scheme1.control` by default). Note
+   * that usage of the `customizations.control.color` setting to customize the form
+   * control color is deprecated.
+   */
   public CheckoutBrandingColorSelection getColor() {
     return color;
   }
@@ -40,7 +62,9 @@ public class CheckoutBrandingControl {
     this.color = color;
   }
 
-  
+  /**
+   * The corner radius used for form controls.
+   */
   public CheckoutBrandingCornerRadius getCornerRadius() {
     return cornerRadius;
   }
@@ -49,7 +73,9 @@ public class CheckoutBrandingControl {
     this.cornerRadius = cornerRadius;
   }
 
-  
+  /**
+   * The label position used for form controls.
+   */
   public CheckoutBrandingLabelPosition getLabelPosition() {
     return labelPosition;
   }
@@ -84,16 +110,28 @@ public class CheckoutBrandingControl {
   }
 
   public static class Builder {
-    
+    /**
+     * The border used for form controls.
+     */
     private CheckoutBrandingSimpleBorder border;
 
-    
+    /**
+     * Set to TRANSPARENT to define transparent form controls. If null, form controls
+     * inherit colors from their scheme settings (for example, the main section
+     * inherits from `design_system.colors.schemes.scheme1.control` by default). Note
+     * that usage of the `customizations.control.color` setting to customize the form
+     * control color is deprecated.
+     */
     private CheckoutBrandingColorSelection color;
 
-    
+    /**
+     * The corner radius used for form controls.
+     */
     private CheckoutBrandingCornerRadius cornerRadius;
 
-    
+    /**
+     * The label position used for form controls.
+     */
     private CheckoutBrandingLabelPosition labelPosition;
 
     public CheckoutBrandingControl build() {
@@ -105,25 +143,37 @@ public class CheckoutBrandingControl {
       return result;
     }
 
-    
+    /**
+     * The border used for form controls.
+     */
     public Builder border(CheckoutBrandingSimpleBorder border) {
       this.border = border;
       return this;
     }
 
-    
+    /**
+     * Set to TRANSPARENT to define transparent form controls. If null, form controls
+     * inherit colors from their scheme settings (for example, the main section
+     * inherits from `design_system.colors.schemes.scheme1.control` by default). Note
+     * that usage of the `customizations.control.color` setting to customize the form
+     * control color is deprecated.
+     */
     public Builder color(CheckoutBrandingColorSelection color) {
       this.color = color;
       return this;
     }
 
-    
+    /**
+     * The corner radius used for form controls.
+     */
     public Builder cornerRadius(CheckoutBrandingCornerRadius cornerRadius) {
       this.cornerRadius = cornerRadius;
       return this;
     }
 
-    
+    /**
+     * The label position used for form controls.
+     */
     public Builder labelPosition(CheckoutBrandingLabelPosition labelPosition) {
       this.labelPosition = labelPosition;
       return this;

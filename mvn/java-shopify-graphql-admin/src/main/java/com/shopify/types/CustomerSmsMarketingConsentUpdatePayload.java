@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `customerSmsMarketingConsentUpdate` mutation.
+ */
 public class CustomerSmsMarketingConsentUpdatePayload {
-  
+  /**
+   * The updated customer.
+   */
   private Customer customer;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<CustomerSmsMarketingConsentError> userErrors;
 
   public CustomerSmsMarketingConsentUpdatePayload() {
   }
 
-  
+  /**
+   * The updated customer.
+   */
   public Customer getCustomer() {
     return customer;
   }
@@ -26,7 +34,9 @@ public class CustomerSmsMarketingConsentUpdatePayload {
     this.customer = customer;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<CustomerSmsMarketingConsentError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class CustomerSmsMarketingConsentUpdatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The updated customer.
+     */
     private Customer customer;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<CustomerSmsMarketingConsentError> userErrors;
 
     public CustomerSmsMarketingConsentUpdatePayload build() {
@@ -72,13 +86,17 @@ public class CustomerSmsMarketingConsentUpdatePayload {
       return result;
     }
 
-    
+    /**
+     * The updated customer.
+     */
     public Builder customer(Customer customer) {
       this.customer = customer;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<CustomerSmsMarketingConsentError> userErrors) {
       this.userErrors = userErrors;
       return this;

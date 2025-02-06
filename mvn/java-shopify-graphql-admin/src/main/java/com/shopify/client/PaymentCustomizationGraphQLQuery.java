@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * The payment customization.
+ */
 public class PaymentCustomizationGraphQLQuery extends GraphQLQuery {
   public PaymentCustomizationGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -40,7 +42,9 @@ public class PaymentCustomizationGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the payment customization.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * The type of a payment status.
+ */
 public enum OrderPaymentStatusResult {
   SUCCESS,
 

@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A preview of a URL redirect import row.
+ */
 public class UrlRedirectImportPreview {
-  
+  /**
+   * The old path to be redirected from. When the user visits this path, they will be redirected to the target location.
+   */
   private String path;
 
-  
+  /**
+   * The target location where the user will be redirected to.
+   */
   private String target;
 
   public UrlRedirectImportPreview() {
   }
 
-  
+  /**
+   * The old path to be redirected from. When the user visits this path, they will be redirected to the target location.
+   */
   public String getPath() {
     return path;
   }
@@ -25,7 +33,9 @@ public class UrlRedirectImportPreview {
     this.path = path;
   }
 
-  
+  /**
+   * The target location where the user will be redirected to.
+   */
   public String getTarget() {
     return target;
   }
@@ -58,10 +68,14 @@ public class UrlRedirectImportPreview {
   }
 
   public static class Builder {
-    
+    /**
+     * The old path to be redirected from. When the user visits this path, they will be redirected to the target location.
+     */
     private String path;
 
-    
+    /**
+     * The target location where the user will be redirected to.
+     */
     private String target;
 
     public UrlRedirectImportPreview build() {
@@ -71,13 +85,17 @@ public class UrlRedirectImportPreview {
       return result;
     }
 
-    
+    /**
+     * The old path to be redirected from. When the user visits this path, they will be redirected to the target location.
+     */
     public Builder path(String path) {
       this.path = path;
       return this;
     }
 
-    
+    /**
+     * The target location where the user will be redirected to.
+     */
     public Builder target(String target) {
       this.target = target;
       return this;

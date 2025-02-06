@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Local pickup settings associated with a location.
+ */
 public class DeliveryLocalPickupSettings {
-  
+  /**
+   * Additional instructions or information related to the local pickup.
+   */
   private String instructions;
 
-  
+  /**
+   * The estimated pickup time to show customers at checkout.
+   */
   private DeliveryLocalPickupTime pickupTime;
 
   public DeliveryLocalPickupSettings() {
   }
 
-  
+  /**
+   * Additional instructions or information related to the local pickup.
+   */
   public String getInstructions() {
     return instructions;
   }
@@ -25,7 +33,9 @@ public class DeliveryLocalPickupSettings {
     this.instructions = instructions;
   }
 
-  
+  /**
+   * The estimated pickup time to show customers at checkout.
+   */
   public DeliveryLocalPickupTime getPickupTime() {
     return pickupTime;
   }
@@ -58,10 +68,14 @@ public class DeliveryLocalPickupSettings {
   }
 
   public static class Builder {
-    
+    /**
+     * Additional instructions or information related to the local pickup.
+     */
     private String instructions;
 
-    
+    /**
+     * The estimated pickup time to show customers at checkout.
+     */
     private DeliveryLocalPickupTime pickupTime;
 
     public DeliveryLocalPickupSettings build() {
@@ -71,13 +85,17 @@ public class DeliveryLocalPickupSettings {
       return result;
     }
 
-    
+    /**
+     * Additional instructions or information related to the local pickup.
+     */
     public Builder instructions(String instructions) {
       this.instructions = instructions;
       return this;
     }
 
-    
+    /**
+     * The estimated pickup time to show customers at checkout.
+     */
     public Builder pickupTime(DeliveryLocalPickupTime pickupTime) {
       this.pickupTime = pickupTime;
       return this;

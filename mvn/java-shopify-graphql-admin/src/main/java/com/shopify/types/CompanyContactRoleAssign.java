@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for the role and location to assign to a company contact.
+ */
 public class CompanyContactRoleAssign {
-  
+  /**
+   * The role ID.
+   */
   private String companyContactRoleId;
 
-  
+  /**
+   * The location.
+   */
   private String companyLocationId;
 
   public CompanyContactRoleAssign() {
   }
 
-  
+  /**
+   * The role ID.
+   */
   public String getCompanyContactRoleId() {
     return companyContactRoleId;
   }
@@ -25,7 +33,9 @@ public class CompanyContactRoleAssign {
     this.companyContactRoleId = companyContactRoleId;
   }
 
-  
+  /**
+   * The location.
+   */
   public String getCompanyLocationId() {
     return companyLocationId;
   }
@@ -58,10 +68,14 @@ public class CompanyContactRoleAssign {
   }
 
   public static class Builder {
-    
+    /**
+     * The role ID.
+     */
     private String companyContactRoleId;
 
-    
+    /**
+     * The location.
+     */
     private String companyLocationId;
 
     public CompanyContactRoleAssign build() {
@@ -71,13 +85,17 @@ public class CompanyContactRoleAssign {
       return result;
     }
 
-    
+    /**
+     * The role ID.
+     */
     public Builder companyContactRoleId(String companyContactRoleId) {
       this.companyContactRoleId = companyContactRoleId;
       return this;
     }
 
-    
+    /**
+     * The location.
+     */
     public Builder companyLocationId(String companyLocationId) {
       this.companyLocationId = companyLocationId;
       return this;

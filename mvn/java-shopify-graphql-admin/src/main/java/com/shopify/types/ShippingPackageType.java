@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Type of a shipping package.
+ */
 public enum ShippingPackageType {
   BOX,
 

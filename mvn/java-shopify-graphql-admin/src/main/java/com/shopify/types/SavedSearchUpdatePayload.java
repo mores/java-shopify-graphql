@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `savedSearchUpdate` mutation.
+ */
 public class SavedSearchUpdatePayload {
-  
+  /**
+   * The saved search that was updated.
+   */
   private SavedSearch savedSearch;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public SavedSearchUpdatePayload() {
   }
 
-  
+  /**
+   * The saved search that was updated.
+   */
   public SavedSearch getSavedSearch() {
     return savedSearch;
   }
@@ -26,7 +34,9 @@ public class SavedSearchUpdatePayload {
     this.savedSearch = savedSearch;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class SavedSearchUpdatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The saved search that was updated.
+     */
     private SavedSearch savedSearch;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public SavedSearchUpdatePayload build() {
@@ -72,13 +86,17 @@ public class SavedSearchUpdatePayload {
       return result;
     }
 
-    
+    /**
+     * The saved search that was updated.
+     */
     public Builder savedSearch(SavedSearch savedSearch) {
       this.savedSearch = savedSearch;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

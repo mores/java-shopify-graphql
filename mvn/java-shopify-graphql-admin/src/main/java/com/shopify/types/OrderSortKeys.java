@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * The set of valid sort keys for the Order query.
+ */
 public enum OrderSortKeys {
   CREATED_AT,
 

@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for a rate definition.
+ */
 public class DeliveryRateDefinitionInput {
-  
+  /**
+   * A globally-unique ID of the rate definition.
+   */
   private String id;
 
-  
+  /**
+   * The price of the rate definition.
+   */
   private MoneyInput price;
 
   public DeliveryRateDefinitionInput() {
   }
 
-  
+  /**
+   * A globally-unique ID of the rate definition.
+   */
   public String getId() {
     return id;
   }
@@ -25,7 +33,9 @@ public class DeliveryRateDefinitionInput {
     this.id = id;
   }
 
-  
+  /**
+   * The price of the rate definition.
+   */
   public MoneyInput getPrice() {
     return price;
   }
@@ -58,10 +68,14 @@ public class DeliveryRateDefinitionInput {
   }
 
   public static class Builder {
-    
+    /**
+     * A globally-unique ID of the rate definition.
+     */
     private String id;
 
-    
+    /**
+     * The price of the rate definition.
+     */
     private MoneyInput price;
 
     public DeliveryRateDefinitionInput build() {
@@ -71,13 +85,17 @@ public class DeliveryRateDefinitionInput {
       return result;
     }
 
-    
+    /**
+     * A globally-unique ID of the rate definition.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The price of the rate definition.
+     */
     public Builder price(MoneyInput price) {
       this.price = price;
       return this;

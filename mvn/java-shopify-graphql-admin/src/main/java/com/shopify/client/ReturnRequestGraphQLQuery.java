@@ -7,7 +7,11 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * A customer's return request that hasn't been approved or declined.
+ * This mutation sets the value of the `Return.status` field to `REQUESTED`.
+ * To create a return that has the `Return.status` field set to `OPEN`, use the `returnCreate` mutation.
+ */
 public class ReturnRequestGraphQLQuery extends GraphQLQuery {
   public ReturnRequestGraphQLQuery(ReturnRequestInput input, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +46,9 @@ public class ReturnRequestGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The input fields for requesting a return.
+     */
     public Builder input(ReturnRequestInput input) {
       this.input = input;
       this.fieldsSet.add("input");

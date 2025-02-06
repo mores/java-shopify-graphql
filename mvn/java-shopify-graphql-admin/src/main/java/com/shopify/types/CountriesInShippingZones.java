@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The list of all the countries from the combined shipping zones for the shop.
+ */
 public class CountriesInShippingZones {
-  
+  /**
+   * The list of all the countries from all the combined shipping zones.
+   */
   private List<CountryCode> countryCodes;
 
-  
+  /**
+   * Whether 'Rest of World' has been defined in any of the shipping zones.
+   */
   private boolean includeRestOfWorld;
 
   public CountriesInShippingZones() {
   }
 
-  
+  /**
+   * The list of all the countries from all the combined shipping zones.
+   */
   public List<CountryCode> getCountryCodes() {
     return countryCodes;
   }
@@ -26,7 +34,9 @@ public class CountriesInShippingZones {
     this.countryCodes = countryCodes;
   }
 
-  
+  /**
+   * Whether 'Rest of World' has been defined in any of the shipping zones.
+   */
   public boolean getIncludeRestOfWorld() {
     return includeRestOfWorld;
   }
@@ -59,10 +69,14 @@ public class CountriesInShippingZones {
   }
 
   public static class Builder {
-    
+    /**
+     * The list of all the countries from all the combined shipping zones.
+     */
     private List<CountryCode> countryCodes;
 
-    
+    /**
+     * Whether 'Rest of World' has been defined in any of the shipping zones.
+     */
     private boolean includeRestOfWorld;
 
     public CountriesInShippingZones build() {
@@ -72,13 +86,17 @@ public class CountriesInShippingZones {
       return result;
     }
 
-    
+    /**
+     * The list of all the countries from all the combined shipping zones.
+     */
     public Builder countryCodes(List<CountryCode> countryCodes) {
       this.countryCodes = countryCodes;
       return this;
     }
 
-    
+    /**
+     * Whether 'Rest of World' has been defined in any of the shipping zones.
+     */
     public Builder includeRestOfWorld(boolean includeRestOfWorld) {
       this.includeRestOfWorld = includeRestOfWorld;
       return this;

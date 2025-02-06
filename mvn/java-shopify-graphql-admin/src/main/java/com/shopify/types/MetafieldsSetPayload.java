@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `metafieldsSet` mutation.
+ */
 public class MetafieldsSetPayload {
-  
+  /**
+   * The list of metafields that were set.
+   */
   private List<Metafield> metafields;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<MetafieldsSetUserError> userErrors;
 
   public MetafieldsSetPayload() {
   }
 
-  
+  /**
+   * The list of metafields that were set.
+   */
   public List<Metafield> getMetafields() {
     return metafields;
   }
@@ -26,7 +34,9 @@ public class MetafieldsSetPayload {
     this.metafields = metafields;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<MetafieldsSetUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class MetafieldsSetPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The list of metafields that were set.
+     */
     private List<Metafield> metafields;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<MetafieldsSetUserError> userErrors;
 
     public MetafieldsSetPayload build() {
@@ -72,13 +86,17 @@ public class MetafieldsSetPayload {
       return result;
     }
 
-    
+    /**
+     * The list of metafields that were set.
+     */
     public Builder metafields(List<Metafield> metafields) {
       this.metafields = metafields;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<MetafieldsSetUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

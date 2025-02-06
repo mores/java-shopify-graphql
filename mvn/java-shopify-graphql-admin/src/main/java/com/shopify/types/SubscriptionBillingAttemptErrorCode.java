@@ -1,6 +1,9 @@
 package com.shopify.types;
 
-
+/**
+ * The possible error codes associated with making billing attempts. The error codes supplement the
+ * `error_message` to provide consistent results and help with dunning management.
+ */
 public enum SubscriptionBillingAttemptErrorCode {
   PAYMENT_METHOD_NOT_FOUND,
 

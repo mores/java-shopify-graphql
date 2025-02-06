@@ -7,42 +7,64 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Represents the payment terms for an order or draft order.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class PaymentTerms implements com.shopify.types.Node {
-  
+  /**
+   * The draft order associated with the payment terms.
+   */
   private DraftOrder draftOrder;
 
-  
+  /**
+   * Duration of payment terms in days based on the payment terms template used to create the payment terms.
+   */
   private Integer dueInDays;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The order associated with the payment terms.
+   */
   private Order order;
 
-  
+  /**
+   * Whether the payment terms have overdue payment schedules.
+   */
   private boolean overdue;
 
-  
+  /**
+   * List of schedules for the payment terms.
+   */
   private PaymentScheduleConnection paymentSchedules;
 
-  
+  /**
+   * The name of the payment terms template used to create the payment terms.
+   */
   private String paymentTermsName;
 
-  
+  /**
+   * The payment terms template type used to create the payment terms.
+   */
   private PaymentTermsType paymentTermsType;
 
-  
+  /**
+   * The payment terms name, translated into the shop admin's preferred language.
+   */
   private String translatedName;
 
   public PaymentTerms() {
   }
 
-  
+  /**
+   * The draft order associated with the payment terms.
+   */
   public DraftOrder getDraftOrder() {
     return draftOrder;
   }
@@ -51,7 +73,9 @@ public class PaymentTerms implements com.shopify.types.Node {
     this.draftOrder = draftOrder;
   }
 
-  
+  /**
+   * Duration of payment terms in days based on the payment terms template used to create the payment terms.
+   */
   public Integer getDueInDays() {
     return dueInDays;
   }
@@ -60,7 +84,9 @@ public class PaymentTerms implements com.shopify.types.Node {
     this.dueInDays = dueInDays;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -69,7 +95,9 @@ public class PaymentTerms implements com.shopify.types.Node {
     this.id = id;
   }
 
-  
+  /**
+   * The order associated with the payment terms.
+   */
   public Order getOrder() {
     return order;
   }
@@ -78,7 +106,9 @@ public class PaymentTerms implements com.shopify.types.Node {
     this.order = order;
   }
 
-  
+  /**
+   * Whether the payment terms have overdue payment schedules.
+   */
   public boolean getOverdue() {
     return overdue;
   }
@@ -87,7 +117,9 @@ public class PaymentTerms implements com.shopify.types.Node {
     this.overdue = overdue;
   }
 
-  
+  /**
+   * List of schedules for the payment terms.
+   */
   public PaymentScheduleConnection getPaymentSchedules() {
     return paymentSchedules;
   }
@@ -96,7 +128,9 @@ public class PaymentTerms implements com.shopify.types.Node {
     this.paymentSchedules = paymentSchedules;
   }
 
-  
+  /**
+   * The name of the payment terms template used to create the payment terms.
+   */
   public String getPaymentTermsName() {
     return paymentTermsName;
   }
@@ -105,7 +139,9 @@ public class PaymentTerms implements com.shopify.types.Node {
     this.paymentTermsName = paymentTermsName;
   }
 
-  
+  /**
+   * The payment terms template type used to create the payment terms.
+   */
   public PaymentTermsType getPaymentTermsType() {
     return paymentTermsType;
   }
@@ -114,7 +150,9 @@ public class PaymentTerms implements com.shopify.types.Node {
     this.paymentTermsType = paymentTermsType;
   }
 
-  
+  /**
+   * The payment terms name, translated into the shop admin's preferred language.
+   */
   public String getTranslatedName() {
     return translatedName;
   }
@@ -154,31 +192,49 @@ public class PaymentTerms implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    
+    /**
+     * The draft order associated with the payment terms.
+     */
     private DraftOrder draftOrder;
 
-    
+    /**
+     * Duration of payment terms in days based on the payment terms template used to create the payment terms.
+     */
     private Integer dueInDays;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The order associated with the payment terms.
+     */
     private Order order;
 
-    
+    /**
+     * Whether the payment terms have overdue payment schedules.
+     */
     private boolean overdue;
 
-    
+    /**
+     * List of schedules for the payment terms.
+     */
     private PaymentScheduleConnection paymentSchedules;
 
-    
+    /**
+     * The name of the payment terms template used to create the payment terms.
+     */
     private String paymentTermsName;
 
-    
+    /**
+     * The payment terms template type used to create the payment terms.
+     */
     private PaymentTermsType paymentTermsType;
 
-    
+    /**
+     * The payment terms name, translated into the shop admin's preferred language.
+     */
     private String translatedName;
 
     public PaymentTerms build() {
@@ -195,55 +251,73 @@ public class PaymentTerms implements com.shopify.types.Node {
       return result;
     }
 
-    
+    /**
+     * The draft order associated with the payment terms.
+     */
     public Builder draftOrder(DraftOrder draftOrder) {
       this.draftOrder = draftOrder;
       return this;
     }
 
-    
+    /**
+     * Duration of payment terms in days based on the payment terms template used to create the payment terms.
+     */
     public Builder dueInDays(Integer dueInDays) {
       this.dueInDays = dueInDays;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The order associated with the payment terms.
+     */
     public Builder order(Order order) {
       this.order = order;
       return this;
     }
 
-    
+    /**
+     * Whether the payment terms have overdue payment schedules.
+     */
     public Builder overdue(boolean overdue) {
       this.overdue = overdue;
       return this;
     }
 
-    
+    /**
+     * List of schedules for the payment terms.
+     */
     public Builder paymentSchedules(PaymentScheduleConnection paymentSchedules) {
       this.paymentSchedules = paymentSchedules;
       return this;
     }
 
-    
+    /**
+     * The name of the payment terms template used to create the payment terms.
+     */
     public Builder paymentTermsName(String paymentTermsName) {
       this.paymentTermsName = paymentTermsName;
       return this;
     }
 
-    
+    /**
+     * The payment terms template type used to create the payment terms.
+     */
     public Builder paymentTermsType(PaymentTermsType paymentTermsType) {
       this.paymentTermsType = paymentTermsType;
       return this;
     }
 
-    
+    /**
+     * The payment terms name, translated into the shop admin's preferred language.
+     */
     public Builder translatedName(String translatedName) {
       this.translatedName = translatedName;
       return this;

@@ -50,7 +50,9 @@ public class OrderCaptureGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The input for the mutation.
+     */
     public Builder input(OrderCaptureInput input) {
       this.input = input;
       this.fieldsSet.add("input");

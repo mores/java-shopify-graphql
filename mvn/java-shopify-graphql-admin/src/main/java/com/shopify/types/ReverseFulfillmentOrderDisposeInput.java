@@ -5,24 +5,37 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields to dispose a reverse fulfillment order line item.
+ */
 public class ReverseFulfillmentOrderDisposeInput {
-  
+  /**
+   * The ID of the reverse fulfillment order line item.
+   */
   private String reverseFulfillmentOrderLineItemId;
 
-  
+  /**
+   * The quantity of the reverse fulfillment order line item to dispose.
+   */
   private int quantity;
 
-  
+  /**
+   * The ID of the location where the reverse fulfillment order line item is to be disposed.
+   *         This is required when the disposition type is RESTOCKED.
+   */
   private String locationId;
 
-  
+  /**
+   * The final arrangement for the reverse fulfillment order line item.
+   */
   private ReverseFulfillmentOrderDispositionType dispositionType;
 
   public ReverseFulfillmentOrderDisposeInput() {
   }
 
-  
+  /**
+   * The ID of the reverse fulfillment order line item.
+   */
   public String getReverseFulfillmentOrderLineItemId() {
     return reverseFulfillmentOrderLineItemId;
   }
@@ -31,7 +44,9 @@ public class ReverseFulfillmentOrderDisposeInput {
     this.reverseFulfillmentOrderLineItemId = reverseFulfillmentOrderLineItemId;
   }
 
-  
+  /**
+   * The quantity of the reverse fulfillment order line item to dispose.
+   */
   public int getQuantity() {
     return quantity;
   }
@@ -40,7 +55,10 @@ public class ReverseFulfillmentOrderDisposeInput {
     this.quantity = quantity;
   }
 
-  
+  /**
+   * The ID of the location where the reverse fulfillment order line item is to be disposed.
+   *         This is required when the disposition type is RESTOCKED.
+   */
   public String getLocationId() {
     return locationId;
   }
@@ -49,7 +67,9 @@ public class ReverseFulfillmentOrderDisposeInput {
     this.locationId = locationId;
   }
 
-  
+  /**
+   * The final arrangement for the reverse fulfillment order line item.
+   */
   public ReverseFulfillmentOrderDispositionType getDispositionType() {
     return dispositionType;
   }
@@ -84,16 +104,25 @@ public class ReverseFulfillmentOrderDisposeInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the reverse fulfillment order line item.
+     */
     private String reverseFulfillmentOrderLineItemId;
 
-    
+    /**
+     * The quantity of the reverse fulfillment order line item to dispose.
+     */
     private int quantity;
 
-    
+    /**
+     * The ID of the location where the reverse fulfillment order line item is to be disposed.
+     *         This is required when the disposition type is RESTOCKED.
+     */
     private String locationId;
 
-    
+    /**
+     * The final arrangement for the reverse fulfillment order line item.
+     */
     private ReverseFulfillmentOrderDispositionType dispositionType;
 
     public ReverseFulfillmentOrderDisposeInput build() {
@@ -105,25 +134,34 @@ public class ReverseFulfillmentOrderDisposeInput {
       return result;
     }
 
-    
+    /**
+     * The ID of the reverse fulfillment order line item.
+     */
     public Builder reverseFulfillmentOrderLineItemId(String reverseFulfillmentOrderLineItemId) {
       this.reverseFulfillmentOrderLineItemId = reverseFulfillmentOrderLineItemId;
       return this;
     }
 
-    
+    /**
+     * The quantity of the reverse fulfillment order line item to dispose.
+     */
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    
+    /**
+     * The ID of the location where the reverse fulfillment order line item is to be disposed.
+     *         This is required when the disposition type is RESTOCKED.
+     */
     public Builder locationId(String locationId) {
       this.locationId = locationId;
       return this;
     }
 
-    
+    /**
+     * The final arrangement for the reverse fulfillment order line item.
+     */
     public Builder dispositionType(ReverseFulfillmentOrderDispositionType dispositionType) {
       this.dispositionType = dispositionType;
       return this;

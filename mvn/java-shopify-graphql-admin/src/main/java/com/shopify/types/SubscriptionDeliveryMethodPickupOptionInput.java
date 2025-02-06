@@ -5,27 +5,41 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for pickup option.
+ */
 public class SubscriptionDeliveryMethodPickupOptionInput {
-  
+  /**
+   * The title of the pickup option.
+   */
   private String title;
 
-  
+  /**
+   * The presentment title of the pickup option.
+   */
   private String presentmentTitle;
 
-  
+  /**
+   * The details displayed to the customer to describe the pickup option.
+   */
   private String description;
 
-  
+  /**
+   * A custom reference to the delivery method for use with automations.
+   */
   private String code;
 
-  
+  /**
+   * The ID of the pickup location.
+   */
   private String locationId;
 
   public SubscriptionDeliveryMethodPickupOptionInput() {
   }
 
-  
+  /**
+   * The title of the pickup option.
+   */
   public String getTitle() {
     return title;
   }
@@ -34,7 +48,9 @@ public class SubscriptionDeliveryMethodPickupOptionInput {
     this.title = title;
   }
 
-  
+  /**
+   * The presentment title of the pickup option.
+   */
   public String getPresentmentTitle() {
     return presentmentTitle;
   }
@@ -43,7 +59,9 @@ public class SubscriptionDeliveryMethodPickupOptionInput {
     this.presentmentTitle = presentmentTitle;
   }
 
-  
+  /**
+   * The details displayed to the customer to describe the pickup option.
+   */
   public String getDescription() {
     return description;
   }
@@ -52,7 +70,9 @@ public class SubscriptionDeliveryMethodPickupOptionInput {
     this.description = description;
   }
 
-  
+  /**
+   * A custom reference to the delivery method for use with automations.
+   */
   public String getCode() {
     return code;
   }
@@ -61,7 +81,9 @@ public class SubscriptionDeliveryMethodPickupOptionInput {
     this.code = code;
   }
 
-  
+  /**
+   * The ID of the pickup location.
+   */
   public String getLocationId() {
     return locationId;
   }
@@ -97,19 +119,29 @@ public class SubscriptionDeliveryMethodPickupOptionInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The title of the pickup option.
+     */
     private String title;
 
-    
+    /**
+     * The presentment title of the pickup option.
+     */
     private String presentmentTitle;
 
-    
+    /**
+     * The details displayed to the customer to describe the pickup option.
+     */
     private String description;
 
-    
+    /**
+     * A custom reference to the delivery method for use with automations.
+     */
     private String code;
 
-    
+    /**
+     * The ID of the pickup location.
+     */
     private String locationId;
 
     public SubscriptionDeliveryMethodPickupOptionInput build() {
@@ -122,31 +154,41 @@ public class SubscriptionDeliveryMethodPickupOptionInput {
       return result;
     }
 
-    
+    /**
+     * The title of the pickup option.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    
+    /**
+     * The presentment title of the pickup option.
+     */
     public Builder presentmentTitle(String presentmentTitle) {
       this.presentmentTitle = presentmentTitle;
       return this;
     }
 
-    
+    /**
+     * The details displayed to the customer to describe the pickup option.
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    
+    /**
+     * A custom reference to the delivery method for use with automations.
+     */
     public Builder code(String code) {
       this.code = code;
       return this;
     }
 
-    
+    /**
+     * The ID of the pickup location.
+     */
     public Builder locationId(String locationId) {
       this.locationId = locationId;
       return this;

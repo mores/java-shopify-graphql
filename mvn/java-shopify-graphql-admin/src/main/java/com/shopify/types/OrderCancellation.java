@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Details about the order cancellation.
+ */
 public class OrderCancellation {
-  
+  /**
+   * Staff provided note for the order cancellation.
+   */
   private String staffNote;
 
   public OrderCancellation() {
   }
 
-  
+  /**
+   * Staff provided note for the order cancellation.
+   */
   public String getStaffNote() {
     return staffNote;
   }
@@ -45,7 +51,9 @@ public class OrderCancellation {
   }
 
   public static class Builder {
-    
+    /**
+     * Staff provided note for the order cancellation.
+     */
     private String staffNote;
 
     public OrderCancellation build() {
@@ -54,7 +62,9 @@ public class OrderCancellation {
       return result;
     }
 
-    
+    /**
+     * Staff provided note for the order cancellation.
+     */
     public Builder staffNote(String staffNote) {
       this.staffNote = staffNote;
       return this;

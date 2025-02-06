@@ -6,18 +6,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for the destinations where the free shipping discount will be applied.
+ */
 public class DiscountShippingDestinationSelectionInput {
-  
+  /**
+   * Whether the discount code applies to all countries.
+   */
   private Boolean all = false;
 
-  
+  /**
+   * A list of countries where the discount code will apply.
+   */
   private DiscountCountriesInput countries;
 
   public DiscountShippingDestinationSelectionInput() {
   }
 
-  
+  /**
+   * Whether the discount code applies to all countries.
+   */
   public Boolean getAll() {
     return all;
   }
@@ -26,7 +34,9 @@ public class DiscountShippingDestinationSelectionInput {
     this.all = all;
   }
 
-  
+  /**
+   * A list of countries where the discount code will apply.
+   */
   public DiscountCountriesInput getCountries() {
     return countries;
   }
@@ -59,10 +69,14 @@ public class DiscountShippingDestinationSelectionInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Whether the discount code applies to all countries.
+     */
     private Boolean all = false;
 
-    
+    /**
+     * A list of countries where the discount code will apply.
+     */
     private DiscountCountriesInput countries;
 
     public DiscountShippingDestinationSelectionInput build() {
@@ -72,13 +86,17 @@ public class DiscountShippingDestinationSelectionInput {
       return result;
     }
 
-    
+    /**
+     * Whether the discount code applies to all countries.
+     */
     public Builder all(Boolean all) {
       this.all = all;
       return this;
     }
 
-    
+    /**
+     * A list of countries where the discount code will apply.
+     */
     public Builder countries(DiscountCountriesInput countries) {
       this.countries = countries;
       return this;

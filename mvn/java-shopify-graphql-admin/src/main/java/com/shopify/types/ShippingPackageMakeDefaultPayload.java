@@ -6,15 +6,21 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `shippingPackageMakeDefault` mutation.
+ */
 public class ShippingPackageMakeDefaultPayload {
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public ShippingPackageMakeDefaultPayload() {
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -46,7 +52,9 @@ public class ShippingPackageMakeDefaultPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public ShippingPackageMakeDefaultPayload build() {
@@ -55,7 +63,9 @@ public class ShippingPackageMakeDefaultPayload {
       return result;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

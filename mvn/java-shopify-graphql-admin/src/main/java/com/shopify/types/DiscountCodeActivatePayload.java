@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `discountCodeActivate` mutation.
+ */
 public class DiscountCodeActivatePayload {
-  
+  /**
+   * The activated code discount.
+   */
   private DiscountCodeNode codeDiscountNode;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<DiscountUserError> userErrors;
 
   public DiscountCodeActivatePayload() {
   }
 
-  
+  /**
+   * The activated code discount.
+   */
   public DiscountCodeNode getCodeDiscountNode() {
     return codeDiscountNode;
   }
@@ -26,7 +34,9 @@ public class DiscountCodeActivatePayload {
     this.codeDiscountNode = codeDiscountNode;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<DiscountUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class DiscountCodeActivatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The activated code discount.
+     */
     private DiscountCodeNode codeDiscountNode;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<DiscountUserError> userErrors;
 
     public DiscountCodeActivatePayload build() {
@@ -72,13 +86,17 @@ public class DiscountCodeActivatePayload {
       return result;
     }
 
-    
+    /**
+     * The activated code discount.
+     */
     public Builder codeDiscountNode(DiscountCodeNode codeDiscountNode) {
       this.codeDiscountNode = codeDiscountNode;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<DiscountUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

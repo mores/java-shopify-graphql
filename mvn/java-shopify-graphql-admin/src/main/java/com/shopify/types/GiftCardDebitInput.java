@@ -6,21 +6,31 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-
+/**
+ * The input fields for a gift card debit transaction.
+ */
 public class GiftCardDebitInput {
-  
+  /**
+   * The amount to debit the gift card.
+   */
   private MoneyInput debitAmount;
 
-  
+  /**
+   * A note about the debit.
+   */
   private String note;
 
-  
+  /**
+   * The date and time the debit was processed. Defaults to current date and time.
+   */
   private OffsetDateTime processedAt;
 
   public GiftCardDebitInput() {
   }
 
-  
+  /**
+   * The amount to debit the gift card.
+   */
   public MoneyInput getDebitAmount() {
     return debitAmount;
   }
@@ -29,7 +39,9 @@ public class GiftCardDebitInput {
     this.debitAmount = debitAmount;
   }
 
-  
+  /**
+   * A note about the debit.
+   */
   public String getNote() {
     return note;
   }
@@ -38,7 +50,9 @@ public class GiftCardDebitInput {
     this.note = note;
   }
 
-  
+  /**
+   * The date and time the debit was processed. Defaults to current date and time.
+   */
   public OffsetDateTime getProcessedAt() {
     return processedAt;
   }
@@ -72,13 +86,19 @@ public class GiftCardDebitInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The amount to debit the gift card.
+     */
     private MoneyInput debitAmount;
 
-    
+    /**
+     * A note about the debit.
+     */
     private String note;
 
-    
+    /**
+     * The date and time the debit was processed. Defaults to current date and time.
+     */
     private OffsetDateTime processedAt;
 
     public GiftCardDebitInput build() {
@@ -89,19 +109,25 @@ public class GiftCardDebitInput {
       return result;
     }
 
-    
+    /**
+     * The amount to debit the gift card.
+     */
     public Builder debitAmount(MoneyInput debitAmount) {
       this.debitAmount = debitAmount;
       return this;
     }
 
-    
+    /**
+     * A note about the debit.
+     */
     public Builder note(String note) {
       this.note = note;
       return this;
     }
 
-    
+    /**
+     * The date and time the debit was processed. Defaults to current date and time.
+     */
     public Builder processedAt(OffsetDateTime processedAt) {
       this.processedAt = processedAt;
       return this;

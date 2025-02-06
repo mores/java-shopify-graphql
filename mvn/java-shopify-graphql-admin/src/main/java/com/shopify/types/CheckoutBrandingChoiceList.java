@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The choice list customizations.
+ */
 public class CheckoutBrandingChoiceList {
-  
+  /**
+   * The settings that apply to the 'group' variant of ChoiceList.
+   */
   private CheckoutBrandingChoiceListGroup group;
 
   public CheckoutBrandingChoiceList() {
   }
 
-  
+  /**
+   * The settings that apply to the 'group' variant of ChoiceList.
+   */
   public CheckoutBrandingChoiceListGroup getGroup() {
     return group;
   }
@@ -45,7 +51,9 @@ public class CheckoutBrandingChoiceList {
   }
 
   public static class Builder {
-    
+    /**
+     * The settings that apply to the 'group' variant of ChoiceList.
+     */
     private CheckoutBrandingChoiceListGroup group;
 
     public CheckoutBrandingChoiceList build() {
@@ -54,7 +62,9 @@ public class CheckoutBrandingChoiceList {
       return result;
     }
 
-    
+    /**
+     * The settings that apply to the 'group' variant of ChoiceList.
+     */
     public Builder group(CheckoutBrandingChoiceListGroup group) {
       this.group = group;
       return this;

@@ -5,36 +5,62 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields required to create a marketing activity.
+ */
 public class MarketingActivityCreateInput {
-  
+  /**
+   * The title of the marketing activity.
+   */
   private String marketingActivityTitle;
 
-  
+  /**
+   * The form data in JSON serialized as a string.
+   */
   private String formData;
 
-  
+  /**
+   * The ID of the marketing activity extension.
+   */
   private String marketingActivityExtensionId;
 
-  
+  /**
+   * Encoded context containing marketing campaign id.
+   */
   private String context;
 
-  
+  /**
+   * Specifies the
+   * [Urchin Traffic Module (UTM) parameters](https://en.wikipedia.org/wiki/UTM_parameters)
+   * that are associated with a related marketing campaign. UTMInput is required for all Marketing
+   * tactics except Storefront App.
+   */
   private UTMInput utm;
 
-  
+  /**
+   * Value for a query parameter that gets inserted into storefront URLs for
+   * matching storefront traffic to this activity. This feature is currently
+   * available on a limited basis to some partners only. UTMs should continue to be
+   * used for most partners. Both the URL parameter value and UTM parameters can be set.
+   */
   private String urlParameterValue;
 
-  
+  /**
+   * The current state of the marketing activity.
+   */
   private MarketingActivityStatus status;
 
-  
+  /**
+   * The budget for this marketing activity.
+   */
   private MarketingActivityBudgetInput budget;
 
   public MarketingActivityCreateInput() {
   }
 
-  
+  /**
+   * The title of the marketing activity.
+   */
   public String getMarketingActivityTitle() {
     return marketingActivityTitle;
   }
@@ -43,7 +69,9 @@ public class MarketingActivityCreateInput {
     this.marketingActivityTitle = marketingActivityTitle;
   }
 
-  
+  /**
+   * The form data in JSON serialized as a string.
+   */
   public String getFormData() {
     return formData;
   }
@@ -52,7 +80,9 @@ public class MarketingActivityCreateInput {
     this.formData = formData;
   }
 
-  
+  /**
+   * The ID of the marketing activity extension.
+   */
   public String getMarketingActivityExtensionId() {
     return marketingActivityExtensionId;
   }
@@ -61,7 +91,9 @@ public class MarketingActivityCreateInput {
     this.marketingActivityExtensionId = marketingActivityExtensionId;
   }
 
-  
+  /**
+   * Encoded context containing marketing campaign id.
+   */
   public String getContext() {
     return context;
   }
@@ -70,7 +102,12 @@ public class MarketingActivityCreateInput {
     this.context = context;
   }
 
-  
+  /**
+   * Specifies the
+   * [Urchin Traffic Module (UTM) parameters](https://en.wikipedia.org/wiki/UTM_parameters)
+   * that are associated with a related marketing campaign. UTMInput is required for all Marketing
+   * tactics except Storefront App.
+   */
   public UTMInput getUtm() {
     return utm;
   }
@@ -79,7 +116,12 @@ public class MarketingActivityCreateInput {
     this.utm = utm;
   }
 
-  
+  /**
+   * Value for a query parameter that gets inserted into storefront URLs for
+   * matching storefront traffic to this activity. This feature is currently
+   * available on a limited basis to some partners only. UTMs should continue to be
+   * used for most partners. Both the URL parameter value and UTM parameters can be set.
+   */
   public String getUrlParameterValue() {
     return urlParameterValue;
   }
@@ -88,7 +130,9 @@ public class MarketingActivityCreateInput {
     this.urlParameterValue = urlParameterValue;
   }
 
-  
+  /**
+   * The current state of the marketing activity.
+   */
   public MarketingActivityStatus getStatus() {
     return status;
   }
@@ -97,7 +141,9 @@ public class MarketingActivityCreateInput {
     this.status = status;
   }
 
-  
+  /**
+   * The budget for this marketing activity.
+   */
   public MarketingActivityBudgetInput getBudget() {
     return budget;
   }
@@ -136,28 +182,50 @@ public class MarketingActivityCreateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The title of the marketing activity.
+     */
     private String marketingActivityTitle;
 
-    
+    /**
+     * The form data in JSON serialized as a string.
+     */
     private String formData;
 
-    
+    /**
+     * The ID of the marketing activity extension.
+     */
     private String marketingActivityExtensionId;
 
-    
+    /**
+     * Encoded context containing marketing campaign id.
+     */
     private String context;
 
-    
+    /**
+     * Specifies the
+     * [Urchin Traffic Module (UTM) parameters](https://en.wikipedia.org/wiki/UTM_parameters)
+     * that are associated with a related marketing campaign. UTMInput is required for all Marketing
+     * tactics except Storefront App.
+     */
     private UTMInput utm;
 
-    
+    /**
+     * Value for a query parameter that gets inserted into storefront URLs for
+     * matching storefront traffic to this activity. This feature is currently
+     * available on a limited basis to some partners only. UTMs should continue to be
+     * used for most partners. Both the URL parameter value and UTM parameters can be set.
+     */
     private String urlParameterValue;
 
-    
+    /**
+     * The current state of the marketing activity.
+     */
     private MarketingActivityStatus status;
 
-    
+    /**
+     * The budget for this marketing activity.
+     */
     private MarketingActivityBudgetInput budget;
 
     public MarketingActivityCreateInput build() {
@@ -173,49 +241,71 @@ public class MarketingActivityCreateInput {
       return result;
     }
 
-    
+    /**
+     * The title of the marketing activity.
+     */
     public Builder marketingActivityTitle(String marketingActivityTitle) {
       this.marketingActivityTitle = marketingActivityTitle;
       return this;
     }
 
-    
+    /**
+     * The form data in JSON serialized as a string.
+     */
     public Builder formData(String formData) {
       this.formData = formData;
       return this;
     }
 
-    
+    /**
+     * The ID of the marketing activity extension.
+     */
     public Builder marketingActivityExtensionId(String marketingActivityExtensionId) {
       this.marketingActivityExtensionId = marketingActivityExtensionId;
       return this;
     }
 
-    
+    /**
+     * Encoded context containing marketing campaign id.
+     */
     public Builder context(String context) {
       this.context = context;
       return this;
     }
 
-    
+    /**
+     * Specifies the
+     * [Urchin Traffic Module (UTM) parameters](https://en.wikipedia.org/wiki/UTM_parameters)
+     * that are associated with a related marketing campaign. UTMInput is required for all Marketing
+     * tactics except Storefront App.
+     */
     public Builder utm(UTMInput utm) {
       this.utm = utm;
       return this;
     }
 
-    
+    /**
+     * Value for a query parameter that gets inserted into storefront URLs for
+     * matching storefront traffic to this activity. This feature is currently
+     * available on a limited basis to some partners only. UTMs should continue to be
+     * used for most partners. Both the URL parameter value and UTM parameters can be set.
+     */
     public Builder urlParameterValue(String urlParameterValue) {
       this.urlParameterValue = urlParameterValue;
       return this;
     }
 
-    
+    /**
+     * The current state of the marketing activity.
+     */
     public Builder status(MarketingActivityStatus status) {
       this.status = status;
       return this;
     }
 
-    
+    /**
+     * The budget for this marketing activity.
+     */
     public Builder budget(MarketingActivityBudgetInput budget) {
       this.budget = budget;
       return this;

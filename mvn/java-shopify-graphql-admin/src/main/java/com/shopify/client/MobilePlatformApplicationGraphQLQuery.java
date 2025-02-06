@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Return a mobile platform application by its ID.
+ */
 public class MobilePlatformApplicationGraphQLQuery extends GraphQLQuery {
   public MobilePlatformApplicationGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -40,7 +42,9 @@ public class MobilePlatformApplicationGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * ID of the mobile platform app.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

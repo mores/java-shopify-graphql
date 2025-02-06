@@ -6,21 +6,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `customerDelete` mutation.
+ */
 public class CustomerDeletePayload {
-  
+  /**
+   * The ID of the deleted customer.
+   */
   private String deletedCustomerId;
 
-  
+  /**
+   * The shop of the deleted customer.
+   */
   private Shop shop;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public CustomerDeletePayload() {
   }
 
-  
+  /**
+   * The ID of the deleted customer.
+   */
   public String getDeletedCustomerId() {
     return deletedCustomerId;
   }
@@ -29,7 +39,9 @@ public class CustomerDeletePayload {
     this.deletedCustomerId = deletedCustomerId;
   }
 
-  
+  /**
+   * The shop of the deleted customer.
+   */
   public Shop getShop() {
     return shop;
   }
@@ -38,7 +50,9 @@ public class CustomerDeletePayload {
     this.shop = shop;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -72,13 +86,19 @@ public class CustomerDeletePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the deleted customer.
+     */
     private String deletedCustomerId;
 
-    
+    /**
+     * The shop of the deleted customer.
+     */
     private Shop shop;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public CustomerDeletePayload build() {
@@ -89,19 +109,25 @@ public class CustomerDeletePayload {
       return result;
     }
 
-    
+    /**
+     * The ID of the deleted customer.
+     */
     public Builder deletedCustomerId(String deletedCustomerId) {
       this.deletedCustomerId = deletedCustomerId;
       return this;
     }
 
-    
+    /**
+     * The shop of the deleted customer.
+     */
     public Builder shop(Shop shop) {
       this.shop = shop;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

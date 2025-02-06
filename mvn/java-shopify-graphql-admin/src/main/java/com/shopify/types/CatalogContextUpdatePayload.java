@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `catalogContextUpdate` mutation.
+ */
 public class CatalogContextUpdatePayload {
-  
+  /**
+   * The updated catalog.
+   */
   private Catalog catalog;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<CatalogUserError> userErrors;
 
   public CatalogContextUpdatePayload() {
   }
 
-  
+  /**
+   * The updated catalog.
+   */
   public Catalog getCatalog() {
     return catalog;
   }
@@ -26,7 +34,9 @@ public class CatalogContextUpdatePayload {
     this.catalog = catalog;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<CatalogUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class CatalogContextUpdatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The updated catalog.
+     */
     private Catalog catalog;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<CatalogUserError> userErrors;
 
     public CatalogContextUpdatePayload build() {
@@ -72,13 +86,17 @@ public class CatalogContextUpdatePayload {
       return result;
     }
 
-    
+    /**
+     * The updated catalog.
+     */
     public Builder catalog(Catalog catalog) {
       this.catalog = catalog;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<CatalogUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

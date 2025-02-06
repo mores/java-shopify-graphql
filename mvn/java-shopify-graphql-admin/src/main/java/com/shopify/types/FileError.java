@@ -5,21 +5,32 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A file error. This typically occurs when there is an issue with the file itself causing it to fail validation.
+ * Check the file before attempting to upload again.
+ */
 public class FileError {
-  
+  /**
+   * Code representing the type of error.
+   */
   private FileErrorCode code;
 
-  
+  /**
+   * Additional details regarding the error.
+   */
   private String details;
 
-  
+  /**
+   * Translated error message.
+   */
   private String message;
 
   public FileError() {
   }
 
-  
+  /**
+   * Code representing the type of error.
+   */
   public FileErrorCode getCode() {
     return code;
   }
@@ -28,7 +39,9 @@ public class FileError {
     this.code = code;
   }
 
-  
+  /**
+   * Additional details regarding the error.
+   */
   public String getDetails() {
     return details;
   }
@@ -37,7 +50,9 @@ public class FileError {
     this.details = details;
   }
 
-  
+  /**
+   * Translated error message.
+   */
   public String getMessage() {
     return message;
   }
@@ -71,13 +86,19 @@ public class FileError {
   }
 
   public static class Builder {
-    
+    /**
+     * Code representing the type of error.
+     */
     private FileErrorCode code;
 
-    
+    /**
+     * Additional details regarding the error.
+     */
     private String details;
 
-    
+    /**
+     * Translated error message.
+     */
     private String message;
 
     public FileError build() {
@@ -88,19 +109,25 @@ public class FileError {
       return result;
     }
 
-    
+    /**
+     * Code representing the type of error.
+     */
     public Builder code(FileErrorCode code) {
       this.code = code;
       return this;
     }
 
-    
+    /**
+     * Additional details regarding the error.
+     */
     public Builder details(String details) {
       this.details = details;
       return this;
     }
 
-    
+    /**
+     * Translated error message.
+     */
     public Builder message(String message) {
       this.message = message;
       return this;

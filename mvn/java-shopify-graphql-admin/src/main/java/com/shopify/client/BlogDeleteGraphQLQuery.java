@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Deletes a blog.
+ */
 public class BlogDeleteGraphQLQuery extends GraphQLQuery {
   public BlogDeleteGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -40,7 +42,9 @@ public class BlogDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the blog to be deleted.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

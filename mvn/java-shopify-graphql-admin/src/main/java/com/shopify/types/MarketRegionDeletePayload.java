@@ -6,21 +6,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `marketRegionDelete` mutation.
+ */
 public class MarketRegionDeletePayload {
-  
+  /**
+   * The ID of the deleted market region.
+   */
   private String deletedId;
 
-  
+  /**
+   * The parent market object of the deleted region.
+   */
   private Market market;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<MarketUserError> userErrors;
 
   public MarketRegionDeletePayload() {
   }
 
-  
+  /**
+   * The ID of the deleted market region.
+   */
   public String getDeletedId() {
     return deletedId;
   }
@@ -29,7 +39,9 @@ public class MarketRegionDeletePayload {
     this.deletedId = deletedId;
   }
 
-  
+  /**
+   * The parent market object of the deleted region.
+   */
   public Market getMarket() {
     return market;
   }
@@ -38,7 +50,9 @@ public class MarketRegionDeletePayload {
     this.market = market;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<MarketUserError> getUserErrors() {
     return userErrors;
   }
@@ -72,13 +86,19 @@ public class MarketRegionDeletePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the deleted market region.
+     */
     private String deletedId;
 
-    
+    /**
+     * The parent market object of the deleted region.
+     */
     private Market market;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<MarketUserError> userErrors;
 
     public MarketRegionDeletePayload build() {
@@ -89,19 +109,25 @@ public class MarketRegionDeletePayload {
       return result;
     }
 
-    
+    /**
+     * The ID of the deleted market region.
+     */
     public Builder deletedId(String deletedId) {
       this.deletedId = deletedId;
       return this;
     }
 
-    
+    /**
+     * The parent market object of the deleted region.
+     */
     public Builder market(Market market) {
       this.market = market;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<MarketUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

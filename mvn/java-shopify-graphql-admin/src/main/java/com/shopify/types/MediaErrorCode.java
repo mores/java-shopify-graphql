@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Error types for media.
+ */
 public enum MediaErrorCode {
   UNKNOWN,
 

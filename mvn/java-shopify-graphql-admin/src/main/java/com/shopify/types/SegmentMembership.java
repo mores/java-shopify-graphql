@@ -5,18 +5,28 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The response type for the `segmentMembership` object.
+ */
 public class SegmentMembership {
-  
+  /**
+   * A Boolean that indicates whether or not the customer in the query is a member
+   * of the segment, which is identified using the `segmentId`.
+   */
   private boolean isMember;
 
-  
+  /**
+   * A `segmentId` that's used for testing membership.
+   */
   private String segmentId;
 
   public SegmentMembership() {
   }
 
-  
+  /**
+   * A Boolean that indicates whether or not the customer in the query is a member
+   * of the segment, which is identified using the `segmentId`.
+   */
   public boolean getIsMember() {
     return isMember;
   }
@@ -25,7 +35,9 @@ public class SegmentMembership {
     this.isMember = isMember;
   }
 
-  
+  /**
+   * A `segmentId` that's used for testing membership.
+   */
   public String getSegmentId() {
     return segmentId;
   }
@@ -58,10 +70,15 @@ public class SegmentMembership {
   }
 
   public static class Builder {
-    
+    /**
+     * A Boolean that indicates whether or not the customer in the query is a member
+     * of the segment, which is identified using the `segmentId`.
+     */
     private boolean isMember;
 
-    
+    /**
+     * A `segmentId` that's used for testing membership.
+     */
     private String segmentId;
 
     public SegmentMembership build() {
@@ -71,13 +88,18 @@ public class SegmentMembership {
       return result;
     }
 
-    
+    /**
+     * A Boolean that indicates whether or not the customer in the query is a member
+     * of the segment, which is identified using the `segmentId`.
+     */
     public Builder isMember(boolean isMember) {
       this.isMember = isMember;
       return this;
     }
 
-    
+    /**
+     * A `segmentId` that's used for testing membership.
+     */
     public Builder segmentId(String segmentId) {
       this.segmentId = segmentId;
       return this;

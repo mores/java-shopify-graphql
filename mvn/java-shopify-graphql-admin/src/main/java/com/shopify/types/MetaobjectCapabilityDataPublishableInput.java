@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for publishable capability to adjust visibility on channels.
+ */
 public class MetaobjectCapabilityDataPublishableInput {
-  
+  /**
+   * The visibility status of this metaobject across all channels.
+   */
   private MetaobjectStatus status;
 
   public MetaobjectCapabilityDataPublishableInput() {
   }
 
-  
+  /**
+   * The visibility status of this metaobject across all channels.
+   */
   public MetaobjectStatus getStatus() {
     return status;
   }
@@ -45,7 +51,9 @@ public class MetaobjectCapabilityDataPublishableInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The visibility status of this metaobject across all channels.
+     */
     private MetaobjectStatus status;
 
     public MetaobjectCapabilityDataPublishableInput build() {
@@ -54,7 +62,9 @@ public class MetaobjectCapabilityDataPublishableInput {
       return result;
     }
 
-    
+    /**
+     * The visibility status of this metaobject across all channels.
+     */
     public Builder status(MetaobjectStatus status) {
       this.status = status;
       return this;

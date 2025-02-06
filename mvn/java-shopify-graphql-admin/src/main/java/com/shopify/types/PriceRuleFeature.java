@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * The list of features that can be supported by a price rule.
+ */
 public enum PriceRuleFeature {
   BUY_ONE_GET_ONE,
 

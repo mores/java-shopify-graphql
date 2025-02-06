@@ -8,7 +8,31 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Reorders options and option values on a product, causing product variants to alter their position.
+ *   
+ * Options order take precedence over option values order. Depending on the existing product variants,
+ * some input orders might not be achieved.
+ *   
+ * Example:
+ *   Existing product variants:
+ *     ["Red / Small", "Green / Medium", "Blue / Small"].
+ *   
+ *   New order:
+ *     [
+ *       {
+ *         name: "Size", values: [{ name: "Small" }, { name: "Medium" }],
+ *         name: "Color", values: [{ name: "Green" }, { name: "Red" }, { name: "Blue" }]
+ *       }
+ *     ].
+ *   
+ *   Description:
+ *     Variants with "Green" value are expected to appear before variants with "Red" and "Blue" values.
+ *     However, "Size" option appears before "Color".
+ *   
+ *   Therefore, output will be:
+ *     ["Small / "Red", "Small / Blue", "Medium / Green"].
+ */
 public class ProductOptionsReorderGraphQLQuery extends GraphQLQuery {
   public ProductOptionsReorderGraphQLQuery(String productId, List<OptionReorderInput> options,
       String queryName, Set<String> fieldsSet) {
@@ -47,14 +71,18 @@ public class ProductOptionsReorderGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the product to update.
+     */
     public Builder productId(String productId) {
       this.productId = productId;
       this.fieldsSet.add("productId");
       return this;
     }
 
-    
+    /**
+     * Options to reorder on the product.
+     */
     public Builder options(List<OptionReorderInput> options) {
       this.options = options;
       this.fieldsSet.add("options");

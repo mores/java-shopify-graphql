@@ -6,21 +6,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `marketWebPresenceDelete` mutation.
+ */
 public class MarketWebPresenceDeletePayload {
-  
+  /**
+   * The ID of the deleted web presence.
+   */
   private String deletedId;
 
-  
+  /**
+   * The market for which the web presence was deleted.
+   */
   private Market market;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<MarketUserError> userErrors;
 
   public MarketWebPresenceDeletePayload() {
   }
 
-  
+  /**
+   * The ID of the deleted web presence.
+   */
   public String getDeletedId() {
     return deletedId;
   }
@@ -29,7 +39,9 @@ public class MarketWebPresenceDeletePayload {
     this.deletedId = deletedId;
   }
 
-  
+  /**
+   * The market for which the web presence was deleted.
+   */
   public Market getMarket() {
     return market;
   }
@@ -38,7 +50,9 @@ public class MarketWebPresenceDeletePayload {
     this.market = market;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<MarketUserError> getUserErrors() {
     return userErrors;
   }
@@ -72,13 +86,19 @@ public class MarketWebPresenceDeletePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the deleted web presence.
+     */
     private String deletedId;
 
-    
+    /**
+     * The market for which the web presence was deleted.
+     */
     private Market market;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<MarketUserError> userErrors;
 
     public MarketWebPresenceDeletePayload build() {
@@ -89,19 +109,25 @@ public class MarketWebPresenceDeletePayload {
       return result;
     }
 
-    
+    /**
+     * The ID of the deleted web presence.
+     */
     public Builder deletedId(String deletedId) {
       this.deletedId = deletedId;
       return this;
     }
 
-    
+    /**
+     * The market for which the web presence was deleted.
+     */
     public Builder market(Market market) {
       this.market = market;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<MarketUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

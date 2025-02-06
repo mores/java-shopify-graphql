@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Deletes the web pixel shop settings.
+ */
 public class WebPixelDeleteGraphQLQuery extends GraphQLQuery {
   public WebPixelDeleteGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -40,7 +42,9 @@ public class WebPixelDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the web pixel to delete.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

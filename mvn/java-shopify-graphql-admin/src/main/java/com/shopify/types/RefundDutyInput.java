@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields required to reimburse duties on a refund.
+ */
 public class RefundDutyInput {
-  
+  /**
+   * The ID of the duty in the refund.
+   */
   private String dutyId;
 
-  
+  /**
+   * The type of refund for this duty.
+   */
   private RefundDutyRefundType refundType;
 
   public RefundDutyInput() {
   }
 
-  
+  /**
+   * The ID of the duty in the refund.
+   */
   public String getDutyId() {
     return dutyId;
   }
@@ -25,7 +33,9 @@ public class RefundDutyInput {
     this.dutyId = dutyId;
   }
 
-  
+  /**
+   * The type of refund for this duty.
+   */
   public RefundDutyRefundType getRefundType() {
     return refundType;
   }
@@ -58,10 +68,14 @@ public class RefundDutyInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the duty in the refund.
+     */
     private String dutyId;
 
-    
+    /**
+     * The type of refund for this duty.
+     */
     private RefundDutyRefundType refundType;
 
     public RefundDutyInput build() {
@@ -71,13 +85,17 @@ public class RefundDutyInput {
       return result;
     }
 
-    
+    /**
+     * The ID of the duty in the refund.
+     */
     public Builder dutyId(String dutyId) {
       this.dutyId = dutyId;
       return this;
     }
 
-    
+    /**
+     * The type of refund for this duty.
+     */
     public Builder refundType(RefundDutyRefundType refundType) {
       this.refundType = refundType;
       return this;

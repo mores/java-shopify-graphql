@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Details regarding a dispute reason.
+ */
 public class ShopifyPaymentsDisputeReasonDetails {
-  
+  /**
+   * The raw code provided by the payment network.
+   */
   private String networkReasonCode;
 
-  
+  /**
+   * The reason for the dispute provided by the cardholder's banks.
+   */
   private ShopifyPaymentsDisputeReason reason;
 
   public ShopifyPaymentsDisputeReasonDetails() {
   }
 
-  
+  /**
+   * The raw code provided by the payment network.
+   */
   public String getNetworkReasonCode() {
     return networkReasonCode;
   }
@@ -25,7 +33,9 @@ public class ShopifyPaymentsDisputeReasonDetails {
     this.networkReasonCode = networkReasonCode;
   }
 
-  
+  /**
+   * The reason for the dispute provided by the cardholder's banks.
+   */
   public ShopifyPaymentsDisputeReason getReason() {
     return reason;
   }
@@ -58,10 +68,14 @@ public class ShopifyPaymentsDisputeReasonDetails {
   }
 
   public static class Builder {
-    
+    /**
+     * The raw code provided by the payment network.
+     */
     private String networkReasonCode;
 
-    
+    /**
+     * The reason for the dispute provided by the cardholder's banks.
+     */
     private ShopifyPaymentsDisputeReason reason;
 
     public ShopifyPaymentsDisputeReasonDetails build() {
@@ -71,13 +85,17 @@ public class ShopifyPaymentsDisputeReasonDetails {
       return result;
     }
 
-    
+    /**
+     * The raw code provided by the payment network.
+     */
     public Builder networkReasonCode(String networkReasonCode) {
       this.networkReasonCode = networkReasonCode;
       return this;
     }
 
-    
+    /**
+     * The reason for the dispute provided by the cardholder's banks.
+     */
     public Builder reason(ShopifyPaymentsDisputeReason reason) {
       this.reason = reason;
       return this;

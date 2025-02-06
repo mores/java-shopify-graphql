@@ -6,24 +6,36 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * New items associated to the exchange.
+ */
 public class ExchangeV2Additions {
-  
+  /**
+   * The list of new items for the exchange.
+   */
   private List<ExchangeV2LineItem> lineItems;
 
-  
+  /**
+   * The subtotal of the items being added, including discounts.
+   */
   private MoneyBag subtotalPriceSet;
 
-  
+  /**
+   * The summary of all taxes of the items being added.
+   */
   private List<TaxLine> taxLines;
 
-  
+  /**
+   * The total price of the items being added, including discounts and taxes.
+   */
   private MoneyBag totalPriceSet;
 
   public ExchangeV2Additions() {
   }
 
-  
+  /**
+   * The list of new items for the exchange.
+   */
   public List<ExchangeV2LineItem> getLineItems() {
     return lineItems;
   }
@@ -32,7 +44,9 @@ public class ExchangeV2Additions {
     this.lineItems = lineItems;
   }
 
-  
+  /**
+   * The subtotal of the items being added, including discounts.
+   */
   public MoneyBag getSubtotalPriceSet() {
     return subtotalPriceSet;
   }
@@ -41,7 +55,9 @@ public class ExchangeV2Additions {
     this.subtotalPriceSet = subtotalPriceSet;
   }
 
-  
+  /**
+   * The summary of all taxes of the items being added.
+   */
   public List<TaxLine> getTaxLines() {
     return taxLines;
   }
@@ -50,7 +66,9 @@ public class ExchangeV2Additions {
     this.taxLines = taxLines;
   }
 
-  
+  /**
+   * The total price of the items being added, including discounts and taxes.
+   */
   public MoneyBag getTotalPriceSet() {
     return totalPriceSet;
   }
@@ -85,16 +103,24 @@ public class ExchangeV2Additions {
   }
 
   public static class Builder {
-    
+    /**
+     * The list of new items for the exchange.
+     */
     private List<ExchangeV2LineItem> lineItems;
 
-    
+    /**
+     * The subtotal of the items being added, including discounts.
+     */
     private MoneyBag subtotalPriceSet;
 
-    
+    /**
+     * The summary of all taxes of the items being added.
+     */
     private List<TaxLine> taxLines;
 
-    
+    /**
+     * The total price of the items being added, including discounts and taxes.
+     */
     private MoneyBag totalPriceSet;
 
     public ExchangeV2Additions build() {
@@ -106,25 +132,33 @@ public class ExchangeV2Additions {
       return result;
     }
 
-    
+    /**
+     * The list of new items for the exchange.
+     */
     public Builder lineItems(List<ExchangeV2LineItem> lineItems) {
       this.lineItems = lineItems;
       return this;
     }
 
-    
+    /**
+     * The subtotal of the items being added, including discounts.
+     */
     public Builder subtotalPriceSet(MoneyBag subtotalPriceSet) {
       this.subtotalPriceSet = subtotalPriceSet;
       return this;
     }
 
-    
+    /**
+     * The summary of all taxes of the items being added.
+     */
     public Builder taxLines(List<TaxLine> taxLines) {
       this.taxLines = taxLines;
       return this;
     }
 
-    
+    /**
+     * The total price of the items being added, including discounts and taxes.
+     */
     public Builder totalPriceSet(MoneyBag totalPriceSet) {
       this.totalPriceSet = totalPriceSet;
       return this;

@@ -5,30 +5,46 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for a group of colors used together on a surface.
+ */
 public class CheckoutBrandingColorRolesInput {
-  
+  /**
+   * The color of the background.
+   */
   private String background;
 
-  
+  /**
+   * The color of text.
+   */
   private String text;
 
-  
+  /**
+   * The color of borders.
+   */
   private String border;
 
-  
+  /**
+   * The color of icons.
+   */
   private String icon;
 
-  
+  /**
+   * The color of accented objects (links and focused state).
+   */
   private String accent;
 
-  
+  /**
+   * The decorative color for highlighting specific parts of the user interface.
+   */
   private String decorative;
 
   public CheckoutBrandingColorRolesInput() {
   }
 
-  
+  /**
+   * The color of the background.
+   */
   public String getBackground() {
     return background;
   }
@@ -37,7 +53,9 @@ public class CheckoutBrandingColorRolesInput {
     this.background = background;
   }
 
-  
+  /**
+   * The color of text.
+   */
   public String getText() {
     return text;
   }
@@ -46,7 +64,9 @@ public class CheckoutBrandingColorRolesInput {
     this.text = text;
   }
 
-  
+  /**
+   * The color of borders.
+   */
   public String getBorder() {
     return border;
   }
@@ -55,7 +75,9 @@ public class CheckoutBrandingColorRolesInput {
     this.border = border;
   }
 
-  
+  /**
+   * The color of icons.
+   */
   public String getIcon() {
     return icon;
   }
@@ -64,7 +86,9 @@ public class CheckoutBrandingColorRolesInput {
     this.icon = icon;
   }
 
-  
+  /**
+   * The color of accented objects (links and focused state).
+   */
   public String getAccent() {
     return accent;
   }
@@ -73,7 +97,9 @@ public class CheckoutBrandingColorRolesInput {
     this.accent = accent;
   }
 
-  
+  /**
+   * The decorative color for highlighting specific parts of the user interface.
+   */
   public String getDecorative() {
     return decorative;
   }
@@ -110,22 +136,34 @@ public class CheckoutBrandingColorRolesInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The color of the background.
+     */
     private String background;
 
-    
+    /**
+     * The color of text.
+     */
     private String text;
 
-    
+    /**
+     * The color of borders.
+     */
     private String border;
 
-    
+    /**
+     * The color of icons.
+     */
     private String icon;
 
-    
+    /**
+     * The color of accented objects (links and focused state).
+     */
     private String accent;
 
-    
+    /**
+     * The decorative color for highlighting specific parts of the user interface.
+     */
     private String decorative;
 
     public CheckoutBrandingColorRolesInput build() {
@@ -139,37 +177,49 @@ public class CheckoutBrandingColorRolesInput {
       return result;
     }
 
-    
+    /**
+     * The color of the background.
+     */
     public Builder background(String background) {
       this.background = background;
       return this;
     }
 
-    
+    /**
+     * The color of text.
+     */
     public Builder text(String text) {
       this.text = text;
       return this;
     }
 
-    
+    /**
+     * The color of borders.
+     */
     public Builder border(String border) {
       this.border = border;
       return this;
     }
 
-    
+    /**
+     * The color of icons.
+     */
     public Builder icon(String icon) {
       this.icon = icon;
       return this;
     }
 
-    
+    /**
+     * The color of accented objects (links and focused state).
+     */
     public Builder accent(String accent) {
       this.accent = accent;
       return this;
     }
 
-    
+    /**
+     * The decorative color for highlighting specific parts of the user interface.
+     */
     public Builder decorative(String decorative) {
       this.decorative = decorative;
       return this;

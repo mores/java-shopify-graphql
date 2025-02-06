@@ -9,45 +9,69 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Represents any file other than HTML.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class GenericFile implements MetafieldReference, com.shopify.types.File, com.shopify.types.Node {
-  
+  /**
+   * A word or phrase to describe the contents or the function of a file.
+   */
   private String alt;
 
-  
+  /**
+   * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the file was created.
+   */
   private OffsetDateTime createdAt;
 
-  
+  /**
+   * Any errors that have occurred on the file.
+   */
   private List<FileError> fileErrors;
 
-  
+  /**
+   * The status of the file.
+   */
   private FileStatus fileStatus;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The generic file's MIME type.
+   */
   private String mimeType;
 
-  
+  /**
+   * The generic file's size in bytes.
+   */
   private Integer originalFileSize;
 
-  
+  /**
+   * The preview image for the media.
+   */
   private MediaPreviewImage preview;
 
-  
+  /**
+   * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the file was last updated.
+   */
   private OffsetDateTime updatedAt;
 
-  
+  /**
+   * The generic file's URL.
+   */
   private String url;
 
   public GenericFile() {
   }
 
-  
+  /**
+   * A word or phrase to describe the contents or the function of a file.
+   */
   public String getAlt() {
     return alt;
   }
@@ -56,7 +80,9 @@ public class GenericFile implements MetafieldReference, com.shopify.types.File, 
     this.alt = alt;
   }
 
-  
+  /**
+   * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the file was created.
+   */
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -65,7 +91,9 @@ public class GenericFile implements MetafieldReference, com.shopify.types.File, 
     this.createdAt = createdAt;
   }
 
-  
+  /**
+   * Any errors that have occurred on the file.
+   */
   public List<FileError> getFileErrors() {
     return fileErrors;
   }
@@ -74,7 +102,9 @@ public class GenericFile implements MetafieldReference, com.shopify.types.File, 
     this.fileErrors = fileErrors;
   }
 
-  
+  /**
+   * The status of the file.
+   */
   public FileStatus getFileStatus() {
     return fileStatus;
   }
@@ -83,7 +113,9 @@ public class GenericFile implements MetafieldReference, com.shopify.types.File, 
     this.fileStatus = fileStatus;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -92,7 +124,9 @@ public class GenericFile implements MetafieldReference, com.shopify.types.File, 
     this.id = id;
   }
 
-  
+  /**
+   * The generic file's MIME type.
+   */
   public String getMimeType() {
     return mimeType;
   }
@@ -101,7 +135,9 @@ public class GenericFile implements MetafieldReference, com.shopify.types.File, 
     this.mimeType = mimeType;
   }
 
-  
+  /**
+   * The generic file's size in bytes.
+   */
   public Integer getOriginalFileSize() {
     return originalFileSize;
   }
@@ -110,7 +146,9 @@ public class GenericFile implements MetafieldReference, com.shopify.types.File, 
     this.originalFileSize = originalFileSize;
   }
 
-  
+  /**
+   * The preview image for the media.
+   */
   public MediaPreviewImage getPreview() {
     return preview;
   }
@@ -119,7 +157,9 @@ public class GenericFile implements MetafieldReference, com.shopify.types.File, 
     this.preview = preview;
   }
 
-  
+  /**
+   * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the file was last updated.
+   */
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
@@ -128,7 +168,9 @@ public class GenericFile implements MetafieldReference, com.shopify.types.File, 
     this.updatedAt = updatedAt;
   }
 
-  
+  /**
+   * The generic file's URL.
+   */
   public String getUrl() {
     return url;
   }
@@ -169,34 +211,54 @@ public class GenericFile implements MetafieldReference, com.shopify.types.File, 
   }
 
   public static class Builder {
-    
+    /**
+     * A word or phrase to describe the contents or the function of a file.
+     */
     private String alt;
 
-    
+    /**
+     * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the file was created.
+     */
     private OffsetDateTime createdAt;
 
-    
+    /**
+     * Any errors that have occurred on the file.
+     */
     private List<FileError> fileErrors;
 
-    
+    /**
+     * The status of the file.
+     */
     private FileStatus fileStatus;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The generic file's MIME type.
+     */
     private String mimeType;
 
-    
+    /**
+     * The generic file's size in bytes.
+     */
     private Integer originalFileSize;
 
-    
+    /**
+     * The preview image for the media.
+     */
     private MediaPreviewImage preview;
 
-    
+    /**
+     * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the file was last updated.
+     */
     private OffsetDateTime updatedAt;
 
-    
+    /**
+     * The generic file's URL.
+     */
     private String url;
 
     public GenericFile build() {
@@ -214,61 +276,81 @@ public class GenericFile implements MetafieldReference, com.shopify.types.File, 
       return result;
     }
 
-    
+    /**
+     * A word or phrase to describe the contents or the function of a file.
+     */
     public Builder alt(String alt) {
       this.alt = alt;
       return this;
     }
 
-    
+    /**
+     * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the file was created.
+     */
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    
+    /**
+     * Any errors that have occurred on the file.
+     */
     public Builder fileErrors(List<FileError> fileErrors) {
       this.fileErrors = fileErrors;
       return this;
     }
 
-    
+    /**
+     * The status of the file.
+     */
     public Builder fileStatus(FileStatus fileStatus) {
       this.fileStatus = fileStatus;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The generic file's MIME type.
+     */
     public Builder mimeType(String mimeType) {
       this.mimeType = mimeType;
       return this;
     }
 
-    
+    /**
+     * The generic file's size in bytes.
+     */
     public Builder originalFileSize(Integer originalFileSize) {
       this.originalFileSize = originalFileSize;
       return this;
     }
 
-    
+    /**
+     * The preview image for the media.
+     */
     public Builder preview(MediaPreviewImage preview) {
       this.preview = preview;
       return this;
     }
 
-    
+    /**
+     * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the file was last updated.
+     */
     public Builder updatedAt(OffsetDateTime updatedAt) {
       this.updatedAt = updatedAt;
       return this;
     }
 
-    
+    /**
+     * The generic file's URL.
+     */
     public Builder url(String url) {
       this.url = url;
       return this;

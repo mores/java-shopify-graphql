@@ -6,21 +6,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `draftOrderInvoicePreview` mutation.
+ */
 public class DraftOrderInvoicePreviewPayload {
-  
+  /**
+   * The draft order invoice email rendered as HTML to allow previewing.
+   */
   private String previewHtml;
 
-  
+  /**
+   * The subject preview for the draft order invoice email.
+   */
   private String previewSubject;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public DraftOrderInvoicePreviewPayload() {
   }
 
-  
+  /**
+   * The draft order invoice email rendered as HTML to allow previewing.
+   */
   public String getPreviewHtml() {
     return previewHtml;
   }
@@ -29,7 +39,9 @@ public class DraftOrderInvoicePreviewPayload {
     this.previewHtml = previewHtml;
   }
 
-  
+  /**
+   * The subject preview for the draft order invoice email.
+   */
   public String getPreviewSubject() {
     return previewSubject;
   }
@@ -38,7 +50,9 @@ public class DraftOrderInvoicePreviewPayload {
     this.previewSubject = previewSubject;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -72,13 +86,19 @@ public class DraftOrderInvoicePreviewPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The draft order invoice email rendered as HTML to allow previewing.
+     */
     private String previewHtml;
 
-    
+    /**
+     * The subject preview for the draft order invoice email.
+     */
     private String previewSubject;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public DraftOrderInvoicePreviewPayload build() {
@@ -89,19 +109,25 @@ public class DraftOrderInvoicePreviewPayload {
       return result;
     }
 
-    
+    /**
+     * The draft order invoice email rendered as HTML to allow previewing.
+     */
     public Builder previewHtml(String previewHtml) {
       this.previewHtml = previewHtml;
       return this;
     }
 
-    
+    /**
+     * The subject preview for the draft order invoice email.
+     */
     public Builder previewSubject(String previewSubject) {
       this.previewSubject = previewSubject;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

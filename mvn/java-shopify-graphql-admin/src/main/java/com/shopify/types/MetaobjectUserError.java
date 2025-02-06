@@ -8,30 +8,44 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Defines errors encountered while managing metaobject resources.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class MetaobjectUserError implements com.shopify.types.DisplayableError {
-  
+  /**
+   * The error code.
+   */
   private MetaobjectUserErrorCode code;
 
-  
+  /**
+   * The index of the failing list element in an array.
+   */
   private Integer elementIndex;
 
-  
+  /**
+   * The key of the failing object element.
+   */
   private String elementKey;
 
-  
+  /**
+   * The path to the input field that caused the error.
+   */
   private List<String> field;
 
-  
+  /**
+   * The error message.
+   */
   private String message;
 
   public MetaobjectUserError() {
   }
 
-  
+  /**
+   * The error code.
+   */
   public MetaobjectUserErrorCode getCode() {
     return code;
   }
@@ -40,7 +54,9 @@ public class MetaobjectUserError implements com.shopify.types.DisplayableError {
     this.code = code;
   }
 
-  
+  /**
+   * The index of the failing list element in an array.
+   */
   public Integer getElementIndex() {
     return elementIndex;
   }
@@ -49,7 +65,9 @@ public class MetaobjectUserError implements com.shopify.types.DisplayableError {
     this.elementIndex = elementIndex;
   }
 
-  
+  /**
+   * The key of the failing object element.
+   */
   public String getElementKey() {
     return elementKey;
   }
@@ -58,7 +76,9 @@ public class MetaobjectUserError implements com.shopify.types.DisplayableError {
     this.elementKey = elementKey;
   }
 
-  
+  /**
+   * The path to the input field that caused the error.
+   */
   public List<String> getField() {
     return field;
   }
@@ -67,7 +87,9 @@ public class MetaobjectUserError implements com.shopify.types.DisplayableError {
     this.field = field;
   }
 
-  
+  /**
+   * The error message.
+   */
   public String getMessage() {
     return message;
   }
@@ -103,19 +125,29 @@ public class MetaobjectUserError implements com.shopify.types.DisplayableError {
   }
 
   public static class Builder {
-    
+    /**
+     * The error code.
+     */
     private MetaobjectUserErrorCode code;
 
-    
+    /**
+     * The index of the failing list element in an array.
+     */
     private Integer elementIndex;
 
-    
+    /**
+     * The key of the failing object element.
+     */
     private String elementKey;
 
-    
+    /**
+     * The path to the input field that caused the error.
+     */
     private List<String> field;
 
-    
+    /**
+     * The error message.
+     */
     private String message;
 
     public MetaobjectUserError build() {
@@ -128,31 +160,41 @@ public class MetaobjectUserError implements com.shopify.types.DisplayableError {
       return result;
     }
 
-    
+    /**
+     * The error code.
+     */
     public Builder code(MetaobjectUserErrorCode code) {
       this.code = code;
       return this;
     }
 
-    
+    /**
+     * The index of the failing list element in an array.
+     */
     public Builder elementIndex(Integer elementIndex) {
       this.elementIndex = elementIndex;
       return this;
     }
 
-    
+    /**
+     * The key of the failing object element.
+     */
     public Builder elementKey(String elementKey) {
       this.elementKey = elementKey;
       return this;
     }
 
-    
+    /**
+     * The path to the input field that caused the error.
+     */
     public Builder field(List<String> field) {
       this.field = field;
       return this;
     }
 
-    
+    /**
+     * The error message.
+     */
     public Builder message(String message) {
       this.message = message;
       return this;

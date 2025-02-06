@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for an applied discount on a calculated exchange line item.
+ */
 public class ExchangeLineItemAppliedDiscountInput {
-  
+  /**
+   * The description of the discount.
+   */
   private String description;
 
-  
+  /**
+   * The value of the discount as a fixed amount or a percentage.
+   */
   private ExchangeLineItemAppliedDiscountValueInput value;
 
   public ExchangeLineItemAppliedDiscountInput() {
   }
 
-  
+  /**
+   * The description of the discount.
+   */
   public String getDescription() {
     return description;
   }
@@ -25,7 +33,9 @@ public class ExchangeLineItemAppliedDiscountInput {
     this.description = description;
   }
 
-  
+  /**
+   * The value of the discount as a fixed amount or a percentage.
+   */
   public ExchangeLineItemAppliedDiscountValueInput getValue() {
     return value;
   }
@@ -58,10 +68,14 @@ public class ExchangeLineItemAppliedDiscountInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The description of the discount.
+     */
     private String description;
 
-    
+    /**
+     * The value of the discount as a fixed amount or a percentage.
+     */
     private ExchangeLineItemAppliedDiscountValueInput value;
 
     public ExchangeLineItemAppliedDiscountInput build() {
@@ -71,13 +85,17 @@ public class ExchangeLineItemAppliedDiscountInput {
       return result;
     }
 
-    
+    /**
+     * The description of the discount.
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    
+    /**
+     * The value of the discount as a fixed amount or a percentage.
+     */
     public Builder value(ExchangeLineItemAppliedDiscountValueInput value) {
       this.value = value;
       return this;

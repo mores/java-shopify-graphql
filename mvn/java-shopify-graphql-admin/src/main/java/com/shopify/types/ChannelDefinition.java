@@ -6,33 +6,51 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A channel definition represents channels surfaces on the platform.
+ * A channel definition can be a platform or a subsegment of it such as Facebook
+ * Home, Instagram Live, Instagram Shops, or WhatsApp chat.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ChannelDefinition implements com.shopify.types.Node {
-  
+  /**
+   * Name of the channel that this sub channel belongs to.
+   */
   private String channelName;
 
-  
+  /**
+   * Unique string used as a public identifier for the channel definition.
+   */
   private String handle;
 
-  
+  /**
+   * The unique ID for the channel definition.
+   */
   private String id;
 
-  
+  /**
+   * Whether this channel definition represents a marketplace.
+   */
   private boolean isMarketplace;
 
-  
+  /**
+   * Name of the sub channel (e.g. Online Store, Instagram Shopping, TikTok Live).
+   */
   private String subChannelName;
 
-  
+  /**
+   * Icon displayed when showing the channel in admin.
+   */
   private String svgIcon;
 
   public ChannelDefinition() {
   }
 
-  
+  /**
+   * Name of the channel that this sub channel belongs to.
+   */
   public String getChannelName() {
     return channelName;
   }
@@ -41,7 +59,9 @@ public class ChannelDefinition implements com.shopify.types.Node {
     this.channelName = channelName;
   }
 
-  
+  /**
+   * Unique string used as a public identifier for the channel definition.
+   */
   public String getHandle() {
     return handle;
   }
@@ -50,7 +70,9 @@ public class ChannelDefinition implements com.shopify.types.Node {
     this.handle = handle;
   }
 
-  
+  /**
+   * The unique ID for the channel definition.
+   */
   public String getId() {
     return id;
   }
@@ -59,7 +81,9 @@ public class ChannelDefinition implements com.shopify.types.Node {
     this.id = id;
   }
 
-  
+  /**
+   * Whether this channel definition represents a marketplace.
+   */
   public boolean getIsMarketplace() {
     return isMarketplace;
   }
@@ -68,7 +92,9 @@ public class ChannelDefinition implements com.shopify.types.Node {
     this.isMarketplace = isMarketplace;
   }
 
-  
+  /**
+   * Name of the sub channel (e.g. Online Store, Instagram Shopping, TikTok Live).
+   */
   public String getSubChannelName() {
     return subChannelName;
   }
@@ -77,7 +103,9 @@ public class ChannelDefinition implements com.shopify.types.Node {
     this.subChannelName = subChannelName;
   }
 
-  
+  /**
+   * Icon displayed when showing the channel in admin.
+   */
   public String getSvgIcon() {
     return svgIcon;
   }
@@ -114,22 +142,34 @@ public class ChannelDefinition implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    
+    /**
+     * Name of the channel that this sub channel belongs to.
+     */
     private String channelName;
 
-    
+    /**
+     * Unique string used as a public identifier for the channel definition.
+     */
     private String handle;
 
-    
+    /**
+     * The unique ID for the channel definition.
+     */
     private String id;
 
-    
+    /**
+     * Whether this channel definition represents a marketplace.
+     */
     private boolean isMarketplace;
 
-    
+    /**
+     * Name of the sub channel (e.g. Online Store, Instagram Shopping, TikTok Live).
+     */
     private String subChannelName;
 
-    
+    /**
+     * Icon displayed when showing the channel in admin.
+     */
     private String svgIcon;
 
     public ChannelDefinition build() {
@@ -143,37 +183,49 @@ public class ChannelDefinition implements com.shopify.types.Node {
       return result;
     }
 
-    
+    /**
+     * Name of the channel that this sub channel belongs to.
+     */
     public Builder channelName(String channelName) {
       this.channelName = channelName;
       return this;
     }
 
-    
+    /**
+     * Unique string used as a public identifier for the channel definition.
+     */
     public Builder handle(String handle) {
       this.handle = handle;
       return this;
     }
 
-    
+    /**
+     * The unique ID for the channel definition.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * Whether this channel definition represents a marketplace.
+     */
     public Builder isMarketplace(boolean isMarketplace) {
       this.isMarketplace = isMarketplace;
       return this;
     }
 
-    
+    /**
+     * Name of the sub channel (e.g. Online Store, Instagram Shopping, TikTok Live).
+     */
     public Builder subChannelName(String subChannelName) {
       this.subChannelName = subChannelName;
       return this;
     }
 
-    
+    /**
+     * Icon displayed when showing the channel in admin.
+     */
     public Builder svgIcon(String svgIcon) {
       this.svgIcon = svgIcon;
       return this;

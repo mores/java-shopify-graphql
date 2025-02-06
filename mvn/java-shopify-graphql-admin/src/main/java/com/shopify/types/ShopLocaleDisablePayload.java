@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `shopLocaleDisable` mutation.
+ */
 public class ShopLocaleDisablePayload {
-  
+  /**
+   * ISO code of the locale that was deleted.
+   */
   private String locale;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public ShopLocaleDisablePayload() {
   }
 
-  
+  /**
+   * ISO code of the locale that was deleted.
+   */
   public String getLocale() {
     return locale;
   }
@@ -26,7 +34,9 @@ public class ShopLocaleDisablePayload {
     this.locale = locale;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class ShopLocaleDisablePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * ISO code of the locale that was deleted.
+     */
     private String locale;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public ShopLocaleDisablePayload build() {
@@ -72,13 +86,17 @@ public class ShopLocaleDisablePayload {
       return result;
     }
 
-    
+    /**
+     * ISO code of the locale that was deleted.
+     */
     public Builder locale(String locale) {
       this.locale = locale;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

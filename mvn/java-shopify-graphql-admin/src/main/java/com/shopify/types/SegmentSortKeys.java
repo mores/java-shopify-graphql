@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * The set of valid sort keys for the Segment query.
+ */
 public enum SegmentSortKeys {
   CREATION_DATE,
 

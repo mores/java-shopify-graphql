@@ -10,42 +10,102 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields for creating or updating a code discount, where the discount
+ * type is provided by an app extension that uses [Shopify
+ * Functions](https://shopify.dev/docs/apps/build/functions).
+ *
+ *
+ * Use these input fields when you need advanced or custom discount capabilities
+ * that aren't supported by [Shopify's native discount
+ * types](https://help.shopify.com/manual/discounts/discount-types).
+ */
 public class DiscountCodeAppInput {
-  
+  /**
+   * The
+   * [discount classes](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
+   * that you can use in combination with
+   * [Shopify discount types](https://help.shopify.com/manual/discounts/discount-types).
+   */
   private DiscountCombinesWithInput combinesWith;
 
-  
+  /**
+   * The [function ID](https://shopify.dev/docs/apps/build/functions/input-output/metafields-for-input-queries) associated with the app extension that's providing the [discount
+   * type](https://help.shopify.com/manual/discounts/discount-types).
+   */
   private String functionId;
 
-  
+  /**
+   * The discount's name that displays to merchants in the Shopify admin and to customers.
+   */
   private String title;
 
-  
+  /**
+   * The date and time when the discount becomes active and is available to customers.
+   */
   private OffsetDateTime startsAt;
 
-  
+  /**
+   * The date and time when the discount expires and is no longer available to
+   * customers. For discounts without a fixed expiration date, specify `null`.
+   */
   private OffsetDateTime endsAt;
 
-  
+  /**
+   * The maximum number of times that the discount can be used. For discounts with no usage limit, specify `null`.
+   */
   private Integer usageLimit;
 
-  
+  /**
+   * Whether a customer can only use the discount once.
+   */
   private Boolean appliesOncePerCustomer;
 
-  
+  /**
+   * The customers that can use the discount. You can target specific customer IDs,
+   * use customer segments, or make the discount available to all customers.
+   */
   private DiscountCustomerSelectionInput customerSelection;
 
-  
+  /**
+   * The code that customers need to enter to redeem the discount.
+   */
   private String code;
 
-  
+  /**
+   * Whether the discount applies to subscriptions items.
+   */
+  private Boolean appliesOnSubscription = false;
+
+  /**
+   * Whether the discount applies on regular one-time-purchase items.
+   */
+  private Boolean appliesOnOneTimePurchase = true;
+
+  /**
+   * The number of times a discount applies on recurring purchases (subscriptions).
+   *         0 will apply infinitely whereas 1 will only apply to the first checkout.
+   */
+  private Integer recurringCycleLimit = 1;
+
+  /**
+   * Additional metafields to associate to the discount.
+   * [Metafields](https://shopify.dev/docs/apps/build/custom-data) provide dynamic
+   * function configuration with different parameters, such as `percentage` for a
+   * percentage discount. Merchants can set metafield values in the Shopify admin,
+   * which makes the discount function more flexible and customizable.
+   */
   private List<MetafieldInput> metafields = Collections.emptyList();
 
   public DiscountCodeAppInput() {
   }
 
-  
+  /**
+   * The
+   * [discount classes](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
+   * that you can use in combination with
+   * [Shopify discount types](https://help.shopify.com/manual/discounts/discount-types).
+   */
   public DiscountCombinesWithInput getCombinesWith() {
     return combinesWith;
   }
@@ -54,7 +114,10 @@ public class DiscountCodeAppInput {
     this.combinesWith = combinesWith;
   }
 
-  
+  /**
+   * The [function ID](https://shopify.dev/docs/apps/build/functions/input-output/metafields-for-input-queries) associated with the app extension that's providing the [discount
+   * type](https://help.shopify.com/manual/discounts/discount-types).
+   */
   public String getFunctionId() {
     return functionId;
   }
@@ -63,7 +126,9 @@ public class DiscountCodeAppInput {
     this.functionId = functionId;
   }
 
-  
+  /**
+   * The discount's name that displays to merchants in the Shopify admin and to customers.
+   */
   public String getTitle() {
     return title;
   }
@@ -72,7 +137,9 @@ public class DiscountCodeAppInput {
     this.title = title;
   }
 
-  
+  /**
+   * The date and time when the discount becomes active and is available to customers.
+   */
   public OffsetDateTime getStartsAt() {
     return startsAt;
   }
@@ -81,7 +148,10 @@ public class DiscountCodeAppInput {
     this.startsAt = startsAt;
   }
 
-  
+  /**
+   * The date and time when the discount expires and is no longer available to
+   * customers. For discounts without a fixed expiration date, specify `null`.
+   */
   public OffsetDateTime getEndsAt() {
     return endsAt;
   }
@@ -90,7 +160,9 @@ public class DiscountCodeAppInput {
     this.endsAt = endsAt;
   }
 
-  
+  /**
+   * The maximum number of times that the discount can be used. For discounts with no usage limit, specify `null`.
+   */
   public Integer getUsageLimit() {
     return usageLimit;
   }
@@ -99,7 +171,9 @@ public class DiscountCodeAppInput {
     this.usageLimit = usageLimit;
   }
 
-  
+  /**
+   * Whether a customer can only use the discount once.
+   */
   public Boolean getAppliesOncePerCustomer() {
     return appliesOncePerCustomer;
   }
@@ -108,7 +182,10 @@ public class DiscountCodeAppInput {
     this.appliesOncePerCustomer = appliesOncePerCustomer;
   }
 
-  
+  /**
+   * The customers that can use the discount. You can target specific customer IDs,
+   * use customer segments, or make the discount available to all customers.
+   */
   public DiscountCustomerSelectionInput getCustomerSelection() {
     return customerSelection;
   }
@@ -117,7 +194,9 @@ public class DiscountCodeAppInput {
     this.customerSelection = customerSelection;
   }
 
-  
+  /**
+   * The code that customers need to enter to redeem the discount.
+   */
   public String getCode() {
     return code;
   }
@@ -126,7 +205,47 @@ public class DiscountCodeAppInput {
     this.code = code;
   }
 
-  
+  /**
+   * Whether the discount applies to subscriptions items.
+   */
+  public Boolean getAppliesOnSubscription() {
+    return appliesOnSubscription;
+  }
+
+  public void setAppliesOnSubscription(Boolean appliesOnSubscription) {
+    this.appliesOnSubscription = appliesOnSubscription;
+  }
+
+  /**
+   * Whether the discount applies on regular one-time-purchase items.
+   */
+  public Boolean getAppliesOnOneTimePurchase() {
+    return appliesOnOneTimePurchase;
+  }
+
+  public void setAppliesOnOneTimePurchase(Boolean appliesOnOneTimePurchase) {
+    this.appliesOnOneTimePurchase = appliesOnOneTimePurchase;
+  }
+
+  /**
+   * The number of times a discount applies on recurring purchases (subscriptions).
+   *         0 will apply infinitely whereas 1 will only apply to the first checkout.
+   */
+  public Integer getRecurringCycleLimit() {
+    return recurringCycleLimit;
+  }
+
+  public void setRecurringCycleLimit(Integer recurringCycleLimit) {
+    this.recurringCycleLimit = recurringCycleLimit;
+  }
+
+  /**
+   * Additional metafields to associate to the discount.
+   * [Metafields](https://shopify.dev/docs/apps/build/custom-data) provide dynamic
+   * function configuration with different parameters, such as `percentage` for a
+   * percentage discount. Merchants can set metafield values in the Shopify admin,
+   * which makes the discount function more flexible and customizable.
+   */
   public List<MetafieldInput> getMetafields() {
     return metafields;
   }
@@ -137,7 +256,7 @@ public class DiscountCodeAppInput {
 
   @Override
   public String toString() {
-    return "DiscountCodeAppInput{combinesWith='" + combinesWith + "', functionId='" + functionId + "', title='" + title + "', startsAt='" + startsAt + "', endsAt='" + endsAt + "', usageLimit='" + usageLimit + "', appliesOncePerCustomer='" + appliesOncePerCustomer + "', customerSelection='" + customerSelection + "', code='" + code + "', metafields='" + metafields + "'}";
+    return "DiscountCodeAppInput{combinesWith='" + combinesWith + "', functionId='" + functionId + "', title='" + title + "', startsAt='" + startsAt + "', endsAt='" + endsAt + "', usageLimit='" + usageLimit + "', appliesOncePerCustomer='" + appliesOncePerCustomer + "', customerSelection='" + customerSelection + "', code='" + code + "', appliesOnSubscription='" + appliesOnSubscription + "', appliesOnOneTimePurchase='" + appliesOnOneTimePurchase + "', recurringCycleLimit='" + recurringCycleLimit + "', metafields='" + metafields + "'}";
   }
 
   @Override
@@ -154,12 +273,15 @@ public class DiscountCodeAppInput {
         Objects.equals(appliesOncePerCustomer, that.appliesOncePerCustomer) &&
         Objects.equals(customerSelection, that.customerSelection) &&
         Objects.equals(code, that.code) &&
+        Objects.equals(appliesOnSubscription, that.appliesOnSubscription) &&
+        Objects.equals(appliesOnOneTimePurchase, that.appliesOnOneTimePurchase) &&
+        Objects.equals(recurringCycleLimit, that.recurringCycleLimit) &&
         Objects.equals(metafields, that.metafields);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(combinesWith, functionId, title, startsAt, endsAt, usageLimit, appliesOncePerCustomer, customerSelection, code, metafields);
+    return Objects.hash(combinesWith, functionId, title, startsAt, endsAt, usageLimit, appliesOncePerCustomer, customerSelection, code, appliesOnSubscription, appliesOnOneTimePurchase, recurringCycleLimit, metafields);
   }
 
   public static Builder newBuilder() {
@@ -167,34 +289,80 @@ public class DiscountCodeAppInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The
+     * [discount classes](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
+     * that you can use in combination with
+     * [Shopify discount types](https://help.shopify.com/manual/discounts/discount-types).
+     */
     private DiscountCombinesWithInput combinesWith;
 
-    
+    /**
+     * The [function ID](https://shopify.dev/docs/apps/build/functions/input-output/metafields-for-input-queries) associated with the app extension that's providing the [discount
+     * type](https://help.shopify.com/manual/discounts/discount-types).
+     */
     private String functionId;
 
-    
+    /**
+     * The discount's name that displays to merchants in the Shopify admin and to customers.
+     */
     private String title;
 
-    
+    /**
+     * The date and time when the discount becomes active and is available to customers.
+     */
     private OffsetDateTime startsAt;
 
-    
+    /**
+     * The date and time when the discount expires and is no longer available to
+     * customers. For discounts without a fixed expiration date, specify `null`.
+     */
     private OffsetDateTime endsAt;
 
-    
+    /**
+     * The maximum number of times that the discount can be used. For discounts with no usage limit, specify `null`.
+     */
     private Integer usageLimit;
 
-    
+    /**
+     * Whether a customer can only use the discount once.
+     */
     private Boolean appliesOncePerCustomer;
 
-    
+    /**
+     * The customers that can use the discount. You can target specific customer IDs,
+     * use customer segments, or make the discount available to all customers.
+     */
     private DiscountCustomerSelectionInput customerSelection;
 
-    
+    /**
+     * The code that customers need to enter to redeem the discount.
+     */
     private String code;
 
-    
+    /**
+     * Whether the discount applies to subscriptions items.
+     */
+    private Boolean appliesOnSubscription = false;
+
+    /**
+     * Whether the discount applies on regular one-time-purchase items.
+     */
+    private Boolean appliesOnOneTimePurchase = true;
+
+    /**
+     * The number of times a discount applies on recurring purchases (subscriptions).
+     *         0 will apply infinitely whereas 1 will only apply to the first checkout.
+     */
+    private Integer recurringCycleLimit = 1;
+
+    /**
+     * Additional metafields to associate to the discount.
+     * [Metafields](https://shopify.dev/docs/apps/build/custom-data) provide dynamic
+     * function configuration with different parameters, such as `percentage` for a
+     * percentage discount. Merchants can set metafield values in the Shopify admin,
+     * which makes the discount function more flexible and customizable.
+     */
     private List<MetafieldInput> metafields = Collections.emptyList();
 
     public DiscountCodeAppInput build() {
@@ -208,65 +376,123 @@ public class DiscountCodeAppInput {
       result.appliesOncePerCustomer = this.appliesOncePerCustomer;
       result.customerSelection = this.customerSelection;
       result.code = this.code;
+      result.appliesOnSubscription = this.appliesOnSubscription;
+      result.appliesOnOneTimePurchase = this.appliesOnOneTimePurchase;
+      result.recurringCycleLimit = this.recurringCycleLimit;
       result.metafields = this.metafields;
       return result;
     }
 
-    
+    /**
+     * The
+     * [discount classes](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
+     * that you can use in combination with
+     * [Shopify discount types](https://help.shopify.com/manual/discounts/discount-types).
+     */
     public Builder combinesWith(DiscountCombinesWithInput combinesWith) {
       this.combinesWith = combinesWith;
       return this;
     }
 
-    
+    /**
+     * The [function ID](https://shopify.dev/docs/apps/build/functions/input-output/metafields-for-input-queries) associated with the app extension that's providing the [discount
+     * type](https://help.shopify.com/manual/discounts/discount-types).
+     */
     public Builder functionId(String functionId) {
       this.functionId = functionId;
       return this;
     }
 
-    
+    /**
+     * The discount's name that displays to merchants in the Shopify admin and to customers.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    
+    /**
+     * The date and time when the discount becomes active and is available to customers.
+     */
     public Builder startsAt(OffsetDateTime startsAt) {
       this.startsAt = startsAt;
       return this;
     }
 
-    
+    /**
+     * The date and time when the discount expires and is no longer available to
+     * customers. For discounts without a fixed expiration date, specify `null`.
+     */
     public Builder endsAt(OffsetDateTime endsAt) {
       this.endsAt = endsAt;
       return this;
     }
 
-    
+    /**
+     * The maximum number of times that the discount can be used. For discounts with no usage limit, specify `null`.
+     */
     public Builder usageLimit(Integer usageLimit) {
       this.usageLimit = usageLimit;
       return this;
     }
 
-    
+    /**
+     * Whether a customer can only use the discount once.
+     */
     public Builder appliesOncePerCustomer(Boolean appliesOncePerCustomer) {
       this.appliesOncePerCustomer = appliesOncePerCustomer;
       return this;
     }
 
-    
+    /**
+     * The customers that can use the discount. You can target specific customer IDs,
+     * use customer segments, or make the discount available to all customers.
+     */
     public Builder customerSelection(DiscountCustomerSelectionInput customerSelection) {
       this.customerSelection = customerSelection;
       return this;
     }
 
-    
+    /**
+     * The code that customers need to enter to redeem the discount.
+     */
     public Builder code(String code) {
       this.code = code;
       return this;
     }
 
-    
+    /**
+     * Whether the discount applies to subscriptions items.
+     */
+    public Builder appliesOnSubscription(Boolean appliesOnSubscription) {
+      this.appliesOnSubscription = appliesOnSubscription;
+      return this;
+    }
+
+    /**
+     * Whether the discount applies on regular one-time-purchase items.
+     */
+    public Builder appliesOnOneTimePurchase(Boolean appliesOnOneTimePurchase) {
+      this.appliesOnOneTimePurchase = appliesOnOneTimePurchase;
+      return this;
+    }
+
+    /**
+     * The number of times a discount applies on recurring purchases (subscriptions).
+     *         0 will apply infinitely whereas 1 will only apply to the first checkout.
+     */
+    public Builder recurringCycleLimit(Integer recurringCycleLimit) {
+      this.recurringCycleLimit = recurringCycleLimit;
+      return this;
+    }
+
+    /**
+     * Additional metafields to associate to the discount.
+     * [Metafields](https://shopify.dev/docs/apps/build/custom-data) provide dynamic
+     * function configuration with different parameters, such as `percentage` for a
+     * percentage discount. Merchants can set metafield values in the Shopify admin,
+     * which makes the discount function more flexible and customizable.
+     */
     public Builder metafields(List<MetafieldInput> metafields) {
       this.metafields = metafields;
       return this;

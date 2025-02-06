@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Updates a saved search.
+ */
 public class SavedSearchUpdateGraphQLQuery extends GraphQLQuery {
   public SavedSearchUpdateGraphQLQuery(SavedSearchUpdateInput input, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class SavedSearchUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The input fields to update a saved search.
+     */
     public Builder input(SavedSearchUpdateInput input) {
       this.input = input;
       this.fieldsSet.add("input");

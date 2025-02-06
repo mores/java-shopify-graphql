@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * A list of locales available on a shop.
+ */
 public class ShopLocalesGraphQLQuery extends GraphQLQuery {
   public ShopLocalesGraphQLQuery(Boolean published, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -41,7 +43,9 @@ public class ShopLocalesGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Return only published locales.
+     */
     public Builder published(Boolean published) {
       this.published = published;
       this.fieldsSet.add("published");

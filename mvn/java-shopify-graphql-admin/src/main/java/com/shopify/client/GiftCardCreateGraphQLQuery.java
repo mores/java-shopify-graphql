@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Create a gift card.
+ */
 public class GiftCardCreateGraphQLQuery extends GraphQLQuery {
   public GiftCardCreateGraphQLQuery(GiftCardCreateInput input, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class GiftCardCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The input fields to create a gift card.
+     */
     public Builder input(GiftCardCreateInput input) {
       this.input = input;
       this.fieldsSet.add("input");

@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The settings that apply to the 'group' variant of ChoiceList.
+ */
 public class CheckoutBrandingChoiceListGroup {
-  
+  /**
+   * The spacing between UI elements in the list.
+   */
   private CheckoutBrandingSpacingKeyword spacing;
 
   public CheckoutBrandingChoiceListGroup() {
   }
 
-  
+  /**
+   * The spacing between UI elements in the list.
+   */
   public CheckoutBrandingSpacingKeyword getSpacing() {
     return spacing;
   }
@@ -45,7 +51,9 @@ public class CheckoutBrandingChoiceListGroup {
   }
 
   public static class Builder {
-    
+    /**
+     * The spacing between UI elements in the list.
+     */
     private CheckoutBrandingSpacingKeyword spacing;
 
     public CheckoutBrandingChoiceListGroup build() {
@@ -54,7 +62,9 @@ public class CheckoutBrandingChoiceListGroup {
       return result;
     }
 
-    
+    /**
+     * The spacing between UI elements in the list.
+     */
     public Builder spacing(CheckoutBrandingSpacingKeyword spacing) {
       this.spacing = spacing;
       return this;

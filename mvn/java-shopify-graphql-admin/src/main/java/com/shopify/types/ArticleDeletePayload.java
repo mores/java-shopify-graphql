@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `articleDelete` mutation.
+ */
 public class ArticleDeletePayload {
-  
+  /**
+   * The ID of the deleted article.
+   */
   private String deletedArticleId;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<ArticleDeleteUserError> userErrors;
 
   public ArticleDeletePayload() {
   }
 
-  
+  /**
+   * The ID of the deleted article.
+   */
   public String getDeletedArticleId() {
     return deletedArticleId;
   }
@@ -26,7 +34,9 @@ public class ArticleDeletePayload {
     this.deletedArticleId = deletedArticleId;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<ArticleDeleteUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class ArticleDeletePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the deleted article.
+     */
     private String deletedArticleId;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<ArticleDeleteUserError> userErrors;
 
     public ArticleDeletePayload build() {
@@ -72,13 +86,17 @@ public class ArticleDeletePayload {
       return result;
     }
 
-    
+    /**
+     * The ID of the deleted article.
+     */
     public Builder deletedArticleId(String deletedArticleId) {
       this.deletedArticleId = deletedArticleId;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<ArticleDeleteUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

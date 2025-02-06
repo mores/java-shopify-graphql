@@ -10,7 +10,9 @@ import java.util.Objects;
  * The input fields for the authorized transaction to capture and the total amount to capture from it.
  */
 public class OrderCaptureInput {
-  
+  /**
+   * The ID of the order to capture.
+   */
   private String id;
 
   /**
@@ -23,7 +25,11 @@ public class OrderCaptureInput {
    */
   private String amount;
 
-  
+  /**
+   * The currency (in ISO format) that's used to capture the order. This must be
+   * the presentment currency (the currency used by the customer) and is a required
+   * field for orders where the currency and presentment currency differ.
+   */
   private CurrencyCode currency;
 
   /**
@@ -41,7 +47,9 @@ public class OrderCaptureInput {
   public OrderCaptureInput() {
   }
 
-  
+  /**
+   * The ID of the order to capture.
+   */
   public String getId() {
     return id;
   }
@@ -72,7 +80,11 @@ public class OrderCaptureInput {
     this.amount = amount;
   }
 
-  
+  /**
+   * The currency (in ISO format) that's used to capture the order. This must be
+   * the presentment currency (the currency used by the customer) and is a required
+   * field for orders where the currency and presentment currency differ.
+   */
   public CurrencyCode getCurrency() {
     return currency;
   }
@@ -126,7 +138,9 @@ public class OrderCaptureInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the order to capture.
+     */
     private String id;
 
     /**
@@ -139,7 +153,11 @@ public class OrderCaptureInput {
      */
     private String amount;
 
-    
+    /**
+     * The currency (in ISO format) that's used to capture the order. This must be
+     * the presentment currency (the currency used by the customer) and is a required
+     * field for orders where the currency and presentment currency differ.
+     */
     private CurrencyCode currency;
 
     /**
@@ -164,7 +182,9 @@ public class OrderCaptureInput {
       return result;
     }
 
-    
+    /**
+     * The ID of the order to capture.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
@@ -186,7 +206,11 @@ public class OrderCaptureInput {
       return this;
     }
 
-    
+    /**
+     * The currency (in ISO format) that's used to capture the order. This must be
+     * the presentment currency (the currency used by the customer) and is a required
+     * field for orders where the currency and presentment currency differ.
+     */
     public Builder currency(CurrencyCode currency) {
       this.currency = currency;
       return this;

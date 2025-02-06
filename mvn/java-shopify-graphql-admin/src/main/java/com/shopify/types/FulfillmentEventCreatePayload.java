@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `fulfillmentEventCreate` mutation.
+ */
 public class FulfillmentEventCreatePayload {
-  
+  /**
+   * The created fulfillment event.
+   */
   private FulfillmentEvent fulfillmentEvent;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public FulfillmentEventCreatePayload() {
   }
 
-  
+  /**
+   * The created fulfillment event.
+   */
   public FulfillmentEvent getFulfillmentEvent() {
     return fulfillmentEvent;
   }
@@ -26,7 +34,9 @@ public class FulfillmentEventCreatePayload {
     this.fulfillmentEvent = fulfillmentEvent;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class FulfillmentEventCreatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The created fulfillment event.
+     */
     private FulfillmentEvent fulfillmentEvent;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public FulfillmentEventCreatePayload build() {
@@ -72,13 +86,17 @@ public class FulfillmentEventCreatePayload {
       return result;
     }
 
-    
+    /**
+     * The created fulfillment event.
+     */
     public Builder fulfillmentEvent(FulfillmentEvent fulfillmentEvent) {
       this.fulfillmentEvent = fulfillmentEvent;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

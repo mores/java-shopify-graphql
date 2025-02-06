@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `appSubscriptionTrialExtend` mutation.
+ */
 public class AppSubscriptionTrialExtendPayload {
-  
+  /**
+   * The app subscription that had its trial extended.
+   */
   private AppSubscription appSubscription;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<AppSubscriptionTrialExtendUserError> userErrors;
 
   public AppSubscriptionTrialExtendPayload() {
   }
 
-  
+  /**
+   * The app subscription that had its trial extended.
+   */
   public AppSubscription getAppSubscription() {
     return appSubscription;
   }
@@ -26,7 +34,9 @@ public class AppSubscriptionTrialExtendPayload {
     this.appSubscription = appSubscription;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<AppSubscriptionTrialExtendUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class AppSubscriptionTrialExtendPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The app subscription that had its trial extended.
+     */
     private AppSubscription appSubscription;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<AppSubscriptionTrialExtendUserError> userErrors;
 
     public AppSubscriptionTrialExtendPayload build() {
@@ -72,13 +86,17 @@ public class AppSubscriptionTrialExtendPayload {
       return result;
     }
 
-    
+    /**
+     * The app subscription that had its trial extended.
+     */
     public Builder appSubscription(AppSubscription appSubscription) {
       this.appSubscription = appSubscription;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<AppSubscriptionTrialExtendUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

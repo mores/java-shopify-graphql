@@ -9,126 +9,215 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Price rules are a set of conditions, including entitlements and prerequisites,
+ * that must be met in order for a discount code to apply.
+ *
+ * We recommend using the types and queries detailed at [Getting started with discounts](https://shopify.dev/docs/apps/selling-strategies/discounts/getting-started)
+ * instead. These will replace the GraphQL `PriceRule` object and REST Admin
+ * `PriceRule` and `DiscountCode` resources.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class PriceRule implements com.shopify.types.CommentEventSubject, com.shopify.types.HasEvents, com.shopify.types.LegacyInteroperability, com.shopify.types.Node {
-  
+  /**
+   * The maximum number of times that the price rule can be allocated onto an order.
+   */
   private Integer allocationLimit;
 
-  
+  /**
+   * The method by which the price rule's value is allocated to its entitled items.
+   */
   private PriceRuleAllocationMethod allocationMethod;
 
-  
+  /**
+   * The application that created the price rule.
+   */
   private App app;
 
-  
+  /**
+   * The
+   * [discount classes](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
+   * that you can use in combination with
+   * [Shopify discount types](https://help.shopify.com/manual/discounts/discount-types).
+   */
   private DiscountCombinesWith combinesWith;
 
-  
+  /**
+   * The date and time when the price rule was created.
+   */
   private OffsetDateTime createdAt;
 
-  
+  /**
+   * The customers that can use this price rule.
+   */
   private PriceRuleCustomerSelection customerSelection;
 
-  
+  /**
+   * The
+   * [discount class](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
+   * that's used to control how discounts can be combined.
+   */
   private DiscountClass discountClass;
 
-  
+  /**
+   * List of the price rule's discount codes.
+   */
   private PriceRuleDiscountCodeConnection discountCodes;
 
-  
+  /**
+   * How many discount codes associated with the price rule.
+   */
   private Count discountCodesCount;
 
-  
+  /**
+   * The date and time when the price rule ends. For open-ended price rules, use `null`.
+   */
   private OffsetDateTime endsAt;
 
-  
+  /**
+   * Quantity of prerequisite items required for the price rule to be applicable,  compared to quantity of entitled items.
+   */
   private PriceRuleEntitlementToPrerequisiteQuantityRatio entitlementToPrerequisiteQuantityRatio;
 
-  
+  /**
+   * The paginated list of events associated with the price rule.
+   */
   private EventConnection events;
 
-  
+  /**
+   * A list of the price rule's features.
+   */
   private List<PriceRuleFeature> features;
 
-  
+  /**
+   * Indicates whether there are any timeline comments on the price rule.
+   */
   private boolean hasTimelineComment;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The items to which the price rule applies.
+   */
   private PriceRuleItemEntitlements itemEntitlements;
 
-  
+  /**
+   * The items required for the price rule to be applicable.
+   */
   private PriceRuleLineItemPrerequisites itemPrerequisites;
 
-  
+  /**
+   * The ID of the corresponding resource in the REST Admin API.
+   */
   private String legacyResourceId;
 
-  
+  /**
+   * Whether the price rule can be applied only once per customer.
+   */
   private boolean oncePerCustomer;
 
-  
+  /**
+   * The number of the entitled items must fall within this range for the price rule to be applicable.
+   */
   private PriceRuleQuantityRange prerequisiteQuantityRange;
 
-  
+  /**
+   * The shipping cost must fall within this range for the price rule to be applicable.
+   */
   private PriceRuleMoneyRange prerequisiteShippingPriceRange;
 
-  
+  /**
+   * The sum of the entitled items subtotal prices must fall within this range for the price rule to be applicable.
+   */
   private PriceRuleMoneyRange prerequisiteSubtotalRange;
 
-  
+  /**
+   * Quantity of prerequisite items required for the price rule to be applicable,  compared to quantity of entitled items.
+   */
   private PriceRulePrerequisiteToEntitlementQuantityRatio prerequisiteToEntitlementQuantityRatio;
 
-  
+  /**
+   * URLs that can be used to share the discount.
+   */
   private List<PriceRuleShareableUrl> shareableUrls;
 
-  
+  /**
+   * The shipping lines to which the price rule applies.
+   */
   private PriceRuleShippingLineEntitlements shippingEntitlements;
 
-  
+  /**
+   * The date and time when the price rule starts.
+   */
   private OffsetDateTime startsAt;
 
-  
+  /**
+   * The status of the price rule.
+   */
   private PriceRuleStatus status;
 
-  
+  /**
+   * A detailed summary of the price rule.
+   */
   private String summary;
 
-  
+  /**
+   * The type of lines (line_item or shipping_line) to which the price rule applies.
+   */
   private PriceRuleTarget target;
 
-  
+  /**
+   * The title of the price rule.
+   */
   private String title;
 
-  
+  /**
+   * The total sales from orders where the price rule was used.
+   */
   private MoneyV2 totalSales;
 
-  
+  /**
+   * A list of the price rule's features.
+   */
   private List<PriceRuleTrait> traits;
 
-  
+  /**
+   * The number of times that the price rule has been used. This value is updated
+   * asynchronously and can be different than the actual usage count.
+   */
   private int usageCount;
 
-  
+  /**
+   * The maximum number of times that the price rule can be used in total.
+   */
   private Integer usageLimit;
 
-  
+  /**
+   * A time period during which a price rule is applicable.
+   */
   private PriceRuleValidityPeriod validityPeriod;
 
-  
+  /**
+   * The value of the price rule.
+   */
   private PriceRuleValue value;
 
-  
+  /**
+   * The value of the price rule.
+   */
   private PricingValue valueV2;
 
   public PriceRule() {
   }
 
-  
+  /**
+   * The maximum number of times that the price rule can be allocated onto an order.
+   */
   public Integer getAllocationLimit() {
     return allocationLimit;
   }
@@ -137,7 +226,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.allocationLimit = allocationLimit;
   }
 
-  
+  /**
+   * The method by which the price rule's value is allocated to its entitled items.
+   */
   public PriceRuleAllocationMethod getAllocationMethod() {
     return allocationMethod;
   }
@@ -146,7 +237,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.allocationMethod = allocationMethod;
   }
 
-  
+  /**
+   * The application that created the price rule.
+   */
   public App getApp() {
     return app;
   }
@@ -155,7 +248,12 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.app = app;
   }
 
-  
+  /**
+   * The
+   * [discount classes](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
+   * that you can use in combination with
+   * [Shopify discount types](https://help.shopify.com/manual/discounts/discount-types).
+   */
   public DiscountCombinesWith getCombinesWith() {
     return combinesWith;
   }
@@ -164,7 +262,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.combinesWith = combinesWith;
   }
 
-  
+  /**
+   * The date and time when the price rule was created.
+   */
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -173,7 +273,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.createdAt = createdAt;
   }
 
-  
+  /**
+   * The customers that can use this price rule.
+   */
   public PriceRuleCustomerSelection getCustomerSelection() {
     return customerSelection;
   }
@@ -182,7 +284,11 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.customerSelection = customerSelection;
   }
 
-  
+  /**
+   * The
+   * [discount class](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
+   * that's used to control how discounts can be combined.
+   */
   public DiscountClass getDiscountClass() {
     return discountClass;
   }
@@ -191,7 +297,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.discountClass = discountClass;
   }
 
-  
+  /**
+   * List of the price rule's discount codes.
+   */
   public PriceRuleDiscountCodeConnection getDiscountCodes() {
     return discountCodes;
   }
@@ -200,7 +308,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.discountCodes = discountCodes;
   }
 
-  
+  /**
+   * How many discount codes associated with the price rule.
+   */
   public Count getDiscountCodesCount() {
     return discountCodesCount;
   }
@@ -209,7 +319,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.discountCodesCount = discountCodesCount;
   }
 
-  
+  /**
+   * The date and time when the price rule ends. For open-ended price rules, use `null`.
+   */
   public OffsetDateTime getEndsAt() {
     return endsAt;
   }
@@ -218,7 +330,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.endsAt = endsAt;
   }
 
-  
+  /**
+   * Quantity of prerequisite items required for the price rule to be applicable,  compared to quantity of entitled items.
+   */
   public PriceRuleEntitlementToPrerequisiteQuantityRatio getEntitlementToPrerequisiteQuantityRatio(
       ) {
     return entitlementToPrerequisiteQuantityRatio;
@@ -229,7 +343,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.entitlementToPrerequisiteQuantityRatio = entitlementToPrerequisiteQuantityRatio;
   }
 
-  
+  /**
+   * The paginated list of events associated with the price rule.
+   */
   public EventConnection getEvents() {
     return events;
   }
@@ -238,7 +354,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.events = events;
   }
 
-  
+  /**
+   * A list of the price rule's features.
+   */
   public List<PriceRuleFeature> getFeatures() {
     return features;
   }
@@ -247,7 +365,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.features = features;
   }
 
-  
+  /**
+   * Indicates whether there are any timeline comments on the price rule.
+   */
   public boolean getHasTimelineComment() {
     return hasTimelineComment;
   }
@@ -256,7 +376,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.hasTimelineComment = hasTimelineComment;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -265,7 +387,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.id = id;
   }
 
-  
+  /**
+   * The items to which the price rule applies.
+   */
   public PriceRuleItemEntitlements getItemEntitlements() {
     return itemEntitlements;
   }
@@ -274,7 +398,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.itemEntitlements = itemEntitlements;
   }
 
-  
+  /**
+   * The items required for the price rule to be applicable.
+   */
   public PriceRuleLineItemPrerequisites getItemPrerequisites() {
     return itemPrerequisites;
   }
@@ -283,7 +409,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.itemPrerequisites = itemPrerequisites;
   }
 
-  
+  /**
+   * The ID of the corresponding resource in the REST Admin API.
+   */
   public String getLegacyResourceId() {
     return legacyResourceId;
   }
@@ -292,7 +420,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.legacyResourceId = legacyResourceId;
   }
 
-  
+  /**
+   * Whether the price rule can be applied only once per customer.
+   */
   public boolean getOncePerCustomer() {
     return oncePerCustomer;
   }
@@ -301,7 +431,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.oncePerCustomer = oncePerCustomer;
   }
 
-  
+  /**
+   * The number of the entitled items must fall within this range for the price rule to be applicable.
+   */
   public PriceRuleQuantityRange getPrerequisiteQuantityRange() {
     return prerequisiteQuantityRange;
   }
@@ -310,7 +442,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.prerequisiteQuantityRange = prerequisiteQuantityRange;
   }
 
-  
+  /**
+   * The shipping cost must fall within this range for the price rule to be applicable.
+   */
   public PriceRuleMoneyRange getPrerequisiteShippingPriceRange() {
     return prerequisiteShippingPriceRange;
   }
@@ -320,7 +454,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.prerequisiteShippingPriceRange = prerequisiteShippingPriceRange;
   }
 
-  
+  /**
+   * The sum of the entitled items subtotal prices must fall within this range for the price rule to be applicable.
+   */
   public PriceRuleMoneyRange getPrerequisiteSubtotalRange() {
     return prerequisiteSubtotalRange;
   }
@@ -329,7 +465,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.prerequisiteSubtotalRange = prerequisiteSubtotalRange;
   }
 
-  
+  /**
+   * Quantity of prerequisite items required for the price rule to be applicable,  compared to quantity of entitled items.
+   */
   public PriceRulePrerequisiteToEntitlementQuantityRatio getPrerequisiteToEntitlementQuantityRatio(
       ) {
     return prerequisiteToEntitlementQuantityRatio;
@@ -340,7 +478,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.prerequisiteToEntitlementQuantityRatio = prerequisiteToEntitlementQuantityRatio;
   }
 
-  
+  /**
+   * URLs that can be used to share the discount.
+   */
   public List<PriceRuleShareableUrl> getShareableUrls() {
     return shareableUrls;
   }
@@ -349,7 +489,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.shareableUrls = shareableUrls;
   }
 
-  
+  /**
+   * The shipping lines to which the price rule applies.
+   */
   public PriceRuleShippingLineEntitlements getShippingEntitlements() {
     return shippingEntitlements;
   }
@@ -358,7 +500,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.shippingEntitlements = shippingEntitlements;
   }
 
-  
+  /**
+   * The date and time when the price rule starts.
+   */
   public OffsetDateTime getStartsAt() {
     return startsAt;
   }
@@ -367,7 +511,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.startsAt = startsAt;
   }
 
-  
+  /**
+   * The status of the price rule.
+   */
   public PriceRuleStatus getStatus() {
     return status;
   }
@@ -376,7 +522,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.status = status;
   }
 
-  
+  /**
+   * A detailed summary of the price rule.
+   */
   public String getSummary() {
     return summary;
   }
@@ -385,7 +533,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.summary = summary;
   }
 
-  
+  /**
+   * The type of lines (line_item or shipping_line) to which the price rule applies.
+   */
   public PriceRuleTarget getTarget() {
     return target;
   }
@@ -394,7 +544,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.target = target;
   }
 
-  
+  /**
+   * The title of the price rule.
+   */
   public String getTitle() {
     return title;
   }
@@ -403,7 +555,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.title = title;
   }
 
-  
+  /**
+   * The total sales from orders where the price rule was used.
+   */
   public MoneyV2 getTotalSales() {
     return totalSales;
   }
@@ -412,7 +566,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.totalSales = totalSales;
   }
 
-  
+  /**
+   * A list of the price rule's features.
+   */
   public List<PriceRuleTrait> getTraits() {
     return traits;
   }
@@ -421,7 +577,10 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.traits = traits;
   }
 
-  
+  /**
+   * The number of times that the price rule has been used. This value is updated
+   * asynchronously and can be different than the actual usage count.
+   */
   public int getUsageCount() {
     return usageCount;
   }
@@ -430,7 +589,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.usageCount = usageCount;
   }
 
-  
+  /**
+   * The maximum number of times that the price rule can be used in total.
+   */
   public Integer getUsageLimit() {
     return usageLimit;
   }
@@ -439,7 +600,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.usageLimit = usageLimit;
   }
 
-  
+  /**
+   * A time period during which a price rule is applicable.
+   */
   public PriceRuleValidityPeriod getValidityPeriod() {
     return validityPeriod;
   }
@@ -448,7 +611,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.validityPeriod = validityPeriod;
   }
 
-  
+  /**
+   * The value of the price rule.
+   */
   public PriceRuleValue getValue() {
     return value;
   }
@@ -457,7 +622,9 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
     this.value = value;
   }
 
-  
+  /**
+   * The value of the price rule.
+   */
   public PricingValue getValueV2() {
     return valueV2;
   }
@@ -525,115 +692,195 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
   }
 
   public static class Builder {
-    
+    /**
+     * The maximum number of times that the price rule can be allocated onto an order.
+     */
     private Integer allocationLimit;
 
-    
+    /**
+     * The method by which the price rule's value is allocated to its entitled items.
+     */
     private PriceRuleAllocationMethod allocationMethod;
 
-    
+    /**
+     * The application that created the price rule.
+     */
     private App app;
 
-    
+    /**
+     * The
+     * [discount classes](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
+     * that you can use in combination with
+     * [Shopify discount types](https://help.shopify.com/manual/discounts/discount-types).
+     */
     private DiscountCombinesWith combinesWith;
 
-    
+    /**
+     * The date and time when the price rule was created.
+     */
     private OffsetDateTime createdAt;
 
-    
+    /**
+     * The customers that can use this price rule.
+     */
     private PriceRuleCustomerSelection customerSelection;
 
-    
+    /**
+     * The
+     * [discount class](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
+     * that's used to control how discounts can be combined.
+     */
     private DiscountClass discountClass;
 
-    
+    /**
+     * List of the price rule's discount codes.
+     */
     private PriceRuleDiscountCodeConnection discountCodes;
 
-    
+    /**
+     * How many discount codes associated with the price rule.
+     */
     private Count discountCodesCount;
 
-    
+    /**
+     * The date and time when the price rule ends. For open-ended price rules, use `null`.
+     */
     private OffsetDateTime endsAt;
 
-    
+    /**
+     * Quantity of prerequisite items required for the price rule to be applicable,  compared to quantity of entitled items.
+     */
     private PriceRuleEntitlementToPrerequisiteQuantityRatio entitlementToPrerequisiteQuantityRatio;
 
-    
+    /**
+     * The paginated list of events associated with the price rule.
+     */
     private EventConnection events;
 
-    
+    /**
+     * A list of the price rule's features.
+     */
     private List<PriceRuleFeature> features;
 
-    
+    /**
+     * Indicates whether there are any timeline comments on the price rule.
+     */
     private boolean hasTimelineComment;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The items to which the price rule applies.
+     */
     private PriceRuleItemEntitlements itemEntitlements;
 
-    
+    /**
+     * The items required for the price rule to be applicable.
+     */
     private PriceRuleLineItemPrerequisites itemPrerequisites;
 
-    
+    /**
+     * The ID of the corresponding resource in the REST Admin API.
+     */
     private String legacyResourceId;
 
-    
+    /**
+     * Whether the price rule can be applied only once per customer.
+     */
     private boolean oncePerCustomer;
 
-    
+    /**
+     * The number of the entitled items must fall within this range for the price rule to be applicable.
+     */
     private PriceRuleQuantityRange prerequisiteQuantityRange;
 
-    
+    /**
+     * The shipping cost must fall within this range for the price rule to be applicable.
+     */
     private PriceRuleMoneyRange prerequisiteShippingPriceRange;
 
-    
+    /**
+     * The sum of the entitled items subtotal prices must fall within this range for the price rule to be applicable.
+     */
     private PriceRuleMoneyRange prerequisiteSubtotalRange;
 
-    
+    /**
+     * Quantity of prerequisite items required for the price rule to be applicable,  compared to quantity of entitled items.
+     */
     private PriceRulePrerequisiteToEntitlementQuantityRatio prerequisiteToEntitlementQuantityRatio;
 
-    
+    /**
+     * URLs that can be used to share the discount.
+     */
     private List<PriceRuleShareableUrl> shareableUrls;
 
-    
+    /**
+     * The shipping lines to which the price rule applies.
+     */
     private PriceRuleShippingLineEntitlements shippingEntitlements;
 
-    
+    /**
+     * The date and time when the price rule starts.
+     */
     private OffsetDateTime startsAt;
 
-    
+    /**
+     * The status of the price rule.
+     */
     private PriceRuleStatus status;
 
-    
+    /**
+     * A detailed summary of the price rule.
+     */
     private String summary;
 
-    
+    /**
+     * The type of lines (line_item or shipping_line) to which the price rule applies.
+     */
     private PriceRuleTarget target;
 
-    
+    /**
+     * The title of the price rule.
+     */
     private String title;
 
-    
+    /**
+     * The total sales from orders where the price rule was used.
+     */
     private MoneyV2 totalSales;
 
-    
+    /**
+     * A list of the price rule's features.
+     */
     private List<PriceRuleTrait> traits;
 
-    
+    /**
+     * The number of times that the price rule has been used. This value is updated
+     * asynchronously and can be different than the actual usage count.
+     */
     private int usageCount;
 
-    
+    /**
+     * The maximum number of times that the price rule can be used in total.
+     */
     private Integer usageLimit;
 
-    
+    /**
+     * A time period during which a price rule is applicable.
+     */
     private PriceRuleValidityPeriod validityPeriod;
 
-    
+    /**
+     * The value of the price rule.
+     */
     private PriceRuleValue value;
 
-    
+    /**
+     * The value of the price rule.
+     */
     private PricingValue valueV2;
 
     public PriceRule build() {
@@ -678,226 +925,306 @@ public class PriceRule implements com.shopify.types.CommentEventSubject, com.sho
       return result;
     }
 
-    
+    /**
+     * The maximum number of times that the price rule can be allocated onto an order.
+     */
     public Builder allocationLimit(Integer allocationLimit) {
       this.allocationLimit = allocationLimit;
       return this;
     }
 
-    
+    /**
+     * The method by which the price rule's value is allocated to its entitled items.
+     */
     public Builder allocationMethod(PriceRuleAllocationMethod allocationMethod) {
       this.allocationMethod = allocationMethod;
       return this;
     }
 
-    
+    /**
+     * The application that created the price rule.
+     */
     public Builder app(App app) {
       this.app = app;
       return this;
     }
 
-    
+    /**
+     * The
+     * [discount classes](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
+     * that you can use in combination with
+     * [Shopify discount types](https://help.shopify.com/manual/discounts/discount-types).
+     */
     public Builder combinesWith(DiscountCombinesWith combinesWith) {
       this.combinesWith = combinesWith;
       return this;
     }
 
-    
+    /**
+     * The date and time when the price rule was created.
+     */
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    
+    /**
+     * The customers that can use this price rule.
+     */
     public Builder customerSelection(PriceRuleCustomerSelection customerSelection) {
       this.customerSelection = customerSelection;
       return this;
     }
 
-    
+    /**
+     * The
+     * [discount class](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
+     * that's used to control how discounts can be combined.
+     */
     public Builder discountClass(DiscountClass discountClass) {
       this.discountClass = discountClass;
       return this;
     }
 
-    
+    /**
+     * List of the price rule's discount codes.
+     */
     public Builder discountCodes(PriceRuleDiscountCodeConnection discountCodes) {
       this.discountCodes = discountCodes;
       return this;
     }
 
-    
+    /**
+     * How many discount codes associated with the price rule.
+     */
     public Builder discountCodesCount(Count discountCodesCount) {
       this.discountCodesCount = discountCodesCount;
       return this;
     }
 
-    
+    /**
+     * The date and time when the price rule ends. For open-ended price rules, use `null`.
+     */
     public Builder endsAt(OffsetDateTime endsAt) {
       this.endsAt = endsAt;
       return this;
     }
 
-    
+    /**
+     * Quantity of prerequisite items required for the price rule to be applicable,  compared to quantity of entitled items.
+     */
     public Builder entitlementToPrerequisiteQuantityRatio(
         PriceRuleEntitlementToPrerequisiteQuantityRatio entitlementToPrerequisiteQuantityRatio) {
       this.entitlementToPrerequisiteQuantityRatio = entitlementToPrerequisiteQuantityRatio;
       return this;
     }
 
-    
+    /**
+     * The paginated list of events associated with the price rule.
+     */
     public Builder events(EventConnection events) {
       this.events = events;
       return this;
     }
 
-    
+    /**
+     * A list of the price rule's features.
+     */
     public Builder features(List<PriceRuleFeature> features) {
       this.features = features;
       return this;
     }
 
-    
+    /**
+     * Indicates whether there are any timeline comments on the price rule.
+     */
     public Builder hasTimelineComment(boolean hasTimelineComment) {
       this.hasTimelineComment = hasTimelineComment;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The items to which the price rule applies.
+     */
     public Builder itemEntitlements(PriceRuleItemEntitlements itemEntitlements) {
       this.itemEntitlements = itemEntitlements;
       return this;
     }
 
-    
+    /**
+     * The items required for the price rule to be applicable.
+     */
     public Builder itemPrerequisites(PriceRuleLineItemPrerequisites itemPrerequisites) {
       this.itemPrerequisites = itemPrerequisites;
       return this;
     }
 
-    
+    /**
+     * The ID of the corresponding resource in the REST Admin API.
+     */
     public Builder legacyResourceId(String legacyResourceId) {
       this.legacyResourceId = legacyResourceId;
       return this;
     }
 
-    
+    /**
+     * Whether the price rule can be applied only once per customer.
+     */
     public Builder oncePerCustomer(boolean oncePerCustomer) {
       this.oncePerCustomer = oncePerCustomer;
       return this;
     }
 
-    
+    /**
+     * The number of the entitled items must fall within this range for the price rule to be applicable.
+     */
     public Builder prerequisiteQuantityRange(PriceRuleQuantityRange prerequisiteQuantityRange) {
       this.prerequisiteQuantityRange = prerequisiteQuantityRange;
       return this;
     }
 
-    
+    /**
+     * The shipping cost must fall within this range for the price rule to be applicable.
+     */
     public Builder prerequisiteShippingPriceRange(
         PriceRuleMoneyRange prerequisiteShippingPriceRange) {
       this.prerequisiteShippingPriceRange = prerequisiteShippingPriceRange;
       return this;
     }
 
-    
+    /**
+     * The sum of the entitled items subtotal prices must fall within this range for the price rule to be applicable.
+     */
     public Builder prerequisiteSubtotalRange(PriceRuleMoneyRange prerequisiteSubtotalRange) {
       this.prerequisiteSubtotalRange = prerequisiteSubtotalRange;
       return this;
     }
 
-    
+    /**
+     * Quantity of prerequisite items required for the price rule to be applicable,  compared to quantity of entitled items.
+     */
     public Builder prerequisiteToEntitlementQuantityRatio(
         PriceRulePrerequisiteToEntitlementQuantityRatio prerequisiteToEntitlementQuantityRatio) {
       this.prerequisiteToEntitlementQuantityRatio = prerequisiteToEntitlementQuantityRatio;
       return this;
     }
 
-    
+    /**
+     * URLs that can be used to share the discount.
+     */
     public Builder shareableUrls(List<PriceRuleShareableUrl> shareableUrls) {
       this.shareableUrls = shareableUrls;
       return this;
     }
 
-    
+    /**
+     * The shipping lines to which the price rule applies.
+     */
     public Builder shippingEntitlements(PriceRuleShippingLineEntitlements shippingEntitlements) {
       this.shippingEntitlements = shippingEntitlements;
       return this;
     }
 
-    
+    /**
+     * The date and time when the price rule starts.
+     */
     public Builder startsAt(OffsetDateTime startsAt) {
       this.startsAt = startsAt;
       return this;
     }
 
-    
+    /**
+     * The status of the price rule.
+     */
     public Builder status(PriceRuleStatus status) {
       this.status = status;
       return this;
     }
 
-    
+    /**
+     * A detailed summary of the price rule.
+     */
     public Builder summary(String summary) {
       this.summary = summary;
       return this;
     }
 
-    
+    /**
+     * The type of lines (line_item or shipping_line) to which the price rule applies.
+     */
     public Builder target(PriceRuleTarget target) {
       this.target = target;
       return this;
     }
 
-    
+    /**
+     * The title of the price rule.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    
+    /**
+     * The total sales from orders where the price rule was used.
+     */
     public Builder totalSales(MoneyV2 totalSales) {
       this.totalSales = totalSales;
       return this;
     }
 
-    
+    /**
+     * A list of the price rule's features.
+     */
     public Builder traits(List<PriceRuleTrait> traits) {
       this.traits = traits;
       return this;
     }
 
-    
+    /**
+     * The number of times that the price rule has been used. This value is updated
+     * asynchronously and can be different than the actual usage count.
+     */
     public Builder usageCount(int usageCount) {
       this.usageCount = usageCount;
       return this;
     }
 
-    
+    /**
+     * The maximum number of times that the price rule can be used in total.
+     */
     public Builder usageLimit(Integer usageLimit) {
       this.usageLimit = usageLimit;
       return this;
     }
 
-    
+    /**
+     * A time period during which a price rule is applicable.
+     */
     public Builder validityPeriod(PriceRuleValidityPeriod validityPeriod) {
       this.validityPeriod = validityPeriod;
       return this;
     }
 
-    
+    /**
+     * The value of the price rule.
+     */
     public Builder value(PriceRuleValue value) {
       this.value = value;
       return this;
     }
 
-    
+    /**
+     * The value of the price rule.
+     */
     public Builder valueV2(PricingValue valueV2) {
       this.valueV2 = valueV2;
       return this;

@@ -7,7 +7,10 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Delete payment terms for an order. To delete payment terms on a draft order,
+ * use a draft order mutation and include the request with the `DraftOrderInput`.
+ */
 public class PaymentTermsDeleteGraphQLQuery extends GraphQLQuery {
   public PaymentTermsDeleteGraphQLQuery(PaymentTermsDeleteInput input, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +45,9 @@ public class PaymentTermsDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The input fields used to delete the payment terms.
+     */
     public Builder input(PaymentTermsDeleteInput input) {
       this.input = input;
       this.fieldsSet.add("input");

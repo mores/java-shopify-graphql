@@ -6,27 +6,41 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * A locale that's been enabled on a shop.
+ */
 public class ShopLocale {
-  
+  /**
+   * The locale ISO code.
+   */
   private String locale;
 
-  
+  /**
+   * The market web presences that use the locale.
+   */
   private List<MarketWebPresence> marketWebPresences;
 
-  
+  /**
+   * The human-readable locale name.
+   */
   private String name;
 
-  
+  /**
+   * Whether the locale is the default locale for the shop.
+   */
   private boolean primary;
 
-  
+  /**
+   * Whether the locale is visible to buyers.
+   */
   private boolean published;
 
   public ShopLocale() {
   }
 
-  
+  /**
+   * The locale ISO code.
+   */
   public String getLocale() {
     return locale;
   }
@@ -35,7 +49,9 @@ public class ShopLocale {
     this.locale = locale;
   }
 
-  
+  /**
+   * The market web presences that use the locale.
+   */
   public List<MarketWebPresence> getMarketWebPresences() {
     return marketWebPresences;
   }
@@ -44,7 +60,9 @@ public class ShopLocale {
     this.marketWebPresences = marketWebPresences;
   }
 
-  
+  /**
+   * The human-readable locale name.
+   */
   public String getName() {
     return name;
   }
@@ -53,7 +71,9 @@ public class ShopLocale {
     this.name = name;
   }
 
-  
+  /**
+   * Whether the locale is the default locale for the shop.
+   */
   public boolean getPrimary() {
     return primary;
   }
@@ -62,7 +82,9 @@ public class ShopLocale {
     this.primary = primary;
   }
 
-  
+  /**
+   * Whether the locale is visible to buyers.
+   */
   public boolean getPublished() {
     return published;
   }
@@ -98,19 +120,29 @@ public class ShopLocale {
   }
 
   public static class Builder {
-    
+    /**
+     * The locale ISO code.
+     */
     private String locale;
 
-    
+    /**
+     * The market web presences that use the locale.
+     */
     private List<MarketWebPresence> marketWebPresences;
 
-    
+    /**
+     * The human-readable locale name.
+     */
     private String name;
 
-    
+    /**
+     * Whether the locale is the default locale for the shop.
+     */
     private boolean primary;
 
-    
+    /**
+     * Whether the locale is visible to buyers.
+     */
     private boolean published;
 
     public ShopLocale build() {
@@ -123,31 +155,41 @@ public class ShopLocale {
       return result;
     }
 
-    
+    /**
+     * The locale ISO code.
+     */
     public Builder locale(String locale) {
       this.locale = locale;
       return this;
     }
 
-    
+    /**
+     * The market web presences that use the locale.
+     */
     public Builder marketWebPresences(List<MarketWebPresence> marketWebPresences) {
       this.marketWebPresences = marketWebPresences;
       return this;
     }
 
-    
+    /**
+     * The human-readable locale name.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    
+    /**
+     * Whether the locale is the default locale for the shop.
+     */
     public Builder primary(boolean primary) {
       this.primary = primary;
       return this;
     }
 
-    
+    /**
+     * Whether the locale is visible to buyers.
+     */
     public Builder published(boolean published) {
       this.published = published;
       return this;

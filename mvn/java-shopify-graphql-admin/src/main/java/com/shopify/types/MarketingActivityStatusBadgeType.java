@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * StatusBadgeType helps to identify the color of the status badge.
+ */
 public enum MarketingActivityStatusBadgeType {
   DEFAULT,
 

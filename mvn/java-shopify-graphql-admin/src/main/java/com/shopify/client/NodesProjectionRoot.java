@@ -738,13 +738,6 @@ public class NodesProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROO
     return fragment;
   }
 
-  public MetafieldStorefrontVisibilityFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onMetafieldStorefrontVisibility(
-      ) {
-    MetafieldStorefrontVisibilityFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new MetafieldStorefrontVisibilityFragmentProjection<>(this, this);
-    getFragments().add(fragment);
-    return fragment;
-  }
-
   public MetaobjectFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onMetaobject(
       ) {
     MetaobjectFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new MetaobjectFragmentProjection<>(this, this);
@@ -864,13 +857,6 @@ public class NodesProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROO
     return fragment;
   }
 
-  public PrivateMetafieldFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onPrivateMetafield(
-      ) {
-    PrivateMetafieldFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new PrivateMetafieldFragmentProjection<>(this, this);
-    getFragments().add(fragment);
-    return fragment;
-  }
-
   public ProductFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onProduct(
       ) {
     ProductFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new ProductFragmentProjection<>(this, this);
@@ -944,6 +930,13 @@ public class NodesProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROO
   public ProductVariantComponentFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onProductVariantComponent(
       ) {
     ProductVariantComponentFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new ProductVariantComponentFragmentProjection<>(this, this);
+    getFragments().add(fragment);
+    return fragment;
+  }
+
+  public PromiseParticipantFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onPromiseParticipant(
+      ) {
+    PromiseParticipantFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new PromiseParticipantFragmentProjection<>(this, this);
     getFragments().add(fragment);
     return fragment;
   }

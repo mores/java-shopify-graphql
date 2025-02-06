@@ -130,6 +130,13 @@ public class CalculatedDraftOrderLineItemFragmentProjection<PARENT extends BaseS
      return projection;
   }
 
+  public MoneyV2Projection<CalculatedDraftOrderLineItemFragmentProjection<PARENT, ROOT>, ROOT> priceOverride(
+      ) {
+     MoneyV2Projection<CalculatedDraftOrderLineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());
+     getFields().put("priceOverride", projection);
+     return projection;
+  }
+
   public ProductProjection<CalculatedDraftOrderLineItemFragmentProjection<PARENT, ROOT>, ROOT> product(
       ) {
      ProductProjection<CalculatedDraftOrderLineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductProjection<>(this, getRoot());

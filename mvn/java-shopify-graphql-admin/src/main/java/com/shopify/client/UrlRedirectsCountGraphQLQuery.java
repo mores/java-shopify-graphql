@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Count of redirects. Limited to a maximum of 10000.
+ */
 public class UrlRedirectsCountGraphQLQuery extends GraphQLQuery {
   public UrlRedirectsCountGraphQLQuery(String query, String savedSearchId, String queryName,
       Set<String> fieldsSet) {
@@ -45,14 +47,30 @@ public class UrlRedirectsCountGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * A filter made up of terms, connectives, modifiers, and comparators.
+     * | name | type | description | acceptable_values | default_value | example_use |
+     * | ---- | ---- | ---- | ---- | ---- | ---- |
+     * | default | string | Filter by a case-insensitive search of multiple fields
+     * in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
+     * | created_at | time |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
+     * | path | string |
+     * | target | string |
+     * You can apply one or more filters to a query. Learn more about [Shopify API
+     * search syntax](https://shopify.dev/api/usage/search-syntax).
+     */
     public Builder query(String query) {
       this.query = query;
       this.fieldsSet.add("query");
       return this;
     }
 
-    
+    /**
+     * The ID of an existing saved search.
+     * The search’s query string is used as the query argument.
+     * Refer to the [`SavedSearch`](https://shopify.dev/api/admin-graphql/latest/objects/savedsearch) object.
+     */
     public Builder savedSearchId(String savedSearchId) {
       this.savedSearchId = savedSearchId;
       this.fieldsSet.add("savedSearchId");

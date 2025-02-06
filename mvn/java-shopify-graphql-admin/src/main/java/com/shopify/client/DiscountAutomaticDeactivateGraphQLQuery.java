@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Deactivates an automatic discount.
+ */
 public class DiscountAutomaticDeactivateGraphQLQuery extends GraphQLQuery {
   public DiscountAutomaticDeactivateGraphQLQuery(String id, String queryName,
       Set<String> fieldsSet) {
@@ -41,7 +43,9 @@ public class DiscountAutomaticDeactivateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the automatic discount to deactivate.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

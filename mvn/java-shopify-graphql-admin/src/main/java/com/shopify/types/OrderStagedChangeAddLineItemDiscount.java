@@ -6,24 +6,34 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The discount applied to an item that was added during the current order edit.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class OrderStagedChangeAddLineItemDiscount implements OrderStagedChange {
-  
+  /**
+   * The description of the discount.
+   */
   private String description;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The pricing value of the discount.
+   */
   private PricingValue value;
 
   public OrderStagedChangeAddLineItemDiscount() {
   }
 
-  
+  /**
+   * The description of the discount.
+   */
   public String getDescription() {
     return description;
   }
@@ -32,7 +42,9 @@ public class OrderStagedChangeAddLineItemDiscount implements OrderStagedChange {
     this.description = description;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -41,7 +53,9 @@ public class OrderStagedChangeAddLineItemDiscount implements OrderStagedChange {
     this.id = id;
   }
 
-  
+  /**
+   * The pricing value of the discount.
+   */
   public PricingValue getValue() {
     return value;
   }
@@ -75,13 +89,19 @@ public class OrderStagedChangeAddLineItemDiscount implements OrderStagedChange {
   }
 
   public static class Builder {
-    
+    /**
+     * The description of the discount.
+     */
     private String description;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The pricing value of the discount.
+     */
     private PricingValue value;
 
     public OrderStagedChangeAddLineItemDiscount build() {
@@ -92,19 +112,25 @@ public class OrderStagedChangeAddLineItemDiscount implements OrderStagedChange {
       return result;
     }
 
-    
+    /**
+     * The description of the discount.
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The pricing value of the discount.
+     */
     public Builder value(PricingValue value) {
       this.value = value;
       return this;

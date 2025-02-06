@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields used to update a checkout branding image uploaded via the Files API.
+ */
 public class CheckoutBrandingImageInput {
-  
+  /**
+   * A globally-unique ID.
+   */
   private String mediaImageId;
 
   public CheckoutBrandingImageInput() {
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getMediaImageId() {
     return mediaImageId;
   }
@@ -45,7 +51,9 @@ public class CheckoutBrandingImageInput {
   }
 
   public static class Builder {
-    
+    /**
+     * A globally-unique ID.
+     */
     private String mediaImageId;
 
     public CheckoutBrandingImageInput build() {
@@ -54,7 +62,9 @@ public class CheckoutBrandingImageInput {
       return result;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder mediaImageId(String mediaImageId) {
       this.mediaImageId = mediaImageId;
       return this;

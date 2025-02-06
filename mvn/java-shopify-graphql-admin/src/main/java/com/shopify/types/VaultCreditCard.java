@@ -6,36 +6,54 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Represents a credit card payment instrument.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class VaultCreditCard implements PaymentInstrument {
-  
+  /**
+   * The billing address of the card.
+   */
   private CustomerCreditCardBillingAddress billingAddress;
 
-  
+  /**
+   * The brand for the card.
+   */
   private String brand;
 
-  
+  /**
+   * Whether the card has been expired.
+   */
   private boolean expired;
 
-  
+  /**
+   * The expiry month of the card.
+   */
   private int expiryMonth;
 
-  
+  /**
+   * The expiry year of the card.
+   */
   private int expiryYear;
 
-  
+  /**
+   * The last four digits for the card.
+   */
   private String lastDigits;
 
-  
+  /**
+   * The name of the card holder.
+   */
   private String name;
 
   public VaultCreditCard() {
   }
 
-  
+  /**
+   * The billing address of the card.
+   */
   public CustomerCreditCardBillingAddress getBillingAddress() {
     return billingAddress;
   }
@@ -44,7 +62,9 @@ public class VaultCreditCard implements PaymentInstrument {
     this.billingAddress = billingAddress;
   }
 
-  
+  /**
+   * The brand for the card.
+   */
   public String getBrand() {
     return brand;
   }
@@ -53,7 +73,9 @@ public class VaultCreditCard implements PaymentInstrument {
     this.brand = brand;
   }
 
-  
+  /**
+   * Whether the card has been expired.
+   */
   public boolean getExpired() {
     return expired;
   }
@@ -62,7 +84,9 @@ public class VaultCreditCard implements PaymentInstrument {
     this.expired = expired;
   }
 
-  
+  /**
+   * The expiry month of the card.
+   */
   public int getExpiryMonth() {
     return expiryMonth;
   }
@@ -71,7 +95,9 @@ public class VaultCreditCard implements PaymentInstrument {
     this.expiryMonth = expiryMonth;
   }
 
-  
+  /**
+   * The expiry year of the card.
+   */
   public int getExpiryYear() {
     return expiryYear;
   }
@@ -80,7 +106,9 @@ public class VaultCreditCard implements PaymentInstrument {
     this.expiryYear = expiryYear;
   }
 
-  
+  /**
+   * The last four digits for the card.
+   */
   public String getLastDigits() {
     return lastDigits;
   }
@@ -89,7 +117,9 @@ public class VaultCreditCard implements PaymentInstrument {
     this.lastDigits = lastDigits;
   }
 
-  
+  /**
+   * The name of the card holder.
+   */
   public String getName() {
     return name;
   }
@@ -127,25 +157,39 @@ public class VaultCreditCard implements PaymentInstrument {
   }
 
   public static class Builder {
-    
+    /**
+     * The billing address of the card.
+     */
     private CustomerCreditCardBillingAddress billingAddress;
 
-    
+    /**
+     * The brand for the card.
+     */
     private String brand;
 
-    
+    /**
+     * Whether the card has been expired.
+     */
     private boolean expired;
 
-    
+    /**
+     * The expiry month of the card.
+     */
     private int expiryMonth;
 
-    
+    /**
+     * The expiry year of the card.
+     */
     private int expiryYear;
 
-    
+    /**
+     * The last four digits for the card.
+     */
     private String lastDigits;
 
-    
+    /**
+     * The name of the card holder.
+     */
     private String name;
 
     public VaultCreditCard build() {
@@ -160,43 +204,57 @@ public class VaultCreditCard implements PaymentInstrument {
       return result;
     }
 
-    
+    /**
+     * The billing address of the card.
+     */
     public Builder billingAddress(CustomerCreditCardBillingAddress billingAddress) {
       this.billingAddress = billingAddress;
       return this;
     }
 
-    
+    /**
+     * The brand for the card.
+     */
     public Builder brand(String brand) {
       this.brand = brand;
       return this;
     }
 
-    
+    /**
+     * Whether the card has been expired.
+     */
     public Builder expired(boolean expired) {
       this.expired = expired;
       return this;
     }
 
-    
+    /**
+     * The expiry month of the card.
+     */
     public Builder expiryMonth(int expiryMonth) {
       this.expiryMonth = expiryMonth;
       return this;
     }
 
-    
+    /**
+     * The expiry year of the card.
+     */
     public Builder expiryYear(int expiryYear) {
       this.expiryYear = expiryYear;
       return this;
     }
 
-    
+    /**
+     * The last four digits for the card.
+     */
     public Builder lastDigits(String lastDigits) {
       this.lastDigits = lastDigits;
       return this;
     }
 
-    
+    /**
+     * The name of the card holder.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;

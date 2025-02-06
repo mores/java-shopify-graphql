@@ -5,24 +5,37 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The items to which this price rule applies. This may be multiple products,
+ * product variants, collections or combinations of the aforementioned.
+ */
 public class PriceRuleItemEntitlements {
-  
+  /**
+   * The collections to which the price rule applies.
+   */
   private CollectionConnection collections;
 
-  
+  /**
+   * The product variants to which the price rule applies.
+   */
   private ProductVariantConnection productVariants;
 
-  
+  /**
+   * The products to which the price rule applies.
+   */
   private ProductConnection products;
 
-  
+  /**
+   * Whether the price rule applies to all line items.
+   */
   private boolean targetAllLineItems;
 
   public PriceRuleItemEntitlements() {
   }
 
-  
+  /**
+   * The collections to which the price rule applies.
+   */
   public CollectionConnection getCollections() {
     return collections;
   }
@@ -31,7 +44,9 @@ public class PriceRuleItemEntitlements {
     this.collections = collections;
   }
 
-  
+  /**
+   * The product variants to which the price rule applies.
+   */
   public ProductVariantConnection getProductVariants() {
     return productVariants;
   }
@@ -40,7 +55,9 @@ public class PriceRuleItemEntitlements {
     this.productVariants = productVariants;
   }
 
-  
+  /**
+   * The products to which the price rule applies.
+   */
   public ProductConnection getProducts() {
     return products;
   }
@@ -49,7 +66,9 @@ public class PriceRuleItemEntitlements {
     this.products = products;
   }
 
-  
+  /**
+   * Whether the price rule applies to all line items.
+   */
   public boolean getTargetAllLineItems() {
     return targetAllLineItems;
   }
@@ -84,16 +103,24 @@ public class PriceRuleItemEntitlements {
   }
 
   public static class Builder {
-    
+    /**
+     * The collections to which the price rule applies.
+     */
     private CollectionConnection collections;
 
-    
+    /**
+     * The product variants to which the price rule applies.
+     */
     private ProductVariantConnection productVariants;
 
-    
+    /**
+     * The products to which the price rule applies.
+     */
     private ProductConnection products;
 
-    
+    /**
+     * Whether the price rule applies to all line items.
+     */
     private boolean targetAllLineItems;
 
     public PriceRuleItemEntitlements build() {
@@ -105,25 +132,33 @@ public class PriceRuleItemEntitlements {
       return result;
     }
 
-    
+    /**
+     * The collections to which the price rule applies.
+     */
     public Builder collections(CollectionConnection collections) {
       this.collections = collections;
       return this;
     }
 
-    
+    /**
+     * The product variants to which the price rule applies.
+     */
     public Builder productVariants(ProductVariantConnection productVariants) {
       this.productVariants = productVariants;
       return this;
     }
 
-    
+    /**
+     * The products to which the price rule applies.
+     */
     public Builder products(ProductConnection products) {
       this.products = products;
       return this;
     }
 
-    
+    /**
+     * Whether the price rule applies to all line items.
+     */
     public Builder targetAllLineItems(boolean targetAllLineItems) {
       this.targetAllLineItems = targetAllLineItems;
       return this;

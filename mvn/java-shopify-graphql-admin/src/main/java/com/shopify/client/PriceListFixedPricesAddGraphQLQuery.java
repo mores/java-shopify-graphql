@@ -8,7 +8,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Creates or updates fixed prices on a price list. You can use the
+ * `priceListFixedPricesAdd` mutation to set a fixed price for specific product
+ * variants. This lets you change product variant pricing on a per country basis.
+ * Any existing fixed price list prices for these variants will be overwritten.
+ */
 public class PriceListFixedPricesAddGraphQLQuery extends GraphQLQuery {
   public PriceListFixedPricesAddGraphQLQuery(String priceListId, List<PriceListPriceInput> prices,
       String queryName, Set<String> fieldsSet) {
@@ -47,14 +52,18 @@ public class PriceListFixedPricesAddGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the price list to which the fixed prices will be added or updated.
+     */
     public Builder priceListId(String priceListId) {
       this.priceListId = priceListId;
       this.fieldsSet.add("priceListId");
       return this;
     }
 
-    
+    /**
+     * The list of fixed prices to add or update in the price list.
+     */
     public Builder prices(List<PriceListPriceInput> prices) {
       this.prices = prices;
       this.fieldsSet.add("prices");

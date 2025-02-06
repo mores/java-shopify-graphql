@@ -5,18 +5,30 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The header cart link customizations.
+ */
 public class CheckoutBrandingHeaderCartLink {
-  
+  /**
+   * The content type for the header back to cart link in 1-page checkout. Setting
+   * this to image will render the custom image provided using the image field on
+   * the header cart_link object. If no image is provided, the default cart icon will be used.
+   */
   private CheckoutBrandingCartLinkContentType contentType;
 
-  
+  /**
+   * The image that's used for the header back to cart link in 1-page checkout when the content type is set to image.
+   */
   private Image image;
 
   public CheckoutBrandingHeaderCartLink() {
   }
 
-  
+  /**
+   * The content type for the header back to cart link in 1-page checkout. Setting
+   * this to image will render the custom image provided using the image field on
+   * the header cart_link object. If no image is provided, the default cart icon will be used.
+   */
   public CheckoutBrandingCartLinkContentType getContentType() {
     return contentType;
   }
@@ -25,7 +37,9 @@ public class CheckoutBrandingHeaderCartLink {
     this.contentType = contentType;
   }
 
-  
+  /**
+   * The image that's used for the header back to cart link in 1-page checkout when the content type is set to image.
+   */
   public Image getImage() {
     return image;
   }
@@ -58,10 +72,16 @@ public class CheckoutBrandingHeaderCartLink {
   }
 
   public static class Builder {
-    
+    /**
+     * The content type for the header back to cart link in 1-page checkout. Setting
+     * this to image will render the custom image provided using the image field on
+     * the header cart_link object. If no image is provided, the default cart icon will be used.
+     */
     private CheckoutBrandingCartLinkContentType contentType;
 
-    
+    /**
+     * The image that's used for the header back to cart link in 1-page checkout when the content type is set to image.
+     */
     private Image image;
 
     public CheckoutBrandingHeaderCartLink build() {
@@ -71,13 +91,19 @@ public class CheckoutBrandingHeaderCartLink {
       return result;
     }
 
-    
+    /**
+     * The content type for the header back to cart link in 1-page checkout. Setting
+     * this to image will render the custom image provided using the image field on
+     * the header cart_link object. If no image is provided, the default cart icon will be used.
+     */
     public Builder contentType(CheckoutBrandingCartLinkContentType contentType) {
       this.contentType = contentType;
       return this;
     }
 
-    
+    /**
+     * The image that's used for the header back to cart link in 1-page checkout when the content type is set to image.
+     */
     public Builder image(Image image) {
       this.image = image;
       return this;

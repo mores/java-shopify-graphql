@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `quantityPricingByVariantUpdate` mutation.
+ */
 public class QuantityPricingByVariantUpdatePayload {
-  
+  /**
+   * The variants for which quantity pricing was created successfully in the price list.
+   */
   private List<ProductVariant> productVariants;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<QuantityPricingByVariantUserError> userErrors;
 
   public QuantityPricingByVariantUpdatePayload() {
   }
 
-  
+  /**
+   * The variants for which quantity pricing was created successfully in the price list.
+   */
   public List<ProductVariant> getProductVariants() {
     return productVariants;
   }
@@ -26,7 +34,9 @@ public class QuantityPricingByVariantUpdatePayload {
     this.productVariants = productVariants;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<QuantityPricingByVariantUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class QuantityPricingByVariantUpdatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The variants for which quantity pricing was created successfully in the price list.
+     */
     private List<ProductVariant> productVariants;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<QuantityPricingByVariantUserError> userErrors;
 
     public QuantityPricingByVariantUpdatePayload build() {
@@ -72,13 +86,17 @@ public class QuantityPricingByVariantUpdatePayload {
       return result;
     }
 
-    
+    /**
+     * The variants for which quantity pricing was created successfully in the price list.
+     */
     public Builder productVariants(List<ProductVariant> productVariants) {
       this.productVariants = productVariants;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<QuantityPricingByVariantUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

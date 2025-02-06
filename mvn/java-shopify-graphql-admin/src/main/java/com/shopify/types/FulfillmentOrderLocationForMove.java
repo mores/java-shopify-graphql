@@ -5,33 +5,54 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A location that a fulfillment order can potentially move to.
+ */
 public class FulfillmentOrderLocationForMove {
-  
+  /**
+   * Fulfillment order line items that can be moved from their current location to the given location.
+   */
   private FulfillmentOrderLineItemConnection availableLineItems;
 
-  
+  /**
+   * Total number of fulfillment order line items that can be moved from their current assigned location to the
+   * given location.
+   */
   private Count availableLineItemsCount;
 
-  
+  /**
+   * The location being considered as the fulfillment order's new assigned location.
+   */
   private Location location;
 
-  
+  /**
+   * A human-readable string with the reason why the fulfillment order, or some of its line items, can't be
+   * moved to the location.
+   */
   private String message;
 
-  
+  /**
+   * Whether the fulfillment order can be moved to the location.
+   */
   private boolean movable;
 
-  
+  /**
+   * Fulfillment order line items that cannot be moved from their current location to the given location.
+   */
   private FulfillmentOrderLineItemConnection unavailableLineItems;
 
-  
+  /**
+   * Total number of fulfillment order line items that can't be moved from their current assigned location to the
+   * given location.
+   */
   private Count unavailableLineItemsCount;
 
   public FulfillmentOrderLocationForMove() {
   }
 
-  
+  /**
+   * Fulfillment order line items that can be moved from their current location to the given location.
+   */
   public FulfillmentOrderLineItemConnection getAvailableLineItems() {
     return availableLineItems;
   }
@@ -40,7 +61,10 @@ public class FulfillmentOrderLocationForMove {
     this.availableLineItems = availableLineItems;
   }
 
-  
+  /**
+   * Total number of fulfillment order line items that can be moved from their current assigned location to the
+   * given location.
+   */
   public Count getAvailableLineItemsCount() {
     return availableLineItemsCount;
   }
@@ -49,7 +73,9 @@ public class FulfillmentOrderLocationForMove {
     this.availableLineItemsCount = availableLineItemsCount;
   }
 
-  
+  /**
+   * The location being considered as the fulfillment order's new assigned location.
+   */
   public Location getLocation() {
     return location;
   }
@@ -58,7 +84,10 @@ public class FulfillmentOrderLocationForMove {
     this.location = location;
   }
 
-  
+  /**
+   * A human-readable string with the reason why the fulfillment order, or some of its line items, can't be
+   * moved to the location.
+   */
   public String getMessage() {
     return message;
   }
@@ -67,7 +96,9 @@ public class FulfillmentOrderLocationForMove {
     this.message = message;
   }
 
-  
+  /**
+   * Whether the fulfillment order can be moved to the location.
+   */
   public boolean getMovable() {
     return movable;
   }
@@ -76,7 +107,9 @@ public class FulfillmentOrderLocationForMove {
     this.movable = movable;
   }
 
-  
+  /**
+   * Fulfillment order line items that cannot be moved from their current location to the given location.
+   */
   public FulfillmentOrderLineItemConnection getUnavailableLineItems() {
     return unavailableLineItems;
   }
@@ -85,7 +118,10 @@ public class FulfillmentOrderLocationForMove {
     this.unavailableLineItems = unavailableLineItems;
   }
 
-  
+  /**
+   * Total number of fulfillment order line items that can't be moved from their current assigned location to the
+   * given location.
+   */
   public Count getUnavailableLineItemsCount() {
     return unavailableLineItemsCount;
   }
@@ -123,25 +159,42 @@ public class FulfillmentOrderLocationForMove {
   }
 
   public static class Builder {
-    
+    /**
+     * Fulfillment order line items that can be moved from their current location to the given location.
+     */
     private FulfillmentOrderLineItemConnection availableLineItems;
 
-    
+    /**
+     * Total number of fulfillment order line items that can be moved from their current assigned location to the
+     * given location.
+     */
     private Count availableLineItemsCount;
 
-    
+    /**
+     * The location being considered as the fulfillment order's new assigned location.
+     */
     private Location location;
 
-    
+    /**
+     * A human-readable string with the reason why the fulfillment order, or some of its line items, can't be
+     * moved to the location.
+     */
     private String message;
 
-    
+    /**
+     * Whether the fulfillment order can be moved to the location.
+     */
     private boolean movable;
 
-    
+    /**
+     * Fulfillment order line items that cannot be moved from their current location to the given location.
+     */
     private FulfillmentOrderLineItemConnection unavailableLineItems;
 
-    
+    /**
+     * Total number of fulfillment order line items that can't be moved from their current assigned location to the
+     * given location.
+     */
     private Count unavailableLineItemsCount;
 
     public FulfillmentOrderLocationForMove build() {
@@ -156,43 +209,60 @@ public class FulfillmentOrderLocationForMove {
       return result;
     }
 
-    
+    /**
+     * Fulfillment order line items that can be moved from their current location to the given location.
+     */
     public Builder availableLineItems(FulfillmentOrderLineItemConnection availableLineItems) {
       this.availableLineItems = availableLineItems;
       return this;
     }
 
-    
+    /**
+     * Total number of fulfillment order line items that can be moved from their current assigned location to the
+     * given location.
+     */
     public Builder availableLineItemsCount(Count availableLineItemsCount) {
       this.availableLineItemsCount = availableLineItemsCount;
       return this;
     }
 
-    
+    /**
+     * The location being considered as the fulfillment order's new assigned location.
+     */
     public Builder location(Location location) {
       this.location = location;
       return this;
     }
 
-    
+    /**
+     * A human-readable string with the reason why the fulfillment order, or some of its line items, can't be
+     * moved to the location.
+     */
     public Builder message(String message) {
       this.message = message;
       return this;
     }
 
-    
+    /**
+     * Whether the fulfillment order can be moved to the location.
+     */
     public Builder movable(boolean movable) {
       this.movable = movable;
       return this;
     }
 
-    
+    /**
+     * Fulfillment order line items that cannot be moved from their current location to the given location.
+     */
     public Builder unavailableLineItems(FulfillmentOrderLineItemConnection unavailableLineItems) {
       this.unavailableLineItems = unavailableLineItems;
       return this;
     }
 
-    
+    /**
+     * Total number of fulfillment order line items that can't be moved from their current assigned location to the
+     * given location.
+     */
     public Builder unavailableLineItemsCount(Count unavailableLineItemsCount) {
       this.unavailableLineItemsCount = unavailableLineItemsCount;
       return this;

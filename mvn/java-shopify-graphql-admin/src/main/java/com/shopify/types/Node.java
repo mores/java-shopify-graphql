@@ -4,7 +4,12 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.String;
 
-
+/**
+ * An object with an ID field to support global identification, in accordance with the
+ * [Relay specification](https://relay.dev/graphql/objectidentification.htm#sec-Node-Interface).
+ * This interface is used by the [node](https://shopify.dev/api/admin-graphql/unstable/queries/node)
+ * and [nodes](https://shopify.dev/api/admin-graphql/unstable/queries/nodes) queries.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
     include = JsonTypeInfo.As.PROPERTY,
@@ -114,7 +119,6 @@ import java.lang.String;
     @JsonSubTypes.Type(value = Menu.class, name = "Menu"),
     @JsonSubTypes.Type(value = Metafield.class, name = "Metafield"),
     @JsonSubTypes.Type(value = MetafieldDefinition.class, name = "MetafieldDefinition"),
-    @JsonSubTypes.Type(value = MetafieldStorefrontVisibility.class, name = "MetafieldStorefrontVisibility"),
     @JsonSubTypes.Type(value = Metaobject.class, name = "Metaobject"),
     @JsonSubTypes.Type(value = MetaobjectDefinition.class, name = "MetaobjectDefinition"),
     @JsonSubTypes.Type(value = Model3d.class, name = "Model3d"),
@@ -132,7 +136,6 @@ import java.lang.String;
     @JsonSubTypes.Type(value = PriceList.class, name = "PriceList"),
     @JsonSubTypes.Type(value = PriceRule.class, name = "PriceRule"),
     @JsonSubTypes.Type(value = PriceRuleDiscountCode.class, name = "PriceRuleDiscountCode"),
-    @JsonSubTypes.Type(value = PrivateMetafield.class, name = "PrivateMetafield"),
     @JsonSubTypes.Type(value = Product.class, name = "Product"),
     @JsonSubTypes.Type(value = ProductBundleOperation.class, name = "ProductBundleOperation"),
     @JsonSubTypes.Type(value = ProductDeleteOperation.class, name = "ProductDeleteOperation"),
@@ -144,6 +147,7 @@ import java.lang.String;
     @JsonSubTypes.Type(value = ProductTaxonomyNode.class, name = "ProductTaxonomyNode"),
     @JsonSubTypes.Type(value = ProductVariant.class, name = "ProductVariant"),
     @JsonSubTypes.Type(value = ProductVariantComponent.class, name = "ProductVariantComponent"),
+    @JsonSubTypes.Type(value = PromiseParticipant.class, name = "PromiseParticipant"),
     @JsonSubTypes.Type(value = Publication.class, name = "Publication"),
     @JsonSubTypes.Type(value = PublicationResourceOperation.class, name = "PublicationResourceOperation"),
     @JsonSubTypes.Type(value = QuantityPriceBreak.class, name = "QuantityPriceBreak"),
@@ -202,6 +206,8 @@ import java.lang.String;
     @JsonSubTypes.Type(value = WebPixel.class, name = "WebPixel")
 })
 public interface Node {
-  
+  /**
+   * A globally-unique ID.
+   */
   String getId();
 }

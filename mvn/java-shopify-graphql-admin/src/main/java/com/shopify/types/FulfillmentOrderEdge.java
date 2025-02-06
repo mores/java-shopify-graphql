@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * An auto-generated type which holds one FulfillmentOrder and a cursor during pagination.
+ */
 public class FulfillmentOrderEdge {
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   private String cursor;
 
-  
+  /**
+   * The item at the end of FulfillmentOrderEdge.
+   */
   private FulfillmentOrder node;
 
   public FulfillmentOrderEdge() {
   }
 
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   public String getCursor() {
     return cursor;
   }
@@ -25,7 +33,9 @@ public class FulfillmentOrderEdge {
     this.cursor = cursor;
   }
 
-  
+  /**
+   * The item at the end of FulfillmentOrderEdge.
+   */
   public FulfillmentOrder getNode() {
     return node;
   }
@@ -58,10 +68,14 @@ public class FulfillmentOrderEdge {
   }
 
   public static class Builder {
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     private String cursor;
 
-    
+    /**
+     * The item at the end of FulfillmentOrderEdge.
+     */
     private FulfillmentOrder node;
 
     public FulfillmentOrderEdge build() {
@@ -71,13 +85,17 @@ public class FulfillmentOrderEdge {
       return result;
     }
 
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder cursor(String cursor) {
       this.cursor = cursor;
       return this;
     }
 
-    
+    /**
+     * The item at the end of FulfillmentOrderEdge.
+     */
     public Builder node(FulfillmentOrder node) {
       this.node = node;
       return this;

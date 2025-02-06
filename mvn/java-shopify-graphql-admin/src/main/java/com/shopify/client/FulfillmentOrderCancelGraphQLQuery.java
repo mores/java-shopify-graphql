@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Marks a fulfillment order as canceled.
+ */
 public class FulfillmentOrderCancelGraphQLQuery extends GraphQLQuery {
   public FulfillmentOrderCancelGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -40,7 +42,9 @@ public class FulfillmentOrderCancelGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the fulfillment order to mark as canceled.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

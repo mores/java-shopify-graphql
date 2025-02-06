@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * General inventory properties for the shop.
+ */
 public class InventoryPropertiesGraphQLQuery extends GraphQLQuery {
   public InventoryPropertiesGraphQLQuery(String queryName) {
     super("query", queryName);

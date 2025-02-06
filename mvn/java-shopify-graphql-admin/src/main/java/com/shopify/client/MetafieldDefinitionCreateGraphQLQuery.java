@@ -7,7 +7,11 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a metafield definition. Any metafields existing under the same owner type, namespace, and key will be
+ * checked against this definition and will have their type updated accordingly. For metafields that are not
+ * valid, they will remain unchanged but any attempts to update them must align with this definition.
+ */
 public class MetafieldDefinitionCreateGraphQLQuery extends GraphQLQuery {
   public MetafieldDefinitionCreateGraphQLQuery(MetafieldDefinitionInput definition,
       String queryName, Set<String> fieldsSet) {
@@ -42,7 +46,9 @@ public class MetafieldDefinitionCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Specifies the input fields for a metafield definition.
+     */
     public Builder definition(MetafieldDefinitionInput definition) {
       this.definition = definition;
       this.fieldsSet.add("definition");

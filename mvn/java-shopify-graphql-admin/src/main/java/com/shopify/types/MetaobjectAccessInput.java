@@ -5,27 +5,37 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for configuring metaobject access controls.
+ */
 public class MetaobjectAccessInput {
-  
-  private MetaobjectAdminAccess admin;
+  /**
+   * Access configuration for Admin API surface areas, including the GraphQL Admin API.
+   */
+  private MetaobjectAdminAccessInput admin;
 
-  
+  /**
+   * Access configuration for Storefront API surface areas, including the GraphQL Storefront API and Liquid.
+   */
   private MetaobjectStorefrontAccess storefront;
 
   public MetaobjectAccessInput() {
   }
 
-  
-  public MetaobjectAdminAccess getAdmin() {
+  /**
+   * Access configuration for Admin API surface areas, including the GraphQL Admin API.
+   */
+  public MetaobjectAdminAccessInput getAdmin() {
     return admin;
   }
 
-  public void setAdmin(MetaobjectAdminAccess admin) {
+  public void setAdmin(MetaobjectAdminAccessInput admin) {
     this.admin = admin;
   }
 
-  
+  /**
+   * Access configuration for Storefront API surface areas, including the GraphQL Storefront API and Liquid.
+   */
   public MetaobjectStorefrontAccess getStorefront() {
     return storefront;
   }
@@ -58,10 +68,14 @@ public class MetaobjectAccessInput {
   }
 
   public static class Builder {
-    
-    private MetaobjectAdminAccess admin;
+    /**
+     * Access configuration for Admin API surface areas, including the GraphQL Admin API.
+     */
+    private MetaobjectAdminAccessInput admin;
 
-    
+    /**
+     * Access configuration for Storefront API surface areas, including the GraphQL Storefront API and Liquid.
+     */
     private MetaobjectStorefrontAccess storefront;
 
     public MetaobjectAccessInput build() {
@@ -71,13 +85,17 @@ public class MetaobjectAccessInput {
       return result;
     }
 
-    
-    public Builder admin(MetaobjectAdminAccess admin) {
+    /**
+     * Access configuration for Admin API surface areas, including the GraphQL Admin API.
+     */
+    public Builder admin(MetaobjectAdminAccessInput admin) {
       this.admin = admin;
       return this;
     }
 
-    
+    /**
+     * Access configuration for Storefront API surface areas, including the GraphQL Storefront API and Liquid.
+     */
     public Builder storefront(MetaobjectStorefrontAccess storefront) {
       this.storefront = storefront;
       return this;

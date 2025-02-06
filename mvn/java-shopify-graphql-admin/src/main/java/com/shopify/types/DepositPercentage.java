@@ -6,18 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A percentage deposit.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DepositPercentage implements DepositConfiguration {
-  
+  /**
+   * The percentage value of the deposit.
+   */
   private double percentage;
 
   public DepositPercentage() {
   }
 
-  
+  /**
+   * The percentage value of the deposit.
+   */
   public double getPercentage() {
     return percentage;
   }
@@ -49,7 +55,9 @@ public class DepositPercentage implements DepositConfiguration {
   }
 
   public static class Builder {
-    
+    /**
+     * The percentage value of the deposit.
+     */
     private double percentage;
 
     public DepositPercentage build() {
@@ -58,7 +66,9 @@ public class DepositPercentage implements DepositConfiguration {
       return result;
     }
 
-    
+    /**
+     * The percentage value of the deposit.
+     */
     public Builder percentage(double percentage) {
       this.percentage = percentage;
       return this;

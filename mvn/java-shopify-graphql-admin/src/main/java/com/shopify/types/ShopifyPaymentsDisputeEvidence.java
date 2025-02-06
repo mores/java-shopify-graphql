@@ -7,87 +7,139 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The evidence associated with the dispute.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
-  
+  /**
+   * The activity logs associated with the dispute evidence.
+   */
   private String accessActivityLog;
 
-  
+  /**
+   * The billing address that's provided by the customer.
+   */
   private MailingAddress billingAddress;
 
-  
+  /**
+   * The cancellation policy disclosure associated with the dispute evidence.
+   */
   private String cancellationPolicyDisclosure;
 
-  
+  /**
+   * The cancellation policy file associated with the dispute evidence.
+   */
   private ShopifyPaymentsDisputeFileUpload cancellationPolicyFile;
 
-  
+  /**
+   * The cancellation rebuttal associated with the dispute evidence.
+   */
   private String cancellationRebuttal;
 
-  
+  /**
+   * The customer communication file associated with the dispute evidence.
+   */
   private ShopifyPaymentsDisputeFileUpload customerCommunicationFile;
 
-  
+  /**
+   * The customer's email address.
+   */
   private String customerEmailAddress;
 
-  
+  /**
+   * The customer's first name.
+   */
   private String customerFirstName;
 
-  
+  /**
+   * The customer's last name.
+   */
   private String customerLastName;
 
-  
+  /**
+   * The customer purchase ip for this dispute evidence.
+   */
   private String customerPurchaseIp;
 
-  
+  /**
+   * The dispute associated with the evidence.
+   */
   private ShopifyPaymentsDispute dispute;
 
-  
+  /**
+   * The file uploads associated with the dispute evidence.
+   */
   private List<ShopifyPaymentsDisputeFileUpload> disputeFileUploads;
 
-  
+  /**
+   * The fulfillments associated with the dispute evidence.
+   */
   private List<ShopifyPaymentsDisputeFulfillment> fulfillments;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The product description for this dispute evidence.
+   */
   private String productDescription;
 
-  
+  /**
+   * The refund policy disclosure associated with the dispute evidence.
+   */
   private String refundPolicyDisclosure;
 
-  
+  /**
+   * The refund policy file associated with the dispute evidence.
+   */
   private ShopifyPaymentsDisputeFileUpload refundPolicyFile;
 
-  
+  /**
+   * The refund refusal explanation associated with dispute evidence.
+   */
   private String refundRefusalExplanation;
 
-  
+  /**
+   * The service documentation file associated with the dispute evidence.
+   */
   private ShopifyPaymentsDisputeFileUpload serviceDocumentationFile;
 
-  
+  /**
+   * The mailing address for shipping that's provided by the customer.
+   */
   private MailingAddress shippingAddress;
 
-  
+  /**
+   * The shipping documentation file associated with the dispute evidence.
+   */
   private ShopifyPaymentsDisputeFileUpload shippingDocumentationFile;
 
-  
+  /**
+   * Whether the dispute evidence is submitted.
+   */
   private boolean submitted;
 
-  
+  /**
+   * The uncategorized file associated with the dispute evidence.
+   */
   private ShopifyPaymentsDisputeFileUpload uncategorizedFile;
 
-  
+  /**
+   * The uncategorized text for the dispute evidence.
+   */
   private String uncategorizedText;
 
   public ShopifyPaymentsDisputeEvidence() {
   }
 
-  
+  /**
+   * The activity logs associated with the dispute evidence.
+   */
   public String getAccessActivityLog() {
     return accessActivityLog;
   }
@@ -96,7 +148,9 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
     this.accessActivityLog = accessActivityLog;
   }
 
-  
+  /**
+   * The billing address that's provided by the customer.
+   */
   public MailingAddress getBillingAddress() {
     return billingAddress;
   }
@@ -105,7 +159,9 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
     this.billingAddress = billingAddress;
   }
 
-  
+  /**
+   * The cancellation policy disclosure associated with the dispute evidence.
+   */
   public String getCancellationPolicyDisclosure() {
     return cancellationPolicyDisclosure;
   }
@@ -114,7 +170,9 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
     this.cancellationPolicyDisclosure = cancellationPolicyDisclosure;
   }
 
-  
+  /**
+   * The cancellation policy file associated with the dispute evidence.
+   */
   public ShopifyPaymentsDisputeFileUpload getCancellationPolicyFile() {
     return cancellationPolicyFile;
   }
@@ -123,7 +181,9 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
     this.cancellationPolicyFile = cancellationPolicyFile;
   }
 
-  
+  /**
+   * The cancellation rebuttal associated with the dispute evidence.
+   */
   public String getCancellationRebuttal() {
     return cancellationRebuttal;
   }
@@ -132,7 +192,9 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
     this.cancellationRebuttal = cancellationRebuttal;
   }
 
-  
+  /**
+   * The customer communication file associated with the dispute evidence.
+   */
   public ShopifyPaymentsDisputeFileUpload getCustomerCommunicationFile() {
     return customerCommunicationFile;
   }
@@ -142,7 +204,9 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
     this.customerCommunicationFile = customerCommunicationFile;
   }
 
-  
+  /**
+   * The customer's email address.
+   */
   public String getCustomerEmailAddress() {
     return customerEmailAddress;
   }
@@ -151,7 +215,9 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
     this.customerEmailAddress = customerEmailAddress;
   }
 
-  
+  /**
+   * The customer's first name.
+   */
   public String getCustomerFirstName() {
     return customerFirstName;
   }
@@ -160,7 +226,9 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
     this.customerFirstName = customerFirstName;
   }
 
-  
+  /**
+   * The customer's last name.
+   */
   public String getCustomerLastName() {
     return customerLastName;
   }
@@ -169,7 +237,9 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
     this.customerLastName = customerLastName;
   }
 
-  
+  /**
+   * The customer purchase ip for this dispute evidence.
+   */
   public String getCustomerPurchaseIp() {
     return customerPurchaseIp;
   }
@@ -178,7 +248,9 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
     this.customerPurchaseIp = customerPurchaseIp;
   }
 
-  
+  /**
+   * The dispute associated with the evidence.
+   */
   public ShopifyPaymentsDispute getDispute() {
     return dispute;
   }
@@ -187,7 +259,9 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
     this.dispute = dispute;
   }
 
-  
+  /**
+   * The file uploads associated with the dispute evidence.
+   */
   public List<ShopifyPaymentsDisputeFileUpload> getDisputeFileUploads() {
     return disputeFileUploads;
   }
@@ -196,7 +270,9 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
     this.disputeFileUploads = disputeFileUploads;
   }
 
-  
+  /**
+   * The fulfillments associated with the dispute evidence.
+   */
   public List<ShopifyPaymentsDisputeFulfillment> getFulfillments() {
     return fulfillments;
   }
@@ -205,7 +281,9 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
     this.fulfillments = fulfillments;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -214,7 +292,9 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
     this.id = id;
   }
 
-  
+  /**
+   * The product description for this dispute evidence.
+   */
   public String getProductDescription() {
     return productDescription;
   }
@@ -223,7 +303,9 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
     this.productDescription = productDescription;
   }
 
-  
+  /**
+   * The refund policy disclosure associated with the dispute evidence.
+   */
   public String getRefundPolicyDisclosure() {
     return refundPolicyDisclosure;
   }
@@ -232,7 +314,9 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
     this.refundPolicyDisclosure = refundPolicyDisclosure;
   }
 
-  
+  /**
+   * The refund policy file associated with the dispute evidence.
+   */
   public ShopifyPaymentsDisputeFileUpload getRefundPolicyFile() {
     return refundPolicyFile;
   }
@@ -241,7 +325,9 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
     this.refundPolicyFile = refundPolicyFile;
   }
 
-  
+  /**
+   * The refund refusal explanation associated with dispute evidence.
+   */
   public String getRefundRefusalExplanation() {
     return refundRefusalExplanation;
   }
@@ -250,7 +336,9 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
     this.refundRefusalExplanation = refundRefusalExplanation;
   }
 
-  
+  /**
+   * The service documentation file associated with the dispute evidence.
+   */
   public ShopifyPaymentsDisputeFileUpload getServiceDocumentationFile() {
     return serviceDocumentationFile;
   }
@@ -260,7 +348,9 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
     this.serviceDocumentationFile = serviceDocumentationFile;
   }
 
-  
+  /**
+   * The mailing address for shipping that's provided by the customer.
+   */
   public MailingAddress getShippingAddress() {
     return shippingAddress;
   }
@@ -269,7 +359,9 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
     this.shippingAddress = shippingAddress;
   }
 
-  
+  /**
+   * The shipping documentation file associated with the dispute evidence.
+   */
   public ShopifyPaymentsDisputeFileUpload getShippingDocumentationFile() {
     return shippingDocumentationFile;
   }
@@ -279,7 +371,9 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
     this.shippingDocumentationFile = shippingDocumentationFile;
   }
 
-  
+  /**
+   * Whether the dispute evidence is submitted.
+   */
   public boolean getSubmitted() {
     return submitted;
   }
@@ -288,7 +382,9 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
     this.submitted = submitted;
   }
 
-  
+  /**
+   * The uncategorized file associated with the dispute evidence.
+   */
   public ShopifyPaymentsDisputeFileUpload getUncategorizedFile() {
     return uncategorizedFile;
   }
@@ -297,7 +393,9 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
     this.uncategorizedFile = uncategorizedFile;
   }
 
-  
+  /**
+   * The uncategorized text for the dispute evidence.
+   */
   public String getUncategorizedText() {
     return uncategorizedText;
   }
@@ -352,76 +450,124 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    
+    /**
+     * The activity logs associated with the dispute evidence.
+     */
     private String accessActivityLog;
 
-    
+    /**
+     * The billing address that's provided by the customer.
+     */
     private MailingAddress billingAddress;
 
-    
+    /**
+     * The cancellation policy disclosure associated with the dispute evidence.
+     */
     private String cancellationPolicyDisclosure;
 
-    
+    /**
+     * The cancellation policy file associated with the dispute evidence.
+     */
     private ShopifyPaymentsDisputeFileUpload cancellationPolicyFile;
 
-    
+    /**
+     * The cancellation rebuttal associated with the dispute evidence.
+     */
     private String cancellationRebuttal;
 
-    
+    /**
+     * The customer communication file associated with the dispute evidence.
+     */
     private ShopifyPaymentsDisputeFileUpload customerCommunicationFile;
 
-    
+    /**
+     * The customer's email address.
+     */
     private String customerEmailAddress;
 
-    
+    /**
+     * The customer's first name.
+     */
     private String customerFirstName;
 
-    
+    /**
+     * The customer's last name.
+     */
     private String customerLastName;
 
-    
+    /**
+     * The customer purchase ip for this dispute evidence.
+     */
     private String customerPurchaseIp;
 
-    
+    /**
+     * The dispute associated with the evidence.
+     */
     private ShopifyPaymentsDispute dispute;
 
-    
+    /**
+     * The file uploads associated with the dispute evidence.
+     */
     private List<ShopifyPaymentsDisputeFileUpload> disputeFileUploads;
 
-    
+    /**
+     * The fulfillments associated with the dispute evidence.
+     */
     private List<ShopifyPaymentsDisputeFulfillment> fulfillments;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The product description for this dispute evidence.
+     */
     private String productDescription;
 
-    
+    /**
+     * The refund policy disclosure associated with the dispute evidence.
+     */
     private String refundPolicyDisclosure;
 
-    
+    /**
+     * The refund policy file associated with the dispute evidence.
+     */
     private ShopifyPaymentsDisputeFileUpload refundPolicyFile;
 
-    
+    /**
+     * The refund refusal explanation associated with dispute evidence.
+     */
     private String refundRefusalExplanation;
 
-    
+    /**
+     * The service documentation file associated with the dispute evidence.
+     */
     private ShopifyPaymentsDisputeFileUpload serviceDocumentationFile;
 
-    
+    /**
+     * The mailing address for shipping that's provided by the customer.
+     */
     private MailingAddress shippingAddress;
 
-    
+    /**
+     * The shipping documentation file associated with the dispute evidence.
+     */
     private ShopifyPaymentsDisputeFileUpload shippingDocumentationFile;
 
-    
+    /**
+     * Whether the dispute evidence is submitted.
+     */
     private boolean submitted;
 
-    
+    /**
+     * The uncategorized file associated with the dispute evidence.
+     */
     private ShopifyPaymentsDisputeFileUpload uncategorizedFile;
 
-    
+    /**
+     * The uncategorized text for the dispute evidence.
+     */
     private String uncategorizedText;
 
     public ShopifyPaymentsDisputeEvidence build() {
@@ -453,148 +599,196 @@ public class ShopifyPaymentsDisputeEvidence implements com.shopify.types.Node {
       return result;
     }
 
-    
+    /**
+     * The activity logs associated with the dispute evidence.
+     */
     public Builder accessActivityLog(String accessActivityLog) {
       this.accessActivityLog = accessActivityLog;
       return this;
     }
 
-    
+    /**
+     * The billing address that's provided by the customer.
+     */
     public Builder billingAddress(MailingAddress billingAddress) {
       this.billingAddress = billingAddress;
       return this;
     }
 
-    
+    /**
+     * The cancellation policy disclosure associated with the dispute evidence.
+     */
     public Builder cancellationPolicyDisclosure(String cancellationPolicyDisclosure) {
       this.cancellationPolicyDisclosure = cancellationPolicyDisclosure;
       return this;
     }
 
-    
+    /**
+     * The cancellation policy file associated with the dispute evidence.
+     */
     public Builder cancellationPolicyFile(ShopifyPaymentsDisputeFileUpload cancellationPolicyFile) {
       this.cancellationPolicyFile = cancellationPolicyFile;
       return this;
     }
 
-    
+    /**
+     * The cancellation rebuttal associated with the dispute evidence.
+     */
     public Builder cancellationRebuttal(String cancellationRebuttal) {
       this.cancellationRebuttal = cancellationRebuttal;
       return this;
     }
 
-    
+    /**
+     * The customer communication file associated with the dispute evidence.
+     */
     public Builder customerCommunicationFile(
         ShopifyPaymentsDisputeFileUpload customerCommunicationFile) {
       this.customerCommunicationFile = customerCommunicationFile;
       return this;
     }
 
-    
+    /**
+     * The customer's email address.
+     */
     public Builder customerEmailAddress(String customerEmailAddress) {
       this.customerEmailAddress = customerEmailAddress;
       return this;
     }
 
-    
+    /**
+     * The customer's first name.
+     */
     public Builder customerFirstName(String customerFirstName) {
       this.customerFirstName = customerFirstName;
       return this;
     }
 
-    
+    /**
+     * The customer's last name.
+     */
     public Builder customerLastName(String customerLastName) {
       this.customerLastName = customerLastName;
       return this;
     }
 
-    
+    /**
+     * The customer purchase ip for this dispute evidence.
+     */
     public Builder customerPurchaseIp(String customerPurchaseIp) {
       this.customerPurchaseIp = customerPurchaseIp;
       return this;
     }
 
-    
+    /**
+     * The dispute associated with the evidence.
+     */
     public Builder dispute(ShopifyPaymentsDispute dispute) {
       this.dispute = dispute;
       return this;
     }
 
-    
+    /**
+     * The file uploads associated with the dispute evidence.
+     */
     public Builder disputeFileUploads(List<ShopifyPaymentsDisputeFileUpload> disputeFileUploads) {
       this.disputeFileUploads = disputeFileUploads;
       return this;
     }
 
-    
+    /**
+     * The fulfillments associated with the dispute evidence.
+     */
     public Builder fulfillments(List<ShopifyPaymentsDisputeFulfillment> fulfillments) {
       this.fulfillments = fulfillments;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The product description for this dispute evidence.
+     */
     public Builder productDescription(String productDescription) {
       this.productDescription = productDescription;
       return this;
     }
 
-    
+    /**
+     * The refund policy disclosure associated with the dispute evidence.
+     */
     public Builder refundPolicyDisclosure(String refundPolicyDisclosure) {
       this.refundPolicyDisclosure = refundPolicyDisclosure;
       return this;
     }
 
-    
+    /**
+     * The refund policy file associated with the dispute evidence.
+     */
     public Builder refundPolicyFile(ShopifyPaymentsDisputeFileUpload refundPolicyFile) {
       this.refundPolicyFile = refundPolicyFile;
       return this;
     }
 
-    
+    /**
+     * The refund refusal explanation associated with dispute evidence.
+     */
     public Builder refundRefusalExplanation(String refundRefusalExplanation) {
       this.refundRefusalExplanation = refundRefusalExplanation;
       return this;
     }
 
-    
+    /**
+     * The service documentation file associated with the dispute evidence.
+     */
     public Builder serviceDocumentationFile(
         ShopifyPaymentsDisputeFileUpload serviceDocumentationFile) {
       this.serviceDocumentationFile = serviceDocumentationFile;
       return this;
     }
 
-    
+    /**
+     * The mailing address for shipping that's provided by the customer.
+     */
     public Builder shippingAddress(MailingAddress shippingAddress) {
       this.shippingAddress = shippingAddress;
       return this;
     }
 
-    
+    /**
+     * The shipping documentation file associated with the dispute evidence.
+     */
     public Builder shippingDocumentationFile(
         ShopifyPaymentsDisputeFileUpload shippingDocumentationFile) {
       this.shippingDocumentationFile = shippingDocumentationFile;
       return this;
     }
 
-    
+    /**
+     * Whether the dispute evidence is submitted.
+     */
     public Builder submitted(boolean submitted) {
       this.submitted = submitted;
       return this;
     }
 
-    
+    /**
+     * The uncategorized file associated with the dispute evidence.
+     */
     public Builder uncategorizedFile(ShopifyPaymentsDisputeFileUpload uncategorizedFile) {
       this.uncategorizedFile = uncategorizedFile;
       return this;
     }
 
-    
+    /**
+     * The uncategorized text for the dispute evidence.
+     */
     public Builder uncategorizedText(String uncategorizedText) {
       this.uncategorizedText = uncategorizedText;
       return this;

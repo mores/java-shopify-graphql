@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Allows for the easy change of a Product in a Contract or a Product price change.
+ */
 public class SubscriptionContractProductChangeGraphQLQuery extends GraphQLQuery {
   public SubscriptionContractProductChangeGraphQLQuery(String subscriptionContractId, String lineId,
       SubscriptionContractProductChangeInput input, String queryName, Set<String> fieldsSet) {
@@ -50,21 +52,27 @@ public class SubscriptionContractProductChangeGraphQLQuery extends GraphQLQuery 
                
     }
 
-    
+    /**
+     * The ID of the subscription contract.
+     */
     public Builder subscriptionContractId(String subscriptionContractId) {
       this.subscriptionContractId = subscriptionContractId;
       this.fieldsSet.add("subscriptionContractId");
       return this;
     }
 
-    
+    /**
+     * The gid of the Subscription Line to update.
+     */
     public Builder lineId(String lineId) {
       this.lineId = lineId;
       this.fieldsSet.add("lineId");
       return this;
     }
 
-    
+    /**
+     * The properties of the Product changes.
+     */
     public Builder input(SubscriptionContractProductChangeInput input) {
       this.input = input;
       this.fieldsSet.add("input");

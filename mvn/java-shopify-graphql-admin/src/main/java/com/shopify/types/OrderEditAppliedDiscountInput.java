@@ -6,21 +6,31 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields used to add a discount during an order edit.
+ */
 public class OrderEditAppliedDiscountInput {
-  
+  /**
+   * The description of the discount.
+   */
   private String description;
 
-  
+  /**
+   * The value of the discount as a fixed amount.
+   */
   private MoneyInput fixedValue;
 
-  
+  /**
+   * The value of the discount as a percentage.
+   */
   private Double percentValue;
 
   public OrderEditAppliedDiscountInput() {
   }
 
-  
+  /**
+   * The description of the discount.
+   */
   public String getDescription() {
     return description;
   }
@@ -29,7 +39,9 @@ public class OrderEditAppliedDiscountInput {
     this.description = description;
   }
 
-  
+  /**
+   * The value of the discount as a fixed amount.
+   */
   public MoneyInput getFixedValue() {
     return fixedValue;
   }
@@ -38,7 +50,9 @@ public class OrderEditAppliedDiscountInput {
     this.fixedValue = fixedValue;
   }
 
-  
+  /**
+   * The value of the discount as a percentage.
+   */
   public Double getPercentValue() {
     return percentValue;
   }
@@ -72,13 +86,19 @@ public class OrderEditAppliedDiscountInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The description of the discount.
+     */
     private String description;
 
-    
+    /**
+     * The value of the discount as a fixed amount.
+     */
     private MoneyInput fixedValue;
 
-    
+    /**
+     * The value of the discount as a percentage.
+     */
     private Double percentValue;
 
     public OrderEditAppliedDiscountInput build() {
@@ -89,19 +109,25 @@ public class OrderEditAppliedDiscountInput {
       return result;
     }
 
-    
+    /**
+     * The description of the discount.
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    
+    /**
+     * The value of the discount as a fixed amount.
+     */
     public Builder fixedValue(MoneyInput fixedValue) {
       this.fixedValue = fixedValue;
       return this;
     }
 
-    
+    /**
+     * The value of the discount as a percentage.
+     */
     public Builder percentValue(Double percentValue) {
       this.percentValue = percentValue;
       return this;

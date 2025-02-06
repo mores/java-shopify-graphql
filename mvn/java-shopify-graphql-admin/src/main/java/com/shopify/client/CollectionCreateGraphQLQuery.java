@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a collection.
+ */
 public class CollectionCreateGraphQLQuery extends GraphQLQuery {
   public CollectionCreateGraphQLQuery(CollectionInput input, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class CollectionCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The properties to use when creating the collection.
+     */
     public Builder input(CollectionInput input) {
       this.input = input;
       this.fieldsSet.add("input");

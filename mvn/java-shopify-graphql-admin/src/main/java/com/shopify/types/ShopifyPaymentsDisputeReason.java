@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * The reason for the dispute provided by the cardholder's bank.
+ */
 public enum ShopifyPaymentsDisputeReason {
   FRAUDULENT,
 

@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `metafieldDefinitionCreate` mutation.
+ */
 public class MetafieldDefinitionCreatePayload {
-  
+  /**
+   * The metafield definition that was created.
+   */
   private MetafieldDefinition createdDefinition;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<MetafieldDefinitionCreateUserError> userErrors;
 
   public MetafieldDefinitionCreatePayload() {
   }
 
-  
+  /**
+   * The metafield definition that was created.
+   */
   public MetafieldDefinition getCreatedDefinition() {
     return createdDefinition;
   }
@@ -26,7 +34,9 @@ public class MetafieldDefinitionCreatePayload {
     this.createdDefinition = createdDefinition;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<MetafieldDefinitionCreateUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class MetafieldDefinitionCreatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The metafield definition that was created.
+     */
     private MetafieldDefinition createdDefinition;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<MetafieldDefinitionCreateUserError> userErrors;
 
     public MetafieldDefinitionCreatePayload build() {
@@ -72,13 +86,17 @@ public class MetafieldDefinitionCreatePayload {
       return result;
     }
 
-    
+    /**
+     * The metafield definition that was created.
+     */
     public Builder createdDefinition(MetafieldDefinition createdDefinition) {
       this.createdDefinition = createdDefinition;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<MetafieldDefinitionCreateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

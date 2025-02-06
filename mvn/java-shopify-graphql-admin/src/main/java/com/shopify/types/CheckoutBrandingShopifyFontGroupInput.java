@@ -6,24 +6,38 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields used to update a Shopify font group.
+ */
 public class CheckoutBrandingShopifyFontGroupInput {
-  
+  /**
+   * The Shopify font name from [the list of available fonts](https://shopify.dev/themes/architecture/settings/fonts#available-fonts),
+   * such as `Alegreya Sans` or `Anonymous Pro`.
+   */
   private String name;
 
-  
+  /**
+   * The base font weight.
+   */
   private Integer baseWeight;
 
-  
+  /**
+   * The bold font weight.
+   */
   private Integer boldWeight;
 
-  
+  /**
+   * The font loading strategy.
+   */
   private CheckoutBrandingFontLoadingStrategy loadingStrategy;
 
   public CheckoutBrandingShopifyFontGroupInput() {
   }
 
-  
+  /**
+   * The Shopify font name from [the list of available fonts](https://shopify.dev/themes/architecture/settings/fonts#available-fonts),
+   * such as `Alegreya Sans` or `Anonymous Pro`.
+   */
   public String getName() {
     return name;
   }
@@ -32,7 +46,9 @@ public class CheckoutBrandingShopifyFontGroupInput {
     this.name = name;
   }
 
-  
+  /**
+   * The base font weight.
+   */
   public Integer getBaseWeight() {
     return baseWeight;
   }
@@ -41,7 +57,9 @@ public class CheckoutBrandingShopifyFontGroupInput {
     this.baseWeight = baseWeight;
   }
 
-  
+  /**
+   * The bold font weight.
+   */
   public Integer getBoldWeight() {
     return boldWeight;
   }
@@ -50,7 +68,9 @@ public class CheckoutBrandingShopifyFontGroupInput {
     this.boldWeight = boldWeight;
   }
 
-  
+  /**
+   * The font loading strategy.
+   */
   public CheckoutBrandingFontLoadingStrategy getLoadingStrategy() {
     return loadingStrategy;
   }
@@ -85,16 +105,25 @@ public class CheckoutBrandingShopifyFontGroupInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The Shopify font name from [the list of available fonts](https://shopify.dev/themes/architecture/settings/fonts#available-fonts),
+     * such as `Alegreya Sans` or `Anonymous Pro`.
+     */
     private String name;
 
-    
+    /**
+     * The base font weight.
+     */
     private Integer baseWeight;
 
-    
+    /**
+     * The bold font weight.
+     */
     private Integer boldWeight;
 
-    
+    /**
+     * The font loading strategy.
+     */
     private CheckoutBrandingFontLoadingStrategy loadingStrategy;
 
     public CheckoutBrandingShopifyFontGroupInput build() {
@@ -106,25 +135,34 @@ public class CheckoutBrandingShopifyFontGroupInput {
       return result;
     }
 
-    
+    /**
+     * The Shopify font name from [the list of available fonts](https://shopify.dev/themes/architecture/settings/fonts#available-fonts),
+     * such as `Alegreya Sans` or `Anonymous Pro`.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    
+    /**
+     * The base font weight.
+     */
     public Builder baseWeight(Integer baseWeight) {
       this.baseWeight = baseWeight;
       return this;
     }
 
-    
+    /**
+     * The bold font weight.
+     */
     public Builder boldWeight(Integer boldWeight) {
       this.boldWeight = boldWeight;
       return this;
     }
 
-    
+    /**
+     * The font loading strategy.
+     */
     public Builder loadingStrategy(CheckoutBrandingFontLoadingStrategy loadingStrategy) {
       this.loadingStrategy = loadingStrategy;
       return this;

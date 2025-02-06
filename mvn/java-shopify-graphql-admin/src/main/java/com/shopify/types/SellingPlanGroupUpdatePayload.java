@@ -6,21 +6,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `sellingPlanGroupUpdate` mutation.
+ */
 public class SellingPlanGroupUpdatePayload {
-  
+  /**
+   * The IDs of the deleted Subscription Plans.
+   */
   private List<String> deletedSellingPlanIds;
 
-  
+  /**
+   * The updated Selling Plan Group.
+   */
   private SellingPlanGroup sellingPlanGroup;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<SellingPlanGroupUserError> userErrors;
 
   public SellingPlanGroupUpdatePayload() {
   }
 
-  
+  /**
+   * The IDs of the deleted Subscription Plans.
+   */
   public List<String> getDeletedSellingPlanIds() {
     return deletedSellingPlanIds;
   }
@@ -29,7 +39,9 @@ public class SellingPlanGroupUpdatePayload {
     this.deletedSellingPlanIds = deletedSellingPlanIds;
   }
 
-  
+  /**
+   * The updated Selling Plan Group.
+   */
   public SellingPlanGroup getSellingPlanGroup() {
     return sellingPlanGroup;
   }
@@ -38,7 +50,9 @@ public class SellingPlanGroupUpdatePayload {
     this.sellingPlanGroup = sellingPlanGroup;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<SellingPlanGroupUserError> getUserErrors() {
     return userErrors;
   }
@@ -72,13 +86,19 @@ public class SellingPlanGroupUpdatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The IDs of the deleted Subscription Plans.
+     */
     private List<String> deletedSellingPlanIds;
 
-    
+    /**
+     * The updated Selling Plan Group.
+     */
     private SellingPlanGroup sellingPlanGroup;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<SellingPlanGroupUserError> userErrors;
 
     public SellingPlanGroupUpdatePayload build() {
@@ -89,19 +109,25 @@ public class SellingPlanGroupUpdatePayload {
       return result;
     }
 
-    
+    /**
+     * The IDs of the deleted Subscription Plans.
+     */
     public Builder deletedSellingPlanIds(List<String> deletedSellingPlanIds) {
       this.deletedSellingPlanIds = deletedSellingPlanIds;
       return this;
     }
 
-    
+    /**
+     * The updated Selling Plan Group.
+     */
     public Builder sellingPlanGroup(SellingPlanGroup sellingPlanGroup) {
       this.sellingPlanGroup = sellingPlanGroup;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<SellingPlanGroupUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

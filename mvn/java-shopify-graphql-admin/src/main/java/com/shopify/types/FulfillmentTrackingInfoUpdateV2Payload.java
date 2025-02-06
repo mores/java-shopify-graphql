@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `fulfillmentTrackingInfoUpdateV2` mutation.
+ */
 public class FulfillmentTrackingInfoUpdateV2Payload {
-  
+  /**
+   * The updated fulfillment with tracking information.
+   */
   private Fulfillment fulfillment;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public FulfillmentTrackingInfoUpdateV2Payload() {
   }
 
-  
+  /**
+   * The updated fulfillment with tracking information.
+   */
   public Fulfillment getFulfillment() {
     return fulfillment;
   }
@@ -26,7 +34,9 @@ public class FulfillmentTrackingInfoUpdateV2Payload {
     this.fulfillment = fulfillment;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class FulfillmentTrackingInfoUpdateV2Payload {
   }
 
   public static class Builder {
-    
+    /**
+     * The updated fulfillment with tracking information.
+     */
     private Fulfillment fulfillment;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public FulfillmentTrackingInfoUpdateV2Payload build() {
@@ -72,13 +86,17 @@ public class FulfillmentTrackingInfoUpdateV2Payload {
       return result;
     }
 
-    
+    /**
+     * The updated fulfillment with tracking information.
+     */
     public Builder fulfillment(Fulfillment fulfillment) {
       this.fulfillment = fulfillment;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

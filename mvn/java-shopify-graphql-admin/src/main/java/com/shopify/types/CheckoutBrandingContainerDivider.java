@@ -5,21 +5,31 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The container's divider customizations.
+ */
 public class CheckoutBrandingContainerDivider {
-  
+  /**
+   * The divider style.
+   */
   private CheckoutBrandingBorderStyle borderStyle;
 
-  
+  /**
+   * The divider width.
+   */
   private CheckoutBrandingBorderWidth borderWidth;
 
-  
+  /**
+   * The divider visibility.
+   */
   private CheckoutBrandingVisibility visibility;
 
   public CheckoutBrandingContainerDivider() {
   }
 
-  
+  /**
+   * The divider style.
+   */
   public CheckoutBrandingBorderStyle getBorderStyle() {
     return borderStyle;
   }
@@ -28,7 +38,9 @@ public class CheckoutBrandingContainerDivider {
     this.borderStyle = borderStyle;
   }
 
-  
+  /**
+   * The divider width.
+   */
   public CheckoutBrandingBorderWidth getBorderWidth() {
     return borderWidth;
   }
@@ -37,7 +49,9 @@ public class CheckoutBrandingContainerDivider {
     this.borderWidth = borderWidth;
   }
 
-  
+  /**
+   * The divider visibility.
+   */
   public CheckoutBrandingVisibility getVisibility() {
     return visibility;
   }
@@ -71,13 +85,19 @@ public class CheckoutBrandingContainerDivider {
   }
 
   public static class Builder {
-    
+    /**
+     * The divider style.
+     */
     private CheckoutBrandingBorderStyle borderStyle;
 
-    
+    /**
+     * The divider width.
+     */
     private CheckoutBrandingBorderWidth borderWidth;
 
-    
+    /**
+     * The divider visibility.
+     */
     private CheckoutBrandingVisibility visibility;
 
     public CheckoutBrandingContainerDivider build() {
@@ -88,19 +108,25 @@ public class CheckoutBrandingContainerDivider {
       return result;
     }
 
-    
+    /**
+     * The divider style.
+     */
     public Builder borderStyle(CheckoutBrandingBorderStyle borderStyle) {
       this.borderStyle = borderStyle;
       return this;
     }
 
-    
+    /**
+     * The divider width.
+     */
     public Builder borderWidth(CheckoutBrandingBorderWidth borderWidth) {
       this.borderWidth = borderWidth;
       return this;
     }
 
-    
+    /**
+     * The divider visibility.
+     */
     public Builder visibility(CheckoutBrandingVisibility visibility) {
       this.visibility = visibility;
       return this;

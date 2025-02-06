@@ -12,6 +12,13 @@ public class SubscriptionLineProjection<PARENT extends BaseSubProjectionNode<?, 
     return this;
   }
 
+  public SubscriptionContractProjection<SubscriptionLineProjection<PARENT, ROOT>, ROOT> concatenatedOriginContract(
+      ) {
+     SubscriptionContractProjection<SubscriptionLineProjection<PARENT, ROOT>, ROOT> projection = new SubscriptionContractProjection<>(this, getRoot());
+     getFields().put("concatenatedOriginContract", projection);
+     return projection;
+  }
+
   public MoneyV2Projection<SubscriptionLineProjection<PARENT, ROOT>, ROOT> currentPrice() {
      MoneyV2Projection<SubscriptionLineProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());
      getFields().put("currentPrice", projection);

@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Cancels an app subscription on a store.
+ */
 public class AppSubscriptionCancelGraphQLQuery extends GraphQLQuery {
   public AppSubscriptionCancelGraphQLQuery(String id, Boolean prorate, String queryName,
       Set<String> fieldsSet) {
@@ -46,14 +48,22 @@ public class AppSubscriptionCancelGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the app subscription to be cancelled.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    
+    /**
+     * Whether to issue prorated credits for the unused portion of the app subscription.  There will
+     * be a corresponding deduction (based on revenue share) to your Partner account.
+     * For example, if a $10.00 app subscription (with 0% revenue share) is cancelled and prorated half way
+     * through the billing cycle, then the merchant will be credited $5.00 and that amount will be deducted
+     * from your Partner account.
+     */
     public Builder prorate(Boolean prorate) {
       this.prorate = prorate;
       this.fieldsSet.add("prorate");

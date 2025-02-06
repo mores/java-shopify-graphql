@@ -6,21 +6,29 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The calculated cost of the return shipping.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class CalculatedReturnShippingFee implements com.shopify.types.CalculatedReturnFee {
-  
+  /**
+   * The calculated amount of the return fee, in shop and presentment currencies.
+   */
   private MoneyBag amountSet;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
   public CalculatedReturnShippingFee() {
   }
 
-  
+  /**
+   * The calculated amount of the return fee, in shop and presentment currencies.
+   */
   public MoneyBag getAmountSet() {
     return amountSet;
   }
@@ -29,7 +37,9 @@ public class CalculatedReturnShippingFee implements com.shopify.types.Calculated
     this.amountSet = amountSet;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -62,10 +72,14 @@ public class CalculatedReturnShippingFee implements com.shopify.types.Calculated
   }
 
   public static class Builder {
-    
+    /**
+     * The calculated amount of the return fee, in shop and presentment currencies.
+     */
     private MoneyBag amountSet;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
     public CalculatedReturnShippingFee build() {
@@ -75,13 +89,17 @@ public class CalculatedReturnShippingFee implements com.shopify.types.Calculated
       return result;
     }
 
-    
+    /**
+     * The calculated amount of the return fee, in shop and presentment currencies.
+     */
     public Builder amountSet(MoneyBag amountSet) {
       this.amountSet = amountSet;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;

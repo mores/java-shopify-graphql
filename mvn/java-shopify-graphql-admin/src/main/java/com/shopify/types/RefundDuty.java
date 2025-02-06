@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Represents a refunded duty.
+ */
 public class RefundDuty {
-  
+  /**
+   * The amount of a refunded duty in shop and presentment currencies.
+   */
   private MoneyBag amountSet;
 
-  
+  /**
+   * The duty associated with this refunded duty.
+   */
   private Duty originalDuty;
 
   public RefundDuty() {
   }
 
-  
+  /**
+   * The amount of a refunded duty in shop and presentment currencies.
+   */
   public MoneyBag getAmountSet() {
     return amountSet;
   }
@@ -25,7 +33,9 @@ public class RefundDuty {
     this.amountSet = amountSet;
   }
 
-  
+  /**
+   * The duty associated with this refunded duty.
+   */
   public Duty getOriginalDuty() {
     return originalDuty;
   }
@@ -58,10 +68,14 @@ public class RefundDuty {
   }
 
   public static class Builder {
-    
+    /**
+     * The amount of a refunded duty in shop and presentment currencies.
+     */
     private MoneyBag amountSet;
 
-    
+    /**
+     * The duty associated with this refunded duty.
+     */
     private Duty originalDuty;
 
     public RefundDuty build() {
@@ -71,13 +85,17 @@ public class RefundDuty {
       return result;
     }
 
-    
+    /**
+     * The amount of a refunded duty in shop and presentment currencies.
+     */
     public Builder amountSet(MoneyBag amountSet) {
       this.amountSet = amountSet;
       return this;
     }
 
-    
+    /**
+     * The duty associated with this refunded duty.
+     */
     public Builder originalDuty(Duty originalDuty) {
       this.originalDuty = originalDuty;
       return this;

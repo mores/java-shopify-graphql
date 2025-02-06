@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for prerequisite quantity or minimum purchase amount required for the discount.
+ */
 public class DiscountCustomerBuysValueInput {
-  
+  /**
+   * The quantity of prerequisite items.
+   */
   private String quantity;
 
-  
+  /**
+   * The prerequisite minimum purchase amount required for the discount to be applicable.
+   */
   private String amount;
 
   public DiscountCustomerBuysValueInput() {
   }
 
-  
+  /**
+   * The quantity of prerequisite items.
+   */
   public String getQuantity() {
     return quantity;
   }
@@ -25,7 +33,9 @@ public class DiscountCustomerBuysValueInput {
     this.quantity = quantity;
   }
 
-  
+  /**
+   * The prerequisite minimum purchase amount required for the discount to be applicable.
+   */
   public String getAmount() {
     return amount;
   }
@@ -58,10 +68,14 @@ public class DiscountCustomerBuysValueInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The quantity of prerequisite items.
+     */
     private String quantity;
 
-    
+    /**
+     * The prerequisite minimum purchase amount required for the discount to be applicable.
+     */
     private String amount;
 
     public DiscountCustomerBuysValueInput build() {
@@ -71,13 +85,17 @@ public class DiscountCustomerBuysValueInput {
       return result;
     }
 
-    
+    /**
+     * The quantity of prerequisite items.
+     */
     public Builder quantity(String quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    
+    /**
+     * The prerequisite minimum purchase amount required for the discount to be applicable.
+     */
     public Builder amount(String amount) {
       this.amount = amount;
       return this;

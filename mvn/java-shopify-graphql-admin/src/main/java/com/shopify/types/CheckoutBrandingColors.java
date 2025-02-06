@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The color settings for global colors and color schemes.
+ */
 public class CheckoutBrandingColors {
-  
+  /**
+   * A group of global colors for customizing the overall look and feel of the user interface.
+   */
   private CheckoutBrandingColorGlobal global;
 
-  
+  /**
+   * A set of color schemes which apply to different areas of the user interface.
+   */
   private CheckoutBrandingColorSchemes schemes;
 
   public CheckoutBrandingColors() {
   }
 
-  
+  /**
+   * A group of global colors for customizing the overall look and feel of the user interface.
+   */
   public CheckoutBrandingColorGlobal getGlobal() {
     return global;
   }
@@ -25,7 +33,9 @@ public class CheckoutBrandingColors {
     this.global = global;
   }
 
-  
+  /**
+   * A set of color schemes which apply to different areas of the user interface.
+   */
   public CheckoutBrandingColorSchemes getSchemes() {
     return schemes;
   }
@@ -58,10 +68,14 @@ public class CheckoutBrandingColors {
   }
 
   public static class Builder {
-    
+    /**
+     * A group of global colors for customizing the overall look and feel of the user interface.
+     */
     private CheckoutBrandingColorGlobal global;
 
-    
+    /**
+     * A set of color schemes which apply to different areas of the user interface.
+     */
     private CheckoutBrandingColorSchemes schemes;
 
     public CheckoutBrandingColors build() {
@@ -71,13 +85,17 @@ public class CheckoutBrandingColors {
       return result;
     }
 
-    
+    /**
+     * A group of global colors for customizing the overall look and feel of the user interface.
+     */
     public Builder global(CheckoutBrandingColorGlobal global) {
       this.global = global;
       return this;
     }
 
-    
+    /**
+     * A set of color schemes which apply to different areas of the user interface.
+     */
     public Builder schemes(CheckoutBrandingColorSchemes schemes) {
       this.schemes = schemes;
       return this;

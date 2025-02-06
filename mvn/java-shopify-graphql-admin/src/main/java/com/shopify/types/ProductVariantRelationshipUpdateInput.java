@@ -7,33 +7,51 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields for updating a composite product variant.
+ */
 public class ProductVariantRelationshipUpdateInput {
-  
+  /**
+   * The product variant ID representing that which contains the relationships with other variants.
+   */
   private String parentProductVariantId;
 
-  
+  /**
+   * A product ID which contains product variants that have relationships with other variants.
+   */
   private String parentProductId;
 
-  
+  /**
+   * The product variants and associated quantitites to add to the product variant.
+   */
   private List<ProductVariantGroupRelationshipInput> productVariantRelationshipsToCreate = null;
 
-  
+  /**
+   * The product variants and associated quantitites to update in specified product variant.
+   */
   private List<ProductVariantGroupRelationshipInput> productVariantRelationshipsToUpdate = null;
 
-  
+  /**
+   * The bundle component product variants to be removed from the product variant.
+   */
   private List<String> productVariantRelationshipsToRemove = null;
 
-  
+  /**
+   * Whether to remove all components from the product variant. The default value is `false`.
+   */
   private Boolean removeAllProductVariantRelationships = false;
 
-  
+  /**
+   * Method in which to update the price of the parent product variant.
+   */
   private PriceInput priceInput = null;
 
   public ProductVariantRelationshipUpdateInput() {
   }
 
-  
+  /**
+   * The product variant ID representing that which contains the relationships with other variants.
+   */
   public String getParentProductVariantId() {
     return parentProductVariantId;
   }
@@ -42,7 +60,9 @@ public class ProductVariantRelationshipUpdateInput {
     this.parentProductVariantId = parentProductVariantId;
   }
 
-  
+  /**
+   * A product ID which contains product variants that have relationships with other variants.
+   */
   public String getParentProductId() {
     return parentProductId;
   }
@@ -51,7 +71,9 @@ public class ProductVariantRelationshipUpdateInput {
     this.parentProductId = parentProductId;
   }
 
-  
+  /**
+   * The product variants and associated quantitites to add to the product variant.
+   */
   public List<ProductVariantGroupRelationshipInput> getProductVariantRelationshipsToCreate() {
     return productVariantRelationshipsToCreate;
   }
@@ -61,7 +83,9 @@ public class ProductVariantRelationshipUpdateInput {
     this.productVariantRelationshipsToCreate = productVariantRelationshipsToCreate;
   }
 
-  
+  /**
+   * The product variants and associated quantitites to update in specified product variant.
+   */
   public List<ProductVariantGroupRelationshipInput> getProductVariantRelationshipsToUpdate() {
     return productVariantRelationshipsToUpdate;
   }
@@ -71,7 +95,9 @@ public class ProductVariantRelationshipUpdateInput {
     this.productVariantRelationshipsToUpdate = productVariantRelationshipsToUpdate;
   }
 
-  
+  /**
+   * The bundle component product variants to be removed from the product variant.
+   */
   public List<String> getProductVariantRelationshipsToRemove() {
     return productVariantRelationshipsToRemove;
   }
@@ -81,7 +107,9 @@ public class ProductVariantRelationshipUpdateInput {
     this.productVariantRelationshipsToRemove = productVariantRelationshipsToRemove;
   }
 
-  
+  /**
+   * Whether to remove all components from the product variant. The default value is `false`.
+   */
   public Boolean getRemoveAllProductVariantRelationships() {
     return removeAllProductVariantRelationships;
   }
@@ -91,7 +119,9 @@ public class ProductVariantRelationshipUpdateInput {
     this.removeAllProductVariantRelationships = removeAllProductVariantRelationships;
   }
 
-  
+  /**
+   * Method in which to update the price of the parent product variant.
+   */
   public PriceInput getPriceInput() {
     return priceInput;
   }
@@ -129,25 +159,39 @@ public class ProductVariantRelationshipUpdateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The product variant ID representing that which contains the relationships with other variants.
+     */
     private String parentProductVariantId;
 
-    
+    /**
+     * A product ID which contains product variants that have relationships with other variants.
+     */
     private String parentProductId;
 
-    
+    /**
+     * The product variants and associated quantitites to add to the product variant.
+     */
     private List<ProductVariantGroupRelationshipInput> productVariantRelationshipsToCreate = null;
 
-    
+    /**
+     * The product variants and associated quantitites to update in specified product variant.
+     */
     private List<ProductVariantGroupRelationshipInput> productVariantRelationshipsToUpdate = null;
 
-    
+    /**
+     * The bundle component product variants to be removed from the product variant.
+     */
     private List<String> productVariantRelationshipsToRemove = null;
 
-    
+    /**
+     * Whether to remove all components from the product variant. The default value is `false`.
+     */
     private Boolean removeAllProductVariantRelationships = false;
 
-    
+    /**
+     * Method in which to update the price of the parent product variant.
+     */
     private PriceInput priceInput = null;
 
     public ProductVariantRelationshipUpdateInput build() {
@@ -162,47 +206,61 @@ public class ProductVariantRelationshipUpdateInput {
       return result;
     }
 
-    
+    /**
+     * The product variant ID representing that which contains the relationships with other variants.
+     */
     public Builder parentProductVariantId(String parentProductVariantId) {
       this.parentProductVariantId = parentProductVariantId;
       return this;
     }
 
-    
+    /**
+     * A product ID which contains product variants that have relationships with other variants.
+     */
     public Builder parentProductId(String parentProductId) {
       this.parentProductId = parentProductId;
       return this;
     }
 
-    
+    /**
+     * The product variants and associated quantitites to add to the product variant.
+     */
     public Builder productVariantRelationshipsToCreate(
         List<ProductVariantGroupRelationshipInput> productVariantRelationshipsToCreate) {
       this.productVariantRelationshipsToCreate = productVariantRelationshipsToCreate;
       return this;
     }
 
-    
+    /**
+     * The product variants and associated quantitites to update in specified product variant.
+     */
     public Builder productVariantRelationshipsToUpdate(
         List<ProductVariantGroupRelationshipInput> productVariantRelationshipsToUpdate) {
       this.productVariantRelationshipsToUpdate = productVariantRelationshipsToUpdate;
       return this;
     }
 
-    
+    /**
+     * The bundle component product variants to be removed from the product variant.
+     */
     public Builder productVariantRelationshipsToRemove(
         List<String> productVariantRelationshipsToRemove) {
       this.productVariantRelationshipsToRemove = productVariantRelationshipsToRemove;
       return this;
     }
 
-    
+    /**
+     * Whether to remove all components from the product variant. The default value is `false`.
+     */
     public Builder removeAllProductVariantRelationships(
         Boolean removeAllProductVariantRelationships) {
       this.removeAllProductVariantRelationships = removeAllProductVariantRelationships;
       return this;
     }
 
-    
+    /**
+     * Method in which to update the price of the parent product variant.
+     */
     public Builder priceInput(PriceInput priceInput) {
       this.priceInput = priceInput;
       return this;

@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `scriptTagCreate` mutation.
+ */
 public class ScriptTagCreatePayload {
-  
+  /**
+   * The script tag that was created.
+   */
   private ScriptTag scriptTag;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public ScriptTagCreatePayload() {
   }
 
-  
+  /**
+   * The script tag that was created.
+   */
   public ScriptTag getScriptTag() {
     return scriptTag;
   }
@@ -26,7 +34,9 @@ public class ScriptTagCreatePayload {
     this.scriptTag = scriptTag;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class ScriptTagCreatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The script tag that was created.
+     */
     private ScriptTag scriptTag;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public ScriptTagCreatePayload build() {
@@ -72,13 +86,17 @@ public class ScriptTagCreatePayload {
       return result;
     }
 
-    
+    /**
+     * The script tag that was created.
+     */
     public Builder scriptTag(ScriptTag scriptTag) {
       this.scriptTag = scriptTag;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

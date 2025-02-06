@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `companyContactAssignRoles` mutation.
+ */
 public class CompanyContactAssignRolesPayload {
-  
+  /**
+   * A list of newly created assignments of company contacts to a company location.
+   */
   private List<CompanyContactRoleAssignment> roleAssignments;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<BusinessCustomerUserError> userErrors;
 
   public CompanyContactAssignRolesPayload() {
   }
 
-  
+  /**
+   * A list of newly created assignments of company contacts to a company location.
+   */
   public List<CompanyContactRoleAssignment> getRoleAssignments() {
     return roleAssignments;
   }
@@ -26,7 +34,9 @@ public class CompanyContactAssignRolesPayload {
     this.roleAssignments = roleAssignments;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<BusinessCustomerUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class CompanyContactAssignRolesPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * A list of newly created assignments of company contacts to a company location.
+     */
     private List<CompanyContactRoleAssignment> roleAssignments;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<BusinessCustomerUserError> userErrors;
 
     public CompanyContactAssignRolesPayload build() {
@@ -72,13 +86,17 @@ public class CompanyContactAssignRolesPayload {
       return result;
     }
 
-    
+    /**
+     * A list of newly created assignments of company contacts to a company location.
+     */
     public Builder roleAssignments(List<CompanyContactRoleAssignment> roleAssignments) {
       this.roleAssignments = roleAssignments;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<BusinessCustomerUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

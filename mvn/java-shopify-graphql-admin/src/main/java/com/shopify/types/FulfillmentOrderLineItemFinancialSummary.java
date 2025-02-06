@@ -6,24 +6,40 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The financial details of a fulfillment order line item.
+ */
 public class FulfillmentOrderLineItemFinancialSummary {
-  
+  /**
+   * The approximate split price of a line item unit, in shop and presentment
+   * currencies. This value doesn't include discounts applied to the entire
+   * order.For the full picture of applied discounts, see discountAllocations.
+   */
   private MoneyBag approximateDiscountedUnitPriceSet;
 
-  
+  /**
+   * The discounts that have been allocated onto the line item by discount applications, not including order edits and refunds.
+   */
   private List<FinancialSummaryDiscountAllocation> discountAllocations;
 
-  
+  /**
+   * The variant unit price without discounts applied, in shop and presentment currencies.
+   */
   private MoneyBag originalUnitPriceSet;
 
-  
+  /**
+   * Number of line items that this financial summary applies to.
+   */
   private int quantity;
 
   public FulfillmentOrderLineItemFinancialSummary() {
   }
 
-  
+  /**
+   * The approximate split price of a line item unit, in shop and presentment
+   * currencies. This value doesn't include discounts applied to the entire
+   * order.For the full picture of applied discounts, see discountAllocations.
+   */
   public MoneyBag getApproximateDiscountedUnitPriceSet() {
     return approximateDiscountedUnitPriceSet;
   }
@@ -32,7 +48,9 @@ public class FulfillmentOrderLineItemFinancialSummary {
     this.approximateDiscountedUnitPriceSet = approximateDiscountedUnitPriceSet;
   }
 
-  
+  /**
+   * The discounts that have been allocated onto the line item by discount applications, not including order edits and refunds.
+   */
   public List<FinancialSummaryDiscountAllocation> getDiscountAllocations() {
     return discountAllocations;
   }
@@ -41,7 +59,9 @@ public class FulfillmentOrderLineItemFinancialSummary {
     this.discountAllocations = discountAllocations;
   }
 
-  
+  /**
+   * The variant unit price without discounts applied, in shop and presentment currencies.
+   */
   public MoneyBag getOriginalUnitPriceSet() {
     return originalUnitPriceSet;
   }
@@ -50,7 +70,9 @@ public class FulfillmentOrderLineItemFinancialSummary {
     this.originalUnitPriceSet = originalUnitPriceSet;
   }
 
-  
+  /**
+   * Number of line items that this financial summary applies to.
+   */
   public int getQuantity() {
     return quantity;
   }
@@ -85,16 +107,26 @@ public class FulfillmentOrderLineItemFinancialSummary {
   }
 
   public static class Builder {
-    
+    /**
+     * The approximate split price of a line item unit, in shop and presentment
+     * currencies. This value doesn't include discounts applied to the entire
+     * order.For the full picture of applied discounts, see discountAllocations.
+     */
     private MoneyBag approximateDiscountedUnitPriceSet;
 
-    
+    /**
+     * The discounts that have been allocated onto the line item by discount applications, not including order edits and refunds.
+     */
     private List<FinancialSummaryDiscountAllocation> discountAllocations;
 
-    
+    /**
+     * The variant unit price without discounts applied, in shop and presentment currencies.
+     */
     private MoneyBag originalUnitPriceSet;
 
-    
+    /**
+     * Number of line items that this financial summary applies to.
+     */
     private int quantity;
 
     public FulfillmentOrderLineItemFinancialSummary build() {
@@ -106,26 +138,36 @@ public class FulfillmentOrderLineItemFinancialSummary {
       return result;
     }
 
-    
+    /**
+     * The approximate split price of a line item unit, in shop and presentment
+     * currencies. This value doesn't include discounts applied to the entire
+     * order.For the full picture of applied discounts, see discountAllocations.
+     */
     public Builder approximateDiscountedUnitPriceSet(MoneyBag approximateDiscountedUnitPriceSet) {
       this.approximateDiscountedUnitPriceSet = approximateDiscountedUnitPriceSet;
       return this;
     }
 
-    
+    /**
+     * The discounts that have been allocated onto the line item by discount applications, not including order edits and refunds.
+     */
     public Builder discountAllocations(
         List<FinancialSummaryDiscountAllocation> discountAllocations) {
       this.discountAllocations = discountAllocations;
       return this;
     }
 
-    
+    /**
+     * The variant unit price without discounts applied, in shop and presentment currencies.
+     */
     public Builder originalUnitPriceSet(MoneyBag originalUnitPriceSet) {
       this.originalUnitPriceSet = originalUnitPriceSet;
       return this;
     }
 
-    
+    /**
+     * Number of line items that this financial summary applies to.
+     */
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;

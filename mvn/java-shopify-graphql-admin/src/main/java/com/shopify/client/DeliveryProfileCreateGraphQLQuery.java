@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Create a delivery profile.
+ */
 public class DeliveryProfileCreateGraphQLQuery extends GraphQLQuery {
   public DeliveryProfileCreateGraphQLQuery(DeliveryProfileInput profile, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class DeliveryProfileCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Specifies the input fields for a delivery profile.
+     */
     public Builder profile(DeliveryProfileInput profile) {
       this.profile = profile;
       this.fieldsSet.add("profile");

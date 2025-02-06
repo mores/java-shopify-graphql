@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Retrieves a metaobject definition by ID.
+ */
 public class MetaobjectDefinitionGraphQLQuery extends GraphQLQuery {
   public MetaobjectDefinitionGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -40,7 +42,9 @@ public class MetaobjectDefinitionGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the metaobject to return.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

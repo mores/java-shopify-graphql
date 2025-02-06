@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Tax app configuration of a merchant.
+ */
 public class TaxAppConfiguration {
-  
+  /**
+   * State of the tax app configuration.
+   */
   private TaxPartnerState state;
 
   public TaxAppConfiguration() {
   }
 
-  
+  /**
+   * State of the tax app configuration.
+   */
   public TaxPartnerState getState() {
     return state;
   }
@@ -45,7 +51,9 @@ public class TaxAppConfiguration {
   }
 
   public static class Builder {
-    
+    /**
+     * State of the tax app configuration.
+     */
     private TaxPartnerState state;
 
     public TaxAppConfiguration build() {
@@ -54,7 +62,9 @@ public class TaxAppConfiguration {
       return result;
     }
 
-    
+    /**
+     * State of the tax app configuration.
+     */
     public Builder state(TaxPartnerState state) {
       this.state = state;
       return this;

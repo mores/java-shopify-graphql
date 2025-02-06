@@ -33,6 +33,20 @@ public class StoreCreditAccountCreditTransactionProjection<PARENT extends BaseSu
      return projection;
   }
 
+  public StoreCreditSystemEventProjection<StoreCreditAccountCreditTransactionProjection<PARENT, ROOT>, ROOT> event(
+      ) {
+     StoreCreditSystemEventProjection<StoreCreditAccountCreditTransactionProjection<PARENT, ROOT>, ROOT> projection = new StoreCreditSystemEventProjection<>(this, getRoot());
+     getFields().put("event", projection);
+     return projection;
+  }
+
+  public StoreCreditAccountTransactionOriginProjection<StoreCreditAccountCreditTransactionProjection<PARENT, ROOT>, ROOT> origin(
+      ) {
+     StoreCreditAccountTransactionOriginProjection<StoreCreditAccountCreditTransactionProjection<PARENT, ROOT>, ROOT> projection = new StoreCreditAccountTransactionOriginProjection<>(this, getRoot());
+     getFields().put("origin", projection);
+     return projection;
+  }
+
   public MoneyV2Projection<StoreCreditAccountCreditTransactionProjection<PARENT, ROOT>, ROOT> remainingAmount(
       ) {
      MoneyV2Projection<StoreCreditAccountCreditTransactionProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());

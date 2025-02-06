@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `productBundleUpdate` mutation.
+ */
 public class ProductBundleUpdatePayload {
-  
+  /**
+   * The asynchronous ProductBundleOperation updating the componentized product.
+   */
   private ProductBundleOperation productBundleOperation;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public ProductBundleUpdatePayload() {
   }
 
-  
+  /**
+   * The asynchronous ProductBundleOperation updating the componentized product.
+   */
   public ProductBundleOperation getProductBundleOperation() {
     return productBundleOperation;
   }
@@ -26,7 +34,9 @@ public class ProductBundleUpdatePayload {
     this.productBundleOperation = productBundleOperation;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class ProductBundleUpdatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The asynchronous ProductBundleOperation updating the componentized product.
+     */
     private ProductBundleOperation productBundleOperation;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public ProductBundleUpdatePayload build() {
@@ -72,13 +86,17 @@ public class ProductBundleUpdatePayload {
       return result;
     }
 
-    
+    /**
+     * The asynchronous ProductBundleOperation updating the componentized product.
+     */
     public Builder productBundleOperation(ProductBundleOperation productBundleOperation) {
       this.productBundleOperation = productBundleOperation;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

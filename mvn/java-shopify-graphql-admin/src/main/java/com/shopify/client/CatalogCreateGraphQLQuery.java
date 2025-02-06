@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a new catalog.
+ */
 public class CatalogCreateGraphQLQuery extends GraphQLQuery {
   public CatalogCreateGraphQLQuery(CatalogCreateInput input, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class CatalogCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The properties of the new catalog.
+     */
     public Builder input(CatalogCreateInput input) {
       this.input = input;
       this.fieldsSet.add("input");

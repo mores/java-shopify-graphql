@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `cartTransformCreate` mutation.
+ */
 public class CartTransformCreatePayload {
-  
+  /**
+   * The newly created cart transform function.
+   */
   private CartTransform cartTransform;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<CartTransformCreateUserError> userErrors;
 
   public CartTransformCreatePayload() {
   }
 
-  
+  /**
+   * The newly created cart transform function.
+   */
   public CartTransform getCartTransform() {
     return cartTransform;
   }
@@ -26,7 +34,9 @@ public class CartTransformCreatePayload {
     this.cartTransform = cartTransform;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<CartTransformCreateUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class CartTransformCreatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The newly created cart transform function.
+     */
     private CartTransform cartTransform;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<CartTransformCreateUserError> userErrors;
 
     public CartTransformCreatePayload build() {
@@ -72,13 +86,17 @@ public class CartTransformCreatePayload {
       return result;
     }
 
-    
+    /**
+     * The newly created cart transform function.
+     */
     public Builder cartTransform(CartTransform cartTransform) {
       this.cartTransform = cartTransform;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<CartTransformCreateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

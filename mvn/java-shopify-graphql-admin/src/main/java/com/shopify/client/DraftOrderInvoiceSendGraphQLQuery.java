@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Sends an email invoice for a draft order.
+ */
 public class DraftOrderInvoiceSendGraphQLQuery extends GraphQLQuery {
   public DraftOrderInvoiceSendGraphQLQuery(String id, EmailInput email, String queryName,
       Set<String> fieldsSet) {
@@ -46,14 +48,18 @@ public class DraftOrderInvoiceSendGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Specifies the draft order to send the invoice for.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    
+    /**
+     * Specifies the draft order invoice email fields.
+     */
     public Builder email(EmailInput email) {
       this.email = email;
       this.fieldsSet.add("email");

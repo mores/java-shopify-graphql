@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields for adding products to the Combined Listing.
+ */
 public class ChildProductRelationInput {
-  
+  /**
+   * The ID of the child product.
+   */
   private String childProductId;
 
-  
+  /**
+   * The parent option values.
+   */
   private List<SelectedVariantOptionInput> selectedParentOptionValues;
 
   public ChildProductRelationInput() {
   }
 
-  
+  /**
+   * The ID of the child product.
+   */
   public String getChildProductId() {
     return childProductId;
   }
@@ -26,7 +34,9 @@ public class ChildProductRelationInput {
     this.childProductId = childProductId;
   }
 
-  
+  /**
+   * The parent option values.
+   */
   public List<SelectedVariantOptionInput> getSelectedParentOptionValues() {
     return selectedParentOptionValues;
   }
@@ -60,10 +70,14 @@ public class ChildProductRelationInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the child product.
+     */
     private String childProductId;
 
-    
+    /**
+     * The parent option values.
+     */
     private List<SelectedVariantOptionInput> selectedParentOptionValues;
 
     public ChildProductRelationInput build() {
@@ -73,13 +87,17 @@ public class ChildProductRelationInput {
       return result;
     }
 
-    
+    /**
+     * The ID of the child product.
+     */
     public Builder childProductId(String childProductId) {
       this.childProductId = childProductId;
       return this;
     }
 
-    
+    /**
+     * The parent option values.
+     */
     public Builder selectedParentOptionValues(
         List<SelectedVariantOptionInput> selectedParentOptionValues) {
       this.selectedParentOptionValues = selectedParentOptionValues;

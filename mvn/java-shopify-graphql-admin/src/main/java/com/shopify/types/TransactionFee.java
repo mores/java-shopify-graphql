@@ -6,39 +6,59 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Transaction fee related to an order transaction.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class TransactionFee implements com.shopify.types.Node {
-  
+  /**
+   * Amount of the fee.
+   */
   private MoneyV2 amount;
 
-  
+  /**
+   * Flat rate charge for a transaction.
+   */
   private MoneyV2 flatFee;
 
-  
+  /**
+   * Name of the credit card flat fee.
+   */
   private String flatFeeName;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * Percentage charge.
+   */
   private String rate;
 
-  
+  /**
+   * Name of the credit card rate.
+   */
   private String rateName;
 
-  
+  /**
+   * Tax amount charged on the fee.
+   */
   private MoneyV2 taxAmount;
 
-  
+  /**
+   * Name of the type of fee.
+   */
   private String type;
 
   public TransactionFee() {
   }
 
-  
+  /**
+   * Amount of the fee.
+   */
   public MoneyV2 getAmount() {
     return amount;
   }
@@ -47,7 +67,9 @@ public class TransactionFee implements com.shopify.types.Node {
     this.amount = amount;
   }
 
-  
+  /**
+   * Flat rate charge for a transaction.
+   */
   public MoneyV2 getFlatFee() {
     return flatFee;
   }
@@ -56,7 +78,9 @@ public class TransactionFee implements com.shopify.types.Node {
     this.flatFee = flatFee;
   }
 
-  
+  /**
+   * Name of the credit card flat fee.
+   */
   public String getFlatFeeName() {
     return flatFeeName;
   }
@@ -65,7 +89,9 @@ public class TransactionFee implements com.shopify.types.Node {
     this.flatFeeName = flatFeeName;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -74,7 +100,9 @@ public class TransactionFee implements com.shopify.types.Node {
     this.id = id;
   }
 
-  
+  /**
+   * Percentage charge.
+   */
   public String getRate() {
     return rate;
   }
@@ -83,7 +111,9 @@ public class TransactionFee implements com.shopify.types.Node {
     this.rate = rate;
   }
 
-  
+  /**
+   * Name of the credit card rate.
+   */
   public String getRateName() {
     return rateName;
   }
@@ -92,7 +122,9 @@ public class TransactionFee implements com.shopify.types.Node {
     this.rateName = rateName;
   }
 
-  
+  /**
+   * Tax amount charged on the fee.
+   */
   public MoneyV2 getTaxAmount() {
     return taxAmount;
   }
@@ -101,7 +133,9 @@ public class TransactionFee implements com.shopify.types.Node {
     this.taxAmount = taxAmount;
   }
 
-  
+  /**
+   * Name of the type of fee.
+   */
   public String getType() {
     return type;
   }
@@ -140,28 +174,44 @@ public class TransactionFee implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    
+    /**
+     * Amount of the fee.
+     */
     private MoneyV2 amount;
 
-    
+    /**
+     * Flat rate charge for a transaction.
+     */
     private MoneyV2 flatFee;
 
-    
+    /**
+     * Name of the credit card flat fee.
+     */
     private String flatFeeName;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * Percentage charge.
+     */
     private String rate;
 
-    
+    /**
+     * Name of the credit card rate.
+     */
     private String rateName;
 
-    
+    /**
+     * Tax amount charged on the fee.
+     */
     private MoneyV2 taxAmount;
 
-    
+    /**
+     * Name of the type of fee.
+     */
     private String type;
 
     public TransactionFee build() {
@@ -177,49 +227,65 @@ public class TransactionFee implements com.shopify.types.Node {
       return result;
     }
 
-    
+    /**
+     * Amount of the fee.
+     */
     public Builder amount(MoneyV2 amount) {
       this.amount = amount;
       return this;
     }
 
-    
+    /**
+     * Flat rate charge for a transaction.
+     */
     public Builder flatFee(MoneyV2 flatFee) {
       this.flatFee = flatFee;
       return this;
     }
 
-    
+    /**
+     * Name of the credit card flat fee.
+     */
     public Builder flatFeeName(String flatFeeName) {
       this.flatFeeName = flatFeeName;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * Percentage charge.
+     */
     public Builder rate(String rate) {
       this.rate = rate;
       return this;
     }
 
-    
+    /**
+     * Name of the credit card rate.
+     */
     public Builder rateName(String rateName) {
       this.rateName = rateName;
       return this;
     }
 
-    
+    /**
+     * Tax amount charged on the fee.
+     */
     public Builder taxAmount(MoneyV2 taxAmount) {
       this.taxAmount = taxAmount;
       return this;
     }
 
-    
+    /**
+     * Name of the type of fee.
+     */
     public Builder type(String type) {
       this.type = type;
       return this;

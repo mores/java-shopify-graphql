@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * An auto-generated type which holds one ProductPublication and a cursor during pagination.
+ */
 public class ProductPublicationEdge {
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   private String cursor;
 
-  
+  /**
+   * The item at the end of ProductPublicationEdge.
+   */
   private ProductPublication node;
 
   public ProductPublicationEdge() {
   }
 
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   public String getCursor() {
     return cursor;
   }
@@ -25,7 +33,9 @@ public class ProductPublicationEdge {
     this.cursor = cursor;
   }
 
-  
+  /**
+   * The item at the end of ProductPublicationEdge.
+   */
   public ProductPublication getNode() {
     return node;
   }
@@ -58,10 +68,14 @@ public class ProductPublicationEdge {
   }
 
   public static class Builder {
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     private String cursor;
 
-    
+    /**
+     * The item at the end of ProductPublicationEdge.
+     */
     private ProductPublication node;
 
     public ProductPublicationEdge build() {
@@ -71,13 +85,17 @@ public class ProductPublicationEdge {
       return result;
     }
 
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder cursor(String cursor) {
       this.cursor = cursor;
       return this;
     }
 
-    
+    /**
+     * The item at the end of ProductPublicationEdge.
+     */
     public Builder node(ProductPublication node) {
       this.node = node;
       return this;

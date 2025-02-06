@@ -7,48 +7,76 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-
+/**
+ * The input fields used to create a fulfillment event.
+ */
 public class FulfillmentEventInput {
-  
+  /**
+   * The street address where this fulfillment event occurred.
+   */
   private String address1;
 
-  
+  /**
+   * The city where this fulfillment event occurred.
+   */
   private String city;
 
-  
+  /**
+   * The country where this fulfillment event occurred.
+   */
   private String country;
 
-  
+  /**
+   * The estimated delivery date and time of the fulfillment.
+   */
   private OffsetDateTime estimatedDeliveryAt;
 
-  
+  /**
+   * The time at which this fulfillment event happened.
+   */
   private OffsetDateTime happenedAt;
 
-  
+  /**
+   * The ID for the fulfillment that's associated with this fulfillment event.
+   */
   private String fulfillmentId;
 
-  
+  /**
+   * The latitude where this fulfillment event occurred.
+   */
   private Double latitude;
 
-  
+  /**
+   * The longitude where this fulfillment event occurred.
+   */
   private Double longitude;
 
-  
+  /**
+   * A message associated with this fulfillment event.
+   */
   private String message;
 
-  
+  /**
+   * The province where this fulfillment event occurred.
+   */
   private String province;
 
-  
+  /**
+   * The status of this fulfillment event.
+   */
   private FulfillmentEventStatus status;
 
-  
+  /**
+   * The zip code of the location where this fulfillment event occurred.
+   */
   private String zip;
 
   public FulfillmentEventInput() {
   }
 
-  
+  /**
+   * The street address where this fulfillment event occurred.
+   */
   public String getAddress1() {
     return address1;
   }
@@ -57,7 +85,9 @@ public class FulfillmentEventInput {
     this.address1 = address1;
   }
 
-  
+  /**
+   * The city where this fulfillment event occurred.
+   */
   public String getCity() {
     return city;
   }
@@ -66,7 +96,9 @@ public class FulfillmentEventInput {
     this.city = city;
   }
 
-  
+  /**
+   * The country where this fulfillment event occurred.
+   */
   public String getCountry() {
     return country;
   }
@@ -75,7 +107,9 @@ public class FulfillmentEventInput {
     this.country = country;
   }
 
-  
+  /**
+   * The estimated delivery date and time of the fulfillment.
+   */
   public OffsetDateTime getEstimatedDeliveryAt() {
     return estimatedDeliveryAt;
   }
@@ -84,7 +118,9 @@ public class FulfillmentEventInput {
     this.estimatedDeliveryAt = estimatedDeliveryAt;
   }
 
-  
+  /**
+   * The time at which this fulfillment event happened.
+   */
   public OffsetDateTime getHappenedAt() {
     return happenedAt;
   }
@@ -93,7 +129,9 @@ public class FulfillmentEventInput {
     this.happenedAt = happenedAt;
   }
 
-  
+  /**
+   * The ID for the fulfillment that's associated with this fulfillment event.
+   */
   public String getFulfillmentId() {
     return fulfillmentId;
   }
@@ -102,7 +140,9 @@ public class FulfillmentEventInput {
     this.fulfillmentId = fulfillmentId;
   }
 
-  
+  /**
+   * The latitude where this fulfillment event occurred.
+   */
   public Double getLatitude() {
     return latitude;
   }
@@ -111,7 +151,9 @@ public class FulfillmentEventInput {
     this.latitude = latitude;
   }
 
-  
+  /**
+   * The longitude where this fulfillment event occurred.
+   */
   public Double getLongitude() {
     return longitude;
   }
@@ -120,7 +162,9 @@ public class FulfillmentEventInput {
     this.longitude = longitude;
   }
 
-  
+  /**
+   * A message associated with this fulfillment event.
+   */
   public String getMessage() {
     return message;
   }
@@ -129,7 +173,9 @@ public class FulfillmentEventInput {
     this.message = message;
   }
 
-  
+  /**
+   * The province where this fulfillment event occurred.
+   */
   public String getProvince() {
     return province;
   }
@@ -138,7 +184,9 @@ public class FulfillmentEventInput {
     this.province = province;
   }
 
-  
+  /**
+   * The status of this fulfillment event.
+   */
   public FulfillmentEventStatus getStatus() {
     return status;
   }
@@ -147,7 +195,9 @@ public class FulfillmentEventInput {
     this.status = status;
   }
 
-  
+  /**
+   * The zip code of the location where this fulfillment event occurred.
+   */
   public String getZip() {
     return zip;
   }
@@ -190,40 +240,64 @@ public class FulfillmentEventInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The street address where this fulfillment event occurred.
+     */
     private String address1;
 
-    
+    /**
+     * The city where this fulfillment event occurred.
+     */
     private String city;
 
-    
+    /**
+     * The country where this fulfillment event occurred.
+     */
     private String country;
 
-    
+    /**
+     * The estimated delivery date and time of the fulfillment.
+     */
     private OffsetDateTime estimatedDeliveryAt;
 
-    
+    /**
+     * The time at which this fulfillment event happened.
+     */
     private OffsetDateTime happenedAt;
 
-    
+    /**
+     * The ID for the fulfillment that's associated with this fulfillment event.
+     */
     private String fulfillmentId;
 
-    
+    /**
+     * The latitude where this fulfillment event occurred.
+     */
     private Double latitude;
 
-    
+    /**
+     * The longitude where this fulfillment event occurred.
+     */
     private Double longitude;
 
-    
+    /**
+     * A message associated with this fulfillment event.
+     */
     private String message;
 
-    
+    /**
+     * The province where this fulfillment event occurred.
+     */
     private String province;
 
-    
+    /**
+     * The status of this fulfillment event.
+     */
     private FulfillmentEventStatus status;
 
-    
+    /**
+     * The zip code of the location where this fulfillment event occurred.
+     */
     private String zip;
 
     public FulfillmentEventInput build() {
@@ -243,73 +317,97 @@ public class FulfillmentEventInput {
       return result;
     }
 
-    
+    /**
+     * The street address where this fulfillment event occurred.
+     */
     public Builder address1(String address1) {
       this.address1 = address1;
       return this;
     }
 
-    
+    /**
+     * The city where this fulfillment event occurred.
+     */
     public Builder city(String city) {
       this.city = city;
       return this;
     }
 
-    
+    /**
+     * The country where this fulfillment event occurred.
+     */
     public Builder country(String country) {
       this.country = country;
       return this;
     }
 
-    
+    /**
+     * The estimated delivery date and time of the fulfillment.
+     */
     public Builder estimatedDeliveryAt(OffsetDateTime estimatedDeliveryAt) {
       this.estimatedDeliveryAt = estimatedDeliveryAt;
       return this;
     }
 
-    
+    /**
+     * The time at which this fulfillment event happened.
+     */
     public Builder happenedAt(OffsetDateTime happenedAt) {
       this.happenedAt = happenedAt;
       return this;
     }
 
-    
+    /**
+     * The ID for the fulfillment that's associated with this fulfillment event.
+     */
     public Builder fulfillmentId(String fulfillmentId) {
       this.fulfillmentId = fulfillmentId;
       return this;
     }
 
-    
+    /**
+     * The latitude where this fulfillment event occurred.
+     */
     public Builder latitude(Double latitude) {
       this.latitude = latitude;
       return this;
     }
 
-    
+    /**
+     * The longitude where this fulfillment event occurred.
+     */
     public Builder longitude(Double longitude) {
       this.longitude = longitude;
       return this;
     }
 
-    
+    /**
+     * A message associated with this fulfillment event.
+     */
     public Builder message(String message) {
       this.message = message;
       return this;
     }
 
-    
+    /**
+     * The province where this fulfillment event occurred.
+     */
     public Builder province(String province) {
       this.province = province;
       return this;
     }
 
-    
+    /**
+     * The status of this fulfillment event.
+     */
     public Builder status(FulfillmentEventStatus status) {
       this.status = status;
       return this;
     }
 
-    
+    /**
+     * The zip code of the location where this fulfillment event occurred.
+     */
     public Builder zip(String zip) {
       this.zip = zip;
       return this;

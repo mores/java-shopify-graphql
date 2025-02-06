@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Possible admin access settings for metafields.
+ */
 public enum MetafieldAdminAccess {
   PRIVATE,
 

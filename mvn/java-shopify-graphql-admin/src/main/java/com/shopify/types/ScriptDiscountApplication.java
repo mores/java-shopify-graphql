@@ -6,36 +6,60 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Script discount applications capture the intentions of a discount that
+ * was created by a Shopify Script for an order's line item or shipping line.
+ *
+ * Discount applications don't represent the actual final amount discounted on a
+ * line (line item or shipping line). The actual amount discounted on a line is
+ * represented by the [DiscountAllocation](https://shopify.dev/api/admin-graphql/latest/objects/discountallocation) object.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ScriptDiscountApplication implements com.shopify.types.DiscountApplication {
-  
+  /**
+   * The method by which the discount's value is applied to its entitled items.
+   */
   private DiscountApplicationAllocationMethod allocationMethod;
 
-  
+  /**
+   * The description of the application as defined by the Script.
+   */
   private String description;
 
-  
+  /**
+   * An ordered index that can be used to identify the discount application and indicate the precedence
+   * of the discount application for calculations.
+   */
   private int index;
 
-  
+  /**
+   * How the discount amount is distributed on the discounted lines.
+   */
   private DiscountApplicationTargetSelection targetSelection;
 
-  
+  /**
+   * Whether the discount is applied on line items or shipping lines.
+   */
   private DiscountApplicationTargetType targetType;
 
-  
+  /**
+   * The title of the application as defined by the Script.
+   */
   private String title;
 
-  
+  /**
+   * The value of the discount application.
+   */
   private PricingValue value;
 
   public ScriptDiscountApplication() {
   }
 
-  
+  /**
+   * The method by which the discount's value is applied to its entitled items.
+   */
   public DiscountApplicationAllocationMethod getAllocationMethod() {
     return allocationMethod;
   }
@@ -44,7 +68,9 @@ public class ScriptDiscountApplication implements com.shopify.types.DiscountAppl
     this.allocationMethod = allocationMethod;
   }
 
-  
+  /**
+   * The description of the application as defined by the Script.
+   */
   public String getDescription() {
     return description;
   }
@@ -53,7 +79,10 @@ public class ScriptDiscountApplication implements com.shopify.types.DiscountAppl
     this.description = description;
   }
 
-  
+  /**
+   * An ordered index that can be used to identify the discount application and indicate the precedence
+   * of the discount application for calculations.
+   */
   public int getIndex() {
     return index;
   }
@@ -62,7 +91,9 @@ public class ScriptDiscountApplication implements com.shopify.types.DiscountAppl
     this.index = index;
   }
 
-  
+  /**
+   * How the discount amount is distributed on the discounted lines.
+   */
   public DiscountApplicationTargetSelection getTargetSelection() {
     return targetSelection;
   }
@@ -71,7 +102,9 @@ public class ScriptDiscountApplication implements com.shopify.types.DiscountAppl
     this.targetSelection = targetSelection;
   }
 
-  
+  /**
+   * Whether the discount is applied on line items or shipping lines.
+   */
   public DiscountApplicationTargetType getTargetType() {
     return targetType;
   }
@@ -80,7 +113,9 @@ public class ScriptDiscountApplication implements com.shopify.types.DiscountAppl
     this.targetType = targetType;
   }
 
-  
+  /**
+   * The title of the application as defined by the Script.
+   */
   public String getTitle() {
     return title;
   }
@@ -89,7 +124,9 @@ public class ScriptDiscountApplication implements com.shopify.types.DiscountAppl
     this.title = title;
   }
 
-  
+  /**
+   * The value of the discount application.
+   */
   public PricingValue getValue() {
     return value;
   }
@@ -127,25 +164,40 @@ public class ScriptDiscountApplication implements com.shopify.types.DiscountAppl
   }
 
   public static class Builder {
-    
+    /**
+     * The method by which the discount's value is applied to its entitled items.
+     */
     private DiscountApplicationAllocationMethod allocationMethod;
 
-    
+    /**
+     * The description of the application as defined by the Script.
+     */
     private String description;
 
-    
+    /**
+     * An ordered index that can be used to identify the discount application and indicate the precedence
+     * of the discount application for calculations.
+     */
     private int index;
 
-    
+    /**
+     * How the discount amount is distributed on the discounted lines.
+     */
     private DiscountApplicationTargetSelection targetSelection;
 
-    
+    /**
+     * Whether the discount is applied on line items or shipping lines.
+     */
     private DiscountApplicationTargetType targetType;
 
-    
+    /**
+     * The title of the application as defined by the Script.
+     */
     private String title;
 
-    
+    /**
+     * The value of the discount application.
+     */
     private PricingValue value;
 
     public ScriptDiscountApplication build() {
@@ -160,43 +212,58 @@ public class ScriptDiscountApplication implements com.shopify.types.DiscountAppl
       return result;
     }
 
-    
+    /**
+     * The method by which the discount's value is applied to its entitled items.
+     */
     public Builder allocationMethod(DiscountApplicationAllocationMethod allocationMethod) {
       this.allocationMethod = allocationMethod;
       return this;
     }
 
-    
+    /**
+     * The description of the application as defined by the Script.
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    
+    /**
+     * An ordered index that can be used to identify the discount application and indicate the precedence
+     * of the discount application for calculations.
+     */
     public Builder index(int index) {
       this.index = index;
       return this;
     }
 
-    
+    /**
+     * How the discount amount is distributed on the discounted lines.
+     */
     public Builder targetSelection(DiscountApplicationTargetSelection targetSelection) {
       this.targetSelection = targetSelection;
       return this;
     }
 
-    
+    /**
+     * Whether the discount is applied on line items or shipping lines.
+     */
     public Builder targetType(DiscountApplicationTargetType targetType) {
       this.targetType = targetType;
       return this;
     }
 
-    
+    /**
+     * The title of the application as defined by the Script.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    
+    /**
+     * The value of the discount application.
+     */
     public Builder value(PricingValue value) {
       this.value = value;
       return this;

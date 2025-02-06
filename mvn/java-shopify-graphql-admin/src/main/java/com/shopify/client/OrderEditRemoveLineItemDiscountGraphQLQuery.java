@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Removes a line item discount that was applied as part of an order edit.
+ */
 public class OrderEditRemoveLineItemDiscountGraphQLQuery extends GraphQLQuery {
   public OrderEditRemoveLineItemDiscountGraphQLQuery(String id, String discountApplicationId,
       String queryName, Set<String> fieldsSet) {
@@ -45,14 +47,20 @@ public class OrderEditRemoveLineItemDiscountGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
+     * from which to remove the discount.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    
+    /**
+     * The ID of the [calculated discount application](https://shopify.dev/api/admin-graphql/latest/interfaces/calculateddiscountapplication)
+     * to remove.
+     */
     public Builder discountApplicationId(String discountApplicationId) {
       this.discountApplicationId = discountApplicationId;
       this.fieldsSet.add("discountApplicationId");

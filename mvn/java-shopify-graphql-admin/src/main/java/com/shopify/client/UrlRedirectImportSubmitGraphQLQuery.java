@@ -6,7 +6,11 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Submits a `UrlRedirectImport` request to be processed.
+ *   
+ * The `UrlRedirectImport` request is first created with the [`urlRedirectImportCreate`](https://shopify.dev/api/admin-graphql/latest/mutations/urlRedirectImportCreate) mutation.
+ */
 public class UrlRedirectImportSubmitGraphQLQuery extends GraphQLQuery {
   public UrlRedirectImportSubmitGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -40,7 +44,9 @@ public class UrlRedirectImportSubmitGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the [`UrlRedirectImport`](https://shopify.dev/api/admin-graphql/latest/objects/UrlRedirectImport) object.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `stagedUploadsCreate` mutation.
+ */
 public class StagedUploadsCreatePayload {
-  
+  /**
+   * The staged upload targets that were generated.
+   */
   private List<StagedMediaUploadTarget> stagedTargets;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public StagedUploadsCreatePayload() {
   }
 
-  
+  /**
+   * The staged upload targets that were generated.
+   */
   public List<StagedMediaUploadTarget> getStagedTargets() {
     return stagedTargets;
   }
@@ -26,7 +34,9 @@ public class StagedUploadsCreatePayload {
     this.stagedTargets = stagedTargets;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class StagedUploadsCreatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The staged upload targets that were generated.
+     */
     private List<StagedMediaUploadTarget> stagedTargets;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public StagedUploadsCreatePayload build() {
@@ -72,13 +86,17 @@ public class StagedUploadsCreatePayload {
       return result;
     }
 
-    
+    /**
+     * The staged upload targets that were generated.
+     */
     public Builder stagedTargets(List<StagedMediaUploadTarget> stagedTargets) {
       this.stagedTargets = stagedTargets;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

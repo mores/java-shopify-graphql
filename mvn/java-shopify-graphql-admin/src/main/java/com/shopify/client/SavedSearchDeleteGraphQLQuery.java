@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Delete a saved search.
+ */
 public class SavedSearchDeleteGraphQLQuery extends GraphQLQuery {
   public SavedSearchDeleteGraphQLQuery(SavedSearchDeleteInput input, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class SavedSearchDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The input fields to delete a saved search.
+     */
     public Builder input(SavedSearchDeleteInput input) {
       this.input = input;
       this.fieldsSet.add("input");

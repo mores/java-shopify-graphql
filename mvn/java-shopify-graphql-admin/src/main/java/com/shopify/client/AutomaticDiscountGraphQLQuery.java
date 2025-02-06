@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Returns an automatic discount resource by ID.
+ */
 public class AutomaticDiscountGraphQLQuery extends GraphQLQuery {
   public AutomaticDiscountGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -40,7 +42,9 @@ public class AutomaticDiscountGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the `DiscountAutomatic` to return.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * The count of catalogs belonging to the shop. Limited to a maximum of 10000.
+ */
 public class CatalogsCountGraphQLQuery extends GraphQLQuery {
   public CatalogsCountGraphQLQuery(CatalogType type, String query, String queryName,
       Set<String> fieldsSet) {
@@ -46,14 +48,32 @@ public class CatalogsCountGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The type of the catalogs to be returned.
+     */
     public Builder type(CatalogType type) {
       this.type = type;
       this.fieldsSet.add("type");
       return this;
     }
 
-    
+    /**
+     * A filter made up of terms, connectives, modifiers, and comparators.
+     * | name | type | description | acceptable_values | default_value | example_use |
+     * | ---- | ---- | ---- | ---- | ---- | ---- |
+     * | default | string | Filter by a case-insensitive search of multiple fields
+     * in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
+     * | app_id | id |
+     * | company_id | id |
+     * | company_location_id | id |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
+     * | managed_country_id | id |
+     * | market_id | id |
+     * | status | string |
+     * | title | string |
+     * You can apply one or more filters to a query. Learn more about [Shopify API
+     * search syntax](https://shopify.dev/api/usage/search-syntax).
+     */
     public Builder query(String query) {
       this.query = query;
       this.fieldsSet.add("query");

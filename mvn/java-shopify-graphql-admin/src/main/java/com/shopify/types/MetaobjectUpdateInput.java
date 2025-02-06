@@ -7,24 +7,36 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields for updating a metaobject.
+ */
 public class MetaobjectUpdateInput {
-  
+  /**
+   * A unique handle for the metaobject.
+   */
   private String handle;
 
-  
+  /**
+   * Values for fields. These are mapped by key to fields of the metaobject definition.
+   */
   private List<MetaobjectFieldInput> fields;
 
-  
+  /**
+   * Capabilities for the metaobject.
+   */
   private MetaobjectCapabilityDataInput capabilities;
 
-  
+  /**
+   * Whether to create a redirect for the metaobject.
+   */
   private Boolean redirectNewHandle = false;
 
   public MetaobjectUpdateInput() {
   }
 
-  
+  /**
+   * A unique handle for the metaobject.
+   */
   public String getHandle() {
     return handle;
   }
@@ -33,7 +45,9 @@ public class MetaobjectUpdateInput {
     this.handle = handle;
   }
 
-  
+  /**
+   * Values for fields. These are mapped by key to fields of the metaobject definition.
+   */
   public List<MetaobjectFieldInput> getFields() {
     return fields;
   }
@@ -42,7 +56,9 @@ public class MetaobjectUpdateInput {
     this.fields = fields;
   }
 
-  
+  /**
+   * Capabilities for the metaobject.
+   */
   public MetaobjectCapabilityDataInput getCapabilities() {
     return capabilities;
   }
@@ -51,7 +67,9 @@ public class MetaobjectUpdateInput {
     this.capabilities = capabilities;
   }
 
-  
+  /**
+   * Whether to create a redirect for the metaobject.
+   */
   public Boolean getRedirectNewHandle() {
     return redirectNewHandle;
   }
@@ -86,16 +104,24 @@ public class MetaobjectUpdateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * A unique handle for the metaobject.
+     */
     private String handle;
 
-    
+    /**
+     * Values for fields. These are mapped by key to fields of the metaobject definition.
+     */
     private List<MetaobjectFieldInput> fields;
 
-    
+    /**
+     * Capabilities for the metaobject.
+     */
     private MetaobjectCapabilityDataInput capabilities;
 
-    
+    /**
+     * Whether to create a redirect for the metaobject.
+     */
     private Boolean redirectNewHandle = false;
 
     public MetaobjectUpdateInput build() {
@@ -107,25 +133,33 @@ public class MetaobjectUpdateInput {
       return result;
     }
 
-    
+    /**
+     * A unique handle for the metaobject.
+     */
     public Builder handle(String handle) {
       this.handle = handle;
       return this;
     }
 
-    
+    /**
+     * Values for fields. These are mapped by key to fields of the metaobject definition.
+     */
     public Builder fields(List<MetaobjectFieldInput> fields) {
       this.fields = fields;
       return this;
     }
 
-    
+    /**
+     * Capabilities for the metaobject.
+     */
     public Builder capabilities(MetaobjectCapabilityDataInput capabilities) {
       this.capabilities = capabilities;
       return this;
     }
 
-    
+    /**
+     * Whether to create a redirect for the metaobject.
+     */
     public Builder redirectNewHandle(Boolean redirectNewHandle) {
       this.redirectNewHandle = redirectNewHandle;
       return this;

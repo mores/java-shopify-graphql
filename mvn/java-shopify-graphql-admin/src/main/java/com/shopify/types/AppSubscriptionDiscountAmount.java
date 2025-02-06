@@ -6,18 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The fixed amount value of a discount.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class AppSubscriptionDiscountAmount implements AppSubscriptionDiscountValue {
-  
+  /**
+   * The fixed amount value of a discount.
+   */
   private MoneyV2 amount;
 
   public AppSubscriptionDiscountAmount() {
   }
 
-  
+  /**
+   * The fixed amount value of a discount.
+   */
   public MoneyV2 getAmount() {
     return amount;
   }
@@ -49,7 +55,9 @@ public class AppSubscriptionDiscountAmount implements AppSubscriptionDiscountVal
   }
 
   public static class Builder {
-    
+    /**
+     * The fixed amount value of a discount.
+     */
     private MoneyV2 amount;
 
     public AppSubscriptionDiscountAmount build() {
@@ -58,7 +66,9 @@ public class AppSubscriptionDiscountAmount implements AppSubscriptionDiscountVal
       return result;
     }
 
-    
+    /**
+     * The fixed amount value of a discount.
+     */
     public Builder amount(MoneyV2 amount) {
       this.amount = amount;
       return this;

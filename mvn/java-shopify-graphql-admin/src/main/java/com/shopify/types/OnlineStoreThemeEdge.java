@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * An auto-generated type which holds one OnlineStoreTheme and a cursor during pagination.
+ */
 public class OnlineStoreThemeEdge {
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   private String cursor;
 
-  
+  /**
+   * The item at the end of OnlineStoreThemeEdge.
+   */
   private OnlineStoreTheme node;
 
   public OnlineStoreThemeEdge() {
   }
 
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   public String getCursor() {
     return cursor;
   }
@@ -25,7 +33,9 @@ public class OnlineStoreThemeEdge {
     this.cursor = cursor;
   }
 
-  
+  /**
+   * The item at the end of OnlineStoreThemeEdge.
+   */
   public OnlineStoreTheme getNode() {
     return node;
   }
@@ -58,10 +68,14 @@ public class OnlineStoreThemeEdge {
   }
 
   public static class Builder {
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     private String cursor;
 
-    
+    /**
+     * The item at the end of OnlineStoreThemeEdge.
+     */
     private OnlineStoreTheme node;
 
     public OnlineStoreThemeEdge build() {
@@ -71,13 +85,17 @@ public class OnlineStoreThemeEdge {
       return result;
     }
 
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder cursor(String cursor) {
       this.cursor = cursor;
       return this;
     }
 
-    
+    /**
+     * The item at the end of OnlineStoreThemeEdge.
+     */
     public Builder node(OnlineStoreTheme node) {
       this.node = node;
       return this;

@@ -1,6 +1,18 @@
 package com.shopify.types;
 
-
+/**
+ * The supported topics for webhook subscriptions. You can use webhook subscriptions to receive
+ * notifications about particular events in a shop.
+ *
+ * You create [mandatory webhooks](https://shopify.dev/apps/webhooks/configuration/mandatory-webhooks#mandatory-compliance-webhooks) either via the
+ * [Partner Dashboard](https://shopify.dev/apps/webhooks/configuration/mandatory-webhooks#subscribe-to-privacy-webhooks)
+ * or by updating the [app configuration file](https://shopify.dev/apps/tools/cli/configuration#app-configuration-file-example).
+ *
+ * > Tip: 
+ * >To configure your subscription using the app configuration file, refer to the
+ * [full list of topic
+ * names](https://shopify.dev/docs/api/webhooks?reference=graphql).
+ */
 public enum WebhookSubscriptionTopic {
   APP_UNINSTALLED,
 
@@ -58,6 +70,8 @@ public enum WebhookSubscriptionTopic {
 
   CUSTOMERS_UPDATE,
 
+  CUSTOMERS_PURCHASING_SUMMARY,
+
   CUSTOMERS_MARKETING_CONSENT_UPDATE,
 
   CUSTOMER_TAGS_ADDED,
@@ -112,6 +126,8 @@ public enum WebhookSubscriptionTopic {
 
   FULFILLMENT_ORDERS_SCHEDULED_FULFILLMENT_ORDER_READY,
 
+  FULFILLMENT_HOLDS_RELEASED,
+
   FULFILLMENT_ORDERS_ORDER_ROUTING_COMPLETE,
 
   FULFILLMENT_ORDERS_CANCELLED,
@@ -129,6 +145,8 @@ public enum WebhookSubscriptionTopic {
   FULFILLMENT_ORDERS_FULFILLMENT_REQUEST_SUBMITTED,
 
   FULFILLMENT_ORDERS_FULFILLMENT_REQUEST_ACCEPTED,
+
+  FULFILLMENT_HOLDS_ADDED,
 
   FULFILLMENT_ORDERS_LINE_ITEMS_PREPARED_FOR_LOCAL_DELIVERY,
 
@@ -340,6 +358,10 @@ public enum WebhookSubscriptionTopic {
 
   CUSTOMER_ACCOUNT_SETTINGS_UPDATE,
 
+  CUSTOMER_JOINED_SEGMENT,
+
+  CUSTOMER_LEFT_SEGMENT,
+
   COMPANY_CONTACT_ROLES_ASSIGN,
 
   COMPANY_CONTACT_ROLES_REVOKE,
@@ -378,5 +400,7 @@ public enum WebhookSubscriptionTopic {
 
   METAFIELD_DEFINITIONS_UPDATE,
 
-  METAFIELD_DEFINITIONS_DELETE
+  METAFIELD_DEFINITIONS_DELETE,
+
+  DELIVERY_PROMISE_SETTINGS_UPDATE
 }

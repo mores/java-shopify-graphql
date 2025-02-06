@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Possible error codes that can be returned by `ProductOptionsReorderUserError`.
+ */
 public enum ProductOptionsReorderUserErrorCode {
   OPTION_NAME_DOES_NOT_EXIST,
 

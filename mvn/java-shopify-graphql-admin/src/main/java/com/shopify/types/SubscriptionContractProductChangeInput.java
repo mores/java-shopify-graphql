@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields required to create a Subscription Contract.
+ */
 public class SubscriptionContractProductChangeInput {
-  
+  /**
+   * The ID of the product variant the subscription line refers to.
+   */
   private String productVariantId;
 
-  
+  /**
+   * The price of the product.
+   */
   private String currentPrice;
 
   public SubscriptionContractProductChangeInput() {
   }
 
-  
+  /**
+   * The ID of the product variant the subscription line refers to.
+   */
   public String getProductVariantId() {
     return productVariantId;
   }
@@ -25,7 +33,9 @@ public class SubscriptionContractProductChangeInput {
     this.productVariantId = productVariantId;
   }
 
-  
+  /**
+   * The price of the product.
+   */
   public String getCurrentPrice() {
     return currentPrice;
   }
@@ -58,10 +68,14 @@ public class SubscriptionContractProductChangeInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the product variant the subscription line refers to.
+     */
     private String productVariantId;
 
-    
+    /**
+     * The price of the product.
+     */
     private String currentPrice;
 
     public SubscriptionContractProductChangeInput build() {
@@ -71,13 +85,17 @@ public class SubscriptionContractProductChangeInput {
       return result;
     }
 
-    
+    /**
+     * The ID of the product variant the subscription line refers to.
+     */
     public Builder productVariantId(String productVariantId) {
       this.productVariantId = productVariantId;
       return this;
     }
 
-    
+    /**
+     * The price of the product.
+     */
     public Builder currentPrice(String currentPrice) {
       this.currentPrice = currentPrice;
       return this;

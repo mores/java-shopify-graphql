@@ -7,27 +7,39 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * An error that occurs during the execution of a discount mutation.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DiscountUserError implements com.shopify.types.DisplayableError {
-  
+  /**
+   * The error code.
+   */
   private DiscountErrorCode code;
 
-  
+  /**
+   * Extra information about this error.
+   */
   private String extraInfo;
 
-  
+  /**
+   * The path to the input field that caused the error.
+   */
   private List<String> field;
 
-  
+  /**
+   * The error message.
+   */
   private String message;
 
   public DiscountUserError() {
   }
 
-  
+  /**
+   * The error code.
+   */
   public DiscountErrorCode getCode() {
     return code;
   }
@@ -36,7 +48,9 @@ public class DiscountUserError implements com.shopify.types.DisplayableError {
     this.code = code;
   }
 
-  
+  /**
+   * Extra information about this error.
+   */
   public String getExtraInfo() {
     return extraInfo;
   }
@@ -45,7 +59,9 @@ public class DiscountUserError implements com.shopify.types.DisplayableError {
     this.extraInfo = extraInfo;
   }
 
-  
+  /**
+   * The path to the input field that caused the error.
+   */
   public List<String> getField() {
     return field;
   }
@@ -54,7 +70,9 @@ public class DiscountUserError implements com.shopify.types.DisplayableError {
     this.field = field;
   }
 
-  
+  /**
+   * The error message.
+   */
   public String getMessage() {
     return message;
   }
@@ -89,16 +107,24 @@ public class DiscountUserError implements com.shopify.types.DisplayableError {
   }
 
   public static class Builder {
-    
+    /**
+     * The error code.
+     */
     private DiscountErrorCode code;
 
-    
+    /**
+     * Extra information about this error.
+     */
     private String extraInfo;
 
-    
+    /**
+     * The path to the input field that caused the error.
+     */
     private List<String> field;
 
-    
+    /**
+     * The error message.
+     */
     private String message;
 
     public DiscountUserError build() {
@@ -110,25 +136,33 @@ public class DiscountUserError implements com.shopify.types.DisplayableError {
       return result;
     }
 
-    
+    /**
+     * The error code.
+     */
     public Builder code(DiscountErrorCode code) {
       this.code = code;
       return this;
     }
 
-    
+    /**
+     * Extra information about this error.
+     */
     public Builder extraInfo(String extraInfo) {
       this.extraInfo = extraInfo;
       return this;
     }
 
-    
+    /**
+     * The path to the input field that caused the error.
+     */
     public Builder field(List<String> field) {
       this.field = field;
       return this;
     }
 
-    
+    /**
+     * The error message.
+     */
     public Builder message(String message) {
       this.message = message;
       return this;

@@ -5,18 +5,28 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields to specify whether the inventory item should be activated or not at the specified location.
+ */
 public class InventoryBulkToggleActivationInput {
-  
+  /**
+   * The ID of the location to modify the inventory item's stocked status.
+   */
   private String locationId;
 
-  
+  /**
+   * Whether the inventory item can be stocked at the specified location. To
+   * deactivate, set the value to false which removes an inventory item's
+   * quantities from that location, and turns off inventory at that location.
+   */
   private boolean activate;
 
   public InventoryBulkToggleActivationInput() {
   }
 
-  
+  /**
+   * The ID of the location to modify the inventory item's stocked status.
+   */
   public String getLocationId() {
     return locationId;
   }
@@ -25,7 +35,11 @@ public class InventoryBulkToggleActivationInput {
     this.locationId = locationId;
   }
 
-  
+  /**
+   * Whether the inventory item can be stocked at the specified location. To
+   * deactivate, set the value to false which removes an inventory item's
+   * quantities from that location, and turns off inventory at that location.
+   */
   public boolean getActivate() {
     return activate;
   }
@@ -58,10 +72,16 @@ public class InventoryBulkToggleActivationInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the location to modify the inventory item's stocked status.
+     */
     private String locationId;
 
-    
+    /**
+     * Whether the inventory item can be stocked at the specified location. To
+     * deactivate, set the value to false which removes an inventory item's
+     * quantities from that location, and turns off inventory at that location.
+     */
     private boolean activate;
 
     public InventoryBulkToggleActivationInput build() {
@@ -71,13 +91,19 @@ public class InventoryBulkToggleActivationInput {
       return result;
     }
 
-    
+    /**
+     * The ID of the location to modify the inventory item's stocked status.
+     */
     public Builder locationId(String locationId) {
       this.locationId = locationId;
       return this;
     }
 
-    
+    /**
+     * Whether the inventory item can be stocked at the specified location. To
+     * deactivate, set the value to false which removes an inventory item's
+     * quantities from that location, and turns off inventory at that location.
+     */
     public Builder activate(boolean activate) {
       this.activate = activate;
       return this;

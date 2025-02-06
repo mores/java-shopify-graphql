@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a page.
+ */
 public class PageCreateGraphQLQuery extends GraphQLQuery {
   public PageCreateGraphQLQuery(PageCreateInput page, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -41,7 +43,9 @@ public class PageCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The properties of the new page.
+     */
     public Builder page(PageCreateInput page) {
       this.page = page;
       this.fieldsSet.add("page");

@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A filter option is one possible value in a search filter.
+ */
 public class FilterOption {
-  
+  /**
+   * The filter option's label for display purposes.
+   */
   private String label;
 
-  
+  /**
+   * The filter option's value.
+   */
   private String value;
 
   public FilterOption() {
   }
 
-  
+  /**
+   * The filter option's label for display purposes.
+   */
   public String getLabel() {
     return label;
   }
@@ -25,7 +33,9 @@ public class FilterOption {
     this.label = label;
   }
 
-  
+  /**
+   * The filter option's value.
+   */
   public String getValue() {
     return value;
   }
@@ -58,10 +68,14 @@ public class FilterOption {
   }
 
   public static class Builder {
-    
+    /**
+     * The filter option's label for display purposes.
+     */
     private String label;
 
-    
+    /**
+     * The filter option's value.
+     */
     private String value;
 
     public FilterOption build() {
@@ -71,13 +85,17 @@ public class FilterOption {
       return result;
     }
 
-    
+    /**
+     * The filter option's label for display purposes.
+     */
     public Builder label(String label) {
       this.label = label;
       return this;
     }
 
-    
+    /**
+     * The filter option's value.
+     */
     public Builder value(String value) {
       this.value = value;
       return this;

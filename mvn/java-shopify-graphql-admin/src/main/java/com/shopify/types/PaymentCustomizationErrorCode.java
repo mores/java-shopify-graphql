@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Possible error codes that can be returned by `PaymentCustomizationError`.
+ */
 public enum PaymentCustomizationErrorCode {
   CUSTOM_APP_FUNCTION_NOT_ELIGIBLE,
 

@@ -7,7 +7,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Deletes existing file assets that were uploaded to Shopify.
+ */
 public class FileDeleteGraphQLQuery extends GraphQLQuery {
   public FileDeleteGraphQLQuery(List<String> fileIds, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -41,7 +43,9 @@ public class FileDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The IDs of the files to be deleted.
+     */
     public Builder fileIds(List<String> fileIds) {
       this.fileIds = fileIds;
       this.fieldsSet.add("fileIds");

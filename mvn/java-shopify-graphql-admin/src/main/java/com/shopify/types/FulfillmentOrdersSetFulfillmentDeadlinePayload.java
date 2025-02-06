@@ -7,18 +7,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `fulfillmentOrdersSetFulfillmentDeadline` mutation.
+ */
 public class FulfillmentOrdersSetFulfillmentDeadlinePayload {
-  
+  /**
+   * Whether the fulfillment deadline was successfully set.
+   */
   private Boolean success;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<FulfillmentOrdersSetFulfillmentDeadlineUserError> userErrors;
 
   public FulfillmentOrdersSetFulfillmentDeadlinePayload() {
   }
 
-  
+  /**
+   * Whether the fulfillment deadline was successfully set.
+   */
   public Boolean getSuccess() {
     return success;
   }
@@ -27,7 +35,9 @@ public class FulfillmentOrdersSetFulfillmentDeadlinePayload {
     this.success = success;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<FulfillmentOrdersSetFulfillmentDeadlineUserError> getUserErrors() {
     return userErrors;
   }
@@ -60,10 +70,14 @@ public class FulfillmentOrdersSetFulfillmentDeadlinePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * Whether the fulfillment deadline was successfully set.
+     */
     private Boolean success;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<FulfillmentOrdersSetFulfillmentDeadlineUserError> userErrors;
 
     public FulfillmentOrdersSetFulfillmentDeadlinePayload build() {
@@ -73,13 +87,17 @@ public class FulfillmentOrdersSetFulfillmentDeadlinePayload {
       return result;
     }
 
-    
+    /**
+     * Whether the fulfillment deadline was successfully set.
+     */
     public Builder success(Boolean success) {
       this.success = success;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<FulfillmentOrdersSetFulfillmentDeadlineUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

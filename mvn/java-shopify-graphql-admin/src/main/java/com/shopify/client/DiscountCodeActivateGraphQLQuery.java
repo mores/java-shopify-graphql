@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Activates a code discount.
+ */
 public class DiscountCodeActivateGraphQLQuery extends GraphQLQuery {
   public DiscountCodeActivateGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -40,7 +42,9 @@ public class DiscountCodeActivateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the code discount to activate.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

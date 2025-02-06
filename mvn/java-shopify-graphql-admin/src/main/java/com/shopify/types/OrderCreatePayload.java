@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `orderCreate` mutation.
+ */
 public class OrderCreatePayload {
-  
+  /**
+   * The order that was created.
+   */
   private Order order;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<OrderCreateUserError> userErrors;
 
   public OrderCreatePayload() {
   }
 
-  
+  /**
+   * The order that was created.
+   */
   public Order getOrder() {
     return order;
   }
@@ -26,7 +34,9 @@ public class OrderCreatePayload {
     this.order = order;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<OrderCreateUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class OrderCreatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The order that was created.
+     */
     private Order order;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<OrderCreateUserError> userErrors;
 
     public OrderCreatePayload build() {
@@ -72,13 +86,17 @@ public class OrderCreatePayload {
       return result;
     }
 
-    
+    /**
+     * The order that was created.
+     */
     public Builder order(Order order) {
       this.order = order;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<OrderCreateUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

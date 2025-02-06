@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Possible error codes that can be returned by `MetafieldsSetUserError`.
+ */
 public enum MetafieldsSetUserErrorCode {
   CAPABILITY_VIOLATION,
 
@@ -15,6 +17,8 @@ public enum MetafieldsSetUserErrorCode {
   APP_NOT_AUTHORIZED,
 
   INCLUSION,
+
+  TAKEN,
 
   PRESENT,
 

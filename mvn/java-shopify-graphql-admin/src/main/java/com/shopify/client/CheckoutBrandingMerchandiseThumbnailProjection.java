@@ -12,6 +12,13 @@ public class CheckoutBrandingMerchandiseThumbnailProjection<PARENT extends BaseS
     return this;
   }
 
+  public CheckoutBrandingMerchandiseThumbnailBadgeProjection<CheckoutBrandingMerchandiseThumbnailProjection<PARENT, ROOT>, ROOT> badge(
+      ) {
+     CheckoutBrandingMerchandiseThumbnailBadgeProjection<CheckoutBrandingMerchandiseThumbnailProjection<PARENT, ROOT>, ROOT> projection = new CheckoutBrandingMerchandiseThumbnailBadgeProjection<>(this, getRoot());
+     getFields().put("badge", projection);
+     return projection;
+  }
+
   public CheckoutBrandingSimpleBorderProjection<CheckoutBrandingMerchandiseThumbnailProjection<PARENT, ROOT>, ROOT> border(
       ) {
      CheckoutBrandingSimpleBorderProjection<CheckoutBrandingMerchandiseThumbnailProjection<PARENT, ROOT>, ROOT> projection = new CheckoutBrandingSimpleBorderProjection<>(this, getRoot());
@@ -23,6 +30,13 @@ public class CheckoutBrandingMerchandiseThumbnailProjection<PARENT extends BaseS
       ) {
      CheckoutBrandingCornerRadiusProjection<CheckoutBrandingMerchandiseThumbnailProjection<PARENT, ROOT>, ROOT> projection = new CheckoutBrandingCornerRadiusProjection<>(this, getRoot());
      getFields().put("cornerRadius", projection);
+     return projection;
+  }
+
+  public CheckoutBrandingObjectFitProjection<CheckoutBrandingMerchandiseThumbnailProjection<PARENT, ROOT>, ROOT> fit(
+      ) {
+     CheckoutBrandingObjectFitProjection<CheckoutBrandingMerchandiseThumbnailProjection<PARENT, ROOT>, ROOT> projection = new CheckoutBrandingObjectFitProjection<>(this, getRoot());
+     getFields().put("fit", projection);
      return projection;
   }
 }

@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Represents the order's current financial status.
+ */
 public enum OrderDisplayFinancialStatus {
   PENDING,
 

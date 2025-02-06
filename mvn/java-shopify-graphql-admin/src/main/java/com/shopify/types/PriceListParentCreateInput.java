@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields to create a price list adjustment.
+ */
 public class PriceListParentCreateInput {
-  
+  /**
+   * The relative adjustments to other prices.
+   */
   private PriceListAdjustmentInput adjustment;
 
-  
+  /**
+   * The price list adjustment settings.
+   */
   private PriceListAdjustmentSettingsInput settings;
 
   public PriceListParentCreateInput() {
   }
 
-  
+  /**
+   * The relative adjustments to other prices.
+   */
   public PriceListAdjustmentInput getAdjustment() {
     return adjustment;
   }
@@ -25,7 +33,9 @@ public class PriceListParentCreateInput {
     this.adjustment = adjustment;
   }
 
-  
+  /**
+   * The price list adjustment settings.
+   */
   public PriceListAdjustmentSettingsInput getSettings() {
     return settings;
   }
@@ -58,10 +68,14 @@ public class PriceListParentCreateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The relative adjustments to other prices.
+     */
     private PriceListAdjustmentInput adjustment;
 
-    
+    /**
+     * The price list adjustment settings.
+     */
     private PriceListAdjustmentSettingsInput settings;
 
     public PriceListParentCreateInput build() {
@@ -71,13 +85,17 @@ public class PriceListParentCreateInput {
       return result;
     }
 
-    
+    /**
+     * The relative adjustments to other prices.
+     */
     public Builder adjustment(PriceListAdjustmentInput adjustment) {
       this.adjustment = adjustment;
       return this;
     }
 
-    
+    /**
+     * The price list adjustment settings.
+     */
     public Builder settings(PriceListAdjustmentSettingsInput settings) {
       this.settings = settings;
       return this;

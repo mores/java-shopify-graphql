@@ -8,33 +8,56 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields to create a page.
+ */
 public class PageCreateInput {
-  
+  /**
+   * A unique, human-friendly string for the page. If no handle is specified, a
+   * handle will be generated automatically from the page title.
+   * In themes, the Liquid templating language refers to a page by its handle.
+   */
   private String handle;
 
-  
+  /**
+   * The text content of the page, complete with HTML markup.
+   */
   private String body;
 
-  
+  /**
+   * Whether or not the page should be visible. Defaults to `true` if no publish date is specified.
+   */
   private Boolean isPublished;
 
-  
+  /**
+   * The date and time (ISO 8601 format) when the page should become visible.
+   */
   private OffsetDateTime publishDate;
 
-  
+  /**
+   * The suffix of the template that's used to render the page.
+   * If the value is an empty string or `null`, then the default page template is used.
+   */
   private String templateSuffix;
 
-  
+  /**
+   * The input fields to create or update a metafield.
+   */
   private List<MetafieldInput> metafields;
 
-  
+  /**
+   * The title of the page.
+   */
   private String title;
 
   public PageCreateInput() {
   }
 
-  
+  /**
+   * A unique, human-friendly string for the page. If no handle is specified, a
+   * handle will be generated automatically from the page title.
+   * In themes, the Liquid templating language refers to a page by its handle.
+   */
   public String getHandle() {
     return handle;
   }
@@ -43,7 +66,9 @@ public class PageCreateInput {
     this.handle = handle;
   }
 
-  
+  /**
+   * The text content of the page, complete with HTML markup.
+   */
   public String getBody() {
     return body;
   }
@@ -52,7 +77,9 @@ public class PageCreateInput {
     this.body = body;
   }
 
-  
+  /**
+   * Whether or not the page should be visible. Defaults to `true` if no publish date is specified.
+   */
   public Boolean getIsPublished() {
     return isPublished;
   }
@@ -61,7 +88,9 @@ public class PageCreateInput {
     this.isPublished = isPublished;
   }
 
-  
+  /**
+   * The date and time (ISO 8601 format) when the page should become visible.
+   */
   public OffsetDateTime getPublishDate() {
     return publishDate;
   }
@@ -70,7 +99,10 @@ public class PageCreateInput {
     this.publishDate = publishDate;
   }
 
-  
+  /**
+   * The suffix of the template that's used to render the page.
+   * If the value is an empty string or `null`, then the default page template is used.
+   */
   public String getTemplateSuffix() {
     return templateSuffix;
   }
@@ -79,7 +111,9 @@ public class PageCreateInput {
     this.templateSuffix = templateSuffix;
   }
 
-  
+  /**
+   * The input fields to create or update a metafield.
+   */
   public List<MetafieldInput> getMetafields() {
     return metafields;
   }
@@ -88,7 +122,9 @@ public class PageCreateInput {
     this.metafields = metafields;
   }
 
-  
+  /**
+   * The title of the page.
+   */
   public String getTitle() {
     return title;
   }
@@ -126,25 +162,42 @@ public class PageCreateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * A unique, human-friendly string for the page. If no handle is specified, a
+     * handle will be generated automatically from the page title.
+     * In themes, the Liquid templating language refers to a page by its handle.
+     */
     private String handle;
 
-    
+    /**
+     * The text content of the page, complete with HTML markup.
+     */
     private String body;
 
-    
+    /**
+     * Whether or not the page should be visible. Defaults to `true` if no publish date is specified.
+     */
     private Boolean isPublished;
 
-    
+    /**
+     * The date and time (ISO 8601 format) when the page should become visible.
+     */
     private OffsetDateTime publishDate;
 
-    
+    /**
+     * The suffix of the template that's used to render the page.
+     * If the value is an empty string or `null`, then the default page template is used.
+     */
     private String templateSuffix;
 
-    
+    /**
+     * The input fields to create or update a metafield.
+     */
     private List<MetafieldInput> metafields;
 
-    
+    /**
+     * The title of the page.
+     */
     private String title;
 
     public PageCreateInput build() {
@@ -159,43 +212,60 @@ public class PageCreateInput {
       return result;
     }
 
-    
+    /**
+     * A unique, human-friendly string for the page. If no handle is specified, a
+     * handle will be generated automatically from the page title.
+     * In themes, the Liquid templating language refers to a page by its handle.
+     */
     public Builder handle(String handle) {
       this.handle = handle;
       return this;
     }
 
-    
+    /**
+     * The text content of the page, complete with HTML markup.
+     */
     public Builder body(String body) {
       this.body = body;
       return this;
     }
 
-    
+    /**
+     * Whether or not the page should be visible. Defaults to `true` if no publish date is specified.
+     */
     public Builder isPublished(Boolean isPublished) {
       this.isPublished = isPublished;
       return this;
     }
 
-    
+    /**
+     * The date and time (ISO 8601 format) when the page should become visible.
+     */
     public Builder publishDate(OffsetDateTime publishDate) {
       this.publishDate = publishDate;
       return this;
     }
 
-    
+    /**
+     * The suffix of the template that's used to render the page.
+     * If the value is an empty string or `null`, then the default page template is used.
+     */
     public Builder templateSuffix(String templateSuffix) {
       this.templateSuffix = templateSuffix;
       return this;
     }
 
-    
+    /**
+     * The input fields to create or update a metafield.
+     */
     public Builder metafields(List<MetafieldInput> metafields) {
       this.metafields = metafields;
       return this;
     }
 
-    
+    /**
+     * The title of the page.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;

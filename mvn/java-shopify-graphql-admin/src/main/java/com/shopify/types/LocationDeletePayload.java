@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `locationDelete` mutation.
+ */
 public class LocationDeletePayload {
-  
+  /**
+   * The ID of the location that was deleted.
+   */
   private String deletedLocationId;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<LocationDeleteUserError> locationDeleteUserErrors;
 
   public LocationDeletePayload() {
   }
 
-  
+  /**
+   * The ID of the location that was deleted.
+   */
   public String getDeletedLocationId() {
     return deletedLocationId;
   }
@@ -26,7 +34,9 @@ public class LocationDeletePayload {
     this.deletedLocationId = deletedLocationId;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<LocationDeleteUserError> getLocationDeleteUserErrors() {
     return locationDeleteUserErrors;
   }
@@ -59,10 +69,14 @@ public class LocationDeletePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the location that was deleted.
+     */
     private String deletedLocationId;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<LocationDeleteUserError> locationDeleteUserErrors;
 
     public LocationDeletePayload build() {
@@ -72,13 +86,17 @@ public class LocationDeletePayload {
       return result;
     }
 
-    
+    /**
+     * The ID of the location that was deleted.
+     */
     public Builder deletedLocationId(String deletedLocationId) {
       this.deletedLocationId = deletedLocationId;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder locationDeleteUserErrors(
         List<LocationDeleteUserError> locationDeleteUserErrors) {
       this.locationDeleteUserErrors = locationDeleteUserErrors;

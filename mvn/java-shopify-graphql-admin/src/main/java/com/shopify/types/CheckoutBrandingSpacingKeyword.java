@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * The spacing between UI elements.
+ */
 public enum CheckoutBrandingSpacingKeyword {
   NONE,
 

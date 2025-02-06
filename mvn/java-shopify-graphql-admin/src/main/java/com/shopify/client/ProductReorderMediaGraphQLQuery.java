@@ -8,7 +8,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Asynchronously reorders the media attached to a product.
+ */
 public class ProductReorderMediaGraphQLQuery extends GraphQLQuery {
   public ProductReorderMediaGraphQLQuery(String id, List<MoveInput> moves, String queryName,
       Set<String> fieldsSet) {
@@ -47,14 +49,18 @@ public class ProductReorderMediaGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the product on which to reorder medias.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    
+    /**
+     * A list of moves to perform which will be evaluated in order.
+     */
     public Builder moves(List<MoveInput> moves) {
       this.moves = moves;
       this.fieldsSet.add("moves");

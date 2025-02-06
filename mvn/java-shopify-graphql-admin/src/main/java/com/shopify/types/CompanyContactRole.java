@@ -6,24 +6,35 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The role for a [company contact](https://shopify.dev/api/admin-graphql/latest/objects/companycontact).
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class CompanyContactRole implements com.shopify.types.Node {
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The name of a role.
+   * For example, `admin` or `buyer`.
+   */
   private String name;
 
-  
+  /**
+   * A note for the role.
+   */
   private String note;
 
   public CompanyContactRole() {
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -32,7 +43,10 @@ public class CompanyContactRole implements com.shopify.types.Node {
     this.id = id;
   }
 
-  
+  /**
+   * The name of a role.
+   * For example, `admin` or `buyer`.
+   */
   public String getName() {
     return name;
   }
@@ -41,7 +55,9 @@ public class CompanyContactRole implements com.shopify.types.Node {
     this.name = name;
   }
 
-  
+  /**
+   * A note for the role.
+   */
   public String getNote() {
     return note;
   }
@@ -75,13 +91,20 @@ public class CompanyContactRole implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The name of a role.
+     * For example, `admin` or `buyer`.
+     */
     private String name;
 
-    
+    /**
+     * A note for the role.
+     */
     private String note;
 
     public CompanyContactRole build() {
@@ -92,19 +115,26 @@ public class CompanyContactRole implements com.shopify.types.Node {
       return result;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The name of a role.
+     * For example, `admin` or `buyer`.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    
+    /**
+     * A note for the role.
+     */
     public Builder note(String note) {
       this.note = note;
       return this;

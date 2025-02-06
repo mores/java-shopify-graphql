@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `fulfillmentCancel` mutation.
+ */
 public class FulfillmentCancelPayload {
-  
+  /**
+   * The canceled fulfillment.
+   */
   private Fulfillment fulfillment;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public FulfillmentCancelPayload() {
   }
 
-  
+  /**
+   * The canceled fulfillment.
+   */
   public Fulfillment getFulfillment() {
     return fulfillment;
   }
@@ -26,7 +34,9 @@ public class FulfillmentCancelPayload {
     this.fulfillment = fulfillment;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class FulfillmentCancelPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The canceled fulfillment.
+     */
     private Fulfillment fulfillment;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public FulfillmentCancelPayload build() {
@@ -72,13 +86,17 @@ public class FulfillmentCancelPayload {
       return result;
     }
 
-    
+    /**
+     * The canceled fulfillment.
+     */
     public Builder fulfillment(Fulfillment fulfillment) {
       this.fulfillment = fulfillment;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

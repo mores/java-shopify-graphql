@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `discountCodeDelete` mutation.
+ */
 public class DiscountCodeDeletePayload {
-  
+  /**
+   * The ID of the code discount that was deleted.
+   */
   private String deletedCodeDiscountId;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<DiscountUserError> userErrors;
 
   public DiscountCodeDeletePayload() {
   }
 
-  
+  /**
+   * The ID of the code discount that was deleted.
+   */
   public String getDeletedCodeDiscountId() {
     return deletedCodeDiscountId;
   }
@@ -26,7 +34,9 @@ public class DiscountCodeDeletePayload {
     this.deletedCodeDiscountId = deletedCodeDiscountId;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<DiscountUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class DiscountCodeDeletePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the code discount that was deleted.
+     */
     private String deletedCodeDiscountId;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<DiscountUserError> userErrors;
 
     public DiscountCodeDeletePayload build() {
@@ -72,13 +86,17 @@ public class DiscountCodeDeletePayload {
       return result;
     }
 
-    
+    /**
+     * The ID of the code discount that was deleted.
+     */
     public Builder deletedCodeDiscountId(String deletedCodeDiscountId) {
       this.deletedCodeDiscountId = deletedCodeDiscountId;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<DiscountUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

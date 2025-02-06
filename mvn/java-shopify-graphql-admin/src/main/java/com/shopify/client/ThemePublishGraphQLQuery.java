@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Publishes a theme.
+ */
 public class ThemePublishGraphQLQuery extends GraphQLQuery {
   public ThemePublishGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -40,7 +42,9 @@ public class ThemePublishGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * ID of the theme to be published.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

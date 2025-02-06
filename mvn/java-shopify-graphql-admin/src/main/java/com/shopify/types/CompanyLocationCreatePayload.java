@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `companyLocationCreate` mutation.
+ */
 public class CompanyLocationCreatePayload {
-  
+  /**
+   * The created company location.
+   */
   private CompanyLocation companyLocation;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<BusinessCustomerUserError> userErrors;
 
   public CompanyLocationCreatePayload() {
   }
 
-  
+  /**
+   * The created company location.
+   */
   public CompanyLocation getCompanyLocation() {
     return companyLocation;
   }
@@ -26,7 +34,9 @@ public class CompanyLocationCreatePayload {
     this.companyLocation = companyLocation;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<BusinessCustomerUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class CompanyLocationCreatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The created company location.
+     */
     private CompanyLocation companyLocation;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<BusinessCustomerUserError> userErrors;
 
     public CompanyLocationCreatePayload build() {
@@ -72,13 +86,17 @@ public class CompanyLocationCreatePayload {
       return result;
     }
 
-    
+    /**
+     * The created company location.
+     */
     public Builder companyLocation(CompanyLocation companyLocation) {
       this.companyLocation = companyLocation;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<BusinessCustomerUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

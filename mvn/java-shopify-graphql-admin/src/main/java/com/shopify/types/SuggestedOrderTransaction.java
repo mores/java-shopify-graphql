@@ -5,30 +5,50 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A suggested transaction. Suggested transaction are usually used in the context of refunds
+ * and exchanges.
+ */
 public class SuggestedOrderTransaction {
-  
+  /**
+   * The masked account number associated with the payment method.
+   */
   private String accountNumber;
 
-  
+  /**
+   * The amount of the transaction.
+   */
   private String amount;
 
-  
+  /**
+   * The amount and currency of the suggested order transaction in shop and presentment currencies.
+   */
   private MoneyBag amountSet;
 
-  
+  /**
+   * The human-readable payment gateway name suggested to process the transaction.
+   */
   private String formattedGateway;
 
-  
+  /**
+   * The suggested payment gateway used to process the transaction.
+   */
   private String gateway;
 
-  
+  /**
+   * Specifies the kind of the suggested order transaction.
+   */
   private SuggestedOrderTransactionKind kind;
 
-  
+  /**
+   * Specifies the available amount to refund on the gateway. Only available within SuggestedRefund.
+   */
   private String maximumRefundable;
 
-  
+  /**
+   * Specifies the available amount to refund on the gateway in shop and
+   * presentment currencies. Only available within SuggestedRefund.
+   */
   private MoneyBag maximumRefundableSet;
 
   /**
@@ -36,13 +56,17 @@ public class SuggestedOrderTransaction {
    */
   private OrderTransaction parentTransaction;
 
-  
+  /**
+   * The associated payment details related to the transaction.
+   */
   private PaymentDetails paymentDetails;
 
   public SuggestedOrderTransaction() {
   }
 
-  
+  /**
+   * The masked account number associated with the payment method.
+   */
   public String getAccountNumber() {
     return accountNumber;
   }
@@ -51,7 +75,9 @@ public class SuggestedOrderTransaction {
     this.accountNumber = accountNumber;
   }
 
-  
+  /**
+   * The amount of the transaction.
+   */
   public String getAmount() {
     return amount;
   }
@@ -60,7 +86,9 @@ public class SuggestedOrderTransaction {
     this.amount = amount;
   }
 
-  
+  /**
+   * The amount and currency of the suggested order transaction in shop and presentment currencies.
+   */
   public MoneyBag getAmountSet() {
     return amountSet;
   }
@@ -69,7 +97,9 @@ public class SuggestedOrderTransaction {
     this.amountSet = amountSet;
   }
 
-  
+  /**
+   * The human-readable payment gateway name suggested to process the transaction.
+   */
   public String getFormattedGateway() {
     return formattedGateway;
   }
@@ -78,7 +108,9 @@ public class SuggestedOrderTransaction {
     this.formattedGateway = formattedGateway;
   }
 
-  
+  /**
+   * The suggested payment gateway used to process the transaction.
+   */
   public String getGateway() {
     return gateway;
   }
@@ -87,7 +119,9 @@ public class SuggestedOrderTransaction {
     this.gateway = gateway;
   }
 
-  
+  /**
+   * Specifies the kind of the suggested order transaction.
+   */
   public SuggestedOrderTransactionKind getKind() {
     return kind;
   }
@@ -96,7 +130,9 @@ public class SuggestedOrderTransaction {
     this.kind = kind;
   }
 
-  
+  /**
+   * Specifies the available amount to refund on the gateway. Only available within SuggestedRefund.
+   */
   public String getMaximumRefundable() {
     return maximumRefundable;
   }
@@ -105,7 +141,10 @@ public class SuggestedOrderTransaction {
     this.maximumRefundable = maximumRefundable;
   }
 
-  
+  /**
+   * Specifies the available amount to refund on the gateway in shop and
+   * presentment currencies. Only available within SuggestedRefund.
+   */
   public MoneyBag getMaximumRefundableSet() {
     return maximumRefundableSet;
   }
@@ -125,7 +164,9 @@ public class SuggestedOrderTransaction {
     this.parentTransaction = parentTransaction;
   }
 
-  
+  /**
+   * The associated payment details related to the transaction.
+   */
   public PaymentDetails getPaymentDetails() {
     return paymentDetails;
   }
@@ -166,28 +207,45 @@ public class SuggestedOrderTransaction {
   }
 
   public static class Builder {
-    
+    /**
+     * The masked account number associated with the payment method.
+     */
     private String accountNumber;
 
-    
+    /**
+     * The amount of the transaction.
+     */
     private String amount;
 
-    
+    /**
+     * The amount and currency of the suggested order transaction in shop and presentment currencies.
+     */
     private MoneyBag amountSet;
 
-    
+    /**
+     * The human-readable payment gateway name suggested to process the transaction.
+     */
     private String formattedGateway;
 
-    
+    /**
+     * The suggested payment gateway used to process the transaction.
+     */
     private String gateway;
 
-    
+    /**
+     * Specifies the kind of the suggested order transaction.
+     */
     private SuggestedOrderTransactionKind kind;
 
-    
+    /**
+     * Specifies the available amount to refund on the gateway. Only available within SuggestedRefund.
+     */
     private String maximumRefundable;
 
-    
+    /**
+     * Specifies the available amount to refund on the gateway in shop and
+     * presentment currencies. Only available within SuggestedRefund.
+     */
     private MoneyBag maximumRefundableSet;
 
     /**
@@ -195,7 +253,9 @@ public class SuggestedOrderTransaction {
      */
     private OrderTransaction parentTransaction;
 
-    
+    /**
+     * The associated payment details related to the transaction.
+     */
     private PaymentDetails paymentDetails;
 
     public SuggestedOrderTransaction build() {
@@ -213,49 +273,66 @@ public class SuggestedOrderTransaction {
       return result;
     }
 
-    
+    /**
+     * The masked account number associated with the payment method.
+     */
     public Builder accountNumber(String accountNumber) {
       this.accountNumber = accountNumber;
       return this;
     }
 
-    
+    /**
+     * The amount of the transaction.
+     */
     public Builder amount(String amount) {
       this.amount = amount;
       return this;
     }
 
-    
+    /**
+     * The amount and currency of the suggested order transaction in shop and presentment currencies.
+     */
     public Builder amountSet(MoneyBag amountSet) {
       this.amountSet = amountSet;
       return this;
     }
 
-    
+    /**
+     * The human-readable payment gateway name suggested to process the transaction.
+     */
     public Builder formattedGateway(String formattedGateway) {
       this.formattedGateway = formattedGateway;
       return this;
     }
 
-    
+    /**
+     * The suggested payment gateway used to process the transaction.
+     */
     public Builder gateway(String gateway) {
       this.gateway = gateway;
       return this;
     }
 
-    
+    /**
+     * Specifies the kind of the suggested order transaction.
+     */
     public Builder kind(SuggestedOrderTransactionKind kind) {
       this.kind = kind;
       return this;
     }
 
-    
+    /**
+     * Specifies the available amount to refund on the gateway. Only available within SuggestedRefund.
+     */
     public Builder maximumRefundable(String maximumRefundable) {
       this.maximumRefundable = maximumRefundable;
       return this;
     }
 
-    
+    /**
+     * Specifies the available amount to refund on the gateway in shop and
+     * presentment currencies. Only available within SuggestedRefund.
+     */
     public Builder maximumRefundableSet(MoneyBag maximumRefundableSet) {
       this.maximumRefundableSet = maximumRefundableSet;
       return this;
@@ -269,7 +346,9 @@ public class SuggestedOrderTransaction {
       return this;
     }
 
-    
+    /**
+     * The associated payment details related to the transaction.
+     */
     public Builder paymentDetails(PaymentDetails paymentDetails) {
       this.paymentDetails = paymentDetails;
       return this;

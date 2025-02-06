@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates a new componentized product.
+ */
 public class ProductBundleCreateGraphQLQuery extends GraphQLQuery {
   public ProductBundleCreateGraphQLQuery(ProductBundleCreateInput input, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class ProductBundleCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Input for creating a componentized product.
+     */
     public Builder input(ProductBundleCreateInput input) {
       this.input = input;
       this.fieldsSet.add("input");

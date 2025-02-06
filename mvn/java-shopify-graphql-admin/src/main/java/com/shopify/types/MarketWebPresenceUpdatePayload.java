@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `marketWebPresenceUpdate` mutation.
+ */
 public class MarketWebPresenceUpdatePayload {
-  
+  /**
+   * The market object.
+   */
   private Market market;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<MarketUserError> userErrors;
 
   public MarketWebPresenceUpdatePayload() {
   }
 
-  
+  /**
+   * The market object.
+   */
   public Market getMarket() {
     return market;
   }
@@ -26,7 +34,9 @@ public class MarketWebPresenceUpdatePayload {
     this.market = market;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<MarketUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class MarketWebPresenceUpdatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The market object.
+     */
     private Market market;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<MarketUserError> userErrors;
 
     public MarketWebPresenceUpdatePayload build() {
@@ -72,13 +86,17 @@ public class MarketWebPresenceUpdatePayload {
       return result;
     }
 
-    
+    /**
+     * The market object.
+     */
     public Builder market(Market market) {
       this.market = market;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<MarketUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

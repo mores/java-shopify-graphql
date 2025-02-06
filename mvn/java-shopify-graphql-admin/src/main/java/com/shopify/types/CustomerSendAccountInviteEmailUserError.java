@@ -7,24 +7,34 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Defines errors for customerSendAccountInviteEmail mutation.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class CustomerSendAccountInviteEmailUserError implements com.shopify.types.DisplayableError {
-  
+  /**
+   * The error code.
+   */
   private CustomerSendAccountInviteEmailUserErrorCode code;
 
-  
+  /**
+   * The path to the input field that caused the error.
+   */
   private List<String> field;
 
-  
+  /**
+   * The error message.
+   */
   private String message;
 
   public CustomerSendAccountInviteEmailUserError() {
   }
 
-  
+  /**
+   * The error code.
+   */
   public CustomerSendAccountInviteEmailUserErrorCode getCode() {
     return code;
   }
@@ -33,7 +43,9 @@ public class CustomerSendAccountInviteEmailUserError implements com.shopify.type
     this.code = code;
   }
 
-  
+  /**
+   * The path to the input field that caused the error.
+   */
   public List<String> getField() {
     return field;
   }
@@ -42,7 +54,9 @@ public class CustomerSendAccountInviteEmailUserError implements com.shopify.type
     this.field = field;
   }
 
-  
+  /**
+   * The error message.
+   */
   public String getMessage() {
     return message;
   }
@@ -76,13 +90,19 @@ public class CustomerSendAccountInviteEmailUserError implements com.shopify.type
   }
 
   public static class Builder {
-    
+    /**
+     * The error code.
+     */
     private CustomerSendAccountInviteEmailUserErrorCode code;
 
-    
+    /**
+     * The path to the input field that caused the error.
+     */
     private List<String> field;
 
-    
+    /**
+     * The error message.
+     */
     private String message;
 
     public CustomerSendAccountInviteEmailUserError build() {
@@ -93,19 +113,25 @@ public class CustomerSendAccountInviteEmailUserError implements com.shopify.type
       return result;
     }
 
-    
+    /**
+     * The error code.
+     */
     public Builder code(CustomerSendAccountInviteEmailUserErrorCode code) {
       this.code = code;
       return this;
     }
 
-    
+    /**
+     * The path to the input field that caused the error.
+     */
     public Builder field(List<String> field) {
       this.field = field;
       return this;
     }
 
-    
+    /**
+     * The error message.
+     */
     public Builder message(String message) {
       this.message = message;
       return this;

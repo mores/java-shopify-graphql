@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `urlRedirectDelete` mutation.
+ */
 public class UrlRedirectDeletePayload {
-  
+  /**
+   * The ID of the deleted redirect.
+   */
   private String deletedUrlRedirectId;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UrlRedirectUserError> userErrors;
 
   public UrlRedirectDeletePayload() {
   }
 
-  
+  /**
+   * The ID of the deleted redirect.
+   */
   public String getDeletedUrlRedirectId() {
     return deletedUrlRedirectId;
   }
@@ -26,7 +34,9 @@ public class UrlRedirectDeletePayload {
     this.deletedUrlRedirectId = deletedUrlRedirectId;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UrlRedirectUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class UrlRedirectDeletePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the deleted redirect.
+     */
     private String deletedUrlRedirectId;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UrlRedirectUserError> userErrors;
 
     public UrlRedirectDeletePayload build() {
@@ -72,13 +86,17 @@ public class UrlRedirectDeletePayload {
       return result;
     }
 
-    
+    /**
+     * The ID of the deleted redirect.
+     */
     public Builder deletedUrlRedirectId(String deletedUrlRedirectId) {
       this.deletedUrlRedirectId = deletedUrlRedirectId;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UrlRedirectUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

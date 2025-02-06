@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A returnable fulfillment line item.
+ */
 public class ReturnableFulfillmentLineItem {
-  
+  /**
+   * The fulfillment line item that can be returned.
+   */
   private FulfillmentLineItem fulfillmentLineItem;
 
-  
+  /**
+   * The quantity available to be returned.
+   */
   private int quantity;
 
   public ReturnableFulfillmentLineItem() {
   }
 
-  
+  /**
+   * The fulfillment line item that can be returned.
+   */
   public FulfillmentLineItem getFulfillmentLineItem() {
     return fulfillmentLineItem;
   }
@@ -25,7 +33,9 @@ public class ReturnableFulfillmentLineItem {
     this.fulfillmentLineItem = fulfillmentLineItem;
   }
 
-  
+  /**
+   * The quantity available to be returned.
+   */
   public int getQuantity() {
     return quantity;
   }
@@ -58,10 +68,14 @@ public class ReturnableFulfillmentLineItem {
   }
 
   public static class Builder {
-    
+    /**
+     * The fulfillment line item that can be returned.
+     */
     private FulfillmentLineItem fulfillmentLineItem;
 
-    
+    /**
+     * The quantity available to be returned.
+     */
     private int quantity;
 
     public ReturnableFulfillmentLineItem build() {
@@ -71,13 +85,17 @@ public class ReturnableFulfillmentLineItem {
       return result;
     }
 
-    
+    /**
+     * The fulfillment line item that can be returned.
+     */
     public Builder fulfillmentLineItem(FulfillmentLineItem fulfillmentLineItem) {
       this.fulfillmentLineItem = fulfillmentLineItem;
       return this;
     }
 
-    
+    /**
+     * The quantity available to be returned.
+     */
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;

@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for creating a market region with exactly one required option.
+ */
 public class MarketRegionCreateInput {
-  
+  /**
+   * A country code for the region.
+   */
   private CountryCode countryCode;
 
   public MarketRegionCreateInput() {
   }
 
-  
+  /**
+   * A country code for the region.
+   */
   public CountryCode getCountryCode() {
     return countryCode;
   }
@@ -45,7 +51,9 @@ public class MarketRegionCreateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * A country code for the region.
+     */
     private CountryCode countryCode;
 
     public MarketRegionCreateInput build() {
@@ -54,7 +62,9 @@ public class MarketRegionCreateInput {
       return result;
     }
 
-    
+    /**
+     * A country code for the region.
+     */
     public Builder countryCode(CountryCode countryCode) {
       this.countryCode = countryCode;
       return this;

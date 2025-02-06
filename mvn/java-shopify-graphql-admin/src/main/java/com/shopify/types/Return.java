@@ -7,51 +7,79 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Represents a return.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class Return implements com.shopify.types.Node {
-  
+  /**
+   * Additional information about the declined return.
+   */
   private ReturnDecline decline;
 
-  
+  /**
+   * The exchange line items attached to the return.
+   */
   private ExchangeLineItemConnection exchangeLineItems;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The name of the return.
+   */
   private String name;
 
-  
+  /**
+   * The order that the return belongs to.
+   */
   private Order order;
 
-  
+  /**
+   * The list of refunds associated with the return.
+   */
   private RefundConnection refunds;
 
-  
+  /**
+   * The return line items attached to the return.
+   */
   private ReturnLineItemTypeConnection returnLineItems;
 
-  
+  /**
+   * The return shipping fees for the return.
+   */
   private List<ReturnShippingFee> returnShippingFees;
 
-  
+  /**
+   * The list of reverse fulfillment orders for the return.
+   */
   private ReverseFulfillmentOrderConnection reverseFulfillmentOrders;
 
-  
+  /**
+   * The status of the return.
+   */
   private ReturnStatus status;
 
-  
+  /**
+   * A suggested refund for the return.
+   */
   private SuggestedReturnRefund suggestedRefund;
 
-  
+  /**
+   * The sum of all return line item quantities for the return.
+   */
   private int totalQuantity;
 
   public Return() {
   }
 
-  
+  /**
+   * Additional information about the declined return.
+   */
   public ReturnDecline getDecline() {
     return decline;
   }
@@ -60,7 +88,9 @@ public class Return implements com.shopify.types.Node {
     this.decline = decline;
   }
 
-  
+  /**
+   * The exchange line items attached to the return.
+   */
   public ExchangeLineItemConnection getExchangeLineItems() {
     return exchangeLineItems;
   }
@@ -69,7 +99,9 @@ public class Return implements com.shopify.types.Node {
     this.exchangeLineItems = exchangeLineItems;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -78,7 +110,9 @@ public class Return implements com.shopify.types.Node {
     this.id = id;
   }
 
-  
+  /**
+   * The name of the return.
+   */
   public String getName() {
     return name;
   }
@@ -87,7 +121,9 @@ public class Return implements com.shopify.types.Node {
     this.name = name;
   }
 
-  
+  /**
+   * The order that the return belongs to.
+   */
   public Order getOrder() {
     return order;
   }
@@ -96,7 +132,9 @@ public class Return implements com.shopify.types.Node {
     this.order = order;
   }
 
-  
+  /**
+   * The list of refunds associated with the return.
+   */
   public RefundConnection getRefunds() {
     return refunds;
   }
@@ -105,7 +143,9 @@ public class Return implements com.shopify.types.Node {
     this.refunds = refunds;
   }
 
-  
+  /**
+   * The return line items attached to the return.
+   */
   public ReturnLineItemTypeConnection getReturnLineItems() {
     return returnLineItems;
   }
@@ -114,7 +154,9 @@ public class Return implements com.shopify.types.Node {
     this.returnLineItems = returnLineItems;
   }
 
-  
+  /**
+   * The return shipping fees for the return.
+   */
   public List<ReturnShippingFee> getReturnShippingFees() {
     return returnShippingFees;
   }
@@ -123,7 +165,9 @@ public class Return implements com.shopify.types.Node {
     this.returnShippingFees = returnShippingFees;
   }
 
-  
+  /**
+   * The list of reverse fulfillment orders for the return.
+   */
   public ReverseFulfillmentOrderConnection getReverseFulfillmentOrders() {
     return reverseFulfillmentOrders;
   }
@@ -133,7 +177,9 @@ public class Return implements com.shopify.types.Node {
     this.reverseFulfillmentOrders = reverseFulfillmentOrders;
   }
 
-  
+  /**
+   * The status of the return.
+   */
   public ReturnStatus getStatus() {
     return status;
   }
@@ -142,7 +188,9 @@ public class Return implements com.shopify.types.Node {
     this.status = status;
   }
 
-  
+  /**
+   * A suggested refund for the return.
+   */
   public SuggestedReturnRefund getSuggestedRefund() {
     return suggestedRefund;
   }
@@ -151,7 +199,9 @@ public class Return implements com.shopify.types.Node {
     this.suggestedRefund = suggestedRefund;
   }
 
-  
+  /**
+   * The sum of all return line item quantities for the return.
+   */
   public int getTotalQuantity() {
     return totalQuantity;
   }
@@ -194,40 +244,64 @@ public class Return implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    
+    /**
+     * Additional information about the declined return.
+     */
     private ReturnDecline decline;
 
-    
+    /**
+     * The exchange line items attached to the return.
+     */
     private ExchangeLineItemConnection exchangeLineItems;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The name of the return.
+     */
     private String name;
 
-    
+    /**
+     * The order that the return belongs to.
+     */
     private Order order;
 
-    
+    /**
+     * The list of refunds associated with the return.
+     */
     private RefundConnection refunds;
 
-    
+    /**
+     * The return line items attached to the return.
+     */
     private ReturnLineItemTypeConnection returnLineItems;
 
-    
+    /**
+     * The return shipping fees for the return.
+     */
     private List<ReturnShippingFee> returnShippingFees;
 
-    
+    /**
+     * The list of reverse fulfillment orders for the return.
+     */
     private ReverseFulfillmentOrderConnection reverseFulfillmentOrders;
 
-    
+    /**
+     * The status of the return.
+     */
     private ReturnStatus status;
 
-    
+    /**
+     * A suggested refund for the return.
+     */
     private SuggestedReturnRefund suggestedRefund;
 
-    
+    /**
+     * The sum of all return line item quantities for the return.
+     */
     private int totalQuantity;
 
     public Return build() {
@@ -247,74 +321,98 @@ public class Return implements com.shopify.types.Node {
       return result;
     }
 
-    
+    /**
+     * Additional information about the declined return.
+     */
     public Builder decline(ReturnDecline decline) {
       this.decline = decline;
       return this;
     }
 
-    
+    /**
+     * The exchange line items attached to the return.
+     */
     public Builder exchangeLineItems(ExchangeLineItemConnection exchangeLineItems) {
       this.exchangeLineItems = exchangeLineItems;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The name of the return.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    
+    /**
+     * The order that the return belongs to.
+     */
     public Builder order(Order order) {
       this.order = order;
       return this;
     }
 
-    
+    /**
+     * The list of refunds associated with the return.
+     */
     public Builder refunds(RefundConnection refunds) {
       this.refunds = refunds;
       return this;
     }
 
-    
+    /**
+     * The return line items attached to the return.
+     */
     public Builder returnLineItems(ReturnLineItemTypeConnection returnLineItems) {
       this.returnLineItems = returnLineItems;
       return this;
     }
 
-    
+    /**
+     * The return shipping fees for the return.
+     */
     public Builder returnShippingFees(List<ReturnShippingFee> returnShippingFees) {
       this.returnShippingFees = returnShippingFees;
       return this;
     }
 
-    
+    /**
+     * The list of reverse fulfillment orders for the return.
+     */
     public Builder reverseFulfillmentOrders(
         ReverseFulfillmentOrderConnection reverseFulfillmentOrders) {
       this.reverseFulfillmentOrders = reverseFulfillmentOrders;
       return this;
     }
 
-    
+    /**
+     * The status of the return.
+     */
     public Builder status(ReturnStatus status) {
       this.status = status;
       return this;
     }
 
-    
+    /**
+     * A suggested refund for the return.
+     */
     public Builder suggestedRefund(SuggestedReturnRefund suggestedRefund) {
       this.suggestedRefund = suggestedRefund;
       return this;
     }
 
-    
+    /**
+     * The sum of all return line item quantities for the return.
+     */
     public Builder totalQuantity(int totalQuantity) {
       this.totalQuantity = totalQuantity;
       return this;

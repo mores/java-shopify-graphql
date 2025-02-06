@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The Express Checkout customizations.
+ */
 public class CheckoutBrandingExpressCheckout {
-  
+  /**
+   * The Express Checkout buttons customizations.
+   */
   private CheckoutBrandingExpressCheckoutButton button;
 
   public CheckoutBrandingExpressCheckout() {
   }
 
-  
+  /**
+   * The Express Checkout buttons customizations.
+   */
   public CheckoutBrandingExpressCheckoutButton getButton() {
     return button;
   }
@@ -45,7 +51,9 @@ public class CheckoutBrandingExpressCheckout {
   }
 
   public static class Builder {
-    
+    /**
+     * The Express Checkout buttons customizations.
+     */
     private CheckoutBrandingExpressCheckoutButton button;
 
     public CheckoutBrandingExpressCheckout build() {
@@ -54,7 +62,9 @@ public class CheckoutBrandingExpressCheckout {
       return result;
     }
 
-    
+    /**
+     * The Express Checkout buttons customizations.
+     */
     public Builder button(CheckoutBrandingExpressCheckoutButton button) {
       this.button = button;
       return this;

@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * The number of pendings orders. Limited to a maximum of 10000.
+ */
 public class PendingOrdersCountGraphQLQuery extends GraphQLQuery {
   public PendingOrdersCountGraphQLQuery(String queryName) {
     super("query", queryName);

@@ -5,18 +5,29 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Specifies shipping delivery method fields.
+ *
+ * This input accepts partial input. When a field is not provided,
+ * its prior value is left unchanged.
+ */
 public class SubscriptionDeliveryMethodShippingInput {
-  
+  /**
+   * The address to ship to.
+   */
   private MailingAddressInput address;
 
-  
+  /**
+   * The details of the shipping method to use.
+   */
   private SubscriptionDeliveryMethodShippingOptionInput shippingOption;
 
   public SubscriptionDeliveryMethodShippingInput() {
   }
 
-  
+  /**
+   * The address to ship to.
+   */
   public MailingAddressInput getAddress() {
     return address;
   }
@@ -25,7 +36,9 @@ public class SubscriptionDeliveryMethodShippingInput {
     this.address = address;
   }
 
-  
+  /**
+   * The details of the shipping method to use.
+   */
   public SubscriptionDeliveryMethodShippingOptionInput getShippingOption() {
     return shippingOption;
   }
@@ -58,10 +71,14 @@ public class SubscriptionDeliveryMethodShippingInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The address to ship to.
+     */
     private MailingAddressInput address;
 
-    
+    /**
+     * The details of the shipping method to use.
+     */
     private SubscriptionDeliveryMethodShippingOptionInput shippingOption;
 
     public SubscriptionDeliveryMethodShippingInput build() {
@@ -71,13 +88,17 @@ public class SubscriptionDeliveryMethodShippingInput {
       return result;
     }
 
-    
+    /**
+     * The address to ship to.
+     */
     public Builder address(MailingAddressInput address) {
       this.address = address;
       return this;
     }
 
-    
+    /**
+     * The details of the shipping method to use.
+     */
     public Builder shippingOption(SubscriptionDeliveryMethodShippingOptionInput shippingOption) {
       this.shippingOption = shippingOption;
       return this;

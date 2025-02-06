@@ -7,24 +7,34 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * A Shopify product taxonomy measurement attribute.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class TaxonomyMeasurementAttribute implements TaxonomyCategoryAttribute, com.shopify.types.Node {
-  
+  /**
+   * The unique ID of the TaxonomyAttribute.
+   */
   private String id;
 
-  
+  /**
+   * The name of the product taxonomy attribute. For example, Color.
+   */
   private String name;
 
-  
+  /**
+   * The product taxonomy attribute options.
+   */
   private List<Attribute> options;
 
   public TaxonomyMeasurementAttribute() {
   }
 
-  
+  /**
+   * The unique ID of the TaxonomyAttribute.
+   */
   public String getId() {
     return id;
   }
@@ -33,7 +43,9 @@ public class TaxonomyMeasurementAttribute implements TaxonomyCategoryAttribute, 
     this.id = id;
   }
 
-  
+  /**
+   * The name of the product taxonomy attribute. For example, Color.
+   */
   public String getName() {
     return name;
   }
@@ -42,7 +54,9 @@ public class TaxonomyMeasurementAttribute implements TaxonomyCategoryAttribute, 
     this.name = name;
   }
 
-  
+  /**
+   * The product taxonomy attribute options.
+   */
   public List<Attribute> getOptions() {
     return options;
   }
@@ -76,13 +90,19 @@ public class TaxonomyMeasurementAttribute implements TaxonomyCategoryAttribute, 
   }
 
   public static class Builder {
-    
+    /**
+     * The unique ID of the TaxonomyAttribute.
+     */
     private String id;
 
-    
+    /**
+     * The name of the product taxonomy attribute. For example, Color.
+     */
     private String name;
 
-    
+    /**
+     * The product taxonomy attribute options.
+     */
     private List<Attribute> options;
 
     public TaxonomyMeasurementAttribute build() {
@@ -93,19 +113,25 @@ public class TaxonomyMeasurementAttribute implements TaxonomyCategoryAttribute, 
       return result;
     }
 
-    
+    /**
+     * The unique ID of the TaxonomyAttribute.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The name of the product taxonomy attribute. For example, Color.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    
+    /**
+     * The product taxonomy attribute options.
+     */
     public Builder options(List<Attribute> options) {
       this.options = options;
       return this;

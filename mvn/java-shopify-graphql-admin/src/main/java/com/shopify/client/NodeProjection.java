@@ -685,13 +685,6 @@ public class NodeProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
     return fragment;
   }
 
-  public MetafieldStorefrontVisibilityFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> onMetafieldStorefrontVisibility(
-      ) {
-    MetafieldStorefrontVisibilityFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> fragment = new MetafieldStorefrontVisibilityFragmentProjection<>(this, getRoot());
-    getFragments().add(fragment);
-    return fragment;
-  }
-
   public MetaobjectFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> onMetaobject() {
     MetaobjectFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> fragment = new MetaobjectFragmentProjection<>(this, getRoot());
     getFragments().add(fragment);
@@ -801,13 +794,6 @@ public class NodeProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
     return fragment;
   }
 
-  public PrivateMetafieldFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> onPrivateMetafield(
-      ) {
-    PrivateMetafieldFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> fragment = new PrivateMetafieldFragmentProjection<>(this, getRoot());
-    getFragments().add(fragment);
-    return fragment;
-  }
-
   public ProductFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> onProduct() {
     ProductFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> fragment = new ProductFragmentProjection<>(this, getRoot());
     getFragments().add(fragment);
@@ -877,6 +863,13 @@ public class NodeProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
   public ProductVariantComponentFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> onProductVariantComponent(
       ) {
     ProductVariantComponentFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> fragment = new ProductVariantComponentFragmentProjection<>(this, getRoot());
+    getFragments().add(fragment);
+    return fragment;
+  }
+
+  public PromiseParticipantFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> onPromiseParticipant(
+      ) {
+    PromiseParticipantFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> fragment = new PromiseParticipantFragmentProjection<>(this, getRoot());
     getFragments().add(fragment);
     return fragment;
   }

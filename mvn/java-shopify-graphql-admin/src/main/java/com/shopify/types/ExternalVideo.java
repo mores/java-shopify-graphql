@@ -8,60 +8,94 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Represents a video hosted outside of Shopify.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ExternalVideo implements com.shopify.types.File, com.shopify.types.Media, com.shopify.types.Node {
-  
+  /**
+   * A word or phrase to describe the contents or the function of a file.
+   */
   private String alt;
 
-  
+  /**
+   * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the file was created.
+   */
   private OffsetDateTime createdAt;
 
-  
+  /**
+   * The embed URL of the video for the respective host.
+   */
   private String embedUrl;
 
-  
+  /**
+   * The URL.
+   */
   private String embeddedUrl;
 
-  
+  /**
+   * Any errors that have occurred on the file.
+   */
   private List<FileError> fileErrors;
 
-  
+  /**
+   * The status of the file.
+   */
   private FileStatus fileStatus;
 
-  
+  /**
+   * The host of the external video.
+   */
   private MediaHost host;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The media content type.
+   */
   private MediaContentType mediaContentType;
 
-  
+  /**
+   * Any errors which have occurred on the media.
+   */
   private List<MediaError> mediaErrors;
 
-  
+  /**
+   * The warnings attached to the media.
+   */
   private List<MediaWarning> mediaWarnings;
 
-  
+  /**
+   * The origin URL of the video on the respective host.
+   */
   private String originUrl;
 
-  
+  /**
+   * The preview image for the media.
+   */
   private MediaPreviewImage preview;
 
-  
+  /**
+   * Current status of the media.
+   */
   private MediaStatus status;
 
-  
+  /**
+   * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the file was last updated.
+   */
   private OffsetDateTime updatedAt;
 
   public ExternalVideo() {
   }
 
-  
+  /**
+   * A word or phrase to describe the contents or the function of a file.
+   */
   public String getAlt() {
     return alt;
   }
@@ -70,7 +104,9 @@ public class ExternalVideo implements com.shopify.types.File, com.shopify.types.
     this.alt = alt;
   }
 
-  
+  /**
+   * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the file was created.
+   */
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -79,7 +115,9 @@ public class ExternalVideo implements com.shopify.types.File, com.shopify.types.
     this.createdAt = createdAt;
   }
 
-  
+  /**
+   * The embed URL of the video for the respective host.
+   */
   public String getEmbedUrl() {
     return embedUrl;
   }
@@ -88,7 +126,9 @@ public class ExternalVideo implements com.shopify.types.File, com.shopify.types.
     this.embedUrl = embedUrl;
   }
 
-  
+  /**
+   * The URL.
+   */
   public String getEmbeddedUrl() {
     return embeddedUrl;
   }
@@ -97,7 +137,9 @@ public class ExternalVideo implements com.shopify.types.File, com.shopify.types.
     this.embeddedUrl = embeddedUrl;
   }
 
-  
+  /**
+   * Any errors that have occurred on the file.
+   */
   public List<FileError> getFileErrors() {
     return fileErrors;
   }
@@ -106,7 +148,9 @@ public class ExternalVideo implements com.shopify.types.File, com.shopify.types.
     this.fileErrors = fileErrors;
   }
 
-  
+  /**
+   * The status of the file.
+   */
   public FileStatus getFileStatus() {
     return fileStatus;
   }
@@ -115,7 +159,9 @@ public class ExternalVideo implements com.shopify.types.File, com.shopify.types.
     this.fileStatus = fileStatus;
   }
 
-  
+  /**
+   * The host of the external video.
+   */
   public MediaHost getHost() {
     return host;
   }
@@ -124,7 +170,9 @@ public class ExternalVideo implements com.shopify.types.File, com.shopify.types.
     this.host = host;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -133,7 +181,9 @@ public class ExternalVideo implements com.shopify.types.File, com.shopify.types.
     this.id = id;
   }
 
-  
+  /**
+   * The media content type.
+   */
   public MediaContentType getMediaContentType() {
     return mediaContentType;
   }
@@ -142,7 +192,9 @@ public class ExternalVideo implements com.shopify.types.File, com.shopify.types.
     this.mediaContentType = mediaContentType;
   }
 
-  
+  /**
+   * Any errors which have occurred on the media.
+   */
   public List<MediaError> getMediaErrors() {
     return mediaErrors;
   }
@@ -151,7 +203,9 @@ public class ExternalVideo implements com.shopify.types.File, com.shopify.types.
     this.mediaErrors = mediaErrors;
   }
 
-  
+  /**
+   * The warnings attached to the media.
+   */
   public List<MediaWarning> getMediaWarnings() {
     return mediaWarnings;
   }
@@ -160,7 +214,9 @@ public class ExternalVideo implements com.shopify.types.File, com.shopify.types.
     this.mediaWarnings = mediaWarnings;
   }
 
-  
+  /**
+   * The origin URL of the video on the respective host.
+   */
   public String getOriginUrl() {
     return originUrl;
   }
@@ -169,7 +225,9 @@ public class ExternalVideo implements com.shopify.types.File, com.shopify.types.
     this.originUrl = originUrl;
   }
 
-  
+  /**
+   * The preview image for the media.
+   */
   public MediaPreviewImage getPreview() {
     return preview;
   }
@@ -178,7 +236,9 @@ public class ExternalVideo implements com.shopify.types.File, com.shopify.types.
     this.preview = preview;
   }
 
-  
+  /**
+   * Current status of the media.
+   */
   public MediaStatus getStatus() {
     return status;
   }
@@ -187,7 +247,9 @@ public class ExternalVideo implements com.shopify.types.File, com.shopify.types.
     this.status = status;
   }
 
-  
+  /**
+   * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the file was last updated.
+   */
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
@@ -233,49 +295,79 @@ public class ExternalVideo implements com.shopify.types.File, com.shopify.types.
   }
 
   public static class Builder {
-    
+    /**
+     * A word or phrase to describe the contents or the function of a file.
+     */
     private String alt;
 
-    
+    /**
+     * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the file was created.
+     */
     private OffsetDateTime createdAt;
 
-    
+    /**
+     * The embed URL of the video for the respective host.
+     */
     private String embedUrl;
 
-    
+    /**
+     * The URL.
+     */
     private String embeddedUrl;
 
-    
+    /**
+     * Any errors that have occurred on the file.
+     */
     private List<FileError> fileErrors;
 
-    
+    /**
+     * The status of the file.
+     */
     private FileStatus fileStatus;
 
-    
+    /**
+     * The host of the external video.
+     */
     private MediaHost host;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The media content type.
+     */
     private MediaContentType mediaContentType;
 
-    
+    /**
+     * Any errors which have occurred on the media.
+     */
     private List<MediaError> mediaErrors;
 
-    
+    /**
+     * The warnings attached to the media.
+     */
     private List<MediaWarning> mediaWarnings;
 
-    
+    /**
+     * The origin URL of the video on the respective host.
+     */
     private String originUrl;
 
-    
+    /**
+     * The preview image for the media.
+     */
     private MediaPreviewImage preview;
 
-    
+    /**
+     * Current status of the media.
+     */
     private MediaStatus status;
 
-    
+    /**
+     * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the file was last updated.
+     */
     private OffsetDateTime updatedAt;
 
     public ExternalVideo build() {
@@ -298,91 +390,121 @@ public class ExternalVideo implements com.shopify.types.File, com.shopify.types.
       return result;
     }
 
-    
+    /**
+     * A word or phrase to describe the contents or the function of a file.
+     */
     public Builder alt(String alt) {
       this.alt = alt;
       return this;
     }
 
-    
+    /**
+     * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the file was created.
+     */
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    
+    /**
+     * The embed URL of the video for the respective host.
+     */
     public Builder embedUrl(String embedUrl) {
       this.embedUrl = embedUrl;
       return this;
     }
 
-    
+    /**
+     * The URL.
+     */
     public Builder embeddedUrl(String embeddedUrl) {
       this.embeddedUrl = embeddedUrl;
       return this;
     }
 
-    
+    /**
+     * Any errors that have occurred on the file.
+     */
     public Builder fileErrors(List<FileError> fileErrors) {
       this.fileErrors = fileErrors;
       return this;
     }
 
-    
+    /**
+     * The status of the file.
+     */
     public Builder fileStatus(FileStatus fileStatus) {
       this.fileStatus = fileStatus;
       return this;
     }
 
-    
+    /**
+     * The host of the external video.
+     */
     public Builder host(MediaHost host) {
       this.host = host;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The media content type.
+     */
     public Builder mediaContentType(MediaContentType mediaContentType) {
       this.mediaContentType = mediaContentType;
       return this;
     }
 
-    
+    /**
+     * Any errors which have occurred on the media.
+     */
     public Builder mediaErrors(List<MediaError> mediaErrors) {
       this.mediaErrors = mediaErrors;
       return this;
     }
 
-    
+    /**
+     * The warnings attached to the media.
+     */
     public Builder mediaWarnings(List<MediaWarning> mediaWarnings) {
       this.mediaWarnings = mediaWarnings;
       return this;
     }
 
-    
+    /**
+     * The origin URL of the video on the respective host.
+     */
     public Builder originUrl(String originUrl) {
       this.originUrl = originUrl;
       return this;
     }
 
-    
+    /**
+     * The preview image for the media.
+     */
     public Builder preview(MediaPreviewImage preview) {
       this.preview = preview;
       return this;
     }
 
-    
+    /**
+     * Current status of the media.
+     */
     public Builder status(MediaStatus status) {
       this.status = status;
       return this;
     }
 
-    
+    /**
+     * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the file was last updated.
+     */
     public Builder updatedAt(OffsetDateTime updatedAt) {
       this.updatedAt = updatedAt;
       return this;

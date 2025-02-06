@@ -5,21 +5,31 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A shipping rate is an additional cost added to the cost of the products that were ordered.
+ */
 public class ShippingRate {
-  
+  /**
+   * Human-readable unique identifier for this shipping rate.
+   */
   private String handle;
 
-  
+  /**
+   * The cost associated with the shipping rate.
+   */
   private MoneyV2 price;
 
-  
+  /**
+   * The name of the shipping rate.
+   */
   private String title;
 
   public ShippingRate() {
   }
 
-  
+  /**
+   * Human-readable unique identifier for this shipping rate.
+   */
   public String getHandle() {
     return handle;
   }
@@ -28,7 +38,9 @@ public class ShippingRate {
     this.handle = handle;
   }
 
-  
+  /**
+   * The cost associated with the shipping rate.
+   */
   public MoneyV2 getPrice() {
     return price;
   }
@@ -37,7 +49,9 @@ public class ShippingRate {
     this.price = price;
   }
 
-  
+  /**
+   * The name of the shipping rate.
+   */
   public String getTitle() {
     return title;
   }
@@ -71,13 +85,19 @@ public class ShippingRate {
   }
 
   public static class Builder {
-    
+    /**
+     * Human-readable unique identifier for this shipping rate.
+     */
     private String handle;
 
-    
+    /**
+     * The cost associated with the shipping rate.
+     */
     private MoneyV2 price;
 
-    
+    /**
+     * The name of the shipping rate.
+     */
     private String title;
 
     public ShippingRate build() {
@@ -88,19 +108,25 @@ public class ShippingRate {
       return result;
     }
 
-    
+    /**
+     * Human-readable unique identifier for this shipping rate.
+     */
     public Builder handle(String handle) {
       this.handle = handle;
       return this;
     }
 
-    
+    /**
+     * The cost associated with the shipping rate.
+     */
     public Builder price(MoneyV2 price) {
       this.price = price;
       return this;
     }
 
-    
+    /**
+     * The name of the shipping rate.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;

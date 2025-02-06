@@ -6,27 +6,39 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Contains the information for a given sales channel.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ChannelInformation implements com.shopify.types.Node {
-  
+  /**
+   * The app associated with the channel.
+   */
   private App app;
 
-  
+  /**
+   * The channel definition associated with the channel.
+   */
   private ChannelDefinition channelDefinition;
 
-  
+  /**
+   * The unique ID for the channel.
+   */
   private String channelId;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
   public ChannelInformation() {
   }
 
-  
+  /**
+   * The app associated with the channel.
+   */
   public App getApp() {
     return app;
   }
@@ -35,7 +47,9 @@ public class ChannelInformation implements com.shopify.types.Node {
     this.app = app;
   }
 
-  
+  /**
+   * The channel definition associated with the channel.
+   */
   public ChannelDefinition getChannelDefinition() {
     return channelDefinition;
   }
@@ -44,7 +58,9 @@ public class ChannelInformation implements com.shopify.types.Node {
     this.channelDefinition = channelDefinition;
   }
 
-  
+  /**
+   * The unique ID for the channel.
+   */
   public String getChannelId() {
     return channelId;
   }
@@ -53,7 +69,9 @@ public class ChannelInformation implements com.shopify.types.Node {
     this.channelId = channelId;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -88,16 +106,24 @@ public class ChannelInformation implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    
+    /**
+     * The app associated with the channel.
+     */
     private App app;
 
-    
+    /**
+     * The channel definition associated with the channel.
+     */
     private ChannelDefinition channelDefinition;
 
-    
+    /**
+     * The unique ID for the channel.
+     */
     private String channelId;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
     public ChannelInformation build() {
@@ -109,25 +135,33 @@ public class ChannelInformation implements com.shopify.types.Node {
       return result;
     }
 
-    
+    /**
+     * The app associated with the channel.
+     */
     public Builder app(App app) {
       this.app = app;
       return this;
     }
 
-    
+    /**
+     * The channel definition associated with the channel.
+     */
     public Builder channelDefinition(ChannelDefinition channelDefinition) {
       this.channelDefinition = channelDefinition;
       return this;
     }
 
-    
+    /**
+     * The unique ID for the channel.
+     */
     public Builder channelId(String channelId) {
       this.channelId = channelId;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;

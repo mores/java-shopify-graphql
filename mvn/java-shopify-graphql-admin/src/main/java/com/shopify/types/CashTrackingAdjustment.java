@@ -7,30 +7,44 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-
+/**
+ * Tracks an adjustment to the cash in a cash tracking session for a point of sale device over the course of a shift.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class CashTrackingAdjustment implements com.shopify.types.Node {
-  
+  /**
+   * The amount of cash being added or removed.
+   */
   private MoneyV2 cash;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The note entered when the adjustment was made.
+   */
   private String note;
 
-  
+  /**
+   * The staff member who made the adjustment.
+   */
   private StaffMember staffMember;
 
-  
+  /**
+   * The time when the adjustment was made.
+   */
   private OffsetDateTime time;
 
   public CashTrackingAdjustment() {
   }
 
-  
+  /**
+   * The amount of cash being added or removed.
+   */
   public MoneyV2 getCash() {
     return cash;
   }
@@ -39,7 +53,9 @@ public class CashTrackingAdjustment implements com.shopify.types.Node {
     this.cash = cash;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -48,7 +64,9 @@ public class CashTrackingAdjustment implements com.shopify.types.Node {
     this.id = id;
   }
 
-  
+  /**
+   * The note entered when the adjustment was made.
+   */
   public String getNote() {
     return note;
   }
@@ -57,7 +75,9 @@ public class CashTrackingAdjustment implements com.shopify.types.Node {
     this.note = note;
   }
 
-  
+  /**
+   * The staff member who made the adjustment.
+   */
   public StaffMember getStaffMember() {
     return staffMember;
   }
@@ -66,7 +86,9 @@ public class CashTrackingAdjustment implements com.shopify.types.Node {
     this.staffMember = staffMember;
   }
 
-  
+  /**
+   * The time when the adjustment was made.
+   */
   public OffsetDateTime getTime() {
     return time;
   }
@@ -102,19 +124,29 @@ public class CashTrackingAdjustment implements com.shopify.types.Node {
   }
 
   public static class Builder {
-    
+    /**
+     * The amount of cash being added or removed.
+     */
     private MoneyV2 cash;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The note entered when the adjustment was made.
+     */
     private String note;
 
-    
+    /**
+     * The staff member who made the adjustment.
+     */
     private StaffMember staffMember;
 
-    
+    /**
+     * The time when the adjustment was made.
+     */
     private OffsetDateTime time;
 
     public CashTrackingAdjustment build() {
@@ -127,31 +159,41 @@ public class CashTrackingAdjustment implements com.shopify.types.Node {
       return result;
     }
 
-    
+    /**
+     * The amount of cash being added or removed.
+     */
     public Builder cash(MoneyV2 cash) {
       this.cash = cash;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The note entered when the adjustment was made.
+     */
     public Builder note(String note) {
       this.note = note;
       return this;
     }
 
-    
+    /**
+     * The staff member who made the adjustment.
+     */
     public Builder staffMember(StaffMember staffMember) {
       this.staffMember = staffMember;
       return this;
     }
 
-    
+    /**
+     * The time when the adjustment was made.
+     */
     public Builder time(OffsetDateTime time) {
       this.time = time;
       return this;

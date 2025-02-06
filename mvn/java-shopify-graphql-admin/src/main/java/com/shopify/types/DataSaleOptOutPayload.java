@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `dataSaleOptOut` mutation.
+ */
 public class DataSaleOptOutPayload {
-  
+  /**
+   * The ID of the customer whose email address has been opted out of data sale.
+   */
   private String customerId;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<DataSaleOptOutUserError> userErrors;
 
   public DataSaleOptOutPayload() {
   }
 
-  
+  /**
+   * The ID of the customer whose email address has been opted out of data sale.
+   */
   public String getCustomerId() {
     return customerId;
   }
@@ -26,7 +34,9 @@ public class DataSaleOptOutPayload {
     this.customerId = customerId;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<DataSaleOptOutUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class DataSaleOptOutPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the customer whose email address has been opted out of data sale.
+     */
     private String customerId;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<DataSaleOptOutUserError> userErrors;
 
     public DataSaleOptOutPayload build() {
@@ -72,13 +86,17 @@ public class DataSaleOptOutPayload {
       return result;
     }
 
-    
+    /**
+     * The ID of the customer whose email address has been opted out of data sale.
+     */
     public Builder customerId(String customerId) {
       this.customerId = customerId;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<DataSaleOptOutUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

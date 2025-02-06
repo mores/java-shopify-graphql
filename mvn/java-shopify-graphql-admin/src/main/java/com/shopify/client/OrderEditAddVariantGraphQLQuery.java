@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Adds a line item from an existing product variant.
+ */
 public class OrderEditAddVariantGraphQLQuery extends GraphQLQuery {
   public OrderEditAddVariantGraphQLQuery(String id, String variantId, String locationId,
       int quantity, Boolean allowDuplicates, String queryName, Set<String> fieldsSet) {
@@ -56,35 +58,47 @@ public class OrderEditAddVariantGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
+     * to edit.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    
+    /**
+     * The ID of the variant to add.
+     */
     public Builder variantId(String variantId) {
       this.variantId = variantId;
       this.fieldsSet.add("variantId");
       return this;
     }
 
-    
+    /**
+     * The ID of the [location](https://shopify.dev/api/admin-graphql/latest/objects/location)
+     * to check for inventory availability. A default location ID is chosen automatically if none is provided.
+     */
     public Builder locationId(String locationId) {
       this.locationId = locationId;
       this.fieldsSet.add("locationId");
       return this;
     }
 
-    
+    /**
+     * The quantity of the item to add to the order. Must be a positive value.
+     */
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       this.fieldsSet.add("quantity");
       return this;
     }
 
-    
+    /**
+     * Whether the mutation can create a line item for a variant that's already on the calculated order.
+     */
     public Builder allowDuplicates(Boolean allowDuplicates) {
       this.allowDuplicates = allowDuplicates;
       this.fieldsSet.add("allowDuplicates");

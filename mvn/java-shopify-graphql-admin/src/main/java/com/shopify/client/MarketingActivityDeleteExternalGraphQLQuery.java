@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Deletes an external marketing activity.
+ */
 public class MarketingActivityDeleteExternalGraphQLQuery extends GraphQLQuery {
   public MarketingActivityDeleteExternalGraphQLQuery(String marketingActivityId, String remoteId,
       String queryName, Set<String> fieldsSet) {
@@ -45,14 +47,18 @@ public class MarketingActivityDeleteExternalGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the marketing activity. A marketing activity ID or remote ID must be provided.
+     */
     public Builder marketingActivityId(String marketingActivityId) {
       this.marketingActivityId = marketingActivityId;
       this.fieldsSet.add("marketingActivityId");
       return this;
     }
 
-    
+    /**
+     * The ID of an activity that's hosted outside of Shopify. A marketing activity ID or remote ID must be provided.
+     */
     public Builder remoteId(String remoteId) {
       this.remoteId = remoteId;
       this.fieldsSet.add("remoteId");

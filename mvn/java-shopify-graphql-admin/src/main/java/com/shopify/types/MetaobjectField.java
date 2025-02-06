@@ -5,36 +5,56 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Provides a field definition and the data value assigned to it.
+ */
 public class MetaobjectField {
-  
+  /**
+   * The field definition for this object key.
+   */
   private MetaobjectFieldDefinition definition;
 
-  
+  /**
+   * The assigned field value in JSON format.
+   */
   private String jsonValue;
 
-  
+  /**
+   * The object key of this field.
+   */
   private String key;
 
-  
+  /**
+   * For resource reference fields, provides the referenced object.
+   */
   private MetafieldReference reference;
 
-  
+  /**
+   * For resource reference list fields, provides the list of referenced objects.
+   */
   private MetafieldReferenceConnection references;
 
-  
+  /**
+   * For file reference or color fields, provides visual attributes for this field.
+   */
   private MetaobjectThumbnail thumbnail;
 
-  
+  /**
+   * The type of the field.
+   */
   private String type;
 
-  
+  /**
+   * The assigned field value, always stored as a string regardless of the field type.
+   */
   private String value;
 
   public MetaobjectField() {
   }
 
-  
+  /**
+   * The field definition for this object key.
+   */
   public MetaobjectFieldDefinition getDefinition() {
     return definition;
   }
@@ -43,7 +63,9 @@ public class MetaobjectField {
     this.definition = definition;
   }
 
-  
+  /**
+   * The assigned field value in JSON format.
+   */
   public String getJsonValue() {
     return jsonValue;
   }
@@ -52,7 +74,9 @@ public class MetaobjectField {
     this.jsonValue = jsonValue;
   }
 
-  
+  /**
+   * The object key of this field.
+   */
   public String getKey() {
     return key;
   }
@@ -61,7 +85,9 @@ public class MetaobjectField {
     this.key = key;
   }
 
-  
+  /**
+   * For resource reference fields, provides the referenced object.
+   */
   public MetafieldReference getReference() {
     return reference;
   }
@@ -70,7 +96,9 @@ public class MetaobjectField {
     this.reference = reference;
   }
 
-  
+  /**
+   * For resource reference list fields, provides the list of referenced objects.
+   */
   public MetafieldReferenceConnection getReferences() {
     return references;
   }
@@ -79,7 +107,9 @@ public class MetaobjectField {
     this.references = references;
   }
 
-  
+  /**
+   * For file reference or color fields, provides visual attributes for this field.
+   */
   public MetaobjectThumbnail getThumbnail() {
     return thumbnail;
   }
@@ -88,7 +118,9 @@ public class MetaobjectField {
     this.thumbnail = thumbnail;
   }
 
-  
+  /**
+   * The type of the field.
+   */
   public String getType() {
     return type;
   }
@@ -97,7 +129,9 @@ public class MetaobjectField {
     this.type = type;
   }
 
-  
+  /**
+   * The assigned field value, always stored as a string regardless of the field type.
+   */
   public String getValue() {
     return value;
   }
@@ -136,28 +170,44 @@ public class MetaobjectField {
   }
 
   public static class Builder {
-    
+    /**
+     * The field definition for this object key.
+     */
     private MetaobjectFieldDefinition definition;
 
-    
+    /**
+     * The assigned field value in JSON format.
+     */
     private String jsonValue;
 
-    
+    /**
+     * The object key of this field.
+     */
     private String key;
 
-    
+    /**
+     * For resource reference fields, provides the referenced object.
+     */
     private MetafieldReference reference;
 
-    
+    /**
+     * For resource reference list fields, provides the list of referenced objects.
+     */
     private MetafieldReferenceConnection references;
 
-    
+    /**
+     * For file reference or color fields, provides visual attributes for this field.
+     */
     private MetaobjectThumbnail thumbnail;
 
-    
+    /**
+     * The type of the field.
+     */
     private String type;
 
-    
+    /**
+     * The assigned field value, always stored as a string regardless of the field type.
+     */
     private String value;
 
     public MetaobjectField build() {
@@ -173,49 +223,65 @@ public class MetaobjectField {
       return result;
     }
 
-    
+    /**
+     * The field definition for this object key.
+     */
     public Builder definition(MetaobjectFieldDefinition definition) {
       this.definition = definition;
       return this;
     }
 
-    
+    /**
+     * The assigned field value in JSON format.
+     */
     public Builder jsonValue(String jsonValue) {
       this.jsonValue = jsonValue;
       return this;
     }
 
-    
+    /**
+     * The object key of this field.
+     */
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
-    
+    /**
+     * For resource reference fields, provides the referenced object.
+     */
     public Builder reference(MetafieldReference reference) {
       this.reference = reference;
       return this;
     }
 
-    
+    /**
+     * For resource reference list fields, provides the list of referenced objects.
+     */
     public Builder references(MetafieldReferenceConnection references) {
       this.references = references;
       return this;
     }
 
-    
+    /**
+     * For file reference or color fields, provides visual attributes for this field.
+     */
     public Builder thumbnail(MetaobjectThumbnail thumbnail) {
       this.thumbnail = thumbnail;
       return this;
     }
 
-    
+    /**
+     * The type of the field.
+     */
     public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    
+    /**
+     * The assigned field value, always stored as a string regardless of the field type.
+     */
     public Builder value(String value) {
       this.value = value;
       return this;

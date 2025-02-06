@@ -6,21 +6,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `productSet` mutation.
+ */
 public class ProductSetPayload {
-  
+  /**
+   * The product object.
+   */
   private Product product;
 
-  
+  /**
+   * The product set operation, returned when run in asynchronous mode.
+   */
   private ProductSetOperation productSetOperation;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<ProductSetUserError> userErrors;
 
   public ProductSetPayload() {
   }
 
-  
+  /**
+   * The product object.
+   */
   public Product getProduct() {
     return product;
   }
@@ -29,7 +39,9 @@ public class ProductSetPayload {
     this.product = product;
   }
 
-  
+  /**
+   * The product set operation, returned when run in asynchronous mode.
+   */
   public ProductSetOperation getProductSetOperation() {
     return productSetOperation;
   }
@@ -38,7 +50,9 @@ public class ProductSetPayload {
     this.productSetOperation = productSetOperation;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<ProductSetUserError> getUserErrors() {
     return userErrors;
   }
@@ -72,13 +86,19 @@ public class ProductSetPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The product object.
+     */
     private Product product;
 
-    
+    /**
+     * The product set operation, returned when run in asynchronous mode.
+     */
     private ProductSetOperation productSetOperation;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<ProductSetUserError> userErrors;
 
     public ProductSetPayload build() {
@@ -89,19 +109,25 @@ public class ProductSetPayload {
       return result;
     }
 
-    
+    /**
+     * The product object.
+     */
     public Builder product(Product product) {
       this.product = product;
       return this;
     }
 
-    
+    /**
+     * The product set operation, returned when run in asynchronous mode.
+     */
     public Builder productSetOperation(ProductSetOperation productSetOperation) {
       this.productSetOperation = productSetOperation;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<ProductSetUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

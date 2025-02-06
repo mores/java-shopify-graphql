@@ -7,66 +7,97 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Represents an installed application on a shop.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class AppInstallation implements MetafieldReferencer, com.shopify.types.HasMetafields, com.shopify.types.Node {
-  
+  /**
+   * The access scopes granted to the application by a merchant during installation.
+   */
   private List<AccessScope> accessScopes;
 
-  
+  /**
+   * The active application subscriptions billed to the shop on a recurring basis.
+   */
   private List<AppSubscription> activeSubscriptions;
 
-  
+  /**
+   * All subscriptions created for a shop.
+   */
   private AppSubscriptionConnection allSubscriptions;
 
-  
+  /**
+   * Application which is installed.
+   */
   private App app;
 
-  
+  /**
+   * Channel associated with the installed application.
+   */
   private Channel channel;
 
-  
+  /**
+   * Credits that can be used towards future app purchases.
+   */
   private AppCreditConnection credits;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The URL to launch the application.
+   */
   private String launchUrl;
 
-  
+  /**
+   * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
+   * including its `namespace` and `key`, that's associated with a Shopify resource
+   * for the purposes of adding and storing additional information.
+   */
   private Metafield metafield;
 
-  
+  /**
+   * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
+   * that a merchant associates with a Shopify resource.
+   */
   private MetafieldConnection metafields;
 
-  
+  /**
+   * One-time purchases to a shop.
+   */
   private AppPurchaseOneTimeConnection oneTimePurchases;
 
-  
-  private PrivateMetafield privateMetafield;
-
-  
-  private PrivateMetafieldConnection privateMetafields;
-
-  
+  /**
+   * The publication associated with the installed application.
+   */
   private Publication publication;
 
-  
+  /**
+   * The records that track the externally-captured revenue for the app. The records are used for revenue attribution purposes.
+   */
   private AppRevenueAttributionRecordConnection revenueAttributionRecords;
 
-  
+  /**
+   * Subscriptions charge to a shop on a recurring basis.
+   */
   private List<AppSubscription> subscriptions;
 
-  
+  /**
+   * The URL to uninstall the application.
+   */
   private String uninstallUrl;
 
   public AppInstallation() {
   }
 
-  
+  /**
+   * The access scopes granted to the application by a merchant during installation.
+   */
   public List<AccessScope> getAccessScopes() {
     return accessScopes;
   }
@@ -75,7 +106,9 @@ public class AppInstallation implements MetafieldReferencer, com.shopify.types.H
     this.accessScopes = accessScopes;
   }
 
-  
+  /**
+   * The active application subscriptions billed to the shop on a recurring basis.
+   */
   public List<AppSubscription> getActiveSubscriptions() {
     return activeSubscriptions;
   }
@@ -84,7 +117,9 @@ public class AppInstallation implements MetafieldReferencer, com.shopify.types.H
     this.activeSubscriptions = activeSubscriptions;
   }
 
-  
+  /**
+   * All subscriptions created for a shop.
+   */
   public AppSubscriptionConnection getAllSubscriptions() {
     return allSubscriptions;
   }
@@ -93,7 +128,9 @@ public class AppInstallation implements MetafieldReferencer, com.shopify.types.H
     this.allSubscriptions = allSubscriptions;
   }
 
-  
+  /**
+   * Application which is installed.
+   */
   public App getApp() {
     return app;
   }
@@ -102,7 +139,9 @@ public class AppInstallation implements MetafieldReferencer, com.shopify.types.H
     this.app = app;
   }
 
-  
+  /**
+   * Channel associated with the installed application.
+   */
   public Channel getChannel() {
     return channel;
   }
@@ -111,7 +150,9 @@ public class AppInstallation implements MetafieldReferencer, com.shopify.types.H
     this.channel = channel;
   }
 
-  
+  /**
+   * Credits that can be used towards future app purchases.
+   */
   public AppCreditConnection getCredits() {
     return credits;
   }
@@ -120,7 +161,9 @@ public class AppInstallation implements MetafieldReferencer, com.shopify.types.H
     this.credits = credits;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -129,7 +172,9 @@ public class AppInstallation implements MetafieldReferencer, com.shopify.types.H
     this.id = id;
   }
 
-  
+  /**
+   * The URL to launch the application.
+   */
   public String getLaunchUrl() {
     return launchUrl;
   }
@@ -138,7 +183,11 @@ public class AppInstallation implements MetafieldReferencer, com.shopify.types.H
     this.launchUrl = launchUrl;
   }
 
-  
+  /**
+   * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
+   * including its `namespace` and `key`, that's associated with a Shopify resource
+   * for the purposes of adding and storing additional information.
+   */
   public Metafield getMetafield() {
     return metafield;
   }
@@ -147,7 +196,10 @@ public class AppInstallation implements MetafieldReferencer, com.shopify.types.H
     this.metafield = metafield;
   }
 
-  
+  /**
+   * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
+   * that a merchant associates with a Shopify resource.
+   */
   public MetafieldConnection getMetafields() {
     return metafields;
   }
@@ -156,7 +208,9 @@ public class AppInstallation implements MetafieldReferencer, com.shopify.types.H
     this.metafields = metafields;
   }
 
-  
+  /**
+   * One-time purchases to a shop.
+   */
   public AppPurchaseOneTimeConnection getOneTimePurchases() {
     return oneTimePurchases;
   }
@@ -165,25 +219,9 @@ public class AppInstallation implements MetafieldReferencer, com.shopify.types.H
     this.oneTimePurchases = oneTimePurchases;
   }
 
-  
-  public PrivateMetafield getPrivateMetafield() {
-    return privateMetafield;
-  }
-
-  public void setPrivateMetafield(PrivateMetafield privateMetafield) {
-    this.privateMetafield = privateMetafield;
-  }
-
-  
-  public PrivateMetafieldConnection getPrivateMetafields() {
-    return privateMetafields;
-  }
-
-  public void setPrivateMetafields(PrivateMetafieldConnection privateMetafields) {
-    this.privateMetafields = privateMetafields;
-  }
-
-  
+  /**
+   * The publication associated with the installed application.
+   */
   public Publication getPublication() {
     return publication;
   }
@@ -192,7 +230,9 @@ public class AppInstallation implements MetafieldReferencer, com.shopify.types.H
     this.publication = publication;
   }
 
-  
+  /**
+   * The records that track the externally-captured revenue for the app. The records are used for revenue attribution purposes.
+   */
   public AppRevenueAttributionRecordConnection getRevenueAttributionRecords() {
     return revenueAttributionRecords;
   }
@@ -202,7 +242,9 @@ public class AppInstallation implements MetafieldReferencer, com.shopify.types.H
     this.revenueAttributionRecords = revenueAttributionRecords;
   }
 
-  
+  /**
+   * Subscriptions charge to a shop on a recurring basis.
+   */
   public List<AppSubscription> getSubscriptions() {
     return subscriptions;
   }
@@ -211,7 +253,9 @@ public class AppInstallation implements MetafieldReferencer, com.shopify.types.H
     this.subscriptions = subscriptions;
   }
 
-  
+  /**
+   * The URL to uninstall the application.
+   */
   public String getUninstallUrl() {
     return uninstallUrl;
   }
@@ -222,7 +266,7 @@ public class AppInstallation implements MetafieldReferencer, com.shopify.types.H
 
   @Override
   public String toString() {
-    return "AppInstallation{accessScopes='" + accessScopes + "', activeSubscriptions='" + activeSubscriptions + "', allSubscriptions='" + allSubscriptions + "', app='" + app + "', channel='" + channel + "', credits='" + credits + "', id='" + id + "', launchUrl='" + launchUrl + "', metafield='" + metafield + "', metafields='" + metafields + "', oneTimePurchases='" + oneTimePurchases + "', privateMetafield='" + privateMetafield + "', privateMetafields='" + privateMetafields + "', publication='" + publication + "', revenueAttributionRecords='" + revenueAttributionRecords + "', subscriptions='" + subscriptions + "', uninstallUrl='" + uninstallUrl + "'}";
+    return "AppInstallation{accessScopes='" + accessScopes + "', activeSubscriptions='" + activeSubscriptions + "', allSubscriptions='" + allSubscriptions + "', app='" + app + "', channel='" + channel + "', credits='" + credits + "', id='" + id + "', launchUrl='" + launchUrl + "', metafield='" + metafield + "', metafields='" + metafields + "', oneTimePurchases='" + oneTimePurchases + "', publication='" + publication + "', revenueAttributionRecords='" + revenueAttributionRecords + "', subscriptions='" + subscriptions + "', uninstallUrl='" + uninstallUrl + "'}";
   }
 
   @Override
@@ -241,8 +285,6 @@ public class AppInstallation implements MetafieldReferencer, com.shopify.types.H
         Objects.equals(metafield, that.metafield) &&
         Objects.equals(metafields, that.metafields) &&
         Objects.equals(oneTimePurchases, that.oneTimePurchases) &&
-        Objects.equals(privateMetafield, that.privateMetafield) &&
-        Objects.equals(privateMetafields, that.privateMetafields) &&
         Objects.equals(publication, that.publication) &&
         Objects.equals(revenueAttributionRecords, that.revenueAttributionRecords) &&
         Objects.equals(subscriptions, that.subscriptions) &&
@@ -251,7 +293,7 @@ public class AppInstallation implements MetafieldReferencer, com.shopify.types.H
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessScopes, activeSubscriptions, allSubscriptions, app, channel, credits, id, launchUrl, metafield, metafields, oneTimePurchases, privateMetafield, privateMetafields, publication, revenueAttributionRecords, subscriptions, uninstallUrl);
+    return Objects.hash(accessScopes, activeSubscriptions, allSubscriptions, app, channel, credits, id, launchUrl, metafield, metafields, oneTimePurchases, publication, revenueAttributionRecords, subscriptions, uninstallUrl);
   }
 
   public static Builder newBuilder() {
@@ -259,55 +301,82 @@ public class AppInstallation implements MetafieldReferencer, com.shopify.types.H
   }
 
   public static class Builder {
-    
+    /**
+     * The access scopes granted to the application by a merchant during installation.
+     */
     private List<AccessScope> accessScopes;
 
-    
+    /**
+     * The active application subscriptions billed to the shop on a recurring basis.
+     */
     private List<AppSubscription> activeSubscriptions;
 
-    
+    /**
+     * All subscriptions created for a shop.
+     */
     private AppSubscriptionConnection allSubscriptions;
 
-    
+    /**
+     * Application which is installed.
+     */
     private App app;
 
-    
+    /**
+     * Channel associated with the installed application.
+     */
     private Channel channel;
 
-    
+    /**
+     * Credits that can be used towards future app purchases.
+     */
     private AppCreditConnection credits;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The URL to launch the application.
+     */
     private String launchUrl;
 
-    
+    /**
+     * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
+     * including its `namespace` and `key`, that's associated with a Shopify resource
+     * for the purposes of adding and storing additional information.
+     */
     private Metafield metafield;
 
-    
+    /**
+     * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
+     * that a merchant associates with a Shopify resource.
+     */
     private MetafieldConnection metafields;
 
-    
+    /**
+     * One-time purchases to a shop.
+     */
     private AppPurchaseOneTimeConnection oneTimePurchases;
 
-    
-    private PrivateMetafield privateMetafield;
-
-    
-    private PrivateMetafieldConnection privateMetafields;
-
-    
+    /**
+     * The publication associated with the installed application.
+     */
     private Publication publication;
 
-    
+    /**
+     * The records that track the externally-captured revenue for the app. The records are used for revenue attribution purposes.
+     */
     private AppRevenueAttributionRecordConnection revenueAttributionRecords;
 
-    
+    /**
+     * Subscriptions charge to a shop on a recurring basis.
+     */
     private List<AppSubscription> subscriptions;
 
-    
+    /**
+     * The URL to uninstall the application.
+     */
     private String uninstallUrl;
 
     public AppInstallation build() {
@@ -323,8 +392,6 @@ public class AppInstallation implements MetafieldReferencer, com.shopify.types.H
       result.metafield = this.metafield;
       result.metafields = this.metafields;
       result.oneTimePurchases = this.oneTimePurchases;
-      result.privateMetafield = this.privateMetafield;
-      result.privateMetafields = this.privateMetafields;
       result.publication = this.publication;
       result.revenueAttributionRecords = this.revenueAttributionRecords;
       result.subscriptions = this.subscriptions;
@@ -332,104 +399,125 @@ public class AppInstallation implements MetafieldReferencer, com.shopify.types.H
       return result;
     }
 
-    
+    /**
+     * The access scopes granted to the application by a merchant during installation.
+     */
     public Builder accessScopes(List<AccessScope> accessScopes) {
       this.accessScopes = accessScopes;
       return this;
     }
 
-    
+    /**
+     * The active application subscriptions billed to the shop on a recurring basis.
+     */
     public Builder activeSubscriptions(List<AppSubscription> activeSubscriptions) {
       this.activeSubscriptions = activeSubscriptions;
       return this;
     }
 
-    
+    /**
+     * All subscriptions created for a shop.
+     */
     public Builder allSubscriptions(AppSubscriptionConnection allSubscriptions) {
       this.allSubscriptions = allSubscriptions;
       return this;
     }
 
-    
+    /**
+     * Application which is installed.
+     */
     public Builder app(App app) {
       this.app = app;
       return this;
     }
 
-    
+    /**
+     * Channel associated with the installed application.
+     */
     public Builder channel(Channel channel) {
       this.channel = channel;
       return this;
     }
 
-    
+    /**
+     * Credits that can be used towards future app purchases.
+     */
     public Builder credits(AppCreditConnection credits) {
       this.credits = credits;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The URL to launch the application.
+     */
     public Builder launchUrl(String launchUrl) {
       this.launchUrl = launchUrl;
       return this;
     }
 
-    
+    /**
+     * A [custom field](https://shopify.dev/docs/apps/build/custom-data),
+     * including its `namespace` and `key`, that's associated with a Shopify resource
+     * for the purposes of adding and storing additional information.
+     */
     public Builder metafield(Metafield metafield) {
       this.metafield = metafield;
       return this;
     }
 
-    
+    /**
+     * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
+     * that a merchant associates with a Shopify resource.
+     */
     public Builder metafields(MetafieldConnection metafields) {
       this.metafields = metafields;
       return this;
     }
 
-    
+    /**
+     * One-time purchases to a shop.
+     */
     public Builder oneTimePurchases(AppPurchaseOneTimeConnection oneTimePurchases) {
       this.oneTimePurchases = oneTimePurchases;
       return this;
     }
 
-    
-    public Builder privateMetafield(PrivateMetafield privateMetafield) {
-      this.privateMetafield = privateMetafield;
-      return this;
-    }
-
-    
-    public Builder privateMetafields(PrivateMetafieldConnection privateMetafields) {
-      this.privateMetafields = privateMetafields;
-      return this;
-    }
-
-    
+    /**
+     * The publication associated with the installed application.
+     */
     public Builder publication(Publication publication) {
       this.publication = publication;
       return this;
     }
 
-    
+    /**
+     * The records that track the externally-captured revenue for the app. The records are used for revenue attribution purposes.
+     */
     public Builder revenueAttributionRecords(
         AppRevenueAttributionRecordConnection revenueAttributionRecords) {
       this.revenueAttributionRecords = revenueAttributionRecords;
       return this;
     }
 
-    
+    /**
+     * Subscriptions charge to a shop on a recurring basis.
+     */
     public Builder subscriptions(List<AppSubscription> subscriptions) {
       this.subscriptions = subscriptions;
       return this;
     }
 
-    
+    /**
+     * The URL to uninstall the application.
+     */
     public Builder uninstallUrl(String uninstallUrl) {
       this.uninstallUrl = uninstallUrl;
       return this;

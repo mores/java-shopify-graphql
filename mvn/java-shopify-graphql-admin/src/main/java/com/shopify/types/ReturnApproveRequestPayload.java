@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `returnApproveRequest` mutation.
+ */
 public class ReturnApproveRequestPayload {
-  
+  /**
+   * The approved return.
+   */
   private Return _return;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<ReturnUserError> userErrors;
 
   public ReturnApproveRequestPayload() {
   }
 
-  
+  /**
+   * The approved return.
+   */
   public Return getReturn() {
     return _return;
   }
@@ -26,7 +34,9 @@ public class ReturnApproveRequestPayload {
     this._return = _return;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<ReturnUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class ReturnApproveRequestPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The approved return.
+     */
     private Return _return;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<ReturnUserError> userErrors;
 
     public ReturnApproveRequestPayload build() {
@@ -72,13 +86,17 @@ public class ReturnApproveRequestPayload {
       return result;
     }
 
-    
+    /**
+     * The approved return.
+     */
     public Builder _return(Return _return) {
       this._return = _return;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<ReturnUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

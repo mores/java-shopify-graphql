@@ -6,21 +6,29 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A weight, which includes a numeric value and a unit of measurement.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class Weight implements DeliveryConditionCriteria {
-  
+  /**
+   * The unit of measurement for `value`.
+   */
   private WeightUnit unit;
 
-  
+  /**
+   * The weight value using the unit system specified with `unit`.
+   */
   private double value;
 
   public Weight() {
   }
 
-  
+  /**
+   * The unit of measurement for `value`.
+   */
   public WeightUnit getUnit() {
     return unit;
   }
@@ -29,7 +37,9 @@ public class Weight implements DeliveryConditionCriteria {
     this.unit = unit;
   }
 
-  
+  /**
+   * The weight value using the unit system specified with `unit`.
+   */
   public double getValue() {
     return value;
   }
@@ -62,10 +72,14 @@ public class Weight implements DeliveryConditionCriteria {
   }
 
   public static class Builder {
-    
+    /**
+     * The unit of measurement for `value`.
+     */
     private WeightUnit unit;
 
-    
+    /**
+     * The weight value using the unit system specified with `unit`.
+     */
     private double value;
 
     public Weight build() {
@@ -75,13 +89,17 @@ public class Weight implements DeliveryConditionCriteria {
       return result;
     }
 
-    
+    /**
+     * The unit of measurement for `value`.
+     */
     public Builder unit(WeightUnit unit) {
       this.unit = unit;
       return this;
     }
 
-    
+    /**
+     * The weight value using the unit system specified with `unit`.
+     */
     public Builder value(double value) {
       this.value = value;
       return this;

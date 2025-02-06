@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The app plan that the merchant is subscribed to.
+ */
 public class AppPlanV2 {
-  
+  /**
+   * The plan billed to a shop on a recurring basis.
+   */
   private AppPricingDetails pricingDetails;
 
   public AppPlanV2() {
   }
 
-  
+  /**
+   * The plan billed to a shop on a recurring basis.
+   */
   public AppPricingDetails getPricingDetails() {
     return pricingDetails;
   }
@@ -45,7 +51,9 @@ public class AppPlanV2 {
   }
 
   public static class Builder {
-    
+    /**
+     * The plan billed to a shop on a recurring basis.
+     */
     private AppPricingDetails pricingDetails;
 
     public AppPlanV2 build() {
@@ -54,7 +62,9 @@ public class AppPlanV2 {
       return result;
     }
 
-    
+    /**
+     * The plan billed to a shop on a recurring basis.
+     */
     public Builder pricingDetails(AppPricingDetails pricingDetails) {
       this.pricingDetails = pricingDetails;
       return this;

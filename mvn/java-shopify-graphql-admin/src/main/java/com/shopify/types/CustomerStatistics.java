@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A customer's computed statistics.
+ */
 public class CustomerStatistics {
-  
+  /**
+   * The predicted spend tier of a customer with a shop.
+   */
   private CustomerPredictedSpendTier predictedSpendTier;
 
   public CustomerStatistics() {
   }
 
-  
+  /**
+   * The predicted spend tier of a customer with a shop.
+   */
   public CustomerPredictedSpendTier getPredictedSpendTier() {
     return predictedSpendTier;
   }
@@ -45,7 +51,9 @@ public class CustomerStatistics {
   }
 
   public static class Builder {
-    
+    /**
+     * The predicted spend tier of a customer with a shop.
+     */
     private CustomerPredictedSpendTier predictedSpendTier;
 
     public CustomerStatistics build() {
@@ -54,7 +62,9 @@ public class CustomerStatistics {
       return result;
     }
 
-    
+    /**
+     * The predicted spend tier of a customer with a shop.
+     */
     public Builder predictedSpendTier(CustomerPredictedSpendTier predictedSpendTier) {
       this.predictedSpendTier = predictedSpendTier;
       return this;

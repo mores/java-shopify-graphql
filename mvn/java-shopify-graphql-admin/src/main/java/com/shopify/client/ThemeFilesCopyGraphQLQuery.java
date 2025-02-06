@@ -8,7 +8,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Copy theme files. Copying to existing theme files will overwrite them.
+ */
 public class ThemeFilesCopyGraphQLQuery extends GraphQLQuery {
   public ThemeFilesCopyGraphQLQuery(String themeId, List<ThemeFilesCopyFileInput> files,
       String queryName, Set<String> fieldsSet) {
@@ -47,14 +49,18 @@ public class ThemeFilesCopyGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The theme to update.
+     */
     public Builder themeId(String themeId) {
       this.themeId = themeId;
       this.fieldsSet.add("themeId");
       return this;
     }
 
-    
+    /**
+     * The files to update.
+     */
     public Builder files(List<ThemeFilesCopyFileInput> files) {
       this.files = files;
       this.fieldsSet.add("files");

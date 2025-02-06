@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `marketRegionsDelete` mutation.
+ */
 public class MarketRegionsDeletePayload {
-  
+  /**
+   * The ID of the deleted market region.
+   */
   private List<String> deletedIds;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<MarketUserError> userErrors;
 
   public MarketRegionsDeletePayload() {
   }
 
-  
+  /**
+   * The ID of the deleted market region.
+   */
   public List<String> getDeletedIds() {
     return deletedIds;
   }
@@ -26,7 +34,9 @@ public class MarketRegionsDeletePayload {
     this.deletedIds = deletedIds;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<MarketUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class MarketRegionsDeletePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the deleted market region.
+     */
     private List<String> deletedIds;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<MarketUserError> userErrors;
 
     public MarketRegionsDeletePayload build() {
@@ -72,13 +86,17 @@ public class MarketRegionsDeletePayload {
       return result;
     }
 
-    
+    /**
+     * The ID of the deleted market region.
+     */
     public Builder deletedIds(List<String> deletedIds) {
       this.deletedIds = deletedIds;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<MarketUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

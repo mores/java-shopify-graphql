@@ -7,21 +7,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields for an Android based mobile platform application.
+ */
 public class MobilePlatformApplicationUpdateAndroidInput {
-  
+  /**
+   * Android application ID.
+   */
   private String applicationId;
 
-  
+  /**
+   * The SHA256 fingerprints of the app’s signing certificate.
+   */
   private List<String> sha256CertFingerprints;
 
-  
+  /**
+   * Whether Android App Links are supported by this app.
+   */
   private Boolean appLinksEnabled;
 
   public MobilePlatformApplicationUpdateAndroidInput() {
   }
 
-  
+  /**
+   * Android application ID.
+   */
   public String getApplicationId() {
     return applicationId;
   }
@@ -30,7 +40,9 @@ public class MobilePlatformApplicationUpdateAndroidInput {
     this.applicationId = applicationId;
   }
 
-  
+  /**
+   * The SHA256 fingerprints of the app’s signing certificate.
+   */
   public List<String> getSha256CertFingerprints() {
     return sha256CertFingerprints;
   }
@@ -39,7 +51,9 @@ public class MobilePlatformApplicationUpdateAndroidInput {
     this.sha256CertFingerprints = sha256CertFingerprints;
   }
 
-  
+  /**
+   * Whether Android App Links are supported by this app.
+   */
   public Boolean getAppLinksEnabled() {
     return appLinksEnabled;
   }
@@ -73,13 +87,19 @@ public class MobilePlatformApplicationUpdateAndroidInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Android application ID.
+     */
     private String applicationId;
 
-    
+    /**
+     * The SHA256 fingerprints of the app’s signing certificate.
+     */
     private List<String> sha256CertFingerprints;
 
-    
+    /**
+     * Whether Android App Links are supported by this app.
+     */
     private Boolean appLinksEnabled;
 
     public MobilePlatformApplicationUpdateAndroidInput build() {
@@ -90,19 +110,25 @@ public class MobilePlatformApplicationUpdateAndroidInput {
       return result;
     }
 
-    
+    /**
+     * Android application ID.
+     */
     public Builder applicationId(String applicationId) {
       this.applicationId = applicationId;
       return this;
     }
 
-    
+    /**
+     * The SHA256 fingerprints of the app’s signing certificate.
+     */
     public Builder sha256CertFingerprints(List<String> sha256CertFingerprints) {
       this.sha256CertFingerprints = sha256CertFingerprints;
       return this;
     }
 
-    
+    /**
+     * Whether Android App Links are supported by this app.
+     */
     public Builder appLinksEnabled(Boolean appLinksEnabled) {
       this.appLinksEnabled = appLinksEnabled;
       return this;

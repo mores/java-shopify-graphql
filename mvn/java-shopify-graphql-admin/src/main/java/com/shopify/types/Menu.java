@@ -7,33 +7,49 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * A menu for display on the storefront.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class Menu implements com.shopify.types.HasPublishedTranslations, com.shopify.types.Node {
-  
+  /**
+   * The menus's handle.
+   */
   private String handle;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * Whether the menu is a default. The handle for default menus can't be updated and default menus can't be deleted.
+   */
   private boolean isDefault;
 
-  
+  /**
+   * A list of items on the menu sorted by position.
+   */
   private List<MenuItem> items;
 
-  
+  /**
+   * The menu's title.
+   */
   private String title;
 
-  
+  /**
+   * The published translations associated with the resource.
+   */
   private List<Translation> translations;
 
   public Menu() {
   }
 
-  
+  /**
+   * The menus's handle.
+   */
   public String getHandle() {
     return handle;
   }
@@ -42,7 +58,9 @@ public class Menu implements com.shopify.types.HasPublishedTranslations, com.sho
     this.handle = handle;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -51,7 +69,9 @@ public class Menu implements com.shopify.types.HasPublishedTranslations, com.sho
     this.id = id;
   }
 
-  
+  /**
+   * Whether the menu is a default. The handle for default menus can't be updated and default menus can't be deleted.
+   */
   public boolean getIsDefault() {
     return isDefault;
   }
@@ -60,7 +80,9 @@ public class Menu implements com.shopify.types.HasPublishedTranslations, com.sho
     this.isDefault = isDefault;
   }
 
-  
+  /**
+   * A list of items on the menu sorted by position.
+   */
   public List<MenuItem> getItems() {
     return items;
   }
@@ -69,7 +91,9 @@ public class Menu implements com.shopify.types.HasPublishedTranslations, com.sho
     this.items = items;
   }
 
-  
+  /**
+   * The menu's title.
+   */
   public String getTitle() {
     return title;
   }
@@ -78,7 +102,9 @@ public class Menu implements com.shopify.types.HasPublishedTranslations, com.sho
     this.title = title;
   }
 
-  
+  /**
+   * The published translations associated with the resource.
+   */
   public List<Translation> getTranslations() {
     return translations;
   }
@@ -115,22 +141,34 @@ public class Menu implements com.shopify.types.HasPublishedTranslations, com.sho
   }
 
   public static class Builder {
-    
+    /**
+     * The menus's handle.
+     */
     private String handle;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * Whether the menu is a default. The handle for default menus can't be updated and default menus can't be deleted.
+     */
     private boolean isDefault;
 
-    
+    /**
+     * A list of items on the menu sorted by position.
+     */
     private List<MenuItem> items;
 
-    
+    /**
+     * The menu's title.
+     */
     private String title;
 
-    
+    /**
+     * The published translations associated with the resource.
+     */
     private List<Translation> translations;
 
     public Menu build() {
@@ -144,37 +182,49 @@ public class Menu implements com.shopify.types.HasPublishedTranslations, com.sho
       return result;
     }
 
-    
+    /**
+     * The menus's handle.
+     */
     public Builder handle(String handle) {
       this.handle = handle;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * Whether the menu is a default. The handle for default menus can't be updated and default menus can't be deleted.
+     */
     public Builder isDefault(boolean isDefault) {
       this.isDefault = isDefault;
       return this;
     }
 
-    
+    /**
+     * A list of items on the menu sorted by position.
+     */
     public Builder items(List<MenuItem> items) {
       this.items = items;
       return this;
     }
 
-    
+    /**
+     * The menu's title.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    
+    /**
+     * The published translations associated with the resource.
+     */
     public Builder translations(List<Translation> translations) {
       this.translations = translations;
       return this;

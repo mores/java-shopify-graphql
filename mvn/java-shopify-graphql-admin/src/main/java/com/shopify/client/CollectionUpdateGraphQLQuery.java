@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Updates a collection.
+ */
 public class CollectionUpdateGraphQLQuery extends GraphQLQuery {
   public CollectionUpdateGraphQLQuery(CollectionInput input, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class CollectionUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The updated properties for the collection.
+     */
     public Builder input(CollectionInput input) {
       this.input = input;
       this.fieldsSet.add("input");

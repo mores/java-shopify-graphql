@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Possible error codes that can be returned by `OrderCreateUserError`.
+ */
 public enum OrderCreateUserErrorCode {
   INVALID,
 
@@ -10,5 +12,9 @@ public enum OrderCreateUserErrorCode {
 
   PROCESSED_AT_INVALID,
 
-  TAX_LINE_RATE_MISSING
+  TAX_LINE_RATE_MISSING,
+
+  REDUNDANT_CUSTOMER_FIELDS,
+
+  SHOP_DORMANT
 }

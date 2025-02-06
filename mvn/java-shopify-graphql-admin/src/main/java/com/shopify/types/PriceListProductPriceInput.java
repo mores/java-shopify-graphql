@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields representing the price for all variants of a product.
+ */
 public class PriceListProductPriceInput {
-  
+  /**
+   * Specifies the ID of the product to update its variants for.
+   */
   private String productId;
 
-  
+  /**
+   * The price of the product to use for all variants with its currency.
+   */
   private MoneyInput price;
 
   public PriceListProductPriceInput() {
   }
 
-  
+  /**
+   * Specifies the ID of the product to update its variants for.
+   */
   public String getProductId() {
     return productId;
   }
@@ -25,7 +33,9 @@ public class PriceListProductPriceInput {
     this.productId = productId;
   }
 
-  
+  /**
+   * The price of the product to use for all variants with its currency.
+   */
   public MoneyInput getPrice() {
     return price;
   }
@@ -58,10 +68,14 @@ public class PriceListProductPriceInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Specifies the ID of the product to update its variants for.
+     */
     private String productId;
 
-    
+    /**
+     * The price of the product to use for all variants with its currency.
+     */
     private MoneyInput price;
 
     public PriceListProductPriceInput build() {
@@ -71,13 +85,17 @@ public class PriceListProductPriceInput {
       return result;
     }
 
-    
+    /**
+     * Specifies the ID of the product to update its variants for.
+     */
     public Builder productId(String productId) {
       this.productId = productId;
       return this;
     }
 
-    
+    /**
+     * The price of the product to use for all variants with its currency.
+     */
     public Builder price(MoneyInput price) {
       this.price = price;
       return this;

@@ -73,11 +73,6 @@ public class ShopifyPaymentsBankAccountProjection<PARENT extends BaseSubProjecti
      return projection;
   }
 
-  public ShopifyPaymentsBankAccountProjection<PARENT, ROOT> accountNumber() {
-    getFields().put("accountNumber", null);
-    return this;
-  }
-
   public ShopifyPaymentsBankAccountProjection<PARENT, ROOT> accountNumberLastDigits() {
     getFields().put("accountNumberLastDigits", null);
     return this;
@@ -95,11 +90,6 @@ public class ShopifyPaymentsBankAccountProjection<PARENT extends BaseSubProjecti
 
   public ShopifyPaymentsBankAccountProjection<PARENT, ROOT> id() {
     getFields().put("id", null);
-    return this;
-  }
-
-  public ShopifyPaymentsBankAccountProjection<PARENT, ROOT> routingNumber() {
-    getFields().put("routingNumber", null);
     return this;
   }
 }

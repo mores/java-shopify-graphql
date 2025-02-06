@@ -5,27 +5,43 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Represents a set of UTM parameters.
+ */
 public class UTMParameters {
-  
+  /**
+   * The name of a marketing campaign.
+   */
   private String campaign;
 
-  
+  /**
+   * Identifies specific content in a marketing campaign. Used to differentiate
+   * between similar content or links in a marketing campaign to determine which is
+   * the most effective.
+   */
   private String content;
 
-  
+  /**
+   * The medium of a marketing campaign, such as a banner or email newsletter.
+   */
   private String medium;
 
-  
+  /**
+   * The source of traffic to the merchant's store, such as Google or an email newsletter.
+   */
   private String source;
 
-  
+  /**
+   * Paid search terms used by a marketing campaign.
+   */
   private String term;
 
   public UTMParameters() {
   }
 
-  
+  /**
+   * The name of a marketing campaign.
+   */
   public String getCampaign() {
     return campaign;
   }
@@ -34,7 +50,11 @@ public class UTMParameters {
     this.campaign = campaign;
   }
 
-  
+  /**
+   * Identifies specific content in a marketing campaign. Used to differentiate
+   * between similar content or links in a marketing campaign to determine which is
+   * the most effective.
+   */
   public String getContent() {
     return content;
   }
@@ -43,7 +63,9 @@ public class UTMParameters {
     this.content = content;
   }
 
-  
+  /**
+   * The medium of a marketing campaign, such as a banner or email newsletter.
+   */
   public String getMedium() {
     return medium;
   }
@@ -52,7 +74,9 @@ public class UTMParameters {
     this.medium = medium;
   }
 
-  
+  /**
+   * The source of traffic to the merchant's store, such as Google or an email newsletter.
+   */
   public String getSource() {
     return source;
   }
@@ -61,7 +85,9 @@ public class UTMParameters {
     this.source = source;
   }
 
-  
+  /**
+   * Paid search terms used by a marketing campaign.
+   */
   public String getTerm() {
     return term;
   }
@@ -97,19 +123,31 @@ public class UTMParameters {
   }
 
   public static class Builder {
-    
+    /**
+     * The name of a marketing campaign.
+     */
     private String campaign;
 
-    
+    /**
+     * Identifies specific content in a marketing campaign. Used to differentiate
+     * between similar content or links in a marketing campaign to determine which is
+     * the most effective.
+     */
     private String content;
 
-    
+    /**
+     * The medium of a marketing campaign, such as a banner or email newsletter.
+     */
     private String medium;
 
-    
+    /**
+     * The source of traffic to the merchant's store, such as Google or an email newsletter.
+     */
     private String source;
 
-    
+    /**
+     * Paid search terms used by a marketing campaign.
+     */
     private String term;
 
     public UTMParameters build() {
@@ -122,31 +160,43 @@ public class UTMParameters {
       return result;
     }
 
-    
+    /**
+     * The name of a marketing campaign.
+     */
     public Builder campaign(String campaign) {
       this.campaign = campaign;
       return this;
     }
 
-    
+    /**
+     * Identifies specific content in a marketing campaign. Used to differentiate
+     * between similar content or links in a marketing campaign to determine which is
+     * the most effective.
+     */
     public Builder content(String content) {
       this.content = content;
       return this;
     }
 
-    
+    /**
+     * The medium of a marketing campaign, such as a banner or email newsletter.
+     */
     public Builder medium(String medium) {
       this.medium = medium;
       return this;
     }
 
-    
+    /**
+     * The source of traffic to the merchant's store, such as Google or an email newsletter.
+     */
     public Builder source(String source) {
       this.source = source;
       return this;
     }
 
-    
+    /**
+     * Paid search terms used by a marketing campaign.
+     */
     public Builder term(String term) {
       this.term = term;
       return this;

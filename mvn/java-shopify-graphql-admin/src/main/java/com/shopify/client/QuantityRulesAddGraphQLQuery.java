@@ -8,7 +8,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Creates or updates existing quantity rules on a price list.
+ * You can use the `quantityRulesAdd` mutation to set order level minimums,
+ * maximumums and increments for specific product variants.
+ */
 public class QuantityRulesAddGraphQLQuery extends GraphQLQuery {
   public QuantityRulesAddGraphQLQuery(String priceListId, List<QuantityRuleInput> quantityRules,
       String queryName, Set<String> fieldsSet) {
@@ -47,14 +51,18 @@ public class QuantityRulesAddGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the price list to which the quantity rules will be added or updated.
+     */
     public Builder priceListId(String priceListId) {
       this.priceListId = priceListId;
       this.fieldsSet.add("priceListId");
       return this;
     }
 
-    
+    /**
+     * The list of quantity rules to add or update in the price list.
+     */
     public Builder quantityRules(List<QuantityRuleInput> quantityRules) {
       this.quantityRules = quantityRules;
       this.fieldsSet.add("quantityRules");

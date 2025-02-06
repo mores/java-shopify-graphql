@@ -5,33 +5,54 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A set of colors for customizing the overall look and feel of the checkout.
+ */
 public class CheckoutBrandingColorGlobal {
-  
+  /**
+   * A color used for interaction, like links and focus states.
+   */
   private String accent;
 
-  
+  /**
+   * A color that's strongly associated with the merchant. Currently used for
+   * primary buttons, for example **Pay now**, and secondary buttons, for example **Buy again**.
+   */
   private String brand;
 
-  
+  /**
+   * A semantic color used for components that communicate critical content. For
+   * example, a blocking error such as the requirement to enter a valid credit card number.
+   */
   private String critical;
 
-  
+  /**
+   * A color used to highlight certain areas of the user interface. For example, the [`Text`](https://shopify.dev/docs/api/checkout-ui-extensions/latest/components/titles-and-text/text#textprops-propertydetail-appearance) component.
+   */
   private String decorative;
 
-  
+  /**
+   * A semantic color used for components that communicate general, informative content.
+   */
   private String info;
 
-  
+  /**
+   * A semantic color used for components that communicate successful actions or a positive state.
+   */
   private String success;
 
-  
+  /**
+   * A semantic color used for components that display content that requires
+   * attention. For example, something that might be wrong, but not blocking.
+   */
   private String warning;
 
   public CheckoutBrandingColorGlobal() {
   }
 
-  
+  /**
+   * A color used for interaction, like links and focus states.
+   */
   public String getAccent() {
     return accent;
   }
@@ -40,7 +61,10 @@ public class CheckoutBrandingColorGlobal {
     this.accent = accent;
   }
 
-  
+  /**
+   * A color that's strongly associated with the merchant. Currently used for
+   * primary buttons, for example **Pay now**, and secondary buttons, for example **Buy again**.
+   */
   public String getBrand() {
     return brand;
   }
@@ -49,7 +73,10 @@ public class CheckoutBrandingColorGlobal {
     this.brand = brand;
   }
 
-  
+  /**
+   * A semantic color used for components that communicate critical content. For
+   * example, a blocking error such as the requirement to enter a valid credit card number.
+   */
   public String getCritical() {
     return critical;
   }
@@ -58,7 +85,9 @@ public class CheckoutBrandingColorGlobal {
     this.critical = critical;
   }
 
-  
+  /**
+   * A color used to highlight certain areas of the user interface. For example, the [`Text`](https://shopify.dev/docs/api/checkout-ui-extensions/latest/components/titles-and-text/text#textprops-propertydetail-appearance) component.
+   */
   public String getDecorative() {
     return decorative;
   }
@@ -67,7 +96,9 @@ public class CheckoutBrandingColorGlobal {
     this.decorative = decorative;
   }
 
-  
+  /**
+   * A semantic color used for components that communicate general, informative content.
+   */
   public String getInfo() {
     return info;
   }
@@ -76,7 +107,9 @@ public class CheckoutBrandingColorGlobal {
     this.info = info;
   }
 
-  
+  /**
+   * A semantic color used for components that communicate successful actions or a positive state.
+   */
   public String getSuccess() {
     return success;
   }
@@ -85,7 +118,10 @@ public class CheckoutBrandingColorGlobal {
     this.success = success;
   }
 
-  
+  /**
+   * A semantic color used for components that display content that requires
+   * attention. For example, something that might be wrong, but not blocking.
+   */
   public String getWarning() {
     return warning;
   }
@@ -123,25 +159,42 @@ public class CheckoutBrandingColorGlobal {
   }
 
   public static class Builder {
-    
+    /**
+     * A color used for interaction, like links and focus states.
+     */
     private String accent;
 
-    
+    /**
+     * A color that's strongly associated with the merchant. Currently used for
+     * primary buttons, for example **Pay now**, and secondary buttons, for example **Buy again**.
+     */
     private String brand;
 
-    
+    /**
+     * A semantic color used for components that communicate critical content. For
+     * example, a blocking error such as the requirement to enter a valid credit card number.
+     */
     private String critical;
 
-    
+    /**
+     * A color used to highlight certain areas of the user interface. For example, the [`Text`](https://shopify.dev/docs/api/checkout-ui-extensions/latest/components/titles-and-text/text#textprops-propertydetail-appearance) component.
+     */
     private String decorative;
 
-    
+    /**
+     * A semantic color used for components that communicate general, informative content.
+     */
     private String info;
 
-    
+    /**
+     * A semantic color used for components that communicate successful actions or a positive state.
+     */
     private String success;
 
-    
+    /**
+     * A semantic color used for components that display content that requires
+     * attention. For example, something that might be wrong, but not blocking.
+     */
     private String warning;
 
     public CheckoutBrandingColorGlobal build() {
@@ -156,43 +209,60 @@ public class CheckoutBrandingColorGlobal {
       return result;
     }
 
-    
+    /**
+     * A color used for interaction, like links and focus states.
+     */
     public Builder accent(String accent) {
       this.accent = accent;
       return this;
     }
 
-    
+    /**
+     * A color that's strongly associated with the merchant. Currently used for
+     * primary buttons, for example **Pay now**, and secondary buttons, for example **Buy again**.
+     */
     public Builder brand(String brand) {
       this.brand = brand;
       return this;
     }
 
-    
+    /**
+     * A semantic color used for components that communicate critical content. For
+     * example, a blocking error such as the requirement to enter a valid credit card number.
+     */
     public Builder critical(String critical) {
       this.critical = critical;
       return this;
     }
 
-    
+    /**
+     * A color used to highlight certain areas of the user interface. For example, the [`Text`](https://shopify.dev/docs/api/checkout-ui-extensions/latest/components/titles-and-text/text#textprops-propertydetail-appearance) component.
+     */
     public Builder decorative(String decorative) {
       this.decorative = decorative;
       return this;
     }
 
-    
+    /**
+     * A semantic color used for components that communicate general, informative content.
+     */
     public Builder info(String info) {
       this.info = info;
       return this;
     }
 
-    
+    /**
+     * A semantic color used for components that communicate successful actions or a positive state.
+     */
     public Builder success(String success) {
       this.success = success;
       return this;
     }
 
-    
+    /**
+     * A semantic color used for components that display content that requires
+     * attention. For example, something that might be wrong, but not blocking.
+     */
     public Builder warning(String warning) {
       this.warning = warning;
       return this;

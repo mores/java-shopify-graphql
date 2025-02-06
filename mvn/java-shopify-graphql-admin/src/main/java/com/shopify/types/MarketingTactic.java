@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * The available types of tactics for a marketing activity.
+ */
 public enum MarketingTactic {
   ABANDONED_CART,
 

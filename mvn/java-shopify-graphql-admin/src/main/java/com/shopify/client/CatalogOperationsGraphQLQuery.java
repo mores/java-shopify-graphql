@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Returns the most recent catalog operations for the shop.
+ */
 public class CatalogOperationsGraphQLQuery extends GraphQLQuery {
   public CatalogOperationsGraphQLQuery(String queryName) {
     super("query", queryName);

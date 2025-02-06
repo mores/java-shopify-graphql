@@ -7,7 +7,13 @@ import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Reschedules a scheduled fulfillment order.
+ *   
+ * Updates the value of the `fulfillAt` field on a scheduled fulfillment order.
+ *   
+ * The fulfillment order will be marked as ready for fulfillment at this date and time.
+ */
 public class FulfillmentOrderRescheduleGraphQLQuery extends GraphQLQuery {
   public FulfillmentOrderRescheduleGraphQLQuery(String id, OffsetDateTime fulfillAt,
       String queryName, Set<String> fieldsSet) {
@@ -46,14 +52,18 @@ public class FulfillmentOrderRescheduleGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the fulfillment order to reschedule.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    
+    /**
+     * A future date and time when the fulfillment order will be marked as ready for fulfillment.
+     */
     public Builder fulfillAt(OffsetDateTime fulfillAt) {
       this.fulfillAt = fulfillAt;
       this.fieldsSet.add("fulfillAt");

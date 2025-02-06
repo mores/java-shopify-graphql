@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Possible error codes that can be returned by `DisputeEvidenceUpdateUserError`.
+ */
 public enum DisputeEvidenceUpdateUserErrorCode {
   DISPUTE_EVIDENCE_NOT_FOUND,
 

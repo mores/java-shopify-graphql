@@ -5,48 +5,76 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A line item that's included in a refund.
+ */
 public class RefundLineItem {
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The `LineItem` resource associated to the refunded line item.
+   */
   private LineItem lineItem;
 
-  
+  /**
+   * The inventory restock location.
+   */
   private Location location;
 
-  
+  /**
+   * The price of a refunded line item.
+   */
   private String price;
 
-  
+  /**
+   * The price of a refunded line item in shop and presentment currencies.
+   */
   private MoneyBag priceSet;
 
-  
+  /**
+   * The quantity of a refunded line item.
+   */
   private int quantity;
 
-  
+  /**
+   * The type of restock for the refunded line item.
+   */
   private RefundLineItemRestockType restockType;
 
-  
+  /**
+   * Whether the refunded line item was restocked. Not applicable in the context of a SuggestedRefund.
+   */
   private boolean restocked;
 
-  
+  /**
+   * The subtotal price of a refunded line item.
+   */
   private String subtotal;
 
-  
+  /**
+   * The subtotal price of a refunded line item in shop and presentment currencies.
+   */
   private MoneyBag subtotalSet;
 
-  
+  /**
+   * The total tax charged on a refunded line item.
+   */
   private String totalTax;
 
-  
+  /**
+   * The total tax charged on a refunded line item in shop and presentment currencies.
+   */
   private MoneyBag totalTaxSet;
 
   public RefundLineItem() {
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -55,7 +83,9 @@ public class RefundLineItem {
     this.id = id;
   }
 
-  
+  /**
+   * The `LineItem` resource associated to the refunded line item.
+   */
   public LineItem getLineItem() {
     return lineItem;
   }
@@ -64,7 +94,9 @@ public class RefundLineItem {
     this.lineItem = lineItem;
   }
 
-  
+  /**
+   * The inventory restock location.
+   */
   public Location getLocation() {
     return location;
   }
@@ -73,7 +105,9 @@ public class RefundLineItem {
     this.location = location;
   }
 
-  
+  /**
+   * The price of a refunded line item.
+   */
   public String getPrice() {
     return price;
   }
@@ -82,7 +116,9 @@ public class RefundLineItem {
     this.price = price;
   }
 
-  
+  /**
+   * The price of a refunded line item in shop and presentment currencies.
+   */
   public MoneyBag getPriceSet() {
     return priceSet;
   }
@@ -91,7 +127,9 @@ public class RefundLineItem {
     this.priceSet = priceSet;
   }
 
-  
+  /**
+   * The quantity of a refunded line item.
+   */
   public int getQuantity() {
     return quantity;
   }
@@ -100,7 +138,9 @@ public class RefundLineItem {
     this.quantity = quantity;
   }
 
-  
+  /**
+   * The type of restock for the refunded line item.
+   */
   public RefundLineItemRestockType getRestockType() {
     return restockType;
   }
@@ -109,7 +149,9 @@ public class RefundLineItem {
     this.restockType = restockType;
   }
 
-  
+  /**
+   * Whether the refunded line item was restocked. Not applicable in the context of a SuggestedRefund.
+   */
   public boolean getRestocked() {
     return restocked;
   }
@@ -118,7 +160,9 @@ public class RefundLineItem {
     this.restocked = restocked;
   }
 
-  
+  /**
+   * The subtotal price of a refunded line item.
+   */
   public String getSubtotal() {
     return subtotal;
   }
@@ -127,7 +171,9 @@ public class RefundLineItem {
     this.subtotal = subtotal;
   }
 
-  
+  /**
+   * The subtotal price of a refunded line item in shop and presentment currencies.
+   */
   public MoneyBag getSubtotalSet() {
     return subtotalSet;
   }
@@ -136,7 +182,9 @@ public class RefundLineItem {
     this.subtotalSet = subtotalSet;
   }
 
-  
+  /**
+   * The total tax charged on a refunded line item.
+   */
   public String getTotalTax() {
     return totalTax;
   }
@@ -145,7 +193,9 @@ public class RefundLineItem {
     this.totalTax = totalTax;
   }
 
-  
+  /**
+   * The total tax charged on a refunded line item in shop and presentment currencies.
+   */
   public MoneyBag getTotalTaxSet() {
     return totalTaxSet;
   }
@@ -188,40 +238,64 @@ public class RefundLineItem {
   }
 
   public static class Builder {
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The `LineItem` resource associated to the refunded line item.
+     */
     private LineItem lineItem;
 
-    
+    /**
+     * The inventory restock location.
+     */
     private Location location;
 
-    
+    /**
+     * The price of a refunded line item.
+     */
     private String price;
 
-    
+    /**
+     * The price of a refunded line item in shop and presentment currencies.
+     */
     private MoneyBag priceSet;
 
-    
+    /**
+     * The quantity of a refunded line item.
+     */
     private int quantity;
 
-    
+    /**
+     * The type of restock for the refunded line item.
+     */
     private RefundLineItemRestockType restockType;
 
-    
+    /**
+     * Whether the refunded line item was restocked. Not applicable in the context of a SuggestedRefund.
+     */
     private boolean restocked;
 
-    
+    /**
+     * The subtotal price of a refunded line item.
+     */
     private String subtotal;
 
-    
+    /**
+     * The subtotal price of a refunded line item in shop and presentment currencies.
+     */
     private MoneyBag subtotalSet;
 
-    
+    /**
+     * The total tax charged on a refunded line item.
+     */
     private String totalTax;
 
-    
+    /**
+     * The total tax charged on a refunded line item in shop and presentment currencies.
+     */
     private MoneyBag totalTaxSet;
 
     public RefundLineItem build() {
@@ -241,73 +315,97 @@ public class RefundLineItem {
       return result;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The `LineItem` resource associated to the refunded line item.
+     */
     public Builder lineItem(LineItem lineItem) {
       this.lineItem = lineItem;
       return this;
     }
 
-    
+    /**
+     * The inventory restock location.
+     */
     public Builder location(Location location) {
       this.location = location;
       return this;
     }
 
-    
+    /**
+     * The price of a refunded line item.
+     */
     public Builder price(String price) {
       this.price = price;
       return this;
     }
 
-    
+    /**
+     * The price of a refunded line item in shop and presentment currencies.
+     */
     public Builder priceSet(MoneyBag priceSet) {
       this.priceSet = priceSet;
       return this;
     }
 
-    
+    /**
+     * The quantity of a refunded line item.
+     */
     public Builder quantity(int quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    
+    /**
+     * The type of restock for the refunded line item.
+     */
     public Builder restockType(RefundLineItemRestockType restockType) {
       this.restockType = restockType;
       return this;
     }
 
-    
+    /**
+     * Whether the refunded line item was restocked. Not applicable in the context of a SuggestedRefund.
+     */
     public Builder restocked(boolean restocked) {
       this.restocked = restocked;
       return this;
     }
 
-    
+    /**
+     * The subtotal price of a refunded line item.
+     */
     public Builder subtotal(String subtotal) {
       this.subtotal = subtotal;
       return this;
     }
 
-    
+    /**
+     * The subtotal price of a refunded line item in shop and presentment currencies.
+     */
     public Builder subtotalSet(MoneyBag subtotalSet) {
       this.subtotalSet = subtotalSet;
       return this;
     }
 
-    
+    /**
+     * The total tax charged on a refunded line item.
+     */
     public Builder totalTax(String totalTax) {
       this.totalTax = totalTax;
       return this;
     }
 
-    
+    /**
+     * The total tax charged on a refunded line item in shop and presentment currencies.
+     */
     public Builder totalTaxSet(MoneyBag totalTaxSet) {
       this.totalTaxSet = totalTaxSet;
       return this;

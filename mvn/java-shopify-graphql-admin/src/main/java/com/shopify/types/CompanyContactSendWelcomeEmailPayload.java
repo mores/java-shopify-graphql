@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `companyContactSendWelcomeEmail` mutation.
+ */
 public class CompanyContactSendWelcomeEmailPayload {
-  
+  /**
+   * The company contact to whom a welcome email was sent.
+   */
   private CompanyContact companyContact;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<BusinessCustomerUserError> userErrors;
 
   public CompanyContactSendWelcomeEmailPayload() {
   }
 
-  
+  /**
+   * The company contact to whom a welcome email was sent.
+   */
   public CompanyContact getCompanyContact() {
     return companyContact;
   }
@@ -26,7 +34,9 @@ public class CompanyContactSendWelcomeEmailPayload {
     this.companyContact = companyContact;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<BusinessCustomerUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class CompanyContactSendWelcomeEmailPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The company contact to whom a welcome email was sent.
+     */
     private CompanyContact companyContact;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<BusinessCustomerUserError> userErrors;
 
     public CompanyContactSendWelcomeEmailPayload build() {
@@ -72,13 +86,17 @@ public class CompanyContactSendWelcomeEmailPayload {
       return result;
     }
 
-    
+    /**
+     * The company contact to whom a welcome email was sent.
+     */
     public Builder companyContact(CompanyContact companyContact) {
       this.companyContact = companyContact;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<BusinessCustomerUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

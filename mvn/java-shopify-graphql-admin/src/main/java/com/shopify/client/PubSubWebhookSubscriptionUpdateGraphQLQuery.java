@@ -7,7 +7,15 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Updates a Google Cloud Pub/Sub webhook subscription.
+ *   
+ * Building an app? If you only use app-specific webhooks, you won't need this.
+ * App-specific webhook subscriptions specified in your `shopify.app.toml` may be
+ * easier. They are automatically kept up to date by Shopify &amp; require less
+ * maintenance. Please read [About managing webhook
+ * subscriptions](https://shopify.dev/docs/apps/build/webhooks/subscribe).
+ */
 public class PubSubWebhookSubscriptionUpdateGraphQLQuery extends GraphQLQuery {
   public PubSubWebhookSubscriptionUpdateGraphQLQuery(String id,
       PubSubWebhookSubscriptionInput webhookSubscription, String queryName, Set<String> fieldsSet) {
@@ -46,14 +54,18 @@ public class PubSubWebhookSubscriptionUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the webhook subscription to update.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    
+    /**
+     * Specifies the input fields for a Google Cloud Pub/Sub webhook subscription.
+     */
     public Builder webhookSubscription(PubSubWebhookSubscriptionInput webhookSubscription) {
       this.webhookSubscription = webhookSubscription;
       this.fieldsSet.add("webhookSubscription");

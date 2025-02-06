@@ -6,18 +6,34 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields to create payment terms. Payment terms set the date that payment is due.
+ */
 public class PaymentTermsInput {
-  
+  /**
+   * Specifies the ID of the payment terms template.
+   *         Payment terms templates provide preset configurations to create common payment terms.
+   *         Refer to the
+   *         [PaymentTermsTemplate](https://shopify.dev/api/admin-graphql/latest/objects/paymenttermstemplate)
+   *         object for more details.
+   */
   private String paymentTermsTemplateId;
 
-  
+  /**
+   * Specifies the payment schedules for the payment terms.
+   */
   private List<PaymentScheduleInput> paymentSchedules;
 
   public PaymentTermsInput() {
   }
 
-  
+  /**
+   * Specifies the ID of the payment terms template.
+   *         Payment terms templates provide preset configurations to create common payment terms.
+   *         Refer to the
+   *         [PaymentTermsTemplate](https://shopify.dev/api/admin-graphql/latest/objects/paymenttermstemplate)
+   *         object for more details.
+   */
   public String getPaymentTermsTemplateId() {
     return paymentTermsTemplateId;
   }
@@ -26,7 +42,9 @@ public class PaymentTermsInput {
     this.paymentTermsTemplateId = paymentTermsTemplateId;
   }
 
-  
+  /**
+   * Specifies the payment schedules for the payment terms.
+   */
   public List<PaymentScheduleInput> getPaymentSchedules() {
     return paymentSchedules;
   }
@@ -59,10 +77,18 @@ public class PaymentTermsInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Specifies the ID of the payment terms template.
+     *         Payment terms templates provide preset configurations to create common payment terms.
+     *         Refer to the
+     *         [PaymentTermsTemplate](https://shopify.dev/api/admin-graphql/latest/objects/paymenttermstemplate)
+     *         object for more details.
+     */
     private String paymentTermsTemplateId;
 
-    
+    /**
+     * Specifies the payment schedules for the payment terms.
+     */
     private List<PaymentScheduleInput> paymentSchedules;
 
     public PaymentTermsInput build() {
@@ -72,13 +98,21 @@ public class PaymentTermsInput {
       return result;
     }
 
-    
+    /**
+     * Specifies the ID of the payment terms template.
+     *         Payment terms templates provide preset configurations to create common payment terms.
+     *         Refer to the
+     *         [PaymentTermsTemplate](https://shopify.dev/api/admin-graphql/latest/objects/paymenttermstemplate)
+     *         object for more details.
+     */
     public Builder paymentTermsTemplateId(String paymentTermsTemplateId) {
       this.paymentTermsTemplateId = paymentTermsTemplateId;
       return this;
     }
 
-    
+    /**
+     * Specifies the payment schedules for the payment terms.
+     */
     public Builder paymentSchedules(List<PaymentScheduleInput> paymentSchedules) {
       this.paymentSchedules = paymentSchedules;
       return this;

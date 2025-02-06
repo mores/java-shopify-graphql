@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The selling plan inventory policy.
+ */
 public class SellingPlanInventoryPolicy {
-  
+  /**
+   * When to reserve inventory for the order.
+   */
   private SellingPlanReserve reserve;
 
   public SellingPlanInventoryPolicy() {
   }
 
-  
+  /**
+   * When to reserve inventory for the order.
+   */
   public SellingPlanReserve getReserve() {
     return reserve;
   }
@@ -45,7 +51,9 @@ public class SellingPlanInventoryPolicy {
   }
 
   public static class Builder {
-    
+    /**
+     * When to reserve inventory for the order.
+     */
     private SellingPlanReserve reserve;
 
     public SellingPlanInventoryPolicy build() {
@@ -54,7 +62,9 @@ public class SellingPlanInventoryPolicy {
       return result;
     }
 
-    
+    /**
+     * When to reserve inventory for the order.
+     */
     public Builder reserve(SellingPlanReserve reserve) {
       this.reserve = reserve;
       return this;

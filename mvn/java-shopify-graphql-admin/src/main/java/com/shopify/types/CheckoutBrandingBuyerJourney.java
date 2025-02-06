@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The customizations for the breadcrumbs that represent a buyer's journey to the checkout.
+ */
 public class CheckoutBrandingBuyerJourney {
-  
+  /**
+   * An option to display or hide the breadcrumbs that represent the buyer's journey on 3-page checkout.
+   */
   private CheckoutBrandingVisibility visibility;
 
   public CheckoutBrandingBuyerJourney() {
   }
 
-  
+  /**
+   * An option to display or hide the breadcrumbs that represent the buyer's journey on 3-page checkout.
+   */
   public CheckoutBrandingVisibility getVisibility() {
     return visibility;
   }
@@ -45,7 +51,9 @@ public class CheckoutBrandingBuyerJourney {
   }
 
   public static class Builder {
-    
+    /**
+     * An option to display or hide the breadcrumbs that represent the buyer's journey on 3-page checkout.
+     */
     private CheckoutBrandingVisibility visibility;
 
     public CheckoutBrandingBuyerJourney build() {
@@ -54,7 +62,9 @@ public class CheckoutBrandingBuyerJourney {
       return result;
     }
 
-    
+    /**
+     * An option to display or hide the breadcrumbs that represent the buyer's journey on 3-page checkout.
+     */
     public Builder visibility(CheckoutBrandingVisibility visibility) {
       this.visibility = visibility;
       return this;

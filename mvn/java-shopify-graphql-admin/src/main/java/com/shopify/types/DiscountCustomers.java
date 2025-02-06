@@ -7,18 +7,24 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * A list of customers eligible for the discount.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class DiscountCustomers implements DiscountCustomerSelection {
-  
+  /**
+   * The list of customers eligible for the discount.
+   */
   private List<Customer> customers;
 
   public DiscountCustomers() {
   }
 
-  
+  /**
+   * The list of customers eligible for the discount.
+   */
   public List<Customer> getCustomers() {
     return customers;
   }
@@ -50,7 +56,9 @@ public class DiscountCustomers implements DiscountCustomerSelection {
   }
 
   public static class Builder {
-    
+    /**
+     * The list of customers eligible for the discount.
+     */
     private List<Customer> customers;
 
     public DiscountCustomers build() {
@@ -59,7 +67,9 @@ public class DiscountCustomers implements DiscountCustomerSelection {
       return result;
     }
 
-    
+    /**
+     * The list of customers eligible for the discount.
+     */
     public Builder customers(List<Customer> customers) {
       this.customers = customers;
       return this;

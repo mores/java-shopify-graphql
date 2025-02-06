@@ -92,6 +92,12 @@ public class DraftOrderLineItemProjection<PARENT extends BaseSubProjectionNode<?
      return projection;
   }
 
+  public MoneyV2Projection<DraftOrderLineItemProjection<PARENT, ROOT>, ROOT> priceOverride() {
+     MoneyV2Projection<DraftOrderLineItemProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());
+     getFields().put("priceOverride", projection);
+     return projection;
+  }
+
   public ProductProjection<DraftOrderLineItemProjection<PARENT, ROOT>, ROOT> product() {
      ProductProjection<DraftOrderLineItemProjection<PARENT, ROOT>, ROOT> projection = new ProductProjection<>(this, getRoot());
      getFields().put("product", projection);

@@ -6,7 +6,11 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Triggers any workflows that begin with the trigger specified in the request
+ * body. To learn more, refer to [_Create Shopify Flow
+ * triggers_](https://shopify.dev/apps/flow/triggers).
+ */
 public class FlowTriggerReceiveGraphQLQuery extends GraphQLQuery {
   public FlowTriggerReceiveGraphQLQuery(String handle, String payload, String queryName,
       Set<String> fieldsSet) {
@@ -45,14 +49,18 @@ public class FlowTriggerReceiveGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The handle of the trigger.
+     */
     public Builder handle(String handle) {
       this.handle = handle;
       this.fieldsSet.add("handle");
       return this;
     }
 
-    
+    /**
+     * The payload needed to run the Trigger.
+     */
     public Builder payload(String payload) {
       this.payload = payload;
       this.fieldsSet.add("payload");

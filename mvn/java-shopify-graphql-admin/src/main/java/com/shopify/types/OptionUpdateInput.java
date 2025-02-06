@@ -6,24 +6,36 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for updating a product option.
+ */
 public class OptionUpdateInput {
-  
+  /**
+   * Specifies the product option to update.
+   */
   private String id;
 
-  
+  /**
+   * Name of the option.
+   */
   private String name;
 
-  
+  /**
+   * Position of the option.
+   */
   private Integer position;
 
-  
+  /**
+   * Specifies the metafield the option is linked to.
+   */
   private LinkedMetafieldUpdateInput linkedMetafield;
 
   public OptionUpdateInput() {
   }
 
-  
+  /**
+   * Specifies the product option to update.
+   */
   public String getId() {
     return id;
   }
@@ -32,7 +44,9 @@ public class OptionUpdateInput {
     this.id = id;
   }
 
-  
+  /**
+   * Name of the option.
+   */
   public String getName() {
     return name;
   }
@@ -41,7 +55,9 @@ public class OptionUpdateInput {
     this.name = name;
   }
 
-  
+  /**
+   * Position of the option.
+   */
   public Integer getPosition() {
     return position;
   }
@@ -50,7 +66,9 @@ public class OptionUpdateInput {
     this.position = position;
   }
 
-  
+  /**
+   * Specifies the metafield the option is linked to.
+   */
   public LinkedMetafieldUpdateInput getLinkedMetafield() {
     return linkedMetafield;
   }
@@ -85,16 +103,24 @@ public class OptionUpdateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Specifies the product option to update.
+     */
     private String id;
 
-    
+    /**
+     * Name of the option.
+     */
     private String name;
 
-    
+    /**
+     * Position of the option.
+     */
     private Integer position;
 
-    
+    /**
+     * Specifies the metafield the option is linked to.
+     */
     private LinkedMetafieldUpdateInput linkedMetafield;
 
     public OptionUpdateInput build() {
@@ -106,25 +132,33 @@ public class OptionUpdateInput {
       return result;
     }
 
-    
+    /**
+     * Specifies the product option to update.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * Name of the option.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    
+    /**
+     * Position of the option.
+     */
     public Builder position(Integer position) {
       this.position = position;
       return this;
     }
 
-    
+    /**
+     * Specifies the metafield the option is linked to.
+     */
     public Builder linkedMetafield(LinkedMetafieldUpdateInput linkedMetafield) {
       this.linkedMetafield = linkedMetafield;
       return this;

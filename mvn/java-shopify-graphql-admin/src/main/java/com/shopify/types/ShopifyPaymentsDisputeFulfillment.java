@@ -7,27 +7,39 @@ import java.lang.String;
 import java.time.LocalDate;
 import java.util.Objects;
 
-
+/**
+ * The fulfillment associated with dispute evidence.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class ShopifyPaymentsDisputeFulfillment implements com.shopify.types.Node {
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * The shipping carrier for this fulfillment.
+   */
   private String shippingCarrier;
 
-  
+  /**
+   * The shipping date for this fulfillment.
+   */
   private LocalDate shippingDate;
 
-  
+  /**
+   * The shipping tracking number for this fulfillment.
+   */
   private String shippingTrackingNumber;
 
   public ShopifyPaymentsDisputeFulfillment() {
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -36,7 +48,9 @@ public class ShopifyPaymentsDisputeFulfillment implements com.shopify.types.Node
     this.id = id;
   }
 
-  
+  /**
+   * The shipping carrier for this fulfillment.
+   */
   public String getShippingCarrier() {
     return shippingCarrier;
   }
@@ -45,7 +59,9 @@ public class ShopifyPaymentsDisputeFulfillment implements com.shopify.types.Node
     this.shippingCarrier = shippingCarrier;
   }
 
-  
+  /**
+   * The shipping date for this fulfillment.
+   */
   public LocalDate getShippingDate() {
     return shippingDate;
   }
@@ -54,7 +70,9 @@ public class ShopifyPaymentsDisputeFulfillment implements com.shopify.types.Node
     this.shippingDate = shippingDate;
   }
 
-  
+  /**
+   * The shipping tracking number for this fulfillment.
+   */
   public String getShippingTrackingNumber() {
     return shippingTrackingNumber;
   }
@@ -89,16 +107,24 @@ public class ShopifyPaymentsDisputeFulfillment implements com.shopify.types.Node
   }
 
   public static class Builder {
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * The shipping carrier for this fulfillment.
+     */
     private String shippingCarrier;
 
-    
+    /**
+     * The shipping date for this fulfillment.
+     */
     private LocalDate shippingDate;
 
-    
+    /**
+     * The shipping tracking number for this fulfillment.
+     */
     private String shippingTrackingNumber;
 
     public ShopifyPaymentsDisputeFulfillment build() {
@@ -110,25 +136,33 @@ public class ShopifyPaymentsDisputeFulfillment implements com.shopify.types.Node
       return result;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * The shipping carrier for this fulfillment.
+     */
     public Builder shippingCarrier(String shippingCarrier) {
       this.shippingCarrier = shippingCarrier;
       return this;
     }
 
-    
+    /**
+     * The shipping date for this fulfillment.
+     */
     public Builder shippingDate(LocalDate shippingDate) {
       this.shippingDate = shippingDate;
       return this;
     }
 
-    
+    /**
+     * The shipping tracking number for this fulfillment.
+     */
     public Builder shippingTrackingNumber(String shippingTrackingNumber) {
       this.shippingTrackingNumber = shippingTrackingNumber;
       return this;

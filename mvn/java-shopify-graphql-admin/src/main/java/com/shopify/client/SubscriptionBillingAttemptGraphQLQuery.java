@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Returns a SubscriptionBillingAttempt by ID.
+ */
 public class SubscriptionBillingAttemptGraphQLQuery extends GraphQLQuery {
   public SubscriptionBillingAttemptGraphQLQuery(String id, String queryName,
       Set<String> fieldsSet) {
@@ -41,7 +43,9 @@ public class SubscriptionBillingAttemptGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the `SubscriptionBillingAttempt` to return.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

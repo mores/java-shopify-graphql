@@ -3,7 +3,9 @@ package com.shopify.types;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
-
+/**
+ * Represents an object that has a list of events.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
     include = JsonTypeInfo.As.PROPERTY,
@@ -29,6 +31,8 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
     @JsonSubTypes.Type(value = ProductVariant.class, name = "ProductVariant")
 })
 public interface HasEvents {
-  
+  /**
+   * The paginated list of events associated with the host subject.
+   */
   EventConnection getEvents();
 }

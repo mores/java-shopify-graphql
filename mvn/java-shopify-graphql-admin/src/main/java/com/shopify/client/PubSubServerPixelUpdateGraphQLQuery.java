@@ -6,7 +6,10 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Updates the server pixel to connect to a Google PubSub endpoint.
+ * Running this mutation deletes any previous subscriptions for the server pixel.
+ */
 public class PubSubServerPixelUpdateGraphQLQuery extends GraphQLQuery {
   public PubSubServerPixelUpdateGraphQLQuery(String pubSubProject, String pubSubTopic,
       String queryName, Set<String> fieldsSet) {
@@ -45,14 +48,18 @@ public class PubSubServerPixelUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The Google PubSub project ID.
+     */
     public Builder pubSubProject(String pubSubProject) {
       this.pubSubProject = pubSubProject;
       this.fieldsSet.add("pubSubProject");
       return this;
     }
 
-    
+    /**
+     * The Google PubSub topic ID.
+     */
     public Builder pubSubTopic(String pubSubTopic) {
       this.pubSubTopic = pubSubTopic;
       this.fieldsSet.add("pubSubTopic");

@@ -6,24 +6,36 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for a subscription discount on a contract.
+ */
 public class SubscriptionManualDiscountInput {
-  
+  /**
+   * The title associated with the subscription discount.
+   */
   private String title;
 
-  
+  /**
+   * Percentage or fixed amount value of the discount.
+   */
   private SubscriptionManualDiscountValueInput value;
 
-  
+  /**
+   * The maximum number of times the subscription discount will be applied on orders.
+   */
   private Integer recurringCycleLimit;
 
-  
+  /**
+   * Entitled line items used to apply the subscription discount on.
+   */
   private SubscriptionManualDiscountEntitledLinesInput entitledLines;
 
   public SubscriptionManualDiscountInput() {
   }
 
-  
+  /**
+   * The title associated with the subscription discount.
+   */
   public String getTitle() {
     return title;
   }
@@ -32,7 +44,9 @@ public class SubscriptionManualDiscountInput {
     this.title = title;
   }
 
-  
+  /**
+   * Percentage or fixed amount value of the discount.
+   */
   public SubscriptionManualDiscountValueInput getValue() {
     return value;
   }
@@ -41,7 +55,9 @@ public class SubscriptionManualDiscountInput {
     this.value = value;
   }
 
-  
+  /**
+   * The maximum number of times the subscription discount will be applied on orders.
+   */
   public Integer getRecurringCycleLimit() {
     return recurringCycleLimit;
   }
@@ -50,7 +66,9 @@ public class SubscriptionManualDiscountInput {
     this.recurringCycleLimit = recurringCycleLimit;
   }
 
-  
+  /**
+   * Entitled line items used to apply the subscription discount on.
+   */
   public SubscriptionManualDiscountEntitledLinesInput getEntitledLines() {
     return entitledLines;
   }
@@ -85,16 +103,24 @@ public class SubscriptionManualDiscountInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The title associated with the subscription discount.
+     */
     private String title;
 
-    
+    /**
+     * Percentage or fixed amount value of the discount.
+     */
     private SubscriptionManualDiscountValueInput value;
 
-    
+    /**
+     * The maximum number of times the subscription discount will be applied on orders.
+     */
     private Integer recurringCycleLimit;
 
-    
+    /**
+     * Entitled line items used to apply the subscription discount on.
+     */
     private SubscriptionManualDiscountEntitledLinesInput entitledLines;
 
     public SubscriptionManualDiscountInput build() {
@@ -106,25 +132,33 @@ public class SubscriptionManualDiscountInput {
       return result;
     }
 
-    
+    /**
+     * The title associated with the subscription discount.
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
-    
+    /**
+     * Percentage or fixed amount value of the discount.
+     */
     public Builder value(SubscriptionManualDiscountValueInput value) {
       this.value = value;
       return this;
     }
 
-    
+    /**
+     * The maximum number of times the subscription discount will be applied on orders.
+     */
     public Builder recurringCycleLimit(Integer recurringCycleLimit) {
       this.recurringCycleLimit = recurringCycleLimit;
       return this;
     }
 
-    
+    /**
+     * Entitled line items used to apply the subscription discount on.
+     */
     public Builder entitledLines(SubscriptionManualDiscountEntitledLinesInput entitledLines) {
       this.entitledLines = entitledLines;
       return this;

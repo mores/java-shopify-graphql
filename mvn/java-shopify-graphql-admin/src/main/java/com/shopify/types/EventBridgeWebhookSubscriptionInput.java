@@ -6,27 +6,43 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields for an EventBridge webhook subscription.
+ */
 public class EventBridgeWebhookSubscriptionInput {
-  
+  /**
+   * The ARN of the EventBridge partner event source.
+   */
   private String arn;
 
-  
+  /**
+   * The format in which the webhook subscription should send the data.
+   */
   private WebhookSubscriptionFormat format;
 
-  
+  /**
+   * The list of fields to be included in the webhook subscription.
+   */
   private List<String> includeFields;
 
-  
+  /**
+   * A constraint specified using search syntax that ensures only webhooks that
+   * match the specified filter are emitted. See our [guide on
+   * filters](https://shopify.dev/docs/apps/build/webhooks/customize/filters) for more details.
+   */
   private String filter;
 
-  
+  /**
+   * The list of namespaces for any metafields that should be included in the webhook subscription.
+   */
   private List<String> metafieldNamespaces;
 
   public EventBridgeWebhookSubscriptionInput() {
   }
 
-  
+  /**
+   * The ARN of the EventBridge partner event source.
+   */
   public String getArn() {
     return arn;
   }
@@ -35,7 +51,9 @@ public class EventBridgeWebhookSubscriptionInput {
     this.arn = arn;
   }
 
-  
+  /**
+   * The format in which the webhook subscription should send the data.
+   */
   public WebhookSubscriptionFormat getFormat() {
     return format;
   }
@@ -44,7 +62,9 @@ public class EventBridgeWebhookSubscriptionInput {
     this.format = format;
   }
 
-  
+  /**
+   * The list of fields to be included in the webhook subscription.
+   */
   public List<String> getIncludeFields() {
     return includeFields;
   }
@@ -53,7 +73,11 @@ public class EventBridgeWebhookSubscriptionInput {
     this.includeFields = includeFields;
   }
 
-  
+  /**
+   * A constraint specified using search syntax that ensures only webhooks that
+   * match the specified filter are emitted. See our [guide on
+   * filters](https://shopify.dev/docs/apps/build/webhooks/customize/filters) for more details.
+   */
   public String getFilter() {
     return filter;
   }
@@ -62,7 +86,9 @@ public class EventBridgeWebhookSubscriptionInput {
     this.filter = filter;
   }
 
-  
+  /**
+   * The list of namespaces for any metafields that should be included in the webhook subscription.
+   */
   public List<String> getMetafieldNamespaces() {
     return metafieldNamespaces;
   }
@@ -98,19 +124,31 @@ public class EventBridgeWebhookSubscriptionInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The ARN of the EventBridge partner event source.
+     */
     private String arn;
 
-    
+    /**
+     * The format in which the webhook subscription should send the data.
+     */
     private WebhookSubscriptionFormat format;
 
-    
+    /**
+     * The list of fields to be included in the webhook subscription.
+     */
     private List<String> includeFields;
 
-    
+    /**
+     * A constraint specified using search syntax that ensures only webhooks that
+     * match the specified filter are emitted. See our [guide on
+     * filters](https://shopify.dev/docs/apps/build/webhooks/customize/filters) for more details.
+     */
     private String filter;
 
-    
+    /**
+     * The list of namespaces for any metafields that should be included in the webhook subscription.
+     */
     private List<String> metafieldNamespaces;
 
     public EventBridgeWebhookSubscriptionInput build() {
@@ -123,31 +161,43 @@ public class EventBridgeWebhookSubscriptionInput {
       return result;
     }
 
-    
+    /**
+     * The ARN of the EventBridge partner event source.
+     */
     public Builder arn(String arn) {
       this.arn = arn;
       return this;
     }
 
-    
+    /**
+     * The format in which the webhook subscription should send the data.
+     */
     public Builder format(WebhookSubscriptionFormat format) {
       this.format = format;
       return this;
     }
 
-    
+    /**
+     * The list of fields to be included in the webhook subscription.
+     */
     public Builder includeFields(List<String> includeFields) {
       this.includeFields = includeFields;
       return this;
     }
 
-    
+    /**
+     * A constraint specified using search syntax that ensures only webhooks that
+     * match the specified filter are emitted. See our [guide on
+     * filters](https://shopify.dev/docs/apps/build/webhooks/customize/filters) for more details.
+     */
     public Builder filter(String filter) {
       this.filter = filter;
       return this;
     }
 
-    
+    /**
+     * The list of namespaces for any metafields that should be included in the webhook subscription.
+     */
     public Builder metafieldNamespaces(List<String> metafieldNamespaces) {
       this.metafieldNamespaces = metafieldNamespaces;
       return this;

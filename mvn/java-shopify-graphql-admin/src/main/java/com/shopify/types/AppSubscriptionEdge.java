@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * An auto-generated type which holds one AppSubscription and a cursor during pagination.
+ */
 public class AppSubscriptionEdge {
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   private String cursor;
 
-  
+  /**
+   * The item at the end of AppSubscriptionEdge.
+   */
   private AppSubscription node;
 
   public AppSubscriptionEdge() {
   }
 
-  
+  /**
+   * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+   */
   public String getCursor() {
     return cursor;
   }
@@ -25,7 +33,9 @@ public class AppSubscriptionEdge {
     this.cursor = cursor;
   }
 
-  
+  /**
+   * The item at the end of AppSubscriptionEdge.
+   */
   public AppSubscription getNode() {
     return node;
   }
@@ -58,10 +68,14 @@ public class AppSubscriptionEdge {
   }
 
   public static class Builder {
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     private String cursor;
 
-    
+    /**
+     * The item at the end of AppSubscriptionEdge.
+     */
     private AppSubscription node;
 
     public AppSubscriptionEdge build() {
@@ -71,13 +85,17 @@ public class AppSubscriptionEdge {
       return result;
     }
 
-    
+    /**
+     * The position of each node in an array, used in [pagination](https://shopify.dev/api/usage/pagination-graphql).
+     */
     public Builder cursor(String cursor) {
       this.cursor = cursor;
       return this;
     }
 
-    
+    /**
+     * The item at the end of AppSubscriptionEdge.
+     */
     public Builder node(AppSubscription node) {
       this.node = node;
       return this;

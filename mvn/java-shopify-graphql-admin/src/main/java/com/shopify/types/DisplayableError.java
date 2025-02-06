@@ -5,7 +5,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.String;
 import java.util.List;
 
-
+/**
+ * Represents an error in the input of a mutation.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
     include = JsonTypeInfo.As.PROPERTY,
@@ -24,6 +26,7 @@ import java.util.List;
     @JsonSubTypes.Type(value = BlogDeleteUserError.class, name = "BlogDeleteUserError"),
     @JsonSubTypes.Type(value = BlogUpdateUserError.class, name = "BlogUpdateUserError"),
     @JsonSubTypes.Type(value = BulkMutationUserError.class, name = "BulkMutationUserError"),
+    @JsonSubTypes.Type(value = BulkOperationUserError.class, name = "BulkOperationUserError"),
     @JsonSubTypes.Type(value = BulkProductResourceFeedbackCreateUserError.class, name = "BulkProductResourceFeedbackCreateUserError"),
     @JsonSubTypes.Type(value = BusinessCustomerUserError.class, name = "BusinessCustomerUserError"),
     @JsonSubTypes.Type(value = CarrierServiceCreateUserError.class, name = "CarrierServiceCreateUserError"),
@@ -176,9 +179,13 @@ import java.util.List;
     @JsonSubTypes.Type(value = ValidationUserError.class, name = "ValidationUserError")
 })
 public interface DisplayableError {
-  
+  /**
+   * The path to the input field that caused the error.
+   */
   List<String> getField();
 
-  
+  /**
+   * The error message.
+   */
   String getMessage();
 }

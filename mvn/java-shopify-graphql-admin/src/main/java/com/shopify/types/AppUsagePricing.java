@@ -6,27 +6,45 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Defines a usage pricing model for the app subscription.
+ * These charges are variable based on how much the merchant uses the app.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class AppUsagePricing implements AppPricingDetails {
-  
+  /**
+   * The total usage records for interval.
+   */
   private MoneyV2 balanceUsed;
 
-  
+  /**
+   * The capped amount prevents the merchant from being charged for any usage over that amount during a billing period.
+   * This prevents billing from exceeding a maximum threshold over the duration of the billing period.
+   * For the merchant to continue using the app after exceeding a capped amount,
+   * they would need to agree to a new usage charge.
+   */
   private MoneyV2 cappedAmount;
 
-  
+  /**
+   * The frequency with which the app usage records are billed.
+   */
   private AppPricingInterval interval;
 
-  
+  /**
+   * The terms and conditions for app usage pricing.
+   * Must be present in order to create usage charges.
+   * The terms are presented to the merchant when they approve an app's usage charges.
+   */
   private String terms;
 
   public AppUsagePricing() {
   }
 
-  
+  /**
+   * The total usage records for interval.
+   */
   public MoneyV2 getBalanceUsed() {
     return balanceUsed;
   }
@@ -35,7 +53,12 @@ public class AppUsagePricing implements AppPricingDetails {
     this.balanceUsed = balanceUsed;
   }
 
-  
+  /**
+   * The capped amount prevents the merchant from being charged for any usage over that amount during a billing period.
+   * This prevents billing from exceeding a maximum threshold over the duration of the billing period.
+   * For the merchant to continue using the app after exceeding a capped amount,
+   * they would need to agree to a new usage charge.
+   */
   public MoneyV2 getCappedAmount() {
     return cappedAmount;
   }
@@ -44,7 +67,9 @@ public class AppUsagePricing implements AppPricingDetails {
     this.cappedAmount = cappedAmount;
   }
 
-  
+  /**
+   * The frequency with which the app usage records are billed.
+   */
   public AppPricingInterval getInterval() {
     return interval;
   }
@@ -53,7 +78,11 @@ public class AppUsagePricing implements AppPricingDetails {
     this.interval = interval;
   }
 
-  
+  /**
+   * The terms and conditions for app usage pricing.
+   * Must be present in order to create usage charges.
+   * The terms are presented to the merchant when they approve an app's usage charges.
+   */
   public String getTerms() {
     return terms;
   }
@@ -88,16 +117,29 @@ public class AppUsagePricing implements AppPricingDetails {
   }
 
   public static class Builder {
-    
+    /**
+     * The total usage records for interval.
+     */
     private MoneyV2 balanceUsed;
 
-    
+    /**
+     * The capped amount prevents the merchant from being charged for any usage over that amount during a billing period.
+     * This prevents billing from exceeding a maximum threshold over the duration of the billing period.
+     * For the merchant to continue using the app after exceeding a capped amount,
+     * they would need to agree to a new usage charge.
+     */
     private MoneyV2 cappedAmount;
 
-    
+    /**
+     * The frequency with which the app usage records are billed.
+     */
     private AppPricingInterval interval;
 
-    
+    /**
+     * The terms and conditions for app usage pricing.
+     * Must be present in order to create usage charges.
+     * The terms are presented to the merchant when they approve an app's usage charges.
+     */
     private String terms;
 
     public AppUsagePricing build() {
@@ -109,25 +151,38 @@ public class AppUsagePricing implements AppPricingDetails {
       return result;
     }
 
-    
+    /**
+     * The total usage records for interval.
+     */
     public Builder balanceUsed(MoneyV2 balanceUsed) {
       this.balanceUsed = balanceUsed;
       return this;
     }
 
-    
+    /**
+     * The capped amount prevents the merchant from being charged for any usage over that amount during a billing period.
+     * This prevents billing from exceeding a maximum threshold over the duration of the billing period.
+     * For the merchant to continue using the app after exceeding a capped amount,
+     * they would need to agree to a new usage charge.
+     */
     public Builder cappedAmount(MoneyV2 cappedAmount) {
       this.cappedAmount = cappedAmount;
       return this;
     }
 
-    
+    /**
+     * The frequency with which the app usage records are billed.
+     */
     public Builder interval(AppPricingInterval interval) {
       this.interval = interval;
       return this;
     }
 
-    
+    /**
+     * The terms and conditions for app usage pricing.
+     * Must be present in order to create usage charges.
+     * The terms are presented to the merchant when they approve an app's usage charges.
+     */
     public Builder terms(String terms) {
       this.terms = terms;
       return this;

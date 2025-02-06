@@ -6,24 +6,39 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-
+/**
+ * The record of when a customer consented to receive marketing material by SMS.
+ *
+ * The customer's consent state reflects the record with the most recent date when consent was updated.
+ */
 public class CustomerSmsMarketingConsentState {
-  
+  /**
+   * The source from which the SMS marketing information for the customer was collected.
+   */
   private CustomerConsentCollectedFrom consentCollectedFrom;
 
-  
+  /**
+   * The date and time when the customer consented to receive marketing material by SMS.
+   * If no date is provided, then the date and time when the consent information was sent is used.
+   */
   private OffsetDateTime consentUpdatedAt;
 
-  
+  /**
+   * The marketing subscription opt-in level that was set when the customer consented to receive marketing information.
+   */
   private CustomerMarketingOptInLevel marketingOptInLevel;
 
-  
+  /**
+   * The current SMS marketing state for the customer.
+   */
   private CustomerSmsMarketingState marketingState;
 
   public CustomerSmsMarketingConsentState() {
   }
 
-  
+  /**
+   * The source from which the SMS marketing information for the customer was collected.
+   */
   public CustomerConsentCollectedFrom getConsentCollectedFrom() {
     return consentCollectedFrom;
   }
@@ -32,7 +47,10 @@ public class CustomerSmsMarketingConsentState {
     this.consentCollectedFrom = consentCollectedFrom;
   }
 
-  
+  /**
+   * The date and time when the customer consented to receive marketing material by SMS.
+   * If no date is provided, then the date and time when the consent information was sent is used.
+   */
   public OffsetDateTime getConsentUpdatedAt() {
     return consentUpdatedAt;
   }
@@ -41,7 +59,9 @@ public class CustomerSmsMarketingConsentState {
     this.consentUpdatedAt = consentUpdatedAt;
   }
 
-  
+  /**
+   * The marketing subscription opt-in level that was set when the customer consented to receive marketing information.
+   */
   public CustomerMarketingOptInLevel getMarketingOptInLevel() {
     return marketingOptInLevel;
   }
@@ -50,7 +70,9 @@ public class CustomerSmsMarketingConsentState {
     this.marketingOptInLevel = marketingOptInLevel;
   }
 
-  
+  /**
+   * The current SMS marketing state for the customer.
+   */
   public CustomerSmsMarketingState getMarketingState() {
     return marketingState;
   }
@@ -85,16 +107,25 @@ public class CustomerSmsMarketingConsentState {
   }
 
   public static class Builder {
-    
+    /**
+     * The source from which the SMS marketing information for the customer was collected.
+     */
     private CustomerConsentCollectedFrom consentCollectedFrom;
 
-    
+    /**
+     * The date and time when the customer consented to receive marketing material by SMS.
+     * If no date is provided, then the date and time when the consent information was sent is used.
+     */
     private OffsetDateTime consentUpdatedAt;
 
-    
+    /**
+     * The marketing subscription opt-in level that was set when the customer consented to receive marketing information.
+     */
     private CustomerMarketingOptInLevel marketingOptInLevel;
 
-    
+    /**
+     * The current SMS marketing state for the customer.
+     */
     private CustomerSmsMarketingState marketingState;
 
     public CustomerSmsMarketingConsentState build() {
@@ -106,25 +137,34 @@ public class CustomerSmsMarketingConsentState {
       return result;
     }
 
-    
+    /**
+     * The source from which the SMS marketing information for the customer was collected.
+     */
     public Builder consentCollectedFrom(CustomerConsentCollectedFrom consentCollectedFrom) {
       this.consentCollectedFrom = consentCollectedFrom;
       return this;
     }
 
-    
+    /**
+     * The date and time when the customer consented to receive marketing material by SMS.
+     * If no date is provided, then the date and time when the consent information was sent is used.
+     */
     public Builder consentUpdatedAt(OffsetDateTime consentUpdatedAt) {
       this.consentUpdatedAt = consentUpdatedAt;
       return this;
     }
 
-    
+    /**
+     * The marketing subscription opt-in level that was set when the customer consented to receive marketing information.
+     */
     public Builder marketingOptInLevel(CustomerMarketingOptInLevel marketingOptInLevel) {
       this.marketingOptInLevel = marketingOptInLevel;
       return this;
     }
 
-    
+    /**
+     * The current SMS marketing state for the customer.
+     */
     public Builder marketingState(CustomerSmsMarketingState marketingState) {
       this.marketingState = marketingState;
       return this;

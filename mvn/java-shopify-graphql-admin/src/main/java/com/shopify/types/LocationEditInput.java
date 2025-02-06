@@ -7,24 +7,38 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields to use to edit a location.
+ */
 public class LocationEditInput {
-  
+  /**
+   * The name of the location.
+   */
   private String name;
 
-  
+  /**
+   * The address of the location.
+   */
   private LocationEditAddressInput address;
 
-  
+  /**
+   * Whether inventory at this location is available for sale online.
+   *   
+   * **Note:** This can't be disabled for fulfillment service locations.
+   */
   private Boolean fulfillsOnlineOrders;
 
-  
+  /**
+   * Additional customizable information to associate with the location.
+   */
   private List<MetafieldInput> metafields;
 
   public LocationEditInput() {
   }
 
-  
+  /**
+   * The name of the location.
+   */
   public String getName() {
     return name;
   }
@@ -33,7 +47,9 @@ public class LocationEditInput {
     this.name = name;
   }
 
-  
+  /**
+   * The address of the location.
+   */
   public LocationEditAddressInput getAddress() {
     return address;
   }
@@ -42,7 +58,11 @@ public class LocationEditInput {
     this.address = address;
   }
 
-  
+  /**
+   * Whether inventory at this location is available for sale online.
+   *   
+   * **Note:** This can't be disabled for fulfillment service locations.
+   */
   public Boolean getFulfillsOnlineOrders() {
     return fulfillsOnlineOrders;
   }
@@ -51,7 +71,9 @@ public class LocationEditInput {
     this.fulfillsOnlineOrders = fulfillsOnlineOrders;
   }
 
-  
+  /**
+   * Additional customizable information to associate with the location.
+   */
   public List<MetafieldInput> getMetafields() {
     return metafields;
   }
@@ -86,16 +108,26 @@ public class LocationEditInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The name of the location.
+     */
     private String name;
 
-    
+    /**
+     * The address of the location.
+     */
     private LocationEditAddressInput address;
 
-    
+    /**
+     * Whether inventory at this location is available for sale online.
+     *   
+     * **Note:** This can't be disabled for fulfillment service locations.
+     */
     private Boolean fulfillsOnlineOrders;
 
-    
+    /**
+     * Additional customizable information to associate with the location.
+     */
     private List<MetafieldInput> metafields;
 
     public LocationEditInput build() {
@@ -107,25 +139,35 @@ public class LocationEditInput {
       return result;
     }
 
-    
+    /**
+     * The name of the location.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    
+    /**
+     * The address of the location.
+     */
     public Builder address(LocationEditAddressInput address) {
       this.address = address;
       return this;
     }
 
-    
+    /**
+     * Whether inventory at this location is available for sale online.
+     *   
+     * **Note:** This can't be disabled for fulfillment service locations.
+     */
     public Builder fulfillsOnlineOrders(Boolean fulfillsOnlineOrders) {
       this.fulfillsOnlineOrders = fulfillsOnlineOrders;
       return this;
     }
 
-    
+    /**
+     * Additional customizable information to associate with the location.
+     */
     public Builder metafields(List<MetafieldInput> metafields) {
       this.metafields = metafields;
       return this;

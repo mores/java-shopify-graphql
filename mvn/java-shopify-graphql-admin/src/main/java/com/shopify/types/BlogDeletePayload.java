@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `blogDelete` mutation.
+ */
 public class BlogDeletePayload {
-  
+  /**
+   * The ID of the deleted blog.
+   */
   private String deletedBlogId;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<BlogDeleteUserError> userErrors;
 
   public BlogDeletePayload() {
   }
 
-  
+  /**
+   * The ID of the deleted blog.
+   */
   public String getDeletedBlogId() {
     return deletedBlogId;
   }
@@ -26,7 +34,9 @@ public class BlogDeletePayload {
     this.deletedBlogId = deletedBlogId;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<BlogDeleteUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class BlogDeletePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the deleted blog.
+     */
     private String deletedBlogId;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<BlogDeleteUserError> userErrors;
 
     public BlogDeletePayload build() {
@@ -72,13 +86,17 @@ public class BlogDeletePayload {
       return result;
     }
 
-    
+    /**
+     * The ID of the deleted blog.
+     */
     public Builder deletedBlogId(String deletedBlogId) {
       this.deletedBlogId = deletedBlogId;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<BlogDeleteUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

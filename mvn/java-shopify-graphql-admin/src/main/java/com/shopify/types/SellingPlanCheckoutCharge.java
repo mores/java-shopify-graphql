@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The amount charged at checkout when the full amount isn't charged at checkout.
+ */
 public class SellingPlanCheckoutCharge {
-  
+  /**
+   * The charge type for the checkout charge.
+   */
   private SellingPlanCheckoutChargeType type;
 
-  
+  /**
+   * The charge value for the checkout charge.
+   */
   private SellingPlanCheckoutChargeValue value;
 
   public SellingPlanCheckoutCharge() {
   }
 
-  
+  /**
+   * The charge type for the checkout charge.
+   */
   public SellingPlanCheckoutChargeType getType() {
     return type;
   }
@@ -25,7 +33,9 @@ public class SellingPlanCheckoutCharge {
     this.type = type;
   }
 
-  
+  /**
+   * The charge value for the checkout charge.
+   */
   public SellingPlanCheckoutChargeValue getValue() {
     return value;
   }
@@ -58,10 +68,14 @@ public class SellingPlanCheckoutCharge {
   }
 
   public static class Builder {
-    
+    /**
+     * The charge type for the checkout charge.
+     */
     private SellingPlanCheckoutChargeType type;
 
-    
+    /**
+     * The charge value for the checkout charge.
+     */
     private SellingPlanCheckoutChargeValue value;
 
     public SellingPlanCheckoutCharge build() {
@@ -71,13 +85,17 @@ public class SellingPlanCheckoutCharge {
       return result;
     }
 
-    
+    /**
+     * The charge type for the checkout charge.
+     */
     public Builder type(SellingPlanCheckoutChargeType type) {
       this.type = type;
       return this;
     }
 
-    
+    /**
+     * The charge value for the checkout charge.
+     */
     public Builder value(SellingPlanCheckoutChargeValue value) {
       this.value = value;
       return this;

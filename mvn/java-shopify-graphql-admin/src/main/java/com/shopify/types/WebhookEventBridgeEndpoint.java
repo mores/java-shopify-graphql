@@ -6,18 +6,24 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * An Amazon EventBridge partner event source to which webhook subscriptions publish events.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class WebhookEventBridgeEndpoint implements WebhookSubscriptionEndpoint {
-  
+  /**
+   * The ARN of this EventBridge partner event source.
+   */
   private String arn;
 
   public WebhookEventBridgeEndpoint() {
   }
 
-  
+  /**
+   * The ARN of this EventBridge partner event source.
+   */
   public String getArn() {
     return arn;
   }
@@ -49,7 +55,9 @@ public class WebhookEventBridgeEndpoint implements WebhookSubscriptionEndpoint {
   }
 
   public static class Builder {
-    
+    /**
+     * The ARN of this EventBridge partner event source.
+     */
     private String arn;
 
     public WebhookEventBridgeEndpoint build() {
@@ -58,7 +66,9 @@ public class WebhookEventBridgeEndpoint implements WebhookSubscriptionEndpoint {
       return result;
     }
 
-    
+    /**
+     * The ARN of this EventBridge partner event source.
+     */
     public Builder arn(String arn) {
       this.arn = arn;
       return this;

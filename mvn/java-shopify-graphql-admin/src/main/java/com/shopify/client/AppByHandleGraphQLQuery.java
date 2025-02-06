@@ -6,7 +6,10 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Fetches app by handle.
+ * Returns null if the app doesn't exist.
+ */
 public class AppByHandleGraphQLQuery extends GraphQLQuery {
   public AppByHandleGraphQLQuery(String handle, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -40,7 +43,9 @@ public class AppByHandleGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Handle of the App.
+     */
     public Builder handle(String handle) {
       this.handle = handle;
       this.fieldsSet.add("handle");

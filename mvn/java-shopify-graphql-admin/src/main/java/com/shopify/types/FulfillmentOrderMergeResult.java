@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The result of merging a set of fulfillment orders.
+ */
 public class FulfillmentOrderMergeResult {
-  
+  /**
+   * The new fulfillment order as a result of the merge.
+   */
   private FulfillmentOrder fulfillmentOrder;
 
   public FulfillmentOrderMergeResult() {
   }
 
-  
+  /**
+   * The new fulfillment order as a result of the merge.
+   */
   public FulfillmentOrder getFulfillmentOrder() {
     return fulfillmentOrder;
   }
@@ -45,7 +51,9 @@ public class FulfillmentOrderMergeResult {
   }
 
   public static class Builder {
-    
+    /**
+     * The new fulfillment order as a result of the merge.
+     */
     private FulfillmentOrder fulfillmentOrder;
 
     public FulfillmentOrderMergeResult build() {
@@ -54,7 +62,9 @@ public class FulfillmentOrderMergeResult {
       return result;
     }
 
-    
+    /**
+     * The new fulfillment order as a result of the merge.
+     */
     public Builder fulfillmentOrder(FulfillmentOrder fulfillmentOrder) {
       this.fulfillmentOrder = fulfillmentOrder;
       return this;

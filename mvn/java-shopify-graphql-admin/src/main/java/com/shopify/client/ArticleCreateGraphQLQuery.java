@@ -8,7 +8,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Creates an article.
+ */
 public class ArticleCreateGraphQLQuery extends GraphQLQuery {
   public ArticleCreateGraphQLQuery(ArticleCreateInput article, ArticleBlogInput blog,
       String queryName, Set<String> fieldsSet) {
@@ -47,14 +49,18 @@ public class ArticleCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The properties of the new article.
+     */
     public Builder article(ArticleCreateInput article) {
       this.article = article;
       this.fieldsSet.add("article");
       return this;
     }
 
-    
+    /**
+     * The properties of the new blog.
+     */
     public Builder blog(ArticleBlogInput blog) {
       this.blog = blog;
       this.fieldsSet.add("blog");

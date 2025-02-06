@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Possible error codes that can be returned by `ProductVariantsBulkDeleteUserError`.
+ */
 public enum ProductVariantsBulkDeleteUserErrorCode {
   PRODUCT_DOES_NOT_EXIST,
 

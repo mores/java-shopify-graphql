@@ -7,21 +7,31 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Represents the data used to customize the Shopify admin experience for a logged-in staff member.
+ */
 public class StaffMemberPrivateData {
-  
+  /**
+   * The URL to the staff member's account settings page.
+   */
   private String accountSettingsUrl;
 
-  
+  /**
+   * The date and time when the staff member was created.
+   */
   private OffsetDateTime createdAt;
 
-  
+  /**
+   * Access permissions for the staff member.
+   */
   private List<StaffMemberPermission> permissions;
 
   public StaffMemberPrivateData() {
   }
 
-  
+  /**
+   * The URL to the staff member's account settings page.
+   */
   public String getAccountSettingsUrl() {
     return accountSettingsUrl;
   }
@@ -30,7 +40,9 @@ public class StaffMemberPrivateData {
     this.accountSettingsUrl = accountSettingsUrl;
   }
 
-  
+  /**
+   * The date and time when the staff member was created.
+   */
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -39,7 +51,9 @@ public class StaffMemberPrivateData {
     this.createdAt = createdAt;
   }
 
-  
+  /**
+   * Access permissions for the staff member.
+   */
   public List<StaffMemberPermission> getPermissions() {
     return permissions;
   }
@@ -73,13 +87,19 @@ public class StaffMemberPrivateData {
   }
 
   public static class Builder {
-    
+    /**
+     * The URL to the staff member's account settings page.
+     */
     private String accountSettingsUrl;
 
-    
+    /**
+     * The date and time when the staff member was created.
+     */
     private OffsetDateTime createdAt;
 
-    
+    /**
+     * Access permissions for the staff member.
+     */
     private List<StaffMemberPermission> permissions;
 
     public StaffMemberPrivateData build() {
@@ -90,19 +110,25 @@ public class StaffMemberPrivateData {
       return result;
     }
 
-    
+    /**
+     * The URL to the staff member's account settings page.
+     */
     public Builder accountSettingsUrl(String accountSettingsUrl) {
       this.accountSettingsUrl = accountSettingsUrl;
       return this;
     }
 
-    
+    /**
+     * The date and time when the staff member was created.
+     */
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
-    
+    /**
+     * Access permissions for the staff member.
+     */
     public Builder permissions(List<StaffMemberPermission> permissions) {
       this.permissions = permissions;
       return this;

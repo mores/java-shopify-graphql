@@ -8,30 +8,48 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields required to create a Subscription Contract.
+ */
 public class SubscriptionContractAtomicCreateInput {
-  
+  /**
+   * The ID of the customer to associate with the subscription contract.
+   */
   private String customerId;
 
-  
+  /**
+   * The next billing date for the subscription contract.This field is independent
+   * of billing cycles.It stores metadata set by the apps, and thus not managed by
+   * Shopify.It can be queried from subscriptionContract.nextBillingDate.
+   */
   private OffsetDateTime nextBillingDate;
 
-  
+  /**
+   * The currency used for the subscription contract.
+   */
   private CurrencyCode currencyCode;
 
-  
+  /**
+   * The attributes used as input for the Subscription Draft.
+   */
   private SubscriptionDraftInput contract;
 
-  
+  /**
+   * A list of new Subscription Lines.
+   */
   private List<SubscriptionAtomicLineInput> lines;
 
-  
+  /**
+   * A list of discount redeem codes to apply to the subscription contract.
+   */
   private List<String> discountCodes = Collections.emptyList();
 
   public SubscriptionContractAtomicCreateInput() {
   }
 
-  
+  /**
+   * The ID of the customer to associate with the subscription contract.
+   */
   public String getCustomerId() {
     return customerId;
   }
@@ -40,7 +58,11 @@ public class SubscriptionContractAtomicCreateInput {
     this.customerId = customerId;
   }
 
-  
+  /**
+   * The next billing date for the subscription contract.This field is independent
+   * of billing cycles.It stores metadata set by the apps, and thus not managed by
+   * Shopify.It can be queried from subscriptionContract.nextBillingDate.
+   */
   public OffsetDateTime getNextBillingDate() {
     return nextBillingDate;
   }
@@ -49,7 +71,9 @@ public class SubscriptionContractAtomicCreateInput {
     this.nextBillingDate = nextBillingDate;
   }
 
-  
+  /**
+   * The currency used for the subscription contract.
+   */
   public CurrencyCode getCurrencyCode() {
     return currencyCode;
   }
@@ -58,7 +82,9 @@ public class SubscriptionContractAtomicCreateInput {
     this.currencyCode = currencyCode;
   }
 
-  
+  /**
+   * The attributes used as input for the Subscription Draft.
+   */
   public SubscriptionDraftInput getContract() {
     return contract;
   }
@@ -67,7 +93,9 @@ public class SubscriptionContractAtomicCreateInput {
     this.contract = contract;
   }
 
-  
+  /**
+   * A list of new Subscription Lines.
+   */
   public List<SubscriptionAtomicLineInput> getLines() {
     return lines;
   }
@@ -76,7 +104,9 @@ public class SubscriptionContractAtomicCreateInput {
     this.lines = lines;
   }
 
-  
+  /**
+   * A list of discount redeem codes to apply to the subscription contract.
+   */
   public List<String> getDiscountCodes() {
     return discountCodes;
   }
@@ -113,22 +143,36 @@ public class SubscriptionContractAtomicCreateInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The ID of the customer to associate with the subscription contract.
+     */
     private String customerId;
 
-    
+    /**
+     * The next billing date for the subscription contract.This field is independent
+     * of billing cycles.It stores metadata set by the apps, and thus not managed by
+     * Shopify.It can be queried from subscriptionContract.nextBillingDate.
+     */
     private OffsetDateTime nextBillingDate;
 
-    
+    /**
+     * The currency used for the subscription contract.
+     */
     private CurrencyCode currencyCode;
 
-    
+    /**
+     * The attributes used as input for the Subscription Draft.
+     */
     private SubscriptionDraftInput contract;
 
-    
+    /**
+     * A list of new Subscription Lines.
+     */
     private List<SubscriptionAtomicLineInput> lines;
 
-    
+    /**
+     * A list of discount redeem codes to apply to the subscription contract.
+     */
     private List<String> discountCodes = Collections.emptyList();
 
     public SubscriptionContractAtomicCreateInput build() {
@@ -142,37 +186,51 @@ public class SubscriptionContractAtomicCreateInput {
       return result;
     }
 
-    
+    /**
+     * The ID of the customer to associate with the subscription contract.
+     */
     public Builder customerId(String customerId) {
       this.customerId = customerId;
       return this;
     }
 
-    
+    /**
+     * The next billing date for the subscription contract.This field is independent
+     * of billing cycles.It stores metadata set by the apps, and thus not managed by
+     * Shopify.It can be queried from subscriptionContract.nextBillingDate.
+     */
     public Builder nextBillingDate(OffsetDateTime nextBillingDate) {
       this.nextBillingDate = nextBillingDate;
       return this;
     }
 
-    
+    /**
+     * The currency used for the subscription contract.
+     */
     public Builder currencyCode(CurrencyCode currencyCode) {
       this.currencyCode = currencyCode;
       return this;
     }
 
-    
+    /**
+     * The attributes used as input for the Subscription Draft.
+     */
     public Builder contract(SubscriptionDraftInput contract) {
       this.contract = contract;
       return this;
     }
 
-    
+    /**
+     * A list of new Subscription Lines.
+     */
     public Builder lines(List<SubscriptionAtomicLineInput> lines) {
       this.lines = lines;
       return this;
     }
 
-    
+    /**
+     * A list of discount redeem codes to apply to the subscription contract.
+     */
     public Builder discountCodes(List<String> discountCodes) {
       this.discountCodes = discountCodes;
       return this;

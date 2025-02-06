@@ -5,21 +5,31 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for a purchasing company, which is a combination of company, company contact, and company location.
+ */
 public class PurchasingCompanyInput {
-  
+  /**
+   * ID of the company.
+   */
   private String companyId;
 
-  
+  /**
+   * ID of the company contact.
+   */
   private String companyContactId;
 
-  
+  /**
+   * ID of the company location.
+   */
   private String companyLocationId;
 
   public PurchasingCompanyInput() {
   }
 
-  
+  /**
+   * ID of the company.
+   */
   public String getCompanyId() {
     return companyId;
   }
@@ -28,7 +38,9 @@ public class PurchasingCompanyInput {
     this.companyId = companyId;
   }
 
-  
+  /**
+   * ID of the company contact.
+   */
   public String getCompanyContactId() {
     return companyContactId;
   }
@@ -37,7 +49,9 @@ public class PurchasingCompanyInput {
     this.companyContactId = companyContactId;
   }
 
-  
+  /**
+   * ID of the company location.
+   */
   public String getCompanyLocationId() {
     return companyLocationId;
   }
@@ -71,13 +85,19 @@ public class PurchasingCompanyInput {
   }
 
   public static class Builder {
-    
+    /**
+     * ID of the company.
+     */
     private String companyId;
 
-    
+    /**
+     * ID of the company contact.
+     */
     private String companyContactId;
 
-    
+    /**
+     * ID of the company location.
+     */
     private String companyLocationId;
 
     public PurchasingCompanyInput build() {
@@ -88,19 +108,25 @@ public class PurchasingCompanyInput {
       return result;
     }
 
-    
+    /**
+     * ID of the company.
+     */
     public Builder companyId(String companyId) {
       this.companyId = companyId;
       return this;
     }
 
-    
+    /**
+     * ID of the company contact.
+     */
     public Builder companyContactId(String companyContactId) {
       this.companyContactId = companyContactId;
       return this;
     }
 
-    
+    /**
+     * ID of the company location.
+     */
     public Builder companyLocationId(String companyLocationId) {
       this.companyLocationId = companyLocationId;
       return this;

@@ -14,19 +14,27 @@ import java.util.Objects;
  * [Delegate OAuth access tokens to subsystems](https://shopify.dev/docs/apps/build/authentication-authorization/access-tokens/use-delegate-tokens).
  */
 public class DelegateAccessToken {
-  
+  /**
+   * The list of permissions associated with the token.
+   */
   private List<String> accessScopes;
 
-  
+  /**
+   * The issued delegate access token.
+   */
   private String accessToken;
 
-  
+  /**
+   * The date and time when the delegate access token was created.
+   */
   private OffsetDateTime createdAt;
 
   public DelegateAccessToken() {
   }
 
-  
+  /**
+   * The list of permissions associated with the token.
+   */
   public List<String> getAccessScopes() {
     return accessScopes;
   }
@@ -35,7 +43,9 @@ public class DelegateAccessToken {
     this.accessScopes = accessScopes;
   }
 
-  
+  /**
+   * The issued delegate access token.
+   */
   public String getAccessToken() {
     return accessToken;
   }
@@ -44,7 +54,9 @@ public class DelegateAccessToken {
     this.accessToken = accessToken;
   }
 
-  
+  /**
+   * The date and time when the delegate access token was created.
+   */
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -78,13 +90,19 @@ public class DelegateAccessToken {
   }
 
   public static class Builder {
-    
+    /**
+     * The list of permissions associated with the token.
+     */
     private List<String> accessScopes;
 
-    
+    /**
+     * The issued delegate access token.
+     */
     private String accessToken;
 
-    
+    /**
+     * The date and time when the delegate access token was created.
+     */
     private OffsetDateTime createdAt;
 
     public DelegateAccessToken build() {
@@ -95,19 +113,25 @@ public class DelegateAccessToken {
       return result;
     }
 
-    
+    /**
+     * The list of permissions associated with the token.
+     */
     public Builder accessScopes(List<String> accessScopes) {
       this.accessScopes = accessScopes;
       return this;
     }
 
-    
+    /**
+     * The issued delegate access token.
+     */
     public Builder accessToken(String accessToken) {
       this.accessToken = accessToken;
       return this;
     }
 
-    
+    /**
+     * The date and time when the delegate access token was created.
+     */
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;

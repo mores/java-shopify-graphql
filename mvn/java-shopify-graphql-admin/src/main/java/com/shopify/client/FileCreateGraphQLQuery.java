@@ -8,7 +8,19 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Creates file assets using an external URL or for files that were previously uploaded using the
+ * [stagedUploadsCreate mutation](https://shopify.dev/api/admin-graphql/latest/mutations/stageduploadscreate).
+ * These files are added to the [Files page](https://shopify.com/admin/settings/files) in Shopify admin.
+ *   
+ * Files are processed asynchronously. Some data is not available until processing is completed.
+ * Check [fileStatus](https://shopify.dev/api/admin-graphql/latest/interfaces/File#field-file-filestatus)
+ * to know when the files are READY or FAILED. See the
+ * [FileStatus](https://shopify.dev/api/admin-graphql/latest/enums/filestatus)
+ * for the complete set of possible fileStatus values.
+ *   
+ * To get a list of all files, use the [files query](https://shopify.dev/api/admin-graphql/latest/queries/files).
+ */
 public class FileCreateGraphQLQuery extends GraphQLQuery {
   public FileCreateGraphQLQuery(List<FileCreateInput> files, String queryName,
       Set<String> fieldsSet) {
@@ -43,7 +55,9 @@ public class FileCreateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * List of new files to be created.
+     */
     public Builder files(List<FileCreateInput> files) {
       this.files = files;
       this.fieldsSet.add("files");

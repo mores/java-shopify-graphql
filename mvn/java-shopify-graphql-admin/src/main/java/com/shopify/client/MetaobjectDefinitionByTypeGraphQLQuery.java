@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Finds a metaobject definition by type.
+ */
 public class MetaobjectDefinitionByTypeGraphQLQuery extends GraphQLQuery {
   public MetaobjectDefinitionByTypeGraphQLQuery(String type, String queryName,
       Set<String> fieldsSet) {
@@ -41,7 +43,9 @@ public class MetaobjectDefinitionByTypeGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The type of the metaobject definition to return.
+     */
     public Builder type(String type) {
       this.type = type;
       this.fieldsSet.add("type");

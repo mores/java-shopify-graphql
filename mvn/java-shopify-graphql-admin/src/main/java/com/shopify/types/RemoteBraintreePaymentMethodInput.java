@@ -5,18 +5,27 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields for a remote Braintree customer payment profile.
+ */
 public class RemoteBraintreePaymentMethodInput {
-  
+  /**
+   * The `customer_id` value from the Braintree API.
+   */
   private String customerId;
 
-  
+  /**
+   * The `payment_method_token` value from the Braintree API. Starting on 2025,
+   * payment_method_token will become mandatory for all API versions.
+   */
   private String paymentMethodToken;
 
   public RemoteBraintreePaymentMethodInput() {
   }
 
-  
+  /**
+   * The `customer_id` value from the Braintree API.
+   */
   public String getCustomerId() {
     return customerId;
   }
@@ -25,7 +34,10 @@ public class RemoteBraintreePaymentMethodInput {
     this.customerId = customerId;
   }
 
-  
+  /**
+   * The `payment_method_token` value from the Braintree API. Starting on 2025,
+   * payment_method_token will become mandatory for all API versions.
+   */
   public String getPaymentMethodToken() {
     return paymentMethodToken;
   }
@@ -58,10 +70,15 @@ public class RemoteBraintreePaymentMethodInput {
   }
 
   public static class Builder {
-    
+    /**
+     * The `customer_id` value from the Braintree API.
+     */
     private String customerId;
 
-    
+    /**
+     * The `payment_method_token` value from the Braintree API. Starting on 2025,
+     * payment_method_token will become mandatory for all API versions.
+     */
     private String paymentMethodToken;
 
     public RemoteBraintreePaymentMethodInput build() {
@@ -71,13 +88,18 @@ public class RemoteBraintreePaymentMethodInput {
       return result;
     }
 
-    
+    /**
+     * The `customer_id` value from the Braintree API.
+     */
     public Builder customerId(String customerId) {
       this.customerId = customerId;
       return this;
     }
 
-    
+    /**
+     * The `payment_method_token` value from the Braintree API. Starting on 2025,
+     * payment_method_token will become mandatory for all API versions.
+     */
     public Builder paymentMethodToken(String paymentMethodToken) {
       this.paymentMethodToken = paymentMethodToken;
       return this;

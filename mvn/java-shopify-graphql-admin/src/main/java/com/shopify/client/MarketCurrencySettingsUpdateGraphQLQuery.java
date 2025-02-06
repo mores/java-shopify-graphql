@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Updates currency settings of a market.
+ */
 public class MarketCurrencySettingsUpdateGraphQLQuery extends GraphQLQuery {
   public MarketCurrencySettingsUpdateGraphQLQuery(String marketId,
       MarketCurrencySettingsUpdateInput input, String queryName, Set<String> fieldsSet) {
@@ -46,14 +48,18 @@ public class MarketCurrencySettingsUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the market definition to target.
+     */
     public Builder marketId(String marketId) {
       this.marketId = marketId;
       this.fieldsSet.add("marketId");
       return this;
     }
 
-    
+    /**
+     * Properties to update for the market currency settings.
+     */
     public Builder input(MarketCurrencySettingsUpdateInput input) {
       this.input = input;
       this.fieldsSet.add("input");

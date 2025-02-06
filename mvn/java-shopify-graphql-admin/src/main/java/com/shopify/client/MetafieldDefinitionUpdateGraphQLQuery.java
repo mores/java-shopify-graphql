@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Updates a metafield definition.
+ */
 public class MetafieldDefinitionUpdateGraphQLQuery extends GraphQLQuery {
   public MetafieldDefinitionUpdateGraphQLQuery(MetafieldDefinitionUpdateInput definition,
       String queryName, Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class MetafieldDefinitionUpdateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The input fields for the metafield definition update.
+     */
     public Builder definition(MetafieldDefinitionUpdateInput definition) {
       this.definition = definition;
       this.fieldsSet.add("definition");

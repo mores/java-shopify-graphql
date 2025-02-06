@@ -6,24 +6,34 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Represents information about the purchasing company for the order or draft order.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class PurchasingCompany implements PurchasingEntity {
-  
+  /**
+   * The company associated to the order or draft order.
+   */
   private Company company;
 
-  
+  /**
+   * The company contact associated to the order or draft order.
+   */
   private CompanyContact contact;
 
-  
+  /**
+   * The company location associated to the order or draft order.
+   */
   private CompanyLocation location;
 
   public PurchasingCompany() {
   }
 
-  
+  /**
+   * The company associated to the order or draft order.
+   */
   public Company getCompany() {
     return company;
   }
@@ -32,7 +42,9 @@ public class PurchasingCompany implements PurchasingEntity {
     this.company = company;
   }
 
-  
+  /**
+   * The company contact associated to the order or draft order.
+   */
   public CompanyContact getContact() {
     return contact;
   }
@@ -41,7 +53,9 @@ public class PurchasingCompany implements PurchasingEntity {
     this.contact = contact;
   }
 
-  
+  /**
+   * The company location associated to the order or draft order.
+   */
   public CompanyLocation getLocation() {
     return location;
   }
@@ -75,13 +89,19 @@ public class PurchasingCompany implements PurchasingEntity {
   }
 
   public static class Builder {
-    
+    /**
+     * The company associated to the order or draft order.
+     */
     private Company company;
 
-    
+    /**
+     * The company contact associated to the order or draft order.
+     */
     private CompanyContact contact;
 
-    
+    /**
+     * The company location associated to the order or draft order.
+     */
     private CompanyLocation location;
 
     public PurchasingCompany build() {
@@ -92,19 +112,25 @@ public class PurchasingCompany implements PurchasingEntity {
       return result;
     }
 
-    
+    /**
+     * The company associated to the order or draft order.
+     */
     public Builder company(Company company) {
       this.company = company;
       return this;
     }
 
-    
+    /**
+     * The company contact associated to the order or draft order.
+     */
     public Builder contact(CompanyContact contact) {
       this.contact = contact;
       return this;
     }
 
-    
+    /**
+     * The company location associated to the order or draft order.
+     */
     public Builder location(CompanyLocation location) {
       this.location = location;
       return this;

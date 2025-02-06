@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Possible error codes that can be returned by `CustomerPaymentMethodGetDuplicationDataUserError`.
+ */
 public enum CustomerPaymentMethodGetDuplicationDataUserErrorCode {
   PAYMENT_METHOD_DOES_NOT_EXIST,
 

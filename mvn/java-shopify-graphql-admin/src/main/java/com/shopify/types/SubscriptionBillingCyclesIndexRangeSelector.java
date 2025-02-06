@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields to select a subset of subscription billing cycles within an index range.
+ */
 public class SubscriptionBillingCyclesIndexRangeSelector {
-  
+  /**
+   * The start index for the range.
+   */
   private int startIndex;
 
-  
+  /**
+   * The end index for the range.
+   */
   private int endIndex;
 
   public SubscriptionBillingCyclesIndexRangeSelector() {
   }
 
-  
+  /**
+   * The start index for the range.
+   */
   public int getStartIndex() {
     return startIndex;
   }
@@ -25,7 +33,9 @@ public class SubscriptionBillingCyclesIndexRangeSelector {
     this.startIndex = startIndex;
   }
 
-  
+  /**
+   * The end index for the range.
+   */
   public int getEndIndex() {
     return endIndex;
   }
@@ -58,10 +68,14 @@ public class SubscriptionBillingCyclesIndexRangeSelector {
   }
 
   public static class Builder {
-    
+    /**
+     * The start index for the range.
+     */
     private int startIndex;
 
-    
+    /**
+     * The end index for the range.
+     */
     private int endIndex;
 
     public SubscriptionBillingCyclesIndexRangeSelector build() {
@@ -71,13 +85,17 @@ public class SubscriptionBillingCyclesIndexRangeSelector {
       return result;
     }
 
-    
+    /**
+     * The start index for the range.
+     */
     public Builder startIndex(int startIndex) {
       this.startIndex = startIndex;
       return this;
     }
 
-    
+    /**
+     * The end index for the range.
+     */
     public Builder endIndex(int endIndex) {
       this.endIndex = endIndex;
       return this;

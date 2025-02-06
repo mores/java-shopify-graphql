@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields combining budget amount and its marketing budget type.
+ */
 public class MarketingActivityBudgetInput {
-  
+  /**
+   * Budget type for marketing activity.
+   */
   private MarketingBudgetBudgetType budgetType;
 
-  
+  /**
+   * Amount of budget for the marketing activity.
+   */
   private MoneyInput total;
 
   public MarketingActivityBudgetInput() {
   }
 
-  
+  /**
+   * Budget type for marketing activity.
+   */
   public MarketingBudgetBudgetType getBudgetType() {
     return budgetType;
   }
@@ -25,7 +33,9 @@ public class MarketingActivityBudgetInput {
     this.budgetType = budgetType;
   }
 
-  
+  /**
+   * Amount of budget for the marketing activity.
+   */
   public MoneyInput getTotal() {
     return total;
   }
@@ -58,10 +68,14 @@ public class MarketingActivityBudgetInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Budget type for marketing activity.
+     */
     private MarketingBudgetBudgetType budgetType;
 
-    
+    /**
+     * Amount of budget for the marketing activity.
+     */
     private MoneyInput total;
 
     public MarketingActivityBudgetInput build() {
@@ -71,13 +85,17 @@ public class MarketingActivityBudgetInput {
       return result;
     }
 
-    
+    /**
+     * Budget type for marketing activity.
+     */
     public Builder budgetType(MarketingBudgetBudgetType budgetType) {
       this.budgetType = budgetType;
       return this;
     }
 
-    
+    /**
+     * Amount of budget for the marketing activity.
+     */
     public Builder total(MoneyInput total) {
       this.total = total;
       return this;

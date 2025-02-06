@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The statistics of a given attribute.
+ */
 public class SegmentAttributeStatistics {
-  
+  /**
+   * The average of a given attribute.
+   */
   private double average;
 
-  
+  /**
+   * The sum of a given attribute.
+   */
   private double sum;
 
   public SegmentAttributeStatistics() {
   }
 
-  
+  /**
+   * The average of a given attribute.
+   */
   public double getAverage() {
     return average;
   }
@@ -25,7 +33,9 @@ public class SegmentAttributeStatistics {
     this.average = average;
   }
 
-  
+  /**
+   * The sum of a given attribute.
+   */
   public double getSum() {
     return sum;
   }
@@ -58,10 +68,14 @@ public class SegmentAttributeStatistics {
   }
 
   public static class Builder {
-    
+    /**
+     * The average of a given attribute.
+     */
     private double average;
 
-    
+    /**
+     * The sum of a given attribute.
+     */
     private double sum;
 
     public SegmentAttributeStatistics build() {
@@ -71,13 +85,17 @@ public class SegmentAttributeStatistics {
       return result;
     }
 
-    
+    /**
+     * The average of a given attribute.
+     */
     public Builder average(double average) {
       this.average = average;
       return this;
     }
 
-    
+    /**
+     * The sum of a given attribute.
+     */
     public Builder sum(double sum) {
       this.sum = sum;
       return this;

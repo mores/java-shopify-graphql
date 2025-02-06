@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields for which customer segments to add to or remove from the discount.
+ */
 public class DiscountCustomerSegmentsInput {
-  
+  /**
+   * A list of customer segments to add to the current list of customer segments.
+   */
   private List<String> add;
 
-  
+  /**
+   * A list of customer segments to remove from the current list of customer segments.
+   */
   private List<String> remove;
 
   public DiscountCustomerSegmentsInput() {
   }
 
-  
+  /**
+   * A list of customer segments to add to the current list of customer segments.
+   */
   public List<String> getAdd() {
     return add;
   }
@@ -26,7 +34,9 @@ public class DiscountCustomerSegmentsInput {
     this.add = add;
   }
 
-  
+  /**
+   * A list of customer segments to remove from the current list of customer segments.
+   */
   public List<String> getRemove() {
     return remove;
   }
@@ -59,10 +69,14 @@ public class DiscountCustomerSegmentsInput {
   }
 
   public static class Builder {
-    
+    /**
+     * A list of customer segments to add to the current list of customer segments.
+     */
     private List<String> add;
 
-    
+    /**
+     * A list of customer segments to remove from the current list of customer segments.
+     */
     private List<String> remove;
 
     public DiscountCustomerSegmentsInput build() {
@@ -72,13 +86,17 @@ public class DiscountCustomerSegmentsInput {
       return result;
     }
 
-    
+    /**
+     * A list of customer segments to add to the current list of customer segments.
+     */
     public Builder add(List<String> add) {
       this.add = add;
       return this;
     }
 
-    
+    /**
+     * A list of customer segments to remove from the current list of customer segments.
+     */
     public Builder remove(List<String> remove) {
       this.remove = remove;
       return this;

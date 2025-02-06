@@ -5,18 +5,28 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields used to update the global customizations.
+ */
 public class CheckoutBrandingGlobalInput {
-  
+  /**
+   * Select a global corner radius setting that overrides all other [corner radii](https://shopify.dev/docs/api/admin-graphql/latest/enums/CheckoutBrandingCornerRadius)
+   * customizations.
+   */
   private CheckoutBrandingGlobalCornerRadius cornerRadius;
 
-  
+  /**
+   * The global typography customizations.
+   */
   private CheckoutBrandingTypographyStyleGlobalInput typography;
 
   public CheckoutBrandingGlobalInput() {
   }
 
-  
+  /**
+   * Select a global corner radius setting that overrides all other [corner radii](https://shopify.dev/docs/api/admin-graphql/latest/enums/CheckoutBrandingCornerRadius)
+   * customizations.
+   */
   public CheckoutBrandingGlobalCornerRadius getCornerRadius() {
     return cornerRadius;
   }
@@ -25,7 +35,9 @@ public class CheckoutBrandingGlobalInput {
     this.cornerRadius = cornerRadius;
   }
 
-  
+  /**
+   * The global typography customizations.
+   */
   public CheckoutBrandingTypographyStyleGlobalInput getTypography() {
     return typography;
   }
@@ -58,10 +70,15 @@ public class CheckoutBrandingGlobalInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Select a global corner radius setting that overrides all other [corner radii](https://shopify.dev/docs/api/admin-graphql/latest/enums/CheckoutBrandingCornerRadius)
+     * customizations.
+     */
     private CheckoutBrandingGlobalCornerRadius cornerRadius;
 
-    
+    /**
+     * The global typography customizations.
+     */
     private CheckoutBrandingTypographyStyleGlobalInput typography;
 
     public CheckoutBrandingGlobalInput build() {
@@ -71,13 +88,18 @@ public class CheckoutBrandingGlobalInput {
       return result;
     }
 
-    
+    /**
+     * Select a global corner radius setting that overrides all other [corner radii](https://shopify.dev/docs/api/admin-graphql/latest/enums/CheckoutBrandingCornerRadius)
+     * customizations.
+     */
     public Builder cornerRadius(CheckoutBrandingGlobalCornerRadius cornerRadius) {
       this.cornerRadius = cornerRadius;
       return this;
     }
 
-    
+    /**
+     * The global typography customizations.
+     */
     public Builder typography(CheckoutBrandingTypographyStyleGlobalInput typography) {
       this.typography = typography;
       return this;

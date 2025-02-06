@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Billing preferences for the shop.
+ */
 public class ShopBillingPreferences {
-  
+  /**
+   * The currency the shop uses to pay for apps and services.
+   */
   private CurrencyCode currency;
 
   public ShopBillingPreferences() {
   }
 
-  
+  /**
+   * The currency the shop uses to pay for apps and services.
+   */
   public CurrencyCode getCurrency() {
     return currency;
   }
@@ -45,7 +51,9 @@ public class ShopBillingPreferences {
   }
 
   public static class Builder {
-    
+    /**
+     * The currency the shop uses to pay for apps and services.
+     */
     private CurrencyCode currency;
 
     public ShopBillingPreferences build() {
@@ -54,7 +62,9 @@ public class ShopBillingPreferences {
       return result;
     }
 
-    
+    /**
+     * The currency the shop uses to pay for apps and services.
+     */
     public Builder currency(CurrencyCode currency) {
       this.currency = currency;
       return this;

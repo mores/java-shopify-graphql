@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `locationDeactivate` mutation.
+ */
 public class LocationDeactivatePayload {
-  
+  /**
+   * The location that was deactivated.
+   */
   private Location location;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<LocationDeactivateUserError> locationDeactivateUserErrors;
 
   public LocationDeactivatePayload() {
   }
 
-  
+  /**
+   * The location that was deactivated.
+   */
   public Location getLocation() {
     return location;
   }
@@ -26,7 +34,9 @@ public class LocationDeactivatePayload {
     this.location = location;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<LocationDeactivateUserError> getLocationDeactivateUserErrors() {
     return locationDeactivateUserErrors;
   }
@@ -60,10 +70,14 @@ public class LocationDeactivatePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The location that was deactivated.
+     */
     private Location location;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<LocationDeactivateUserError> locationDeactivateUserErrors;
 
     public LocationDeactivatePayload build() {
@@ -73,13 +87,17 @@ public class LocationDeactivatePayload {
       return result;
     }
 
-    
+    /**
+     * The location that was deactivated.
+     */
     public Builder location(Location location) {
       this.location = location;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder locationDeactivateUserErrors(
         List<LocationDeactivateUserError> locationDeactivateUserErrors) {
       this.locationDeactivateUserErrors = locationDeactivateUserErrors;

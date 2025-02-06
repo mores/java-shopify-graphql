@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `collectionReorderProducts` mutation.
+ */
 public class CollectionReorderProductsPayload {
-  
+  /**
+   * The asynchronous job reordering the products.
+   */
   private Job job;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public CollectionReorderProductsPayload() {
   }
 
-  
+  /**
+   * The asynchronous job reordering the products.
+   */
   public Job getJob() {
     return job;
   }
@@ -26,7 +34,9 @@ public class CollectionReorderProductsPayload {
     this.job = job;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class CollectionReorderProductsPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The asynchronous job reordering the products.
+     */
     private Job job;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public CollectionReorderProductsPayload build() {
@@ -72,13 +86,17 @@ public class CollectionReorderProductsPayload {
       return result;
     }
 
-    
+    /**
+     * The asynchronous job reordering the products.
+     */
     public Builder job(Job job) {
       this.job = job;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

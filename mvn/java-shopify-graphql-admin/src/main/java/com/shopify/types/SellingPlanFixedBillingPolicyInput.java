@@ -6,24 +6,38 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-
+/**
+ * The input fields required to create or update a fixed billing policy.
+ */
 public class SellingPlanFixedBillingPolicyInput {
-  
+  /**
+   * When to capture the payment for the amount due.
+   */
   private SellingPlanRemainingBalanceChargeTrigger remainingBalanceChargeTrigger;
 
-  
+  /**
+   * The date and time to capture the full payment.
+   */
   private OffsetDateTime remainingBalanceChargeExactTime;
 
-  
+  /**
+   * The period after capturing the payment for the amount due
+   * (`remainingBalanceChargeTrigger`), and before capturing the full payment.
+   * Expressed as an ISO8601 duration.
+   */
   private String remainingBalanceChargeTimeAfterCheckout;
 
-  
+  /**
+   * The checkout charge policy for the selling plan.
+   */
   private SellingPlanCheckoutChargeInput checkoutCharge;
 
   public SellingPlanFixedBillingPolicyInput() {
   }
 
-  
+  /**
+   * When to capture the payment for the amount due.
+   */
   public SellingPlanRemainingBalanceChargeTrigger getRemainingBalanceChargeTrigger() {
     return remainingBalanceChargeTrigger;
   }
@@ -33,7 +47,9 @@ public class SellingPlanFixedBillingPolicyInput {
     this.remainingBalanceChargeTrigger = remainingBalanceChargeTrigger;
   }
 
-  
+  /**
+   * The date and time to capture the full payment.
+   */
   public OffsetDateTime getRemainingBalanceChargeExactTime() {
     return remainingBalanceChargeExactTime;
   }
@@ -42,7 +58,11 @@ public class SellingPlanFixedBillingPolicyInput {
     this.remainingBalanceChargeExactTime = remainingBalanceChargeExactTime;
   }
 
-  
+  /**
+   * The period after capturing the payment for the amount due
+   * (`remainingBalanceChargeTrigger`), and before capturing the full payment.
+   * Expressed as an ISO8601 duration.
+   */
   public String getRemainingBalanceChargeTimeAfterCheckout() {
     return remainingBalanceChargeTimeAfterCheckout;
   }
@@ -52,7 +72,9 @@ public class SellingPlanFixedBillingPolicyInput {
     this.remainingBalanceChargeTimeAfterCheckout = remainingBalanceChargeTimeAfterCheckout;
   }
 
-  
+  /**
+   * The checkout charge policy for the selling plan.
+   */
   public SellingPlanCheckoutChargeInput getCheckoutCharge() {
     return checkoutCharge;
   }
@@ -87,16 +109,26 @@ public class SellingPlanFixedBillingPolicyInput {
   }
 
   public static class Builder {
-    
+    /**
+     * When to capture the payment for the amount due.
+     */
     private SellingPlanRemainingBalanceChargeTrigger remainingBalanceChargeTrigger;
 
-    
+    /**
+     * The date and time to capture the full payment.
+     */
     private OffsetDateTime remainingBalanceChargeExactTime;
 
-    
+    /**
+     * The period after capturing the payment for the amount due
+     * (`remainingBalanceChargeTrigger`), and before capturing the full payment.
+     * Expressed as an ISO8601 duration.
+     */
     private String remainingBalanceChargeTimeAfterCheckout;
 
-    
+    /**
+     * The checkout charge policy for the selling plan.
+     */
     private SellingPlanCheckoutChargeInput checkoutCharge;
 
     public SellingPlanFixedBillingPolicyInput build() {
@@ -108,27 +140,37 @@ public class SellingPlanFixedBillingPolicyInput {
       return result;
     }
 
-    
+    /**
+     * When to capture the payment for the amount due.
+     */
     public Builder remainingBalanceChargeTrigger(
         SellingPlanRemainingBalanceChargeTrigger remainingBalanceChargeTrigger) {
       this.remainingBalanceChargeTrigger = remainingBalanceChargeTrigger;
       return this;
     }
 
-    
+    /**
+     * The date and time to capture the full payment.
+     */
     public Builder remainingBalanceChargeExactTime(OffsetDateTime remainingBalanceChargeExactTime) {
       this.remainingBalanceChargeExactTime = remainingBalanceChargeExactTime;
       return this;
     }
 
-    
+    /**
+     * The period after capturing the payment for the amount due
+     * (`remainingBalanceChargeTrigger`), and before capturing the full payment.
+     * Expressed as an ISO8601 duration.
+     */
     public Builder remainingBalanceChargeTimeAfterCheckout(
         String remainingBalanceChargeTimeAfterCheckout) {
       this.remainingBalanceChargeTimeAfterCheckout = remainingBalanceChargeTimeAfterCheckout;
       return this;
     }
 
-    
+    /**
+     * The checkout charge policy for the selling plan.
+     */
     public Builder checkoutCharge(SellingPlanCheckoutChargeInput checkoutCharge) {
       this.checkoutCharge = checkoutCharge;
       return this;

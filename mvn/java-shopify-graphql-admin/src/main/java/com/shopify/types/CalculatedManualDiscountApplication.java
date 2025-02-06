@@ -6,36 +6,54 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Represents a discount that was manually created for an order that is being edited.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class CalculatedManualDiscountApplication implements com.shopify.types.CalculatedDiscountApplication {
-  
+  /**
+   * The method by which the discount's value is allocated to its entitled items.
+   */
   private DiscountApplicationAllocationMethod allocationMethod;
 
-  
+  /**
+   * The level at which the discount was applied.
+   */
   private DiscountApplicationLevel appliedTo;
 
-  
+  /**
+   * The description of discount application. Indicates the reason why the discount was applied.
+   */
   private String description;
 
-  
+  /**
+   * A globally-unique ID.
+   */
   private String id;
 
-  
+  /**
+   * How the discount amount is distributed on the discounted lines.
+   */
   private DiscountApplicationTargetSelection targetSelection;
 
-  
+  /**
+   * Whether the discount is applied on line items or shipping lines.
+   */
   private DiscountApplicationTargetType targetType;
 
-  
+  /**
+   * The value of the discount application.
+   */
   private PricingValue value;
 
   public CalculatedManualDiscountApplication() {
   }
 
-  
+  /**
+   * The method by which the discount's value is allocated to its entitled items.
+   */
   public DiscountApplicationAllocationMethod getAllocationMethod() {
     return allocationMethod;
   }
@@ -44,7 +62,9 @@ public class CalculatedManualDiscountApplication implements com.shopify.types.Ca
     this.allocationMethod = allocationMethod;
   }
 
-  
+  /**
+   * The level at which the discount was applied.
+   */
   public DiscountApplicationLevel getAppliedTo() {
     return appliedTo;
   }
@@ -53,7 +73,9 @@ public class CalculatedManualDiscountApplication implements com.shopify.types.Ca
     this.appliedTo = appliedTo;
   }
 
-  
+  /**
+   * The description of discount application. Indicates the reason why the discount was applied.
+   */
   public String getDescription() {
     return description;
   }
@@ -62,7 +84,9 @@ public class CalculatedManualDiscountApplication implements com.shopify.types.Ca
     this.description = description;
   }
 
-  
+  /**
+   * A globally-unique ID.
+   */
   public String getId() {
     return id;
   }
@@ -71,7 +95,9 @@ public class CalculatedManualDiscountApplication implements com.shopify.types.Ca
     this.id = id;
   }
 
-  
+  /**
+   * How the discount amount is distributed on the discounted lines.
+   */
   public DiscountApplicationTargetSelection getTargetSelection() {
     return targetSelection;
   }
@@ -80,7 +106,9 @@ public class CalculatedManualDiscountApplication implements com.shopify.types.Ca
     this.targetSelection = targetSelection;
   }
 
-  
+  /**
+   * Whether the discount is applied on line items or shipping lines.
+   */
   public DiscountApplicationTargetType getTargetType() {
     return targetType;
   }
@@ -89,7 +117,9 @@ public class CalculatedManualDiscountApplication implements com.shopify.types.Ca
     this.targetType = targetType;
   }
 
-  
+  /**
+   * The value of the discount application.
+   */
   public PricingValue getValue() {
     return value;
   }
@@ -127,25 +157,39 @@ public class CalculatedManualDiscountApplication implements com.shopify.types.Ca
   }
 
   public static class Builder {
-    
+    /**
+     * The method by which the discount's value is allocated to its entitled items.
+     */
     private DiscountApplicationAllocationMethod allocationMethod;
 
-    
+    /**
+     * The level at which the discount was applied.
+     */
     private DiscountApplicationLevel appliedTo;
 
-    
+    /**
+     * The description of discount application. Indicates the reason why the discount was applied.
+     */
     private String description;
 
-    
+    /**
+     * A globally-unique ID.
+     */
     private String id;
 
-    
+    /**
+     * How the discount amount is distributed on the discounted lines.
+     */
     private DiscountApplicationTargetSelection targetSelection;
 
-    
+    /**
+     * Whether the discount is applied on line items or shipping lines.
+     */
     private DiscountApplicationTargetType targetType;
 
-    
+    /**
+     * The value of the discount application.
+     */
     private PricingValue value;
 
     public CalculatedManualDiscountApplication build() {
@@ -160,43 +204,57 @@ public class CalculatedManualDiscountApplication implements com.shopify.types.Ca
       return result;
     }
 
-    
+    /**
+     * The method by which the discount's value is allocated to its entitled items.
+     */
     public Builder allocationMethod(DiscountApplicationAllocationMethod allocationMethod) {
       this.allocationMethod = allocationMethod;
       return this;
     }
 
-    
+    /**
+     * The level at which the discount was applied.
+     */
     public Builder appliedTo(DiscountApplicationLevel appliedTo) {
       this.appliedTo = appliedTo;
       return this;
     }
 
-    
+    /**
+     * The description of discount application. Indicates the reason why the discount was applied.
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
-    
+    /**
+     * A globally-unique ID.
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    
+    /**
+     * How the discount amount is distributed on the discounted lines.
+     */
     public Builder targetSelection(DiscountApplicationTargetSelection targetSelection) {
       this.targetSelection = targetSelection;
       return this;
     }
 
-    
+    /**
+     * Whether the discount is applied on line items or shipping lines.
+     */
     public Builder targetType(DiscountApplicationTargetType targetType) {
       this.targetType = targetType;
       return this;
     }
 
-    
+    /**
+     * The value of the discount application.
+     */
     public Builder value(PricingValue value) {
       this.value = value;
       return this;

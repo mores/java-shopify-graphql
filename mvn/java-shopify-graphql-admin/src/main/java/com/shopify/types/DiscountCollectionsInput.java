@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The input fields for collections attached to a discount.
+ */
 public class DiscountCollectionsInput {
-  
+  /**
+   * Specifies list of collection ids to add.
+   */
   private List<String> add;
 
-  
+  /**
+   * Specifies list of collection ids to remove.
+   */
   private List<String> remove;
 
   public DiscountCollectionsInput() {
   }
 
-  
+  /**
+   * Specifies list of collection ids to add.
+   */
   public List<String> getAdd() {
     return add;
   }
@@ -26,7 +34,9 @@ public class DiscountCollectionsInput {
     this.add = add;
   }
 
-  
+  /**
+   * Specifies list of collection ids to remove.
+   */
   public List<String> getRemove() {
     return remove;
   }
@@ -59,10 +69,14 @@ public class DiscountCollectionsInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Specifies list of collection ids to add.
+     */
     private List<String> add;
 
-    
+    /**
+     * Specifies list of collection ids to remove.
+     */
     private List<String> remove;
 
     public DiscountCollectionsInput build() {
@@ -72,13 +86,17 @@ public class DiscountCollectionsInput {
       return result;
     }
 
-    
+    /**
+     * Specifies list of collection ids to add.
+     */
     public Builder add(List<String> add) {
       this.add = add;
       return this;
     }
 
-    
+    /**
+     * Specifies list of collection ids to remove.
+     */
     public Builder remove(List<String> remove) {
       this.remove = remove;
       return this;

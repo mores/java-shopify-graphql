@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Deletes a product feed for a specific publication.
+ */
 public class ProductFeedDeleteGraphQLQuery extends GraphQLQuery {
   public ProductFeedDeleteGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
@@ -40,7 +42,9 @@ public class ProductFeedDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the product feed to be deleted.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

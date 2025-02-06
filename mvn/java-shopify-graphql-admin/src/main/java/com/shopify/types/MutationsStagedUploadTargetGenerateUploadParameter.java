@@ -5,18 +5,33 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A signed upload parameter for uploading an asset to Shopify.
+ *
+ * Deprecated in favor of
+ * [StagedUploadParameter](https://shopify.dev/api/admin-graphql/latest/objects/StagedUploadParameter),
+ * which is used in
+ * [StagedMediaUploadTarget](https://shopify.dev/api/admin-graphql/latest/objects/StagedMediaUploadTarget)
+ * and returned by the
+ * [stagedUploadsCreate mutation](https://shopify.dev/api/admin-graphql/latest/mutations/stagedUploadsCreate).
+ */
 public class MutationsStagedUploadTargetGenerateUploadParameter {
-  
+  /**
+   * The upload parameter name.
+   */
   private String name;
 
-  
+  /**
+   * The upload parameter value.
+   */
   private String value;
 
   public MutationsStagedUploadTargetGenerateUploadParameter() {
   }
 
-  
+  /**
+   * The upload parameter name.
+   */
   public String getName() {
     return name;
   }
@@ -25,7 +40,9 @@ public class MutationsStagedUploadTargetGenerateUploadParameter {
     this.name = name;
   }
 
-  
+  /**
+   * The upload parameter value.
+   */
   public String getValue() {
     return value;
   }
@@ -58,10 +75,14 @@ public class MutationsStagedUploadTargetGenerateUploadParameter {
   }
 
   public static class Builder {
-    
+    /**
+     * The upload parameter name.
+     */
     private String name;
 
-    
+    /**
+     * The upload parameter value.
+     */
     private String value;
 
     public MutationsStagedUploadTargetGenerateUploadParameter build() {
@@ -71,13 +92,17 @@ public class MutationsStagedUploadTargetGenerateUploadParameter {
       return result;
     }
 
-    
+    /**
+     * The upload parameter name.
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
-    
+    /**
+     * The upload parameter value.
+     */
     public Builder value(String value) {
       this.value = value;
       return this;

@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Publishes a collection to a channel.
+ */
 public class CollectionPublishGraphQLQuery extends GraphQLQuery {
   public CollectionPublishGraphQLQuery(CollectionPublishInput input, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class CollectionPublishGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Specify a collection to publish and the sales channels to publish it to.
+     */
     public Builder input(CollectionPublishInput input) {
       this.input = input;
       this.fieldsSet.add("input");

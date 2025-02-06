@@ -5,18 +5,32 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A market's currency settings.
+ */
 public class MarketCurrencySettings {
-  
+  /**
+   * The currency which this market's prices are defined in, and the
+   * currency which its customers must use if local currencies are disabled.
+   */
   private CurrencySetting baseCurrency;
 
-  
+  /**
+   * Whether or not local currencies are enabled. If enabled, then prices will
+   * be converted to give each customer the best experience based on their
+   * region. If disabled, then all customers in this market will see prices
+   * in the market's base currency. For single country markets this will be true when
+   * the market's base currency is the same as the default currency for the region.
+   */
   private boolean localCurrencies;
 
   public MarketCurrencySettings() {
   }
 
-  
+  /**
+   * The currency which this market's prices are defined in, and the
+   * currency which its customers must use if local currencies are disabled.
+   */
   public CurrencySetting getBaseCurrency() {
     return baseCurrency;
   }
@@ -25,7 +39,13 @@ public class MarketCurrencySettings {
     this.baseCurrency = baseCurrency;
   }
 
-  
+  /**
+   * Whether or not local currencies are enabled. If enabled, then prices will
+   * be converted to give each customer the best experience based on their
+   * region. If disabled, then all customers in this market will see prices
+   * in the market's base currency. For single country markets this will be true when
+   * the market's base currency is the same as the default currency for the region.
+   */
   public boolean getLocalCurrencies() {
     return localCurrencies;
   }
@@ -58,10 +78,19 @@ public class MarketCurrencySettings {
   }
 
   public static class Builder {
-    
+    /**
+     * The currency which this market's prices are defined in, and the
+     * currency which its customers must use if local currencies are disabled.
+     */
     private CurrencySetting baseCurrency;
 
-    
+    /**
+     * Whether or not local currencies are enabled. If enabled, then prices will
+     * be converted to give each customer the best experience based on their
+     * region. If disabled, then all customers in this market will see prices
+     * in the market's base currency. For single country markets this will be true when
+     * the market's base currency is the same as the default currency for the region.
+     */
     private boolean localCurrencies;
 
     public MarketCurrencySettings build() {
@@ -71,13 +100,22 @@ public class MarketCurrencySettings {
       return result;
     }
 
-    
+    /**
+     * The currency which this market's prices are defined in, and the
+     * currency which its customers must use if local currencies are disabled.
+     */
     public Builder baseCurrency(CurrencySetting baseCurrency) {
       this.baseCurrency = baseCurrency;
       return this;
     }
 
-    
+    /**
+     * Whether or not local currencies are enabled. If enabled, then prices will
+     * be converted to give each customer the best experience based on their
+     * region. If disabled, then all customers in this market will see prices
+     * in the market's base currency. For single country markets this will be true when
+     * the market's base currency is the same as the default currency for the region.
+     */
     public Builder localCurrencies(boolean localCurrencies) {
       this.localCurrencies = localCurrencies;
       return this;

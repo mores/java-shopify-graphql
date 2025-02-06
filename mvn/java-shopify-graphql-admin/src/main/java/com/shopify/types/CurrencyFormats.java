@@ -5,24 +5,36 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Currency formats configured for the merchant. These formats are available to use within Liquid.
+ */
 public class CurrencyFormats {
-  
+  /**
+   * Money without currency in HTML.
+   */
   private String moneyFormat;
 
-  
+  /**
+   * Money without currency in emails.
+   */
   private String moneyInEmailsFormat;
 
-  
+  /**
+   * Money with currency in HTML.
+   */
   private String moneyWithCurrencyFormat;
 
-  
+  /**
+   * Money with currency in emails.
+   */
   private String moneyWithCurrencyInEmailsFormat;
 
   public CurrencyFormats() {
   }
 
-  
+  /**
+   * Money without currency in HTML.
+   */
   public String getMoneyFormat() {
     return moneyFormat;
   }
@@ -31,7 +43,9 @@ public class CurrencyFormats {
     this.moneyFormat = moneyFormat;
   }
 
-  
+  /**
+   * Money without currency in emails.
+   */
   public String getMoneyInEmailsFormat() {
     return moneyInEmailsFormat;
   }
@@ -40,7 +54,9 @@ public class CurrencyFormats {
     this.moneyInEmailsFormat = moneyInEmailsFormat;
   }
 
-  
+  /**
+   * Money with currency in HTML.
+   */
   public String getMoneyWithCurrencyFormat() {
     return moneyWithCurrencyFormat;
   }
@@ -49,7 +65,9 @@ public class CurrencyFormats {
     this.moneyWithCurrencyFormat = moneyWithCurrencyFormat;
   }
 
-  
+  /**
+   * Money with currency in emails.
+   */
   public String getMoneyWithCurrencyInEmailsFormat() {
     return moneyWithCurrencyInEmailsFormat;
   }
@@ -84,16 +102,24 @@ public class CurrencyFormats {
   }
 
   public static class Builder {
-    
+    /**
+     * Money without currency in HTML.
+     */
     private String moneyFormat;
 
-    
+    /**
+     * Money without currency in emails.
+     */
     private String moneyInEmailsFormat;
 
-    
+    /**
+     * Money with currency in HTML.
+     */
     private String moneyWithCurrencyFormat;
 
-    
+    /**
+     * Money with currency in emails.
+     */
     private String moneyWithCurrencyInEmailsFormat;
 
     public CurrencyFormats build() {
@@ -105,25 +131,33 @@ public class CurrencyFormats {
       return result;
     }
 
-    
+    /**
+     * Money without currency in HTML.
+     */
     public Builder moneyFormat(String moneyFormat) {
       this.moneyFormat = moneyFormat;
       return this;
     }
 
-    
+    /**
+     * Money without currency in emails.
+     */
     public Builder moneyInEmailsFormat(String moneyInEmailsFormat) {
       this.moneyInEmailsFormat = moneyInEmailsFormat;
       return this;
     }
 
-    
+    /**
+     * Money with currency in HTML.
+     */
     public Builder moneyWithCurrencyFormat(String moneyWithCurrencyFormat) {
       this.moneyWithCurrencyFormat = moneyWithCurrencyFormat;
       return this;
     }
 
-    
+    /**
+     * Money with currency in emails.
+     */
     public Builder moneyWithCurrencyInEmailsFormat(String moneyWithCurrencyInEmailsFormat) {
       this.moneyWithCurrencyInEmailsFormat = moneyWithCurrencyInEmailsFormat;
       return this;

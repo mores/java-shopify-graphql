@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `quantityRulesAdd` mutation.
+ */
 public class QuantityRulesAddPayload {
-  
+  /**
+   * The list of quantity rules that were added to or updated in the price list.
+   */
   private List<QuantityRule> quantityRules;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<QuantityRuleUserError> userErrors;
 
   public QuantityRulesAddPayload() {
   }
 
-  
+  /**
+   * The list of quantity rules that were added to or updated in the price list.
+   */
   public List<QuantityRule> getQuantityRules() {
     return quantityRules;
   }
@@ -26,7 +34,9 @@ public class QuantityRulesAddPayload {
     this.quantityRules = quantityRules;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<QuantityRuleUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class QuantityRulesAddPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The list of quantity rules that were added to or updated in the price list.
+     */
     private List<QuantityRule> quantityRules;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<QuantityRuleUserError> userErrors;
 
     public QuantityRulesAddPayload build() {
@@ -72,13 +86,17 @@ public class QuantityRulesAddPayload {
       return result;
     }
 
-    
+    /**
+     * The list of quantity rules that were added to or updated in the price list.
+     */
     public Builder quantityRules(List<QuantityRule> quantityRules) {
       this.quantityRules = quantityRules;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<QuantityRuleUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

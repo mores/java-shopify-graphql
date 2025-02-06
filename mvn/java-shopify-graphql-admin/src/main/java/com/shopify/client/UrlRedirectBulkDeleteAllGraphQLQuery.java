@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Asynchronously delete [URL redirects](https://shopify.dev/api/admin-graphql/latest/objects/UrlRedirect) in bulk.
+ */
 public class UrlRedirectBulkDeleteAllGraphQLQuery extends GraphQLQuery {
   public UrlRedirectBulkDeleteAllGraphQLQuery(String queryName) {
     super("mutation", queryName);

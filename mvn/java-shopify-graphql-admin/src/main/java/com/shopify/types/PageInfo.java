@@ -5,24 +5,38 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * Returns information about pagination in a connection, in accordance with the
+ * [Relay specification](https://relay.dev/graphql/connections.htm#sec-undefined.PageInfo).
+ * For more information, please read our [GraphQL Pagination Usage Guide](https://shopify.dev/api/usage/pagination-graphql).
+ */
 public class PageInfo {
-  
+  /**
+   * The cursor corresponding to the last node in edges.
+   */
   private String endCursor;
 
-  
+  /**
+   * Whether there are more pages to fetch following the current page.
+   */
   private boolean hasNextPage;
 
-  
+  /**
+   * Whether there are any pages prior to the current page.
+   */
   private boolean hasPreviousPage;
 
-  
+  /**
+   * The cursor corresponding to the first node in edges.
+   */
   private String startCursor;
 
   public PageInfo() {
   }
 
-  
+  /**
+   * The cursor corresponding to the last node in edges.
+   */
   public String getEndCursor() {
     return endCursor;
   }
@@ -31,7 +45,9 @@ public class PageInfo {
     this.endCursor = endCursor;
   }
 
-  
+  /**
+   * Whether there are more pages to fetch following the current page.
+   */
   public boolean getHasNextPage() {
     return hasNextPage;
   }
@@ -40,7 +56,9 @@ public class PageInfo {
     this.hasNextPage = hasNextPage;
   }
 
-  
+  /**
+   * Whether there are any pages prior to the current page.
+   */
   public boolean getHasPreviousPage() {
     return hasPreviousPage;
   }
@@ -49,7 +67,9 @@ public class PageInfo {
     this.hasPreviousPage = hasPreviousPage;
   }
 
-  
+  /**
+   * The cursor corresponding to the first node in edges.
+   */
   public String getStartCursor() {
     return startCursor;
   }
@@ -84,16 +104,24 @@ public class PageInfo {
   }
 
   public static class Builder {
-    
+    /**
+     * The cursor corresponding to the last node in edges.
+     */
     private String endCursor;
 
-    
+    /**
+     * Whether there are more pages to fetch following the current page.
+     */
     private boolean hasNextPage;
 
-    
+    /**
+     * Whether there are any pages prior to the current page.
+     */
     private boolean hasPreviousPage;
 
-    
+    /**
+     * The cursor corresponding to the first node in edges.
+     */
     private String startCursor;
 
     public PageInfo build() {
@@ -105,25 +133,33 @@ public class PageInfo {
       return result;
     }
 
-    
+    /**
+     * The cursor corresponding to the last node in edges.
+     */
     public Builder endCursor(String endCursor) {
       this.endCursor = endCursor;
       return this;
     }
 
-    
+    /**
+     * Whether there are more pages to fetch following the current page.
+     */
     public Builder hasNextPage(boolean hasNextPage) {
       this.hasNextPage = hasNextPage;
       return this;
     }
 
-    
+    /**
+     * Whether there are any pages prior to the current page.
+     */
     public Builder hasPreviousPage(boolean hasPreviousPage) {
       this.hasPreviousPage = hasPreviousPage;
       return this;
     }
 
-    
+    /**
+     * The cursor corresponding to the first node in edges.
+     */
     public Builder startCursor(String startCursor) {
       this.startCursor = startCursor;
       return this;

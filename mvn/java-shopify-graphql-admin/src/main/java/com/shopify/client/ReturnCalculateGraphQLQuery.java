@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * The calculated monetary value to be exchanged due to the return.
+ */
 public class ReturnCalculateGraphQLQuery extends GraphQLQuery {
   public ReturnCalculateGraphQLQuery(CalculateReturnInput input, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class ReturnCalculateGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The input fields for calculating a return.
+     */
     public Builder input(CalculateReturnInput input) {
       this.input = input;
       this.fieldsSet.add("input");

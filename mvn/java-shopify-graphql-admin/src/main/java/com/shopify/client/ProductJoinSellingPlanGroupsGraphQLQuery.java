@@ -7,7 +7,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Adds multiple selling plan groups to a product.
+ */
 public class ProductJoinSellingPlanGroupsGraphQLQuery extends GraphQLQuery {
   public ProductJoinSellingPlanGroupsGraphQLQuery(String id, List<String> sellingPlanGroupIds,
       String queryName, Set<String> fieldsSet) {
@@ -46,14 +48,18 @@ public class ProductJoinSellingPlanGroupsGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the product.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    
+    /**
+     * The IDs of the selling plan groups to add.
+     */
     public Builder sellingPlanGroupIds(List<String> sellingPlanGroupIds) {
       this.sellingPlanGroupIds = sellingPlanGroupIds;
       this.fieldsSet.add("sellingPlanGroupIds");

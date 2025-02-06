@@ -7,18 +7,24 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * A shipping option for delivery of a subscription contract.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class SubscriptionShippingOptionResultSuccess implements SubscriptionShippingOptionResult {
-  
+  /**
+   * Available shipping options.
+   */
   private List<SubscriptionShippingOption> shippingOptions;
 
   public SubscriptionShippingOptionResultSuccess() {
   }
 
-  
+  /**
+   * Available shipping options.
+   */
   public List<SubscriptionShippingOption> getShippingOptions() {
     return shippingOptions;
   }
@@ -50,7 +56,9 @@ public class SubscriptionShippingOptionResultSuccess implements SubscriptionShip
   }
 
   public static class Builder {
-    
+    /**
+     * Available shipping options.
+     */
     private List<SubscriptionShippingOption> shippingOptions;
 
     public SubscriptionShippingOptionResultSuccess build() {
@@ -59,7 +67,9 @@ public class SubscriptionShippingOptionResultSuccess implements SubscriptionShip
       return result;
     }
 
-    
+    /**
+     * Available shipping options.
+     */
     public Builder shippingOptions(List<SubscriptionShippingOption> shippingOptions) {
       this.shippingOptions = shippingOptions;
       return this;

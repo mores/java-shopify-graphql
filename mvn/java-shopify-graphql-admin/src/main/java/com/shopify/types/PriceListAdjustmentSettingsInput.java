@@ -5,15 +5,21 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * The input fields to set a price list's adjustment settings.
+ */
 public class PriceListAdjustmentSettingsInput {
-  
+  /**
+   * Determines how adjustments are applied to compare at prices.
+   */
   private PriceListCompareAtMode compareAtMode = PriceListCompareAtMode.ADJUSTED;
 
   public PriceListAdjustmentSettingsInput() {
   }
 
-  
+  /**
+   * Determines how adjustments are applied to compare at prices.
+   */
   public PriceListCompareAtMode getCompareAtMode() {
     return compareAtMode;
   }
@@ -45,7 +51,9 @@ public class PriceListAdjustmentSettingsInput {
   }
 
   public static class Builder {
-    
+    /**
+     * Determines how adjustments are applied to compare at prices.
+     */
     private PriceListCompareAtMode compareAtMode = PriceListCompareAtMode.ADJUSTED;
 
     public PriceListAdjustmentSettingsInput build() {
@@ -54,7 +62,9 @@ public class PriceListAdjustmentSettingsInput {
       return result;
     }
 
-    
+    /**
+     * Determines how adjustments are applied to compare at prices.
+     */
     public Builder compareAtMode(PriceListCompareAtMode compareAtMode) {
       this.compareAtMode = compareAtMode;
       return this;

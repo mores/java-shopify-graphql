@@ -39,6 +39,20 @@ public class StoreCreditAccountCreditTransactionFragmentProjection<PARENT extend
      return projection;
   }
 
+  public StoreCreditSystemEventProjection<StoreCreditAccountCreditTransactionFragmentProjection<PARENT, ROOT>, ROOT> event(
+      ) {
+     StoreCreditSystemEventProjection<StoreCreditAccountCreditTransactionFragmentProjection<PARENT, ROOT>, ROOT> projection = new StoreCreditSystemEventProjection<>(this, getRoot());
+     getFields().put("event", projection);
+     return projection;
+  }
+
+  public StoreCreditAccountTransactionOriginProjection<StoreCreditAccountCreditTransactionFragmentProjection<PARENT, ROOT>, ROOT> origin(
+      ) {
+     StoreCreditAccountTransactionOriginProjection<StoreCreditAccountCreditTransactionFragmentProjection<PARENT, ROOT>, ROOT> projection = new StoreCreditAccountTransactionOriginProjection<>(this, getRoot());
+     getFields().put("origin", projection);
+     return projection;
+  }
+
   public MoneyV2Projection<StoreCreditAccountCreditTransactionFragmentProjection<PARENT, ROOT>, ROOT> remainingAmount(
       ) {
      MoneyV2Projection<StoreCreditAccountCreditTransactionFragmentProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());

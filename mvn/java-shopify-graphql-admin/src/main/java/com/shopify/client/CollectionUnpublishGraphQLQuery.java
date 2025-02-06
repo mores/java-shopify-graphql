@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Unpublishes a collection.
+ */
 public class CollectionUnpublishGraphQLQuery extends GraphQLQuery {
   public CollectionUnpublishGraphQLQuery(CollectionUnpublishInput input, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class CollectionUnpublishGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * Specify a collection to unpublish and the sales channels to remove it from.
+     */
     public Builder input(CollectionUnpublishInput input) {
       this.input = input;
       this.fieldsSet.add("input");

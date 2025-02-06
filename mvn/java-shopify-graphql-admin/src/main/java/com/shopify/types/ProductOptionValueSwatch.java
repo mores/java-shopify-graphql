@@ -5,18 +5,26 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Objects;
 
-
+/**
+ * A swatch associated with a product option value.
+ */
 public class ProductOptionValueSwatch {
-  
+  /**
+   * The color representation of the swatch.
+   */
   private String color;
 
-  
+  /**
+   * An image representation of the swatch.
+   */
   private MediaImage image;
 
   public ProductOptionValueSwatch() {
   }
 
-  
+  /**
+   * The color representation of the swatch.
+   */
   public String getColor() {
     return color;
   }
@@ -25,7 +33,9 @@ public class ProductOptionValueSwatch {
     this.color = color;
   }
 
-  
+  /**
+   * An image representation of the swatch.
+   */
   public MediaImage getImage() {
     return image;
   }
@@ -58,10 +68,14 @@ public class ProductOptionValueSwatch {
   }
 
   public static class Builder {
-    
+    /**
+     * The color representation of the swatch.
+     */
     private String color;
 
-    
+    /**
+     * An image representation of the swatch.
+     */
     private MediaImage image;
 
     public ProductOptionValueSwatch build() {
@@ -71,13 +85,17 @@ public class ProductOptionValueSwatch {
       return result;
     }
 
-    
+    /**
+     * The color representation of the swatch.
+     */
     public Builder color(String color) {
       this.color = color;
       return this;
     }
 
-    
+    /**
+     * An image representation of the swatch.
+     */
     public Builder image(MediaImage image) {
       this.image = image;
       return this;

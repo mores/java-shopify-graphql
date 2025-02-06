@@ -8,27 +8,42 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-
+/**
+ * Represents a recurring selling plan pricing policy. It applies after the fixed
+ * pricing policy. By using the afterCycle parameter, you can specify the cycle
+ * when the recurring pricing policy comes into effect. Recurring pricing policies
+ * are not available for deferred purchase options.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class SellingPlanRecurringPricingPolicy implements SellingPlanPricingPolicy, com.shopify.types.SellingPlanPricingPolicyBase {
-  
+  /**
+   * The price adjustment type.
+   */
   private SellingPlanPricingPolicyAdjustmentType adjustmentType;
 
-  
+  /**
+   * The price adjustment value.
+   */
   private SellingPlanPricingPolicyAdjustmentValue adjustmentValue;
 
-  
+  /**
+   * Cycle after which this pricing policy applies.
+   */
   private Integer afterCycle;
 
-  
+  /**
+   * The date and time when the recurring selling plan pricing policy was created.
+   */
   private OffsetDateTime createdAt;
 
   public SellingPlanRecurringPricingPolicy() {
   }
 
-  
+  /**
+   * The price adjustment type.
+   */
   public SellingPlanPricingPolicyAdjustmentType getAdjustmentType() {
     return adjustmentType;
   }
@@ -37,7 +52,9 @@ public class SellingPlanRecurringPricingPolicy implements SellingPlanPricingPoli
     this.adjustmentType = adjustmentType;
   }
 
-  
+  /**
+   * The price adjustment value.
+   */
   public SellingPlanPricingPolicyAdjustmentValue getAdjustmentValue() {
     return adjustmentValue;
   }
@@ -46,7 +63,9 @@ public class SellingPlanRecurringPricingPolicy implements SellingPlanPricingPoli
     this.adjustmentValue = adjustmentValue;
   }
 
-  
+  /**
+   * Cycle after which this pricing policy applies.
+   */
   public Integer getAfterCycle() {
     return afterCycle;
   }
@@ -55,7 +74,9 @@ public class SellingPlanRecurringPricingPolicy implements SellingPlanPricingPoli
     this.afterCycle = afterCycle;
   }
 
-  
+  /**
+   * The date and time when the recurring selling plan pricing policy was created.
+   */
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -90,16 +111,24 @@ public class SellingPlanRecurringPricingPolicy implements SellingPlanPricingPoli
   }
 
   public static class Builder {
-    
+    /**
+     * The price adjustment type.
+     */
     private SellingPlanPricingPolicyAdjustmentType adjustmentType;
 
-    
+    /**
+     * The price adjustment value.
+     */
     private SellingPlanPricingPolicyAdjustmentValue adjustmentValue;
 
-    
+    /**
+     * Cycle after which this pricing policy applies.
+     */
     private Integer afterCycle;
 
-    
+    /**
+     * The date and time when the recurring selling plan pricing policy was created.
+     */
     private OffsetDateTime createdAt;
 
     public SellingPlanRecurringPricingPolicy build() {
@@ -111,25 +140,33 @@ public class SellingPlanRecurringPricingPolicy implements SellingPlanPricingPoli
       return result;
     }
 
-    
+    /**
+     * The price adjustment type.
+     */
     public Builder adjustmentType(SellingPlanPricingPolicyAdjustmentType adjustmentType) {
       this.adjustmentType = adjustmentType;
       return this;
     }
 
-    
+    /**
+     * The price adjustment value.
+     */
     public Builder adjustmentValue(SellingPlanPricingPolicyAdjustmentValue adjustmentValue) {
       this.adjustmentValue = adjustmentValue;
       return this;
     }
 
-    
+    /**
+     * Cycle after which this pricing policy applies.
+     */
     public Builder afterCycle(Integer afterCycle) {
       this.afterCycle = afterCycle;
       return this;
     }
 
-    
+    /**
+     * The date and time when the recurring selling plan pricing policy was created.
+     */
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;

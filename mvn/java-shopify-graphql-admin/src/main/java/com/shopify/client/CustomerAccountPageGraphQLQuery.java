@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Returns a customer account page.
+ */
 public class CustomerAccountPageGraphQLQuery extends GraphQLQuery {
   public CustomerAccountPageGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
@@ -40,7 +42,9 @@ public class CustomerAccountPageGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the `CustomerAccountPage` to return.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");

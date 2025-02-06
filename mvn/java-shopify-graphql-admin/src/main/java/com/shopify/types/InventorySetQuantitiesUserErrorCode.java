@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Possible error codes that can be returned by `InventorySetQuantitiesUserError`.
+ */
 public enum InventorySetQuantitiesUserErrorCode {
   INVALID_INVENTORY_ITEM,
 
@@ -24,5 +26,7 @@ public enum InventorySetQuantitiesUserErrorCode {
 
   INVALID_NAME,
 
-  NO_DUPLICATE_INVENTORY_ITEM_ID_GROUP_ID_PAIR
+  NO_DUPLICATE_INVENTORY_ITEM_ID_GROUP_ID_PAIR,
+
+  NON_MUTABLE_INVENTORY_ITEM
 }

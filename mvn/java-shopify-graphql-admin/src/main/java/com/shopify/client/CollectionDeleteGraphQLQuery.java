@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Deletes a collection.
+ */
 public class CollectionDeleteGraphQLQuery extends GraphQLQuery {
   public CollectionDeleteGraphQLQuery(CollectionDeleteInput input, String queryName,
       Set<String> fieldsSet) {
@@ -42,7 +44,9 @@ public class CollectionDeleteGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The collection to delete.
+     */
     public Builder input(CollectionDeleteInput input) {
       this.input = input;
       this.fieldsSet.add("input");

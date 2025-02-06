@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `customerUpdateDefaultAddress` mutation.
+ */
 public class CustomerUpdateDefaultAddressPayload {
-  
+  /**
+   * The customer whose address was updated.
+   */
   private Customer customer;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public CustomerUpdateDefaultAddressPayload() {
   }
 
-  
+  /**
+   * The customer whose address was updated.
+   */
   public Customer getCustomer() {
     return customer;
   }
@@ -26,7 +34,9 @@ public class CustomerUpdateDefaultAddressPayload {
     this.customer = customer;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class CustomerUpdateDefaultAddressPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The customer whose address was updated.
+     */
     private Customer customer;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public CustomerUpdateDefaultAddressPayload build() {
@@ -72,13 +86,17 @@ public class CustomerUpdateDefaultAddressPayload {
       return result;
     }
 
-    
+    /**
+     * The customer whose address was updated.
+     */
     public Builder customer(Customer customer) {
       this.customer = customer;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;

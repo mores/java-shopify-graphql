@@ -7,7 +7,11 @@ import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Updates a manual line level discount on the current order edit. For more
+ * information on how to use the GraphQL Admin API to edit an existing order,
+ * refer to [Edit existing orders](https://shopify.dev/apps/fulfillment/order-management-apps/order-editing).
+ */
 public class OrderEditUpdateDiscountGraphQLQuery extends GraphQLQuery {
   public OrderEditUpdateDiscountGraphQLQuery(String id, OrderEditAppliedDiscountInput discount,
       String discountApplicationId, String queryName, Set<String> fieldsSet) {
@@ -50,21 +54,29 @@ public class OrderEditUpdateDiscountGraphQLQuery extends GraphQLQuery {
                
     }
 
-    
+    /**
+     * The ID of the [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
+     * from which to update the discount.
+     */
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
       return this;
     }
 
-    
+    /**
+     * The updated discount.
+     */
     public Builder discount(OrderEditAppliedDiscountInput discount) {
       this.discount = discount;
       this.fieldsSet.add("discount");
       return this;
     }
 
-    
+    /**
+     * The ID of the [calculated discount application](https://shopify.dev/api/admin-graphql/latest/interfaces/calculateddiscountapplication)
+     * to update.
+     */
     public Builder discountApplicationId(String discountApplicationId) {
       this.discountApplicationId = discountApplicationId;
       this.fieldsSet.add("discountApplicationId");

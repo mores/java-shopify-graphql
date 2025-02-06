@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `orderEditUpdateShippingLine` mutation.
+ */
 public class OrderEditUpdateShippingLinePayload {
-  
+  /**
+   * An order with the edits applied but not saved.
+   */
   private CalculatedOrder calculatedOrder;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<OrderEditUpdateShippingLineUserError> userErrors;
 
   public OrderEditUpdateShippingLinePayload() {
   }
 
-  
+  /**
+   * An order with the edits applied but not saved.
+   */
   public CalculatedOrder getCalculatedOrder() {
     return calculatedOrder;
   }
@@ -26,7 +34,9 @@ public class OrderEditUpdateShippingLinePayload {
     this.calculatedOrder = calculatedOrder;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<OrderEditUpdateShippingLineUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class OrderEditUpdateShippingLinePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * An order with the edits applied but not saved.
+     */
     private CalculatedOrder calculatedOrder;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<OrderEditUpdateShippingLineUserError> userErrors;
 
     public OrderEditUpdateShippingLinePayload build() {
@@ -72,13 +86,17 @@ public class OrderEditUpdateShippingLinePayload {
       return result;
     }
 
-    
+    /**
+     * An order with the edits applied but not saved.
+     */
     public Builder calculatedOrder(CalculatedOrder calculatedOrder) {
       this.calculatedOrder = calculatedOrder;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<OrderEditUpdateShippingLineUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

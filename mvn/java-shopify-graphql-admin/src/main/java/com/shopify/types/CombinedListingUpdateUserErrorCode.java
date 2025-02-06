@@ -1,6 +1,8 @@
 package com.shopify.types;
 
-
+/**
+ * Possible error codes that can be returned by `CombinedListingUpdateUserError`.
+ */
 public enum CombinedListingUpdateUserErrorCode {
   CANNOT_HAVE_DUPLICATED_PRODUCTS,
 
@@ -29,6 +31,8 @@ public enum CombinedListingUpdateUserErrorCode {
   LINKED_METAFIELDS_CANNOT_BE_REPEATED,
 
   LINKED_OPTIONS_NOT_SUPPORTED_FOR_SHOP,
+
+  MISSING_OPTION_VALUES,
 
   MUST_HAVE_SELECTED_OPTION_VALUES,
 

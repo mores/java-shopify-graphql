@@ -6,18 +6,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `fulfillmentOrderMerge` mutation.
+ */
 public class FulfillmentOrderMergePayload {
-  
+  /**
+   * The result of the fulfillment order merges.
+   */
   private List<FulfillmentOrderMergeResult> fulfillmentOrderMerges;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<FulfillmentOrderMergeUserError> userErrors;
 
   public FulfillmentOrderMergePayload() {
   }
 
-  
+  /**
+   * The result of the fulfillment order merges.
+   */
   public List<FulfillmentOrderMergeResult> getFulfillmentOrderMerges() {
     return fulfillmentOrderMerges;
   }
@@ -26,7 +34,9 @@ public class FulfillmentOrderMergePayload {
     this.fulfillmentOrderMerges = fulfillmentOrderMerges;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<FulfillmentOrderMergeUserError> getUserErrors() {
     return userErrors;
   }
@@ -59,10 +69,14 @@ public class FulfillmentOrderMergePayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The result of the fulfillment order merges.
+     */
     private List<FulfillmentOrderMergeResult> fulfillmentOrderMerges;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<FulfillmentOrderMergeUserError> userErrors;
 
     public FulfillmentOrderMergePayload build() {
@@ -72,14 +86,18 @@ public class FulfillmentOrderMergePayload {
       return result;
     }
 
-    
+    /**
+     * The result of the fulfillment order merges.
+     */
     public Builder fulfillmentOrderMerges(
         List<FulfillmentOrderMergeResult> fulfillmentOrderMerges) {
       this.fulfillmentOrderMerges = fulfillmentOrderMerges;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<FulfillmentOrderMergeUserError> userErrors) {
       this.userErrors = userErrors;
       return this;

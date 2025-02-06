@@ -6,21 +6,31 @@ import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Return type for `orderEditAddCustomItem` mutation.
+ */
 public class OrderEditAddCustomItemPayload {
-  
+  /**
+   * The custom line item that will be added to the order based on the current edits.
+   */
   private CalculatedLineItem calculatedLineItem;
 
-  
+  /**
+   * An order with the edits applied but not saved.
+   */
   private CalculatedOrder calculatedOrder;
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   private List<UserError> userErrors;
 
   public OrderEditAddCustomItemPayload() {
   }
 
-  
+  /**
+   * The custom line item that will be added to the order based on the current edits.
+   */
   public CalculatedLineItem getCalculatedLineItem() {
     return calculatedLineItem;
   }
@@ -29,7 +39,9 @@ public class OrderEditAddCustomItemPayload {
     this.calculatedLineItem = calculatedLineItem;
   }
 
-  
+  /**
+   * An order with the edits applied but not saved.
+   */
   public CalculatedOrder getCalculatedOrder() {
     return calculatedOrder;
   }
@@ -38,7 +50,9 @@ public class OrderEditAddCustomItemPayload {
     this.calculatedOrder = calculatedOrder;
   }
 
-  
+  /**
+   * The list of errors that occurred from executing the mutation.
+   */
   public List<UserError> getUserErrors() {
     return userErrors;
   }
@@ -72,13 +86,19 @@ public class OrderEditAddCustomItemPayload {
   }
 
   public static class Builder {
-    
+    /**
+     * The custom line item that will be added to the order based on the current edits.
+     */
     private CalculatedLineItem calculatedLineItem;
 
-    
+    /**
+     * An order with the edits applied but not saved.
+     */
     private CalculatedOrder calculatedOrder;
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     private List<UserError> userErrors;
 
     public OrderEditAddCustomItemPayload build() {
@@ -89,19 +109,25 @@ public class OrderEditAddCustomItemPayload {
       return result;
     }
 
-    
+    /**
+     * The custom line item that will be added to the order based on the current edits.
+     */
     public Builder calculatedLineItem(CalculatedLineItem calculatedLineItem) {
       this.calculatedLineItem = calculatedLineItem;
       return this;
     }
 
-    
+    /**
+     * An order with the edits applied but not saved.
+     */
     public Builder calculatedOrder(CalculatedOrder calculatedOrder) {
       this.calculatedOrder = calculatedOrder;
       return this;
     }
 
-    
+    /**
+     * The list of errors that occurred from executing the mutation.
+     */
     public Builder userErrors(List<UserError> userErrors) {
       this.userErrors = userErrors;
       return this;
