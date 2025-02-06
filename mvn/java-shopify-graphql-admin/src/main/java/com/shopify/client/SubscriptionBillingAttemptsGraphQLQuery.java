@@ -133,7 +133,7 @@ public class SubscriptionBillingAttemptsGraphQLQuery extends GraphQLQuery {
      * | created_at | time |
      * | error_code | string |
      * | error_message | string |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * You can apply one or more filters to a query. Learn more about [Shopify API
      * search syntax](https://shopify.dev/api/usage/search-syntax).
      */

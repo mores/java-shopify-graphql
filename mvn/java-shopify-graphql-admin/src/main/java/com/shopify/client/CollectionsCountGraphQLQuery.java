@@ -55,7 +55,7 @@ public class CollectionsCountGraphQLQuery extends GraphQLQuery {
      * in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
      * | collection_type | string | | - `custom`<br/> - `smart` |
      * | handle | string |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | product_id | id | Filter by collections containing a product by its ID. |
      * | product_publication_status | string | Filter by the publishable status of
      * the resource on a channel, such as the online store. The value is a

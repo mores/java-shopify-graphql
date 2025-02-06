@@ -132,7 +132,7 @@ public class CommentsGraphQLQuery extends GraphQLQuery {
      * | ---- | ---- | ---- | ---- | ---- | ---- |
      * | default | string | Filter by a case-insensitive search of multiple fields
      * in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | published_status | string | Filter by published status | - `any`<br/> -
      * `published`<br/> - `unpublished` | | - `published_status:any`<br/> -
      * `published_status:published`<br/> - `published_status:unpublished` |

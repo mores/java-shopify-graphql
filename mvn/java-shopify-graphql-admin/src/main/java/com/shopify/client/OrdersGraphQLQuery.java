@@ -158,7 +158,7 @@ public class OrdersGraphQLQuery extends GraphQLQuery {
      * unique. | | | - `confirmation_number:ABC123` |
      * | created_at | time | Filter by the date and time when the order was created
      * in Shopify's system. | | | - `created_at:2020-10-21T23:39:20Z`<br/> -
-     * `created_at:<now`<br/> - `created_at:<=2024` |
+     * `created_at:&lt;now`<br/> - `created_at:&lt;=2024` |
      * | credit_card_last4 | string | Filter by the last four digits of the credit
      * card that was used to pay for the order. | | | - `credit_card_last4:1234` |
      * | customer_id | id | Filter orders by the customer [`id`](https://shopify.dev/api/admin-graphql/latest/objects/Customer#field-id)
@@ -186,7 +186,7 @@ public class OrdersGraphQLQuery extends GraphQLQuery {
      * - `on_hold`<br/> - `request_declined` | | - `fulfillment_status:fulfilled` |
      * | gateway | string | Filter by the order [`paymentGatewayNames`](https://shopify.dev/api/admin-graphql/latest/objects/Order#field-paymentgatewaynames)
      * field. | | | - `gateway:shopify_payments` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | location_id | id | Filter by the ID of the location that's associated with the order. | | | - `location_id:123` |
      * | name | string | Filter by the order [`name`](https://shopify.dev/api/admin-graphql/latest/objects/Order#field-name)
      * field. | | | - `name:1001-A` |
@@ -229,7 +229,7 @@ public class OrdersGraphQLQuery extends GraphQLQuery {
      * payment provider with test mode enabled. | | | - `test:true` |
      * | updated_at | time | Filter by the date and time when the order was last
      * updated in Shopify's system. | | | - `updated_at:2020-10-21T23:39:20Z`<br/>
-     * - `updated_at:<now`<br/> - `updated_at:<=2024` |
+     * - `updated_at:&lt;now`<br/> - `updated_at:&lt;=2024` |
      * You can apply one or more filters to a query. Learn more about [Shopify API
      * search syntax](https://shopify.dev/api/usage/search-syntax).
      */

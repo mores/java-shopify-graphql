@@ -115,7 +115,7 @@ public class SubscriptionContractsGraphQLQuery extends GraphQLQuery {
      * | name | type | description | acceptable_values | default_value | example_use |
      * | ---- | ---- | ---- | ---- | ---- | ---- |
      * | created_at | time |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | last_billing_attempt_error_type | string |
      * | status | string |
      * | updated_at | time |

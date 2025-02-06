@@ -143,7 +143,7 @@ public class MetaobjectsGraphQLQuery extends GraphQLQuery {
      * | ---- | ---- | ---- | ---- | ---- | ---- |
      * | display_name | string |
      * | handle | string |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | updated_at | time |
      * You can apply one or more filters to a query. Learn more about [Shopify API
      * search syntax](https://shopify.dev/api/usage/search-syntax).

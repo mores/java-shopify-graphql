@@ -66,14 +66,14 @@ public class DiscountNodesCountGraphQLQuery extends GraphQLQuery {
      * type](https://help.shopify.com/manual/discounts/discount-types). | -
      * `bogo`<br/> - `fixed_amount`<br/> - `free_shipping`<br/> - `percentage` | |
      * - `type:fixed_amount` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | method | string | Filter by the [discount
      * method](https://shopify.dev/docs/apps/build/discounts#discount-methods). | -
      * `automatic`<br/> - `code` | | - `method:code` |
      * | starts_at | time | Filter by the date and time, in the shop's timezone,
      * when the discount becomes active and is available for customer use. | | | -
-     * `starts_at:>'2020-10-21T23:39:20Z'`<br/> - `starts_at:<now`<br/> -
-     * `starts_at:<='2024'` |
+     * `starts_at:>'2020-10-21T23:39:20Z'`<br/> - `starts_at:&lt;now`<br/> -
+     * `starts_at:&lt;='2024'` |
      * | status | string | Filter by the status of the discount. | - `active`<br/>
      * - `expired`<br/> - `scheduled` | | - `status:scheduled` |
      * | times_used | integer | Filter by the number of times the discount has been

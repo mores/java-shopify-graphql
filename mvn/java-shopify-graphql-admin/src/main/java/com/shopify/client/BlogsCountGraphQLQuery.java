@@ -50,7 +50,7 @@ public class BlogsCountGraphQLQuery extends GraphQLQuery {
      * in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
      * | created_at | time |
      * | handle | string |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | title | string |
      * | updated_at | time |
      * You can apply one or more filters to a query. Learn more about [Shopify API

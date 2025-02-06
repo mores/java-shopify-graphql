@@ -136,15 +136,15 @@ public class CustomersGraphQLQuery extends GraphQLQuery {
      * information about orders and for the purposes of email marketing campaigns.
      * You can use a wildcard value to filter the query by customers who have an
      * email address specified. | | | - `email:bo.wang@example.com`<br/> - `email:*` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | phone | string | The phone number of the customer, used to communicate
      * information about orders and for the purposes of SMS marketing campaigns.
      * You can use a wildcard value to filter the query by customers who have a
      * phone number specified. | | | - `phone:+18005550100`<br/> - `phone:*` |
      * | updated_at | time | The date and time, matching a whole day, when the
      * customer's information was last updated. | | | -
-     * `updated_at:2024-01-01T00:00:00Z`<br/> - `updated_at:<now`<br/> -
-     * `updated_at:<=2024` |
+     * `updated_at:2024-01-01T00:00:00Z`<br/> - `updated_at:&lt;now`<br/> -
+     * `updated_at:&lt;=2024` |
      * You can apply one or more filters to a query. Learn more about [Shopify API
      * search syntax](https://shopify.dev/api/usage/search-syntax).
      */

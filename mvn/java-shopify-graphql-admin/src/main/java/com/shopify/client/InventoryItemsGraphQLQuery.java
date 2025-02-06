@@ -115,7 +115,7 @@ public class InventoryItemsGraphQLQuery extends GraphQLQuery {
      * | name | type | description | acceptable_values | default_value | example_use |
      * | ---- | ---- | ---- | ---- | ---- | ---- |
      * | created_at | time |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | sku | string | Filter by the inventory item [`sku`](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryItem#field-sku)
      * field. [Learn more about
      * SKUs](https://help.shopify.com/manual/products/details/sku). | | | -

@@ -132,7 +132,7 @@ public class MarketingEventsGraphQLQuery extends GraphQLQuery {
      * | ---- | ---- | ---- | ---- | ---- | ---- |
      * | app_id | id |
      * | description | string |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | started_at | time |
      * | type | string |
      * You can apply one or more filters to a query. Learn more about [Shopify API

@@ -137,7 +137,7 @@ public class SellingPlanGroupsGraphQLQuery extends GraphQLQuery {
      * `SUBSCRIPTION`<br/> - `PRE_ORDER`<br/> - `TRY_BEFORE_YOU_BUY`<br/> - `OTHER` |
      * | created_at | time |
      * | delivery_frequency | string |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | name | string |
      * | percentage_off | float |
      * You can apply one or more filters to a query. Learn more about [Shopify API

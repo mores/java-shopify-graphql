@@ -149,7 +149,7 @@ public class ProductVariantsGraphQLQuery extends GraphQLQuery {
      * `exclude_variants_with_components:true` |
      * | gift_card | boolean | Filter by the product [`isGiftCard`](https://shopify.dev/api/admin-graphql/latest/objects/Product#field-isgiftcard)
      * field. | | | - `gift_card:true` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | inventory_quantity | integer | Filter by an aggregate of inventory across
      * all locations where the product variant is stocked. | | | -
      * `inventory_quantity:10` |
@@ -212,7 +212,7 @@ public class ProductVariantsGraphQLQuery extends GraphQLQuery {
      * field. | | | - `title:ice` |
      * | updated_at | time | Filter by date and time when the product variant was
      * updated. | | | - `updated_at:>2020-10-21T23:39:20Z`<br/> -
-     * `updated_at:<now`<br/> - `updated_at:<=2024` |
+     * `updated_at:&lt;now`<br/> - `updated_at:&lt;=2024` |
      * | vendor | string | Filter by the origin or source of the product variant.
      * Learn more about [vendors and managing vendor
      * information](https://help.shopify.com/manual/products/managing-vendor-info).

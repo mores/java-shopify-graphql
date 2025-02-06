@@ -136,14 +136,14 @@ public class ArticlesGraphQLQuery extends GraphQLQuery {
      * | blog_title | string |
      * | created_at | time | Filter by the date and time when the article was
      * created. | | | - `created_at:>'2020-10-21T23:39:20Z'`<br/> -
-     * `created_at:<now`<br/> - `created_at:<=2024` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * `created_at:&lt;now`<br/> - `created_at:&lt;=2024` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | published_status | string | Filter by published status |
      * | tag | string | Filter objects by the `tag` field. | | | - `tag:my_tag` |
      * | tag_not | string | Filter by objects that don’t have the specified tag. | | | - `tag_not:my_tag` |
      * | updated_at | time | Filter by the date and time when the article was last
      * updated. | | | - `updated_at:>'2020-10-21T23:39:20Z'`<br/> -
-     * `updated_at:<now`<br/> - `updated_at:<=2024` |
+     * `updated_at:&lt;now`<br/> - `updated_at:&lt;=2024` |
      * You can apply one or more filters to a query. Learn more about [Shopify API
      * search syntax](https://shopify.dev/api/usage/search-syntax).
      */

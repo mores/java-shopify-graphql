@@ -8,7 +8,7 @@ import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
- * <div class="note"><h4>Theme app extensions</h4>
+ * <div class="note">&lt;h4>Theme app extensions&lt;/h4>
  *   <p>Your app might not pass App Store review if it uses script tags instead of
  * theme app extensions. All new apps, and apps that integrate with Online Store
  * 2.0 themes, should use theme app extensions, such as app blocks or app embed
@@ -16,7 +16,7 @@ import java.util.Objects;
  * href="/apps/online-store#what-integration-method-should-i-use"
  * target="_blank">Learn more</a>.</p></div>
  *
- * <div class="note"><h4>Script tag deprecation</h4>
+ * <div class="note">&lt;h4>Script tag deprecation&lt;/h4>
  *   <p>Script tags will be sunset for the <b>Order status</b> page on August 28, 2025. <a
  * href="https://www.shopify.com/plus/upgrading-to-checkout-extensibility">Upgrade
  * to Checkout Extensibility</a> before this date. <a

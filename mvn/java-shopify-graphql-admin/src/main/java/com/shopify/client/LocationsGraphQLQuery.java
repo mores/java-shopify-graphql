@@ -147,7 +147,7 @@ public class LocationsGraphQLQuery extends GraphQLQuery {
      * | country | string |
      * | created_at | time |
      * | geolocated | boolean |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | legacy | boolean |
      * | location_id | id |
      * | name | string |

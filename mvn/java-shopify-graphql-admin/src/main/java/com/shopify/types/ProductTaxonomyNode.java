@@ -14,7 +14,7 @@ import java.util.Objects;
 )
 public class ProductTaxonomyNode implements com.shopify.types.Node {
   /**
-   * The full name of the product taxonomy node. For example,  Animals & Pet Supplies > Pet Supplies > Dog Supplies > Dog Beds.
+   * The full name of the product taxonomy node. For example,  Animals &amp; Pet Supplies > Pet Supplies > Dog Supplies > Dog Beds.
    */
   private String fullName;
 
@@ -42,7 +42,7 @@ public class ProductTaxonomyNode implements com.shopify.types.Node {
   }
 
   /**
-   * The full name of the product taxonomy node. For example,  Animals & Pet Supplies > Pet Supplies > Dog Supplies > Dog Beds.
+   * The full name of the product taxonomy node. For example,  Animals &amp; Pet Supplies > Pet Supplies > Dog Supplies > Dog Beds.
    */
   public String getFullName() {
     return fullName;
@@ -124,7 +124,7 @@ public class ProductTaxonomyNode implements com.shopify.types.Node {
 
   public static class Builder {
     /**
-     * The full name of the product taxonomy node. For example,  Animals & Pet Supplies > Pet Supplies > Dog Supplies > Dog Beds.
+     * The full name of the product taxonomy node. For example,  Animals &amp; Pet Supplies > Pet Supplies > Dog Supplies > Dog Beds.
      */
     private String fullName;
 
@@ -159,7 +159,7 @@ public class ProductTaxonomyNode implements com.shopify.types.Node {
     }
 
     /**
-     * The full name of the product taxonomy node. For example,  Animals & Pet Supplies > Pet Supplies > Dog Supplies > Dog Beds.
+     * The full name of the product taxonomy node. For example,  Animals &amp; Pet Supplies > Pet Supplies > Dog Supplies > Dog Beds.
      */
     public Builder fullName(String fullName) {
       this.fullName = fullName;

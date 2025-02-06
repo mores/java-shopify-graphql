@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Deletes the Server Pixel associated with the current app & shop.
+ * Deletes the Server Pixel associated with the current app &amp; shop.
  */
 public class ServerPixelDeleteGraphQLQuery extends GraphQLQuery {
   public ServerPixelDeleteGraphQLQuery(String queryName) {

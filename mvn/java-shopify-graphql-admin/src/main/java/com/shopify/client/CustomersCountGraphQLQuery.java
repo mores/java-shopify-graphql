@@ -47,7 +47,7 @@ public class CustomersCountGraphQLQuery extends GraphQLQuery {
      * | name | type | description | acceptable_values | default_value | example_use |
      * | ---- | ---- | ---- | ---- | ---- | ---- |
      * | created_at | time |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | updated_at | time |
      * You can apply one or more filters to a query. Learn more about [Shopify API
      * search syntax](https://shopify.dev/api/usage/search-syntax).

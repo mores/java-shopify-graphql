@@ -135,7 +135,7 @@ public class StaffMembersGraphQLQuery extends GraphQLQuery {
      * `requested`<br/> - `restricted`<br/> - `saml` |
      * | email | string | Filter by email. |
      * | first_name | string | Filter by first name. |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | last_name | string | Filter by last name. |
      * You can apply one or more filters to a query. Learn more about [Shopify API
      * search syntax](https://shopify.dev/api/usage/search-syntax).

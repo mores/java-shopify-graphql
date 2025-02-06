@@ -114,7 +114,7 @@ public class TenderTransactionsGraphQLQuery extends GraphQLQuery {
      * A filter made up of terms, connectives, modifiers, and comparators.
      * | name | type | description | acceptable_values | default_value | example_use |
      * | ---- | ---- | ---- | ---- | ---- | ---- |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | point_of_sale_device_id | id |
      * | processed_at | time |
      * | test | boolean |

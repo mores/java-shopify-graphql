@@ -54,7 +54,7 @@ public class UrlRedirectsCountGraphQLQuery extends GraphQLQuery {
      * | default | string | Filter by a case-insensitive search of multiple fields
      * in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
      * | created_at | time |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | path | string |
      * | target | string |
      * You can apply one or more filters to a query. Learn more about [Shopify API

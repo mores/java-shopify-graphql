@@ -56,7 +56,7 @@ public class GiftCardsCountGraphQLQuery extends GraphQLQuery {
      * - `full_or_partial` | | - `balance_status:full` |
      * | created_at | time | | | | - `created_at:>=2020-01-01T12:00:00Z` |
      * | expires_on | date | | | | - `expires_on:>=2020-01-01` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | initial_value | string | | | | - `initial_value:>=100` |
      * | source | string | | - `manual`<br/> - `purchased`<br/> - `api_client` | | - `source:manual` |
      * | status | string | | - `disabled`<br/> - `enabled`<br/> - `expired`<br/> -

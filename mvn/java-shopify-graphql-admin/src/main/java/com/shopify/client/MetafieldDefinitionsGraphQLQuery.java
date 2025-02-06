@@ -220,8 +220,8 @@ public class MetafieldDefinitionsGraphQLQuery extends GraphQLQuery {
      * in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
      * | created_at | time | Filter by the date and time when the metafield
      * definition was created. | | | - `created_at:>2020-10-21T23:39:20Z`<br/> -
-     * `created_at:<now`<br/> - `created_at:<=2024` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * `created_at:&lt;now`<br/> - `created_at:&lt;=2024` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | key | string | Filter by the metafield definition [`key`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MetafieldDefinition#field-key)
      * field. | | | - `key:some-key` |
      * | namespace | string | Filter by the metafield definition [`namespace`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MetafieldDefinition#field-namespace)
@@ -232,7 +232,7 @@ public class MetafieldDefinitionsGraphQLQuery extends GraphQLQuery {
      * field. | | | - `type:single_line_text_field` |
      * | updated_at | time | Filter by the date and time when the metafield
      * definition was last updated. | | | - `updated_at:>2020-10-21T23:39:20Z`<br/>
-     * - `updated_at:<now`<br/> - `updated_at:<=2024` |
+     * - `updated_at:&lt;now`<br/> - `updated_at:&lt;=2024` |
      * You can apply one or more filters to a query. Learn more about [Shopify API
      * search syntax](https://shopify.dev/api/usage/search-syntax).
      */

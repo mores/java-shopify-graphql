@@ -32,12 +32,12 @@ import java.util.Objects;
  * [fulfillmentServiceCreate](https://shopify.dev/api/admin-graphql/latest/mutations/fulfillmentServiceCreate)
  * mutation.
  *
- * - Shopify sends POST requests to the `<callbackUrl>/fulfillment_order_notification` endpoint
+ * - Shopify sends POST requests to the `&lt;callbackUrl>/fulfillment_order_notification` endpoint
  *   to notify the fulfillment service about fulfillment requests and fulfillment cancellation requests.
  *
  *   For more information, refer to
  *   [Receive fulfillment requests and cancellations](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments#step-2-receive-fulfillment-requests-and-cancellations).
- * - Shopify sends GET requests to the `<callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers for orders,
+ * - Shopify sends GET requests to the `&lt;callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers for orders,
  *   if `trackingSupport` is set to `true`.
  *
  *   For more information, refer to
@@ -46,7 +46,7 @@ import java.util.Objects;
  *   Fulfillment services can also update tracking information with the
  *   [fulfillmentTrackingInfoUpdate](https://shopify.dev/api/admin-graphql/unstable/mutations/fulfillmentTrackingInfoUpdate) mutation,
  *   rather than waiting for Shopify to ask for tracking numbers.
- * - Shopify sends GET requests to the `<callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
+ * - Shopify sends GET requests to the `&lt;callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
  *   if `inventoryManagement` is set to `true`.
  *
  *   For more information, refer to
@@ -73,11 +73,11 @@ public class FulfillmentService {
   /**
    * The callback URL that the fulfillment service has registered for requests. The following considerations apply:
    *   
-   * - Shopify queries the `<callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
+   * - Shopify queries the `&lt;callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
    *     for orders, if `trackingSupport` is set to `true`.
-   * - Shopify queries the `<callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
+   * - Shopify queries the `&lt;callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
    *     if `inventoryManagement` is set to `true`.
-   * - Shopify uses the `<callbackUrl>/fulfillment_order_notification` endpoint to send
+   * - Shopify uses the `&lt;callbackUrl>/fulfillment_order_notification` endpoint to send
    *     [fulfillment and cancellation requests](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments#step-2-receive-fulfillment-requests-and-cancellations),
    *     if the fulfillment service has opted in to the fulfillment order based workflow for managing fulfillments
    *     (`fulfillmentOrdersOptIn` is set to `true`).
@@ -140,11 +140,11 @@ public class FulfillmentService {
   /**
    * The callback URL that the fulfillment service has registered for requests. The following considerations apply:
    *   
-   * - Shopify queries the `<callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
+   * - Shopify queries the `&lt;callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
    *     for orders, if `trackingSupport` is set to `true`.
-   * - Shopify queries the `<callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
+   * - Shopify queries the `&lt;callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
    *     if `inventoryManagement` is set to `true`.
-   * - Shopify uses the `<callbackUrl>/fulfillment_order_notification` endpoint to send
+   * - Shopify uses the `&lt;callbackUrl>/fulfillment_order_notification` endpoint to send
    *     [fulfillment and cancellation requests](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments#step-2-receive-fulfillment-requests-and-cancellations),
    *     if the fulfillment service has opted in to the fulfillment order based workflow for managing fulfillments
    *     (`fulfillmentOrdersOptIn` is set to `true`).
@@ -296,11 +296,11 @@ public class FulfillmentService {
     /**
      * The callback URL that the fulfillment service has registered for requests. The following considerations apply:
      *   
-     * - Shopify queries the `<callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
+     * - Shopify queries the `&lt;callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
      *     for orders, if `trackingSupport` is set to `true`.
-     * - Shopify queries the `<callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
+     * - Shopify queries the `&lt;callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
      *     if `inventoryManagement` is set to `true`.
-     * - Shopify uses the `<callbackUrl>/fulfillment_order_notification` endpoint to send
+     * - Shopify uses the `&lt;callbackUrl>/fulfillment_order_notification` endpoint to send
      *     [fulfillment and cancellation requests](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments#step-2-receive-fulfillment-requests-and-cancellations),
      *     if the fulfillment service has opted in to the fulfillment order based workflow for managing fulfillments
      *     (`fulfillmentOrdersOptIn` is set to `true`).
@@ -375,11 +375,11 @@ public class FulfillmentService {
     /**
      * The callback URL that the fulfillment service has registered for requests. The following considerations apply:
      *   
-     * - Shopify queries the `<callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
+     * - Shopify queries the `&lt;callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
      *     for orders, if `trackingSupport` is set to `true`.
-     * - Shopify queries the `<callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
+     * - Shopify queries the `&lt;callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
      *     if `inventoryManagement` is set to `true`.
-     * - Shopify uses the `<callbackUrl>/fulfillment_order_notification` endpoint to send
+     * - Shopify uses the `&lt;callbackUrl>/fulfillment_order_notification` endpoint to send
      *     [fulfillment and cancellation requests](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments#step-2-receive-fulfillment-requests-and-cancellations),
      *     if the fulfillment service has opted in to the fulfillment order based workflow for managing fulfillments
      *     (`fulfillmentOrdersOptIn` is set to `true`).

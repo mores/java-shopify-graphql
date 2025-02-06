@@ -62,7 +62,7 @@ public class AbandonedCheckoutsCountGraphQLQuery extends GraphQLQuery {
      * format](http://en.wikipedia.org/wiki/ISO_8601)) when the abandoned cart was created. |
      * | email_state | string | Filter by `abandoned_email_state` value. Possible
      * values: `sent`, `not_sent`, `scheduled` and `suppressed`. |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | recovery_state | string | Possible values: `recovered` and `not_recovered`. |
      * | status | string | Possible values: `open` and `closed`. |
      * | updated_at | time | The date and time (in [ISO 8601
