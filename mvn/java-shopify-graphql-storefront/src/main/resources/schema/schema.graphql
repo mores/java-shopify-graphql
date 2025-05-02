@@ -1,8 +1,3 @@
-schema {
-  query: QueryRoot
-  mutation: Mutation
-}
-
 """Marks an element of a GraphQL schema as having restricted access."""
 directive @accessRestricted(
   """Explains the reason around this restriction"""
@@ -8954,7 +8949,7 @@ type QuantityRule {
 """
 The schema’s entry-point for queries. This acts as the public, top-level API from which all queries must start.
 """
-type QueryRoot {
+type Query {
   """Fetch a specific Article by its ID."""
   article(
     """The ID of the `Article`."""
