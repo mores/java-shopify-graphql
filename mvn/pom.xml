@@ -1,13 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
         http://maven.apache.org/maven-v4_0_0.xsd">
-        <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
-        <groupId>io.github.mores</groupId>
-        <artifactId>java-shopify-graphql</artifactId>
-        <version>2025.01.001</version>
-        <packaging>pom</packaging>
+	<groupId>io.github.mores</groupId>
+	<artifactId>java-shopify-graphql</artifactId>
+	<version>2025.01.002</version>
+	<packaging>pom</packaging>
 
 	<name>java-shopify-graphql</name>
 	<description>java objects to interface to shopify graphql</description>
@@ -21,11 +21,11 @@
 	</licenses>
 
 	<developers>
-                <developer>
-                        <id>mores</id>
-                        <name>Stephen More</name>
-                </developer>
-        </developers>
+		<developer>
+			<id>mores</id>
+			<name>Stephen More</name>
+		</developer>
+	</developers>
 
 	<scm>
 		<connection>scm:git:git://github.com/mores/java-shopify-graphql.git</connection>
@@ -33,16 +33,17 @@
 		<url>https://github.com/mores/java-shopify-graphql/tree/master</url>
 	</scm>
 
-        <properties>
-                <maven.compiler.source>11</maven.compiler.source>
-                <maven.compiler.target>11</maven.compiler.target>
-                <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
-                <maven-dependency-plugin.version>3.8.1</maven-dependency-plugin.version>
-        </properties>
+	<properties>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		<maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+		<maven-dependency-plugin.version>3.8.1</maven-dependency-plugin.version>
+	</properties>
 
-        <modules>
-                <module>java-shopify-graphql-admin</module>
-        </modules>
+	<modules>
+		<module>java-shopify-graphql-admin</module>
+		<module>java-shopify-graphql-storefront</module>
+	</modules>
 
 	<reporting>
 		<plugins>
@@ -53,4 +54,35 @@
 		</plugins>
 	</reporting>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.diffplug.spotless</groupId>
+				<artifactId>spotless-maven-plugin</artifactId>
+				<version>2.44.3</version>
+				<configuration>
+					<formats>
+						<format>
+							<includes>
+								<include>pom.xml</include>
+							</includes>
+							<eclipseWtp>
+								<type>XML</type>
+								<version>4.21.0</version>
+							</eclipseWtp>
+						</format>
+					</formats>
+				</configuration>
+				<executions>
+					<execution>
+						<id>apply</id>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>apply</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
