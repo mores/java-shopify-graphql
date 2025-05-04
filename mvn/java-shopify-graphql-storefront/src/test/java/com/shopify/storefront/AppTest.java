@@ -168,7 +168,7 @@ public class AppTest {
         pageInfoProjection.hasNextPage();
         pageInfoProjection.startCursor();
 
-        ProductVariantConnectionProjection variantConnectionProjection = productProjection.variants(null, null, 10,
+        ProductVariantConnectionProjection variantConnectionProjection = productProjection.variants(10, null, null,
                 null, null, null);
         ProductVariantEdgeProjection vEdgeProjection = variantConnectionProjection.edges();
         ProductVariantProjection variantProjection = vEdgeProjection.node();

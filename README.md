@@ -3,7 +3,7 @@
 ## Building
 mvn -DskipTests clean javadoc:jar source:jar install
 
-## Consumin
+## Using these objects in your project
 
 ### Admin API
 
