@@ -45,18 +45,18 @@ public class ProductVariantFragmentProjection<PARENT extends BaseSubProjectionNo
   }
 
   public ProductVariantComponentConnectionProjection<ProductVariantFragmentProjection<PARENT, ROOT>, ROOT> components(
-      String after, String before, Integer first, Integer last) {
+      Integer first, String after, Integer last, String before) {
     ProductVariantComponentConnectionProjection<ProductVariantFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantComponentConnectionProjection<>(this, getRoot());    
     getFields().put("components", projection);
     getInputArguments().computeIfAbsent("components", k -> new ArrayList<>());                      
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("components").add(afterArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("components").add(beforeArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("components").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("components").add(afterArg);
     InputArgument lastArg = new InputArgument("last", last);
     getInputArguments().get("components").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("components").add(beforeArg);
     return projection;
   }
 
@@ -68,18 +68,18 @@ public class ProductVariantFragmentProjection<PARENT extends BaseSubProjectionNo
   }
 
   public ProductVariantConnectionProjection<ProductVariantFragmentProjection<PARENT, ROOT>, ROOT> groupedBy(
-      String after, String before, Integer first, Integer last) {
+      Integer first, String after, Integer last, String before) {
     ProductVariantConnectionProjection<ProductVariantFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantConnectionProjection<>(this, getRoot());    
     getFields().put("groupedBy", projection);
     getInputArguments().computeIfAbsent("groupedBy", k -> new ArrayList<>());                      
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("groupedBy").add(afterArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("groupedBy").add(beforeArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("groupedBy").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("groupedBy").add(afterArg);
     InputArgument lastArg = new InputArgument("last", last);
     getInputArguments().get("groupedBy").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("groupedBy").add(beforeArg);
     return projection;
   }
 
@@ -96,14 +96,14 @@ public class ProductVariantFragmentProjection<PARENT extends BaseSubProjectionNo
   }
 
   public MetafieldProjection<ProductVariantFragmentProjection<PARENT, ROOT>, ROOT> metafield(
-      String key, String namespace) {
+      String namespace, String key) {
     MetafieldProjection<ProductVariantFragmentProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
     getFields().put("metafield", projection);
     getInputArguments().computeIfAbsent("metafield", k -> new ArrayList<>());                      
-    InputArgument keyArg = new InputArgument("key", key);
-    getInputArguments().get("metafield").add(keyArg);
     InputArgument namespaceArg = new InputArgument("namespace", namespace);
     getInputArguments().get("metafield").add(namespaceArg);
+    InputArgument keyArg = new InputArgument("key", key);
+    getInputArguments().get("metafield").add(keyArg);
     return projection;
   }
 
@@ -149,18 +149,18 @@ public class ProductVariantFragmentProjection<PARENT extends BaseSubProjectionNo
   }
 
   public QuantityPriceBreakConnectionProjection<ProductVariantFragmentProjection<PARENT, ROOT>, ROOT> quantityPriceBreaks(
-      String after, String before, Integer first, Integer last) {
+      Integer first, String after, Integer last, String before) {
     QuantityPriceBreakConnectionProjection<ProductVariantFragmentProjection<PARENT, ROOT>, ROOT> projection = new QuantityPriceBreakConnectionProjection<>(this, getRoot());    
     getFields().put("quantityPriceBreaks", projection);
     getInputArguments().computeIfAbsent("quantityPriceBreaks", k -> new ArrayList<>());                      
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("quantityPriceBreaks").add(afterArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("quantityPriceBreaks").add(beforeArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("quantityPriceBreaks").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("quantityPriceBreaks").add(afterArg);
     InputArgument lastArg = new InputArgument("last", last);
     getInputArguments().get("quantityPriceBreaks").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("quantityPriceBreaks").add(beforeArg);
     return projection;
   }
 
@@ -186,18 +186,18 @@ public class ProductVariantFragmentProjection<PARENT extends BaseSubProjectionNo
   }
 
   public SellingPlanAllocationConnectionProjection<ProductVariantFragmentProjection<PARENT, ROOT>, ROOT> sellingPlanAllocations(
-      String after, String before, Integer first, Integer last, Boolean reverse) {
+      Integer first, String after, Integer last, String before, Boolean reverse) {
     SellingPlanAllocationConnectionProjection<ProductVariantFragmentProjection<PARENT, ROOT>, ROOT> projection = new SellingPlanAllocationConnectionProjection<>(this, getRoot());    
     getFields().put("sellingPlanAllocations", projection);
     getInputArguments().computeIfAbsent("sellingPlanAllocations", k -> new ArrayList<>());                      
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("sellingPlanAllocations").add(afterArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("sellingPlanAllocations").add(beforeArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("sellingPlanAllocations").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("sellingPlanAllocations").add(afterArg);
     InputArgument lastArg = new InputArgument("last", last);
     getInputArguments().get("sellingPlanAllocations").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("sellingPlanAllocations").add(beforeArg);
     InputArgument reverseArg = new InputArgument("reverse", reverse);
     getInputArguments().get("sellingPlanAllocations").add(reverseArg);
     return projection;
@@ -218,21 +218,21 @@ public class ProductVariantFragmentProjection<PARENT extends BaseSubProjectionNo
   }
 
   public StoreAvailabilityConnectionProjection<ProductVariantFragmentProjection<PARENT, ROOT>, ROOT> storeAvailability(
-      String after, String before, Integer first, Integer last, GeoCoordinateInput near,
+      GeoCoordinateInput near, Integer first, String after, Integer last, String before,
       Boolean reverse) {
     StoreAvailabilityConnectionProjection<ProductVariantFragmentProjection<PARENT, ROOT>, ROOT> projection = new StoreAvailabilityConnectionProjection<>(this, getRoot());    
     getFields().put("storeAvailability", projection);
     getInputArguments().computeIfAbsent("storeAvailability", k -> new ArrayList<>());                      
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("storeAvailability").add(afterArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("storeAvailability").add(beforeArg);
-    InputArgument firstArg = new InputArgument("first", first);
-    getInputArguments().get("storeAvailability").add(firstArg);
-    InputArgument lastArg = new InputArgument("last", last);
-    getInputArguments().get("storeAvailability").add(lastArg);
     InputArgument nearArg = new InputArgument("near", near);
     getInputArguments().get("storeAvailability").add(nearArg);
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("storeAvailability").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("storeAvailability").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("storeAvailability").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("storeAvailability").add(beforeArg);
     InputArgument reverseArg = new InputArgument("reverse", reverse);
     getInputArguments().get("storeAvailability").add(reverseArg);
     return projection;

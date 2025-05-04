@@ -26,18 +26,18 @@ public class CustomerProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT
   }
 
   public MailingAddressConnectionProjection<CustomerProjection<PARENT, ROOT>, ROOT> addresses(
-      String after, String before, Integer first, Integer last, Boolean reverse) {
+      Integer first, String after, Integer last, String before, Boolean reverse) {
     MailingAddressConnectionProjection<CustomerProjection<PARENT, ROOT>, ROOT> projection = new MailingAddressConnectionProjection<>(this, getRoot());    
     getFields().put("addresses", projection);
     getInputArguments().computeIfAbsent("addresses", k -> new ArrayList<>());                      
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("addresses").add(afterArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("addresses").add(beforeArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("addresses").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("addresses").add(afterArg);
     InputArgument lastArg = new InputArgument("last", last);
     getInputArguments().get("addresses").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("addresses").add(beforeArg);
     InputArgument reverseArg = new InputArgument("reverse", reverse);
     getInputArguments().get("addresses").add(reverseArg);
     return projection;
@@ -55,15 +55,15 @@ public class CustomerProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT
      return projection;
   }
 
-  public MetafieldProjection<CustomerProjection<PARENT, ROOT>, ROOT> metafield(String key,
-      String namespace) {
+  public MetafieldProjection<CustomerProjection<PARENT, ROOT>, ROOT> metafield(String namespace,
+      String key) {
     MetafieldProjection<CustomerProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
     getFields().put("metafield", projection);
     getInputArguments().computeIfAbsent("metafield", k -> new ArrayList<>());                      
-    InputArgument keyArg = new InputArgument("key", key);
-    getInputArguments().get("metafield").add(keyArg);
     InputArgument namespaceArg = new InputArgument("namespace", namespace);
     getInputArguments().get("metafield").add(namespaceArg);
+    InputArgument keyArg = new InputArgument("key", key);
+    getInputArguments().get("metafield").add(keyArg);
     return projection;
   }
 
@@ -89,26 +89,26 @@ public class CustomerProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT
      return projection;
   }
 
-  public OrderConnectionProjection<CustomerProjection<PARENT, ROOT>, ROOT> orders(String after,
-      String before, Integer first, Integer last, String query, Boolean reverse,
-      OrderSortKeys sortKey) {
+  public OrderConnectionProjection<CustomerProjection<PARENT, ROOT>, ROOT> orders(Integer first,
+      String after, Integer last, String before, Boolean reverse, OrderSortKeys sortKey,
+      String query) {
     OrderConnectionProjection<CustomerProjection<PARENT, ROOT>, ROOT> projection = new OrderConnectionProjection<>(this, getRoot());    
     getFields().put("orders", projection);
     getInputArguments().computeIfAbsent("orders", k -> new ArrayList<>());                      
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("orders").add(afterArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("orders").add(beforeArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("orders").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("orders").add(afterArg);
     InputArgument lastArg = new InputArgument("last", last);
     getInputArguments().get("orders").add(lastArg);
-    InputArgument queryArg = new InputArgument("query", query);
-    getInputArguments().get("orders").add(queryArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("orders").add(beforeArg);
     InputArgument reverseArg = new InputArgument("reverse", reverse);
     getInputArguments().get("orders").add(reverseArg);
     InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
     getInputArguments().get("orders").add(sortKeyArg);
+    InputArgument queryArg = new InputArgument("query", query);
+    getInputArguments().get("orders").add(queryArg);
     return projection;
   }
 

@@ -4,11 +4,11 @@ package com.shopify.storefront.types;
  * The set of valid sort keys for the Page query.
  */
 public enum PageSortKeys {
-  ID,
-
-  RELEVANCE,
-
   TITLE,
 
-  UPDATED_AT
+  UPDATED_AT,
+
+  ID,
+
+  RELEVANCE
 }

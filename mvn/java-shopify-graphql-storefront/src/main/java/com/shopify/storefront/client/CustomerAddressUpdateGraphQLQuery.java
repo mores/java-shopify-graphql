@@ -11,15 +11,15 @@ import java.util.Set;
  * Updates the address of an existing customer.
  */
 public class CustomerAddressUpdateGraphQLQuery extends GraphQLQuery {
-  public CustomerAddressUpdateGraphQLQuery(MailingAddressInput address, String customerAccessToken,
-      String id, String queryName, Set<String> fieldsSet) {
+  public CustomerAddressUpdateGraphQLQuery(String customerAccessToken, String id,
+      MailingAddressInput address, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
-    if (address != null || fieldsSet.contains("address")) {
-        getInput().put("address", address);
-    }if (customerAccessToken != null || fieldsSet.contains("customerAccessToken")) {
+    if (customerAccessToken != null || fieldsSet.contains("customerAccessToken")) {
         getInput().put("customerAccessToken", customerAccessToken);
     }if (id != null || fieldsSet.contains("id")) {
         getInput().put("id", id);
+    }if (address != null || fieldsSet.contains("address")) {
+        getInput().put("address", address);
     }
   }
 
@@ -39,26 +39,17 @@ public class CustomerAddressUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
-    private MailingAddressInput address;
-
     private String customerAccessToken;
 
     private String id;
 
+    private MailingAddressInput address;
+
     private String queryName;
 
     public CustomerAddressUpdateGraphQLQuery build() {
-      return new CustomerAddressUpdateGraphQLQuery(address, customerAccessToken, id, queryName, fieldsSet);
+      return new CustomerAddressUpdateGraphQLQuery(customerAccessToken, id, address, queryName, fieldsSet);
                
-    }
-
-    /**
-     * The customer’s mailing address.
-     */
-    public Builder address(MailingAddressInput address) {
-      this.address = address;
-      this.fieldsSet.add("address");
-      return this;
     }
 
     /**
@@ -76,6 +67,15 @@ public class CustomerAddressUpdateGraphQLQuery extends GraphQLQuery {
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
+     * The customer’s mailing address.
+     */
+    public Builder address(MailingAddressInput address) {
+      this.address = address;
+      this.fieldsSet.add("address");
       return this;
     }
 

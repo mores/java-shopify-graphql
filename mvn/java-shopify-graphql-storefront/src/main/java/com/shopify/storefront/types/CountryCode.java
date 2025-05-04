@@ -7,489 +7,489 @@ package com.shopify.storefront.types;
  * and the territories associated with the United States of America are represented by the country code `US`.
  */
 public enum CountryCode {
-  AC,
-
-  AD,
-
-  AE,
-
   AF,
-
-  AG,
-
-  AI,
-
-  AL,
-
-  AM,
-
-  AN,
-
-  AO,
-
-  AR,
-
-  AT,
-
-  AU,
-
-  AW,
 
   AX,
 
+  AL,
+
+  DZ,
+
+  AD,
+
+  AO,
+
+  AI,
+
+  AG,
+
+  AR,
+
+  AM,
+
+  AW,
+
+  AC,
+
+  AU,
+
+  AT,
+
   AZ,
-
-  BA,
-
-  BB,
-
-  BD,
-
-  BE,
-
-  BF,
-
-  BG,
-
-  BH,
-
-  BI,
-
-  BJ,
-
-  BL,
-
-  BM,
-
-  BN,
-
-  BO,
-
-  BQ,
-
-  BR,
 
   BS,
 
-  BT,
+  BH,
 
-  BV,
+  BD,
 
-  BW,
+  BB,
 
   BY,
 
+  BE,
+
   BZ,
+
+  BJ,
+
+  BM,
+
+  BT,
+
+  BO,
+
+  BA,
+
+  BW,
+
+  BV,
+
+  BR,
+
+  IO,
+
+  BN,
+
+  BG,
+
+  BF,
+
+  BI,
+
+  KH,
 
   CA,
 
-  CC,
+  CV,
 
-  CD,
+  BQ,
+
+  KY,
 
   CF,
 
-  CG,
-
-  CH,
-
-  CI,
-
-  CK,
+  TD,
 
   CL,
 
-  CM,
-
   CN,
+
+  CX,
+
+  CC,
 
   CO,
 
+  KM,
+
+  CG,
+
+  CD,
+
+  CK,
+
   CR,
+
+  HR,
 
   CU,
 
-  CV,
-
   CW,
-
-  CX,
 
   CY,
 
   CZ,
 
-  DE,
-
-  DJ,
+  CI,
 
   DK,
+
+  DJ,
 
   DM,
 
   DO,
 
-  DZ,
-
   EC,
-
-  EE,
 
   EG,
 
-  EH,
+  SV,
+
+  GQ,
 
   ER,
 
-  ES,
+  EE,
+
+  SZ,
 
   ET,
-
-  FI,
-
-  FJ,
 
   FK,
 
   FO,
 
+  FJ,
+
+  FI,
+
   FR,
-
-  GA,
-
-  GB,
-
-  GD,
-
-  GE,
 
   GF,
 
-  GG,
+  PF,
+
+  TF,
+
+  GA,
+
+  GM,
+
+  GE,
+
+  DE,
 
   GH,
 
   GI,
 
+  GR,
+
   GL,
 
-  GM,
-
-  GN,
+  GD,
 
   GP,
 
-  GQ,
-
-  GR,
-
-  GS,
-
   GT,
+
+  GG,
+
+  GN,
 
   GW,
 
   GY,
 
-  HK,
+  HT,
 
   HM,
 
+  VA,
+
   HN,
 
-  HR,
-
-  HT,
+  HK,
 
   HU,
 
-  ID,
-
-  IE,
-
-  IL,
-
-  IM,
+  IS,
 
   IN,
 
-  IO,
-
-  IQ,
+  ID,
 
   IR,
 
-  IS,
+  IQ,
+
+  IE,
+
+  IM,
+
+  IL,
 
   IT,
 
-  JE,
-
   JM,
-
-  JO,
 
   JP,
 
-  KE,
+  JE,
 
-  KG,
-
-  KH,
-
-  KI,
-
-  KM,
-
-  KN,
-
-  KP,
-
-  KR,
-
-  KW,
-
-  KY,
+  JO,
 
   KZ,
 
+  KE,
+
+  KI,
+
+  KP,
+
+  XK,
+
+  KW,
+
+  KG,
+
   LA,
+
+  LV,
 
   LB,
 
-  LC,
-
-  LI,
-
-  LK,
+  LS,
 
   LR,
 
-  LS,
+  LY,
+
+  LI,
 
   LT,
 
   LU,
 
-  LV,
-
-  LY,
-
-  MA,
-
-  MC,
-
-  MD,
-
-  ME,
-
-  MF,
+  MO,
 
   MG,
 
-  MK,
+  MW,
+
+  MY,
+
+  MV,
 
   ML,
 
-  MM,
-
-  MN,
-
-  MO,
+  MT,
 
   MQ,
 
   MR,
 
-  MS,
-
-  MT,
-
   MU,
 
-  MV,
-
-  MW,
+  YT,
 
   MX,
 
-  MY,
+  MD,
+
+  MC,
+
+  MN,
+
+  ME,
+
+  MS,
+
+  MA,
 
   MZ,
 
+  MM,
+
   NA,
-
-  NC,
-
-  NE,
-
-  NF,
-
-  NG,
-
-  NI,
-
-  NL,
-
-  NO,
-
-  NP,
 
   NR,
 
-  NU,
+  NP,
+
+  NL,
+
+  AN,
+
+  NC,
 
   NZ,
 
+  NI,
+
+  NE,
+
+  NG,
+
+  NU,
+
+  NF,
+
+  MK,
+
+  NO,
+
   OM,
-
-  PA,
-
-  PE,
-
-  PF,
-
-  PG,
-
-  PH,
 
   PK,
 
-  PL,
-
-  PM,
-
-  PN,
-
   PS,
 
-  PT,
+  PA,
+
+  PG,
 
   PY,
 
+  PE,
+
+  PH,
+
+  PN,
+
+  PL,
+
+  PT,
+
   QA,
+
+  CM,
 
   RE,
 
   RO,
 
-  RS,
-
   RU,
 
   RW,
 
-  SA,
-
-  SB,
-
-  SC,
-
-  SD,
-
-  SE,
-
-  SG,
+  BL,
 
   SH,
 
-  SI,
+  KN,
 
-  SJ,
+  LC,
 
-  SK,
+  MF,
 
-  SL,
+  PM,
+
+  WS,
 
   SM,
 
-  SN,
-
-  SO,
-
-  SR,
-
-  SS,
-
   ST,
 
-  SV,
+  SA,
+
+  SN,
+
+  RS,
+
+  SC,
+
+  SL,
+
+  SG,
 
   SX,
 
+  SK,
+
+  SI,
+
+  SB,
+
+  SO,
+
+  ZA,
+
+  GS,
+
+  KR,
+
+  SS,
+
+  ES,
+
+  LK,
+
+  VC,
+
+  SD,
+
+  SR,
+
+  SJ,
+
+  SE,
+
+  CH,
+
   SY,
-
-  SZ,
-
-  TA,
-
-  TC,
-
-  TD,
-
-  TF,
-
-  TG,
-
-  TH,
-
-  TJ,
-
-  TK,
-
-  TL,
-
-  TM,
-
-  TN,
-
-  TO,
-
-  TR,
-
-  TT,
-
-  TV,
 
   TW,
 
+  TJ,
+
   TZ,
 
-  UA,
+  TH,
+
+  TL,
+
+  TG,
+
+  TK,
+
+  TO,
+
+  TT,
+
+  TA,
+
+  TN,
+
+  TR,
+
+  TM,
+
+  TC,
+
+  TV,
 
   UG,
 
-  UM,
+  UA,
+
+  AE,
+
+  GB,
 
   US,
+
+  UM,
 
   UY,
 
   UZ,
 
-  VA,
-
-  VC,
+  VU,
 
   VE,
 
-  VG,
-
   VN,
 
-  VU,
+  VG,
 
   WF,
 
-  WS,
-
-  XK,
+  EH,
 
   YE,
-
-  YT,
-
-  ZA,
 
   ZM,
 

@@ -10,27 +10,16 @@ import java.util.Objects;
  */
 public class ShopPayPaymentRequestDiscountInput {
   /**
-   * The amount of the discount.
-   */
-  private MoneyInput amount;
-
-  /**
    * The label of the discount.
    */
   private String label;
 
-  public ShopPayPaymentRequestDiscountInput() {
-  }
-
   /**
    * The amount of the discount.
    */
-  public MoneyInput getAmount() {
-    return amount;
-  }
+  private MoneyInput amount;
 
-  public void setAmount(MoneyInput amount) {
-    this.amount = amount;
+  public ShopPayPaymentRequestDiscountInput() {
   }
 
   /**
@@ -44,9 +33,20 @@ public class ShopPayPaymentRequestDiscountInput {
     this.label = label;
   }
 
+  /**
+   * The amount of the discount.
+   */
+  public MoneyInput getAmount() {
+    return amount;
+  }
+
+  public void setAmount(MoneyInput amount) {
+    this.amount = amount;
+  }
+
   @Override
   public String toString() {
-    return "ShopPayPaymentRequestDiscountInput{amount='" + amount + "', label='" + label + "'}";
+    return "ShopPayPaymentRequestDiscountInput{label='" + label + "', amount='" + amount + "'}";
   }
 
   @Override
@@ -54,13 +54,13 @@ public class ShopPayPaymentRequestDiscountInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     ShopPayPaymentRequestDiscountInput that = (ShopPayPaymentRequestDiscountInput) o;
-    return Objects.equals(amount, that.amount) &&
-        Objects.equals(label, that.label);
+    return Objects.equals(label, that.label) &&
+        Objects.equals(amount, that.amount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, label);
+    return Objects.hash(label, amount);
   }
 
   public static Builder newBuilder() {
@@ -69,28 +69,20 @@ public class ShopPayPaymentRequestDiscountInput {
 
   public static class Builder {
     /**
-     * The amount of the discount.
-     */
-    private MoneyInput amount;
-
-    /**
      * The label of the discount.
      */
     private String label;
 
-    public ShopPayPaymentRequestDiscountInput build() {
-      ShopPayPaymentRequestDiscountInput result = new ShopPayPaymentRequestDiscountInput();
-      result.amount = this.amount;
-      result.label = this.label;
-      return result;
-    }
-
     /**
      * The amount of the discount.
      */
-    public Builder amount(MoneyInput amount) {
-      this.amount = amount;
-      return this;
+    private MoneyInput amount;
+
+    public ShopPayPaymentRequestDiscountInput build() {
+      ShopPayPaymentRequestDiscountInput result = new ShopPayPaymentRequestDiscountInput();
+      result.label = this.label;
+      result.amount = this.amount;
+      return result;
     }
 
     /**
@@ -98,6 +90,14 @@ public class ShopPayPaymentRequestDiscountInput {
      */
     public Builder label(String label) {
       this.label = label;
+      return this;
+    }
+
+    /**
+     * The amount of the discount.
+     */
+    public Builder amount(MoneyInput amount) {
+      this.amount = amount;
       return this;
     }
   }

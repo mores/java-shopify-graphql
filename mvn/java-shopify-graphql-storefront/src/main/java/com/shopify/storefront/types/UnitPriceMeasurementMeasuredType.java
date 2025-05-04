@@ -4,11 +4,11 @@ package com.shopify.storefront.types;
  * The accepted types of unit of measurement.
  */
 public enum UnitPriceMeasurementMeasuredType {
-  AREA,
+  VOLUME,
+
+  WEIGHT,
 
   LENGTH,
 
-  VOLUME,
-
-  WEIGHT
+  AREA
 }

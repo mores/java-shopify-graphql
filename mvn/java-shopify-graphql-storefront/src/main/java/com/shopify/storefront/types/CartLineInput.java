@@ -19,14 +19,14 @@ public class CartLineInput {
   private List<AttributeInput> attributes;
 
   /**
-   * The ID of the merchandise that the buyer intends to purchase.
-   */
-  private String merchandiseId;
-
-  /**
    * The quantity of the merchandise.
    */
   private Integer quantity = 1;
+
+  /**
+   * The ID of the merchandise that the buyer intends to purchase.
+   */
+  private String merchandiseId;
 
   /**
    * The ID of the selling plan that the merchandise is being purchased with.
@@ -50,17 +50,6 @@ public class CartLineInput {
   }
 
   /**
-   * The ID of the merchandise that the buyer intends to purchase.
-   */
-  public String getMerchandiseId() {
-    return merchandiseId;
-  }
-
-  public void setMerchandiseId(String merchandiseId) {
-    this.merchandiseId = merchandiseId;
-  }
-
-  /**
    * The quantity of the merchandise.
    */
   public Integer getQuantity() {
@@ -69,6 +58,17 @@ public class CartLineInput {
 
   public void setQuantity(Integer quantity) {
     this.quantity = quantity;
+  }
+
+  /**
+   * The ID of the merchandise that the buyer intends to purchase.
+   */
+  public String getMerchandiseId() {
+    return merchandiseId;
+  }
+
+  public void setMerchandiseId(String merchandiseId) {
+    this.merchandiseId = merchandiseId;
   }
 
   /**
@@ -84,7 +84,7 @@ public class CartLineInput {
 
   @Override
   public String toString() {
-    return "CartLineInput{attributes='" + attributes + "', merchandiseId='" + merchandiseId + "', quantity='" + quantity + "', sellingPlanId='" + sellingPlanId + "'}";
+    return "CartLineInput{attributes='" + attributes + "', quantity='" + quantity + "', merchandiseId='" + merchandiseId + "', sellingPlanId='" + sellingPlanId + "'}";
   }
 
   @Override
@@ -93,14 +93,14 @@ public class CartLineInput {
     if (o == null || getClass() != o.getClass()) return false;
     CartLineInput that = (CartLineInput) o;
     return Objects.equals(attributes, that.attributes) &&
-        Objects.equals(merchandiseId, that.merchandiseId) &&
         Objects.equals(quantity, that.quantity) &&
+        Objects.equals(merchandiseId, that.merchandiseId) &&
         Objects.equals(sellingPlanId, that.sellingPlanId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, merchandiseId, quantity, sellingPlanId);
+    return Objects.hash(attributes, quantity, merchandiseId, sellingPlanId);
   }
 
   public static Builder newBuilder() {
@@ -116,14 +116,14 @@ public class CartLineInput {
     private List<AttributeInput> attributes;
 
     /**
-     * The ID of the merchandise that the buyer intends to purchase.
-     */
-    private String merchandiseId;
-
-    /**
      * The quantity of the merchandise.
      */
     private Integer quantity = 1;
+
+    /**
+     * The ID of the merchandise that the buyer intends to purchase.
+     */
+    private String merchandiseId;
 
     /**
      * The ID of the selling plan that the merchandise is being purchased with.
@@ -133,8 +133,8 @@ public class CartLineInput {
     public CartLineInput build() {
       CartLineInput result = new CartLineInput();
       result.attributes = this.attributes;
-      result.merchandiseId = this.merchandiseId;
       result.quantity = this.quantity;
+      result.merchandiseId = this.merchandiseId;
       result.sellingPlanId = this.sellingPlanId;
       return result;
     }
@@ -150,18 +150,18 @@ public class CartLineInput {
     }
 
     /**
-     * The ID of the merchandise that the buyer intends to purchase.
-     */
-    public Builder merchandiseId(String merchandiseId) {
-      this.merchandiseId = merchandiseId;
-      return this;
-    }
-
-    /**
      * The quantity of the merchandise.
      */
     public Builder quantity(Integer quantity) {
       this.quantity = quantity;
+      return this;
+    }
+
+    /**
+     * The ID of the merchandise that the buyer intends to purchase.
+     */
+    public Builder merchandiseId(String merchandiseId) {
+      this.merchandiseId = merchandiseId;
       return this;
     }
 

@@ -22,15 +22,15 @@ public class PageProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
      return projection;
   }
 
-  public MetafieldProjection<PageProjection<PARENT, ROOT>, ROOT> metafield(String key,
-      String namespace) {
+  public MetafieldProjection<PageProjection<PARENT, ROOT>, ROOT> metafield(String namespace,
+      String key) {
     MetafieldProjection<PageProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
     getFields().put("metafield", projection);
     getInputArguments().computeIfAbsent("metafield", k -> new ArrayList<>());                      
-    InputArgument keyArg = new InputArgument("key", key);
-    getInputArguments().get("metafield").add(keyArg);
     InputArgument namespaceArg = new InputArgument("namespace", namespace);
     getInputArguments().get("metafield").add(namespaceArg);
+    InputArgument keyArg = new InputArgument("key", key);
+    getInputArguments().get("metafield").add(keyArg);
     return projection;
   }
 

@@ -10,13 +10,13 @@ import java.util.Set;
  * Submit the cart for checkout completion.
  */
 public class CartSubmitForCompletionGraphQLQuery extends GraphQLQuery {
-  public CartSubmitForCompletionGraphQLQuery(String attemptToken, String cartId, String queryName,
+  public CartSubmitForCompletionGraphQLQuery(String cartId, String attemptToken, String queryName,
       Set<String> fieldsSet) {
     super("mutation", queryName);
-    if (attemptToken != null || fieldsSet.contains("attemptToken")) {
-        getInput().put("attemptToken", attemptToken);
-    }if (cartId != null || fieldsSet.contains("cartId")) {
+    if (cartId != null || fieldsSet.contains("cartId")) {
         getInput().put("cartId", cartId);
+    }if (attemptToken != null || fieldsSet.contains("attemptToken")) {
+        getInput().put("attemptToken", attemptToken);
     }
   }
 
@@ -36,15 +36,24 @@ public class CartSubmitForCompletionGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
-    private String attemptToken;
-
     private String cartId;
+
+    private String attemptToken;
 
     private String queryName;
 
     public CartSubmitForCompletionGraphQLQuery build() {
-      return new CartSubmitForCompletionGraphQLQuery(attemptToken, cartId, queryName, fieldsSet);
+      return new CartSubmitForCompletionGraphQLQuery(cartId, attemptToken, queryName, fieldsSet);
                
+    }
+
+    /**
+     * The ID of the cart.
+     */
+    public Builder cartId(String cartId) {
+      this.cartId = cartId;
+      this.fieldsSet.add("cartId");
+      return this;
     }
 
     /**
@@ -54,15 +63,6 @@ public class CartSubmitForCompletionGraphQLQuery extends GraphQLQuery {
     public Builder attemptToken(String attemptToken) {
       this.attemptToken = attemptToken;
       this.fieldsSet.add("attemptToken");
-      return this;
-    }
-
-    /**
-     * The ID of the cart.
-     */
-    public Builder cartId(String cartId) {
-      this.cartId = cartId;
-      this.fieldsSet.add("cartId");
       return this;
     }
 

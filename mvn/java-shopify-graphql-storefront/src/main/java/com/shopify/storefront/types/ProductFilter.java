@@ -18,19 +18,19 @@ public class ProductFilter {
   private Boolean available;
 
   /**
+   * A variant option to filter on.
+   */
+  private VariantOptionFilter variantOption;
+
+  /**
    * A product category to filter on.
    */
   private CategoryFilter category;
 
   /**
-   * A range of prices to filter with-in.
+   * A standard product attribute metafield to filter on.
    */
-  private PriceRangeFilter price;
-
-  /**
-   * A product metafield to filter on.
-   */
-  private MetafieldFilter productMetafield;
+  private TaxonomyMetafieldFilter taxonomyMetafield;
 
   /**
    * The product type to filter on.
@@ -43,14 +43,14 @@ public class ProductFilter {
   private String productVendor;
 
   /**
-   * A product tag to filter on.
+   * A range of prices to filter with-in.
    */
-  private String tag;
+  private PriceRangeFilter price;
 
   /**
-   * A standard product attribute metafield to filter on.
+   * A product metafield to filter on.
    */
-  private TaxonomyMetafieldFilter taxonomyMetafield;
+  private MetafieldFilter productMetafield;
 
   /**
    * A variant metafield to filter on.
@@ -58,9 +58,9 @@ public class ProductFilter {
   private MetafieldFilter variantMetafield;
 
   /**
-   * A variant option to filter on.
+   * A product tag to filter on.
    */
-  private VariantOptionFilter variantOption;
+  private String tag;
 
   public ProductFilter() {
   }
@@ -77,6 +77,17 @@ public class ProductFilter {
   }
 
   /**
+   * A variant option to filter on.
+   */
+  public VariantOptionFilter getVariantOption() {
+    return variantOption;
+  }
+
+  public void setVariantOption(VariantOptionFilter variantOption) {
+    this.variantOption = variantOption;
+  }
+
+  /**
    * A product category to filter on.
    */
   public CategoryFilter getCategory() {
@@ -88,25 +99,14 @@ public class ProductFilter {
   }
 
   /**
-   * A range of prices to filter with-in.
+   * A standard product attribute metafield to filter on.
    */
-  public PriceRangeFilter getPrice() {
-    return price;
+  public TaxonomyMetafieldFilter getTaxonomyMetafield() {
+    return taxonomyMetafield;
   }
 
-  public void setPrice(PriceRangeFilter price) {
-    this.price = price;
-  }
-
-  /**
-   * A product metafield to filter on.
-   */
-  public MetafieldFilter getProductMetafield() {
-    return productMetafield;
-  }
-
-  public void setProductMetafield(MetafieldFilter productMetafield) {
-    this.productMetafield = productMetafield;
+  public void setTaxonomyMetafield(TaxonomyMetafieldFilter taxonomyMetafield) {
+    this.taxonomyMetafield = taxonomyMetafield;
   }
 
   /**
@@ -132,25 +132,25 @@ public class ProductFilter {
   }
 
   /**
-   * A product tag to filter on.
+   * A range of prices to filter with-in.
    */
-  public String getTag() {
-    return tag;
+  public PriceRangeFilter getPrice() {
+    return price;
   }
 
-  public void setTag(String tag) {
-    this.tag = tag;
+  public void setPrice(PriceRangeFilter price) {
+    this.price = price;
   }
 
   /**
-   * A standard product attribute metafield to filter on.
+   * A product metafield to filter on.
    */
-  public TaxonomyMetafieldFilter getTaxonomyMetafield() {
-    return taxonomyMetafield;
+  public MetafieldFilter getProductMetafield() {
+    return productMetafield;
   }
 
-  public void setTaxonomyMetafield(TaxonomyMetafieldFilter taxonomyMetafield) {
-    this.taxonomyMetafield = taxonomyMetafield;
+  public void setProductMetafield(MetafieldFilter productMetafield) {
+    this.productMetafield = productMetafield;
   }
 
   /**
@@ -165,19 +165,19 @@ public class ProductFilter {
   }
 
   /**
-   * A variant option to filter on.
+   * A product tag to filter on.
    */
-  public VariantOptionFilter getVariantOption() {
-    return variantOption;
+  public String getTag() {
+    return tag;
   }
 
-  public void setVariantOption(VariantOptionFilter variantOption) {
-    this.variantOption = variantOption;
+  public void setTag(String tag) {
+    this.tag = tag;
   }
 
   @Override
   public String toString() {
-    return "ProductFilter{available='" + available + "', category='" + category + "', price='" + price + "', productMetafield='" + productMetafield + "', productType='" + productType + "', productVendor='" + productVendor + "', tag='" + tag + "', taxonomyMetafield='" + taxonomyMetafield + "', variantMetafield='" + variantMetafield + "', variantOption='" + variantOption + "'}";
+    return "ProductFilter{available='" + available + "', variantOption='" + variantOption + "', category='" + category + "', taxonomyMetafield='" + taxonomyMetafield + "', productType='" + productType + "', productVendor='" + productVendor + "', price='" + price + "', productMetafield='" + productMetafield + "', variantMetafield='" + variantMetafield + "', tag='" + tag + "'}";
   }
 
   @Override
@@ -186,20 +186,20 @@ public class ProductFilter {
     if (o == null || getClass() != o.getClass()) return false;
     ProductFilter that = (ProductFilter) o;
     return Objects.equals(available, that.available) &&
+        Objects.equals(variantOption, that.variantOption) &&
         Objects.equals(category, that.category) &&
-        Objects.equals(price, that.price) &&
-        Objects.equals(productMetafield, that.productMetafield) &&
+        Objects.equals(taxonomyMetafield, that.taxonomyMetafield) &&
         Objects.equals(productType, that.productType) &&
         Objects.equals(productVendor, that.productVendor) &&
-        Objects.equals(tag, that.tag) &&
-        Objects.equals(taxonomyMetafield, that.taxonomyMetafield) &&
+        Objects.equals(price, that.price) &&
+        Objects.equals(productMetafield, that.productMetafield) &&
         Objects.equals(variantMetafield, that.variantMetafield) &&
-        Objects.equals(variantOption, that.variantOption);
+        Objects.equals(tag, that.tag);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(available, category, price, productMetafield, productType, productVendor, tag, taxonomyMetafield, variantMetafield, variantOption);
+    return Objects.hash(available, variantOption, category, taxonomyMetafield, productType, productVendor, price, productMetafield, variantMetafield, tag);
   }
 
   public static Builder newBuilder() {
@@ -213,19 +213,19 @@ public class ProductFilter {
     private Boolean available;
 
     /**
+     * A variant option to filter on.
+     */
+    private VariantOptionFilter variantOption;
+
+    /**
      * A product category to filter on.
      */
     private CategoryFilter category;
 
     /**
-     * A range of prices to filter with-in.
+     * A standard product attribute metafield to filter on.
      */
-    private PriceRangeFilter price;
-
-    /**
-     * A product metafield to filter on.
-     */
-    private MetafieldFilter productMetafield;
+    private TaxonomyMetafieldFilter taxonomyMetafield;
 
     /**
      * The product type to filter on.
@@ -238,14 +238,14 @@ public class ProductFilter {
     private String productVendor;
 
     /**
-     * A product tag to filter on.
+     * A range of prices to filter with-in.
      */
-    private String tag;
+    private PriceRangeFilter price;
 
     /**
-     * A standard product attribute metafield to filter on.
+     * A product metafield to filter on.
      */
-    private TaxonomyMetafieldFilter taxonomyMetafield;
+    private MetafieldFilter productMetafield;
 
     /**
      * A variant metafield to filter on.
@@ -253,22 +253,22 @@ public class ProductFilter {
     private MetafieldFilter variantMetafield;
 
     /**
-     * A variant option to filter on.
+     * A product tag to filter on.
      */
-    private VariantOptionFilter variantOption;
+    private String tag;
 
     public ProductFilter build() {
       ProductFilter result = new ProductFilter();
       result.available = this.available;
+      result.variantOption = this.variantOption;
       result.category = this.category;
-      result.price = this.price;
-      result.productMetafield = this.productMetafield;
+      result.taxonomyMetafield = this.taxonomyMetafield;
       result.productType = this.productType;
       result.productVendor = this.productVendor;
-      result.tag = this.tag;
-      result.taxonomyMetafield = this.taxonomyMetafield;
+      result.price = this.price;
+      result.productMetafield = this.productMetafield;
       result.variantMetafield = this.variantMetafield;
-      result.variantOption = this.variantOption;
+      result.tag = this.tag;
       return result;
     }
 
@@ -281,6 +281,14 @@ public class ProductFilter {
     }
 
     /**
+     * A variant option to filter on.
+     */
+    public Builder variantOption(VariantOptionFilter variantOption) {
+      this.variantOption = variantOption;
+      return this;
+    }
+
+    /**
      * A product category to filter on.
      */
     public Builder category(CategoryFilter category) {
@@ -289,18 +297,10 @@ public class ProductFilter {
     }
 
     /**
-     * A range of prices to filter with-in.
+     * A standard product attribute metafield to filter on.
      */
-    public Builder price(PriceRangeFilter price) {
-      this.price = price;
-      return this;
-    }
-
-    /**
-     * A product metafield to filter on.
-     */
-    public Builder productMetafield(MetafieldFilter productMetafield) {
-      this.productMetafield = productMetafield;
+    public Builder taxonomyMetafield(TaxonomyMetafieldFilter taxonomyMetafield) {
+      this.taxonomyMetafield = taxonomyMetafield;
       return this;
     }
 
@@ -321,18 +321,18 @@ public class ProductFilter {
     }
 
     /**
-     * A product tag to filter on.
+     * A range of prices to filter with-in.
      */
-    public Builder tag(String tag) {
-      this.tag = tag;
+    public Builder price(PriceRangeFilter price) {
+      this.price = price;
       return this;
     }
 
     /**
-     * A standard product attribute metafield to filter on.
+     * A product metafield to filter on.
      */
-    public Builder taxonomyMetafield(TaxonomyMetafieldFilter taxonomyMetafield) {
-      this.taxonomyMetafield = taxonomyMetafield;
+    public Builder productMetafield(MetafieldFilter productMetafield) {
+      this.productMetafield = productMetafield;
       return this;
     }
 
@@ -345,10 +345,10 @@ public class ProductFilter {
     }
 
     /**
-     * A variant option to filter on.
+     * A product tag to filter on.
      */
-    public Builder variantOption(VariantOptionFilter variantOption) {
-      this.variantOption = variantOption;
+    public Builder tag(String tag) {
+      this.tag = tag;
       return this;
     }
   }

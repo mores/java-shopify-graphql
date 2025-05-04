@@ -4,17 +4,17 @@ package com.shopify.storefront.types;
  * The set of valid sort keys for the Article query.
  */
 public enum ArticleSortKeys {
-  AUTHOR,
+  TITLE,
 
   BLOG_TITLE,
 
-  ID,
+  AUTHOR,
+
+  UPDATED_AT,
 
   PUBLISHED_AT,
 
-  RELEVANCE,
+  ID,
 
-  TITLE,
-
-  UPDATED_AT
+  RELEVANCE
 }

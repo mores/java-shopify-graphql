@@ -24,18 +24,18 @@ public class CartDeliveryGroupProjection<PARENT extends BaseSubProjectionNode<?,
   }
 
   public BaseCartLineConnectionProjection<CartDeliveryGroupProjection<PARENT, ROOT>, ROOT> cartLines(
-      String after, String before, Integer first, Integer last, Boolean reverse) {
+      Integer first, String after, Integer last, String before, Boolean reverse) {
     BaseCartLineConnectionProjection<CartDeliveryGroupProjection<PARENT, ROOT>, ROOT> projection = new BaseCartLineConnectionProjection<>(this, getRoot());    
     getFields().put("cartLines", projection);
     getInputArguments().computeIfAbsent("cartLines", k -> new ArrayList<>());                      
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("cartLines").add(afterArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("cartLines").add(beforeArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("cartLines").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("cartLines").add(afterArg);
     InputArgument lastArg = new InputArgument("last", last);
     getInputArguments().get("cartLines").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("cartLines").add(beforeArg);
     InputArgument reverseArg = new InputArgument("reverse", reverse);
     getInputArguments().get("cartLines").add(reverseArg);
     return projection;

@@ -13,6 +13,16 @@ import java.util.Objects;
  */
 public class CartBuyerIdentityInput {
   /**
+   * The email address of the buyer that is interacting with the cart.
+   */
+  private String email;
+
+  /**
+   * The phone number of the buyer that is interacting with the cart.
+   */
+  private String phone;
+
+  /**
    * The company location of the buyer that is interacting with the cart.
    */
   private String companyLocationId;
@@ -28,16 +38,6 @@ public class CartBuyerIdentityInput {
   private String customerAccessToken;
 
   /**
-   * The email address of the buyer that is interacting with the cart.
-   */
-  private String email;
-
-  /**
-   * The phone number of the buyer that is interacting with the cart.
-   */
-  private String phone;
-
-  /**
    * A set of preferences tied to the buyer interacting with the cart. Preferences
    * are used to prefill fields in at checkout to streamline information collection.
    * Preferences are not synced back to the cart if they are overwritten.
@@ -45,6 +45,28 @@ public class CartBuyerIdentityInput {
   private CartPreferencesInput preferences;
 
   public CartBuyerIdentityInput() {
+  }
+
+  /**
+   * The email address of the buyer that is interacting with the cart.
+   */
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  /**
+   * The phone number of the buyer that is interacting with the cart.
+   */
+  public String getPhone() {
+    return phone;
+  }
+
+  public void setPhone(String phone) {
+    this.phone = phone;
   }
 
   /**
@@ -81,28 +103,6 @@ public class CartBuyerIdentityInput {
   }
 
   /**
-   * The email address of the buyer that is interacting with the cart.
-   */
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  /**
-   * The phone number of the buyer that is interacting with the cart.
-   */
-  public String getPhone() {
-    return phone;
-  }
-
-  public void setPhone(String phone) {
-    this.phone = phone;
-  }
-
-  /**
    * A set of preferences tied to the buyer interacting with the cart. Preferences
    * are used to prefill fields in at checkout to streamline information collection.
    * Preferences are not synced back to the cart if they are overwritten.
@@ -117,7 +117,7 @@ public class CartBuyerIdentityInput {
 
   @Override
   public String toString() {
-    return "CartBuyerIdentityInput{companyLocationId='" + companyLocationId + "', countryCode='" + countryCode + "', customerAccessToken='" + customerAccessToken + "', email='" + email + "', phone='" + phone + "', preferences='" + preferences + "'}";
+    return "CartBuyerIdentityInput{email='" + email + "', phone='" + phone + "', companyLocationId='" + companyLocationId + "', countryCode='" + countryCode + "', customerAccessToken='" + customerAccessToken + "', preferences='" + preferences + "'}";
   }
 
   @Override
@@ -125,17 +125,17 @@ public class CartBuyerIdentityInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     CartBuyerIdentityInput that = (CartBuyerIdentityInput) o;
-    return Objects.equals(companyLocationId, that.companyLocationId) &&
+    return Objects.equals(email, that.email) &&
+        Objects.equals(phone, that.phone) &&
+        Objects.equals(companyLocationId, that.companyLocationId) &&
         Objects.equals(countryCode, that.countryCode) &&
         Objects.equals(customerAccessToken, that.customerAccessToken) &&
-        Objects.equals(email, that.email) &&
-        Objects.equals(phone, that.phone) &&
         Objects.equals(preferences, that.preferences);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(companyLocationId, countryCode, customerAccessToken, email, phone, preferences);
+    return Objects.hash(email, phone, companyLocationId, countryCode, customerAccessToken, preferences);
   }
 
   public static Builder newBuilder() {
@@ -143,6 +143,16 @@ public class CartBuyerIdentityInput {
   }
 
   public static class Builder {
+    /**
+     * The email address of the buyer that is interacting with the cart.
+     */
+    private String email;
+
+    /**
+     * The phone number of the buyer that is interacting with the cart.
+     */
+    private String phone;
+
     /**
      * The company location of the buyer that is interacting with the cart.
      */
@@ -159,16 +169,6 @@ public class CartBuyerIdentityInput {
     private String customerAccessToken;
 
     /**
-     * The email address of the buyer that is interacting with the cart.
-     */
-    private String email;
-
-    /**
-     * The phone number of the buyer that is interacting with the cart.
-     */
-    private String phone;
-
-    /**
      * A set of preferences tied to the buyer interacting with the cart. Preferences
      * are used to prefill fields in at checkout to streamline information collection.
      * Preferences are not synced back to the cart if they are overwritten.
@@ -177,13 +177,29 @@ public class CartBuyerIdentityInput {
 
     public CartBuyerIdentityInput build() {
       CartBuyerIdentityInput result = new CartBuyerIdentityInput();
+      result.email = this.email;
+      result.phone = this.phone;
       result.companyLocationId = this.companyLocationId;
       result.countryCode = this.countryCode;
       result.customerAccessToken = this.customerAccessToken;
-      result.email = this.email;
-      result.phone = this.phone;
       result.preferences = this.preferences;
       return result;
+    }
+
+    /**
+     * The email address of the buyer that is interacting with the cart.
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
+    }
+
+    /**
+     * The phone number of the buyer that is interacting with the cart.
+     */
+    public Builder phone(String phone) {
+      this.phone = phone;
+      return this;
     }
 
     /**
@@ -207,22 +223,6 @@ public class CartBuyerIdentityInput {
      */
     public Builder customerAccessToken(String customerAccessToken) {
       this.customerAccessToken = customerAccessToken;
-      return this;
-    }
-
-    /**
-     * The email address of the buyer that is interacting with the cart.
-     */
-    public Builder email(String email) {
-      this.email = email;
-      return this;
-    }
-
-    /**
-     * The phone number of the buyer that is interacting with the cart.
-     */
-    public Builder phone(String phone) {
-      this.phone = phone;
       return this;
     }
 

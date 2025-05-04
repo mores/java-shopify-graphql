@@ -4,15 +4,15 @@ package com.shopify.storefront.types;
  * List of different delivery method types.
  */
 public enum DeliveryMethodType {
-  LOCAL,
-
-  NONE,
-
-  PICKUP_POINT,
+  SHIPPING,
 
   PICK_UP,
 
   RETAIL,
 
-  SHIPPING
+  LOCAL,
+
+  PICKUP_POINT,
+
+  NONE
 }

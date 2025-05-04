@@ -16,14 +16,14 @@ import java.util.Objects;
  */
 public class MetafieldFilter {
   /**
-   * The key of the metafield to filter on.
-   */
-  private String key;
-
-  /**
    * The namespace of the metafield to filter on.
    */
   private String namespace;
+
+  /**
+   * The key of the metafield to filter on.
+   */
+  private String key;
 
   /**
    * The value of the metafield.
@@ -31,17 +31,6 @@ public class MetafieldFilter {
   private String value;
 
   public MetafieldFilter() {
-  }
-
-  /**
-   * The key of the metafield to filter on.
-   */
-  public String getKey() {
-    return key;
-  }
-
-  public void setKey(String key) {
-    this.key = key;
   }
 
   /**
@@ -53,6 +42,17 @@ public class MetafieldFilter {
 
   public void setNamespace(String namespace) {
     this.namespace = namespace;
+  }
+
+  /**
+   * The key of the metafield to filter on.
+   */
+  public String getKey() {
+    return key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
   }
 
   /**
@@ -68,7 +68,7 @@ public class MetafieldFilter {
 
   @Override
   public String toString() {
-    return "MetafieldFilter{key='" + key + "', namespace='" + namespace + "', value='" + value + "'}";
+    return "MetafieldFilter{namespace='" + namespace + "', key='" + key + "', value='" + value + "'}";
   }
 
   @Override
@@ -76,14 +76,14 @@ public class MetafieldFilter {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     MetafieldFilter that = (MetafieldFilter) o;
-    return Objects.equals(key, that.key) &&
-        Objects.equals(namespace, that.namespace) &&
+    return Objects.equals(namespace, that.namespace) &&
+        Objects.equals(key, that.key) &&
         Objects.equals(value, that.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, namespace, value);
+    return Objects.hash(namespace, key, value);
   }
 
   public static Builder newBuilder() {
@@ -92,14 +92,14 @@ public class MetafieldFilter {
 
   public static class Builder {
     /**
-     * The key of the metafield to filter on.
-     */
-    private String key;
-
-    /**
      * The namespace of the metafield to filter on.
      */
     private String namespace;
+
+    /**
+     * The key of the metafield to filter on.
+     */
+    private String key;
 
     /**
      * The value of the metafield.
@@ -108,18 +108,10 @@ public class MetafieldFilter {
 
     public MetafieldFilter build() {
       MetafieldFilter result = new MetafieldFilter();
-      result.key = this.key;
       result.namespace = this.namespace;
+      result.key = this.key;
       result.value = this.value;
       return result;
-    }
-
-    /**
-     * The key of the metafield to filter on.
-     */
-    public Builder key(String key) {
-      this.key = key;
-      return this;
     }
 
     /**
@@ -127,6 +119,14 @@ public class MetafieldFilter {
      */
     public Builder namespace(String namespace) {
       this.namespace = namespace;
+      return this;
+    }
+
+    /**
+     * The key of the metafield to filter on.
+     */
+    public Builder key(String key) {
+      this.key = key;
       return this;
     }
 

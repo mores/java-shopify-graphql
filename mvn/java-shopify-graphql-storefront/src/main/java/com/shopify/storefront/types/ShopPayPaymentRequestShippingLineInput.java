@@ -10,11 +10,6 @@ import java.util.Objects;
  */
 public class ShopPayPaymentRequestShippingLineInput {
   /**
-   * The amount for the shipping line.
-   */
-  private MoneyInput amount;
-
-  /**
    * The code of the shipping line.
    */
   private String code;
@@ -24,18 +19,12 @@ public class ShopPayPaymentRequestShippingLineInput {
    */
   private String label;
 
-  public ShopPayPaymentRequestShippingLineInput() {
-  }
-
   /**
    * The amount for the shipping line.
    */
-  public MoneyInput getAmount() {
-    return amount;
-  }
+  private MoneyInput amount;
 
-  public void setAmount(MoneyInput amount) {
-    this.amount = amount;
+  public ShopPayPaymentRequestShippingLineInput() {
   }
 
   /**
@@ -60,9 +49,20 @@ public class ShopPayPaymentRequestShippingLineInput {
     this.label = label;
   }
 
+  /**
+   * The amount for the shipping line.
+   */
+  public MoneyInput getAmount() {
+    return amount;
+  }
+
+  public void setAmount(MoneyInput amount) {
+    this.amount = amount;
+  }
+
   @Override
   public String toString() {
-    return "ShopPayPaymentRequestShippingLineInput{amount='" + amount + "', code='" + code + "', label='" + label + "'}";
+    return "ShopPayPaymentRequestShippingLineInput{code='" + code + "', label='" + label + "', amount='" + amount + "'}";
   }
 
   @Override
@@ -70,14 +70,14 @@ public class ShopPayPaymentRequestShippingLineInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     ShopPayPaymentRequestShippingLineInput that = (ShopPayPaymentRequestShippingLineInput) o;
-    return Objects.equals(amount, that.amount) &&
-        Objects.equals(code, that.code) &&
-        Objects.equals(label, that.label);
+    return Objects.equals(code, that.code) &&
+        Objects.equals(label, that.label) &&
+        Objects.equals(amount, that.amount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, code, label);
+    return Objects.hash(code, label, amount);
   }
 
   public static Builder newBuilder() {
@@ -85,11 +85,6 @@ public class ShopPayPaymentRequestShippingLineInput {
   }
 
   public static class Builder {
-    /**
-     * The amount for the shipping line.
-     */
-    private MoneyInput amount;
-
     /**
      * The code of the shipping line.
      */
@@ -100,20 +95,17 @@ public class ShopPayPaymentRequestShippingLineInput {
      */
     private String label;
 
-    public ShopPayPaymentRequestShippingLineInput build() {
-      ShopPayPaymentRequestShippingLineInput result = new ShopPayPaymentRequestShippingLineInput();
-      result.amount = this.amount;
-      result.code = this.code;
-      result.label = this.label;
-      return result;
-    }
-
     /**
      * The amount for the shipping line.
      */
-    public Builder amount(MoneyInput amount) {
-      this.amount = amount;
-      return this;
+    private MoneyInput amount;
+
+    public ShopPayPaymentRequestShippingLineInput build() {
+      ShopPayPaymentRequestShippingLineInput result = new ShopPayPaymentRequestShippingLineInput();
+      result.code = this.code;
+      result.label = this.label;
+      result.amount = this.amount;
+      return result;
     }
 
     /**
@@ -129,6 +121,14 @@ public class ShopPayPaymentRequestShippingLineInput {
      */
     public Builder label(String label) {
       this.label = label;
+      return this;
+    }
+
+    /**
+     * The amount for the shipping line.
+     */
+    public Builder amount(MoneyInput amount) {
+      this.amount = amount;
       return this;
     }
   }

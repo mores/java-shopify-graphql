@@ -38,8 +38,6 @@ public enum LanguageCode {
 
   CS,
 
-  CU,
-
   CY,
 
   DA,
@@ -136,8 +134,6 @@ public enum LanguageCode {
 
   KY,
 
-  LA,
-
   LB,
 
   LG,
@@ -161,8 +157,6 @@ public enum LanguageCode {
   ML,
 
   MN,
-
-  MO,
 
   MR,
 
@@ -196,8 +190,6 @@ public enum LanguageCode {
 
   PS,
 
-  PT,
-
   PT_BR,
 
   PT_PT,
@@ -223,8 +215,6 @@ public enum LanguageCode {
   SE,
 
   SG,
-
-  SH,
 
   SI,
 
@@ -274,8 +264,6 @@ public enum LanguageCode {
 
   VI,
 
-  VO,
-
   WO,
 
   XH,
@@ -284,11 +272,23 @@ public enum LanguageCode {
 
   YO,
 
-  ZH,
-
   ZH_CN,
 
   ZH_TW,
 
-  ZU
+  ZU,
+
+  ZH,
+
+  PT,
+
+  CU,
+
+  VO,
+
+  LA,
+
+  SH,
+
+  MO
 }

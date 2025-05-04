@@ -4,29 +4,29 @@ package com.shopify.storefront.types;
  * A menu item type.
  */
 public enum MenuItemType {
-  ARTICLE,
-
-  BLOG,
-
-  CATALOG,
+  FRONTPAGE,
 
   COLLECTION,
 
   COLLECTIONS,
 
-  CUSTOMER_ACCOUNT_PAGE,
+  PRODUCT,
 
-  FRONTPAGE,
+  CATALOG,
+
+  PAGE,
+
+  BLOG,
+
+  ARTICLE,
+
+  SEARCH,
+
+  SHOP_POLICY,
 
   HTTP,
 
   METAOBJECT,
 
-  PAGE,
-
-  PRODUCT,
-
-  SEARCH,
-
-  SHOP_POLICY
+  CUSTOMER_ACCOUNT_PAGE
 }

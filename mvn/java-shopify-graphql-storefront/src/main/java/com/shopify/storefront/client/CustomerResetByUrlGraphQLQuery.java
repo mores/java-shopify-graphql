@@ -11,13 +11,13 @@ import java.util.Set;
  * reset password email. You can send a reset password email with the [`customerRecover`](https://shopify.dev/api/storefront/latest/mutations/customerRecover) mutation."
  */
 public class CustomerResetByUrlGraphQLQuery extends GraphQLQuery {
-  public CustomerResetByUrlGraphQLQuery(String password, String resetUrl, String queryName,
+  public CustomerResetByUrlGraphQLQuery(String resetUrl, String password, String queryName,
       Set<String> fieldsSet) {
     super("mutation", queryName);
-    if (password != null || fieldsSet.contains("password")) {
-        getInput().put("password", password);
-    }if (resetUrl != null || fieldsSet.contains("resetUrl")) {
+    if (resetUrl != null || fieldsSet.contains("resetUrl")) {
         getInput().put("resetUrl", resetUrl);
+    }if (password != null || fieldsSet.contains("password")) {
+        getInput().put("password", password);
     }
   }
 
@@ -37,24 +37,15 @@ public class CustomerResetByUrlGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
-    private String password;
-
     private String resetUrl;
+
+    private String password;
 
     private String queryName;
 
     public CustomerResetByUrlGraphQLQuery build() {
-      return new CustomerResetByUrlGraphQLQuery(password, resetUrl, queryName, fieldsSet);
+      return new CustomerResetByUrlGraphQLQuery(resetUrl, password, queryName, fieldsSet);
                
-    }
-
-    /**
-     * New password that will be set as part of the reset password process.
-     */
-    public Builder password(String password) {
-      this.password = password;
-      this.fieldsSet.add("password");
-      return this;
     }
 
     /**
@@ -63,6 +54,15 @@ public class CustomerResetByUrlGraphQLQuery extends GraphQLQuery {
     public Builder resetUrl(String resetUrl) {
       this.resetUrl = resetUrl;
       this.fieldsSet.add("resetUrl");
+      return this;
+    }
+
+    /**
+     * New password that will be set as part of the reset password process.
+     */
+    public Builder password(String password) {
+      this.password = password;
+      this.fieldsSet.add("password");
       return this;
     }
 

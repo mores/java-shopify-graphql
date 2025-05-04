@@ -12,23 +12,23 @@ import java.util.Set;
  * All active metaobjects for the shop.
  */
 public class MetaobjectsGraphQLQuery extends GraphQLQuery {
-  public MetaobjectsGraphQLQuery(String after, String before, Integer first, Integer last,
-      Boolean reverse, String sortKey, String type, String queryName, Set<String> fieldsSet) {
+  public MetaobjectsGraphQLQuery(String type, String sortKey, Integer first, String after,
+      Integer last, String before, Boolean reverse, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
-    if (after != null || fieldsSet.contains("after")) {
-        getInput().put("after", after);
-    }if (before != null || fieldsSet.contains("before")) {
-        getInput().put("before", before);
-    }if (first != null || fieldsSet.contains("first")) {
-        getInput().put("first", first);
-    }if (last != null || fieldsSet.contains("last")) {
-        getInput().put("last", last);
-    }if (reverse != null || fieldsSet.contains("reverse")) {
-        getInput().put("reverse", reverse);
+    if (type != null || fieldsSet.contains("type")) {
+        getInput().put("type", type);
     }if (sortKey != null || fieldsSet.contains("sortKey")) {
         getInput().put("sortKey", sortKey);
-    }if (type != null || fieldsSet.contains("type")) {
-        getInput().put("type", type);
+    }if (first != null || fieldsSet.contains("first")) {
+        getInput().put("first", first);
+    }if (after != null || fieldsSet.contains("after")) {
+        getInput().put("after", after);
+    }if (last != null || fieldsSet.contains("last")) {
+        getInput().put("last", last);
+    }if (before != null || fieldsSet.contains("before")) {
+        getInput().put("before", before);
+    }if (reverse != null || fieldsSet.contains("reverse")) {
+        getInput().put("reverse", reverse);
     }
   }
 
@@ -48,69 +48,33 @@ public class MetaobjectsGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
-    private String after;
-
-    private String before;
-
-    private Integer first;
-
-    private Integer last;
-
-    private Boolean reverse;
+    private String type;
 
     private String sortKey;
 
-    private String type;
+    private Integer first;
+
+    private String after;
+
+    private Integer last;
+
+    private String before;
+
+    private Boolean reverse;
 
     private String queryName;
 
     public MetaobjectsGraphQLQuery build() {
-      return new MetaobjectsGraphQLQuery(after, before, first, last, reverse, sortKey, type, queryName, fieldsSet);
+      return new MetaobjectsGraphQLQuery(type, sortKey, first, after, last, before, reverse, queryName, fieldsSet);
                
     }
 
     /**
-     * Returns the elements that come after the specified cursor.
+     * The type of metaobject to retrieve.
      */
-    public Builder after(String after) {
-      this.after = after;
-      this.fieldsSet.add("after");
-      return this;
-    }
-
-    /**
-     * Returns the elements that come before the specified cursor.
-     */
-    public Builder before(String before) {
-      this.before = before;
-      this.fieldsSet.add("before");
-      return this;
-    }
-
-    /**
-     * Returns up to the first `n` elements from the list.
-     */
-    public Builder first(Integer first) {
-      this.first = first;
-      this.fieldsSet.add("first");
-      return this;
-    }
-
-    /**
-     * Returns up to the last `n` elements from the list.
-     */
-    public Builder last(Integer last) {
-      this.last = last;
-      this.fieldsSet.add("last");
-      return this;
-    }
-
-    /**
-     * Reverse the order of the underlying list.
-     */
-    public Builder reverse(Boolean reverse) {
-      this.reverse = reverse;
-      this.fieldsSet.add("reverse");
+    public Builder type(String type) {
+      this.type = type;
+      this.fieldsSet.add("type");
       return this;
     }
 
@@ -124,11 +88,47 @@ public class MetaobjectsGraphQLQuery extends GraphQLQuery {
     }
 
     /**
-     * The type of metaobject to retrieve.
+     * Returns up to the first `n` elements from the list.
      */
-    public Builder type(String type) {
-      this.type = type;
-      this.fieldsSet.add("type");
+    public Builder first(Integer first) {
+      this.first = first;
+      this.fieldsSet.add("first");
+      return this;
+    }
+
+    /**
+     * Returns the elements that come after the specified cursor.
+     */
+    public Builder after(String after) {
+      this.after = after;
+      this.fieldsSet.add("after");
+      return this;
+    }
+
+    /**
+     * Returns up to the last `n` elements from the list.
+     */
+    public Builder last(Integer last) {
+      this.last = last;
+      this.fieldsSet.add("last");
+      return this;
+    }
+
+    /**
+     * Returns the elements that come before the specified cursor.
+     */
+    public Builder before(String before) {
+      this.before = before;
+      this.fieldsSet.add("before");
+      return this;
+    }
+
+    /**
+     * Reverse the order of the underlying list.
+     */
+    public Builder reverse(Boolean reverse) {
+      this.reverse = reverse;
+      this.fieldsSet.add("reverse");
       return this;
     }
 

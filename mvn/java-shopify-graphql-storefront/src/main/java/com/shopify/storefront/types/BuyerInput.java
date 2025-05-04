@@ -10,28 +10,17 @@ import java.util.Objects;
  */
 public class BuyerInput {
   /**
-   * The identifier of the company location.
-   */
-  private String companyLocationId;
-
-  /**
    * The customer access token retrieved from the [Customer Accounts
    * API](https://shopify.dev/docs/api/customer#step-obtain-access-token).
    */
   private String customerAccessToken;
 
-  public BuyerInput() {
-  }
-
   /**
    * The identifier of the company location.
    */
-  public String getCompanyLocationId() {
-    return companyLocationId;
-  }
+  private String companyLocationId;
 
-  public void setCompanyLocationId(String companyLocationId) {
-    this.companyLocationId = companyLocationId;
+  public BuyerInput() {
   }
 
   /**
@@ -46,9 +35,20 @@ public class BuyerInput {
     this.customerAccessToken = customerAccessToken;
   }
 
+  /**
+   * The identifier of the company location.
+   */
+  public String getCompanyLocationId() {
+    return companyLocationId;
+  }
+
+  public void setCompanyLocationId(String companyLocationId) {
+    this.companyLocationId = companyLocationId;
+  }
+
   @Override
   public String toString() {
-    return "BuyerInput{companyLocationId='" + companyLocationId + "', customerAccessToken='" + customerAccessToken + "'}";
+    return "BuyerInput{customerAccessToken='" + customerAccessToken + "', companyLocationId='" + companyLocationId + "'}";
   }
 
   @Override
@@ -56,13 +56,13 @@ public class BuyerInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     BuyerInput that = (BuyerInput) o;
-    return Objects.equals(companyLocationId, that.companyLocationId) &&
-        Objects.equals(customerAccessToken, that.customerAccessToken);
+    return Objects.equals(customerAccessToken, that.customerAccessToken) &&
+        Objects.equals(companyLocationId, that.companyLocationId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(companyLocationId, customerAccessToken);
+    return Objects.hash(customerAccessToken, companyLocationId);
   }
 
   public static Builder newBuilder() {
@@ -71,29 +71,21 @@ public class BuyerInput {
 
   public static class Builder {
     /**
-     * The identifier of the company location.
-     */
-    private String companyLocationId;
-
-    /**
      * The customer access token retrieved from the [Customer Accounts
      * API](https://shopify.dev/docs/api/customer#step-obtain-access-token).
      */
     private String customerAccessToken;
 
-    public BuyerInput build() {
-      BuyerInput result = new BuyerInput();
-      result.companyLocationId = this.companyLocationId;
-      result.customerAccessToken = this.customerAccessToken;
-      return result;
-    }
-
     /**
      * The identifier of the company location.
      */
-    public Builder companyLocationId(String companyLocationId) {
-      this.companyLocationId = companyLocationId;
-      return this;
+    private String companyLocationId;
+
+    public BuyerInput build() {
+      BuyerInput result = new BuyerInput();
+      result.customerAccessToken = this.customerAccessToken;
+      result.companyLocationId = this.companyLocationId;
+      return result;
     }
 
     /**
@@ -102,6 +94,14 @@ public class BuyerInput {
      */
     public Builder customerAccessToken(String customerAccessToken) {
       this.customerAccessToken = customerAccessToken;
+      return this;
+    }
+
+    /**
+     * The identifier of the company location.
+     */
+    public Builder companyLocationId(String companyLocationId) {
+      this.companyLocationId = companyLocationId;
       return this;
     }
   }

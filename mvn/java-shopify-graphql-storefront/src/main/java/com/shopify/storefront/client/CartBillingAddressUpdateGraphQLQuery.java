@@ -11,13 +11,13 @@ import java.util.Set;
  * Updates the billing address on the cart.
  */
 public class CartBillingAddressUpdateGraphQLQuery extends GraphQLQuery {
-  public CartBillingAddressUpdateGraphQLQuery(MailingAddressInput billingAddress, String cartId,
+  public CartBillingAddressUpdateGraphQLQuery(String cartId, MailingAddressInput billingAddress,
       String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
-    if (billingAddress != null || fieldsSet.contains("billingAddress")) {
-        getInput().put("billingAddress", billingAddress);
-    }if (cartId != null || fieldsSet.contains("cartId")) {
+    if (cartId != null || fieldsSet.contains("cartId")) {
         getInput().put("cartId", cartId);
+    }if (billingAddress != null || fieldsSet.contains("billingAddress")) {
+        getInput().put("billingAddress", billingAddress);
     }
   }
 
@@ -37,24 +37,15 @@ public class CartBillingAddressUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
-    private MailingAddressInput billingAddress;
-
     private String cartId;
+
+    private MailingAddressInput billingAddress;
 
     private String queryName;
 
     public CartBillingAddressUpdateGraphQLQuery build() {
-      return new CartBillingAddressUpdateGraphQLQuery(billingAddress, cartId, queryName, fieldsSet);
+      return new CartBillingAddressUpdateGraphQLQuery(cartId, billingAddress, queryName, fieldsSet);
                
-    }
-
-    /**
-     * The customer's billing address.
-     */
-    public Builder billingAddress(MailingAddressInput billingAddress) {
-      this.billingAddress = billingAddress;
-      this.fieldsSet.add("billingAddress");
-      return this;
     }
 
     /**
@@ -63,6 +54,15 @@ public class CartBillingAddressUpdateGraphQLQuery extends GraphQLQuery {
     public Builder cartId(String cartId) {
       this.cartId = cartId;
       this.fieldsSet.add("cartId");
+      return this;
+    }
+
+    /**
+     * The customer's billing address.
+     */
+    public Builder billingAddress(MailingAddressInput billingAddress) {
+      this.billingAddress = billingAddress;
+      this.fieldsSet.add("billingAddress");
       return this;
     }
 

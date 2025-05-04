@@ -49,14 +49,14 @@ public class SellingPlanFragmentProjection<PARENT extends BaseSubProjectionNode<
   }
 
   public MetafieldProjection<SellingPlanFragmentProjection<PARENT, ROOT>, ROOT> metafield(
-      String key, String namespace) {
+      String namespace, String key) {
     MetafieldProjection<SellingPlanFragmentProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
     getFields().put("metafield", projection);
     getInputArguments().computeIfAbsent("metafield", k -> new ArrayList<>());                      
-    InputArgument keyArg = new InputArgument("key", key);
-    getInputArguments().get("metafield").add(keyArg);
     InputArgument namespaceArg = new InputArgument("namespace", namespace);
     getInputArguments().get("metafield").add(namespaceArg);
+    InputArgument keyArg = new InputArgument("key", key);
+    getInputArguments().get("metafield").add(keyArg);
     return projection;
   }
 

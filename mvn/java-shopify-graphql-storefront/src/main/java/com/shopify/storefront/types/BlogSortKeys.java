@@ -6,9 +6,9 @@ package com.shopify.storefront.types;
 public enum BlogSortKeys {
   HANDLE,
 
+  TITLE,
+
   ID,
 
-  RELEVANCE,
-
-  TITLE
+  RELEVANCE
 }

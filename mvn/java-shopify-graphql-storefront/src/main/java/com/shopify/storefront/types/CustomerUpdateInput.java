@@ -11,16 +11,6 @@ import java.util.Objects;
  */
 public class CustomerUpdateInput {
   /**
-   * Indicates whether the customer has consented to be sent marketing material via email.
-   */
-  private Boolean acceptsMarketing;
-
-  /**
-   * The customer’s email.
-   */
-  private String email;
-
-  /**
    * The customer’s first name.
    */
   private String firstName;
@@ -31,9 +21,9 @@ public class CustomerUpdateInput {
   private String lastName;
 
   /**
-   * The login password used by the customer.
+   * The customer’s email.
    */
-  private String password;
+  private String email;
 
   /**
    * A unique phone number for the customer.
@@ -42,29 +32,17 @@ public class CustomerUpdateInput {
    */
   private String phone;
 
-  public CustomerUpdateInput() {
-  }
+  /**
+   * The login password used by the customer.
+   */
+  private String password;
 
   /**
    * Indicates whether the customer has consented to be sent marketing material via email.
    */
-  public Boolean getAcceptsMarketing() {
-    return acceptsMarketing;
-  }
+  private Boolean acceptsMarketing;
 
-  public void setAcceptsMarketing(Boolean acceptsMarketing) {
-    this.acceptsMarketing = acceptsMarketing;
-  }
-
-  /**
-   * The customer’s email.
-   */
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
+  public CustomerUpdateInput() {
   }
 
   /**
@@ -90,14 +68,14 @@ public class CustomerUpdateInput {
   }
 
   /**
-   * The login password used by the customer.
+   * The customer’s email.
    */
-  public String getPassword() {
-    return password;
+  public String getEmail() {
+    return email;
   }
 
-  public void setPassword(String password) {
-    this.password = password;
+  public void setEmail(String email) {
+    this.email = email;
   }
 
   /**
@@ -113,9 +91,31 @@ public class CustomerUpdateInput {
     this.phone = phone;
   }
 
+  /**
+   * The login password used by the customer.
+   */
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  /**
+   * Indicates whether the customer has consented to be sent marketing material via email.
+   */
+  public Boolean getAcceptsMarketing() {
+    return acceptsMarketing;
+  }
+
+  public void setAcceptsMarketing(Boolean acceptsMarketing) {
+    this.acceptsMarketing = acceptsMarketing;
+  }
+
   @Override
   public String toString() {
-    return "CustomerUpdateInput{acceptsMarketing='" + acceptsMarketing + "', email='" + email + "', firstName='" + firstName + "', lastName='" + lastName + "', password='" + password + "', phone='" + phone + "'}";
+    return "CustomerUpdateInput{firstName='" + firstName + "', lastName='" + lastName + "', email='" + email + "', phone='" + phone + "', password='" + password + "', acceptsMarketing='" + acceptsMarketing + "'}";
   }
 
   @Override
@@ -123,17 +123,17 @@ public class CustomerUpdateInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     CustomerUpdateInput that = (CustomerUpdateInput) o;
-    return Objects.equals(acceptsMarketing, that.acceptsMarketing) &&
-        Objects.equals(email, that.email) &&
-        Objects.equals(firstName, that.firstName) &&
+    return Objects.equals(firstName, that.firstName) &&
         Objects.equals(lastName, that.lastName) &&
+        Objects.equals(email, that.email) &&
+        Objects.equals(phone, that.phone) &&
         Objects.equals(password, that.password) &&
-        Objects.equals(phone, that.phone);
+        Objects.equals(acceptsMarketing, that.acceptsMarketing);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptsMarketing, email, firstName, lastName, password, phone);
+    return Objects.hash(firstName, lastName, email, phone, password, acceptsMarketing);
   }
 
   public static Builder newBuilder() {
@@ -141,16 +141,6 @@ public class CustomerUpdateInput {
   }
 
   public static class Builder {
-    /**
-     * Indicates whether the customer has consented to be sent marketing material via email.
-     */
-    private Boolean acceptsMarketing;
-
-    /**
-     * The customer’s email.
-     */
-    private String email;
-
     /**
      * The customer’s first name.
      */
@@ -162,9 +152,9 @@ public class CustomerUpdateInput {
     private String lastName;
 
     /**
-     * The login password used by the customer.
+     * The customer’s email.
      */
-    private String password;
+    private String email;
 
     /**
      * A unique phone number for the customer.
@@ -173,31 +163,25 @@ public class CustomerUpdateInput {
      */
     private String phone;
 
-    public CustomerUpdateInput build() {
-      CustomerUpdateInput result = new CustomerUpdateInput();
-      result.acceptsMarketing = this.acceptsMarketing;
-      result.email = this.email;
-      result.firstName = this.firstName;
-      result.lastName = this.lastName;
-      result.password = this.password;
-      result.phone = this.phone;
-      return result;
-    }
+    /**
+     * The login password used by the customer.
+     */
+    private String password;
 
     /**
      * Indicates whether the customer has consented to be sent marketing material via email.
      */
-    public Builder acceptsMarketing(Boolean acceptsMarketing) {
-      this.acceptsMarketing = acceptsMarketing;
-      return this;
-    }
+    private Boolean acceptsMarketing;
 
-    /**
-     * The customer’s email.
-     */
-    public Builder email(String email) {
-      this.email = email;
-      return this;
+    public CustomerUpdateInput build() {
+      CustomerUpdateInput result = new CustomerUpdateInput();
+      result.firstName = this.firstName;
+      result.lastName = this.lastName;
+      result.email = this.email;
+      result.phone = this.phone;
+      result.password = this.password;
+      result.acceptsMarketing = this.acceptsMarketing;
+      return result;
     }
 
     /**
@@ -217,10 +201,10 @@ public class CustomerUpdateInput {
     }
 
     /**
-     * The login password used by the customer.
+     * The customer’s email.
      */
-    public Builder password(String password) {
-      this.password = password;
+    public Builder email(String email) {
+      this.email = email;
       return this;
     }
 
@@ -231,6 +215,22 @@ public class CustomerUpdateInput {
      */
     public Builder phone(String phone) {
       this.phone = phone;
+      return this;
+    }
+
+    /**
+     * The login password used by the customer.
+     */
+    public Builder password(String password) {
+      this.password = password;
+      return this;
+    }
+
+    /**
+     * Indicates whether the customer has consented to be sent marketing material via email.
+     */
+    public Builder acceptsMarketing(Boolean acceptsMarketing) {
+      this.acceptsMarketing = acceptsMarketing;
       return this;
     }
   }

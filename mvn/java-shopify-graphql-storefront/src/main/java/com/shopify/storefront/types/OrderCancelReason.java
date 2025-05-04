@@ -12,7 +12,7 @@ public enum OrderCancelReason {
 
   INVENTORY,
 
-  OTHER,
+  STAFF,
 
-  STAFF
+  OTHER
 }

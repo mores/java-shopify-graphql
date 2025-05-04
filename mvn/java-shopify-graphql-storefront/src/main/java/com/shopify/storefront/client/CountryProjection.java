@@ -24,6 +24,12 @@ public class CountryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT 
      return projection;
   }
 
+  public LanguageProjection<CountryProjection<PARENT, ROOT>, ROOT> defaultLanguage() {
+     LanguageProjection<CountryProjection<PARENT, ROOT>, ROOT> projection = new LanguageProjection<>(this, getRoot());
+     getFields().put("defaultLanguage", projection);
+     return projection;
+  }
+
   public CountryCodeProjection<CountryProjection<PARENT, ROOT>, ROOT> isoCode() {
      CountryCodeProjection<CountryProjection<PARENT, ROOT>, ROOT> projection = new CountryCodeProjection<>(this, getRoot());
      getFields().put("isoCode", projection);

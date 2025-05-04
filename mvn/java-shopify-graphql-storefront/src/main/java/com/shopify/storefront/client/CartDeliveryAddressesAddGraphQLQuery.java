@@ -12,13 +12,13 @@ import java.util.Set;
  * Adds delivery addresses to the cart.
  */
 public class CartDeliveryAddressesAddGraphQLQuery extends GraphQLQuery {
-  public CartDeliveryAddressesAddGraphQLQuery(List<CartSelectableAddressInput> addresses,
-      String cartId, String queryName, Set<String> fieldsSet) {
+  public CartDeliveryAddressesAddGraphQLQuery(String cartId,
+      List<CartSelectableAddressInput> addresses, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
-    if (addresses != null || fieldsSet.contains("addresses")) {
-        getInput().put("addresses", addresses);
-    }if (cartId != null || fieldsSet.contains("cartId")) {
+    if (cartId != null || fieldsSet.contains("cartId")) {
         getInput().put("cartId", cartId);
+    }if (addresses != null || fieldsSet.contains("addresses")) {
+        getInput().put("addresses", addresses);
     }
   }
 
@@ -38,15 +38,24 @@ public class CartDeliveryAddressesAddGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
-    private List<CartSelectableAddressInput> addresses;
-
     private String cartId;
+
+    private List<CartSelectableAddressInput> addresses;
 
     private String queryName;
 
     public CartDeliveryAddressesAddGraphQLQuery build() {
-      return new CartDeliveryAddressesAddGraphQLQuery(addresses, cartId, queryName, fieldsSet);
+      return new CartDeliveryAddressesAddGraphQLQuery(cartId, addresses, queryName, fieldsSet);
                
+    }
+
+    /**
+     * The ID of the cart.
+     */
+    public Builder cartId(String cartId) {
+      this.cartId = cartId;
+      this.fieldsSet.add("cartId");
+      return this;
     }
 
     /**
@@ -57,15 +66,6 @@ public class CartDeliveryAddressesAddGraphQLQuery extends GraphQLQuery {
     public Builder addresses(List<CartSelectableAddressInput> addresses) {
       this.addresses = addresses;
       this.fieldsSet.add("addresses");
-      return this;
-    }
-
-    /**
-     * The ID of the cart.
-     */
-    public Builder cartId(String cartId) {
-      this.cartId = cartId;
-      this.fieldsSet.add("cartId");
       return this;
     }
 

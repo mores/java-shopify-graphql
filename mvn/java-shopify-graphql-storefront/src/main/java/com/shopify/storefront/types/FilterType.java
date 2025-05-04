@@ -7,9 +7,9 @@ package com.shopify.storefront.types;
  * (https://shopify.dev/custom-storefronts/products-collections/filter-products).
  */
 public enum FilterType {
-  BOOLEAN,
-
   LIST,
 
-  PRICE_RANGE
+  PRICE_RANGE,
+
+  BOOLEAN
 }

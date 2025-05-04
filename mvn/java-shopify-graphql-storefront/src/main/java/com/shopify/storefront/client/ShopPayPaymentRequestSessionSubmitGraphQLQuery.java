@@ -11,18 +11,18 @@ import java.util.Set;
  * Submits a Shop Pay payment request session.
  */
 public class ShopPayPaymentRequestSessionSubmitGraphQLQuery extends GraphQLQuery {
-  public ShopPayPaymentRequestSessionSubmitGraphQLQuery(String idempotencyKey, String orderName,
-      ShopPayPaymentRequestInput paymentRequest, String token, String queryName,
-      Set<String> fieldsSet) {
+  public ShopPayPaymentRequestSessionSubmitGraphQLQuery(String token,
+      ShopPayPaymentRequestInput paymentRequest, String idempotencyKey, String orderName,
+      String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
-    if (idempotencyKey != null || fieldsSet.contains("idempotencyKey")) {
+    if (token != null || fieldsSet.contains("token")) {
+        getInput().put("token", token);
+    }if (paymentRequest != null || fieldsSet.contains("paymentRequest")) {
+        getInput().put("paymentRequest", paymentRequest);
+    }if (idempotencyKey != null || fieldsSet.contains("idempotencyKey")) {
         getInput().put("idempotencyKey", idempotencyKey);
     }if (orderName != null || fieldsSet.contains("orderName")) {
         getInput().put("orderName", orderName);
-    }if (paymentRequest != null || fieldsSet.contains("paymentRequest")) {
-        getInput().put("paymentRequest", paymentRequest);
-    }if (token != null || fieldsSet.contains("token")) {
-        getInput().put("token", token);
     }
   }
 
@@ -42,19 +42,37 @@ public class ShopPayPaymentRequestSessionSubmitGraphQLQuery extends GraphQLQuery
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private String token;
+
+    private ShopPayPaymentRequestInput paymentRequest;
+
     private String idempotencyKey;
 
     private String orderName;
 
-    private ShopPayPaymentRequestInput paymentRequest;
-
-    private String token;
-
     private String queryName;
 
     public ShopPayPaymentRequestSessionSubmitGraphQLQuery build() {
-      return new ShopPayPaymentRequestSessionSubmitGraphQLQuery(idempotencyKey, orderName, paymentRequest, token, queryName, fieldsSet);
+      return new ShopPayPaymentRequestSessionSubmitGraphQLQuery(token, paymentRequest, idempotencyKey, orderName, queryName, fieldsSet);
                
+    }
+
+    /**
+     * A token representing a payment session request.
+     */
+    public Builder token(String token) {
+      this.token = token;
+      this.fieldsSet.add("token");
+      return this;
+    }
+
+    /**
+     * The final payment request object.
+     */
+    public Builder paymentRequest(ShopPayPaymentRequestInput paymentRequest) {
+      this.paymentRequest = paymentRequest;
+      this.fieldsSet.add("paymentRequest");
+      return this;
     }
 
     /**
@@ -72,24 +90,6 @@ public class ShopPayPaymentRequestSessionSubmitGraphQLQuery extends GraphQLQuery
     public Builder orderName(String orderName) {
       this.orderName = orderName;
       this.fieldsSet.add("orderName");
-      return this;
-    }
-
-    /**
-     * The final payment request object.
-     */
-    public Builder paymentRequest(ShopPayPaymentRequestInput paymentRequest) {
-      this.paymentRequest = paymentRequest;
-      this.fieldsSet.add("paymentRequest");
-      return this;
-    }
-
-    /**
-     * A token representing a payment session request.
-     */
-    public Builder token(String token) {
-      this.token = token;
-      this.fieldsSet.add("token");
       return this;
     }
 

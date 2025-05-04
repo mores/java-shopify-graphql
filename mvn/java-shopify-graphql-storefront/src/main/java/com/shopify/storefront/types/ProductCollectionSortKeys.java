@@ -4,9 +4,11 @@ package com.shopify.storefront.types;
  * The set of valid sort keys for the ProductCollection query.
  */
 public enum ProductCollectionSortKeys {
-  BEST_SELLING,
+  TITLE,
 
-  COLLECTION_DEFAULT,
+  PRICE,
+
+  BEST_SELLING,
 
   CREATED,
 
@@ -14,9 +16,7 @@ public enum ProductCollectionSortKeys {
 
   MANUAL,
 
-  PRICE,
+  COLLECTION_DEFAULT,
 
-  RELEVANCE,
-
-  TITLE
+  RELEVANCE
 }

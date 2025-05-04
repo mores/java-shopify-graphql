@@ -10,17 +10,28 @@ import java.util.Objects;
  */
 public class CartMetafieldDeleteInput {
   /**
+   * The ID of the cart resource.
+   */
+  private String ownerId;
+
+  /**
    * The key name of the cart metafield. Can either be a composite key (`namespace.key`) or a simple key
    *  that relies on the default app-reserved namespace.
    */
   private String key;
 
+  public CartMetafieldDeleteInput() {
+  }
+
   /**
    * The ID of the cart resource.
    */
-  private String ownerId;
+  public String getOwnerId() {
+    return ownerId;
+  }
 
-  public CartMetafieldDeleteInput() {
+  public void setOwnerId(String ownerId) {
+    this.ownerId = ownerId;
   }
 
   /**
@@ -35,20 +46,9 @@ public class CartMetafieldDeleteInput {
     this.key = key;
   }
 
-  /**
-   * The ID of the cart resource.
-   */
-  public String getOwnerId() {
-    return ownerId;
-  }
-
-  public void setOwnerId(String ownerId) {
-    this.ownerId = ownerId;
-  }
-
   @Override
   public String toString() {
-    return "CartMetafieldDeleteInput{key='" + key + "', ownerId='" + ownerId + "'}";
+    return "CartMetafieldDeleteInput{ownerId='" + ownerId + "', key='" + key + "'}";
   }
 
   @Override
@@ -56,13 +56,13 @@ public class CartMetafieldDeleteInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     CartMetafieldDeleteInput that = (CartMetafieldDeleteInput) o;
-    return Objects.equals(key, that.key) &&
-        Objects.equals(ownerId, that.ownerId);
+    return Objects.equals(ownerId, that.ownerId) &&
+        Objects.equals(key, that.key);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, ownerId);
+    return Objects.hash(ownerId, key);
   }
 
   public static Builder newBuilder() {
@@ -71,21 +71,29 @@ public class CartMetafieldDeleteInput {
 
   public static class Builder {
     /**
+     * The ID of the cart resource.
+     */
+    private String ownerId;
+
+    /**
      * The key name of the cart metafield. Can either be a composite key (`namespace.key`) or a simple key
      *  that relies on the default app-reserved namespace.
      */
     private String key;
 
+    public CartMetafieldDeleteInput build() {
+      CartMetafieldDeleteInput result = new CartMetafieldDeleteInput();
+      result.ownerId = this.ownerId;
+      result.key = this.key;
+      return result;
+    }
+
     /**
      * The ID of the cart resource.
      */
-    private String ownerId;
-
-    public CartMetafieldDeleteInput build() {
-      CartMetafieldDeleteInput result = new CartMetafieldDeleteInput();
-      result.key = this.key;
-      result.ownerId = this.ownerId;
-      return result;
+    public Builder ownerId(String ownerId) {
+      this.ownerId = ownerId;
+      return this;
     }
 
     /**
@@ -94,14 +102,6 @@ public class CartMetafieldDeleteInput {
      */
     public Builder key(String key) {
       this.key = key;
-      return this;
-    }
-
-    /**
-     * The ID of the cart resource.
-     */
-    public Builder ownerId(String ownerId) {
-      this.ownerId = ownerId;
       return this;
     }
   }

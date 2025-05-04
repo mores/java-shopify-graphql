@@ -42,19 +42,19 @@ public class ArticleProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT 
      return projection;
   }
 
-  public CommentConnectionProjection<ArticleProjection<PARENT, ROOT>, ROOT> comments(String after,
-      String before, Integer first, Integer last, Boolean reverse) {
+  public CommentConnectionProjection<ArticleProjection<PARENT, ROOT>, ROOT> comments(Integer first,
+      String after, Integer last, String before, Boolean reverse) {
     CommentConnectionProjection<ArticleProjection<PARENT, ROOT>, ROOT> projection = new CommentConnectionProjection<>(this, getRoot());    
     getFields().put("comments", projection);
     getInputArguments().computeIfAbsent("comments", k -> new ArrayList<>());                      
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("comments").add(afterArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("comments").add(beforeArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("comments").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("comments").add(afterArg);
     InputArgument lastArg = new InputArgument("last", last);
     getInputArguments().get("comments").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("comments").add(beforeArg);
     InputArgument reverseArg = new InputArgument("reverse", reverse);
     getInputArguments().get("comments").add(reverseArg);
     return projection;
@@ -72,15 +72,15 @@ public class ArticleProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT 
      return projection;
   }
 
-  public MetafieldProjection<ArticleProjection<PARENT, ROOT>, ROOT> metafield(String key,
-      String namespace) {
+  public MetafieldProjection<ArticleProjection<PARENT, ROOT>, ROOT> metafield(String namespace,
+      String key) {
     MetafieldProjection<ArticleProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
     getFields().put("metafield", projection);
     getInputArguments().computeIfAbsent("metafield", k -> new ArrayList<>());                      
-    InputArgument keyArg = new InputArgument("key", key);
-    getInputArguments().get("metafield").add(keyArg);
     InputArgument namespaceArg = new InputArgument("namespace", namespace);
     getInputArguments().get("metafield").add(namespaceArg);
+    InputArgument keyArg = new InputArgument("key", key);
+    getInputArguments().get("metafield").add(keyArg);
     return projection;
   }
 

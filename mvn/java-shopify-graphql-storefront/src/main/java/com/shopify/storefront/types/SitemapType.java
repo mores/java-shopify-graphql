@@ -4,15 +4,15 @@ package com.shopify.storefront.types;
  * The types of resources potentially present in a sitemap.
  */
 public enum SitemapType {
-  ARTICLE,
-
-  BLOG,
+  PRODUCT,
 
   COLLECTION,
 
-  METAOBJECT,
-
   PAGE,
 
-  PRODUCT
+  METAOBJECT,
+
+  BLOG,
+
+  ARTICLE
 }

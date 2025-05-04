@@ -16,14 +16,14 @@ public class CartSelectableAddressInput {
   private CartAddressInput address;
 
   /**
-   * When true, this delivery address will not be associated with the buyer after a successful checkout.
-   */
-  private Boolean oneTimeUse;
-
-  /**
    * Sets exactly one address as pre-selected for the buyer.
    */
   private Boolean selected;
+
+  /**
+   * When true, this delivery address will not be associated with the buyer after a successful checkout.
+   */
+  private Boolean oneTimeUse;
 
   /**
    * Defines what kind of address validation is requested.
@@ -45,17 +45,6 @@ public class CartSelectableAddressInput {
   }
 
   /**
-   * When true, this delivery address will not be associated with the buyer after a successful checkout.
-   */
-  public Boolean getOneTimeUse() {
-    return oneTimeUse;
-  }
-
-  public void setOneTimeUse(Boolean oneTimeUse) {
-    this.oneTimeUse = oneTimeUse;
-  }
-
-  /**
    * Sets exactly one address as pre-selected for the buyer.
    */
   public Boolean getSelected() {
@@ -64,6 +53,17 @@ public class CartSelectableAddressInput {
 
   public void setSelected(Boolean selected) {
     this.selected = selected;
+  }
+
+  /**
+   * When true, this delivery address will not be associated with the buyer after a successful checkout.
+   */
+  public Boolean getOneTimeUse() {
+    return oneTimeUse;
+  }
+
+  public void setOneTimeUse(Boolean oneTimeUse) {
+    this.oneTimeUse = oneTimeUse;
   }
 
   /**
@@ -79,7 +79,7 @@ public class CartSelectableAddressInput {
 
   @Override
   public String toString() {
-    return "CartSelectableAddressInput{address='" + address + "', oneTimeUse='" + oneTimeUse + "', selected='" + selected + "', validationStrategy='" + validationStrategy + "'}";
+    return "CartSelectableAddressInput{address='" + address + "', selected='" + selected + "', oneTimeUse='" + oneTimeUse + "', validationStrategy='" + validationStrategy + "'}";
   }
 
   @Override
@@ -88,14 +88,14 @@ public class CartSelectableAddressInput {
     if (o == null || getClass() != o.getClass()) return false;
     CartSelectableAddressInput that = (CartSelectableAddressInput) o;
     return Objects.equals(address, that.address) &&
-        Objects.equals(oneTimeUse, that.oneTimeUse) &&
         Objects.equals(selected, that.selected) &&
+        Objects.equals(oneTimeUse, that.oneTimeUse) &&
         Objects.equals(validationStrategy, that.validationStrategy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, oneTimeUse, selected, validationStrategy);
+    return Objects.hash(address, selected, oneTimeUse, validationStrategy);
   }
 
   public static Builder newBuilder() {
@@ -109,14 +109,14 @@ public class CartSelectableAddressInput {
     private CartAddressInput address;
 
     /**
-     * When true, this delivery address will not be associated with the buyer after a successful checkout.
-     */
-    private Boolean oneTimeUse;
-
-    /**
      * Sets exactly one address as pre-selected for the buyer.
      */
     private Boolean selected;
+
+    /**
+     * When true, this delivery address will not be associated with the buyer after a successful checkout.
+     */
+    private Boolean oneTimeUse;
 
     /**
      * Defines what kind of address validation is requested.
@@ -126,8 +126,8 @@ public class CartSelectableAddressInput {
     public CartSelectableAddressInput build() {
       CartSelectableAddressInput result = new CartSelectableAddressInput();
       result.address = this.address;
-      result.oneTimeUse = this.oneTimeUse;
       result.selected = this.selected;
+      result.oneTimeUse = this.oneTimeUse;
       result.validationStrategy = this.validationStrategy;
       return result;
     }
@@ -141,18 +141,18 @@ public class CartSelectableAddressInput {
     }
 
     /**
-     * When true, this delivery address will not be associated with the buyer after a successful checkout.
-     */
-    public Builder oneTimeUse(Boolean oneTimeUse) {
-      this.oneTimeUse = oneTimeUse;
-      return this;
-    }
-
-    /**
      * Sets exactly one address as pre-selected for the buyer.
      */
     public Builder selected(Boolean selected) {
       this.selected = selected;
+      return this;
+    }
+
+    /**
+     * When true, this delivery address will not be associated with the buyer after a successful checkout.
+     */
+    public Builder oneTimeUse(Boolean oneTimeUse) {
+      this.oneTimeUse = oneTimeUse;
       return this;
     }
 

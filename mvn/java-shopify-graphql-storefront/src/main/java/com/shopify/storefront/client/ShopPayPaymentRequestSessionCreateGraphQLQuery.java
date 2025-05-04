@@ -11,13 +11,13 @@ import java.util.Set;
  * Create a new Shop Pay payment request session.
  */
 public class ShopPayPaymentRequestSessionCreateGraphQLQuery extends GraphQLQuery {
-  public ShopPayPaymentRequestSessionCreateGraphQLQuery(ShopPayPaymentRequestInput paymentRequest,
-      String sourceIdentifier, String queryName, Set<String> fieldsSet) {
+  public ShopPayPaymentRequestSessionCreateGraphQLQuery(String sourceIdentifier,
+      ShopPayPaymentRequestInput paymentRequest, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
-    if (paymentRequest != null || fieldsSet.contains("paymentRequest")) {
-        getInput().put("paymentRequest", paymentRequest);
-    }if (sourceIdentifier != null || fieldsSet.contains("sourceIdentifier")) {
+    if (sourceIdentifier != null || fieldsSet.contains("sourceIdentifier")) {
         getInput().put("sourceIdentifier", sourceIdentifier);
+    }if (paymentRequest != null || fieldsSet.contains("paymentRequest")) {
+        getInput().put("paymentRequest", paymentRequest);
     }
   }
 
@@ -37,24 +37,15 @@ public class ShopPayPaymentRequestSessionCreateGraphQLQuery extends GraphQLQuery
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
-    private ShopPayPaymentRequestInput paymentRequest;
-
     private String sourceIdentifier;
+
+    private ShopPayPaymentRequestInput paymentRequest;
 
     private String queryName;
 
     public ShopPayPaymentRequestSessionCreateGraphQLQuery build() {
-      return new ShopPayPaymentRequestSessionCreateGraphQLQuery(paymentRequest, sourceIdentifier, queryName, fieldsSet);
+      return new ShopPayPaymentRequestSessionCreateGraphQLQuery(sourceIdentifier, paymentRequest, queryName, fieldsSet);
                
-    }
-
-    /**
-     * A payment request object.
-     */
-    public Builder paymentRequest(ShopPayPaymentRequestInput paymentRequest) {
-      this.paymentRequest = paymentRequest;
-      this.fieldsSet.add("paymentRequest");
-      return this;
     }
 
     /**
@@ -63,6 +54,15 @@ public class ShopPayPaymentRequestSessionCreateGraphQLQuery extends GraphQLQuery
     public Builder sourceIdentifier(String sourceIdentifier) {
       this.sourceIdentifier = sourceIdentifier;
       this.fieldsSet.add("sourceIdentifier");
+      return this;
+    }
+
+    /**
+     * A payment request object.
+     */
+    public Builder paymentRequest(ShopPayPaymentRequestInput paymentRequest) {
+      this.paymentRequest = paymentRequest;
+      this.fieldsSet.add("paymentRequest");
       return this;
     }
 

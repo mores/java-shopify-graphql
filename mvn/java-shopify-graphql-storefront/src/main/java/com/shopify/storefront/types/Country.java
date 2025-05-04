@@ -21,6 +21,11 @@ public class Country {
   private Currency currency;
 
   /**
+   * The default language for the country.
+   */
+  private Language defaultLanguage;
+
+  /**
    * The ISO code of the country.
    */
   private CountryCode isoCode;
@@ -63,6 +68,17 @@ public class Country {
 
   public void setCurrency(Currency currency) {
     this.currency = currency;
+  }
+
+  /**
+   * The default language for the country.
+   */
+  public Language getDefaultLanguage() {
+    return defaultLanguage;
+  }
+
+  public void setDefaultLanguage(Language defaultLanguage) {
+    this.defaultLanguage = defaultLanguage;
   }
 
   /**
@@ -111,7 +127,7 @@ public class Country {
 
   @Override
   public String toString() {
-    return "Country{availableLanguages='" + availableLanguages + "', currency='" + currency + "', isoCode='" + isoCode + "', market='" + market + "', name='" + name + "', unitSystem='" + unitSystem + "'}";
+    return "Country{availableLanguages='" + availableLanguages + "', currency='" + currency + "', defaultLanguage='" + defaultLanguage + "', isoCode='" + isoCode + "', market='" + market + "', name='" + name + "', unitSystem='" + unitSystem + "'}";
   }
 
   @Override
@@ -121,6 +137,7 @@ public class Country {
     Country that = (Country) o;
     return Objects.equals(availableLanguages, that.availableLanguages) &&
         Objects.equals(currency, that.currency) &&
+        Objects.equals(defaultLanguage, that.defaultLanguage) &&
         Objects.equals(isoCode, that.isoCode) &&
         Objects.equals(market, that.market) &&
         Objects.equals(name, that.name) &&
@@ -129,7 +146,7 @@ public class Country {
 
   @Override
   public int hashCode() {
-    return Objects.hash(availableLanguages, currency, isoCode, market, name, unitSystem);
+    return Objects.hash(availableLanguages, currency, defaultLanguage, isoCode, market, name, unitSystem);
   }
 
   public static Builder newBuilder() {
@@ -146,6 +163,11 @@ public class Country {
      * The currency of the country.
      */
     private Currency currency;
+
+    /**
+     * The default language for the country.
+     */
+    private Language defaultLanguage;
 
     /**
      * The ISO code of the country.
@@ -171,6 +193,7 @@ public class Country {
       Country result = new Country();
       result.availableLanguages = this.availableLanguages;
       result.currency = this.currency;
+      result.defaultLanguage = this.defaultLanguage;
       result.isoCode = this.isoCode;
       result.market = this.market;
       result.name = this.name;
@@ -191,6 +214,14 @@ public class Country {
      */
     public Builder currency(Currency currency) {
       this.currency = currency;
+      return this;
+    }
+
+    /**
+     * The default language for the country.
+     */
+    public Builder defaultLanguage(Language defaultLanguage) {
+      this.defaultLanguage = defaultLanguage;
       return this;
     }
 

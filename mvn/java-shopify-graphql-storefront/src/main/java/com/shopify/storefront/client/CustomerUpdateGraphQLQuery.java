@@ -11,13 +11,13 @@ import java.util.Set;
  * Updates an existing customer.
  */
 public class CustomerUpdateGraphQLQuery extends GraphQLQuery {
-  public CustomerUpdateGraphQLQuery(CustomerUpdateInput customer, String customerAccessToken,
+  public CustomerUpdateGraphQLQuery(String customerAccessToken, CustomerUpdateInput customer,
       String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
-    if (customer != null || fieldsSet.contains("customer")) {
-        getInput().put("customer", customer);
-    }if (customerAccessToken != null || fieldsSet.contains("customerAccessToken")) {
+    if (customerAccessToken != null || fieldsSet.contains("customerAccessToken")) {
         getInput().put("customerAccessToken", customerAccessToken);
+    }if (customer != null || fieldsSet.contains("customer")) {
+        getInput().put("customer", customer);
     }
   }
 
@@ -37,24 +37,15 @@ public class CustomerUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
-    private CustomerUpdateInput customer;
-
     private String customerAccessToken;
+
+    private CustomerUpdateInput customer;
 
     private String queryName;
 
     public CustomerUpdateGraphQLQuery build() {
-      return new CustomerUpdateGraphQLQuery(customer, customerAccessToken, queryName, fieldsSet);
+      return new CustomerUpdateGraphQLQuery(customerAccessToken, customer, queryName, fieldsSet);
                
-    }
-
-    /**
-     * The customer object input.
-     */
-    public Builder customer(CustomerUpdateInput customer) {
-      this.customer = customer;
-      this.fieldsSet.add("customer");
-      return this;
     }
 
     /**
@@ -63,6 +54,15 @@ public class CustomerUpdateGraphQLQuery extends GraphQLQuery {
     public Builder customerAccessToken(String customerAccessToken) {
       this.customerAccessToken = customerAccessToken;
       this.fieldsSet.add("customerAccessToken");
+      return this;
+    }
+
+    /**
+     * The customer object input.
+     */
+    public Builder customer(CustomerUpdateInput customer) {
+      this.customer = customer;
+      this.fieldsSet.add("customer");
       return this;
     }
 

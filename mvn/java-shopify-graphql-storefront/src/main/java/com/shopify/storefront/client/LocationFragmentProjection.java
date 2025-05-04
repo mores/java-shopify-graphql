@@ -33,15 +33,15 @@ public class LocationFragmentProjection<PARENT extends BaseSubProjectionNode<?, 
      return projection;
   }
 
-  public MetafieldProjection<LocationFragmentProjection<PARENT, ROOT>, ROOT> metafield(String key,
-      String namespace) {
+  public MetafieldProjection<LocationFragmentProjection<PARENT, ROOT>, ROOT> metafield(
+      String namespace, String key) {
     MetafieldProjection<LocationFragmentProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
     getFields().put("metafield", projection);
     getInputArguments().computeIfAbsent("metafield", k -> new ArrayList<>());                      
-    InputArgument keyArg = new InputArgument("key", key);
-    getInputArguments().get("metafield").add(keyArg);
     InputArgument namespaceArg = new InputArgument("namespace", namespace);
     getInputArguments().get("metafield").add(namespaceArg);
+    InputArgument keyArg = new InputArgument("key", key);
+    getInputArguments().get("metafield").add(keyArg);
     return projection;
   }
 

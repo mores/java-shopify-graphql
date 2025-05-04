@@ -10,27 +10,16 @@ import java.util.Objects;
  */
 public class ShopPayPaymentRequestImageInput {
   /**
-   * The alt text of the image.
-   */
-  private String alt;
-
-  /**
    * The source URL of the image.
    */
   private String url;
 
-  public ShopPayPaymentRequestImageInput() {
-  }
-
   /**
    * The alt text of the image.
    */
-  public String getAlt() {
-    return alt;
-  }
+  private String alt;
 
-  public void setAlt(String alt) {
-    this.alt = alt;
+  public ShopPayPaymentRequestImageInput() {
   }
 
   /**
@@ -44,9 +33,20 @@ public class ShopPayPaymentRequestImageInput {
     this.url = url;
   }
 
+  /**
+   * The alt text of the image.
+   */
+  public String getAlt() {
+    return alt;
+  }
+
+  public void setAlt(String alt) {
+    this.alt = alt;
+  }
+
   @Override
   public String toString() {
-    return "ShopPayPaymentRequestImageInput{alt='" + alt + "', url='" + url + "'}";
+    return "ShopPayPaymentRequestImageInput{url='" + url + "', alt='" + alt + "'}";
   }
 
   @Override
@@ -54,13 +54,13 @@ public class ShopPayPaymentRequestImageInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     ShopPayPaymentRequestImageInput that = (ShopPayPaymentRequestImageInput) o;
-    return Objects.equals(alt, that.alt) &&
-        Objects.equals(url, that.url);
+    return Objects.equals(url, that.url) &&
+        Objects.equals(alt, that.alt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alt, url);
+    return Objects.hash(url, alt);
   }
 
   public static Builder newBuilder() {
@@ -69,28 +69,20 @@ public class ShopPayPaymentRequestImageInput {
 
   public static class Builder {
     /**
-     * The alt text of the image.
-     */
-    private String alt;
-
-    /**
      * The source URL of the image.
      */
     private String url;
 
-    public ShopPayPaymentRequestImageInput build() {
-      ShopPayPaymentRequestImageInput result = new ShopPayPaymentRequestImageInput();
-      result.alt = this.alt;
-      result.url = this.url;
-      return result;
-    }
-
     /**
      * The alt text of the image.
      */
-    public Builder alt(String alt) {
-      this.alt = alt;
-      return this;
+    private String alt;
+
+    public ShopPayPaymentRequestImageInput build() {
+      ShopPayPaymentRequestImageInput result = new ShopPayPaymentRequestImageInput();
+      result.url = this.url;
+      result.alt = this.alt;
+      return result;
     }
 
     /**
@@ -98,6 +90,14 @@ public class ShopPayPaymentRequestImageInput {
      */
     public Builder url(String url) {
       this.url = url;
+      return this;
+    }
+
+    /**
+     * The alt text of the image.
+     */
+    public Builder alt(String alt) {
+      this.alt = alt;
       return this;
     }
   }

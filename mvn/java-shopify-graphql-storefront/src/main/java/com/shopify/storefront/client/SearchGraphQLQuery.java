@@ -18,29 +18,29 @@ import java.util.Set;
  * List of the search results.
  */
 public class SearchGraphQLQuery extends GraphQLQuery {
-  public SearchGraphQLQuery(String after, String before, Integer first, Integer last,
-      SearchPrefixQueryType prefix, List<ProductFilter> productFilters, String query,
-      Boolean reverse, SearchSortKeys sortKey, List<SearchType> types,
+  public SearchGraphQLQuery(Integer first, String after, Integer last, String before,
+      Boolean reverse, SearchSortKeys sortKey, String query, SearchPrefixQueryType prefix,
+      List<ProductFilter> productFilters, List<SearchType> types,
       SearchUnavailableProductsType unavailableProducts, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
-    if (after != null || fieldsSet.contains("after")) {
-        getInput().put("after", after);
-    }if (before != null || fieldsSet.contains("before")) {
-        getInput().put("before", before);
-    }if (first != null || fieldsSet.contains("first")) {
+    if (first != null || fieldsSet.contains("first")) {
         getInput().put("first", first);
+    }if (after != null || fieldsSet.contains("after")) {
+        getInput().put("after", after);
     }if (last != null || fieldsSet.contains("last")) {
         getInput().put("last", last);
-    }if (prefix != null || fieldsSet.contains("prefix")) {
-        getInput().put("prefix", prefix);
-    }if (productFilters != null || fieldsSet.contains("productFilters")) {
-        getInput().put("productFilters", productFilters);
-    }if (query != null || fieldsSet.contains("query")) {
-        getInput().put("query", query);
+    }if (before != null || fieldsSet.contains("before")) {
+        getInput().put("before", before);
     }if (reverse != null || fieldsSet.contains("reverse")) {
         getInput().put("reverse", reverse);
     }if (sortKey != null || fieldsSet.contains("sortKey")) {
         getInput().put("sortKey", sortKey);
+    }if (query != null || fieldsSet.contains("query")) {
+        getInput().put("query", query);
+    }if (prefix != null || fieldsSet.contains("prefix")) {
+        getInput().put("prefix", prefix);
+    }if (productFilters != null || fieldsSet.contains("productFilters")) {
+        getInput().put("productFilters", productFilters);
     }if (types != null || fieldsSet.contains("types")) {
         getInput().put("types", types);
     }if (unavailableProducts != null || fieldsSet.contains("unavailableProducts")) {
@@ -64,23 +64,23 @@ public class SearchGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
-    private String after;
-
-    private String before;
-
     private Integer first;
+
+    private String after;
 
     private Integer last;
 
-    private SearchPrefixQueryType prefix;
-
-    private List<ProductFilter> productFilters;
-
-    private String query;
+    private String before;
 
     private Boolean reverse;
 
     private SearchSortKeys sortKey;
+
+    private String query;
+
+    private SearchPrefixQueryType prefix;
+
+    private List<ProductFilter> productFilters;
 
     private List<SearchType> types;
 
@@ -89,8 +89,17 @@ public class SearchGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public SearchGraphQLQuery build() {
-      return new SearchGraphQLQuery(after, before, first, last, prefix, productFilters, query, reverse, sortKey, types, unavailableProducts, queryName, fieldsSet);
+      return new SearchGraphQLQuery(first, after, last, before, reverse, sortKey, query, prefix, productFilters, types, unavailableProducts, queryName, fieldsSet);
                
+    }
+
+    /**
+     * Returns up to the first `n` elements from the list.
+     */
+    public Builder first(Integer first) {
+      this.first = first;
+      this.fieldsSet.add("first");
+      return this;
     }
 
     /**
@@ -99,6 +108,15 @@ public class SearchGraphQLQuery extends GraphQLQuery {
     public Builder after(String after) {
       this.after = after;
       this.fieldsSet.add("after");
+      return this;
+    }
+
+    /**
+     * Returns up to the last `n` elements from the list.
+     */
+    public Builder last(Integer last) {
+      this.last = last;
+      this.fieldsSet.add("last");
       return this;
     }
 
@@ -112,20 +130,29 @@ public class SearchGraphQLQuery extends GraphQLQuery {
     }
 
     /**
-     * Returns up to the first `n` elements from the list.
+     * Reverse the order of the underlying list.
      */
-    public Builder first(Integer first) {
-      this.first = first;
-      this.fieldsSet.add("first");
+    public Builder reverse(Boolean reverse) {
+      this.reverse = reverse;
+      this.fieldsSet.add("reverse");
       return this;
     }
 
     /**
-     * Returns up to the last `n` elements from the list.
+     * Sort the underlying list by the given key.
      */
-    public Builder last(Integer last) {
-      this.last = last;
-      this.fieldsSet.add("last");
+    public Builder sortKey(SearchSortKeys sortKey) {
+      this.sortKey = sortKey;
+      this.fieldsSet.add("sortKey");
+      return this;
+    }
+
+    /**
+     * The search query.
+     */
+    public Builder query(String query) {
+      this.query = query;
+      this.fieldsSet.add("query");
       return this;
     }
 
@@ -146,33 +173,6 @@ public class SearchGraphQLQuery extends GraphQLQuery {
     public Builder productFilters(List<ProductFilter> productFilters) {
       this.productFilters = productFilters;
       this.fieldsSet.add("productFilters");
-      return this;
-    }
-
-    /**
-     * The search query.
-     */
-    public Builder query(String query) {
-      this.query = query;
-      this.fieldsSet.add("query");
-      return this;
-    }
-
-    /**
-     * Reverse the order of the underlying list.
-     */
-    public Builder reverse(Boolean reverse) {
-      this.reverse = reverse;
-      this.fieldsSet.add("reverse");
-      return this;
-    }
-
-    /**
-     * Sort the underlying list by the given key.
-     */
-    public Builder sortKey(SearchSortKeys sortKey) {
-      this.sortKey = sortKey;
-      this.fieldsSet.add("sortKey");
       return this;
     }
 

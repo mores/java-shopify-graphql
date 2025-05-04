@@ -4,25 +4,25 @@ package com.shopify.storefront.types;
  * The valid units of measurement for a unit price measurement.
  */
 public enum UnitPriceMeasurementMeasuredUnit {
+  ML,
+
   CL,
 
-  CM,
-
-  G,
-
-  KG,
-
   L,
-
-  M,
-
-  M2,
 
   M3,
 
   MG,
 
-  ML,
+  G,
 
-  MM
+  KG,
+
+  MM,
+
+  CM,
+
+  M,
+
+  M2
 }

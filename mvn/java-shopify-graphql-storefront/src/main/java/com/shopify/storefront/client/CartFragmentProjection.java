@@ -76,19 +76,19 @@ public class CartFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>, 
   }
 
   public CartDeliveryGroupConnectionProjection<CartFragmentProjection<PARENT, ROOT>, ROOT> deliveryGroups(
-      String after, String before, Integer first, Integer last, Boolean reverse,
+      Integer first, String after, Integer last, String before, Boolean reverse,
       Boolean withCarrierRates) {
     CartDeliveryGroupConnectionProjection<CartFragmentProjection<PARENT, ROOT>, ROOT> projection = new CartDeliveryGroupConnectionProjection<>(this, getRoot());    
     getFields().put("deliveryGroups", projection);
     getInputArguments().computeIfAbsent("deliveryGroups", k -> new ArrayList<>());                      
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("deliveryGroups").add(afterArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("deliveryGroups").add(beforeArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("deliveryGroups").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("deliveryGroups").add(afterArg);
     InputArgument lastArg = new InputArgument("last", last);
     getInputArguments().get("deliveryGroups").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("deliveryGroups").add(beforeArg);
     InputArgument reverseArg = new InputArgument("reverse", reverse);
     getInputArguments().get("deliveryGroups").add(reverseArg);
     InputArgument withCarrierRatesArg = new InputArgument("withCarrierRates", withCarrierRates);
@@ -122,18 +122,18 @@ public class CartFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>, 
   }
 
   public BaseCartLineConnectionProjection<CartFragmentProjection<PARENT, ROOT>, ROOT> lines(
-      String after, String before, Integer first, Integer last, Boolean reverse) {
+      Integer first, String after, Integer last, String before, Boolean reverse) {
     BaseCartLineConnectionProjection<CartFragmentProjection<PARENT, ROOT>, ROOT> projection = new BaseCartLineConnectionProjection<>(this, getRoot());    
     getFields().put("lines", projection);
     getInputArguments().computeIfAbsent("lines", k -> new ArrayList<>());                      
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("lines").add(afterArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("lines").add(beforeArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("lines").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("lines").add(afterArg);
     InputArgument lastArg = new InputArgument("last", last);
     getInputArguments().get("lines").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("lines").add(beforeArg);
     InputArgument reverseArg = new InputArgument("reverse", reverse);
     getInputArguments().get("lines").add(reverseArg);
     return projection;
@@ -145,15 +145,15 @@ public class CartFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>, 
      return projection;
   }
 
-  public MetafieldProjection<CartFragmentProjection<PARENT, ROOT>, ROOT> metafield(String key,
-      String namespace) {
+  public MetafieldProjection<CartFragmentProjection<PARENT, ROOT>, ROOT> metafield(String namespace,
+      String key) {
     MetafieldProjection<CartFragmentProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
     getFields().put("metafield", projection);
     getInputArguments().computeIfAbsent("metafield", k -> new ArrayList<>());                      
-    InputArgument keyArg = new InputArgument("key", key);
-    getInputArguments().get("metafield").add(keyArg);
     InputArgument namespaceArg = new InputArgument("namespace", namespace);
     getInputArguments().get("metafield").add(namespaceArg);
+    InputArgument keyArg = new InputArgument("key", key);
+    getInputArguments().get("metafield").add(keyArg);
     return projection;
   }
 

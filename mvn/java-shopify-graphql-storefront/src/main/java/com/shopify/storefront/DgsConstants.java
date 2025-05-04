@@ -77,13 +77,13 @@ public class DgsConstants {
     public static final String TrackingParameters = "trackingParameters";
 
     public static class COMMENTS_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
 
+      public static final String After = "after";
+
       public static final String Last = "last";
+
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
     }
@@ -97,9 +97,9 @@ public class DgsConstants {
     }
 
     public static class METAFIELD_INPUT_ARGUMENT {
-      public static final String Key = "key";
-
       public static final String Namespace = "namespace";
+
+      public static final String Key = "key";
     }
 
     public static class METAFIELDS_INPUT_ARGUMENT {
@@ -207,25 +207,25 @@ public class DgsConstants {
     }
 
     public static class ARTICLES_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
+
+      public static final String After = "after";
 
       public static final String Last = "last";
 
-      public static final String Query = "query";
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
 
       public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
     }
 
     public static class METAFIELD_INPUT_ARGUMENT {
-      public static final String Key = "key";
-
       public static final String Namespace = "namespace";
+
+      public static final String Key = "key";
     }
 
     public static class METAFIELDS_INPUT_ARGUMENT {
@@ -329,13 +329,13 @@ public class DgsConstants {
     }
 
     public static class DELIVERYGROUPS_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
 
+      public static final String After = "after";
+
       public static final String Last = "last";
+
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
 
@@ -343,21 +343,21 @@ public class DgsConstants {
     }
 
     public static class LINES_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
 
+      public static final String After = "after";
+
       public static final String Last = "last";
+
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
     }
 
     public static class METAFIELD_INPUT_ARGUMENT {
-      public static final String Key = "key";
-
       public static final String Namespace = "namespace";
+
+      public static final String Key = "key";
     }
 
     public static class METAFIELDS_INPUT_ARGUMENT {
@@ -561,9 +561,9 @@ public class DgsConstants {
     public static final String Zip = "zip";
 
     public static class FORMATTED_INPUT_ARGUMENT {
-      public static final String WithCompany = "withCompany";
-
       public static final String WithName = "withName";
+
+      public static final String WithCompany = "withCompany";
     }
   }
 
@@ -623,13 +623,13 @@ public class DgsConstants {
     public static final String SelectedDeliveryOption = "selectedDeliveryOption";
 
     public static class CARTLINES_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
 
+      public static final String After = "after";
+
       public static final String Last = "last";
+
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
     }
@@ -930,6 +930,8 @@ public class DgsConstants {
   public static class CARTTHROTTLED {
     public static final String TYPE_NAME = "CartThrottled";
 
+    public static final String Cart = "cart";
+
     public static final String PollAfter = "pollAfter";
   }
 
@@ -987,9 +989,9 @@ public class DgsConstants {
     }
 
     public static class METAFIELD_INPUT_ARGUMENT {
-      public static final String Key = "key";
-
       public static final String Namespace = "namespace";
+
+      public static final String Key = "key";
     }
 
     public static class METAFIELDS_INPUT_ARGUMENT {
@@ -997,19 +999,19 @@ public class DgsConstants {
     }
 
     public static class PRODUCTS_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
-      public static final String Filters = "filters";
-
       public static final String First = "first";
 
+      public static final String After = "after";
+
       public static final String Last = "last";
+
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
 
       public static final String SortKey = "sortKey";
+
+      public static final String Filters = "filters";
     }
   }
 
@@ -1093,9 +1095,9 @@ public class DgsConstants {
     public static final String UpdatedAt = "updatedAt";
 
     public static class METAFIELD_INPUT_ARGUMENT {
-      public static final String Key = "key";
-
       public static final String Namespace = "namespace";
+
+      public static final String Key = "key";
     }
 
     public static class METAFIELDS_INPUT_ARGUMENT {
@@ -1137,9 +1139,9 @@ public class DgsConstants {
     public static final String UpdatedAt = "updatedAt";
 
     public static class METAFIELD_INPUT_ARGUMENT {
-      public static final String Key = "key";
-
       public static final String Namespace = "namespace";
+
+      public static final String Key = "key";
     }
 
     public static class METAFIELDS_INPUT_ARGUMENT {
@@ -1204,6 +1206,8 @@ public class DgsConstants {
 
     public static final String Currency = "currency";
 
+    public static final String DefaultLanguage = "defaultLanguage";
+
     public static final String IsoCode = "isoCode";
 
     public static final String Market = "market";
@@ -1259,21 +1263,21 @@ public class DgsConstants {
     public static final String UpdatedAt = "updatedAt";
 
     public static class ADDRESSES_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
 
+      public static final String After = "after";
+
       public static final String Last = "last";
+
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
     }
 
     public static class METAFIELD_INPUT_ARGUMENT {
-      public static final String Key = "key";
-
       public static final String Namespace = "namespace";
+
+      public static final String Key = "key";
     }
 
     public static class METAFIELDS_INPUT_ARGUMENT {
@@ -1281,19 +1285,19 @@ public class DgsConstants {
     }
 
     public static class ORDERS_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
+
+      public static final String After = "after";
 
       public static final String Last = "last";
 
-      public static final String Query = "query";
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
 
       public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
     }
   }
 
@@ -1581,13 +1585,13 @@ public class DgsConstants {
     public static final String TrackingInfo = "trackingInfo";
 
     public static class FULFILLMENTLINEITEMS_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
 
+      public static final String After = "after";
+
       public static final String Last = "last";
+
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
     }
@@ -1667,15 +1671,15 @@ public class DgsConstants {
     public static final String Width = "width";
 
     public static class TRANSFORMEDSRC_INPUT_ARGUMENT {
-      public static final String Crop = "crop";
+      public static final String MaxWidth = "maxWidth";
 
       public static final String MaxHeight = "maxHeight";
 
-      public static final String MaxWidth = "maxWidth";
-
-      public static final String PreferredContentType = "preferredContentType";
+      public static final String Crop = "crop";
 
       public static final String Scale = "scale";
+
+      public static final String PreferredContentType = "preferredContentType";
     }
 
     public static class URL_INPUT_ARGUMENT {
@@ -1755,9 +1759,9 @@ public class DgsConstants {
     public static final String Name = "name";
 
     public static class METAFIELD_INPUT_ARGUMENT {
-      public static final String Key = "key";
-
       public static final String Namespace = "namespace";
+
+      public static final String Key = "key";
     }
 
     public static class METAFIELDS_INPUT_ARGUMENT {
@@ -1853,9 +1857,9 @@ public class DgsConstants {
     public static final String Zip = "zip";
 
     public static class FORMATTED_INPUT_ARGUMENT {
-      public static final String WithCompany = "withCompany";
-
       public static final String WithName = "withName";
+
+      public static final String WithCompany = "withCompany";
     }
   }
 
@@ -1905,9 +1909,9 @@ public class DgsConstants {
     public static final String Metafields = "metafields";
 
     public static class METAFIELD_INPUT_ARGUMENT {
-      public static final String Key = "key";
-
       public static final String Namespace = "namespace";
+
+      public static final String Key = "key";
     }
 
     public static class METAFIELDS_INPUT_ARGUMENT {
@@ -2021,13 +2025,13 @@ public class DgsConstants {
     public static final String Value = "value";
 
     public static class REFERENCES_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
 
+      public static final String After = "after";
+
       public static final String Last = "last";
+
+      public static final String Before = "before";
     }
   }
 
@@ -2127,13 +2131,13 @@ public class DgsConstants {
     public static final String Value = "value";
 
     public static class REFERENCES_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
 
+      public static final String After = "after";
+
       public static final String Last = "last";
+
+      public static final String Before = "before";
     }
   }
 
@@ -2265,15 +2269,15 @@ public class DgsConstants {
     }
 
     public static class CARTBILLINGADDRESSUPDATE_INPUT_ARGUMENT {
-      public static final String BillingAddress = "billingAddress";
-
       public static final String CartId = "cartId";
+
+      public static final String BillingAddress = "billingAddress";
     }
 
     public static class CARTBUYERIDENTITYUPDATE_INPUT_ARGUMENT {
-      public static final String BuyerIdentity = "buyerIdentity";
-
       public static final String CartId = "cartId";
+
+      public static final String BuyerIdentity = "buyerIdentity";
     }
 
     public static class CARTCREATE_INPUT_ARGUMENT {
@@ -2281,21 +2285,21 @@ public class DgsConstants {
     }
 
     public static class CARTDELIVERYADDRESSESADD_INPUT_ARGUMENT {
-      public static final String Addresses = "addresses";
-
       public static final String CartId = "cartId";
+
+      public static final String Addresses = "addresses";
     }
 
     public static class CARTDELIVERYADDRESSESREMOVE_INPUT_ARGUMENT {
-      public static final String AddressIds = "addressIds";
-
       public static final String CartId = "cartId";
+
+      public static final String AddressIds = "addressIds";
     }
 
     public static class CARTDELIVERYADDRESSESUPDATE_INPUT_ARGUMENT {
-      public static final String Addresses = "addresses";
-
       public static final String CartId = "cartId";
+
+      public static final String Addresses = "addresses";
     }
 
     public static class CARTDISCOUNTCODESUPDATE_INPUT_ARGUMENT {
@@ -2305,9 +2309,9 @@ public class DgsConstants {
     }
 
     public static class CARTGIFTCARDCODESREMOVE_INPUT_ARGUMENT {
-      public static final String AppliedGiftCardIds = "appliedGiftCardIds";
-
       public static final String CartId = "cartId";
+
+      public static final String AppliedGiftCardIds = "appliedGiftCardIds";
     }
 
     public static class CARTGIFTCARDCODESUPDATE_INPUT_ARGUMENT {
@@ -2365,9 +2369,9 @@ public class DgsConstants {
     }
 
     public static class CARTSUBMITFORCOMPLETION_INPUT_ARGUMENT {
-      public static final String AttemptToken = "attemptToken";
-
       public static final String CartId = "cartId";
+
+      public static final String AttemptToken = "attemptToken";
     }
 
     public static class CUSTOMERACCESSTOKENCREATE_INPUT_ARGUMENT {
@@ -2399,23 +2403,23 @@ public class DgsConstants {
     }
 
     public static class CUSTOMERADDRESSCREATE_INPUT_ARGUMENT {
-      public static final String Address = "address";
-
       public static final String CustomerAccessToken = "customerAccessToken";
+
+      public static final String Address = "address";
     }
 
     public static class CUSTOMERADDRESSDELETE_INPUT_ARGUMENT {
-      public static final String CustomerAccessToken = "customerAccessToken";
-
       public static final String Id = "id";
+
+      public static final String CustomerAccessToken = "customerAccessToken";
     }
 
     public static class CUSTOMERADDRESSUPDATE_INPUT_ARGUMENT {
-      public static final String Address = "address";
-
       public static final String CustomerAccessToken = "customerAccessToken";
 
       public static final String Id = "id";
+
+      public static final String Address = "address";
     }
 
     public static class CUSTOMERCREATE_INPUT_ARGUMENT {
@@ -2423,9 +2427,9 @@ public class DgsConstants {
     }
 
     public static class CUSTOMERDEFAULTADDRESSUPDATE_INPUT_ARGUMENT {
-      public static final String AddressId = "addressId";
-
       public static final String CustomerAccessToken = "customerAccessToken";
+
+      public static final String AddressId = "addressId";
     }
 
     public static class CUSTOMERRECOVER_INPUT_ARGUMENT {
@@ -2439,31 +2443,31 @@ public class DgsConstants {
     }
 
     public static class CUSTOMERRESETBYURL_INPUT_ARGUMENT {
-      public static final String Password = "password";
-
       public static final String ResetUrl = "resetUrl";
+
+      public static final String Password = "password";
     }
 
     public static class CUSTOMERUPDATE_INPUT_ARGUMENT {
-      public static final String Customer = "customer";
-
       public static final String CustomerAccessToken = "customerAccessToken";
+
+      public static final String Customer = "customer";
     }
 
     public static class SHOPPAYPAYMENTREQUESTSESSIONCREATE_INPUT_ARGUMENT {
-      public static final String PaymentRequest = "paymentRequest";
-
       public static final String SourceIdentifier = "sourceIdentifier";
+
+      public static final String PaymentRequest = "paymentRequest";
     }
 
     public static class SHOPPAYPAYMENTREQUESTSESSIONSUBMIT_INPUT_ARGUMENT {
-      public static final String IdempotencyKey = "idempotencyKey";
-
-      public static final String OrderName = "orderName";
+      public static final String Token = "token";
 
       public static final String PaymentRequest = "paymentRequest";
 
-      public static final String Token = "token";
+      public static final String IdempotencyKey = "idempotencyKey";
+
+      public static final String OrderName = "orderName";
     }
   }
 
@@ -2553,33 +2557,33 @@ public class DgsConstants {
     public static final String TotalTaxV2 = "totalTaxV2";
 
     public static class DISCOUNTAPPLICATIONS_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
 
+      public static final String After = "after";
+
       public static final String Last = "last";
+
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
     }
 
     public static class LINEITEMS_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
 
+      public static final String After = "after";
+
       public static final String Last = "last";
+
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
     }
 
     public static class METAFIELD_INPUT_ARGUMENT {
-      public static final String Key = "key";
-
       public static final String Namespace = "namespace";
+
+      public static final String Key = "key";
     }
 
     public static class METAFIELDS_INPUT_ARGUMENT {
@@ -2677,9 +2681,9 @@ public class DgsConstants {
     public static final String UpdatedAt = "updatedAt";
 
     public static class METAFIELD_INPUT_ARGUMENT {
-      public static final String Key = "key";
-
       public static final String Namespace = "namespace";
+
+      public static final String Key = "key";
     }
 
     public static class METAFIELDS_INPUT_ARGUMENT {
@@ -2839,21 +2843,21 @@ public class DgsConstants {
     public static final String Vendor = "vendor";
 
     public static class ADJACENTVARIANTS_INPUT_ARGUMENT {
-      public static final String CaseInsensitiveMatch = "caseInsensitiveMatch";
+      public static final String SelectedOptions = "selectedOptions";
 
       public static final String IgnoreUnknownOptions = "ignoreUnknownOptions";
 
-      public static final String SelectedOptions = "selectedOptions";
+      public static final String CaseInsensitiveMatch = "caseInsensitiveMatch";
     }
 
     public static class COLLECTIONS_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
 
+      public static final String After = "after";
+
       public static final String Last = "last";
+
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
     }
@@ -2863,13 +2867,13 @@ public class DgsConstants {
     }
 
     public static class IMAGES_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
 
+      public static final String After = "after";
+
       public static final String Last = "last";
+
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
 
@@ -2877,13 +2881,13 @@ public class DgsConstants {
     }
 
     public static class MEDIA_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
 
+      public static final String After = "after";
+
       public static final String Last = "last";
+
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
 
@@ -2891,9 +2895,9 @@ public class DgsConstants {
     }
 
     public static class METAFIELD_INPUT_ARGUMENT {
-      public static final String Key = "key";
-
       public static final String Namespace = "namespace";
+
+      public static final String Key = "key";
     }
 
     public static class METAFIELDS_INPUT_ARGUMENT {
@@ -2905,41 +2909,41 @@ public class DgsConstants {
     }
 
     public static class SELECTEDORFIRSTAVAILABLEVARIANT_INPUT_ARGUMENT {
-      public static final String CaseInsensitiveMatch = "caseInsensitiveMatch";
+      public static final String SelectedOptions = "selectedOptions";
 
       public static final String IgnoreUnknownOptions = "ignoreUnknownOptions";
 
-      public static final String SelectedOptions = "selectedOptions";
+      public static final String CaseInsensitiveMatch = "caseInsensitiveMatch";
     }
 
     public static class SELLINGPLANGROUPS_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
 
+      public static final String After = "after";
+
       public static final String Last = "last";
+
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
     }
 
     public static class VARIANTBYSELECTEDOPTIONS_INPUT_ARGUMENT {
-      public static final String CaseInsensitiveMatch = "caseInsensitiveMatch";
+      public static final String SelectedOptions = "selectedOptions";
 
       public static final String IgnoreUnknownOptions = "ignoreUnknownOptions";
 
-      public static final String SelectedOptions = "selectedOptions";
+      public static final String CaseInsensitiveMatch = "caseInsensitiveMatch";
     }
 
     public static class VARIANTS_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
 
+      public static final String After = "after";
+
       public static final String Last = "last";
+
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
 
@@ -3071,29 +3075,29 @@ public class DgsConstants {
     public static final String WeightUnit = "weightUnit";
 
     public static class COMPONENTS_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
 
+      public static final String After = "after";
+
       public static final String Last = "last";
+
+      public static final String Before = "before";
     }
 
     public static class GROUPEDBY_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
 
+      public static final String After = "after";
+
       public static final String Last = "last";
+
+      public static final String Before = "before";
     }
 
     public static class METAFIELD_INPUT_ARGUMENT {
-      public static final String Key = "key";
-
       public static final String Namespace = "namespace";
+
+      public static final String Key = "key";
     }
 
     public static class METAFIELDS_INPUT_ARGUMENT {
@@ -3101,37 +3105,37 @@ public class DgsConstants {
     }
 
     public static class QUANTITYPRICEBREAKS_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
 
+      public static final String After = "after";
+
       public static final String Last = "last";
+
+      public static final String Before = "before";
     }
 
     public static class SELLINGPLANALLOCATIONS_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
 
+      public static final String After = "after";
+
       public static final String Last = "last";
+
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
     }
 
     public static class STOREAVAILABILITY_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
+      public static final String Near = "near";
 
       public static final String First = "first";
 
+      public static final String After = "after";
+
       public static final String Last = "last";
 
-      public static final String Near = "near";
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
     }
@@ -3303,19 +3307,19 @@ public class DgsConstants {
     }
 
     public static class ARTICLES_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
+
+      public static final String After = "after";
 
       public static final String Last = "last";
 
-      public static final String Query = "query";
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
 
       public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
     }
 
     public static class BLOG_INPUT_ARGUMENT {
@@ -3329,19 +3333,19 @@ public class DgsConstants {
     }
 
     public static class BLOGS_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
+
+      public static final String After = "after";
 
       public static final String Last = "last";
 
-      public static final String Query = "query";
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
 
       public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
     }
 
     public static class CART_INPUT_ARGUMENT {
@@ -3353,9 +3357,9 @@ public class DgsConstants {
     }
 
     public static class COLLECTION_INPUT_ARGUMENT {
-      public static final String Handle = "handle";
-
       public static final String Id = "id";
+
+      public static final String Handle = "handle";
     }
 
     public static class COLLECTIONBYHANDLE_INPUT_ARGUMENT {
@@ -3363,19 +3367,19 @@ public class DgsConstants {
     }
 
     public static class COLLECTIONS_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
+
+      public static final String After = "after";
 
       public static final String Last = "last";
 
-      public static final String Query = "query";
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
 
       public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
     }
 
     public static class CUSTOMER_INPUT_ARGUMENT {
@@ -3383,19 +3387,19 @@ public class DgsConstants {
     }
 
     public static class LOCATIONS_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
+
+      public static final String After = "after";
 
       public static final String Last = "last";
 
-      public static final String Near = "near";
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
 
       public static final String SortKey = "sortKey";
+
+      public static final String Near = "near";
     }
 
     public static class MENU_INPUT_ARGUMENT {
@@ -3403,25 +3407,25 @@ public class DgsConstants {
     }
 
     public static class METAOBJECT_INPUT_ARGUMENT {
-      public static final String Handle = "handle";
-
       public static final String Id = "id";
+
+      public static final String Handle = "handle";
     }
 
     public static class METAOBJECTS_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
-      public static final String First = "first";
-
-      public static final String Last = "last";
-
-      public static final String Reverse = "reverse";
+      public static final String Type = "type";
 
       public static final String SortKey = "sortKey";
 
-      public static final String Type = "type";
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
     }
 
     public static class NODE_INPUT_ARGUMENT {
@@ -3443,19 +3447,19 @@ public class DgsConstants {
     }
 
     public static class PAGES_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
+
+      public static final String After = "after";
 
       public static final String Last = "last";
 
-      public static final String Query = "query";
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
 
       public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
     }
 
     public static class PREDICTIVESEARCH_INPUT_ARGUMENT {
@@ -3473,9 +3477,9 @@ public class DgsConstants {
     }
 
     public static class PRODUCT_INPUT_ARGUMENT {
-      public static final String Handle = "handle";
-
       public static final String Id = "id";
+
+      public static final String Handle = "handle";
     }
 
     public static class PRODUCTBYHANDLE_INPUT_ARGUMENT {
@@ -3483,11 +3487,11 @@ public class DgsConstants {
     }
 
     public static class PRODUCTRECOMMENDATIONS_INPUT_ARGUMENT {
-      public static final String Intent = "intent";
+      public static final String ProductId = "productId";
 
       public static final String ProductHandle = "productHandle";
 
-      public static final String ProductId = "productId";
+      public static final String Intent = "intent";
     }
 
     public static class PRODUCTTAGS_INPUT_ARGUMENT {
@@ -3499,39 +3503,39 @@ public class DgsConstants {
     }
 
     public static class PRODUCTS_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
+
+      public static final String After = "after";
 
       public static final String Last = "last";
 
-      public static final String Query = "query";
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
 
       public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
     }
 
     public static class SEARCH_INPUT_ARGUMENT {
+      public static final String First = "first";
+
       public static final String After = "after";
+
+      public static final String Last = "last";
 
       public static final String Before = "before";
 
-      public static final String First = "first";
+      public static final String Reverse = "reverse";
 
-      public static final String Last = "last";
+      public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
 
       public static final String Prefix = "prefix";
 
       public static final String ProductFilters = "productFilters";
-
-      public static final String Query = "query";
-
-      public static final String Reverse = "reverse";
-
-      public static final String SortKey = "sortKey";
 
       public static final String Types = "types";
 
@@ -3543,17 +3547,17 @@ public class DgsConstants {
     }
 
     public static class URLREDIRECTS_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
+
+      public static final String After = "after";
 
       public static final String Last = "last";
 
-      public static final String Query = "query";
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
+
+      public static final String Query = "query";
     }
   }
 
@@ -3637,9 +3641,9 @@ public class DgsConstants {
     public static final String RecurringDeliveries = "recurringDeliveries";
 
     public static class METAFIELD_INPUT_ARGUMENT {
-      public static final String Key = "key";
-
       public static final String Namespace = "namespace";
+
+      public static final String Key = "key";
     }
 
     public static class METAFIELDS_INPUT_ARGUMENT {
@@ -3745,13 +3749,13 @@ public class DgsConstants {
     public static final String SellingPlans = "sellingPlans";
 
     public static class SELLINGPLANS_INPUT_ARGUMENT {
-      public static final String After = "after";
-
-      public static final String Before = "before";
-
       public static final String First = "first";
 
+      public static final String After = "after";
+
       public static final String Last = "last";
+
+      public static final String Before = "before";
 
       public static final String Reverse = "reverse";
     }
@@ -3865,9 +3869,9 @@ public class DgsConstants {
     public static final String TermsOfService = "termsOfService";
 
     public static class METAFIELD_INPUT_ARGUMENT {
-      public static final String Key = "key";
-
       public static final String Namespace = "namespace";
+
+      public static final String Key = "key";
     }
 
     public static class METAFIELDS_INPUT_ARGUMENT {
@@ -4406,31 +4410,31 @@ public class DgsConstants {
   public static class BUYERINPUT {
     public static final String TYPE_NAME = "BuyerInput";
 
-    public static final String CompanyLocationId = "companyLocationId";
-
     public static final String CustomerAccessToken = "customerAccessToken";
+
+    public static final String CompanyLocationId = "companyLocationId";
   }
 
   public static class CARTADDRESSINPUT {
     public static final String TYPE_NAME = "CartAddressInput";
 
-    public static final String CopyFromCustomerAddressId = "copyFromCustomerAddressId";
-
     public static final String DeliveryAddress = "deliveryAddress";
+
+    public static final String CopyFromCustomerAddressId = "copyFromCustomerAddressId";
   }
 
   public static class CARTBUYERIDENTITYINPUT {
     public static final String TYPE_NAME = "CartBuyerIdentityInput";
+
+    public static final String Email = "email";
+
+    public static final String Phone = "phone";
 
     public static final String CompanyLocationId = "companyLocationId";
 
     public static final String CountryCode = "countryCode";
 
     public static final String CustomerAccessToken = "customerAccessToken";
-
-    public static final String Email = "email";
-
-    public static final String Phone = "phone";
 
     public static final String Preferences = "preferences";
   }
@@ -4462,11 +4466,11 @@ public class DgsConstants {
   public static class CARTDELIVERYCOORDINATESPREFERENCEINPUT {
     public static final String TYPE_NAME = "CartDeliveryCoordinatesPreferenceInput";
 
-    public static final String CountryCode = "countryCode";
-
     public static final String Latitude = "latitude";
 
     public static final String Longitude = "longitude";
+
+    public static final String CountryCode = "countryCode";
   }
 
   public static class CARTDELIVERYINPUT {
@@ -4478,23 +4482,23 @@ public class DgsConstants {
   public static class CARTDELIVERYPREFERENCEINPUT {
     public static final String TYPE_NAME = "CartDeliveryPreferenceInput";
 
-    public static final String Coordinates = "coordinates";
-
     public static final String DeliveryMethod = "deliveryMethod";
 
     public static final String PickupHandle = "pickupHandle";
+
+    public static final String Coordinates = "coordinates";
   }
 
   public static class CARTDIRECTPAYMENTMETHODINPUT {
     public static final String TYPE_NAME = "CartDirectPaymentMethodInput";
 
-    public static final String AcceptedSubscriptionTerms = "acceptedSubscriptionTerms";
-
     public static final String BillingAddress = "billingAddress";
+
+    public static final String SessionId = "sessionId";
 
     public static final String CardSource = "cardSource";
 
-    public static final String SessionId = "sessionId";
+    public static final String AcceptedSubscriptionTerms = "acceptedSubscriptionTerms";
   }
 
   public static class CARTFREEPAYMENTMETHODINPUT {
@@ -4508,19 +4512,19 @@ public class DgsConstants {
 
     public static final String Attributes = "attributes";
 
-    public static final String BuyerIdentity = "buyerIdentity";
-
-    public static final String Delivery = "delivery";
+    public static final String Lines = "lines";
 
     public static final String DiscountCodes = "discountCodes";
 
     public static final String GiftCardCodes = "giftCardCodes";
 
-    public static final String Lines = "lines";
+    public static final String Note = "note";
+
+    public static final String BuyerIdentity = "buyerIdentity";
+
+    public static final String Delivery = "delivery";
 
     public static final String Metafields = "metafields";
-
-    public static final String Note = "note";
   }
 
   public static class CARTINPUTMETAFIELDINPUT {
@@ -4528,9 +4532,9 @@ public class DgsConstants {
 
     public static final String Key = "key";
 
-    public static final String Type = "type";
-
     public static final String Value = "value";
+
+    public static final String Type = "type";
   }
 
   public static class CARTLINEINPUT {
@@ -4538,9 +4542,9 @@ public class DgsConstants {
 
     public static final String Attributes = "attributes";
 
-    public static final String MerchandiseId = "merchandiseId";
-
     public static final String Quantity = "quantity";
+
+    public static final String MerchandiseId = "merchandiseId";
 
     public static final String SellingPlanId = "sellingPlanId";
   }
@@ -4548,13 +4552,13 @@ public class DgsConstants {
   public static class CARTLINEUPDATEINPUT {
     public static final String TYPE_NAME = "CartLineUpdateInput";
 
-    public static final String Attributes = "attributes";
-
     public static final String Id = "id";
+
+    public static final String Quantity = "quantity";
 
     public static final String MerchandiseId = "merchandiseId";
 
-    public static final String Quantity = "quantity";
+    public static final String Attributes = "attributes";
 
     public static final String SellingPlanId = "sellingPlanId";
   }
@@ -4562,21 +4566,21 @@ public class DgsConstants {
   public static class CARTMETAFIELDDELETEINPUT {
     public static final String TYPE_NAME = "CartMetafieldDeleteInput";
 
-    public static final String Key = "key";
-
     public static final String OwnerId = "ownerId";
+
+    public static final String Key = "key";
   }
 
   public static class CARTMETAFIELDSSETINPUT {
     public static final String TYPE_NAME = "CartMetafieldsSetInput";
 
-    public static final String Key = "key";
-
     public static final String OwnerId = "ownerId";
 
-    public static final String Type = "type";
+    public static final String Key = "key";
 
     public static final String Value = "value";
+
+    public static final String Type = "type";
   }
 
   public static class CARTPAYMENTINPUT {
@@ -4584,11 +4588,11 @@ public class DgsConstants {
 
     public static final String Amount = "amount";
 
-    public static final String DirectPaymentMethod = "directPaymentMethod";
+    public static final String SourceIdentifier = "sourceIdentifier";
 
     public static final String FreePaymentMethod = "freePaymentMethod";
 
-    public static final String SourceIdentifier = "sourceIdentifier";
+    public static final String DirectPaymentMethod = "directPaymentMethod";
 
     public static final String WalletPaymentMethod = "walletPaymentMethod";
   }
@@ -4606,9 +4610,9 @@ public class DgsConstants {
 
     public static final String Address = "address";
 
-    public static final String OneTimeUse = "oneTimeUse";
-
     public static final String Selected = "selected";
+
+    public static final String OneTimeUse = "oneTimeUse";
 
     public static final String ValidationStrategy = "validationStrategy";
   }
@@ -4616,13 +4620,13 @@ public class DgsConstants {
   public static class CARTSELECTABLEADDRESSUPDATEINPUT {
     public static final String TYPE_NAME = "CartSelectableAddressUpdateInput";
 
-    public static final String Address = "address";
-
     public static final String Id = "id";
 
-    public static final String OneTimeUse = "oneTimeUse";
+    public static final String Address = "address";
 
     public static final String Selected = "selected";
+
+    public static final String OneTimeUse = "oneTimeUse";
 
     public static final String ValidationStrategy = "validationStrategy";
   }
@@ -4668,53 +4672,53 @@ public class DgsConstants {
   public static class CUSTOMERCREATEINPUT {
     public static final String TYPE_NAME = "CustomerCreateInput";
 
-    public static final String AcceptsMarketing = "acceptsMarketing";
-
-    public static final String Email = "email";
-
     public static final String FirstName = "firstName";
 
     public static final String LastName = "lastName";
 
-    public static final String Password = "password";
+    public static final String Email = "email";
 
     public static final String Phone = "phone";
+
+    public static final String Password = "password";
+
+    public static final String AcceptsMarketing = "acceptsMarketing";
   }
 
   public static class CUSTOMERRESETINPUT {
     public static final String TYPE_NAME = "CustomerResetInput";
 
-    public static final String Password = "password";
-
     public static final String ResetToken = "resetToken";
+
+    public static final String Password = "password";
   }
 
   public static class CUSTOMERUPDATEINPUT {
     public static final String TYPE_NAME = "CustomerUpdateInput";
 
-    public static final String AcceptsMarketing = "acceptsMarketing";
-
-    public static final String Email = "email";
-
     public static final String FirstName = "firstName";
 
     public static final String LastName = "lastName";
 
-    public static final String Password = "password";
+    public static final String Email = "email";
 
     public static final String Phone = "phone";
+
+    public static final String Password = "password";
+
+    public static final String AcceptsMarketing = "acceptsMarketing";
   }
 
   public static class DELIVERYADDRESSINPUT {
     public static final String TYPE_NAME = "DeliveryAddressInput";
 
-    public static final String CustomerAddressId = "customerAddressId";
-
     public static final String DeliveryAddress = "deliveryAddress";
+
+    public static final String OneTimeUse = "oneTimeUse";
 
     public static final String DeliveryAddressValidationStrategy = "deliveryAddressValidationStrategy";
 
-    public static final String OneTimeUse = "oneTimeUse";
+    public static final String CustomerAddressId = "customerAddressId";
   }
 
   public static class GEOCOORDINATEINPUT {
@@ -4728,9 +4732,9 @@ public class DgsConstants {
   public static class HASMETAFIELDSIDENTIFIER {
     public static final String TYPE_NAME = "HasMetafieldsIdentifier";
 
-    public static final String Key = "key";
-
     public static final String Namespace = "namespace";
+
+    public static final String Key = "key";
   }
 
   public static class IMAGETRANSFORMINPUT {
@@ -4738,13 +4742,13 @@ public class DgsConstants {
 
     public static final String Crop = "crop";
 
-    public static final String MaxHeight = "maxHeight";
-
     public static final String MaxWidth = "maxWidth";
 
-    public static final String PreferredContentType = "preferredContentType";
+    public static final String MaxHeight = "maxHeight";
 
     public static final String Scale = "scale";
+
+    public static final String PreferredContentType = "preferredContentType";
   }
 
   public static class MAILINGADDRESSINPUT {
@@ -4774,9 +4778,9 @@ public class DgsConstants {
   public static class METAFIELDFILTER {
     public static final String TYPE_NAME = "MetafieldFilter";
 
-    public static final String Key = "key";
-
     public static final String Namespace = "namespace";
+
+    public static final String Key = "key";
 
     public static final String Value = "value";
   }
@@ -4800,9 +4804,9 @@ public class DgsConstants {
   public static class PRICERANGEFILTER {
     public static final String TYPE_NAME = "PriceRangeFilter";
 
-    public static final String Max = "max";
-
     public static final String Min = "min";
+
+    public static final String Max = "max";
   }
 
   public static class PRODUCTFILTER {
@@ -4810,23 +4814,23 @@ public class DgsConstants {
 
     public static final String Available = "available";
 
+    public static final String VariantOption = "variantOption";
+
     public static final String Category = "category";
 
-    public static final String Price = "price";
-
-    public static final String ProductMetafield = "productMetafield";
+    public static final String TaxonomyMetafield = "taxonomyMetafield";
 
     public static final String ProductType = "productType";
 
     public static final String ProductVendor = "productVendor";
 
-    public static final String Tag = "tag";
+    public static final String Price = "price";
 
-    public static final String TaxonomyMetafield = "taxonomyMetafield";
+    public static final String ProductMetafield = "productMetafield";
 
     public static final String VariantMetafield = "variantMetafield";
 
-    public static final String VariantOption = "variantOption";
+    public static final String Tag = "tag";
   }
 
   public static class SELECTEDOPTIONINPUT {
@@ -4840,101 +4844,101 @@ public class DgsConstants {
   public static class SHOPPAYPAYMENTREQUESTDELIVERYMETHODINPUT {
     public static final String TYPE_NAME = "ShopPayPaymentRequestDeliveryMethodInput";
 
-    public static final String Amount = "amount";
-
     public static final String Code = "code";
-
-    public static final String DeliveryExpectationLabel = "deliveryExpectationLabel";
-
-    public static final String Detail = "detail";
 
     public static final String Label = "label";
 
-    public static final String MaxDeliveryDate = "maxDeliveryDate";
+    public static final String Detail = "detail";
+
+    public static final String Amount = "amount";
 
     public static final String MinDeliveryDate = "minDeliveryDate";
+
+    public static final String MaxDeliveryDate = "maxDeliveryDate";
+
+    public static final String DeliveryExpectationLabel = "deliveryExpectationLabel";
   }
 
   public static class SHOPPAYPAYMENTREQUESTDISCOUNTINPUT {
     public static final String TYPE_NAME = "ShopPayPaymentRequestDiscountInput";
 
-    public static final String Amount = "amount";
-
     public static final String Label = "label";
+
+    public static final String Amount = "amount";
   }
 
   public static class SHOPPAYPAYMENTREQUESTIMAGEINPUT {
     public static final String TYPE_NAME = "ShopPayPaymentRequestImageInput";
 
-    public static final String Alt = "alt";
-
     public static final String Url = "url";
+
+    public static final String Alt = "alt";
   }
 
   public static class SHOPPAYPAYMENTREQUESTINPUT {
     public static final String TYPE_NAME = "ShopPayPaymentRequestInput";
 
-    public static final String DeliveryMethods = "deliveryMethods";
-
     public static final String DiscountCodes = "discountCodes";
-
-    public static final String Discounts = "discounts";
 
     public static final String LineItems = "lineItems";
 
-    public static final String Locale = "locale";
-
-    public static final String PaymentMethod = "paymentMethod";
-
-    public static final String PresentmentCurrency = "presentmentCurrency";
-
-    public static final String SelectedDeliveryMethodType = "selectedDeliveryMethodType";
-
     public static final String ShippingLines = "shippingLines";
+
+    public static final String Total = "total";
 
     public static final String Subtotal = "subtotal";
 
-    public static final String Total = "total";
+    public static final String Discounts = "discounts";
 
     public static final String TotalShippingPrice = "totalShippingPrice";
 
     public static final String TotalTax = "totalTax";
+
+    public static final String DeliveryMethods = "deliveryMethods";
+
+    public static final String SelectedDeliveryMethodType = "selectedDeliveryMethodType";
+
+    public static final String Locale = "locale";
+
+    public static final String PresentmentCurrency = "presentmentCurrency";
+
+    public static final String PaymentMethod = "paymentMethod";
   }
 
   public static class SHOPPAYPAYMENTREQUESTLINEITEMINPUT {
     public static final String TYPE_NAME = "ShopPayPaymentRequestLineItemInput";
 
-    public static final String FinalItemPrice = "finalItemPrice";
+    public static final String Label = "label";
 
-    public static final String FinalLinePrice = "finalLinePrice";
+    public static final String Quantity = "quantity";
+
+    public static final String Sku = "sku";
+
+    public static final String RequiresShipping = "requiresShipping";
 
     public static final String Image = "image";
 
-    public static final String ItemDiscounts = "itemDiscounts";
+    public static final String OriginalLinePrice = "originalLinePrice";
 
-    public static final String Label = "label";
+    public static final String FinalLinePrice = "finalLinePrice";
 
     public static final String LineDiscounts = "lineDiscounts";
 
     public static final String OriginalItemPrice = "originalItemPrice";
 
-    public static final String OriginalLinePrice = "originalLinePrice";
+    public static final String FinalItemPrice = "finalItemPrice";
 
-    public static final String Quantity = "quantity";
-
-    public static final String RequiresShipping = "requiresShipping";
-
-    public static final String Sku = "sku";
+    public static final String ItemDiscounts = "itemDiscounts";
   }
 
   public static class SHOPPAYPAYMENTREQUESTSHIPPINGLINEINPUT {
     public static final String TYPE_NAME = "ShopPayPaymentRequestShippingLineInput";
 
-    public static final String Amount = "amount";
-
     public static final String Code = "code";
 
     public static final String Label = "label";
+
+    public static final String Amount = "amount";
   }
 
   public static class SHOPPAYPAYMENTREQUESTTOTALSHIPPINGPRICEINPUT {
@@ -4942,9 +4946,9 @@ public class DgsConstants {
 
     public static final String Discounts = "discounts";
 
-    public static final String FinalTotal = "finalTotal";
-
     public static final String OriginalTotal = "originalTotal";
+
+    public static final String FinalTotal = "finalTotal";
   }
 
   public static class SHOPPAYWALLETCONTENTINPUT {
@@ -4958,9 +4962,9 @@ public class DgsConstants {
   public static class TAXONOMYMETAFIELDFILTER {
     public static final String TYPE_NAME = "TaxonomyMetafieldFilter";
 
-    public static final String Key = "key";
-
     public static final String Namespace = "namespace";
+
+    public static final String Key = "key";
 
     public static final String Value = "value";
   }

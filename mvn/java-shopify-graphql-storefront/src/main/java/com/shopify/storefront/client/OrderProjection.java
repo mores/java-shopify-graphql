@@ -80,18 +80,18 @@ public class OrderProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
   }
 
   public DiscountApplicationConnectionProjection<OrderProjection<PARENT, ROOT>, ROOT> discountApplications(
-      String after, String before, Integer first, Integer last, Boolean reverse) {
+      Integer first, String after, Integer last, String before, Boolean reverse) {
     DiscountApplicationConnectionProjection<OrderProjection<PARENT, ROOT>, ROOT> projection = new DiscountApplicationConnectionProjection<>(this, getRoot());    
     getFields().put("discountApplications", projection);
     getInputArguments().computeIfAbsent("discountApplications", k -> new ArrayList<>());                      
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("discountApplications").add(afterArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("discountApplications").add(beforeArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("discountApplications").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("discountApplications").add(afterArg);
     InputArgument lastArg = new InputArgument("last", last);
     getInputArguments().get("discountApplications").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("discountApplications").add(beforeArg);
     InputArgument reverseArg = new InputArgument("reverse", reverse);
     getInputArguments().get("discountApplications").add(reverseArg);
     return projection;
@@ -116,18 +116,18 @@ public class OrderProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
   }
 
   public OrderLineItemConnectionProjection<OrderProjection<PARENT, ROOT>, ROOT> lineItems(
-      String after, String before, Integer first, Integer last, Boolean reverse) {
+      Integer first, String after, Integer last, String before, Boolean reverse) {
     OrderLineItemConnectionProjection<OrderProjection<PARENT, ROOT>, ROOT> projection = new OrderLineItemConnectionProjection<>(this, getRoot());    
     getFields().put("lineItems", projection);
     getInputArguments().computeIfAbsent("lineItems", k -> new ArrayList<>());                      
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("lineItems").add(afterArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("lineItems").add(beforeArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("lineItems").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("lineItems").add(afterArg);
     InputArgument lastArg = new InputArgument("last", last);
     getInputArguments().get("lineItems").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("lineItems").add(beforeArg);
     InputArgument reverseArg = new InputArgument("reverse", reverse);
     getInputArguments().get("lineItems").add(reverseArg);
     return projection;
@@ -139,15 +139,15 @@ public class OrderProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
      return projection;
   }
 
-  public MetafieldProjection<OrderProjection<PARENT, ROOT>, ROOT> metafield(String key,
-      String namespace) {
+  public MetafieldProjection<OrderProjection<PARENT, ROOT>, ROOT> metafield(String namespace,
+      String key) {
     MetafieldProjection<OrderProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
     getFields().put("metafield", projection);
     getInputArguments().computeIfAbsent("metafield", k -> new ArrayList<>());                      
-    InputArgument keyArg = new InputArgument("key", key);
-    getInputArguments().get("metafield").add(keyArg);
     InputArgument namespaceArg = new InputArgument("namespace", namespace);
     getInputArguments().get("metafield").add(namespaceArg);
+    InputArgument keyArg = new InputArgument("key", key);
+    getInputArguments().get("metafield").add(keyArg);
     return projection;
   }
 
