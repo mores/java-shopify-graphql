@@ -4,21 +4,21 @@ package com.shopify.storefront.types;
  * The set of valid sort keys for the Product query.
  */
 public enum ProductSortKeys {
-  BEST_SELLING,
-
-  CREATED_AT,
-
-  ID,
-
-  PRICE,
+  TITLE,
 
   PRODUCT_TYPE,
 
-  RELEVANCE,
-
-  TITLE,
+  VENDOR,
 
   UPDATED_AT,
 
-  VENDOR
+  CREATED_AT,
+
+  BEST_SELLING,
+
+  PRICE,
+
+  ID,
+
+  RELEVANCE
 }

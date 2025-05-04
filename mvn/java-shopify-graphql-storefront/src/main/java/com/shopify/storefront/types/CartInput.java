@@ -18,16 +18,11 @@ public class CartInput {
   private List<AttributeInput> attributes;
 
   /**
-   * The customer associated with the cart. Used to determine [international pricing]
-   * (https://shopify.dev/custom-storefronts/internationalization/international-pricing).
-   * Buyer identity should match the customer's shipping address.
+   * A list of merchandise lines to add to the cart.
+   *   
+   * The input must not contain more than `250` values.
    */
-  private CartBuyerIdentityInput buyerIdentity;
-
-  /**
-   * The delivery-related fields for the cart.
-   */
-  private CartDeliveryInput delivery;
+  private List<CartLineInput> lines;
 
   /**
    * The case-insensitive discount codes that the customer added at checkout.
@@ -44,11 +39,21 @@ public class CartInput {
   private List<String> giftCardCodes;
 
   /**
-   * A list of merchandise lines to add to the cart.
-   *   
-   * The input must not contain more than `250` values.
+   * A note that's associated with the cart. For example, the note can be a personalized message to the buyer.
    */
-  private List<CartLineInput> lines;
+  private String note;
+
+  /**
+   * The customer associated with the cart. Used to determine [international pricing]
+   * (https://shopify.dev/custom-storefronts/internationalization/international-pricing).
+   * Buyer identity should match the customer's shipping address.
+   */
+  private CartBuyerIdentityInput buyerIdentity;
+
+  /**
+   * The delivery-related fields for the cart.
+   */
+  private CartDeliveryInput delivery;
 
   /**
    * The metafields to associate with this cart.
@@ -56,11 +61,6 @@ public class CartInput {
    * The input must not contain more than `250` values.
    */
   private List<CartInputMetafieldInput> metafields;
-
-  /**
-   * A note that's associated with the cart. For example, the note can be a personalized message to the buyer.
-   */
-  private String note;
 
   public CartInput() {
   }
@@ -79,27 +79,16 @@ public class CartInput {
   }
 
   /**
-   * The customer associated with the cart. Used to determine [international pricing]
-   * (https://shopify.dev/custom-storefronts/internationalization/international-pricing).
-   * Buyer identity should match the customer's shipping address.
+   * A list of merchandise lines to add to the cart.
+   *   
+   * The input must not contain more than `250` values.
    */
-  public CartBuyerIdentityInput getBuyerIdentity() {
-    return buyerIdentity;
+  public List<CartLineInput> getLines() {
+    return lines;
   }
 
-  public void setBuyerIdentity(CartBuyerIdentityInput buyerIdentity) {
-    this.buyerIdentity = buyerIdentity;
-  }
-
-  /**
-   * The delivery-related fields for the cart.
-   */
-  public CartDeliveryInput getDelivery() {
-    return delivery;
-  }
-
-  public void setDelivery(CartDeliveryInput delivery) {
-    this.delivery = delivery;
+  public void setLines(List<CartLineInput> lines) {
+    this.lines = lines;
   }
 
   /**
@@ -129,16 +118,38 @@ public class CartInput {
   }
 
   /**
-   * A list of merchandise lines to add to the cart.
-   *   
-   * The input must not contain more than `250` values.
+   * A note that's associated with the cart. For example, the note can be a personalized message to the buyer.
    */
-  public List<CartLineInput> getLines() {
-    return lines;
+  public String getNote() {
+    return note;
   }
 
-  public void setLines(List<CartLineInput> lines) {
-    this.lines = lines;
+  public void setNote(String note) {
+    this.note = note;
+  }
+
+  /**
+   * The customer associated with the cart. Used to determine [international pricing]
+   * (https://shopify.dev/custom-storefronts/internationalization/international-pricing).
+   * Buyer identity should match the customer's shipping address.
+   */
+  public CartBuyerIdentityInput getBuyerIdentity() {
+    return buyerIdentity;
+  }
+
+  public void setBuyerIdentity(CartBuyerIdentityInput buyerIdentity) {
+    this.buyerIdentity = buyerIdentity;
+  }
+
+  /**
+   * The delivery-related fields for the cart.
+   */
+  public CartDeliveryInput getDelivery() {
+    return delivery;
+  }
+
+  public void setDelivery(CartDeliveryInput delivery) {
+    this.delivery = delivery;
   }
 
   /**
@@ -154,20 +165,9 @@ public class CartInput {
     this.metafields = metafields;
   }
 
-  /**
-   * A note that's associated with the cart. For example, the note can be a personalized message to the buyer.
-   */
-  public String getNote() {
-    return note;
-  }
-
-  public void setNote(String note) {
-    this.note = note;
-  }
-
   @Override
   public String toString() {
-    return "CartInput{attributes='" + attributes + "', buyerIdentity='" + buyerIdentity + "', delivery='" + delivery + "', discountCodes='" + discountCodes + "', giftCardCodes='" + giftCardCodes + "', lines='" + lines + "', metafields='" + metafields + "', note='" + note + "'}";
+    return "CartInput{attributes='" + attributes + "', lines='" + lines + "', discountCodes='" + discountCodes + "', giftCardCodes='" + giftCardCodes + "', note='" + note + "', buyerIdentity='" + buyerIdentity + "', delivery='" + delivery + "', metafields='" + metafields + "'}";
   }
 
   @Override
@@ -176,18 +176,18 @@ public class CartInput {
     if (o == null || getClass() != o.getClass()) return false;
     CartInput that = (CartInput) o;
     return Objects.equals(attributes, that.attributes) &&
-        Objects.equals(buyerIdentity, that.buyerIdentity) &&
-        Objects.equals(delivery, that.delivery) &&
+        Objects.equals(lines, that.lines) &&
         Objects.equals(discountCodes, that.discountCodes) &&
         Objects.equals(giftCardCodes, that.giftCardCodes) &&
-        Objects.equals(lines, that.lines) &&
-        Objects.equals(metafields, that.metafields) &&
-        Objects.equals(note, that.note);
+        Objects.equals(note, that.note) &&
+        Objects.equals(buyerIdentity, that.buyerIdentity) &&
+        Objects.equals(delivery, that.delivery) &&
+        Objects.equals(metafields, that.metafields);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, buyerIdentity, delivery, discountCodes, giftCardCodes, lines, metafields, note);
+    return Objects.hash(attributes, lines, discountCodes, giftCardCodes, note, buyerIdentity, delivery, metafields);
   }
 
   public static Builder newBuilder() {
@@ -203,16 +203,11 @@ public class CartInput {
     private List<AttributeInput> attributes;
 
     /**
-     * The customer associated with the cart. Used to determine [international pricing]
-     * (https://shopify.dev/custom-storefronts/internationalization/international-pricing).
-     * Buyer identity should match the customer's shipping address.
+     * A list of merchandise lines to add to the cart.
+     *   
+     * The input must not contain more than `250` values.
      */
-    private CartBuyerIdentityInput buyerIdentity;
-
-    /**
-     * The delivery-related fields for the cart.
-     */
-    private CartDeliveryInput delivery;
+    private List<CartLineInput> lines;
 
     /**
      * The case-insensitive discount codes that the customer added at checkout.
@@ -229,11 +224,21 @@ public class CartInput {
     private List<String> giftCardCodes;
 
     /**
-     * A list of merchandise lines to add to the cart.
-     *   
-     * The input must not contain more than `250` values.
+     * A note that's associated with the cart. For example, the note can be a personalized message to the buyer.
      */
-    private List<CartLineInput> lines;
+    private String note;
+
+    /**
+     * The customer associated with the cart. Used to determine [international pricing]
+     * (https://shopify.dev/custom-storefronts/internationalization/international-pricing).
+     * Buyer identity should match the customer's shipping address.
+     */
+    private CartBuyerIdentityInput buyerIdentity;
+
+    /**
+     * The delivery-related fields for the cart.
+     */
+    private CartDeliveryInput delivery;
 
     /**
      * The metafields to associate with this cart.
@@ -242,21 +247,16 @@ public class CartInput {
      */
     private List<CartInputMetafieldInput> metafields;
 
-    /**
-     * A note that's associated with the cart. For example, the note can be a personalized message to the buyer.
-     */
-    private String note;
-
     public CartInput build() {
       CartInput result = new CartInput();
       result.attributes = this.attributes;
-      result.buyerIdentity = this.buyerIdentity;
-      result.delivery = this.delivery;
+      result.lines = this.lines;
       result.discountCodes = this.discountCodes;
       result.giftCardCodes = this.giftCardCodes;
-      result.lines = this.lines;
-      result.metafields = this.metafields;
       result.note = this.note;
+      result.buyerIdentity = this.buyerIdentity;
+      result.delivery = this.delivery;
+      result.metafields = this.metafields;
       return result;
     }
 
@@ -271,20 +271,12 @@ public class CartInput {
     }
 
     /**
-     * The customer associated with the cart. Used to determine [international pricing]
-     * (https://shopify.dev/custom-storefronts/internationalization/international-pricing).
-     * Buyer identity should match the customer's shipping address.
+     * A list of merchandise lines to add to the cart.
+     *   
+     * The input must not contain more than `250` values.
      */
-    public Builder buyerIdentity(CartBuyerIdentityInput buyerIdentity) {
-      this.buyerIdentity = buyerIdentity;
-      return this;
-    }
-
-    /**
-     * The delivery-related fields for the cart.
-     */
-    public Builder delivery(CartDeliveryInput delivery) {
-      this.delivery = delivery;
+    public Builder lines(List<CartLineInput> lines) {
+      this.lines = lines;
       return this;
     }
 
@@ -309,12 +301,28 @@ public class CartInput {
     }
 
     /**
-     * A list of merchandise lines to add to the cart.
-     *   
-     * The input must not contain more than `250` values.
+     * A note that's associated with the cart. For example, the note can be a personalized message to the buyer.
      */
-    public Builder lines(List<CartLineInput> lines) {
-      this.lines = lines;
+    public Builder note(String note) {
+      this.note = note;
+      return this;
+    }
+
+    /**
+     * The customer associated with the cart. Used to determine [international pricing]
+     * (https://shopify.dev/custom-storefronts/internationalization/international-pricing).
+     * Buyer identity should match the customer's shipping address.
+     */
+    public Builder buyerIdentity(CartBuyerIdentityInput buyerIdentity) {
+      this.buyerIdentity = buyerIdentity;
+      return this;
+    }
+
+    /**
+     * The delivery-related fields for the cart.
+     */
+    public Builder delivery(CartDeliveryInput delivery) {
+      this.delivery = delivery;
       return this;
     }
 
@@ -325,14 +333,6 @@ public class CartInput {
      */
     public Builder metafields(List<CartInputMetafieldInput> metafields) {
       this.metafields = metafields;
-      return this;
-    }
-
-    /**
-     * A note that's associated with the cart. For example, the note can be a personalized message to the buyer.
-     */
-    public Builder note(String note) {
-      this.note = note;
       return this;
     }
   }

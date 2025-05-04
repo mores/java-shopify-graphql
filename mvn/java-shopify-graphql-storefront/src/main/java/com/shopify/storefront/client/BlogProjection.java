@@ -40,26 +40,26 @@ public class BlogProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
      return projection;
   }
 
-  public ArticleConnectionProjection<BlogProjection<PARENT, ROOT>, ROOT> articles(String after,
-      String before, Integer first, Integer last, String query, Boolean reverse,
-      ArticleSortKeys sortKey) {
+  public ArticleConnectionProjection<BlogProjection<PARENT, ROOT>, ROOT> articles(Integer first,
+      String after, Integer last, String before, Boolean reverse, ArticleSortKeys sortKey,
+      String query) {
     ArticleConnectionProjection<BlogProjection<PARENT, ROOT>, ROOT> projection = new ArticleConnectionProjection<>(this, getRoot());    
     getFields().put("articles", projection);
     getInputArguments().computeIfAbsent("articles", k -> new ArrayList<>());                      
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("articles").add(afterArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("articles").add(beforeArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("articles").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("articles").add(afterArg);
     InputArgument lastArg = new InputArgument("last", last);
     getInputArguments().get("articles").add(lastArg);
-    InputArgument queryArg = new InputArgument("query", query);
-    getInputArguments().get("articles").add(queryArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("articles").add(beforeArg);
     InputArgument reverseArg = new InputArgument("reverse", reverse);
     getInputArguments().get("articles").add(reverseArg);
     InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
     getInputArguments().get("articles").add(sortKeyArg);
+    InputArgument queryArg = new InputArgument("query", query);
+    getInputArguments().get("articles").add(queryArg);
     return projection;
   }
 
@@ -75,15 +75,15 @@ public class BlogProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
      return projection;
   }
 
-  public MetafieldProjection<BlogProjection<PARENT, ROOT>, ROOT> metafield(String key,
-      String namespace) {
+  public MetafieldProjection<BlogProjection<PARENT, ROOT>, ROOT> metafield(String namespace,
+      String key) {
     MetafieldProjection<BlogProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
     getFields().put("metafield", projection);
     getInputArguments().computeIfAbsent("metafield", k -> new ArrayList<>());                      
-    InputArgument keyArg = new InputArgument("key", key);
-    getInputArguments().get("metafield").add(keyArg);
     InputArgument namespaceArg = new InputArgument("namespace", namespace);
     getInputArguments().get("metafield").add(namespaceArg);
+    InputArgument keyArg = new InputArgument("key", key);
+    getInputArguments().get("metafield").add(keyArg);
     return projection;
   }
 

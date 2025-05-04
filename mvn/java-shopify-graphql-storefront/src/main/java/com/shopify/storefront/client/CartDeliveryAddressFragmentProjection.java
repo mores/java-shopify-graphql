@@ -55,13 +55,13 @@ public class CartDeliveryAddressFragmentProjection<PARENT extends BaseSubProject
     return this;
   }
 
-  public CartDeliveryAddressFragmentProjection formatted(Boolean withCompany, Boolean withName) {
+  public CartDeliveryAddressFragmentProjection formatted(Boolean withName, Boolean withCompany) {
     getFields().put("formatted", null);
     getInputArguments().computeIfAbsent("formatted", k -> new ArrayList<>());
-    InputArgument withCompanyArg = new InputArgument("withCompany", withCompany);
-    getInputArguments().get("formatted").add(withCompanyArg);
     InputArgument withNameArg = new InputArgument("withName", withName);
     getInputArguments().get("formatted").add(withNameArg);
+    InputArgument withCompanyArg = new InputArgument("withCompany", withCompany);
+    getInputArguments().get("formatted").add(withCompanyArg);
     return this;
   }
 

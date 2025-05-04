@@ -13,15 +13,15 @@ import java.util.Set;
  * [*Showing product recommendations on product pages*](https://help.shopify.com/themes/development/recommended-products).
  */
 public class ProductRecommendationsGraphQLQuery extends GraphQLQuery {
-  public ProductRecommendationsGraphQLQuery(ProductRecommendationIntent intent,
-      String productHandle, String productId, String queryName, Set<String> fieldsSet) {
+  public ProductRecommendationsGraphQLQuery(String productId, String productHandle,
+      ProductRecommendationIntent intent, String queryName, Set<String> fieldsSet) {
     super("query", queryName);
-    if (intent != null || fieldsSet.contains("intent")) {
-        getInput().put("intent", intent);
+    if (productId != null || fieldsSet.contains("productId")) {
+        getInput().put("productId", productId);
     }if (productHandle != null || fieldsSet.contains("productHandle")) {
         getInput().put("productHandle", productHandle);
-    }if (productId != null || fieldsSet.contains("productId")) {
-        getInput().put("productId", productId);
+    }if (intent != null || fieldsSet.contains("intent")) {
+        getInput().put("intent", intent);
     }
   }
 
@@ -41,27 +41,25 @@ public class ProductRecommendationsGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
-    private ProductRecommendationIntent intent;
+    private String productId;
 
     private String productHandle;
 
-    private String productId;
+    private ProductRecommendationIntent intent;
 
     private String queryName;
 
     public ProductRecommendationsGraphQLQuery build() {
-      return new ProductRecommendationsGraphQLQuery(intent, productHandle, productId, queryName, fieldsSet);
+      return new ProductRecommendationsGraphQLQuery(productId, productHandle, intent, queryName, fieldsSet);
                
     }
 
     /**
-     * The recommendation intent that is used to generate product recommendations.
-     * You can use intent to generate product recommendations on various pages
-     * across the channels, according to different strategies.
+     * The id of the product.
      */
-    public Builder intent(ProductRecommendationIntent intent) {
-      this.intent = intent;
-      this.fieldsSet.add("intent");
+    public Builder productId(String productId) {
+      this.productId = productId;
+      this.fieldsSet.add("productId");
       return this;
     }
 
@@ -75,11 +73,13 @@ public class ProductRecommendationsGraphQLQuery extends GraphQLQuery {
     }
 
     /**
-     * The id of the product.
+     * The recommendation intent that is used to generate product recommendations.
+     * You can use intent to generate product recommendations on various pages
+     * across the channels, according to different strategies.
      */
-    public Builder productId(String productId) {
-      this.productId = productId;
-      this.fieldsSet.add("productId");
+    public Builder intent(ProductRecommendationIntent intent) {
+      this.intent = intent;
+      this.fieldsSet.add("intent");
       return this;
     }
 

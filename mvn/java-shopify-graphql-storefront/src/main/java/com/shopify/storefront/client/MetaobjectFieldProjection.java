@@ -29,18 +29,18 @@ public class MetaobjectFieldProjection<PARENT extends BaseSubProjectionNode<?, ?
   }
 
   public MetafieldReferenceConnectionProjection<MetaobjectFieldProjection<PARENT, ROOT>, ROOT> references(
-      String after, String before, Integer first, Integer last) {
+      Integer first, String after, Integer last, String before) {
     MetafieldReferenceConnectionProjection<MetaobjectFieldProjection<PARENT, ROOT>, ROOT> projection = new MetafieldReferenceConnectionProjection<>(this, getRoot());    
     getFields().put("references", projection);
     getInputArguments().computeIfAbsent("references", k -> new ArrayList<>());                      
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("references").add(afterArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("references").add(beforeArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("references").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("references").add(afterArg);
     InputArgument lastArg = new InputArgument("last", last);
     getInputArguments().get("references").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("references").add(beforeArg);
     return projection;
   }
 

@@ -10,13 +10,6 @@ import java.util.Objects;
  */
 public class CartDeliveryCoordinatesPreferenceInput {
   /**
-   * The two-letter code for the country of the preferred location.
-   *   
-   * For example, US.
-   */
-  private CountryCode countryCode;
-
-  /**
    * The geographic latitude for a given location. Coordinates are required in order to set pickUpHandle for pickup points.
    */
   private double latitude;
@@ -26,20 +19,14 @@ public class CartDeliveryCoordinatesPreferenceInput {
    */
   private double longitude;
 
-  public CartDeliveryCoordinatesPreferenceInput() {
-  }
-
   /**
    * The two-letter code for the country of the preferred location.
    *   
    * For example, US.
    */
-  public CountryCode getCountryCode() {
-    return countryCode;
-  }
+  private CountryCode countryCode;
 
-  public void setCountryCode(CountryCode countryCode) {
-    this.countryCode = countryCode;
+  public CartDeliveryCoordinatesPreferenceInput() {
   }
 
   /**
@@ -64,9 +51,22 @@ public class CartDeliveryCoordinatesPreferenceInput {
     this.longitude = longitude;
   }
 
+  /**
+   * The two-letter code for the country of the preferred location.
+   *   
+   * For example, US.
+   */
+  public CountryCode getCountryCode() {
+    return countryCode;
+  }
+
+  public void setCountryCode(CountryCode countryCode) {
+    this.countryCode = countryCode;
+  }
+
   @Override
   public String toString() {
-    return "CartDeliveryCoordinatesPreferenceInput{countryCode='" + countryCode + "', latitude='" + latitude + "', longitude='" + longitude + "'}";
+    return "CartDeliveryCoordinatesPreferenceInput{latitude='" + latitude + "', longitude='" + longitude + "', countryCode='" + countryCode + "'}";
   }
 
   @Override
@@ -74,14 +74,14 @@ public class CartDeliveryCoordinatesPreferenceInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     CartDeliveryCoordinatesPreferenceInput that = (CartDeliveryCoordinatesPreferenceInput) o;
-    return Objects.equals(countryCode, that.countryCode) &&
-        latitude == that.latitude &&
-        longitude == that.longitude;
+    return latitude == that.latitude &&
+        longitude == that.longitude &&
+        Objects.equals(countryCode, that.countryCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(countryCode, latitude, longitude);
+    return Objects.hash(latitude, longitude, countryCode);
   }
 
   public static Builder newBuilder() {
@@ -89,13 +89,6 @@ public class CartDeliveryCoordinatesPreferenceInput {
   }
 
   public static class Builder {
-    /**
-     * The two-letter code for the country of the preferred location.
-     *   
-     * For example, US.
-     */
-    private CountryCode countryCode;
-
     /**
      * The geographic latitude for a given location. Coordinates are required in order to set pickUpHandle for pickup points.
      */
@@ -106,22 +99,19 @@ public class CartDeliveryCoordinatesPreferenceInput {
      */
     private double longitude;
 
-    public CartDeliveryCoordinatesPreferenceInput build() {
-      CartDeliveryCoordinatesPreferenceInput result = new CartDeliveryCoordinatesPreferenceInput();
-      result.countryCode = this.countryCode;
-      result.latitude = this.latitude;
-      result.longitude = this.longitude;
-      return result;
-    }
-
     /**
      * The two-letter code for the country of the preferred location.
      *   
      * For example, US.
      */
-    public Builder countryCode(CountryCode countryCode) {
-      this.countryCode = countryCode;
-      return this;
+    private CountryCode countryCode;
+
+    public CartDeliveryCoordinatesPreferenceInput build() {
+      CartDeliveryCoordinatesPreferenceInput result = new CartDeliveryCoordinatesPreferenceInput();
+      result.latitude = this.latitude;
+      result.longitude = this.longitude;
+      result.countryCode = this.countryCode;
+      return result;
     }
 
     /**
@@ -137,6 +127,16 @@ public class CartDeliveryCoordinatesPreferenceInput {
      */
     public Builder longitude(double longitude) {
       this.longitude = longitude;
+      return this;
+    }
+
+    /**
+     * The two-letter code for the country of the preferred location.
+     *   
+     * For example, US.
+     */
+    public Builder countryCode(CountryCode countryCode) {
+      this.countryCode = countryCode;
       return this;
     }
   }

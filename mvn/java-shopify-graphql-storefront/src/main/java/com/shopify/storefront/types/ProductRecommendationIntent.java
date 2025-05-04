@@ -5,7 +5,7 @@ package com.shopify.storefront.types;
  * You can use intent to generate product recommendations according to different strategies.
  */
 public enum ProductRecommendationIntent {
-  COMPLEMENTARY,
+  RELATED,
 
-  RELATED
+  COMPLEMENTARY
 }

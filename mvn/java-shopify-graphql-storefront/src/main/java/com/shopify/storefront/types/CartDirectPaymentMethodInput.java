@@ -11,14 +11,14 @@ import java.util.Objects;
  */
 public class CartDirectPaymentMethodInput {
   /**
-   * Indicates if the customer has accepted the subscription terms. Defaults to false.
-   */
-  private Boolean acceptedSubscriptionTerms = false;
-
-  /**
    * The customer's billing address.
    */
   private MailingAddressInput billingAddress;
+
+  /**
+   * The session ID for the direct payment method used to create the payment.
+   */
+  private String sessionId;
 
   /**
    * The source of the credit card payment.
@@ -26,22 +26,11 @@ public class CartDirectPaymentMethodInput {
   private CartCardSource cardSource;
 
   /**
-   * The session ID for the direct payment method used to create the payment.
-   */
-  private String sessionId;
-
-  public CartDirectPaymentMethodInput() {
-  }
-
-  /**
    * Indicates if the customer has accepted the subscription terms. Defaults to false.
    */
-  public Boolean getAcceptedSubscriptionTerms() {
-    return acceptedSubscriptionTerms;
-  }
+  private Boolean acceptedSubscriptionTerms = false;
 
-  public void setAcceptedSubscriptionTerms(Boolean acceptedSubscriptionTerms) {
-    this.acceptedSubscriptionTerms = acceptedSubscriptionTerms;
+  public CartDirectPaymentMethodInput() {
   }
 
   /**
@@ -56,6 +45,17 @@ public class CartDirectPaymentMethodInput {
   }
 
   /**
+   * The session ID for the direct payment method used to create the payment.
+   */
+  public String getSessionId() {
+    return sessionId;
+  }
+
+  public void setSessionId(String sessionId) {
+    this.sessionId = sessionId;
+  }
+
+  /**
    * The source of the credit card payment.
    */
   public CartCardSource getCardSource() {
@@ -67,19 +67,19 @@ public class CartDirectPaymentMethodInput {
   }
 
   /**
-   * The session ID for the direct payment method used to create the payment.
+   * Indicates if the customer has accepted the subscription terms. Defaults to false.
    */
-  public String getSessionId() {
-    return sessionId;
+  public Boolean getAcceptedSubscriptionTerms() {
+    return acceptedSubscriptionTerms;
   }
 
-  public void setSessionId(String sessionId) {
-    this.sessionId = sessionId;
+  public void setAcceptedSubscriptionTerms(Boolean acceptedSubscriptionTerms) {
+    this.acceptedSubscriptionTerms = acceptedSubscriptionTerms;
   }
 
   @Override
   public String toString() {
-    return "CartDirectPaymentMethodInput{acceptedSubscriptionTerms='" + acceptedSubscriptionTerms + "', billingAddress='" + billingAddress + "', cardSource='" + cardSource + "', sessionId='" + sessionId + "'}";
+    return "CartDirectPaymentMethodInput{billingAddress='" + billingAddress + "', sessionId='" + sessionId + "', cardSource='" + cardSource + "', acceptedSubscriptionTerms='" + acceptedSubscriptionTerms + "'}";
   }
 
   @Override
@@ -87,15 +87,15 @@ public class CartDirectPaymentMethodInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     CartDirectPaymentMethodInput that = (CartDirectPaymentMethodInput) o;
-    return Objects.equals(acceptedSubscriptionTerms, that.acceptedSubscriptionTerms) &&
-        Objects.equals(billingAddress, that.billingAddress) &&
+    return Objects.equals(billingAddress, that.billingAddress) &&
+        Objects.equals(sessionId, that.sessionId) &&
         Objects.equals(cardSource, that.cardSource) &&
-        Objects.equals(sessionId, that.sessionId);
+        Objects.equals(acceptedSubscriptionTerms, that.acceptedSubscriptionTerms);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptedSubscriptionTerms, billingAddress, cardSource, sessionId);
+    return Objects.hash(billingAddress, sessionId, cardSource, acceptedSubscriptionTerms);
   }
 
   public static Builder newBuilder() {
@@ -104,14 +104,14 @@ public class CartDirectPaymentMethodInput {
 
   public static class Builder {
     /**
-     * Indicates if the customer has accepted the subscription terms. Defaults to false.
-     */
-    private Boolean acceptedSubscriptionTerms = false;
-
-    /**
      * The customer's billing address.
      */
     private MailingAddressInput billingAddress;
+
+    /**
+     * The session ID for the direct payment method used to create the payment.
+     */
+    private String sessionId;
 
     /**
      * The source of the credit card payment.
@@ -119,25 +119,17 @@ public class CartDirectPaymentMethodInput {
     private CartCardSource cardSource;
 
     /**
-     * The session ID for the direct payment method used to create the payment.
+     * Indicates if the customer has accepted the subscription terms. Defaults to false.
      */
-    private String sessionId;
+    private Boolean acceptedSubscriptionTerms = false;
 
     public CartDirectPaymentMethodInput build() {
       CartDirectPaymentMethodInput result = new CartDirectPaymentMethodInput();
-      result.acceptedSubscriptionTerms = this.acceptedSubscriptionTerms;
       result.billingAddress = this.billingAddress;
-      result.cardSource = this.cardSource;
       result.sessionId = this.sessionId;
+      result.cardSource = this.cardSource;
+      result.acceptedSubscriptionTerms = this.acceptedSubscriptionTerms;
       return result;
-    }
-
-    /**
-     * Indicates if the customer has accepted the subscription terms. Defaults to false.
-     */
-    public Builder acceptedSubscriptionTerms(Boolean acceptedSubscriptionTerms) {
-      this.acceptedSubscriptionTerms = acceptedSubscriptionTerms;
-      return this;
     }
 
     /**
@@ -145,6 +137,14 @@ public class CartDirectPaymentMethodInput {
      */
     public Builder billingAddress(MailingAddressInput billingAddress) {
       this.billingAddress = billingAddress;
+      return this;
+    }
+
+    /**
+     * The session ID for the direct payment method used to create the payment.
+     */
+    public Builder sessionId(String sessionId) {
+      this.sessionId = sessionId;
       return this;
     }
 
@@ -157,10 +157,10 @@ public class CartDirectPaymentMethodInput {
     }
 
     /**
-     * The session ID for the direct payment method used to create the payment.
+     * Indicates if the customer has accepted the subscription terms. Defaults to false.
      */
-    public Builder sessionId(String sessionId) {
-      this.sessionId = sessionId;
+    public Builder acceptedSubscriptionTerms(Boolean acceptedSubscriptionTerms) {
+      this.acceptedSubscriptionTerms = acceptedSubscriptionTerms;
       return this;
     }
   }

@@ -35,17 +35,17 @@ public class ProductFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?
   }
 
   public ProductVariantProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> adjacentVariants(
-      Boolean caseInsensitiveMatch, Boolean ignoreUnknownOptions,
-      List<SelectedOptionInput> selectedOptions) {
+      List<SelectedOptionInput> selectedOptions, Boolean ignoreUnknownOptions,
+      Boolean caseInsensitiveMatch) {
     ProductVariantProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantProjection<>(this, getRoot());    
     getFields().put("adjacentVariants", projection);
     getInputArguments().computeIfAbsent("adjacentVariants", k -> new ArrayList<>());                      
-    InputArgument caseInsensitiveMatchArg = new InputArgument("caseInsensitiveMatch", caseInsensitiveMatch);
-    getInputArguments().get("adjacentVariants").add(caseInsensitiveMatchArg);
-    InputArgument ignoreUnknownOptionsArg = new InputArgument("ignoreUnknownOptions", ignoreUnknownOptions);
-    getInputArguments().get("adjacentVariants").add(ignoreUnknownOptionsArg);
     InputArgument selectedOptionsArg = new InputArgument("selectedOptions", selectedOptions);
     getInputArguments().get("adjacentVariants").add(selectedOptionsArg);
+    InputArgument ignoreUnknownOptionsArg = new InputArgument("ignoreUnknownOptions", ignoreUnknownOptions);
+    getInputArguments().get("adjacentVariants").add(ignoreUnknownOptionsArg);
+    InputArgument caseInsensitiveMatchArg = new InputArgument("caseInsensitiveMatch", caseInsensitiveMatch);
+    getInputArguments().get("adjacentVariants").add(caseInsensitiveMatchArg);
     return projection;
   }
 
@@ -63,18 +63,18 @@ public class ProductFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?
   }
 
   public CollectionConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> collections(
-      String after, String before, Integer first, Integer last, Boolean reverse) {
+      Integer first, String after, Integer last, String before, Boolean reverse) {
     CollectionConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new CollectionConnectionProjection<>(this, getRoot());    
     getFields().put("collections", projection);
     getInputArguments().computeIfAbsent("collections", k -> new ArrayList<>());                      
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("collections").add(afterArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("collections").add(beforeArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("collections").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("collections").add(afterArg);
     InputArgument lastArg = new InputArgument("last", last);
     getInputArguments().get("collections").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("collections").add(beforeArg);
     InputArgument reverseArg = new InputArgument("reverse", reverse);
     getInputArguments().get("collections").add(reverseArg);
     return projection;
@@ -100,19 +100,19 @@ public class ProductFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?
   }
 
   public ImageConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> images(
-      String after, String before, Integer first, Integer last, Boolean reverse,
+      Integer first, String after, Integer last, String before, Boolean reverse,
       ProductImageSortKeys sortKey) {
     ImageConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new ImageConnectionProjection<>(this, getRoot());    
     getFields().put("images", projection);
     getInputArguments().computeIfAbsent("images", k -> new ArrayList<>());                      
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("images").add(afterArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("images").add(beforeArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("images").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("images").add(afterArg);
     InputArgument lastArg = new InputArgument("last", last);
     getInputArguments().get("images").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("images").add(beforeArg);
     InputArgument reverseArg = new InputArgument("reverse", reverse);
     getInputArguments().get("images").add(reverseArg);
     InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
@@ -127,19 +127,19 @@ public class ProductFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?
   }
 
   public MediaConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> media(
-      String after, String before, Integer first, Integer last, Boolean reverse,
+      Integer first, String after, Integer last, String before, Boolean reverse,
       ProductMediaSortKeys sortKey) {
     MediaConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new MediaConnectionProjection<>(this, getRoot());    
     getFields().put("media", projection);
     getInputArguments().computeIfAbsent("media", k -> new ArrayList<>());                      
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("media").add(afterArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("media").add(beforeArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("media").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("media").add(afterArg);
     InputArgument lastArg = new InputArgument("last", last);
     getInputArguments().get("media").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("media").add(beforeArg);
     InputArgument reverseArg = new InputArgument("reverse", reverse);
     getInputArguments().get("media").add(reverseArg);
     InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
@@ -153,15 +153,15 @@ public class ProductFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?
      return projection;
   }
 
-  public MetafieldProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> metafield(String key,
-      String namespace) {
+  public MetafieldProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> metafield(
+      String namespace, String key) {
     MetafieldProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
     getFields().put("metafield", projection);
     getInputArguments().computeIfAbsent("metafield", k -> new ArrayList<>());                      
-    InputArgument keyArg = new InputArgument("key", key);
-    getInputArguments().get("metafield").add(keyArg);
     InputArgument namespaceArg = new InputArgument("namespace", namespace);
     getInputArguments().get("metafield").add(namespaceArg);
+    InputArgument keyArg = new InputArgument("key", key);
+    getInputArguments().get("metafield").add(keyArg);
     return projection;
   }
 
@@ -211,17 +211,17 @@ public class ProductFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?
   }
 
   public ProductVariantProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> selectedOrFirstAvailableVariant(
-      Boolean caseInsensitiveMatch, Boolean ignoreUnknownOptions,
-      List<SelectedOptionInput> selectedOptions) {
+      List<SelectedOptionInput> selectedOptions, Boolean ignoreUnknownOptions,
+      Boolean caseInsensitiveMatch) {
     ProductVariantProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantProjection<>(this, getRoot());    
     getFields().put("selectedOrFirstAvailableVariant", projection);
     getInputArguments().computeIfAbsent("selectedOrFirstAvailableVariant", k -> new ArrayList<>());                      
-    InputArgument caseInsensitiveMatchArg = new InputArgument("caseInsensitiveMatch", caseInsensitiveMatch);
-    getInputArguments().get("selectedOrFirstAvailableVariant").add(caseInsensitiveMatchArg);
-    InputArgument ignoreUnknownOptionsArg = new InputArgument("ignoreUnknownOptions", ignoreUnknownOptions);
-    getInputArguments().get("selectedOrFirstAvailableVariant").add(ignoreUnknownOptionsArg);
     InputArgument selectedOptionsArg = new InputArgument("selectedOptions", selectedOptions);
     getInputArguments().get("selectedOrFirstAvailableVariant").add(selectedOptionsArg);
+    InputArgument ignoreUnknownOptionsArg = new InputArgument("ignoreUnknownOptions", ignoreUnknownOptions);
+    getInputArguments().get("selectedOrFirstAvailableVariant").add(ignoreUnknownOptionsArg);
+    InputArgument caseInsensitiveMatchArg = new InputArgument("caseInsensitiveMatch", caseInsensitiveMatch);
+    getInputArguments().get("selectedOrFirstAvailableVariant").add(caseInsensitiveMatchArg);
     return projection;
   }
 
@@ -233,18 +233,18 @@ public class ProductFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?
   }
 
   public SellingPlanGroupConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> sellingPlanGroups(
-      String after, String before, Integer first, Integer last, Boolean reverse) {
+      Integer first, String after, Integer last, String before, Boolean reverse) {
     SellingPlanGroupConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new SellingPlanGroupConnectionProjection<>(this, getRoot());    
     getFields().put("sellingPlanGroups", projection);
     getInputArguments().computeIfAbsent("sellingPlanGroups", k -> new ArrayList<>());                      
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("sellingPlanGroups").add(afterArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("sellingPlanGroups").add(beforeArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("sellingPlanGroups").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("sellingPlanGroups").add(afterArg);
     InputArgument lastArg = new InputArgument("last", last);
     getInputArguments().get("sellingPlanGroups").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("sellingPlanGroups").add(beforeArg);
     InputArgument reverseArg = new InputArgument("reverse", reverse);
     getInputArguments().get("sellingPlanGroups").add(reverseArg);
     return projection;
@@ -264,17 +264,17 @@ public class ProductFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?
   }
 
   public ProductVariantProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> variantBySelectedOptions(
-      Boolean caseInsensitiveMatch, Boolean ignoreUnknownOptions,
-      List<SelectedOptionInput> selectedOptions) {
+      List<SelectedOptionInput> selectedOptions, Boolean ignoreUnknownOptions,
+      Boolean caseInsensitiveMatch) {
     ProductVariantProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantProjection<>(this, getRoot());    
     getFields().put("variantBySelectedOptions", projection);
     getInputArguments().computeIfAbsent("variantBySelectedOptions", k -> new ArrayList<>());                      
-    InputArgument caseInsensitiveMatchArg = new InputArgument("caseInsensitiveMatch", caseInsensitiveMatch);
-    getInputArguments().get("variantBySelectedOptions").add(caseInsensitiveMatchArg);
-    InputArgument ignoreUnknownOptionsArg = new InputArgument("ignoreUnknownOptions", ignoreUnknownOptions);
-    getInputArguments().get("variantBySelectedOptions").add(ignoreUnknownOptionsArg);
     InputArgument selectedOptionsArg = new InputArgument("selectedOptions", selectedOptions);
     getInputArguments().get("variantBySelectedOptions").add(selectedOptionsArg);
+    InputArgument ignoreUnknownOptionsArg = new InputArgument("ignoreUnknownOptions", ignoreUnknownOptions);
+    getInputArguments().get("variantBySelectedOptions").add(ignoreUnknownOptionsArg);
+    InputArgument caseInsensitiveMatchArg = new InputArgument("caseInsensitiveMatch", caseInsensitiveMatch);
+    getInputArguments().get("variantBySelectedOptions").add(caseInsensitiveMatchArg);
     return projection;
   }
 
@@ -286,19 +286,19 @@ public class ProductFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?
   }
 
   public ProductVariantConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> variants(
-      String after, String before, Integer first, Integer last, Boolean reverse,
+      Integer first, String after, Integer last, String before, Boolean reverse,
       ProductVariantSortKeys sortKey) {
     ProductVariantConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantConnectionProjection<>(this, getRoot());    
     getFields().put("variants", projection);
     getInputArguments().computeIfAbsent("variants", k -> new ArrayList<>());                      
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("variants").add(afterArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("variants").add(beforeArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("variants").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("variants").add(afterArg);
     InputArgument lastArg = new InputArgument("last", last);
     getInputArguments().get("variants").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("variants").add(beforeArg);
     InputArgument reverseArg = new InputArgument("reverse", reverse);
     getInputArguments().get("variants").add(reverseArg);
     InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);

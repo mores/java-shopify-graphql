@@ -10,24 +10,9 @@ import java.util.Objects;
  */
 public class ShopPayPaymentRequestDeliveryMethodInput {
   /**
-   * The amount for the delivery method.
-   */
-  private MoneyInput amount;
-
-  /**
    * The code of the delivery method.
    */
   private String code;
-
-  /**
-   * The detail about when the delivery may be expected.
-   */
-  private String deliveryExpectationLabel;
-
-  /**
-   * The detail of the delivery method.
-   */
-  private String detail;
 
   /**
    * The label of the delivery method.
@@ -35,27 +20,31 @@ public class ShopPayPaymentRequestDeliveryMethodInput {
   private String label;
 
   /**
-   * The maximum delivery date for the delivery method.
+   * The detail of the delivery method.
    */
-  private String maxDeliveryDate;
+  private String detail;
+
+  /**
+   * The amount for the delivery method.
+   */
+  private MoneyInput amount;
 
   /**
    * The minimum delivery date for the delivery method.
    */
   private String minDeliveryDate;
 
-  public ShopPayPaymentRequestDeliveryMethodInput() {
-  }
+  /**
+   * The maximum delivery date for the delivery method.
+   */
+  private String maxDeliveryDate;
 
   /**
-   * The amount for the delivery method.
+   * The detail about when the delivery may be expected.
    */
-  public MoneyInput getAmount() {
-    return amount;
-  }
+  private String deliveryExpectationLabel;
 
-  public void setAmount(MoneyInput amount) {
-    this.amount = amount;
+  public ShopPayPaymentRequestDeliveryMethodInput() {
   }
 
   /**
@@ -70,14 +59,14 @@ public class ShopPayPaymentRequestDeliveryMethodInput {
   }
 
   /**
-   * The detail about when the delivery may be expected.
+   * The label of the delivery method.
    */
-  public String getDeliveryExpectationLabel() {
-    return deliveryExpectationLabel;
+  public String getLabel() {
+    return label;
   }
 
-  public void setDeliveryExpectationLabel(String deliveryExpectationLabel) {
-    this.deliveryExpectationLabel = deliveryExpectationLabel;
+  public void setLabel(String label) {
+    this.label = label;
   }
 
   /**
@@ -92,14 +81,25 @@ public class ShopPayPaymentRequestDeliveryMethodInput {
   }
 
   /**
-   * The label of the delivery method.
+   * The amount for the delivery method.
    */
-  public String getLabel() {
-    return label;
+  public MoneyInput getAmount() {
+    return amount;
   }
 
-  public void setLabel(String label) {
-    this.label = label;
+  public void setAmount(MoneyInput amount) {
+    this.amount = amount;
+  }
+
+  /**
+   * The minimum delivery date for the delivery method.
+   */
+  public String getMinDeliveryDate() {
+    return minDeliveryDate;
+  }
+
+  public void setMinDeliveryDate(String minDeliveryDate) {
+    this.minDeliveryDate = minDeliveryDate;
   }
 
   /**
@@ -114,19 +114,19 @@ public class ShopPayPaymentRequestDeliveryMethodInput {
   }
 
   /**
-   * The minimum delivery date for the delivery method.
+   * The detail about when the delivery may be expected.
    */
-  public String getMinDeliveryDate() {
-    return minDeliveryDate;
+  public String getDeliveryExpectationLabel() {
+    return deliveryExpectationLabel;
   }
 
-  public void setMinDeliveryDate(String minDeliveryDate) {
-    this.minDeliveryDate = minDeliveryDate;
+  public void setDeliveryExpectationLabel(String deliveryExpectationLabel) {
+    this.deliveryExpectationLabel = deliveryExpectationLabel;
   }
 
   @Override
   public String toString() {
-    return "ShopPayPaymentRequestDeliveryMethodInput{amount='" + amount + "', code='" + code + "', deliveryExpectationLabel='" + deliveryExpectationLabel + "', detail='" + detail + "', label='" + label + "', maxDeliveryDate='" + maxDeliveryDate + "', minDeliveryDate='" + minDeliveryDate + "'}";
+    return "ShopPayPaymentRequestDeliveryMethodInput{code='" + code + "', label='" + label + "', detail='" + detail + "', amount='" + amount + "', minDeliveryDate='" + minDeliveryDate + "', maxDeliveryDate='" + maxDeliveryDate + "', deliveryExpectationLabel='" + deliveryExpectationLabel + "'}";
   }
 
   @Override
@@ -134,18 +134,18 @@ public class ShopPayPaymentRequestDeliveryMethodInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     ShopPayPaymentRequestDeliveryMethodInput that = (ShopPayPaymentRequestDeliveryMethodInput) o;
-    return Objects.equals(amount, that.amount) &&
-        Objects.equals(code, that.code) &&
-        Objects.equals(deliveryExpectationLabel, that.deliveryExpectationLabel) &&
-        Objects.equals(detail, that.detail) &&
+    return Objects.equals(code, that.code) &&
         Objects.equals(label, that.label) &&
+        Objects.equals(detail, that.detail) &&
+        Objects.equals(amount, that.amount) &&
+        Objects.equals(minDeliveryDate, that.minDeliveryDate) &&
         Objects.equals(maxDeliveryDate, that.maxDeliveryDate) &&
-        Objects.equals(minDeliveryDate, that.minDeliveryDate);
+        Objects.equals(deliveryExpectationLabel, that.deliveryExpectationLabel);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, code, deliveryExpectationLabel, detail, label, maxDeliveryDate, minDeliveryDate);
+    return Objects.hash(code, label, detail, amount, minDeliveryDate, maxDeliveryDate, deliveryExpectationLabel);
   }
 
   public static Builder newBuilder() {
@@ -154,24 +154,9 @@ public class ShopPayPaymentRequestDeliveryMethodInput {
 
   public static class Builder {
     /**
-     * The amount for the delivery method.
-     */
-    private MoneyInput amount;
-
-    /**
      * The code of the delivery method.
      */
     private String code;
-
-    /**
-     * The detail about when the delivery may be expected.
-     */
-    private String deliveryExpectationLabel;
-
-    /**
-     * The detail of the delivery method.
-     */
-    private String detail;
 
     /**
      * The label of the delivery method.
@@ -179,33 +164,40 @@ public class ShopPayPaymentRequestDeliveryMethodInput {
     private String label;
 
     /**
-     * The maximum delivery date for the delivery method.
+     * The detail of the delivery method.
      */
-    private String maxDeliveryDate;
+    private String detail;
+
+    /**
+     * The amount for the delivery method.
+     */
+    private MoneyInput amount;
 
     /**
      * The minimum delivery date for the delivery method.
      */
     private String minDeliveryDate;
 
-    public ShopPayPaymentRequestDeliveryMethodInput build() {
-      ShopPayPaymentRequestDeliveryMethodInput result = new ShopPayPaymentRequestDeliveryMethodInput();
-      result.amount = this.amount;
-      result.code = this.code;
-      result.deliveryExpectationLabel = this.deliveryExpectationLabel;
-      result.detail = this.detail;
-      result.label = this.label;
-      result.maxDeliveryDate = this.maxDeliveryDate;
-      result.minDeliveryDate = this.minDeliveryDate;
-      return result;
-    }
+    /**
+     * The maximum delivery date for the delivery method.
+     */
+    private String maxDeliveryDate;
 
     /**
-     * The amount for the delivery method.
+     * The detail about when the delivery may be expected.
      */
-    public Builder amount(MoneyInput amount) {
-      this.amount = amount;
-      return this;
+    private String deliveryExpectationLabel;
+
+    public ShopPayPaymentRequestDeliveryMethodInput build() {
+      ShopPayPaymentRequestDeliveryMethodInput result = new ShopPayPaymentRequestDeliveryMethodInput();
+      result.code = this.code;
+      result.label = this.label;
+      result.detail = this.detail;
+      result.amount = this.amount;
+      result.minDeliveryDate = this.minDeliveryDate;
+      result.maxDeliveryDate = this.maxDeliveryDate;
+      result.deliveryExpectationLabel = this.deliveryExpectationLabel;
+      return result;
     }
 
     /**
@@ -213,22 +205,6 @@ public class ShopPayPaymentRequestDeliveryMethodInput {
      */
     public Builder code(String code) {
       this.code = code;
-      return this;
-    }
-
-    /**
-     * The detail about when the delivery may be expected.
-     */
-    public Builder deliveryExpectationLabel(String deliveryExpectationLabel) {
-      this.deliveryExpectationLabel = deliveryExpectationLabel;
-      return this;
-    }
-
-    /**
-     * The detail of the delivery method.
-     */
-    public Builder detail(String detail) {
-      this.detail = detail;
       return this;
     }
 
@@ -241,10 +217,18 @@ public class ShopPayPaymentRequestDeliveryMethodInput {
     }
 
     /**
-     * The maximum delivery date for the delivery method.
+     * The detail of the delivery method.
      */
-    public Builder maxDeliveryDate(String maxDeliveryDate) {
-      this.maxDeliveryDate = maxDeliveryDate;
+    public Builder detail(String detail) {
+      this.detail = detail;
+      return this;
+    }
+
+    /**
+     * The amount for the delivery method.
+     */
+    public Builder amount(MoneyInput amount) {
+      this.amount = amount;
       return this;
     }
 
@@ -253,6 +237,22 @@ public class ShopPayPaymentRequestDeliveryMethodInput {
      */
     public Builder minDeliveryDate(String minDeliveryDate) {
       this.minDeliveryDate = minDeliveryDate;
+      return this;
+    }
+
+    /**
+     * The maximum delivery date for the delivery method.
+     */
+    public Builder maxDeliveryDate(String maxDeliveryDate) {
+      this.maxDeliveryDate = maxDeliveryDate;
+      return this;
+    }
+
+    /**
+     * The detail about when the delivery may be expected.
+     */
+    public Builder deliveryExpectationLabel(String deliveryExpectationLabel) {
+      this.deliveryExpectationLabel = deliveryExpectationLabel;
       return this;
     }
   }

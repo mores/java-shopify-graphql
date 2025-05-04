@@ -12,14 +12,24 @@ import java.util.Objects;
  */
 public class ShopPayPaymentRequestLineItemInput {
   /**
-   * The final item price for the line item.
+   * The label of the line item.
    */
-  private MoneyInput finalItemPrice;
+  private String label;
 
   /**
-   * The final line price for the line item.
+   * The quantity of the line item.
    */
-  private MoneyInput finalLinePrice;
+  private int quantity;
+
+  /**
+   * The SKU of the line item.
+   */
+  private String sku;
+
+  /**
+   * Whether the line item requires shipping.
+   */
+  private Boolean requiresShipping;
 
   /**
    * The image of the line item.
@@ -27,16 +37,14 @@ public class ShopPayPaymentRequestLineItemInput {
   private ShopPayPaymentRequestImageInput image;
 
   /**
-   * The item discounts for the line item.
-   *   
-   * The input must not contain more than `250` values.
+   * The original line price for the line item.
    */
-  private List<ShopPayPaymentRequestDiscountInput> itemDiscounts;
+  private MoneyInput originalLinePrice;
 
   /**
-   * The label of the line item.
+   * The final line price for the line item.
    */
-  private String label;
+  private MoneyInput finalLinePrice;
 
   /**
    * The line discounts for the line item.
@@ -51,48 +59,62 @@ public class ShopPayPaymentRequestLineItemInput {
   private MoneyInput originalItemPrice;
 
   /**
-   * The original line price for the line item.
+   * The final item price for the line item.
    */
-  private MoneyInput originalLinePrice;
+  private MoneyInput finalItemPrice;
 
   /**
-   * The quantity of the line item.
+   * The item discounts for the line item.
+   *   
+   * The input must not contain more than `250` values.
    */
-  private int quantity;
-
-  /**
-   * Whether the line item requires shipping.
-   */
-  private Boolean requiresShipping;
-
-  /**
-   * The SKU of the line item.
-   */
-  private String sku;
+  private List<ShopPayPaymentRequestDiscountInput> itemDiscounts;
 
   public ShopPayPaymentRequestLineItemInput() {
   }
 
   /**
-   * The final item price for the line item.
+   * The label of the line item.
    */
-  public MoneyInput getFinalItemPrice() {
-    return finalItemPrice;
+  public String getLabel() {
+    return label;
   }
 
-  public void setFinalItemPrice(MoneyInput finalItemPrice) {
-    this.finalItemPrice = finalItemPrice;
+  public void setLabel(String label) {
+    this.label = label;
   }
 
   /**
-   * The final line price for the line item.
+   * The quantity of the line item.
    */
-  public MoneyInput getFinalLinePrice() {
-    return finalLinePrice;
+  public int getQuantity() {
+    return quantity;
   }
 
-  public void setFinalLinePrice(MoneyInput finalLinePrice) {
-    this.finalLinePrice = finalLinePrice;
+  public void setQuantity(int quantity) {
+    this.quantity = quantity;
+  }
+
+  /**
+   * The SKU of the line item.
+   */
+  public String getSku() {
+    return sku;
+  }
+
+  public void setSku(String sku) {
+    this.sku = sku;
+  }
+
+  /**
+   * Whether the line item requires shipping.
+   */
+  public Boolean getRequiresShipping() {
+    return requiresShipping;
+  }
+
+  public void setRequiresShipping(Boolean requiresShipping) {
+    this.requiresShipping = requiresShipping;
   }
 
   /**
@@ -107,27 +129,25 @@ public class ShopPayPaymentRequestLineItemInput {
   }
 
   /**
-   * The item discounts for the line item.
-   *   
-   * The input must not contain more than `250` values.
+   * The original line price for the line item.
    */
-  public List<ShopPayPaymentRequestDiscountInput> getItemDiscounts() {
-    return itemDiscounts;
+  public MoneyInput getOriginalLinePrice() {
+    return originalLinePrice;
   }
 
-  public void setItemDiscounts(List<ShopPayPaymentRequestDiscountInput> itemDiscounts) {
-    this.itemDiscounts = itemDiscounts;
+  public void setOriginalLinePrice(MoneyInput originalLinePrice) {
+    this.originalLinePrice = originalLinePrice;
   }
 
   /**
-   * The label of the line item.
+   * The final line price for the line item.
    */
-  public String getLabel() {
-    return label;
+  public MoneyInput getFinalLinePrice() {
+    return finalLinePrice;
   }
 
-  public void setLabel(String label) {
-    this.label = label;
+  public void setFinalLinePrice(MoneyInput finalLinePrice) {
+    this.finalLinePrice = finalLinePrice;
   }
 
   /**
@@ -155,52 +175,32 @@ public class ShopPayPaymentRequestLineItemInput {
   }
 
   /**
-   * The original line price for the line item.
+   * The final item price for the line item.
    */
-  public MoneyInput getOriginalLinePrice() {
-    return originalLinePrice;
+  public MoneyInput getFinalItemPrice() {
+    return finalItemPrice;
   }
 
-  public void setOriginalLinePrice(MoneyInput originalLinePrice) {
-    this.originalLinePrice = originalLinePrice;
+  public void setFinalItemPrice(MoneyInput finalItemPrice) {
+    this.finalItemPrice = finalItemPrice;
   }
 
   /**
-   * The quantity of the line item.
+   * The item discounts for the line item.
+   *   
+   * The input must not contain more than `250` values.
    */
-  public int getQuantity() {
-    return quantity;
+  public List<ShopPayPaymentRequestDiscountInput> getItemDiscounts() {
+    return itemDiscounts;
   }
 
-  public void setQuantity(int quantity) {
-    this.quantity = quantity;
-  }
-
-  /**
-   * Whether the line item requires shipping.
-   */
-  public Boolean getRequiresShipping() {
-    return requiresShipping;
-  }
-
-  public void setRequiresShipping(Boolean requiresShipping) {
-    this.requiresShipping = requiresShipping;
-  }
-
-  /**
-   * The SKU of the line item.
-   */
-  public String getSku() {
-    return sku;
-  }
-
-  public void setSku(String sku) {
-    this.sku = sku;
+  public void setItemDiscounts(List<ShopPayPaymentRequestDiscountInput> itemDiscounts) {
+    this.itemDiscounts = itemDiscounts;
   }
 
   @Override
   public String toString() {
-    return "ShopPayPaymentRequestLineItemInput{finalItemPrice='" + finalItemPrice + "', finalLinePrice='" + finalLinePrice + "', image='" + image + "', itemDiscounts='" + itemDiscounts + "', label='" + label + "', lineDiscounts='" + lineDiscounts + "', originalItemPrice='" + originalItemPrice + "', originalLinePrice='" + originalLinePrice + "', quantity='" + quantity + "', requiresShipping='" + requiresShipping + "', sku='" + sku + "'}";
+    return "ShopPayPaymentRequestLineItemInput{label='" + label + "', quantity='" + quantity + "', sku='" + sku + "', requiresShipping='" + requiresShipping + "', image='" + image + "', originalLinePrice='" + originalLinePrice + "', finalLinePrice='" + finalLinePrice + "', lineDiscounts='" + lineDiscounts + "', originalItemPrice='" + originalItemPrice + "', finalItemPrice='" + finalItemPrice + "', itemDiscounts='" + itemDiscounts + "'}";
   }
 
   @Override
@@ -208,22 +208,22 @@ public class ShopPayPaymentRequestLineItemInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     ShopPayPaymentRequestLineItemInput that = (ShopPayPaymentRequestLineItemInput) o;
-    return Objects.equals(finalItemPrice, that.finalItemPrice) &&
-        Objects.equals(finalLinePrice, that.finalLinePrice) &&
+    return Objects.equals(label, that.label) &&
+        quantity == that.quantity &&
+        Objects.equals(sku, that.sku) &&
+        Objects.equals(requiresShipping, that.requiresShipping) &&
         Objects.equals(image, that.image) &&
-        Objects.equals(itemDiscounts, that.itemDiscounts) &&
-        Objects.equals(label, that.label) &&
+        Objects.equals(originalLinePrice, that.originalLinePrice) &&
+        Objects.equals(finalLinePrice, that.finalLinePrice) &&
         Objects.equals(lineDiscounts, that.lineDiscounts) &&
         Objects.equals(originalItemPrice, that.originalItemPrice) &&
-        Objects.equals(originalLinePrice, that.originalLinePrice) &&
-        quantity == that.quantity &&
-        Objects.equals(requiresShipping, that.requiresShipping) &&
-        Objects.equals(sku, that.sku);
+        Objects.equals(finalItemPrice, that.finalItemPrice) &&
+        Objects.equals(itemDiscounts, that.itemDiscounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(finalItemPrice, finalLinePrice, image, itemDiscounts, label, lineDiscounts, originalItemPrice, originalLinePrice, quantity, requiresShipping, sku);
+    return Objects.hash(label, quantity, sku, requiresShipping, image, originalLinePrice, finalLinePrice, lineDiscounts, originalItemPrice, finalItemPrice, itemDiscounts);
   }
 
   public static Builder newBuilder() {
@@ -232,14 +232,24 @@ public class ShopPayPaymentRequestLineItemInput {
 
   public static class Builder {
     /**
-     * The final item price for the line item.
+     * The label of the line item.
      */
-    private MoneyInput finalItemPrice;
+    private String label;
 
     /**
-     * The final line price for the line item.
+     * The quantity of the line item.
      */
-    private MoneyInput finalLinePrice;
+    private int quantity;
+
+    /**
+     * The SKU of the line item.
+     */
+    private String sku;
+
+    /**
+     * Whether the line item requires shipping.
+     */
+    private Boolean requiresShipping;
 
     /**
      * The image of the line item.
@@ -247,16 +257,14 @@ public class ShopPayPaymentRequestLineItemInput {
     private ShopPayPaymentRequestImageInput image;
 
     /**
-     * The item discounts for the line item.
-     *   
-     * The input must not contain more than `250` values.
+     * The original line price for the line item.
      */
-    private List<ShopPayPaymentRequestDiscountInput> itemDiscounts;
+    private MoneyInput originalLinePrice;
 
     /**
-     * The label of the line item.
+     * The final line price for the line item.
      */
-    private String label;
+    private MoneyInput finalLinePrice;
 
     /**
      * The line discounts for the line item.
@@ -271,54 +279,62 @@ public class ShopPayPaymentRequestLineItemInput {
     private MoneyInput originalItemPrice;
 
     /**
-     * The original line price for the line item.
+     * The final item price for the line item.
      */
-    private MoneyInput originalLinePrice;
+    private MoneyInput finalItemPrice;
 
     /**
-     * The quantity of the line item.
+     * The item discounts for the line item.
+     *   
+     * The input must not contain more than `250` values.
      */
-    private int quantity;
-
-    /**
-     * Whether the line item requires shipping.
-     */
-    private Boolean requiresShipping;
-
-    /**
-     * The SKU of the line item.
-     */
-    private String sku;
+    private List<ShopPayPaymentRequestDiscountInput> itemDiscounts;
 
     public ShopPayPaymentRequestLineItemInput build() {
       ShopPayPaymentRequestLineItemInput result = new ShopPayPaymentRequestLineItemInput();
-      result.finalItemPrice = this.finalItemPrice;
-      result.finalLinePrice = this.finalLinePrice;
-      result.image = this.image;
-      result.itemDiscounts = this.itemDiscounts;
       result.label = this.label;
+      result.quantity = this.quantity;
+      result.sku = this.sku;
+      result.requiresShipping = this.requiresShipping;
+      result.image = this.image;
+      result.originalLinePrice = this.originalLinePrice;
+      result.finalLinePrice = this.finalLinePrice;
       result.lineDiscounts = this.lineDiscounts;
       result.originalItemPrice = this.originalItemPrice;
-      result.originalLinePrice = this.originalLinePrice;
-      result.quantity = this.quantity;
-      result.requiresShipping = this.requiresShipping;
-      result.sku = this.sku;
+      result.finalItemPrice = this.finalItemPrice;
+      result.itemDiscounts = this.itemDiscounts;
       return result;
     }
 
     /**
-     * The final item price for the line item.
+     * The label of the line item.
      */
-    public Builder finalItemPrice(MoneyInput finalItemPrice) {
-      this.finalItemPrice = finalItemPrice;
+    public Builder label(String label) {
+      this.label = label;
       return this;
     }
 
     /**
-     * The final line price for the line item.
+     * The quantity of the line item.
      */
-    public Builder finalLinePrice(MoneyInput finalLinePrice) {
-      this.finalLinePrice = finalLinePrice;
+    public Builder quantity(int quantity) {
+      this.quantity = quantity;
+      return this;
+    }
+
+    /**
+     * The SKU of the line item.
+     */
+    public Builder sku(String sku) {
+      this.sku = sku;
+      return this;
+    }
+
+    /**
+     * Whether the line item requires shipping.
+     */
+    public Builder requiresShipping(Boolean requiresShipping) {
+      this.requiresShipping = requiresShipping;
       return this;
     }
 
@@ -331,20 +347,18 @@ public class ShopPayPaymentRequestLineItemInput {
     }
 
     /**
-     * The item discounts for the line item.
-     *   
-     * The input must not contain more than `250` values.
+     * The original line price for the line item.
      */
-    public Builder itemDiscounts(List<ShopPayPaymentRequestDiscountInput> itemDiscounts) {
-      this.itemDiscounts = itemDiscounts;
+    public Builder originalLinePrice(MoneyInput originalLinePrice) {
+      this.originalLinePrice = originalLinePrice;
       return this;
     }
 
     /**
-     * The label of the line item.
+     * The final line price for the line item.
      */
-    public Builder label(String label) {
-      this.label = label;
+    public Builder finalLinePrice(MoneyInput finalLinePrice) {
+      this.finalLinePrice = finalLinePrice;
       return this;
     }
 
@@ -367,34 +381,20 @@ public class ShopPayPaymentRequestLineItemInput {
     }
 
     /**
-     * The original line price for the line item.
+     * The final item price for the line item.
      */
-    public Builder originalLinePrice(MoneyInput originalLinePrice) {
-      this.originalLinePrice = originalLinePrice;
+    public Builder finalItemPrice(MoneyInput finalItemPrice) {
+      this.finalItemPrice = finalItemPrice;
       return this;
     }
 
     /**
-     * The quantity of the line item.
+     * The item discounts for the line item.
+     *   
+     * The input must not contain more than `250` values.
      */
-    public Builder quantity(int quantity) {
-      this.quantity = quantity;
-      return this;
-    }
-
-    /**
-     * Whether the line item requires shipping.
-     */
-    public Builder requiresShipping(Boolean requiresShipping) {
-      this.requiresShipping = requiresShipping;
-      return this;
-    }
-
-    /**
-     * The SKU of the line item.
-     */
-    public Builder sku(String sku) {
-      this.sku = sku;
+    public Builder itemDiscounts(List<ShopPayPaymentRequestDiscountInput> itemDiscounts) {
+      this.itemDiscounts = itemDiscounts;
       return this;
     }
   }

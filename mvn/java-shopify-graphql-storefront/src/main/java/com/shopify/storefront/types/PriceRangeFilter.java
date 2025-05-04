@@ -11,27 +11,16 @@ import java.util.Objects;
  */
 public class PriceRangeFilter {
   /**
-   * The maximum price in the range. Empty indicates no max price.
-   */
-  private Double max;
-
-  /**
    * The minimum price in the range. Defaults to zero.
    */
   private Double min = 0d;
 
-  public PriceRangeFilter() {
-  }
-
   /**
    * The maximum price in the range. Empty indicates no max price.
    */
-  public Double getMax() {
-    return max;
-  }
+  private Double max;
 
-  public void setMax(Double max) {
-    this.max = max;
+  public PriceRangeFilter() {
   }
 
   /**
@@ -45,9 +34,20 @@ public class PriceRangeFilter {
     this.min = min;
   }
 
+  /**
+   * The maximum price in the range. Empty indicates no max price.
+   */
+  public Double getMax() {
+    return max;
+  }
+
+  public void setMax(Double max) {
+    this.max = max;
+  }
+
   @Override
   public String toString() {
-    return "PriceRangeFilter{max='" + max + "', min='" + min + "'}";
+    return "PriceRangeFilter{min='" + min + "', max='" + max + "'}";
   }
 
   @Override
@@ -55,13 +55,13 @@ public class PriceRangeFilter {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     PriceRangeFilter that = (PriceRangeFilter) o;
-    return Objects.equals(max, that.max) &&
-        Objects.equals(min, that.min);
+    return Objects.equals(min, that.min) &&
+        Objects.equals(max, that.max);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(max, min);
+    return Objects.hash(min, max);
   }
 
   public static Builder newBuilder() {
@@ -70,28 +70,20 @@ public class PriceRangeFilter {
 
   public static class Builder {
     /**
-     * The maximum price in the range. Empty indicates no max price.
-     */
-    private Double max;
-
-    /**
      * The minimum price in the range. Defaults to zero.
      */
     private Double min = 0d;
 
-    public PriceRangeFilter build() {
-      PriceRangeFilter result = new PriceRangeFilter();
-      result.max = this.max;
-      result.min = this.min;
-      return result;
-    }
-
     /**
      * The maximum price in the range. Empty indicates no max price.
      */
-    public Builder max(Double max) {
-      this.max = max;
-      return this;
+    private Double max;
+
+    public PriceRangeFilter build() {
+      PriceRangeFilter result = new PriceRangeFilter();
+      result.min = this.min;
+      result.max = this.max;
+      return result;
     }
 
     /**
@@ -99,6 +91,14 @@ public class PriceRangeFilter {
      */
     public Builder min(Double min) {
       this.min = min;
+      return this;
+    }
+
+    /**
+     * The maximum price in the range. Empty indicates no max price.
+     */
+    public Builder max(Double max) {
+      this.max = max;
       return this;
     }
   }

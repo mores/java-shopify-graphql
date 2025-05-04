@@ -15,9 +15,10 @@ public class CartPaymentInput {
   private MoneyInput amount;
 
   /**
-   * The input fields to use when checking out a cart with a direct payment method (like a credit card).
+   * An ID of the order placed on the originating platform.
+   * Note that this value doesn't correspond to the Shopify Order ID.
    */
-  private CartDirectPaymentMethodInput directPaymentMethod;
+  private String sourceIdentifier;
 
   /**
    * The input fields to use to checkout a cart without providing a payment method.
@@ -26,10 +27,9 @@ public class CartPaymentInput {
   private CartFreePaymentMethodInput freePaymentMethod;
 
   /**
-   * An ID of the order placed on the originating platform.
-   * Note that this value doesn't correspond to the Shopify Order ID.
+   * The input fields to use when checking out a cart with a direct payment method (like a credit card).
    */
-  private String sourceIdentifier;
+  private CartDirectPaymentMethodInput directPaymentMethod;
 
   /**
    * The input fields to use when checking out a cart with a wallet payment method (like Shop Pay or Apple Pay).
@@ -51,14 +51,15 @@ public class CartPaymentInput {
   }
 
   /**
-   * The input fields to use when checking out a cart with a direct payment method (like a credit card).
+   * An ID of the order placed on the originating platform.
+   * Note that this value doesn't correspond to the Shopify Order ID.
    */
-  public CartDirectPaymentMethodInput getDirectPaymentMethod() {
-    return directPaymentMethod;
+  public String getSourceIdentifier() {
+    return sourceIdentifier;
   }
 
-  public void setDirectPaymentMethod(CartDirectPaymentMethodInput directPaymentMethod) {
-    this.directPaymentMethod = directPaymentMethod;
+  public void setSourceIdentifier(String sourceIdentifier) {
+    this.sourceIdentifier = sourceIdentifier;
   }
 
   /**
@@ -74,15 +75,14 @@ public class CartPaymentInput {
   }
 
   /**
-   * An ID of the order placed on the originating platform.
-   * Note that this value doesn't correspond to the Shopify Order ID.
+   * The input fields to use when checking out a cart with a direct payment method (like a credit card).
    */
-  public String getSourceIdentifier() {
-    return sourceIdentifier;
+  public CartDirectPaymentMethodInput getDirectPaymentMethod() {
+    return directPaymentMethod;
   }
 
-  public void setSourceIdentifier(String sourceIdentifier) {
-    this.sourceIdentifier = sourceIdentifier;
+  public void setDirectPaymentMethod(CartDirectPaymentMethodInput directPaymentMethod) {
+    this.directPaymentMethod = directPaymentMethod;
   }
 
   /**
@@ -98,7 +98,7 @@ public class CartPaymentInput {
 
   @Override
   public String toString() {
-    return "CartPaymentInput{amount='" + amount + "', directPaymentMethod='" + directPaymentMethod + "', freePaymentMethod='" + freePaymentMethod + "', sourceIdentifier='" + sourceIdentifier + "', walletPaymentMethod='" + walletPaymentMethod + "'}";
+    return "CartPaymentInput{amount='" + amount + "', sourceIdentifier='" + sourceIdentifier + "', freePaymentMethod='" + freePaymentMethod + "', directPaymentMethod='" + directPaymentMethod + "', walletPaymentMethod='" + walletPaymentMethod + "'}";
   }
 
   @Override
@@ -107,15 +107,15 @@ public class CartPaymentInput {
     if (o == null || getClass() != o.getClass()) return false;
     CartPaymentInput that = (CartPaymentInput) o;
     return Objects.equals(amount, that.amount) &&
-        Objects.equals(directPaymentMethod, that.directPaymentMethod) &&
-        Objects.equals(freePaymentMethod, that.freePaymentMethod) &&
         Objects.equals(sourceIdentifier, that.sourceIdentifier) &&
+        Objects.equals(freePaymentMethod, that.freePaymentMethod) &&
+        Objects.equals(directPaymentMethod, that.directPaymentMethod) &&
         Objects.equals(walletPaymentMethod, that.walletPaymentMethod);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, directPaymentMethod, freePaymentMethod, sourceIdentifier, walletPaymentMethod);
+    return Objects.hash(amount, sourceIdentifier, freePaymentMethod, directPaymentMethod, walletPaymentMethod);
   }
 
   public static Builder newBuilder() {
@@ -129,9 +129,10 @@ public class CartPaymentInput {
     private MoneyInput amount;
 
     /**
-     * The input fields to use when checking out a cart with a direct payment method (like a credit card).
+     * An ID of the order placed on the originating platform.
+     * Note that this value doesn't correspond to the Shopify Order ID.
      */
-    private CartDirectPaymentMethodInput directPaymentMethod;
+    private String sourceIdentifier;
 
     /**
      * The input fields to use to checkout a cart without providing a payment method.
@@ -140,10 +141,9 @@ public class CartPaymentInput {
     private CartFreePaymentMethodInput freePaymentMethod;
 
     /**
-     * An ID of the order placed on the originating platform.
-     * Note that this value doesn't correspond to the Shopify Order ID.
+     * The input fields to use when checking out a cart with a direct payment method (like a credit card).
      */
-    private String sourceIdentifier;
+    private CartDirectPaymentMethodInput directPaymentMethod;
 
     /**
      * The input fields to use when checking out a cart with a wallet payment method (like Shop Pay or Apple Pay).
@@ -153,9 +153,9 @@ public class CartPaymentInput {
     public CartPaymentInput build() {
       CartPaymentInput result = new CartPaymentInput();
       result.amount = this.amount;
-      result.directPaymentMethod = this.directPaymentMethod;
-      result.freePaymentMethod = this.freePaymentMethod;
       result.sourceIdentifier = this.sourceIdentifier;
+      result.freePaymentMethod = this.freePaymentMethod;
+      result.directPaymentMethod = this.directPaymentMethod;
       result.walletPaymentMethod = this.walletPaymentMethod;
       return result;
     }
@@ -169,10 +169,11 @@ public class CartPaymentInput {
     }
 
     /**
-     * The input fields to use when checking out a cart with a direct payment method (like a credit card).
+     * An ID of the order placed on the originating platform.
+     * Note that this value doesn't correspond to the Shopify Order ID.
      */
-    public Builder directPaymentMethod(CartDirectPaymentMethodInput directPaymentMethod) {
-      this.directPaymentMethod = directPaymentMethod;
+    public Builder sourceIdentifier(String sourceIdentifier) {
+      this.sourceIdentifier = sourceIdentifier;
       return this;
     }
 
@@ -186,11 +187,10 @@ public class CartPaymentInput {
     }
 
     /**
-     * An ID of the order placed on the originating platform.
-     * Note that this value doesn't correspond to the Shopify Order ID.
+     * The input fields to use when checking out a cart with a direct payment method (like a credit card).
      */
-    public Builder sourceIdentifier(String sourceIdentifier) {
-      this.sourceIdentifier = sourceIdentifier;
+    public Builder directPaymentMethod(CartDirectPaymentMethodInput directPaymentMethod) {
+      this.directPaymentMethod = directPaymentMethod;
       return this;
     }
 

@@ -31,18 +31,18 @@ public class SellingPlanGroupProjection<PARENT extends BaseSubProjectionNode<?, 
   }
 
   public SellingPlanConnectionProjection<SellingPlanGroupProjection<PARENT, ROOT>, ROOT> sellingPlans(
-      String after, String before, Integer first, Integer last, Boolean reverse) {
+      Integer first, String after, Integer last, String before, Boolean reverse) {
     SellingPlanConnectionProjection<SellingPlanGroupProjection<PARENT, ROOT>, ROOT> projection = new SellingPlanConnectionProjection<>(this, getRoot());    
     getFields().put("sellingPlans", projection);
     getInputArguments().computeIfAbsent("sellingPlans", k -> new ArrayList<>());                      
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("sellingPlans").add(afterArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("sellingPlans").add(beforeArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("sellingPlans").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("sellingPlans").add(afterArg);
     InputArgument lastArg = new InputArgument("last", last);
     getInputArguments().get("sellingPlans").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("sellingPlans").add(beforeArg);
     InputArgument reverseArg = new InputArgument("reverse", reverse);
     getInputArguments().get("sellingPlans").add(reverseArg);
     return projection;

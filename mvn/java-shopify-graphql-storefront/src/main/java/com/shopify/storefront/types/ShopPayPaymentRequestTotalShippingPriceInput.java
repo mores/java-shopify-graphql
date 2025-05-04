@@ -18,14 +18,14 @@ public class ShopPayPaymentRequestTotalShippingPriceInput {
   private List<ShopPayPaymentRequestDiscountInput> discounts;
 
   /**
-   * The final total for the shipping total.
-   */
-  private MoneyInput finalTotal;
-
-  /**
    * The original total for the shipping total.
    */
   private MoneyInput originalTotal;
+
+  /**
+   * The final total for the shipping total.
+   */
+  private MoneyInput finalTotal;
 
   public ShopPayPaymentRequestTotalShippingPriceInput() {
   }
@@ -44,17 +44,6 @@ public class ShopPayPaymentRequestTotalShippingPriceInput {
   }
 
   /**
-   * The final total for the shipping total.
-   */
-  public MoneyInput getFinalTotal() {
-    return finalTotal;
-  }
-
-  public void setFinalTotal(MoneyInput finalTotal) {
-    this.finalTotal = finalTotal;
-  }
-
-  /**
    * The original total for the shipping total.
    */
   public MoneyInput getOriginalTotal() {
@@ -65,9 +54,20 @@ public class ShopPayPaymentRequestTotalShippingPriceInput {
     this.originalTotal = originalTotal;
   }
 
+  /**
+   * The final total for the shipping total.
+   */
+  public MoneyInput getFinalTotal() {
+    return finalTotal;
+  }
+
+  public void setFinalTotal(MoneyInput finalTotal) {
+    this.finalTotal = finalTotal;
+  }
+
   @Override
   public String toString() {
-    return "ShopPayPaymentRequestTotalShippingPriceInput{discounts='" + discounts + "', finalTotal='" + finalTotal + "', originalTotal='" + originalTotal + "'}";
+    return "ShopPayPaymentRequestTotalShippingPriceInput{discounts='" + discounts + "', originalTotal='" + originalTotal + "', finalTotal='" + finalTotal + "'}";
   }
 
   @Override
@@ -76,13 +76,13 @@ public class ShopPayPaymentRequestTotalShippingPriceInput {
     if (o == null || getClass() != o.getClass()) return false;
     ShopPayPaymentRequestTotalShippingPriceInput that = (ShopPayPaymentRequestTotalShippingPriceInput) o;
     return Objects.equals(discounts, that.discounts) &&
-        Objects.equals(finalTotal, that.finalTotal) &&
-        Objects.equals(originalTotal, that.originalTotal);
+        Objects.equals(originalTotal, that.originalTotal) &&
+        Objects.equals(finalTotal, that.finalTotal);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(discounts, finalTotal, originalTotal);
+    return Objects.hash(discounts, originalTotal, finalTotal);
   }
 
   public static Builder newBuilder() {
@@ -98,20 +98,20 @@ public class ShopPayPaymentRequestTotalShippingPriceInput {
     private List<ShopPayPaymentRequestDiscountInput> discounts;
 
     /**
-     * The final total for the shipping total.
-     */
-    private MoneyInput finalTotal;
-
-    /**
      * The original total for the shipping total.
      */
     private MoneyInput originalTotal;
 
+    /**
+     * The final total for the shipping total.
+     */
+    private MoneyInput finalTotal;
+
     public ShopPayPaymentRequestTotalShippingPriceInput build() {
       ShopPayPaymentRequestTotalShippingPriceInput result = new ShopPayPaymentRequestTotalShippingPriceInput();
       result.discounts = this.discounts;
-      result.finalTotal = this.finalTotal;
       result.originalTotal = this.originalTotal;
+      result.finalTotal = this.finalTotal;
       return result;
     }
 
@@ -126,18 +126,18 @@ public class ShopPayPaymentRequestTotalShippingPriceInput {
     }
 
     /**
-     * The final total for the shipping total.
-     */
-    public Builder finalTotal(MoneyInput finalTotal) {
-      this.finalTotal = finalTotal;
-      return this;
-    }
-
-    /**
      * The original total for the shipping total.
      */
     public Builder originalTotal(MoneyInput originalTotal) {
       this.originalTotal = originalTotal;
+      return this;
+    }
+
+    /**
+     * The final total for the shipping total.
+     */
+    public Builder finalTotal(MoneyInput finalTotal) {
+      this.finalTotal = finalTotal;
       return this;
     }
   }

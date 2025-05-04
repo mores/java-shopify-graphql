@@ -10,27 +10,16 @@ import java.util.Objects;
  */
 public class CartAddressInput {
   /**
-   * Copies details from the customer address to an address on this cart.
-   */
-  private String copyFromCustomerAddressId;
-
-  /**
    * A delivery address stored on this cart.
    */
   private CartDeliveryAddressInput deliveryAddress;
 
-  public CartAddressInput() {
-  }
-
   /**
    * Copies details from the customer address to an address on this cart.
    */
-  public String getCopyFromCustomerAddressId() {
-    return copyFromCustomerAddressId;
-  }
+  private String copyFromCustomerAddressId;
 
-  public void setCopyFromCustomerAddressId(String copyFromCustomerAddressId) {
-    this.copyFromCustomerAddressId = copyFromCustomerAddressId;
+  public CartAddressInput() {
   }
 
   /**
@@ -44,9 +33,20 @@ public class CartAddressInput {
     this.deliveryAddress = deliveryAddress;
   }
 
+  /**
+   * Copies details from the customer address to an address on this cart.
+   */
+  public String getCopyFromCustomerAddressId() {
+    return copyFromCustomerAddressId;
+  }
+
+  public void setCopyFromCustomerAddressId(String copyFromCustomerAddressId) {
+    this.copyFromCustomerAddressId = copyFromCustomerAddressId;
+  }
+
   @Override
   public String toString() {
-    return "CartAddressInput{copyFromCustomerAddressId='" + copyFromCustomerAddressId + "', deliveryAddress='" + deliveryAddress + "'}";
+    return "CartAddressInput{deliveryAddress='" + deliveryAddress + "', copyFromCustomerAddressId='" + copyFromCustomerAddressId + "'}";
   }
 
   @Override
@@ -54,13 +54,13 @@ public class CartAddressInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     CartAddressInput that = (CartAddressInput) o;
-    return Objects.equals(copyFromCustomerAddressId, that.copyFromCustomerAddressId) &&
-        Objects.equals(deliveryAddress, that.deliveryAddress);
+    return Objects.equals(deliveryAddress, that.deliveryAddress) &&
+        Objects.equals(copyFromCustomerAddressId, that.copyFromCustomerAddressId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(copyFromCustomerAddressId, deliveryAddress);
+    return Objects.hash(deliveryAddress, copyFromCustomerAddressId);
   }
 
   public static Builder newBuilder() {
@@ -69,28 +69,20 @@ public class CartAddressInput {
 
   public static class Builder {
     /**
-     * Copies details from the customer address to an address on this cart.
-     */
-    private String copyFromCustomerAddressId;
-
-    /**
      * A delivery address stored on this cart.
      */
     private CartDeliveryAddressInput deliveryAddress;
 
-    public CartAddressInput build() {
-      CartAddressInput result = new CartAddressInput();
-      result.copyFromCustomerAddressId = this.copyFromCustomerAddressId;
-      result.deliveryAddress = this.deliveryAddress;
-      return result;
-    }
-
     /**
      * Copies details from the customer address to an address on this cart.
      */
-    public Builder copyFromCustomerAddressId(String copyFromCustomerAddressId) {
-      this.copyFromCustomerAddressId = copyFromCustomerAddressId;
-      return this;
+    private String copyFromCustomerAddressId;
+
+    public CartAddressInput build() {
+      CartAddressInput result = new CartAddressInput();
+      result.deliveryAddress = this.deliveryAddress;
+      result.copyFromCustomerAddressId = this.copyFromCustomerAddressId;
+      return result;
     }
 
     /**
@@ -98,6 +90,14 @@ public class CartAddressInput {
      */
     public Builder deliveryAddress(CartDeliveryAddressInput deliveryAddress) {
       this.deliveryAddress = deliveryAddress;
+      return this;
+    }
+
+    /**
+     * Copies details from the customer address to an address on this cart.
+     */
+    public Builder copyFromCustomerAddressId(String copyFromCustomerAddressId) {
+      this.copyFromCustomerAddressId = copyFromCustomerAddressId;
       return this;
     }
   }

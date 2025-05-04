@@ -25,25 +25,25 @@ public class ImageTransformInput {
   private CropRegion crop;
 
   /**
+   * Image width in pixels between 1 and 5760.
+   */
+  private Integer maxWidth;
+
+  /**
    * Image height in pixels between 1 and 5760.
    */
   private Integer maxHeight;
 
   /**
-   * Image width in pixels between 1 and 5760.
+   * Image size multiplier for high-resolution retina displays. Must be within 1..3.
    */
-  private Integer maxWidth;
+  private Integer scale = 1;
 
   /**
    * Convert the source image into the preferred content type.
    * Supported conversions: `.svg` to `.png`, any file type to `.jpg`, and any file type to `.webp`.
    */
   private ImageContentType preferredContentType;
-
-  /**
-   * Image size multiplier for high-resolution retina displays. Must be within 1..3.
-   */
-  private Integer scale = 1;
 
   public ImageTransformInput() {
   }
@@ -66,6 +66,17 @@ public class ImageTransformInput {
   }
 
   /**
+   * Image width in pixels between 1 and 5760.
+   */
+  public Integer getMaxWidth() {
+    return maxWidth;
+  }
+
+  public void setMaxWidth(Integer maxWidth) {
+    this.maxWidth = maxWidth;
+  }
+
+  /**
    * Image height in pixels between 1 and 5760.
    */
   public Integer getMaxHeight() {
@@ -77,14 +88,14 @@ public class ImageTransformInput {
   }
 
   /**
-   * Image width in pixels between 1 and 5760.
+   * Image size multiplier for high-resolution retina displays. Must be within 1..3.
    */
-  public Integer getMaxWidth() {
-    return maxWidth;
+  public Integer getScale() {
+    return scale;
   }
 
-  public void setMaxWidth(Integer maxWidth) {
-    this.maxWidth = maxWidth;
+  public void setScale(Integer scale) {
+    this.scale = scale;
   }
 
   /**
@@ -99,20 +110,9 @@ public class ImageTransformInput {
     this.preferredContentType = preferredContentType;
   }
 
-  /**
-   * Image size multiplier for high-resolution retina displays. Must be within 1..3.
-   */
-  public Integer getScale() {
-    return scale;
-  }
-
-  public void setScale(Integer scale) {
-    this.scale = scale;
-  }
-
   @Override
   public String toString() {
-    return "ImageTransformInput{crop='" + crop + "', maxHeight='" + maxHeight + "', maxWidth='" + maxWidth + "', preferredContentType='" + preferredContentType + "', scale='" + scale + "'}";
+    return "ImageTransformInput{crop='" + crop + "', maxWidth='" + maxWidth + "', maxHeight='" + maxHeight + "', scale='" + scale + "', preferredContentType='" + preferredContentType + "'}";
   }
 
   @Override
@@ -121,15 +121,15 @@ public class ImageTransformInput {
     if (o == null || getClass() != o.getClass()) return false;
     ImageTransformInput that = (ImageTransformInput) o;
     return Objects.equals(crop, that.crop) &&
-        Objects.equals(maxHeight, that.maxHeight) &&
         Objects.equals(maxWidth, that.maxWidth) &&
-        Objects.equals(preferredContentType, that.preferredContentType) &&
-        Objects.equals(scale, that.scale);
+        Objects.equals(maxHeight, that.maxHeight) &&
+        Objects.equals(scale, that.scale) &&
+        Objects.equals(preferredContentType, that.preferredContentType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crop, maxHeight, maxWidth, preferredContentType, scale);
+    return Objects.hash(crop, maxWidth, maxHeight, scale, preferredContentType);
   }
 
   public static Builder newBuilder() {
@@ -149,14 +149,19 @@ public class ImageTransformInput {
     private CropRegion crop;
 
     /**
+     * Image width in pixels between 1 and 5760.
+     */
+    private Integer maxWidth;
+
+    /**
      * Image height in pixels between 1 and 5760.
      */
     private Integer maxHeight;
 
     /**
-     * Image width in pixels between 1 and 5760.
+     * Image size multiplier for high-resolution retina displays. Must be within 1..3.
      */
-    private Integer maxWidth;
+    private Integer scale = 1;
 
     /**
      * Convert the source image into the preferred content type.
@@ -164,18 +169,13 @@ public class ImageTransformInput {
      */
     private ImageContentType preferredContentType;
 
-    /**
-     * Image size multiplier for high-resolution retina displays. Must be within 1..3.
-     */
-    private Integer scale = 1;
-
     public ImageTransformInput build() {
       ImageTransformInput result = new ImageTransformInput();
       result.crop = this.crop;
-      result.maxHeight = this.maxHeight;
       result.maxWidth = this.maxWidth;
-      result.preferredContentType = this.preferredContentType;
+      result.maxHeight = this.maxHeight;
       result.scale = this.scale;
+      result.preferredContentType = this.preferredContentType;
       return result;
     }
 
@@ -194,6 +194,14 @@ public class ImageTransformInput {
     }
 
     /**
+     * Image width in pixels between 1 and 5760.
+     */
+    public Builder maxWidth(Integer maxWidth) {
+      this.maxWidth = maxWidth;
+      return this;
+    }
+
+    /**
      * Image height in pixels between 1 and 5760.
      */
     public Builder maxHeight(Integer maxHeight) {
@@ -202,10 +210,10 @@ public class ImageTransformInput {
     }
 
     /**
-     * Image width in pixels between 1 and 5760.
+     * Image size multiplier for high-resolution retina displays. Must be within 1..3.
      */
-    public Builder maxWidth(Integer maxWidth) {
-      this.maxWidth = maxWidth;
+    public Builder scale(Integer scale) {
+      this.scale = scale;
       return this;
     }
 
@@ -215,14 +223,6 @@ public class ImageTransformInput {
      */
     public Builder preferredContentType(ImageContentType preferredContentType) {
       this.preferredContentType = preferredContentType;
-      return this;
-    }
-
-    /**
-     * Image size multiplier for high-resolution retina displays. Must be within 1..3.
-     */
-    public Builder scale(Integer scale) {
-      this.scale = scale;
       return this;
     }
   }

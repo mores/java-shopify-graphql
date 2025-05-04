@@ -11,13 +11,13 @@ import java.util.Set;
  * Creates a new address for a customer.
  */
 public class CustomerAddressCreateGraphQLQuery extends GraphQLQuery {
-  public CustomerAddressCreateGraphQLQuery(MailingAddressInput address, String customerAccessToken,
+  public CustomerAddressCreateGraphQLQuery(String customerAccessToken, MailingAddressInput address,
       String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
-    if (address != null || fieldsSet.contains("address")) {
-        getInput().put("address", address);
-    }if (customerAccessToken != null || fieldsSet.contains("customerAccessToken")) {
+    if (customerAccessToken != null || fieldsSet.contains("customerAccessToken")) {
         getInput().put("customerAccessToken", customerAccessToken);
+    }if (address != null || fieldsSet.contains("address")) {
+        getInput().put("address", address);
     }
   }
 
@@ -37,24 +37,15 @@ public class CustomerAddressCreateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
-    private MailingAddressInput address;
-
     private String customerAccessToken;
+
+    private MailingAddressInput address;
 
     private String queryName;
 
     public CustomerAddressCreateGraphQLQuery build() {
-      return new CustomerAddressCreateGraphQLQuery(address, customerAccessToken, queryName, fieldsSet);
+      return new CustomerAddressCreateGraphQLQuery(customerAccessToken, address, queryName, fieldsSet);
                
-    }
-
-    /**
-     * The customer mailing address to create.
-     */
-    public Builder address(MailingAddressInput address) {
-      this.address = address;
-      this.fieldsSet.add("address");
-      return this;
     }
 
     /**
@@ -63,6 +54,15 @@ public class CustomerAddressCreateGraphQLQuery extends GraphQLQuery {
     public Builder customerAccessToken(String customerAccessToken) {
       this.customerAccessToken = customerAccessToken;
       this.fieldsSet.add("customerAccessToken");
+      return this;
+    }
+
+    /**
+     * The customer mailing address to create.
+     */
+    public Builder address(MailingAddressInput address) {
+      this.address = address;
+      this.fieldsSet.add("address");
       return this;
     }
 

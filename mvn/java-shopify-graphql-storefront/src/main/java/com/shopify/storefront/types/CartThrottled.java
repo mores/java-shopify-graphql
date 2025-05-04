@@ -16,11 +16,27 @@ import java.util.Objects;
 )
 public class CartThrottled implements CartPrepareForCompletionResult {
   /**
+   * The result of cart preparation for completion.
+   */
+  private Cart cart;
+
+  /**
    * The polling delay.
    */
   private OffsetDateTime pollAfter;
 
   public CartThrottled() {
+  }
+
+  /**
+   * The result of cart preparation for completion.
+   */
+  public Cart getCart() {
+    return cart;
+  }
+
+  public void setCart(Cart cart) {
+    this.cart = cart;
   }
 
   /**
@@ -36,7 +52,7 @@ public class CartThrottled implements CartPrepareForCompletionResult {
 
   @Override
   public String toString() {
-    return "CartThrottled{pollAfter='" + pollAfter + "'}";
+    return "CartThrottled{cart='" + cart + "', pollAfter='" + pollAfter + "'}";
   }
 
   @Override
@@ -44,12 +60,13 @@ public class CartThrottled implements CartPrepareForCompletionResult {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     CartThrottled that = (CartThrottled) o;
-    return Objects.equals(pollAfter, that.pollAfter);
+    return Objects.equals(cart, that.cart) &&
+        Objects.equals(pollAfter, that.pollAfter);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pollAfter);
+    return Objects.hash(cart, pollAfter);
   }
 
   public static Builder newBuilder() {
@@ -58,14 +75,28 @@ public class CartThrottled implements CartPrepareForCompletionResult {
 
   public static class Builder {
     /**
+     * The result of cart preparation for completion.
+     */
+    private Cart cart;
+
+    /**
      * The polling delay.
      */
     private OffsetDateTime pollAfter;
 
     public CartThrottled build() {
       CartThrottled result = new CartThrottled();
+      result.cart = this.cart;
       result.pollAfter = this.pollAfter;
       return result;
+    }
+
+    /**
+     * The result of cart preparation for completion.
+     */
+    public Builder cart(Cart cart) {
+      this.cart = cart;
+      return this;
     }
 
     /**

@@ -8,17 +8,17 @@ public enum MetafieldsSetUserErrorCode {
 
   INCLUSION,
 
-  INVALID_OWNER,
-
-  INVALID_TYPE,
-
-  INVALID_VALUE,
-
   LESS_THAN_OR_EQUAL_TO,
 
   PRESENT,
 
+  TOO_SHORT,
+
   TOO_LONG,
 
-  TOO_SHORT
+  INVALID_OWNER,
+
+  INVALID_VALUE,
+
+  INVALID_TYPE
 }

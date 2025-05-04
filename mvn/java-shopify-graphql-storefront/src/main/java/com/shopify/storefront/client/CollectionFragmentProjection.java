@@ -37,15 +37,15 @@ public class CollectionFragmentProjection<PARENT extends BaseSubProjectionNode<?
      return projection;
   }
 
-  public MetafieldProjection<CollectionFragmentProjection<PARENT, ROOT>, ROOT> metafield(String key,
-      String namespace) {
+  public MetafieldProjection<CollectionFragmentProjection<PARENT, ROOT>, ROOT> metafield(
+      String namespace, String key) {
     MetafieldProjection<CollectionFragmentProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
     getFields().put("metafield", projection);
     getInputArguments().computeIfAbsent("metafield", k -> new ArrayList<>());                      
-    InputArgument keyArg = new InputArgument("key", key);
-    getInputArguments().get("metafield").add(keyArg);
     InputArgument namespaceArg = new InputArgument("namespace", namespace);
     getInputArguments().get("metafield").add(namespaceArg);
+    InputArgument keyArg = new InputArgument("key", key);
+    getInputArguments().get("metafield").add(keyArg);
     return projection;
   }
 
@@ -72,25 +72,25 @@ public class CollectionFragmentProjection<PARENT extends BaseSubProjectionNode<?
   }
 
   public ProductConnectionProjection<CollectionFragmentProjection<PARENT, ROOT>, ROOT> products(
-      String after, String before, List<ProductFilter> filters, Integer first, Integer last,
-      Boolean reverse, ProductCollectionSortKeys sortKey) {
+      Integer first, String after, Integer last, String before, Boolean reverse,
+      ProductCollectionSortKeys sortKey, List<ProductFilter> filters) {
     ProductConnectionProjection<CollectionFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductConnectionProjection<>(this, getRoot());    
     getFields().put("products", projection);
     getInputArguments().computeIfAbsent("products", k -> new ArrayList<>());                      
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("products").add(afterArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("products").add(beforeArg);
-    InputArgument filtersArg = new InputArgument("filters", filters);
-    getInputArguments().get("products").add(filtersArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("products").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("products").add(afterArg);
     InputArgument lastArg = new InputArgument("last", last);
     getInputArguments().get("products").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("products").add(beforeArg);
     InputArgument reverseArg = new InputArgument("reverse", reverse);
     getInputArguments().get("products").add(reverseArg);
     InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
     getInputArguments().get("products").add(sortKeyArg);
+    InputArgument filtersArg = new InputArgument("filters", filters);
+    getInputArguments().get("products").add(filtersArg);
     return projection;
   }
 

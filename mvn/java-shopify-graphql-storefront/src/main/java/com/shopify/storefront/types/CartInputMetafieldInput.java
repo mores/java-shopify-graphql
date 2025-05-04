@@ -15,15 +15,15 @@ public class CartInputMetafieldInput {
   private String key;
 
   /**
+   * The data to store in the cart metafield. The data is always stored as a string, regardless of the metafield's type.
+   */
+  private String value;
+
+  /**
    * The type of data that the cart metafield stores.
    * The type of data must be a [supported type](https://shopify.dev/apps/metafields/types).
    */
   private String type;
-
-  /**
-   * The data to store in the cart metafield. The data is always stored as a string, regardless of the metafield's type.
-   */
-  private String value;
 
   public CartInputMetafieldInput() {
   }
@@ -40,6 +40,17 @@ public class CartInputMetafieldInput {
   }
 
   /**
+   * The data to store in the cart metafield. The data is always stored as a string, regardless of the metafield's type.
+   */
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /**
    * The type of data that the cart metafield stores.
    * The type of data must be a [supported type](https://shopify.dev/apps/metafields/types).
    */
@@ -51,20 +62,9 @@ public class CartInputMetafieldInput {
     this.type = type;
   }
 
-  /**
-   * The data to store in the cart metafield. The data is always stored as a string, regardless of the metafield's type.
-   */
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
   @Override
   public String toString() {
-    return "CartInputMetafieldInput{key='" + key + "', type='" + type + "', value='" + value + "'}";
+    return "CartInputMetafieldInput{key='" + key + "', value='" + value + "', type='" + type + "'}";
   }
 
   @Override
@@ -73,13 +73,13 @@ public class CartInputMetafieldInput {
     if (o == null || getClass() != o.getClass()) return false;
     CartInputMetafieldInput that = (CartInputMetafieldInput) o;
     return Objects.equals(key, that.key) &&
-        Objects.equals(type, that.type) &&
-        Objects.equals(value, that.value);
+        Objects.equals(value, that.value) &&
+        Objects.equals(type, that.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, type, value);
+    return Objects.hash(key, value, type);
   }
 
   public static Builder newBuilder() {
@@ -93,21 +93,21 @@ public class CartInputMetafieldInput {
     private String key;
 
     /**
+     * The data to store in the cart metafield. The data is always stored as a string, regardless of the metafield's type.
+     */
+    private String value;
+
+    /**
      * The type of data that the cart metafield stores.
      * The type of data must be a [supported type](https://shopify.dev/apps/metafields/types).
      */
     private String type;
 
-    /**
-     * The data to store in the cart metafield. The data is always stored as a string, regardless of the metafield's type.
-     */
-    private String value;
-
     public CartInputMetafieldInput build() {
       CartInputMetafieldInput result = new CartInputMetafieldInput();
       result.key = this.key;
-      result.type = this.type;
       result.value = this.value;
+      result.type = this.type;
       return result;
     }
 
@@ -120,19 +120,19 @@ public class CartInputMetafieldInput {
     }
 
     /**
+     * The data to store in the cart metafield. The data is always stored as a string, regardless of the metafield's type.
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
+    }
+
+    /**
      * The type of data that the cart metafield stores.
      * The type of data must be a [supported type](https://shopify.dev/apps/metafields/types).
      */
     public Builder type(String type) {
       this.type = type;
-      return this;
-    }
-
-    /**
-     * The data to store in the cart metafield. The data is always stored as a string, regardless of the metafield's type.
-     */
-    public Builder value(String value) {
-      this.value = value;
       return this;
     }
   }

@@ -11,11 +11,6 @@ import java.util.Objects;
  */
 public class CartDeliveryPreferenceInput {
   /**
-   * The coordinates of a delivery location in order of preference.
-   */
-  private CartDeliveryCoordinatesPreferenceInput coordinates;
-
-  /**
    * The preferred delivery methods such as shipping, local pickup or through pickup points.
    *   
    * The input must not contain more than `250` values.
@@ -30,18 +25,12 @@ public class CartDeliveryPreferenceInput {
    */
   private List<String> pickupHandle;
 
-  public CartDeliveryPreferenceInput() {
-  }
-
   /**
    * The coordinates of a delivery location in order of preference.
    */
-  public CartDeliveryCoordinatesPreferenceInput getCoordinates() {
-    return coordinates;
-  }
+  private CartDeliveryCoordinatesPreferenceInput coordinates;
 
-  public void setCoordinates(CartDeliveryCoordinatesPreferenceInput coordinates) {
-    this.coordinates = coordinates;
+  public CartDeliveryPreferenceInput() {
   }
 
   /**
@@ -71,9 +60,20 @@ public class CartDeliveryPreferenceInput {
     this.pickupHandle = pickupHandle;
   }
 
+  /**
+   * The coordinates of a delivery location in order of preference.
+   */
+  public CartDeliveryCoordinatesPreferenceInput getCoordinates() {
+    return coordinates;
+  }
+
+  public void setCoordinates(CartDeliveryCoordinatesPreferenceInput coordinates) {
+    this.coordinates = coordinates;
+  }
+
   @Override
   public String toString() {
-    return "CartDeliveryPreferenceInput{coordinates='" + coordinates + "', deliveryMethod='" + deliveryMethod + "', pickupHandle='" + pickupHandle + "'}";
+    return "CartDeliveryPreferenceInput{deliveryMethod='" + deliveryMethod + "', pickupHandle='" + pickupHandle + "', coordinates='" + coordinates + "'}";
   }
 
   @Override
@@ -81,14 +81,14 @@ public class CartDeliveryPreferenceInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     CartDeliveryPreferenceInput that = (CartDeliveryPreferenceInput) o;
-    return Objects.equals(coordinates, that.coordinates) &&
-        Objects.equals(deliveryMethod, that.deliveryMethod) &&
-        Objects.equals(pickupHandle, that.pickupHandle);
+    return Objects.equals(deliveryMethod, that.deliveryMethod) &&
+        Objects.equals(pickupHandle, that.pickupHandle) &&
+        Objects.equals(coordinates, that.coordinates);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(coordinates, deliveryMethod, pickupHandle);
+    return Objects.hash(deliveryMethod, pickupHandle, coordinates);
   }
 
   public static Builder newBuilder() {
@@ -96,11 +96,6 @@ public class CartDeliveryPreferenceInput {
   }
 
   public static class Builder {
-    /**
-     * The coordinates of a delivery location in order of preference.
-     */
-    private CartDeliveryCoordinatesPreferenceInput coordinates;
-
     /**
      * The preferred delivery methods such as shipping, local pickup or through pickup points.
      *   
@@ -116,20 +111,17 @@ public class CartDeliveryPreferenceInput {
      */
     private List<String> pickupHandle;
 
-    public CartDeliveryPreferenceInput build() {
-      CartDeliveryPreferenceInput result = new CartDeliveryPreferenceInput();
-      result.coordinates = this.coordinates;
-      result.deliveryMethod = this.deliveryMethod;
-      result.pickupHandle = this.pickupHandle;
-      return result;
-    }
-
     /**
      * The coordinates of a delivery location in order of preference.
      */
-    public Builder coordinates(CartDeliveryCoordinatesPreferenceInput coordinates) {
-      this.coordinates = coordinates;
-      return this;
+    private CartDeliveryCoordinatesPreferenceInput coordinates;
+
+    public CartDeliveryPreferenceInput build() {
+      CartDeliveryPreferenceInput result = new CartDeliveryPreferenceInput();
+      result.deliveryMethod = this.deliveryMethod;
+      result.pickupHandle = this.pickupHandle;
+      result.coordinates = this.coordinates;
+      return result;
     }
 
     /**
@@ -150,6 +142,14 @@ public class CartDeliveryPreferenceInput {
      */
     public Builder pickupHandle(List<String> pickupHandle) {
       this.pickupHandle = pickupHandle;
+      return this;
+    }
+
+    /**
+     * The coordinates of a delivery location in order of preference.
+     */
+    public Builder coordinates(CartDeliveryCoordinatesPreferenceInput coordinates) {
+      this.coordinates = coordinates;
       return this;
     }
   }

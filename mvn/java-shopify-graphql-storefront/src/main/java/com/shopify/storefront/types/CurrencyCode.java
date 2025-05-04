@@ -6,63 +6,69 @@ package com.shopify.storefront.types;
  * and non-standard codes.
  */
 public enum CurrencyCode {
-  AED,
+  USD,
+
+  EUR,
+
+  GBP,
+
+  CAD,
 
   AFN,
 
   ALL,
 
-  AMD,
-
-  ANG,
+  DZD,
 
   AOA,
 
   ARS,
 
-  AUD,
+  AMD,
 
   AWG,
 
-  AZN,
-
-  BAM,
+  AUD,
 
   BBD,
 
+  AZN,
+
   BDT,
 
-  BGN,
+  BSD,
 
   BHD,
 
   BIF,
 
+  BZD,
+
   BMD,
-
-  BND,
-
-  BOB,
-
-  BRL,
-
-  BSD,
 
   BTN,
 
+  BAM,
+
+  BRL,
+
+  BOB,
+
   BWP,
 
-  BYN,
+  BND,
 
-  BYR,
+  BGN,
 
-  BZD,
+  MMK,
 
-  CAD,
+  KHR,
 
-  CDF,
+  CVE,
 
-  CHF,
+  KYD,
+
+  XAF,
 
   CLP,
 
@@ -70,19 +76,21 @@ public enum CurrencyCode {
 
   COP,
 
+  KMF,
+
+  CDF,
+
   CRC,
 
-  CVE,
+  HRK,
 
   CZK,
-
-  DJF,
 
   DKK,
 
   DOP,
 
-  DZD,
+  XCD,
 
   EGP,
 
@@ -90,241 +98,233 @@ public enum CurrencyCode {
 
   ETB,
 
-  EUR,
-
-  FJD,
-
   FKP,
 
-  GBP,
+  XPF,
 
-  GEL,
-
-  GHS,
+  FJD,
 
   GIP,
 
   GMD,
 
-  GNF,
+  GHS,
 
   GTQ,
 
   GYD,
 
-  HKD,
-
-  HNL,
-
-  HRK,
+  GEL,
 
   HTG,
 
+  HNL,
+
+  HKD,
+
   HUF,
+
+  ISK,
+
+  INR,
 
   IDR,
 
   ILS,
 
-  INR,
-
   IQD,
-
-  IRR,
-
-  ISK,
-
-  JEP,
 
   JMD,
 
-  JOD,
-
   JPY,
 
-  KES,
+  JEP,
 
-  KGS,
-
-  KHR,
-
-  KID,
-
-  KMF,
-
-  KRW,
-
-  KWD,
-
-  KYD,
+  JOD,
 
   KZT,
 
+  KES,
+
+  KID,
+
+  KWD,
+
+  KGS,
+
   LAK,
-
-  LBP,
-
-  LKR,
-
-  LRD,
-
-  LSL,
-
-  LTL,
 
   LVL,
 
-  LYD,
+  LBP,
 
-  MAD,
+  LSL,
 
-  MDL,
+  LRD,
+
+  LTL,
 
   MGA,
 
   MKD,
 
-  MMK,
-
-  MNT,
-
   MOP,
 
-  MRU,
-
-  MUR,
+  MWK,
 
   MVR,
 
-  MWK,
+  MRU,
 
   MXN,
 
   MYR,
 
+  MUR,
+
+  MDL,
+
+  MAD,
+
+  MNT,
+
   MZN,
 
   NAD,
 
-  NGN,
+  NPR,
+
+  ANG,
+
+  NZD,
 
   NIO,
 
+  NGN,
+
   NOK,
-
-  NPR,
-
-  NZD,
 
   OMR,
 
   PAB,
 
-  PEN,
+  PKR,
 
   PGK,
 
+  PYG,
+
+  PEN,
+
   PHP,
 
-  PKR,
-
   PLN,
-
-  PYG,
 
   QAR,
 
   RON,
 
-  RSD,
-
   RUB,
 
   RWF,
 
-  SAR,
-
-  SBD,
-
-  SCR,
-
-  SDG,
-
-  SEK,
-
-  SGD,
+  WST,
 
   SHP,
 
-  SLL,
+  SAR,
+
+  RSD,
+
+  SCR,
+
+  SGD,
+
+  SDG,
 
   SOS,
 
-  SRD,
+  SYP,
+
+  ZAR,
+
+  KRW,
 
   SSP,
 
-  STD,
+  SBD,
 
-  STN,
+  LKR,
 
-  SYP,
+  SRD,
 
   SZL,
 
-  THB,
+  SEK,
 
-  TJS,
-
-  TMT,
-
-  TND,
-
-  TOP,
-
-  TRY,
-
-  TTD,
+  CHF,
 
   TWD,
 
+  THB,
+
   TZS,
 
-  UAH,
+  TTD,
+
+  TND,
+
+  TRY,
+
+  TMT,
 
   UGX,
 
-  USD,
+  UAH,
+
+  AED,
 
   UYU,
 
   UZS,
 
-  VED,
-
-  VEF,
+  VUV,
 
   VES,
 
   VND,
 
-  VUV,
-
-  WST,
-
-  XAF,
-
-  XCD,
-
   XOF,
-
-  XPF,
-
-  XXX,
 
   YER,
 
-  ZAR,
+  ZMW,
 
-  ZMW
+  BYN,
+
+  BYR,
+
+  DJF,
+
+  GNF,
+
+  IRR,
+
+  LYD,
+
+  SLL,
+
+  STD,
+
+  STN,
+
+  TJS,
+
+  TOP,
+
+  VED,
+
+  VEF,
+
+  XXX
 }

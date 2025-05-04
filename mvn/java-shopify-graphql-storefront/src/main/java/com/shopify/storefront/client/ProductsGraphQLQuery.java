@@ -14,24 +14,24 @@ import java.util.Set;
  * [`search`](https://shopify.dev/docs/api/storefront/latest/queries/search) query.
  */
 public class ProductsGraphQLQuery extends GraphQLQuery {
-  public ProductsGraphQLQuery(String after, String before, Integer first, Integer last,
-      String query, Boolean reverse, ProductSortKeys sortKey, String queryName,
+  public ProductsGraphQLQuery(Integer first, String after, Integer last, String before,
+      Boolean reverse, ProductSortKeys sortKey, String query, String queryName,
       Set<String> fieldsSet) {
     super("query", queryName);
-    if (after != null || fieldsSet.contains("after")) {
-        getInput().put("after", after);
-    }if (before != null || fieldsSet.contains("before")) {
-        getInput().put("before", before);
-    }if (first != null || fieldsSet.contains("first")) {
+    if (first != null || fieldsSet.contains("first")) {
         getInput().put("first", first);
+    }if (after != null || fieldsSet.contains("after")) {
+        getInput().put("after", after);
     }if (last != null || fieldsSet.contains("last")) {
         getInput().put("last", last);
-    }if (query != null || fieldsSet.contains("query")) {
-        getInput().put("query", query);
+    }if (before != null || fieldsSet.contains("before")) {
+        getInput().put("before", before);
     }if (reverse != null || fieldsSet.contains("reverse")) {
         getInput().put("reverse", reverse);
     }if (sortKey != null || fieldsSet.contains("sortKey")) {
         getInput().put("sortKey", sortKey);
+    }if (query != null || fieldsSet.contains("query")) {
+        getInput().put("query", query);
     }
   }
 
@@ -51,25 +51,34 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
-    private String after;
-
-    private String before;
-
     private Integer first;
+
+    private String after;
 
     private Integer last;
 
-    private String query;
+    private String before;
 
     private Boolean reverse;
 
     private ProductSortKeys sortKey;
 
+    private String query;
+
     private String queryName;
 
     public ProductsGraphQLQuery build() {
-      return new ProductsGraphQLQuery(after, before, first, last, query, reverse, sortKey, queryName, fieldsSet);
+      return new ProductsGraphQLQuery(first, after, last, before, reverse, sortKey, query, queryName, fieldsSet);
                
+    }
+
+    /**
+     * Returns up to the first `n` elements from the list.
+     */
+    public Builder first(Integer first) {
+      this.first = first;
+      this.fieldsSet.add("first");
+      return this;
     }
 
     /**
@@ -78,6 +87,15 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
     public Builder after(String after) {
       this.after = after;
       this.fieldsSet.add("after");
+      return this;
+    }
+
+    /**
+     * Returns up to the last `n` elements from the list.
+     */
+    public Builder last(Integer last) {
+      this.last = last;
+      this.fieldsSet.add("last");
       return this;
     }
 
@@ -91,20 +109,20 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
     }
 
     /**
-     * Returns up to the first `n` elements from the list.
+     * Reverse the order of the underlying list.
      */
-    public Builder first(Integer first) {
-      this.first = first;
-      this.fieldsSet.add("first");
+    public Builder reverse(Boolean reverse) {
+      this.reverse = reverse;
+      this.fieldsSet.add("reverse");
       return this;
     }
 
     /**
-     * Returns up to the last `n` elements from the list.
+     * Sort the underlying list by the given key.
      */
-    public Builder last(Integer last) {
-      this.last = last;
-      this.fieldsSet.add("last");
+    public Builder sortKey(ProductSortKeys sortKey) {
+      this.sortKey = sortKey;
+      this.fieldsSet.add("sortKey");
       return this;
     }
 
@@ -137,24 +155,6 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
     public Builder query(String query) {
       this.query = query;
       this.fieldsSet.add("query");
-      return this;
-    }
-
-    /**
-     * Reverse the order of the underlying list.
-     */
-    public Builder reverse(Boolean reverse) {
-      this.reverse = reverse;
-      this.fieldsSet.add("reverse");
-      return this;
-    }
-
-    /**
-     * Sort the underlying list by the given key.
-     */
-    public Builder sortKey(ProductSortKeys sortKey) {
-      this.sortKey = sortKey;
-      this.fieldsSet.add("sortKey");
       return this;
     }
 

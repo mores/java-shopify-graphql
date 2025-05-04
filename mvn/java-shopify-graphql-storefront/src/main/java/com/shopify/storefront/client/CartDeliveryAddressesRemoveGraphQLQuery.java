@@ -11,13 +11,13 @@ import java.util.Set;
  * Removes delivery addresses from the cart.
  */
 public class CartDeliveryAddressesRemoveGraphQLQuery extends GraphQLQuery {
-  public CartDeliveryAddressesRemoveGraphQLQuery(List<String> addressIds, String cartId,
+  public CartDeliveryAddressesRemoveGraphQLQuery(String cartId, List<String> addressIds,
       String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
-    if (addressIds != null || fieldsSet.contains("addressIds")) {
-        getInput().put("addressIds", addressIds);
-    }if (cartId != null || fieldsSet.contains("cartId")) {
+    if (cartId != null || fieldsSet.contains("cartId")) {
         getInput().put("cartId", cartId);
+    }if (addressIds != null || fieldsSet.contains("addressIds")) {
+        getInput().put("addressIds", addressIds);
     }
   }
 
@@ -37,15 +37,24 @@ public class CartDeliveryAddressesRemoveGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
-    private List<String> addressIds;
-
     private String cartId;
+
+    private List<String> addressIds;
 
     private String queryName;
 
     public CartDeliveryAddressesRemoveGraphQLQuery build() {
-      return new CartDeliveryAddressesRemoveGraphQLQuery(addressIds, cartId, queryName, fieldsSet);
+      return new CartDeliveryAddressesRemoveGraphQLQuery(cartId, addressIds, queryName, fieldsSet);
                
+    }
+
+    /**
+     * The ID of the cart.
+     */
+    public Builder cartId(String cartId) {
+      this.cartId = cartId;
+      this.fieldsSet.add("cartId");
+      return this;
     }
 
     /**
@@ -56,15 +65,6 @@ public class CartDeliveryAddressesRemoveGraphQLQuery extends GraphQLQuery {
     public Builder addressIds(List<String> addressIds) {
       this.addressIds = addressIds;
       this.fieldsSet.add("addressIds");
-      return this;
-    }
-
-    /**
-     * The ID of the cart.
-     */
-    public Builder cartId(String cartId) {
-      this.cartId = cartId;
-      this.fieldsSet.add("cartId");
       return this;
     }
 

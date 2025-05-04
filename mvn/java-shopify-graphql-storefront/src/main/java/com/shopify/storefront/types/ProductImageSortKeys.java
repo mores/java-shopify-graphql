@@ -6,9 +6,9 @@ package com.shopify.storefront.types;
 public enum ProductImageSortKeys {
   CREATED_AT,
 
-  ID,
-
   POSITION,
+
+  ID,
 
   RELEVANCE
 }

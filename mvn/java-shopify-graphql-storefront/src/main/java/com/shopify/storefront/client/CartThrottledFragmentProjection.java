@@ -18,6 +18,12 @@ public class CartThrottledFragmentProjection<PARENT extends BaseSubProjectionNod
     return this;
   }
 
+  public CartProjection<CartThrottledFragmentProjection<PARENT, ROOT>, ROOT> cart() {
+     CartProjection<CartThrottledFragmentProjection<PARENT, ROOT>, ROOT> projection = new CartProjection<>(this, getRoot());
+     getFields().put("cart", projection);
+     return projection;
+  }
+
   public CartThrottledFragmentProjection<PARENT, ROOT> pollAfter() {
     getFields().put("pollAfter", null);
     return this;

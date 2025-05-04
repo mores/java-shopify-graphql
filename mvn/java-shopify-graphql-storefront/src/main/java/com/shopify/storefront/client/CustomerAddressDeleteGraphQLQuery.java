@@ -10,13 +10,13 @@ import java.util.Set;
  * Permanently deletes the address of an existing customer.
  */
 public class CustomerAddressDeleteGraphQLQuery extends GraphQLQuery {
-  public CustomerAddressDeleteGraphQLQuery(String customerAccessToken, String id, String queryName,
+  public CustomerAddressDeleteGraphQLQuery(String id, String customerAccessToken, String queryName,
       Set<String> fieldsSet) {
     super("mutation", queryName);
-    if (customerAccessToken != null || fieldsSet.contains("customerAccessToken")) {
-        getInput().put("customerAccessToken", customerAccessToken);
-    }if (id != null || fieldsSet.contains("id")) {
+    if (id != null || fieldsSet.contains("id")) {
         getInput().put("id", id);
+    }if (customerAccessToken != null || fieldsSet.contains("customerAccessToken")) {
+        getInput().put("customerAccessToken", customerAccessToken);
     }
   }
 
@@ -36,24 +36,15 @@ public class CustomerAddressDeleteGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
-    private String customerAccessToken;
-
     private String id;
+
+    private String customerAccessToken;
 
     private String queryName;
 
     public CustomerAddressDeleteGraphQLQuery build() {
-      return new CustomerAddressDeleteGraphQLQuery(customerAccessToken, id, queryName, fieldsSet);
+      return new CustomerAddressDeleteGraphQLQuery(id, customerAccessToken, queryName, fieldsSet);
                
-    }
-
-    /**
-     * The access token used to identify the customer.
-     */
-    public Builder customerAccessToken(String customerAccessToken) {
-      this.customerAccessToken = customerAccessToken;
-      this.fieldsSet.add("customerAccessToken");
-      return this;
     }
 
     /**
@@ -62,6 +53,15 @@ public class CustomerAddressDeleteGraphQLQuery extends GraphQLQuery {
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
+     * The access token used to identify the customer.
+     */
+    public Builder customerAccessToken(String customerAccessToken) {
+      this.customerAccessToken = customerAccessToken;
+      this.fieldsSet.add("customerAccessToken");
       return this;
     }
 

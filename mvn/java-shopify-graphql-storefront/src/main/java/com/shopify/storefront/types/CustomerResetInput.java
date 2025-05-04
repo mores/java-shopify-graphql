@@ -10,27 +10,16 @@ import java.util.Objects;
  */
 public class CustomerResetInput {
   /**
-   * New password that will be set as part of the reset password process.
-   */
-  private String password;
-
-  /**
    * The reset token required to reset the customer’s password.
    */
   private String resetToken;
 
-  public CustomerResetInput() {
-  }
-
   /**
    * New password that will be set as part of the reset password process.
    */
-  public String getPassword() {
-    return password;
-  }
+  private String password;
 
-  public void setPassword(String password) {
-    this.password = password;
+  public CustomerResetInput() {
   }
 
   /**
@@ -44,9 +33,20 @@ public class CustomerResetInput {
     this.resetToken = resetToken;
   }
 
+  /**
+   * New password that will be set as part of the reset password process.
+   */
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
   @Override
   public String toString() {
-    return "CustomerResetInput{password='" + password + "', resetToken='" + resetToken + "'}";
+    return "CustomerResetInput{resetToken='" + resetToken + "', password='" + password + "'}";
   }
 
   @Override
@@ -54,13 +54,13 @@ public class CustomerResetInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     CustomerResetInput that = (CustomerResetInput) o;
-    return Objects.equals(password, that.password) &&
-        Objects.equals(resetToken, that.resetToken);
+    return Objects.equals(resetToken, that.resetToken) &&
+        Objects.equals(password, that.password);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(password, resetToken);
+    return Objects.hash(resetToken, password);
   }
 
   public static Builder newBuilder() {
@@ -69,28 +69,20 @@ public class CustomerResetInput {
 
   public static class Builder {
     /**
-     * New password that will be set as part of the reset password process.
-     */
-    private String password;
-
-    /**
      * The reset token required to reset the customer’s password.
      */
     private String resetToken;
 
-    public CustomerResetInput build() {
-      CustomerResetInput result = new CustomerResetInput();
-      result.password = this.password;
-      result.resetToken = this.resetToken;
-      return result;
-    }
-
     /**
      * New password that will be set as part of the reset password process.
      */
-    public Builder password(String password) {
-      this.password = password;
-      return this;
+    private String password;
+
+    public CustomerResetInput build() {
+      CustomerResetInput result = new CustomerResetInput();
+      result.resetToken = this.resetToken;
+      result.password = this.password;
+      return result;
     }
 
     /**
@@ -98,6 +90,14 @@ public class CustomerResetInput {
      */
     public Builder resetToken(String resetToken) {
       this.resetToken = resetToken;
+      return this;
+    }
+
+    /**
+     * New password that will be set as part of the reset password process.
+     */
+    public Builder password(String password) {
+      this.password = password;
       return this;
     }
   }

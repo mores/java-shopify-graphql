@@ -11,19 +11,9 @@ import java.util.Objects;
  */
 public class DeliveryAddressInput {
   /**
-   * The ID of a customer address that is associated with the buyer that is interacting with the cart.
-   */
-  private String customerAddressId;
-
-  /**
    * A delivery address preference of a buyer that is interacting with the cart.
    */
   private MailingAddressInput deliveryAddress;
-
-  /**
-   * Defines what kind of address validation is requested.
-   */
-  private DeliveryAddressValidationStrategy deliveryAddressValidationStrategy = DeliveryAddressValidationStrategy.COUNTRY_CODE_ONLY;
 
   /**
    * Whether the given delivery address is considered to be a one-time use address. One-time use addresses do not
@@ -31,18 +21,17 @@ public class DeliveryAddressInput {
    */
   private Boolean oneTimeUse = false;
 
-  public DeliveryAddressInput() {
-  }
+  /**
+   * Defines what kind of address validation is requested.
+   */
+  private DeliveryAddressValidationStrategy deliveryAddressValidationStrategy = DeliveryAddressValidationStrategy.COUNTRY_CODE_ONLY;
 
   /**
    * The ID of a customer address that is associated with the buyer that is interacting with the cart.
    */
-  public String getCustomerAddressId() {
-    return customerAddressId;
-  }
+  private String customerAddressId;
 
-  public void setCustomerAddressId(String customerAddressId) {
-    this.customerAddressId = customerAddressId;
+  public DeliveryAddressInput() {
   }
 
   /**
@@ -54,6 +43,18 @@ public class DeliveryAddressInput {
 
   public void setDeliveryAddress(MailingAddressInput deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
+  }
+
+  /**
+   * Whether the given delivery address is considered to be a one-time use address. One-time use addresses do not
+   * get persisted to the buyer's personal addresses when checking out.
+   */
+  public Boolean getOneTimeUse() {
+    return oneTimeUse;
+  }
+
+  public void setOneTimeUse(Boolean oneTimeUse) {
+    this.oneTimeUse = oneTimeUse;
   }
 
   /**
@@ -69,20 +70,19 @@ public class DeliveryAddressInput {
   }
 
   /**
-   * Whether the given delivery address is considered to be a one-time use address. One-time use addresses do not
-   * get persisted to the buyer's personal addresses when checking out.
+   * The ID of a customer address that is associated with the buyer that is interacting with the cart.
    */
-  public Boolean getOneTimeUse() {
-    return oneTimeUse;
+  public String getCustomerAddressId() {
+    return customerAddressId;
   }
 
-  public void setOneTimeUse(Boolean oneTimeUse) {
-    this.oneTimeUse = oneTimeUse;
+  public void setCustomerAddressId(String customerAddressId) {
+    this.customerAddressId = customerAddressId;
   }
 
   @Override
   public String toString() {
-    return "DeliveryAddressInput{customerAddressId='" + customerAddressId + "', deliveryAddress='" + deliveryAddress + "', deliveryAddressValidationStrategy='" + deliveryAddressValidationStrategy + "', oneTimeUse='" + oneTimeUse + "'}";
+    return "DeliveryAddressInput{deliveryAddress='" + deliveryAddress + "', oneTimeUse='" + oneTimeUse + "', deliveryAddressValidationStrategy='" + deliveryAddressValidationStrategy + "', customerAddressId='" + customerAddressId + "'}";
   }
 
   @Override
@@ -90,15 +90,15 @@ public class DeliveryAddressInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     DeliveryAddressInput that = (DeliveryAddressInput) o;
-    return Objects.equals(customerAddressId, that.customerAddressId) &&
-        Objects.equals(deliveryAddress, that.deliveryAddress) &&
+    return Objects.equals(deliveryAddress, that.deliveryAddress) &&
+        Objects.equals(oneTimeUse, that.oneTimeUse) &&
         Objects.equals(deliveryAddressValidationStrategy, that.deliveryAddressValidationStrategy) &&
-        Objects.equals(oneTimeUse, that.oneTimeUse);
+        Objects.equals(customerAddressId, that.customerAddressId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerAddressId, deliveryAddress, deliveryAddressValidationStrategy, oneTimeUse);
+    return Objects.hash(deliveryAddress, oneTimeUse, deliveryAddressValidationStrategy, customerAddressId);
   }
 
   public static Builder newBuilder() {
@@ -107,19 +107,9 @@ public class DeliveryAddressInput {
 
   public static class Builder {
     /**
-     * The ID of a customer address that is associated with the buyer that is interacting with the cart.
-     */
-    private String customerAddressId;
-
-    /**
      * A delivery address preference of a buyer that is interacting with the cart.
      */
     private MailingAddressInput deliveryAddress;
-
-    /**
-     * Defines what kind of address validation is requested.
-     */
-    private DeliveryAddressValidationStrategy deliveryAddressValidationStrategy = DeliveryAddressValidationStrategy.COUNTRY_CODE_ONLY;
 
     /**
      * Whether the given delivery address is considered to be a one-time use address. One-time use addresses do not
@@ -127,21 +117,23 @@ public class DeliveryAddressInput {
      */
     private Boolean oneTimeUse = false;
 
-    public DeliveryAddressInput build() {
-      DeliveryAddressInput result = new DeliveryAddressInput();
-      result.customerAddressId = this.customerAddressId;
-      result.deliveryAddress = this.deliveryAddress;
-      result.deliveryAddressValidationStrategy = this.deliveryAddressValidationStrategy;
-      result.oneTimeUse = this.oneTimeUse;
-      return result;
-    }
+    /**
+     * Defines what kind of address validation is requested.
+     */
+    private DeliveryAddressValidationStrategy deliveryAddressValidationStrategy = DeliveryAddressValidationStrategy.COUNTRY_CODE_ONLY;
 
     /**
      * The ID of a customer address that is associated with the buyer that is interacting with the cart.
      */
-    public Builder customerAddressId(String customerAddressId) {
-      this.customerAddressId = customerAddressId;
-      return this;
+    private String customerAddressId;
+
+    public DeliveryAddressInput build() {
+      DeliveryAddressInput result = new DeliveryAddressInput();
+      result.deliveryAddress = this.deliveryAddress;
+      result.oneTimeUse = this.oneTimeUse;
+      result.deliveryAddressValidationStrategy = this.deliveryAddressValidationStrategy;
+      result.customerAddressId = this.customerAddressId;
+      return result;
     }
 
     /**
@@ -149,6 +141,15 @@ public class DeliveryAddressInput {
      */
     public Builder deliveryAddress(MailingAddressInput deliveryAddress) {
       this.deliveryAddress = deliveryAddress;
+      return this;
+    }
+
+    /**
+     * Whether the given delivery address is considered to be a one-time use address. One-time use addresses do not
+     * get persisted to the buyer's personal addresses when checking out.
+     */
+    public Builder oneTimeUse(Boolean oneTimeUse) {
+      this.oneTimeUse = oneTimeUse;
       return this;
     }
 
@@ -162,11 +163,10 @@ public class DeliveryAddressInput {
     }
 
     /**
-     * Whether the given delivery address is considered to be a one-time use address. One-time use addresses do not
-     * get persisted to the buyer's personal addresses when checking out.
+     * The ID of a customer address that is associated with the buyer that is interacting with the cart.
      */
-    public Builder oneTimeUse(Boolean oneTimeUse) {
-      this.oneTimeUse = oneTimeUse;
+    public Builder customerAddressId(String customerAddressId) {
+      this.customerAddressId = customerAddressId;
       return this;
     }
   }

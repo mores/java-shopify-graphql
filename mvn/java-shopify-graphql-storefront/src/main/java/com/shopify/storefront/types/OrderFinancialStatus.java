@@ -4,17 +4,17 @@ package com.shopify.storefront.types;
  * Represents the order's current financial status.
  */
 public enum OrderFinancialStatus {
-  AUTHORIZED,
+  PENDING,
 
-  PAID,
+  AUTHORIZED,
 
   PARTIALLY_PAID,
 
   PARTIALLY_REFUNDED,
 
-  PENDING,
+  VOIDED,
 
-  REFUNDED,
+  PAID,
 
-  VOIDED
+  REFUNDED
 }
