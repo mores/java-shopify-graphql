@@ -62,7 +62,7 @@ public class DiscountNodesCountGraphQLQuery extends GraphQLQuery {
      * | created_at | time | Filter by the date and time, in the shop's timezone,
      * when the discount was created. | | | -
      * `created_at:>'2020-10-21T23:39:20Z'`<br/> - `created_at:&lt;now`<br/> -
-     * `created_at:<='2024'` |
+     * `created_at:&lt;='2024'` |
      * | discount_class | string | Filter by the [discount
      * class](https://shopify.dev/docs/apps/build/discounts#discount-classes). | -
      * `order`<br/> - `product`<br/> - `shipping` | | - `discount_class:product` |
@@ -72,7 +72,7 @@ public class DiscountNodesCountGraphQLQuery extends GraphQLQuery {
      * - `type:fixed_amount` |
      * | ends_at | time | Filter by the date and time, in the shop's timezone, when
      * the discount ends. | | | - `ends_at:>'2020-10-21T23:39:20Z'`<br/> -
-     * `ends_at:&lt;now`<br/> - `ends_at:<='2024'` |
+     * `ends_at:&lt;now`<br/> - `ends_at:&lt;='2024'` |
      * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | method | string | Filter by the [discount
      * method](https://shopify.dev/docs/apps/build/discounts#discount-methods). | -
@@ -80,7 +80,7 @@ public class DiscountNodesCountGraphQLQuery extends GraphQLQuery {
      * | starts_at | time | Filter by the date and time, in the shop's timezone,
      * when the discount becomes active and is available for customer use. | | | -
      * `starts_at:>'2020-10-21T23:39:20Z'`<br/> - `starts_at:&lt;now`<br/> -
-     * `starts_at:<='2024'` |
+     * `starts_at:&lt;='2024'` |
      * | status | string | Filter by the status of the discount. | - `active`<br/>
      * - `expired`<br/> - `scheduled` | | - `status:scheduled` |
      * | times_used | integer | Filter by the number of times the discount has been
@@ -99,7 +99,7 @@ public class DiscountNodesCountGraphQLQuery extends GraphQLQuery {
      * | updated_at | time | Filter by the date and time, in the shop's timezone,
      * when the discount was last updated. | | | -
      * `updated_at:>'2020-10-21T23:39:20Z'`<br/> - `updated_at:&lt;now`<br/> -
-     * `updated_at:<='2024'` |
+     * `updated_at:&lt;='2024'` |
      * You can apply one or more filters to a query. Learn more about [Shopify API
      * search syntax](https://shopify.dev/api/usage/search-syntax).
      */

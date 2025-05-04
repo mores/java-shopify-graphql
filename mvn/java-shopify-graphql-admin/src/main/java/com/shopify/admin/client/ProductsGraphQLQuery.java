@@ -153,7 +153,7 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
      * `combined_listing_role:parent` |
      * | created_at | time | Filter by the date and time when the product was
      * created. | | | - `created_at:>'2020-10-21T23:39:20Z'`<br/> -
-     * `created_at:&lt;now`<br/> - `created_at:<='2024'` |
+     * `created_at:&lt;now`<br/> - `created_at:&lt;='2024'` |
      * | delivery_profile_id | id | Filter by the delivery profile [`id`](https://shopify.dev/api/admin-graphql/latest/objects/DeliveryProfile#field-id)
      * field. | | | - `delivery_profile_id:108179161409` |
      * | error_feedback | string | Filter by products with publishing errors. |
@@ -230,7 +230,7 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
      * field. | | | - `title:The Minimal Snowboard` |
      * | updated_at | time | Filter by the date and time when the product was last
      * updated. | | | - `updated_at:>'2020-10-21T23:39:20Z'`<br/> -
-     * `updated_at:&lt;now`<br/> - `updated_at:<='2024'` |
+     * `updated_at:&lt;now`<br/> - `updated_at:&lt;='2024'` |
      * | variant_id | id | Filter by the product variant [`id`](https://shopify.dev/api/admin-graphql/latest/objects/ProductVariant#field-id)
      * field. | | | - `variant_id:45779434701121` |
      * | variant_title | string | Filter by the product variant [`title`](https://shopify.dev/api/admin-graphql/latest/objects/ProductVariant#field-title)
