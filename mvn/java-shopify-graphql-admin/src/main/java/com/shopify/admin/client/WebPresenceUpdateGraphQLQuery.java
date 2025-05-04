@@ -1,0 +1,74 @@
+package com.shopify.admin.client;
+
+import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import com.shopify.admin.types.WebPresenceUpdateInput;
+import java.lang.Override;
+import java.lang.String;
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ * Updates a web presence.
+ */
+public class WebPresenceUpdateGraphQLQuery extends GraphQLQuery {
+  public WebPresenceUpdateGraphQLQuery(String id, WebPresenceUpdateInput input, String queryName,
+      Set<String> fieldsSet) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (input != null || fieldsSet.contains("input")) {
+        getInput().put("input", input);
+    }
+  }
+
+  public WebPresenceUpdateGraphQLQuery() {
+    super("mutation");
+  }
+
+  @Override
+  public String getOperationName() {
+    return "webPresenceUpdate";
+  }
+
+  public static Builder newRequest() {
+    return new Builder();
+  }
+
+  public static class Builder {
+    private Set<String> fieldsSet = new HashSet<>();
+
+    private String id;
+
+    private WebPresenceUpdateInput input;
+
+    private String queryName;
+
+    public WebPresenceUpdateGraphQLQuery build() {
+      return new WebPresenceUpdateGraphQLQuery(id, input, queryName, fieldsSet);
+               
+    }
+
+    /**
+     * The ID of the web presence to update.
+     */
+    public Builder id(String id) {
+      this.id = id;
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
+     * The web presence properties to update.
+     */
+    public Builder input(WebPresenceUpdateInput input) {
+      this.input = input;
+      this.fieldsSet.add("input");
+      return this;
+    }
+
+    public Builder queryName(String queryName) {
+      this.queryName = queryName;
+      return this;
+    }
+  }
+}
