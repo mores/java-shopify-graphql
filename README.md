@@ -15,6 +15,8 @@ mvn -DskipTests clean javadoc:jar source:jar install
 </dependency>
 ```
 
+[Admin API Javadoc](https://javadoc.io/doc/io.github.mores/java-shopify-graphql-admin/latest/index.html).
+
 ### Storefront API
 
 ```
@@ -24,3 +26,5 @@ mvn -DskipTests clean javadoc:jar source:jar install
         <version>2025.04.001</version>
 </dependency>
 ```
+
+[Storefront API Javadoc](https://javadoc.io/doc/io.github.mores/java-shopify-graphql-storefront/latest/index.html).
