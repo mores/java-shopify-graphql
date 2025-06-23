@@ -1,5 +1,3 @@
-package com.shopify.admin;
-
 import com.netflix.graphql.dgs.client.CustomGraphQLClient;
 import com.netflix.graphql.dgs.client.codegen.GraphQLQueryRequest;
 import com.netflix.graphql.dgs.client.GraphQLClient;
@@ -546,8 +544,40 @@ public class AppTest {
         return products;
     }
 
+    private java.util.Map<String, Publication> listPublications() {
+        java.util.Map<String, Publication> lookup = new java.util.HashMap<>();
+
+        PublicationsGraphQLQuery.Builder builder = PublicationsGraphQLQuery.newRequest();
+        builder.first(10);
+        PublicationsGraphQLQuery query = builder.build();
+
+        PublicationsProjectionRoot root = new PublicationsProjectionRoot();
+        PublicationEdgeProjection edge = root.edges();
+        PublicationProjection node = edge.node();
+        node.id();
+        node.name();
+
+        com.netflix.graphql.dgs.client.codegen.GraphQLQueryRequest request = new com.netflix.graphql.dgs.client.codegen.GraphQLQueryRequest(
+                query, root);
+        log.trace("Query: " + request.serialize());
+
+        com.netflix.graphql.dgs.client.GraphQLResponse response = client.executeQuery(request.serialize());
+        log.trace("Results: " + response);
+
+        PublicationConnection results = response.extractValueAsObject("publications", PublicationConnection.class);
+        java.util.List<PublicationEdge> edges = results.getEdges();
+        for (PublicationEdge pubEdge : edges) {
+            Publication pub = pubEdge.getNode();
+            log.debug(pub.getId() + "\t" + pub.getName());
+            lookup.put(pub.getName(), pub);
+        }
+
+        return lookup;
+    }
+
     // simpler option for initial product creation
     private Product createProduct(String title, String handle) throws Exception {
+
         ProductCreateGraphQLQuery.Builder builder = ProductCreateGraphQLQuery.newRequest();
 
         ProductCreateInput productInput = new ProductCreateInput();
@@ -635,6 +665,9 @@ public class AppTest {
 
         java.io.File file = new java.io.File("src/test/resources/lollipops.jpg");
         uploadImage(product, file);
+
+        java.util.Map<String, Publication> publications = listPublications();
+        publish(product.getId(), publications.get("Online Store"));
 
         return product;
     }
@@ -791,6 +824,36 @@ public class AppTest {
         log.trace("Response: " + response.toString());
         ProductVariantsBulkCreatePayload payload = response.extractValueAsObject("productVariantsBulkCreate",
                 ProductVariantsBulkCreatePayload.class);
+    }
+
+    private void publish(String productId, Publication publication) {
+        java.util.List<PublicationInput> inputs = new java.util.ArrayList<>();
+        PublicationInput input = new PublicationInput();
+        input.setPublicationId(publication.getId());
+        inputs.add(input);
+
+        java.util.Set<String> fieldsSet = new java.util.HashSet<>();
+        PublishablePublishGraphQLQuery query = new PublishablePublishGraphQLQuery(productId, inputs, null, fieldsSet);
+
+        PublishablePublishProjectionRoot root = new PublishablePublishProjectionRoot();
+        UserErrorProjection userError = root.userErrors();
+        userError.field();
+        userError.message();
+
+        com.netflix.graphql.dgs.client.codegen.GraphQLQueryRequest request = new com.netflix.graphql.dgs.client.codegen.GraphQLQueryRequest(
+                query, root);
+        log.trace("Query: " + request.serialize());
+
+        com.netflix.graphql.dgs.client.GraphQLResponse response = client.executeQuery(request.serialize());
+        log.trace("Response: " + response.toString());
+
+        PublishablePublishPayload payload = response.extractValueAsObject("publishablePublish",
+                PublishablePublishPayload.class);
+
+        java.util.List<UserError> errors = payload.getUserErrors();
+        if (errors.size() > 0) {
+            log.error("Publish Error Count: " + errors.size());
+        }
     }
 
     private void updateVariant(Product product, ProductVariant productVariant, String price, String compareAt) {
