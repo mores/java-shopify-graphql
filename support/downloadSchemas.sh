@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION=2025-04
+VERSION=2025-07
 
 curl --request POST \
   --url https://shopify.dev/admin-graphql-direct-proxy/$VERSION \
