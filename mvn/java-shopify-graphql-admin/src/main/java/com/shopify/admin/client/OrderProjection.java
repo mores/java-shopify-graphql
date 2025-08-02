@@ -1,14 +1,17 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.BaseSubProjectionNode;
+import com.shopify.admin.types.Audience;
 import com.shopify.admin.types.CountryCode;
 import com.shopify.admin.types.EventSortKeys;
 import com.shopify.admin.types.LocalizationExtensionPurpose;
 import com.shopify.admin.types.LocalizedFieldPurpose;
 import com.shopify.admin.types.MetafieldDefinitionPinnedStatus;
 import com.shopify.admin.types.MetafieldDefinitionSortKeys;
+import com.shopify.admin.types.NotificationUsage;
 import com.shopify.admin.types.RefundDutyInput;
 import com.shopify.admin.types.RefundLineItemInput;
+import com.shopify.admin.types.RefundMethodAllocation;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -332,12 +335,15 @@ public class OrderProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
      return projection;
   }
 
-  public FulfillmentProjection<OrderProjection<PARENT, ROOT>, ROOT> fulfillments(Integer first) {
+  public FulfillmentProjection<OrderProjection<PARENT, ROOT>, ROOT> fulfillments(Integer first,
+      String query) {
     FulfillmentProjection<OrderProjection<PARENT, ROOT>, ROOT> projection = new FulfillmentProjection<>(this, getRoot());    
     getFields().put("fulfillments", projection);
     getInputArguments().computeIfAbsent("fulfillments", k -> new ArrayList<>());                      
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("fulfillments").add(firstArg);
+    InputArgument queryArg = new InputArgument("query", query);
+    getInputArguments().get("fulfillments").add(queryArg);
     return projection;
   }
 
@@ -762,7 +768,8 @@ public class OrderProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
 
   public SuggestedRefundProjection<OrderProjection<PARENT, ROOT>, ROOT> suggestedRefund(
       String shippingAmount, Boolean refundShipping, List<RefundLineItemInput> refundLineItems,
-      List<RefundDutyInput> refundDuties, Boolean suggestFullRefund) {
+      List<RefundDutyInput> refundDuties, Boolean suggestFullRefund,
+      RefundMethodAllocation refundMethodAllocation) {
     SuggestedRefundProjection<OrderProjection<PARENT, ROOT>, ROOT> projection = new SuggestedRefundProjection<>(this, getRoot());    
     getFields().put("suggestedRefund", projection);
     getInputArguments().computeIfAbsent("suggestedRefund", k -> new ArrayList<>());                      
@@ -776,6 +783,8 @@ public class OrderProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     getInputArguments().get("suggestedRefund").add(refundDutiesArg);
     InputArgument suggestFullRefundArg = new InputArgument("suggestFullRefund", suggestFullRefund);
     getInputArguments().get("suggestedRefund").add(suggestFullRefundArg);
+    InputArgument refundMethodAllocationArg = new InputArgument("refundMethodAllocation", refundMethodAllocation);
+    getInputArguments().get("suggestedRefund").add(refundMethodAllocationArg);
     return projection;
   }
 
@@ -1054,6 +1063,11 @@ public class OrderProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     return this;
   }
 
+  public OrderProjection<PARENT, ROOT> number() {
+    getFields().put("number", null);
+    return this;
+  }
+
   public OrderProjection<PARENT, ROOT> paymentGatewayNames() {
     getFields().put("paymentGatewayNames", null);
     return this;
@@ -1121,6 +1135,16 @@ public class OrderProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
 
   public OrderProjection<PARENT, ROOT> statusPageUrl() {
     getFields().put("statusPageUrl", null);
+    return this;
+  }
+
+  public OrderProjection statusPageUrl(Audience audience, NotificationUsage notificationUsage) {
+    getFields().put("statusPageUrl", null);
+    getInputArguments().computeIfAbsent("statusPageUrl", k -> new ArrayList<>());
+    InputArgument audienceArg = new InputArgument("audience", audience);
+    getInputArguments().get("statusPageUrl").add(audienceArg);
+    InputArgument notificationUsageArg = new InputArgument("notificationUsage", notificationUsage);
+    getInputArguments().get("statusPageUrl").add(notificationUsageArg);
     return this;
   }
 

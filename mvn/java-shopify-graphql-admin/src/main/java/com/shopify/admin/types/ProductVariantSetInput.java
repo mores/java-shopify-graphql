@@ -92,6 +92,16 @@ public class ProductVariantSetInput {
    */
   private String taxCode;
 
+  /**
+   * The unit price measurement for the product variant.
+   */
+  private UnitPriceMeasurementInput unitPriceMeasurement;
+
+  /**
+   * Whether or not unit price should be shown for this product variant.
+   */
+  private Boolean showUnitPrice;
+
   public ProductVariantSetInput() {
   }
 
@@ -265,9 +275,31 @@ public class ProductVariantSetInput {
     this.taxCode = taxCode;
   }
 
+  /**
+   * The unit price measurement for the product variant.
+   */
+  public UnitPriceMeasurementInput getUnitPriceMeasurement() {
+    return unitPriceMeasurement;
+  }
+
+  public void setUnitPriceMeasurement(UnitPriceMeasurementInput unitPriceMeasurement) {
+    this.unitPriceMeasurement = unitPriceMeasurement;
+  }
+
+  /**
+   * Whether or not unit price should be shown for this product variant.
+   */
+  public Boolean getShowUnitPrice() {
+    return showUnitPrice;
+  }
+
+  public void setShowUnitPrice(Boolean showUnitPrice) {
+    this.showUnitPrice = showUnitPrice;
+  }
+
   @Override
   public String toString() {
-    return "ProductVariantSetInput{requiresComponents='" + requiresComponents + "', barcode='" + barcode + "', compareAtPrice='" + compareAtPrice + "', id='" + id + "', file='" + file + "', inventoryPolicy='" + inventoryPolicy + "', inventoryQuantities='" + inventoryQuantities + "', inventoryItem='" + inventoryItem + "', metafields='" + metafields + "', optionValues='" + optionValues + "', position='" + position + "', price='" + price + "', sku='" + sku + "', taxable='" + taxable + "', taxCode='" + taxCode + "'}";
+    return "ProductVariantSetInput{requiresComponents='" + requiresComponents + "', barcode='" + barcode + "', compareAtPrice='" + compareAtPrice + "', id='" + id + "', file='" + file + "', inventoryPolicy='" + inventoryPolicy + "', inventoryQuantities='" + inventoryQuantities + "', inventoryItem='" + inventoryItem + "', metafields='" + metafields + "', optionValues='" + optionValues + "', position='" + position + "', price='" + price + "', sku='" + sku + "', taxable='" + taxable + "', taxCode='" + taxCode + "', unitPriceMeasurement='" + unitPriceMeasurement + "', showUnitPrice='" + showUnitPrice + "'}";
   }
 
   @Override
@@ -289,12 +321,14 @@ public class ProductVariantSetInput {
         Objects.equals(price, that.price) &&
         Objects.equals(sku, that.sku) &&
         Objects.equals(taxable, that.taxable) &&
-        Objects.equals(taxCode, that.taxCode);
+        Objects.equals(taxCode, that.taxCode) &&
+        Objects.equals(unitPriceMeasurement, that.unitPriceMeasurement) &&
+        Objects.equals(showUnitPrice, that.showUnitPrice);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requiresComponents, barcode, compareAtPrice, id, file, inventoryPolicy, inventoryQuantities, inventoryItem, metafields, optionValues, position, price, sku, taxable, taxCode);
+    return Objects.hash(requiresComponents, barcode, compareAtPrice, id, file, inventoryPolicy, inventoryQuantities, inventoryItem, metafields, optionValues, position, price, sku, taxable, taxCode, unitPriceMeasurement, showUnitPrice);
   }
 
   public static Builder newBuilder() {
@@ -382,6 +416,16 @@ public class ProductVariantSetInput {
      */
     private String taxCode;
 
+    /**
+     * The unit price measurement for the product variant.
+     */
+    private UnitPriceMeasurementInput unitPriceMeasurement;
+
+    /**
+     * Whether or not unit price should be shown for this product variant.
+     */
+    private Boolean showUnitPrice;
+
     public ProductVariantSetInput build() {
       ProductVariantSetInput result = new ProductVariantSetInput();
       result.requiresComponents = this.requiresComponents;
@@ -399,6 +443,8 @@ public class ProductVariantSetInput {
       result.sku = this.sku;
       result.taxable = this.taxable;
       result.taxCode = this.taxCode;
+      result.unitPriceMeasurement = this.unitPriceMeasurement;
+      result.showUnitPrice = this.showUnitPrice;
       return result;
     }
 
@@ -524,6 +570,22 @@ public class ProductVariantSetInput {
      */
     public Builder taxCode(String taxCode) {
       this.taxCode = taxCode;
+      return this;
+    }
+
+    /**
+     * The unit price measurement for the product variant.
+     */
+    public Builder unitPriceMeasurement(UnitPriceMeasurementInput unitPriceMeasurement) {
+      this.unitPriceMeasurement = unitPriceMeasurement;
+      return this;
+    }
+
+    /**
+     * Whether or not unit price should be shown for this product variant.
+     */
+    public Builder showUnitPrice(Boolean showUnitPrice) {
+      this.showUnitPrice = showUnitPrice;
       return this;
     }
   }

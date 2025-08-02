@@ -8,5 +8,7 @@ public enum CustomerCancelDataErasureErrorCode {
 
   FAILED_TO_CANCEL,
 
-  NOT_BEING_ERASED
+  NOT_BEING_ERASED,
+
+  UNAUTHORIZED_CANCELLATION
 }

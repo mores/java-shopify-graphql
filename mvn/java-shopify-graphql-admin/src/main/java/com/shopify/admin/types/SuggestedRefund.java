@@ -62,6 +62,11 @@ public class SuggestedRefund {
   private MoneyBag subtotalSet;
 
   /**
+   * A list of suggested refund methods.
+   */
+  private List<SuggestedRefundMethod> suggestedRefundMethods;
+
+  /**
    * A list of suggested order transactions.
    */
   private List<SuggestedOrderTransaction> suggestedTransactions;
@@ -200,6 +205,17 @@ public class SuggestedRefund {
   }
 
   /**
+   * A list of suggested refund methods.
+   */
+  public List<SuggestedRefundMethod> getSuggestedRefundMethods() {
+    return suggestedRefundMethods;
+  }
+
+  public void setSuggestedRefundMethods(List<SuggestedRefundMethod> suggestedRefundMethods) {
+    this.suggestedRefundMethods = suggestedRefundMethods;
+  }
+
+  /**
    * A list of suggested order transactions.
    */
   public List<SuggestedOrderTransaction> getSuggestedTransactions() {
@@ -256,7 +272,7 @@ public class SuggestedRefund {
 
   @Override
   public String toString() {
-    return "SuggestedRefund{amount='" + amount + "', amountSet='" + amountSet + "', discountedSubtotalSet='" + discountedSubtotalSet + "', maximumRefundable='" + maximumRefundable + "', maximumRefundableSet='" + maximumRefundableSet + "', refundDuties='" + refundDuties + "', refundLineItems='" + refundLineItems + "', shipping='" + shipping + "', subtotal='" + subtotal + "', subtotalSet='" + subtotalSet + "', suggestedTransactions='" + suggestedTransactions + "', totalCartDiscountAmountSet='" + totalCartDiscountAmountSet + "', totalDutiesSet='" + totalDutiesSet + "', totalTaxSet='" + totalTaxSet + "', totalTaxes='" + totalTaxes + "'}";
+    return "SuggestedRefund{amount='" + amount + "', amountSet='" + amountSet + "', discountedSubtotalSet='" + discountedSubtotalSet + "', maximumRefundable='" + maximumRefundable + "', maximumRefundableSet='" + maximumRefundableSet + "', refundDuties='" + refundDuties + "', refundLineItems='" + refundLineItems + "', shipping='" + shipping + "', subtotal='" + subtotal + "', subtotalSet='" + subtotalSet + "', suggestedRefundMethods='" + suggestedRefundMethods + "', suggestedTransactions='" + suggestedTransactions + "', totalCartDiscountAmountSet='" + totalCartDiscountAmountSet + "', totalDutiesSet='" + totalDutiesSet + "', totalTaxSet='" + totalTaxSet + "', totalTaxes='" + totalTaxes + "'}";
   }
 
   @Override
@@ -274,6 +290,7 @@ public class SuggestedRefund {
         Objects.equals(shipping, that.shipping) &&
         Objects.equals(subtotal, that.subtotal) &&
         Objects.equals(subtotalSet, that.subtotalSet) &&
+        Objects.equals(suggestedRefundMethods, that.suggestedRefundMethods) &&
         Objects.equals(suggestedTransactions, that.suggestedTransactions) &&
         Objects.equals(totalCartDiscountAmountSet, that.totalCartDiscountAmountSet) &&
         Objects.equals(totalDutiesSet, that.totalDutiesSet) &&
@@ -283,7 +300,7 @@ public class SuggestedRefund {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, amountSet, discountedSubtotalSet, maximumRefundable, maximumRefundableSet, refundDuties, refundLineItems, shipping, subtotal, subtotalSet, suggestedTransactions, totalCartDiscountAmountSet, totalDutiesSet, totalTaxSet, totalTaxes);
+    return Objects.hash(amount, amountSet, discountedSubtotalSet, maximumRefundable, maximumRefundableSet, refundDuties, refundLineItems, shipping, subtotal, subtotalSet, suggestedRefundMethods, suggestedTransactions, totalCartDiscountAmountSet, totalDutiesSet, totalTaxSet, totalTaxes);
   }
 
   public static Builder newBuilder() {
@@ -342,6 +359,11 @@ public class SuggestedRefund {
     private MoneyBag subtotalSet;
 
     /**
+     * A list of suggested refund methods.
+     */
+    private List<SuggestedRefundMethod> suggestedRefundMethods;
+
+    /**
      * A list of suggested order transactions.
      */
     private List<SuggestedOrderTransaction> suggestedTransactions;
@@ -378,6 +400,7 @@ public class SuggestedRefund {
       result.shipping = this.shipping;
       result.subtotal = this.subtotal;
       result.subtotalSet = this.subtotalSet;
+      result.suggestedRefundMethods = this.suggestedRefundMethods;
       result.suggestedTransactions = this.suggestedTransactions;
       result.totalCartDiscountAmountSet = this.totalCartDiscountAmountSet;
       result.totalDutiesSet = this.totalDutiesSet;
@@ -463,6 +486,14 @@ public class SuggestedRefund {
      */
     public Builder subtotalSet(MoneyBag subtotalSet) {
       this.subtotalSet = subtotalSet;
+      return this;
+    }
+
+    /**
+     * A list of suggested refund methods.
+     */
+    public Builder suggestedRefundMethods(List<SuggestedRefundMethod> suggestedRefundMethods) {
+      this.suggestedRefundMethods = suggestedRefundMethods;
       return this;
     }
 

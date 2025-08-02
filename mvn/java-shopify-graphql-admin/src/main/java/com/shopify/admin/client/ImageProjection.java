@@ -92,6 +92,11 @@ public class ImageProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     return this;
   }
 
+  public ImageProjection<PARENT, ROOT> thumbhash() {
+    getFields().put("thumbhash", null);
+    return this;
+  }
+
   public ImageProjection<PARENT, ROOT> transformedSrc() {
     getFields().put("transformedSrc", null);
     return this;

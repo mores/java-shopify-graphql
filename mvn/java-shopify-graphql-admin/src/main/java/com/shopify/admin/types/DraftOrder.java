@@ -20,7 +20,6 @@ import java.util.Objects;
  * - Re-create orders manually from active sales channels.
  * - Sell products at discount or wholesale rates.
  * - Take pre-orders.
- * - Save an order as a draft and resume working on it later.
  *
  * For draft orders in multiple currencies `presentment_money` is the source of
  * truth for what a customer is going to be charged and `shop_money` is an estimate

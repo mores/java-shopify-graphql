@@ -14,13 +14,13 @@ import java.util.Set;
  */
 public class BulkOperationRunMutationGraphQLQuery extends GraphQLQuery {
   public BulkOperationRunMutationGraphQLQuery(String mutation, String stagedUploadPath,
-      String clientIdentifier, String queryName, Set<String> fieldsSet) {
+      boolean groupObjects, String clientIdentifier, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
     if (mutation != null || fieldsSet.contains("mutation")) {
         getInput().put("mutation", mutation);
     }if (stagedUploadPath != null || fieldsSet.contains("stagedUploadPath")) {
         getInput().put("stagedUploadPath", stagedUploadPath);
-    }if (clientIdentifier != null || fieldsSet.contains("clientIdentifier")) {
+    }getInput().put("groupObjects", groupObjects);                   if (clientIdentifier != null || fieldsSet.contains("clientIdentifier")) {
         getInput().put("clientIdentifier", clientIdentifier);
     }
   }
@@ -45,12 +45,14 @@ public class BulkOperationRunMutationGraphQLQuery extends GraphQLQuery {
 
     private String stagedUploadPath;
 
+    private boolean groupObjects;
+
     private String clientIdentifier;
 
     private String queryName;
 
     public BulkOperationRunMutationGraphQLQuery build() {
-      return new BulkOperationRunMutationGraphQLQuery(mutation, stagedUploadPath, clientIdentifier, queryName, fieldsSet);
+      return new BulkOperationRunMutationGraphQLQuery(mutation, stagedUploadPath, groupObjects, clientIdentifier, queryName, fieldsSet);
                
     }
 
@@ -69,6 +71,17 @@ public class BulkOperationRunMutationGraphQLQuery extends GraphQLQuery {
     public Builder stagedUploadPath(String stagedUploadPath) {
       this.stagedUploadPath = stagedUploadPath;
       this.fieldsSet.add("stagedUploadPath");
+      return this;
+    }
+
+    /**
+     * Whether to group objects under their corresponding parent objects in the
+     * JSONL output. Grouping is costly, causes bulk operations to take longer to
+     * complete, and increases the chances of failures such as timeouts.
+     */
+    public Builder groupObjects(boolean groupObjects) {
+      this.groupObjects = groupObjects;
+      this.fieldsSet.add("groupObjects");
       return this;
     }
 

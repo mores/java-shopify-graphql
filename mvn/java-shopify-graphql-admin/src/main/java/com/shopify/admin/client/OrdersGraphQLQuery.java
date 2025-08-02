@@ -146,10 +146,10 @@ public class OrdersGraphQLQuery extends GraphQLQuery {
      * abandoned cart conversions or troubleshoot checkout issues. The token
      * references the cart that's associated with an order. | | | -
      * `cart_token:abc123` |
-     * | channel | string | Filter by the channel information [`handle`](https://shopify.dev/api/admin-graphql/latest/objects/ChannelInformation#field-channeldefinition)
+     * | channel | string | Filter by the channel information [`handle`](https://shopify.dev/api/admin-graphql/latest/objects/ChannelInformation#field-ChannelInformation.fields.channelDefinition.handle)
      * (`ChannelInformation.channelDefinition.handle`) field. | | | -
      * `channel:web`<br/> - `channel:web,pos` |
-     * | channel_id | id | Filter by the channel [`id`](https://shopify.dev/api/admin-graphql/latest/objects/Channel#field-id)
+     * | channel_id | id | Filter by the channel [`id`](https://shopify.dev/api/admin-graphql/latest/objects/Channel#field-Channel.fields.id)
      * field. | | | - `channel_id:123` |
      * | chargeback_status | string | Filter by the order's chargeback status. A
      * chargeback occurs when a customer questions the legitimacy of a charge with
@@ -171,9 +171,9 @@ public class OrdersGraphQLQuery extends GraphQLQuery {
      * card that was used to pay for the order. This filter matches only the last
      * four digits of the card for heightened security. | | | -
      * `credit_card_last4:1234` |
-     * | customer_id | id | Filter orders by the customer [`id`](https://shopify.dev/api/admin-graphql/latest/objects/Customer#field-id)
+     * | customer_id | id | Filter orders by the customer [`id`](https://shopify.dev/api/admin-graphql/latest/objects/Customer#field-Customer.fields.id)
      * field. | | | - `customer_id:123` |
-     * | delivery_method | string | Filter by the delivery [`methodType`](https://shopify.dev/api/admin-graphql/2024-07/objects/DeliveryMethod#field-methodtype)
+     * | delivery_method | string | Filter by the delivery [`methodType`](https://shopify.dev/api/admin-graphql/2024-07/objects/DeliveryMethod#field-DeliveryMethod.fields.methodType)
      * field. | - `shipping`<br/> - `pick-up`<br/> - `retail`<br/> - `local`<br/> -
      * `pickup-point`<br/> - `none` | | - `delivery_method:shipping` |
      * | discount_code | string | Filter by the case-insensitive discount code that
@@ -182,7 +182,7 @@ public class OrdersGraphQLQuery extends GraphQLQuery {
      * | email | string | Filter by the email address that's associated with the
      * order to provide customer support or analyze purchasing patterns. | | | -
      * `email:example@shopify.com` |
-     * | financial_status | string | Filter by the order [`displayFinancialStatus`](https://shopify.dev/api/admin-graphql/latest/objects/Order#field-displayfinancialstatus)
+     * | financial_status | string | Filter by the order [`displayFinancialStatus`](https://shopify.dev/api/admin-graphql/latest/objects/Order#field-Order.fields.displayFinancialStatus)
      * field. | - `paid`<br/> - `pending`<br/> - `authorized`<br/> -
      * `partially_paid`<br/> - `partially_refunded`<br/> - `refunded`<br/> -
      * `voided`<br/> - `expired` | | - `financial_status:authorized` |
@@ -191,19 +191,19 @@ public class OrdersGraphQLQuery extends GraphQLQuery {
      * disputes. | - `fully_protected`<br/> - `partially_protected`<br/> -
      * `not_protected`<br/> - `pending`<br/> - `not_eligible`<br/> -
      * `not_available` | | - `fraud_protection_level:fully_protected` |
-     * | fulfillment_location_id | id | Filter by the fulfillment location [`id`](https://shopify.dev/api/admin-graphql/latest/objects/Fulfillment#field-location)
+     * | fulfillment_location_id | id | Filter by the fulfillment location [`id`](https://shopify.dev/api/admin-graphql/latest/objects/Fulfillment#field-Fulfillment.fields.location.id)
      * (`Fulfillment.location.id`) field. | | | - `fulfillment_location_id:123` |
-     * | fulfillment_status | string | Filter by the [`displayFulfillmentStatus`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order#field-displayfulfillmentstatus)
+     * | fulfillment_status | string | Filter by the [`displayFulfillmentStatus`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order#field-Order.fields.displayFulfillmentStatus)
      * field to prioritize shipments or monitor order processing. | -
      * `unshipped`<br/> - `shipped`<br/> - `fulfilled`<br/> - `partial`<br/> -
      * `scheduled`<br/> - `on_hold`<br/> - `unfulfilled`<br/> - `request_declined`
      * | | - `fulfillment_status:fulfilled` |
-     * | gateway | string | Filter by the [`paymentGatewayNames`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order#field-paymentgatewaynames)
+     * | gateway | string | Filter by the [`paymentGatewayNames`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order#field-Order.fields.paymentGatewayNames)
      * field. Use this filter to find orders that were processed through specific
      * payment providers like Shopify Payments, PayPal, or other custom payment
      * gateways. | | | - `gateway:shopify_payments` |
      * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
-     * | location_id | id | Filter by the location [`id`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Location#field-id)
+     * | location_id | id | Filter by the location [`id`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Location#field-Location.fields.id)
      * that's associated with the order to view and manage orders for specific
      * locations. For POS orders, locations must be defined in the Shopify admin
      * under **Settings** > **Locations**. If no ID is provided, then the primary
@@ -216,26 +216,26 @@ public class OrdersGraphQLQuery extends GraphQLQuery {
      * | payment_provider_id | id | Filter by the ID of the payment provider that's
      * associated with the order to manage payment methods or troubleshoot
      * transactions. | | | - `payment_provider_id:123` |
-     * | po_number | string | Filter by the order [`poNumber`](https://shopify.dev/api/admin-graphql/latest/objects/Order#field-ponumber)
+     * | po_number | string | Filter by the order [`poNumber`](https://shopify.dev/api/admin-graphql/latest/objects/order#field-Order.fields.poNumber)
      * field. | | | - `po_number:P01001` |
-     * | processed_at | time | Filter by the order [`processedAt`](https://shopify.dev/api/admin-graphql/latest/objects/Order#field-processedat)
+     * | processed_at | time | Filter by the order [`processedAt`](https://shopify.dev/api/admin-graphql/latest/objects/order#field-Order.fields.processedAt)
      * field. | | | - `processed_at:2021-01-01T00:00:00Z` |
      * | reference_location_id | id | Filter by the ID of a location that's
      * associated with the order, such as locations from fulfillments, refunds, or
      * the shop's primary location. | | | - `reference_location_id:123` |
-     * | return_status | string | Filter by the return status to monitor returns
-     * processing and track which orders have active returns. | -
-     * `return_requested`<br/> - `in_progress`<br/> - `inspection_complete`<br/> -
-     * `returned`<br/> - `return_failed`<br/> - `no_return` | | -
+     * | return_status | string | Filter by the order's [`returnStatus`](https://shopify.dev/api/admin-graphql/latest/objects/Order#field-Order.fields.returnStatus)
+     * to monitor returns processing and track which orders have active returns. |
+     * - `return_requested`<br/> - `in_progress`<br/> - `inspection_complete`<br/>
+     * - `returned`<br/> - `return_failed`<br/> - `no_return` | | -
      * `return_status:in_progress` |
-     * | risk_level | string | Filter by the order risk assessment [`riskLevel`](https://shopify.dev/api/admin-graphql/latest/objects/OrderRiskAssessment#field-risklevel)
+     * | risk_level | string | Filter by the order risk assessment [`riskLevel`](https://shopify.dev/api/admin-graphql/latest/objects/OrderRiskAssessment#field-OrderRiskAssessment.fields.riskLevel)
      * field. | - `high`<br/> - `medium`<br/> - `low`<br/> - `none`<br/> -
      * `pending` | | - `risk_level:high` |
      * | sales_channel | string | Filter by the [sales
      * channel](https://shopify.dev/docs/apps/build/sales-channels) where the order
      * was made to analyze performance or manage fulfillment processes. | | | -
      * `sales_channel: some_sales_channel` |
-     * | sku | string | Filter by the product variant [`sku`](https://shopify.dev/api/admin-graphql/latest/objects/ProductVariant#field-sku)
+     * | sku | string | Filter by the product variant [`sku`](https://shopify.dev/api/admin-graphql/latest/objects/ProductVariant#field-ProductVariant.fields.sku)
      * field. [Learn more about
      * SKUs](https://help.shopify.com/manual/products/details/sku). | | | - `sku:ABC123` |
      * | source_identifier | string | Filter by the ID of the order placed on the
@@ -257,9 +257,8 @@ public class OrdersGraphQLQuery extends GraphQLQuery {
      * `subtotal_line_items_quantity:5..20` |
      * | tag | string | Filter objects by the `tag` field. | | | - `tag:my_tag` |
      * | tag_not | string | Filter by objects that don’t have the specified tag. | | | - `tag_not:my_tag` |
-     * | test | boolean | Filter by test orders. Test orders are made using the [Shopify Bogus
-     * Gateway](https://help.shopify.com/manual/checkout-settings/test-orders) or a
-     * payment provider with test mode enabled. | | | - `test:true` |
+     * | test | boolean | Filter by test orders. Test orders are made using the [Shopify Bogus Gateway](https://help.shopify.com/manual/checkout-settings/test-orders/payments-test-mode#bogus-gateway)
+     * or a payment provider with test mode enabled. | | | - `test:true` |
      * | updated_at | time | Filter by the date and time when the order was last
      * updated in Shopify's system. | | | - `updated_at:2020-10-21T23:39:20Z`<br/>
      * - `updated_at:&lt;now`<br/> - `updated_at:&lt;=2024` |

@@ -23,10 +23,25 @@ public class InventorySetQuantitiesInput {
   private String name;
 
   /**
-   * A freeform URI that represents why the inventory change happened. This can be the entity adjusting inventory
-   * quantities or the Shopify resource that's associated with the inventory adjustment. For example, a unit in a
-   * draft order might have been previously reserved, and a merchant later creates an order from the draft order.
-   * In this case, the `referenceDocumentUri` for the inventory adjustment is a URI referencing the order ID.
+   * A URI that represents why the inventory change happened, identifying the
+   * source system and document that caused this adjustment. Enables complete audit
+   * trails and brand visibility in Shopify admin inventory history.
+   *   
+   * Preferred format - Global ID (GID): gid://[your-app-name]/[entity-type]/[id]
+   *   
+   * Examples:
+   * - gid://warehouse-app/PurchaseOrder/PO-2024-001 (stock received)
+   * - gid://3pl-system/CycleCount/CC-2024-0125 (cycle count adjustment)
+   * - gid://pos-app/Transaction/TXN-98765 (in-store sale)
+   * - gid://erp-connector/SyncJob/SYNC-2024-11-21-001 (ERP sync)
+   * - gid://shopify/Order/1234567890 (Shopify order reference)
+   *   
+   * Benefits: Your app name appears directly in merchant inventory history,
+   * reducing support tickets and providing clear audit trails for compliance.
+   *   
+   * Alternative formats (also supported): https://myapp.com/documents/12345, custom-scheme://identifier
+   *   
+   * Requirements: Valid URI with scheme and content. For GID format, all components (app, entity, id) must be present.
    */
   private String referenceDocumentUri;
 
@@ -67,10 +82,25 @@ public class InventorySetQuantitiesInput {
   }
 
   /**
-   * A freeform URI that represents why the inventory change happened. This can be the entity adjusting inventory
-   * quantities or the Shopify resource that's associated with the inventory adjustment. For example, a unit in a
-   * draft order might have been previously reserved, and a merchant later creates an order from the draft order.
-   * In this case, the `referenceDocumentUri` for the inventory adjustment is a URI referencing the order ID.
+   * A URI that represents why the inventory change happened, identifying the
+   * source system and document that caused this adjustment. Enables complete audit
+   * trails and brand visibility in Shopify admin inventory history.
+   *   
+   * Preferred format - Global ID (GID): gid://[your-app-name]/[entity-type]/[id]
+   *   
+   * Examples:
+   * - gid://warehouse-app/PurchaseOrder/PO-2024-001 (stock received)
+   * - gid://3pl-system/CycleCount/CC-2024-0125 (cycle count adjustment)
+   * - gid://pos-app/Transaction/TXN-98765 (in-store sale)
+   * - gid://erp-connector/SyncJob/SYNC-2024-11-21-001 (ERP sync)
+   * - gid://shopify/Order/1234567890 (Shopify order reference)
+   *   
+   * Benefits: Your app name appears directly in merchant inventory history,
+   * reducing support tickets and providing clear audit trails for compliance.
+   *   
+   * Alternative formats (also supported): https://myapp.com/documents/12345, custom-scheme://identifier
+   *   
+   * Requirements: Valid URI with scheme and content. For GID format, all components (app, entity, id) must be present.
    */
   public String getReferenceDocumentUri() {
     return referenceDocumentUri;
@@ -141,10 +171,25 @@ public class InventorySetQuantitiesInput {
     private String name;
 
     /**
-     * A freeform URI that represents why the inventory change happened. This can be the entity adjusting inventory
-     * quantities or the Shopify resource that's associated with the inventory adjustment. For example, a unit in a
-     * draft order might have been previously reserved, and a merchant later creates an order from the draft order.
-     * In this case, the `referenceDocumentUri` for the inventory adjustment is a URI referencing the order ID.
+     * A URI that represents why the inventory change happened, identifying the
+     * source system and document that caused this adjustment. Enables complete audit
+     * trails and brand visibility in Shopify admin inventory history.
+     *   
+     * Preferred format - Global ID (GID): gid://[your-app-name]/[entity-type]/[id]
+     *   
+     * Examples:
+     * - gid://warehouse-app/PurchaseOrder/PO-2024-001 (stock received)
+     * - gid://3pl-system/CycleCount/CC-2024-0125 (cycle count adjustment)
+     * - gid://pos-app/Transaction/TXN-98765 (in-store sale)
+     * - gid://erp-connector/SyncJob/SYNC-2024-11-21-001 (ERP sync)
+     * - gid://shopify/Order/1234567890 (Shopify order reference)
+     *   
+     * Benefits: Your app name appears directly in merchant inventory history,
+     * reducing support tickets and providing clear audit trails for compliance.
+     *   
+     * Alternative formats (also supported): https://myapp.com/documents/12345, custom-scheme://identifier
+     *   
+     * Requirements: Valid URI with scheme and content. For GID format, all components (app, entity, id) must be present.
      */
     private String referenceDocumentUri;
 
@@ -186,10 +231,25 @@ public class InventorySetQuantitiesInput {
     }
 
     /**
-     * A freeform URI that represents why the inventory change happened. This can be the entity adjusting inventory
-     * quantities or the Shopify resource that's associated with the inventory adjustment. For example, a unit in a
-     * draft order might have been previously reserved, and a merchant later creates an order from the draft order.
-     * In this case, the `referenceDocumentUri` for the inventory adjustment is a URI referencing the order ID.
+     * A URI that represents why the inventory change happened, identifying the
+     * source system and document that caused this adjustment. Enables complete audit
+     * trails and brand visibility in Shopify admin inventory history.
+     *   
+     * Preferred format - Global ID (GID): gid://[your-app-name]/[entity-type]/[id]
+     *   
+     * Examples:
+     * - gid://warehouse-app/PurchaseOrder/PO-2024-001 (stock received)
+     * - gid://3pl-system/CycleCount/CC-2024-0125 (cycle count adjustment)
+     * - gid://pos-app/Transaction/TXN-98765 (in-store sale)
+     * - gid://erp-connector/SyncJob/SYNC-2024-11-21-001 (ERP sync)
+     * - gid://shopify/Order/1234567890 (Shopify order reference)
+     *   
+     * Benefits: Your app name appears directly in merchant inventory history,
+     * reducing support tickets and providing clear audit trails for compliance.
+     *   
+     * Alternative formats (also supported): https://myapp.com/documents/12345, custom-scheme://identifier
+     *   
+     * Requirements: Valid URI with scheme and content. For GID format, all components (app, entity, id) must be present.
      */
     public Builder referenceDocumentUri(String referenceDocumentUri) {
       this.referenceDocumentUri = referenceDocumentUri;

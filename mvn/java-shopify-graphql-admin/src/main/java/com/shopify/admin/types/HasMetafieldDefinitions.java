@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
     @JsonSubTypes.Type(value = DiscountAutomaticNode.class, name = "DiscountAutomaticNode"),
     @JsonSubTypes.Type(value = DiscountCodeNode.class, name = "DiscountCodeNode"),
     @JsonSubTypes.Type(value = DiscountNode.class, name = "DiscountNode"),
+    @JsonSubTypes.Type(value = InventoryTransfer.class, name = "InventoryTransfer"),
     @JsonSubTypes.Type(value = Location.class, name = "Location"),
     @JsonSubTypes.Type(value = Market.class, name = "Market"),
     @JsonSubTypes.Type(value = Order.class, name = "Order"),
@@ -30,6 +31,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
     @JsonSubTypes.Type(value = Product.class, name = "Product"),
     @JsonSubTypes.Type(value = ProductVariant.class, name = "ProductVariant"),
     @JsonSubTypes.Type(value = SellingPlan.class, name = "SellingPlan"),
+    @JsonSubTypes.Type(value = Shop.class, name = "Shop"),
     @JsonSubTypes.Type(value = Validation.class, name = "Validation")
 })
 public interface HasMetafieldDefinitions {

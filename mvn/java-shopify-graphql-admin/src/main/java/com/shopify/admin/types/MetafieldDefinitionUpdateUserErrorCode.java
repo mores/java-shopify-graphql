@@ -36,8 +36,6 @@ public enum MetafieldDefinitionUpdateUserErrorCode {
 
   DISALLOWED_OWNER_TYPE,
 
-  GRANT_LIMIT_EXCEEDED,
-
   INVALID_INPUT_COMBINATION,
 
   INVALID_CONSTRAINTS,

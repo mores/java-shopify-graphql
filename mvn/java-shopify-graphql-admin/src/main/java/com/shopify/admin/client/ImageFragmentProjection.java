@@ -97,6 +97,11 @@ public class ImageFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>,
     return this;
   }
 
+  public ImageFragmentProjection<PARENT, ROOT> thumbhash() {
+    getFields().put("thumbhash", null);
+    return this;
+  }
+
   public ImageFragmentProjection<PARENT, ROOT> transformedSrc() {
     getFields().put("transformedSrc", null);
     return this;

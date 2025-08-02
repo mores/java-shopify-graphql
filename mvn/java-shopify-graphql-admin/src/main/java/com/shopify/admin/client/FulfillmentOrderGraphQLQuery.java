@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a Fulfillment order resource by ID.
+ * Returns a `FulfillmentOrder` resource by ID.
  */
 public class FulfillmentOrderGraphQLQuery extends GraphQLQuery {
   public FulfillmentOrderGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

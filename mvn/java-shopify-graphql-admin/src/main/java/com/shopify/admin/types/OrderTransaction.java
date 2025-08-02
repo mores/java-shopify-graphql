@@ -9,7 +9,28 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * A payment transaction in the context of an order.
+ * The `OrderTransaction` object represents a payment transaction that's associated with an order. An order
+ * transaction is a specific action or event that happens within the context of an order, such as a customer paying
+ * for a purchase or receiving a refund, or other payment-related activity.
+ *
+ * Use the `OrderTransaction` object to capture the complete lifecycle of a payment, from initial
+ * authorization to final settlement, including refunds and currency exchanges. Common use cases for using the
+ * `OrderTransaction` object include:
+ *
+ * - Processing new payments for orders
+ * - Managing payment authorizations and captures
+ * - Processing refunds for returned items
+ * - Tracking payment status and errors
+ * - Managing multi-currency transactions
+ * - Handling payment gateway integrations
+ *
+ * Each `OrderTransaction` object has a [`kind`](https://shopify.dev/docs/api/admin-graphql/latest/enums/OrderTransactionKind)
+ * that defines the type of transaction and a [`status`](https://shopify.dev/docs/api/admin-graphql/latest/enums/OrderTransactionStatus)
+ * that indicates the current state of the transaction. The object stores detailed information about payment
+ * methods, gateway processing, and settlement details.
+ *
+ * Learn more about [payment processing](https://help.shopify.com/manual/payments)
+ * and [payment gateway integrations](https://www.shopify.com/ca/payment-gateways).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -56,6 +77,16 @@ public class OrderTransaction implements StoreCreditAccountTransactionOrigin, co
   private OffsetDateTime createdAt;
 
   /**
+   * An adjustment on the transaction showing the amount lost or gained  due to fluctuations in the currency exchange rate.
+   */
+  private CurrencyExchangeAdjustment currencyExchangeAdjustment;
+
+  /**
+   * The Shopify Point of Sale device used to process the transaction.
+   */
+  private PointOfSaleDevice device;
+
+  /**
    * A standardized error code, independent of the payment provider.
    */
   private OrderTransactionErrorCode errorCode;
@@ -84,6 +115,11 @@ public class OrderTransaction implements StoreCreditAccountTransactionOrigin, co
    * The kind of transaction.
    */
   private OrderTransactionKind kind;
+
+  /**
+   * The physical location where the transaction was processed.
+   */
+  private Location location;
 
   /**
    * Whether the transaction is processed by manual payment gateway.
@@ -294,6 +330,28 @@ public class OrderTransaction implements StoreCreditAccountTransactionOrigin, co
   }
 
   /**
+   * An adjustment on the transaction showing the amount lost or gained  due to fluctuations in the currency exchange rate.
+   */
+  public CurrencyExchangeAdjustment getCurrencyExchangeAdjustment() {
+    return currencyExchangeAdjustment;
+  }
+
+  public void setCurrencyExchangeAdjustment(CurrencyExchangeAdjustment currencyExchangeAdjustment) {
+    this.currencyExchangeAdjustment = currencyExchangeAdjustment;
+  }
+
+  /**
+   * The Shopify Point of Sale device used to process the transaction.
+   */
+  public PointOfSaleDevice getDevice() {
+    return device;
+  }
+
+  public void setDevice(PointOfSaleDevice device) {
+    this.device = device;
+  }
+
+  /**
    * A standardized error code, independent of the payment provider.
    */
   public OrderTransactionErrorCode getErrorCode() {
@@ -357,6 +415,17 @@ public class OrderTransaction implements StoreCreditAccountTransactionOrigin, co
 
   public void setKind(OrderTransactionKind kind) {
     this.kind = kind;
+  }
+
+  /**
+   * The physical location where the transaction was processed.
+   */
+  public Location getLocation() {
+    return location;
+  }
+
+  public void setLocation(Location location) {
+    this.location = location;
   }
 
   /**
@@ -610,7 +679,7 @@ public class OrderTransaction implements StoreCreditAccountTransactionOrigin, co
 
   @Override
   public String toString() {
-    return "OrderTransaction{accountNumber='" + accountNumber + "', amount='" + amount + "', amountRoundingSet='" + amountRoundingSet + "', amountSet='" + amountSet + "', amountV2='" + amountV2 + "', authorizationCode='" + authorizationCode + "', authorizationExpiresAt='" + authorizationExpiresAt + "', createdAt='" + createdAt + "', errorCode='" + errorCode + "', fees='" + fees + "', formattedGateway='" + formattedGateway + "', gateway='" + gateway + "', id='" + id + "', kind='" + kind + "', manualPaymentGateway='" + manualPaymentGateway + "', manuallyCapturable='" + manuallyCapturable + "', maximumRefundable='" + maximumRefundable + "', maximumRefundableV2='" + maximumRefundableV2 + "', multiCapturable='" + multiCapturable + "', order='" + order + "', parentTransaction='" + parentTransaction + "', paymentDetails='" + paymentDetails + "', paymentIcon='" + paymentIcon + "', paymentId='" + paymentId + "', paymentMethod='" + paymentMethod + "', processedAt='" + processedAt + "', receiptJson='" + receiptJson + "', settlementCurrency='" + settlementCurrency + "', settlementCurrencyRate='" + settlementCurrencyRate + "', shopifyPaymentsSet='" + shopifyPaymentsSet + "', status='" + status + "', test='" + test + "', totalUnsettled='" + totalUnsettled + "', totalUnsettledSet='" + totalUnsettledSet + "', totalUnsettledV2='" + totalUnsettledV2 + "', user='" + user + "'}";
+    return "OrderTransaction{accountNumber='" + accountNumber + "', amount='" + amount + "', amountRoundingSet='" + amountRoundingSet + "', amountSet='" + amountSet + "', amountV2='" + amountV2 + "', authorizationCode='" + authorizationCode + "', authorizationExpiresAt='" + authorizationExpiresAt + "', createdAt='" + createdAt + "', currencyExchangeAdjustment='" + currencyExchangeAdjustment + "', device='" + device + "', errorCode='" + errorCode + "', fees='" + fees + "', formattedGateway='" + formattedGateway + "', gateway='" + gateway + "', id='" + id + "', kind='" + kind + "', location='" + location + "', manualPaymentGateway='" + manualPaymentGateway + "', manuallyCapturable='" + manuallyCapturable + "', maximumRefundable='" + maximumRefundable + "', maximumRefundableV2='" + maximumRefundableV2 + "', multiCapturable='" + multiCapturable + "', order='" + order + "', parentTransaction='" + parentTransaction + "', paymentDetails='" + paymentDetails + "', paymentIcon='" + paymentIcon + "', paymentId='" + paymentId + "', paymentMethod='" + paymentMethod + "', processedAt='" + processedAt + "', receiptJson='" + receiptJson + "', settlementCurrency='" + settlementCurrency + "', settlementCurrencyRate='" + settlementCurrencyRate + "', shopifyPaymentsSet='" + shopifyPaymentsSet + "', status='" + status + "', test='" + test + "', totalUnsettled='" + totalUnsettled + "', totalUnsettledSet='" + totalUnsettledSet + "', totalUnsettledV2='" + totalUnsettledV2 + "', user='" + user + "'}";
   }
 
   @Override
@@ -626,12 +695,15 @@ public class OrderTransaction implements StoreCreditAccountTransactionOrigin, co
         Objects.equals(authorizationCode, that.authorizationCode) &&
         Objects.equals(authorizationExpiresAt, that.authorizationExpiresAt) &&
         Objects.equals(createdAt, that.createdAt) &&
+        Objects.equals(currencyExchangeAdjustment, that.currencyExchangeAdjustment) &&
+        Objects.equals(device, that.device) &&
         Objects.equals(errorCode, that.errorCode) &&
         Objects.equals(fees, that.fees) &&
         Objects.equals(formattedGateway, that.formattedGateway) &&
         Objects.equals(gateway, that.gateway) &&
         Objects.equals(id, that.id) &&
         Objects.equals(kind, that.kind) &&
+        Objects.equals(location, that.location) &&
         manualPaymentGateway == that.manualPaymentGateway &&
         manuallyCapturable == that.manuallyCapturable &&
         Objects.equals(maximumRefundable, that.maximumRefundable) &&
@@ -658,7 +730,7 @@ public class OrderTransaction implements StoreCreditAccountTransactionOrigin, co
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, amount, amountRoundingSet, amountSet, amountV2, authorizationCode, authorizationExpiresAt, createdAt, errorCode, fees, formattedGateway, gateway, id, kind, manualPaymentGateway, manuallyCapturable, maximumRefundable, maximumRefundableV2, multiCapturable, order, parentTransaction, paymentDetails, paymentIcon, paymentId, paymentMethod, processedAt, receiptJson, settlementCurrency, settlementCurrencyRate, shopifyPaymentsSet, status, test, totalUnsettled, totalUnsettledSet, totalUnsettledV2, user);
+    return Objects.hash(accountNumber, amount, amountRoundingSet, amountSet, amountV2, authorizationCode, authorizationExpiresAt, createdAt, currencyExchangeAdjustment, device, errorCode, fees, formattedGateway, gateway, id, kind, location, manualPaymentGateway, manuallyCapturable, maximumRefundable, maximumRefundableV2, multiCapturable, order, parentTransaction, paymentDetails, paymentIcon, paymentId, paymentMethod, processedAt, receiptJson, settlementCurrency, settlementCurrencyRate, shopifyPaymentsSet, status, test, totalUnsettled, totalUnsettledSet, totalUnsettledV2, user);
   }
 
   public static Builder newBuilder() {
@@ -707,6 +779,16 @@ public class OrderTransaction implements StoreCreditAccountTransactionOrigin, co
     private OffsetDateTime createdAt;
 
     /**
+     * An adjustment on the transaction showing the amount lost or gained  due to fluctuations in the currency exchange rate.
+     */
+    private CurrencyExchangeAdjustment currencyExchangeAdjustment;
+
+    /**
+     * The Shopify Point of Sale device used to process the transaction.
+     */
+    private PointOfSaleDevice device;
+
+    /**
      * A standardized error code, independent of the payment provider.
      */
     private OrderTransactionErrorCode errorCode;
@@ -735,6 +817,11 @@ public class OrderTransaction implements StoreCreditAccountTransactionOrigin, co
      * The kind of transaction.
      */
     private OrderTransactionKind kind;
+
+    /**
+     * The physical location where the transaction was processed.
+     */
+    private Location location;
 
     /**
      * Whether the transaction is processed by manual payment gateway.
@@ -863,12 +950,15 @@ public class OrderTransaction implements StoreCreditAccountTransactionOrigin, co
       result.authorizationCode = this.authorizationCode;
       result.authorizationExpiresAt = this.authorizationExpiresAt;
       result.createdAt = this.createdAt;
+      result.currencyExchangeAdjustment = this.currencyExchangeAdjustment;
+      result.device = this.device;
       result.errorCode = this.errorCode;
       result.fees = this.fees;
       result.formattedGateway = this.formattedGateway;
       result.gateway = this.gateway;
       result.id = this.id;
       result.kind = this.kind;
+      result.location = this.location;
       result.manualPaymentGateway = this.manualPaymentGateway;
       result.manuallyCapturable = this.manuallyCapturable;
       result.maximumRefundable = this.maximumRefundable;
@@ -959,6 +1049,23 @@ public class OrderTransaction implements StoreCreditAccountTransactionOrigin, co
     }
 
     /**
+     * An adjustment on the transaction showing the amount lost or gained  due to fluctuations in the currency exchange rate.
+     */
+    public Builder currencyExchangeAdjustment(
+        CurrencyExchangeAdjustment currencyExchangeAdjustment) {
+      this.currencyExchangeAdjustment = currencyExchangeAdjustment;
+      return this;
+    }
+
+    /**
+     * The Shopify Point of Sale device used to process the transaction.
+     */
+    public Builder device(PointOfSaleDevice device) {
+      this.device = device;
+      return this;
+    }
+
+    /**
      * A standardized error code, independent of the payment provider.
      */
     public Builder errorCode(OrderTransactionErrorCode errorCode) {
@@ -1003,6 +1110,14 @@ public class OrderTransaction implements StoreCreditAccountTransactionOrigin, co
      */
     public Builder kind(OrderTransactionKind kind) {
       this.kind = kind;
+      return this;
+    }
+
+    /**
+     * The physical location where the transaction was processed.
+     */
+    public Builder location(Location location) {
+      this.location = location;
       return this;
     }
 

@@ -7,19 +7,22 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * A monetary value with currency.
+ * A precise monetary value and its associated currency. For example, 12.99 USD.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class MoneyV2 implements DeliveryConditionCriteria, PricingValue, SellingPlanCheckoutChargeValue, SellingPlanPricingPolicyAdjustmentValue {
   /**
-   * Decimal money amount.
+   * A monetary value in decimal format, allowing for precise representation of cents or fractional
+   * currency. For example, 12.99.
    */
   private String amount;
 
   /**
-   * Currency of the money.
+   * The three-letter currency code that represents a world currency used in a store. Currency codes
+   * include standard [standard ISO 4217 codes](https://en.wikipedia.org/wiki/ISO_4217), legacy codes,
+   * and non-standard codes. For example, USD.
    */
   private CurrencyCode currencyCode;
 
@@ -27,7 +30,8 @@ public class MoneyV2 implements DeliveryConditionCriteria, PricingValue, Selling
   }
 
   /**
-   * Decimal money amount.
+   * A monetary value in decimal format, allowing for precise representation of cents or fractional
+   * currency. For example, 12.99.
    */
   public String getAmount() {
     return amount;
@@ -38,7 +42,9 @@ public class MoneyV2 implements DeliveryConditionCriteria, PricingValue, Selling
   }
 
   /**
-   * Currency of the money.
+   * The three-letter currency code that represents a world currency used in a store. Currency codes
+   * include standard [standard ISO 4217 codes](https://en.wikipedia.org/wiki/ISO_4217), legacy codes,
+   * and non-standard codes. For example, USD.
    */
   public CurrencyCode getCurrencyCode() {
     return currencyCode;
@@ -73,12 +79,15 @@ public class MoneyV2 implements DeliveryConditionCriteria, PricingValue, Selling
 
   public static class Builder {
     /**
-     * Decimal money amount.
+     * A monetary value in decimal format, allowing for precise representation of cents or fractional
+     * currency. For example, 12.99.
      */
     private String amount;
 
     /**
-     * Currency of the money.
+     * The three-letter currency code that represents a world currency used in a store. Currency codes
+     * include standard [standard ISO 4217 codes](https://en.wikipedia.org/wiki/ISO_4217), legacy codes,
+     * and non-standard codes. For example, USD.
      */
     private CurrencyCode currencyCode;
 
@@ -90,7 +99,8 @@ public class MoneyV2 implements DeliveryConditionCriteria, PricingValue, Selling
     }
 
     /**
-     * Decimal money amount.
+     * A monetary value in decimal format, allowing for precise representation of cents or fractional
+     * currency. For example, 12.99.
      */
     public Builder amount(String amount) {
       this.amount = amount;
@@ -98,7 +108,9 @@ public class MoneyV2 implements DeliveryConditionCriteria, PricingValue, Selling
     }
 
     /**
-     * Currency of the money.
+     * The three-letter currency code that represents a world currency used in a store. Currency codes
+     * include standard [standard ISO 4217 codes](https://en.wikipedia.org/wiki/ISO_4217), legacy codes,
+     * and non-standard codes. For example, USD.
      */
     public Builder currencyCode(CurrencyCode currencyCode) {
       this.currencyCode = currencyCode;

@@ -12,7 +12,7 @@ import java.util.Objects;
  */
 public class DeliveryMethodDefinitionInput {
   /**
-   * A globally-unique ID of the method definition. Use only when updating a method definiton.
+   * A globally-unique ID of the method definition. Use only when updating a method definition.
    */
   private String id;
 
@@ -60,7 +60,7 @@ public class DeliveryMethodDefinitionInput {
   }
 
   /**
-   * A globally-unique ID of the method definition. Use only when updating a method definiton.
+   * A globally-unique ID of the method definition. Use only when updating a method definition.
    */
   public String getId() {
     return id;
@@ -192,7 +192,7 @@ public class DeliveryMethodDefinitionInput {
 
   public static class Builder {
     /**
-     * A globally-unique ID of the method definition. Use only when updating a method definiton.
+     * A globally-unique ID of the method definition. Use only when updating a method definition.
      */
     private String id;
 
@@ -251,7 +251,7 @@ public class DeliveryMethodDefinitionInput {
     }
 
     /**
-     * A globally-unique ID of the method definition. Use only when updating a method definiton.
+     * A globally-unique ID of the method definition. Use only when updating a method definition.
      */
     public Builder id(String id) {
       this.id = id;

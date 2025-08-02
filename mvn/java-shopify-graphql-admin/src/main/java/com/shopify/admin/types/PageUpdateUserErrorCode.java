@@ -12,5 +12,13 @@ public enum PageUpdateUserErrorCode {
 
   TOO_LONG,
 
-  TAKEN
+  TOO_BIG,
+
+  TAKEN,
+
+  INVALID,
+
+  INVALID_VALUE,
+
+  INVALID_TYPE
 }

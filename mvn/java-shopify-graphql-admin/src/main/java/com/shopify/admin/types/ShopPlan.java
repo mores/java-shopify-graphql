@@ -20,6 +20,13 @@ public class ShopPlan {
   private boolean partnerDevelopment;
 
   /**
+   * The public display name of the shop's billing plan. Possible values are:
+   * Advanced, Basic, Development, Grow, Inactive, Lite, Other, Paused, Plus, Plus
+   * Trial, Retail, Shop Component, Staff Business, Starter, and Trial.
+   */
+  private String publicDisplayName;
+
+  /**
    * Whether the shop has a Shopify Plus subscription.
    */
   private boolean shopifyPlus;
@@ -50,6 +57,19 @@ public class ShopPlan {
   }
 
   /**
+   * The public display name of the shop's billing plan. Possible values are:
+   * Advanced, Basic, Development, Grow, Inactive, Lite, Other, Paused, Plus, Plus
+   * Trial, Retail, Shop Component, Staff Business, Starter, and Trial.
+   */
+  public String getPublicDisplayName() {
+    return publicDisplayName;
+  }
+
+  public void setPublicDisplayName(String publicDisplayName) {
+    this.publicDisplayName = publicDisplayName;
+  }
+
+  /**
    * Whether the shop has a Shopify Plus subscription.
    */
   public boolean getShopifyPlus() {
@@ -62,7 +82,7 @@ public class ShopPlan {
 
   @Override
   public String toString() {
-    return "ShopPlan{displayName='" + displayName + "', partnerDevelopment='" + partnerDevelopment + "', shopifyPlus='" + shopifyPlus + "'}";
+    return "ShopPlan{displayName='" + displayName + "', partnerDevelopment='" + partnerDevelopment + "', publicDisplayName='" + publicDisplayName + "', shopifyPlus='" + shopifyPlus + "'}";
   }
 
   @Override
@@ -72,12 +92,13 @@ public class ShopPlan {
     ShopPlan that = (ShopPlan) o;
     return Objects.equals(displayName, that.displayName) &&
         partnerDevelopment == that.partnerDevelopment &&
+        Objects.equals(publicDisplayName, that.publicDisplayName) &&
         shopifyPlus == that.shopifyPlus;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, partnerDevelopment, shopifyPlus);
+    return Objects.hash(displayName, partnerDevelopment, publicDisplayName, shopifyPlus);
   }
 
   public static Builder newBuilder() {
@@ -96,6 +117,13 @@ public class ShopPlan {
     private boolean partnerDevelopment;
 
     /**
+     * The public display name of the shop's billing plan. Possible values are:
+     * Advanced, Basic, Development, Grow, Inactive, Lite, Other, Paused, Plus, Plus
+     * Trial, Retail, Shop Component, Staff Business, Starter, and Trial.
+     */
+    private String publicDisplayName;
+
+    /**
      * Whether the shop has a Shopify Plus subscription.
      */
     private boolean shopifyPlus;
@@ -104,6 +132,7 @@ public class ShopPlan {
       ShopPlan result = new ShopPlan();
       result.displayName = this.displayName;
       result.partnerDevelopment = this.partnerDevelopment;
+      result.publicDisplayName = this.publicDisplayName;
       result.shopifyPlus = this.shopifyPlus;
       return result;
     }
@@ -121,6 +150,16 @@ public class ShopPlan {
      */
     public Builder partnerDevelopment(boolean partnerDevelopment) {
       this.partnerDevelopment = partnerDevelopment;
+      return this;
+    }
+
+    /**
+     * The public display name of the shop's billing plan. Possible values are:
+     * Advanced, Basic, Development, Grow, Inactive, Lite, Other, Paused, Plus, Plus
+     * Trial, Retail, Shop Component, Staff Business, Starter, and Trial.
+     */
+    public Builder publicDisplayName(String publicDisplayName) {
+      this.publicDisplayName = publicDisplayName;
       return this;
     }
 

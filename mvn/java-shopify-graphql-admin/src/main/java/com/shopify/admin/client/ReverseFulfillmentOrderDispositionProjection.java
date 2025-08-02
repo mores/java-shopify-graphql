@@ -26,6 +26,11 @@ public class ReverseFulfillmentOrderDispositionProjection<PARENT extends BaseSub
      return projection;
   }
 
+  public ReverseFulfillmentOrderDispositionProjection<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
+    return this;
+  }
+
   public ReverseFulfillmentOrderDispositionProjection<PARENT, ROOT> id() {
     getFields().put("id", null);
     return this;

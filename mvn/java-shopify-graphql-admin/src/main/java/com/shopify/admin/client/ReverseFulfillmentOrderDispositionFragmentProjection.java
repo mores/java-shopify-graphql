@@ -32,6 +32,11 @@ public class ReverseFulfillmentOrderDispositionFragmentProjection<PARENT extends
      return projection;
   }
 
+  public ReverseFulfillmentOrderDispositionFragmentProjection<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
+    return this;
+  }
+
   public ReverseFulfillmentOrderDispositionFragmentProjection<PARENT, ROOT> id() {
     getFields().put("id", null);
     return this;

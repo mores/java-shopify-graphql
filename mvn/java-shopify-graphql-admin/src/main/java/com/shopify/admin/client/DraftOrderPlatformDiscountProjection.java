@@ -26,6 +26,13 @@ public class DraftOrderPlatformDiscountProjection<PARENT extends BaseSubProjecti
      return projection;
   }
 
+  public DiscountClassProjection<DraftOrderPlatformDiscountProjection<PARENT, ROOT>, ROOT> discountClasses(
+      ) {
+     DiscountClassProjection<DraftOrderPlatformDiscountProjection<PARENT, ROOT>, ROOT> projection = new DiscountClassProjection<>(this, getRoot());
+     getFields().put("discountClasses", projection);
+     return projection;
+  }
+
   public DiscountNodeProjection<DraftOrderPlatformDiscountProjection<PARENT, ROOT>, ROOT> discountNode(
       ) {
      DiscountNodeProjection<DraftOrderPlatformDiscountProjection<PARENT, ROOT>, ROOT> projection = new DiscountNodeProjection<>(this, getRoot());

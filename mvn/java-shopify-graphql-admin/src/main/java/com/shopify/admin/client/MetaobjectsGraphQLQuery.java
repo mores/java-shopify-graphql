@@ -142,6 +142,10 @@ public class MetaobjectsGraphQLQuery extends GraphQLQuery {
      * | name | type | description | acceptable_values | default_value | example_use |
      * | ---- | ---- | ---- | ---- | ---- | ---- |
      * | display_name | string |
+     * | fields.{key} | mixed | Filters metaobject entries by field value. Format:
+     * `fields.{key}:{value}`. Only fields marked as filterable in the metaobject
+     * definition can be used. Learn more about [querying metaobjects by field value](https://shopify.dev/apps/build/custom-data/metafields/query-by-metafield-value).
+     * | | | - `fields.color:blue`<br/> - `fields.on_sale:true` |
      * | handle | string |
      * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | updated_at | time |

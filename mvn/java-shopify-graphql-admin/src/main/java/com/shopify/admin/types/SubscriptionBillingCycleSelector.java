@@ -9,6 +9,7 @@ import java.util.Objects;
 
 /**
  * The input fields to select SubscriptionBillingCycle by either date or index.
+ * Both past and future billing cycles can be selected.
  */
 public class SubscriptionBillingCycleSelector {
   /**

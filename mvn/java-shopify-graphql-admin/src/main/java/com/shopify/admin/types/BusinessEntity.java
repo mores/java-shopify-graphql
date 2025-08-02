@@ -19,6 +19,11 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
   private BusinessEntityAddress address;
 
   /**
+   * Whether the Business Entity is archived from the shop.
+   */
+  private boolean archived;
+
+  /**
    * The name of the company associated with the merchant's Business Entity.
    */
   private String companyName;
@@ -55,6 +60,17 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
 
   public void setAddress(BusinessEntityAddress address) {
     this.address = address;
+  }
+
+  /**
+   * Whether the Business Entity is archived from the shop.
+   */
+  public boolean getArchived() {
+    return archived;
+  }
+
+  public void setArchived(boolean archived) {
+    this.archived = archived;
   }
 
   /**
@@ -114,7 +130,7 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "BusinessEntity{address='" + address + "', companyName='" + companyName + "', displayName='" + displayName + "', id='" + id + "', primary='" + primary + "', shopifyPaymentsAccount='" + shopifyPaymentsAccount + "'}";
+    return "BusinessEntity{address='" + address + "', archived='" + archived + "', companyName='" + companyName + "', displayName='" + displayName + "', id='" + id + "', primary='" + primary + "', shopifyPaymentsAccount='" + shopifyPaymentsAccount + "'}";
   }
 
   @Override
@@ -123,6 +139,7 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
     if (o == null || getClass() != o.getClass()) return false;
     BusinessEntity that = (BusinessEntity) o;
     return Objects.equals(address, that.address) &&
+        archived == that.archived &&
         Objects.equals(companyName, that.companyName) &&
         Objects.equals(displayName, that.displayName) &&
         Objects.equals(id, that.id) &&
@@ -132,7 +149,7 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, companyName, displayName, id, primary, shopifyPaymentsAccount);
+    return Objects.hash(address, archived, companyName, displayName, id, primary, shopifyPaymentsAccount);
   }
 
   public static Builder newBuilder() {
@@ -144,6 +161,11 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
      * The address of the merchant's Business Entity.
      */
     private BusinessEntityAddress address;
+
+    /**
+     * Whether the Business Entity is archived from the shop.
+     */
+    private boolean archived;
 
     /**
      * The name of the company associated with the merchant's Business Entity.
@@ -173,6 +195,7 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
     public BusinessEntity build() {
       BusinessEntity result = new BusinessEntity();
       result.address = this.address;
+      result.archived = this.archived;
       result.companyName = this.companyName;
       result.displayName = this.displayName;
       result.id = this.id;
@@ -186,6 +209,14 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
      */
     public Builder address(BusinessEntityAddress address) {
       this.address = address;
+      return this;
+    }
+
+    /**
+     * Whether the Business Entity is archived from the shop.
+     */
+    public Builder archived(boolean archived) {
+      this.archived = archived;
       return this;
     }
 

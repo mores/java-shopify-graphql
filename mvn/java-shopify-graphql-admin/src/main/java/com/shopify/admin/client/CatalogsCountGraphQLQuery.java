@@ -2,22 +2,25 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.CatalogType;
+import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The count of catalogs belonging to the shop. Limited to a maximum of 10000.
+ * The count of catalogs belonging to the shop. Limited to a maximum of 10000 by default.
  */
 public class CatalogsCountGraphQLQuery extends GraphQLQuery {
-  public CatalogsCountGraphQLQuery(CatalogType type, String query, String queryName,
+  public CatalogsCountGraphQLQuery(CatalogType type, String query, Integer limit, String queryName,
       Set<String> fieldsSet) {
     super("query", queryName);
     if (type != null || fieldsSet.contains("type")) {
         getInput().put("type", type);
     }if (query != null || fieldsSet.contains("query")) {
         getInput().put("query", query);
+    }if (limit != null || fieldsSet.contains("limit")) {
+        getInput().put("limit", limit);
     }
   }
 
@@ -41,10 +44,12 @@ public class CatalogsCountGraphQLQuery extends GraphQLQuery {
 
     private String query;
 
+    private Integer limit;
+
     private String queryName;
 
     public CatalogsCountGraphQLQuery build() {
-      return new CatalogsCountGraphQLQuery(type, query, queryName, fieldsSet);
+      return new CatalogsCountGraphQLQuery(type, query, limit, queryName, fieldsSet);
                
     }
 
@@ -77,6 +82,15 @@ public class CatalogsCountGraphQLQuery extends GraphQLQuery {
     public Builder query(String query) {
       this.query = query;
       this.fieldsSet.add("query");
+      return this;
+    }
+
+    /**
+     * The upper bound on count value before returning a result. Use `null` to have no limit.
+     */
+    public Builder limit(Integer limit) {
+      this.limit = limit;
+      this.fieldsSet.add("limit");
       return this;
     }
 

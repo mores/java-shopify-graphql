@@ -4,6 +4,7 @@ import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.MetafieldCapabilityCreateInput;
 import com.shopify.admin.types.MetafieldOwnerType;
 import com.shopify.admin.types.StandardMetafieldDefinitionAccessInput;
+import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
 import java.util.HashSet;
@@ -16,7 +17,7 @@ import java.util.Set;
  */
 public class StandardMetafieldDefinitionEnableGraphQLQuery extends GraphQLQuery {
   public StandardMetafieldDefinitionEnableGraphQLQuery(MetafieldOwnerType ownerType, String id,
-      String namespace, String key, boolean pin, MetafieldCapabilityCreateInput capabilities,
+      String namespace, String key, Boolean pin, MetafieldCapabilityCreateInput capabilities,
       StandardMetafieldDefinitionAccessInput access, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
     if (ownerType != null || fieldsSet.contains("ownerType")) {
@@ -27,7 +28,9 @@ public class StandardMetafieldDefinitionEnableGraphQLQuery extends GraphQLQuery 
         getInput().put("namespace", namespace);
     }if (key != null || fieldsSet.contains("key")) {
         getInput().put("key", key);
-    }getInput().put("pin", pin);                   if (capabilities != null || fieldsSet.contains("capabilities")) {
+    }if (pin != null || fieldsSet.contains("pin")) {
+        getInput().put("pin", pin);
+    }if (capabilities != null || fieldsSet.contains("capabilities")) {
         getInput().put("capabilities", capabilities);
     }if (access != null || fieldsSet.contains("access")) {
         getInput().put("access", access);
@@ -58,7 +61,7 @@ public class StandardMetafieldDefinitionEnableGraphQLQuery extends GraphQLQuery 
 
     private String key;
 
-    private boolean pin;
+    private Boolean pin;
 
     private MetafieldCapabilityCreateInput capabilities;
 
@@ -110,7 +113,7 @@ public class StandardMetafieldDefinitionEnableGraphQLQuery extends GraphQLQuery 
     /**
      * Whether to pin the metafield definition.
      */
-    public Builder pin(boolean pin) {
+    public Builder pin(Boolean pin) {
       this.pin = pin;
       this.fieldsSet.add("pin");
       return this;

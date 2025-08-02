@@ -1,6 +1,7 @@
 package com.shopify.admin.types;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import java.lang.Double;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
@@ -17,6 +18,16 @@ public class SegmentIntegerFilter implements com.shopify.admin.types.SegmentFilt
    * The localized name of the filter.
    */
   private String localizedName;
+
+  /**
+   * The maximum range a filter can have.
+   */
+  private Double maxRange;
+
+  /**
+   * The minimum range a filter can have.
+   */
+  private Double minRange;
 
   /**
    * Whether a file can have multiple values for a single customer.
@@ -43,6 +54,28 @@ public class SegmentIntegerFilter implements com.shopify.admin.types.SegmentFilt
   }
 
   /**
+   * The maximum range a filter can have.
+   */
+  public Double getMaxRange() {
+    return maxRange;
+  }
+
+  public void setMaxRange(Double maxRange) {
+    this.maxRange = maxRange;
+  }
+
+  /**
+   * The minimum range a filter can have.
+   */
+  public Double getMinRange() {
+    return minRange;
+  }
+
+  public void setMinRange(Double minRange) {
+    this.minRange = minRange;
+  }
+
+  /**
    * Whether a file can have multiple values for a single customer.
    */
   public boolean getMultiValue() {
@@ -66,7 +99,7 @@ public class SegmentIntegerFilter implements com.shopify.admin.types.SegmentFilt
 
   @Override
   public String toString() {
-    return "SegmentIntegerFilter{localizedName='" + localizedName + "', multiValue='" + multiValue + "', queryName='" + queryName + "'}";
+    return "SegmentIntegerFilter{localizedName='" + localizedName + "', maxRange='" + maxRange + "', minRange='" + minRange + "', multiValue='" + multiValue + "', queryName='" + queryName + "'}";
   }
 
   @Override
@@ -75,13 +108,15 @@ public class SegmentIntegerFilter implements com.shopify.admin.types.SegmentFilt
     if (o == null || getClass() != o.getClass()) return false;
     SegmentIntegerFilter that = (SegmentIntegerFilter) o;
     return Objects.equals(localizedName, that.localizedName) &&
+        Objects.equals(maxRange, that.maxRange) &&
+        Objects.equals(minRange, that.minRange) &&
         multiValue == that.multiValue &&
         Objects.equals(queryName, that.queryName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(localizedName, multiValue, queryName);
+    return Objects.hash(localizedName, maxRange, minRange, multiValue, queryName);
   }
 
   public static Builder newBuilder() {
@@ -93,6 +128,16 @@ public class SegmentIntegerFilter implements com.shopify.admin.types.SegmentFilt
      * The localized name of the filter.
      */
     private String localizedName;
+
+    /**
+     * The maximum range a filter can have.
+     */
+    private Double maxRange;
+
+    /**
+     * The minimum range a filter can have.
+     */
+    private Double minRange;
 
     /**
      * Whether a file can have multiple values for a single customer.
@@ -107,6 +152,8 @@ public class SegmentIntegerFilter implements com.shopify.admin.types.SegmentFilt
     public SegmentIntegerFilter build() {
       SegmentIntegerFilter result = new SegmentIntegerFilter();
       result.localizedName = this.localizedName;
+      result.maxRange = this.maxRange;
+      result.minRange = this.minRange;
       result.multiValue = this.multiValue;
       result.queryName = this.queryName;
       return result;
@@ -117,6 +164,22 @@ public class SegmentIntegerFilter implements com.shopify.admin.types.SegmentFilt
      */
     public Builder localizedName(String localizedName) {
       this.localizedName = localizedName;
+      return this;
+    }
+
+    /**
+     * The maximum range a filter can have.
+     */
+    public Builder maxRange(Double maxRange) {
+      this.maxRange = maxRange;
+      return this;
+    }
+
+    /**
+     * The minimum range a filter can have.
+     */
+    public Builder minRange(Double minRange) {
+      this.minRange = minRange;
       return this;
     }
 

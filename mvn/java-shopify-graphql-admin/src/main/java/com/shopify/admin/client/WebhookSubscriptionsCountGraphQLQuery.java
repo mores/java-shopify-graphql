@@ -1,6 +1,7 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
 import java.util.HashSet;
@@ -14,14 +15,16 @@ import java.util.Set;
  * easier. They are automatically kept up to date by Shopify &amp; require less
  * maintenance. Please read [About managing webhook
  * subscriptions](https://shopify.dev/docs/apps/build/webhooks/subscribe).
- * Limited to a maximum of 10000.
+ * Limited to a maximum of 10000 by default.
  */
 public class WebhookSubscriptionsCountGraphQLQuery extends GraphQLQuery {
-  public WebhookSubscriptionsCountGraphQLQuery(String query, String queryName,
+  public WebhookSubscriptionsCountGraphQLQuery(String query, Integer limit, String queryName,
       Set<String> fieldsSet) {
     super("query", queryName);
     if (query != null || fieldsSet.contains("query")) {
         getInput().put("query", query);
+    }if (limit != null || fieldsSet.contains("limit")) {
+        getInput().put("limit", limit);
     }
   }
 
@@ -43,10 +46,12 @@ public class WebhookSubscriptionsCountGraphQLQuery extends GraphQLQuery {
 
     private String query;
 
+    private Integer limit;
+
     private String queryName;
 
     public WebhookSubscriptionsCountGraphQLQuery build() {
-      return new WebhookSubscriptionsCountGraphQLQuery(query, queryName, fieldsSet);
+      return new WebhookSubscriptionsCountGraphQLQuery(query, limit, queryName, fieldsSet);
                
     }
 
@@ -65,6 +70,15 @@ public class WebhookSubscriptionsCountGraphQLQuery extends GraphQLQuery {
     public Builder query(String query) {
       this.query = query;
       this.fieldsSet.add("query");
+      return this;
+    }
+
+    /**
+     * The upper bound on count value before returning a result. Use `null` to have no limit.
+     */
+    public Builder limit(Integer limit) {
+      this.limit = limit;
+      this.fieldsSet.add("limit");
       return this;
     }
 

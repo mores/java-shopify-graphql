@@ -66,6 +66,11 @@ public class BasicEventFragmentProjection<PARENT extends BaseSubProjectionNode<?
     return this;
   }
 
+  public BasicEventFragmentProjection<PARENT, ROOT> author() {
+    getFields().put("author", null);
+    return this;
+  }
+
   public BasicEventFragmentProjection<PARENT, ROOT> createdAt() {
     getFields().put("createdAt", null);
     return this;

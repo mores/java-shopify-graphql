@@ -44,8 +44,6 @@ public enum MetafieldDefinitionCreateUserErrorCode {
 
   INVALID_CONSTRAINTS,
 
-  GRANT_LIMIT_EXCEEDED,
-
   INVALID_INPUT_COMBINATION,
 
   INVALID_CAPABILITY,

@@ -149,6 +149,7 @@ public class ArticlesGraphQLQuery extends GraphQLQuery {
      * | published_status | string | Filter by published status |
      * | tag | string | Filter objects by the `tag` field. | | | - `tag:my_tag` |
      * | tag_not | string | Filter by objects that don’t have the specified tag. | | | - `tag_not:my_tag` |
+     * | title | string | Filter by the title of the article. | | | - `title:summer-collection`<br/> - `title:green hoodie` |
      * | updated_at | time | Filter by the date and time when the article was last
      * updated. | | | - `updated_at:>'2020-10-21T23:39:20Z'`<br/> -
      * `updated_at:&lt;now`<br/> - `updated_at:&lt;=2024` |

@@ -11,17 +11,14 @@ import java.util.Objects;
  */
 public class WebhookSubscriptionInput {
   /**
-   * URL where the webhook subscription should send the POST request when the event occurs.
-   */
-  private String callbackUrl;
-
-  /**
    * The format in which the webhook subscription should send the data.
    */
   private WebhookSubscriptionFormat format;
 
   /**
-   * The list of fields to be included in the webhook subscription.
+   * The list of fields to be included in the webhook subscription. Only the fields
+   * specified will be included in the webhook payload. If null, then all fields
+   * will be included. Learn more about [modifying webhook payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify_payloads).
    */
   private List<String> includeFields;
 
@@ -42,18 +39,12 @@ public class WebhookSubscriptionInput {
    */
   private List<HasMetafieldsMetafieldIdentifierInput> metafields;
 
-  public WebhookSubscriptionInput() {
-  }
-
   /**
    * URL where the webhook subscription should send the POST request when the event occurs.
    */
-  public String getCallbackUrl() {
-    return callbackUrl;
-  }
+  private String callbackUrl;
 
-  public void setCallbackUrl(String callbackUrl) {
-    this.callbackUrl = callbackUrl;
+  public WebhookSubscriptionInput() {
   }
 
   /**
@@ -68,7 +59,9 @@ public class WebhookSubscriptionInput {
   }
 
   /**
-   * The list of fields to be included in the webhook subscription.
+   * The list of fields to be included in the webhook subscription. Only the fields
+   * specified will be included in the webhook payload. If null, then all fields
+   * will be included. Learn more about [modifying webhook payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify_payloads).
    */
   public List<String> getIncludeFields() {
     return includeFields;
@@ -113,9 +106,20 @@ public class WebhookSubscriptionInput {
     this.metafields = metafields;
   }
 
+  /**
+   * URL where the webhook subscription should send the POST request when the event occurs.
+   */
+  public String getCallbackUrl() {
+    return callbackUrl;
+  }
+
+  public void setCallbackUrl(String callbackUrl) {
+    this.callbackUrl = callbackUrl;
+  }
+
   @Override
   public String toString() {
-    return "WebhookSubscriptionInput{callbackUrl='" + callbackUrl + "', format='" + format + "', includeFields='" + includeFields + "', filter='" + filter + "', metafieldNamespaces='" + metafieldNamespaces + "', metafields='" + metafields + "'}";
+    return "WebhookSubscriptionInput{format='" + format + "', includeFields='" + includeFields + "', filter='" + filter + "', metafieldNamespaces='" + metafieldNamespaces + "', metafields='" + metafields + "', callbackUrl='" + callbackUrl + "'}";
   }
 
   @Override
@@ -123,17 +127,17 @@ public class WebhookSubscriptionInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     WebhookSubscriptionInput that = (WebhookSubscriptionInput) o;
-    return Objects.equals(callbackUrl, that.callbackUrl) &&
-        Objects.equals(format, that.format) &&
+    return Objects.equals(format, that.format) &&
         Objects.equals(includeFields, that.includeFields) &&
         Objects.equals(filter, that.filter) &&
         Objects.equals(metafieldNamespaces, that.metafieldNamespaces) &&
-        Objects.equals(metafields, that.metafields);
+        Objects.equals(metafields, that.metafields) &&
+        Objects.equals(callbackUrl, that.callbackUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(callbackUrl, format, includeFields, filter, metafieldNamespaces, metafields);
+    return Objects.hash(format, includeFields, filter, metafieldNamespaces, metafields, callbackUrl);
   }
 
   public static Builder newBuilder() {
@@ -142,17 +146,14 @@ public class WebhookSubscriptionInput {
 
   public static class Builder {
     /**
-     * URL where the webhook subscription should send the POST request when the event occurs.
-     */
-    private String callbackUrl;
-
-    /**
      * The format in which the webhook subscription should send the data.
      */
     private WebhookSubscriptionFormat format;
 
     /**
-     * The list of fields to be included in the webhook subscription.
+     * The list of fields to be included in the webhook subscription. Only the fields
+     * specified will be included in the webhook payload. If null, then all fields
+     * will be included. Learn more about [modifying webhook payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify_payloads).
      */
     private List<String> includeFields;
 
@@ -173,23 +174,20 @@ public class WebhookSubscriptionInput {
      */
     private List<HasMetafieldsMetafieldIdentifierInput> metafields;
 
+    /**
+     * URL where the webhook subscription should send the POST request when the event occurs.
+     */
+    private String callbackUrl;
+
     public WebhookSubscriptionInput build() {
       WebhookSubscriptionInput result = new WebhookSubscriptionInput();
-      result.callbackUrl = this.callbackUrl;
       result.format = this.format;
       result.includeFields = this.includeFields;
       result.filter = this.filter;
       result.metafieldNamespaces = this.metafieldNamespaces;
       result.metafields = this.metafields;
+      result.callbackUrl = this.callbackUrl;
       return result;
-    }
-
-    /**
-     * URL where the webhook subscription should send the POST request when the event occurs.
-     */
-    public Builder callbackUrl(String callbackUrl) {
-      this.callbackUrl = callbackUrl;
-      return this;
     }
 
     /**
@@ -201,7 +199,9 @@ public class WebhookSubscriptionInput {
     }
 
     /**
-     * The list of fields to be included in the webhook subscription.
+     * The list of fields to be included in the webhook subscription. Only the fields
+     * specified will be included in the webhook payload. If null, then all fields
+     * will be included. Learn more about [modifying webhook payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify_payloads).
      */
     public Builder includeFields(List<String> includeFields) {
       this.includeFields = includeFields;
@@ -231,6 +231,14 @@ public class WebhookSubscriptionInput {
      */
     public Builder metafields(List<HasMetafieldsMetafieldIdentifierInput> metafields) {
       this.metafields = metafields;
+      return this;
+    }
+
+    /**
+     * URL where the webhook subscription should send the POST request when the event occurs.
+     */
+    public Builder callbackUrl(String callbackUrl) {
+      this.callbackUrl = callbackUrl;
       return this;
     }
   }

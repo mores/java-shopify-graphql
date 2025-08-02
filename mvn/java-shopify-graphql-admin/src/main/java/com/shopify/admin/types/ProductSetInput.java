@@ -18,10 +18,12 @@ public class ProductSetInput {
   private String descriptionHtml;
 
   /**
-   * A unique, human-readable string of the product's title. A handle can contain
-   * letters, hyphens (`-`), and numbers, but no spaces.
-   * The handle is used in the online store URL for the product.
-   * For example, if a product is titled "Black Sunglasses", then the handle is `black-sunglasses`.
+   * A unique, human-readable string that's used to identify the product in URLs. A
+   * handle can contain letters, hyphens (`-`), and numbers, but no spaces.
+   * If no handle is explicitly provided, then the title is used to construct the product's handle.
+   * For example, if a product is titled "Black Sunglasses" and no handle is
+   * provided, then the handle `black-sunglasses` is generated (unless that handle
+   * is already taken, in which case a suffix is added to make the handle unique).
    */
   private String handle;
 
@@ -44,7 +46,7 @@ public class ProductSetInput {
   private String category;
 
   /**
-   * A comma-separated list of searchable keywords that are
+   * A list of searchable keywords that are
    * associated with the product. For example, a merchant might apply the `sports`
    * and `summer` tags to products that are associated with sportwear for summer.
    *   
@@ -68,8 +70,10 @@ public class ProductSetInput {
   private String giftCardTemplateSuffix;
 
   /**
-   * The name for the product that displays to customers. The title is used to construct the product's handle.
-   * For example, if a product is titled "Black Sunglasses", then the handle is `black-sunglasses`.
+   * The name for the product that displays to customers. If no handle is
+   * explicitly provided, then the title is used to construct the product's handle.
+   * For example, if a product is titled "Black Sunglasses" and no handle is
+   * provided, then the handle `black-sunglasses` is generated.
    */
   private String title;
 
@@ -157,10 +161,12 @@ public class ProductSetInput {
   }
 
   /**
-   * A unique, human-readable string of the product's title. A handle can contain
-   * letters, hyphens (`-`), and numbers, but no spaces.
-   * The handle is used in the online store URL for the product.
-   * For example, if a product is titled "Black Sunglasses", then the handle is `black-sunglasses`.
+   * A unique, human-readable string that's used to identify the product in URLs. A
+   * handle can contain letters, hyphens (`-`), and numbers, but no spaces.
+   * If no handle is explicitly provided, then the title is used to construct the product's handle.
+   * For example, if a product is titled "Black Sunglasses" and no handle is
+   * provided, then the handle `black-sunglasses` is generated (unless that handle
+   * is already taken, in which case a suffix is added to make the handle unique).
    */
   public String getHandle() {
     return handle;
@@ -207,7 +213,7 @@ public class ProductSetInput {
   }
 
   /**
-   * A comma-separated list of searchable keywords that are
+   * A list of searchable keywords that are
    * associated with the product. For example, a merchant might apply the `sports`
    * and `summer` tags to products that are associated with sportwear for summer.
    *   
@@ -249,8 +255,10 @@ public class ProductSetInput {
   }
 
   /**
-   * The name for the product that displays to customers. The title is used to construct the product's handle.
-   * For example, if a product is titled "Black Sunglasses", then the handle is `black-sunglasses`.
+   * The name for the product that displays to customers. If no handle is
+   * explicitly provided, then the title is used to construct the product's handle.
+   * For example, if a product is titled "Black Sunglasses" and no handle is
+   * provided, then the handle `black-sunglasses` is generated.
    */
   public String getTitle() {
     return title;
@@ -450,10 +458,12 @@ public class ProductSetInput {
     private String descriptionHtml;
 
     /**
-     * A unique, human-readable string of the product's title. A handle can contain
-     * letters, hyphens (`-`), and numbers, but no spaces.
-     * The handle is used in the online store URL for the product.
-     * For example, if a product is titled "Black Sunglasses", then the handle is `black-sunglasses`.
+     * A unique, human-readable string that's used to identify the product in URLs. A
+     * handle can contain letters, hyphens (`-`), and numbers, but no spaces.
+     * If no handle is explicitly provided, then the title is used to construct the product's handle.
+     * For example, if a product is titled "Black Sunglasses" and no handle is
+     * provided, then the handle `black-sunglasses` is generated (unless that handle
+     * is already taken, in which case a suffix is added to make the handle unique).
      */
     private String handle;
 
@@ -476,7 +486,7 @@ public class ProductSetInput {
     private String category;
 
     /**
-     * A comma-separated list of searchable keywords that are
+     * A list of searchable keywords that are
      * associated with the product. For example, a merchant might apply the `sports`
      * and `summer` tags to products that are associated with sportwear for summer.
      *   
@@ -500,8 +510,10 @@ public class ProductSetInput {
     private String giftCardTemplateSuffix;
 
     /**
-     * The name for the product that displays to customers. The title is used to construct the product's handle.
-     * For example, if a product is titled "Black Sunglasses", then the handle is `black-sunglasses`.
+     * The name for the product that displays to customers. If no handle is
+     * explicitly provided, then the title is used to construct the product's handle.
+     * For example, if a product is titled "Black Sunglasses" and no handle is
+     * provided, then the handle `black-sunglasses` is generated.
      */
     private String title;
 
@@ -609,10 +621,12 @@ public class ProductSetInput {
     }
 
     /**
-     * A unique, human-readable string of the product's title. A handle can contain
-     * letters, hyphens (`-`), and numbers, but no spaces.
-     * The handle is used in the online store URL for the product.
-     * For example, if a product is titled "Black Sunglasses", then the handle is `black-sunglasses`.
+     * A unique, human-readable string that's used to identify the product in URLs. A
+     * handle can contain letters, hyphens (`-`), and numbers, but no spaces.
+     * If no handle is explicitly provided, then the title is used to construct the product's handle.
+     * For example, if a product is titled "Black Sunglasses" and no handle is
+     * provided, then the handle `black-sunglasses` is generated (unless that handle
+     * is already taken, in which case a suffix is added to make the handle unique).
      */
     public Builder handle(String handle) {
       this.handle = handle;
@@ -647,7 +661,7 @@ public class ProductSetInput {
     }
 
     /**
-     * A comma-separated list of searchable keywords that are
+     * A list of searchable keywords that are
      * associated with the product. For example, a merchant might apply the `sports`
      * and `summer` tags to products that are associated with sportwear for summer.
      *   
@@ -680,8 +694,10 @@ public class ProductSetInput {
     }
 
     /**
-     * The name for the product that displays to customers. The title is used to construct the product's handle.
-     * For example, if a product is titled "Black Sunglasses", then the handle is `black-sunglasses`.
+     * The name for the product that displays to customers. If no handle is
+     * explicitly provided, then the title is used to construct the product's handle.
+     * For example, if a product is titled "Black Sunglasses" and no handle is
+     * provided, then the handle `black-sunglasses` is generated.
      */
     public Builder title(String title) {
       this.title = title;

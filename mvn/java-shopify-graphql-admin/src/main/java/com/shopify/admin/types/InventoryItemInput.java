@@ -27,7 +27,9 @@ public class InventoryItemInput {
   private Boolean tracked;
 
   /**
-   * The ISO 3166-1 alpha-2 country code of where the item originated from.
+   * The country where the item was manufactured or produced, specified using the
+   * standard two-letter [ISO 3166-1
+   * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
    */
   private CountryCode countryCodeOfOrigin;
 
@@ -42,7 +44,9 @@ public class InventoryItemInput {
   private List<CountryHarmonizedSystemCodeInput> countryHarmonizedSystemCodes;
 
   /**
-   * The ISO 3166-2 alpha-2 province code of where the item originated from.
+   * The province where the item was manufactured or produced, specified using the
+   * standard two-letter [ISO 3166-2
+   * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-2) province code.
    */
   private String provinceCodeOfOrigin;
 
@@ -51,6 +55,11 @@ public class InventoryItemInput {
    */
   private InventoryItemMeasurementInput measurement;
 
+  /**
+   * Whether the inventory item needs to be physically shipped to the customer.
+   * Items that require shipping are physical products, while digital goods and
+   * services typically don't require shipping and can be fulfilled electronically.
+   */
   private Boolean requiresShipping;
 
   public InventoryItemInput() {
@@ -90,7 +99,9 @@ public class InventoryItemInput {
   }
 
   /**
-   * The ISO 3166-1 alpha-2 country code of where the item originated from.
+   * The country where the item was manufactured or produced, specified using the
+   * standard two-letter [ISO 3166-1
+   * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
    */
   public CountryCode getCountryCodeOfOrigin() {
     return countryCodeOfOrigin;
@@ -124,7 +135,9 @@ public class InventoryItemInput {
   }
 
   /**
-   * The ISO 3166-2 alpha-2 province code of where the item originated from.
+   * The province where the item was manufactured or produced, specified using the
+   * standard two-letter [ISO 3166-2
+   * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-2) province code.
    */
   public String getProvinceCodeOfOrigin() {
     return provinceCodeOfOrigin;
@@ -145,6 +158,11 @@ public class InventoryItemInput {
     this.measurement = measurement;
   }
 
+  /**
+   * Whether the inventory item needs to be physically shipped to the customer.
+   * Items that require shipping are physical products, while digital goods and
+   * services typically don't require shipping and can be fulfilled electronically.
+   */
   public Boolean getRequiresShipping() {
     return requiresShipping;
   }
@@ -200,7 +218,9 @@ public class InventoryItemInput {
     private Boolean tracked;
 
     /**
-     * The ISO 3166-1 alpha-2 country code of where the item originated from.
+     * The country where the item was manufactured or produced, specified using the
+     * standard two-letter [ISO 3166-1
+     * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
      */
     private CountryCode countryCodeOfOrigin;
 
@@ -215,7 +235,9 @@ public class InventoryItemInput {
     private List<CountryHarmonizedSystemCodeInput> countryHarmonizedSystemCodes;
 
     /**
-     * The ISO 3166-2 alpha-2 province code of where the item originated from.
+     * The province where the item was manufactured or produced, specified using the
+     * standard two-letter [ISO 3166-2
+     * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-2) province code.
      */
     private String provinceCodeOfOrigin;
 
@@ -224,6 +246,11 @@ public class InventoryItemInput {
      */
     private InventoryItemMeasurementInput measurement;
 
+    /**
+     * Whether the inventory item needs to be physically shipped to the customer.
+     * Items that require shipping are physical products, while digital goods and
+     * services typically don't require shipping and can be fulfilled electronically.
+     */
     private Boolean requiresShipping;
 
     public InventoryItemInput build() {
@@ -265,7 +292,9 @@ public class InventoryItemInput {
     }
 
     /**
-     * The ISO 3166-1 alpha-2 country code of where the item originated from.
+     * The country where the item was manufactured or produced, specified using the
+     * standard two-letter [ISO 3166-1
+     * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
      */
     public Builder countryCodeOfOrigin(CountryCode countryCodeOfOrigin) {
       this.countryCodeOfOrigin = countryCodeOfOrigin;
@@ -290,7 +319,9 @@ public class InventoryItemInput {
     }
 
     /**
-     * The ISO 3166-2 alpha-2 province code of where the item originated from.
+     * The province where the item was manufactured or produced, specified using the
+     * standard two-letter [ISO 3166-2
+     * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-2) province code.
      */
     public Builder provinceCodeOfOrigin(String provinceCodeOfOrigin) {
       this.provinceCodeOfOrigin = provinceCodeOfOrigin;
@@ -305,6 +336,11 @@ public class InventoryItemInput {
       return this;
     }
 
+    /**
+     * Whether the inventory item needs to be physically shipped to the customer.
+     * Items that require shipping are physical products, while digital goods and
+     * services typically don't require shipping and can be fulfilled electronically.
+     */
     public Builder requiresShipping(Boolean requiresShipping) {
       this.requiresShipping = requiresShipping;
       return this;

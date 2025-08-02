@@ -21,7 +21,7 @@ public class FeeSale implements com.shopify.admin.types.Sale {
   private SaleActionType actionType;
 
   /**
-   * The fee associated with the sale.
+   * The fee associated with the sale. It can be null if the fee was deleted.
    */
   private Fee fee;
 
@@ -80,7 +80,7 @@ public class FeeSale implements com.shopify.admin.types.Sale {
   }
 
   /**
-   * The fee associated with the sale.
+   * The fee associated with the sale. It can be null if the fee was deleted.
    */
   public Fee getFee() {
     return fee;
@@ -216,7 +216,7 @@ public class FeeSale implements com.shopify.admin.types.Sale {
     private SaleActionType actionType;
 
     /**
-     * The fee associated with the sale.
+     * The fee associated with the sale. It can be null if the fee was deleted.
      */
     private Fee fee;
 
@@ -284,7 +284,7 @@ public class FeeSale implements com.shopify.admin.types.Sale {
     }
 
     /**
-     * The fee associated with the sale.
+     * The fee associated with the sale. It can be null if the fee was deleted.
      */
     public Builder fee(Fee fee) {
       this.fee = fee;

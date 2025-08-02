@@ -10,7 +10,32 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a list of product variants.
+ * Retrieves a list of [product variants](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant)
+ * associated with a [product](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product).
+ *   
+ * A product variant is a specific version of a product that comes in more than
+ * one [option](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductOption),
+ * such as size or color. For example, if a merchant sells t-shirts with options for size and color,
+ * then a small, blue t-shirt would be one product variant and a large, blue t-shirt would be another.
+ *   
+ * Use the `productVariants` query when you need to:
+ *   
+ * - Search for product variants by attributes such as SKU, barcode, or inventory quantity.
+ * - Filter product variants by attributes, such as whether they're gift cards or have custom metafields.
+ * - Fetch product variants for bulk operations, such as updating prices or inventory.
+ * - Preload data for product variants, such as inventory items, selected options, or associated products.
+ *   
+ * The `productVariants` query supports [pagination](https://shopify.dev/docs/api/usage/pagination-graphql)
+ * to handle large product catalogs and [saved searches](https://shopify.dev/docs/api/admin-graphql/latest/queries/productVariants#arguments-savedSearchId)
+ * for frequently used product variant queries.
+ *   
+ * The `productVariants` query returns product variants with their associated metadata, including:
+ *   
+ * - Basic product variant information (for example, title, SKU, barcode, price, and inventory)
+ * - Media attachments (for example, images and videos)
+ * - Associated products, selling plans, bundles, and metafields
+ *   
+ * Learn more about working with [Shopify's product model](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model/product-model-components).
  */
 public class ProductVariantsGraphQLQuery extends GraphQLQuery {
   public ProductVariantsGraphQLQuery(Integer first, String after, Integer last, String before,
@@ -171,14 +196,15 @@ public class ProductVariantsGraphQLQuery extends GraphQLQuery {
      * field. | | | - `product_id:8474977763649` |
      * | product_ids | string | Filter by a comma-separated list of product [IDs](https://shopify.dev/api/admin-graphql/latest/objects/Product#field-id).
      * | | | - `product_ids:8474977763649,8474977796417` |
-     * | product_publication_status | string | Filter by the publishable status of
+     * | product_publication_status | string | Filter by the publication status of
      * the resource on a channel, such as the online store. The value is a
      * composite of the [channel `app`
      * ID](https://shopify.dev/api/admin-graphql/latest/objects/Channel#app-price)
      * (`Channel.app.id`) and one of the valid values. | - `approved`<br/> -
      * `rejected`<br/> - `needs_action`<br/> - `awaiting_review`<br/> -
      * `published`<br/> - `demoted`<br/> - `scheduled`<br/> -
-     * `provisionally_published` | | - `publishable_status:189769876-approved` |
+     * `provisionally_published` | | -
+     * `product_publication_status:189769876-approved` |
      * | product_status | string | Filter by a comma-separated list of product [statuses](https://shopify.dev/api/admin-graphql/latest/objects/Product#field-status).
      * | | | - `product_status:ACTIVE,DRAFT` |
      * | product_type | string | Filter by the product type that's associated with
@@ -192,8 +218,8 @@ public class ProductVariantsGraphQLQuery extends GraphQLQuery {
      * `published`<br/> - `unpublished`<br/> - `visible`<br/> - `unavailable`<br/>
      * - `hidden`<br/> - `intended`<br/> - `visible` | | -
      * `publishable_status:published`<br/> -
-     * `publishable_status:189769876:visible`<br/> -
-     * `publishable_status:pos:hidden` |
+     * `publishable_status:189769876-visible`<br/> -
+     * `publishable_status:pos-hidden` |
      * | published_status | string | Filter by the published status of the resource
      * on a channel, such as the online store. | - `unset`<br/> - `pending`<br/> -
      * `approved`<br/> - `not approved` | | - `published_status:approved` |

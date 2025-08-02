@@ -10,7 +10,34 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a list of collections.
+ * Retrieves a list of [collections](https://shopify.dev/docs/api/admin-graphql/latest/objects/Collection)
+ * in a store. Collections are groups of [products](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+ * that merchants can organize for display in their [online store](https://shopify.dev/docs/apps/build/online-store) and
+ * other [sales channels](https://shopify.dev/docs/apps/build/sales-channels).
+ * For example, an athletics store might create different collections for running attire, shoes, and accessories.
+ *   
+ * Use the `collections` query when you need to:
+ *   
+ * - Build a browsing interface for a store's product groupings.
+ * - Create collection searching, sorting, and filtering experiences (for example, by title, type, or published status).
+ * - Sync collection data with external systems.
+ * - Manage both custom ([manual](https://help.shopify.com/manual/products/collections/manual-shopify-collection))
+ * and smart ([automated](https://help.shopify.com/manual/products/collections/automated-collections)) collections.
+ *   
+ * The `collections` query supports [pagination](https://shopify.dev/docs/api/usage/pagination-graphql)
+ * for large catalogs and [saved searches](https://shopify.dev/docs/api/admin-graphql/latest/queries/collections#arguments-savedSearchId)
+ * for frequently used collection queries.
+ *   
+ * The `collections` query returns collections with their associated metadata, including:
+ *   
+ * - Basic collection information (title, description, handle, and type)
+ * - Collection image and SEO metadata
+ * - Product count and product relationships
+ * - Collection rules (for smart collections)
+ * - Publishing status and publication details
+ * - Metafields and custom attributes
+ *   
+ * Learn more about [using metafields with smart collections](https://shopify.dev/docs/apps/build/custom-data/metafields/use-metafield-capabilities).
  */
 public class CollectionsGraphQLQuery extends GraphQLQuery {
   public CollectionsGraphQLQuery(Integer first, String after, Integer last, String before,
@@ -140,14 +167,15 @@ public class CollectionsGraphQLQuery extends GraphQLQuery {
      * | handle | string |
      * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | product_id | id | Filter by collections containing a product by its ID. |
-     * | product_publication_status | string | Filter by the publishable status of
+     * | product_publication_status | string | Filter by the publication status of
      * the resource on a channel, such as the online store. The value is a
      * composite of the [channel `app`
      * ID](https://shopify.dev/api/admin-graphql/latest/objects/Channel#app-price)
      * (`Channel.app.id`) and one of the valid values. | - `approved`<br/> -
      * `rejected`<br/> - `needs_action`<br/> - `awaiting_review`<br/> -
      * `published`<br/> - `demoted`<br/> - `scheduled`<br/> -
-     * `provisionally_published` | | - `publishable_status:189769876-approved` |
+     * `provisionally_published` | | -
+     * `product_publication_status:189769876-approved` |
      * | publishable_status | string | Filter by the publishable status of the
      * resource on a channel, such as the online store. The value is a composite of
      * either the [channel `app`
@@ -157,8 +185,8 @@ public class CollectionsGraphQLQuery extends GraphQLQuery {
      * `published`<br/> - `unpublished`<br/> - `visible`<br/> - `unavailable`<br/>
      * - `hidden`<br/> - `intended`<br/> - `visible` | | -
      * `publishable_status:published`<br/> -
-     * `publishable_status:189769876:visible`<br/> -
-     * `publishable_status:pos:hidden` |
+     * `publishable_status:189769876-visible`<br/> -
+     * `publishable_status:pos-hidden` |
      * | published_at | time | Filter by the date and time when the collection was published to the Online Store. |
      * | published_status | string | Filter by the published status of the resource
      * on a channel, such as the online store. | - `unset`<br/> - `pending`<br/> -

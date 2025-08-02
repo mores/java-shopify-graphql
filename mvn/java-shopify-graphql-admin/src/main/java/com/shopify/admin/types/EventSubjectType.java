@@ -12,6 +12,8 @@ public enum EventSubjectType {
 
   DRAFT_ORDER,
 
+  INVENTORY_TRANSFER,
+
   COLLECTION,
 
   PRODUCT,

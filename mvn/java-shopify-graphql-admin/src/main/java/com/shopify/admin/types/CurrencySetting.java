@@ -27,6 +27,12 @@ public class CurrencySetting {
   private boolean enabled;
 
   /**
+   * The manual rate, if enabled, that applies to this currency when converting
+   * from shop currency. This rate is specific to the associated market's currency setting.
+   */
+  private String manualRate;
+
+  /**
    * The date and time when the active exchange rate for the currency was last
    * modified. It can be the automatic rate's creation date, or the manual rate's
    * last updated at date if active.
@@ -71,6 +77,18 @@ public class CurrencySetting {
   }
 
   /**
+   * The manual rate, if enabled, that applies to this currency when converting
+   * from shop currency. This rate is specific to the associated market's currency setting.
+   */
+  public String getManualRate() {
+    return manualRate;
+  }
+
+  public void setManualRate(String manualRate) {
+    this.manualRate = manualRate;
+  }
+
+  /**
    * The date and time when the active exchange rate for the currency was last
    * modified. It can be the automatic rate's creation date, or the manual rate's
    * last updated at date if active.
@@ -85,7 +103,7 @@ public class CurrencySetting {
 
   @Override
   public String toString() {
-    return "CurrencySetting{currencyCode='" + currencyCode + "', currencyName='" + currencyName + "', enabled='" + enabled + "', rateUpdatedAt='" + rateUpdatedAt + "'}";
+    return "CurrencySetting{currencyCode='" + currencyCode + "', currencyName='" + currencyName + "', enabled='" + enabled + "', manualRate='" + manualRate + "', rateUpdatedAt='" + rateUpdatedAt + "'}";
   }
 
   @Override
@@ -96,12 +114,13 @@ public class CurrencySetting {
     return Objects.equals(currencyCode, that.currencyCode) &&
         Objects.equals(currencyName, that.currencyName) &&
         enabled == that.enabled &&
+        Objects.equals(manualRate, that.manualRate) &&
         Objects.equals(rateUpdatedAt, that.rateUpdatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currencyCode, currencyName, enabled, rateUpdatedAt);
+    return Objects.hash(currencyCode, currencyName, enabled, manualRate, rateUpdatedAt);
   }
 
   public static Builder newBuilder() {
@@ -126,6 +145,12 @@ public class CurrencySetting {
     private boolean enabled;
 
     /**
+     * The manual rate, if enabled, that applies to this currency when converting
+     * from shop currency. This rate is specific to the associated market's currency setting.
+     */
+    private String manualRate;
+
+    /**
      * The date and time when the active exchange rate for the currency was last
      * modified. It can be the automatic rate's creation date, or the manual rate's
      * last updated at date if active.
@@ -137,6 +162,7 @@ public class CurrencySetting {
       result.currencyCode = this.currencyCode;
       result.currencyName = this.currencyName;
       result.enabled = this.enabled;
+      result.manualRate = this.manualRate;
       result.rateUpdatedAt = this.rateUpdatedAt;
       return result;
     }
@@ -163,6 +189,15 @@ public class CurrencySetting {
      */
     public Builder enabled(boolean enabled) {
       this.enabled = enabled;
+      return this;
+    }
+
+    /**
+     * The manual rate, if enabled, that applies to this currency when converting
+     * from shop currency. This rate is specific to the associated market's currency setting.
+     */
+    public Builder manualRate(String manualRate) {
+      this.manualRate = manualRate;
       return this;
     }
 

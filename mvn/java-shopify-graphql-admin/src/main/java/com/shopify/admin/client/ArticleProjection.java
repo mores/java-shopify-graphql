@@ -64,12 +64,15 @@ public class ArticleProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT 
      return projection;
   }
 
-  public CountProjection<ArticleProjection<PARENT, ROOT>, ROOT> commentsCount(String query) {
+  public CountProjection<ArticleProjection<PARENT, ROOT>, ROOT> commentsCount(String query,
+      Integer limit) {
     CountProjection<ArticleProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());    
     getFields().put("commentsCount", projection);
     getInputArguments().computeIfAbsent("commentsCount", k -> new ArrayList<>());                      
     InputArgument queryArg = new InputArgument("query", query);
     getInputArguments().get("commentsCount").add(queryArg);
+    InputArgument limitArg = new InputArgument("limit", limit);
+    getInputArguments().get("commentsCount").add(limitArg);
     return projection;
   }
 

@@ -22,7 +22,7 @@ public class Blog implements MetafieldReferencer, com.shopify.admin.types.HasEve
   private ArticleConnection articles;
 
   /**
-   * Count of articles.
+   * Count of articles. Limited to a maximum of 10000 by default.
    */
   private Count articlesCount;
 
@@ -117,7 +117,7 @@ public class Blog implements MetafieldReferencer, com.shopify.admin.types.HasEve
   }
 
   /**
-   * Count of articles.
+   * Count of articles. Limited to a maximum of 10000 by default.
    */
   public Count getArticlesCount() {
     return articlesCount;
@@ -331,7 +331,7 @@ public class Blog implements MetafieldReferencer, com.shopify.admin.types.HasEve
     private ArticleConnection articles;
 
     /**
-     * Count of articles.
+     * Count of articles. Limited to a maximum of 10000 by default.
      */
     private Count articlesCount;
 
@@ -441,7 +441,7 @@ public class Blog implements MetafieldReferencer, com.shopify.admin.types.HasEve
     }
 
     /**
-     * Count of articles.
+     * Count of articles. Limited to a maximum of 10000 by default.
      */
     public Builder articlesCount(Count articlesCount) {
       this.articlesCount = articlesCount;

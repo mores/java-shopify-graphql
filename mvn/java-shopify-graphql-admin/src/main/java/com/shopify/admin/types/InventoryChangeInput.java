@@ -25,10 +25,20 @@ public class InventoryChangeInput {
   private String locationId;
 
   /**
-   * A freeform URI that represents what changed the inventory quantities. A Shopify global ID isn't an accepted
-   * value. For example, specifying "gid://shopify/Order/123" would return an error. This field is required for all
-   * quantity names except `available`. The field `ledgerDocumentUri` isn't supported for use with an `available`
-   * quantity name.
+   * A non-Shopify URI that identifies what specific inventory transaction or
+   * ledger entry was changed. Represents the exact inventory movement being
+   * referenced, distinct from the business reason for the change.
+   *   
+   * Preferred format - Global ID (GID): gid://[your-app-name]/[transaction-type]/[id]
+   *   
+   * Examples:
+   * - gid://warehouse-app/InventoryTransaction/TXN-2024-001 (specific transaction)
+   * - gid://3pl-system/StockMovement/SM-2024-0125 (stock movement record)
+   * - gid://pos-app/InventoryUpdate/UPD-98765 (POS inventory update)
+   * - gid://erp-connector/LedgerEntry/LE-2024-11-21-001 (ledger entry)
+   *   
+   * Requirements: Valid non-Shopify URI with scheme and content. Required for all
+   * quantity names except `available`. Cannot use gid://shopify/* format.
    */
   private String ledgerDocumentUri;
 
@@ -69,10 +79,20 @@ public class InventoryChangeInput {
   }
 
   /**
-   * A freeform URI that represents what changed the inventory quantities. A Shopify global ID isn't an accepted
-   * value. For example, specifying "gid://shopify/Order/123" would return an error. This field is required for all
-   * quantity names except `available`. The field `ledgerDocumentUri` isn't supported for use with an `available`
-   * quantity name.
+   * A non-Shopify URI that identifies what specific inventory transaction or
+   * ledger entry was changed. Represents the exact inventory movement being
+   * referenced, distinct from the business reason for the change.
+   *   
+   * Preferred format - Global ID (GID): gid://[your-app-name]/[transaction-type]/[id]
+   *   
+   * Examples:
+   * - gid://warehouse-app/InventoryTransaction/TXN-2024-001 (specific transaction)
+   * - gid://3pl-system/StockMovement/SM-2024-0125 (stock movement record)
+   * - gid://pos-app/InventoryUpdate/UPD-98765 (POS inventory update)
+   * - gid://erp-connector/LedgerEntry/LE-2024-11-21-001 (ledger entry)
+   *   
+   * Requirements: Valid non-Shopify URI with scheme and content. Required for all
+   * quantity names except `available`. Cannot use gid://shopify/* format.
    */
   public String getLedgerDocumentUri() {
     return ledgerDocumentUri;
@@ -124,10 +144,20 @@ public class InventoryChangeInput {
     private String locationId;
 
     /**
-     * A freeform URI that represents what changed the inventory quantities. A Shopify global ID isn't an accepted
-     * value. For example, specifying "gid://shopify/Order/123" would return an error. This field is required for all
-     * quantity names except `available`. The field `ledgerDocumentUri` isn't supported for use with an `available`
-     * quantity name.
+     * A non-Shopify URI that identifies what specific inventory transaction or
+     * ledger entry was changed. Represents the exact inventory movement being
+     * referenced, distinct from the business reason for the change.
+     *   
+     * Preferred format - Global ID (GID): gid://[your-app-name]/[transaction-type]/[id]
+     *   
+     * Examples:
+     * - gid://warehouse-app/InventoryTransaction/TXN-2024-001 (specific transaction)
+     * - gid://3pl-system/StockMovement/SM-2024-0125 (stock movement record)
+     * - gid://pos-app/InventoryUpdate/UPD-98765 (POS inventory update)
+     * - gid://erp-connector/LedgerEntry/LE-2024-11-21-001 (ledger entry)
+     *   
+     * Requirements: Valid non-Shopify URI with scheme and content. Required for all
+     * quantity names except `available`. Cannot use gid://shopify/* format.
      */
     private String ledgerDocumentUri;
 
@@ -165,10 +195,20 @@ public class InventoryChangeInput {
     }
 
     /**
-     * A freeform URI that represents what changed the inventory quantities. A Shopify global ID isn't an accepted
-     * value. For example, specifying "gid://shopify/Order/123" would return an error. This field is required for all
-     * quantity names except `available`. The field `ledgerDocumentUri` isn't supported for use with an `available`
-     * quantity name.
+     * A non-Shopify URI that identifies what specific inventory transaction or
+     * ledger entry was changed. Represents the exact inventory movement being
+     * referenced, distinct from the business reason for the change.
+     *   
+     * Preferred format - Global ID (GID): gid://[your-app-name]/[transaction-type]/[id]
+     *   
+     * Examples:
+     * - gid://warehouse-app/InventoryTransaction/TXN-2024-001 (specific transaction)
+     * - gid://3pl-system/StockMovement/SM-2024-0125 (stock movement record)
+     * - gid://pos-app/InventoryUpdate/UPD-98765 (POS inventory update)
+     * - gid://erp-connector/LedgerEntry/LE-2024-11-21-001 (ledger entry)
+     *   
+     * Requirements: Valid non-Shopify URI with scheme and content. Required for all
+     * quantity names except `available`. Cannot use gid://shopify/* format.
      */
     public Builder ledgerDocumentUri(String ledgerDocumentUri) {
       this.ledgerDocumentUri = ledgerDocumentUri;

@@ -17,6 +17,7 @@ import java.lang.String;
     @JsonSubTypes.Type(value = CompanyLocation.class, name = "CompanyLocation"),
     @JsonSubTypes.Type(value = Customer.class, name = "Customer"),
     @JsonSubTypes.Type(value = DraftOrder.class, name = "DraftOrder"),
+    @JsonSubTypes.Type(value = InventoryTransfer.class, name = "InventoryTransfer"),
     @JsonSubTypes.Type(value = Order.class, name = "Order"),
     @JsonSubTypes.Type(value = PriceRule.class, name = "PriceRule")
 })

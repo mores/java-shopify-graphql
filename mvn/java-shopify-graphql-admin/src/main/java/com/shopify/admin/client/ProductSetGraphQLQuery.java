@@ -10,46 +10,48 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Creates or updates a product in a single request.
+ * Performs multiple operations to create or update products in a single request.
  *   
- * Use this mutation when syncing information from an external data source into Shopify.
+ * Use the `productSet` mutation to sync information from an external data source into Shopify, manage large
+ * product catalogs, and perform batch updates. The mutation is helpful for bulk product management, including price
+ * adjustments, inventory updates, and product lifecycle management.
  *   
- * When using this mutation to update a product, specify that product's `id` in the input.
+ * The behavior of `productSet` depends on the type of field it's modifying:
  *   
- * Any list field (e.g.
- * [collections](https://shopify.dev/api/admin-graphql/current/input-objects/ProductSetInput#field-productsetinput-collections),
- * [metafields](https://shopify.dev/api/admin-graphql/current/input-objects/ProductSetInput#field-productsetinput-metafields),
- * [variants](https://shopify.dev/api/admin-graphql/current/input-objects/ProductSetInput#field-productsetinput-variants))
- * will be updated so that all included entries are either created or updated, and all existing entries not
- * included will be deleted.
+ * - **For list fields**: Creates new entries, updates existing entries, and deletes existing entries
+ * that aren't included in the mutation's input. Common examples of list fields include
+ * [`collections`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productSet#arguments-input.fields.collections),
+ * [`metafields`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productSet#arguments-input.fields.metafields),
+ * and [`variants`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productSet#arguments-input.fields.variants).
  *   
- * All other fields will be updated to the value passed. Omitted fields will not be updated.
+ * - **For all other field types**: Updates only the included fields. Any omitted fields will remain unchanged.
  *   
- * When run in synchronous mode, you will get the product back in the response.
- * For versions `2024-04` and earlier, the synchronous mode has an input limit of 100 variants.
- * This limit has been removed for versions `2024-07` and later.
+ * > Note:
+ * > By default, stores have a limit of 100 product variants for each product. You can create a development store and
+ * > [enable the **Extended Variants** developer preview](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model/migrate-and-test#create-a-development-store-that-allows-2-048-variants-per-product)
+ * > to create or update a maximum of 2,048 product variants in a single operation.
  *   
- * In asynchronous mode, you will instead get a
- * [ProductSetOperation](https://shopify.dev/api/admin-graphql/current/objects/ProductSetOperation)
- * object back. You can then use the
- * [productOperation](https://shopify.dev/api/admin-graphql/current/queries/productOperation) query to
- * retrieve the updated product data. This query uses the `ProductSetOperation` object to
- * check the status of the operation and to retrieve the details of the updated product and its variants.
+ * You can run `productSet` in one of the following modes:
  *   
- * If you need to update a subset of variants, use one of the bulk variant mutations:
- * - [productVariantsBulkCreate](https://shopify.dev/api/admin-graphql/current/mutations/productVariantsBulkCreate)
- * - [productVariantsBulkUpdate](https://shopify.dev/api/admin-graphql/current/mutations/productVariantsBulkUpdate)
- * - [productVariantsBulkDelete](https://shopify.dev/api/admin-graphql/current/mutations/productVariantsBulkDelete)
+ * - **Synchronously**: Returns the updated product in the response.
+ * - **Asynchronously**: Returns a [`ProductSetOperation`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductSetOperation) object.
+ * Use the [`productOperation`](https://shopify.dev/api/admin-graphql/latest/queries/productOperation) query to check the status of the operation and
+ * retrieve details of the updated product and its product variants.
  *   
- * If you need to update options, use one of the product option mutations:
- * - [productOptionsCreate](https://shopify.dev/api/admin-graphql/current/mutations/productOptionsCreate)
- * - [productOptionUpdate](https://shopify.dev/api/admin-graphql/current/mutations/productOptionUpdate)
- * - [productOptionsDelete](https://shopify.dev/api/admin-graphql/current/mutations/productOptionsDelete)
- * - [productOptionsReorder](https://shopify.dev/api/admin-graphql/current/mutations/productOptionsReorder)
+ * If you need to only manage product variants, then use one of the following mutations:
  *   
- * See our guide to
- * [sync product data from an external source](https://shopify.dev/api/admin/migrate/new-product-model/sync-data)
- * for more.
+ * - [`productVariantsBulkCreate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productVariantsBulkCreate)
+ * - [`productVariantsBulkUpdate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productVariantsBulkUpdate)
+ * - [`productVariantsBulkDelete`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productVariantsBulkDelete)
+ *   
+ * If you need to only manage product options, then use one of the following mutations:
+ *   
+ * - [`productOptionsCreate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productOptionsCreate)
+ * - [`productOptionUpdate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productOptionUpdate)
+ * - [`productOptionsReorder`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productOptionsReorder)
+ * - [`productOptionsDelete`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productOptionsDelete)
+ *   
+ * Learn more about [syncing product data from an external source](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model/sync-data).
  */
 public class ProductSetGraphQLQuery extends GraphQLQuery {
   public ProductSetGraphQLQuery(ProductSetInput input, Boolean synchronous,

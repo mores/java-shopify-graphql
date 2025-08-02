@@ -49,6 +49,7 @@ public class DraftOrderInput {
   /**
    * The list of product variant or custom line item.
    * Each draft order must include at least one line item.
+   * Accepts a maximum of 499 line items.
    *   
    * NOTE: Draft orders don't currently support subscriptions.
    */
@@ -234,6 +235,7 @@ public class DraftOrderInput {
   /**
    * The list of product variant or custom line item.
    * Each draft order must include at least one line item.
+   * Accepts a maximum of 499 line items.
    *   
    * NOTE: Draft orders don't currently support subscriptions.
    */
@@ -548,6 +550,7 @@ public class DraftOrderInput {
     /**
      * The list of product variant or custom line item.
      * Each draft order must include at least one line item.
+     * Accepts a maximum of 499 line items.
      *   
      * NOTE: Draft orders don't currently support subscriptions.
      */
@@ -743,6 +746,7 @@ public class DraftOrderInput {
     /**
      * The list of product variant or custom line item.
      * Each draft order must include at least one line item.
+     * Accepts a maximum of 499 line items.
      *   
      * NOTE: Draft orders don't currently support subscriptions.
      */

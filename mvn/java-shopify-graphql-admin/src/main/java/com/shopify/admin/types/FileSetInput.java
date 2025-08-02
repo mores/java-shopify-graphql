@@ -10,8 +10,8 @@ import java.util.Objects;
  */
 public class FileSetInput {
   /**
-   * When provided, the file will be created with the given filename,
-   * otherwise the filename in the originalSource will be used.
+   * The name of the file. If provided, then the file is created with the specified filename.
+   * If not provided, then the filename from the `originalSource` is used.
    */
   private String filename;
 
@@ -21,7 +21,7 @@ public class FileSetInput {
   private FileContentType contentType;
 
   /**
-   * The alternative text description of the file.
+   * The alt text description of the file for screen readers and accessibility.
    */
   private String alt;
 
@@ -45,8 +45,8 @@ public class FileSetInput {
   }
 
   /**
-   * When provided, the file will be created with the given filename,
-   * otherwise the filename in the originalSource will be used.
+   * The name of the file. If provided, then the file is created with the specified filename.
+   * If not provided, then the filename from the `originalSource` is used.
    */
   public String getFilename() {
     return filename;
@@ -68,7 +68,7 @@ public class FileSetInput {
   }
 
   /**
-   * The alternative text description of the file.
+   * The alt text description of the file for screen readers and accessibility.
    */
   public String getAlt() {
     return alt;
@@ -142,8 +142,8 @@ public class FileSetInput {
 
   public static class Builder {
     /**
-     * When provided, the file will be created with the given filename,
-     * otherwise the filename in the originalSource will be used.
+     * The name of the file. If provided, then the file is created with the specified filename.
+     * If not provided, then the filename from the `originalSource` is used.
      */
     private String filename;
 
@@ -153,7 +153,7 @@ public class FileSetInput {
     private FileContentType contentType;
 
     /**
-     * The alternative text description of the file.
+     * The alt text description of the file for screen readers and accessibility.
      */
     private String alt;
 
@@ -185,8 +185,8 @@ public class FileSetInput {
     }
 
     /**
-     * When provided, the file will be created with the given filename,
-     * otherwise the filename in the originalSource will be used.
+     * The name of the file. If provided, then the file is created with the specified filename.
+     * If not provided, then the filename from the `originalSource` is used.
      */
     public Builder filename(String filename) {
       this.filename = filename;
@@ -202,7 +202,7 @@ public class FileSetInput {
     }
 
     /**
-     * The alternative text description of the file.
+     * The alt text description of the file for screen readers and accessibility.
      */
     public Builder alt(String alt) {
       this.alt = alt;

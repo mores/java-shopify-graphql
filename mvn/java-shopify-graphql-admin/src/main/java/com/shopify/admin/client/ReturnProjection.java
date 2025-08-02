@@ -2,8 +2,11 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.BaseSubProjectionNode;
 import com.shopify.admin.types.RefundDutyInput;
+import com.shopify.admin.types.RefundMethodAllocation;
 import com.shopify.admin.types.RefundShippingInput;
 import com.shopify.admin.types.ReturnRefundLineItemInput;
+import com.shopify.admin.types.SuggestedOutcomeExchangeLineItemInput;
+import com.shopify.admin.types.SuggestedOutcomeReturnLineItemInput;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -146,6 +149,34 @@ public class ReturnProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT e
      return projection;
   }
 
+  public SuggestedReturnFinancialOutcomeProjection<ReturnProjection<PARENT, ROOT>, ROOT> suggestedFinancialOutcome(
+      ) {
+     SuggestedReturnFinancialOutcomeProjection<ReturnProjection<PARENT, ROOT>, ROOT> projection = new SuggestedReturnFinancialOutcomeProjection<>(this, getRoot());
+     getFields().put("suggestedFinancialOutcome", projection);
+     return projection;
+  }
+
+  public SuggestedReturnFinancialOutcomeProjection<ReturnProjection<PARENT, ROOT>, ROOT> suggestedFinancialOutcome(
+      List<SuggestedOutcomeReturnLineItemInput> returnLineItems,
+      List<SuggestedOutcomeExchangeLineItemInput> exchangeLineItems,
+      RefundShippingInput refundShipping, List<RefundDutyInput> refundDuties,
+      RefundMethodAllocation refundMethodAllocation) {
+    SuggestedReturnFinancialOutcomeProjection<ReturnProjection<PARENT, ROOT>, ROOT> projection = new SuggestedReturnFinancialOutcomeProjection<>(this, getRoot());    
+    getFields().put("suggestedFinancialOutcome", projection);
+    getInputArguments().computeIfAbsent("suggestedFinancialOutcome", k -> new ArrayList<>());                      
+    InputArgument returnLineItemsArg = new InputArgument("returnLineItems", returnLineItems);
+    getInputArguments().get("suggestedFinancialOutcome").add(returnLineItemsArg);
+    InputArgument exchangeLineItemsArg = new InputArgument("exchangeLineItems", exchangeLineItems);
+    getInputArguments().get("suggestedFinancialOutcome").add(exchangeLineItemsArg);
+    InputArgument refundShippingArg = new InputArgument("refundShipping", refundShipping);
+    getInputArguments().get("suggestedFinancialOutcome").add(refundShippingArg);
+    InputArgument refundDutiesArg = new InputArgument("refundDuties", refundDuties);
+    getInputArguments().get("suggestedFinancialOutcome").add(refundDutiesArg);
+    InputArgument refundMethodAllocationArg = new InputArgument("refundMethodAllocation", refundMethodAllocation);
+    getInputArguments().get("suggestedFinancialOutcome").add(refundMethodAllocationArg);
+    return projection;
+  }
+
   public SuggestedReturnRefundProjection<ReturnProjection<PARENT, ROOT>, ROOT> suggestedRefund() {
      SuggestedReturnRefundProjection<ReturnProjection<PARENT, ROOT>, ROOT> projection = new SuggestedReturnRefundProjection<>(this, getRoot());
      getFields().put("suggestedRefund", projection);
@@ -167,6 +198,16 @@ public class ReturnProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT e
     return projection;
   }
 
+  public ReturnProjection<PARENT, ROOT> closedAt() {
+    getFields().put("closedAt", null);
+    return this;
+  }
+
+  public ReturnProjection<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
+    return this;
+  }
+
   public ReturnProjection<PARENT, ROOT> id() {
     getFields().put("id", null);
     return this;
@@ -174,6 +215,11 @@ public class ReturnProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT e
 
   public ReturnProjection<PARENT, ROOT> name() {
     getFields().put("name", null);
+    return this;
+  }
+
+  public ReturnProjection<PARENT, ROOT> requestApprovedAt() {
+    getFields().put("requestApprovedAt", null);
     return this;
   }
 
