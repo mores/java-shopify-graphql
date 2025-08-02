@@ -883,6 +883,16 @@ public class DgsConstants {
     public static final String UserErrors = "userErrors";
   }
 
+  public static class CARTREMOVEPERSONALDATAPAYLOAD {
+    public static final String TYPE_NAME = "CartRemovePersonalDataPayload";
+
+    public static final String Cart = "cart";
+
+    public static final String UserErrors = "userErrors";
+
+    public static final String Warnings = "warnings";
+  }
+
   public static class CARTSELECTABLEADDRESS {
     public static final String TYPE_NAME = "CartSelectableAddress";
 
@@ -1664,6 +1674,8 @@ public class DgsConstants {
 
     public static final String Src = "src";
 
+    public static final String Thumbhash = "thumbhash";
+
     public static final String TransformedSrc = "transformedSrc";
 
     public static final String Url = "url";
@@ -2224,6 +2236,8 @@ public class DgsConstants {
 
     public static final String CartPrepareForCompletion = "cartPrepareForCompletion";
 
+    public static final String CartRemovePersonalData = "cartRemovePersonalData";
+
     public static final String CartSelectedDeliveryOptionsUpdate = "cartSelectedDeliveryOptionsUpdate";
 
     public static final String CartSubmitForCompletion = "cartSubmitForCompletion";
@@ -2359,6 +2373,10 @@ public class DgsConstants {
     }
 
     public static class CARTPREPAREFORCOMPLETION_INPUT_ARGUMENT {
+      public static final String CartId = "cartId";
+    }
+
+    public static class CARTREMOVEPERSONALDATA_INPUT_ARGUMENT {
       public static final String CartId = "cartId";
     }
 
@@ -3837,6 +3855,8 @@ public class DgsConstants {
     public static final String TYPE_NAME = "Shop";
 
     public static final String Brand = "brand";
+
+    public static final String CustomerAccountUrl = "customerAccountUrl";
 
     public static final String Description = "description";
 

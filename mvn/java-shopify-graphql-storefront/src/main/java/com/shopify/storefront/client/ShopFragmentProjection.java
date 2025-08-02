@@ -117,6 +117,11 @@ public class ShopFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>, 
      return projection;
   }
 
+  public ShopFragmentProjection<PARENT, ROOT> customerAccountUrl() {
+    getFields().put("customerAccountUrl", null);
+    return this;
+  }
+
   public ShopFragmentProjection<PARENT, ROOT> description() {
     getFields().put("description", null);
     return this;
