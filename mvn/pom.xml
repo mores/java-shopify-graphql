@@ -41,6 +41,7 @@
 		<maven-enforcer-plugin.verion>3.6.1</maven-enforcer-plugin.verion>
 		<dgs-client.version>10.2.4</dgs-client.version>
 		<dgs-core.version>8.1.1</dgs-core.version>
+		<dgs-codegen.version>1.61.5</dgs-codegen.version>
 		<formatter.version>2.27.0</formatter.version>
 		<jackson.version>2.19.2</jackson.version>
 		<log4j.version>2.25.1</log4j.version>

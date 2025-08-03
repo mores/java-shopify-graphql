@@ -119,10 +119,11 @@
 			</plugin>
 
 			<!-- <plugin> <groupId>io.github.deweyjose</groupId> <artifactId>graphqlcodegen-maven-plugin</artifactId> 
-				<version>1.61.5</version> <executions> <execution> <goals> <goal>generate</goal> 
-				</goals> </execution> </executions> <configuration> <generateClientApiV2>true</generateClientApiV2> 
-				<packageName>com.shopify.admin</packageName> <schemaPaths> <param>src/main/resources/schema/schema.graphql</param> 
-				</schemaPaths> <typeMapping> <ARN>java.lang.String</ARN> <BigInt>java.lang.String</BigInt> 
+				<version>${dgs-codegen.version}</version> <executions> <execution> <goals> 
+				<goal>generate</goal> </goals> </execution> </executions> <configuration> 
+				<generateClientApiV2>true</generateClientApiV2> <packageName>com.shopify.admin</packageName> 
+				<schemaPaths> <param>src/main/resources/schema/schema.graphql</param> </schemaPaths> 
+				<typeMapping> <ARN>java.lang.String</ARN> <BigInt>java.lang.String</BigInt> 
 				<Color>java.lang.String</Color> <Decimal>java.lang.String</Decimal> <FormattedString>String</FormattedString> 
 				<HTML>java.lang.String</HTML> <JSON>java.lang.String</JSON> <Money>java.lang.String</Money> 
 				<Query>java.lang.String</Query> <StorefrontID>java.lang.String</StorefrontID> 
