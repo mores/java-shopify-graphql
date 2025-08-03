@@ -40,6 +40,8 @@
 		<maven-dependency-plugin.version>3.8.1</maven-dependency-plugin.version>
 		<maven-enforcer-plugin.verion>3.6.1</maven-enforcer-plugin.verion>
 		<formatter.version>2.27.0</formatter.version>
+		<jackson.version>2.19.2</jackson.version>
+		<log4j.version>2.25.1</log4j.version>
 	</properties>
 
 	<modules>
@@ -87,25 +89,25 @@
 			</plugin>
 
 			<plugin>
-                                <groupId>org.apache.maven.plugins</groupId>
-                                <artifactId>maven-enforcer-plugin</artifactId>
-                                <version>${maven-enforcer-plugin.verion}</version>
-                                <executions>
-                                        <execution>
-                                                <id>enforce-maven</id>
-                                                <goals>
-                                                        <goal>enforce</goal>
-                                                </goals>
-                                                <configuration>
-                                                        <rules>
-                                                                <requireMavenVersion>
-                                                                        <version>3.6.3</version>
-                                                                </requireMavenVersion>
-                                                        </rules>
-                                                </configuration>
-                                        </execution>
-                                </executions>
-                        </plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>${maven-enforcer-plugin.verion}</version>
+				<executions>
+					<execution>
+						<id>enforce-maven</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireMavenVersion>
+									<version>3.6.3</version>
+								</requireMavenVersion>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>
