@@ -81,7 +81,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-enforcer-plugin</artifactId>
-				<version>3.5.0</version>
+				<version>${maven-enforcer-plugin.verion}</version>
 				<executions>
 					<execution>
 						<id>enforce-maven</id>
@@ -102,7 +102,7 @@
 			<plugin>
 				<groupId>net.revelc.code.formatter</groupId>
 				<artifactId>formatter-maven-plugin</artifactId>
-				<version>2.24.1</version>
+				<version>${formatter.version}</version>
 				<configuration>
 					<directories>
 						<directory>src/test/java</directory>

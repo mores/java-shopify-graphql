@@ -38,6 +38,8 @@
 		<maven.compiler.target>11</maven.compiler.target>
 		<maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
 		<maven-dependency-plugin.version>3.8.1</maven-dependency-plugin.version>
+		<maven-enforcer-plugin.verion>3.6.1</maven-enforcer-plugin.verion>
+		<formatter.version>2.27.0</formatter.version>
 	</properties>
 
 	<modules>
@@ -59,7 +61,7 @@
 			<plugin>
 				<groupId>com.diffplug.spotless</groupId>
 				<artifactId>spotless-maven-plugin</artifactId>
-				<version>2.44.3</version>
+				<version>2.46.1</version>
 				<configuration>
 					<formats>
 						<format>
@@ -83,6 +85,27 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-enforcer-plugin</artifactId>
+                                <version>${maven-enforcer-plugin.verion}</version>
+                                <executions>
+                                        <execution>
+                                                <id>enforce-maven</id>
+                                                <goals>
+                                                        <goal>enforce</goal>
+                                                </goals>
+                                                <configuration>
+                                                        <rules>
+                                                                <requireMavenVersion>
+                                                                        <version>3.6.3</version>
+                                                                </requireMavenVersion>
+                                                        </rules>
+                                                </configuration>
+                                        </execution>
+                                </executions>
+                        </plugin>
 		</plugins>
 	</build>
 </project>
