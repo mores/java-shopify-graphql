@@ -45,7 +45,7 @@
 		<dependency>
 			<groupId>com.netflix.graphql.dgs.codegen</groupId>
 			<artifactId>graphql-dgs-codegen-shared-core</artifactId>
-			<version>7.0.3</version>
+			<version>${dgs-core.version}</version>
 		</dependency>
 
 		<dependency>
@@ -57,7 +57,7 @@
 		<dependency>
 			<groupId>com.netflix.graphql.dgs</groupId>
 			<artifactId>graphql-dgs-client</artifactId>
-			<version>10.0.1</version>
+			<version>${dgs-client.version}</version>
 			<scope>test</scope>
 		</dependency>
 
