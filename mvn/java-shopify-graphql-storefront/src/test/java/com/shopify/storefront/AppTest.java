@@ -6,6 +6,7 @@ import com.netflix.graphql.dgs.client.GraphQLClient;
 import com.netflix.graphql.dgs.client.GraphQLResponse;
 import com.netflix.graphql.dgs.client.HttpResponse;
 
+import com.shopify.storefront.DgsConstants;
 import com.shopify.storefront.client.*;
 import com.shopify.storefront.types.*;
 
@@ -29,7 +30,7 @@ public class AppTest {
     public void testOne() throws Exception {
         log.info("testOne");
 
-        String endpointUrl = "https://" + STORE + ".myshopify.com/api/2025-04/graphql.json";
+        String endpointUrl = "https://" + STORE + ".myshopify.com/api/" + DgsConstants.VERSION + "/graphql.json";
 
         RestTemplate restTemplate = new RestTemplate();
         client = GraphQLClient.createCustom(endpointUrl, (url, headers, body) -> {
@@ -85,6 +86,11 @@ public class AppTest {
         log.trace("Query: " + request.serialize());
         GraphQLResponse response = client.executeQuery(request.serialize());
         log.trace("Response: " + response);
+        if (response.hasErrors()) {
+            for (com.netflix.graphql.dgs.client.GraphQLError error : response.getErrors()) {
+                log.error(error.getMessage());
+            }
+        }
 
         CartCreatePayload payload = response.extractValueAsObject("cartCreate", CartCreatePayload.class);
         java.util.List<CartUserError> errors = payload.getUserErrors();
@@ -125,6 +131,11 @@ public class AppTest {
         log.trace("Query: " + request.serialize());
         GraphQLResponse response = client.executeQuery(request.serialize());
         log.trace("Response: " + response);
+        if (response.hasErrors()) {
+            for (com.netflix.graphql.dgs.client.GraphQLError error : response.getErrors()) {
+                log.error(error.getMessage());
+            }
+        }
     }
 
     public java.util.List<ProductVariant> getProductVariants() {
@@ -180,6 +191,11 @@ public class AppTest {
 
         com.netflix.graphql.dgs.client.GraphQLResponse response = client.executeQuery(request.serialize());
         log.trace("Response: " + response);
+        if (response.hasErrors()) {
+            for (com.netflix.graphql.dgs.client.GraphQLError error : response.getErrors()) {
+                log.error(error.getMessage());
+            }
+        }
 
         ProductConnection results = response.extractValueAsObject("products", ProductConnection.class);
         java.util.List<ProductEdge> edges = results.getEdges();

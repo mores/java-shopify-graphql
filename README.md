@@ -11,7 +11,7 @@ mvn -DskipTests clean javadoc:jar source:jar install
 <dependency>
 	<groupId>io.github.mores</groupId>
 	<artifactId>java-shopify-graphql-admin</artifactId>
-	<version>2025.04.001</version>
+	<version>2025.07.001</version>
 </dependency>
 ```
 
@@ -23,7 +23,7 @@ mvn -DskipTests clean javadoc:jar source:jar install
 <dependency>
         <groupId>io.github.mores</groupId>
         <artifactId>java-shopify-graphql-storefront</artifactId>
-        <version>2025.04.001</version>
+        <version>2025.07.001</version>
 </dependency>
 ```
 

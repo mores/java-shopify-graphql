@@ -3,6 +3,8 @@ package com.shopify.storefront;
 import java.lang.String;
 
 public class DgsConstants {
+  public static final String VERSION = "2025-07";
+
   public static final String QUERY_TYPE = "Query";
 
   public static final String MUTATION_TYPE = "Mutation";
