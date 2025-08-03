@@ -737,6 +737,8 @@ public class AppTest {
 
         java.util.Map<String, Publication> publications = listPublications();
         publish(product.getId(), publications.get("Online Store"));
+        // Lets also make this available using the storefront API
+        publish(product.getId(), publications.get("APP storefront"));
 
         return product;
     }
