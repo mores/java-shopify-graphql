@@ -71,6 +71,10 @@ public class AppTest {
             java.util.List<ProductVariantEdge> vEdges = variants.getEdges();
             for (ProductVariantEdge vEdge : vEdges) {
                 ProductVariant variant = vEdge.getNode();
+                if (variant.getRequiresComponents()) {
+                    log.info("Not able to set inventory on a bundle");
+                    continue;
+                }
                 InventoryItem inventoryItem = variant.getInventoryItem();
                 log.info("\t\t" + inventoryItem.getId());
 
@@ -548,6 +552,7 @@ public class AppTest {
         variantProjection.barcode();
         variantProjection.compareAtPrice();
         variantProjection.id();
+        variantProjection.requiresComponents();
         InventoryItemProjection inventoryItemProjection = variantProjection.inventoryItem();
         inventoryItemProjection.id();
         variantProjection.price();
