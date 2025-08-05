@@ -152,7 +152,11 @@ public class CustomersGraphQLQuery extends GraphQLQuery {
      * | email | string | The customer's email address, used to communicate
      * information about orders and for the purposes of email marketing campaigns.
      * You can use a wildcard value to filter the query by customers who have an
-     * email address specified. | | | - `email:bo.wang@example.com`<br/> - `email:*` |
+     * email address specified. Please note that _email_ is a tokenized field: To
+     * retrieve exact matches, quote the email address (_phrase query_) as
+     * described in [Shopify API search
+     * syntax](https://shopify.dev/docs/api/usage/search-syntax). | | | -
+     * `email:gmail.com`<br/> - `email:"bo.wang@example.com"`<br/> - `email:*` |
      * | first_name | string | Filter by the customer's first name. | | | - `first_name:Jane` |
      * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | last_abandoned_order_date | time | Filter by the date and time of the

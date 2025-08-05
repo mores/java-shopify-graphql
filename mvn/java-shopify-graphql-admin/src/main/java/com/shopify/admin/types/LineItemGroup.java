@@ -25,6 +25,11 @@ public class LineItemGroup implements com.shopify.admin.types.Node {
   private String id;
 
   /**
+   * ID of the product of the line item group.
+   */
+  private String productId;
+
+  /**
    * Quantity of the line item group on the order.
    */
   private int quantity;
@@ -67,6 +72,17 @@ public class LineItemGroup implements com.shopify.admin.types.Node {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  /**
+   * ID of the product of the line item group.
+   */
+  public String getProductId() {
+    return productId;
+  }
+
+  public void setProductId(String productId) {
+    this.productId = productId;
   }
 
   /**
@@ -115,7 +131,7 @@ public class LineItemGroup implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "LineItemGroup{customAttributes='" + customAttributes + "', id='" + id + "', quantity='" + quantity + "', title='" + title + "', variantId='" + variantId + "', variantSku='" + variantSku + "'}";
+    return "LineItemGroup{customAttributes='" + customAttributes + "', id='" + id + "', productId='" + productId + "', quantity='" + quantity + "', title='" + title + "', variantId='" + variantId + "', variantSku='" + variantSku + "'}";
   }
 
   @Override
@@ -125,6 +141,7 @@ public class LineItemGroup implements com.shopify.admin.types.Node {
     LineItemGroup that = (LineItemGroup) o;
     return Objects.equals(customAttributes, that.customAttributes) &&
         Objects.equals(id, that.id) &&
+        Objects.equals(productId, that.productId) &&
         quantity == that.quantity &&
         Objects.equals(title, that.title) &&
         Objects.equals(variantId, that.variantId) &&
@@ -133,7 +150,7 @@ public class LineItemGroup implements com.shopify.admin.types.Node {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customAttributes, id, quantity, title, variantId, variantSku);
+    return Objects.hash(customAttributes, id, productId, quantity, title, variantId, variantSku);
   }
 
   public static Builder newBuilder() {
@@ -150,6 +167,11 @@ public class LineItemGroup implements com.shopify.admin.types.Node {
      * A globally-unique ID.
      */
     private String id;
+
+    /**
+     * ID of the product of the line item group.
+     */
+    private String productId;
 
     /**
      * Quantity of the line item group on the order.
@@ -175,6 +197,7 @@ public class LineItemGroup implements com.shopify.admin.types.Node {
       LineItemGroup result = new LineItemGroup();
       result.customAttributes = this.customAttributes;
       result.id = this.id;
+      result.productId = this.productId;
       result.quantity = this.quantity;
       result.title = this.title;
       result.variantId = this.variantId;
@@ -195,6 +218,14 @@ public class LineItemGroup implements com.shopify.admin.types.Node {
      */
     public Builder id(String id) {
       this.id = id;
+      return this;
+    }
+
+    /**
+     * ID of the product of the line item group.
+     */
+    public Builder productId(String productId) {
+      this.productId = productId;
       return this;
     }
 

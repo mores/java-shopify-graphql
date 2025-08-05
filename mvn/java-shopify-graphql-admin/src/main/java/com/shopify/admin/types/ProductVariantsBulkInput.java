@@ -79,6 +79,16 @@ public class ProductVariantsBulkInput {
   private String taxCode;
 
   /**
+   * The unit price measurement for the product variant.
+   */
+  private UnitPriceMeasurementInput unitPriceMeasurement;
+
+  /**
+   * Whether the unit price should be shown for this product variant.
+   */
+  private Boolean showUnitPrice;
+
+  /**
    * Whether a product variant requires components. The default value is `false`.
    * If `true`, then the product variant can only be purchased as a parent bundle with components and it will be
    * omitted from channels that don't support bundles.
@@ -234,6 +244,28 @@ public class ProductVariantsBulkInput {
   }
 
   /**
+   * The unit price measurement for the product variant.
+   */
+  public UnitPriceMeasurementInput getUnitPriceMeasurement() {
+    return unitPriceMeasurement;
+  }
+
+  public void setUnitPriceMeasurement(UnitPriceMeasurementInput unitPriceMeasurement) {
+    this.unitPriceMeasurement = unitPriceMeasurement;
+  }
+
+  /**
+   * Whether the unit price should be shown for this product variant.
+   */
+  public Boolean getShowUnitPrice() {
+    return showUnitPrice;
+  }
+
+  public void setShowUnitPrice(Boolean showUnitPrice) {
+    this.showUnitPrice = showUnitPrice;
+  }
+
+  /**
    * Whether a product variant requires components. The default value is `false`.
    * If `true`, then the product variant can only be purchased as a parent bundle with components and it will be
    * omitted from channels that don't support bundles.
@@ -248,7 +280,7 @@ public class ProductVariantsBulkInput {
 
   @Override
   public String toString() {
-    return "ProductVariantsBulkInput{barcode='" + barcode + "', compareAtPrice='" + compareAtPrice + "', id='" + id + "', mediaSrc='" + mediaSrc + "', inventoryPolicy='" + inventoryPolicy + "', inventoryQuantities='" + inventoryQuantities + "', inventoryItem='" + inventoryItem + "', mediaId='" + mediaId + "', metafields='" + metafields + "', optionValues='" + optionValues + "', price='" + price + "', taxable='" + taxable + "', taxCode='" + taxCode + "', requiresComponents='" + requiresComponents + "'}";
+    return "ProductVariantsBulkInput{barcode='" + barcode + "', compareAtPrice='" + compareAtPrice + "', id='" + id + "', mediaSrc='" + mediaSrc + "', inventoryPolicy='" + inventoryPolicy + "', inventoryQuantities='" + inventoryQuantities + "', inventoryItem='" + inventoryItem + "', mediaId='" + mediaId + "', metafields='" + metafields + "', optionValues='" + optionValues + "', price='" + price + "', taxable='" + taxable + "', taxCode='" + taxCode + "', unitPriceMeasurement='" + unitPriceMeasurement + "', showUnitPrice='" + showUnitPrice + "', requiresComponents='" + requiresComponents + "'}";
   }
 
   @Override
@@ -269,12 +301,14 @@ public class ProductVariantsBulkInput {
         Objects.equals(price, that.price) &&
         Objects.equals(taxable, that.taxable) &&
         Objects.equals(taxCode, that.taxCode) &&
+        Objects.equals(unitPriceMeasurement, that.unitPriceMeasurement) &&
+        Objects.equals(showUnitPrice, that.showUnitPrice) &&
         Objects.equals(requiresComponents, that.requiresComponents);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(barcode, compareAtPrice, id, mediaSrc, inventoryPolicy, inventoryQuantities, inventoryItem, mediaId, metafields, optionValues, price, taxable, taxCode, requiresComponents);
+    return Objects.hash(barcode, compareAtPrice, id, mediaSrc, inventoryPolicy, inventoryQuantities, inventoryItem, mediaId, metafields, optionValues, price, taxable, taxCode, unitPriceMeasurement, showUnitPrice, requiresComponents);
   }
 
   public static Builder newBuilder() {
@@ -350,6 +384,16 @@ public class ProductVariantsBulkInput {
     private String taxCode;
 
     /**
+     * The unit price measurement for the product variant.
+     */
+    private UnitPriceMeasurementInput unitPriceMeasurement;
+
+    /**
+     * Whether the unit price should be shown for this product variant.
+     */
+    private Boolean showUnitPrice;
+
+    /**
      * Whether a product variant requires components. The default value is `false`.
      * If `true`, then the product variant can only be purchased as a parent bundle with components and it will be
      * omitted from channels that don't support bundles.
@@ -371,6 +415,8 @@ public class ProductVariantsBulkInput {
       result.price = this.price;
       result.taxable = this.taxable;
       result.taxCode = this.taxCode;
+      result.unitPriceMeasurement = this.unitPriceMeasurement;
+      result.showUnitPrice = this.showUnitPrice;
       result.requiresComponents = this.requiresComponents;
       return result;
     }
@@ -478,6 +524,22 @@ public class ProductVariantsBulkInput {
      */
     public Builder taxCode(String taxCode) {
       this.taxCode = taxCode;
+      return this;
+    }
+
+    /**
+     * The unit price measurement for the product variant.
+     */
+    public Builder unitPriceMeasurement(UnitPriceMeasurementInput unitPriceMeasurement) {
+      this.unitPriceMeasurement = unitPriceMeasurement;
+      return this;
+    }
+
+    /**
+     * Whether the unit price should be shown for this product variant.
+     */
+    public Builder showUnitPrice(Boolean showUnitPrice) {
+      this.showUnitPrice = showUnitPrice;
       return this;
     }
 

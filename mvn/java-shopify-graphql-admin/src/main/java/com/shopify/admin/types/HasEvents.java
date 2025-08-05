@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
     @JsonSubTypes.Type(value = DiscountCodeNode.class, name = "DiscountCodeNode"),
     @JsonSubTypes.Type(value = DiscountNode.class, name = "DiscountNode"),
     @JsonSubTypes.Type(value = DraftOrder.class, name = "DraftOrder"),
+    @JsonSubTypes.Type(value = InventoryTransfer.class, name = "InventoryTransfer"),
     @JsonSubTypes.Type(value = Order.class, name = "Order"),
     @JsonSubTypes.Type(value = Page.class, name = "Page"),
     @JsonSubTypes.Type(value = PriceRule.class, name = "PriceRule"),

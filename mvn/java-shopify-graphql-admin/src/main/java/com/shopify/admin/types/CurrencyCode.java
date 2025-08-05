@@ -1,9 +1,9 @@
 package com.shopify.admin.types;
 
 /**
- * The three-letter currency codes that represent the world currencies used in
- * stores. These include standard ISO 4217 codes, legacy codes,
- * and non-standard codes.
+ * The currency codes that represent the world currencies throughout the Admin API. Currency codes include
+ * [standard ISO 4217 codes](https://en.wikipedia.org/wiki/ISO_4217), legacy codes, non-standard codes,
+ * digital currency codes.
  */
 public enum CurrencyCode {
   USD,
@@ -315,6 +315,8 @@ public enum CurrencyCode {
   YER,
 
   ZMW,
+
+  USDC,
 
   BYR,
 

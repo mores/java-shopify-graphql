@@ -16,7 +16,7 @@ public class SubscriptionDeliveryMethodShipping implements SubscriptionDeliveryM
   /**
    * The address to ship to.
    */
-  private SubscriptionMailingAddress address;
+  private MailingAddress address;
 
   /**
    * The details of the shipping method to use.
@@ -29,11 +29,11 @@ public class SubscriptionDeliveryMethodShipping implements SubscriptionDeliveryM
   /**
    * The address to ship to.
    */
-  public SubscriptionMailingAddress getAddress() {
+  public MailingAddress getAddress() {
     return address;
   }
 
-  public void setAddress(SubscriptionMailingAddress address) {
+  public void setAddress(MailingAddress address) {
     this.address = address;
   }
 
@@ -75,7 +75,7 @@ public class SubscriptionDeliveryMethodShipping implements SubscriptionDeliveryM
     /**
      * The address to ship to.
      */
-    private SubscriptionMailingAddress address;
+    private MailingAddress address;
 
     /**
      * The details of the shipping method to use.
@@ -92,7 +92,7 @@ public class SubscriptionDeliveryMethodShipping implements SubscriptionDeliveryM
     /**
      * The address to ship to.
      */
-    public Builder address(SubscriptionMailingAddress address) {
+    public Builder address(MailingAddress address) {
       this.address = address;
       return this;
     }

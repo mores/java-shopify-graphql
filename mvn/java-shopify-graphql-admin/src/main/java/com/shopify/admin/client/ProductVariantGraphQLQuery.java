@@ -7,7 +7,22 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a ProductVariant resource by ID.
+ * Retrieves a [product variant](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant) by its ID.
+ *   
+ * A product variant is a specific version of a
+ * [product](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product) that comes in more than
+ * one [option](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductOption),
+ * such as size or color. For example, if a merchant sells t-shirts with options for size and color,
+ * then a small, blue t-shirt would be one product variant and a large, blue t-shirt would be another.
+ *   
+ * Use the `productVariant` query when you need to:
+ *   
+ * - Access essential product variant data (for example, title, price, image, and metafields).
+ * - Build product detail pages and manage inventory.
+ * - Handle international sales with localized pricing and content.
+ * - Manage product variants that are part of a bundle or selling plan.
+ *   
+ * Learn more about working with [Shopify's product model](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model/product-model-components).
  */
 public class ProductVariantGraphQLQuery extends GraphQLQuery {
   public ProductVariantGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

@@ -23,6 +23,11 @@ public class LineItemGroupProjection<PARENT extends BaseSubProjectionNode<?, ?>,
     return this;
   }
 
+  public LineItemGroupProjection<PARENT, ROOT> productId() {
+    getFields().put("productId", null);
+    return this;
+  }
+
   public LineItemGroupProjection<PARENT, ROOT> quantity() {
     getFields().put("quantity", null);
     return this;

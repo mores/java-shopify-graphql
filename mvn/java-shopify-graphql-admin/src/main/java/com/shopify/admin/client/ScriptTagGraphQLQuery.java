@@ -8,11 +8,10 @@ import java.util.Set;
 
 /**
  * <div class="note">&lt;h4>Theme app extensions&lt;/h4>
- *   <p>Your app might not pass App Store review if it uses script tags instead of
- * theme app extensions. All new apps, and apps that integrate with Online Store
- * 2.0 themes, should use theme app extensions, such as app blocks or app embed
- * blocks. Script tags are an alternative you can use with only vintage themes.
- * <a href="/apps/online-store#what-integration-method-should-i-use"
+ *   <p>If your app integrates with a Shopify theme and you plan to submit it to
+ * the Shopify App Store, you must use theme app extensions instead of Script
+ * tags. Script tags can only be used with vintage themes. <a
+ * href="/apps/online-store#what-integration-method-should-i-use"
  * target="_blank">Learn more</a>.</p></div>
  *   
  * <div class="note">&lt;h4>Script tag deprecation&lt;/h4>
@@ -22,7 +21,7 @@ import java.util.Set;
  * work alongside Checkout Extensibility until August 28, 2025.</p></div>
  *   
  *   
- * Lookup a script tag resource by ID.
+ * Returns a `ScriptTag` resource by ID.
  */
 public class ScriptTagGraphQLQuery extends GraphQLQuery {
   public ScriptTagGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

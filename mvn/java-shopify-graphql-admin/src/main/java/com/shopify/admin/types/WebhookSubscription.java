@@ -58,8 +58,9 @@ public class WebhookSubscription implements com.shopify.admin.types.LegacyIntero
   private String id;
 
   /**
-   * An optional array of top-level resource fields that should be serialized and
-   * sent in the webhook message. If null, then all fields will be sent.
+   * The list of fields to be included in the webhook subscription. Only the fields
+   * specified will be included in the webhook payload. If null, then all fields
+   * will be included. Learn more about [modifying webhook payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify_payloads).
    */
   private List<String> includeFields;
 
@@ -174,8 +175,9 @@ public class WebhookSubscription implements com.shopify.admin.types.LegacyIntero
   }
 
   /**
-   * An optional array of top-level resource fields that should be serialized and
-   * sent in the webhook message. If null, then all fields will be sent.
+   * The list of fields to be included in the webhook subscription. Only the fields
+   * specified will be included in the webhook payload. If null, then all fields
+   * will be included. Learn more about [modifying webhook payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify_payloads).
    */
   public List<String> getIncludeFields() {
     return includeFields;
@@ -316,8 +318,9 @@ public class WebhookSubscription implements com.shopify.admin.types.LegacyIntero
     private String id;
 
     /**
-     * An optional array of top-level resource fields that should be serialized and
-     * sent in the webhook message. If null, then all fields will be sent.
+     * The list of fields to be included in the webhook subscription. Only the fields
+     * specified will be included in the webhook payload. If null, then all fields
+     * will be included. Learn more about [modifying webhook payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify_payloads).
      */
     private List<String> includeFields;
 
@@ -426,8 +429,9 @@ public class WebhookSubscription implements com.shopify.admin.types.LegacyIntero
     }
 
     /**
-     * An optional array of top-level resource fields that should be serialized and
-     * sent in the webhook message. If null, then all fields will be sent.
+     * The list of fields to be included in the webhook subscription. Only the fields
+     * specified will be included in the webhook payload. If null, then all fields
+     * will be included. Learn more about [modifying webhook payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify_payloads).
      */
     public Builder includeFields(List<String> includeFields) {
       this.includeFields = includeFields;

@@ -30,6 +30,11 @@ public class LineItemGroupFragmentProjection<PARENT extends BaseSubProjectionNod
     return this;
   }
 
+  public LineItemGroupFragmentProjection<PARENT, ROOT> productId() {
+    getFields().put("productId", null);
+    return this;
+  }
+
   public LineItemGroupFragmentProjection<PARENT, ROOT> quantity() {
     getFields().put("quantity", null);
     return this;

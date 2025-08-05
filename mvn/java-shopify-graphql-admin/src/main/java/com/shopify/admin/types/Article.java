@@ -36,7 +36,7 @@ public class Article implements MetafieldReferencer, com.shopify.admin.types.Has
   private CommentConnection comments;
 
   /**
-   * Count of comments.
+   * Count of comments. Limited to a maximum of 10000 by default.
    */
   private Count commentsCount;
 
@@ -183,7 +183,7 @@ public class Article implements MetafieldReferencer, com.shopify.admin.types.Has
   }
 
   /**
-   * Count of comments.
+   * Count of comments. Limited to a maximum of 10000 by default.
    */
   public Count getCommentsCount() {
     return commentsCount;
@@ -455,7 +455,7 @@ public class Article implements MetafieldReferencer, com.shopify.admin.types.Has
     private CommentConnection comments;
 
     /**
-     * Count of comments.
+     * Count of comments. Limited to a maximum of 10000 by default.
      */
     private Count commentsCount;
 
@@ -614,7 +614,7 @@ public class Article implements MetafieldReferencer, com.shopify.admin.types.Has
     }
 
     /**
-     * Count of comments.
+     * Count of comments. Limited to a maximum of 10000 by default.
      */
     public Builder commentsCount(Count commentsCount) {
       this.commentsCount = commentsCount;

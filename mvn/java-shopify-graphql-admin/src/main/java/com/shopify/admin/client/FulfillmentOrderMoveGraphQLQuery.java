@@ -14,7 +14,7 @@ import java.util.Set;
  * Moving a fulfillment order will fail in the following circumstances:
  *   
  * * The fulfillment order is closed.
- * * The destination location has never stocked the requested inventory item.
+ * * The destination location doesn't stock the requested inventory item.
  * * The API client doesn't have the correct permissions.
  *   
  * Line items which have already been fulfilled can't be re-assigned

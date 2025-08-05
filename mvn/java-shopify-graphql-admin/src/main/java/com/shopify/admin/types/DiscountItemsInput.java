@@ -24,7 +24,7 @@ public class DiscountItemsInput {
   private DiscountCollectionsInput collections;
 
   /**
-   * Whether all items should be selected.
+   * Whether all items should be selected for the discount. Not supported for Buy X get Y discounts.
    */
   private Boolean all;
 
@@ -57,7 +57,7 @@ public class DiscountItemsInput {
   }
 
   /**
-   * Whether all items should be selected.
+   * Whether all items should be selected for the discount. Not supported for Buy X get Y discounts.
    */
   public Boolean getAll() {
     return all;
@@ -106,7 +106,7 @@ public class DiscountItemsInput {
     private DiscountCollectionsInput collections;
 
     /**
-     * Whether all items should be selected.
+     * Whether all items should be selected for the discount. Not supported for Buy X get Y discounts.
      */
     private Boolean all;
 
@@ -138,7 +138,7 @@ public class DiscountItemsInput {
     }
 
     /**
-     * Whether all items should be selected.
+     * Whether all items should be selected for the discount. Not supported for Buy X get Y discounts.
      */
     public Builder all(Boolean all) {
       this.all = all;

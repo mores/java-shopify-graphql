@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a `Company` object by ID.
+ * Returns a `Company` resource by ID.
  */
 public class CompanyGraphQLQuery extends GraphQLQuery {
   public CompanyGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

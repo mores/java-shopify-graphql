@@ -12,11 +12,12 @@ import java.util.Set;
  * See the [bulk operations guide](https://shopify.dev/api/usage/bulk-operations/queries) for more details.
  */
 public class BulkOperationRunQueryGraphQLQuery extends GraphQLQuery {
-  public BulkOperationRunQueryGraphQLQuery(String query, String queryName, Set<String> fieldsSet) {
+  public BulkOperationRunQueryGraphQLQuery(String query, boolean groupObjects, String queryName,
+      Set<String> fieldsSet) {
     super("mutation", queryName);
     if (query != null || fieldsSet.contains("query")) {
         getInput().put("query", query);
-    }
+    }getInput().put("groupObjects", groupObjects);                   
   }
 
   public BulkOperationRunQueryGraphQLQuery() {
@@ -37,10 +38,12 @@ public class BulkOperationRunQueryGraphQLQuery extends GraphQLQuery {
 
     private String query;
 
+    private boolean groupObjects;
+
     private String queryName;
 
     public BulkOperationRunQueryGraphQLQuery build() {
-      return new BulkOperationRunQueryGraphQLQuery(query, queryName, fieldsSet);
+      return new BulkOperationRunQueryGraphQLQuery(query, groupObjects, queryName, fieldsSet);
                
     }
 
@@ -50,6 +53,17 @@ public class BulkOperationRunQueryGraphQLQuery extends GraphQLQuery {
     public Builder query(String query) {
       this.query = query;
       this.fieldsSet.add("query");
+      return this;
+    }
+
+    /**
+     * Whether to group objects under their corresponding parent objects in the
+     * JSONL output. Grouping is costly, causes bulk operations to take longer to
+     * complete, and increases the chances of failures such as timeouts.
+     */
+    public Builder groupObjects(boolean groupObjects) {
+      this.groupObjects = groupObjects;
+      this.fieldsSet.add("groupObjects");
       return this;
     }
 

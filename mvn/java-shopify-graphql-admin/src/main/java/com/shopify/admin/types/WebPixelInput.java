@@ -13,7 +13,7 @@ public class WebPixelInput {
    * The
    * [settings object](https://shopify.dev/docs/apps/build/marketing-analytics/build-web-pixels#step-2-define-your-web-pixel-settings)
    * for the web pixel. This object specifies configuration options that control the web pixel's functionality and behavior.
-   * You can find the settings for a web pixel in `extensions/&lt;your_extension_name>/shopify.extension.toml`.
+   * You can find the settings for a web pixel in `extensions/&lt;your_extension_name&gt;/shopify.extension.toml`.
    */
   private String settings;
 
@@ -24,7 +24,7 @@ public class WebPixelInput {
    * The
    * [settings object](https://shopify.dev/docs/apps/build/marketing-analytics/build-web-pixels#step-2-define-your-web-pixel-settings)
    * for the web pixel. This object specifies configuration options that control the web pixel's functionality and behavior.
-   * You can find the settings for a web pixel in `extensions/&lt;your_extension_name>/shopify.extension.toml`.
+   * You can find the settings for a web pixel in `extensions/&lt;your_extension_name&gt;/shopify.extension.toml`.
    */
   public String getSettings() {
     return settings;
@@ -61,7 +61,7 @@ public class WebPixelInput {
      * The
      * [settings object](https://shopify.dev/docs/apps/build/marketing-analytics/build-web-pixels#step-2-define-your-web-pixel-settings)
      * for the web pixel. This object specifies configuration options that control the web pixel's functionality and behavior.
-     * You can find the settings for a web pixel in `extensions/&lt;your_extension_name>/shopify.extension.toml`.
+     * You can find the settings for a web pixel in `extensions/&lt;your_extension_name&gt;/shopify.extension.toml`.
      */
     private String settings;
 
@@ -75,7 +75,7 @@ public class WebPixelInput {
      * The
      * [settings object](https://shopify.dev/docs/apps/build/marketing-analytics/build-web-pixels#step-2-define-your-web-pixel-settings)
      * for the web pixel. This object specifies configuration options that control the web pixel's functionality and behavior.
-     * You can find the settings for a web pixel in `extensions/&lt;your_extension_name>/shopify.extension.toml`.
+     * You can find the settings for a web pixel in `extensions/&lt;your_extension_name&gt;/shopify.extension.toml`.
      */
     public Builder settings(String settings) {
       this.settings = settings;

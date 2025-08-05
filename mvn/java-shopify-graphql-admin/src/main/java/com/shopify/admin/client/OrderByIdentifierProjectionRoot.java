@@ -1,14 +1,17 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.BaseSubProjectionNode;
+import com.shopify.admin.types.Audience;
 import com.shopify.admin.types.CountryCode;
 import com.shopify.admin.types.EventSortKeys;
 import com.shopify.admin.types.LocalizationExtensionPurpose;
 import com.shopify.admin.types.LocalizedFieldPurpose;
 import com.shopify.admin.types.MetafieldDefinitionPinnedStatus;
 import com.shopify.admin.types.MetafieldDefinitionSortKeys;
+import com.shopify.admin.types.NotificationUsage;
 import com.shopify.admin.types.RefundDutyInput;
 import com.shopify.admin.types.RefundLineItemInput;
+import com.shopify.admin.types.RefundMethodAllocation;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -361,12 +364,14 @@ public class OrderByIdentifierProjectionRoot<PARENT extends BaseSubProjectionNod
   }
 
   public FulfillmentProjection<OrderByIdentifierProjectionRoot<PARENT, ROOT>, OrderByIdentifierProjectionRoot<PARENT, ROOT>> fulfillments(
-      Integer first) {
+      Integer first, String query) {
     FulfillmentProjection<OrderByIdentifierProjectionRoot<PARENT, ROOT>, OrderByIdentifierProjectionRoot<PARENT, ROOT>> projection = new FulfillmentProjection<>(this, this);    
     getFields().put("fulfillments", projection);
     getInputArguments().computeIfAbsent("fulfillments", k -> new ArrayList<>());                      
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("fulfillments").add(firstArg);
+    InputArgument queryArg = new InputArgument("query", query);
+    getInputArguments().get("fulfillments").add(queryArg);
     return projection;
   }
 
@@ -807,6 +812,18 @@ public class OrderByIdentifierProjectionRoot<PARENT extends BaseSubProjectionNod
     return projection;
   }
 
+  public URLProjection<OrderByIdentifierProjectionRoot<PARENT, ROOT>, OrderByIdentifierProjectionRoot<PARENT, ROOT>> statusPageUrl(
+      Audience audience, NotificationUsage notificationUsage) {
+    URLProjection<OrderByIdentifierProjectionRoot<PARENT, ROOT>, OrderByIdentifierProjectionRoot<PARENT, ROOT>> projection = new URLProjection<>(this, this);    
+    getFields().put("statusPageUrl", projection);
+    getInputArguments().computeIfAbsent("statusPageUrl", k -> new ArrayList<>());                      
+    InputArgument audienceArg = new InputArgument("audience", audience);
+    getInputArguments().get("statusPageUrl").add(audienceArg);
+    InputArgument notificationUsageArg = new InputArgument("notificationUsage", notificationUsage);
+    getInputArguments().get("statusPageUrl").add(notificationUsageArg);
+    return projection;
+  }
+
   public MoneyBagProjection<OrderByIdentifierProjectionRoot<PARENT, ROOT>, OrderByIdentifierProjectionRoot<PARENT, ROOT>> subtotalPriceSet(
       ) {
     MoneyBagProjection<OrderByIdentifierProjectionRoot<PARENT, ROOT>, OrderByIdentifierProjectionRoot<PARENT, ROOT>> projection = new MoneyBagProjection<>(this, this);    
@@ -823,7 +840,8 @@ public class OrderByIdentifierProjectionRoot<PARENT extends BaseSubProjectionNod
 
   public SuggestedRefundProjection<OrderByIdentifierProjectionRoot<PARENT, ROOT>, OrderByIdentifierProjectionRoot<PARENT, ROOT>> suggestedRefund(
       String shippingAmount, Boolean refundShipping, List<RefundLineItemInput> refundLineItems,
-      List<RefundDutyInput> refundDuties, Boolean suggestFullRefund) {
+      List<RefundDutyInput> refundDuties, Boolean suggestFullRefund,
+      RefundMethodAllocation refundMethodAllocation) {
     SuggestedRefundProjection<OrderByIdentifierProjectionRoot<PARENT, ROOT>, OrderByIdentifierProjectionRoot<PARENT, ROOT>> projection = new SuggestedRefundProjection<>(this, this);    
     getFields().put("suggestedRefund", projection);
     getInputArguments().computeIfAbsent("suggestedRefund", k -> new ArrayList<>());                      
@@ -837,6 +855,8 @@ public class OrderByIdentifierProjectionRoot<PARENT extends BaseSubProjectionNod
     getInputArguments().get("suggestedRefund").add(refundDutiesArg);
     InputArgument suggestFullRefundArg = new InputArgument("suggestFullRefund", suggestFullRefund);
     getInputArguments().get("suggestedRefund").add(suggestFullRefundArg);
+    InputArgument refundMethodAllocationArg = new InputArgument("refundMethodAllocation", refundMethodAllocation);
+    getInputArguments().get("suggestedRefund").add(refundMethodAllocationArg);
     return projection;
   }
 
@@ -1126,6 +1146,11 @@ public class OrderByIdentifierProjectionRoot<PARENT extends BaseSubProjectionNod
 
   public OrderByIdentifierProjectionRoot<PARENT, ROOT> note() {
     getFields().put("note", null);
+    return this;
+  }
+
+  public OrderByIdentifierProjectionRoot<PARENT, ROOT> number() {
+    getFields().put("number", null);
     return this;
   }
 

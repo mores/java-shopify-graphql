@@ -76,7 +76,7 @@ public class Channel implements com.shopify.admin.types.Node {
   private ProductConnection products;
 
   /**
-   * The count of products published to the channel. Limited to a maximum of 10000.
+   * The count of products published to the channel. Limited to a maximum of 10000 by default.
    */
   private Count productsCount;
 
@@ -221,7 +221,7 @@ public class Channel implements com.shopify.admin.types.Node {
   }
 
   /**
-   * The count of products published to the channel. Limited to a maximum of 10000.
+   * The count of products published to the channel. Limited to a maximum of 10000 by default.
    */
   public Count getProductsCount() {
     return productsCount;
@@ -339,7 +339,7 @@ public class Channel implements com.shopify.admin.types.Node {
     private ProductConnection products;
 
     /**
-     * The count of products published to the channel. Limited to a maximum of 10000.
+     * The count of products published to the channel. Limited to a maximum of 10000 by default.
      */
     private Count productsCount;
 
@@ -465,7 +465,7 @@ public class Channel implements com.shopify.admin.types.Node {
     }
 
     /**
-     * The count of products published to the channel. Limited to a maximum of 10000.
+     * The count of products published to the channel. Limited to a maximum of 10000 by default.
      */
     public Builder productsCount(Count productsCount) {
       this.productsCount = productsCount;

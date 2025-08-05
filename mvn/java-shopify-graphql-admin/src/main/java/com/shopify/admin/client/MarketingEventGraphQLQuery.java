@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a MarketingEvent resource by ID.
+ * Returns a `MarketingEvent` resource by ID.
  */
 public class MarketingEventGraphQLQuery extends GraphQLQuery {
   public MarketingEventGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

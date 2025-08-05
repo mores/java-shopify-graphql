@@ -13,7 +13,7 @@ public class PriceRangeFilter {
   /**
    * The minimum price in the range. Defaults to zero.
    */
-  private Double min = 0d;
+  private Double min = 0.0;
 
   /**
    * The maximum price in the range. Empty indicates no max price.
@@ -72,7 +72,7 @@ public class PriceRangeFilter {
     /**
      * The minimum price in the range. Defaults to zero.
      */
-    private Double min = 0d;
+    private Double min = 0.0;
 
     /**
      * The maximum price in the range. Empty indicates no max price.

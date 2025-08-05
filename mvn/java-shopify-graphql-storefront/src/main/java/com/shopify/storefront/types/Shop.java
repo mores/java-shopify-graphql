@@ -20,6 +20,11 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
   private Brand brand;
 
   /**
+   * The URL for the customer account (only present if shop has a customer account vanity domain).
+   */
+  private String customerAccountUrl;
+
+  /**
    * A description of the shop.
    */
   private String description;
@@ -108,6 +113,17 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
 
   public void setBrand(Brand brand) {
     this.brand = brand;
+  }
+
+  /**
+   * The URL for the customer account (only present if shop has a customer account vanity domain).
+   */
+  public String getCustomerAccountUrl() {
+    return customerAccountUrl;
+  }
+
+  public void setCustomerAccountUrl(String customerAccountUrl) {
+    this.customerAccountUrl = customerAccountUrl;
   }
 
   /**
@@ -279,7 +295,7 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
 
   @Override
   public String toString() {
-    return "Shop{brand='" + brand + "', description='" + description + "', id='" + id + "', metafield='" + metafield + "', metafields='" + metafields + "', moneyFormat='" + moneyFormat + "', name='" + name + "', paymentSettings='" + paymentSettings + "', primaryDomain='" + primaryDomain + "', privacyPolicy='" + privacyPolicy + "', refundPolicy='" + refundPolicy + "', shippingPolicy='" + shippingPolicy + "', shipsToCountries='" + shipsToCountries + "', shopPayInstallmentsPricing='" + shopPayInstallmentsPricing + "', subscriptionPolicy='" + subscriptionPolicy + "', termsOfService='" + termsOfService + "'}";
+    return "Shop{brand='" + brand + "', customerAccountUrl='" + customerAccountUrl + "', description='" + description + "', id='" + id + "', metafield='" + metafield + "', metafields='" + metafields + "', moneyFormat='" + moneyFormat + "', name='" + name + "', paymentSettings='" + paymentSettings + "', primaryDomain='" + primaryDomain + "', privacyPolicy='" + privacyPolicy + "', refundPolicy='" + refundPolicy + "', shippingPolicy='" + shippingPolicy + "', shipsToCountries='" + shipsToCountries + "', shopPayInstallmentsPricing='" + shopPayInstallmentsPricing + "', subscriptionPolicy='" + subscriptionPolicy + "', termsOfService='" + termsOfService + "'}";
   }
 
   @Override
@@ -288,6 +304,7 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
     if (o == null || getClass() != o.getClass()) return false;
     Shop that = (Shop) o;
     return Objects.equals(brand, that.brand) &&
+        Objects.equals(customerAccountUrl, that.customerAccountUrl) &&
         Objects.equals(description, that.description) &&
         Objects.equals(id, that.id) &&
         Objects.equals(metafield, that.metafield) &&
@@ -307,7 +324,7 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, description, id, metafield, metafields, moneyFormat, name, paymentSettings, primaryDomain, privacyPolicy, refundPolicy, shippingPolicy, shipsToCountries, shopPayInstallmentsPricing, subscriptionPolicy, termsOfService);
+    return Objects.hash(brand, customerAccountUrl, description, id, metafield, metafields, moneyFormat, name, paymentSettings, primaryDomain, privacyPolicy, refundPolicy, shippingPolicy, shipsToCountries, shopPayInstallmentsPricing, subscriptionPolicy, termsOfService);
   }
 
   public static Builder newBuilder() {
@@ -319,6 +336,11 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
      * The shop's branding configuration.
      */
     private Brand brand;
+
+    /**
+     * The URL for the customer account (only present if shop has a customer account vanity domain).
+     */
+    private String customerAccountUrl;
 
     /**
      * A description of the shop.
@@ -400,6 +422,7 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
     public Shop build() {
       Shop result = new Shop();
       result.brand = this.brand;
+      result.customerAccountUrl = this.customerAccountUrl;
       result.description = this.description;
       result.id = this.id;
       result.metafield = this.metafield;
@@ -423,6 +446,14 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
      */
     public Builder brand(Brand brand) {
       this.brand = brand;
+      return this;
+    }
+
+    /**
+     * The URL for the customer account (only present if shop has a customer account vanity domain).
+     */
+    public Builder customerAccountUrl(String customerAccountUrl) {
+      this.customerAccountUrl = customerAccountUrl;
       return this;
     }
 

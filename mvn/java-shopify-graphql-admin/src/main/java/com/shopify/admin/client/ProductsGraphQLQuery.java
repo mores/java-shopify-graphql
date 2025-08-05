@@ -10,7 +10,31 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a list of products.
+ * Retrieves a list of [products](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+ * in a store. Products are the items that merchants can sell in their store.
+ *   
+ * Use the `products` query when you need to:
+ *   
+ * - Build a browsing interface for a product catalog.
+ * - Create product
+ * [searching](https://shopify.dev/docs/api/usage/search-syntax), [sorting](https://shopify.dev/docs/api/admin-graphql/latest/queries/products#arguments-sortKey), and [filtering](https://shopify.dev/docs/api/admin-graphql/latest/queries/products#arguments-query) experiences.
+ * - Implement product recommendations.
+ * - Sync product data with external systems.
+ *   
+ * The `products` query supports [pagination](https://shopify.dev/docs/api/usage/pagination-graphql)
+ * to handle large product catalogs and [saved searches](https://shopify.dev/docs/api/admin-graphql/latest/queries/products#arguments-savedSearchId)
+ * for frequently used product queries.
+ *   
+ * The `products` query returns products with their associated metadata, including:
+ *   
+ * - Basic product information (for example, title, description, vendor, and type)
+ * - Product options and product variants, with their prices and inventory
+ * - Media attachments (for example, images and videos)
+ * - SEO metadata
+ * - Product categories and tags
+ * - Product availability and publishing statuses
+ *   
+ * Learn more about working with [Shopify's product model](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model/product-model-components).
  */
 public class ProductsGraphQLQuery extends GraphQLQuery {
   public ProductsGraphQLQuery(Integer first, String after, Integer last, String before,
@@ -176,6 +200,11 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
      * | is_price_reduced | boolean | Filter by products that have a reduced price.
      * For more information, refer to the [`CollectionRule`](https://shopify.dev/api/admin-graphql/latest/objects/CollectionRule)
      * object. | | | - `is_price_reduced:true` |
+     * | metafields.{namespace}.{key} | mixed | Filters resources by metafield
+     * value. Format: `metafields.{namespace}.{key}:{value}`. Learn more about
+     * [querying by metafield value](https://shopify.dev/apps/build/custom-data/metafields/query-by-metafield-value).
+     * | | | - `metafields.custom.on_sale:true`<br/> -
+     * `metafields.product.material:"gid://shopify/Metaobject/43458085"` |
      * | out_of_stock_somewhere | boolean | Filter by products that are out of
      * stock in at least one location. | | | - `out_of_stock_somewhere:true` |
      * | price | bigdecimal | Filter by the product variant [`price`](https://shopify.dev/api/admin-graphql/latest/objects/Productvariant#field-price)
@@ -183,14 +212,15 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
      * | product_configuration_owner | string | Filter by the app
      * [`id`](https://shopify.dev/api/admin-graphql/latest/objects/App#field-id)
      * field. | | | - `product_configuration_owner:10001` |
-     * | product_publication_status | string | Filter by the publishable status of
+     * | product_publication_status | string | Filter by the publication status of
      * the resource on a channel, such as the online store. The value is a
      * composite of the [channel `app`
      * ID](https://shopify.dev/api/admin-graphql/latest/objects/Channel#app-price)
      * (`Channel.app.id`) and one of the valid values. | - `approved`<br/> -
      * `rejected`<br/> - `needs_action`<br/> - `awaiting_review`<br/> -
      * `published`<br/> - `demoted`<br/> - `scheduled`<br/> -
-     * `provisionally_published` | | - `publishable_status:189769876-approved` |
+     * `provisionally_published` | | -
+     * `product_publication_status:189769876-approved` |
      * | product_type | string | Filter by a comma-separated list of [product
      * types](https://help.shopify.com/manual/products/details/product-type). | | |
      * - `product_type:snowboard` |
@@ -206,8 +236,8 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
      * `published`<br/> - `unpublished`<br/> - `visible`<br/> - `unavailable`<br/>
      * - `hidden`<br/> - `intended`<br/> - `visible` | | -
      * `publishable_status:published`<br/> -
-     * `publishable_status:189769876:visible`<br/> -
-     * `publishable_status:pos:hidden` |
+     * `publishable_status:189769876-visible`<br/> -
+     * `publishable_status:pos-hidden` |
      * | published_at | time | Filter by the date and time when the product was
      * published to the online store and other sales channels. | | | -
      * `published_at:>2020-10-21T23:39:20Z`<br/> - `published_at:&lt;now`<br/> -

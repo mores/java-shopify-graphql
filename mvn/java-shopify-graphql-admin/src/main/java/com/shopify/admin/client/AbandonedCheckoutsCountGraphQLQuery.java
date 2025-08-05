@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns the count of abandoned checkouts for the given shop. Limited to a maximum of 10000.
+ * Returns the count of abandoned checkouts for the given shop. Limited to a maximum of 10000 by default.
  */
 public class AbandonedCheckoutsCountGraphQLQuery extends GraphQLQuery {
   public AbandonedCheckoutsCountGraphQLQuery(String query, String savedSearchId, Integer limit,
@@ -89,7 +89,7 @@ public class AbandonedCheckoutsCountGraphQLQuery extends GraphQLQuery {
     }
 
     /**
-     * The upper bound on count value before returning a result.
+     * The upper bound on count value before returning a result. Use `null` to have no limit.
      */
     public Builder limit(Integer limit) {
       this.limit = limit;

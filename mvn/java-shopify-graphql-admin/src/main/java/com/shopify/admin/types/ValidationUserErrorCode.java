@@ -40,6 +40,8 @@ public enum ValidationUserErrorCode {
 
   TOO_SHORT,
 
+  INVALID,
+
   CAPABILITY_VIOLATION,
 
   INTERNAL_ERROR

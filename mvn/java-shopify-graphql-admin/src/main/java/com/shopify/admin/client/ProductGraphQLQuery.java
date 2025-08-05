@@ -7,7 +7,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a Product resource by ID.
+ * Retrieves a [product](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product) by its ID.
+ * A product is an item that a merchant can sell in their store.
+ *   
+ * Use the `product` query when you need to:
+ *   
+ * - Access essential product data (for example, title, description, price, images, SEO metadata, and metafields).
+ * - Build product detail pages and manage inventory.
+ * - Handle international sales with localized pricing and content.
+ * - Manage product variants and product options.
+ *   
+ * Learn more about working with [Shopify's product model](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model/product-model-components).
  */
 public class ProductGraphQLQuery extends GraphQLQuery {
   public ProductGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

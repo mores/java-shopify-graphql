@@ -53,5 +53,7 @@ public enum SubscriptionBillingAttemptErrorCode {
 
   FRAUD_SUSPECTED,
 
-  NON_TEST_ORDER_LIMIT_REACHED
+  NON_TEST_ORDER_LIMIT_REACHED,
+
+  FREE_GIFT_CARD_NOT_ALLOWED
 }

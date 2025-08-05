@@ -30,5 +30,7 @@ public enum MetafieldsSetUserErrorCode {
 
   LESS_THAN_OR_EQUAL_TO,
 
+  INVALID,
+
   INTERNAL_ERROR
 }

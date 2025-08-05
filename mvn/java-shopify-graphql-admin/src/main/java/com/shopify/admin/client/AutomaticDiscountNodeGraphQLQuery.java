@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns an automatic discount resource by ID.
+ * Returns a `DiscountAutomaticNode` resource by ID.
  */
 public class AutomaticDiscountNodeGraphQLQuery extends GraphQLQuery {
   public AutomaticDiscountNodeGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

@@ -55,7 +55,7 @@ public class DiscountRedeemCodeBulkAddGraphQLQuery extends GraphQLQuery {
 
     /**
      * The ID of the
-     * [`DiscountCodeNode`](https://help.shopify.com/docs/api/admin-graphql/latest/objects/DiscountCodeNode#field-id)
+     * [`DiscountCodeNode`](https://shopify.dev/docs/api/admin-graphql/latest/objects/DiscountCodeNode#field-id)
      * object that the codes will be added to. For example, `gid://shopify/DiscountCodeNode/123`.
      * You can use the
      * [`codeDiscountNodes` query](https://shopify.dev/docs/api/admin-graphql/latest/queries/codeDiscountNodes)
@@ -70,7 +70,7 @@ public class DiscountRedeemCodeBulkAddGraphQLQuery extends GraphQLQuery {
     /**
      * The list of codes to associate with the
      * [code discount](https://help.shopify.com/manual/discounts/discount-types#discount-codes).
-     * Maximum: 100 codes.
+     * Maximum: 250 codes.
      */
     public Builder codes(List<DiscountRedeemCodeInput> codes) {
       this.codes = codes;

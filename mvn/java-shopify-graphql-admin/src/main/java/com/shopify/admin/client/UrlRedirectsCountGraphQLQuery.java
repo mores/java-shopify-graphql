@@ -1,22 +1,25 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Count of redirects. Limited to a maximum of 10000.
+ * Count of redirects. Limited to a maximum of 10000 by default.
  */
 public class UrlRedirectsCountGraphQLQuery extends GraphQLQuery {
-  public UrlRedirectsCountGraphQLQuery(String query, String savedSearchId, String queryName,
-      Set<String> fieldsSet) {
+  public UrlRedirectsCountGraphQLQuery(String query, String savedSearchId, Integer limit,
+      String queryName, Set<String> fieldsSet) {
     super("query", queryName);
     if (query != null || fieldsSet.contains("query")) {
         getInput().put("query", query);
     }if (savedSearchId != null || fieldsSet.contains("savedSearchId")) {
         getInput().put("savedSearchId", savedSearchId);
+    }if (limit != null || fieldsSet.contains("limit")) {
+        getInput().put("limit", limit);
     }
   }
 
@@ -40,10 +43,12 @@ public class UrlRedirectsCountGraphQLQuery extends GraphQLQuery {
 
     private String savedSearchId;
 
+    private Integer limit;
+
     private String queryName;
 
     public UrlRedirectsCountGraphQLQuery build() {
-      return new UrlRedirectsCountGraphQLQuery(query, savedSearchId, queryName, fieldsSet);
+      return new UrlRedirectsCountGraphQLQuery(query, savedSearchId, limit, queryName, fieldsSet);
                
     }
 
@@ -74,6 +79,15 @@ public class UrlRedirectsCountGraphQLQuery extends GraphQLQuery {
     public Builder savedSearchId(String savedSearchId) {
       this.savedSearchId = savedSearchId;
       this.fieldsSet.add("savedSearchId");
+      return this;
+    }
+
+    /**
+     * The upper bound on count value before returning a result. Use `null` to have no limit.
+     */
+    public Builder limit(Integer limit) {
+      this.limit = limit;
+      this.fieldsSet.add("limit");
       return this;
     }
 

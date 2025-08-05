@@ -4,6 +4,7 @@ import com.netflix.graphql.dgs.client.GraphQLClient;
 import com.netflix.graphql.dgs.client.GraphQLResponse;
 import com.netflix.graphql.dgs.client.HttpResponse;
 
+import com.shopify.admin.DgsConstants;
 import com.shopify.admin.client.*;
 import com.shopify.admin.types.*;
 
@@ -31,7 +32,7 @@ public class AppTest {
     public void testOne() throws Exception {
         log.info("testOne");
 
-        String endpointUrl = "https://" + STORE + ".myshopify.com/admin/api/2025-04/graphql.json";
+        String endpointUrl = "https://" + STORE + ".myshopify.com/admin/api/" + DgsConstants.VERSION + "/graphql.json";
 
         RestTemplate restTemplate = new RestTemplate();
         client = GraphQLClient.createCustom(endpointUrl, (url, headers, body) -> {
@@ -70,6 +71,10 @@ public class AppTest {
             java.util.List<ProductVariantEdge> vEdges = variants.getEdges();
             for (ProductVariantEdge vEdge : vEdges) {
                 ProductVariant variant = vEdge.getNode();
+                if (variant.getRequiresComponents()) {
+                    log.info("Not able to set inventory on a bundle");
+                    continue;
+                }
                 InventoryItem inventoryItem = variant.getInventoryItem();
                 log.info("\t\t" + inventoryItem.getId());
 
@@ -102,6 +107,11 @@ public class AppTest {
                 log.debug("Request: " + request.serialize());
                 GraphQLResponse response = client.executeQuery(request.serialize());
                 log.debug("Response: " + response);
+                if (response.hasErrors()) {
+                    for (com.netflix.graphql.dgs.client.GraphQLError error : response.getErrors()) {
+                        log.error(error.getMessage());
+                    }
+                }
 
                 InventorySetQuantitiesPayload payload = response.extractValueAsObject("inventorySetQuantities",
                         InventorySetQuantitiesPayload.class);
@@ -136,6 +146,11 @@ public class AppTest {
         log.debug("Request: " + request.serialize());
         GraphQLResponse response = client.executeQuery(request.serialize());
         log.debug("Response: " + response);
+        if (response.hasErrors()) {
+            for (com.netflix.graphql.dgs.client.GraphQLError error : response.getErrors()) {
+                log.error(error.getMessage());
+            }
+        }
 
         ProductOperation results = response.extractValueAsObject("productOperation", ProductOperation.class);
         ProductOperationStatus status = results.getStatus();
@@ -178,6 +193,11 @@ public class AppTest {
         log.info("request:" + request.serialize());
         GraphQLResponse response = client.executeQuery(request.serialize());
         log.info("response: " + response);
+        if (response.hasErrors()) {
+            for (com.netflix.graphql.dgs.client.GraphQLError error : response.getErrors()) {
+                log.error(error.getMessage());
+            }
+        }
     }
 
     private void createProductFixedBundle() throws Exception {
@@ -245,6 +265,11 @@ public class AppTest {
         log.debug("request:" + request.serialize());
         GraphQLResponse response = client.executeQuery(request.serialize());
         log.debug("response: " + response);
+        if (response.hasErrors()) {
+            for (com.netflix.graphql.dgs.client.GraphQLError error : response.getErrors()) {
+                log.error(error.getMessage());
+            }
+        }
 
         ProductBundleCreatePayload payload = response.extractValueAsObject("productBundleCreate",
                 ProductBundleCreatePayload.class);
@@ -325,6 +350,11 @@ public class AppTest {
 
         GraphQLResponse response = client.executeQuery(request.serialize());
         log.debug("Response: " + response);
+        if (response.hasErrors()) {
+            for (com.netflix.graphql.dgs.client.GraphQLError error : response.getErrors()) {
+                log.error(error.getMessage());
+            }
+        }
 
         ProductVariantRelationshipBulkUpdatePayload payload = response.extractValueAsObject(
                 "productVariantRelationshipBulkUpdate", ProductVariantRelationshipBulkUpdatePayload.class);
@@ -358,6 +388,12 @@ public class AppTest {
         log.debug(request.serialize());
         GraphQLResponse response = client.executeQuery(request.serialize());
         log.debug("Response: " + response);
+        if (response.hasErrors()) {
+            for (com.netflix.graphql.dgs.client.GraphQLError error : response.getErrors()) {
+                log.error(error.getMessage());
+            }
+        }
+
         CollectionConnection results = response.extractValueAsObject("collections", CollectionConnection.class);
 
         java.util.List<CollectionEdge> edges = results.getEdges();
@@ -395,6 +431,12 @@ public class AppTest {
         log.debug(request.serialize());
         GraphQLResponse response = client.executeQuery(request.serialize());
         log.debug("Response: " + response);
+        if (response.hasErrors()) {
+            for (com.netflix.graphql.dgs.client.GraphQLError error : response.getErrors()) {
+                log.error(error.getMessage());
+            }
+        }
+
         LocationConnection results = response.extractValueAsObject("locations", LocationConnection.class);
 
         java.util.List<LocationEdge> edges = results.getEdges();
@@ -428,6 +470,11 @@ public class AppTest {
         log.debug("Query: " + request.serialize());
         GraphQLResponse response = client.executeQuery(request.serialize());
         log.debug("Response: " + response);
+        if (response.hasErrors()) {
+            for (com.netflix.graphql.dgs.client.GraphQLError error : response.getErrors()) {
+                log.error(error.getMessage());
+            }
+        }
 
         MetafieldConnection results = response.extractValueAsObject("metafieldDefinitions", MetafieldConnection.class);
 
@@ -462,6 +509,11 @@ public class AppTest {
         log.debug("Query: " + request.serialize());
         GraphQLResponse response = client.executeQuery(request.serialize());
         log.debug("Response: " + response);
+        if (response.hasErrors()) {
+            for (com.netflix.graphql.dgs.client.GraphQLError error : response.getErrors()) {
+                log.error(error.getMessage());
+            }
+        }
 
         MetaobjectDefinitionConnection results = response.extractValueAsObject("metaobjectDefinitions",
                 MetaobjectDefinitionConnection.class);
@@ -500,6 +552,7 @@ public class AppTest {
         variantProjection.barcode();
         variantProjection.compareAtPrice();
         variantProjection.id();
+        variantProjection.requiresComponents();
         InventoryItemProjection inventoryItemProjection = variantProjection.inventoryItem();
         inventoryItemProjection.id();
         variantProjection.price();
@@ -516,6 +569,12 @@ public class AppTest {
 
         GraphQLResponse response = client.executeQuery(request.serialize());
         log.debug("Response: " + response);
+        if (response.hasErrors()) {
+            for (com.netflix.graphql.dgs.client.GraphQLError error : response.getErrors()) {
+                log.error(error.getMessage());
+            }
+        }
+
         ProductConnection results = response.extractValueAsObject("products", ProductConnection.class);
 
         java.util.List<ProductEdge> edges = results.getEdges();
@@ -563,6 +622,11 @@ public class AppTest {
 
         com.netflix.graphql.dgs.client.GraphQLResponse response = client.executeQuery(request.serialize());
         log.trace("Results: " + response);
+        if (response.hasErrors()) {
+            for (com.netflix.graphql.dgs.client.GraphQLError error : response.getErrors()) {
+                log.error(error.getMessage());
+            }
+        }
 
         PublicationConnection results = response.extractValueAsObject("publications", PublicationConnection.class);
         java.util.List<PublicationEdge> edges = results.getEdges();
@@ -644,6 +708,11 @@ public class AppTest {
 
         GraphQLQueryRequest request = new GraphQLQueryRequest(query, root);
         GraphQLResponse response = client.executeQuery(request.serialize());
+        if (response.hasErrors()) {
+            for (com.netflix.graphql.dgs.client.GraphQLError error : response.getErrors()) {
+                log.error(error.getMessage());
+            }
+        }
 
         ProductCreatePayload payload = response.extractValueAsObject("productCreate", ProductCreatePayload.class);
         Product product = payload.getProduct();
@@ -668,6 +737,8 @@ public class AppTest {
 
         java.util.Map<String, Publication> publications = listPublications();
         publish(product.getId(), publications.get("Online Store"));
+        // Lets also make this available using the storefront API
+        publish(product.getId(), publications.get("APP storefront"));
 
         return product;
     }
@@ -762,6 +833,11 @@ public class AppTest {
         log.debug("request:" + request.serialize());
         GraphQLResponse response = client.executeQuery(request.serialize());
         log.debug("response: " + response);
+        if (response.hasErrors()) {
+            for (com.netflix.graphql.dgs.client.GraphQLError error : response.getErrors()) {
+                log.error(error.getMessage());
+            }
+        }
 
         ProductSetPayload payload = response.extractValueAsObject("productSet", ProductSetPayload.class);
         java.util.List<ProductSetUserError> errors = payload.getUserErrors();
@@ -822,6 +898,12 @@ public class AppTest {
 
         com.netflix.graphql.dgs.client.GraphQLResponse response = client.executeQuery(request.serialize());
         log.trace("Response: " + response.toString());
+        if (response.hasErrors()) {
+            for (com.netflix.graphql.dgs.client.GraphQLError error : response.getErrors()) {
+                log.error(error.getMessage());
+            }
+        }
+
         ProductVariantsBulkCreatePayload payload = response.extractValueAsObject("productVariantsBulkCreate",
                 ProductVariantsBulkCreatePayload.class);
     }
@@ -846,6 +928,11 @@ public class AppTest {
 
         com.netflix.graphql.dgs.client.GraphQLResponse response = client.executeQuery(request.serialize());
         log.trace("Response: " + response.toString());
+        if (response.hasErrors()) {
+            for (com.netflix.graphql.dgs.client.GraphQLError error : response.getErrors()) {
+                log.error(error.getMessage());
+            }
+        }
 
         PublishablePublishPayload payload = response.extractValueAsObject("publishablePublish",
                 PublishablePublishPayload.class);
@@ -896,6 +983,11 @@ public class AppTest {
 
         com.netflix.graphql.dgs.client.GraphQLResponse response = client.executeQuery(request.serialize());
         log.trace("Response: " + response.toString());
+        if (response.hasErrors()) {
+            for (com.netflix.graphql.dgs.client.GraphQLError error : response.getErrors()) {
+                log.error(error.getMessage());
+            }
+        }
 
         ProductVariantsBulkUpdatePayload payload = response.extractValueAsObject("productVariantsBulkUpdate",
                 ProductVariantsBulkUpdatePayload.class);
@@ -939,6 +1031,11 @@ public class AppTest {
 
         com.netflix.graphql.dgs.client.GraphQLResponse response = client.executeQuery(request.serialize());
         log.trace("Response: " + response.toString());
+        if (response.hasErrors()) {
+            for (com.netflix.graphql.dgs.client.GraphQLError error : response.getErrors()) {
+                log.error(error.getMessage());
+            }
+        }
 
         StagedUploadsCreatePayload payload = response.extractValueAsObject("stagedUploadsCreate",
                 StagedUploadsCreatePayload.class);
@@ -997,6 +1094,11 @@ public class AppTest {
 
         com.netflix.graphql.dgs.client.GraphQLResponse response = client.executeQuery(request.serialize());
         log.trace("Response: " + response);
+        if (response.hasErrors()) {
+            for (com.netflix.graphql.dgs.client.GraphQLError error : response.getErrors()) {
+                log.error(error.getMessage());
+            }
+        }
 
         ProductCreateMediaPayload payload = response.extractValueAsObject("productCreateMedia",
                 ProductCreateMediaPayload.class);

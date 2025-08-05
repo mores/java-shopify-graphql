@@ -3,6 +3,7 @@ package com.shopify.admin.client;
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,12 +12,14 @@ import java.util.Set;
  */
 public class FulfillmentOrderAcceptFulfillmentRequestGraphQLQuery extends GraphQLQuery {
   public FulfillmentOrderAcceptFulfillmentRequestGraphQLQuery(String id, String message,
-      String queryName, Set<String> fieldsSet) {
+      OffsetDateTime estimatedShippedAt, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
     if (id != null || fieldsSet.contains("id")) {
         getInput().put("id", id);
     }if (message != null || fieldsSet.contains("message")) {
         getInput().put("message", message);
+    }if (estimatedShippedAt != null || fieldsSet.contains("estimatedShippedAt")) {
+        getInput().put("estimatedShippedAt", estimatedShippedAt);
     }
   }
 
@@ -40,10 +43,12 @@ public class FulfillmentOrderAcceptFulfillmentRequestGraphQLQuery extends GraphQ
 
     private String message;
 
+    private OffsetDateTime estimatedShippedAt;
+
     private String queryName;
 
     public FulfillmentOrderAcceptFulfillmentRequestGraphQLQuery build() {
-      return new FulfillmentOrderAcceptFulfillmentRequestGraphQLQuery(id, message, queryName, fieldsSet);
+      return new FulfillmentOrderAcceptFulfillmentRequestGraphQLQuery(id, message, estimatedShippedAt, queryName, fieldsSet);
                
     }
 
@@ -62,6 +67,15 @@ public class FulfillmentOrderAcceptFulfillmentRequestGraphQLQuery extends GraphQ
     public Builder message(String message) {
       this.message = message;
       this.fieldsSet.add("message");
+      return this;
+    }
+
+    /**
+     * The estimated date and time when the fulfillment order will be shipped.
+     */
+    public Builder estimatedShippedAt(OffsetDateTime estimatedShippedAt) {
+      this.estimatedShippedAt = estimatedShippedAt;
+      this.fieldsSet.add("estimatedShippedAt");
       return this;
     }
 

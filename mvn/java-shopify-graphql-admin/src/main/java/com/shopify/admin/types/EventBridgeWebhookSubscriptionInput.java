@@ -11,17 +11,14 @@ import java.util.Objects;
  */
 public class EventBridgeWebhookSubscriptionInput {
   /**
-   * The ARN of the EventBridge partner event source.
-   */
-  private String arn;
-
-  /**
    * The format in which the webhook subscription should send the data.
    */
   private WebhookSubscriptionFormat format;
 
   /**
-   * The list of fields to be included in the webhook subscription.
+   * The list of fields to be included in the webhook subscription. Only the fields
+   * specified will be included in the webhook payload. If null, then all fields
+   * will be included. Learn more about [modifying webhook payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify_payloads).
    */
   private List<String> includeFields;
 
@@ -42,18 +39,12 @@ public class EventBridgeWebhookSubscriptionInput {
    */
   private List<HasMetafieldsMetafieldIdentifierInput> metafields;
 
-  public EventBridgeWebhookSubscriptionInput() {
-  }
-
   /**
    * The ARN of the EventBridge partner event source.
    */
-  public String getArn() {
-    return arn;
-  }
+  private String arn;
 
-  public void setArn(String arn) {
-    this.arn = arn;
+  public EventBridgeWebhookSubscriptionInput() {
   }
 
   /**
@@ -68,7 +59,9 @@ public class EventBridgeWebhookSubscriptionInput {
   }
 
   /**
-   * The list of fields to be included in the webhook subscription.
+   * The list of fields to be included in the webhook subscription. Only the fields
+   * specified will be included in the webhook payload. If null, then all fields
+   * will be included. Learn more about [modifying webhook payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify_payloads).
    */
   public List<String> getIncludeFields() {
     return includeFields;
@@ -113,9 +106,20 @@ public class EventBridgeWebhookSubscriptionInput {
     this.metafields = metafields;
   }
 
+  /**
+   * The ARN of the EventBridge partner event source.
+   */
+  public String getArn() {
+    return arn;
+  }
+
+  public void setArn(String arn) {
+    this.arn = arn;
+  }
+
   @Override
   public String toString() {
-    return "EventBridgeWebhookSubscriptionInput{arn='" + arn + "', format='" + format + "', includeFields='" + includeFields + "', filter='" + filter + "', metafieldNamespaces='" + metafieldNamespaces + "', metafields='" + metafields + "'}";
+    return "EventBridgeWebhookSubscriptionInput{format='" + format + "', includeFields='" + includeFields + "', filter='" + filter + "', metafieldNamespaces='" + metafieldNamespaces + "', metafields='" + metafields + "', arn='" + arn + "'}";
   }
 
   @Override
@@ -123,17 +127,17 @@ public class EventBridgeWebhookSubscriptionInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     EventBridgeWebhookSubscriptionInput that = (EventBridgeWebhookSubscriptionInput) o;
-    return Objects.equals(arn, that.arn) &&
-        Objects.equals(format, that.format) &&
+    return Objects.equals(format, that.format) &&
         Objects.equals(includeFields, that.includeFields) &&
         Objects.equals(filter, that.filter) &&
         Objects.equals(metafieldNamespaces, that.metafieldNamespaces) &&
-        Objects.equals(metafields, that.metafields);
+        Objects.equals(metafields, that.metafields) &&
+        Objects.equals(arn, that.arn);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(arn, format, includeFields, filter, metafieldNamespaces, metafields);
+    return Objects.hash(format, includeFields, filter, metafieldNamespaces, metafields, arn);
   }
 
   public static Builder newBuilder() {
@@ -142,17 +146,14 @@ public class EventBridgeWebhookSubscriptionInput {
 
   public static class Builder {
     /**
-     * The ARN of the EventBridge partner event source.
-     */
-    private String arn;
-
-    /**
      * The format in which the webhook subscription should send the data.
      */
     private WebhookSubscriptionFormat format;
 
     /**
-     * The list of fields to be included in the webhook subscription.
+     * The list of fields to be included in the webhook subscription. Only the fields
+     * specified will be included in the webhook payload. If null, then all fields
+     * will be included. Learn more about [modifying webhook payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify_payloads).
      */
     private List<String> includeFields;
 
@@ -173,23 +174,20 @@ public class EventBridgeWebhookSubscriptionInput {
      */
     private List<HasMetafieldsMetafieldIdentifierInput> metafields;
 
+    /**
+     * The ARN of the EventBridge partner event source.
+     */
+    private String arn;
+
     public EventBridgeWebhookSubscriptionInput build() {
       EventBridgeWebhookSubscriptionInput result = new EventBridgeWebhookSubscriptionInput();
-      result.arn = this.arn;
       result.format = this.format;
       result.includeFields = this.includeFields;
       result.filter = this.filter;
       result.metafieldNamespaces = this.metafieldNamespaces;
       result.metafields = this.metafields;
+      result.arn = this.arn;
       return result;
-    }
-
-    /**
-     * The ARN of the EventBridge partner event source.
-     */
-    public Builder arn(String arn) {
-      this.arn = arn;
-      return this;
     }
 
     /**
@@ -201,7 +199,9 @@ public class EventBridgeWebhookSubscriptionInput {
     }
 
     /**
-     * The list of fields to be included in the webhook subscription.
+     * The list of fields to be included in the webhook subscription. Only the fields
+     * specified will be included in the webhook payload. If null, then all fields
+     * will be included. Learn more about [modifying webhook payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify_payloads).
      */
     public Builder includeFields(List<String> includeFields) {
       this.includeFields = includeFields;
@@ -231,6 +231,14 @@ public class EventBridgeWebhookSubscriptionInput {
      */
     public Builder metafields(List<HasMetafieldsMetafieldIdentifierInput> metafields) {
       this.metafields = metafields;
+      return this;
+    }
+
+    /**
+     * The ARN of the EventBridge partner event source.
+     */
+    public Builder arn(String arn) {
+      this.arn = arn;
       return this;
     }
   }

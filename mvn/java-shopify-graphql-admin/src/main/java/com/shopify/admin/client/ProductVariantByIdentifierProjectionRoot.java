@@ -241,6 +241,33 @@ public class ProductVariantByIdentifierProjectionRoot<PARENT extends BaseSubProj
     return projection;
   }
 
+  public ProductConnectionProjection<ProductVariantByIdentifierProjectionRoot<PARENT, ROOT>, ProductVariantByIdentifierProjectionRoot<PARENT, ROOT>> productParents(
+      ) {
+    ProductConnectionProjection<ProductVariantByIdentifierProjectionRoot<PARENT, ROOT>, ProductVariantByIdentifierProjectionRoot<PARENT, ROOT>> projection = new ProductConnectionProjection<>(this, this);    
+    getFields().put("productParents", projection);
+    return projection;
+  }
+
+  public ProductConnectionProjection<ProductVariantByIdentifierProjectionRoot<PARENT, ROOT>, ProductVariantByIdentifierProjectionRoot<PARENT, ROOT>> productParents(
+      Integer first, String after, Integer last, String before, Boolean reverse, String query) {
+    ProductConnectionProjection<ProductVariantByIdentifierProjectionRoot<PARENT, ROOT>, ProductVariantByIdentifierProjectionRoot<PARENT, ROOT>> projection = new ProductConnectionProjection<>(this, this);    
+    getFields().put("productParents", projection);
+    getInputArguments().computeIfAbsent("productParents", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("productParents").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("productParents").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("productParents").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("productParents").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    getInputArguments().get("productParents").add(reverseArg);
+    InputArgument queryArg = new InputArgument("query", query);
+    getInputArguments().get("productParents").add(queryArg);
+    return projection;
+  }
+
   public ProductVariantComponentConnectionProjection<ProductVariantByIdentifierProjectionRoot<PARENT, ROOT>, ProductVariantByIdentifierProjectionRoot<PARENT, ROOT>> productVariantComponents(
       ) {
     ProductVariantComponentConnectionProjection<ProductVariantByIdentifierProjectionRoot<PARENT, ROOT>, ProductVariantByIdentifierProjectionRoot<PARENT, ROOT>> projection = new ProductVariantComponentConnectionProjection<>(this, this);    
@@ -324,6 +351,13 @@ public class ProductVariantByIdentifierProjectionRoot<PARENT extends BaseSubProj
     return projection;
   }
 
+  public MoneyV2Projection<ProductVariantByIdentifierProjectionRoot<PARENT, ROOT>, ProductVariantByIdentifierProjectionRoot<PARENT, ROOT>> unitPrice(
+      ) {
+    MoneyV2Projection<ProductVariantByIdentifierProjectionRoot<PARENT, ROOT>, ProductVariantByIdentifierProjectionRoot<PARENT, ROOT>> projection = new MoneyV2Projection<>(this, this);    
+    getFields().put("unitPrice", projection);
+    return projection;
+  }
+
   public UnitPriceMeasurementProjection<ProductVariantByIdentifierProjectionRoot<PARENT, ROOT>, ProductVariantByIdentifierProjectionRoot<PARENT, ROOT>> unitPriceMeasurement(
       ) {
     UnitPriceMeasurementProjection<ProductVariantByIdentifierProjectionRoot<PARENT, ROOT>, ProductVariantByIdentifierProjectionRoot<PARENT, ROOT>> projection = new UnitPriceMeasurementProjection<>(this, this);    
@@ -398,6 +432,11 @@ public class ProductVariantByIdentifierProjectionRoot<PARENT extends BaseSubProj
 
   public ProductVariantByIdentifierProjectionRoot<PARENT, ROOT> sellingPlanGroupCount() {
     getFields().put("sellingPlanGroupCount", null);
+    return this;
+  }
+
+  public ProductVariantByIdentifierProjectionRoot<PARENT, ROOT> showUnitPrice() {
+    getFields().put("showUnitPrice", null);
     return this;
   }
 

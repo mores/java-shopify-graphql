@@ -55,6 +55,7 @@ import java.lang.String;
     @JsonSubTypes.Type(value = CompanyLocationCatalog.class, name = "CompanyLocationCatalog"),
     @JsonSubTypes.Type(value = CompanyLocationStaffMemberAssignment.class, name = "CompanyLocationStaffMemberAssignment"),
     @JsonSubTypes.Type(value = ConsentPolicy.class, name = "ConsentPolicy"),
+    @JsonSubTypes.Type(value = CurrencyExchangeAdjustment.class, name = "CurrencyExchangeAdjustment"),
     @JsonSubTypes.Type(value = Customer.class, name = "Customer"),
     @JsonSubTypes.Type(value = CustomerAccountAppExtensionPage.class, name = "CustomerAccountAppExtensionPage"),
     @JsonSubTypes.Type(value = CustomerAccountNativePage.class, name = "CustomerAccountNativePage"),
@@ -107,6 +108,10 @@ import java.lang.String;
     @JsonSubTypes.Type(value = InventoryItemMeasurement.class, name = "InventoryItemMeasurement"),
     @JsonSubTypes.Type(value = InventoryLevel.class, name = "InventoryLevel"),
     @JsonSubTypes.Type(value = InventoryQuantity.class, name = "InventoryQuantity"),
+    @JsonSubTypes.Type(value = InventoryShipment.class, name = "InventoryShipment"),
+    @JsonSubTypes.Type(value = InventoryShipmentLineItem.class, name = "InventoryShipmentLineItem"),
+    @JsonSubTypes.Type(value = InventoryTransfer.class, name = "InventoryTransfer"),
+    @JsonSubTypes.Type(value = InventoryTransferLineItem.class, name = "InventoryTransferLineItem"),
     @JsonSubTypes.Type(value = LineItem.class, name = "LineItem"),
     @JsonSubTypes.Type(value = LineItemGroup.class, name = "LineItemGroup"),
     @JsonSubTypes.Type(value = Location.class, name = "Location"),
@@ -135,6 +140,7 @@ import java.lang.String;
     @JsonSubTypes.Type(value = PaymentSchedule.class, name = "PaymentSchedule"),
     @JsonSubTypes.Type(value = PaymentTerms.class, name = "PaymentTerms"),
     @JsonSubTypes.Type(value = PaymentTermsTemplate.class, name = "PaymentTermsTemplate"),
+    @JsonSubTypes.Type(value = PointOfSaleDevice.class, name = "PointOfSaleDevice"),
     @JsonSubTypes.Type(value = PriceList.class, name = "PriceList"),
     @JsonSubTypes.Type(value = PriceRule.class, name = "PriceRule"),
     @JsonSubTypes.Type(value = PriceRuleDiscountCode.class, name = "PriceRuleDiscountCode"),
@@ -179,7 +185,6 @@ import java.lang.String;
     @JsonSubTypes.Type(value = ShopifyPaymentsDisputeFileUpload.class, name = "ShopifyPaymentsDisputeFileUpload"),
     @JsonSubTypes.Type(value = ShopifyPaymentsDisputeFulfillment.class, name = "ShopifyPaymentsDisputeFulfillment"),
     @JsonSubTypes.Type(value = ShopifyPaymentsPayout.class, name = "ShopifyPaymentsPayout"),
-    @JsonSubTypes.Type(value = ShopifyPaymentsVerification.class, name = "ShopifyPaymentsVerification"),
     @JsonSubTypes.Type(value = ShopPolicy.class, name = "ShopPolicy"),
     @JsonSubTypes.Type(value = StaffMember.class, name = "StaffMember"),
     @JsonSubTypes.Type(value = StandardMetafieldDefinitionTemplate.class, name = "StandardMetafieldDefinitionTemplate"),
@@ -204,8 +209,7 @@ import java.lang.String;
     @JsonSubTypes.Type(value = Validation.class, name = "Validation"),
     @JsonSubTypes.Type(value = Video.class, name = "Video"),
     @JsonSubTypes.Type(value = WebhookSubscription.class, name = "WebhookSubscription"),
-    @JsonSubTypes.Type(value = WebPixel.class, name = "WebPixel"),
-    @JsonSubTypes.Type(value = WebPresence.class, name = "WebPresence")
+    @JsonSubTypes.Type(value = WebPixel.class, name = "WebPixel")
 })
 public interface Node {
   /**

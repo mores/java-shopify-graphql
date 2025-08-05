@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
@@ -13,6 +14,11 @@ import java.util.Objects;
     use = JsonTypeInfo.Id.NONE
 )
 public class ReverseFulfillmentOrderDisposition implements com.shopify.admin.types.Node {
+  /**
+   * The date and time when the disposition was created.
+   */
+  private OffsetDateTime createdAt;
+
   /**
    * A globally-unique ID.
    */
@@ -34,6 +40,17 @@ public class ReverseFulfillmentOrderDisposition implements com.shopify.admin.typ
   private ReverseFulfillmentOrderDispositionType type;
 
   public ReverseFulfillmentOrderDisposition() {
+  }
+
+  /**
+   * The date and time when the disposition was created.
+   */
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
   /**
@@ -82,7 +99,7 @@ public class ReverseFulfillmentOrderDisposition implements com.shopify.admin.typ
 
   @Override
   public String toString() {
-    return "ReverseFulfillmentOrderDisposition{id='" + id + "', location='" + location + "', quantity='" + quantity + "', type='" + type + "'}";
+    return "ReverseFulfillmentOrderDisposition{createdAt='" + createdAt + "', id='" + id + "', location='" + location + "', quantity='" + quantity + "', type='" + type + "'}";
   }
 
   @Override
@@ -90,7 +107,8 @@ public class ReverseFulfillmentOrderDisposition implements com.shopify.admin.typ
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     ReverseFulfillmentOrderDisposition that = (ReverseFulfillmentOrderDisposition) o;
-    return Objects.equals(id, that.id) &&
+    return Objects.equals(createdAt, that.createdAt) &&
+        Objects.equals(id, that.id) &&
         Objects.equals(location, that.location) &&
         quantity == that.quantity &&
         Objects.equals(type, that.type);
@@ -98,7 +116,7 @@ public class ReverseFulfillmentOrderDisposition implements com.shopify.admin.typ
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, location, quantity, type);
+    return Objects.hash(createdAt, id, location, quantity, type);
   }
 
   public static Builder newBuilder() {
@@ -106,6 +124,11 @@ public class ReverseFulfillmentOrderDisposition implements com.shopify.admin.typ
   }
 
   public static class Builder {
+    /**
+     * The date and time when the disposition was created.
+     */
+    private OffsetDateTime createdAt;
+
     /**
      * A globally-unique ID.
      */
@@ -128,11 +151,20 @@ public class ReverseFulfillmentOrderDisposition implements com.shopify.admin.typ
 
     public ReverseFulfillmentOrderDisposition build() {
       ReverseFulfillmentOrderDisposition result = new ReverseFulfillmentOrderDisposition();
+      result.createdAt = this.createdAt;
       result.id = this.id;
       result.location = this.location;
       result.quantity = this.quantity;
       result.type = this.type;
       return result;
+    }
+
+    /**
+     * The date and time when the disposition was created.
+     */
+    public Builder createdAt(OffsetDateTime createdAt) {
+      this.createdAt = createdAt;
+      return this;
     }
 
     /**

@@ -28,6 +28,16 @@ public interface ReturnLineItemType {
   String getId();
 
   /**
+   * The quantity that can be processed.
+   */
+  int getProcessableQuantity();
+
+  /**
+   * The quantity that has been processed.
+   */
+  int getProcessedQuantity();
+
+  /**
    * The quantity being returned.
    */
   int getQuantity();
@@ -51,4 +61,9 @@ public interface ReturnLineItemType {
    * Additional information about the reason for the return. Maximum length: 255 characters.
    */
   String getReturnReasonNote();
+
+  /**
+   * The quantity that has't been processed.
+   */
+  int getUnprocessedQuantity();
 }

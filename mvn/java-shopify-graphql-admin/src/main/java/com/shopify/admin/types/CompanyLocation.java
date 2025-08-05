@@ -34,7 +34,7 @@ public class CompanyLocation implements MetafieldReferencer, com.shopify.admin.t
   private CatalogConnection catalogs;
 
   /**
-   * The number of catalogs associated with the company location. Limited to a maximum of 10000.
+   * The number of catalogs associated with the company location. Limited to a maximum of 10000 by default.
    */
   private Count catalogsCount;
 
@@ -229,7 +229,7 @@ public class CompanyLocation implements MetafieldReferencer, com.shopify.admin.t
   }
 
   /**
-   * The number of catalogs associated with the company location. Limited to a maximum of 10000.
+   * The number of catalogs associated with the company location. Limited to a maximum of 10000 by default.
    */
   public Count getCatalogsCount() {
     return catalogsCount;
@@ -638,7 +638,7 @@ public class CompanyLocation implements MetafieldReferencer, com.shopify.admin.t
     private CatalogConnection catalogs;
 
     /**
-     * The number of catalogs associated with the company location. Limited to a maximum of 10000.
+     * The number of catalogs associated with the company location. Limited to a maximum of 10000 by default.
      */
     private Count catalogsCount;
 
@@ -859,7 +859,7 @@ public class CompanyLocation implements MetafieldReferencer, com.shopify.admin.t
     }
 
     /**
-     * The number of catalogs associated with the company location. Limited to a maximum of 10000.
+     * The number of catalogs associated with the company location. Limited to a maximum of 10000 by default.
      */
     public Builder catalogsCount(Count catalogsCount) {
       this.catalogsCount = catalogsCount;

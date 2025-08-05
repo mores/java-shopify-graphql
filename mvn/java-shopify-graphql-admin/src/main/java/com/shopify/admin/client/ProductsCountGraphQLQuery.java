@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Count of products.
+ * Count of products. Limited to a maximum of 10000 by default.
  */
 public class ProductsCountGraphQLQuery extends GraphQLQuery {
   public ProductsCountGraphQLQuery(String query, String savedSearchId, Integer limit,
@@ -98,6 +98,11 @@ public class ProductsCountGraphQLQuery extends GraphQLQuery {
      * | is_price_reduced | boolean | Filter by products that have a reduced price.
      * For more information, refer to the [`CollectionRule`](https://shopify.dev/api/admin-graphql/latest/objects/CollectionRule)
      * object. | | | - `is_price_reduced:true` |
+     * | metafields.{namespace}.{key} | mixed | Filters resources by metafield
+     * value. Format: `metafields.{namespace}.{key}:{value}`. Learn more about
+     * [querying by metafield value](https://shopify.dev/apps/build/custom-data/metafields/query-by-metafield-value).
+     * | | | - `metafields.custom.on_sale:true`<br/> -
+     * `metafields.product.material:"gid://shopify/Metaobject/43458085"` |
      * | out_of_stock_somewhere | boolean | Filter by products that are out of
      * stock in at least one location. | | | - `out_of_stock_somewhere:true` |
      * | price | bigdecimal | Filter by the product variant [`price`](https://shopify.dev/api/admin-graphql/latest/objects/Productvariant#field-price)
@@ -105,14 +110,15 @@ public class ProductsCountGraphQLQuery extends GraphQLQuery {
      * | product_configuration_owner | string | Filter by the app
      * [`id`](https://shopify.dev/api/admin-graphql/latest/objects/App#field-id)
      * field. | | | - `product_configuration_owner:10001` |
-     * | product_publication_status | string | Filter by the publishable status of
+     * | product_publication_status | string | Filter by the publication status of
      * the resource on a channel, such as the online store. The value is a
      * composite of the [channel `app`
      * ID](https://shopify.dev/api/admin-graphql/latest/objects/Channel#app-price)
      * (`Channel.app.id`) and one of the valid values. | - `approved`<br/> -
      * `rejected`<br/> - `needs_action`<br/> - `awaiting_review`<br/> -
      * `published`<br/> - `demoted`<br/> - `scheduled`<br/> -
-     * `provisionally_published` | | - `publishable_status:189769876-approved` |
+     * `provisionally_published` | | -
+     * `product_publication_status:189769876-approved` |
      * | product_type | string | Filter by a comma-separated list of [product
      * types](https://help.shopify.com/manual/products/details/product-type). | | |
      * - `product_type:snowboard` |
@@ -128,8 +134,8 @@ public class ProductsCountGraphQLQuery extends GraphQLQuery {
      * `published`<br/> - `unpublished`<br/> - `visible`<br/> - `unavailable`<br/>
      * - `hidden`<br/> - `intended`<br/> - `visible` | | -
      * `publishable_status:published`<br/> -
-     * `publishable_status:189769876:visible`<br/> -
-     * `publishable_status:pos:hidden` |
+     * `publishable_status:189769876-visible`<br/> -
+     * `publishable_status:pos-hidden` |
      * | published_at | time | Filter by the date and time when the product was
      * published to the online store and other sales channels. | | | -
      * `published_at:>2020-10-21T23:39:20Z`<br/> - `published_at:&lt;now`<br/> -
@@ -182,7 +188,7 @@ public class ProductsCountGraphQLQuery extends GraphQLQuery {
     }
 
     /**
-     * The upper bound on count value before returning a result.
+     * The upper bound on count value before returning a result. Use `null` to have no limit.
      */
     public Builder limit(Integer limit) {
       this.limit = limit;

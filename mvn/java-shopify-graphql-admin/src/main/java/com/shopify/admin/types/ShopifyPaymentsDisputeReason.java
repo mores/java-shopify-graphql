@@ -28,5 +28,7 @@ public enum ShopifyPaymentsDisputeReason {
 
   DEBIT_NOT_AUTHORIZED,
 
-  CUSTOMER_INITIATED
+  CUSTOMER_INITIATED,
+
+  NONCOMPLIANT
 }

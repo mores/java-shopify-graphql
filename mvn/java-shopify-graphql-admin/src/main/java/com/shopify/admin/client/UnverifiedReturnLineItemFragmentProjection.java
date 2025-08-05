@@ -42,6 +42,16 @@ public class UnverifiedReturnLineItemFragmentProjection<PARENT extends BaseSubPr
     return this;
   }
 
+  public UnverifiedReturnLineItemFragmentProjection<PARENT, ROOT> processableQuantity() {
+    getFields().put("processableQuantity", null);
+    return this;
+  }
+
+  public UnverifiedReturnLineItemFragmentProjection<PARENT, ROOT> processedQuantity() {
+    getFields().put("processedQuantity", null);
+    return this;
+  }
+
   public UnverifiedReturnLineItemFragmentProjection<PARENT, ROOT> quantity() {
     getFields().put("quantity", null);
     return this;
@@ -59,6 +69,11 @@ public class UnverifiedReturnLineItemFragmentProjection<PARENT extends BaseSubPr
 
   public UnverifiedReturnLineItemFragmentProjection<PARENT, ROOT> returnReasonNote() {
     getFields().put("returnReasonNote", null);
+    return this;
+  }
+
+  public UnverifiedReturnLineItemFragmentProjection<PARENT, ROOT> unprocessedQuantity() {
+    getFields().put("unprocessedQuantity", null);
     return this;
   }
 

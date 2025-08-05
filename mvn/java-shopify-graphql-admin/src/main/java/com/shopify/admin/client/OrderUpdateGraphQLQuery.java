@@ -18,6 +18,9 @@ import java.util.Set;
  * allowing you to make multiple changes before finalizing them. Learn more about using the `orderEditBegin`
  * mutation to [edit existing orders](https://shopify.dev/docs/apps/build/orders-fulfillment/order-management-apps/edit-orders).
  *   
+ * If you need to remove a customer from an order, then use the [`orderCustomerRemove`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/orderCustomerRemove)
+ * mutation instead.
+ *   
  * Learn how to build apps that integrate with
  * [order management and fulfillment processes](https://shopify.dev/docs/apps/build/orders-fulfillment).
  */

@@ -46,6 +46,8 @@ public enum ReturnErrorCode {
 
   INVALID_STATE,
 
+  MISSING_PERMISSION,
+
   NOTIFICATION_FAILED,
 
   NOT_EDITABLE,

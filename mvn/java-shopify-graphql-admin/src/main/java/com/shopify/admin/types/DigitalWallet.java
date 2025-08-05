@@ -10,5 +10,9 @@ public enum DigitalWallet {
 
   GOOGLE_PAY,
 
-  SHOPIFY_PAY
+  SHOPIFY_PAY,
+
+  FACEBOOK_PAY,
+
+  AMAZON_PAY
 }

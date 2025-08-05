@@ -3,6 +3,8 @@ package com.shopify.admin;
 import java.lang.String;
 
 public class DgsConstants {
+  public static final String VERSION = "2025-07";
+
   public static final String QUERY_TYPE = "Query";
 
   public static final String MUTATION_TYPE = "Mutation";
@@ -995,6 +997,24 @@ public class DgsConstants {
     public static final String Message = "message";
   }
 
+  public static class APPUNINSTALLAPPUNINSTALLERROR {
+    public static final String TYPE_NAME = "AppUninstallAppUninstallError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class APPUNINSTALLPAYLOAD {
+    public static final String TYPE_NAME = "AppUninstallPayload";
+
+    public static final String App = "app";
+
+    public static final String UserErrors = "userErrors";
+  }
+
   public static class APPUSAGEPRICING {
     public static final String TYPE_NAME = "AppUsagePricing";
 
@@ -1112,6 +1132,8 @@ public class DgsConstants {
 
     public static class COMMENTSCOUNT_INPUT_ARGUMENT {
       public static final String Query = "query";
+
+      public static final String Limit = "limit";
     }
 
     public static class EVENTS_INPUT_ARGUMENT {
@@ -1332,6 +1354,8 @@ public class DgsConstants {
 
     public static final String AttributeToUser = "attributeToUser";
 
+    public static final String Author = "author";
+
     public static final String CreatedAt = "createdAt";
 
     public static final String CriticalAlert = "criticalAlert";
@@ -1406,6 +1430,10 @@ public class DgsConstants {
       public static final String Before = "before";
 
       public static final String Reverse = "reverse";
+    }
+
+    public static class ARTICLESCOUNT_INPUT_ARGUMENT {
+      public static final String Limit = "limit";
     }
 
     public static class EVENTS_INPUT_ARGUMENT {
@@ -1667,6 +1695,8 @@ public class DgsConstants {
     public static final String TYPE_NAME = "BusinessEntity";
 
     public static final String Address = "address";
+
+    public static final String Archived = "archived";
 
     public static final String CompanyName = "companyName";
 
@@ -2670,6 +2700,8 @@ public class DgsConstants {
 
     public static class PRODUCTSCOUNT_INPUT_ARGUMENT {
       public static final String Query = "query";
+
+      public static final String Limit = "limit";
     }
   }
 
@@ -2715,6 +2747,8 @@ public class DgsConstants {
     public static final String ChannelDefinition = "channelDefinition";
 
     public static final String ChannelId = "channelId";
+
+    public static final String DisplayName = "displayName";
 
     public static final String Id = "id";
   }
@@ -4612,6 +4646,10 @@ public class DgsConstants {
       public static final String Reverse = "reverse";
     }
 
+    public static class CATALOGSCOUNT_INPUT_ARGUMENT {
+      public static final String Limit = "limit";
+    }
+
     public static class DRAFTORDERS_INPUT_ARGUMENT {
       public static final String First = "first";
 
@@ -5077,6 +5115,18 @@ public class DgsConstants {
     public static final String Node = "node";
   }
 
+  public static class CURRENCYEXCHANGEADJUSTMENT {
+    public static final String TYPE_NAME = "CurrencyExchangeAdjustment";
+
+    public static final String Adjustment = "adjustment";
+
+    public static final String FinalAmountSet = "finalAmountSet";
+
+    public static final String Id = "id";
+
+    public static final String OriginalAmountSet = "originalAmountSet";
+  }
+
   public static class CURRENCYFORMATS {
     public static final String TYPE_NAME = "CurrencyFormats";
 
@@ -5097,6 +5147,8 @@ public class DgsConstants {
     public static final String CurrencyName = "currencyName";
 
     public static final String Enabled = "enabled";
+
+    public static final String ManualRate = "manualRate";
 
     public static final String RateUpdatedAt = "rateUpdatedAt";
   }
@@ -8577,6 +8629,14 @@ public class DgsConstants {
     public static final String Message = "message";
   }
 
+  public static class DISTANCE {
+    public static final String TYPE_NAME = "Distance";
+
+    public static final String Unit = "unit";
+
+    public static final String Value = "value";
+  }
+
   public static class DOMAIN {
     public static final String TYPE_NAME = "Domain";
 
@@ -8835,6 +8895,18 @@ public class DgsConstants {
     public static final String ValueType = "valueType";
   }
 
+  public static class DRAFTORDERAVAILABLEDELIVERYOPTIONS {
+    public static final String TYPE_NAME = "DraftOrderAvailableDeliveryOptions";
+
+    public static final String AvailableLocalDeliveryRates = "availableLocalDeliveryRates";
+
+    public static final String AvailableLocalPickupOptions = "availableLocalPickupOptions";
+
+    public static final String AvailableShippingRates = "availableShippingRates";
+
+    public static final String PageInfo = "pageInfo";
+  }
+
   public static class DRAFTORDERBULKADDTAGSPAYLOAD {
     public static final String TYPE_NAME = "DraftOrderBulkAddTagsPayload";
 
@@ -8899,12 +8971,6 @@ public class DgsConstants {
     public static final String TYPE_NAME = "DraftOrderCreateFromOrderPayload";
 
     public static final String DraftOrder = "draftOrder";
-
-    public static final String UserErrors = "userErrors";
-  }
-
-  public static class DRAFTORDERCREATEMERCHANTCHECKOUTPAYLOAD {
-    public static final String TYPE_NAME = "DraftOrderCreateMerchantCheckoutPayload";
 
     public static final String UserErrors = "userErrors";
   }
@@ -9071,6 +9137,16 @@ public class DgsConstants {
     public static final String Node = "node";
   }
 
+  public static class DRAFTORDERMARKETREGIONCOUNTRYCODENOTSUPPORTEDWARNING {
+    public static final String TYPE_NAME = "DraftOrderMarketRegionCountryCodeNotSupportedWarning";
+
+    public static final String ErrorCode = "errorCode";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
   public static class DRAFTORDERPLATFORMDISCOUNT {
     public static final String TYPE_NAME = "DraftOrderPlatformDiscount";
 
@@ -9083,6 +9159,8 @@ public class DgsConstants {
     public static final String Code = "code";
 
     public static final String DiscountClass = "discountClass";
+
+    public static final String DiscountClasses = "discountClasses";
 
     public static final String DiscountNode = "discountNode";
 
@@ -9113,6 +9191,20 @@ public class DgsConstants {
     public static final String ReductionAmountSet = "reductionAmountSet";
 
     public static final String Target = "target";
+  }
+
+  public static class DRAFTORDERSHIPPINGRATE {
+    public static final String TYPE_NAME = "DraftOrderShippingRate";
+
+    public static final String Code = "code";
+
+    public static final String Handle = "handle";
+
+    public static final String Price = "price";
+
+    public static final String Source = "source";
+
+    public static final String Title = "title";
   }
 
   public static class DRAFTORDERTAG {
@@ -9253,6 +9345,18 @@ public class DgsConstants {
     public static final String Id = "id";
 
     public static final String LineItem = "lineItem";
+
+    public static final String LineItems = "lineItems";
+
+    public static final String ProcessableQuantity = "processableQuantity";
+
+    public static final String ProcessedQuantity = "processedQuantity";
+
+    public static final String Quantity = "quantity";
+
+    public static final String UnprocessedQuantity = "unprocessedQuantity";
+
+    public static final String VariantId = "variantId";
   }
 
   public static class EXCHANGELINEITEMCONNECTION {
@@ -11012,6 +11116,8 @@ public class DgsConstants {
 
     public static final String Src = "src";
 
+    public static final String Thumbhash = "thumbhash";
+
     public static final String TransformedSrc = "transformedSrc";
 
     public static final String Url = "url";
@@ -11483,6 +11589,652 @@ public class DgsConstants {
     public static final String Message = "message";
   }
 
+  public static class INVENTORYSHIPMENT {
+    public static final String TYPE_NAME = "InventoryShipment";
+
+    public static final String Id = "id";
+
+    public static final String LineItemTotalQuantity = "lineItemTotalQuantity";
+
+    public static final String LineItems = "lineItems";
+
+    public static final String LineItemsCount = "lineItemsCount";
+
+    public static final String Name = "name";
+
+    public static final String Status = "status";
+
+    public static final String TotalAcceptedQuantity = "totalAcceptedQuantity";
+
+    public static final String TotalReceivedQuantity = "totalReceivedQuantity";
+
+    public static final String TotalRejectedQuantity = "totalRejectedQuantity";
+
+    public static final String Tracking = "tracking";
+
+    public static class LINEITEMS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+
+      public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
+    }
+
+    public static class LINEITEMSCOUNT_INPUT_ARGUMENT {
+      public static final String Query = "query";
+
+      public static final String Limit = "limit";
+    }
+  }
+
+  public static class INVENTORYSHIPMENTADDITEMSPAYLOAD {
+    public static final String TYPE_NAME = "InventoryShipmentAddItemsPayload";
+
+    public static final String AddedItems = "addedItems";
+
+    public static final String InventoryShipment = "inventoryShipment";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class INVENTORYSHIPMENTADDITEMSUSERERROR {
+    public static final String TYPE_NAME = "InventoryShipmentAddItemsUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class INVENTORYSHIPMENTCONNECTION {
+    public static final String TYPE_NAME = "InventoryShipmentConnection";
+
+    public static final String Edges = "edges";
+
+    public static final String Nodes = "nodes";
+
+    public static final String PageInfo = "pageInfo";
+  }
+
+  public static class INVENTORYSHIPMENTCREATEINTRANSITPAYLOAD {
+    public static final String TYPE_NAME = "InventoryShipmentCreateInTransitPayload";
+
+    public static final String InventoryShipment = "inventoryShipment";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class INVENTORYSHIPMENTCREATEINTRANSITUSERERROR {
+    public static final String TYPE_NAME = "InventoryShipmentCreateInTransitUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class INVENTORYSHIPMENTCREATEPAYLOAD {
+    public static final String TYPE_NAME = "InventoryShipmentCreatePayload";
+
+    public static final String InventoryShipment = "inventoryShipment";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class INVENTORYSHIPMENTCREATEUSERERROR {
+    public static final String TYPE_NAME = "InventoryShipmentCreateUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class INVENTORYSHIPMENTDELETEPAYLOAD {
+    public static final String TYPE_NAME = "InventoryShipmentDeletePayload";
+
+    public static final String Id = "id";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class INVENTORYSHIPMENTDELETEUSERERROR {
+    public static final String TYPE_NAME = "InventoryShipmentDeleteUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class INVENTORYSHIPMENTEDGE {
+    public static final String TYPE_NAME = "InventoryShipmentEdge";
+
+    public static final String Cursor = "cursor";
+
+    public static final String Node = "node";
+  }
+
+  public static class INVENTORYSHIPMENTLINEITEM {
+    public static final String TYPE_NAME = "InventoryShipmentLineItem";
+
+    public static final String AcceptedQuantity = "acceptedQuantity";
+
+    public static final String Id = "id";
+
+    public static final String InventoryItem = "inventoryItem";
+
+    public static final String Quantity = "quantity";
+
+    public static final String RejectedQuantity = "rejectedQuantity";
+
+    public static final String UnreceivedQuantity = "unreceivedQuantity";
+  }
+
+  public static class INVENTORYSHIPMENTLINEITEMCONNECTION {
+    public static final String TYPE_NAME = "InventoryShipmentLineItemConnection";
+
+    public static final String Edges = "edges";
+
+    public static final String Nodes = "nodes";
+
+    public static final String PageInfo = "pageInfo";
+  }
+
+  public static class INVENTORYSHIPMENTLINEITEMEDGE {
+    public static final String TYPE_NAME = "InventoryShipmentLineItemEdge";
+
+    public static final String Cursor = "cursor";
+
+    public static final String Node = "node";
+  }
+
+  public static class INVENTORYSHIPMENTMARKINTRANSITPAYLOAD {
+    public static final String TYPE_NAME = "InventoryShipmentMarkInTransitPayload";
+
+    public static final String InventoryShipment = "inventoryShipment";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class INVENTORYSHIPMENTMARKINTRANSITUSERERROR {
+    public static final String TYPE_NAME = "InventoryShipmentMarkInTransitUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class INVENTORYSHIPMENTRECEIVEPAYLOAD {
+    public static final String TYPE_NAME = "InventoryShipmentReceivePayload";
+
+    public static final String InventoryShipment = "inventoryShipment";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class INVENTORYSHIPMENTRECEIVEUSERERROR {
+    public static final String TYPE_NAME = "InventoryShipmentReceiveUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class INVENTORYSHIPMENTREMOVEITEMSPAYLOAD {
+    public static final String TYPE_NAME = "InventoryShipmentRemoveItemsPayload";
+
+    public static final String InventoryShipment = "inventoryShipment";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class INVENTORYSHIPMENTREMOVEITEMSUSERERROR {
+    public static final String TYPE_NAME = "InventoryShipmentRemoveItemsUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class INVENTORYSHIPMENTSETTRACKINGPAYLOAD {
+    public static final String TYPE_NAME = "InventoryShipmentSetTrackingPayload";
+
+    public static final String InventoryShipment = "inventoryShipment";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class INVENTORYSHIPMENTSETTRACKINGUSERERROR {
+    public static final String TYPE_NAME = "InventoryShipmentSetTrackingUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class INVENTORYSHIPMENTTRACKING {
+    public static final String TYPE_NAME = "InventoryShipmentTracking";
+
+    public static final String ArrivesAt = "arrivesAt";
+
+    public static final String Company = "company";
+
+    public static final String TrackingNumber = "trackingNumber";
+
+    public static final String TrackingUrl = "trackingUrl";
+  }
+
+  public static class INVENTORYSHIPMENTUPDATEITEMQUANTITIESPAYLOAD {
+    public static final String TYPE_NAME = "InventoryShipmentUpdateItemQuantitiesPayload";
+
+    public static final String Shipment = "shipment";
+
+    public static final String UpdatedLineItems = "updatedLineItems";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class INVENTORYSHIPMENTUPDATEITEMQUANTITIESUSERERROR {
+    public static final String TYPE_NAME = "InventoryShipmentUpdateItemQuantitiesUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class INVENTORYTRANSFER {
+    public static final String TYPE_NAME = "InventoryTransfer";
+
+    public static final String DateCreated = "dateCreated";
+
+    public static final String Destination = "destination";
+
+    public static final String Events = "events";
+
+    public static final String HasTimelineComment = "hasTimelineComment";
+
+    public static final String Id = "id";
+
+    public static final String LineItems = "lineItems";
+
+    public static final String LineItemsCount = "lineItemsCount";
+
+    public static final String Metafield = "metafield";
+
+    public static final String MetafieldDefinitions = "metafieldDefinitions";
+
+    public static final String Metafields = "metafields";
+
+    public static final String Name = "name";
+
+    public static final String Note = "note";
+
+    public static final String Origin = "origin";
+
+    public static final String ReceivedQuantity = "receivedQuantity";
+
+    public static final String ReferenceName = "referenceName";
+
+    public static final String Shipments = "shipments";
+
+    public static final String Status = "status";
+
+    public static final String Tags = "tags";
+
+    public static final String TotalQuantity = "totalQuantity";
+
+    public static class EVENTS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+
+      public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
+    }
+
+    public static class LINEITEMS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+
+      public static final String Query = "query";
+    }
+
+    public static class LINEITEMSCOUNT_INPUT_ARGUMENT {
+      public static final String Query = "query";
+
+      public static final String Limit = "limit";
+    }
+
+    public static class METAFIELD_INPUT_ARGUMENT {
+      public static final String Namespace = "namespace";
+
+      public static final String Key = "key";
+    }
+
+    public static class METAFIELDDEFINITIONS_INPUT_ARGUMENT {
+      public static final String Namespace = "namespace";
+
+      public static final String PinnedStatus = "pinnedStatus";
+
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+
+      public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
+    }
+
+    public static class METAFIELDS_INPUT_ARGUMENT {
+      public static final String Namespace = "namespace";
+
+      public static final String Keys = "keys";
+
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+    }
+
+    public static class SHIPMENTS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+    }
+  }
+
+  public static class INVENTORYTRANSFERCANCELPAYLOAD {
+    public static final String TYPE_NAME = "InventoryTransferCancelPayload";
+
+    public static final String InventoryTransfer = "inventoryTransfer";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class INVENTORYTRANSFERCANCELUSERERROR {
+    public static final String TYPE_NAME = "InventoryTransferCancelUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class INVENTORYTRANSFERCONNECTION {
+    public static final String TYPE_NAME = "InventoryTransferConnection";
+
+    public static final String Edges = "edges";
+
+    public static final String Nodes = "nodes";
+
+    public static final String PageInfo = "pageInfo";
+  }
+
+  public static class INVENTORYTRANSFERCREATEASREADYTOSHIPPAYLOAD {
+    public static final String TYPE_NAME = "InventoryTransferCreateAsReadyToShipPayload";
+
+    public static final String InventoryTransfer = "inventoryTransfer";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class INVENTORYTRANSFERCREATEASREADYTOSHIPUSERERROR {
+    public static final String TYPE_NAME = "InventoryTransferCreateAsReadyToShipUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class INVENTORYTRANSFERCREATEPAYLOAD {
+    public static final String TYPE_NAME = "InventoryTransferCreatePayload";
+
+    public static final String InventoryTransfer = "inventoryTransfer";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class INVENTORYTRANSFERCREATEUSERERROR {
+    public static final String TYPE_NAME = "InventoryTransferCreateUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class INVENTORYTRANSFERDELETEPAYLOAD {
+    public static final String TYPE_NAME = "InventoryTransferDeletePayload";
+
+    public static final String DeletedId = "deletedId";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class INVENTORYTRANSFERDELETEUSERERROR {
+    public static final String TYPE_NAME = "InventoryTransferDeleteUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class INVENTORYTRANSFERDUPLICATEPAYLOAD {
+    public static final String TYPE_NAME = "InventoryTransferDuplicatePayload";
+
+    public static final String InventoryTransfer = "inventoryTransfer";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class INVENTORYTRANSFERDUPLICATEUSERERROR {
+    public static final String TYPE_NAME = "InventoryTransferDuplicateUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class INVENTORYTRANSFEREDGE {
+    public static final String TYPE_NAME = "InventoryTransferEdge";
+
+    public static final String Cursor = "cursor";
+
+    public static final String Node = "node";
+  }
+
+  public static class INVENTORYTRANSFEREDITPAYLOAD {
+    public static final String TYPE_NAME = "InventoryTransferEditPayload";
+
+    public static final String InventoryTransfer = "inventoryTransfer";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class INVENTORYTRANSFEREDITUSERERROR {
+    public static final String TYPE_NAME = "InventoryTransferEditUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class INVENTORYTRANSFERLINEITEM {
+    public static final String TYPE_NAME = "InventoryTransferLineItem";
+
+    public static final String Id = "id";
+
+    public static final String InventoryItem = "inventoryItem";
+
+    public static final String PickedForShipmentQuantity = "pickedForShipmentQuantity";
+
+    public static final String ProcessableQuantity = "processableQuantity";
+
+    public static final String ShippableQuantity = "shippableQuantity";
+
+    public static final String ShippedQuantity = "shippedQuantity";
+
+    public static final String Title = "title";
+
+    public static final String TotalQuantity = "totalQuantity";
+  }
+
+  public static class INVENTORYTRANSFERLINEITEMCONNECTION {
+    public static final String TYPE_NAME = "InventoryTransferLineItemConnection";
+
+    public static final String Edges = "edges";
+
+    public static final String Nodes = "nodes";
+
+    public static final String PageInfo = "pageInfo";
+  }
+
+  public static class INVENTORYTRANSFERLINEITEMEDGE {
+    public static final String TYPE_NAME = "InventoryTransferLineItemEdge";
+
+    public static final String Cursor = "cursor";
+
+    public static final String Node = "node";
+  }
+
+  public static class INVENTORYTRANSFERLINEITEMUPDATE {
+    public static final String TYPE_NAME = "InventoryTransferLineItemUpdate";
+
+    public static final String DeltaQuantity = "deltaQuantity";
+
+    public static final String InventoryItemId = "inventoryItemId";
+
+    public static final String NewQuantity = "newQuantity";
+  }
+
+  public static class INVENTORYTRANSFERMARKASREADYTOSHIPPAYLOAD {
+    public static final String TYPE_NAME = "InventoryTransferMarkAsReadyToShipPayload";
+
+    public static final String InventoryTransfer = "inventoryTransfer";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class INVENTORYTRANSFERMARKASREADYTOSHIPUSERERROR {
+    public static final String TYPE_NAME = "InventoryTransferMarkAsReadyToShipUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class INVENTORYTRANSFERREMOVEITEMSPAYLOAD {
+    public static final String TYPE_NAME = "InventoryTransferRemoveItemsPayload";
+
+    public static final String InventoryTransfer = "inventoryTransfer";
+
+    public static final String RemovedQuantities = "removedQuantities";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class INVENTORYTRANSFERREMOVEITEMSUSERERROR {
+    public static final String TYPE_NAME = "InventoryTransferRemoveItemsUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class INVENTORYTRANSFERSETITEMSPAYLOAD {
+    public static final String TYPE_NAME = "InventoryTransferSetItemsPayload";
+
+    public static final String InventoryTransfer = "inventoryTransfer";
+
+    public static final String UpdatedLineItems = "updatedLineItems";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class INVENTORYTRANSFERSETITEMSUSERERROR {
+    public static final String TYPE_NAME = "InventoryTransferSetItemsUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class INVOICERETURNOUTCOME {
+    public static final String TYPE_NAME = "InvoiceReturnOutcome";
+
+    public static final String Amount = "amount";
+  }
+
   public static class JOB {
     public static final String TYPE_NAME = "Job";
 
@@ -11629,6 +12381,8 @@ public class DgsConstants {
     public static final String CustomAttributes = "customAttributes";
 
     public static final String Id = "id";
+
+    public static final String ProductId = "productId";
 
     public static final String Quantity = "quantity";
 
@@ -12039,6 +12793,18 @@ public class DgsConstants {
     }
   }
 
+  public static class LOCATIONSNAPSHOT {
+    public static final String TYPE_NAME = "LocationSnapshot";
+
+    public static final String Address = "address";
+
+    public static final String Location = "location";
+
+    public static final String Name = "name";
+
+    public static final String SnapshottedAt = "snapshottedAt";
+  }
+
   public static class LOCATIONSUGGESTEDADDRESS {
     public static final String TYPE_NAME = "LocationSuggestedAddress";
 
@@ -12318,6 +13084,8 @@ public class DgsConstants {
       public static final String Status = "status";
 
       public static final String Query = "query";
+
+      public static final String Limit = "limit";
     }
   }
 
@@ -12375,6 +13143,8 @@ public class DgsConstants {
     public static final String BaseCurrency = "baseCurrency";
 
     public static final String LocalCurrencies = "localCurrencies";
+
+    public static final String RoundingEnabled = "roundingEnabled";
   }
 
   public static class MARKETCURRENCYSETTINGSUPDATEPAYLOAD {
@@ -12859,6 +13629,42 @@ public class DgsConstants {
     public static final String Enabled = "enabled";
   }
 
+  public static class MARKETSRESOLVEDVALUES {
+    public static final String TYPE_NAME = "MarketsResolvedValues";
+
+    public static final String Catalogs = "catalogs";
+
+    public static final String CurrencyCode = "currencyCode";
+
+    public static final String PriceInclusivity = "priceInclusivity";
+
+    public static final String WebPresences = "webPresences";
+
+    public static class CATALOGS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+    }
+
+    public static class WEBPRESENCES_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+    }
+  }
+
   public static class MARKETSRETAILENTITLEMENT {
     public static final String TYPE_NAME = "MarketsRetailEntitlement";
 
@@ -13286,17 +14092,7 @@ public class DgsConstants {
 
     public static final String CustomerAccount = "customerAccount";
 
-    public static final String Grants = "grants";
-
     public static final String Storefront = "storefront";
-  }
-
-  public static class METAFIELDACCESSGRANT {
-    public static final String TYPE_NAME = "MetafieldAccessGrant";
-
-    public static final String Access = "access";
-
-    public static final String Grantee = "grantee";
   }
 
   public static class METAFIELDCAPABILITIES {
@@ -14184,6 +14980,8 @@ public class DgsConstants {
 
     public static final String AppSubscriptionTrialExtend = "appSubscriptionTrialExtend";
 
+    public static final String AppUninstall = "appUninstall";
+
     public static final String AppUsageRecordCreate = "appUsageRecordCreate";
 
     public static final String ArticleCreate = "articleCreate";
@@ -14480,8 +15278,6 @@ public class DgsConstants {
 
     public static final String DraftOrderCreateFromOrder = "draftOrderCreateFromOrder";
 
-    public static final String DraftOrderCreateMerchantCheckout = "draftOrderCreateMerchantCheckout";
-
     public static final String DraftOrderDelete = "draftOrderDelete";
 
     public static final String DraftOrderDuplicate = "draftOrderDuplicate";
@@ -14600,6 +15396,42 @@ public class DgsConstants {
 
     public static final String InventorySetScheduledChanges = "inventorySetScheduledChanges";
 
+    public static final String InventoryShipmentAddItems = "inventoryShipmentAddItems";
+
+    public static final String InventoryShipmentCreate = "inventoryShipmentCreate";
+
+    public static final String InventoryShipmentCreateInTransit = "inventoryShipmentCreateInTransit";
+
+    public static final String InventoryShipmentDelete = "inventoryShipmentDelete";
+
+    public static final String InventoryShipmentMarkInTransit = "inventoryShipmentMarkInTransit";
+
+    public static final String InventoryShipmentReceive = "inventoryShipmentReceive";
+
+    public static final String InventoryShipmentRemoveItems = "inventoryShipmentRemoveItems";
+
+    public static final String InventoryShipmentSetTracking = "inventoryShipmentSetTracking";
+
+    public static final String InventoryShipmentUpdateItemQuantities = "inventoryShipmentUpdateItemQuantities";
+
+    public static final String InventoryTransferCancel = "inventoryTransferCancel";
+
+    public static final String InventoryTransferCreate = "inventoryTransferCreate";
+
+    public static final String InventoryTransferCreateAsReadyToShip = "inventoryTransferCreateAsReadyToShip";
+
+    public static final String InventoryTransferDelete = "inventoryTransferDelete";
+
+    public static final String InventoryTransferDuplicate = "inventoryTransferDuplicate";
+
+    public static final String InventoryTransferEdit = "inventoryTransferEdit";
+
+    public static final String InventoryTransferMarkAsReadyToShip = "inventoryTransferMarkAsReadyToShip";
+
+    public static final String InventoryTransferRemoveItems = "inventoryTransferRemoveItems";
+
+    public static final String InventoryTransferSetItems = "inventoryTransferSetItems";
+
     public static final String LocationActivate = "locationActivate";
 
     public static final String LocationAdd = "locationAdd";
@@ -14709,6 +15541,10 @@ public class DgsConstants {
     public static final String OrderCreateMandatePayment = "orderCreateMandatePayment";
 
     public static final String OrderCreateManualPayment = "orderCreateManualPayment";
+
+    public static final String OrderCustomerRemove = "orderCustomerRemove";
+
+    public static final String OrderCustomerSet = "orderCustomerSet";
 
     public static final String OrderDelete = "orderDelete";
 
@@ -14876,6 +15712,8 @@ public class DgsConstants {
 
     public static final String RefundCreate = "refundCreate";
 
+    public static final String RemoveFromReturn = "removeFromReturn";
+
     public static final String ReturnApproveRequest = "returnApproveRequest";
 
     public static final String ReturnCancel = "returnCancel";
@@ -14887,6 +15725,8 @@ public class DgsConstants {
     public static final String ReturnDeclineRequest = "returnDeclineRequest";
 
     public static final String ReturnLineItemRemoveFromReturn = "returnLineItemRemoveFromReturn";
+
+    public static final String ReturnProcess = "returnProcess";
 
     public static final String ReturnRefund = "returnRefund";
 
@@ -15229,11 +16069,15 @@ public class DgsConstants {
 
       public static final String StagedUploadPath = "stagedUploadPath";
 
+      public static final String GroupObjects = "groupObjects";
+
       public static final String ClientIdentifier = "clientIdentifier";
     }
 
     public static class BULKOPERATIONRUNQUERY_INPUT_ARGUMENT {
       public static final String Query = "query";
+
+      public static final String GroupObjects = "groupObjects";
     }
 
     public static class BULKPRODUCTRESOURCEFEEDBACKCREATE_INPUT_ARGUMENT {
@@ -16004,10 +16848,6 @@ public class DgsConstants {
       public static final String OrderId = "orderId";
     }
 
-    public static class DRAFTORDERCREATEMERCHANTCHECKOUT_INPUT_ARGUMENT {
-      public static final String Id = "id";
-    }
-
     public static class DRAFTORDERDELETE_INPUT_ARGUMENT {
       public static final String Input = "input";
     }
@@ -16126,6 +16966,8 @@ public class DgsConstants {
       public static final String Id = "id";
 
       public static final String Message = "message";
+
+      public static final String EstimatedShippedAt = "estimatedShippedAt";
     }
 
     public static class FULFILLMENTORDERCANCEL_INPUT_ARGUMENT {
@@ -16349,6 +17191,92 @@ public class DgsConstants {
     }
 
     public static class INVENTORYSETSCHEDULEDCHANGES_INPUT_ARGUMENT {
+      public static final String Input = "input";
+    }
+
+    public static class INVENTORYSHIPMENTADDITEMS_INPUT_ARGUMENT {
+      public static final String Id = "id";
+
+      public static final String LineItems = "lineItems";
+    }
+
+    public static class INVENTORYSHIPMENTCREATE_INPUT_ARGUMENT {
+      public static final String Input = "input";
+    }
+
+    public static class INVENTORYSHIPMENTCREATEINTRANSIT_INPUT_ARGUMENT {
+      public static final String Input = "input";
+    }
+
+    public static class INVENTORYSHIPMENTDELETE_INPUT_ARGUMENT {
+      public static final String Id = "id";
+    }
+
+    public static class INVENTORYSHIPMENTMARKINTRANSIT_INPUT_ARGUMENT {
+      public static final String Id = "id";
+    }
+
+    public static class INVENTORYSHIPMENTRECEIVE_INPUT_ARGUMENT {
+      public static final String Id = "id";
+
+      public static final String LineItems = "lineItems";
+
+      public static final String BulkReceiveAction = "bulkReceiveAction";
+    }
+
+    public static class INVENTORYSHIPMENTREMOVEITEMS_INPUT_ARGUMENT {
+      public static final String Id = "id";
+
+      public static final String LineItems = "lineItems";
+    }
+
+    public static class INVENTORYSHIPMENTSETTRACKING_INPUT_ARGUMENT {
+      public static final String Id = "id";
+
+      public static final String Tracking = "tracking";
+    }
+
+    public static class INVENTORYSHIPMENTUPDATEITEMQUANTITIES_INPUT_ARGUMENT {
+      public static final String Id = "id";
+
+      public static final String Items = "items";
+    }
+
+    public static class INVENTORYTRANSFERCANCEL_INPUT_ARGUMENT {
+      public static final String Id = "id";
+    }
+
+    public static class INVENTORYTRANSFERCREATE_INPUT_ARGUMENT {
+      public static final String Input = "input";
+    }
+
+    public static class INVENTORYTRANSFERCREATEASREADYTOSHIP_INPUT_ARGUMENT {
+      public static final String Input = "input";
+    }
+
+    public static class INVENTORYTRANSFERDELETE_INPUT_ARGUMENT {
+      public static final String Id = "id";
+    }
+
+    public static class INVENTORYTRANSFERDUPLICATE_INPUT_ARGUMENT {
+      public static final String Id = "id";
+    }
+
+    public static class INVENTORYTRANSFEREDIT_INPUT_ARGUMENT {
+      public static final String Id = "id";
+
+      public static final String Input = "input";
+    }
+
+    public static class INVENTORYTRANSFERMARKASREADYTOSHIP_INPUT_ARGUMENT {
+      public static final String Id = "id";
+    }
+
+    public static class INVENTORYTRANSFERREMOVEITEMS_INPUT_ARGUMENT {
+      public static final String Input = "input";
+    }
+
+    public static class INVENTORYTRANSFERSETITEMS_INPUT_ARGUMENT {
       public static final String Input = "input";
     }
 
@@ -16609,7 +17537,7 @@ public class DgsConstants {
     public static class ORDERCANCEL_INPUT_ARGUMENT {
       public static final String OrderId = "orderId";
 
-      public static final String Refund = "refund";
+      public static final String RefundMethod = "refundMethod";
 
       public static final String Restock = "restock";
 
@@ -16654,6 +17582,18 @@ public class DgsConstants {
       public static final String Amount = "amount";
 
       public static final String PaymentMethodName = "paymentMethodName";
+
+      public static final String ProcessedAt = "processedAt";
+    }
+
+    public static class ORDERCUSTOMERREMOVE_INPUT_ARGUMENT {
+      public static final String OrderId = "orderId";
+    }
+
+    public static class ORDERCUSTOMERSET_INPUT_ARGUMENT {
+      public static final String OrderId = "orderId";
+
+      public static final String CustomerId = "customerId";
     }
 
     public static class ORDERDELETE_INPUT_ARGUMENT {
@@ -17162,6 +18102,14 @@ public class DgsConstants {
       public static final String Input = "input";
     }
 
+    public static class REMOVEFROMRETURN_INPUT_ARGUMENT {
+      public static final String ReturnId = "returnId";
+
+      public static final String ReturnLineItems = "returnLineItems";
+
+      public static final String ExchangeLineItems = "exchangeLineItems";
+    }
+
     public static class RETURNAPPROVEREQUEST_INPUT_ARGUMENT {
       public static final String Input = "input";
     }
@@ -17186,6 +18134,10 @@ public class DgsConstants {
       public static final String ReturnId = "returnId";
 
       public static final String ReturnLineItems = "returnLineItems";
+    }
+
+    public static class RETURNPROCESS_INPUT_ARGUMENT {
+      public static final String Input = "input";
     }
 
     public static class RETURNREFUND_INPUT_ARGUMENT {
@@ -18094,6 +19046,8 @@ public class DgsConstants {
 
     public static final String Note = "note";
 
+    public static final String Number = "number";
+
     public static final String OriginalTotalAdditionalFeesSet = "originalTotalAdditionalFeesSet";
 
     public static final String OriginalTotalDutiesSet = "originalTotalDutiesSet";
@@ -18306,6 +19260,8 @@ public class DgsConstants {
 
     public static class FULFILLMENTS_INPUT_ARGUMENT {
       public static final String First = "first";
+
+      public static final String Query = "query";
     }
 
     public static class LINEITEMS_INPUT_ARGUMENT {
@@ -18442,6 +19398,12 @@ public class DgsConstants {
       public static final String Reverse = "reverse";
     }
 
+    public static class STATUSPAGEURL_INPUT_ARGUMENT {
+      public static final String Audience = "audience";
+
+      public static final String NotificationUsage = "notificationUsage";
+    }
+
     public static class SUGGESTEDREFUND_INPUT_ARGUMENT {
       public static final String ShippingAmount = "shippingAmount";
 
@@ -18452,6 +19414,8 @@ public class DgsConstants {
       public static final String RefundDuties = "refundDuties";
 
       public static final String SuggestFullRefund = "suggestFullRefund";
+
+      public static final String RefundMethodAllocation = "refundMethodAllocation";
     }
 
     public static class TRANSACTIONS_INPUT_ARGUMENT {
@@ -18633,6 +19597,42 @@ public class DgsConstants {
 
   public static class ORDERCREATEUSERERROR {
     public static final String TYPE_NAME = "OrderCreateUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class ORDERCUSTOMERREMOVEPAYLOAD {
+    public static final String TYPE_NAME = "OrderCustomerRemovePayload";
+
+    public static final String Order = "order";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class ORDERCUSTOMERREMOVEUSERERROR {
+    public static final String TYPE_NAME = "OrderCustomerRemoveUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class ORDERCUSTOMERSETPAYLOAD {
+    public static final String TYPE_NAME = "OrderCustomerSetPayload";
+
+    public static final String Order = "order";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class ORDERCUSTOMERSETUSERERROR {
+    public static final String TYPE_NAME = "OrderCustomerSetUserError";
 
     public static final String Code = "code";
 
@@ -19068,6 +20068,10 @@ public class DgsConstants {
 
     public static final String CreatedAt = "createdAt";
 
+    public static final String CurrencyExchangeAdjustment = "currencyExchangeAdjustment";
+
+    public static final String Device = "device";
+
     public static final String ErrorCode = "errorCode";
 
     public static final String Fees = "fees";
@@ -19079,6 +20083,8 @@ public class DgsConstants {
     public static final String Id = "id";
 
     public static final String Kind = "kind";
+
+    public static final String Location = "location";
 
     public static final String ManualPaymentGateway = "manualPaymentGateway";
 
@@ -19627,6 +20633,36 @@ public class DgsConstants {
     public static final String Field = "field";
 
     public static final String Message = "message";
+  }
+
+  public static class PAYPALWALLETPAYMENTDETAILS {
+    public static final String TYPE_NAME = "PaypalWalletPaymentDetails";
+
+    public static final String PaymentMethodName = "paymentMethodName";
+  }
+
+  public static class PICKUPINSTORELOCATION {
+    public static final String TYPE_NAME = "PickupInStoreLocation";
+
+    public static final String Code = "code";
+
+    public static final String DistanceFromBuyer = "distanceFromBuyer";
+
+    public static final String Handle = "handle";
+
+    public static final String Instructions = "instructions";
+
+    public static final String LocationId = "locationId";
+
+    public static final String Source = "source";
+
+    public static final String Title = "title";
+  }
+
+  public static class POINTOFSALEDEVICE {
+    public static final String TYPE_NAME = "PointOfSaleDevice";
+
+    public static final String Id = "id";
   }
 
   public static class PRICELIST {
@@ -20332,6 +21368,12 @@ public class DgsConstants {
 
     public static final String ProductCategory = "productCategory";
 
+    public static final String ProductComponents = "productComponents";
+
+    public static final String ProductComponentsCount = "productComponentsCount";
+
+    public static final String ProductParents = "productParents";
+
     public static final String ProductPublications = "productPublications";
 
     public static final String ProductType = "productType";
@@ -20534,6 +21576,32 @@ public class DgsConstants {
 
     public static class OPTIONS_INPUT_ARGUMENT {
       public static final String First = "first";
+    }
+
+    public static class PRODUCTCOMPONENTS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+    }
+
+    public static class PRODUCTPARENTS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+
+      public static final String Query = "query";
     }
 
     public static class PRODUCTPUBLICATIONS_INPUT_ARGUMENT {
@@ -20823,6 +21891,62 @@ public class DgsConstants {
     public static final String MaxVariantCompareAtPrice = "maxVariantCompareAtPrice";
 
     public static final String MinVariantCompareAtPrice = "minVariantCompareAtPrice";
+  }
+
+  public static class PRODUCTCOMPONENTTYPE {
+    public static final String TYPE_NAME = "ProductComponentType";
+
+    public static final String ComponentVariants = "componentVariants";
+
+    public static final String ComponentVariantsCount = "componentVariantsCount";
+
+    public static final String NonComponentVariants = "nonComponentVariants";
+
+    public static final String NonComponentVariantsCount = "nonComponentVariantsCount";
+
+    public static final String Product = "product";
+
+    public static class COMPONENTVARIANTS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+    }
+
+    public static class NONCOMPONENTVARIANTS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+    }
+  }
+
+  public static class PRODUCTCOMPONENTTYPECONNECTION {
+    public static final String TYPE_NAME = "ProductComponentTypeConnection";
+
+    public static final String Edges = "edges";
+
+    public static final String Nodes = "nodes";
+
+    public static final String PageInfo = "pageInfo";
+  }
+
+  public static class PRODUCTCOMPONENTTYPEEDGE {
+    public static final String TYPE_NAME = "ProductComponentTypeEdge";
+
+    public static final String Cursor = "cursor";
+
+    public static final String Node = "node";
   }
 
   public static class PRODUCTCONNECTION {
@@ -21412,6 +22536,8 @@ public class DgsConstants {
 
     public static final String Product = "product";
 
+    public static final String ProductParents = "productParents";
+
     public static final String ProductVariantComponents = "productVariantComponents";
 
     public static final String RequiresComponents = "requiresComponents";
@@ -21426,6 +22552,8 @@ public class DgsConstants {
 
     public static final String SellingPlanGroupsCount = "sellingPlanGroupsCount";
 
+    public static final String ShowUnitPrice = "showUnitPrice";
+
     public static final String Sku = "sku";
 
     public static final String StorefrontId = "storefrontId";
@@ -21437,6 +22565,8 @@ public class DgsConstants {
     public static final String Title = "title";
 
     public static final String Translations = "translations";
+
+    public static final String UnitPrice = "unitPrice";
 
     public static final String UnitPriceMeasurement = "unitPriceMeasurement";
 
@@ -21530,6 +22660,20 @@ public class DgsConstants {
       public static final String Reverse = "reverse";
     }
 
+    public static class PRODUCTPARENTS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+
+      public static final String Query = "query";
+    }
+
     public static class PRODUCTVARIANTCOMPONENTS_INPUT_ARGUMENT {
       public static final String First = "first";
 
@@ -21619,6 +22763,8 @@ public class DgsConstants {
     public static final String QuantityPriceBreaks = "quantityPriceBreaks";
 
     public static final String QuantityRule = "quantityRule";
+
+    public static final String UnitPrice = "unitPrice";
 
     public static class QUANTITYPRICEBREAKS_INPUT_ARGUMENT {
       public static final String First = "first";
@@ -22360,11 +23506,15 @@ public class DgsConstants {
 
     public static final String DraftOrder = "draftOrder";
 
+    public static final String DraftOrderAvailableDeliveryOptions = "draftOrderAvailableDeliveryOptions";
+
     public static final String DraftOrderSavedSearches = "draftOrderSavedSearches";
 
     public static final String DraftOrderTag = "draftOrderTag";
 
     public static final String DraftOrders = "draftOrders";
+
+    public static final String DraftOrdersCount = "draftOrdersCount";
 
     public static final String Event = "event";
 
@@ -22406,6 +23556,12 @@ public class DgsConstants {
 
     public static final String InventoryProperties = "inventoryProperties";
 
+    public static final String InventoryShipment = "inventoryShipment";
+
+    public static final String InventoryTransfer = "inventoryTransfer";
+
+    public static final String InventoryTransfers = "inventoryTransfers";
+
     public static final String Job = "job";
 
     public static final String Location = "location";
@@ -22441,6 +23597,8 @@ public class DgsConstants {
     public static final String MarketingEvents = "marketingEvents";
 
     public static final String Markets = "markets";
+
+    public static final String MarketsResolvedValues = "marketsResolvedValues";
 
     public static final String Menu = "menu";
 
@@ -22499,6 +23657,8 @@ public class DgsConstants {
     public static final String PaymentTermsTemplates = "paymentTermsTemplates";
 
     public static final String PendingOrdersCount = "pendingOrdersCount";
+
+    public static final String PointOfSaleDevice = "pointOfSaleDevice";
 
     public static final String PriceList = "priceList";
 
@@ -22597,6 +23757,10 @@ public class DgsConstants {
     public static final String ShopBillingPreferences = "shopBillingPreferences";
 
     public static final String ShopLocales = "shopLocales";
+
+    public static final String ShopPayPaymentRequestReceipt = "shopPayPaymentRequestReceipt";
+
+    public static final String ShopPayPaymentRequestReceipts = "shopPayPaymentRequestReceipts";
 
     public static final String ShopifyFunction = "shopifyFunction";
 
@@ -22884,6 +24048,8 @@ public class DgsConstants {
 
     public static class BLOGSCOUNT_INPUT_ARGUMENT {
       public static final String Query = "query";
+
+      public static final String Limit = "limit";
     }
 
     public static class BUSINESSENTITY_INPUT_ARGUMENT {
@@ -22968,6 +24134,8 @@ public class DgsConstants {
       public static final String Type = "type";
 
       public static final String Query = "query";
+
+      public static final String Limit = "limit";
     }
 
     public static class CHANNEL_INPUT_ARGUMENT {
@@ -23094,6 +24262,8 @@ public class DgsConstants {
       public static final String Query = "query";
 
       public static final String SavedSearchId = "savedSearchId";
+
+      public static final String Limit = "limit";
     }
 
     public static class COMMENT_INPUT_ARGUMENT {
@@ -23130,6 +24300,10 @@ public class DgsConstants {
       public static final String SortKey = "sortKey";
 
       public static final String Query = "query";
+    }
+
+    public static class COMPANIESCOUNT_INPUT_ARGUMENT {
+      public static final String Limit = "limit";
     }
 
     public static class COMPANY_INPUT_ARGUMENT {
@@ -23288,6 +24462,8 @@ public class DgsConstants {
 
     public static class CUSTOMERSCOUNT_INPUT_ARGUMENT {
       public static final String Query = "query";
+
+      public static final String Limit = "limit";
     }
 
     public static class DELETIONEVENTS_INPUT_ARGUMENT {
@@ -23366,6 +24542,8 @@ public class DgsConstants {
 
     public static class DISCOUNTCODESCOUNT_INPUT_ARGUMENT {
       public static final String Query = "query";
+
+      public static final String Limit = "limit";
     }
 
     public static class DISCOUNTNODE_INPUT_ARGUMENT {
@@ -23394,6 +24572,8 @@ public class DgsConstants {
       public static final String Query = "query";
 
       public static final String SavedSearchId = "savedSearchId";
+
+      public static final String Limit = "limit";
     }
 
     public static class DISCOUNTREDEEMCODEBULKCREATION_INPUT_ARGUMENT {
@@ -23446,6 +24626,18 @@ public class DgsConstants {
       public static final String Id = "id";
     }
 
+    public static class DRAFTORDERAVAILABLEDELIVERYOPTIONS_INPUT_ARGUMENT {
+      public static final String Input = "input";
+
+      public static final String Search = "search";
+
+      public static final String LocalPickupFrom = "localPickupFrom";
+
+      public static final String LocalPickupCount = "localPickupCount";
+
+      public static final String SessionToken = "sessionToken";
+    }
+
     public static class DRAFTORDERSAVEDSEARCHES_INPUT_ARGUMENT {
       public static final String First = "first";
 
@@ -23478,6 +24670,14 @@ public class DgsConstants {
       public static final String Query = "query";
 
       public static final String SavedSearchId = "savedSearchId";
+    }
+
+    public static class DRAFTORDERSCOUNT_INPUT_ARGUMENT {
+      public static final String Query = "query";
+
+      public static final String SavedSearchId = "savedSearchId";
+
+      public static final String Limit = "limit";
     }
 
     public static class EVENT_INPUT_ARGUMENT {
@@ -23590,6 +24790,8 @@ public class DgsConstants {
       public static final String Query = "query";
 
       public static final String SavedSearchId = "savedSearchId";
+
+      public static final String Limit = "limit";
     }
 
     public static class INVENTORYITEM_INPUT_ARGUMENT {
@@ -23612,6 +24814,32 @@ public class DgsConstants {
 
     public static class INVENTORYLEVEL_INPUT_ARGUMENT {
       public static final String Id = "id";
+    }
+
+    public static class INVENTORYSHIPMENT_INPUT_ARGUMENT {
+      public static final String Id = "id";
+    }
+
+    public static class INVENTORYTRANSFER_INPUT_ARGUMENT {
+      public static final String Id = "id";
+    }
+
+    public static class INVENTORYTRANSFERS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+
+      public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
+
+      public static final String SavedSearchId = "savedSearchId";
     }
 
     public static class JOB_INPUT_ARGUMENT {
@@ -23660,6 +24888,8 @@ public class DgsConstants {
 
     public static class LOCATIONSCOUNT_INPUT_ARGUMENT {
       public static final String Query = "query";
+
+      public static final String Limit = "limit";
     }
 
     public static class MANUALHOLDSFULFILLMENTORDERS_INPUT_ARGUMENT {
@@ -23780,6 +25010,10 @@ public class DgsConstants {
       public static final String SortKey = "sortKey";
 
       public static final String Query = "query";
+    }
+
+    public static class MARKETSRESOLVEDVALUES_INPUT_ARGUMENT {
+      public static final String BuyerSignal = "buyerSignal";
     }
 
     public static class MENU_INPUT_ARGUMENT {
@@ -23978,6 +25212,10 @@ public class DgsConstants {
       public static final String SavedSearchId = "savedSearchId";
     }
 
+    public static class PAGESCOUNT_INPUT_ARGUMENT {
+      public static final String Limit = "limit";
+    }
+
     public static class PAYMENTCUSTOMIZATION_INPUT_ARGUMENT {
       public static final String Id = "id";
     }
@@ -23998,6 +25236,10 @@ public class DgsConstants {
 
     public static class PAYMENTTERMSTEMPLATES_INPUT_ARGUMENT {
       public static final String PaymentTermsType = "paymentTermsType";
+    }
+
+    public static class POINTOFSALEDEVICE_INPUT_ARGUMENT {
+      public static final String Id = "id";
     }
 
     public static class PRICELIST_INPUT_ARGUMENT {
@@ -24122,6 +25364,8 @@ public class DgsConstants {
 
     public static class PRODUCTVARIANTSCOUNT_INPUT_ARGUMENT {
       public static final String Query = "query";
+
+      public static final String Limit = "limit";
     }
 
     public static class PRODUCTVENDORS_INPUT_ARGUMENT {
@@ -24182,10 +25426,14 @@ public class DgsConstants {
 
     public static class PUBLICATIONSCOUNT_INPUT_ARGUMENT {
       public static final String CatalogType = "catalogType";
+
+      public static final String Limit = "limit";
     }
 
     public static class PUBLISHEDPRODUCTSCOUNT_INPUT_ARGUMENT {
       public static final String PublicationId = "publicationId";
+
+      public static final String Limit = "limit";
     }
 
     public static class REFUND_INPUT_ARGUMENT {
@@ -24312,6 +25560,10 @@ public class DgsConstants {
       public static final String Query = "query";
     }
 
+    public static class SEGMENTSCOUNT_INPUT_ARGUMENT {
+      public static final String Limit = "limit";
+    }
+
     public static class SELLINGPLANGROUP_INPUT_ARGUMENT {
       public static final String Id = "id";
     }
@@ -24334,6 +25586,26 @@ public class DgsConstants {
 
     public static class SHOPLOCALES_INPUT_ARGUMENT {
       public static final String Published = "published";
+    }
+
+    public static class SHOPPAYPAYMENTREQUESTRECEIPT_INPUT_ARGUMENT {
+      public static final String Token = "token";
+    }
+
+    public static class SHOPPAYPAYMENTREQUESTRECEIPTS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+
+      public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
     }
 
     public static class SHOPIFYFUNCTION_INPUT_ARGUMENT {
@@ -24588,6 +25860,8 @@ public class DgsConstants {
       public static final String Query = "query";
 
       public static final String SavedSearchId = "savedSearchId";
+
+      public static final String Limit = "limit";
     }
 
     public static class VALIDATION_INPUT_ARGUMENT {
@@ -24652,6 +25926,8 @@ public class DgsConstants {
 
     public static class WEBHOOKSUBSCRIPTIONSCOUNT_INPUT_ARGUMENT {
       public static final String Query = "query";
+
+      public static final String Limit = "limit";
     }
   }
 
@@ -24849,6 +26125,16 @@ public class DgsConstants {
     public static final String Node = "node";
   }
 
+  public static class REFUNDRETURNOUTCOME {
+    public static final String TYPE_NAME = "RefundReturnOutcome";
+
+    public static final String Amount = "amount";
+
+    public static final String SuggestedRefundMethods = "suggestedRefundMethods";
+
+    public static final String SuggestedTransactions = "suggestedTransactions";
+  }
+
   public static class REFUNDSHIPPINGLINE {
     public static final String TYPE_NAME = "RefundShippingLine";
 
@@ -24897,6 +26183,22 @@ public class DgsConstants {
 
       public static final String Reverse = "reverse";
     }
+  }
+
+  public static class REMOVEFROMRETURNPAYLOAD {
+    public static final String TYPE_NAME = "RemoveFromReturnPayload";
+
+    public static final String Return = "return";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class RESOLVEDPRICEINCLUSIVITY {
+    public static final String TYPE_NAME = "ResolvedPriceInclusivity";
+
+    public static final String DutiesIncluded = "dutiesIncluded";
+
+    public static final String TaxesIncluded = "taxesIncluded";
   }
 
   public static class RESOURCEALERT {
@@ -25020,6 +26322,10 @@ public class DgsConstants {
   public static class RETURN {
     public static final String TYPE_NAME = "Return";
 
+    public static final String ClosedAt = "closedAt";
+
+    public static final String CreatedAt = "createdAt";
+
     public static final String Decline = "decline";
 
     public static final String ExchangeLineItems = "exchangeLineItems";
@@ -25032,6 +26338,8 @@ public class DgsConstants {
 
     public static final String Refunds = "refunds";
 
+    public static final String RequestApprovedAt = "requestApprovedAt";
+
     public static final String ReturnLineItems = "returnLineItems";
 
     public static final String ReturnShippingFees = "returnShippingFees";
@@ -25039,6 +26347,8 @@ public class DgsConstants {
     public static final String ReverseFulfillmentOrders = "reverseFulfillmentOrders";
 
     public static final String Status = "status";
+
+    public static final String SuggestedFinancialOutcome = "suggestedFinancialOutcome";
 
     public static final String SuggestedRefund = "suggestedRefund";
 
@@ -25092,6 +26402,18 @@ public class DgsConstants {
       public static final String Before = "before";
 
       public static final String Reverse = "reverse";
+    }
+
+    public static class SUGGESTEDFINANCIALOUTCOME_INPUT_ARGUMENT {
+      public static final String ReturnLineItems = "returnLineItems";
+
+      public static final String ExchangeLineItems = "exchangeLineItems";
+
+      public static final String RefundShipping = "refundShipping";
+
+      public static final String RefundDuties = "refundDuties";
+
+      public static final String RefundMethodAllocation = "refundMethodAllocation";
     }
 
     public static class SUGGESTEDREFUND_INPUT_ARGUMENT {
@@ -25274,6 +26596,10 @@ public class DgsConstants {
 
     public static final String Id = "id";
 
+    public static final String ProcessableQuantity = "processableQuantity";
+
+    public static final String ProcessedQuantity = "processedQuantity";
+
     public static final String Quantity = "quantity";
 
     public static final String RefundableQuantity = "refundableQuantity";
@@ -25287,6 +26613,8 @@ public class DgsConstants {
     public static final String ReturnReasonNote = "returnReasonNote";
 
     public static final String TotalWeight = "totalWeight";
+
+    public static final String UnprocessedQuantity = "unprocessedQuantity";
 
     public static final String WithCodeDiscountedTotalPriceSet = "withCodeDiscountedTotalPriceSet";
   }
@@ -25315,6 +26643,14 @@ public class DgsConstants {
     public static final String Cursor = "cursor";
 
     public static final String Node = "node";
+  }
+
+  public static class RETURNPROCESSPAYLOAD {
+    public static final String TYPE_NAME = "ReturnProcessPayload";
+
+    public static final String Return = "return";
+
+    public static final String UserErrors = "userErrors";
   }
 
   public static class RETURNREFUNDPAYLOAD {
@@ -25535,6 +26871,8 @@ public class DgsConstants {
 
   public static class REVERSEFULFILLMENTORDERDISPOSITION {
     public static final String TYPE_NAME = "ReverseFulfillmentOrderDisposition";
+
+    public static final String CreatedAt = "createdAt";
 
     public static final String Id = "id";
 
@@ -25968,6 +27306,10 @@ public class DgsConstants {
 
     public static final String LocalizedName = "localizedName";
 
+    public static final String MaxRange = "maxRange";
+
+    public static final String MinRange = "minRange";
+
     public static final String Optional = "optional";
 
     public static final String ParameterType = "parameterType";
@@ -25998,6 +27340,10 @@ public class DgsConstants {
 
     public static final String LocalizedName = "localizedName";
 
+    public static final String MaxRange = "maxRange";
+
+    public static final String MinRange = "minRange";
+
     public static final String MultiValue = "multiValue";
 
     public static final String QueryName = "queryName";
@@ -26007,6 +27353,10 @@ public class DgsConstants {
     public static final String TYPE_NAME = "SegmentIntegerFilter";
 
     public static final String LocalizedName = "localizedName";
+
+    public static final String MaxRange = "maxRange";
+
+    public static final String MinRange = "minRange";
 
     public static final String MultiValue = "multiValue";
 
@@ -26774,6 +28124,8 @@ public class DgsConstants {
 
     public static final String Metafield = "metafield";
 
+    public static final String MetafieldDefinitions = "metafieldDefinitions";
+
     public static final String Metafields = "metafields";
 
     public static final String MyshopifyDomain = "myshopifyDomain";
@@ -27022,6 +28374,26 @@ public class DgsConstants {
       public static final String Namespace = "namespace";
 
       public static final String Key = "key";
+    }
+
+    public static class METAFIELDDEFINITIONS_INPUT_ARGUMENT {
+      public static final String Namespace = "namespace";
+
+      public static final String PinnedStatus = "pinnedStatus";
+
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+
+      public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
     }
 
     public static class METAFIELDS_INPUT_ARGUMENT {
@@ -27897,24 +29269,6 @@ public class DgsConstants {
     public static final String RefundSet = "refundSet";
   }
 
-  public static class SHOPIFYPAYMENTSVERIFICATION {
-    public static final String TYPE_NAME = "ShopifyPaymentsVerification";
-
-    public static final String Id = "id";
-
-    public static final String Status = "status";
-
-    public static final String Subject = "subject";
-  }
-
-  public static class SHOPIFYPAYMENTSVERIFICATIONSUBJECT {
-    public static final String TYPE_NAME = "ShopifyPaymentsVerificationSubject";
-
-    public static final String FamilyName = "familyName";
-
-    public static final String GivenName = "givenName";
-  }
-
   public static class SHOPIFYPROTECTORDERELIGIBILITY {
     public static final String TYPE_NAME = "ShopifyProtectOrderEligibility";
 
@@ -27973,12 +29327,170 @@ public class DgsConstants {
     public static final String PaymentMethodName = "paymentMethodName";
   }
 
+  public static class SHOPPAYPAYMENTREQUEST {
+    public static final String TYPE_NAME = "ShopPayPaymentRequest";
+
+    public static final String Discounts = "discounts";
+
+    public static final String LineItems = "lineItems";
+
+    public static final String PresentmentCurrency = "presentmentCurrency";
+
+    public static final String SelectedDeliveryMethodType = "selectedDeliveryMethodType";
+
+    public static final String ShippingAddress = "shippingAddress";
+
+    public static final String ShippingLines = "shippingLines";
+
+    public static final String Subtotal = "subtotal";
+
+    public static final String Total = "total";
+
+    public static final String TotalShippingPrice = "totalShippingPrice";
+
+    public static final String TotalTax = "totalTax";
+  }
+
+  public static class SHOPPAYPAYMENTREQUESTCONTACTFIELD {
+    public static final String TYPE_NAME = "ShopPayPaymentRequestContactField";
+
+    public static final String Address1 = "address1";
+
+    public static final String Address2 = "address2";
+
+    public static final String City = "city";
+
+    public static final String CompanyName = "companyName";
+
+    public static final String CountryCode = "countryCode";
+
+    public static final String Email = "email";
+
+    public static final String FirstName = "firstName";
+
+    public static final String LastName = "lastName";
+
+    public static final String Phone = "phone";
+
+    public static final String PostalCode = "postalCode";
+
+    public static final String ProvinceCode = "provinceCode";
+  }
+
+  public static class SHOPPAYPAYMENTREQUESTDISCOUNT {
+    public static final String TYPE_NAME = "ShopPayPaymentRequestDiscount";
+
+    public static final String Amount = "amount";
+
+    public static final String Label = "label";
+  }
+
+  public static class SHOPPAYPAYMENTREQUESTIMAGE {
+    public static final String TYPE_NAME = "ShopPayPaymentRequestImage";
+
+    public static final String Alt = "alt";
+
+    public static final String Url = "url";
+  }
+
+  public static class SHOPPAYPAYMENTREQUESTLINEITEM {
+    public static final String TYPE_NAME = "ShopPayPaymentRequestLineItem";
+
+    public static final String FinalItemPrice = "finalItemPrice";
+
+    public static final String FinalLinePrice = "finalLinePrice";
+
+    public static final String Image = "image";
+
+    public static final String ItemDiscounts = "itemDiscounts";
+
+    public static final String Label = "label";
+
+    public static final String LineDiscounts = "lineDiscounts";
+
+    public static final String OriginalItemPrice = "originalItemPrice";
+
+    public static final String OriginalLinePrice = "originalLinePrice";
+
+    public static final String Quantity = "quantity";
+
+    public static final String RequiresShipping = "requiresShipping";
+
+    public static final String Sku = "sku";
+  }
+
+  public static class SHOPPAYPAYMENTREQUESTRECEIPT {
+    public static final String TYPE_NAME = "ShopPayPaymentRequestReceipt";
+
+    public static final String CreatedAt = "createdAt";
+
+    public static final String Order = "order";
+
+    public static final String PaymentRequest = "paymentRequest";
+
+    public static final String ProcessingStatus = "processingStatus";
+
+    public static final String SourceIdentifier = "sourceIdentifier";
+
+    public static final String Token = "token";
+  }
+
+  public static class SHOPPAYPAYMENTREQUESTRECEIPTCONNECTION {
+    public static final String TYPE_NAME = "ShopPayPaymentRequestReceiptConnection";
+
+    public static final String Edges = "edges";
+
+    public static final String Nodes = "nodes";
+
+    public static final String PageInfo = "pageInfo";
+  }
+
+  public static class SHOPPAYPAYMENTREQUESTRECEIPTEDGE {
+    public static final String TYPE_NAME = "ShopPayPaymentRequestReceiptEdge";
+
+    public static final String Cursor = "cursor";
+
+    public static final String Node = "node";
+  }
+
+  public static class SHOPPAYPAYMENTREQUESTRECEIPTPROCESSINGSTATUS {
+    public static final String TYPE_NAME = "ShopPayPaymentRequestReceiptProcessingStatus";
+
+    public static final String ErrorCode = "errorCode";
+
+    public static final String Message = "message";
+
+    public static final String State = "state";
+  }
+
+  public static class SHOPPAYPAYMENTREQUESTSHIPPINGLINE {
+    public static final String TYPE_NAME = "ShopPayPaymentRequestShippingLine";
+
+    public static final String Amount = "amount";
+
+    public static final String Code = "code";
+
+    public static final String Label = "label";
+  }
+
+  public static class SHOPPAYPAYMENTREQUESTTOTALSHIPPINGPRICE {
+    public static final String TYPE_NAME = "ShopPayPaymentRequestTotalShippingPrice";
+
+    public static final String Discounts = "discounts";
+
+    public static final String FinalTotal = "finalTotal";
+
+    public static final String OriginalTotal = "originalTotal";
+  }
+
   public static class SHOPPLAN {
     public static final String TYPE_NAME = "ShopPlan";
 
     public static final String DisplayName = "displayName";
 
     public static final String PartnerDevelopment = "partnerDevelopment";
+
+    public static final String PublicDisplayName = "publicDisplayName";
 
     public static final String ShopifyPlus = "shopifyPlus";
   }
@@ -29699,36 +31211,6 @@ public class DgsConstants {
     public static final String Title = "title";
   }
 
-  public static class SUBSCRIPTIONMAILINGADDRESS {
-    public static final String TYPE_NAME = "SubscriptionMailingAddress";
-
-    public static final String Address1 = "address1";
-
-    public static final String Address2 = "address2";
-
-    public static final String City = "city";
-
-    public static final String Company = "company";
-
-    public static final String Country = "country";
-
-    public static final String CountryCode = "countryCode";
-
-    public static final String FirstName = "firstName";
-
-    public static final String LastName = "lastName";
-
-    public static final String Name = "name";
-
-    public static final String Phone = "phone";
-
-    public static final String Province = "province";
-
-    public static final String ProvinceCode = "provinceCode";
-
-    public static final String Zip = "zip";
-  }
-
   public static class SUBSCRIPTIONMANUALDISCOUNT {
     public static final String TYPE_NAME = "SubscriptionManualDiscount";
 
@@ -29874,6 +31356,8 @@ public class DgsConstants {
 
     public static final String SubtotalSet = "subtotalSet";
 
+    public static final String SuggestedRefundMethods = "suggestedRefundMethods";
+
     public static final String SuggestedTransactions = "suggestedTransactions";
 
     public static final String TotalCartDiscountAmountSet = "totalCartDiscountAmountSet";
@@ -29883,6 +31367,28 @@ public class DgsConstants {
     public static final String TotalTaxSet = "totalTaxSet";
 
     public static final String TotalTaxes = "totalTaxes";
+  }
+
+  public static class SUGGESTEDRETURNFINANCIALOUTCOME {
+    public static final String TYPE_NAME = "SuggestedReturnFinancialOutcome";
+
+    public static final String DiscountedSubtotal = "discountedSubtotal";
+
+    public static final String FinancialTransfer = "financialTransfer";
+
+    public static final String MaximumRefundable = "maximumRefundable";
+
+    public static final String RefundDuties = "refundDuties";
+
+    public static final String Shipping = "shipping";
+
+    public static final String TotalAdditionalFees = "totalAdditionalFees";
+
+    public static final String TotalCartDiscountAmount = "totalCartDiscountAmount";
+
+    public static final String TotalDuties = "totalDuties";
+
+    public static final String TotalTax = "totalTax";
   }
 
   public static class SUGGESTEDRETURNREFUND {
@@ -29907,6 +31413,16 @@ public class DgsConstants {
     public static final String TotalDuties = "totalDuties";
 
     public static final String TotalTax = "totalTax";
+  }
+
+  public static class SUGGESTEDSTORECREDITREFUND {
+    public static final String TYPE_NAME = "SuggestedStoreCreditRefund";
+
+    public static final String Amount = "amount";
+
+    public static final String ExpiresAt = "expiresAt";
+
+    public static final String MaximumRefundable = "maximumRefundable";
   }
 
   public static class TAGSADDPAYLOAD {
@@ -30496,6 +32012,10 @@ public class DgsConstants {
 
     public static final String Id = "id";
 
+    public static final String ProcessableQuantity = "processableQuantity";
+
+    public static final String ProcessedQuantity = "processedQuantity";
+
     public static final String Quantity = "quantity";
 
     public static final String RefundableQuantity = "refundableQuantity";
@@ -30507,6 +32027,8 @@ public class DgsConstants {
     public static final String ReturnReasonNote = "returnReasonNote";
 
     public static final String UnitPrice = "unitPrice";
+
+    public static final String UnprocessedQuantity = "unprocessedQuantity";
   }
 
   public static class URLREDIRECT {
@@ -31045,36 +32567,6 @@ public class DgsConstants {
     public static final String WebPixel = "webPixel";
   }
 
-  public static class WEBPRESENCE {
-    public static final String TYPE_NAME = "WebPresence";
-
-    public static final String AlternateLocales = "alternateLocales";
-
-    public static final String DefaultLocale = "defaultLocale";
-
-    public static final String Domain = "domain";
-
-    public static final String Id = "id";
-
-    public static final String Markets = "markets";
-
-    public static final String RootUrls = "rootUrls";
-
-    public static final String SubfolderSuffix = "subfolderSuffix";
-
-    public static class MARKETS_INPUT_ARGUMENT {
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-    }
-  }
-
   public static class WEBPRESENCECREATEPAYLOAD {
     public static final String TYPE_NAME = "WebPresenceCreatePayload";
 
@@ -31089,14 +32581,6 @@ public class DgsConstants {
     public static final String DeletedId = "deletedId";
 
     public static final String UserErrors = "userErrors";
-  }
-
-  public static class WEBPRESENCEROOTURL {
-    public static final String TYPE_NAME = "WebPresenceRootUrl";
-
-    public static final String Locale = "locale";
-
-    public static final String Url = "url";
   }
 
   public static class WEBPRESENCEUPDATEPAYLOAD {
@@ -31309,6 +32793,12 @@ public class DgsConstants {
     public static final String EditableShippingAddress = "editableShippingAddress";
 
     public static final String Deposit = "deposit";
+  }
+
+  public static class BUYERSIGNALINPUT {
+    public static final String TYPE_NAME = "BuyerSignalInput";
+
+    public static final String CountryCode = "countryCode";
   }
 
   public static class CALCULATEEXCHANGELINEITEMINPUT {
@@ -32971,6 +34461,24 @@ public class DgsConstants {
     public static final String ValueType = "valueType";
   }
 
+  public static class DRAFTORDERAVAILABLEDELIVERYOPTIONSINPUT {
+    public static final String TYPE_NAME = "DraftOrderAvailableDeliveryOptionsInput";
+
+    public static final String AppliedDiscount = "appliedDiscount";
+
+    public static final String DiscountCodes = "discountCodes";
+
+    public static final String AcceptAutomaticDiscounts = "acceptAutomaticDiscounts";
+
+    public static final String LineItems = "lineItems";
+
+    public static final String ShippingAddress = "shippingAddress";
+
+    public static final String MarketRegionCountryCode = "marketRegionCountryCode";
+
+    public static final String PurchasingEntity = "purchasingEntity";
+  }
+
   public static class DRAFTORDERDELETEINPUT {
     public static final String TYPE_NAME = "DraftOrderDeleteInput";
 
@@ -33094,8 +34602,6 @@ public class DgsConstants {
   public static class EVENTBRIDGEWEBHOOKSUBSCRIPTIONINPUT {
     public static final String TYPE_NAME = "EventBridgeWebhookSubscriptionInput";
 
-    public static final String Arn = "arn";
-
     public static final String Format = "format";
 
     public static final String IncludeFields = "includeFields";
@@ -33105,6 +34611,8 @@ public class DgsConstants {
     public static final String MetafieldNamespaces = "metafieldNamespaces";
 
     public static final String Metafields = "metafields";
+
+    public static final String Arn = "arn";
   }
 
   public static class EXCHANGELINEITEMAPPLIEDDISCOUNTINPUT {
@@ -33133,6 +34641,14 @@ public class DgsConstants {
     public static final String Quantity = "quantity";
 
     public static final String AppliedDiscount = "appliedDiscount";
+  }
+
+  public static class EXCHANGELINEITEMREMOVEFROMRETURNINPUT {
+    public static final String TYPE_NAME = "ExchangeLineItemRemoveFromReturnInput";
+
+    public static final String ExchangeLineItemId = "exchangeLineItemId";
+
+    public static final String Quantity = "quantity";
   }
 
   public static class FILECREATEINPUT {
@@ -33607,6 +35123,130 @@ public class DgsConstants {
     public static final String ReferenceDocumentUri = "referenceDocumentUri";
   }
 
+  public static class INVENTORYSHIPMENTCREATEINPUT {
+    public static final String TYPE_NAME = "InventoryShipmentCreateInput";
+
+    public static final String MovementId = "movementId";
+
+    public static final String TrackingInput = "trackingInput";
+
+    public static final String LineItems = "lineItems";
+  }
+
+  public static class INVENTORYSHIPMENTLINEITEMINPUT {
+    public static final String TYPE_NAME = "InventoryShipmentLineItemInput";
+
+    public static final String InventoryItemId = "inventoryItemId";
+
+    public static final String Quantity = "quantity";
+  }
+
+  public static class INVENTORYSHIPMENTRECEIVEITEMINPUT {
+    public static final String TYPE_NAME = "InventoryShipmentReceiveItemInput";
+
+    public static final String ShipmentLineItemId = "shipmentLineItemId";
+
+    public static final String Quantity = "quantity";
+
+    public static final String Reason = "reason";
+  }
+
+  public static class INVENTORYSHIPMENTTRACKINGINPUT {
+    public static final String TYPE_NAME = "InventoryShipmentTrackingInput";
+
+    public static final String TrackingNumber = "trackingNumber";
+
+    public static final String Company = "company";
+
+    public static final String TrackingUrl = "trackingUrl";
+
+    public static final String ArrivesAt = "arrivesAt";
+  }
+
+  public static class INVENTORYSHIPMENTUPDATEITEMQUANTITIESINPUT {
+    public static final String TYPE_NAME = "InventoryShipmentUpdateItemQuantitiesInput";
+
+    public static final String ShipmentLineItemId = "shipmentLineItemId";
+
+    public static final String Quantity = "quantity";
+  }
+
+  public static class INVENTORYTRANSFERCREATEASREADYTOSHIPINPUT {
+    public static final String TYPE_NAME = "InventoryTransferCreateAsReadyToShipInput";
+
+    public static final String OriginLocationId = "originLocationId";
+
+    public static final String DestinationLocationId = "destinationLocationId";
+
+    public static final String LineItems = "lineItems";
+
+    public static final String DateCreated = "dateCreated";
+
+    public static final String Note = "note";
+
+    public static final String Tags = "tags";
+
+    public static final String ReferenceName = "referenceName";
+  }
+
+  public static class INVENTORYTRANSFERCREATEINPUT {
+    public static final String TYPE_NAME = "InventoryTransferCreateInput";
+
+    public static final String OriginLocationId = "originLocationId";
+
+    public static final String DestinationLocationId = "destinationLocationId";
+
+    public static final String LineItems = "lineItems";
+
+    public static final String DateCreated = "dateCreated";
+
+    public static final String Note = "note";
+
+    public static final String Tags = "tags";
+
+    public static final String ReferenceName = "referenceName";
+  }
+
+  public static class INVENTORYTRANSFEREDITINPUT {
+    public static final String TYPE_NAME = "InventoryTransferEditInput";
+
+    public static final String OriginId = "originId";
+
+    public static final String DestinationId = "destinationId";
+
+    public static final String DateCreated = "dateCreated";
+
+    public static final String Note = "note";
+
+    public static final String Tags = "tags";
+
+    public static final String ReferenceName = "referenceName";
+  }
+
+  public static class INVENTORYTRANSFERLINEITEMINPUT {
+    public static final String TYPE_NAME = "InventoryTransferLineItemInput";
+
+    public static final String InventoryItemId = "inventoryItemId";
+
+    public static final String Quantity = "quantity";
+  }
+
+  public static class INVENTORYTRANSFERREMOVEITEMSINPUT {
+    public static final String TYPE_NAME = "InventoryTransferRemoveItemsInput";
+
+    public static final String Id = "id";
+
+    public static final String TransferLineItemIds = "transferLineItemIds";
+  }
+
+  public static class INVENTORYTRANSFERSETITEMSINPUT {
+    public static final String TYPE_NAME = "InventoryTransferSetItemsInput";
+
+    public static final String Id = "id";
+
+    public static final String LineItems = "lineItems";
+  }
+
   public static class LINKEDMETAFIELDCREATEINPUT {
     public static final String TYPE_NAME = "LinkedMetafieldCreateInput";
 
@@ -33882,21 +35522,9 @@ public class DgsConstants {
   public static class MARKETINGACTIVITYCREATEINPUT {
     public static final String TYPE_NAME = "MarketingActivityCreateInput";
 
-    public static final String MarketingActivityTitle = "marketingActivityTitle";
-
-    public static final String FormData = "formData";
-
     public static final String MarketingActivityExtensionId = "marketingActivityExtensionId";
 
-    public static final String Context = "context";
-
-    public static final String Utm = "utm";
-
-    public static final String UrlParameterValue = "urlParameterValue";
-
     public static final String Status = "status";
-
-    public static final String Budget = "budget";
   }
 
   public static class MARKETINGACTIVITYUPDATEEXTERNALINPUT {
@@ -33933,26 +35561,6 @@ public class DgsConstants {
     public static final String TYPE_NAME = "MarketingActivityUpdateInput";
 
     public static final String Id = "id";
-
-    public static final String MarketingRecommendationId = "marketingRecommendationId";
-
-    public static final String Title = "title";
-
-    public static final String Budget = "budget";
-
-    public static final String Status = "status";
-
-    public static final String TargetStatus = "targetStatus";
-
-    public static final String FormData = "formData";
-
-    public static final String Utm = "utm";
-
-    public static final String UrlParameterValue = "urlParameterValue";
-
-    public static final String MarketedResources = "marketedResources";
-
-    public static final String Errors = "errors";
   }
 
   public static class MARKETINGACTIVITYUPSERTEXTERNALINPUT {
@@ -34805,6 +36413,20 @@ public class DgsConstants {
     public static final String Name = "name";
 
     public static final String LinkedMetafieldValue = "linkedMetafieldValue";
+  }
+
+  public static class ORDERCANCELREFUNDMETHODINPUT {
+    public static final String TYPE_NAME = "OrderCancelRefundMethodInput";
+
+    public static final String OriginalPaymentMethodsRefund = "originalPaymentMethodsRefund";
+
+    public static final String StoreCreditRefund = "storeCreditRefund";
+  }
+
+  public static class ORDERCANCELSTORECREDITREFUNDINPUT {
+    public static final String TYPE_NAME = "OrderCancelStoreCreditRefundInput";
+
+    public static final String ExpiresAt = "expiresAt";
   }
 
   public static class ORDERCAPTUREINPUT {
@@ -35798,6 +37420,10 @@ public class DgsConstants {
 
     public static final String TaxCode = "taxCode";
 
+    public static final String UnitPriceMeasurement = "unitPriceMeasurement";
+
+    public static final String ShowUnitPrice = "showUnitPrice";
+
     public static final String RequiresComponents = "requiresComponents";
   }
 
@@ -35833,6 +37459,10 @@ public class DgsConstants {
     public static final String Taxable = "taxable";
 
     public static final String TaxCode = "taxCode";
+
+    public static final String UnitPriceMeasurement = "unitPriceMeasurement";
+
+    public static final String ShowUnitPrice = "showUnitPrice";
   }
 
   public static class PUBLICATIONCREATEINPUT {
@@ -35866,10 +37496,6 @@ public class DgsConstants {
   public static class PUBSUBWEBHOOKSUBSCRIPTIONINPUT {
     public static final String TYPE_NAME = "PubSubWebhookSubscriptionInput";
 
-    public static final String PubSubProject = "pubSubProject";
-
-    public static final String PubSubTopic = "pubSubTopic";
-
     public static final String Format = "format";
 
     public static final String IncludeFields = "includeFields";
@@ -35879,6 +37505,10 @@ public class DgsConstants {
     public static final String MetafieldNamespaces = "metafieldNamespaces";
 
     public static final String Metafields = "metafields";
+
+    public static final String PubSubProject = "pubSubProject";
+
+    public static final String PubSubTopic = "pubSubTopic";
   }
 
   public static class PURCHASINGCOMPANYINPUT {
@@ -35966,7 +37596,11 @@ public class DgsConstants {
 
     public static final String Transactions = "transactions";
 
+    public static final String RefundMethods = "refundMethods";
+
     public static final String DiscrepancyReason = "discrepancyReason";
+
+    public static final String AllowOverRefunding = "allowOverRefunding";
   }
 
   public static class REFUNDLINEITEMINPUT {
@@ -35979,6 +37613,12 @@ public class DgsConstants {
     public static final String RestockType = "restockType";
 
     public static final String LocationId = "locationId";
+  }
+
+  public static class REFUNDMETHODINPUT {
+    public static final String TYPE_NAME = "RefundMethodInput";
+
+    public static final String StoreCreditRefund = "storeCreditRefund";
   }
 
   public static class REFUNDSHIPPINGINPUT {
@@ -36083,6 +37723,62 @@ public class DgsConstants {
     public static final String ReturnLineItemId = "returnLineItemId";
 
     public static final String Quantity = "quantity";
+  }
+
+  public static class RETURNPROCESSEXCHANGELINEITEMINPUT {
+    public static final String TYPE_NAME = "ReturnProcessExchangeLineItemInput";
+
+    public static final String Id = "id";
+
+    public static final String Quantity = "quantity";
+  }
+
+  public static class RETURNPROCESSFINANCIALTRANSFERINPUT {
+    public static final String TYPE_NAME = "ReturnProcessFinancialTransferInput";
+
+    public static final String IssueRefund = "issueRefund";
+  }
+
+  public static class RETURNPROCESSINPUT {
+    public static final String TYPE_NAME = "ReturnProcessInput";
+
+    public static final String ReturnId = "returnId";
+
+    public static final String ReturnLineItems = "returnLineItems";
+
+    public static final String ExchangeLineItems = "exchangeLineItems";
+
+    public static final String RefundDuties = "refundDuties";
+
+    public static final String RefundShipping = "refundShipping";
+
+    public static final String TipLineId = "tipLineId";
+
+    public static final String Note = "note";
+
+    public static final String NotifyCustomer = "notifyCustomer";
+
+    public static final String FinancialTransfer = "financialTransfer";
+  }
+
+  public static class RETURNPROCESSREFUNDINPUT {
+    public static final String TYPE_NAME = "ReturnProcessRefundInput";
+
+    public static final String AllowOverRefunding = "allowOverRefunding";
+
+    public static final String OrderTransactions = "orderTransactions";
+
+    public static final String RefundMethods = "refundMethods";
+  }
+
+  public static class RETURNPROCESSRETURNLINEITEMINPUT {
+    public static final String TYPE_NAME = "ReturnProcessReturnLineItemInput";
+
+    public static final String Id = "id";
+
+    public static final String Quantity = "quantity";
+
+    public static final String Dispositions = "dispositions";
   }
 
   public static class RETURNREFUNDINPUT {
@@ -36581,6 +38277,14 @@ public class DgsConstants {
     public static final String DebitAmount = "debitAmount";
   }
 
+  public static class STORECREDITREFUNDINPUT {
+    public static final String TYPE_NAME = "StoreCreditRefundInput";
+
+    public static final String Amount = "amount";
+
+    public static final String ExpiresAt = "expiresAt";
+  }
+
   public static class STOREFRONTACCESSTOKENDELETEINPUT {
     public static final String TYPE_NAME = "StorefrontAccessTokenDeleteInput";
 
@@ -36941,6 +38645,22 @@ public class DgsConstants {
     public static final String CycleDiscounts = "cycleDiscounts";
   }
 
+  public static class SUGGESTEDOUTCOMEEXCHANGELINEITEMINPUT {
+    public static final String TYPE_NAME = "SuggestedOutcomeExchangeLineItemInput";
+
+    public static final String Id = "id";
+
+    public static final String Quantity = "quantity";
+  }
+
+  public static class SUGGESTEDOUTCOMERETURNLINEITEMINPUT {
+    public static final String TYPE_NAME = "SuggestedOutcomeReturnLineItemInput";
+
+    public static final String Id = "id";
+
+    public static final String Quantity = "quantity";
+  }
+
   public static class THEMEFILESCOPYFILEINPUT {
     public static final String TYPE_NAME = "ThemeFilesCopyFileInput";
 
@@ -36971,6 +38691,18 @@ public class DgsConstants {
     public static final String Key = "key";
 
     public static final String Value = "value";
+  }
+
+  public static class UNITPRICEMEASUREMENTINPUT {
+    public static final String TYPE_NAME = "UnitPriceMeasurementInput";
+
+    public static final String QuantityValue = "quantityValue";
+
+    public static final String QuantityUnit = "quantityUnit";
+
+    public static final String ReferenceValue = "referenceValue";
+
+    public static final String ReferenceUnit = "referenceUnit";
   }
 
   public static class UPDATEMEDIAINPUT {
@@ -37044,8 +38776,6 @@ public class DgsConstants {
   public static class WEBHOOKSUBSCRIPTIONINPUT {
     public static final String TYPE_NAME = "WebhookSubscriptionInput";
 
-    public static final String CallbackUrl = "callbackUrl";
-
     public static final String Format = "format";
 
     public static final String IncludeFields = "includeFields";
@@ -37055,6 +38785,8 @@ public class DgsConstants {
     public static final String MetafieldNamespaces = "metafieldNamespaces";
 
     public static final String Metafields = "metafields";
+
+    public static final String CallbackUrl = "callbackUrl";
   }
 
   public static class WEBPIXELINPUT {
@@ -37444,6 +39176,10 @@ public class DgsConstants {
 
     public static final String Id = "id";
 
+    public static final String ProcessableQuantity = "processableQuantity";
+
+    public static final String ProcessedQuantity = "processedQuantity";
+
     public static final String Quantity = "quantity";
 
     public static final String RefundableQuantity = "refundableQuantity";
@@ -37453,6 +39189,8 @@ public class DgsConstants {
     public static final String ReturnReason = "returnReason";
 
     public static final String ReturnReasonNote = "returnReasonNote";
+
+    public static final String UnprocessedQuantity = "unprocessedQuantity";
   }
 
   public static class SALE {
@@ -37575,5 +39313,13 @@ public class DgsConstants {
     public static final String Orders = "orders";
 
     public static final String UpdatedAt = "updatedAt";
+  }
+
+  public static class SUGGESTEDREFUNDMETHOD {
+    public static final String TYPE_NAME = "SuggestedRefundMethod";
+
+    public static final String Amount = "amount";
+
+    public static final String MaximumRefundable = "maximumRefundable";
   }
 }

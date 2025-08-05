@@ -3,7 +3,6 @@ package com.shopify.admin.types;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -19,12 +18,6 @@ public class MetafieldAccess {
    * The access permitted on the Customer Account API.
    */
   private MetafieldCustomerAccountAccess customerAccount;
-
-  /**
-   * The explicit grants for this metafield definition, superseding the default admin access
-   * for the specified grantees.
-   */
-  private List<MetafieldAccessGrant> grants;
 
   /**
    * The access permitted on the Storefront API.
@@ -57,18 +50,6 @@ public class MetafieldAccess {
   }
 
   /**
-   * The explicit grants for this metafield definition, superseding the default admin access
-   * for the specified grantees.
-   */
-  public List<MetafieldAccessGrant> getGrants() {
-    return grants;
-  }
-
-  public void setGrants(List<MetafieldAccessGrant> grants) {
-    this.grants = grants;
-  }
-
-  /**
    * The access permitted on the Storefront API.
    */
   public MetafieldStorefrontAccess getStorefront() {
@@ -81,7 +62,7 @@ public class MetafieldAccess {
 
   @Override
   public String toString() {
-    return "MetafieldAccess{admin='" + admin + "', customerAccount='" + customerAccount + "', grants='" + grants + "', storefront='" + storefront + "'}";
+    return "MetafieldAccess{admin='" + admin + "', customerAccount='" + customerAccount + "', storefront='" + storefront + "'}";
   }
 
   @Override
@@ -91,13 +72,12 @@ public class MetafieldAccess {
     MetafieldAccess that = (MetafieldAccess) o;
     return Objects.equals(admin, that.admin) &&
         Objects.equals(customerAccount, that.customerAccount) &&
-        Objects.equals(grants, that.grants) &&
         Objects.equals(storefront, that.storefront);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(admin, customerAccount, grants, storefront);
+    return Objects.hash(admin, customerAccount, storefront);
   }
 
   public static Builder newBuilder() {
@@ -116,12 +96,6 @@ public class MetafieldAccess {
     private MetafieldCustomerAccountAccess customerAccount;
 
     /**
-     * The explicit grants for this metafield definition, superseding the default admin access
-     * for the specified grantees.
-     */
-    private List<MetafieldAccessGrant> grants;
-
-    /**
      * The access permitted on the Storefront API.
      */
     private MetafieldStorefrontAccess storefront;
@@ -130,7 +104,6 @@ public class MetafieldAccess {
       MetafieldAccess result = new MetafieldAccess();
       result.admin = this.admin;
       result.customerAccount = this.customerAccount;
-      result.grants = this.grants;
       result.storefront = this.storefront;
       return result;
     }
@@ -148,15 +121,6 @@ public class MetafieldAccess {
      */
     public Builder customerAccount(MetafieldCustomerAccountAccess customerAccount) {
       this.customerAccount = customerAccount;
-      return this;
-    }
-
-    /**
-     * The explicit grants for this metafield definition, superseding the default admin access
-     * for the specified grantees.
-     */
-    public Builder grants(List<MetafieldAccessGrant> grants) {
-      this.grants = grants;
       return this;
     }
 

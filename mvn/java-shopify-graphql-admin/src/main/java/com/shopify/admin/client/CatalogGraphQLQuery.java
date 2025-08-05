@@ -7,7 +7,24 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a Catalog resource by ID.
+ * Retrieves a [catalog](https://shopify.dev/docs/api/admin-graphql/latest/interfaces/Catalog) by its ID.
+ * A catalog represents a list of products with publishing and pricing information,
+ * and can be associated with a context, such as a market, company location, or app.
+ *   
+ * Use the `catalog` query to retrieve information associated with the following workflows:
+ *   
+ * - Managing product publications across different contexts
+ * - Setting up contextual pricing with price lists
+ * - Managing market-specific product availability
+ * - Configuring B2B customer catalogs
+ *   
+ * There are several types of catalogs:
+ *   
+ * - [`MarketCatalog`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MarketCatalog)
+ * - [`AppCatalog`](https://shopify.dev/docs/api/admin-graphql/latest/objects/AppCatalog)
+ * - [`CompanyLocationCatalog`](https://shopify.dev/docs/api/admin-graphql/latest/objects/CompanyLocationCatalog)
+ *   
+ * Learn more about [catalogs for different markets](https://shopify.dev/docs/apps/build/markets/catalogs-different-markets).
  */
 public class CatalogGraphQLQuery extends GraphQLQuery {
   public CatalogGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

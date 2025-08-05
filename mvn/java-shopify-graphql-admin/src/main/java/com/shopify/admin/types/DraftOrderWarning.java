@@ -14,7 +14,8 @@ import java.lang.String;
 )
 @JsonSubTypes({
     @JsonSubTypes.Type(value = DraftOrderBundleAddedWarning.class, name = "DraftOrderBundleAddedWarning"),
-    @JsonSubTypes.Type(value = DraftOrderDiscountNotAppliedWarning.class, name = "DraftOrderDiscountNotAppliedWarning")
+    @JsonSubTypes.Type(value = DraftOrderDiscountNotAppliedWarning.class, name = "DraftOrderDiscountNotAppliedWarning"),
+    @JsonSubTypes.Type(value = DraftOrderMarketRegionCountryCodeNotSupportedWarning.class, name = "DraftOrderMarketRegionCountryCodeNotSupportedWarning")
 })
 public interface DraftOrderWarning {
   /**

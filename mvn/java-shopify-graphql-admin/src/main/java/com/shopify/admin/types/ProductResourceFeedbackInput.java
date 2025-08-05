@@ -37,7 +37,7 @@ public class ProductResourceFeedbackInput {
    * A concise set of copy strings to be displayed to merchants. Used to guide
    * merchants in resolving problems that your app encounters when trying to make
    * use of their products.
-   * You can specify up to four messages. Each message is limited to 100 characters.
+   * You can specify up to ten messages. Each message is limited to 100 characters.
    */
   private List<String> messages;
 
@@ -94,7 +94,7 @@ public class ProductResourceFeedbackInput {
    * A concise set of copy strings to be displayed to merchants. Used to guide
    * merchants in resolving problems that your app encounters when trying to make
    * use of their products.
-   * You can specify up to four messages. Each message is limited to 100 characters.
+   * You can specify up to ten messages. Each message is limited to 100 characters.
    */
   public List<String> getMessages() {
     return messages;
@@ -157,7 +157,7 @@ public class ProductResourceFeedbackInput {
      * A concise set of copy strings to be displayed to merchants. Used to guide
      * merchants in resolving problems that your app encounters when trying to make
      * use of their products.
-     * You can specify up to four messages. Each message is limited to 100 characters.
+     * You can specify up to ten messages. Each message is limited to 100 characters.
      */
     private List<String> messages;
 
@@ -209,7 +209,7 @@ public class ProductResourceFeedbackInput {
      * A concise set of copy strings to be displayed to merchants. Used to guide
      * merchants in resolving problems that your app encounters when trying to make
      * use of their products.
-     * You can specify up to four messages. Each message is limited to 100 characters.
+     * You can specify up to ten messages. Each message is limited to 100 characters.
      */
     public Builder messages(List<String> messages) {
       this.messages = messages;

@@ -55,6 +55,13 @@ public class Image implements com.shopify.admin.types.HasMetafields {
   private String src;
 
   /**
+   * The ThumbHash of the image.
+   *   
+   * Useful to display placeholder images while the original image is loading.
+   */
+  private String thumbhash;
+
+  /**
    * The location of the transformed image as a URL.
    *   
    * All transformation arguments are considered "best-effort". If they can be applied to an image, they will be.
@@ -166,6 +173,19 @@ public class Image implements com.shopify.admin.types.HasMetafields {
   }
 
   /**
+   * The ThumbHash of the image.
+   *   
+   * Useful to display placeholder images while the original image is loading.
+   */
+  public String getThumbhash() {
+    return thumbhash;
+  }
+
+  public void setThumbhash(String thumbhash) {
+    this.thumbhash = thumbhash;
+  }
+
+  /**
    * The location of the transformed image as a URL.
    *   
    * All transformation arguments are considered "best-effort". If they can be applied to an image, they will be.
@@ -211,7 +231,7 @@ public class Image implements com.shopify.admin.types.HasMetafields {
 
   @Override
   public String toString() {
-    return "Image{altText='" + altText + "', height='" + height + "', id='" + id + "', metafield='" + metafield + "', metafields='" + metafields + "', originalSrc='" + originalSrc + "', src='" + src + "', transformedSrc='" + transformedSrc + "', url='" + url + "', width='" + width + "'}";
+    return "Image{altText='" + altText + "', height='" + height + "', id='" + id + "', metafield='" + metafield + "', metafields='" + metafields + "', originalSrc='" + originalSrc + "', src='" + src + "', thumbhash='" + thumbhash + "', transformedSrc='" + transformedSrc + "', url='" + url + "', width='" + width + "'}";
   }
 
   @Override
@@ -226,6 +246,7 @@ public class Image implements com.shopify.admin.types.HasMetafields {
         Objects.equals(metafields, that.metafields) &&
         Objects.equals(originalSrc, that.originalSrc) &&
         Objects.equals(src, that.src) &&
+        Objects.equals(thumbhash, that.thumbhash) &&
         Objects.equals(transformedSrc, that.transformedSrc) &&
         Objects.equals(url, that.url) &&
         Objects.equals(width, that.width);
@@ -233,7 +254,7 @@ public class Image implements com.shopify.admin.types.HasMetafields {
 
   @Override
   public int hashCode() {
-    return Objects.hash(altText, height, id, metafield, metafields, originalSrc, src, transformedSrc, url, width);
+    return Objects.hash(altText, height, id, metafield, metafields, originalSrc, src, thumbhash, transformedSrc, url, width);
   }
 
   public static Builder newBuilder() {
@@ -282,6 +303,13 @@ public class Image implements com.shopify.admin.types.HasMetafields {
     private String src;
 
     /**
+     * The ThumbHash of the image.
+     *   
+     * Useful to display placeholder images while the original image is loading.
+     */
+    private String thumbhash;
+
+    /**
      * The location of the transformed image as a URL.
      *   
      * All transformation arguments are considered "best-effort". If they can be applied to an image, they will be.
@@ -316,6 +344,7 @@ public class Image implements com.shopify.admin.types.HasMetafields {
       result.metafields = this.metafields;
       result.originalSrc = this.originalSrc;
       result.src = this.src;
+      result.thumbhash = this.thumbhash;
       result.transformedSrc = this.transformedSrc;
       result.url = this.url;
       result.width = this.width;
@@ -380,6 +409,16 @@ public class Image implements com.shopify.admin.types.HasMetafields {
      */
     public Builder src(String src) {
       this.src = src;
+      return this;
+    }
+
+    /**
+     * The ThumbHash of the image.
+     *   
+     * Useful to display placeholder images while the original image is loading.
+     */
+    public Builder thumbhash(String thumbhash) {
+      this.thumbhash = thumbhash;
       return this;
     }
 

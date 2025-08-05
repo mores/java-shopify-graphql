@@ -10,7 +10,23 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a paginated list of files that have been uploaded to Shopify.
+ * Retrieves a paginated list of files that have been uploaded to a Shopify store. Files represent digital assets
+ * that merchants can upload to their store for various purposes including product images, marketing materials,
+ * documents, and brand assets.
+ *   
+ * Use the `files` query to retrieve information associated with the following workflows:
+ *   
+ * - [Managing product media and images](https://shopify.dev/docs/apps/build/online-store/product-media)
+ * - [Theme development and asset management](https://shopify.dev/docs/storefronts/themes/store/success/brand-assets)
+ * - Brand asset management and [checkout branding](https://shopify.dev/docs/apps/build/checkout/styling/add-favicon)
+ *   
+ * Files can include multiple [content types](https://shopify.dev/docs/api/admin-graphql/latest/enums/FileContentType),
+ * such as images, videos, 3D models, and generic files. Each file has
+ * properties like dimensions, file size, alt text for accessibility, and upload status. Files can be filtered
+ * by [media type](https://shopify.dev/docs/api/admin-graphql/latest/enums/MediaContentType) and can be associated with
+ * [products](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product),
+ * [themes](https://shopify.dev/docs/api/admin-graphql/latest/objects/OnlineStoreTheme),
+ * and other store resources.
  */
 public class FilesGraphQLQuery extends GraphQLQuery {
   public FilesGraphQLQuery(Integer first, String after, Integer last, String before,

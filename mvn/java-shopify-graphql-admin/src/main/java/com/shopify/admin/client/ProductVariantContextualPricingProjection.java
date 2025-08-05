@@ -64,4 +64,11 @@ public class ProductVariantContextualPricingProjection<PARENT extends BaseSubPro
      getFields().put("quantityRule", projection);
      return projection;
   }
+
+  public MoneyV2Projection<ProductVariantContextualPricingProjection<PARENT, ROOT>, ROOT> unitPrice(
+      ) {
+     MoneyV2Projection<ProductVariantContextualPricingProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());
+     getFields().put("unitPrice", projection);
+     return projection;
+  }
 }

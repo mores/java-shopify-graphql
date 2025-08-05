@@ -22,6 +22,11 @@ public class ShopPlanProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT
     return this;
   }
 
+  public ShopPlanProjection<PARENT, ROOT> publicDisplayName() {
+    getFields().put("publicDisplayName", null);
+    return this;
+  }
+
   public ShopPlanProjection<PARENT, ROOT> shopifyPlus() {
     getFields().put("shopifyPlus", null);
     return this;

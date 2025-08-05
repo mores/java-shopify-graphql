@@ -122,6 +122,11 @@ public class ShopProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROOT
     return projection;
   }
 
+  public ShopProjectionRoot<PARENT, ROOT> customerAccountUrl() {
+    getFields().put("customerAccountUrl", null);
+    return this;
+  }
+
   public ShopProjectionRoot<PARENT, ROOT> description() {
     getFields().put("description", null);
     return this;

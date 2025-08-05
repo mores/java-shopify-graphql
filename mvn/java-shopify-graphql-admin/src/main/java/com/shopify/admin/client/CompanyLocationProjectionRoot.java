@@ -70,6 +70,16 @@ public class CompanyLocationProjectionRoot<PARENT extends BaseSubProjectionNode<
     return projection;
   }
 
+  public CountProjection<CompanyLocationProjectionRoot<PARENT, ROOT>, CompanyLocationProjectionRoot<PARENT, ROOT>> catalogsCount(
+      Integer limit) {
+    CountProjection<CompanyLocationProjectionRoot<PARENT, ROOT>, CompanyLocationProjectionRoot<PARENT, ROOT>> projection = new CountProjection<>(this, this);    
+    getFields().put("catalogsCount", projection);
+    getInputArguments().computeIfAbsent("catalogsCount", k -> new ArrayList<>());                      
+    InputArgument limitArg = new InputArgument("limit", limit);
+    getInputArguments().get("catalogsCount").add(limitArg);
+    return projection;
+  }
+
   public CompanyProjection<CompanyLocationProjectionRoot<PARENT, ROOT>, CompanyLocationProjectionRoot<PARENT, ROOT>> company(
       ) {
     CompanyProjection<CompanyLocationProjectionRoot<PARENT, ROOT>, CompanyLocationProjectionRoot<PARENT, ROOT>> projection = new CompanyProjection<>(this, this);    
