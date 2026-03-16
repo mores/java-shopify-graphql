@@ -158,7 +158,7 @@ public class CustomersGraphQLQuery extends GraphQLQuery {
      * syntax](https://shopify.dev/docs/api/usage/search-syntax). | | | -
      * `email:gmail.com`<br/> - `email:"bo.wang@example.com"`<br/> - `email:*` |
      * | first_name | string | Filter by the customer's first name. | | | - `first_name:Jane` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | last_abandoned_order_date | time | Filter by the date and time of the
      * customer's most recent abandoned checkout. An abandoned checkout occurs when
      * a customer adds items to their cart, begins the checkout process, but leaves
@@ -192,8 +192,8 @@ public class CustomersGraphQLQuery extends GraphQLQuery {
      * `total_spent:50.00`<br/> - `total_spent:>100.50`<br/> - `total_spent:>50.00` |
      * | updated_at | time | The date and time, matching a whole day, when the
      * customer's information was last updated. | | | -
-     * `updated_at:2024-01-01T00:00:00Z`<br/> - `updated_at:<now`<br/> -
-     * `updated_at:<=2024` |
+     * `updated_at:2024-01-01T00:00:00Z`<br/> - `updated_at:&lt;now`<br/> -
+     * `updated_at:&lt;=2024` |
      * You can apply one or more filters to a query. Learn more about [Shopify API
      * search syntax](https://shopify.dev/api/usage/search-syntax).
      */

@@ -143,7 +143,7 @@ public class CompanyLocationsGraphQLQuery extends GraphQLQuery {
      * | company_id | id |
      * | created_at | time |
      * | external_id | string |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | ids | string |
      * | metafields.{namespace}.{key} | mixed | Filters resources by metafield
      * value. Format: `metafields.{namespace}.{key}:{value}`. Learn more about

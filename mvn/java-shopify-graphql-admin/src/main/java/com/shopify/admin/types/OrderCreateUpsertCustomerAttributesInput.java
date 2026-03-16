@@ -9,7 +9,7 @@ import java.util.Objects;
 
 /**
  * The input fields for creating a new customer object or identifying an existing
- * customer to update & associate with the order.
+ * customer to update &amp; associate with the order.
  */
 public class OrderCreateUpsertCustomerAttributesInput {
   /**

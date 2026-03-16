@@ -181,7 +181,7 @@ public class MarketingActivitiesGraphQLQuery extends GraphQLQuery {
      * | app_id | id |
      * | app_name | string | A comma-separated list of app names. |
      * | created_at | time |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | marketing_campaign_id | id |
      * | scheduled_to_end_at | time |
      * | scheduled_to_start_at | time |
