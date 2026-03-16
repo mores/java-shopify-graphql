@@ -6,8 +6,15 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The availability of a product variant at a particular location.
- * Local pick-up must be enabled in the  store's shipping settings, otherwise this will return an empty result.
+ * Inventory information for a product variant at a physical store location that
+ * offers local pickup. Includes stock availability, quantity on hand, and
+ * estimated pickup readiness time.
+ *
+ * Local pickup must be [enabled in the store's shipping settings](https://help.shopify.com/manual/shipping/setting-up-and-managing-your-shipping/local-methods/local-pickup)
+ * for this data to be returned. Results can be sorted by proximity to a customer's
+ * location using the `near` argument on the [`ProductVariant.storeAvailability`](https://shopify.dev/docs/api/storefront/current/objects/ProductVariant#field-ProductVariant.fields.storeAvailability) connection. 
+ *
+ * Learn more about [supporting local pickup on storefronts](https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/products-collections/local-pickup).
  */
 public class StoreAvailability {
   /**

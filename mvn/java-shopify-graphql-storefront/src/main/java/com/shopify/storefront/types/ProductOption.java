@@ -8,9 +8,15 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Product property names like "Size", "Color", and "Material" that the customers can select.
- * Variants are selected based on permutations of these options.
- * 255 characters limit each.
+ * A customizable product attribute that customers select when purchasing, such as
+ * "Size", "Color", or "Material". Each option has a name and a set of [`ProductOptionValue`](https://shopify.dev/docs/api/storefront/current/objects/ProductOptionValue)
+ * objects representing the available choices.
+ *
+ * Different combinations of option values create distinct [`ProductVariant`](https://shopify.dev/docs/api/storefront/current/objects/ProductVariant)
+ * objects. Option values can include visual swatches that display colors or images
+ * to help customers make selections. Option names have a 255-character limit.
+ *
+ * Learn more about [Shopify's product model](https://shopify.dev/docs/apps/build/product-merchandising/products-and-collections).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

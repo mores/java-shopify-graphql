@@ -8,7 +8,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Contains all fields required to generate sitemaps.
+ * Returns sitemap data for a specific resource type, enabling headless
+ * storefronts to generate XML sitemaps for search engine optimization. The query
+ * provides a page count and paginated access to resources like
+ * [`Product`](https://shopify.dev/docs/api/storefront/current/objects/Product), [`Collection`](https://shopify.dev/docs/api/storefront/current/objects/Collection),
+ * [`Page`](https://shopify.dev/docs/api/storefront/current/objects/Page), and
+ * [`Blog`](https://shopify.dev/docs/api/storefront/current/objects/Blog) objects.
+ *   
+ * When paginating through resources, the number of items per page varies from 0
+ * to 250, and empty pages can occur without indicating the end of results. Always check [`hasNextPage`](https://shopify.dev/docs/api/storefront/current/objects/PaginatedSitemapResources#field-PaginatedSitemapResources.fields.hasNextPage)
+ * to determine if more pages are available.
  */
 public class SitemapGraphQLQuery extends GraphQLQuery {
   public SitemapGraphQLQuery(SitemapType type, String queryName, Set<String> fieldsSet) {

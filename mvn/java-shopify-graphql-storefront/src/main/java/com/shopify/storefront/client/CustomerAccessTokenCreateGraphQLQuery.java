@@ -8,8 +8,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Creates a customer access token.
- * The customer access token is required to modify the customer object in any way.
+ * For legacy customer accounts only.
+ *   
+ * Creates a [`CustomerAccessToken`](https://shopify.dev/docs/api/storefront/current/objects/CustomerAccessToken) using the customer's email and password. The access token is required to read or modify the
+ * [`Customer`](https://shopify.dev/docs/api/storefront/current/objects/Customer)
+ * object, such as updating account information or managing addresses.
+ *   
+ * The token has an expiration time. Use [`customerAccessTokenRenew`](https://shopify.dev/docs/api/storefront/current/mutations/customerAccessTokenRenew)
+ * to extend the token before it expires, or create a new token if it's already expired.
+ *   
+ * > Caution:
+ * > This mutation handles customer credentials. Always transmit requests over HTTPS and never log or expose the password.
  */
 public class CustomerAccessTokenCreateGraphQLQuery extends GraphQLQuery {
   public CustomerAccessTokenCreateGraphQLQuery(CustomerAccessTokenCreateInput input,

@@ -7,8 +7,9 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * Script discount applications capture the intentions of a discount that
- * was created by a Shopify Script.
+ * A discount application created by a Shopify Script. Implements the [`DiscountApplication`](https://shopify.dev/docs/api/storefront/current/interfaces/DiscountApplication)
+ * interface and captures the discount's value, allocation method, and targeting
+ * rules at the time the script applied it.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

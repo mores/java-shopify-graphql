@@ -8,10 +8,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Updates customer information associated with a cart.
- * Buyer identity is used to determine
- * [international pricing](https://shopify.dev/custom-storefronts/internationalization/international-pricing)
- * and should match the customer's shipping address.
+ * Updates the buyer identity on a
+ * [`Cart`](https://shopify.dev/docs/api/storefront/current/objects/Cart),
+ * including contact information, location, and checkout preferences. The buyer's
+ * country determines [international pricing](https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/markets/international-pricing)
+ * and should match their shipping address.
+ *   
+ * Use this mutation to associate a logged-in customer via access token, set a
+ * B2B company location, or configure checkout preferences like delivery method.
+ * Preferences prefill checkout fields but don't sync back to the cart if
+ * overwritten at checkout.
  */
 public class CartBuyerIdentityUpdateGraphQLQuery extends GraphQLQuery {
   public CartBuyerIdentityUpdateGraphQLQuery(String cartId, CartBuyerIdentityInput buyerIdentity,

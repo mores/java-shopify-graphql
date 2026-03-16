@@ -12,11 +12,23 @@ public enum UnitPriceMeasurementMeasuredUnit {
 
   M3,
 
+  FLOZ,
+
+  PT,
+
+  QT,
+
+  GAL,
+
   MG,
 
   G,
 
   KG,
+
+  LB,
+
+  OZ,
 
   MM,
 
@@ -24,5 +36,17 @@ public enum UnitPriceMeasurementMeasuredUnit {
 
   M,
 
-  M2
+  IN,
+
+  FT,
+
+  YD,
+
+  M2,
+
+  FT2,
+
+  ITEM,
+
+  UNKNOWN
 }

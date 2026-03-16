@@ -10,16 +10,20 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * The `Product` object lets you manage products in a merchant’s store.
+ * Represents an item listed in a shop's catalog.
  *
- * Products are the goods and services that merchants offer to customers.
- * They can include various details such as title, description, price, images, and options such as size or color.
- * You can use [product variants](/docs/api/storefront/latest/objects/ProductVariant)
- * to create or update different versions of the same product.
- * You can also add or update product [media](/docs/api/storefront/latest/interfaces/Media).
- * Products can be organized by grouping them into a [collection](/docs/api/storefront/latest/objects/Collection).
+ * Products support multiple [product variants](https://shopify.dev/docs/api/storefront/current/objects/ProductVariant),
+ * representing different versions of the same product, and can include various
+ * [media](https://shopify.dev/docs/api/storefront/current/interfaces/Media) types. Use the [`selectedOrFirstAvailableVariant`](https://shopify.dev/docs/api/storefront/current/objects/Product#field-Product.fields.selectedOrFirstAvailableVariant) or [`variantBySelectedOptions`](https://shopify.dev/docs/api/storefront/current/objects/Product#field-Product.fields.variantBySelectedOptions)
+ * fields to help customers find the right variant based on their selections.
  *
- * Learn more about working with [products and collections](/docs/storefronts/headless/building-with-the-storefront-api/products-collections).
+ * Products can be organized into [collections](https://shopify.dev/docs/api/storefront/current/objects/Collection),
+ * associated with [selling
+ * plans](https://shopify.dev/docs/api/storefront/current/objects/SellingPlanGroup)
+ * for subscriptions, and extended with custom data through
+ * [metafields](https://shopify.dev/docs/api/storefront/current/objects/Metafield).
+ *
+ * Learn more about working with [products and collections](https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/products-collections).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

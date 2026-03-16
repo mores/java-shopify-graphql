@@ -10,8 +10,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a list of the shop's products. For storefront search, use the
- * [`search`](https://shopify.dev/docs/api/storefront/latest/queries/search) query.
+ * Returns a paginated list of the shop's [products](https://shopify.dev/docs/api/storefront/current/objects/Product).
+ *   
+ * For full-text storefront search, use the
+ * [`search`](https://shopify.dev/docs/api/storefront/current/queries/search) query instead.
  */
 public class ProductsGraphQLQuery extends GraphQLQuery {
   public ProductsGraphQLQuery(Integer first, String after, Integer last, String before,
@@ -132,8 +134,8 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
      * | ---- | ---- | ---- | ---- | ---- |
      * | available_for_sale | Filter by products that have at least one product variant available for sale. |
      * | created_at | Filter by the date and time when the product was created. | |
-     * | - `created_at:>'2020-10-21T23:39:20Z'`<br/> - `created_at:&lt;now`<br/> -
-     * `created_at:&lt;=2024` |
+     * | - `created_at:>'2020-10-21T23:39:20Z'`<br/> - `created_at:<now`<br/> -
+     * `created_at:<=2024` |
      * | product_type | Filter by a comma-separated list of [product
      * types](https://help.shopify.com/en/manual/products/details/product-type). |
      * | | `product_type:snowboard` |
@@ -145,7 +147,7 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
      * field. | | | `title:The Minimal Snowboard` |
      * | updated_at | Filter by the date and time when the product was last
      * updated. | | | - `updated_at:>'2020-10-21T23:39:20Z'`<br/> -
-     * `updated_at:&lt;now`<br/> - `updated_at:&lt;=2024` |
+     * `updated_at:<now`<br/> - `updated_at:<=2024` |
      * | variants.price | Filter by the price of the product's variants. |
      * | vendor | Filter by the product [`vendor`](https://shopify.dev/docs/api/storefront/latest/objects/Product#field-vendor)
      * field. | | | - `vendor:Snowdevil`<br/> - `vendor:Snowdevil OR

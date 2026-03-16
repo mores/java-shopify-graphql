@@ -7,7 +7,15 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Represents information about the buyer that is interacting with the cart.
+ * Contact information about the buyer interacting with a
+ * [cart](https://shopify.dev/docs/api/storefront/current/objects/Cart). The
+ * buyer's country determines [international pricing](https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/markets/international-pricing)
+ * and should match their shipping address.
+ *
+ * For B2B scenarios, the [`purchasingCompany`](https://shopify.dev/docs/api/storefront/current/objects/CartBuyerIdentity#field-CartBuyerIdentity.fields.purchasingCompany)
+ * field identifies the company and location on whose behalf a business customer purchases. The [`preferences`](https://shopify.dev/docs/api/storefront/current/objects/CartBuyerIdentity#field-CartBuyerIdentity.fields.preferences)
+ * field stores delivery and wallet settings that prefill checkout fields to
+ * streamline the buying process.
  */
 public class CartBuyerIdentity {
   /**

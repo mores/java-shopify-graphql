@@ -7,7 +7,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Retrieve a [navigation menu](https://help.shopify.com/manual/online-store/menus-and-links) by its handle.
+ * Retrieves a [`Menu`](https://shopify.dev/docs/api/storefront/current/objects/Menu) by
+ * its handle. Menus are [hierarchical navigation
+ * structures](https://help.shopify.com/manual/online-store/menus-and-links) that
+ * merchants configure for their storefront, such as header and footer navigation.
+ *   
+ * Each menu contains
+ * [`MenuItem`](https://shopify.dev/docs/api/storefront/current/objects/MenuItem)
+ * objects that can nest up to three levels deep, with each item linking to [collections](https://shopify.dev/docs/api/storefront/current/objects/Collection),
+ * [products](https://shopify.dev/docs/api/storefront/current/objects/Product),
+ * [pages](https://shopify.dev/docs/api/storefront/current/objects/Page),
+ * [blogs](https://shopify.dev/docs/api/storefront/current/objects/Blog), or external URLs.
  */
 public class MenuGraphQLQuery extends GraphQLQuery {
   public MenuGraphQLQuery(String handle, String queryName, Set<String> fieldsSet) {

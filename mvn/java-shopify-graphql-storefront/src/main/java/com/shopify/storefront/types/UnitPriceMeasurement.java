@@ -6,7 +6,13 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The measurement used to calculate a unit price for a product variant (e.g. $9.99 / 100ml).
+ * The measurement data used to calculate unit prices for a [`ProductVariant`](https://shopify.dev/docs/api/storefront/current/objects/ProductVariant).
+ * Unit pricing helps customers compare costs across different package sizes by
+ * showing a standardized price, such as "$9.99 / 100ml".
+ *
+ * The object includes the quantity being sold (value and unit) and the reference
+ * measurement used for price comparison. Use this alongside the variant's [`unitPrice`](https://shopify.dev/docs/api/storefront/current/objects/ProductVariant#field-ProductVariant.fields.unitPrice)
+ * field to display complete unit pricing information.
  */
 public class UnitPriceMeasurement {
   /**

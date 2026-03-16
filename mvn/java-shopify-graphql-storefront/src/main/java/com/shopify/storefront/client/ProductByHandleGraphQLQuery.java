@@ -7,7 +7,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Find a product by its handle.
+ * Retrieves a [`Product`](https://shopify.dev/docs/api/storefront/current/objects/Product)
+ * by its handle. The handle is a URL-friendly identifier that's automatically
+ * generated from the product's title. If no product exists with the specified
+ * handle, returns `null`.
  */
 public class ProductByHandleGraphQLQuery extends GraphQLQuery {
   public ProductByHandleGraphQLQuery(String handle, String queryName, Set<String> fieldsSet) {

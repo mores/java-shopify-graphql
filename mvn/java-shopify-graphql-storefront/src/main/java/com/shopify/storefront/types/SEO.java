@@ -6,7 +6,8 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * SEO information.
+ * Search engine optimization metadata for a resource. The title and description
+ * appear in search engine results and browser tabs.
  */
 public class SEO {
   /**

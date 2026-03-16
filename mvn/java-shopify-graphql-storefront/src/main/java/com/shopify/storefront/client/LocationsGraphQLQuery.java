@@ -11,9 +11,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * List of the shop's locations that support in-store pickup.
+ * Returns shop locations that support in-store pickup. Use the `near` argument with [`GeoCoordinateInput`](https://shopify.dev/docs/api/storefront/current/input-objects/GeoCoordinateInput)
+ * to sort results by proximity to the customer's location.
  *   
- * When sorting by distance, you must specify a location via the `near` argument.
+ * When sorting by distance, set `sortKey` to [`DISTANCE`](https://shopify.dev/docs/api/storefront/current/queries/locations#arguments-sortKey.enums.DISTANCE)
+ * and provide coordinates using the [`near`](https://shopify.dev/docs/api/storefront/current/queries/locations#arguments-near) argument.
+ *   
+ * Learn more about [supporting local pickup on storefronts](https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/products-collections/local-pickup).
  */
 public class LocationsGraphQLQuery extends GraphQLQuery {
   public LocationsGraphQLQuery(Integer first, String after, Integer last, String before,

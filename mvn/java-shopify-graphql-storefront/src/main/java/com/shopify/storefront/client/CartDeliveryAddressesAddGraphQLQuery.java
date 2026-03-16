@@ -9,7 +9,11 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Adds delivery addresses to the cart.
+ * Adds delivery addresses to a
+ * [`Cart`](https://shopify.dev/docs/api/storefront/current/objects/Cart). A cart
+ * can have up to 20 delivery addresses. One address can be marked as selected
+ * for checkout, and addresses can optionally be marked as one-time use so they
+ * aren't saved to the customer's account.
  */
 public class CartDeliveryAddressesAddGraphQLQuery extends GraphQLQuery {
   public CartDeliveryAddressesAddGraphQLQuery(String cartId,

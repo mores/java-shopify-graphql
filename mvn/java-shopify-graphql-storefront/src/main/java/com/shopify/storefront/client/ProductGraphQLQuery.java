@@ -7,7 +7,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Fetch a specific `Product` by one of its unique attributes.
+ * Retrieves a single
+ * [`Product`](https://shopify.dev/docs/api/storefront/current/objects/Product)
+ * by its ID or handle. Use this query to build product detail pages, access
+ * variant and pricing information, or fetch product media and [metafields](https://shopify.dev/docs/api/storefront/current/objects/Metafield).
+ * See some [examples of querying products](https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/products-collections/getting-started).
  */
 public class ProductGraphQLQuery extends GraphQLQuery {
   public ProductGraphQLQuery(String id, String handle, String queryName, Set<String> fieldsSet) {

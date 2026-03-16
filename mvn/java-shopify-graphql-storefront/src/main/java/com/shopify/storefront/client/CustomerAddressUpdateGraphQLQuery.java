@@ -8,7 +8,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Updates the address of an existing customer.
+ * Updates an existing [`MailingAddress`](https://shopify.dev/docs/api/storefront/current/objects/MailingAddress) for a [`Customer`](https://shopify.dev/docs/api/storefront/current/objects/Customer).
+ * Requires a [customer access token](https://shopify.dev/docs/api/storefront/current/mutations/customerAddressUpdate#arguments-customerAccessToken)
+ * to identify the customer, an ID to specify which address to modify, and an [`address`](https://shopify.dev/docs/api/storefront/current/input-objects/MailingAddressInput)
+ * with the updated fields.
+ *   
+ * Successful update returns the updated [`MailingAddress`](https://shopify.dev/docs/api/storefront/current/objects/MailingAddress).
  */
 public class CustomerAddressUpdateGraphQLQuery extends GraphQLQuery {
   public CustomerAddressUpdateGraphQLQuery(String customerAccessToken, String id,

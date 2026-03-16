@@ -5,10 +5,11 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.String;
 
 /**
- * An object with an ID field to support global identification, in accordance with the
- * [Relay specification](https://relay.dev/graphql/objectidentification.htm#sec-Node-Interface).
- * This interface is used by the [node](/docs/api/storefront/latest/queries/node)
- * and [nodes](/docs/api/storefront/latest/queries/nodes) queries.
+ * Enables global object identification following the [Relay specification](https://relay.dev/graphql/objectidentification.htm#sec-Node-Interface).
+ * Any type implementing this interface has a globally-unique `id` field and can be
+ * fetched directly using the
+ * [`node`](https://shopify.dev/docs/api/storefront/current/queries/node) or
+ * [`nodes`](https://shopify.dev/docs/api/storefront/current/queries/nodes) queries.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,

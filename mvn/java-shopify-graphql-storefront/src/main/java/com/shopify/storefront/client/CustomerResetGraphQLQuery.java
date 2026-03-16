@@ -8,8 +8,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * "Resets a customer’s password with the token received from a reset password
- * email. You can send a reset password email with the [`customerRecover`](https://shopify.dev/api/storefront/latest/mutations/customerRecover) mutation."
+ * Resets a customer's password using the reset token from a password recovery
+ * email. On success, returns the updated
+ * [`Customer`](https://shopify.dev/docs/api/storefront/current/objects/Customer) and a new [`CustomerAccessToken`](https://shopify.dev/docs/api/storefront/current/objects/CustomerAccessToken)
+ * for immediate authentication.
+ *   
+ * Use the [`customerRecover`](https://shopify.dev/docs/api/storefront/current/mutations/customerRecover) mutation to send the password recovery email that provides the reset token.
+ * Alternatively, use [`customerResetByUrl`](https://shopify.dev/docs/api/storefront/current/mutations/customerResetByUrl)
+ * if you have the full reset URL instead of the customer ID and token.
+ *   
+ * > Caution:
+ * > This mutation handles sensitive customer credentials. Validate password requirements on the client before submission.
  */
 public class CustomerResetGraphQLQuery extends GraphQLQuery {
   public CustomerResetGraphQLQuery(String id, CustomerResetInput input, String queryName,

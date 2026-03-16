@@ -9,7 +9,15 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * A company's location.
+ * A branch or office of a
+ * [`Company`](https://shopify.dev/docs/api/storefront/current/objects/Company)
+ * where B2B customers can place orders. When a B2B customer selects a location
+ * after logging in, the Storefront API contextualizes product queries to return
+ * location-specific pricing and quantity rules.
+ *
+ * Access through the [`PurchasingCompany`](https://shopify.dev/docs/api/storefront/current/objects/PurchasingCompany)
+ * object, which associates the location with the buyer's
+ * [`Cart`](https://shopify.dev/docs/api/storefront/current/objects/Cart).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

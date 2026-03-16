@@ -7,7 +7,11 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The input fields for a selectable delivery address in a cart.
+ * The input fields for a selectable delivery address to present to the buyer. Used by [`CartDeliveryInput`](https://shopify.dev/docs/api/storefront/current/input-objects/CartDeliveryInput)
+ * when creating a cart with the [`cartCreate`](https://shopify.dev/docs/api/storefront/current/mutations/cartCreate) mutation.
+ *
+ * You can pre-select an address for the buyer, mark it as one-time use so it isn't
+ * saved after checkout, and specify how strictly the address should be validated.
  */
 public class CartSelectableAddressInput {
   /**

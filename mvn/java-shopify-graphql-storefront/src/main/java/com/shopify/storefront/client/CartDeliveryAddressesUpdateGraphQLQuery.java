@@ -9,7 +9,11 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Updates one or more delivery addresses on a cart.
+ * Updates one or more delivery addresses on a
+ * [`Cart`](https://shopify.dev/docs/api/storefront/current/objects/Cart). Each
+ * address can be modified to change its details, set it as the pre-selected
+ * address for checkout, or mark it for one-time use so it isn't saved to the
+ * customer's account.
  */
 public class CartDeliveryAddressesUpdateGraphQLQuery extends GraphQLQuery {
   public CartDeliveryAddressesUpdateGraphQLQuery(String cartId,

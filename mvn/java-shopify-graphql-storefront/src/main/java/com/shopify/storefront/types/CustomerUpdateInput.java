@@ -7,7 +7,14 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The input fields to update the Customer information.
+ * The input fields for updating a
+ * [`Customer`](https://shopify.dev/docs/api/storefront/current/objects/Customer). Used by the [`customerUpdate`](https://shopify.dev/docs/api/storefront/current/mutations/customerUpdate) mutation.
+ *
+ * > Caution:
+ * > Updating the password invalidates all existing access tokens, including the
+ * one used to perform the mutation. The response returns a new access token.
+ * Ensure your app handles the new token returned in the response to avoid logging
+ * the customer out.
  */
 public class CustomerUpdateInput {
   /**

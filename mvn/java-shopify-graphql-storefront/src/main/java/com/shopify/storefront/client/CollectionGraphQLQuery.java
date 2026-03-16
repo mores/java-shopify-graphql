@@ -7,7 +7,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Fetch a specific `Collection` by one of its unique attributes.
+ * Retrieves a single [`Collection`](https://shopify.dev/docs/api/storefront/current/objects/Collection)
+ * by its ID or handle. Use the [`products`](https://shopify.dev/docs/api/storefront/current/objects/Collection#field-Collection.fields.products)
+ * field to access items in the collection.
  */
 public class CollectionGraphQLQuery extends GraphQLQuery {
   public CollectionGraphQLQuery(String id, String handle, String queryName, Set<String> fieldsSet) {

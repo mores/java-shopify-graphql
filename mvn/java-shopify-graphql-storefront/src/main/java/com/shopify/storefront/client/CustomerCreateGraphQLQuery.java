@@ -8,7 +8,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Creates a new customer.
+ * Creates a new [`Customer`](https://shopify.dev/docs/api/storefront/current/objects/Customer)
+ * account with the provided contact information and login credentials. The
+ * customer can then sign in for things such as accessing their account, viewing
+ * order history, and managing saved addresses.
+ *   
+ * > Caution:
+ * > This mutation creates customer credentials. Ensure passwords are collected
+ * securely and never logged or exposed in client-side code.
  */
 public class CustomerCreateGraphQLQuery extends GraphQLQuery {
   public CustomerCreateGraphQLQuery(CustomerCreateInput input, String queryName,

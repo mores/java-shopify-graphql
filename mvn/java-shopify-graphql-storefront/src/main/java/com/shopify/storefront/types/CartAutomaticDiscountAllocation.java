@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The discounts automatically applied to the cart line based on prerequisites that have been met.
+ * A discount allocation [that applies automatically](https://help.shopify.com/manual/discounts/discount-methods/automatic-discounts)
+ * to a cart line when configured conditions are met. Unlike [`CartCodeDiscountAllocation`](https://shopify.dev/docs/api/storefront/current/objects/CartCodeDiscountAllocation),
+ * automatic discounts don't require customers to enter a code.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

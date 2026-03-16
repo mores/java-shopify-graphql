@@ -7,7 +7,10 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * Automatic discount applications capture the intentions of a discount that was automatically applied.
+ * An [automatic discount](https://help.shopify.com/manual/discounts/discount-methods/automatic-discounts) applied to a cart or checkout without requiring a discount code. Implements the [`DiscountApplication`](https://shopify.dev/docs/api/storefront/current/interfaces/DiscountApplication) interface.
+ *
+ * Includes the discount's title, value, and allocation details that specify how
+ * the discount amount distributes across entitled line items or shipping lines.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

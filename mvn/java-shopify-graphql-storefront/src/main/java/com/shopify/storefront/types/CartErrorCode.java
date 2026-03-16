@@ -1,7 +1,9 @@
 package com.shopify.storefront.types;
 
 /**
- * Possible error codes that can be returned by `CartUserError`.
+ * Error codes returned by [`CartUserError`](https://shopify.dev/docs/api/storefront/current/objects/CartUserError)
+ * during cart mutations. Covers validation failures for addresses, quantities,
+ * delivery options, merchandise lines, discount codes, and metafields.
  */
 public enum CartErrorCode {
   INVALID,
@@ -9,6 +11,8 @@ public enum CartErrorCode {
   LESS_THAN,
 
   INVALID_MERCHANDISE_LINE,
+
+  MERCHANDISE_NOT_APPLICABLE,
 
   MISSING_DISCOUNT_CODE,
 
@@ -20,9 +24,15 @@ public enum CartErrorCode {
 
   INVALID_DELIVERY_OPTION,
 
+  PENDING_DELIVERY_GROUPS,
+
   INVALID_PAYMENT,
 
   PAYMENT_METHOD_NOT_SUPPORTED,
+
+  PAYMENT_METHOD_NOT_APPLICABLE,
+
+  INVALID_PAYMENT_DEFERRED_PAYMENT_REQUIRED,
 
   INVALID_PAYMENT_EMPTY_CART,
 
@@ -45,6 +55,20 @@ public enum CartErrorCode {
   ONLY_ONE_DELIVERY_ADDRESS_CAN_BE_SELECTED,
 
   INVALID_DELIVERY_ADDRESS_ID,
+
+  BUYER_CANNOT_PURCHASE_FOR_COMPANY_LOCATION,
+
+  BUNDLES_AND_ADDONS_CANNOT_BE_MIXED,
+
+  PARENT_LINE_INVALID_REFERENCE,
+
+  PARENT_LINE_NOT_FOUND,
+
+  PARENT_LINE_NESTING_TOO_DEEP,
+
+  PARENT_LINE_OPERATION_BLOCKED,
+
+  GIFT_CARD_RECIPIENT_INVALID,
 
   ADDRESS_FIELD_IS_REQUIRED,
 
@@ -86,5 +110,13 @@ public enum CartErrorCode {
 
   PAYMENTS_CREDIT_CARD_YEAR_EXPIRED,
 
-  PAYMENTS_CREDIT_CARD_YEAR_INVALID_EXPIRY_YEAR
+  PAYMENTS_CREDIT_CARD_YEAR_INVALID_EXPIRY_YEAR,
+
+  VARIANT_REQUIRES_SELLING_PLAN,
+
+  SELLING_PLAN_NOT_APPLICABLE,
+
+  SERVICE_UNAVAILABLE,
+
+  CART_TOO_LARGE
 }

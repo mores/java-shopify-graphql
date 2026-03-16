@@ -4,8 +4,12 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 /**
- * Discount applications capture the intentions of a discount source at
- * the time of application.
+ * Captures the intent of a discount at the time it was applied. Each
+ * implementation represents a different discount source, such as [automatic discounts](https://help.shopify.com/manual/discounts/discount-methods/automatic-discounts), [discount codes](https://help.shopify.com/manual/discounts/discount-methods/discount-codes),
+ * and manual discounts.
+ *
+ * The actual discounted amount on a line item or shipping line is represented by the [`DiscountAllocation`](https://shopify.dev/docs/api/storefront/current/objects/DiscountAllocation)
+ * object, which references the discount application it originated from.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,

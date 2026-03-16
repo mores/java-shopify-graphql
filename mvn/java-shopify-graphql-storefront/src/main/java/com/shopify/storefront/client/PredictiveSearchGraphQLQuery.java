@@ -13,7 +13,17 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * List of the predictive search results.
+ * Returns suggested results as customers type in a search field, enabling
+ * type-ahead search experiences. The query matches
+ * [products](https://shopify.dev/docs/api/storefront/current/objects/Product), [collections](https://shopify.dev/docs/api/storefront/current/objects/Collection),
+ * [pages](https://shopify.dev/docs/api/storefront/current/objects/Page), and
+ * [articles](https://shopify.dev/docs/api/storefront/current/objects/Article)
+ * based on partial search terms, and also provides [search query suggestions](https://shopify.dev/docs/api/storefront/current/objects/SearchQuerySuggestion)
+ * to help customers refine their search.
+ *   
+ * You can filter results by resource type and limit the quantity. The [`limitScope`](https://shopify.dev/docs/api/storefront/current/queries/predictiveSearch#arguments-limitScope)
+ * argument controls whether limits apply across all result types or per type. Use [`unavailableProducts`](https://shopify.dev/docs/api/storefront/current/queries/predictiveSearch#arguments-unavailableProducts)
+ * to control how out-of-stock products appear in results.
  */
 public class PredictiveSearchGraphQLQuery extends GraphQLQuery {
   public PredictiveSearchGraphQLQuery(Integer limit, PredictiveSearchLimitScope limitScope,

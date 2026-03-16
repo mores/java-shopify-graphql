@@ -9,9 +9,18 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Sets cart metafield values. Cart metafield values will be set regardless if they were previously created or not.
+ * Sets [`Metafield`](https://shopify.dev/docs/api/storefront/current/objects/Metafield) values on a cart, creating new metafields or updating existing ones. Accepts
+ * up to 25 metafields per request.
  *   
- * Allows a maximum of 25 cart metafields to be set at a time.
+ * Cart metafields can automatically copy to order metafields when an order is
+ * created, if there's a matching order metafield definition with the [cart to order copyable](https://shopify.dev/docs/apps/build/metafields/use-metafield-capabilities#cart-to-order-copyable)
+ * capability enabled.
+ *   
+ * > Note:
+ * > This mutation doesn't trigger [Shopify
+ * Functions](https://shopify.dev/docs/api/functions). Changes aren't available
+ * to Shopify Functions until the buyer goes to checkout or performs another cart
+ * interaction that triggers the functions.
  */
 public class CartMetafieldsSetGraphQLQuery extends GraphQLQuery {
   public CartMetafieldsSetGraphQLQuery(List<CartMetafieldsSetInput> metafields, String queryName,

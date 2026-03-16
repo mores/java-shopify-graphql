@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * Provides the value of a Metaobject field.
+ * The value of a field within a [`Metaobject`](https://shopify.dev/docs/api/storefront/current/objects/Metaobject).
+ * For fields that reference other resources, use the [`reference`](https://shopify.dev/docs/api/storefront/current/objects/MetaobjectField#field-MetaobjectField.fields.reference)
+ * field for single references or [`references`](https://shopify.dev/docs/api/storefront/current/objects/MetaobjectField#field-MetaobjectField.fields.references) for lists.
  */
 public class MetaobjectField {
   /**

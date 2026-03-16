@@ -10,7 +10,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * List of the shop's articles.
+ * Returns a paginated list of
+ * [`Article`](https://shopify.dev/docs/api/storefront/current/objects/Article)
+ * objects from the shop's
+ * [`Blog`](https://shopify.dev/docs/api/storefront/current/objects/Blog)
+ * objects. Each article is a blog post containing content, author information,
+ * tags, and optional images.
+ *   
+ * Use the `query` argument to filter results by author, blog title, tags, or
+ * date fields. Sort results using the `sortKey` argument and reverse them with
+ * the `reverse` argument.
  */
 public class ArticlesGraphQLQuery extends GraphQLQuery {
   public ArticlesGraphQLQuery(Integer first, String after, Integer last, String before,

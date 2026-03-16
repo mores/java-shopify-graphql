@@ -8,9 +8,13 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * A group of one or more regions of the world that a merchant is targeting for
- * sales. To learn more about markets, refer to [the Shopify Markets conceptual
- * overview](/docs/apps/markets).
+ * An audience of buyers that a merchant targets for sales. Audiences can include
+ * geographic regions, company locations, and retail locations. Markets enable
+ * localized shopping experiences with region-specific languages, currencies, and pricing.
+ *
+ * Each market has a unique [`handle`](https://shopify.dev/docs/api/storefront/current/objects/Market#field-Market.fields.handle)
+ * for identification and supports custom data through [`metafields`](https://shopify.dev/docs/api/storefront/current/objects/Metafield).
+ * Learn more about [building localized experiences with Shopify Markets](https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/markets).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

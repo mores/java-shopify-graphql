@@ -20,5 +20,7 @@ public enum MetafieldsSetUserErrorCode {
 
   INVALID_VALUE,
 
-  INVALID_TYPE
+  INVALID_TYPE,
+
+  APP_NOT_AUTHORIZED
 }

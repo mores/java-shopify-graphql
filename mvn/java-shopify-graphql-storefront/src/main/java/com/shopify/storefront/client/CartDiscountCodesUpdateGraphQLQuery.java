@@ -8,7 +8,13 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Updates the discount codes applied to the cart.
+ * Updates the discount codes applied to a
+ * [`Cart`](https://shopify.dev/docs/api/storefront/current/objects/Cart). This
+ * mutation replaces all existing discount codes with the provided list, so pass
+ * an empty array to remove all codes. Discount codes are case-insensitive.
+ *   
+ * After updating, check each [`CartDiscountCode`](https://shopify.dev/docs/api/storefront/current/objects/CartDiscountCode) in the cart's [`discountCodes`](https://shopify.dev/docs/api/storefront/current/objects/Cart#field-Cart.fields.discountCodes)
+ * field to see whether the code is applicable to the cart's current contents.
  */
 public class CartDiscountCodesUpdateGraphQLQuery extends GraphQLQuery {
   public CartDiscountCodesUpdateGraphQLQuery(String cartId, List<String> discountCodes,

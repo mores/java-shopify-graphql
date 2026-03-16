@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * Manual discount applications capture the intentions of a discount that was manually created.
+ * A discount created manually by a merchant, as opposed to [automatic discounts](https://help.shopify.com/manual/discounts/discount-methods/automatic-discounts) or [discount codes](https://help.shopify.com/manual/discounts/discount-methods/discount-codes). Implements the [`DiscountApplication`](https://shopify.dev/docs/api/storefront/current/interfaces/DiscountApplication)
+ * interface and includes a title, optional description, and the discount value as
+ * either a fixed amount or percentage.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

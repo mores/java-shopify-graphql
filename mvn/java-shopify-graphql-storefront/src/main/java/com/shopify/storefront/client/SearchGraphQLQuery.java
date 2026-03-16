@@ -15,7 +15,16 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * List of the search results.
+ * Returns paginated search results for
+ * [`Product`](https://shopify.dev/docs/api/storefront/current/objects/Product),
+ * [`Page`](https://shopify.dev/docs/api/storefront/current/objects/Page), and
+ * [`Article`](https://shopify.dev/docs/api/storefront/current/objects/Article)
+ * resources based on a query string. Results are sorted by relevance by default.
+ *   
+ * The response includes the total result count and available product filters for
+ * building [faceted search interfaces](https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/products-collections/filter-products). Use the [`prefix`](https://shopify.dev/docs/api/storefront/current/enums/SearchPrefixQueryType)
+ * argument to enable partial word matching on the last search term, allowing
+ * queries like "winter snow" to match "snowboard" or "snowshoe".
  */
 public class SearchGraphQLQuery extends GraphQLQuery {
   public SearchGraphQLQuery(Integer first, String after, Integer last, String before,

@@ -9,6 +9,12 @@ import java.util.Set;
 
 /**
  * Deletes a cart metafield.
+ *   
+ * > Note:
+ * > This mutation won't trigger [Shopify
+ * Functions](https://shopify.dev/docs/api/functions). The changes won't be
+ * available to Shopify Functions until the buyer goes to checkout or performs
+ * another cart interaction that triggers the functions.
  */
 public class CartMetafieldDeleteGraphQLQuery extends GraphQLQuery {
   public CartMetafieldDeleteGraphQLQuery(CartMetafieldDeleteInput input, String queryName,

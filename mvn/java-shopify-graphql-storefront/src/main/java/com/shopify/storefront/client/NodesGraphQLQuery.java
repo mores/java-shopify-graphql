@@ -8,7 +8,14 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Returns the list of nodes with the given IDs.
+ * Retrieves multiple objects by their global IDs in a single request. Any object
+ * that implements the
+ * [`Node`](https://shopify.dev/docs/api/storefront/current/interfaces/Node)
+ * interface can be fetched, including
+ * [products](https://shopify.dev/docs/api/storefront/current/objects/Product), [collections](https://shopify.dev/docs/api/storefront/current/objects/Collection),
+ * and [pages](https://shopify.dev/docs/api/storefront/current/objects/Page).
+ *   
+ * Use inline fragments to access type-specific fields on the returned objects. The input accepts up to 250 IDs.
  */
 public class NodesGraphQLQuery extends GraphQLQuery {
   public NodesGraphQLQuery(List<String> ids, String queryName, Set<String> fieldsSet) {

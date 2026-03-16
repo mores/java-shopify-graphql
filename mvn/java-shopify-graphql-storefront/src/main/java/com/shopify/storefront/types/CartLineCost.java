@@ -6,7 +6,13 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The cost of the merchandise line that the buyer will pay at checkout.
+ * Cost breakdown for a single line item in a
+ * [cart](https://shopify.dev/docs/api/storefront/current/objects/Cart). Includes
+ * the per-unit price, the subtotal before line-level discounts, and the final
+ * total amount the buyer pays.
+ *
+ * The [`compareAtAmountPerQuantity`](https://shopify.dev/docs/api/storefront/current/objects/CartLineCost#field-CartLineCost.fields.compareAtAmountPerQuantity) field shows the original price when the item is on sale, enabling the display of
+ * savings to customers.
  */
 public class CartLineCost {
   /**

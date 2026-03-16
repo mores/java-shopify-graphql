@@ -7,7 +7,10 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The input fields for a filter used to view a subset of products in a collection matching a specific price range.
+ * A price range for filtering products in a collection. Used by the [`ProductFilter`](https://shopify.dev/docs/api/storefront/current/input-objects/ProductFilter) input's [`price`](https://shopify.dev/docs/api/storefront/current/input-objects/ProductFilter#fields-price) field.
+ *
+ * > Note: Omitting the [maximum](https://shopify.dev/docs/api/storefront/currents/input-objects/PriceRangeFilter#fields-max)
+ * returns all products above the [minimum](https://shopify.dev/docs/api/storefront/current/input-objects/PriceRangeFilter#fields-min).
  */
 public class PriceRangeFilter {
   /**

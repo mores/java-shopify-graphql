@@ -8,7 +8,15 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * An online store blog.
+ * A blog container for
+ * [`Article`](https://shopify.dev/docs/api/storefront/current/objects/Article)
+ * objects. Stores can have multiple blogs, for example to organize content by
+ * topic or purpose.
+ *
+ * Each blog provides access to its articles, contributing [`ArticleAuthor`](https://shopify.dev/docs/api/storefront/current/objects/ArticleAuthor) objects,
+ * and [`SEO`](https://shopify.dev/docs/api/storefront/current/objects/SEO)
+ * information. You can retrieve articles individually [by handle](https://shopify.dev/docs/api/storefront/current/objects/Blog#field-Blog.fields.articleByHandle)
+ * or as a [paginated list](https://shopify.dev/docs/api/storefront/current/objects/Blog#field-Blog.fields.articles).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

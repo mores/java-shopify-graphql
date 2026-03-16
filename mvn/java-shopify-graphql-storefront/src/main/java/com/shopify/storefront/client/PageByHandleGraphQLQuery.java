@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Find a page by its handle.
+ * Retrieves a [`Page`](https://shopify.dev/docs/api/storefront/current/objects/Page) by its handle.
  */
 public class PageByHandleGraphQLQuery extends GraphQLQuery {
   public PageByHandleGraphQLQuery(String handle, String queryName, Set<String> fieldsSet) {

@@ -7,19 +7,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Sends a reset password email to the customer. The reset password
- * email contains a reset password URL and token that you can pass to
- * the [`customerResetByUrl`](https://shopify.dev/api/storefront/latest/mutations/customerResetByUrl) or
- * [`customerReset`](https://shopify.dev/api/storefront/latest/mutations/customerReset) mutation to reset the
- * customer password.
+ * Sends a reset password email to the customer. The email contains a reset
+ * password URL and token that you can pass to the [`customerResetByUrl`](https://shopify.dev/docs/api/storefront/current/mutations/customerResetByUrl) or [`customerReset`](https://shopify.dev/docs/api/storefront/current/mutations/customerReset)
+ * mutation to reset the customer's password.
  *   
- * This mutation is throttled by IP. With private access,
- * you can provide a [`Shopify-Storefront-Buyer-IP`](https://shopify.dev/api/usage/authentication#optional-ip-header)
- * instead of the request IP.
- * The header is case-sensitive and must be sent as `Shopify-Storefront-Buyer-IP`.
+ * This mutation is throttled by IP. With private access, you can provide a
+ * [`Shopify-Storefront-Buyer-IP`
+ * header](https://shopify.dev/docs/api/usage/authentication#optional-ip-header)
+ * instead of the request IP. The header is case-sensitive.
  *   
- * Make sure that the value provided to `Shopify-Storefront-Buyer-IP` is trusted. Unthrottled access to this
- * mutation presents a security risk.
+ * > Caution:
+ * > Ensure the value provided to `Shopify-Storefront-Buyer-IP` is trusted.
+ * Unthrottled access to this mutation presents a security risk.
  */
 public class CustomerRecoverGraphQLQuery extends GraphQLQuery {
   public CustomerRecoverGraphQLQuery(String email, String queryName, Set<String> fieldsSet) {

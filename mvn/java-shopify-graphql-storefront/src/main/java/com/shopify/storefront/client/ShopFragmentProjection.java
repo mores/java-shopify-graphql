@@ -27,6 +27,13 @@ public class ShopFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>, 
      return projection;
   }
 
+  public TranslationProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> customerAccountTranslations(
+      ) {
+     TranslationProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new TranslationProjection<>(this, getRoot());
+     getFields().put("customerAccountTranslations", projection);
+     return projection;
+  }
+
   public MetafieldProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> metafield() {
      MetafieldProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());
      getFields().put("metafield", projection);
@@ -104,6 +111,13 @@ public class ShopFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>, 
      return projection;
   }
 
+  public SocialLoginProviderProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> socialLoginProviders(
+      ) {
+     SocialLoginProviderProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new SocialLoginProviderProjection<>(this, getRoot());
+     getFields().put("socialLoginProviders", projection);
+     return projection;
+  }
+
   public ShopPolicyWithDefaultProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> subscriptionPolicy(
       ) {
      ShopPolicyWithDefaultProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new ShopPolicyWithDefaultProjection<>(this, getRoot());
@@ -115,6 +129,11 @@ public class ShopFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>, 
      ShopPolicyProjection<ShopFragmentProjection<PARENT, ROOT>, ROOT> projection = new ShopPolicyProjection<>(this, getRoot());
      getFields().put("termsOfService", projection);
      return projection;
+  }
+
+  public ShopFragmentProjection<PARENT, ROOT> customerAccountUrl() {
+    getFields().put("customerAccountUrl", null);
+    return this;
   }
 
   public ShopFragmentProjection<PARENT, ROOT> description() {

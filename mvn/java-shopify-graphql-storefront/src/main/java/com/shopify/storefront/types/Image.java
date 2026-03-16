@@ -7,7 +7,14 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * Represents an image resource.
+ * An image resource with URL, dimensions, and transformation options. Used for
+ * product images, collection images, media previews, and other visual content
+ * throughout the storefront.
+ *
+ * The [`url`](https://shopify.dev/docs/api/storefront/current/objects/Image#field-Image.fields.url) field accepts an [`ImageTransformInput`](https://shopify.dev/docs/api/storefront/current/input-objects/ImageTransformInput)
+ * argument for resizing, cropping, scaling for retina displays, and converting
+ * between image formats. Use the [`thumbhash`](https://shopify.dev/docs/api/storefront/current/objects/Image#field-Image.fields.thumbhash)
+ * field to display lightweight placeholders while images load.
  */
 public class Image {
   /**
@@ -36,6 +43,15 @@ public class Image {
    * The location of the image as a URL.
    */
   private String src;
+
+  /**
+   * The ThumbHash of the image.
+   *   
+   * Useful to display placeholder images while the original image is loading.
+   *   
+   * See https://evanw.github.io/thumbhash/ for details on how to use it.
+   */
+  private String thumbhash;
 
   /**
    * The location of the transformed image as a URL.
@@ -124,6 +140,21 @@ public class Image {
   }
 
   /**
+   * The ThumbHash of the image.
+   *   
+   * Useful to display placeholder images while the original image is loading.
+   *   
+   * See https://evanw.github.io/thumbhash/ for details on how to use it.
+   */
+  public String getThumbhash() {
+    return thumbhash;
+  }
+
+  public void setThumbhash(String thumbhash) {
+    this.thumbhash = thumbhash;
+  }
+
+  /**
    * The location of the transformed image as a URL.
    *   
    * All transformation arguments are considered "best-effort". If they can be applied to an image, they will be.
@@ -169,7 +200,7 @@ public class Image {
 
   @Override
   public String toString() {
-    return "Image{altText='" + altText + "', height='" + height + "', id='" + id + "', originalSrc='" + originalSrc + "', src='" + src + "', transformedSrc='" + transformedSrc + "', url='" + url + "', width='" + width + "'}";
+    return "Image{altText='" + altText + "', height='" + height + "', id='" + id + "', originalSrc='" + originalSrc + "', src='" + src + "', thumbhash='" + thumbhash + "', transformedSrc='" + transformedSrc + "', url='" + url + "', width='" + width + "'}";
   }
 
   @Override
@@ -182,6 +213,7 @@ public class Image {
         Objects.equals(id, that.id) &&
         Objects.equals(originalSrc, that.originalSrc) &&
         Objects.equals(src, that.src) &&
+        Objects.equals(thumbhash, that.thumbhash) &&
         Objects.equals(transformedSrc, that.transformedSrc) &&
         Objects.equals(url, that.url) &&
         Objects.equals(width, that.width);
@@ -189,7 +221,7 @@ public class Image {
 
   @Override
   public int hashCode() {
-    return Objects.hash(altText, height, id, originalSrc, src, transformedSrc, url, width);
+    return Objects.hash(altText, height, id, originalSrc, src, thumbhash, transformedSrc, url, width);
   }
 
   public static Builder newBuilder() {
@@ -225,6 +257,15 @@ public class Image {
     private String src;
 
     /**
+     * The ThumbHash of the image.
+     *   
+     * Useful to display placeholder images while the original image is loading.
+     *   
+     * See https://evanw.github.io/thumbhash/ for details on how to use it.
+     */
+    private String thumbhash;
+
+    /**
      * The location of the transformed image as a URL.
      *   
      * All transformation arguments are considered "best-effort". If they can be applied to an image, they will be.
@@ -257,6 +298,7 @@ public class Image {
       result.id = this.id;
       result.originalSrc = this.originalSrc;
       result.src = this.src;
+      result.thumbhash = this.thumbhash;
       result.transformedSrc = this.transformedSrc;
       result.url = this.url;
       result.width = this.width;
@@ -302,6 +344,18 @@ public class Image {
      */
     public Builder src(String src) {
       this.src = src;
+      return this;
+    }
+
+    /**
+     * The ThumbHash of the image.
+     *   
+     * Useful to display placeholder images while the original image is loading.
+     *   
+     * See https://evanw.github.io/thumbhash/ for details on how to use it.
+     */
+    public Builder thumbhash(String thumbhash) {
+      this.thumbhash = thumbhash;
       return this;
     }
 

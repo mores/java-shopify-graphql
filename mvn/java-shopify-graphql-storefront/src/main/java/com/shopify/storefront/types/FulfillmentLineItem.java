@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * Represents a single line item in a fulfillment. There is at most one fulfillment line item for each order line item.
+ * Records how many units of an [`OrderLineItem`](https://shopify.dev/docs/api/storefront/current/objects/OrderLineItem)
+ * were included in a [`Fulfillment`](https://shopify.dev/docs/api/storefront/current/objects/Fulfillment).
+ * Each order line item has at most one fulfillment line item per fulfillment.
  */
 public class FulfillmentLineItem {
   /**

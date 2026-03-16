@@ -10,7 +10,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * List of the shop's pages.
+ * Returns a paginated list of the shop's content
+ * [pages](https://shopify.dev/docs/api/storefront/current/objects/Page). Pages
+ * are custom HTML content like "About Us", "Contact", or policy information that
+ * merchants display outside their product catalog.
  */
 public class PagesGraphQLQuery extends GraphQLQuery {
   public PagesGraphQLQuery(Integer first, String after, Integer last, String before,

@@ -10,7 +10,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * List of the shop’s collections.
+ * Returns a paginated list of the shop's [collections](https://shopify.dev/docs/api/storefront/current/objects/Collection).
+ * Each `Collection` object includes a nested connection to its [products](https://shopify.dev/docs/api/storefront/current/objects/Collection#field-Collection.fields.products).
  */
 public class CollectionsGraphQLQuery extends GraphQLQuery {
   public CollectionsGraphQLQuery(Integer first, String after, Integer last, String before,
