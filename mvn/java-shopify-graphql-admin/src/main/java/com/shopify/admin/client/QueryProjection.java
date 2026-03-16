@@ -10,6 +10,8 @@ import com.shopify.admin.types.ArticleTagSort;
 import com.shopify.admin.types.AutomaticDiscountSortKeys;
 import com.shopify.admin.types.BlogSortKeys;
 import com.shopify.admin.types.BulkOperationType;
+import com.shopify.admin.types.BulkOperationsSortKeys;
+import com.shopify.admin.types.BuyerSignalInput;
 import com.shopify.admin.types.CalculateReturnInput;
 import com.shopify.admin.types.CarrierServiceSortKeys;
 import com.shopify.admin.types.CashTrackingSessionsSortKeys;
@@ -31,6 +33,7 @@ import com.shopify.admin.types.DeletionEventSortKeys;
 import com.shopify.admin.types.DeletionEventSubjectType;
 import com.shopify.admin.types.DiscountCodeSortKeys;
 import com.shopify.admin.types.DiscountSortKeys;
+import com.shopify.admin.types.DraftOrderAvailableDeliveryOptionsInput;
 import com.shopify.admin.types.DraftOrderSortKeys;
 import com.shopify.admin.types.EventSortKeys;
 import com.shopify.admin.types.FileSortKeys;
@@ -62,8 +65,10 @@ import com.shopify.admin.types.ProductIdentifierInput;
 import com.shopify.admin.types.ProductSortKeys;
 import com.shopify.admin.types.ProductVariantIdentifierInput;
 import com.shopify.admin.types.ProductVariantSortKeys;
+import com.shopify.admin.types.ReturnReasonDefinitionSortKeys;
 import com.shopify.admin.types.SegmentSortKeys;
 import com.shopify.admin.types.SellingPlanGroupSortKeys;
+import com.shopify.admin.types.ShopPayPaymentRequestReceiptsSortKeys;
 import com.shopify.admin.types.StaffMembersSortKeys;
 import com.shopify.admin.types.SubscriptionBillingAttemptsSortKeys;
 import com.shopify.admin.types.SubscriptionBillingCycleInput;
@@ -72,6 +77,7 @@ import com.shopify.admin.types.SubscriptionBillingCyclesIndexRangeSelector;
 import com.shopify.admin.types.SubscriptionBillingCyclesSortKeys;
 import com.shopify.admin.types.SubscriptionContractsSortKeys;
 import com.shopify.admin.types.ThemeRole;
+import com.shopify.admin.types.TransferSortKeys;
 import com.shopify.admin.types.TranslatableResourceType;
 import com.shopify.admin.types.UTMInput;
 import com.shopify.admin.types.UrlRedirectSortKeys;
@@ -617,12 +623,59 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
      return projection;
   }
 
-  public CountProjection<QueryProjection<PARENT, ROOT>, ROOT> blogsCount(String query) {
+  public CountProjection<QueryProjection<PARENT, ROOT>, ROOT> blogsCount(String query,
+      Integer limit) {
     CountProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());    
     getFields().put("blogsCount", projection);
     getInputArguments().computeIfAbsent("blogsCount", k -> new ArrayList<>());                      
     InputArgument queryArg = new InputArgument("query", query);
     getInputArguments().get("blogsCount").add(queryArg);
+    InputArgument limitArg = new InputArgument("limit", limit);
+    getInputArguments().get("blogsCount").add(limitArg);
+    return projection;
+  }
+
+  public BulkOperationProjection<QueryProjection<PARENT, ROOT>, ROOT> bulkOperation() {
+     BulkOperationProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new BulkOperationProjection<>(this, getRoot());
+     getFields().put("bulkOperation", projection);
+     return projection;
+  }
+
+  public BulkOperationProjection<QueryProjection<PARENT, ROOT>, ROOT> bulkOperation(String id) {
+    BulkOperationProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new BulkOperationProjection<>(this, getRoot());    
+    getFields().put("bulkOperation", projection);
+    getInputArguments().computeIfAbsent("bulkOperation", k -> new ArrayList<>());                      
+    InputArgument idArg = new InputArgument("id", id);
+    getInputArguments().get("bulkOperation").add(idArg);
+    return projection;
+  }
+
+  public BulkOperationConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> bulkOperations() {
+     BulkOperationConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new BulkOperationConnectionProjection<>(this, getRoot());
+     getFields().put("bulkOperations", projection);
+     return projection;
+  }
+
+  public BulkOperationConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> bulkOperations(
+      Integer first, String after, Integer last, String before, Boolean reverse,
+      BulkOperationsSortKeys sortKey, String query) {
+    BulkOperationConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new BulkOperationConnectionProjection<>(this, getRoot());    
+    getFields().put("bulkOperations", projection);
+    getInputArguments().computeIfAbsent("bulkOperations", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("bulkOperations").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("bulkOperations").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("bulkOperations").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("bulkOperations").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    getInputArguments().get("bulkOperations").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    getInputArguments().get("bulkOperations").add(sortKeyArg);
+    InputArgument queryArg = new InputArgument("query", query);
+    getInputArguments().get("bulkOperations").add(queryArg);
     return projection;
   }
 
@@ -822,7 +875,7 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
   }
 
   public CountProjection<QueryProjection<PARENT, ROOT>, ROOT> catalogsCount(CatalogType type,
-      String query) {
+      String query, Integer limit) {
     CountProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());    
     getFields().put("catalogsCount", projection);
     getInputArguments().computeIfAbsent("catalogsCount", k -> new ArrayList<>());                      
@@ -830,6 +883,8 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     getInputArguments().get("catalogsCount").add(typeArg);
     InputArgument queryArg = new InputArgument("query", query);
     getInputArguments().get("catalogsCount").add(queryArg);
+    InputArgument limitArg = new InputArgument("limit", limit);
+    getInputArguments().get("catalogsCount").add(limitArg);
     return projection;
   }
 
@@ -1139,7 +1194,7 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
   }
 
   public CountProjection<QueryProjection<PARENT, ROOT>, ROOT> collectionsCount(String query,
-      String savedSearchId) {
+      String savedSearchId, Integer limit) {
     CountProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());    
     getFields().put("collectionsCount", projection);
     getInputArguments().computeIfAbsent("collectionsCount", k -> new ArrayList<>());                      
@@ -1147,6 +1202,8 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     getInputArguments().get("collectionsCount").add(queryArg);
     InputArgument savedSearchIdArg = new InputArgument("savedSearchId", savedSearchId);
     getInputArguments().get("collectionsCount").add(savedSearchIdArg);
+    InputArgument limitArg = new InputArgument("limit", limit);
+    getInputArguments().get("collectionsCount").add(limitArg);
     return projection;
   }
 
@@ -1227,6 +1284,15 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
      CountProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());
      getFields().put("companiesCount", projection);
      return projection;
+  }
+
+  public CountProjection<QueryProjection<PARENT, ROOT>, ROOT> companiesCount(Integer limit) {
+    CountProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());    
+    getFields().put("companiesCount", projection);
+    getInputArguments().computeIfAbsent("companiesCount", k -> new ArrayList<>());                      
+    InputArgument limitArg = new InputArgument("limit", limit);
+    getInputArguments().get("companiesCount").add(limitArg);
+    return projection;
   }
 
   public CompanyProjection<QueryProjection<PARENT, ROOT>, ROOT> company() {
@@ -1645,12 +1711,15 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
      return projection;
   }
 
-  public CountProjection<QueryProjection<PARENT, ROOT>, ROOT> customersCount(String query) {
+  public CountProjection<QueryProjection<PARENT, ROOT>, ROOT> customersCount(String query,
+      Integer limit) {
     CountProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());    
     getFields().put("customersCount", projection);
     getInputArguments().computeIfAbsent("customersCount", k -> new ArrayList<>());                      
     InputArgument queryArg = new InputArgument("query", query);
     getInputArguments().get("customersCount").add(queryArg);
+    InputArgument limitArg = new InputArgument("limit", limit);
+    getInputArguments().get("customersCount").add(limitArg);
     return projection;
   }
 
@@ -1838,12 +1907,15 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
      return projection;
   }
 
-  public CountProjection<QueryProjection<PARENT, ROOT>, ROOT> discountCodesCount(String query) {
+  public CountProjection<QueryProjection<PARENT, ROOT>, ROOT> discountCodesCount(String query,
+      Integer limit) {
     CountProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());    
     getFields().put("discountCodesCount", projection);
     getInputArguments().computeIfAbsent("discountCodesCount", k -> new ArrayList<>());                      
     InputArgument queryArg = new InputArgument("query", query);
     getInputArguments().get("discountCodesCount").add(queryArg);
+    InputArgument limitArg = new InputArgument("limit", limit);
+    getInputArguments().get("discountCodesCount").add(limitArg);
     return projection;
   }
 
@@ -1900,7 +1972,7 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
   }
 
   public CountProjection<QueryProjection<PARENT, ROOT>, ROOT> discountNodesCount(String query,
-      String savedSearchId) {
+      String savedSearchId, Integer limit) {
     CountProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());    
     getFields().put("discountNodesCount", projection);
     getInputArguments().computeIfAbsent("discountNodesCount", k -> new ArrayList<>());                      
@@ -1908,6 +1980,8 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     getInputArguments().get("discountNodesCount").add(queryArg);
     InputArgument savedSearchIdArg = new InputArgument("savedSearchId", savedSearchId);
     getInputArguments().get("discountNodesCount").add(savedSearchIdArg);
+    InputArgument limitArg = new InputArgument("limit", limit);
+    getInputArguments().get("discountNodesCount").add(limitArg);
     return projection;
   }
 
@@ -2047,6 +2121,32 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     return projection;
   }
 
+  public DraftOrderAvailableDeliveryOptionsProjection<QueryProjection<PARENT, ROOT>, ROOT> draftOrderAvailableDeliveryOptions(
+      ) {
+     DraftOrderAvailableDeliveryOptionsProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new DraftOrderAvailableDeliveryOptionsProjection<>(this, getRoot());
+     getFields().put("draftOrderAvailableDeliveryOptions", projection);
+     return projection;
+  }
+
+  public DraftOrderAvailableDeliveryOptionsProjection<QueryProjection<PARENT, ROOT>, ROOT> draftOrderAvailableDeliveryOptions(
+      DraftOrderAvailableDeliveryOptionsInput input, String search, Integer localPickupFrom,
+      Integer localPickupCount, String sessionToken) {
+    DraftOrderAvailableDeliveryOptionsProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new DraftOrderAvailableDeliveryOptionsProjection<>(this, getRoot());    
+    getFields().put("draftOrderAvailableDeliveryOptions", projection);
+    getInputArguments().computeIfAbsent("draftOrderAvailableDeliveryOptions", k -> new ArrayList<>());                      
+    InputArgument inputArg = new InputArgument("input", input);
+    getInputArguments().get("draftOrderAvailableDeliveryOptions").add(inputArg);
+    InputArgument searchArg = new InputArgument("search", search);
+    getInputArguments().get("draftOrderAvailableDeliveryOptions").add(searchArg);
+    InputArgument localPickupFromArg = new InputArgument("localPickupFrom", localPickupFrom);
+    getInputArguments().get("draftOrderAvailableDeliveryOptions").add(localPickupFromArg);
+    InputArgument localPickupCountArg = new InputArgument("localPickupCount", localPickupCount);
+    getInputArguments().get("draftOrderAvailableDeliveryOptions").add(localPickupCountArg);
+    InputArgument sessionTokenArg = new InputArgument("sessionToken", sessionToken);
+    getInputArguments().get("draftOrderAvailableDeliveryOptions").add(sessionTokenArg);
+    return projection;
+  }
+
   public SavedSearchConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> draftOrderSavedSearches(
       ) {
      SavedSearchConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new SavedSearchConnectionProjection<>(this, getRoot());
@@ -2115,6 +2215,26 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     getInputArguments().get("draftOrders").add(queryArg);
     InputArgument savedSearchIdArg = new InputArgument("savedSearchId", savedSearchId);
     getInputArguments().get("draftOrders").add(savedSearchIdArg);
+    return projection;
+  }
+
+  public CountProjection<QueryProjection<PARENT, ROOT>, ROOT> draftOrdersCount() {
+     CountProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());
+     getFields().put("draftOrdersCount", projection);
+     return projection;
+  }
+
+  public CountProjection<QueryProjection<PARENT, ROOT>, ROOT> draftOrdersCount(String query,
+      String savedSearchId, Integer limit) {
+    CountProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());    
+    getFields().put("draftOrdersCount", projection);
+    getInputArguments().computeIfAbsent("draftOrdersCount", k -> new ArrayList<>());                      
+    InputArgument queryArg = new InputArgument("query", query);
+    getInputArguments().get("draftOrdersCount").add(queryArg);
+    InputArgument savedSearchIdArg = new InputArgument("savedSearchId", savedSearchId);
+    getInputArguments().get("draftOrdersCount").add(savedSearchIdArg);
+    InputArgument limitArg = new InputArgument("limit", limit);
+    getInputArguments().get("draftOrdersCount").add(limitArg);
     return projection;
   }
 
@@ -2392,7 +2512,7 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
   }
 
   public CountProjection<QueryProjection<PARENT, ROOT>, ROOT> giftCardsCount(String query,
-      String savedSearchId) {
+      String savedSearchId, Integer limit) {
     CountProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());    
     getFields().put("giftCardsCount", projection);
     getInputArguments().computeIfAbsent("giftCardsCount", k -> new ArrayList<>());                      
@@ -2400,6 +2520,8 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     getInputArguments().get("giftCardsCount").add(queryArg);
     InputArgument savedSearchIdArg = new InputArgument("savedSearchId", savedSearchId);
     getInputArguments().get("giftCardsCount").add(savedSearchIdArg);
+    InputArgument limitArg = new InputArgument("limit", limit);
+    getInputArguments().get("giftCardsCount").add(limitArg);
     return projection;
   }
 
@@ -2463,6 +2585,70 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
      InventoryPropertiesProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new InventoryPropertiesProjection<>(this, getRoot());
      getFields().put("inventoryProperties", projection);
      return projection;
+  }
+
+  public InventoryShipmentProjection<QueryProjection<PARENT, ROOT>, ROOT> inventoryShipment() {
+     InventoryShipmentProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new InventoryShipmentProjection<>(this, getRoot());
+     getFields().put("inventoryShipment", projection);
+     return projection;
+  }
+
+  public InventoryShipmentProjection<QueryProjection<PARENT, ROOT>, ROOT> inventoryShipment(
+      String id) {
+    InventoryShipmentProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new InventoryShipmentProjection<>(this, getRoot());    
+    getFields().put("inventoryShipment", projection);
+    getInputArguments().computeIfAbsent("inventoryShipment", k -> new ArrayList<>());                      
+    InputArgument idArg = new InputArgument("id", id);
+    getInputArguments().get("inventoryShipment").add(idArg);
+    return projection;
+  }
+
+  public InventoryTransferProjection<QueryProjection<PARENT, ROOT>, ROOT> inventoryTransfer() {
+     InventoryTransferProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new InventoryTransferProjection<>(this, getRoot());
+     getFields().put("inventoryTransfer", projection);
+     return projection;
+  }
+
+  public InventoryTransferProjection<QueryProjection<PARENT, ROOT>, ROOT> inventoryTransfer(
+      String id) {
+    InventoryTransferProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new InventoryTransferProjection<>(this, getRoot());    
+    getFields().put("inventoryTransfer", projection);
+    getInputArguments().computeIfAbsent("inventoryTransfer", k -> new ArrayList<>());                      
+    InputArgument idArg = new InputArgument("id", id);
+    getInputArguments().get("inventoryTransfer").add(idArg);
+    return projection;
+  }
+
+  public InventoryTransferConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> inventoryTransfers(
+      ) {
+     InventoryTransferConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new InventoryTransferConnectionProjection<>(this, getRoot());
+     getFields().put("inventoryTransfers", projection);
+     return projection;
+  }
+
+  public InventoryTransferConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> inventoryTransfers(
+      Integer first, String after, Integer last, String before, Boolean reverse,
+      TransferSortKeys sortKey, String query, String savedSearchId) {
+    InventoryTransferConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new InventoryTransferConnectionProjection<>(this, getRoot());    
+    getFields().put("inventoryTransfers", projection);
+    getInputArguments().computeIfAbsent("inventoryTransfers", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("inventoryTransfers").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("inventoryTransfers").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("inventoryTransfers").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("inventoryTransfers").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    getInputArguments().get("inventoryTransfers").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    getInputArguments().get("inventoryTransfers").add(sortKeyArg);
+    InputArgument queryArg = new InputArgument("query", query);
+    getInputArguments().get("inventoryTransfers").add(queryArg);
+    InputArgument savedSearchIdArg = new InputArgument("savedSearchId", savedSearchId);
+    getInputArguments().get("inventoryTransfers").add(savedSearchIdArg);
+    return projection;
   }
 
   public JobProjection<QueryProjection<PARENT, ROOT>, ROOT> job() {
@@ -2582,12 +2768,15 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
      return projection;
   }
 
-  public CountProjection<QueryProjection<PARENT, ROOT>, ROOT> locationsCount(String query) {
+  public CountProjection<QueryProjection<PARENT, ROOT>, ROOT> locationsCount(String query,
+      Integer limit) {
     CountProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());    
     getFields().put("locationsCount", projection);
     getInputArguments().computeIfAbsent("locationsCount", k -> new ArrayList<>());                      
     InputArgument queryArg = new InputArgument("query", query);
     getInputArguments().get("locationsCount").add(queryArg);
+    InputArgument limitArg = new InputArgument("limit", limit);
+    getInputArguments().get("locationsCount").add(limitArg);
     return projection;
   }
 
@@ -2849,6 +3038,23 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     getInputArguments().get("markets").add(sortKeyArg);
     InputArgument queryArg = new InputArgument("query", query);
     getInputArguments().get("markets").add(queryArg);
+    return projection;
+  }
+
+  public MarketsResolvedValuesProjection<QueryProjection<PARENT, ROOT>, ROOT> marketsResolvedValues(
+      ) {
+     MarketsResolvedValuesProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new MarketsResolvedValuesProjection<>(this, getRoot());
+     getFields().put("marketsResolvedValues", projection);
+     return projection;
+  }
+
+  public MarketsResolvedValuesProjection<QueryProjection<PARENT, ROOT>, ROOT> marketsResolvedValues(
+      BuyerSignalInput buyerSignal) {
+    MarketsResolvedValuesProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new MarketsResolvedValuesProjection<>(this, getRoot());    
+    getFields().put("marketsResolvedValues", projection);
+    getInputArguments().computeIfAbsent("marketsResolvedValues", k -> new ArrayList<>());                      
+    InputArgument buyerSignalArg = new InputArgument("buyerSignal", buyerSignal);
+    getInputArguments().get("marketsResolvedValues").add(buyerSignalArg);
     return projection;
   }
 
@@ -3195,6 +3401,22 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     return projection;
   }
 
+  public OrderEditSessionProjection<QueryProjection<PARENT, ROOT>, ROOT> orderEditSession() {
+     OrderEditSessionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new OrderEditSessionProjection<>(this, getRoot());
+     getFields().put("orderEditSession", projection);
+     return projection;
+  }
+
+  public OrderEditSessionProjection<QueryProjection<PARENT, ROOT>, ROOT> orderEditSession(
+      String id) {
+    OrderEditSessionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new OrderEditSessionProjection<>(this, getRoot());    
+    getFields().put("orderEditSession", projection);
+    getInputArguments().computeIfAbsent("orderEditSession", k -> new ArrayList<>());                      
+    InputArgument idArg = new InputArgument("id", id);
+    getInputArguments().get("orderEditSession").add(idArg);
+    return projection;
+  }
+
   public OrderPaymentStatusProjection<QueryProjection<PARENT, ROOT>, ROOT> orderPaymentStatus() {
      OrderPaymentStatusProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new OrderPaymentStatusProjection<>(this, getRoot());
      getFields().put("orderPaymentStatus", projection);
@@ -3340,6 +3562,15 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
      return projection;
   }
 
+  public CountProjection<QueryProjection<PARENT, ROOT>, ROOT> pagesCount(Integer limit) {
+    CountProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());    
+    getFields().put("pagesCount", projection);
+    getInputArguments().computeIfAbsent("pagesCount", k -> new ArrayList<>());                      
+    InputArgument limitArg = new InputArgument("limit", limit);
+    getInputArguments().get("pagesCount").add(limitArg);
+    return projection;
+  }
+
   public PaymentCustomizationProjection<QueryProjection<PARENT, ROOT>, ROOT> paymentCustomization(
       ) {
      PaymentCustomizationProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new PaymentCustomizationProjection<>(this, getRoot());
@@ -3405,6 +3636,22 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
      CountProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());
      getFields().put("pendingOrdersCount", projection);
      return projection;
+  }
+
+  public PointOfSaleDeviceProjection<QueryProjection<PARENT, ROOT>, ROOT> pointOfSaleDevice() {
+     PointOfSaleDeviceProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new PointOfSaleDeviceProjection<>(this, getRoot());
+     getFields().put("pointOfSaleDevice", projection);
+     return projection;
+  }
+
+  public PointOfSaleDeviceProjection<QueryProjection<PARENT, ROOT>, ROOT> pointOfSaleDevice(
+      String id) {
+    PointOfSaleDeviceProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new PointOfSaleDeviceProjection<>(this, getRoot());    
+    getFields().put("pointOfSaleDevice", projection);
+    getInputArguments().computeIfAbsent("pointOfSaleDevice", k -> new ArrayList<>());                      
+    InputArgument idArg = new InputArgument("id", id);
+    getInputArguments().get("pointOfSaleDevice").add(idArg);
+    return projection;
   }
 
   public PriceListProjection<QueryProjection<PARENT, ROOT>, ROOT> priceList() {
@@ -3737,12 +3984,15 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
      return projection;
   }
 
-  public CountProjection<QueryProjection<PARENT, ROOT>, ROOT> productVariantsCount(String query) {
+  public CountProjection<QueryProjection<PARENT, ROOT>, ROOT> productVariantsCount(String query,
+      Integer limit) {
     CountProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());    
     getFields().put("productVariantsCount", projection);
     getInputArguments().computeIfAbsent("productVariantsCount", k -> new ArrayList<>());                      
     InputArgument queryArg = new InputArgument("query", query);
     getInputArguments().get("productVariantsCount").add(queryArg);
+    InputArgument limitArg = new InputArgument("limit", limit);
+    getInputArguments().get("productVariantsCount").add(limitArg);
     return projection;
   }
 
@@ -3876,12 +4126,14 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
   }
 
   public CountProjection<QueryProjection<PARENT, ROOT>, ROOT> publicationsCount(
-      CatalogType catalogType) {
+      CatalogType catalogType, Integer limit) {
     CountProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());    
     getFields().put("publicationsCount", projection);
     getInputArguments().computeIfAbsent("publicationsCount", k -> new ArrayList<>());                      
     InputArgument catalogTypeArg = new InputArgument("catalogType", catalogType);
     getInputArguments().get("publicationsCount").add(catalogTypeArg);
+    InputArgument limitArg = new InputArgument("limit", limit);
+    getInputArguments().get("publicationsCount").add(limitArg);
     return projection;
   }
 
@@ -3892,12 +4144,14 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
   }
 
   public CountProjection<QueryProjection<PARENT, ROOT>, ROOT> publishedProductsCount(
-      String publicationId) {
+      String publicationId, Integer limit) {
     CountProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());    
     getFields().put("publishedProductsCount", projection);
     getInputArguments().computeIfAbsent("publishedProductsCount", k -> new ArrayList<>());                      
     InputArgument publicationIdArg = new InputArgument("publicationId", publicationId);
     getInputArguments().get("publishedProductsCount").add(publicationIdArg);
+    InputArgument limitArg = new InputArgument("limit", limit);
+    getInputArguments().get("publishedProductsCount").add(limitArg);
     return projection;
   }
 
@@ -3944,6 +4198,40 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     getInputArguments().computeIfAbsent("returnCalculate", k -> new ArrayList<>());                      
     InputArgument inputArg = new InputArgument("input", input);
     getInputArguments().get("returnCalculate").add(inputArg);
+    return projection;
+  }
+
+  public ReturnReasonDefinitionConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> returnReasonDefinitions(
+      ) {
+     ReturnReasonDefinitionConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new ReturnReasonDefinitionConnectionProjection<>(this, getRoot());
+     getFields().put("returnReasonDefinitions", projection);
+     return projection;
+  }
+
+  public ReturnReasonDefinitionConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> returnReasonDefinitions(
+      List<String> ids, List<String> handles, Integer first, String after, Integer last,
+      String before, Boolean reverse, ReturnReasonDefinitionSortKeys sortKey, String query) {
+    ReturnReasonDefinitionConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new ReturnReasonDefinitionConnectionProjection<>(this, getRoot());    
+    getFields().put("returnReasonDefinitions", projection);
+    getInputArguments().computeIfAbsent("returnReasonDefinitions", k -> new ArrayList<>());                      
+    InputArgument idsArg = new InputArgument("ids", ids);
+    getInputArguments().get("returnReasonDefinitions").add(idsArg);
+    InputArgument handlesArg = new InputArgument("handles", handles);
+    getInputArguments().get("returnReasonDefinitions").add(handlesArg);
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("returnReasonDefinitions").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("returnReasonDefinitions").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("returnReasonDefinitions").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("returnReasonDefinitions").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    getInputArguments().get("returnReasonDefinitions").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    getInputArguments().get("returnReasonDefinitions").add(sortKeyArg);
+    InputArgument queryArg = new InputArgument("query", query);
+    getInputArguments().get("returnReasonDefinitions").add(queryArg);
     return projection;
   }
 
@@ -4215,6 +4503,15 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
      return projection;
   }
 
+  public CountProjection<QueryProjection<PARENT, ROOT>, ROOT> segmentsCount(Integer limit) {
+    CountProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());    
+    getFields().put("segmentsCount", projection);
+    getInputArguments().computeIfAbsent("segmentsCount", k -> new ArrayList<>());                      
+    InputArgument limitArg = new InputArgument("limit", limit);
+    getInputArguments().get("segmentsCount").add(limitArg);
+    return projection;
+  }
+
   public SellingPlanGroupProjection<QueryProjection<PARENT, ROOT>, ROOT> sellingPlanGroup() {
      SellingPlanGroupProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new SellingPlanGroupProjection<>(this, getRoot());
      getFields().put("sellingPlanGroup", projection);
@@ -4295,6 +4592,53 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     return projection;
   }
 
+  public ShopPayPaymentRequestReceiptProjection<QueryProjection<PARENT, ROOT>, ROOT> shopPayPaymentRequestReceipt(
+      ) {
+     ShopPayPaymentRequestReceiptProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new ShopPayPaymentRequestReceiptProjection<>(this, getRoot());
+     getFields().put("shopPayPaymentRequestReceipt", projection);
+     return projection;
+  }
+
+  public ShopPayPaymentRequestReceiptProjection<QueryProjection<PARENT, ROOT>, ROOT> shopPayPaymentRequestReceipt(
+      String token) {
+    ShopPayPaymentRequestReceiptProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new ShopPayPaymentRequestReceiptProjection<>(this, getRoot());    
+    getFields().put("shopPayPaymentRequestReceipt", projection);
+    getInputArguments().computeIfAbsent("shopPayPaymentRequestReceipt", k -> new ArrayList<>());                      
+    InputArgument tokenArg = new InputArgument("token", token);
+    getInputArguments().get("shopPayPaymentRequestReceipt").add(tokenArg);
+    return projection;
+  }
+
+  public ShopPayPaymentRequestReceiptConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> shopPayPaymentRequestReceipts(
+      ) {
+     ShopPayPaymentRequestReceiptConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new ShopPayPaymentRequestReceiptConnectionProjection<>(this, getRoot());
+     getFields().put("shopPayPaymentRequestReceipts", projection);
+     return projection;
+  }
+
+  public ShopPayPaymentRequestReceiptConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> shopPayPaymentRequestReceipts(
+      Integer first, String after, Integer last, String before, Boolean reverse,
+      ShopPayPaymentRequestReceiptsSortKeys sortKey, String query) {
+    ShopPayPaymentRequestReceiptConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new ShopPayPaymentRequestReceiptConnectionProjection<>(this, getRoot());    
+    getFields().put("shopPayPaymentRequestReceipts", projection);
+    getInputArguments().computeIfAbsent("shopPayPaymentRequestReceipts", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("shopPayPaymentRequestReceipts").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("shopPayPaymentRequestReceipts").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("shopPayPaymentRequestReceipts").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("shopPayPaymentRequestReceipts").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    getInputArguments().get("shopPayPaymentRequestReceipts").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    getInputArguments().get("shopPayPaymentRequestReceipts").add(sortKeyArg);
+    InputArgument queryArg = new InputArgument("query", query);
+    getInputArguments().get("shopPayPaymentRequestReceipts").add(queryArg);
+    return projection;
+  }
+
   public ShopifyFunctionProjection<QueryProjection<PARENT, ROOT>, ROOT> shopifyFunction() {
      ShopifyFunctionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new ShopifyFunctionProjection<>(this, getRoot());
      getFields().put("shopifyFunction", projection);
@@ -4345,6 +4689,22 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
      ShopifyPaymentsAccountProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new ShopifyPaymentsAccountProjection<>(this, getRoot());
      getFields().put("shopifyPaymentsAccount", projection);
      return projection;
+  }
+
+  public ShopifyqlQueryResponseProjection<QueryProjection<PARENT, ROOT>, ROOT> shopifyqlQuery() {
+     ShopifyqlQueryResponseProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new ShopifyqlQueryResponseProjection<>(this, getRoot());
+     getFields().put("shopifyqlQuery", projection);
+     return projection;
+  }
+
+  public ShopifyqlQueryResponseProjection<QueryProjection<PARENT, ROOT>, ROOT> shopifyqlQuery(
+      String query) {
+    ShopifyqlQueryResponseProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new ShopifyqlQueryResponseProjection<>(this, getRoot());    
+    getFields().put("shopifyqlQuery", projection);
+    getInputArguments().computeIfAbsent("shopifyqlQuery", k -> new ArrayList<>());                      
+    InputArgument queryArg = new InputArgument("query", query);
+    getInputArguments().get("shopifyqlQuery").add(queryArg);
+    return projection;
   }
 
   public StaffMemberProjection<QueryProjection<PARENT, ROOT>, ROOT> staffMember() {
@@ -4874,7 +5234,7 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
   }
 
   public CountProjection<QueryProjection<PARENT, ROOT>, ROOT> urlRedirectsCount(String query,
-      String savedSearchId) {
+      String savedSearchId, Integer limit) {
     CountProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());    
     getFields().put("urlRedirectsCount", projection);
     getInputArguments().computeIfAbsent("urlRedirectsCount", k -> new ArrayList<>());                      
@@ -4882,6 +5242,8 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     getInputArguments().get("urlRedirectsCount").add(queryArg);
     InputArgument savedSearchIdArg = new InputArgument("savedSearchId", savedSearchId);
     getInputArguments().get("urlRedirectsCount").add(savedSearchIdArg);
+    InputArgument limitArg = new InputArgument("limit", limit);
+    getInputArguments().get("urlRedirectsCount").add(limitArg);
     return projection;
   }
 
@@ -4991,7 +5353,7 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
 
   public WebhookSubscriptionConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> webhookSubscriptions(
       Integer first, String after, Integer last, String before, Boolean reverse,
-      WebhookSubscriptionSortKeys sortKey, String query, String callbackUrl,
+      WebhookSubscriptionSortKeys sortKey, String query, String uri,
       WebhookSubscriptionFormat format, List<WebhookSubscriptionTopic> topics) {
     WebhookSubscriptionConnectionProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new WebhookSubscriptionConnectionProjection<>(this, getRoot());    
     getFields().put("webhookSubscriptions", projection);
@@ -5010,8 +5372,8 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     getInputArguments().get("webhookSubscriptions").add(sortKeyArg);
     InputArgument queryArg = new InputArgument("query", query);
     getInputArguments().get("webhookSubscriptions").add(queryArg);
-    InputArgument callbackUrlArg = new InputArgument("callbackUrl", callbackUrl);
-    getInputArguments().get("webhookSubscriptions").add(callbackUrlArg);
+    InputArgument uriArg = new InputArgument("uri", uri);
+    getInputArguments().get("webhookSubscriptions").add(uriArg);
     InputArgument formatArg = new InputArgument("format", format);
     getInputArguments().get("webhookSubscriptions").add(formatArg);
     InputArgument topicsArg = new InputArgument("topics", topics);
@@ -5026,12 +5388,14 @@ public class QueryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
   }
 
   public CountProjection<QueryProjection<PARENT, ROOT>, ROOT> webhookSubscriptionsCount(
-      String query) {
+      String query, Integer limit) {
     CountProjection<QueryProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());    
     getFields().put("webhookSubscriptionsCount", projection);
     getInputArguments().computeIfAbsent("webhookSubscriptionsCount", k -> new ArrayList<>());                      
     InputArgument queryArg = new InputArgument("query", query);
     getInputArguments().get("webhookSubscriptionsCount").add(queryArg);
+    InputArgument limitArg = new InputArgument("limit", limit);
+    getInputArguments().get("webhookSubscriptionsCount").add(limitArg);
     return projection;
   }
 

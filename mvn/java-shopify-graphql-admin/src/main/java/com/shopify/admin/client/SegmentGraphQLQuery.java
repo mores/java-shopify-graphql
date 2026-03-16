@@ -7,7 +7,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The Customer Segment.
+ * Retrieves a customer
+ * [`Segment`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Segment)
+ * by ID. Segments are dynamic groups of customers that meet specific criteria
+ * defined through [ShopifyQL queries](https://shopify.dev/docs/api/shopifyql/segment-query-language-reference).
+ *   
+ * Use segments for targeted marketing campaigns, analyzing customer behavior, or
+ * creating personalized experiences. Each segment includes its name, creation
+ * date, and the query that defines which [`Customer`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Customer)
+ * objects belong to it.
  */
 public class SegmentGraphQLQuery extends GraphQLQuery {
   public SegmentGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

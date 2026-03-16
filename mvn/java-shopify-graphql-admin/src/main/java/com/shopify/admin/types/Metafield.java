@@ -11,7 +11,7 @@ import java.util.Objects;
  * Metafields enable you to attach additional information to a Shopify resource, such
  * as a [Product](https://shopify.dev/api/admin-graphql/latest/objects/product) or
  * a [Collection](https://shopify.dev/api/admin-graphql/latest/objects/collection).
- * For more information about where you can attach metafields refer to [HasMetafields](https://shopify.dev/api/admin/graphql/reference/common-objects/HasMetafields).
+ * For more information about where you can attach metafields refer to [HasMetafields](https://shopify.dev/api/admin-graphql/latest/interfaces/HasMetafields).
  * Some examples of the data that metafields enable you to store are
  * specifications, size charts, downloadable documents, release dates, images, or part numbers.
  * Metafields are identified by an owner resource, namespace, and key. and store a
@@ -87,7 +87,7 @@ public class Metafield implements com.shopify.admin.types.HasCompareDigest, com.
   private MetafieldReferenceConnection references;
 
   /**
-   * The type of data that is stored in the metafield.
+   * The type of data that's stored in the metafield.
    * Refer to the list of [supported types](https://shopify.dev/apps/metafields/types).
    */
   private String type;
@@ -249,7 +249,7 @@ public class Metafield implements com.shopify.admin.types.HasCompareDigest, com.
   }
 
   /**
-   * The type of data that is stored in the metafield.
+   * The type of data that's stored in the metafield.
    * Refer to the list of [supported types](https://shopify.dev/apps/metafields/types).
    */
   public String getType() {
@@ -386,7 +386,7 @@ public class Metafield implements com.shopify.admin.types.HasCompareDigest, com.
     private MetafieldReferenceConnection references;
 
     /**
-     * The type of data that is stored in the metafield.
+     * The type of data that's stored in the metafield.
      * Refer to the list of [supported types](https://shopify.dev/apps/metafields/types).
      */
     private String type;
@@ -527,7 +527,7 @@ public class Metafield implements com.shopify.admin.types.HasCompareDigest, com.
     }
 
     /**
-     * The type of data that is stored in the metafield.
+     * The type of data that's stored in the metafield.
      * Refer to the list of [supported types](https://shopify.dev/apps/metafields/types).
      */
     public Builder type(String type) {

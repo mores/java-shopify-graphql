@@ -27,6 +27,13 @@ public class CollectionFragmentProjection<PARENT extends BaseSubProjectionNode<?
     return this;
   }
 
+  public CollectionOperationsProjection<CollectionFragmentProjection<PARENT, ROOT>, ROOT> activeOperations(
+      ) {
+     CollectionOperationsProjection<CollectionFragmentProjection<PARENT, ROOT>, ROOT> projection = new CollectionOperationsProjection<>(this, getRoot());
+     getFields().put("activeOperations", projection);
+     return projection;
+  }
+
   public CountProjection<CollectionFragmentProjection<PARENT, ROOT>, ROOT> availablePublicationsCount(
       ) {
      CountProjection<CollectionFragmentProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());

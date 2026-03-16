@@ -36,6 +36,11 @@ public class DraftOrderPlatformDiscount {
   private DiscountClass discountClass;
 
   /**
+   * The discount classes.
+   */
+  private List<DiscountClass> discountClasses;
+
+  /**
    * The discount node for the platform discount.
    */
   private DiscountNode discountNode;
@@ -134,6 +139,17 @@ public class DraftOrderPlatformDiscount {
   }
 
   /**
+   * The discount classes.
+   */
+  public List<DiscountClass> getDiscountClasses() {
+    return discountClasses;
+  }
+
+  public void setDiscountClasses(List<DiscountClass> discountClasses) {
+    this.discountClasses = discountClasses;
+  }
+
+  /**
    * The discount node for the platform discount.
    */
   public DiscountNode getDiscountNode() {
@@ -223,7 +239,7 @@ public class DraftOrderPlatformDiscount {
 
   @Override
   public String toString() {
-    return "DraftOrderPlatformDiscount{allocations='" + allocations + "', automaticDiscount='" + automaticDiscount + "', bxgyDiscount='" + bxgyDiscount + "', code='" + code + "', discountClass='" + discountClass + "', discountNode='" + discountNode + "', id='" + id + "', presentationLevel='" + presentationLevel + "', shortSummary='" + shortSummary + "', summary='" + summary + "', title='" + title + "', totalAmount='" + totalAmount + "', totalAmountPriceSet='" + totalAmountPriceSet + "'}";
+    return "DraftOrderPlatformDiscount{allocations='" + allocations + "', automaticDiscount='" + automaticDiscount + "', bxgyDiscount='" + bxgyDiscount + "', code='" + code + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', discountNode='" + discountNode + "', id='" + id + "', presentationLevel='" + presentationLevel + "', shortSummary='" + shortSummary + "', summary='" + summary + "', title='" + title + "', totalAmount='" + totalAmount + "', totalAmountPriceSet='" + totalAmountPriceSet + "'}";
   }
 
   @Override
@@ -236,6 +252,7 @@ public class DraftOrderPlatformDiscount {
         bxgyDiscount == that.bxgyDiscount &&
         Objects.equals(code, that.code) &&
         Objects.equals(discountClass, that.discountClass) &&
+        Objects.equals(discountClasses, that.discountClasses) &&
         Objects.equals(discountNode, that.discountNode) &&
         Objects.equals(id, that.id) &&
         Objects.equals(presentationLevel, that.presentationLevel) &&
@@ -248,7 +265,7 @@ public class DraftOrderPlatformDiscount {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocations, automaticDiscount, bxgyDiscount, code, discountClass, discountNode, id, presentationLevel, shortSummary, summary, title, totalAmount, totalAmountPriceSet);
+    return Objects.hash(allocations, automaticDiscount, bxgyDiscount, code, discountClass, discountClasses, discountNode, id, presentationLevel, shortSummary, summary, title, totalAmount, totalAmountPriceSet);
   }
 
   public static Builder newBuilder() {
@@ -280,6 +297,11 @@ public class DraftOrderPlatformDiscount {
      * The discount class.
      */
     private DiscountClass discountClass;
+
+    /**
+     * The discount classes.
+     */
+    private List<DiscountClass> discountClasses;
 
     /**
      * The discount node for the platform discount.
@@ -328,6 +350,7 @@ public class DraftOrderPlatformDiscount {
       result.bxgyDiscount = this.bxgyDiscount;
       result.code = this.code;
       result.discountClass = this.discountClass;
+      result.discountClasses = this.discountClasses;
       result.discountNode = this.discountNode;
       result.id = this.id;
       result.presentationLevel = this.presentationLevel;
@@ -376,6 +399,14 @@ public class DraftOrderPlatformDiscount {
      */
     public Builder discountClass(DiscountClass discountClass) {
       this.discountClass = discountClass;
+      return this;
+    }
+
+    /**
+     * The discount classes.
+     */
+    public Builder discountClasses(List<DiscountClass> discountClasses) {
+      this.discountClasses = discountClasses;
       return this;
     }
 

@@ -7,7 +7,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Deletes an article.
+ * Permanently deletes a blog article from a shop's blog. This mutation removes the article and all associated metadata.
+ *   
+ * For example, when outdated product information or seasonal content needs
+ * removal, merchants can use this mutation to clean up their blog.
+ *   
+ * Use the `articleDelete` mutation to:
+ * - Remove outdated or incorrect blog content
+ * - Clean up seasonal or time-sensitive articles
+ * - Maintain blog organization
+ *   
+ * The deletion is permanent and returns the deleted article's ID for confirmation.
  */
 public class ArticleDeleteGraphQLQuery extends GraphQLQuery {
   public ArticleDeleteGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

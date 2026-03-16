@@ -10,6 +10,12 @@ import java.util.Objects;
  * The input fields for creating or updating a
  * [buy X get Y discount (BXGY)](https://help.shopify.com/manual/discounts/discount-types/buy-x-get-y)
  * that's automatically applied on a cart and at checkout.
+ *
+ * When creating, required fields are:
+ *   - `customerBuys`
+ *   - `customerGets`
+ *   - `startsAt`
+ *   - `title`
  */
 public class DiscountAutomaticBxgyInput {
   /**
@@ -35,6 +41,13 @@ public class DiscountAutomaticBxgyInput {
    * For discounts without a fixed expiration date, specify `null`.
    */
   private OffsetDateTime endsAt;
+
+  /**
+   * The context defining which buyers can use the discount.
+   * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+   * Discounts automatically apply on Point of Sale (POS) for Pro locations when the context is not set to ALL.
+   */
+  private DiscountContextInput context;
 
   /**
    * The maximum number of times that the discount can be applied to an order.
@@ -103,6 +116,19 @@ public class DiscountAutomaticBxgyInput {
   }
 
   /**
+   * The context defining which buyers can use the discount.
+   * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+   * Discounts automatically apply on Point of Sale (POS) for Pro locations when the context is not set to ALL.
+   */
+  public DiscountContextInput getContext() {
+    return context;
+  }
+
+  public void setContext(DiscountContextInput context) {
+    this.context = context;
+  }
+
+  /**
    * The maximum number of times that the discount can be applied to an order.
    */
   public String getUsesPerOrderLimit() {
@@ -137,7 +163,7 @@ public class DiscountAutomaticBxgyInput {
 
   @Override
   public String toString() {
-    return "DiscountAutomaticBxgyInput{combinesWith='" + combinesWith + "', title='" + title + "', startsAt='" + startsAt + "', endsAt='" + endsAt + "', usesPerOrderLimit='" + usesPerOrderLimit + "', customerBuys='" + customerBuys + "', customerGets='" + customerGets + "'}";
+    return "DiscountAutomaticBxgyInput{combinesWith='" + combinesWith + "', title='" + title + "', startsAt='" + startsAt + "', endsAt='" + endsAt + "', context='" + context + "', usesPerOrderLimit='" + usesPerOrderLimit + "', customerBuys='" + customerBuys + "', customerGets='" + customerGets + "'}";
   }
 
   @Override
@@ -149,6 +175,7 @@ public class DiscountAutomaticBxgyInput {
         Objects.equals(title, that.title) &&
         Objects.equals(startsAt, that.startsAt) &&
         Objects.equals(endsAt, that.endsAt) &&
+        Objects.equals(context, that.context) &&
         Objects.equals(usesPerOrderLimit, that.usesPerOrderLimit) &&
         Objects.equals(customerBuys, that.customerBuys) &&
         Objects.equals(customerGets, that.customerGets);
@@ -156,7 +183,7 @@ public class DiscountAutomaticBxgyInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(combinesWith, title, startsAt, endsAt, usesPerOrderLimit, customerBuys, customerGets);
+    return Objects.hash(combinesWith, title, startsAt, endsAt, context, usesPerOrderLimit, customerBuys, customerGets);
   }
 
   public static Builder newBuilder() {
@@ -189,6 +216,13 @@ public class DiscountAutomaticBxgyInput {
     private OffsetDateTime endsAt;
 
     /**
+     * The context defining which buyers can use the discount.
+     * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+     * Discounts automatically apply on Point of Sale (POS) for Pro locations when the context is not set to ALL.
+     */
+    private DiscountContextInput context;
+
+    /**
      * The maximum number of times that the discount can be applied to an order.
      */
     private String usesPerOrderLimit;
@@ -209,6 +243,7 @@ public class DiscountAutomaticBxgyInput {
       result.title = this.title;
       result.startsAt = this.startsAt;
       result.endsAt = this.endsAt;
+      result.context = this.context;
       result.usesPerOrderLimit = this.usesPerOrderLimit;
       result.customerBuys = this.customerBuys;
       result.customerGets = this.customerGets;
@@ -248,6 +283,16 @@ public class DiscountAutomaticBxgyInput {
      */
     public Builder endsAt(OffsetDateTime endsAt) {
       this.endsAt = endsAt;
+      return this;
+    }
+
+    /**
+     * The context defining which buyers can use the discount.
+     * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+     * Discounts automatically apply on Point of Sale (POS) for Pro locations when the context is not set to ALL.
+     */
+    public Builder context(DiscountContextInput context) {
+      this.context = context;
       return this;
     }
 

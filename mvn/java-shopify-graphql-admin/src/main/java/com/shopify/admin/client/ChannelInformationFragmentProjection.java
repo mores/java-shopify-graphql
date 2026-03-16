@@ -36,6 +36,11 @@ public class ChannelInformationFragmentProjection<PARENT extends BaseSubProjecti
     return this;
   }
 
+  public ChannelInformationFragmentProjection<PARENT, ROOT> displayName() {
+    getFields().put("displayName", null);
+    return this;
+  }
+
   public ChannelInformationFragmentProjection<PARENT, ROOT> id() {
     getFields().put("id", null);
     return this;

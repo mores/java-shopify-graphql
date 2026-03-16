@@ -15,7 +15,6 @@ import java.util.Objects;
  * type is provided by an app extension that uses [Shopify
  * Functions](https://shopify.dev/docs/apps/build/functions).
  *
- *
  * Use these input fields when you need advanced or custom discount capabilities
  * that aren't supported by [Shopify's native discount
  * types](https://help.shopify.com/manual/discounts/discount-types).
@@ -61,21 +60,21 @@ public class DiscountCodeAppInput {
   private String code;
 
   /**
-   * The customers that can use the discount.
-   */
-  private DiscountCustomerSelectionInput customerSelection;
-
-  /**
-   * The maximum number of times that a customer can use the discount.
-   * For discounts with unlimited usage, specify `null`.
+   * The maximum number of times the discount can be redeemed.
+   * For unlimited usage, specify `null`.
    */
   private Integer usageLimit;
 
   /**
-   * The [function ID](https://shopify.dev/docs/apps/build/functions/input-output/metafields-for-input-queries) associated with the app extension that's providing the [discount
-   * type](https://help.shopify.com/manual/discounts/discount-types).
+   * The context defining which buyers can use the discount.
+   * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
    */
-  private String functionId;
+  private DiscountContextInput context;
+
+  /**
+   * The handle of the function providing the discount.
+   */
+  private String functionHandle;
 
   /**
    * Whether the discount applies to subscriptions items.
@@ -187,19 +186,8 @@ public class DiscountCodeAppInput {
   }
 
   /**
-   * The customers that can use the discount.
-   */
-  public DiscountCustomerSelectionInput getCustomerSelection() {
-    return customerSelection;
-  }
-
-  public void setCustomerSelection(DiscountCustomerSelectionInput customerSelection) {
-    this.customerSelection = customerSelection;
-  }
-
-  /**
-   * The maximum number of times that a customer can use the discount.
-   * For discounts with unlimited usage, specify `null`.
+   * The maximum number of times the discount can be redeemed.
+   * For unlimited usage, specify `null`.
    */
   public Integer getUsageLimit() {
     return usageLimit;
@@ -210,15 +198,26 @@ public class DiscountCodeAppInput {
   }
 
   /**
-   * The [function ID](https://shopify.dev/docs/apps/build/functions/input-output/metafields-for-input-queries) associated with the app extension that's providing the [discount
-   * type](https://help.shopify.com/manual/discounts/discount-types).
+   * The context defining which buyers can use the discount.
+   * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
    */
-  public String getFunctionId() {
-    return functionId;
+  public DiscountContextInput getContext() {
+    return context;
   }
 
-  public void setFunctionId(String functionId) {
-    this.functionId = functionId;
+  public void setContext(DiscountContextInput context) {
+    this.context = context;
+  }
+
+  /**
+   * The handle of the function providing the discount.
+   */
+  public String getFunctionHandle() {
+    return functionHandle;
+  }
+
+  public void setFunctionHandle(String functionHandle) {
+    this.functionHandle = functionHandle;
   }
 
   /**
@@ -272,7 +271,7 @@ public class DiscountCodeAppInput {
 
   @Override
   public String toString() {
-    return "DiscountCodeAppInput{combinesWith='" + combinesWith + "', discountClasses='" + discountClasses + "', title='" + title + "', startsAt='" + startsAt + "', endsAt='" + endsAt + "', appliesOncePerCustomer='" + appliesOncePerCustomer + "', code='" + code + "', customerSelection='" + customerSelection + "', usageLimit='" + usageLimit + "', functionId='" + functionId + "', appliesOnSubscription='" + appliesOnSubscription + "', appliesOnOneTimePurchase='" + appliesOnOneTimePurchase + "', recurringCycleLimit='" + recurringCycleLimit + "', metafields='" + metafields + "'}";
+    return "DiscountCodeAppInput{combinesWith='" + combinesWith + "', discountClasses='" + discountClasses + "', title='" + title + "', startsAt='" + startsAt + "', endsAt='" + endsAt + "', appliesOncePerCustomer='" + appliesOncePerCustomer + "', code='" + code + "', usageLimit='" + usageLimit + "', context='" + context + "', functionHandle='" + functionHandle + "', appliesOnSubscription='" + appliesOnSubscription + "', appliesOnOneTimePurchase='" + appliesOnOneTimePurchase + "', recurringCycleLimit='" + recurringCycleLimit + "', metafields='" + metafields + "'}";
   }
 
   @Override
@@ -287,9 +286,9 @@ public class DiscountCodeAppInput {
         Objects.equals(endsAt, that.endsAt) &&
         Objects.equals(appliesOncePerCustomer, that.appliesOncePerCustomer) &&
         Objects.equals(code, that.code) &&
-        Objects.equals(customerSelection, that.customerSelection) &&
         Objects.equals(usageLimit, that.usageLimit) &&
-        Objects.equals(functionId, that.functionId) &&
+        Objects.equals(context, that.context) &&
+        Objects.equals(functionHandle, that.functionHandle) &&
         Objects.equals(appliesOnSubscription, that.appliesOnSubscription) &&
         Objects.equals(appliesOnOneTimePurchase, that.appliesOnOneTimePurchase) &&
         Objects.equals(recurringCycleLimit, that.recurringCycleLimit) &&
@@ -298,7 +297,7 @@ public class DiscountCodeAppInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(combinesWith, discountClasses, title, startsAt, endsAt, appliesOncePerCustomer, code, customerSelection, usageLimit, functionId, appliesOnSubscription, appliesOnOneTimePurchase, recurringCycleLimit, metafields);
+    return Objects.hash(combinesWith, discountClasses, title, startsAt, endsAt, appliesOncePerCustomer, code, usageLimit, context, functionHandle, appliesOnSubscription, appliesOnOneTimePurchase, recurringCycleLimit, metafields);
   }
 
   public static Builder newBuilder() {
@@ -346,21 +345,21 @@ public class DiscountCodeAppInput {
     private String code;
 
     /**
-     * The customers that can use the discount.
-     */
-    private DiscountCustomerSelectionInput customerSelection;
-
-    /**
-     * The maximum number of times that a customer can use the discount.
-     * For discounts with unlimited usage, specify `null`.
+     * The maximum number of times the discount can be redeemed.
+     * For unlimited usage, specify `null`.
      */
     private Integer usageLimit;
 
     /**
-     * The [function ID](https://shopify.dev/docs/apps/build/functions/input-output/metafields-for-input-queries) associated with the app extension that's providing the [discount
-     * type](https://help.shopify.com/manual/discounts/discount-types).
+     * The context defining which buyers can use the discount.
+     * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
      */
-    private String functionId;
+    private DiscountContextInput context;
+
+    /**
+     * The handle of the function providing the discount.
+     */
+    private String functionHandle;
 
     /**
      * Whether the discount applies to subscriptions items.
@@ -396,9 +395,9 @@ public class DiscountCodeAppInput {
       result.endsAt = this.endsAt;
       result.appliesOncePerCustomer = this.appliesOncePerCustomer;
       result.code = this.code;
-      result.customerSelection = this.customerSelection;
       result.usageLimit = this.usageLimit;
-      result.functionId = this.functionId;
+      result.context = this.context;
+      result.functionHandle = this.functionHandle;
       result.appliesOnSubscription = this.appliesOnSubscription;
       result.appliesOnOneTimePurchase = this.appliesOnOneTimePurchase;
       result.recurringCycleLimit = this.recurringCycleLimit;
@@ -467,16 +466,8 @@ public class DiscountCodeAppInput {
     }
 
     /**
-     * The customers that can use the discount.
-     */
-    public Builder customerSelection(DiscountCustomerSelectionInput customerSelection) {
-      this.customerSelection = customerSelection;
-      return this;
-    }
-
-    /**
-     * The maximum number of times that a customer can use the discount.
-     * For discounts with unlimited usage, specify `null`.
+     * The maximum number of times the discount can be redeemed.
+     * For unlimited usage, specify `null`.
      */
     public Builder usageLimit(Integer usageLimit) {
       this.usageLimit = usageLimit;
@@ -484,11 +475,19 @@ public class DiscountCodeAppInput {
     }
 
     /**
-     * The [function ID](https://shopify.dev/docs/apps/build/functions/input-output/metafields-for-input-queries) associated with the app extension that's providing the [discount
-     * type](https://help.shopify.com/manual/discounts/discount-types).
+     * The context defining which buyers can use the discount.
+     * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
      */
-    public Builder functionId(String functionId) {
-      this.functionId = functionId;
+    public Builder context(DiscountContextInput context) {
+      this.context = context;
+      return this;
+    }
+
+    /**
+     * The handle of the function providing the discount.
+     */
+    public Builder functionHandle(String functionHandle) {
+      this.functionHandle = functionHandle;
       return this;
     }
 

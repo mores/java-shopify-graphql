@@ -1,5 +1,6 @@
 package com.shopify.admin.types;
 
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
@@ -22,12 +23,28 @@ public class InventoryMoveQuantityTerminalInput {
   private String name;
 
   /**
-   * A freeform URI that represents what changed the inventory quantities. A Shopify global ID isn't an accepted
-   * value. For example, specifying "gid://shopify/Order/123" would return an error. This field is required for a move of
-   * all quantity names except `available`. The field `ledgerDocumentUri` isn't supported for use with an
-   * `available` quantity name.
+   * A non-Shopify URI that identifies what specific inventory transaction or
+   * ledger entry was changed. Represents the exact inventory movement being
+   * referenced, distinct from the business reason for the change.
+   *   
+   * Preferred format - Global ID (GID): gid://[your-app-name]/[transaction-type]/[id]
+   *   
+   * Examples:
+   * - gid://warehouse-app/InventoryTransaction/TXN-2024-001 (specific transaction)
+   * - gid://3pl-system/StockMovement/SM-2024-0125 (stock movement record)
+   * - gid://pos-app/InventoryUpdate/UPD-98765 (POS inventory update)
+   * - gid://erp-connector/LedgerEntry/LE-2024-11-21-001 (ledger entry)
+   *   
+   * Requirements: Valid non-Shopify URI with scheme and content. Required for all
+   * quantity names except `available`. Cannot use gid://shopify/* format.
    */
   private String ledgerDocumentUri;
+
+  /**
+   * The quantity to compare against before applying the move. For more
+   * information, refer to the [Compare and Swap documentation](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#compare-and-swap).
+   */
+  private Integer changeFromQuantity;
 
   public InventoryMoveQuantityTerminalInput() {
   }
@@ -57,10 +74,20 @@ public class InventoryMoveQuantityTerminalInput {
   }
 
   /**
-   * A freeform URI that represents what changed the inventory quantities. A Shopify global ID isn't an accepted
-   * value. For example, specifying "gid://shopify/Order/123" would return an error. This field is required for a move of
-   * all quantity names except `available`. The field `ledgerDocumentUri` isn't supported for use with an
-   * `available` quantity name.
+   * A non-Shopify URI that identifies what specific inventory transaction or
+   * ledger entry was changed. Represents the exact inventory movement being
+   * referenced, distinct from the business reason for the change.
+   *   
+   * Preferred format - Global ID (GID): gid://[your-app-name]/[transaction-type]/[id]
+   *   
+   * Examples:
+   * - gid://warehouse-app/InventoryTransaction/TXN-2024-001 (specific transaction)
+   * - gid://3pl-system/StockMovement/SM-2024-0125 (stock movement record)
+   * - gid://pos-app/InventoryUpdate/UPD-98765 (POS inventory update)
+   * - gid://erp-connector/LedgerEntry/LE-2024-11-21-001 (ledger entry)
+   *   
+   * Requirements: Valid non-Shopify URI with scheme and content. Required for all
+   * quantity names except `available`. Cannot use gid://shopify/* format.
    */
   public String getLedgerDocumentUri() {
     return ledgerDocumentUri;
@@ -70,9 +97,21 @@ public class InventoryMoveQuantityTerminalInput {
     this.ledgerDocumentUri = ledgerDocumentUri;
   }
 
+  /**
+   * The quantity to compare against before applying the move. For more
+   * information, refer to the [Compare and Swap documentation](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#compare-and-swap).
+   */
+  public Integer getChangeFromQuantity() {
+    return changeFromQuantity;
+  }
+
+  public void setChangeFromQuantity(Integer changeFromQuantity) {
+    this.changeFromQuantity = changeFromQuantity;
+  }
+
   @Override
   public String toString() {
-    return "InventoryMoveQuantityTerminalInput{locationId='" + locationId + "', name='" + name + "', ledgerDocumentUri='" + ledgerDocumentUri + "'}";
+    return "InventoryMoveQuantityTerminalInput{locationId='" + locationId + "', name='" + name + "', ledgerDocumentUri='" + ledgerDocumentUri + "', changeFromQuantity='" + changeFromQuantity + "'}";
   }
 
   @Override
@@ -82,12 +121,13 @@ public class InventoryMoveQuantityTerminalInput {
     InventoryMoveQuantityTerminalInput that = (InventoryMoveQuantityTerminalInput) o;
     return Objects.equals(locationId, that.locationId) &&
         Objects.equals(name, that.name) &&
-        Objects.equals(ledgerDocumentUri, that.ledgerDocumentUri);
+        Objects.equals(ledgerDocumentUri, that.ledgerDocumentUri) &&
+        Objects.equals(changeFromQuantity, that.changeFromQuantity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(locationId, name, ledgerDocumentUri);
+    return Objects.hash(locationId, name, ledgerDocumentUri, changeFromQuantity);
   }
 
   public static Builder newBuilder() {
@@ -108,18 +148,35 @@ public class InventoryMoveQuantityTerminalInput {
     private String name;
 
     /**
-     * A freeform URI that represents what changed the inventory quantities. A Shopify global ID isn't an accepted
-     * value. For example, specifying "gid://shopify/Order/123" would return an error. This field is required for a move of
-     * all quantity names except `available`. The field `ledgerDocumentUri` isn't supported for use with an
-     * `available` quantity name.
+     * A non-Shopify URI that identifies what specific inventory transaction or
+     * ledger entry was changed. Represents the exact inventory movement being
+     * referenced, distinct from the business reason for the change.
+     *   
+     * Preferred format - Global ID (GID): gid://[your-app-name]/[transaction-type]/[id]
+     *   
+     * Examples:
+     * - gid://warehouse-app/InventoryTransaction/TXN-2024-001 (specific transaction)
+     * - gid://3pl-system/StockMovement/SM-2024-0125 (stock movement record)
+     * - gid://pos-app/InventoryUpdate/UPD-98765 (POS inventory update)
+     * - gid://erp-connector/LedgerEntry/LE-2024-11-21-001 (ledger entry)
+     *   
+     * Requirements: Valid non-Shopify URI with scheme and content. Required for all
+     * quantity names except `available`. Cannot use gid://shopify/* format.
      */
     private String ledgerDocumentUri;
+
+    /**
+     * The quantity to compare against before applying the move. For more
+     * information, refer to the [Compare and Swap documentation](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#compare-and-swap).
+     */
+    private Integer changeFromQuantity;
 
     public InventoryMoveQuantityTerminalInput build() {
       InventoryMoveQuantityTerminalInput result = new InventoryMoveQuantityTerminalInput();
       result.locationId = this.locationId;
       result.name = this.name;
       result.ledgerDocumentUri = this.ledgerDocumentUri;
+      result.changeFromQuantity = this.changeFromQuantity;
       return result;
     }
 
@@ -142,13 +199,32 @@ public class InventoryMoveQuantityTerminalInput {
     }
 
     /**
-     * A freeform URI that represents what changed the inventory quantities. A Shopify global ID isn't an accepted
-     * value. For example, specifying "gid://shopify/Order/123" would return an error. This field is required for a move of
-     * all quantity names except `available`. The field `ledgerDocumentUri` isn't supported for use with an
-     * `available` quantity name.
+     * A non-Shopify URI that identifies what specific inventory transaction or
+     * ledger entry was changed. Represents the exact inventory movement being
+     * referenced, distinct from the business reason for the change.
+     *   
+     * Preferred format - Global ID (GID): gid://[your-app-name]/[transaction-type]/[id]
+     *   
+     * Examples:
+     * - gid://warehouse-app/InventoryTransaction/TXN-2024-001 (specific transaction)
+     * - gid://3pl-system/StockMovement/SM-2024-0125 (stock movement record)
+     * - gid://pos-app/InventoryUpdate/UPD-98765 (POS inventory update)
+     * - gid://erp-connector/LedgerEntry/LE-2024-11-21-001 (ledger entry)
+     *   
+     * Requirements: Valid non-Shopify URI with scheme and content. Required for all
+     * quantity names except `available`. Cannot use gid://shopify/* format.
      */
     public Builder ledgerDocumentUri(String ledgerDocumentUri) {
       this.ledgerDocumentUri = ledgerDocumentUri;
+      return this;
+    }
+
+    /**
+     * The quantity to compare against before applying the move. For more
+     * information, refer to the [Compare and Swap documentation](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#compare-and-swap).
+     */
+    public Builder changeFromQuantity(Integer changeFromQuantity) {
+      this.changeFromQuantity = changeFromQuantity;
       return this;
     }
   }

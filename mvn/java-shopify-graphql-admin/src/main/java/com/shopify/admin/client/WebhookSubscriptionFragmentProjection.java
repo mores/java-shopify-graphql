@@ -93,6 +93,11 @@ public class WebhookSubscriptionFragmentProjection<PARENT extends BaseSubProject
     return this;
   }
 
+  public WebhookSubscriptionFragmentProjection<PARENT, ROOT> uri() {
+    getFields().put("uri", null);
+    return this;
+  }
+
   @Override
   public String toString() {
     StringBuilder builder = new StringBuilder();

@@ -56,7 +56,7 @@ public class OrderEditUpdateShippingLineGraphQLQuery extends GraphQLQuery {
 
     /**
      * The ID of the [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
-     * from which to update the shipping line.
+     * or the order edit session to edit. This is the edit used to update the shipping line.
      */
     public Builder id(String id) {
       this.id = id;

@@ -8,7 +8,15 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * The product option value names. For example, "Red", "Blue", and "Green" for a "Color" option.
+ * A specific value for a [`ProductOption`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductOption),
+ * such as "Red" or "Blue" for a "Color" option. Each value can be assigned to [`ProductVariant`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant)
+ * objects to create different versions of a
+ * [`Product`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product).
+ *
+ * The value tracks whether any variants currently use it through the [`hasVariants`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductOptionValue#field-hasVariants)
+ * field. Values can include visual representations through swatches that display
+ * colors or images. When linked to a [`Metafield`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Metafield), the [`linkedMetafieldValue`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductOptionValue#field-linkedMetafieldValue)
+ * provides additional structured data for the option value.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

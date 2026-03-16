@@ -8,7 +8,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Set inventory on-hand quantities using absolute values.
+ * Sets an inventory item's on-hand quantities to specific absolute values at
+ * designated locations. The mutation takes a reason for tracking purposes and a
+ * reference document URI for audit trails.
+ *   
+ * Returns an [`InventoryAdjustmentGroup`](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryAdjustmentGroup) that tracks all changes made in this operation, including the delta values
+ * calculated from the previous quantities.
+ *   
+ * > Caution:
+ * > As of 2026-01, this mutation supports an optional idempotency key using the `@idempotent` directive.
+ * > As of 2026-04, the idempotency key is required and must be provided using the `@idempotent` directive.
+ * > For more information, see the [idempotency documentation](https://shopify.dev/docs/api/usage/idempotent-requests).
  */
 public class InventorySetOnHandQuantitiesGraphQLQuery extends GraphQLQuery {
   public InventorySetOnHandQuantitiesGraphQLQuery(InventorySetOnHandQuantitiesInput input,

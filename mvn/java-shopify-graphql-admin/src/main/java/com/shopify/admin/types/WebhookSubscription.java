@@ -58,8 +58,9 @@ public class WebhookSubscription implements com.shopify.admin.types.LegacyIntero
   private String id;
 
   /**
-   * An optional array of top-level resource fields that should be serialized and
-   * sent in the webhook message. If null, then all fields will be sent.
+   * The list of fields to be included in the webhook subscription. Only the fields
+   * specified will be included in the webhook payload. If null, then all fields
+   * will be included. Learn more about [modifying webhook payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify-payloads).
    */
   private List<String> includeFields;
 
@@ -89,6 +90,11 @@ public class WebhookSubscription implements com.shopify.admin.types.LegacyIntero
    * The date and time when the webhook subscription was updated.
    */
   private OffsetDateTime updatedAt;
+
+  /**
+   * The URI to which the webhook subscription will send events.
+   */
+  private String uri;
 
   public WebhookSubscription() {
   }
@@ -174,8 +180,9 @@ public class WebhookSubscription implements com.shopify.admin.types.LegacyIntero
   }
 
   /**
-   * An optional array of top-level resource fields that should be serialized and
-   * sent in the webhook message. If null, then all fields will be sent.
+   * The list of fields to be included in the webhook subscription. Only the fields
+   * specified will be included in the webhook payload. If null, then all fields
+   * will be included. Learn more about [modifying webhook payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify-payloads).
    */
   public List<String> getIncludeFields() {
     return includeFields;
@@ -242,9 +249,20 @@ public class WebhookSubscription implements com.shopify.admin.types.LegacyIntero
     this.updatedAt = updatedAt;
   }
 
+  /**
+   * The URI to which the webhook subscription will send events.
+   */
+  public String getUri() {
+    return uri;
+  }
+
+  public void setUri(String uri) {
+    this.uri = uri;
+  }
+
   @Override
   public String toString() {
-    return "WebhookSubscription{apiVersion='" + apiVersion + "', callbackUrl='" + callbackUrl + "', createdAt='" + createdAt + "', endpoint='" + endpoint + "', filter='" + filter + "', format='" + format + "', id='" + id + "', includeFields='" + includeFields + "', legacyResourceId='" + legacyResourceId + "', metafieldNamespaces='" + metafieldNamespaces + "', metafields='" + metafields + "', topic='" + topic + "', updatedAt='" + updatedAt + "'}";
+    return "WebhookSubscription{apiVersion='" + apiVersion + "', callbackUrl='" + callbackUrl + "', createdAt='" + createdAt + "', endpoint='" + endpoint + "', filter='" + filter + "', format='" + format + "', id='" + id + "', includeFields='" + includeFields + "', legacyResourceId='" + legacyResourceId + "', metafieldNamespaces='" + metafieldNamespaces + "', metafields='" + metafields + "', topic='" + topic + "', updatedAt='" + updatedAt + "', uri='" + uri + "'}";
   }
 
   @Override
@@ -264,12 +282,13 @@ public class WebhookSubscription implements com.shopify.admin.types.LegacyIntero
         Objects.equals(metafieldNamespaces, that.metafieldNamespaces) &&
         Objects.equals(metafields, that.metafields) &&
         Objects.equals(topic, that.topic) &&
-        Objects.equals(updatedAt, that.updatedAt);
+        Objects.equals(updatedAt, that.updatedAt) &&
+        Objects.equals(uri, that.uri);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiVersion, callbackUrl, createdAt, endpoint, filter, format, id, includeFields, legacyResourceId, metafieldNamespaces, metafields, topic, updatedAt);
+    return Objects.hash(apiVersion, callbackUrl, createdAt, endpoint, filter, format, id, includeFields, legacyResourceId, metafieldNamespaces, metafields, topic, updatedAt, uri);
   }
 
   public static Builder newBuilder() {
@@ -316,8 +335,9 @@ public class WebhookSubscription implements com.shopify.admin.types.LegacyIntero
     private String id;
 
     /**
-     * An optional array of top-level resource fields that should be serialized and
-     * sent in the webhook message. If null, then all fields will be sent.
+     * The list of fields to be included in the webhook subscription. Only the fields
+     * specified will be included in the webhook payload. If null, then all fields
+     * will be included. Learn more about [modifying webhook payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify-payloads).
      */
     private List<String> includeFields;
 
@@ -348,6 +368,11 @@ public class WebhookSubscription implements com.shopify.admin.types.LegacyIntero
      */
     private OffsetDateTime updatedAt;
 
+    /**
+     * The URI to which the webhook subscription will send events.
+     */
+    private String uri;
+
     public WebhookSubscription build() {
       WebhookSubscription result = new WebhookSubscription();
       result.apiVersion = this.apiVersion;
@@ -363,6 +388,7 @@ public class WebhookSubscription implements com.shopify.admin.types.LegacyIntero
       result.metafields = this.metafields;
       result.topic = this.topic;
       result.updatedAt = this.updatedAt;
+      result.uri = this.uri;
       return result;
     }
 
@@ -426,8 +452,9 @@ public class WebhookSubscription implements com.shopify.admin.types.LegacyIntero
     }
 
     /**
-     * An optional array of top-level resource fields that should be serialized and
-     * sent in the webhook message. If null, then all fields will be sent.
+     * The list of fields to be included in the webhook subscription. Only the fields
+     * specified will be included in the webhook payload. If null, then all fields
+     * will be included. Learn more about [modifying webhook payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify-payloads).
      */
     public Builder includeFields(List<String> includeFields) {
       this.includeFields = includeFields;
@@ -473,6 +500,14 @@ public class WebhookSubscription implements com.shopify.admin.types.LegacyIntero
      */
     public Builder updatedAt(OffsetDateTime updatedAt) {
       this.updatedAt = updatedAt;
+      return this;
+    }
+
+    /**
+     * The URI to which the webhook subscription will send events.
+     */
+    public Builder uri(String uri) {
+      this.uri = uri;
       return this;
     }
   }

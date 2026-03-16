@@ -10,7 +10,11 @@ public enum PageCreateUserErrorCode {
 
   TOO_LONG,
 
+  TOO_BIG,
+
   TAKEN,
+
+  INVALID,
 
   INVALID_VALUE,
 

@@ -40,4 +40,11 @@ public class DraftOrderWarningProjection<PARENT extends BaseSubProjectionNode<?,
     getFragments().add(fragment);
     return fragment;
   }
+
+  public DraftOrderMarketRegionCountryCodeNotSupportedWarningFragmentProjection<DraftOrderWarningProjection<PARENT, ROOT>, ROOT> onDraftOrderMarketRegionCountryCodeNotSupportedWarning(
+      ) {
+    DraftOrderMarketRegionCountryCodeNotSupportedWarningFragmentProjection<DraftOrderWarningProjection<PARENT, ROOT>, ROOT> fragment = new DraftOrderMarketRegionCountryCodeNotSupportedWarningFragmentProjection<>(this, getRoot());
+    getFragments().add(fragment);
+    return fragment;
+  }
 }

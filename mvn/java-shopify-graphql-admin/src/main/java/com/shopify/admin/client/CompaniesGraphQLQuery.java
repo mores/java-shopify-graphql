@@ -10,7 +10,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns the list of companies in the shop.
+ * A paginated list of companies in the shop.
+ * [`Company`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Company)
+ * objects are business entities that purchase from the merchant.
+ *   
+ * Use the [`query`](https://shopify.dev/docs/api/admin-graphql/latest/queries/companies#arguments-query) argument to filter companies by attributes like name or externalId. Sort and
+ * paginate results to handle large datasets efficiently. Learn more about
+ * [Shopify API search syntax](https://shopify.dev/docs/api/usage/search-syntax).
  */
 public class CompaniesGraphQLQuery extends GraphQLQuery {
   public CompaniesGraphQLQuery(Integer first, String after, Integer last, String before,
@@ -134,7 +140,12 @@ public class CompaniesGraphQLQuery extends GraphQLQuery {
      * | active_customers_count | integer |
      * | created_at | time |
      * | external_id | id |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | metafields.{namespace}.{key} | mixed | Filters resources by metafield
+     * value. Format: `metafields.{namespace}.{key}:{value}`. Learn more about
+     * [querying by metafield value](https://shopify.dev/apps/build/custom-data/metafields/query-by-metafield-value).
+     * | | | - `metafields.custom.on_sale:true`<br/> -
+     * `metafields.product.material:"gid://shopify/Metaobject/43458085"` |
      * | name | string |
      * | since_date | time |
      * | updated_at | time |

@@ -20,5 +20,7 @@ public enum MetafieldDefinitionDeleteUserErrorCode {
 
   APP_CONFIG_MANAGED,
 
+  STANDARD_METAFIELD_DEFINITION_DEPENDENT_ON_APP,
+
   DISALLOWED_OWNER_TYPE
 }

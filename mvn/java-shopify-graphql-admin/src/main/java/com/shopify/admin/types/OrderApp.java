@@ -6,7 +6,13 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The [application](https://shopify.dev/apps) that created the order.
+ * Identifies the [`App`](https://shopify.dev/docs/api/admin-graphql/latest/objects/App) that
+ * created an order. Common sources include "online store" for web purchases,
+ * "Point of Sale" for in-person sales, or custom app names for orders created
+ * through third-party integrations.
+ *
+ * Use this information to track order attribution, analyze sales channels, and
+ * route orders to appropriate fulfillment workflows based on their source.
  */
 public class OrderApp {
   /**

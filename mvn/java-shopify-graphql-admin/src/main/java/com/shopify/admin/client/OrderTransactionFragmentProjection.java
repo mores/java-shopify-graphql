@@ -37,6 +37,20 @@ public class OrderTransactionFragmentProjection<PARENT extends BaseSubProjection
      return projection;
   }
 
+  public CurrencyExchangeAdjustmentProjection<OrderTransactionFragmentProjection<PARENT, ROOT>, ROOT> currencyExchangeAdjustment(
+      ) {
+     CurrencyExchangeAdjustmentProjection<OrderTransactionFragmentProjection<PARENT, ROOT>, ROOT> projection = new CurrencyExchangeAdjustmentProjection<>(this, getRoot());
+     getFields().put("currencyExchangeAdjustment", projection);
+     return projection;
+  }
+
+  public PointOfSaleDeviceProjection<OrderTransactionFragmentProjection<PARENT, ROOT>, ROOT> device(
+      ) {
+     PointOfSaleDeviceProjection<OrderTransactionFragmentProjection<PARENT, ROOT>, ROOT> projection = new PointOfSaleDeviceProjection<>(this, getRoot());
+     getFields().put("device", projection);
+     return projection;
+  }
+
   public OrderTransactionErrorCodeProjection<OrderTransactionFragmentProjection<PARENT, ROOT>, ROOT> errorCode(
       ) {
      OrderTransactionErrorCodeProjection<OrderTransactionFragmentProjection<PARENT, ROOT>, ROOT> projection = new OrderTransactionErrorCodeProjection<>(this, getRoot());
@@ -54,6 +68,12 @@ public class OrderTransactionFragmentProjection<PARENT extends BaseSubProjection
       ) {
      OrderTransactionKindProjection<OrderTransactionFragmentProjection<PARENT, ROOT>, ROOT> projection = new OrderTransactionKindProjection<>(this, getRoot());
      getFields().put("kind", projection);
+     return projection;
+  }
+
+  public LocationProjection<OrderTransactionFragmentProjection<PARENT, ROOT>, ROOT> location() {
+     LocationProjection<OrderTransactionFragmentProjection<PARENT, ROOT>, ROOT> projection = new LocationProjection<>(this, getRoot());
+     getFields().put("location", projection);
      return projection;
   }
 

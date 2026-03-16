@@ -6,7 +6,11 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The choice list customizations.
+ * Controls spacing customization for the grouped variant of choice list components in checkout forms.
+ *
+ * The `ChoiceList` object contains settings specifically for the 'group' variant
+ * styling through the [`ChoiceListGroup`](https://shopify.dev/docs/api/admin-graphql/latest/objects/CheckoutBrandingChoiceListGroup)
+ * field, which determines the spacing between choice options.
  */
 public class CheckoutBrandingChoiceList {
   /**

@@ -7,8 +7,18 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Represents a refund suggested by Shopify based on the items being reimbursed.
- * You can then use the suggested refund object to generate an actual refund.
+ * A refund amount that Shopify suggests based on the items, duties, and shipping
+ * costs that customers return. Provides a breakdown of all monetary values
+ * including subtotals, taxes, discounts, and the maximum refundable amount.
+ *
+ * The suggested refund includes [`RefundLineItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/RefundLineItem)
+ * objects to refund with their quantities and restock instructions, [`RefundDuty`](https://shopify.dev/docs/api/admin-graphql/latest/objects/RefundDuty)
+ * objects for duty reimbursements, and [`ShippingRefund`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShippingRefund)
+ * for shipping cost refunds. Provides [`SuggestedOrderTransaction`](https://shopify.dev/docs/api/admin-graphql/latest/objects/SuggestedOrderTransaction)
+ * objects and the [`SuggestedRefundMethod`](https://shopify.dev/docs/api/admin-graphql/latest/interfaces/SuggestedRefundMethod)
+ * interface to process the refund through the appropriate gateways.
+ *
+ * Learn more about [previewing and refunding duties](https://shopify.dev/docs/apps/build/orders-fulfillment/returns-apps/view-and-refund-duties#step-3-preview-a-refund-that-includes-duties).
  */
 public class SuggestedRefund {
   /**
@@ -60,6 +70,11 @@ public class SuggestedRefund {
    * The sum of all the prices of the line items being refunded in shop and presentment currencies.
    */
   private MoneyBag subtotalSet;
+
+  /**
+   * A list of suggested refund methods.
+   */
+  private List<SuggestedRefundMethod> suggestedRefundMethods;
 
   /**
    * A list of suggested order transactions.
@@ -200,6 +215,17 @@ public class SuggestedRefund {
   }
 
   /**
+   * A list of suggested refund methods.
+   */
+  public List<SuggestedRefundMethod> getSuggestedRefundMethods() {
+    return suggestedRefundMethods;
+  }
+
+  public void setSuggestedRefundMethods(List<SuggestedRefundMethod> suggestedRefundMethods) {
+    this.suggestedRefundMethods = suggestedRefundMethods;
+  }
+
+  /**
    * A list of suggested order transactions.
    */
   public List<SuggestedOrderTransaction> getSuggestedTransactions() {
@@ -256,7 +282,7 @@ public class SuggestedRefund {
 
   @Override
   public String toString() {
-    return "SuggestedRefund{amount='" + amount + "', amountSet='" + amountSet + "', discountedSubtotalSet='" + discountedSubtotalSet + "', maximumRefundable='" + maximumRefundable + "', maximumRefundableSet='" + maximumRefundableSet + "', refundDuties='" + refundDuties + "', refundLineItems='" + refundLineItems + "', shipping='" + shipping + "', subtotal='" + subtotal + "', subtotalSet='" + subtotalSet + "', suggestedTransactions='" + suggestedTransactions + "', totalCartDiscountAmountSet='" + totalCartDiscountAmountSet + "', totalDutiesSet='" + totalDutiesSet + "', totalTaxSet='" + totalTaxSet + "', totalTaxes='" + totalTaxes + "'}";
+    return "SuggestedRefund{amount='" + amount + "', amountSet='" + amountSet + "', discountedSubtotalSet='" + discountedSubtotalSet + "', maximumRefundable='" + maximumRefundable + "', maximumRefundableSet='" + maximumRefundableSet + "', refundDuties='" + refundDuties + "', refundLineItems='" + refundLineItems + "', shipping='" + shipping + "', subtotal='" + subtotal + "', subtotalSet='" + subtotalSet + "', suggestedRefundMethods='" + suggestedRefundMethods + "', suggestedTransactions='" + suggestedTransactions + "', totalCartDiscountAmountSet='" + totalCartDiscountAmountSet + "', totalDutiesSet='" + totalDutiesSet + "', totalTaxSet='" + totalTaxSet + "', totalTaxes='" + totalTaxes + "'}";
   }
 
   @Override
@@ -274,6 +300,7 @@ public class SuggestedRefund {
         Objects.equals(shipping, that.shipping) &&
         Objects.equals(subtotal, that.subtotal) &&
         Objects.equals(subtotalSet, that.subtotalSet) &&
+        Objects.equals(suggestedRefundMethods, that.suggestedRefundMethods) &&
         Objects.equals(suggestedTransactions, that.suggestedTransactions) &&
         Objects.equals(totalCartDiscountAmountSet, that.totalCartDiscountAmountSet) &&
         Objects.equals(totalDutiesSet, that.totalDutiesSet) &&
@@ -283,7 +310,7 @@ public class SuggestedRefund {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, amountSet, discountedSubtotalSet, maximumRefundable, maximumRefundableSet, refundDuties, refundLineItems, shipping, subtotal, subtotalSet, suggestedTransactions, totalCartDiscountAmountSet, totalDutiesSet, totalTaxSet, totalTaxes);
+    return Objects.hash(amount, amountSet, discountedSubtotalSet, maximumRefundable, maximumRefundableSet, refundDuties, refundLineItems, shipping, subtotal, subtotalSet, suggestedRefundMethods, suggestedTransactions, totalCartDiscountAmountSet, totalDutiesSet, totalTaxSet, totalTaxes);
   }
 
   public static Builder newBuilder() {
@@ -342,6 +369,11 @@ public class SuggestedRefund {
     private MoneyBag subtotalSet;
 
     /**
+     * A list of suggested refund methods.
+     */
+    private List<SuggestedRefundMethod> suggestedRefundMethods;
+
+    /**
      * A list of suggested order transactions.
      */
     private List<SuggestedOrderTransaction> suggestedTransactions;
@@ -378,6 +410,7 @@ public class SuggestedRefund {
       result.shipping = this.shipping;
       result.subtotal = this.subtotal;
       result.subtotalSet = this.subtotalSet;
+      result.suggestedRefundMethods = this.suggestedRefundMethods;
       result.suggestedTransactions = this.suggestedTransactions;
       result.totalCartDiscountAmountSet = this.totalCartDiscountAmountSet;
       result.totalDutiesSet = this.totalDutiesSet;
@@ -463,6 +496,14 @@ public class SuggestedRefund {
      */
     public Builder subtotalSet(MoneyBag subtotalSet) {
       this.subtotalSet = subtotalSet;
+      return this;
+    }
+
+    /**
+     * A list of suggested refund methods.
+     */
+    public Builder suggestedRefundMethods(List<SuggestedRefundMethod> suggestedRefundMethods) {
+      this.suggestedRefundMethods = suggestedRefundMethods;
       return this;
     }
 

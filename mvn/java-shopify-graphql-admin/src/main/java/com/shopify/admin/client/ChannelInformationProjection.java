@@ -30,6 +30,11 @@ public class ChannelInformationProjection<PARENT extends BaseSubProjectionNode<?
     return this;
   }
 
+  public ChannelInformationProjection<PARENT, ROOT> displayName() {
+    getFields().put("displayName", null);
+    return this;
+  }
+
   public ChannelInformationProjection<PARENT, ROOT> id() {
     getFields().put("id", null);
     return this;

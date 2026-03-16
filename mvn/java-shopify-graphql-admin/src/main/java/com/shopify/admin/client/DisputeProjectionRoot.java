@@ -19,6 +19,13 @@ public class DisputeProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, R
     return projection;
   }
 
+  public ShopifyPaymentsDisputeEvidenceProjection<DisputeProjectionRoot<PARENT, ROOT>, DisputeProjectionRoot<PARENT, ROOT>> disputeEvidence(
+      ) {
+    ShopifyPaymentsDisputeEvidenceProjection<DisputeProjectionRoot<PARENT, ROOT>, DisputeProjectionRoot<PARENT, ROOT>> projection = new ShopifyPaymentsDisputeEvidenceProjection<>(this, this);    
+    getFields().put("disputeEvidence", projection);
+    return projection;
+  }
+
   public OrderProjection<DisputeProjectionRoot<PARENT, ROOT>, DisputeProjectionRoot<PARENT, ROOT>> order(
       ) {
     OrderProjection<DisputeProjectionRoot<PARENT, ROOT>, DisputeProjectionRoot<PARENT, ROOT>> projection = new OrderProjection<>(this, this);    

@@ -183,6 +183,13 @@ public class HasMetafieldsProjection<PARENT extends BaseSubProjectionNode<?, ?>,
     return fragment;
   }
 
+  public InventoryTransferFragmentProjection<HasMetafieldsProjection<PARENT, ROOT>, ROOT> onInventoryTransfer(
+      ) {
+    InventoryTransferFragmentProjection<HasMetafieldsProjection<PARENT, ROOT>, ROOT> fragment = new InventoryTransferFragmentProjection<>(this, getRoot());
+    getFragments().add(fragment);
+    return fragment;
+  }
+
   public LocationFragmentProjection<HasMetafieldsProjection<PARENT, ROOT>, ROOT> onLocation() {
     LocationFragmentProjection<HasMetafieldsProjection<PARENT, ROOT>, ROOT> fragment = new LocationFragmentProjection<>(this, getRoot());
     getFragments().add(fragment);

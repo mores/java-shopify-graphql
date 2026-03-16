@@ -8,7 +8,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Update a customer's SMS marketing consent information.
+ * Updates a [customer](https://shopify.dev/docs/api/admin-graphql/latest/objects/Customer)'s SMS marketing consent information. The customer must have a phone number on
+ * their account to receive SMS marketing.
+ *   
+ * You can set whether the customer subscribes or unsubscribes to SMS marketing
+ * and specify the [opt-in level](https://shopify.dev/docs/api/admin-graphql/latest/mutations/customerSmsMarketingConsentUpdate#arguments-input.fields.smsMarketingConsent.marketingOptInLevel).
+ * Optionally include when the consent was collected and which [location](https://shopify.dev/docs/api/admin-graphql/latest/mutations/customerSmsMarketingConsentUpdate#arguments-input.fields.smsMarketingConsent.sourceLocationId) collected it.
  */
 public class CustomerSmsMarketingConsentUpdateGraphQLQuery extends GraphQLQuery {
   public CustomerSmsMarketingConsentUpdateGraphQLQuery(CustomerSmsMarketingConsentUpdateInput input,

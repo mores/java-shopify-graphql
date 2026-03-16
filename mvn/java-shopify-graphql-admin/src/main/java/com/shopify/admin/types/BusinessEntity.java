@@ -7,7 +7,16 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * Represents a merchant's Business Entity.
+ * A legal entity through which a merchant operates. Each business entity contains its own [`BusinessEntityAddress`](https://shopify.dev/docs/api/admin-graphql/latest/objects/BusinessEntityAddress),
+ * company information, and can be associated with its own [`ShopifyPaymentsAccount`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsAccount).
+ * [`Market`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Market)
+ * objects can be assigned to a business entity to determine payment processing and
+ * [`Order`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order) attribution.
+ *
+ * Every shop must have one primary business entity. Additional entities enable
+ * international operations by establishing legal presence in multiple countries.
+ *
+ * Learn more about [managing multiple legal entities](https://shopify.dev/docs/apps/build/markets/multiple-entities).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -17,6 +26,11 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
    * The address of the merchant's Business Entity.
    */
   private BusinessEntityAddress address;
+
+  /**
+   * Whether the Business Entity is archived from the shop.
+   */
+  private boolean archived;
 
   /**
    * The name of the company associated with the merchant's Business Entity.
@@ -39,7 +53,14 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
   private boolean primary;
 
   /**
-   * Shopify Payments account information, including balances and payouts.
+   * Returns the Shopify Payments account information for the shop. Includes
+   * current balances across all currencies, payout schedules, and bank account
+   * configurations.
+   *   
+   * The account includes [`ShopifyPaymentsBalanceTransaction`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsBalanceTransaction)
+   * records showing charges, refunds, and adjustments that affect your balance. Also includes [`ShopifyPaymentsDispute`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsDispute) records and [`ShopifyPaymentsPayout`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsPayout)
+   * history between the account and connected [`ShopifyPaymentsBankAccount`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsBankAccount)
+   * configurations.
    */
   private ShopifyPaymentsAccount shopifyPaymentsAccount;
 
@@ -55,6 +76,17 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
 
   public void setAddress(BusinessEntityAddress address) {
     this.address = address;
+  }
+
+  /**
+   * Whether the Business Entity is archived from the shop.
+   */
+  public boolean getArchived() {
+    return archived;
+  }
+
+  public void setArchived(boolean archived) {
+    this.archived = archived;
   }
 
   /**
@@ -102,7 +134,14 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
   }
 
   /**
-   * Shopify Payments account information, including balances and payouts.
+   * Returns the Shopify Payments account information for the shop. Includes
+   * current balances across all currencies, payout schedules, and bank account
+   * configurations.
+   *   
+   * The account includes [`ShopifyPaymentsBalanceTransaction`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsBalanceTransaction)
+   * records showing charges, refunds, and adjustments that affect your balance. Also includes [`ShopifyPaymentsDispute`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsDispute) records and [`ShopifyPaymentsPayout`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsPayout)
+   * history between the account and connected [`ShopifyPaymentsBankAccount`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsBankAccount)
+   * configurations.
    */
   public ShopifyPaymentsAccount getShopifyPaymentsAccount() {
     return shopifyPaymentsAccount;
@@ -114,7 +153,7 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "BusinessEntity{address='" + address + "', companyName='" + companyName + "', displayName='" + displayName + "', id='" + id + "', primary='" + primary + "', shopifyPaymentsAccount='" + shopifyPaymentsAccount + "'}";
+    return "BusinessEntity{address='" + address + "', archived='" + archived + "', companyName='" + companyName + "', displayName='" + displayName + "', id='" + id + "', primary='" + primary + "', shopifyPaymentsAccount='" + shopifyPaymentsAccount + "'}";
   }
 
   @Override
@@ -123,6 +162,7 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
     if (o == null || getClass() != o.getClass()) return false;
     BusinessEntity that = (BusinessEntity) o;
     return Objects.equals(address, that.address) &&
+        archived == that.archived &&
         Objects.equals(companyName, that.companyName) &&
         Objects.equals(displayName, that.displayName) &&
         Objects.equals(id, that.id) &&
@@ -132,7 +172,7 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, companyName, displayName, id, primary, shopifyPaymentsAccount);
+    return Objects.hash(address, archived, companyName, displayName, id, primary, shopifyPaymentsAccount);
   }
 
   public static Builder newBuilder() {
@@ -144,6 +184,11 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
      * The address of the merchant's Business Entity.
      */
     private BusinessEntityAddress address;
+
+    /**
+     * Whether the Business Entity is archived from the shop.
+     */
+    private boolean archived;
 
     /**
      * The name of the company associated with the merchant's Business Entity.
@@ -166,13 +211,21 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
     private boolean primary;
 
     /**
-     * Shopify Payments account information, including balances and payouts.
+     * Returns the Shopify Payments account information for the shop. Includes
+     * current balances across all currencies, payout schedules, and bank account
+     * configurations.
+     *   
+     * The account includes [`ShopifyPaymentsBalanceTransaction`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsBalanceTransaction)
+     * records showing charges, refunds, and adjustments that affect your balance. Also includes [`ShopifyPaymentsDispute`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsDispute) records and [`ShopifyPaymentsPayout`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsPayout)
+     * history between the account and connected [`ShopifyPaymentsBankAccount`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsBankAccount)
+     * configurations.
      */
     private ShopifyPaymentsAccount shopifyPaymentsAccount;
 
     public BusinessEntity build() {
       BusinessEntity result = new BusinessEntity();
       result.address = this.address;
+      result.archived = this.archived;
       result.companyName = this.companyName;
       result.displayName = this.displayName;
       result.id = this.id;
@@ -186,6 +239,14 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
      */
     public Builder address(BusinessEntityAddress address) {
       this.address = address;
+      return this;
+    }
+
+    /**
+     * Whether the Business Entity is archived from the shop.
+     */
+    public Builder archived(boolean archived) {
+      this.archived = archived;
       return this;
     }
 
@@ -222,7 +283,14 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
     }
 
     /**
-     * Shopify Payments account information, including balances and payouts.
+     * Returns the Shopify Payments account information for the shop. Includes
+     * current balances across all currencies, payout schedules, and bank account
+     * configurations.
+     *   
+     * The account includes [`ShopifyPaymentsBalanceTransaction`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsBalanceTransaction)
+     * records showing charges, refunds, and adjustments that affect your balance. Also includes [`ShopifyPaymentsDispute`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsDispute) records and [`ShopifyPaymentsPayout`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsPayout)
+     * history between the account and connected [`ShopifyPaymentsBankAccount`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsBankAccount)
+     * configurations.
      */
     public Builder shopifyPaymentsAccount(ShopifyPaymentsAccount shopifyPaymentsAccount) {
       this.shopifyPaymentsAccount = shopifyPaymentsAccount;

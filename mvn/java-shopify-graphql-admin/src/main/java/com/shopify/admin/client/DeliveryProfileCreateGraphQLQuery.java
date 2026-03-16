@@ -8,7 +8,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Create a delivery profile.
+ * Creates a [`DeliveryProfile`](https://shopify.dev/docs/api/admin-graphql/latest/objects/DeliveryProfile) that defines shipping rates for specific products and locations.
+ *   
+ * A delivery profile groups products with their shipping zones and rates. You
+ * can associate profiles with [`SellingPlanGroup`](https://shopify.dev/docs/api/admin-graphql/latest/objects/SellingPlanGroup)
+ * objects to customize shipping for subscriptions and pre-orders. Each profile contains [`DeliveryProfileLocationGroup`](https://shopify.dev/docs/api/admin-graphql/latest/objects/DeliveryProfileLocationGroup)
+ * objects that specify which [`Location`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Location)
+ * objects ship to which [`DeliveryZone`](https://shopify.dev/docs/api/admin-graphql/latest/objects/DeliveryZone)
+ * objects with specific [`DeliveryMethodDefinition`](https://shopify.dev/docs/api/admin-graphql/latest/objects/DeliveryMethodDefinition)
+ * objects and rates.
+ *   
+ * Learn more about [building delivery profiles](https://shopify.dev/docs/apps/build/purchase-options/deferred/delivery-and-deferment/build-delivery-profiles).
  */
 public class DeliveryProfileCreateGraphQLQuery extends GraphQLQuery {
   public DeliveryProfileCreateGraphQLQuery(DeliveryProfileInput profile, String queryName,

@@ -18,9 +18,9 @@ public class SubscriptionDeliveryMethodShippingFragmentProjection<PARENT extends
     return this;
   }
 
-  public SubscriptionMailingAddressProjection<SubscriptionDeliveryMethodShippingFragmentProjection<PARENT, ROOT>, ROOT> address(
+  public MailingAddressProjection<SubscriptionDeliveryMethodShippingFragmentProjection<PARENT, ROOT>, ROOT> address(
       ) {
-     SubscriptionMailingAddressProjection<SubscriptionDeliveryMethodShippingFragmentProjection<PARENT, ROOT>, ROOT> projection = new SubscriptionMailingAddressProjection<>(this, getRoot());
+     MailingAddressProjection<SubscriptionDeliveryMethodShippingFragmentProjection<PARENT, ROOT>, ROOT> projection = new MailingAddressProjection<>(this, getRoot());
      getFields().put("address", projection);
      return projection;
   }

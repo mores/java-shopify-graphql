@@ -26,6 +26,13 @@ public class PaymentDetailsProjection<PARENT extends BaseSubProjectionNode<?, ?>
     return fragment;
   }
 
+  public PaypalWalletPaymentDetailsFragmentProjection<PaymentDetailsProjection<PARENT, ROOT>, ROOT> onPaypalWalletPaymentDetails(
+      ) {
+    PaypalWalletPaymentDetailsFragmentProjection<PaymentDetailsProjection<PARENT, ROOT>, ROOT> fragment = new PaypalWalletPaymentDetailsFragmentProjection<>(this, getRoot());
+    getFragments().add(fragment);
+    return fragment;
+  }
+
   public ShopPayInstallmentsPaymentDetailsFragmentProjection<PaymentDetailsProjection<PARENT, ROOT>, ROOT> onShopPayInstallmentsPaymentDetails(
       ) {
     ShopPayInstallmentsPaymentDetailsFragmentProjection<PaymentDetailsProjection<PARENT, ROOT>, ROOT> fragment = new ShopPayInstallmentsPaymentDetailsFragmentProjection<>(this, getRoot());

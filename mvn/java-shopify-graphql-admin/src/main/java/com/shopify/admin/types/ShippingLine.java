@@ -8,7 +8,8 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Represents the shipping details that the customer chose for their order.
+ * The shipping method that customers select for an order. Includes pricing
+ * details, carrier information, and any applied discounts or taxes.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -71,12 +72,16 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
   private boolean isRemoved;
 
   /**
-   * The pre-tax shipping price without any discounts applied.
+   * The shipping price without any discounts applied. If the parent
+   * order.taxesIncluded field is true, then this price includes taxes. Otherwise,
+   * this field is the pre-tax price.
    */
   private MoneyV2 originalPrice;
 
   /**
-   * The pre-tax shipping price without any discounts applied.
+   * The shipping price without any discounts applied. If the parent
+   * order.taxesIncluded field is true, then this price includes taxes. Otherwise,
+   * this field is the pre-tax price.
    */
   private MoneyBag originalPriceSet;
 
@@ -236,7 +241,9 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
   }
 
   /**
-   * The pre-tax shipping price without any discounts applied.
+   * The shipping price without any discounts applied. If the parent
+   * order.taxesIncluded field is true, then this price includes taxes. Otherwise,
+   * this field is the pre-tax price.
    */
   public MoneyV2 getOriginalPrice() {
     return originalPrice;
@@ -247,7 +254,9 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
   }
 
   /**
-   * The pre-tax shipping price without any discounts applied.
+   * The shipping price without any discounts applied. If the parent
+   * order.taxesIncluded field is true, then this price includes taxes. Otherwise,
+   * this field is the pre-tax price.
    */
   public MoneyBag getOriginalPriceSet() {
     return originalPriceSet;
@@ -433,12 +442,16 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
     private boolean isRemoved;
 
     /**
-     * The pre-tax shipping price without any discounts applied.
+     * The shipping price without any discounts applied. If the parent
+     * order.taxesIncluded field is true, then this price includes taxes. Otherwise,
+     * this field is the pre-tax price.
      */
     private MoneyV2 originalPrice;
 
     /**
-     * The pre-tax shipping price without any discounts applied.
+     * The shipping price without any discounts applied. If the parent
+     * order.taxesIncluded field is true, then this price includes taxes. Otherwise,
+     * this field is the pre-tax price.
      */
     private MoneyBag originalPriceSet;
 
@@ -589,7 +602,9 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
     }
 
     /**
-     * The pre-tax shipping price without any discounts applied.
+     * The shipping price without any discounts applied. If the parent
+     * order.taxesIncluded field is true, then this price includes taxes. Otherwise,
+     * this field is the pre-tax price.
      */
     public Builder originalPrice(MoneyV2 originalPrice) {
       this.originalPrice = originalPrice;
@@ -597,7 +612,9 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
     }
 
     /**
-     * The pre-tax shipping price without any discounts applied.
+     * The shipping price without any discounts applied. If the parent
+     * order.taxesIncluded field is true, then this price includes taxes. Otherwise,
+     * this field is the pre-tax price.
      */
     public Builder originalPriceSet(MoneyBag originalPriceSet) {
       this.originalPriceSet = originalPriceSet;

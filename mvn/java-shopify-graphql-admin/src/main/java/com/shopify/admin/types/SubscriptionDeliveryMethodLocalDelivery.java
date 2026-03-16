@@ -17,7 +17,7 @@ public class SubscriptionDeliveryMethodLocalDelivery implements SubscriptionDeli
   /**
    * The address to deliver to.
    */
-  private SubscriptionMailingAddress address;
+  private MailingAddress address;
 
   /**
    * The details of the local delivery method to use.
@@ -30,11 +30,11 @@ public class SubscriptionDeliveryMethodLocalDelivery implements SubscriptionDeli
   /**
    * The address to deliver to.
    */
-  public SubscriptionMailingAddress getAddress() {
+  public MailingAddress getAddress() {
     return address;
   }
 
-  public void setAddress(SubscriptionMailingAddress address) {
+  public void setAddress(MailingAddress address) {
     this.address = address;
   }
 
@@ -77,7 +77,7 @@ public class SubscriptionDeliveryMethodLocalDelivery implements SubscriptionDeli
     /**
      * The address to deliver to.
      */
-    private SubscriptionMailingAddress address;
+    private MailingAddress address;
 
     /**
      * The details of the local delivery method to use.
@@ -94,7 +94,7 @@ public class SubscriptionDeliveryMethodLocalDelivery implements SubscriptionDeli
     /**
      * The address to deliver to.
      */
-    public Builder address(SubscriptionMailingAddress address) {
+    public Builder address(MailingAddress address) {
       this.address = address;
       return this;
     }

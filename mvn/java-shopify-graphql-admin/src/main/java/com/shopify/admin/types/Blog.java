@@ -9,8 +9,12 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Shopify stores come with a built-in blogging engine, allowing a shop to have one or more blogs.  Blogs are meant
- * to be used as a type of magazine or newsletter for the shop, with content that changes over time.
+ * A blog for publishing articles in the online store. Stores can have multiple blogs to organize content by topic or purpose.
+ *
+ * Each blog contains articles with their associated comments, tags, and metadata.
+ * The comment policy controls whether readers can post comments and whether
+ * moderation is required. Blogs use customizable URL handles and can apply
+ * alternate templates for specialized layouts.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -22,7 +26,7 @@ public class Blog implements MetafieldReferencer, com.shopify.admin.types.HasEve
   private ArticleConnection articles;
 
   /**
-   * Count of articles.
+   * Count of articles. Limited to a maximum of 10000 by default.
    */
   private Count articlesCount;
 
@@ -117,7 +121,7 @@ public class Blog implements MetafieldReferencer, com.shopify.admin.types.HasEve
   }
 
   /**
-   * Count of articles.
+   * Count of articles. Limited to a maximum of 10000 by default.
    */
   public Count getArticlesCount() {
     return articlesCount;
@@ -331,7 +335,7 @@ public class Blog implements MetafieldReferencer, com.shopify.admin.types.HasEve
     private ArticleConnection articles;
 
     /**
-     * Count of articles.
+     * Count of articles. Limited to a maximum of 10000 by default.
      */
     private Count articlesCount;
 
@@ -441,7 +445,7 @@ public class Blog implements MetafieldReferencer, com.shopify.admin.types.HasEve
     }
 
     /**
-     * Count of articles.
+     * Count of articles. Limited to a maximum of 10000 by default.
      */
     public Builder articlesCount(Count articlesCount) {
       this.articlesCount = articlesCount;

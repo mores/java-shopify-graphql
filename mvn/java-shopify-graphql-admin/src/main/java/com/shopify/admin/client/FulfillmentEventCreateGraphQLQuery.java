@@ -8,7 +8,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Creates a fulfillment event for a specified fulfillment.
+ * Creates a [`FulfillmentEvent`](https://shopify.dev/docs/api/admin-graphql/latest/objects/FulfillmentEvent) to track the shipment status and location of items that have shipped. Events
+ * capture status updates like carrier pickup, in transit, out for delivery, or delivered.
+ *   
+ * Each event records the timestamp and current status of the [`Fulfillment`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Fulfillment).
+ * You can include optional details such as the location where the event
+ * occurred, estimated arrival time, and messages for tracking purposes.
  */
 public class FulfillmentEventCreateGraphQLQuery extends GraphQLQuery {
   public FulfillmentEventCreateGraphQLQuery(FulfillmentEventInput fulfillmentEvent,

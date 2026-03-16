@@ -30,6 +30,11 @@ public class ProductVariantContextualPricing {
    */
   private QuantityRule quantityRule;
 
+  /**
+   * The unit price value for the given context based on the variant measurement.
+   */
+  private MoneyV2 unitPrice;
+
   public ProductVariantContextualPricing() {
   }
 
@@ -77,9 +82,20 @@ public class ProductVariantContextualPricing {
     this.quantityRule = quantityRule;
   }
 
+  /**
+   * The unit price value for the given context based on the variant measurement.
+   */
+  public MoneyV2 getUnitPrice() {
+    return unitPrice;
+  }
+
+  public void setUnitPrice(MoneyV2 unitPrice) {
+    this.unitPrice = unitPrice;
+  }
+
   @Override
   public String toString() {
-    return "ProductVariantContextualPricing{compareAtPrice='" + compareAtPrice + "', price='" + price + "', quantityPriceBreaks='" + quantityPriceBreaks + "', quantityRule='" + quantityRule + "'}";
+    return "ProductVariantContextualPricing{compareAtPrice='" + compareAtPrice + "', price='" + price + "', quantityPriceBreaks='" + quantityPriceBreaks + "', quantityRule='" + quantityRule + "', unitPrice='" + unitPrice + "'}";
   }
 
   @Override
@@ -90,12 +106,13 @@ public class ProductVariantContextualPricing {
     return Objects.equals(compareAtPrice, that.compareAtPrice) &&
         Objects.equals(price, that.price) &&
         Objects.equals(quantityPriceBreaks, that.quantityPriceBreaks) &&
-        Objects.equals(quantityRule, that.quantityRule);
+        Objects.equals(quantityRule, that.quantityRule) &&
+        Objects.equals(unitPrice, that.unitPrice);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(compareAtPrice, price, quantityPriceBreaks, quantityRule);
+    return Objects.hash(compareAtPrice, price, quantityPriceBreaks, quantityRule, unitPrice);
   }
 
   public static Builder newBuilder() {
@@ -123,12 +140,18 @@ public class ProductVariantContextualPricing {
      */
     private QuantityRule quantityRule;
 
+    /**
+     * The unit price value for the given context based on the variant measurement.
+     */
+    private MoneyV2 unitPrice;
+
     public ProductVariantContextualPricing build() {
       ProductVariantContextualPricing result = new ProductVariantContextualPricing();
       result.compareAtPrice = this.compareAtPrice;
       result.price = this.price;
       result.quantityPriceBreaks = this.quantityPriceBreaks;
       result.quantityRule = this.quantityRule;
+      result.unitPrice = this.unitPrice;
       return result;
     }
 
@@ -161,6 +184,14 @@ public class ProductVariantContextualPricing {
      */
     public Builder quantityRule(QuantityRule quantityRule) {
       this.quantityRule = quantityRule;
+      return this;
+    }
+
+    /**
+     * The unit price value for the given context based on the variant measurement.
+     */
+    public Builder unitPrice(MoneyV2 unitPrice) {
+      this.unitPrice = unitPrice;
       return this;
     }
   }

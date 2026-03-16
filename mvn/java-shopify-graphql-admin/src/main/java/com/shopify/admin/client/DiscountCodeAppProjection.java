@@ -69,6 +69,12 @@ public class DiscountCodeAppProjection<PARENT extends BaseSubProjectionNode<?, ?
      return projection;
   }
 
+  public DiscountContextProjection<DiscountCodeAppProjection<PARENT, ROOT>, ROOT> context() {
+     DiscountContextProjection<DiscountCodeAppProjection<PARENT, ROOT>, ROOT> projection = new DiscountContextProjection<>(this, getRoot());
+     getFields().put("context", projection);
+     return projection;
+  }
+
   public DiscountCustomerSelectionProjection<DiscountCodeAppProjection<PARENT, ROOT>, ROOT> customerSelection(
       ) {
      DiscountCustomerSelectionProjection<DiscountCodeAppProjection<PARENT, ROOT>, ROOT> projection = new DiscountCustomerSelectionProjection<>(this, getRoot());

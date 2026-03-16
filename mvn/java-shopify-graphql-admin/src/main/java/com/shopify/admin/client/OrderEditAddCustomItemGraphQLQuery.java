@@ -9,9 +9,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Adds a custom line item to an existing order. For example, you could add a
- * gift wrapping service as a [custom line item](https://shopify.dev/apps/fulfillment/order-management-apps/order-editing#add-a-custom-line-item).
- * To learn how to edit existing orders, refer to [Edit an existing order with Admin API](https://shopify.dev/apps/fulfillment/order-management-apps/order-editing).
+ * Adds a custom line item to an existing
+ * [`Order`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order).
+ * Custom line items represent products or services not in your catalog, such as
+ * gift wrapping, installation fees, or one-off charges.
+ *   
+ * Creates a [`CalculatedLineItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/CalculatedLineItem) with the specified title, price, and quantity. Changes remain in the edit
+ * session until you commit them with the [`orderEditCommit`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/orderEditCommit) mutation.
+ *   
+ * Learn more about [adding custom line items](https://shopify.dev/docs/apps/build/orders-fulfillment/order-management-apps/edit-orders#add-a-custom-line-item).
  */
 public class OrderEditAddCustomItemGraphQLQuery extends GraphQLQuery {
   public OrderEditAddCustomItemGraphQLQuery(String id, String title, String locationId,
@@ -72,7 +78,7 @@ public class OrderEditAddCustomItemGraphQLQuery extends GraphQLQuery {
 
     /**
      * The ID of the [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
-     * to which the custom item is added.
+     * or the order edit session to edit. This is the edit to which the custom item is added.
      */
     public Builder id(String id) {
       this.id = id;

@@ -33,6 +33,13 @@ public class OrderEditAddLineItemDiscountProjectionRoot<PARENT extends BaseSubPr
     return projection;
   }
 
+  public OrderEditSessionProjection<OrderEditAddLineItemDiscountProjectionRoot<PARENT, ROOT>, OrderEditAddLineItemDiscountProjectionRoot<PARENT, ROOT>> orderEditSession(
+      ) {
+    OrderEditSessionProjection<OrderEditAddLineItemDiscountProjectionRoot<PARENT, ROOT>, OrderEditAddLineItemDiscountProjectionRoot<PARENT, ROOT>> projection = new OrderEditSessionProjection<>(this, this);    
+    getFields().put("orderEditSession", projection);
+    return projection;
+  }
+
   public UserErrorProjection<OrderEditAddLineItemDiscountProjectionRoot<PARENT, ROOT>, OrderEditAddLineItemDiscountProjectionRoot<PARENT, ROOT>> userErrors(
       ) {
     UserErrorProjection<OrderEditAddLineItemDiscountProjectionRoot<PARENT, ROOT>, OrderEditAddLineItemDiscountProjectionRoot<PARENT, ROOT>> projection = new UserErrorProjection<>(this, this);    

@@ -52,6 +52,16 @@ public class BlogProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROOT
     return projection;
   }
 
+  public CountProjection<BlogProjectionRoot<PARENT, ROOT>, BlogProjectionRoot<PARENT, ROOT>> articlesCount(
+      Integer limit) {
+    CountProjection<BlogProjectionRoot<PARENT, ROOT>, BlogProjectionRoot<PARENT, ROOT>> projection = new CountProjection<>(this, this);    
+    getFields().put("articlesCount", projection);
+    getInputArguments().computeIfAbsent("articlesCount", k -> new ArrayList<>());                      
+    InputArgument limitArg = new InputArgument("limit", limit);
+    getInputArguments().get("articlesCount").add(limitArg);
+    return projection;
+  }
+
   public CommentPolicyProjection<BlogProjectionRoot<PARENT, ROOT>, BlogProjectionRoot<PARENT, ROOT>> commentPolicy(
       ) {
     CommentPolicyProjection<BlogProjectionRoot<PARENT, ROOT>, BlogProjectionRoot<PARENT, ROOT>> projection = new CommentPolicyProjection<>(this, this);    

@@ -23,6 +23,9 @@ import java.util.Objects;
  * > The [`DiscountCodeApp`](https://shopify.dev/docs/api/admin-graphql/latest/objects/DiscountCodeApp)
  * object has similar functionality to the `DiscountAutomaticApp` object, with the exception that `DiscountCodeApp`
  * stores information about discount codes that are managed by an app using Shopify Functions.
+ * >
+ * > API versions prior to `2025-10` only return automatic discounts with `context`
+ * set to `all`, discounts with other values are filtered out.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -71,6 +74,11 @@ public class DiscountAutomaticApp implements Discount, DiscountAutomatic {
    * [Shopify discount types](https://help.shopify.com/manual/discounts/discount-types).
    */
   private DiscountCombinesWith combinesWith;
+
+  /**
+   * The context defining which buyers can use the discount.
+   */
+  private DiscountContext context;
 
   /**
    * The date and time when the discount was created.
@@ -214,6 +222,17 @@ public class DiscountAutomaticApp implements Discount, DiscountAutomatic {
   }
 
   /**
+   * The context defining which buyers can use the discount.
+   */
+  public DiscountContext getContext() {
+    return context;
+  }
+
+  public void setContext(DiscountContext context) {
+    this.context = context;
+  }
+
+  /**
    * The date and time when the discount was created.
    */
   public OffsetDateTime getCreatedAt() {
@@ -345,7 +364,7 @@ public class DiscountAutomaticApp implements Discount, DiscountAutomatic {
 
   @Override
   public String toString() {
-    return "DiscountAutomaticApp{appDiscountType='" + appDiscountType + "', appliesOnOneTimePurchase='" + appliesOnOneTimePurchase + "', appliesOnSubscription='" + appliesOnSubscription + "', asyncUsageCount='" + asyncUsageCount + "', combinesWith='" + combinesWith + "', createdAt='" + createdAt + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', discountId='" + discountId + "', endsAt='" + endsAt + "', errorHistory='" + errorHistory + "', recurringCycleLimit='" + recurringCycleLimit + "', startsAt='" + startsAt + "', status='" + status + "', title='" + title + "', updatedAt='" + updatedAt + "'}";
+    return "DiscountAutomaticApp{appDiscountType='" + appDiscountType + "', appliesOnOneTimePurchase='" + appliesOnOneTimePurchase + "', appliesOnSubscription='" + appliesOnSubscription + "', asyncUsageCount='" + asyncUsageCount + "', combinesWith='" + combinesWith + "', context='" + context + "', createdAt='" + createdAt + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', discountId='" + discountId + "', endsAt='" + endsAt + "', errorHistory='" + errorHistory + "', recurringCycleLimit='" + recurringCycleLimit + "', startsAt='" + startsAt + "', status='" + status + "', title='" + title + "', updatedAt='" + updatedAt + "'}";
   }
 
   @Override
@@ -358,6 +377,7 @@ public class DiscountAutomaticApp implements Discount, DiscountAutomatic {
         appliesOnSubscription == that.appliesOnSubscription &&
         asyncUsageCount == that.asyncUsageCount &&
         Objects.equals(combinesWith, that.combinesWith) &&
+        Objects.equals(context, that.context) &&
         Objects.equals(createdAt, that.createdAt) &&
         Objects.equals(discountClass, that.discountClass) &&
         Objects.equals(discountClasses, that.discountClasses) &&
@@ -373,7 +393,7 @@ public class DiscountAutomaticApp implements Discount, DiscountAutomatic {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appDiscountType, appliesOnOneTimePurchase, appliesOnSubscription, asyncUsageCount, combinesWith, createdAt, discountClass, discountClasses, discountId, endsAt, errorHistory, recurringCycleLimit, startsAt, status, title, updatedAt);
+    return Objects.hash(appDiscountType, appliesOnOneTimePurchase, appliesOnSubscription, asyncUsageCount, combinesWith, context, createdAt, discountClass, discountClasses, discountId, endsAt, errorHistory, recurringCycleLimit, startsAt, status, title, updatedAt);
   }
 
   public static Builder newBuilder() {
@@ -424,6 +444,11 @@ public class DiscountAutomaticApp implements Discount, DiscountAutomatic {
      * [Shopify discount types](https://help.shopify.com/manual/discounts/discount-types).
      */
     private DiscountCombinesWith combinesWith;
+
+    /**
+     * The context defining which buyers can use the discount.
+     */
+    private DiscountContext context;
 
     /**
      * The date and time when the discount was created.
@@ -496,6 +521,7 @@ public class DiscountAutomaticApp implements Discount, DiscountAutomatic {
       result.appliesOnSubscription = this.appliesOnSubscription;
       result.asyncUsageCount = this.asyncUsageCount;
       result.combinesWith = this.combinesWith;
+      result.context = this.context;
       result.createdAt = this.createdAt;
       result.discountClass = this.discountClass;
       result.discountClasses = this.discountClasses;
@@ -566,6 +592,14 @@ public class DiscountAutomaticApp implements Discount, DiscountAutomatic {
      */
     public Builder combinesWith(DiscountCombinesWith combinesWith) {
       this.combinesWith = combinesWith;
+      return this;
+    }
+
+    /**
+     * The context defining which buyers can use the discount.
+     */
+    public Builder context(DiscountContext context) {
+      this.context = context;
       return this;
     }
 

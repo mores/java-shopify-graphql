@@ -11,22 +11,14 @@ import java.util.Objects;
  */
 public class PubSubWebhookSubscriptionInput {
   /**
-   * The Pub/Sub project ID.
-   */
-  private String pubSubProject;
-
-  /**
-   * The Pub/Sub topic ID.
-   */
-  private String pubSubTopic;
-
-  /**
    * The format in which the webhook subscription should send the data.
    */
   private WebhookSubscriptionFormat format;
 
   /**
-   * The list of fields to be included in the webhook subscription.
+   * The list of fields to be included in the webhook subscription. Only the fields
+   * specified will be included in the webhook payload. If null, then all fields
+   * will be included. Learn more about [modifying webhook payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify_payloads).
    */
   private List<String> includeFields;
 
@@ -47,29 +39,17 @@ public class PubSubWebhookSubscriptionInput {
    */
   private List<HasMetafieldsMetafieldIdentifierInput> metafields;
 
-  public PubSubWebhookSubscriptionInput() {
-  }
-
   /**
    * The Pub/Sub project ID.
    */
-  public String getPubSubProject() {
-    return pubSubProject;
-  }
-
-  public void setPubSubProject(String pubSubProject) {
-    this.pubSubProject = pubSubProject;
-  }
+  private String pubSubProject;
 
   /**
    * The Pub/Sub topic ID.
    */
-  public String getPubSubTopic() {
-    return pubSubTopic;
-  }
+  private String pubSubTopic;
 
-  public void setPubSubTopic(String pubSubTopic) {
-    this.pubSubTopic = pubSubTopic;
+  public PubSubWebhookSubscriptionInput() {
   }
 
   /**
@@ -84,7 +64,9 @@ public class PubSubWebhookSubscriptionInput {
   }
 
   /**
-   * The list of fields to be included in the webhook subscription.
+   * The list of fields to be included in the webhook subscription. Only the fields
+   * specified will be included in the webhook payload. If null, then all fields
+   * will be included. Learn more about [modifying webhook payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify_payloads).
    */
   public List<String> getIncludeFields() {
     return includeFields;
@@ -129,9 +111,31 @@ public class PubSubWebhookSubscriptionInput {
     this.metafields = metafields;
   }
 
+  /**
+   * The Pub/Sub project ID.
+   */
+  public String getPubSubProject() {
+    return pubSubProject;
+  }
+
+  public void setPubSubProject(String pubSubProject) {
+    this.pubSubProject = pubSubProject;
+  }
+
+  /**
+   * The Pub/Sub topic ID.
+   */
+  public String getPubSubTopic() {
+    return pubSubTopic;
+  }
+
+  public void setPubSubTopic(String pubSubTopic) {
+    this.pubSubTopic = pubSubTopic;
+  }
+
   @Override
   public String toString() {
-    return "PubSubWebhookSubscriptionInput{pubSubProject='" + pubSubProject + "', pubSubTopic='" + pubSubTopic + "', format='" + format + "', includeFields='" + includeFields + "', filter='" + filter + "', metafieldNamespaces='" + metafieldNamespaces + "', metafields='" + metafields + "'}";
+    return "PubSubWebhookSubscriptionInput{format='" + format + "', includeFields='" + includeFields + "', filter='" + filter + "', metafieldNamespaces='" + metafieldNamespaces + "', metafields='" + metafields + "', pubSubProject='" + pubSubProject + "', pubSubTopic='" + pubSubTopic + "'}";
   }
 
   @Override
@@ -139,18 +143,18 @@ public class PubSubWebhookSubscriptionInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     PubSubWebhookSubscriptionInput that = (PubSubWebhookSubscriptionInput) o;
-    return Objects.equals(pubSubProject, that.pubSubProject) &&
-        Objects.equals(pubSubTopic, that.pubSubTopic) &&
-        Objects.equals(format, that.format) &&
+    return Objects.equals(format, that.format) &&
         Objects.equals(includeFields, that.includeFields) &&
         Objects.equals(filter, that.filter) &&
         Objects.equals(metafieldNamespaces, that.metafieldNamespaces) &&
-        Objects.equals(metafields, that.metafields);
+        Objects.equals(metafields, that.metafields) &&
+        Objects.equals(pubSubProject, that.pubSubProject) &&
+        Objects.equals(pubSubTopic, that.pubSubTopic);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pubSubProject, pubSubTopic, format, includeFields, filter, metafieldNamespaces, metafields);
+    return Objects.hash(format, includeFields, filter, metafieldNamespaces, metafields, pubSubProject, pubSubTopic);
   }
 
   public static Builder newBuilder() {
@@ -159,22 +163,14 @@ public class PubSubWebhookSubscriptionInput {
 
   public static class Builder {
     /**
-     * The Pub/Sub project ID.
-     */
-    private String pubSubProject;
-
-    /**
-     * The Pub/Sub topic ID.
-     */
-    private String pubSubTopic;
-
-    /**
      * The format in which the webhook subscription should send the data.
      */
     private WebhookSubscriptionFormat format;
 
     /**
-     * The list of fields to be included in the webhook subscription.
+     * The list of fields to be included in the webhook subscription. Only the fields
+     * specified will be included in the webhook payload. If null, then all fields
+     * will be included. Learn more about [modifying webhook payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify_payloads).
      */
     private List<String> includeFields;
 
@@ -195,32 +191,26 @@ public class PubSubWebhookSubscriptionInput {
      */
     private List<HasMetafieldsMetafieldIdentifierInput> metafields;
 
+    /**
+     * The Pub/Sub project ID.
+     */
+    private String pubSubProject;
+
+    /**
+     * The Pub/Sub topic ID.
+     */
+    private String pubSubTopic;
+
     public PubSubWebhookSubscriptionInput build() {
       PubSubWebhookSubscriptionInput result = new PubSubWebhookSubscriptionInput();
-      result.pubSubProject = this.pubSubProject;
-      result.pubSubTopic = this.pubSubTopic;
       result.format = this.format;
       result.includeFields = this.includeFields;
       result.filter = this.filter;
       result.metafieldNamespaces = this.metafieldNamespaces;
       result.metafields = this.metafields;
+      result.pubSubProject = this.pubSubProject;
+      result.pubSubTopic = this.pubSubTopic;
       return result;
-    }
-
-    /**
-     * The Pub/Sub project ID.
-     */
-    public Builder pubSubProject(String pubSubProject) {
-      this.pubSubProject = pubSubProject;
-      return this;
-    }
-
-    /**
-     * The Pub/Sub topic ID.
-     */
-    public Builder pubSubTopic(String pubSubTopic) {
-      this.pubSubTopic = pubSubTopic;
-      return this;
     }
 
     /**
@@ -232,7 +222,9 @@ public class PubSubWebhookSubscriptionInput {
     }
 
     /**
-     * The list of fields to be included in the webhook subscription.
+     * The list of fields to be included in the webhook subscription. Only the fields
+     * specified will be included in the webhook payload. If null, then all fields
+     * will be included. Learn more about [modifying webhook payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify_payloads).
      */
     public Builder includeFields(List<String> includeFields) {
       this.includeFields = includeFields;
@@ -262,6 +254,22 @@ public class PubSubWebhookSubscriptionInput {
      */
     public Builder metafields(List<HasMetafieldsMetafieldIdentifierInput> metafields) {
       this.metafields = metafields;
+      return this;
+    }
+
+    /**
+     * The Pub/Sub project ID.
+     */
+    public Builder pubSubProject(String pubSubProject) {
+      this.pubSubProject = pubSubProject;
+      return this;
+    }
+
+    /**
+     * The Pub/Sub topic ID.
+     */
+    public Builder pubSubTopic(String pubSubTopic) {
+      this.pubSubTopic = pubSubTopic;
       return this;
     }
   }

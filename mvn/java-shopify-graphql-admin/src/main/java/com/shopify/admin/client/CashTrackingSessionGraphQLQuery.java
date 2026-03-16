@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Lookup a cash tracking session by ID.
+ * Returns a `CashTrackingSession` resource by ID.
  */
 public class CashTrackingSessionGraphQLQuery extends GraphQLQuery {
   public CashTrackingSessionGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

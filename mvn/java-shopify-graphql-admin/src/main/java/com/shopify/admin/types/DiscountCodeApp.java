@@ -86,6 +86,11 @@ public class DiscountCodeApp implements Discount, DiscountCode {
   private DiscountCombinesWith combinesWith;
 
   /**
+   * The context defining which buyers can use the discount.
+   */
+  private DiscountContext context;
+
+  /**
    * The date and time when the discount was created.
    */
   private OffsetDateTime createdAt;
@@ -172,8 +177,8 @@ public class DiscountCodeApp implements Discount, DiscountCode {
   private OffsetDateTime updatedAt;
 
   /**
-   * The maximum number of times that a customer can use the discount.
-   * For discounts with unlimited usage, specify `null`.
+   * The maximum number of times the discount can be redeemed.
+   * For unlimited usage, specify `null`.
    */
   private Integer usageLimit;
 
@@ -282,6 +287,17 @@ public class DiscountCodeApp implements Discount, DiscountCode {
 
   public void setCombinesWith(DiscountCombinesWith combinesWith) {
     this.combinesWith = combinesWith;
+  }
+
+  /**
+   * The context defining which buyers can use the discount.
+   */
+  public DiscountContext getContext() {
+    return context;
+  }
+
+  public void setContext(DiscountContext context) {
+    this.context = context;
   }
 
   /**
@@ -461,8 +477,8 @@ public class DiscountCodeApp implements Discount, DiscountCode {
   }
 
   /**
-   * The maximum number of times that a customer can use the discount.
-   * For discounts with unlimited usage, specify `null`.
+   * The maximum number of times the discount can be redeemed.
+   * For unlimited usage, specify `null`.
    */
   public Integer getUsageLimit() {
     return usageLimit;
@@ -474,7 +490,7 @@ public class DiscountCodeApp implements Discount, DiscountCode {
 
   @Override
   public String toString() {
-    return "DiscountCodeApp{appDiscountType='" + appDiscountType + "', appliesOnOneTimePurchase='" + appliesOnOneTimePurchase + "', appliesOnSubscription='" + appliesOnSubscription + "', appliesOncePerCustomer='" + appliesOncePerCustomer + "', asyncUsageCount='" + asyncUsageCount + "', codes='" + codes + "', codesCount='" + codesCount + "', combinesWith='" + combinesWith + "', createdAt='" + createdAt + "', customerSelection='" + customerSelection + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', discountId='" + discountId + "', endsAt='" + endsAt + "', errorHistory='" + errorHistory + "', hasTimelineComment='" + hasTimelineComment + "', recurringCycleLimit='" + recurringCycleLimit + "', shareableUrls='" + shareableUrls + "', startsAt='" + startsAt + "', status='" + status + "', title='" + title + "', totalSales='" + totalSales + "', updatedAt='" + updatedAt + "', usageLimit='" + usageLimit + "'}";
+    return "DiscountCodeApp{appDiscountType='" + appDiscountType + "', appliesOnOneTimePurchase='" + appliesOnOneTimePurchase + "', appliesOnSubscription='" + appliesOnSubscription + "', appliesOncePerCustomer='" + appliesOncePerCustomer + "', asyncUsageCount='" + asyncUsageCount + "', codes='" + codes + "', codesCount='" + codesCount + "', combinesWith='" + combinesWith + "', context='" + context + "', createdAt='" + createdAt + "', customerSelection='" + customerSelection + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', discountId='" + discountId + "', endsAt='" + endsAt + "', errorHistory='" + errorHistory + "', hasTimelineComment='" + hasTimelineComment + "', recurringCycleLimit='" + recurringCycleLimit + "', shareableUrls='" + shareableUrls + "', startsAt='" + startsAt + "', status='" + status + "', title='" + title + "', totalSales='" + totalSales + "', updatedAt='" + updatedAt + "', usageLimit='" + usageLimit + "'}";
   }
 
   @Override
@@ -490,6 +506,7 @@ public class DiscountCodeApp implements Discount, DiscountCode {
         Objects.equals(codes, that.codes) &&
         Objects.equals(codesCount, that.codesCount) &&
         Objects.equals(combinesWith, that.combinesWith) &&
+        Objects.equals(context, that.context) &&
         Objects.equals(createdAt, that.createdAt) &&
         Objects.equals(customerSelection, that.customerSelection) &&
         Objects.equals(discountClass, that.discountClass) &&
@@ -510,7 +527,7 @@ public class DiscountCodeApp implements Discount, DiscountCode {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appDiscountType, appliesOnOneTimePurchase, appliesOnSubscription, appliesOncePerCustomer, asyncUsageCount, codes, codesCount, combinesWith, createdAt, customerSelection, discountClass, discountClasses, discountId, endsAt, errorHistory, hasTimelineComment, recurringCycleLimit, shareableUrls, startsAt, status, title, totalSales, updatedAt, usageLimit);
+    return Objects.hash(appDiscountType, appliesOnOneTimePurchase, appliesOnSubscription, appliesOncePerCustomer, asyncUsageCount, codes, codesCount, combinesWith, context, createdAt, customerSelection, discountClass, discountClasses, discountId, endsAt, errorHistory, hasTimelineComment, recurringCycleLimit, shareableUrls, startsAt, status, title, totalSales, updatedAt, usageLimit);
   }
 
   public static Builder newBuilder() {
@@ -573,6 +590,11 @@ public class DiscountCodeApp implements Discount, DiscountCode {
      * [Shopify discount types](https://help.shopify.com/manual/discounts/discount-types).
      */
     private DiscountCombinesWith combinesWith;
+
+    /**
+     * The context defining which buyers can use the discount.
+     */
+    private DiscountContext context;
 
     /**
      * The date and time when the discount was created.
@@ -661,8 +683,8 @@ public class DiscountCodeApp implements Discount, DiscountCode {
     private OffsetDateTime updatedAt;
 
     /**
-     * The maximum number of times that a customer can use the discount.
-     * For discounts with unlimited usage, specify `null`.
+     * The maximum number of times the discount can be redeemed.
+     * For unlimited usage, specify `null`.
      */
     private Integer usageLimit;
 
@@ -676,6 +698,7 @@ public class DiscountCodeApp implements Discount, DiscountCode {
       result.codes = this.codes;
       result.codesCount = this.codesCount;
       result.combinesWith = this.combinesWith;
+      result.context = this.context;
       result.createdAt = this.createdAt;
       result.customerSelection = this.customerSelection;
       result.discountClass = this.discountClass;
@@ -772,6 +795,14 @@ public class DiscountCodeApp implements Discount, DiscountCode {
      */
     public Builder combinesWith(DiscountCombinesWith combinesWith) {
       this.combinesWith = combinesWith;
+      return this;
+    }
+
+    /**
+     * The context defining which buyers can use the discount.
+     */
+    public Builder context(DiscountContext context) {
+      this.context = context;
       return this;
     }
 
@@ -907,8 +938,8 @@ public class DiscountCodeApp implements Discount, DiscountCode {
     }
 
     /**
-     * The maximum number of times that a customer can use the discount.
-     * For discounts with unlimited usage, specify `null`.
+     * The maximum number of times the discount can be redeemed.
+     * For unlimited usage, specify `null`.
      */
     public Builder usageLimit(Integer usageLimit) {
       this.usageLimit = usageLimit;

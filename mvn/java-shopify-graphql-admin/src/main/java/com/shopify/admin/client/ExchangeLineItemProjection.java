@@ -18,8 +18,39 @@ public class ExchangeLineItemProjection<PARENT extends BaseSubProjectionNode<?, 
      return projection;
   }
 
+  public LineItemProjection<ExchangeLineItemProjection<PARENT, ROOT>, ROOT> lineItems() {
+     LineItemProjection<ExchangeLineItemProjection<PARENT, ROOT>, ROOT> projection = new LineItemProjection<>(this, getRoot());
+     getFields().put("lineItems", projection);
+     return projection;
+  }
+
   public ExchangeLineItemProjection<PARENT, ROOT> id() {
     getFields().put("id", null);
+    return this;
+  }
+
+  public ExchangeLineItemProjection<PARENT, ROOT> processableQuantity() {
+    getFields().put("processableQuantity", null);
+    return this;
+  }
+
+  public ExchangeLineItemProjection<PARENT, ROOT> processedQuantity() {
+    getFields().put("processedQuantity", null);
+    return this;
+  }
+
+  public ExchangeLineItemProjection<PARENT, ROOT> quantity() {
+    getFields().put("quantity", null);
+    return this;
+  }
+
+  public ExchangeLineItemProjection<PARENT, ROOT> unprocessedQuantity() {
+    getFields().put("unprocessedQuantity", null);
+    return this;
+  }
+
+  public ExchangeLineItemProjection<PARENT, ROOT> variantId() {
+    getFields().put("variantId", null);
     return this;
   }
 }

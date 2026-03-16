@@ -10,7 +10,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns the list of company locations in the shop.
+ * A paginated list of [`CompanyLocation`](https://shopify.dev/docs/api/admin-graphql/latest/objects/CompanyLocation)
+ * objects for B2B customers. Company locations represent individual branches or offices of a
+ * [`Company`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Company)
+ * where B2B orders can be placed.
+ *   
+ * Each location can have its own billing and shipping addresses, tax settings, [`PaymentTerms`](https://shopify.dev/docs/api/admin-graphql/latest/objects/PaymentTerms), and [`Catalog`](https://shopify.dev/docs/api/admin-graphql/latest/interfaces/Catalog)
+ * assignments with custom pricing. Use the query parameter to search locations
+ * by name or other attributes.
+ *   
+ * Learn more about [managing company locations](https://shopify.dev/docs/apps/build/b2b/manage-client-company-locations).
  */
 public class CompanyLocationsGraphQLQuery extends GraphQLQuery {
   public CompanyLocationsGraphQLQuery(Integer first, String after, Integer last, String before,
@@ -134,8 +143,13 @@ public class CompanyLocationsGraphQLQuery extends GraphQLQuery {
      * | company_id | id |
      * | created_at | time |
      * | external_id | string |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
      * | ids | string |
+     * | metafields.{namespace}.{key} | mixed | Filters resources by metafield
+     * value. Format: `metafields.{namespace}.{key}:{value}`. Learn more about
+     * [querying by metafield value](https://shopify.dev/apps/build/custom-data/metafields/query-by-metafield-value).
+     * | | | - `metafields.custom.on_sale:true`<br/> -
+     * `metafields.product.material:"gid://shopify/Metaobject/43458085"` |
      * | name | string |
      * | updated_at | time |
      * You can apply one or more filters to a query. Learn more about [Shopify API

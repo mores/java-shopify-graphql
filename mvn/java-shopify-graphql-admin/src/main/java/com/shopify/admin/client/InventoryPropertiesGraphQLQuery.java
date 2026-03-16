@@ -7,7 +7,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * General inventory properties for the shop.
+ * Returns the shop's inventory configuration, including all inventory quantity
+ * names. Quantity names represent different [inventory states](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps#inventory-states)
+ * that merchants use to track inventory.
  */
 public class InventoryPropertiesGraphQLQuery extends GraphQLQuery {
   public InventoryPropertiesGraphQLQuery(String queryName) {

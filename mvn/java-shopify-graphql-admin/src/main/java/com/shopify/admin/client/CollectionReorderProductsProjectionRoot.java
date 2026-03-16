@@ -19,9 +19,9 @@ public class CollectionReorderProductsProjectionRoot<PARENT extends BaseSubProje
     return projection;
   }
 
-  public UserErrorProjection<CollectionReorderProductsProjectionRoot<PARENT, ROOT>, CollectionReorderProductsProjectionRoot<PARENT, ROOT>> userErrors(
+  public CollectionReorderProductsUserErrorProjection<CollectionReorderProductsProjectionRoot<PARENT, ROOT>, CollectionReorderProductsProjectionRoot<PARENT, ROOT>> userErrors(
       ) {
-    UserErrorProjection<CollectionReorderProductsProjectionRoot<PARENT, ROOT>, CollectionReorderProductsProjectionRoot<PARENT, ROOT>> projection = new UserErrorProjection<>(this, this);    
+    CollectionReorderProductsUserErrorProjection<CollectionReorderProductsProjectionRoot<PARENT, ROOT>, CollectionReorderProductsProjectionRoot<PARENT, ROOT>> projection = new CollectionReorderProductsUserErrorProjection<>(this, this);    
     getFields().put("userErrors", projection);
     return projection;
   }

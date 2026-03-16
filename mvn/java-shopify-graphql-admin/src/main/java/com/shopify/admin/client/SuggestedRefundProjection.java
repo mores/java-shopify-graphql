@@ -54,6 +54,13 @@ public class SuggestedRefundProjection<PARENT extends BaseSubProjectionNode<?, ?
      return projection;
   }
 
+  public SuggestedRefundMethodProjection<SuggestedRefundProjection<PARENT, ROOT>, ROOT> suggestedRefundMethods(
+      ) {
+     SuggestedRefundMethodProjection<SuggestedRefundProjection<PARENT, ROOT>, ROOT> projection = new SuggestedRefundMethodProjection<>(this, getRoot());
+     getFields().put("suggestedRefundMethods", projection);
+     return projection;
+  }
+
   public SuggestedOrderTransactionProjection<SuggestedRefundProjection<PARENT, ROOT>, ROOT> suggestedTransactions(
       ) {
      SuggestedOrderTransactionProjection<SuggestedRefundProjection<PARENT, ROOT>, ROOT> projection = new SuggestedOrderTransactionProjection<>(this, getRoot());

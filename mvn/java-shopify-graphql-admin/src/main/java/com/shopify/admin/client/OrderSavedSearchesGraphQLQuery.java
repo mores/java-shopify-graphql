@@ -9,7 +9,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * List of the shop's order saved searches.
+ * Returns [saved searches](https://shopify.dev/docs/api/admin-graphql/latest/objects/SavedSearch) for orders in the shop. Saved searches store search queries with their filters
+ * and search terms.
  */
 public class OrderSavedSearchesGraphQLQuery extends GraphQLQuery {
   public OrderSavedSearchesGraphQLQuery(Integer first, String after, Integer last, String before,

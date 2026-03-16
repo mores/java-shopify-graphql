@@ -8,7 +8,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Updates the context of a catalog.
+ * Modifies which contexts, like
+ * [markets](https://shopify.dev/docs/api/admin-graphql/latest/objects/Market) or B2B [company locations](https://shopify.dev/docs/api/admin-graphql/latest/objects/CompanyLocation), can access a [`Catalog`](https://shopify.dev/docs/api/admin-graphql/latest/interfaces/Catalog).
+ * You can add or remove contexts to control where the catalog's products and
+ * prices are available.
+ *   
+ * Learn more about [managing catalog
+ * contexts](https://shopify.dev/docs/apps/build/markets/new-markets/catalogs)
+ * and [managing B2B
+ * catalogs](https://shopify.dev/docs/apps/build/b2b/manage-catalogs).
  */
 public class CatalogContextUpdateGraphQLQuery extends GraphQLQuery {
   public CatalogContextUpdateGraphQLQuery(String catalogId, CatalogContextInput contextsToAdd,

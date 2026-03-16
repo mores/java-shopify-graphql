@@ -7,11 +7,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns the visual customizations for checkout for a given checkout profile.
+ * Returns the visual customizations for checkout for a given [checkout profile](https://shopify.dev/docs/api/admin-graphql/latest/objects/CheckoutProfile).
  *   
- * To learn more about updating checkout branding settings, refer to the
- * [checkoutBrandingUpsert](https://shopify.dev/api/admin-graphql/unstable/mutations/checkoutBrandingUpsert)
- * mutation and the checkout branding [tutorial](https://shopify.dev/docs/apps/checkout/styling).
+ * To update checkout branding settings, use the [`checkoutBrandingUpsert`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/checkoutBrandingUpsert)
+ * mutation. Learn more about [customizing checkout's
+ * appearance](https://shopify.dev/docs/apps/build/checkout/styling).
  */
 public class CheckoutBrandingGraphQLQuery extends GraphQLQuery {
   public CheckoutBrandingGraphQLQuery(String checkoutProfileId, String queryName,

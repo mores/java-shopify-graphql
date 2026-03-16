@@ -7,10 +7,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Publishes a resource to current channel. If the resource is a product, then
- * it's visible in the channel only if the product status is `active`. Products
- * that are sold exclusively on subscription (`requiresSellingPlan: true`) can be
- * published only on online stores.
+ * Publishes a resource to the current
+ * [`Channel`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Channel)
+ * associated with the requesting app. The system determines the current channel
+ * by the app's API client ID. Resources include
+ * [`Product`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product) and [`Collection`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Collection)
+ * objects that implement the [`Publishable`](https://shopify.dev/docs/api/admin-graphql/latest/interfaces/Publishable) interface.
+ *   
+ * For products to be visible in the channel, they must have an active [`ProductStatus`](https://shopify.dev/docs/api/admin-graphql/latest/enums/ProductStatus).
+ * Products sold exclusively on subscription ([`requiresSellingPlan`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product#field-Product.fields.requiresSellingPlan):
+ * `true`) can only be published to online stores.
  */
 public class PublishablePublishToCurrentChannelGraphQLQuery extends GraphQLQuery {
   public PublishablePublishToCurrentChannelGraphQLQuery(String id, String queryName,

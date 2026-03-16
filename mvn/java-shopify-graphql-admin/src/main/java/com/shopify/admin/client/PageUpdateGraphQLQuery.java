@@ -8,7 +8,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Updates a page.
+ * Updates an existing page's content and settings.
+ *   
+ * For example, merchants can update their "Shipping Policy" page when rates
+ * change, or refresh their "About Us" page with new team information.
+ *   
+ * Use the `pageUpdate` mutation to:
+ * - Update page content and titles
+ * - Modify publication status
+ * - Change page handles for URL structure
+ * - Adjust template settings
+ *   
+ * The mutation supports partial updates, allowing specific changes while preserving other page properties.
  */
 public class PageUpdateGraphQLQuery extends GraphQLQuery {
   public PageUpdateGraphQLQuery(String id, PageUpdateInput page, String queryName,

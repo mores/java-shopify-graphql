@@ -10,18 +10,33 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Updates a product.
+ * Updates a [product](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+ * with attributes such as title, description, vendor, and media.
  *   
- * For versions `2024-01` and older:
- * If you update a product and only include some variants in the update,
- * then any variants not included will be deleted.
+ * The `productUpdate` mutation helps you modify many products at once, avoiding the tedious or time-consuming
+ * process of updating them one by one in the Shopify admin. Common examples including updating
+ * product details like status or tags.
  *   
- * To safely manage variants without the risk of
- * deleting excluded variants, use
- * [productVariantsBulkUpdate](https://shopify.dev/api/admin-graphql/latest/mutations/productvariantsbulkupdate).
+ * The `productUpdate` mutation doesn't support updating
+ * [product variants](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant).
+ * To update multiple product variants for a single product and manage prices, use the
+ * [`productVariantsBulkUpdate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productVariantsBulkUpdate)
+ * mutation.
  *   
- * If you want to update a single variant, then use
- * [productVariantUpdate](https://shopify.dev/api/admin-graphql/latest/mutations/productvariantupdate).
+ * > Note:
+ * > The `productUpdate` mutation has a [throttle](https://shopify.dev/docs/api/usage/rate-limits#resource-based-rate-limits)
+ * > that takes effect when a store has 50,000 product variants. After this threshold is reached, no more than
+ * > 1,000 new product variants can be updated per day.
+ *   
+ * After updating a product, you can make additional changes using one of the following mutations:
+ *   
+ * - [`productSet`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productSet):
+ * Used to perform multiple operations on products, such as creating or modifying product options and variants.
+ * - [`publishablePublish`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/publishablePublish):
+ * Used to publish the product and make it available to customers, if the product is currently unpublished.
+ *   
+ * Learn more about the [product model](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model)
+ * and [adding product data](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model/add-data).
  */
 public class ProductUpdateGraphQLQuery extends GraphQLQuery {
   public ProductUpdateGraphQLQuery(ProductUpdateInput product, List<CreateMediaInput> media,

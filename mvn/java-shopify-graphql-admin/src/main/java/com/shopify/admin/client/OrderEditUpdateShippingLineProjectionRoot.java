@@ -19,6 +19,13 @@ public class OrderEditUpdateShippingLineProjectionRoot<PARENT extends BaseSubPro
     return projection;
   }
 
+  public OrderEditSessionProjection<OrderEditUpdateShippingLineProjectionRoot<PARENT, ROOT>, OrderEditUpdateShippingLineProjectionRoot<PARENT, ROOT>> orderEditSession(
+      ) {
+    OrderEditSessionProjection<OrderEditUpdateShippingLineProjectionRoot<PARENT, ROOT>, OrderEditUpdateShippingLineProjectionRoot<PARENT, ROOT>> projection = new OrderEditSessionProjection<>(this, this);    
+    getFields().put("orderEditSession", projection);
+    return projection;
+  }
+
   public OrderEditUpdateShippingLineUserErrorProjection<OrderEditUpdateShippingLineProjectionRoot<PARENT, ROOT>, OrderEditUpdateShippingLineProjectionRoot<PARENT, ROOT>> userErrors(
       ) {
     OrderEditUpdateShippingLineUserErrorProjection<OrderEditUpdateShippingLineProjectionRoot<PARENT, ROOT>, OrderEditUpdateShippingLineProjectionRoot<PARENT, ROOT>> projection = new OrderEditUpdateShippingLineUserErrorProjection<>(this, this);    

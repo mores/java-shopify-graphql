@@ -8,9 +8,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Creates a theme using an external URL or for files that were previously uploaded using the
- * [stagedUploadsCreate mutation](https://shopify.dev/api/admin-graphql/latest/mutations/stageduploadscreate).
- * These themes are added to the [Themes page](https://admin.shopify.com/themes) in Shopify admin.
+ * Creates a theme from an external URL or staged upload. The theme source can
+ * either be a ZIP file hosted at a public URL or files previously uploaded using the [`stagedUploadsCreate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/stageduploadscreate)
+ * mutation. The theme displays in the [Themes
+ * page](https://admin.shopify.com/themes) in the Shopify admin.
+ *   
+ * New themes have an [`UNPUBLISHED`](https://shopify.dev//docs/api/admin-graphql/latest/mutations/themeCreate#arguments-role.enums.UNPUBLISHED)
+ * role by default. You can optionally specify a [`DEVELOPMENT`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/themeCreate#arguments-role.enums.DEVELOPMENT)
+ * role for temporary themes used during development.
  */
 public class ThemeCreateGraphQLQuery extends GraphQLQuery {
   public ThemeCreateGraphQLQuery(String source, String name, ThemeRole role, String queryName,

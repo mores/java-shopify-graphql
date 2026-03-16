@@ -40,6 +40,13 @@ public class HasStoreCreditAccountsProjection<PARENT extends BaseSubProjectionNo
     return projection;
   }
 
+  public CompanyLocationFragmentProjection<HasStoreCreditAccountsProjection<PARENT, ROOT>, ROOT> onCompanyLocation(
+      ) {
+    CompanyLocationFragmentProjection<HasStoreCreditAccountsProjection<PARENT, ROOT>, ROOT> fragment = new CompanyLocationFragmentProjection<>(this, getRoot());
+    getFragments().add(fragment);
+    return fragment;
+  }
+
   public CustomerFragmentProjection<HasStoreCreditAccountsProjection<PARENT, ROOT>, ROOT> onCustomer(
       ) {
     CustomerFragmentProjection<HasStoreCreditAccountsProjection<PARENT, ROOT>, ROOT> fragment = new CustomerFragmentProjection<>(this, getRoot());

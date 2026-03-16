@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a Blog resource by ID.
+ * Returns a `Blog` resource by ID.
  */
 public class BlogGraphQLQuery extends GraphQLQuery {
   public BlogGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

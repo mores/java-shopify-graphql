@@ -17,7 +17,7 @@ public class OrderCreateTaxLineInput {
   private Boolean channelLiable = false;
 
   /**
-   * The amount of tax to be charged on the item.
+   * The amount added to the order for this tax in shop and presentment currencies after discounts are applied.
    */
   private MoneyBagInput priceSet;
 
@@ -47,7 +47,7 @@ public class OrderCreateTaxLineInput {
   }
 
   /**
-   * The amount of tax to be charged on the item.
+   * The amount added to the order for this tax in shop and presentment currencies after discounts are applied.
    */
   public MoneyBagInput getPriceSet() {
     return priceSet;
@@ -112,7 +112,7 @@ public class OrderCreateTaxLineInput {
     private Boolean channelLiable = false;
 
     /**
-     * The amount of tax to be charged on the item.
+     * The amount added to the order for this tax in shop and presentment currencies after discounts are applied.
      */
     private MoneyBagInput priceSet;
 
@@ -145,7 +145,7 @@ public class OrderCreateTaxLineInput {
     }
 
     /**
-     * The amount of tax to be charged on the item.
+     * The amount added to the order for this tax in shop and presentment currencies after discounts are applied.
      */
     public Builder priceSet(MoneyBagInput priceSet) {
       this.priceSet = priceSet;

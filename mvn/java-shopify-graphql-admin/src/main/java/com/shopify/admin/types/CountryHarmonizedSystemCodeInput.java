@@ -15,7 +15,8 @@ public class CountryHarmonizedSystemCodeInput {
   private String harmonizedSystemCode;
 
   /**
-   * The ISO 3166-1 alpha-2 country code for the country that issued the specified harmonized system code.
+   * The ISO 3166-1 alpha-2 country code for the country that issued the specified
+   * harmonized system code. Represents global harmonized system code when set to null.
    */
   private CountryCode countryCode;
 
@@ -34,7 +35,8 @@ public class CountryHarmonizedSystemCodeInput {
   }
 
   /**
-   * The ISO 3166-1 alpha-2 country code for the country that issued the specified harmonized system code.
+   * The ISO 3166-1 alpha-2 country code for the country that issued the specified
+   * harmonized system code. Represents global harmonized system code when set to null.
    */
   public CountryCode getCountryCode() {
     return countryCode;
@@ -74,7 +76,8 @@ public class CountryHarmonizedSystemCodeInput {
     private String harmonizedSystemCode;
 
     /**
-     * The ISO 3166-1 alpha-2 country code for the country that issued the specified harmonized system code.
+     * The ISO 3166-1 alpha-2 country code for the country that issued the specified
+     * harmonized system code. Represents global harmonized system code when set to null.
      */
     private CountryCode countryCode;
 
@@ -94,7 +97,8 @@ public class CountryHarmonizedSystemCodeInput {
     }
 
     /**
-     * The ISO 3166-1 alpha-2 country code for the country that issued the specified harmonized system code.
+     * The ISO 3166-1 alpha-2 country code for the country that issued the specified
+     * harmonized system code. Represents global harmonized system code when set to null.
      */
     public Builder countryCode(CountryCode countryCode) {
       this.countryCode = countryCode;

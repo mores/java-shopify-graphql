@@ -7,7 +7,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Deletes a blog.
+ * Permanently deletes a blog from a shop. This mutation removes the blog container and its organizational structure.
+ *   
+ * For example, when consolidating multiple seasonal blogs into a single
+ * year-round content strategy, merchants can use this mutation to remove unused blogs.
+ *   
+ * Use the `blogDelete` mutation to:
+ * - Remove unused or outdated blogs
+ * - Consolidate content organization
+ * - Clean up blog structure
+ *   
+ * The deletion is permanent and returns the deleted blog's ID for confirmation.
  */
 public class BlogDeleteGraphQLQuery extends GraphQLQuery {
   public BlogDeleteGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

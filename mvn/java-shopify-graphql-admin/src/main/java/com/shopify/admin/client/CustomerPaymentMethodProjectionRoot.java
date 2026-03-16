@@ -30,6 +30,31 @@ public class CustomerPaymentMethodProjectionRoot<PARENT extends BaseSubProjectio
     return projection;
   }
 
+  public PaymentMandateResourceConnectionProjection<CustomerPaymentMethodProjectionRoot<PARENT, ROOT>, CustomerPaymentMethodProjectionRoot<PARENT, ROOT>> mandates(
+      ) {
+    PaymentMandateResourceConnectionProjection<CustomerPaymentMethodProjectionRoot<PARENT, ROOT>, CustomerPaymentMethodProjectionRoot<PARENT, ROOT>> projection = new PaymentMandateResourceConnectionProjection<>(this, this);    
+    getFields().put("mandates", projection);
+    return projection;
+  }
+
+  public PaymentMandateResourceConnectionProjection<CustomerPaymentMethodProjectionRoot<PARENT, ROOT>, CustomerPaymentMethodProjectionRoot<PARENT, ROOT>> mandates(
+      Integer first, String after, Integer last, String before, Boolean reverse) {
+    PaymentMandateResourceConnectionProjection<CustomerPaymentMethodProjectionRoot<PARENT, ROOT>, CustomerPaymentMethodProjectionRoot<PARENT, ROOT>> projection = new PaymentMandateResourceConnectionProjection<>(this, this);    
+    getFields().put("mandates", projection);
+    getInputArguments().computeIfAbsent("mandates", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("mandates").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("mandates").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("mandates").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("mandates").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    getInputArguments().get("mandates").add(reverseArg);
+    return projection;
+  }
+
   public CustomerPaymentMethodRevocationReasonProjection<CustomerPaymentMethodProjectionRoot<PARENT, ROOT>, CustomerPaymentMethodProjectionRoot<PARENT, ROOT>> revokedReason(
       ) {
     CustomerPaymentMethodRevocationReasonProjection<CustomerPaymentMethodProjectionRoot<PARENT, ROOT>, CustomerPaymentMethodProjectionRoot<PARENT, ROOT>> projection = new CustomerPaymentMethodRevocationReasonProjection<>(this, this);    

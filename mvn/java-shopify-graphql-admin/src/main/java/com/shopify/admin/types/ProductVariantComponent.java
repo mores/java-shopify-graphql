@@ -7,7 +7,10 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * A product variant component associated with a product variant.
+ * A product variant component that is included within a bundle.
+ *
+ * These are the individual product variants that make up a bundle product,
+ * where each component has a specific required quantity.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

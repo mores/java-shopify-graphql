@@ -8,7 +8,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Updates a marketing activity with the latest information.
+ * Updates a marketing activity with the latest information. Marketing activity
+ * app extensions are deprecated and will be removed in the near future.
  */
 public class MarketingActivityUpdateGraphQLQuery extends GraphQLQuery {
   public MarketingActivityUpdateGraphQLQuery(MarketingActivityUpdateInput input, String queryName,

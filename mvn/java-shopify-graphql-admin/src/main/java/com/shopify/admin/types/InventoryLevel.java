@@ -9,8 +9,10 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * The quantities of an inventory item that are related to a specific location.
- * Learn [more about the relationships between inventory objects](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#inventory-object-relationships).
+ * The quantities of an inventory item at a specific location. Each inventory level connects one [`InventoryItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryItem) to one [`Location`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Location),
+ * tracking multiple quantity states like available, on-hand, incoming, and committed.
+ *
+ * The [`quantities`](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryLevel#field-InventoryLevel.fields.quantities) field provides access to different inventory states. Learn [more about inventory states and relationships](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#inventory-object-relationships).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -47,7 +49,8 @@ public class InventoryLevel implements com.shopify.admin.types.Node {
   private Location location;
 
   /**
-   * Quantities for the requested names.
+   * The quantity of an inventory item at a specific location, for a quantity
+   * [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states).
    */
   private List<InventoryQuantity> quantities;
 
@@ -131,7 +134,8 @@ public class InventoryLevel implements com.shopify.admin.types.Node {
   }
 
   /**
-   * Quantities for the requested names.
+   * The quantity of an inventory item at a specific location, for a quantity
+   * [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states).
    */
   public List<InventoryQuantity> getQuantities() {
     return quantities;
@@ -225,7 +229,8 @@ public class InventoryLevel implements com.shopify.admin.types.Node {
     private Location location;
 
     /**
-     * Quantities for the requested names.
+     * The quantity of an inventory item at a specific location, for a quantity
+     * [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states).
      */
     private List<InventoryQuantity> quantities;
 
@@ -302,7 +307,8 @@ public class InventoryLevel implements com.shopify.admin.types.Node {
     }
 
     /**
-     * Quantities for the requested names.
+     * The quantity of an inventory item at a specific location, for a quantity
+     * [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states).
      */
     public Builder quantities(List<InventoryQuantity> quantities) {
       this.quantities = quantities;

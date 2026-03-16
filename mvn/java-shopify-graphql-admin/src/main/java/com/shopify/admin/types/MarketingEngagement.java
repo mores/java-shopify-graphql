@@ -18,6 +18,14 @@ public class MarketingEngagement {
   private MoneyV2 adSpend;
 
   /**
+   * The number of all conversions from the marketing content. This field supports
+   * ad platforms that track conversions beyond traditional sales metrics. All
+   * conversions include both primary and secondary conversion goals as defined by
+   * the ad platform, such as purchases, add-to-carts, page views, and sign-ups.
+   */
+  private String allConversions;
+
+  /**
    * The unique string identifier of the channel to which the engagement metrics
    * are being provided. This should be set when and only when providing
    * channel-level engagements. This should be nil when providing activity-level
@@ -99,6 +107,14 @@ public class MarketingEngagement {
   private String orders;
 
   /**
+   * The number of primary conversions from the marketing content. This field
+   * supports ad platforms that track conversions beyond traditional sales metrics.
+   * Primary conversions represent the main conversion goal defined by the ad
+   * platform, such as purchases, sign-ups, or add-to-carts.
+   */
+  private String primaryConversions;
+
+  /**
    * The number of returning customers that have placed an order. Doesn't include
    * adjustments such as edits, exchanges, or returns.
    */
@@ -175,6 +191,20 @@ public class MarketingEngagement {
 
   public void setAdSpend(MoneyV2 adSpend) {
     this.adSpend = adSpend;
+  }
+
+  /**
+   * The number of all conversions from the marketing content. This field supports
+   * ad platforms that track conversions beyond traditional sales metrics. All
+   * conversions include both primary and secondary conversion goals as defined by
+   * the ad platform, such as purchases, add-to-carts, page views, and sign-ups.
+   */
+  public String getAllConversions() {
+    return allConversions;
+  }
+
+  public void setAllConversions(String allConversions) {
+    this.allConversions = allConversions;
   }
 
   /**
@@ -331,6 +361,20 @@ public class MarketingEngagement {
   }
 
   /**
+   * The number of primary conversions from the marketing content. This field
+   * supports ad platforms that track conversions beyond traditional sales metrics.
+   * Primary conversions represent the main conversion goal defined by the ad
+   * platform, such as purchases, sign-ups, or add-to-carts.
+   */
+  public String getPrimaryConversions() {
+    return primaryConversions;
+  }
+
+  public void setPrimaryConversions(String primaryConversions) {
+    this.primaryConversions = primaryConversions;
+  }
+
+  /**
    * The number of returning customers that have placed an order. Doesn't include
    * adjustments such as edits, exchanges, or returns.
    */
@@ -456,7 +500,7 @@ public class MarketingEngagement {
 
   @Override
   public String toString() {
-    return "MarketingEngagement{adSpend='" + adSpend + "', channelHandle='" + channelHandle + "', clicksCount='" + clicksCount + "', commentsCount='" + commentsCount + "', complaintsCount='" + complaintsCount + "', failsCount='" + failsCount + "', favoritesCount='" + favoritesCount + "', firstTimeCustomers='" + firstTimeCustomers + "', impressionsCount='" + impressionsCount + "', isCumulative='" + isCumulative + "', marketingActivity='" + marketingActivity + "', occurredOn='" + occurredOn + "', orders='" + orders + "', returningCustomers='" + returningCustomers + "', sales='" + sales + "', sendsCount='" + sendsCount + "', sessionsCount='" + sessionsCount + "', sharesCount='" + sharesCount + "', uniqueClicksCount='" + uniqueClicksCount + "', uniqueViewsCount='" + uniqueViewsCount + "', unsubscribesCount='" + unsubscribesCount + "', utcOffset='" + utcOffset + "', viewsCount='" + viewsCount + "'}";
+    return "MarketingEngagement{adSpend='" + adSpend + "', allConversions='" + allConversions + "', channelHandle='" + channelHandle + "', clicksCount='" + clicksCount + "', commentsCount='" + commentsCount + "', complaintsCount='" + complaintsCount + "', failsCount='" + failsCount + "', favoritesCount='" + favoritesCount + "', firstTimeCustomers='" + firstTimeCustomers + "', impressionsCount='" + impressionsCount + "', isCumulative='" + isCumulative + "', marketingActivity='" + marketingActivity + "', occurredOn='" + occurredOn + "', orders='" + orders + "', primaryConversions='" + primaryConversions + "', returningCustomers='" + returningCustomers + "', sales='" + sales + "', sendsCount='" + sendsCount + "', sessionsCount='" + sessionsCount + "', sharesCount='" + sharesCount + "', uniqueClicksCount='" + uniqueClicksCount + "', uniqueViewsCount='" + uniqueViewsCount + "', unsubscribesCount='" + unsubscribesCount + "', utcOffset='" + utcOffset + "', viewsCount='" + viewsCount + "'}";
   }
 
   @Override
@@ -465,6 +509,7 @@ public class MarketingEngagement {
     if (o == null || getClass() != o.getClass()) return false;
     MarketingEngagement that = (MarketingEngagement) o;
     return Objects.equals(adSpend, that.adSpend) &&
+        Objects.equals(allConversions, that.allConversions) &&
         Objects.equals(channelHandle, that.channelHandle) &&
         Objects.equals(clicksCount, that.clicksCount) &&
         Objects.equals(commentsCount, that.commentsCount) &&
@@ -477,6 +522,7 @@ public class MarketingEngagement {
         Objects.equals(marketingActivity, that.marketingActivity) &&
         Objects.equals(occurredOn, that.occurredOn) &&
         Objects.equals(orders, that.orders) &&
+        Objects.equals(primaryConversions, that.primaryConversions) &&
         Objects.equals(returningCustomers, that.returningCustomers) &&
         Objects.equals(sales, that.sales) &&
         Objects.equals(sendsCount, that.sendsCount) &&
@@ -491,7 +537,7 @@ public class MarketingEngagement {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adSpend, channelHandle, clicksCount, commentsCount, complaintsCount, failsCount, favoritesCount, firstTimeCustomers, impressionsCount, isCumulative, marketingActivity, occurredOn, orders, returningCustomers, sales, sendsCount, sessionsCount, sharesCount, uniqueClicksCount, uniqueViewsCount, unsubscribesCount, utcOffset, viewsCount);
+    return Objects.hash(adSpend, allConversions, channelHandle, clicksCount, commentsCount, complaintsCount, failsCount, favoritesCount, firstTimeCustomers, impressionsCount, isCumulative, marketingActivity, occurredOn, orders, primaryConversions, returningCustomers, sales, sendsCount, sessionsCount, sharesCount, uniqueClicksCount, uniqueViewsCount, unsubscribesCount, utcOffset, viewsCount);
   }
 
   public static Builder newBuilder() {
@@ -504,6 +550,14 @@ public class MarketingEngagement {
      * yearly spend needs to be divided into daily amounts.
      */
     private MoneyV2 adSpend;
+
+    /**
+     * The number of all conversions from the marketing content. This field supports
+     * ad platforms that track conversions beyond traditional sales metrics. All
+     * conversions include both primary and secondary conversion goals as defined by
+     * the ad platform, such as purchases, add-to-carts, page views, and sign-ups.
+     */
+    private String allConversions;
 
     /**
      * The unique string identifier of the channel to which the engagement metrics
@@ -587,6 +641,14 @@ public class MarketingEngagement {
     private String orders;
 
     /**
+     * The number of primary conversions from the marketing content. This field
+     * supports ad platforms that track conversions beyond traditional sales metrics.
+     * Primary conversions represent the main conversion goal defined by the ad
+     * platform, such as purchases, sign-ups, or add-to-carts.
+     */
+    private String primaryConversions;
+
+    /**
      * The number of returning customers that have placed an order. Doesn't include
      * adjustments such as edits, exchanges, or returns.
      */
@@ -653,6 +715,7 @@ public class MarketingEngagement {
     public MarketingEngagement build() {
       MarketingEngagement result = new MarketingEngagement();
       result.adSpend = this.adSpend;
+      result.allConversions = this.allConversions;
       result.channelHandle = this.channelHandle;
       result.clicksCount = this.clicksCount;
       result.commentsCount = this.commentsCount;
@@ -665,6 +728,7 @@ public class MarketingEngagement {
       result.marketingActivity = this.marketingActivity;
       result.occurredOn = this.occurredOn;
       result.orders = this.orders;
+      result.primaryConversions = this.primaryConversions;
       result.returningCustomers = this.returningCustomers;
       result.sales = this.sales;
       result.sendsCount = this.sendsCount;
@@ -684,6 +748,17 @@ public class MarketingEngagement {
      */
     public Builder adSpend(MoneyV2 adSpend) {
       this.adSpend = adSpend;
+      return this;
+    }
+
+    /**
+     * The number of all conversions from the marketing content. This field supports
+     * ad platforms that track conversions beyond traditional sales metrics. All
+     * conversions include both primary and secondary conversion goals as defined by
+     * the ad platform, such as purchases, add-to-carts, page views, and sign-ups.
+     */
+    public Builder allConversions(String allConversions) {
+      this.allConversions = allConversions;
       return this;
     }
 
@@ -801,6 +876,17 @@ public class MarketingEngagement {
      */
     public Builder orders(String orders) {
       this.orders = orders;
+      return this;
+    }
+
+    /**
+     * The number of primary conversions from the marketing content. This field
+     * supports ad platforms that track conversions beyond traditional sales metrics.
+     * Primary conversions represent the main conversion goal defined by the ad
+     * platform, such as purchases, sign-ups, or add-to-carts.
+     */
+    public Builder primaryConversions(String primaryConversions) {
+      this.primaryConversions = primaryConversions;
       return this;
     }
 

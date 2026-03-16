@@ -10,5 +10,9 @@ public enum UnitPriceMeasurementMeasuredType {
 
   LENGTH,
 
-  AREA
+  AREA,
+
+  COUNT,
+
+  UNKNOWN
 }

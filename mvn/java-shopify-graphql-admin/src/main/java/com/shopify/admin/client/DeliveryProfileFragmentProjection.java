@@ -169,6 +169,11 @@ public class DeliveryProfileFragmentProjection<PARENT extends BaseSubProjectionN
     return this;
   }
 
+  public DeliveryProfileFragmentProjection<PARENT, ROOT> version() {
+    getFields().put("version", null);
+    return this;
+  }
+
   public DeliveryProfileFragmentProjection<PARENT, ROOT> zoneCountryCount() {
     getFields().put("zoneCountryCount", null);
     return this;

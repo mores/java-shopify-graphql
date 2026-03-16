@@ -10,7 +10,34 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a list of collections.
+ * Retrieves a list of [collections](https://shopify.dev/docs/api/admin-graphql/latest/objects/Collection)
+ * in a store. Collections are groups of [products](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+ * that merchants can organize for display in their [online store](https://shopify.dev/docs/apps/build/online-store) and
+ * other [sales channels](https://shopify.dev/docs/apps/build/sales-channels).
+ * For example, an athletics store might create different collections for running attire, shoes, and accessories.
+ *   
+ * Use the `collections` query when you need to:
+ *   
+ * - Build a browsing interface for a store's product groupings.
+ * - Create collection searching, sorting, and filtering experiences (for example, by title, type, or published status).
+ * - Sync collection data with external systems.
+ * - Manage both custom ([manual](https://help.shopify.com/manual/products/collections/manual-shopify-collection))
+ * and smart ([automated](https://help.shopify.com/manual/products/collections/automated-collections)) collections.
+ *   
+ * The `collections` query supports [pagination](https://shopify.dev/docs/api/usage/pagination-graphql)
+ * for large catalogs and [saved searches](https://shopify.dev/docs/api/admin-graphql/latest/queries/collections#arguments-savedSearchId)
+ * for frequently used collection queries.
+ *   
+ * The `collections` query returns collections with their associated metadata, including:
+ *   
+ * - Basic collection information (title, description, handle, and type)
+ * - Collection image and SEO metadata
+ * - Product count and product relationships
+ * - Collection rules (for smart collections)
+ * - Publishing status and publication details
+ * - Metafields and custom attributes
+ *   
+ * Learn more about [using metafields with smart collections](https://shopify.dev/docs/apps/build/custom-data/metafields/use-metafield-capabilities).
  */
 public class CollectionsGraphQLQuery extends GraphQLQuery {
   public CollectionsGraphQLQuery(Integer first, String after, Integer last, String before,
@@ -138,31 +165,58 @@ public class CollectionsGraphQLQuery extends GraphQLQuery {
      * in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
      * | collection_type | string | | - `custom`<br/> - `smart` |
      * | handle | string |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
      * | product_id | id | Filter by collections containing a product by its ID. |
-     * | product_publication_status | string | Filter by the publishable status of
-     * the resource on a channel, such as the online store. The value is a
-     * composite of the [channel `app`
+     * | product_publication_status | string | Filter by channel approval process
+     * status of the resource on a channel, such as the online store. The value is
+     * a composite of the [channel `app` ID](https://shopify.dev/api/admin-graphql/latest/objects/Channel#field-Channel.fields.app)
+     * (`Channel.app.id`) and one of the valid values. For simple visibility checks, use [published_status](https://shopify.dev/api/admin-graphql/latest/queries/products#argument-query-filter-publishable_status)
+     * instead. | - `* {channel_app_id}-approved`<br/> - `*
+     * {channel_app_id}-rejected`<br/> - `* {channel_app_id}-needs_action`<br/> -
+     * `* {channel_app_id}-awaiting_review`<br/> - `*
+     * {channel_app_id}-published`<br/> - `* {channel_app_id}-demoted`<br/> - `*
+     * {channel_app_id}-scheduled`<br/> - `*
+     * {channel_app_id}-provisionally_published` | | -
+     * `product_publication_status:189769876-approved` |
+     * | publishable_status | string | **Deprecated:** This parameter is deprecated
+     * as of 2025-12 and will be removed in a future API version. Use [published_status](https://shopify.dev/api/admin-graphql/latest/queries/products#argument-query-filter-publishable_status)
+     * for visibility checks. Filter by the publishable status of the resource on a
+     * channel. The value is a composite of the [channel `app`
      * ID](https://shopify.dev/api/admin-graphql/latest/objects/Channel#app-price)
-     * (`Channel.app.id`) and one of the valid values. | - `approved`<br/> -
-     * `rejected`<br/> - `needs_action`<br/> - `awaiting_review`<br/> -
-     * `published`<br/> - `demoted`<br/> - `scheduled`<br/> -
-     * `provisionally_published` | | - `publishable_status:189769876-approved` |
-     * | publishable_status | string | Filter by the publishable status of the
-     * resource on a channel, such as the online store. The value is a composite of
-     * either the [channel `app`
-     * ID](https://shopify.dev/api/admin-graphql/latest/objects/Channel#app-price)
-     * (`Channel.app.id`) or [channel `name`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Channel#field-name)
-     * and one of the valid values. | - `online_store_channel`<br/> -
-     * `published`<br/> - `unpublished`<br/> - `visible`<br/> - `unavailable`<br/>
-     * - `hidden`<br/> - `intended`<br/> - `visible` | | -
-     * `publishable_status:published`<br/> -
-     * `publishable_status:189769876:visible`<br/> -
-     * `publishable_status:pos:hidden` |
+     * (`Channel.app.id`) and one of the valid status values. | - `*
+     * {channel_app_id}-unset`<br/> - `* {channel_app_id}-pending`<br/> - `*
+     * {channel_app_id}-approved`<br/> - `* {channel_app_id}-not_approved` | | -
+     * `publishable_status:580111-unset`<br/> - `publishable_status:580111-pending` |
      * | published_at | time | Filter by the date and time when the collection was published to the Online Store. |
-     * | published_status | string | Filter by the published status of the resource
-     * on a channel, such as the online store. | - `unset`<br/> - `pending`<br/> -
-     * `approved`<br/> - `not approved` | | - `published_status:approved` |
+     * | published_status | string | Filter resources by their visibility and
+     * publication state on a channel. Online store channel filtering: -
+     * `online_store_channel`: Returns all resources in the online store channel,
+     * regardless of publication status. - `published`/`visible`: Returns resources
+     * that are published to the online store. - `unpublished`: Returns resources
+     * that are not published to the online store. Channel-specific filtering using
+     * a channel ID, channel handle, [channel `app`
+     * ID](https://shopify.dev/api/admin-graphql/latest/objects/Channel#app-price)
+     * (`Channel.app.id`), or app handle with suffixes: -
+     * `{id_or_handle}-published`: Returns resources published to the specified
+     * channel. - `{id_or_handle}-visible`: Same as `{id_or_handle}-published`
+     * (kept for backwards compatibility). - `{id_or_handle}-intended`: Returns
+     * resources added to the channel but not yet published. -
+     * `{id_or_handle}-hidden`: Returns resources not added to the channel or not
+     * published. Other: - `unavailable`: Returns resources not published to any
+     * channel. | - `online_store_channel`<br/> - `published`<br/> - `visible`<br/>
+     * - `unpublished`<br/> - `* {channel_id_or_handle}-published`<br/> - `*
+     * {channel_id_or_handle}-visible`<br/> - `*
+     * {channel_id_or_handle}-intended`<br/> - `*
+     * {channel_id_or_handle}-hidden`<br/> - `*
+     * {channel_app_id_or_handle}-published`<br/> - `*
+     * {channel_app_id_or_handle}-visible`<br/> - `*
+     * {channel_app_id_or_handle}-intended`<br/> - `*
+     * {channel_app_id_or_handle}-hidden`<br/> - `unavailable` | | -
+     * `published_status:online_store_channel`<br/> -
+     * `published_status:published`<br/> - `published_status:580111-published`<br/>
+     * - `published_status:580111-hidden`<br/> -
+     * `published_status:my-channel-handle-published`<br/> -
+     * `published_status:unavailable` |
      * | title | string |
      * | updated_at | time |
      * You can apply one or more filters to a query. Learn more about [Shopify API

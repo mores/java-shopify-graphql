@@ -9,7 +9,13 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * A page on the Online Store.
+ * A standalone content page in the online store. Pages display HTML-formatted
+ * content for informational pages like "About Us", contact information, or
+ * shipping policies.
+ *
+ * Each page has a unique handle for URL routing and supports custom template
+ * suffixes for specialized layouts. Pages can be published or hidden, and include
+ * creation and update timestamps.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

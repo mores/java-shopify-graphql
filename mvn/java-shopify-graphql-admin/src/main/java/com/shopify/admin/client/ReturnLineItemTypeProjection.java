@@ -18,6 +18,13 @@ public class ReturnLineItemTypeProjection<PARENT extends BaseSubProjectionNode<?
      return projection;
   }
 
+  public ReturnReasonDefinitionProjection<ReturnLineItemTypeProjection<PARENT, ROOT>, ROOT> returnReasonDefinition(
+      ) {
+     ReturnReasonDefinitionProjection<ReturnLineItemTypeProjection<PARENT, ROOT>, ROOT> projection = new ReturnReasonDefinitionProjection<>(this, getRoot());
+     getFields().put("returnReasonDefinition", projection);
+     return projection;
+  }
+
   public ReturnLineItemTypeProjection<PARENT, ROOT> customerNote() {
     getFields().put("customerNote", null);
     return this;
@@ -25,6 +32,16 @@ public class ReturnLineItemTypeProjection<PARENT extends BaseSubProjectionNode<?
 
   public ReturnLineItemTypeProjection<PARENT, ROOT> id() {
     getFields().put("id", null);
+    return this;
+  }
+
+  public ReturnLineItemTypeProjection<PARENT, ROOT> processableQuantity() {
+    getFields().put("processableQuantity", null);
+    return this;
+  }
+
+  public ReturnLineItemTypeProjection<PARENT, ROOT> processedQuantity() {
+    getFields().put("processedQuantity", null);
     return this;
   }
 
@@ -45,6 +62,11 @@ public class ReturnLineItemTypeProjection<PARENT extends BaseSubProjectionNode<?
 
   public ReturnLineItemTypeProjection<PARENT, ROOT> returnReasonNote() {
     getFields().put("returnReasonNote", null);
+    return this;
+  }
+
+  public ReturnLineItemTypeProjection<PARENT, ROOT> unprocessedQuantity() {
+    getFields().put("unprocessedQuantity", null);
     return this;
   }
 

@@ -9,7 +9,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Creates an article.
+ * Creates an [`Article`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Article). Articles are content pieces that include a title, body text, and author information.
+ *   
+ * You can publish the article immediately or schedule it with a specific publish
+ * date. You can customize the article's URL handle, apply custom templates for
+ * rendering, and add optional fields like [tags](https://shopify.dev/docs/api/admin-graphql/latest/mutations/articleCreate#arguments-article.fields.tags), an [image](https://shopify.dev/docs/api/admin-graphql/latest/mutations/articleCreate#arguments-article.fields.image), and [`Metafield`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Metafield) objects.
+ *   
+ * The mutation validates article content and ensures proper blog association.
+ * Error handling provides specific feedback for content requirements.
  */
 public class ArticleCreateGraphQLQuery extends GraphQLQuery {
   public ArticleCreateGraphQLQuery(ArticleCreateInput article, ArticleBlogInput blog,

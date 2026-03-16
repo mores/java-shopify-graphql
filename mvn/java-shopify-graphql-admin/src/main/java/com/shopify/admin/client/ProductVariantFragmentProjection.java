@@ -241,6 +241,33 @@ public class ProductVariantFragmentProjection<PARENT extends BaseSubProjectionNo
      return projection;
   }
 
+  public ProductConnectionProjection<ProductVariantFragmentProjection<PARENT, ROOT>, ROOT> productParents(
+      ) {
+     ProductConnectionProjection<ProductVariantFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductConnectionProjection<>(this, getRoot());
+     getFields().put("productParents", projection);
+     return projection;
+  }
+
+  public ProductConnectionProjection<ProductVariantFragmentProjection<PARENT, ROOT>, ROOT> productParents(
+      Integer first, String after, Integer last, String before, Boolean reverse, String query) {
+    ProductConnectionProjection<ProductVariantFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductConnectionProjection<>(this, getRoot());    
+    getFields().put("productParents", projection);
+    getInputArguments().computeIfAbsent("productParents", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("productParents").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("productParents").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("productParents").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("productParents").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    getInputArguments().get("productParents").add(reverseArg);
+    InputArgument queryArg = new InputArgument("query", query);
+    getInputArguments().get("productParents").add(queryArg);
+    return projection;
+  }
+
   public ProductVariantComponentConnectionProjection<ProductVariantFragmentProjection<PARENT, ROOT>, ROOT> productVariantComponents(
       ) {
      ProductVariantComponentConnectionProjection<ProductVariantFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantComponentConnectionProjection<>(this, getRoot());
@@ -324,6 +351,12 @@ public class ProductVariantFragmentProjection<PARENT extends BaseSubProjectionNo
     return projection;
   }
 
+  public MoneyV2Projection<ProductVariantFragmentProjection<PARENT, ROOT>, ROOT> unitPrice() {
+     MoneyV2Projection<ProductVariantFragmentProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());
+     getFields().put("unitPrice", projection);
+     return projection;
+  }
+
   public UnitPriceMeasurementProjection<ProductVariantFragmentProjection<PARENT, ROOT>, ROOT> unitPriceMeasurement(
       ) {
      UnitPriceMeasurementProjection<ProductVariantFragmentProjection<PARENT, ROOT>, ROOT> projection = new UnitPriceMeasurementProjection<>(this, getRoot());
@@ -398,6 +431,11 @@ public class ProductVariantFragmentProjection<PARENT extends BaseSubProjectionNo
 
   public ProductVariantFragmentProjection<PARENT, ROOT> sellingPlanGroupCount() {
     getFields().put("sellingPlanGroupCount", null);
+    return this;
+  }
+
+  public ProductVariantFragmentProjection<PARENT, ROOT> showUnitPrice() {
+    getFields().put("showUnitPrice", null);
     return this;
   }
 

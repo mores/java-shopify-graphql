@@ -7,10 +7,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Creates and runs a bulk operation mutation.
+ * Creates and runs a [bulk operation](https://shopify.dev/docs/api/admin-graphql/latest/objects/BulkOperation)
+ * to import data asynchronously. This mutation executes a specified GraphQL
+ * mutation multiple times using input data from a [JSONL](http://jsonlines.org/)
+ * file that you've uploaded to Shopify.
  *   
- * To learn how to bulk import large volumes of data asynchronously, refer to the
- * [bulk import data guide](https://shopify.dev/api/usage/bulk-operations/imports).
+ * The operation processes each line in your JSONL file as a separate mutation
+ * execution. The operation delivers results in a JSONL file when it completes.
+ * You can run one bulk mutation operation at a time per shop, though a [`bulkOperationRunQuery`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/bulkoperationrunquery)
+ * operation can run simultaneously.
+ *   
+ * Learn more about [bulk importing data](https://shopify.dev/docs/api/usage/bulk-operations/imports).
  */
 public class BulkOperationRunMutationGraphQLQuery extends GraphQLQuery {
   public BulkOperationRunMutationGraphQLQuery(String mutation, String stagedUploadPath,

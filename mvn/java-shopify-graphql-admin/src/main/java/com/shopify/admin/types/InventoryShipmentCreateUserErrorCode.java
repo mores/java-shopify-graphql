@@ -1,0 +1,40 @@
+package com.shopify.admin.types;
+
+/**
+ * Possible error codes that can be returned by `InventoryShipmentCreateUserError`.
+ */
+public enum InventoryShipmentCreateUserErrorCode {
+  BARCODE_DUPLICATE,
+
+  BARCODE_TOO_LONG,
+
+  EMPTY_SHIPMENT_INPUT,
+
+  ITEM_NOT_FOUND,
+
+  TRANSFER_NOT_FOUND,
+
+  INVALID_TRANSFER_STATUS,
+
+  BUNDLED_ITEM,
+
+  INVALID_QUANTITY,
+
+  UNTRACKED_ITEM,
+
+  DUPLICATE_ITEM,
+
+  INVALID_SHIPMENT_INPUT,
+
+  INVALID_ITEM,
+
+  INVALID_URL,
+
+  LOCATION_NOT_ACTIVE,
+
+  IDEMPOTENCY_CONCURRENT_REQUEST,
+
+  IDEMPOTENCY_KEY_PARAMETER_MISMATCH,
+
+  IDEMPOTENCY_RECORD_NOT_FOUND
+}

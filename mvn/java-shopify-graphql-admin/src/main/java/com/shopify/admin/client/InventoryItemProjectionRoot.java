@@ -127,6 +127,29 @@ public class InventoryItemProjectionRoot<PARENT extends BaseSubProjectionNode<?,
     return projection;
   }
 
+  public ProductVariantConnectionProjection<InventoryItemProjectionRoot<PARENT, ROOT>, InventoryItemProjectionRoot<PARENT, ROOT>> variants(
+      ) {
+    ProductVariantConnectionProjection<InventoryItemProjectionRoot<PARENT, ROOT>, InventoryItemProjectionRoot<PARENT, ROOT>> projection = new ProductVariantConnectionProjection<>(this, this);    
+    getFields().put("variants", projection);
+    return projection;
+  }
+
+  public ProductVariantConnectionProjection<InventoryItemProjectionRoot<PARENT, ROOT>, InventoryItemProjectionRoot<PARENT, ROOT>> variants(
+      Integer first, String after, Integer last, String before) {
+    ProductVariantConnectionProjection<InventoryItemProjectionRoot<PARENT, ROOT>, InventoryItemProjectionRoot<PARENT, ROOT>> projection = new ProductVariantConnectionProjection<>(this, this);    
+    getFields().put("variants", projection);
+    getInputArguments().computeIfAbsent("variants", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("variants").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("variants").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("variants").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("variants").add(beforeArg);
+    return projection;
+  }
+
   public InventoryItemProjectionRoot<PARENT, ROOT> createdAt() {
     getFields().put("createdAt", null);
     return this;

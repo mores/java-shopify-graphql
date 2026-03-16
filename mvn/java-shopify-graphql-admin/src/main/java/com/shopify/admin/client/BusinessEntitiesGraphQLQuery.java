@@ -7,7 +7,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a list of Business Entities associated with the shop.
+ * Returns the list of [business entities](https://shopify.dev/docs/api/admin-graphql/latest/objects/BusinessEntity)
+ * associated with the shop. Use this query to retrieve business entities for
+ * assigning to markets, managing payment providers per entity, or viewing entity
+ * attribution on orders.
+ *   
+ * Each shop can have multiple business entities with one designated as primary.
+ * To identify the primary entity in the query results, set the [`primary`](https://shopify.dev/docs/api/admin-graphql/latest/queries/businessEntities#returns-BusinessEntity.fields.primary)
+ * field to `true`.
+ *   
+ * Learn more about [managing multiple legal entities](https://shopify.dev/docs/apps/build/markets/multiple-entities).
  */
 public class BusinessEntitiesGraphQLQuery extends GraphQLQuery {
   public BusinessEntitiesGraphQLQuery(String queryName) {

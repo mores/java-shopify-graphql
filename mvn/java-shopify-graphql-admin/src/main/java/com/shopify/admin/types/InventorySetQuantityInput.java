@@ -1,5 +1,6 @@
 package com.shopify.admin.types;
 
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
@@ -23,6 +24,12 @@ public class InventorySetQuantityInput {
    * The quantity to which the inventory quantity will be set.
    */
   private int quantity;
+
+  /**
+   * The current quantity to be compared against the persisted quantity. For more
+   * information, refer to the [Compare and Swap documentation](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#compare-and-swap).
+   */
+  private Integer changeFromQuantity;
 
   public InventorySetQuantityInput() {
   }
@@ -60,9 +67,21 @@ public class InventorySetQuantityInput {
     this.quantity = quantity;
   }
 
+  /**
+   * The current quantity to be compared against the persisted quantity. For more
+   * information, refer to the [Compare and Swap documentation](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#compare-and-swap).
+   */
+  public Integer getChangeFromQuantity() {
+    return changeFromQuantity;
+  }
+
+  public void setChangeFromQuantity(Integer changeFromQuantity) {
+    this.changeFromQuantity = changeFromQuantity;
+  }
+
   @Override
   public String toString() {
-    return "InventorySetQuantityInput{inventoryItemId='" + inventoryItemId + "', locationId='" + locationId + "', quantity='" + quantity + "'}";
+    return "InventorySetQuantityInput{inventoryItemId='" + inventoryItemId + "', locationId='" + locationId + "', quantity='" + quantity + "', changeFromQuantity='" + changeFromQuantity + "'}";
   }
 
   @Override
@@ -72,12 +91,13 @@ public class InventorySetQuantityInput {
     InventorySetQuantityInput that = (InventorySetQuantityInput) o;
     return Objects.equals(inventoryItemId, that.inventoryItemId) &&
         Objects.equals(locationId, that.locationId) &&
-        quantity == that.quantity;
+        quantity == that.quantity &&
+        Objects.equals(changeFromQuantity, that.changeFromQuantity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(inventoryItemId, locationId, quantity);
+    return Objects.hash(inventoryItemId, locationId, quantity, changeFromQuantity);
   }
 
   public static Builder newBuilder() {
@@ -100,11 +120,18 @@ public class InventorySetQuantityInput {
      */
     private int quantity;
 
+    /**
+     * The current quantity to be compared against the persisted quantity. For more
+     * information, refer to the [Compare and Swap documentation](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#compare-and-swap).
+     */
+    private Integer changeFromQuantity;
+
     public InventorySetQuantityInput build() {
       InventorySetQuantityInput result = new InventorySetQuantityInput();
       result.inventoryItemId = this.inventoryItemId;
       result.locationId = this.locationId;
       result.quantity = this.quantity;
+      result.changeFromQuantity = this.changeFromQuantity;
       return result;
     }
 
@@ -129,6 +156,15 @@ public class InventorySetQuantityInput {
      */
     public Builder quantity(int quantity) {
       this.quantity = quantity;
+      return this;
+    }
+
+    /**
+     * The current quantity to be compared against the persisted quantity. For more
+     * information, refer to the [Compare and Swap documentation](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#compare-and-swap).
+     */
+    public Builder changeFromQuantity(Integer changeFromQuantity) {
+      this.changeFromQuantity = changeFromQuantity;
       return this;
     }
   }

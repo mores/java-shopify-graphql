@@ -8,9 +8,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * A customer's return request that hasn't been approved or declined.
- * This mutation sets the value of the `Return.status` field to `REQUESTED`.
- * To create a return that has the `Return.status` field set to `OPEN`, use the `returnCreate` mutation.
+ * Creates a return request that requires merchant approval before processing.
+ * The return has its status set to `REQUESTED` and the merchant must approve or decline it.
+ *   
+ * Use this mutation when customers initiate returns that need review. After
+ * creating a requested return, use [`returnApproveRequest`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/returnApproveRequest)
+ * to approve it or [`returnDeclineRequest`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/returnDeclineRequest) to decline it.
+ *   
+ * For returns that should be immediately open for processing, use the [`returnCreate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/returnCreate)
+ * mutation instead.
+ *   
+ * Learn more about [building return management workflows](https://shopify.dev/docs/apps/build/orders-fulfillment/returns-apps/build-return-management).
  */
 public class ReturnRequestGraphQLQuery extends GraphQLQuery {
   public ReturnRequestGraphQLQuery(ReturnRequestInput input, String queryName,

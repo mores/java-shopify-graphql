@@ -9,20 +9,51 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Represents a group of products that can be displayed in online stores and other
- * sales channels in categories, which makes it easy for customers to find them.
- * For example, an athletics store might create different collections for running
- * attire, shoes, and accessories.
+ * The `Collection` object represents a group of [products](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+ * that merchants can organize to make their stores easier to browse and help customers find related products.
+ * Collections serve as the primary way to categorize and display products across
+ * [online stores](https://shopify.dev/docs/apps/build/online-store),
+ * [sales channels](https://shopify.dev/docs/apps/build/sales-channels), and marketing campaigns.
  *
- * Collections can be defined by conditions, such as whether they match certain
- * product tags. These are called smart or automated collections.
+ * There are two types of collections:
  *
- * Collections can also be created for a custom group of products. These are called custom or manual collections.
+ * - **[Custom (manual) collections](https://help.shopify.com/manual/products/collections/manual-shopify-collection)**:
+ * You specify the products to include in a collection.
+ * - **[Smart (automated) collections](https://help.shopify.com/manual/products/collections/automated-collections)**:
+ * You define rules, and products matching those rules are automatically included
+ * in the collection.
+ *
+ * The `Collection` object provides information to:
+ *
+ * - Organize products by category, season, or promotion.
+ * - Automate product grouping using rules (for example, by tag, type, or price).
+ * - Configure product sorting and display order (for example, alphabetical, best-selling, price, or manual).
+ * - Manage collection visibility and publication across sales channels.
+ * - Add rich descriptions, images, and metadata to enhance discovery.
+ *
+ * > Note:
+ * > Collections are unpublished by default. To make them available to customers,
+ * use the [`publishablePublish`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/publishablePublish)
+ * mutation after creation.
+ *
+ * Collections can be displayed in a store with Shopify's theme system through [Liquid templates](https://shopify.dev/docs/storefronts/themes/architecture/templates/collection)
+ * and can be customized with [template suffixes](https://shopify.dev/docs/storefronts/themes/architecture/templates/alternate-templates)
+ * for unique layouts. They also support advanced features like translated content, resource feedback,
+ * and contextual publication for location-based catalogs.
+ *
+ * Learn about [using metafields with smart collections](https://shopify.dev/docs/apps/build/custom-data/metafields/use-metafield-capabilities).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class Collection implements MetafieldReference, MetafieldReferencer, com.shopify.admin.types.HasEvents, com.shopify.admin.types.HasMetafieldDefinitions, com.shopify.admin.types.HasMetafields, com.shopify.admin.types.HasPublishedTranslations, com.shopify.admin.types.Node, com.shopify.admin.types.Publishable {
+  /**
+   * Collection duplicate operations involving this collection, either as a source
+   * (copying products from this collection to another) or a target (copying
+   * products to this collection from another).
+   */
+  private CollectionOperations activeOperations;
+
   /**
    * The number of
    * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
@@ -235,6 +266,19 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
   private OffsetDateTime updatedAt;
 
   public Collection() {
+  }
+
+  /**
+   * Collection duplicate operations involving this collection, either as a source
+   * (copying products from this collection to another) or a target (copying
+   * products to this collection from another).
+   */
+  public CollectionOperations getActiveOperations() {
+    return activeOperations;
+  }
+
+  public void setActiveOperations(CollectionOperations activeOperations) {
+    this.activeOperations = activeOperations;
   }
 
   /**
@@ -654,7 +698,7 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
 
   @Override
   public String toString() {
-    return "Collection{availablePublicationsCount='" + availablePublicationsCount + "', description='" + description + "', descriptionHtml='" + descriptionHtml + "', events='" + events + "', feedback='" + feedback + "', handle='" + handle + "', hasProduct='" + hasProduct + "', id='" + id + "', image='" + image + "', legacyResourceId='" + legacyResourceId + "', metafield='" + metafield + "', metafieldDefinitions='" + metafieldDefinitions + "', metafields='" + metafields + "', products='" + products + "', productsCount='" + productsCount + "', publicationCount='" + publicationCount + "', publications='" + publications + "', publishedOnChannel='" + publishedOnChannel + "', publishedOnCurrentChannel='" + publishedOnCurrentChannel + "', publishedOnCurrentPublication='" + publishedOnCurrentPublication + "', publishedOnPublication='" + publishedOnPublication + "', resourcePublications='" + resourcePublications + "', resourcePublicationsCount='" + resourcePublicationsCount + "', resourcePublicationsV2='" + resourcePublicationsV2 + "', ruleSet='" + ruleSet + "', seo='" + seo + "', sortOrder='" + sortOrder + "', storefrontId='" + storefrontId + "', templateSuffix='" + templateSuffix + "', title='" + title + "', translations='" + translations + "', unpublishedChannels='" + unpublishedChannels + "', unpublishedPublications='" + unpublishedPublications + "', updatedAt='" + updatedAt + "'}";
+    return "Collection{activeOperations='" + activeOperations + "', availablePublicationsCount='" + availablePublicationsCount + "', description='" + description + "', descriptionHtml='" + descriptionHtml + "', events='" + events + "', feedback='" + feedback + "', handle='" + handle + "', hasProduct='" + hasProduct + "', id='" + id + "', image='" + image + "', legacyResourceId='" + legacyResourceId + "', metafield='" + metafield + "', metafieldDefinitions='" + metafieldDefinitions + "', metafields='" + metafields + "', products='" + products + "', productsCount='" + productsCount + "', publicationCount='" + publicationCount + "', publications='" + publications + "', publishedOnChannel='" + publishedOnChannel + "', publishedOnCurrentChannel='" + publishedOnCurrentChannel + "', publishedOnCurrentPublication='" + publishedOnCurrentPublication + "', publishedOnPublication='" + publishedOnPublication + "', resourcePublications='" + resourcePublications + "', resourcePublicationsCount='" + resourcePublicationsCount + "', resourcePublicationsV2='" + resourcePublicationsV2 + "', ruleSet='" + ruleSet + "', seo='" + seo + "', sortOrder='" + sortOrder + "', storefrontId='" + storefrontId + "', templateSuffix='" + templateSuffix + "', title='" + title + "', translations='" + translations + "', unpublishedChannels='" + unpublishedChannels + "', unpublishedPublications='" + unpublishedPublications + "', updatedAt='" + updatedAt + "'}";
   }
 
   @Override
@@ -662,7 +706,8 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Collection that = (Collection) o;
-    return Objects.equals(availablePublicationsCount, that.availablePublicationsCount) &&
+    return Objects.equals(activeOperations, that.activeOperations) &&
+        Objects.equals(availablePublicationsCount, that.availablePublicationsCount) &&
         Objects.equals(description, that.description) &&
         Objects.equals(descriptionHtml, that.descriptionHtml) &&
         Objects.equals(events, that.events) &&
@@ -700,7 +745,7 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
 
   @Override
   public int hashCode() {
-    return Objects.hash(availablePublicationsCount, description, descriptionHtml, events, feedback, handle, hasProduct, id, image, legacyResourceId, metafield, metafieldDefinitions, metafields, products, productsCount, publicationCount, publications, publishedOnChannel, publishedOnCurrentChannel, publishedOnCurrentPublication, publishedOnPublication, resourcePublications, resourcePublicationsCount, resourcePublicationsV2, ruleSet, seo, sortOrder, storefrontId, templateSuffix, title, translations, unpublishedChannels, unpublishedPublications, updatedAt);
+    return Objects.hash(activeOperations, availablePublicationsCount, description, descriptionHtml, events, feedback, handle, hasProduct, id, image, legacyResourceId, metafield, metafieldDefinitions, metafields, products, productsCount, publicationCount, publications, publishedOnChannel, publishedOnCurrentChannel, publishedOnCurrentPublication, publishedOnPublication, resourcePublications, resourcePublicationsCount, resourcePublicationsV2, ruleSet, seo, sortOrder, storefrontId, templateSuffix, title, translations, unpublishedChannels, unpublishedPublications, updatedAt);
   }
 
   public static Builder newBuilder() {
@@ -708,6 +753,13 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
   }
 
   public static class Builder {
+    /**
+     * Collection duplicate operations involving this collection, either as a source
+     * (copying products from this collection to another) or a target (copying
+     * products to this collection from another).
+     */
+    private CollectionOperations activeOperations;
+
     /**
      * The number of
      * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
@@ -921,6 +973,7 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
 
     public Collection build() {
       Collection result = new Collection();
+      result.activeOperations = this.activeOperations;
       result.availablePublicationsCount = this.availablePublicationsCount;
       result.description = this.description;
       result.descriptionHtml = this.descriptionHtml;
@@ -956,6 +1009,16 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
       result.unpublishedPublications = this.unpublishedPublications;
       result.updatedAt = this.updatedAt;
       return result;
+    }
+
+    /**
+     * Collection duplicate operations involving this collection, either as a source
+     * (copying products from this collection to another) or a target (copying
+     * products to this collection from another).
+     */
+    public Builder activeOperations(CollectionOperations activeOperations) {
+      this.activeOperations = activeOperations;
+      return this;
     }
 
     /**

@@ -4,16 +4,24 @@ import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.MoneyInput;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Create a manual payment for an order. You can only create a manual payment for an order if it isn't already
- * fully paid.
+ * Records a manual payment for an
+ * [`Order`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order)
+ * that isn't fully paid. Use this mutation to track payments received outside
+ * the standard checkout process, such as cash, check, bank transfer, or other
+ * offline payment methods.
+ *   
+ * You can specify the payment [amount](https://shopify.dev/docs/api/admin-graphql/latest/mutations/orderCreateManualPayment#arguments-amount), [method name](https://shopify.dev/docs/api/admin-graphql/latest/mutations/orderCreateManualPayment#arguments-paymentMethodName),
+ * and [when it was processed](https://shopify.dev/docs/api/admin-graphql/latest/mutations/orderCreateManualPayment#arguments-processedAt).
  */
 public class OrderCreateManualPaymentGraphQLQuery extends GraphQLQuery {
   public OrderCreateManualPaymentGraphQLQuery(String id, MoneyInput amount,
-      String paymentMethodName, String queryName, Set<String> fieldsSet) {
+      String paymentMethodName, OffsetDateTime processedAt, String queryName,
+      Set<String> fieldsSet) {
     super("mutation", queryName);
     if (id != null || fieldsSet.contains("id")) {
         getInput().put("id", id);
@@ -21,6 +29,8 @@ public class OrderCreateManualPaymentGraphQLQuery extends GraphQLQuery {
         getInput().put("amount", amount);
     }if (paymentMethodName != null || fieldsSet.contains("paymentMethodName")) {
         getInput().put("paymentMethodName", paymentMethodName);
+    }if (processedAt != null || fieldsSet.contains("processedAt")) {
+        getInput().put("processedAt", processedAt);
     }
   }
 
@@ -46,10 +56,12 @@ public class OrderCreateManualPaymentGraphQLQuery extends GraphQLQuery {
 
     private String paymentMethodName;
 
+    private OffsetDateTime processedAt;
+
     private String queryName;
 
     public OrderCreateManualPaymentGraphQLQuery build() {
-      return new OrderCreateManualPaymentGraphQLQuery(id, amount, paymentMethodName, queryName, fieldsSet);
+      return new OrderCreateManualPaymentGraphQLQuery(id, amount, paymentMethodName, processedAt, queryName, fieldsSet);
                
     }
 
@@ -78,6 +90,18 @@ public class OrderCreateManualPaymentGraphQLQuery extends GraphQLQuery {
     public Builder paymentMethodName(String paymentMethodName) {
       this.paymentMethodName = paymentMethodName;
       this.fieldsSet.add("paymentMethodName");
+      return this;
+    }
+
+    /**
+     * The date and time ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
+     * format) when a manual payment was processed. If you're importing
+     * transactions from an app or another platform, then you can set processedAt
+     * to a date and time in the past to match when the original transaction was created.
+     */
+    public Builder processedAt(OffsetDateTime processedAt) {
+      this.processedAt = processedAt;
+      this.fieldsSet.add("processedAt");
       return this;
     }
 

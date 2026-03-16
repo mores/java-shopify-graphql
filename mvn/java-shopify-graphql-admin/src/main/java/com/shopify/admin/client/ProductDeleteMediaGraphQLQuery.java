@@ -8,7 +8,15 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Deletes media for a product.
+ * Deletes media from a [`Product`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product),
+ * such as images, videos, and 3D models.
+ *   
+ * When you delete media images, the mutation also removes any corresponding
+ * product images. The mutation returns the IDs of both the deleted media and any
+ * product images that the deletion removed.
+ *   
+ * > Caution:
+ * > This action is irreversible. You can't recover deleted media.
  */
 public class ProductDeleteMediaGraphQLQuery extends GraphQLQuery {
   public ProductDeleteMediaGraphQLQuery(String productId, List<String> mediaIds, String queryName,

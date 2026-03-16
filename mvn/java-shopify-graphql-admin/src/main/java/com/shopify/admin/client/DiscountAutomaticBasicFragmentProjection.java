@@ -25,6 +25,13 @@ public class DiscountAutomaticBasicFragmentProjection<PARENT extends BaseSubProj
      return projection;
   }
 
+  public DiscountContextProjection<DiscountAutomaticBasicFragmentProjection<PARENT, ROOT>, ROOT> context(
+      ) {
+     DiscountContextProjection<DiscountAutomaticBasicFragmentProjection<PARENT, ROOT>, ROOT> projection = new DiscountContextProjection<>(this, getRoot());
+     getFields().put("context", projection);
+     return projection;
+  }
+
   public DiscountCustomerGetsProjection<DiscountAutomaticBasicFragmentProjection<PARENT, ROOT>, ROOT> customerGets(
       ) {
      DiscountCustomerGetsProjection<DiscountAutomaticBasicFragmentProjection<PARENT, ROOT>, ROOT> projection = new DiscountCustomerGetsProjection<>(this, getRoot());

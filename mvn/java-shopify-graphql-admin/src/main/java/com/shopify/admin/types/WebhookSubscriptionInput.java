@@ -11,17 +11,14 @@ import java.util.Objects;
  */
 public class WebhookSubscriptionInput {
   /**
-   * URL where the webhook subscription should send the POST request when the event occurs.
-   */
-  private String callbackUrl;
-
-  /**
    * The format in which the webhook subscription should send the data.
    */
   private WebhookSubscriptionFormat format;
 
   /**
-   * The list of fields to be included in the webhook subscription.
+   * The list of fields to be included in the webhook subscription. Only the fields
+   * specified will be included in the webhook payload. If null, then all fields
+   * will be included. Learn more about [modifying webhook payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify_payloads).
    */
   private List<String> includeFields;
 
@@ -42,18 +39,14 @@ public class WebhookSubscriptionInput {
    */
   private List<HasMetafieldsMetafieldIdentifierInput> metafields;
 
-  public WebhookSubscriptionInput() {
-  }
-
   /**
-   * URL where the webhook subscription should send the POST request when the event occurs.
+   * The URI where the webhook subscription should send events. Supports an HTTPS
+   * URL, a Google Pub/Sub URI (pubsub://{project-id}:{topic-id}) or an Amazon
+   * EventBridge event source ARN.
    */
-  public String getCallbackUrl() {
-    return callbackUrl;
-  }
+  private String uri;
 
-  public void setCallbackUrl(String callbackUrl) {
-    this.callbackUrl = callbackUrl;
+  public WebhookSubscriptionInput() {
   }
 
   /**
@@ -68,7 +61,9 @@ public class WebhookSubscriptionInput {
   }
 
   /**
-   * The list of fields to be included in the webhook subscription.
+   * The list of fields to be included in the webhook subscription. Only the fields
+   * specified will be included in the webhook payload. If null, then all fields
+   * will be included. Learn more about [modifying webhook payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify_payloads).
    */
   public List<String> getIncludeFields() {
     return includeFields;
@@ -113,9 +108,22 @@ public class WebhookSubscriptionInput {
     this.metafields = metafields;
   }
 
+  /**
+   * The URI where the webhook subscription should send events. Supports an HTTPS
+   * URL, a Google Pub/Sub URI (pubsub://{project-id}:{topic-id}) or an Amazon
+   * EventBridge event source ARN.
+   */
+  public String getUri() {
+    return uri;
+  }
+
+  public void setUri(String uri) {
+    this.uri = uri;
+  }
+
   @Override
   public String toString() {
-    return "WebhookSubscriptionInput{callbackUrl='" + callbackUrl + "', format='" + format + "', includeFields='" + includeFields + "', filter='" + filter + "', metafieldNamespaces='" + metafieldNamespaces + "', metafields='" + metafields + "'}";
+    return "WebhookSubscriptionInput{format='" + format + "', includeFields='" + includeFields + "', filter='" + filter + "', metafieldNamespaces='" + metafieldNamespaces + "', metafields='" + metafields + "', uri='" + uri + "'}";
   }
 
   @Override
@@ -123,17 +131,17 @@ public class WebhookSubscriptionInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     WebhookSubscriptionInput that = (WebhookSubscriptionInput) o;
-    return Objects.equals(callbackUrl, that.callbackUrl) &&
-        Objects.equals(format, that.format) &&
+    return Objects.equals(format, that.format) &&
         Objects.equals(includeFields, that.includeFields) &&
         Objects.equals(filter, that.filter) &&
         Objects.equals(metafieldNamespaces, that.metafieldNamespaces) &&
-        Objects.equals(metafields, that.metafields);
+        Objects.equals(metafields, that.metafields) &&
+        Objects.equals(uri, that.uri);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(callbackUrl, format, includeFields, filter, metafieldNamespaces, metafields);
+    return Objects.hash(format, includeFields, filter, metafieldNamespaces, metafields, uri);
   }
 
   public static Builder newBuilder() {
@@ -142,17 +150,14 @@ public class WebhookSubscriptionInput {
 
   public static class Builder {
     /**
-     * URL where the webhook subscription should send the POST request when the event occurs.
-     */
-    private String callbackUrl;
-
-    /**
      * The format in which the webhook subscription should send the data.
      */
     private WebhookSubscriptionFormat format;
 
     /**
-     * The list of fields to be included in the webhook subscription.
+     * The list of fields to be included in the webhook subscription. Only the fields
+     * specified will be included in the webhook payload. If null, then all fields
+     * will be included. Learn more about [modifying webhook payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify_payloads).
      */
     private List<String> includeFields;
 
@@ -173,23 +178,22 @@ public class WebhookSubscriptionInput {
      */
     private List<HasMetafieldsMetafieldIdentifierInput> metafields;
 
+    /**
+     * The URI where the webhook subscription should send events. Supports an HTTPS
+     * URL, a Google Pub/Sub URI (pubsub://{project-id}:{topic-id}) or an Amazon
+     * EventBridge event source ARN.
+     */
+    private String uri;
+
     public WebhookSubscriptionInput build() {
       WebhookSubscriptionInput result = new WebhookSubscriptionInput();
-      result.callbackUrl = this.callbackUrl;
       result.format = this.format;
       result.includeFields = this.includeFields;
       result.filter = this.filter;
       result.metafieldNamespaces = this.metafieldNamespaces;
       result.metafields = this.metafields;
+      result.uri = this.uri;
       return result;
-    }
-
-    /**
-     * URL where the webhook subscription should send the POST request when the event occurs.
-     */
-    public Builder callbackUrl(String callbackUrl) {
-      this.callbackUrl = callbackUrl;
-      return this;
     }
 
     /**
@@ -201,7 +205,9 @@ public class WebhookSubscriptionInput {
     }
 
     /**
-     * The list of fields to be included in the webhook subscription.
+     * The list of fields to be included in the webhook subscription. Only the fields
+     * specified will be included in the webhook payload. If null, then all fields
+     * will be included. Learn more about [modifying webhook payloads](https://shopify.dev/docs/apps/build/webhooks/customize/modify_payloads).
      */
     public Builder includeFields(List<String> includeFields) {
       this.includeFields = includeFields;
@@ -231,6 +237,16 @@ public class WebhookSubscriptionInput {
      */
     public Builder metafields(List<HasMetafieldsMetafieldIdentifierInput> metafields) {
       this.metafields = metafields;
+      return this;
+    }
+
+    /**
+     * The URI where the webhook subscription should send events. Supports an HTTPS
+     * URL, a Google Pub/Sub URI (pubsub://{project-id}:{topic-id}) or an Amazon
+     * EventBridge event source ARN.
+     */
+    public Builder uri(String uri) {
+      this.uri = uri;
       return this;
     }
   }

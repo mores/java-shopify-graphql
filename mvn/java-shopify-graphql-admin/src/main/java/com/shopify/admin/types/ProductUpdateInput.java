@@ -18,10 +18,12 @@ public class ProductUpdateInput {
   private String descriptionHtml;
 
   /**
-   * A unique, human-readable string of the product's title. A handle can contain
-   * letters, hyphens (`-`), and numbers, but no spaces.
-   * The handle is used in the online store URL for the product.
-   * For example, if a product is titled "Black Sunglasses", then the handle is `black-sunglasses`.
+   * A unique, human-readable string that's used to identify the product in URLs. A
+   * handle can contain letters, hyphens (`-`), and numbers, but no spaces.
+   * If no handle is explicitly provided, then the title is used to construct the product's handle.
+   * For example, if a product is titled "Black Sunglasses" and no handle is
+   * provided, then the handle `black-sunglasses` is generated (unless that handle
+   * is already taken, in which case a suffix is added to make the handle unique).
    */
   private String handle;
 
@@ -38,13 +40,7 @@ public class ProductUpdateInput {
   private String productType;
 
   /**
-   * The ID of the [category](https://shopify.github.io/product-taxonomy/releases/unstable/?categoryId=sg-4-17-2-17)
-   * that's associated with the product.
-   */
-  private String category;
-
-  /**
-   * A comma-separated list of searchable keywords that are
+   * A list of searchable keywords that are
    * associated with the product. For example, a merchant might apply the `sports`
    * and `summer` tags to products that are associated with sportwear for summer.
    *   
@@ -68,8 +64,10 @@ public class ProductUpdateInput {
   private String giftCardTemplateSuffix;
 
   /**
-   * The name for the product that displays to customers. The title is used to construct the product's handle.
-   * For example, if a product is titled "Black Sunglasses", then the handle is `black-sunglasses`.
+   * The name for the product that displays to customers. If no handle is
+   * explicitly provided, then the title is used to construct the product's handle.
+   * For example, if a product is titled "Black Sunglasses" and no handle is
+   * provided, then the handle `black-sunglasses` is generated.
    */
   private String title;
 
@@ -77,6 +75,12 @@ public class ProductUpdateInput {
    * The name of the product's vendor.
    */
   private String vendor;
+
+  /**
+   * The ID of the [category](https://shopify.github.io/product-taxonomy/releases/unstable/?categoryId=sg-4-17-2-17)
+   * that's associated with the product.
+   */
+  private String category;
 
   /**
    * Whether a redirect is required after a new handle has been provided.
@@ -142,10 +146,12 @@ public class ProductUpdateInput {
   }
 
   /**
-   * A unique, human-readable string of the product's title. A handle can contain
-   * letters, hyphens (`-`), and numbers, but no spaces.
-   * The handle is used in the online store URL for the product.
-   * For example, if a product is titled "Black Sunglasses", then the handle is `black-sunglasses`.
+   * A unique, human-readable string that's used to identify the product in URLs. A
+   * handle can contain letters, hyphens (`-`), and numbers, but no spaces.
+   * If no handle is explicitly provided, then the title is used to construct the product's handle.
+   * For example, if a product is titled "Black Sunglasses" and no handle is
+   * provided, then the handle `black-sunglasses` is generated (unless that handle
+   * is already taken, in which case a suffix is added to make the handle unique).
    */
   public String getHandle() {
     return handle;
@@ -180,19 +186,7 @@ public class ProductUpdateInput {
   }
 
   /**
-   * The ID of the [category](https://shopify.github.io/product-taxonomy/releases/unstable/?categoryId=sg-4-17-2-17)
-   * that's associated with the product.
-   */
-  public String getCategory() {
-    return category;
-  }
-
-  public void setCategory(String category) {
-    this.category = category;
-  }
-
-  /**
-   * A comma-separated list of searchable keywords that are
+   * A list of searchable keywords that are
    * associated with the product. For example, a merchant might apply the `sports`
    * and `summer` tags to products that are associated with sportwear for summer.
    *   
@@ -234,8 +228,10 @@ public class ProductUpdateInput {
   }
 
   /**
-   * The name for the product that displays to customers. The title is used to construct the product's handle.
-   * For example, if a product is titled "Black Sunglasses", then the handle is `black-sunglasses`.
+   * The name for the product that displays to customers. If no handle is
+   * explicitly provided, then the title is used to construct the product's handle.
+   * For example, if a product is titled "Black Sunglasses" and no handle is
+   * provided, then the handle `black-sunglasses` is generated.
    */
   public String getTitle() {
     return title;
@@ -254,6 +250,18 @@ public class ProductUpdateInput {
 
   public void setVendor(String vendor) {
     this.vendor = vendor;
+  }
+
+  /**
+   * The ID of the [category](https://shopify.github.io/product-taxonomy/releases/unstable/?categoryId=sg-4-17-2-17)
+   * that's associated with the product.
+   */
+  public String getCategory() {
+    return category;
+  }
+
+  public void setCategory(String category) {
+    this.category = category;
   }
 
   /**
@@ -355,7 +363,7 @@ public class ProductUpdateInput {
 
   @Override
   public String toString() {
-    return "ProductUpdateInput{descriptionHtml='" + descriptionHtml + "', handle='" + handle + "', seo='" + seo + "', productType='" + productType + "', category='" + category + "', tags='" + tags + "', templateSuffix='" + templateSuffix + "', giftCardTemplateSuffix='" + giftCardTemplateSuffix + "', title='" + title + "', vendor='" + vendor + "', redirectNewHandle='" + redirectNewHandle + "', id='" + id + "', collectionsToJoin='" + collectionsToJoin + "', collectionsToLeave='" + collectionsToLeave + "', deleteConflictingConstrainedMetafields='" + deleteConflictingConstrainedMetafields + "', metafields='" + metafields + "', status='" + status + "', requiresSellingPlan='" + requiresSellingPlan + "'}";
+    return "ProductUpdateInput{descriptionHtml='" + descriptionHtml + "', handle='" + handle + "', seo='" + seo + "', productType='" + productType + "', tags='" + tags + "', templateSuffix='" + templateSuffix + "', giftCardTemplateSuffix='" + giftCardTemplateSuffix + "', title='" + title + "', vendor='" + vendor + "', category='" + category + "', redirectNewHandle='" + redirectNewHandle + "', id='" + id + "', collectionsToJoin='" + collectionsToJoin + "', collectionsToLeave='" + collectionsToLeave + "', deleteConflictingConstrainedMetafields='" + deleteConflictingConstrainedMetafields + "', metafields='" + metafields + "', status='" + status + "', requiresSellingPlan='" + requiresSellingPlan + "'}";
   }
 
   @Override
@@ -367,12 +375,12 @@ public class ProductUpdateInput {
         Objects.equals(handle, that.handle) &&
         Objects.equals(seo, that.seo) &&
         Objects.equals(productType, that.productType) &&
-        Objects.equals(category, that.category) &&
         Objects.equals(tags, that.tags) &&
         Objects.equals(templateSuffix, that.templateSuffix) &&
         Objects.equals(giftCardTemplateSuffix, that.giftCardTemplateSuffix) &&
         Objects.equals(title, that.title) &&
         Objects.equals(vendor, that.vendor) &&
+        Objects.equals(category, that.category) &&
         Objects.equals(redirectNewHandle, that.redirectNewHandle) &&
         Objects.equals(id, that.id) &&
         Objects.equals(collectionsToJoin, that.collectionsToJoin) &&
@@ -385,7 +393,7 @@ public class ProductUpdateInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(descriptionHtml, handle, seo, productType, category, tags, templateSuffix, giftCardTemplateSuffix, title, vendor, redirectNewHandle, id, collectionsToJoin, collectionsToLeave, deleteConflictingConstrainedMetafields, metafields, status, requiresSellingPlan);
+    return Objects.hash(descriptionHtml, handle, seo, productType, tags, templateSuffix, giftCardTemplateSuffix, title, vendor, category, redirectNewHandle, id, collectionsToJoin, collectionsToLeave, deleteConflictingConstrainedMetafields, metafields, status, requiresSellingPlan);
   }
 
   public static Builder newBuilder() {
@@ -400,10 +408,12 @@ public class ProductUpdateInput {
     private String descriptionHtml;
 
     /**
-     * A unique, human-readable string of the product's title. A handle can contain
-     * letters, hyphens (`-`), and numbers, but no spaces.
-     * The handle is used in the online store URL for the product.
-     * For example, if a product is titled "Black Sunglasses", then the handle is `black-sunglasses`.
+     * A unique, human-readable string that's used to identify the product in URLs. A
+     * handle can contain letters, hyphens (`-`), and numbers, but no spaces.
+     * If no handle is explicitly provided, then the title is used to construct the product's handle.
+     * For example, if a product is titled "Black Sunglasses" and no handle is
+     * provided, then the handle `black-sunglasses` is generated (unless that handle
+     * is already taken, in which case a suffix is added to make the handle unique).
      */
     private String handle;
 
@@ -420,13 +430,7 @@ public class ProductUpdateInput {
     private String productType;
 
     /**
-     * The ID of the [category](https://shopify.github.io/product-taxonomy/releases/unstable/?categoryId=sg-4-17-2-17)
-     * that's associated with the product.
-     */
-    private String category;
-
-    /**
-     * A comma-separated list of searchable keywords that are
+     * A list of searchable keywords that are
      * associated with the product. For example, a merchant might apply the `sports`
      * and `summer` tags to products that are associated with sportwear for summer.
      *   
@@ -450,8 +454,10 @@ public class ProductUpdateInput {
     private String giftCardTemplateSuffix;
 
     /**
-     * The name for the product that displays to customers. The title is used to construct the product's handle.
-     * For example, if a product is titled "Black Sunglasses", then the handle is `black-sunglasses`.
+     * The name for the product that displays to customers. If no handle is
+     * explicitly provided, then the title is used to construct the product's handle.
+     * For example, if a product is titled "Black Sunglasses" and no handle is
+     * provided, then the handle `black-sunglasses` is generated.
      */
     private String title;
 
@@ -459,6 +465,12 @@ public class ProductUpdateInput {
      * The name of the product's vendor.
      */
     private String vendor;
+
+    /**
+     * The ID of the [category](https://shopify.github.io/product-taxonomy/releases/unstable/?categoryId=sg-4-17-2-17)
+     * that's associated with the product.
+     */
+    private String category;
 
     /**
      * Whether a redirect is required after a new handle has been provided.
@@ -514,12 +526,12 @@ public class ProductUpdateInput {
       result.handle = this.handle;
       result.seo = this.seo;
       result.productType = this.productType;
-      result.category = this.category;
       result.tags = this.tags;
       result.templateSuffix = this.templateSuffix;
       result.giftCardTemplateSuffix = this.giftCardTemplateSuffix;
       result.title = this.title;
       result.vendor = this.vendor;
+      result.category = this.category;
       result.redirectNewHandle = this.redirectNewHandle;
       result.id = this.id;
       result.collectionsToJoin = this.collectionsToJoin;
@@ -541,10 +553,12 @@ public class ProductUpdateInput {
     }
 
     /**
-     * A unique, human-readable string of the product's title. A handle can contain
-     * letters, hyphens (`-`), and numbers, but no spaces.
-     * The handle is used in the online store URL for the product.
-     * For example, if a product is titled "Black Sunglasses", then the handle is `black-sunglasses`.
+     * A unique, human-readable string that's used to identify the product in URLs. A
+     * handle can contain letters, hyphens (`-`), and numbers, but no spaces.
+     * If no handle is explicitly provided, then the title is used to construct the product's handle.
+     * For example, if a product is titled "Black Sunglasses" and no handle is
+     * provided, then the handle `black-sunglasses` is generated (unless that handle
+     * is already taken, in which case a suffix is added to make the handle unique).
      */
     public Builder handle(String handle) {
       this.handle = handle;
@@ -570,16 +584,7 @@ public class ProductUpdateInput {
     }
 
     /**
-     * The ID of the [category](https://shopify.github.io/product-taxonomy/releases/unstable/?categoryId=sg-4-17-2-17)
-     * that's associated with the product.
-     */
-    public Builder category(String category) {
-      this.category = category;
-      return this;
-    }
-
-    /**
-     * A comma-separated list of searchable keywords that are
+     * A list of searchable keywords that are
      * associated with the product. For example, a merchant might apply the `sports`
      * and `summer` tags to products that are associated with sportwear for summer.
      *   
@@ -612,8 +617,10 @@ public class ProductUpdateInput {
     }
 
     /**
-     * The name for the product that displays to customers. The title is used to construct the product's handle.
-     * For example, if a product is titled "Black Sunglasses", then the handle is `black-sunglasses`.
+     * The name for the product that displays to customers. If no handle is
+     * explicitly provided, then the title is used to construct the product's handle.
+     * For example, if a product is titled "Black Sunglasses" and no handle is
+     * provided, then the handle `black-sunglasses` is generated.
      */
     public Builder title(String title) {
       this.title = title;
@@ -625,6 +632,15 @@ public class ProductUpdateInput {
      */
     public Builder vendor(String vendor) {
       this.vendor = vendor;
+      return this;
+    }
+
+    /**
+     * The ID of the [category](https://shopify.github.io/product-taxonomy/releases/unstable/?categoryId=sg-4-17-2-17)
+     * that's associated with the product.
+     */
+    public Builder category(String category) {
+      this.category = category;
       return this;
     }
 

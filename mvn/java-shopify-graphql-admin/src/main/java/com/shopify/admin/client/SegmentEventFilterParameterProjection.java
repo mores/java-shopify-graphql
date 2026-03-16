@@ -27,6 +27,16 @@ public class SegmentEventFilterParameterProjection<PARENT extends BaseSubProject
     return this;
   }
 
+  public SegmentEventFilterParameterProjection<PARENT, ROOT> maxRange() {
+    getFields().put("maxRange", null);
+    return this;
+  }
+
+  public SegmentEventFilterParameterProjection<PARENT, ROOT> minRange() {
+    getFields().put("minRange", null);
+    return this;
+  }
+
   public SegmentEventFilterParameterProjection<PARENT, ROOT> optional() {
     getFields().put("optional", null);
     return this;

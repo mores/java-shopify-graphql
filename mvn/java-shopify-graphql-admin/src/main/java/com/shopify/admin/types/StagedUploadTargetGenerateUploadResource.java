@@ -22,5 +22,7 @@ public enum StagedUploadTargetGenerateUploadResource {
 
   RETURN_LABEL,
 
-  URL_REDIRECT_IMPORT
+  URL_REDIRECT_IMPORT,
+
+  DISPUTE_FILE_UPLOAD
 }

@@ -59,7 +59,7 @@ public class MarketCatalogFragmentProjection<PARENT extends BaseSubProjectionNod
   }
 
   public CountProjection<MarketCatalogFragmentProjection<PARENT, ROOT>, ROOT> marketsCount(
-      MarketType type, MarketStatus status, String query) {
+      MarketType type, MarketStatus status, String query, Integer limit) {
     CountProjection<MarketCatalogFragmentProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());    
     getFields().put("marketsCount", projection);
     getInputArguments().computeIfAbsent("marketsCount", k -> new ArrayList<>());                      
@@ -69,6 +69,8 @@ public class MarketCatalogFragmentProjection<PARENT extends BaseSubProjectionNod
     getInputArguments().get("marketsCount").add(statusArg);
     InputArgument queryArg = new InputArgument("query", query);
     getInputArguments().get("marketsCount").add(queryArg);
+    InputArgument limitArg = new InputArgument("limit", limit);
+    getInputArguments().get("marketsCount").add(limitArg);
     return projection;
   }
 

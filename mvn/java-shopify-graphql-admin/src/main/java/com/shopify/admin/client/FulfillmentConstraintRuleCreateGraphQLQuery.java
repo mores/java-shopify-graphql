@@ -13,12 +13,12 @@ import java.util.Set;
  * Creates a fulfillment constraint rule and its metafield.
  */
 public class FulfillmentConstraintRuleCreateGraphQLQuery extends GraphQLQuery {
-  public FulfillmentConstraintRuleCreateGraphQLQuery(String functionId,
+  public FulfillmentConstraintRuleCreateGraphQLQuery(String functionHandle,
       List<DeliveryMethodType> deliveryMethodTypes, List<MetafieldInput> metafields,
       String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
-    if (functionId != null || fieldsSet.contains("functionId")) {
-        getInput().put("functionId", functionId);
+    if (functionHandle != null || fieldsSet.contains("functionHandle")) {
+        getInput().put("functionHandle", functionHandle);
     }if (deliveryMethodTypes != null || fieldsSet.contains("deliveryMethodTypes")) {
         getInput().put("deliveryMethodTypes", deliveryMethodTypes);
     }if (metafields != null || fieldsSet.contains("metafields")) {
@@ -42,7 +42,7 @@ public class FulfillmentConstraintRuleCreateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
-    private String functionId;
+    private String functionHandle;
 
     private List<DeliveryMethodType> deliveryMethodTypes;
 
@@ -51,16 +51,16 @@ public class FulfillmentConstraintRuleCreateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public FulfillmentConstraintRuleCreateGraphQLQuery build() {
-      return new FulfillmentConstraintRuleCreateGraphQLQuery(functionId, deliveryMethodTypes, metafields, queryName, fieldsSet);
+      return new FulfillmentConstraintRuleCreateGraphQLQuery(functionHandle, deliveryMethodTypes, metafields, queryName, fieldsSet);
                
     }
 
     /**
-     * The identifier of the function providing the constraint rule.
+     * The handle of the function providing the constraint rule.
      */
-    public Builder functionId(String functionId) {
-      this.functionId = functionId;
-      this.fieldsSet.add("functionId");
+    public Builder functionHandle(String functionHandle) {
+      this.functionHandle = functionHandle;
+      this.fieldsSet.add("functionHandle");
       return this;
     }
 

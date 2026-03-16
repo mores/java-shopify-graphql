@@ -173,12 +173,14 @@ public class ChannelProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, R
   }
 
   public CountProjection<ChannelProjectionRoot<PARENT, ROOT>, ChannelProjectionRoot<PARENT, ROOT>> productsCount(
-      String query) {
+      String query, Integer limit) {
     CountProjection<ChannelProjectionRoot<PARENT, ROOT>, ChannelProjectionRoot<PARENT, ROOT>> projection = new CountProjection<>(this, this);    
     getFields().put("productsCount", projection);
     getInputArguments().computeIfAbsent("productsCount", k -> new ArrayList<>());                      
     InputArgument queryArg = new InputArgument("query", query);
     getInputArguments().get("productsCount").add(queryArg);
+    InputArgument limitArg = new InputArgument("limit", limit);
+    getInputArguments().get("productsCount").add(limitArg);
     return projection;
   }
 

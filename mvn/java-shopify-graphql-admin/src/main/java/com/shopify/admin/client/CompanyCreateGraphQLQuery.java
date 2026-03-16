@@ -8,7 +8,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Creates a company.
+ * Creates a [`Company`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Company)
+ * for B2B commerce. This mutation creates the company and can optionally create an initial [`CompanyContact`](https://shopify.dev/docs/api/admin-graphql/latest/objects/CompanyContact) and [`CompanyLocation`](https://shopify.dev/docs/api/admin-graphql/latest/objects/CompanyLocation)
+ * in a single operation. Company contacts are people who place orders on behalf
+ * of the company. Company locations are branches or offices with their own
+ * billing and shipping addresses.
+ *   
+ * > Note: Creating a company without a `name` [returns an error](https://shopify.dev/docs/api/admin-graphql/latest/mutations/companycreate?example=creating-a-company-without-a-name-returns-an-error).
+ *   
+ * Learn more about [creating companies for B2B](https://shopify.dev/docs/apps/build/b2b/start-building#step-1-create-a-company).
  */
 public class CompanyCreateGraphQLQuery extends GraphQLQuery {
   public CompanyCreateGraphQLQuery(CompanyCreateInput input, String queryName,

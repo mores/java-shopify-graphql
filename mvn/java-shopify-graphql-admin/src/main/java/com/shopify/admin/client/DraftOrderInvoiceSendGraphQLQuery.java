@@ -8,7 +8,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Sends an email invoice for a draft order.
+ * Sends an invoice email for a [`DraftOrder`](https://shopify.dev/docs/api/admin-graphql/latest/objects/DraftOrder).
+ * The invoice includes a secure checkout link for reviewing and paying for the order. Use the [`email`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/draftOrderInvoiceSend#arguments-email)
+ * argument to customize the email, such as the subject and message.
  */
 public class DraftOrderInvoiceSendGraphQLQuery extends GraphQLQuery {
   public DraftOrderInvoiceSendGraphQLQuery(String id, EmailInput email, String queryName,

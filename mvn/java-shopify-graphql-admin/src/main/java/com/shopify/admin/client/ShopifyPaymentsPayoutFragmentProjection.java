@@ -65,6 +65,11 @@ public class ShopifyPaymentsPayoutFragmentProjection<PARENT extends BaseSubProje
      return projection;
   }
 
+  public ShopifyPaymentsPayoutFragmentProjection<PARENT, ROOT> externalTraceId() {
+    getFields().put("externalTraceId", null);
+    return this;
+  }
+
   public ShopifyPaymentsPayoutFragmentProjection<PARENT, ROOT> id() {
     getFields().put("id", null);
     return this;

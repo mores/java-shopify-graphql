@@ -265,6 +265,13 @@ public class NodeProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
     return fragment;
   }
 
+  public CurrencyExchangeAdjustmentFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> onCurrencyExchangeAdjustment(
+      ) {
+    CurrencyExchangeAdjustmentFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> fragment = new CurrencyExchangeAdjustmentFragmentProjection<>(this, getRoot());
+    getFragments().add(fragment);
+    return fragment;
+  }
+
   public CustomerFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> onCustomer() {
     CustomerFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> fragment = new CustomerFragmentProjection<>(this, getRoot());
     getFragments().add(fragment);
@@ -610,6 +617,34 @@ public class NodeProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
     return fragment;
   }
 
+  public InventoryShipmentFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> onInventoryShipment(
+      ) {
+    InventoryShipmentFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> fragment = new InventoryShipmentFragmentProjection<>(this, getRoot());
+    getFragments().add(fragment);
+    return fragment;
+  }
+
+  public InventoryShipmentLineItemFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> onInventoryShipmentLineItem(
+      ) {
+    InventoryShipmentLineItemFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> fragment = new InventoryShipmentLineItemFragmentProjection<>(this, getRoot());
+    getFragments().add(fragment);
+    return fragment;
+  }
+
+  public InventoryTransferFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> onInventoryTransfer(
+      ) {
+    InventoryTransferFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> fragment = new InventoryTransferFragmentProjection<>(this, getRoot());
+    getFragments().add(fragment);
+    return fragment;
+  }
+
+  public InventoryTransferLineItemFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> onInventoryTransferLineItem(
+      ) {
+    InventoryTransferLineItemFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> fragment = new InventoryTransferLineItemFragmentProjection<>(this, getRoot());
+    getFragments().add(fragment);
+    return fragment;
+  }
+
   public LineItemFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> onLineItem() {
     LineItemFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> fragment = new LineItemFragmentProjection<>(this, getRoot());
     getFragments().add(fragment);
@@ -743,6 +778,13 @@ public class NodeProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
     return fragment;
   }
 
+  public OrderEditSessionFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> onOrderEditSession(
+      ) {
+    OrderEditSessionFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> fragment = new OrderEditSessionFragmentProjection<>(this, getRoot());
+    getFragments().add(fragment);
+    return fragment;
+  }
+
   public OrderTransactionFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> onOrderTransaction(
       ) {
     OrderTransactionFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> fragment = new OrderTransactionFragmentProjection<>(this, getRoot());
@@ -784,6 +826,13 @@ public class NodeProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
   public PaymentTermsTemplateFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> onPaymentTermsTemplate(
       ) {
     PaymentTermsTemplateFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> fragment = new PaymentTermsTemplateFragmentProjection<>(this, getRoot());
+    getFragments().add(fragment);
+    return fragment;
+  }
+
+  public PointOfSaleDeviceFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> onPointOfSaleDevice(
+      ) {
+    PointOfSaleDeviceFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> fragment = new PointOfSaleDeviceFragmentProjection<>(this, getRoot());
     getFragments().add(fragment);
     return fragment;
   }
@@ -932,6 +981,13 @@ public class NodeProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
     return fragment;
   }
 
+  public ReturnReasonDefinitionFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> onReturnReasonDefinition(
+      ) {
+    ReturnReasonDefinitionFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> fragment = new ReturnReasonDefinitionFragmentProjection<>(this, getRoot());
+    getFragments().add(fragment);
+    return fragment;
+  }
+
   public ReverseDeliveryFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> onReverseDelivery() {
     ReverseDeliveryFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> fragment = new ReverseDeliveryFragmentProjection<>(this, getRoot());
     getFragments().add(fragment);
@@ -1074,13 +1130,6 @@ public class NodeProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
   public ShopifyPaymentsPayoutFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> onShopifyPaymentsPayout(
       ) {
     ShopifyPaymentsPayoutFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> fragment = new ShopifyPaymentsPayoutFragmentProjection<>(this, getRoot());
-    getFragments().add(fragment);
-    return fragment;
-  }
-
-  public ShopifyPaymentsVerificationFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> onShopifyPaymentsVerification(
-      ) {
-    ShopifyPaymentsVerificationFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> fragment = new ShopifyPaymentsVerificationFragmentProjection<>(this, getRoot());
     getFragments().add(fragment);
     return fragment;
   }
@@ -1248,12 +1297,6 @@ public class NodeProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
 
   public WebPixelFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> onWebPixel() {
     WebPixelFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> fragment = new WebPixelFragmentProjection<>(this, getRoot());
-    getFragments().add(fragment);
-    return fragment;
-  }
-
-  public WebPresenceFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> onWebPresence() {
-    WebPresenceFragmentProjection<NodeProjection<PARENT, ROOT>, ROOT> fragment = new WebPresenceFragmentProjection<>(this, getRoot());
     getFragments().add(fragment);
     return fragment;
   }

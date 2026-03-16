@@ -8,5 +8,7 @@ public enum SellingPlanRemainingBalanceChargeTrigger {
 
   EXACT_TIME,
 
-  TIME_AFTER_CHECKOUT
+  TIME_AFTER_CHECKOUT,
+
+  ON_FULFILLMENT
 }

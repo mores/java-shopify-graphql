@@ -7,7 +7,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns an inventory Location resource by ID.
+ * Retrieves a [`Location`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Location) by its ID. Locations are physical places where merchants store inventory, such
+ * as warehouses, retail stores, or fulfillment centers.
+ *   
+ * Each location tracks inventory levels, fulfillment capabilities, and address
+ * information. Active locations can stock products and fulfill orders based on
+ * their configuration settings.
  */
 public class LocationGraphQLQuery extends GraphQLQuery {
   public LocationGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

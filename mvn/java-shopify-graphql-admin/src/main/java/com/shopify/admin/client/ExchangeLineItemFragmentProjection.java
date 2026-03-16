@@ -24,8 +24,39 @@ public class ExchangeLineItemFragmentProjection<PARENT extends BaseSubProjection
      return projection;
   }
 
+  public LineItemProjection<ExchangeLineItemFragmentProjection<PARENT, ROOT>, ROOT> lineItems() {
+     LineItemProjection<ExchangeLineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new LineItemProjection<>(this, getRoot());
+     getFields().put("lineItems", projection);
+     return projection;
+  }
+
   public ExchangeLineItemFragmentProjection<PARENT, ROOT> id() {
     getFields().put("id", null);
+    return this;
+  }
+
+  public ExchangeLineItemFragmentProjection<PARENT, ROOT> processableQuantity() {
+    getFields().put("processableQuantity", null);
+    return this;
+  }
+
+  public ExchangeLineItemFragmentProjection<PARENT, ROOT> processedQuantity() {
+    getFields().put("processedQuantity", null);
+    return this;
+  }
+
+  public ExchangeLineItemFragmentProjection<PARENT, ROOT> quantity() {
+    getFields().put("quantity", null);
+    return this;
+  }
+
+  public ExchangeLineItemFragmentProjection<PARENT, ROOT> unprocessedQuantity() {
+    getFields().put("unprocessedQuantity", null);
+    return this;
+  }
+
+  public ExchangeLineItemFragmentProjection<PARENT, ROOT> variantId() {
+    getFields().put("variantId", null);
     return this;
   }
 

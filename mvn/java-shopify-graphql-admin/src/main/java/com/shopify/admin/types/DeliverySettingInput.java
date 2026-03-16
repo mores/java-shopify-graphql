@@ -11,7 +11,9 @@ import java.util.Objects;
  */
 public class DeliverySettingInput {
   /**
-   * Whether legacy compatability mode is enabled for the multi-location delivery profiles feature.
+   * Whether legacy compatability mode is enabled for the multi-location delivery
+   * profiles feature. Note: this field is effectively deprecated and will be
+   * removed in a future version of the API.
    */
   private Boolean legacyModeProfiles;
 
@@ -19,7 +21,9 @@ public class DeliverySettingInput {
   }
 
   /**
-   * Whether legacy compatability mode is enabled for the multi-location delivery profiles feature.
+   * Whether legacy compatability mode is enabled for the multi-location delivery
+   * profiles feature. Note: this field is effectively deprecated and will be
+   * removed in a future version of the API.
    */
   public Boolean getLegacyModeProfiles() {
     return legacyModeProfiles;
@@ -53,7 +57,9 @@ public class DeliverySettingInput {
 
   public static class Builder {
     /**
-     * Whether legacy compatability mode is enabled for the multi-location delivery profiles feature.
+     * Whether legacy compatability mode is enabled for the multi-location delivery
+     * profiles feature. Note: this field is effectively deprecated and will be
+     * removed in a future version of the API.
      */
     private Boolean legacyModeProfiles;
 
@@ -64,7 +70,9 @@ public class DeliverySettingInput {
     }
 
     /**
-     * Whether legacy compatability mode is enabled for the multi-location delivery profiles feature.
+     * Whether legacy compatability mode is enabled for the multi-location delivery
+     * profiles feature. Note: this field is effectively deprecated and will be
+     * removed in a future version of the API.
      */
     public Builder legacyModeProfiles(Boolean legacyModeProfiles) {
       this.legacyModeProfiles = legacyModeProfiles;

@@ -9,7 +9,16 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Provides an object instance represented by a MetaobjectDefinition.
+ * An instance of custom structured data defined by a [`MetaobjectDefinition`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MetaobjectDefinition). [Metaobjects](https://shopify.dev/docs/apps/build/custom-data#what-are-metaobjects)
+ * store reusable data that extends beyond Shopify's standard resources, such as
+ * product highlights, size charts, or custom content sections.
+ *
+ * Each metaobject includes fields that match the field types and validation rules
+ * specified in its definition, which also determines the metaobject's
+ * capabilities, such as storefront visibility, publishing and translation support. [`Metafields`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Metafield)
+ * can reference metaobjects to connect custom data with
+ * [`Product`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product) objects, [`Collection`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Collection)
+ * objects, and other Shopify resources.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -19,6 +28,11 @@ public class Metaobject implements MetafieldReference, MetafieldReferencer, com.
    * Metaobject capabilities for this Metaobject.
    */
   private MetaobjectCapabilityData capabilities;
+
+  /**
+   * When the object was created.
+   */
+  private OffsetDateTime createdAt;
 
   /**
    * The app used to create the object.
@@ -102,6 +116,17 @@ public class Metaobject implements MetafieldReference, MetafieldReferencer, com.
 
   public void setCapabilities(MetaobjectCapabilityData capabilities) {
     this.capabilities = capabilities;
+  }
+
+  /**
+   * When the object was created.
+   */
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
   /**
@@ -260,7 +285,7 @@ public class Metaobject implements MetafieldReference, MetafieldReferencer, com.
 
   @Override
   public String toString() {
-    return "Metaobject{capabilities='" + capabilities + "', createdBy='" + createdBy + "', createdByApp='" + createdByApp + "', createdByStaff='" + createdByStaff + "', definition='" + definition + "', displayName='" + displayName + "', field='" + field + "', fields='" + fields + "', handle='" + handle + "', id='" + id + "', referencedBy='" + referencedBy + "', staffMember='" + staffMember + "', thumbnailField='" + thumbnailField + "', type='" + type + "', updatedAt='" + updatedAt + "'}";
+    return "Metaobject{capabilities='" + capabilities + "', createdAt='" + createdAt + "', createdBy='" + createdBy + "', createdByApp='" + createdByApp + "', createdByStaff='" + createdByStaff + "', definition='" + definition + "', displayName='" + displayName + "', field='" + field + "', fields='" + fields + "', handle='" + handle + "', id='" + id + "', referencedBy='" + referencedBy + "', staffMember='" + staffMember + "', thumbnailField='" + thumbnailField + "', type='" + type + "', updatedAt='" + updatedAt + "'}";
   }
 
   @Override
@@ -269,6 +294,7 @@ public class Metaobject implements MetafieldReference, MetafieldReferencer, com.
     if (o == null || getClass() != o.getClass()) return false;
     Metaobject that = (Metaobject) o;
     return Objects.equals(capabilities, that.capabilities) &&
+        Objects.equals(createdAt, that.createdAt) &&
         Objects.equals(createdBy, that.createdBy) &&
         Objects.equals(createdByApp, that.createdByApp) &&
         Objects.equals(createdByStaff, that.createdByStaff) &&
@@ -287,7 +313,7 @@ public class Metaobject implements MetafieldReference, MetafieldReferencer, com.
 
   @Override
   public int hashCode() {
-    return Objects.hash(capabilities, createdBy, createdByApp, createdByStaff, definition, displayName, field, fields, handle, id, referencedBy, staffMember, thumbnailField, type, updatedAt);
+    return Objects.hash(capabilities, createdAt, createdBy, createdByApp, createdByStaff, definition, displayName, field, fields, handle, id, referencedBy, staffMember, thumbnailField, type, updatedAt);
   }
 
   public static Builder newBuilder() {
@@ -299,6 +325,11 @@ public class Metaobject implements MetafieldReference, MetafieldReferencer, com.
      * Metaobject capabilities for this Metaobject.
      */
     private MetaobjectCapabilityData capabilities;
+
+    /**
+     * When the object was created.
+     */
+    private OffsetDateTime createdAt;
 
     /**
      * The app used to create the object.
@@ -373,6 +404,7 @@ public class Metaobject implements MetafieldReference, MetafieldReferencer, com.
     public Metaobject build() {
       Metaobject result = new Metaobject();
       result.capabilities = this.capabilities;
+      result.createdAt = this.createdAt;
       result.createdBy = this.createdBy;
       result.createdByApp = this.createdByApp;
       result.createdByStaff = this.createdByStaff;
@@ -395,6 +427,14 @@ public class Metaobject implements MetafieldReference, MetafieldReferencer, com.
      */
     public Builder capabilities(MetaobjectCapabilityData capabilities) {
       this.capabilities = capabilities;
+      return this;
+    }
+
+    /**
+     * When the object was created.
+     */
+    public Builder createdAt(OffsetDateTime createdAt) {
+      this.createdAt = createdAt;
       return this;
     }
 

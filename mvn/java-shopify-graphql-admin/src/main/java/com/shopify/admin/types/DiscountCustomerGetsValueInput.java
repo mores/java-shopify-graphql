@@ -17,11 +17,15 @@ public class DiscountCustomerGetsValueInput {
 
   /**
    * The percentage value of the discount. Value must be between 0.00 - 1.00.
+   *   
+   * Note: BXGY doesn't support percentage.
    */
   private Double percentage;
 
   /**
    * The value of the discount.
+   *   
+   * Note: BXGY doesn't support discountAmount.
    */
   private DiscountAmountInput discountAmount;
 
@@ -41,6 +45,8 @@ public class DiscountCustomerGetsValueInput {
 
   /**
    * The percentage value of the discount. Value must be between 0.00 - 1.00.
+   *   
+   * Note: BXGY doesn't support percentage.
    */
   public Double getPercentage() {
     return percentage;
@@ -52,6 +58,8 @@ public class DiscountCustomerGetsValueInput {
 
   /**
    * The value of the discount.
+   *   
+   * Note: BXGY doesn't support discountAmount.
    */
   public DiscountAmountInput getDiscountAmount() {
     return discountAmount;
@@ -93,11 +101,15 @@ public class DiscountCustomerGetsValueInput {
 
     /**
      * The percentage value of the discount. Value must be between 0.00 - 1.00.
+     *   
+     * Note: BXGY doesn't support percentage.
      */
     private Double percentage;
 
     /**
      * The value of the discount.
+     *   
+     * Note: BXGY doesn't support discountAmount.
      */
     private DiscountAmountInput discountAmount;
 
@@ -119,6 +131,8 @@ public class DiscountCustomerGetsValueInput {
 
     /**
      * The percentage value of the discount. Value must be between 0.00 - 1.00.
+     *   
+     * Note: BXGY doesn't support percentage.
      */
     public Builder percentage(Double percentage) {
       this.percentage = percentage;
@@ -127,6 +141,8 @@ public class DiscountCustomerGetsValueInput {
 
     /**
      * The value of the discount.
+     *   
+     * Note: BXGY doesn't support discountAmount.
      */
     public Builder discountAmount(DiscountAmountInput discountAmount) {
       this.discountAmount = discountAmount;

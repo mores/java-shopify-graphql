@@ -2,8 +2,12 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.BaseSubProjectionNode;
 import com.shopify.admin.types.RefundDutyInput;
+import com.shopify.admin.types.RefundMethodAllocation;
 import com.shopify.admin.types.RefundShippingInput;
+import com.shopify.admin.types.ReturnProcessingStatusFilterInput;
 import com.shopify.admin.types.ReturnRefundLineItemInput;
+import com.shopify.admin.types.SuggestedOutcomeExchangeLineItemInput;
+import com.shopify.admin.types.SuggestedOutcomeReturnLineItemInput;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.Override;
@@ -39,13 +43,15 @@ public class ReturnFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>
   }
 
   public ExchangeLineItemConnectionProjection<ReturnFragmentProjection<PARENT, ROOT>, ROOT> exchangeLineItems(
-      Boolean includeRemovedItems, Integer first, String after, Integer last, String before,
-      Boolean reverse) {
+      Boolean includeRemovedItems, ReturnProcessingStatusFilterInput processingStatus,
+      Integer first, String after, Integer last, String before, Boolean reverse) {
     ExchangeLineItemConnectionProjection<ReturnFragmentProjection<PARENT, ROOT>, ROOT> projection = new ExchangeLineItemConnectionProjection<>(this, getRoot());    
     getFields().put("exchangeLineItems", projection);
     getInputArguments().computeIfAbsent("exchangeLineItems", k -> new ArrayList<>());                      
     InputArgument includeRemovedItemsArg = new InputArgument("includeRemovedItems", includeRemovedItems);
     getInputArguments().get("exchangeLineItems").add(includeRemovedItemsArg);
+    InputArgument processingStatusArg = new InputArgument("processingStatus", processingStatus);
+    getInputArguments().get("exchangeLineItems").add(processingStatusArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("exchangeLineItems").add(firstArg);
     InputArgument afterArg = new InputArgument("after", after);
@@ -97,10 +103,13 @@ public class ReturnFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>
   }
 
   public ReturnLineItemTypeConnectionProjection<ReturnFragmentProjection<PARENT, ROOT>, ROOT> returnLineItems(
-      Integer first, String after, Integer last, String before, Boolean reverse) {
+      ReturnProcessingStatusFilterInput processingStatus, Integer first, String after, Integer last,
+      String before, Boolean reverse) {
     ReturnLineItemTypeConnectionProjection<ReturnFragmentProjection<PARENT, ROOT>, ROOT> projection = new ReturnLineItemTypeConnectionProjection<>(this, getRoot());    
     getFields().put("returnLineItems", projection);
     getInputArguments().computeIfAbsent("returnLineItems", k -> new ArrayList<>());                      
+    InputArgument processingStatusArg = new InputArgument("processingStatus", processingStatus);
+    getInputArguments().get("returnLineItems").add(processingStatusArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("returnLineItems").add(firstArg);
     InputArgument afterArg = new InputArgument("after", after);
@@ -146,10 +155,46 @@ public class ReturnFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>
     return projection;
   }
 
+  public StaffMemberProjection<ReturnFragmentProjection<PARENT, ROOT>, ROOT> staffMember() {
+     StaffMemberProjection<ReturnFragmentProjection<PARENT, ROOT>, ROOT> projection = new StaffMemberProjection<>(this, getRoot());
+     getFields().put("staffMember", projection);
+     return projection;
+  }
+
   public ReturnStatusProjection<ReturnFragmentProjection<PARENT, ROOT>, ROOT> status() {
      ReturnStatusProjection<ReturnFragmentProjection<PARENT, ROOT>, ROOT> projection = new ReturnStatusProjection<>(this, getRoot());
      getFields().put("status", projection);
      return projection;
+  }
+
+  public SuggestedReturnFinancialOutcomeProjection<ReturnFragmentProjection<PARENT, ROOT>, ROOT> suggestedFinancialOutcome(
+      ) {
+     SuggestedReturnFinancialOutcomeProjection<ReturnFragmentProjection<PARENT, ROOT>, ROOT> projection = new SuggestedReturnFinancialOutcomeProjection<>(this, getRoot());
+     getFields().put("suggestedFinancialOutcome", projection);
+     return projection;
+  }
+
+  public SuggestedReturnFinancialOutcomeProjection<ReturnFragmentProjection<PARENT, ROOT>, ROOT> suggestedFinancialOutcome(
+      List<SuggestedOutcomeReturnLineItemInput> returnLineItems,
+      List<SuggestedOutcomeExchangeLineItemInput> exchangeLineItems,
+      RefundShippingInput refundShipping, String tipLineId, List<RefundDutyInput> refundDuties,
+      RefundMethodAllocation refundMethodAllocation) {
+    SuggestedReturnFinancialOutcomeProjection<ReturnFragmentProjection<PARENT, ROOT>, ROOT> projection = new SuggestedReturnFinancialOutcomeProjection<>(this, getRoot());    
+    getFields().put("suggestedFinancialOutcome", projection);
+    getInputArguments().computeIfAbsent("suggestedFinancialOutcome", k -> new ArrayList<>());                      
+    InputArgument returnLineItemsArg = new InputArgument("returnLineItems", returnLineItems);
+    getInputArguments().get("suggestedFinancialOutcome").add(returnLineItemsArg);
+    InputArgument exchangeLineItemsArg = new InputArgument("exchangeLineItems", exchangeLineItems);
+    getInputArguments().get("suggestedFinancialOutcome").add(exchangeLineItemsArg);
+    InputArgument refundShippingArg = new InputArgument("refundShipping", refundShipping);
+    getInputArguments().get("suggestedFinancialOutcome").add(refundShippingArg);
+    InputArgument tipLineIdArg = new InputArgument("tipLineId", tipLineId);
+    getInputArguments().get("suggestedFinancialOutcome").add(tipLineIdArg);
+    InputArgument refundDutiesArg = new InputArgument("refundDuties", refundDuties);
+    getInputArguments().get("suggestedFinancialOutcome").add(refundDutiesArg);
+    InputArgument refundMethodAllocationArg = new InputArgument("refundMethodAllocation", refundMethodAllocation);
+    getInputArguments().get("suggestedFinancialOutcome").add(refundMethodAllocationArg);
+    return projection;
   }
 
   public SuggestedReturnRefundProjection<ReturnFragmentProjection<PARENT, ROOT>, ROOT> suggestedRefund(
@@ -174,6 +219,41 @@ public class ReturnFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>
     return projection;
   }
 
+  public OrderTransactionConnectionProjection<ReturnFragmentProjection<PARENT, ROOT>, ROOT> transactions(
+      ) {
+     OrderTransactionConnectionProjection<ReturnFragmentProjection<PARENT, ROOT>, ROOT> projection = new OrderTransactionConnectionProjection<>(this, getRoot());
+     getFields().put("transactions", projection);
+     return projection;
+  }
+
+  public OrderTransactionConnectionProjection<ReturnFragmentProjection<PARENT, ROOT>, ROOT> transactions(
+      Integer first, String after, Integer last, String before, Boolean reverse) {
+    OrderTransactionConnectionProjection<ReturnFragmentProjection<PARENT, ROOT>, ROOT> projection = new OrderTransactionConnectionProjection<>(this, getRoot());    
+    getFields().put("transactions", projection);
+    getInputArguments().computeIfAbsent("transactions", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("transactions").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("transactions").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("transactions").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("transactions").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    getInputArguments().get("transactions").add(reverseArg);
+    return projection;
+  }
+
+  public ReturnFragmentProjection<PARENT, ROOT> closedAt() {
+    getFields().put("closedAt", null);
+    return this;
+  }
+
+  public ReturnFragmentProjection<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
+    return this;
+  }
+
   public ReturnFragmentProjection<PARENT, ROOT> id() {
     getFields().put("id", null);
     return this;
@@ -181,6 +261,11 @@ public class ReturnFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>
 
   public ReturnFragmentProjection<PARENT, ROOT> name() {
     getFields().put("name", null);
+    return this;
+  }
+
+  public ReturnFragmentProjection<PARENT, ROOT> requestApprovedAt() {
+    getFields().put("requestApprovedAt", null);
     return this;
   }
 

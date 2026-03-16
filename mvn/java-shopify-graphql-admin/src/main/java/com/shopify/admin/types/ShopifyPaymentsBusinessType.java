@@ -46,5 +46,11 @@ public enum ShopifyPaymentsBusinessType {
 
   PUBLIC_PARTNERSHIP,
 
+  FREE_ZONE_ESTABLISHMENT,
+
+  FREE_ZONE_LLC,
+
+  SOLE_ESTABLISHMENT,
+
   NOT_SET
 }

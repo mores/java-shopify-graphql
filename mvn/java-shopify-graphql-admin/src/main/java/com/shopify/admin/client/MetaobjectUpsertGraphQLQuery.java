@@ -9,8 +9,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Retrieves a metaobject by handle, then updates it with the provided input values.
- * If no matching metaobject is found, a new metaobject is created with the provided input values.
+ * Creates or updates a [`Metaobject`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Metaobject)
+ * based on its handle. If a metaobject with the specified handle exists, the
+ * mutation updates it with the provided field values. If no matching metaobject
+ * exists, the mutation creates a new one.
+ *   
+ * The handle serves as a unique identifier within a metaobject type. Field
+ * values map to the [`MetaobjectDefinition`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MetaobjectDefinition)'s
+ * field keys and overwrite existing values during updates.
  */
 public class MetaobjectUpsertGraphQLQuery extends GraphQLQuery {
   public MetaobjectUpsertGraphQLQuery(MetaobjectHandleInput handle,

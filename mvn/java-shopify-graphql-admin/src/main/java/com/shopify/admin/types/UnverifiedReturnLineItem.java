@@ -24,6 +24,16 @@ public class UnverifiedReturnLineItem implements com.shopify.admin.types.Node, c
   private String id;
 
   /**
+   * The quantity that can be processed.
+   */
+  private int processableQuantity;
+
+  /**
+   * The quantity that has been processed.
+   */
+  private int processedQuantity;
+
+  /**
    * The quantity being returned.
    */
   private int quantity;
@@ -44,6 +54,11 @@ public class UnverifiedReturnLineItem implements com.shopify.admin.types.Node, c
   private ReturnReason returnReason;
 
   /**
+   * The standardized reason for why the item is being returned.
+   */
+  private ReturnReasonDefinition returnReasonDefinition;
+
+  /**
    * Additional information about the reason for the return. Maximum length: 255 characters.
    */
   private String returnReasonNote;
@@ -52,6 +67,11 @@ public class UnverifiedReturnLineItem implements com.shopify.admin.types.Node, c
    * The unit price of the unverified return line item.
    */
   private MoneyV2 unitPrice;
+
+  /**
+   * The quantity that has't been processed.
+   */
+  private int unprocessedQuantity;
 
   public UnverifiedReturnLineItem() {
   }
@@ -76,6 +96,28 @@ public class UnverifiedReturnLineItem implements com.shopify.admin.types.Node, c
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  /**
+   * The quantity that can be processed.
+   */
+  public int getProcessableQuantity() {
+    return processableQuantity;
+  }
+
+  public void setProcessableQuantity(int processableQuantity) {
+    this.processableQuantity = processableQuantity;
+  }
+
+  /**
+   * The quantity that has been processed.
+   */
+  public int getProcessedQuantity() {
+    return processedQuantity;
+  }
+
+  public void setProcessedQuantity(int processedQuantity) {
+    this.processedQuantity = processedQuantity;
   }
 
   /**
@@ -123,6 +165,17 @@ public class UnverifiedReturnLineItem implements com.shopify.admin.types.Node, c
   }
 
   /**
+   * The standardized reason for why the item is being returned.
+   */
+  public ReturnReasonDefinition getReturnReasonDefinition() {
+    return returnReasonDefinition;
+  }
+
+  public void setReturnReasonDefinition(ReturnReasonDefinition returnReasonDefinition) {
+    this.returnReasonDefinition = returnReasonDefinition;
+  }
+
+  /**
    * Additional information about the reason for the return. Maximum length: 255 characters.
    */
   public String getReturnReasonNote() {
@@ -144,9 +197,20 @@ public class UnverifiedReturnLineItem implements com.shopify.admin.types.Node, c
     this.unitPrice = unitPrice;
   }
 
+  /**
+   * The quantity that has't been processed.
+   */
+  public int getUnprocessedQuantity() {
+    return unprocessedQuantity;
+  }
+
+  public void setUnprocessedQuantity(int unprocessedQuantity) {
+    this.unprocessedQuantity = unprocessedQuantity;
+  }
+
   @Override
   public String toString() {
-    return "UnverifiedReturnLineItem{customerNote='" + customerNote + "', id='" + id + "', quantity='" + quantity + "', refundableQuantity='" + refundableQuantity + "', refundedQuantity='" + refundedQuantity + "', returnReason='" + returnReason + "', returnReasonNote='" + returnReasonNote + "', unitPrice='" + unitPrice + "'}";
+    return "UnverifiedReturnLineItem{customerNote='" + customerNote + "', id='" + id + "', processableQuantity='" + processableQuantity + "', processedQuantity='" + processedQuantity + "', quantity='" + quantity + "', refundableQuantity='" + refundableQuantity + "', refundedQuantity='" + refundedQuantity + "', returnReason='" + returnReason + "', returnReasonDefinition='" + returnReasonDefinition + "', returnReasonNote='" + returnReasonNote + "', unitPrice='" + unitPrice + "', unprocessedQuantity='" + unprocessedQuantity + "'}";
   }
 
   @Override
@@ -156,17 +220,21 @@ public class UnverifiedReturnLineItem implements com.shopify.admin.types.Node, c
     UnverifiedReturnLineItem that = (UnverifiedReturnLineItem) o;
     return Objects.equals(customerNote, that.customerNote) &&
         Objects.equals(id, that.id) &&
+        processableQuantity == that.processableQuantity &&
+        processedQuantity == that.processedQuantity &&
         quantity == that.quantity &&
         refundableQuantity == that.refundableQuantity &&
         refundedQuantity == that.refundedQuantity &&
         Objects.equals(returnReason, that.returnReason) &&
+        Objects.equals(returnReasonDefinition, that.returnReasonDefinition) &&
         Objects.equals(returnReasonNote, that.returnReasonNote) &&
-        Objects.equals(unitPrice, that.unitPrice);
+        Objects.equals(unitPrice, that.unitPrice) &&
+        unprocessedQuantity == that.unprocessedQuantity;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerNote, id, quantity, refundableQuantity, refundedQuantity, returnReason, returnReasonNote, unitPrice);
+    return Objects.hash(customerNote, id, processableQuantity, processedQuantity, quantity, refundableQuantity, refundedQuantity, returnReason, returnReasonDefinition, returnReasonNote, unitPrice, unprocessedQuantity);
   }
 
   public static Builder newBuilder() {
@@ -183,6 +251,16 @@ public class UnverifiedReturnLineItem implements com.shopify.admin.types.Node, c
      * A globally-unique ID.
      */
     private String id;
+
+    /**
+     * The quantity that can be processed.
+     */
+    private int processableQuantity;
+
+    /**
+     * The quantity that has been processed.
+     */
+    private int processedQuantity;
 
     /**
      * The quantity being returned.
@@ -205,6 +283,11 @@ public class UnverifiedReturnLineItem implements com.shopify.admin.types.Node, c
     private ReturnReason returnReason;
 
     /**
+     * The standardized reason for why the item is being returned.
+     */
+    private ReturnReasonDefinition returnReasonDefinition;
+
+    /**
      * Additional information about the reason for the return. Maximum length: 255 characters.
      */
     private String returnReasonNote;
@@ -214,16 +297,25 @@ public class UnverifiedReturnLineItem implements com.shopify.admin.types.Node, c
      */
     private MoneyV2 unitPrice;
 
+    /**
+     * The quantity that has't been processed.
+     */
+    private int unprocessedQuantity;
+
     public UnverifiedReturnLineItem build() {
       UnverifiedReturnLineItem result = new UnverifiedReturnLineItem();
       result.customerNote = this.customerNote;
       result.id = this.id;
+      result.processableQuantity = this.processableQuantity;
+      result.processedQuantity = this.processedQuantity;
       result.quantity = this.quantity;
       result.refundableQuantity = this.refundableQuantity;
       result.refundedQuantity = this.refundedQuantity;
       result.returnReason = this.returnReason;
+      result.returnReasonDefinition = this.returnReasonDefinition;
       result.returnReasonNote = this.returnReasonNote;
       result.unitPrice = this.unitPrice;
+      result.unprocessedQuantity = this.unprocessedQuantity;
       return result;
     }
 
@@ -240,6 +332,22 @@ public class UnverifiedReturnLineItem implements com.shopify.admin.types.Node, c
      */
     public Builder id(String id) {
       this.id = id;
+      return this;
+    }
+
+    /**
+     * The quantity that can be processed.
+     */
+    public Builder processableQuantity(int processableQuantity) {
+      this.processableQuantity = processableQuantity;
+      return this;
+    }
+
+    /**
+     * The quantity that has been processed.
+     */
+    public Builder processedQuantity(int processedQuantity) {
+      this.processedQuantity = processedQuantity;
       return this;
     }
 
@@ -276,6 +384,14 @@ public class UnverifiedReturnLineItem implements com.shopify.admin.types.Node, c
     }
 
     /**
+     * The standardized reason for why the item is being returned.
+     */
+    public Builder returnReasonDefinition(ReturnReasonDefinition returnReasonDefinition) {
+      this.returnReasonDefinition = returnReasonDefinition;
+      return this;
+    }
+
+    /**
      * Additional information about the reason for the return. Maximum length: 255 characters.
      */
     public Builder returnReasonNote(String returnReasonNote) {
@@ -288,6 +404,14 @@ public class UnverifiedReturnLineItem implements com.shopify.admin.types.Node, c
      */
     public Builder unitPrice(MoneyV2 unitPrice) {
       this.unitPrice = unitPrice;
+      return this;
+    }
+
+    /**
+     * The quantity that has't been processed.
+     */
+    public Builder unprocessedQuantity(int unprocessedQuantity) {
+      this.unprocessedQuantity = unprocessedQuantity;
       return this;
     }
   }

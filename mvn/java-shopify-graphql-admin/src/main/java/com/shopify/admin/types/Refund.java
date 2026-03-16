@@ -9,8 +9,41 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * The record of the line items and transactions that were refunded to a customer,
- * along with restocking instructions for refunded line items.
+ * The `Refund` object represents a financial record of money returned to a customer from an order.
+ * It provides a comprehensive view of all refunded amounts, transactions, and restocking instructions
+ * associated with returning products or correcting order issues.
+ *
+ * The `Refund` object provides information to:
+ *
+ * - Process customer returns and issue payments back to customers
+ * - Handle partial or full refunds for line items with optional inventory restocking
+ * - Refund shipping costs, duties, and additional fees
+ * - Issue store credit refunds as an alternative to original payment method returns
+ * - Track and reconcile all financial transactions related to refunds
+ *
+ * Each `Refund` object maintains detailed records of what was refunded, how much was refunded,
+ * which payment transactions were involved, and any inventory restocking that occurred. The refund
+ * can include multiple components such as product line items, shipping charges, taxes, duties, and
+ * additional fees, all calculated with proper currency handling for international orders.
+ *
+ * Refunds are always associated with an [order](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order)
+ * and can optionally be linked to a [return](https://shopify.dev/docs/api/admin-graphql/latest/objects/Return)
+ * if the refund was initiated through the returns process. The refund tracks both the presentment currency
+ * (what the customer sees) and the shop currency for accurate financial reporting.
+ *
+ * > Note:
+ * > The existence of a `Refund` object doesn't guarantee that the money has been returned to the customer.
+ * > The actual financial processing happens through associated
+ * > [`OrderTransaction`](https://shopify.dev/docs/api/admin-graphql/latest/objects/OrderTransaction)
+ * > objects, which can be in various states, such as pending, processing, success, or failure.
+ * > To determine if money has actually been refunded, check the
+ * > [status](https://shopify.dev/docs/api/admin-graphql/latest/objects/OrderTransaction#field-OrderTransaction.fields.status)
+ * > of the associated transactions.
+ *
+ * Learn more about
+ * [managing returns](https://shopify.dev/docs/apps/build/orders-fulfillment/returns-apps/build-return-management),
+ * [refunding duties](https://shopify.dev/docs/apps/build/orders-fulfillment/returns-apps/view-and-refund-duties), and
+ * [processing refunds](https://shopify.dev/docs/api/admin-graphql/latest/mutations/refundCreate).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -50,6 +83,11 @@ public class Refund implements com.shopify.admin.types.LegacyInteroperability, c
    * The order adjustments that are attached with the refund.
    */
   private OrderAdjustmentConnection orderAdjustments;
+
+  /**
+   * The date and time when the refund was processed.
+   */
+  private OffsetDateTime processedAt;
 
   /**
    * The `RefundLineItem` resources attached to the refund.
@@ -172,6 +210,17 @@ public class Refund implements com.shopify.admin.types.LegacyInteroperability, c
   }
 
   /**
+   * The date and time when the refund was processed.
+   */
+  public OffsetDateTime getProcessedAt() {
+    return processedAt;
+  }
+
+  public void setProcessedAt(OffsetDateTime processedAt) {
+    this.processedAt = processedAt;
+  }
+
+  /**
    * The `RefundLineItem` resources attached to the refund.
    */
   public RefundLineItemConnection getRefundLineItems() {
@@ -261,7 +310,7 @@ public class Refund implements com.shopify.admin.types.LegacyInteroperability, c
 
   @Override
   public String toString() {
-    return "Refund{createdAt='" + createdAt + "', duties='" + duties + "', id='" + id + "', legacyResourceId='" + legacyResourceId + "', note='" + note + "', order='" + order + "', orderAdjustments='" + orderAdjustments + "', refundLineItems='" + refundLineItems + "', refundShippingLines='" + refundShippingLines + "', return='" + _return + "', staffMember='" + staffMember + "', totalRefunded='" + totalRefunded + "', totalRefundedSet='" + totalRefundedSet + "', transactions='" + transactions + "', updatedAt='" + updatedAt + "'}";
+    return "Refund{createdAt='" + createdAt + "', duties='" + duties + "', id='" + id + "', legacyResourceId='" + legacyResourceId + "', note='" + note + "', order='" + order + "', orderAdjustments='" + orderAdjustments + "', processedAt='" + processedAt + "', refundLineItems='" + refundLineItems + "', refundShippingLines='" + refundShippingLines + "', return='" + _return + "', staffMember='" + staffMember + "', totalRefunded='" + totalRefunded + "', totalRefundedSet='" + totalRefundedSet + "', transactions='" + transactions + "', updatedAt='" + updatedAt + "'}";
   }
 
   @Override
@@ -276,6 +325,7 @@ public class Refund implements com.shopify.admin.types.LegacyInteroperability, c
         Objects.equals(note, that.note) &&
         Objects.equals(order, that.order) &&
         Objects.equals(orderAdjustments, that.orderAdjustments) &&
+        Objects.equals(processedAt, that.processedAt) &&
         Objects.equals(refundLineItems, that.refundLineItems) &&
         Objects.equals(refundShippingLines, that.refundShippingLines) &&
         Objects.equals(_return, that._return) &&
@@ -288,7 +338,7 @@ public class Refund implements com.shopify.admin.types.LegacyInteroperability, c
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, duties, id, legacyResourceId, note, order, orderAdjustments, refundLineItems, refundShippingLines, _return, staffMember, totalRefunded, totalRefundedSet, transactions, updatedAt);
+    return Objects.hash(createdAt, duties, id, legacyResourceId, note, order, orderAdjustments, processedAt, refundLineItems, refundShippingLines, _return, staffMember, totalRefunded, totalRefundedSet, transactions, updatedAt);
   }
 
   public static Builder newBuilder() {
@@ -330,6 +380,11 @@ public class Refund implements com.shopify.admin.types.LegacyInteroperability, c
      * The order adjustments that are attached with the refund.
      */
     private OrderAdjustmentConnection orderAdjustments;
+
+    /**
+     * The date and time when the refund was processed.
+     */
+    private OffsetDateTime processedAt;
 
     /**
      * The `RefundLineItem` resources attached to the refund.
@@ -380,6 +435,7 @@ public class Refund implements com.shopify.admin.types.LegacyInteroperability, c
       result.note = this.note;
       result.order = this.order;
       result.orderAdjustments = this.orderAdjustments;
+      result.processedAt = this.processedAt;
       result.refundLineItems = this.refundLineItems;
       result.refundShippingLines = this.refundShippingLines;
       result._return = this._return;
@@ -444,6 +500,14 @@ public class Refund implements com.shopify.admin.types.LegacyInteroperability, c
      */
     public Builder orderAdjustments(OrderAdjustmentConnection orderAdjustments) {
       this.orderAdjustments = orderAdjustments;
+      return this;
+    }
+
+    /**
+     * The date and time when the refund was processed.
+     */
+    public Builder processedAt(OffsetDateTime processedAt) {
+      this.processedAt = processedAt;
       return this;
     }
 

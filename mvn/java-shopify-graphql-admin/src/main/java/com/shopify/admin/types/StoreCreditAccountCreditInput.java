@@ -1,5 +1,6 @@
 package com.shopify.admin.types;
 
+import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
@@ -19,6 +20,12 @@ public class StoreCreditAccountCreditInput {
    * The date and time when the credit expires.
    */
   private OffsetDateTime expiresAt;
+
+  /**
+   * Whether to send a notification to the account owner when the store credit is issued.
+   * Defaults to `false`.
+   */
+  private Boolean notify = false;
 
   public StoreCreditAccountCreditInput() {
   }
@@ -45,9 +52,21 @@ public class StoreCreditAccountCreditInput {
     this.expiresAt = expiresAt;
   }
 
+  /**
+   * Whether to send a notification to the account owner when the store credit is issued.
+   * Defaults to `false`.
+   */
+  public Boolean getNotify() {
+    return notify;
+  }
+
+  public void setNotify(Boolean notify) {
+    this.notify = notify;
+  }
+
   @Override
   public String toString() {
-    return "StoreCreditAccountCreditInput{creditAmount='" + creditAmount + "', expiresAt='" + expiresAt + "'}";
+    return "StoreCreditAccountCreditInput{creditAmount='" + creditAmount + "', expiresAt='" + expiresAt + "', notify='" + notify + "'}";
   }
 
   @Override
@@ -56,12 +75,13 @@ public class StoreCreditAccountCreditInput {
     if (o == null || getClass() != o.getClass()) return false;
     StoreCreditAccountCreditInput that = (StoreCreditAccountCreditInput) o;
     return Objects.equals(creditAmount, that.creditAmount) &&
-        Objects.equals(expiresAt, that.expiresAt);
+        Objects.equals(expiresAt, that.expiresAt) &&
+        Objects.equals(notify, that.notify);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(creditAmount, expiresAt);
+    return Objects.hash(creditAmount, expiresAt, notify);
   }
 
   public static Builder newBuilder() {
@@ -79,10 +99,17 @@ public class StoreCreditAccountCreditInput {
      */
     private OffsetDateTime expiresAt;
 
+    /**
+     * Whether to send a notification to the account owner when the store credit is issued.
+     * Defaults to `false`.
+     */
+    private Boolean notify = false;
+
     public StoreCreditAccountCreditInput build() {
       StoreCreditAccountCreditInput result = new StoreCreditAccountCreditInput();
       result.creditAmount = this.creditAmount;
       result.expiresAt = this.expiresAt;
+      result.notify = this.notify;
       return result;
     }
 
@@ -99,6 +126,15 @@ public class StoreCreditAccountCreditInput {
      */
     public Builder expiresAt(OffsetDateTime expiresAt) {
       this.expiresAt = expiresAt;
+      return this;
+    }
+
+    /**
+     * Whether to send a notification to the account owner when the store credit is issued.
+     * Defaults to `false`.
+     */
+    public Builder notify(Boolean notify) {
+      this.notify = notify;
       return this;
     }
   }

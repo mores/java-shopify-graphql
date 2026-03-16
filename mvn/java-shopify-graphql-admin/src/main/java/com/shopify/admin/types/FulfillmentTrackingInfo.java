@@ -70,13 +70,14 @@ public class FulfillmentTrackingInfo {
    *   * Fulfilla
    *   * GLS
    *   * Guangdong Weisuyi Information Technology (WSE)
-   *   * Heppner Internationale Spedition GmbH &amp; Co.
+   *   * Heppner Internationale Spedition GmbH & Co.
    *   * Iceland Post
    *   * IDEX
    *   * Israel Post
    *   * Japan Post (EN)
    *   * Japan Post (JA)
-   *   * La Poste
+   *   * La Poste Colissimo
+   *   * La Poste Burkina Faso
    *   * Lasership
    *   * Latvia Post
    *   * Lietuvos Paštas
@@ -255,13 +256,14 @@ public class FulfillmentTrackingInfo {
    *   * Fulfilla
    *   * GLS
    *   * Guangdong Weisuyi Information Technology (WSE)
-   *   * Heppner Internationale Spedition GmbH &amp; Co.
+   *   * Heppner Internationale Spedition GmbH & Co.
    *   * Iceland Post
    *   * IDEX
    *   * Israel Post
    *   * Japan Post (EN)
    *   * Japan Post (JA)
-   *   * La Poste
+   *   * La Poste Colissimo
+   *   * La Poste Burkina Faso
    *   * Lasership
    *   * Latvia Post
    *   * Lietuvos Paštas
@@ -480,13 +482,14 @@ public class FulfillmentTrackingInfo {
      *   * Fulfilla
      *   * GLS
      *   * Guangdong Weisuyi Information Technology (WSE)
-     *   * Heppner Internationale Spedition GmbH &amp; Co.
+     *   * Heppner Internationale Spedition GmbH & Co.
      *   * Iceland Post
      *   * IDEX
      *   * Israel Post
      *   * Japan Post (EN)
      *   * Japan Post (JA)
-     *   * La Poste
+     *   * La Poste Colissimo
+     *   * La Poste Burkina Faso
      *   * Lasership
      *   * Latvia Post
      *   * Lietuvos Paštas
@@ -670,13 +673,14 @@ public class FulfillmentTrackingInfo {
      *   * Fulfilla
      *   * GLS
      *   * Guangdong Weisuyi Information Technology (WSE)
-     *   * Heppner Internationale Spedition GmbH &amp; Co.
+     *   * Heppner Internationale Spedition GmbH & Co.
      *   * Iceland Post
      *   * IDEX
      *   * Israel Post
      *   * Japan Post (EN)
      *   * Japan Post (JA)
-     *   * La Poste
+     *   * La Poste Colissimo
+     *   * La Poste Burkina Faso
      *   * Lasership
      *   * Latvia Post
      *   * Lietuvos Paštas

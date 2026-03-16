@@ -22,6 +22,11 @@ public class MarketCurrencySettings {
    */
   private boolean localCurrencies;
 
+  /**
+   * Whether or not rounding is enabled on multi-currency prices.
+   */
+  private boolean roundingEnabled;
+
   public MarketCurrencySettings() {
   }
 
@@ -50,9 +55,20 @@ public class MarketCurrencySettings {
     this.localCurrencies = localCurrencies;
   }
 
+  /**
+   * Whether or not rounding is enabled on multi-currency prices.
+   */
+  public boolean getRoundingEnabled() {
+    return roundingEnabled;
+  }
+
+  public void setRoundingEnabled(boolean roundingEnabled) {
+    this.roundingEnabled = roundingEnabled;
+  }
+
   @Override
   public String toString() {
-    return "MarketCurrencySettings{baseCurrency='" + baseCurrency + "', localCurrencies='" + localCurrencies + "'}";
+    return "MarketCurrencySettings{baseCurrency='" + baseCurrency + "', localCurrencies='" + localCurrencies + "', roundingEnabled='" + roundingEnabled + "'}";
   }
 
   @Override
@@ -61,12 +77,13 @@ public class MarketCurrencySettings {
     if (o == null || getClass() != o.getClass()) return false;
     MarketCurrencySettings that = (MarketCurrencySettings) o;
     return Objects.equals(baseCurrency, that.baseCurrency) &&
-        localCurrencies == that.localCurrencies;
+        localCurrencies == that.localCurrencies &&
+        roundingEnabled == that.roundingEnabled;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseCurrency, localCurrencies);
+    return Objects.hash(baseCurrency, localCurrencies, roundingEnabled);
   }
 
   public static Builder newBuilder() {
@@ -87,10 +104,16 @@ public class MarketCurrencySettings {
      */
     private boolean localCurrencies;
 
+    /**
+     * Whether or not rounding is enabled on multi-currency prices.
+     */
+    private boolean roundingEnabled;
+
     public MarketCurrencySettings build() {
       MarketCurrencySettings result = new MarketCurrencySettings();
       result.baseCurrency = this.baseCurrency;
       result.localCurrencies = this.localCurrencies;
+      result.roundingEnabled = this.roundingEnabled;
       return result;
     }
 
@@ -110,6 +133,14 @@ public class MarketCurrencySettings {
      */
     public Builder localCurrencies(boolean localCurrencies) {
       this.localCurrencies = localCurrencies;
+      return this;
+    }
+
+    /**
+     * Whether or not rounding is enabled on multi-currency prices.
+     */
+    public Builder roundingEnabled(boolean roundingEnabled) {
+      this.roundingEnabled = roundingEnabled;
       return this;
     }
   }

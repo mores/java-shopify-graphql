@@ -8,7 +8,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Sends the customer an account invite email.
+ * Sends an email invitation for a customer to create a legacy customer account.
+ * The invitation lets customers set up their password and activate their account
+ * in the online store.
+ *   
+ * You can optionally customize the email content including the subject, sender,
+ * recipients, and message body. If you don't provide email customization, the
+ * store uses its default account invitation template.
+ *   
+ * > Note: The invite only works when legacy customer accounts are enabled on the shop.
  */
 public class CustomerSendAccountInviteEmailGraphQLQuery extends GraphQLQuery {
   public CustomerSendAccountInviteEmailGraphQLQuery(String customerId, EmailInput email,

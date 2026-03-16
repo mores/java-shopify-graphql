@@ -8,14 +8,24 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Updates an existing
- * [free shipping discount](https://help.shopify.com/manual/discounts/discount-types/free-shipping)
- * that's automatically applied on a cart and at checkout.
+ * Updates existing automatic free shipping discounts, allowing merchants to
+ * modify promotion criteria, shipping destinations, and eligibility requirements
+ * without recreating the entire discount structure.
  *   
- * > Note:
- * > To update code discounts, use the
- * [`discountCodeFreeShippingUpdate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/discountCodeFreeShippingUpdate)
- * mutation instead.
+ * For example, extending a holiday free shipping promotion to include additional
+ * countries, adjusting the minimum order value threshold, or expanding customer
+ * eligibility to include new segments.
+ *   
+ * Use `DiscountAutomaticFreeShippingUpdate` to:
+ * - Modify shipping discount thresholds and criteria
+ * - Expand or restrict geographic availability
+ * - Update customer targeting and eligibility rules
+ * - Adjust promotion timing and activation periods
+ *   
+ * Changes take effect immediately for new orders, while the mutation validates
+ * all modifications and reports any configuration conflicts through user errors.
+ *   
+ * Learn more about [managing automatic discounts](https://shopify.dev/docs/api/admin-graphql/latest/objects/DiscountAutomaticFreeShipping).
  */
 public class DiscountAutomaticFreeShippingUpdateGraphQLQuery extends GraphQLQuery {
   public DiscountAutomaticFreeShippingUpdateGraphQLQuery(String id,

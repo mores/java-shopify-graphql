@@ -7,7 +7,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * A list of available locales.
+ * Returns all locales that Shopify supports. Each
+ * [`Locale`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Locale)
+ * includes an ISO code and human-readable name. Use this query to discover which
+ * locales you can enable on a shop with the [`shopLocaleEnable`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/shopLocaleEnable) mutation.
  */
 public class AvailableLocalesGraphQLQuery extends GraphQLQuery {
   public AvailableLocalesGraphQLQuery(String queryName) {

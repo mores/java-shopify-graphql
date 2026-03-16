@@ -7,7 +7,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Lookup a publication by ID.
+ * Retrieves a [`Publication`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication) by [`ID`](https://shopify.dev/docs/api/usage/gids).
+ *   
+ * Returns `null` if the publication doesn't exist.
  */
 public class PublicationGraphQLQuery extends GraphQLQuery {
   public PublicationGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

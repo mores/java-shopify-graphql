@@ -7,18 +7,20 @@ import java.util.Objects;
 
 /**
  * The `DeliverySetting` object enables you to manage shop-wide shipping settings.
- * You can enable legacy compatibility mode for the multi-location delivery profiles feature
- * if the legacy mode isn't blocked.
  */
 public class DeliverySetting {
   /**
    * Whether the shop is blocked from converting to full multi-location delivery
-   * profiles mode. If the shop is blocked, then the blocking reasons are also returned.
+   * profiles mode. If the shop is blocked, then the blocking reasons are also
+   * returned. Note: this field is effectively deprecated and will be removed in a
+   * future version of the API.
    */
   private DeliveryLegacyModeBlocked legacyModeBlocked;
 
   /**
-   * Enables legacy compatability mode for the multi-location delivery profiles feature.
+   * Enables legacy compatability mode for the multi-location delivery profiles
+   * feature. Note: this field is effectively deprecated and will be removed in a
+   * future version of the API.
    */
   private boolean legacyModeProfiles;
 
@@ -27,7 +29,9 @@ public class DeliverySetting {
 
   /**
    * Whether the shop is blocked from converting to full multi-location delivery
-   * profiles mode. If the shop is blocked, then the blocking reasons are also returned.
+   * profiles mode. If the shop is blocked, then the blocking reasons are also
+   * returned. Note: this field is effectively deprecated and will be removed in a
+   * future version of the API.
    */
   public DeliveryLegacyModeBlocked getLegacyModeBlocked() {
     return legacyModeBlocked;
@@ -38,7 +42,9 @@ public class DeliverySetting {
   }
 
   /**
-   * Enables legacy compatability mode for the multi-location delivery profiles feature.
+   * Enables legacy compatability mode for the multi-location delivery profiles
+   * feature. Note: this field is effectively deprecated and will be removed in a
+   * future version of the API.
    */
   public boolean getLegacyModeProfiles() {
     return legacyModeProfiles;
@@ -74,12 +80,16 @@ public class DeliverySetting {
   public static class Builder {
     /**
      * Whether the shop is blocked from converting to full multi-location delivery
-     * profiles mode. If the shop is blocked, then the blocking reasons are also returned.
+     * profiles mode. If the shop is blocked, then the blocking reasons are also
+     * returned. Note: this field is effectively deprecated and will be removed in a
+     * future version of the API.
      */
     private DeliveryLegacyModeBlocked legacyModeBlocked;
 
     /**
-     * Enables legacy compatability mode for the multi-location delivery profiles feature.
+     * Enables legacy compatability mode for the multi-location delivery profiles
+     * feature. Note: this field is effectively deprecated and will be removed in a
+     * future version of the API.
      */
     private boolean legacyModeProfiles;
 
@@ -92,7 +102,9 @@ public class DeliverySetting {
 
     /**
      * Whether the shop is blocked from converting to full multi-location delivery
-     * profiles mode. If the shop is blocked, then the blocking reasons are also returned.
+     * profiles mode. If the shop is blocked, then the blocking reasons are also
+     * returned. Note: this field is effectively deprecated and will be removed in a
+     * future version of the API.
      */
     public Builder legacyModeBlocked(DeliveryLegacyModeBlocked legacyModeBlocked) {
       this.legacyModeBlocked = legacyModeBlocked;
@@ -100,7 +112,9 @@ public class DeliverySetting {
     }
 
     /**
-     * Enables legacy compatability mode for the multi-location delivery profiles feature.
+     * Enables legacy compatability mode for the multi-location delivery profiles
+     * feature. Note: this field is effectively deprecated and will be removed in a
+     * future version of the API.
      */
     public Builder legacyModeProfiles(boolean legacyModeProfiles) {
       this.legacyModeProfiles = legacyModeProfiles;

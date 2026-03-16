@@ -9,7 +9,20 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * List of Cart transform objects owned by the current API client.
+ * Retrieves all cart transform functions currently deployed by your app within
+ * the merchant's store. This query provides comprehensive access to your active
+ * cart modification logic, enabling management and monitoring of bundling and
+ * merchandising features.
+ *   
+ * The query returns paginated results with full cart transform details,
+ * including function IDs, configuration settings, and operational status.
+ *   
+ * Cart Transform ownership is scoped to your API client, ensuring you only see
+ * and manage functions deployed by your specific app. This isolation prevents
+ * conflicts between different apps while maintaining security boundaries for
+ * sensitive merchandising logic.
+ *   
+ * Learn more about [managing cart transforms](https://shopify.dev/docs/api/functions/latest/cart-transform).
  */
 public class CartTransformsGraphQLQuery extends GraphQLQuery {
   public CartTransformsGraphQLQuery(Integer first, String after, Integer last, String before,

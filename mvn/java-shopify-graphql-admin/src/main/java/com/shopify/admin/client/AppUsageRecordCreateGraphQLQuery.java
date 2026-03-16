@@ -8,12 +8,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Enables an app to charge a store for features or services on a per-use basis.
- * The usage charge value is counted towards the `cappedAmount` limit that was
- * specified in the `appUsagePricingDetails` field when the app subscription was created.
- * If you create an app usage charge that causes the total usage charges in a
- * billing interval to exceed the capped amount, then a `Total price exceeds
- * balance remaining` error is returned.
+ * Creates a usage charge for an app subscription with usage-based pricing. The
+ * charge counts toward the capped amount limit set when creating the subscription.
+ *   
+ * Usage records track consumption of app features or services on a per-use
+ * basis. You provide the charge amount, a description of what you consumed, and
+ * the subscription line item ID. The optional [`idempotencyKey`](https://shopify.dev/docs/api/admin-graphql/latest/objects/AppUsageRecord#field-idempotencyKey)
+ * parameter prevents duplicate charges if you send the same request multiple times.
+ *   
+ * If the new charge would cause total usage charges in the current billing
+ * interval to exceed the capped amount, then the mutation returns an error.
+ *   
+ * Learn more about [creating usage-based subscriptions](https://shopify.dev/docs/apps/launch/billing/subscription-billing/create-usage-based-subscriptions).
  */
 public class AppUsageRecordCreateGraphQLQuery extends GraphQLQuery {
   public AppUsageRecordCreateGraphQLQuery(String subscriptionLineItemId, MoneyInput price,

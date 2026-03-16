@@ -17,8 +17,8 @@ public class CustomerEmailMarketingConsentInput {
   private CustomerMarketingOptInLevel marketingOptInLevel;
 
   /**
-   * The current marketing state associated with the customer's email.
-   *           If the customer doesn't have an email, then this field is `null`.
+   * The marketing state to set. Accepted values: SUBSCRIBED, UNSUBSCRIBED, and
+   * PENDING. NOT_SUBSCRIBED, REDACTED, and INVALID are rejected if sent as input.
    */
   private CustomerEmailMarketingState marketingState;
 
@@ -48,8 +48,8 @@ public class CustomerEmailMarketingConsentInput {
   }
 
   /**
-   * The current marketing state associated with the customer's email.
-   *           If the customer doesn't have an email, then this field is `null`.
+   * The marketing state to set. Accepted values: SUBSCRIBED, UNSUBSCRIBED, and
+   * PENDING. NOT_SUBSCRIBED, REDACTED, and INVALID are rejected if sent as input.
    */
   public CustomerEmailMarketingState getMarketingState() {
     return marketingState;
@@ -114,8 +114,8 @@ public class CustomerEmailMarketingConsentInput {
     private CustomerMarketingOptInLevel marketingOptInLevel;
 
     /**
-     * The current marketing state associated with the customer's email.
-     *           If the customer doesn't have an email, then this field is `null`.
+     * The marketing state to set. Accepted values: SUBSCRIBED, UNSUBSCRIBED, and
+     * PENDING. NOT_SUBSCRIBED, REDACTED, and INVALID are rejected if sent as input.
      */
     private CustomerEmailMarketingState marketingState;
 
@@ -148,8 +148,8 @@ public class CustomerEmailMarketingConsentInput {
     }
 
     /**
-     * The current marketing state associated with the customer's email.
-     *           If the customer doesn't have an email, then this field is `null`.
+     * The marketing state to set. Accepted values: SUBSCRIBED, UNSUBSCRIBED, and
+     * PENDING. NOT_SUBSCRIBED, REDACTED, and INVALID are rejected if sent as input.
      */
     public Builder marketingState(CustomerEmailMarketingState marketingState) {
       this.marketingState = marketingState;

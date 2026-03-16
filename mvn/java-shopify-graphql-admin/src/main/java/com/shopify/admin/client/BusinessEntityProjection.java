@@ -25,6 +25,11 @@ public class BusinessEntityProjection<PARENT extends BaseSubProjectionNode<?, ?>
      return projection;
   }
 
+  public BusinessEntityProjection<PARENT, ROOT> archived() {
+    getFields().put("archived", null);
+    return this;
+  }
+
   public BusinessEntityProjection<PARENT, ROOT> companyName() {
     getFields().put("companyName", null);
     return this;

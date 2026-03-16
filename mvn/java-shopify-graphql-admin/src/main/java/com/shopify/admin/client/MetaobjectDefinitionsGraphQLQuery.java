@@ -9,7 +9,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * All metaobject definitions.
+ * Returns a paginated list of all [`MetaobjectDefinition`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MetaobjectDefinition)
+ * objects configured for the store. Metaobject definitions provide the schema
+ * for creating custom data structures composed of individual fields. Each
+ * definition specifies the field types, access permissions, and capabilities for [`Metaobject`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Metaobject)
+ * entries of that type. Use this query to discover available metaobject types
+ * before creating or querying metaobject entries.
+ *   
+ * Learn more about [managing metaobjects](https://shopify.dev/docs/apps/build/custom-data/metaobjects/manage-metaobjects).
  */
 public class MetaobjectDefinitionsGraphQLQuery extends GraphQLQuery {
   public MetaobjectDefinitionsGraphQLQuery(Integer first, String after, Integer last, String before,

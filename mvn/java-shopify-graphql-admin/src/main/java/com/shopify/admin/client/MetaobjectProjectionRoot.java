@@ -114,6 +114,11 @@ public class MetaobjectProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>
     return projection;
   }
 
+  public MetaobjectProjectionRoot<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
+    return this;
+  }
+
   public MetaobjectProjectionRoot<PARENT, ROOT> displayName() {
     getFields().put("displayName", null);
     return this;

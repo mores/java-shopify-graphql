@@ -7,7 +7,23 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a Collection resource by ID.
+ * Retrieves a [collection](https://shopify.dev/docs/api/admin-graphql/latest/objects/Collection) by its ID.
+ * A collection represents a grouping of [products](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+ * that merchants can display and sell as a group in their [online
+ * store](https://shopify.dev/docs/apps/build/online-store) and
+ * other [sales channels](https://shopify.dev/docs/apps/build/sales-channels).
+ *   
+ * Use the `collection` query when you need to:
+ *   
+ * - Manage collection publishing across sales channels
+ * - Access collection metadata and SEO information
+ * - Work with collection rules and product relationships
+ *   
+ * A collection can be either a custom ([manual](https://help.shopify.com/manual/products/collections/manual-shopify-collection))
+ * collection where products are manually added, or a smart ([automated](https://help.shopify.com/manual/products/collections/automated-collections))
+ * collection where products are automatically included based on defined rules.
+ * Each collection has associated metadata including
+ * title, description, handle, image, and [metafields](https://shopify.dev/docs/apps/build/custom-data/metafields).
  */
 public class CollectionGraphQLQuery extends GraphQLQuery {
   public CollectionGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

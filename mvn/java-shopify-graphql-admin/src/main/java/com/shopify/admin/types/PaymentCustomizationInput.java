@@ -13,9 +13,9 @@ import java.util.Objects;
  */
 public class PaymentCustomizationInput {
   /**
-   * The ID of the function providing the payment customization.
+   * Function handle scoped to your app ID.
    */
-  private String functionId;
+  private String functionHandle;
 
   /**
    * The title of the payment customization.
@@ -36,14 +36,14 @@ public class PaymentCustomizationInput {
   }
 
   /**
-   * The ID of the function providing the payment customization.
+   * Function handle scoped to your app ID.
    */
-  public String getFunctionId() {
-    return functionId;
+  public String getFunctionHandle() {
+    return functionHandle;
   }
 
-  public void setFunctionId(String functionId) {
-    this.functionId = functionId;
+  public void setFunctionHandle(String functionHandle) {
+    this.functionHandle = functionHandle;
   }
 
   /**
@@ -81,7 +81,7 @@ public class PaymentCustomizationInput {
 
   @Override
   public String toString() {
-    return "PaymentCustomizationInput{functionId='" + functionId + "', title='" + title + "', enabled='" + enabled + "', metafields='" + metafields + "'}";
+    return "PaymentCustomizationInput{functionHandle='" + functionHandle + "', title='" + title + "', enabled='" + enabled + "', metafields='" + metafields + "'}";
   }
 
   @Override
@@ -89,7 +89,7 @@ public class PaymentCustomizationInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     PaymentCustomizationInput that = (PaymentCustomizationInput) o;
-    return Objects.equals(functionId, that.functionId) &&
+    return Objects.equals(functionHandle, that.functionHandle) &&
         Objects.equals(title, that.title) &&
         Objects.equals(enabled, that.enabled) &&
         Objects.equals(metafields, that.metafields);
@@ -97,7 +97,7 @@ public class PaymentCustomizationInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, title, enabled, metafields);
+    return Objects.hash(functionHandle, title, enabled, metafields);
   }
 
   public static Builder newBuilder() {
@@ -106,9 +106,9 @@ public class PaymentCustomizationInput {
 
   public static class Builder {
     /**
-     * The ID of the function providing the payment customization.
+     * Function handle scoped to your app ID.
      */
-    private String functionId;
+    private String functionHandle;
 
     /**
      * The title of the payment customization.
@@ -127,7 +127,7 @@ public class PaymentCustomizationInput {
 
     public PaymentCustomizationInput build() {
       PaymentCustomizationInput result = new PaymentCustomizationInput();
-      result.functionId = this.functionId;
+      result.functionHandle = this.functionHandle;
       result.title = this.title;
       result.enabled = this.enabled;
       result.metafields = this.metafields;
@@ -135,10 +135,10 @@ public class PaymentCustomizationInput {
     }
 
     /**
-     * The ID of the function providing the payment customization.
+     * Function handle scoped to your app ID.
      */
-    public Builder functionId(String functionId) {
-      this.functionId = functionId;
+    public Builder functionHandle(String functionHandle) {
+      this.functionHandle = functionHandle;
       return this;
     }
 

@@ -8,7 +8,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Updates a company location.
+ * Updates a company location's information and B2B checkout settings. Company
+ * locations are branches or offices where [`CompanyContact`](https://shopify.dev/docs/api/admin-graphql/latest/objects/CompanyContact)
+ * members place orders on behalf of the company. Contacts must be assigned to a
+ * location through `roleAssignments` to place orders.
+ *   
+ * The mutation modifies details such as the location's name, contact
+ * information, preferred locale, and internal notes. You can also configure the
+ * B2B checkout experience through [`BuyerExperienceConfiguration`](https://shopify.dev/docs/api/admin-graphql/latest/objects/BuyerExperienceConfiguration)
+ * settings that control whether orders require merchant review, [`PaymentTermsTemplate`](https://shopify.dev/docs/api/admin-graphql/latest/objects/PaymentTermsTemplate)
+ * settings, shipping address editing permissions, and [`DepositConfiguration`](https://shopify.dev/docs/api/admin-graphql/latest/unions/DepositConfiguration) requirements.
+ *   
+ * Learn more about [managing company locations](https://shopify.dev/docs/apps/build/b2b/manage-client-company-locations).
  */
 public class CompanyLocationUpdateGraphQLQuery extends GraphQLQuery {
   public CompanyLocationUpdateGraphQLQuery(String companyLocationId,

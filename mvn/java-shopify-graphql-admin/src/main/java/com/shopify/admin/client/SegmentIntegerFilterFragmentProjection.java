@@ -23,6 +23,16 @@ public class SegmentIntegerFilterFragmentProjection<PARENT extends BaseSubProjec
     return this;
   }
 
+  public SegmentIntegerFilterFragmentProjection<PARENT, ROOT> maxRange() {
+    getFields().put("maxRange", null);
+    return this;
+  }
+
+  public SegmentIntegerFilterFragmentProjection<PARENT, ROOT> minRange() {
+    getFields().put("minRange", null);
+    return this;
+  }
+
   public SegmentIntegerFilterFragmentProjection<PARENT, ROOT> multiValue() {
     getFields().put("multiValue", null);
     return this;

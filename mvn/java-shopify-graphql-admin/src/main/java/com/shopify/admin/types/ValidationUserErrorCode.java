@@ -18,6 +18,10 @@ public enum ValidationUserErrorCode {
 
   MAX_VALIDATIONS_ACTIVATED,
 
+  MISSING_FUNCTION_IDENTIFIER,
+
+  MULTIPLE_FUNCTION_IDENTIFIERS,
+
   INVALID_TYPE,
 
   INVALID_VALUE,
@@ -39,6 +43,8 @@ public enum ValidationUserErrorCode {
   TOO_LONG,
 
   TOO_SHORT,
+
+  INVALID,
 
   CAPABILITY_VIOLATION,
 

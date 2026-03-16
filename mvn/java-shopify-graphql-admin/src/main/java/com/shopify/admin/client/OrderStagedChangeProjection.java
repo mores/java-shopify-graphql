@@ -54,6 +54,13 @@ public class OrderStagedChangeProjection<PARENT extends BaseSubProjectionNode<?,
     return fragment;
   }
 
+  public OrderStagedChangeRemoveDiscountFragmentProjection<OrderStagedChangeProjection<PARENT, ROOT>, ROOT> onOrderStagedChangeRemoveDiscount(
+      ) {
+    OrderStagedChangeRemoveDiscountFragmentProjection<OrderStagedChangeProjection<PARENT, ROOT>, ROOT> fragment = new OrderStagedChangeRemoveDiscountFragmentProjection<>(this, getRoot());
+    getFragments().add(fragment);
+    return fragment;
+  }
+
   public OrderStagedChangeRemoveShippingLineFragmentProjection<OrderStagedChangeProjection<PARENT, ROOT>, ROOT> onOrderStagedChangeRemoveShippingLine(
       ) {
     OrderStagedChangeRemoveShippingLineFragmentProjection<OrderStagedChangeProjection<PARENT, ROOT>, ROOT> fragment = new OrderStagedChangeRemoveShippingLineFragmentProjection<>(this, getRoot());

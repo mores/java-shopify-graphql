@@ -22,5 +22,9 @@ public enum ArticleUpdateUserErrorCode {
 
   TAKEN,
 
-  INVALID
+  INVALID,
+
+  INVALID_VALUE,
+
+  INVALID_TYPE
 }

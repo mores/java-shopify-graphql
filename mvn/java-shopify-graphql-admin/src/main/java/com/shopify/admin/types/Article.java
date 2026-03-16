@@ -9,12 +9,19 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * An article in the blogging system.
+ * An article that contains content, author information, and metadata. Articles belong
+ * to a [`Blog`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Blog)
+ * and can include HTML-formatted body text, summary text, and an associated image.
+ * Merchants publish articles to share content, drive traffic, and engage customers.
+ *
+ * Articles can be organized with tags and published immediately or scheduled for
+ * future publication using the [`publishedAt`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Article#field-Article.fields.publishedAt)
+ * timestamp. The API manages comments on articles when the blog's comment policy enables them.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
-public class Article implements MetafieldReferencer, com.shopify.admin.types.HasEvents, com.shopify.admin.types.HasMetafieldDefinitions, com.shopify.admin.types.HasMetafields, com.shopify.admin.types.HasPublishedTranslations, com.shopify.admin.types.Navigable, com.shopify.admin.types.Node {
+public class Article implements MetafieldReference, MetafieldReferencer, com.shopify.admin.types.HasEvents, com.shopify.admin.types.HasMetafieldDefinitions, com.shopify.admin.types.HasMetafields, com.shopify.admin.types.HasPublishedTranslations, com.shopify.admin.types.Navigable, com.shopify.admin.types.Node {
   /**
    * The name of the author of the article.
    */
@@ -36,7 +43,7 @@ public class Article implements MetafieldReferencer, com.shopify.admin.types.Has
   private CommentConnection comments;
 
   /**
-   * Count of comments.
+   * Count of comments. Limited to a maximum of 10000 by default.
    */
   private Count commentsCount;
 
@@ -183,7 +190,7 @@ public class Article implements MetafieldReferencer, com.shopify.admin.types.Has
   }
 
   /**
-   * Count of comments.
+   * Count of comments. Limited to a maximum of 10000 by default.
    */
   public Count getCommentsCount() {
     return commentsCount;
@@ -455,7 +462,7 @@ public class Article implements MetafieldReferencer, com.shopify.admin.types.Has
     private CommentConnection comments;
 
     /**
-     * Count of comments.
+     * Count of comments. Limited to a maximum of 10000 by default.
      */
     private Count commentsCount;
 
@@ -614,7 +621,7 @@ public class Article implements MetafieldReferencer, com.shopify.admin.types.Has
     }
 
     /**
-     * Count of comments.
+     * Count of comments. Limited to a maximum of 10000 by default.
      */
     public Builder commentsCount(Count commentsCount) {
       this.commentsCount = commentsCount;

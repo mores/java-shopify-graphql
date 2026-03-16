@@ -27,8 +27,13 @@ public class InventoryQuantityInput {
 
   /**
    * The current quantity to be compared against the persisted quantity.
+   * Explicitly passing in `null` to this field opts out of the quantity comparison check.
+   * Explicitly passing in any value (be it `null` or an integer) to `changeFromQuantity` will cause the values
+   * passed into the `compareQuantity` and `InventorySetQuantitiesInput.ignoreCompareQuantity` fields to be
+   * ignored in favour of the `changeFromQuantity` value. For more information,
+   * refer to the [Compare and Swap documentation](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#compare-and-swap).
    */
-  private Integer compareQuantity;
+  private Integer changeFromQuantity;
 
   public InventoryQuantityInput() {
   }
@@ -68,18 +73,23 @@ public class InventoryQuantityInput {
 
   /**
    * The current quantity to be compared against the persisted quantity.
+   * Explicitly passing in `null` to this field opts out of the quantity comparison check.
+   * Explicitly passing in any value (be it `null` or an integer) to `changeFromQuantity` will cause the values
+   * passed into the `compareQuantity` and `InventorySetQuantitiesInput.ignoreCompareQuantity` fields to be
+   * ignored in favour of the `changeFromQuantity` value. For more information,
+   * refer to the [Compare and Swap documentation](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#compare-and-swap).
    */
-  public Integer getCompareQuantity() {
-    return compareQuantity;
+  public Integer getChangeFromQuantity() {
+    return changeFromQuantity;
   }
 
-  public void setCompareQuantity(Integer compareQuantity) {
-    this.compareQuantity = compareQuantity;
+  public void setChangeFromQuantity(Integer changeFromQuantity) {
+    this.changeFromQuantity = changeFromQuantity;
   }
 
   @Override
   public String toString() {
-    return "InventoryQuantityInput{inventoryItemId='" + inventoryItemId + "', locationId='" + locationId + "', quantity='" + quantity + "', compareQuantity='" + compareQuantity + "'}";
+    return "InventoryQuantityInput{inventoryItemId='" + inventoryItemId + "', locationId='" + locationId + "', quantity='" + quantity + "', changeFromQuantity='" + changeFromQuantity + "'}";
   }
 
   @Override
@@ -90,12 +100,12 @@ public class InventoryQuantityInput {
     return Objects.equals(inventoryItemId, that.inventoryItemId) &&
         Objects.equals(locationId, that.locationId) &&
         quantity == that.quantity &&
-        Objects.equals(compareQuantity, that.compareQuantity);
+        Objects.equals(changeFromQuantity, that.changeFromQuantity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(inventoryItemId, locationId, quantity, compareQuantity);
+    return Objects.hash(inventoryItemId, locationId, quantity, changeFromQuantity);
   }
 
   public static Builder newBuilder() {
@@ -120,15 +130,20 @@ public class InventoryQuantityInput {
 
     /**
      * The current quantity to be compared against the persisted quantity.
+     * Explicitly passing in `null` to this field opts out of the quantity comparison check.
+     * Explicitly passing in any value (be it `null` or an integer) to `changeFromQuantity` will cause the values
+     * passed into the `compareQuantity` and `InventorySetQuantitiesInput.ignoreCompareQuantity` fields to be
+     * ignored in favour of the `changeFromQuantity` value. For more information,
+     * refer to the [Compare and Swap documentation](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#compare-and-swap).
      */
-    private Integer compareQuantity;
+    private Integer changeFromQuantity;
 
     public InventoryQuantityInput build() {
       InventoryQuantityInput result = new InventoryQuantityInput();
       result.inventoryItemId = this.inventoryItemId;
       result.locationId = this.locationId;
       result.quantity = this.quantity;
-      result.compareQuantity = this.compareQuantity;
+      result.changeFromQuantity = this.changeFromQuantity;
       return result;
     }
 
@@ -158,9 +173,14 @@ public class InventoryQuantityInput {
 
     /**
      * The current quantity to be compared against the persisted quantity.
+     * Explicitly passing in `null` to this field opts out of the quantity comparison check.
+     * Explicitly passing in any value (be it `null` or an integer) to `changeFromQuantity` will cause the values
+     * passed into the `compareQuantity` and `InventorySetQuantitiesInput.ignoreCompareQuantity` fields to be
+     * ignored in favour of the `changeFromQuantity` value. For more information,
+     * refer to the [Compare and Swap documentation](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#compare-and-swap).
      */
-    public Builder compareQuantity(Integer compareQuantity) {
-      this.compareQuantity = compareQuantity;
+    public Builder changeFromQuantity(Integer changeFromQuantity) {
+      this.changeFromQuantity = changeFromQuantity;
       return this;
     }
   }

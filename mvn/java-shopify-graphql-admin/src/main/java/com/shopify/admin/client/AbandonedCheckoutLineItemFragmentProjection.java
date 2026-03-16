@@ -108,6 +108,13 @@ public class AbandonedCheckoutLineItemFragmentProjection<PARENT extends BaseSubP
      return projection;
   }
 
+  public AbandonedCheckoutLineItemParentRelationshipProjection<AbandonedCheckoutLineItemFragmentProjection<PARENT, ROOT>, ROOT> parentRelationship(
+      ) {
+     AbandonedCheckoutLineItemParentRelationshipProjection<AbandonedCheckoutLineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new AbandonedCheckoutLineItemParentRelationshipProjection<>(this, getRoot());
+     getFields().put("parentRelationship", projection);
+     return projection;
+  }
+
   public ProductProjection<AbandonedCheckoutLineItemFragmentProjection<PARENT, ROOT>, ROOT> product(
       ) {
      ProductProjection<AbandonedCheckoutLineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductProjection<>(this, getRoot());

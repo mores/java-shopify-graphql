@@ -1,5 +1,6 @@
 package com.shopify.admin.types;
 
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
@@ -15,6 +16,12 @@ public class InventoryChangeInput {
   private int delta;
 
   /**
+   * The quantity to compare against before applying the delta. For more
+   * information, refer to the [Compare and Swap documentation](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#compare-and-swap).
+   */
+  private Integer changeFromQuantity;
+
+  /**
    * Specifies the inventory item to which the change will be applied.
    */
   private String inventoryItemId;
@@ -25,10 +32,20 @@ public class InventoryChangeInput {
   private String locationId;
 
   /**
-   * A freeform URI that represents what changed the inventory quantities. A Shopify global ID isn't an accepted
-   * value. For example, specifying "gid://shopify/Order/123" would return an error. This field is required for all
-   * quantity names except `available`. The field `ledgerDocumentUri` isn't supported for use with an `available`
-   * quantity name.
+   * A non-Shopify URI that identifies what specific inventory transaction or
+   * ledger entry was changed. Represents the exact inventory movement being
+   * referenced, distinct from the business reason for the change.
+   *   
+   * Preferred format - Global ID (GID): gid://[your-app-name]/[transaction-type]/[id]
+   *   
+   * Examples:
+   * - gid://warehouse-app/InventoryTransaction/TXN-2024-001 (specific transaction)
+   * - gid://3pl-system/StockMovement/SM-2024-0125 (stock movement record)
+   * - gid://pos-app/InventoryUpdate/UPD-98765 (POS inventory update)
+   * - gid://erp-connector/LedgerEntry/LE-2024-11-21-001 (ledger entry)
+   *   
+   * Requirements: Valid non-Shopify URI with scheme and content. Required for all
+   * quantity names except `available`. Cannot use gid://shopify/* format.
    */
   private String ledgerDocumentUri;
 
@@ -44,6 +61,18 @@ public class InventoryChangeInput {
 
   public void setDelta(int delta) {
     this.delta = delta;
+  }
+
+  /**
+   * The quantity to compare against before applying the delta. For more
+   * information, refer to the [Compare and Swap documentation](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#compare-and-swap).
+   */
+  public Integer getChangeFromQuantity() {
+    return changeFromQuantity;
+  }
+
+  public void setChangeFromQuantity(Integer changeFromQuantity) {
+    this.changeFromQuantity = changeFromQuantity;
   }
 
   /**
@@ -69,10 +98,20 @@ public class InventoryChangeInput {
   }
 
   /**
-   * A freeform URI that represents what changed the inventory quantities. A Shopify global ID isn't an accepted
-   * value. For example, specifying "gid://shopify/Order/123" would return an error. This field is required for all
-   * quantity names except `available`. The field `ledgerDocumentUri` isn't supported for use with an `available`
-   * quantity name.
+   * A non-Shopify URI that identifies what specific inventory transaction or
+   * ledger entry was changed. Represents the exact inventory movement being
+   * referenced, distinct from the business reason for the change.
+   *   
+   * Preferred format - Global ID (GID): gid://[your-app-name]/[transaction-type]/[id]
+   *   
+   * Examples:
+   * - gid://warehouse-app/InventoryTransaction/TXN-2024-001 (specific transaction)
+   * - gid://3pl-system/StockMovement/SM-2024-0125 (stock movement record)
+   * - gid://pos-app/InventoryUpdate/UPD-98765 (POS inventory update)
+   * - gid://erp-connector/LedgerEntry/LE-2024-11-21-001 (ledger entry)
+   *   
+   * Requirements: Valid non-Shopify URI with scheme and content. Required for all
+   * quantity names except `available`. Cannot use gid://shopify/* format.
    */
   public String getLedgerDocumentUri() {
     return ledgerDocumentUri;
@@ -84,7 +123,7 @@ public class InventoryChangeInput {
 
   @Override
   public String toString() {
-    return "InventoryChangeInput{delta='" + delta + "', inventoryItemId='" + inventoryItemId + "', locationId='" + locationId + "', ledgerDocumentUri='" + ledgerDocumentUri + "'}";
+    return "InventoryChangeInput{delta='" + delta + "', changeFromQuantity='" + changeFromQuantity + "', inventoryItemId='" + inventoryItemId + "', locationId='" + locationId + "', ledgerDocumentUri='" + ledgerDocumentUri + "'}";
   }
 
   @Override
@@ -93,6 +132,7 @@ public class InventoryChangeInput {
     if (o == null || getClass() != o.getClass()) return false;
     InventoryChangeInput that = (InventoryChangeInput) o;
     return delta == that.delta &&
+        Objects.equals(changeFromQuantity, that.changeFromQuantity) &&
         Objects.equals(inventoryItemId, that.inventoryItemId) &&
         Objects.equals(locationId, that.locationId) &&
         Objects.equals(ledgerDocumentUri, that.ledgerDocumentUri);
@@ -100,7 +140,7 @@ public class InventoryChangeInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(delta, inventoryItemId, locationId, ledgerDocumentUri);
+    return Objects.hash(delta, changeFromQuantity, inventoryItemId, locationId, ledgerDocumentUri);
   }
 
   public static Builder newBuilder() {
@@ -114,6 +154,12 @@ public class InventoryChangeInput {
     private int delta;
 
     /**
+     * The quantity to compare against before applying the delta. For more
+     * information, refer to the [Compare and Swap documentation](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#compare-and-swap).
+     */
+    private Integer changeFromQuantity;
+
+    /**
      * Specifies the inventory item to which the change will be applied.
      */
     private String inventoryItemId;
@@ -124,16 +170,27 @@ public class InventoryChangeInput {
     private String locationId;
 
     /**
-     * A freeform URI that represents what changed the inventory quantities. A Shopify global ID isn't an accepted
-     * value. For example, specifying "gid://shopify/Order/123" would return an error. This field is required for all
-     * quantity names except `available`. The field `ledgerDocumentUri` isn't supported for use with an `available`
-     * quantity name.
+     * A non-Shopify URI that identifies what specific inventory transaction or
+     * ledger entry was changed. Represents the exact inventory movement being
+     * referenced, distinct from the business reason for the change.
+     *   
+     * Preferred format - Global ID (GID): gid://[your-app-name]/[transaction-type]/[id]
+     *   
+     * Examples:
+     * - gid://warehouse-app/InventoryTransaction/TXN-2024-001 (specific transaction)
+     * - gid://3pl-system/StockMovement/SM-2024-0125 (stock movement record)
+     * - gid://pos-app/InventoryUpdate/UPD-98765 (POS inventory update)
+     * - gid://erp-connector/LedgerEntry/LE-2024-11-21-001 (ledger entry)
+     *   
+     * Requirements: Valid non-Shopify URI with scheme and content. Required for all
+     * quantity names except `available`. Cannot use gid://shopify/* format.
      */
     private String ledgerDocumentUri;
 
     public InventoryChangeInput build() {
       InventoryChangeInput result = new InventoryChangeInput();
       result.delta = this.delta;
+      result.changeFromQuantity = this.changeFromQuantity;
       result.inventoryItemId = this.inventoryItemId;
       result.locationId = this.locationId;
       result.ledgerDocumentUri = this.ledgerDocumentUri;
@@ -145,6 +202,15 @@ public class InventoryChangeInput {
      */
     public Builder delta(int delta) {
       this.delta = delta;
+      return this;
+    }
+
+    /**
+     * The quantity to compare against before applying the delta. For more
+     * information, refer to the [Compare and Swap documentation](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#compare-and-swap).
+     */
+    public Builder changeFromQuantity(Integer changeFromQuantity) {
+      this.changeFromQuantity = changeFromQuantity;
       return this;
     }
 
@@ -165,10 +231,20 @@ public class InventoryChangeInput {
     }
 
     /**
-     * A freeform URI that represents what changed the inventory quantities. A Shopify global ID isn't an accepted
-     * value. For example, specifying "gid://shopify/Order/123" would return an error. This field is required for all
-     * quantity names except `available`. The field `ledgerDocumentUri` isn't supported for use with an `available`
-     * quantity name.
+     * A non-Shopify URI that identifies what specific inventory transaction or
+     * ledger entry was changed. Represents the exact inventory movement being
+     * referenced, distinct from the business reason for the change.
+     *   
+     * Preferred format - Global ID (GID): gid://[your-app-name]/[transaction-type]/[id]
+     *   
+     * Examples:
+     * - gid://warehouse-app/InventoryTransaction/TXN-2024-001 (specific transaction)
+     * - gid://3pl-system/StockMovement/SM-2024-0125 (stock movement record)
+     * - gid://pos-app/InventoryUpdate/UPD-98765 (POS inventory update)
+     * - gid://erp-connector/LedgerEntry/LE-2024-11-21-001 (ledger entry)
+     *   
+     * Requirements: Valid non-Shopify URI with scheme and content. Required for all
+     * quantity names except `available`. Cannot use gid://shopify/* format.
      */
     public Builder ledgerDocumentUri(String ledgerDocumentUri) {
       this.ledgerDocumentUri = ledgerDocumentUri;

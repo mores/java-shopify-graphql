@@ -1,22 +1,25 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The total number of gift cards issued for the shop. Limited to a maximum of 10000.
+ * The total number of gift cards issued for the shop. Limited to a maximum of 10000 by default.
  */
 public class GiftCardsCountGraphQLQuery extends GraphQLQuery {
-  public GiftCardsCountGraphQLQuery(String query, String savedSearchId, String queryName,
-      Set<String> fieldsSet) {
+  public GiftCardsCountGraphQLQuery(String query, String savedSearchId, Integer limit,
+      String queryName, Set<String> fieldsSet) {
     super("query", queryName);
     if (query != null || fieldsSet.contains("query")) {
         getInput().put("query", query);
     }if (savedSearchId != null || fieldsSet.contains("savedSearchId")) {
         getInput().put("savedSearchId", savedSearchId);
+    }if (limit != null || fieldsSet.contains("limit")) {
+        getInput().put("limit", limit);
     }
   }
 
@@ -40,10 +43,12 @@ public class GiftCardsCountGraphQLQuery extends GraphQLQuery {
 
     private String savedSearchId;
 
+    private Integer limit;
+
     private String queryName;
 
     public GiftCardsCountGraphQLQuery build() {
-      return new GiftCardsCountGraphQLQuery(query, savedSearchId, queryName, fieldsSet);
+      return new GiftCardsCountGraphQLQuery(query, savedSearchId, limit, queryName, fieldsSet);
                
     }
 
@@ -51,12 +56,14 @@ public class GiftCardsCountGraphQLQuery extends GraphQLQuery {
      * A filter made up of terms, connectives, modifiers, and comparators.
      * | name | type | description | acceptable_values | default_value | example_use |
      * | ---- | ---- | ---- | ---- | ---- | ---- |
-     * | default | string | Searched fields: code. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
+     * | default | string | Filter by a case-insensitive search of multiple fields
+     * in a document, including gift card codes. | | | -
+     * `query=a5bh6h64b329j4k7`<br/> - `query=Bob Norman` |
      * | balance_status | string | | - `full`<br/> - `partial`<br/> - `empty`<br/>
      * - `full_or_partial` | | - `balance_status:full` |
      * | created_at | time | | | | - `created_at:>=2020-01-01T12:00:00Z` |
      * | expires_on | date | | | | - `expires_on:>=2020-01-01` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
      * | initial_value | string | | | | - `initial_value:>=100` |
      * | source | string | | - `manual`<br/> - `purchased`<br/> - `api_client` | | - `source:manual` |
      * | status | string | | - `disabled`<br/> - `enabled`<br/> - `expired`<br/> -
@@ -78,6 +85,15 @@ public class GiftCardsCountGraphQLQuery extends GraphQLQuery {
     public Builder savedSearchId(String savedSearchId) {
       this.savedSearchId = savedSearchId;
       this.fieldsSet.add("savedSearchId");
+      return this;
+    }
+
+    /**
+     * The upper bound on count value before returning a result. Use `null` to have no limit.
+     */
+    public Builder limit(Integer limit) {
+      this.limit = limit;
+      this.fieldsSet.add("limit");
       return this;
     }
 

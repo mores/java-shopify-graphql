@@ -16,6 +16,11 @@ public class OrderEditCommitPayload {
   private Order order;
 
   /**
+   * Messages to display to the user after the staged changes are commmitted.
+   */
+  private List<String> successMessages;
+
+  /**
    * The list of errors that occurred from executing the mutation.
    */
   private List<UserError> userErrors;
@@ -35,6 +40,17 @@ public class OrderEditCommitPayload {
   }
 
   /**
+   * Messages to display to the user after the staged changes are commmitted.
+   */
+  public List<String> getSuccessMessages() {
+    return successMessages;
+  }
+
+  public void setSuccessMessages(List<String> successMessages) {
+    this.successMessages = successMessages;
+  }
+
+  /**
    * The list of errors that occurred from executing the mutation.
    */
   public List<UserError> getUserErrors() {
@@ -47,7 +63,7 @@ public class OrderEditCommitPayload {
 
   @Override
   public String toString() {
-    return "OrderEditCommitPayload{order='" + order + "', userErrors='" + userErrors + "'}";
+    return "OrderEditCommitPayload{order='" + order + "', successMessages='" + successMessages + "', userErrors='" + userErrors + "'}";
   }
 
   @Override
@@ -56,12 +72,13 @@ public class OrderEditCommitPayload {
     if (o == null || getClass() != o.getClass()) return false;
     OrderEditCommitPayload that = (OrderEditCommitPayload) o;
     return Objects.equals(order, that.order) &&
+        Objects.equals(successMessages, that.successMessages) &&
         Objects.equals(userErrors, that.userErrors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(order, userErrors);
+    return Objects.hash(order, successMessages, userErrors);
   }
 
   public static Builder newBuilder() {
@@ -75,6 +92,11 @@ public class OrderEditCommitPayload {
     private Order order;
 
     /**
+     * Messages to display to the user after the staged changes are commmitted.
+     */
+    private List<String> successMessages;
+
+    /**
      * The list of errors that occurred from executing the mutation.
      */
     private List<UserError> userErrors;
@@ -82,6 +104,7 @@ public class OrderEditCommitPayload {
     public OrderEditCommitPayload build() {
       OrderEditCommitPayload result = new OrderEditCommitPayload();
       result.order = this.order;
+      result.successMessages = this.successMessages;
       result.userErrors = this.userErrors;
       return result;
     }
@@ -91,6 +114,14 @@ public class OrderEditCommitPayload {
      */
     public Builder order(Order order) {
       this.order = order;
+      return this;
+    }
+
+    /**
+     * Messages to display to the user after the staged changes are commmitted.
+     */
+    public Builder successMessages(List<String> successMessages) {
+      this.successMessages = successMessages;
       return this;
     }
 

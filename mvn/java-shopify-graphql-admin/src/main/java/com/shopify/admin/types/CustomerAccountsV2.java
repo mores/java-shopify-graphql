@@ -6,7 +6,10 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * Information about the shop's customer accounts.
+ * Information about the shop's customer account-related settings. Includes the
+ * [customer account version](https://shopify.dev/docs/api/admin-graphql/latest/objects/CustomerAccountsV2#field-CustomerAccountsV2.fields.customerAccountsVersion)
+ * which indicates whether the merchant is using new customer accounts or legacy
+ * customer accounts, along with other account configuration such as login requirements.
  */
 public class CustomerAccountsV2 {
   /**

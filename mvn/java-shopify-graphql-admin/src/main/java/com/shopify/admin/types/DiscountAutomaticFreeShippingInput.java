@@ -12,6 +12,10 @@ import java.util.Objects;
  * The input fields for creating or updating a
  * [free shipping discount](https://help.shopify.com/manual/discounts/discount-types/free-shipping)
  * that's automatically applied on a cart and at checkout.
+ *
+ * When creating, required fields are:
+ * - `startsAt`
+ * - `title`
  */
 public class DiscountAutomaticFreeShippingInput {
   /**
@@ -29,6 +33,13 @@ public class DiscountAutomaticFreeShippingInput {
    * For discounts without a fixed expiration date, specify `null`.
    */
   private OffsetDateTime endsAt;
+
+  /**
+   * The context defining which buyers can use the discount.
+   * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+   * Discounts automatically apply on Point of Sale (POS) for Pro locations when the context is not set to ALL.
+   */
+  private DiscountContextInput context;
 
   /**
    * The
@@ -55,7 +66,7 @@ public class DiscountAutomaticFreeShippingInput {
   /**
    * Whether the discount applies on regular one-time-purchase items.
    */
-  private Boolean appliesOnOneTimePurchase = true;
+  private Boolean appliesOnOneTimePurchase;
 
   /**
    * Whether the discount applies on subscription items.
@@ -63,7 +74,7 @@ public class DiscountAutomaticFreeShippingInput {
    * enable customers to purchase products
    * on a recurring basis.
    */
-  private Boolean appliesOnSubscription = false;
+  private Boolean appliesOnSubscription;
 
   /**
    * The number of billing cycles for which the discount can be applied,
@@ -108,6 +119,19 @@ public class DiscountAutomaticFreeShippingInput {
 
   public void setEndsAt(OffsetDateTime endsAt) {
     this.endsAt = endsAt;
+  }
+
+  /**
+   * The context defining which buyers can use the discount.
+   * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+   * Discounts automatically apply on Point of Sale (POS) for Pro locations when the context is not set to ALL.
+   */
+  public DiscountContextInput getContext() {
+    return context;
+  }
+
+  public void setContext(DiscountContextInput context) {
+    this.context = context;
   }
 
   /**
@@ -197,7 +221,7 @@ public class DiscountAutomaticFreeShippingInput {
 
   @Override
   public String toString() {
-    return "DiscountAutomaticFreeShippingInput{title='" + title + "', startsAt='" + startsAt + "', endsAt='" + endsAt + "', combinesWith='" + combinesWith + "', minimumRequirement='" + minimumRequirement + "', destination='" + destination + "', maximumShippingPrice='" + maximumShippingPrice + "', appliesOnOneTimePurchase='" + appliesOnOneTimePurchase + "', appliesOnSubscription='" + appliesOnSubscription + "', recurringCycleLimit='" + recurringCycleLimit + "'}";
+    return "DiscountAutomaticFreeShippingInput{title='" + title + "', startsAt='" + startsAt + "', endsAt='" + endsAt + "', context='" + context + "', combinesWith='" + combinesWith + "', minimumRequirement='" + minimumRequirement + "', destination='" + destination + "', maximumShippingPrice='" + maximumShippingPrice + "', appliesOnOneTimePurchase='" + appliesOnOneTimePurchase + "', appliesOnSubscription='" + appliesOnSubscription + "', recurringCycleLimit='" + recurringCycleLimit + "'}";
   }
 
   @Override
@@ -208,6 +232,7 @@ public class DiscountAutomaticFreeShippingInput {
     return Objects.equals(title, that.title) &&
         Objects.equals(startsAt, that.startsAt) &&
         Objects.equals(endsAt, that.endsAt) &&
+        Objects.equals(context, that.context) &&
         Objects.equals(combinesWith, that.combinesWith) &&
         Objects.equals(minimumRequirement, that.minimumRequirement) &&
         Objects.equals(destination, that.destination) &&
@@ -219,7 +244,7 @@ public class DiscountAutomaticFreeShippingInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, startsAt, endsAt, combinesWith, minimumRequirement, destination, maximumShippingPrice, appliesOnOneTimePurchase, appliesOnSubscription, recurringCycleLimit);
+    return Objects.hash(title, startsAt, endsAt, context, combinesWith, minimumRequirement, destination, maximumShippingPrice, appliesOnOneTimePurchase, appliesOnSubscription, recurringCycleLimit);
   }
 
   public static Builder newBuilder() {
@@ -242,6 +267,13 @@ public class DiscountAutomaticFreeShippingInput {
      * For discounts without a fixed expiration date, specify `null`.
      */
     private OffsetDateTime endsAt;
+
+    /**
+     * The context defining which buyers can use the discount.
+     * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+     * Discounts automatically apply on Point of Sale (POS) for Pro locations when the context is not set to ALL.
+     */
+    private DiscountContextInput context;
 
     /**
      * The
@@ -268,7 +300,7 @@ public class DiscountAutomaticFreeShippingInput {
     /**
      * Whether the discount applies on regular one-time-purchase items.
      */
-    private Boolean appliesOnOneTimePurchase = true;
+    private Boolean appliesOnOneTimePurchase;
 
     /**
      * Whether the discount applies on subscription items.
@@ -276,7 +308,7 @@ public class DiscountAutomaticFreeShippingInput {
      * enable customers to purchase products
      * on a recurring basis.
      */
-    private Boolean appliesOnSubscription = false;
+    private Boolean appliesOnSubscription;
 
     /**
      * The number of billing cycles for which the discount can be applied,
@@ -291,6 +323,7 @@ public class DiscountAutomaticFreeShippingInput {
       result.title = this.title;
       result.startsAt = this.startsAt;
       result.endsAt = this.endsAt;
+      result.context = this.context;
       result.combinesWith = this.combinesWith;
       result.minimumRequirement = this.minimumRequirement;
       result.destination = this.destination;
@@ -323,6 +356,16 @@ public class DiscountAutomaticFreeShippingInput {
      */
     public Builder endsAt(OffsetDateTime endsAt) {
       this.endsAt = endsAt;
+      return this;
+    }
+
+    /**
+     * The context defining which buyers can use the discount.
+     * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+     * Discounts automatically apply on Point of Sale (POS) for Pro locations when the context is not set to ALL.
+     */
+    public Builder context(DiscountContextInput context) {
+      this.context = context;
       return this;
     }
 

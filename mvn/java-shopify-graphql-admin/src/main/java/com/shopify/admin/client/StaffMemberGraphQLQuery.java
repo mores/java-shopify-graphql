@@ -7,7 +7,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The StaffMember resource, by ID.
+ * Retrieves a [staff
+ * member](https://shopify.dev/docs/api/admin-graphql/latest/objects/StaffMember)
+ * by ID. If no ID is provided, the query returns the staff member that's making
+ * the request. A staff member is a user who can access the Shopify admin to
+ * manage store operations.
+ *   
+ * Provides staff member details such as email, name, and shop owner status. When
+ * querying the current user (with or without an ID), additional [private data](https://shopify.dev/docs/api/admin-graphql/latest/queries/staffMember#returns-StaffMember.fields.privateData)
+ * becomes available.
  */
 public class StaffMemberGraphQLQuery extends GraphQLQuery {
   public StaffMemberGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

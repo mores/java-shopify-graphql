@@ -9,6 +9,10 @@ public enum LocalizableContentType {
 
   JSON,
 
+  LINK,
+
+  LIST_LINK,
+
   LIST_MULTI_LINE_TEXT_FIELD,
 
   LIST_SINGLE_LINE_TEXT_FIELD,
@@ -24,10 +28,6 @@ public enum LocalizableContentType {
   STRING,
 
   URL,
-
-  LINK,
-
-  LIST_LINK,
 
   FILE_REFERENCE,
 

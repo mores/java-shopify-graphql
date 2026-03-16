@@ -85,4 +85,9 @@ public class WebhookSubscriptionProjection<PARENT extends BaseSubProjectionNode<
     getFields().put("updatedAt", null);
     return this;
   }
+
+  public WebhookSubscriptionProjection<PARENT, ROOT> uri() {
+    getFields().put("uri", null);
+    return this;
+  }
 }

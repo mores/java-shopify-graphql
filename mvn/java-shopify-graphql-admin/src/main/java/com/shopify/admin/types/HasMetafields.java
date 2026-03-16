@@ -30,6 +30,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
     @JsonSubTypes.Type(value = GiftCardCreditTransaction.class, name = "GiftCardCreditTransaction"),
     @JsonSubTypes.Type(value = GiftCardDebitTransaction.class, name = "GiftCardDebitTransaction"),
     @JsonSubTypes.Type(value = Image.class, name = "Image"),
+    @JsonSubTypes.Type(value = InventoryTransfer.class, name = "InventoryTransfer"),
     @JsonSubTypes.Type(value = Location.class, name = "Location"),
     @JsonSubTypes.Type(value = Market.class, name = "Market"),
     @JsonSubTypes.Type(value = MediaImage.class, name = "MediaImage"),

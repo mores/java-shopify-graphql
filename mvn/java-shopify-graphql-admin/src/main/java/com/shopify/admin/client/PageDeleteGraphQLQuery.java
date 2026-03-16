@@ -7,7 +7,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Deletes a page.
+ * Permanently deletes a page from the online store.
+ *   
+ * For example, merchants might delete seasonal landing pages after campaigns
+ * end, or remove outdated policy pages when terms change.
+ *   
+ * Use the `pageDelete` mutation to:
+ * - Remove outdated or unnecessary pages
+ * - Clean up seasonal landing pages
+ * - Delete duplicate pages
+ *   
+ * The deletion is permanent and returns the deleted page's ID for confirmation.
  */
 public class PageDeleteGraphQLQuery extends GraphQLQuery {
   public PageDeleteGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

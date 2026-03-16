@@ -10,7 +10,33 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Represents a product variant.
+ * The `ProductVariant` object represents a version of a
+ * [product](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+ * that comes in more than one [option](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductOption),
+ * such as size or color. For example, if a merchant sells t-shirts with options for size and color, then a small,
+ * blue t-shirt would be one product variant and a large, blue t-shirt would be another.
+ *
+ * Use the `ProductVariant` object to manage the full lifecycle and configuration of a product's variants. Common
+ * use cases for using the `ProductVariant` object include:
+ *
+ * - Tracking inventory for each variant
+ * - Setting unique prices for each variant
+ * - Assigning barcodes and SKUs to connect variants to fulfillment services
+ * - Attaching variant-specific images and media
+ * - Setting delivery and tax requirements
+ * - Supporting product bundles, subscriptions, and selling plans
+ *
+ * A `ProductVariant` is associated with a parent
+ * [`Product`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product) object.
+ * `ProductVariant` serves as the central link between a product's merchandising configuration, inventory,
+ * pricing, fulfillment, and sales channels within the GraphQL Admin API schema. Each variant
+ * can reference other GraphQL types such as:
+ *
+ * - [`InventoryItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryItem): Used for inventory tracking
+ * - [`Image`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Image): Used for variant-specific images
+ * - [`SellingPlanGroup`](https://shopify.dev/docs/api/admin-graphql/latest/objects/SellingPlanGroup): Used for subscriptions and selling plans
+ *
+ * Learn more about [Shopify's product model](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model/product-model-components).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -137,6 +163,11 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
   private Product product;
 
   /**
+   * A list of products that have product variants that contain this variant as a product component.
+   */
+  private ProductConnection productParents;
+
+  /**
    * A list of the product variant components.
    */
   private ProductVariantComponentConnection productVariantComponents;
@@ -176,6 +207,11 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
   private Count sellingPlanGroupsCount;
 
   /**
+   * Whether to show the unit price for this product variant.
+   */
+  private boolean showUnitPrice;
+
+  /**
    * A case-sensitive identifier for the product variant in the shop.
    * Required in order to connect to a fulfillment service.
    */
@@ -184,14 +220,14 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
   /**
    * The Storefront GraphQL API ID of the `ProductVariant`.
    *   
-   * As of the `2022-04` version release, the Storefront GraphQL API will no longer
-   * return Base64 encoded IDs to match the behavior of the Admin GraphQL API.
-   * Therefore, you can safely use the `id` field's value instead.
+   * The Storefront GraphQL API will no longer return Base64 encoded IDs to match
+   * the behavior of the Admin GraphQL API. Therefore, you can safely use the `id`
+   * field's value instead.
    */
   private String storefrontId;
 
   /**
-   * The tax code for the product variant.
+   * Avalara tax code for the product variant. Applies only to the stores that have the Avalara AvaTax app installed.
    */
   private String taxCode;
 
@@ -209,6 +245,11 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
    * The published translations associated with the resource.
    */
   private List<Translation> translations;
+
+  /**
+   * The unit price value for the variant based on the variant measurement.
+   */
+  private MoneyV2 unitPrice;
 
   /**
    * The unit price measurement for the variant.
@@ -482,6 +523,17 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
   }
 
   /**
+   * A list of products that have product variants that contain this variant as a product component.
+   */
+  public ProductConnection getProductParents() {
+    return productParents;
+  }
+
+  public void setProductParents(ProductConnection productParents) {
+    this.productParents = productParents;
+  }
+
+  /**
    * A list of the product variant components.
    */
   public ProductVariantComponentConnection getProductVariantComponents() {
@@ -564,6 +616,17 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
   }
 
   /**
+   * Whether to show the unit price for this product variant.
+   */
+  public boolean getShowUnitPrice() {
+    return showUnitPrice;
+  }
+
+  public void setShowUnitPrice(boolean showUnitPrice) {
+    this.showUnitPrice = showUnitPrice;
+  }
+
+  /**
    * A case-sensitive identifier for the product variant in the shop.
    * Required in order to connect to a fulfillment service.
    */
@@ -578,9 +641,9 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
   /**
    * The Storefront GraphQL API ID of the `ProductVariant`.
    *   
-   * As of the `2022-04` version release, the Storefront GraphQL API will no longer
-   * return Base64 encoded IDs to match the behavior of the Admin GraphQL API.
-   * Therefore, you can safely use the `id` field's value instead.
+   * The Storefront GraphQL API will no longer return Base64 encoded IDs to match
+   * the behavior of the Admin GraphQL API. Therefore, you can safely use the `id`
+   * field's value instead.
    */
   public String getStorefrontId() {
     return storefrontId;
@@ -591,7 +654,7 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
   }
 
   /**
-   * The tax code for the product variant.
+   * Avalara tax code for the product variant. Applies only to the stores that have the Avalara AvaTax app installed.
    */
   public String getTaxCode() {
     return taxCode;
@@ -635,6 +698,17 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
   }
 
   /**
+   * The unit price value for the variant based on the variant measurement.
+   */
+  public MoneyV2 getUnitPrice() {
+    return unitPrice;
+  }
+
+  public void setUnitPrice(MoneyV2 unitPrice) {
+    this.unitPrice = unitPrice;
+  }
+
+  /**
    * The unit price measurement for the variant.
    */
   public UnitPriceMeasurement getUnitPriceMeasurement() {
@@ -658,7 +732,7 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
 
   @Override
   public String toString() {
-    return "ProductVariant{availableForSale='" + availableForSale + "', barcode='" + barcode + "', compareAtPrice='" + compareAtPrice + "', contextualPricing='" + contextualPricing + "', createdAt='" + createdAt + "', defaultCursor='" + defaultCursor + "', deliveryProfile='" + deliveryProfile + "', displayName='" + displayName + "', events='" + events + "', id='" + id + "', image='" + image + "', inventoryItem='" + inventoryItem + "', inventoryPolicy='" + inventoryPolicy + "', inventoryQuantity='" + inventoryQuantity + "', legacyResourceId='" + legacyResourceId + "', media='" + media + "', metafield='" + metafield + "', metafieldDefinitions='" + metafieldDefinitions + "', metafields='" + metafields + "', position='" + position + "', presentmentPrices='" + presentmentPrices + "', price='" + price + "', product='" + product + "', productVariantComponents='" + productVariantComponents + "', requiresComponents='" + requiresComponents + "', selectedOptions='" + selectedOptions + "', sellableOnlineQuantity='" + sellableOnlineQuantity + "', sellingPlanGroupCount='" + sellingPlanGroupCount + "', sellingPlanGroups='" + sellingPlanGroups + "', sellingPlanGroupsCount='" + sellingPlanGroupsCount + "', sku='" + sku + "', storefrontId='" + storefrontId + "', taxCode='" + taxCode + "', taxable='" + taxable + "', title='" + title + "', translations='" + translations + "', unitPriceMeasurement='" + unitPriceMeasurement + "', updatedAt='" + updatedAt + "'}";
+    return "ProductVariant{availableForSale='" + availableForSale + "', barcode='" + barcode + "', compareAtPrice='" + compareAtPrice + "', contextualPricing='" + contextualPricing + "', createdAt='" + createdAt + "', defaultCursor='" + defaultCursor + "', deliveryProfile='" + deliveryProfile + "', displayName='" + displayName + "', events='" + events + "', id='" + id + "', image='" + image + "', inventoryItem='" + inventoryItem + "', inventoryPolicy='" + inventoryPolicy + "', inventoryQuantity='" + inventoryQuantity + "', legacyResourceId='" + legacyResourceId + "', media='" + media + "', metafield='" + metafield + "', metafieldDefinitions='" + metafieldDefinitions + "', metafields='" + metafields + "', position='" + position + "', presentmentPrices='" + presentmentPrices + "', price='" + price + "', product='" + product + "', productParents='" + productParents + "', productVariantComponents='" + productVariantComponents + "', requiresComponents='" + requiresComponents + "', selectedOptions='" + selectedOptions + "', sellableOnlineQuantity='" + sellableOnlineQuantity + "', sellingPlanGroupCount='" + sellingPlanGroupCount + "', sellingPlanGroups='" + sellingPlanGroups + "', sellingPlanGroupsCount='" + sellingPlanGroupsCount + "', showUnitPrice='" + showUnitPrice + "', sku='" + sku + "', storefrontId='" + storefrontId + "', taxCode='" + taxCode + "', taxable='" + taxable + "', title='" + title + "', translations='" + translations + "', unitPrice='" + unitPrice + "', unitPriceMeasurement='" + unitPriceMeasurement + "', updatedAt='" + updatedAt + "'}";
   }
 
   @Override
@@ -689,6 +763,7 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
         Objects.equals(presentmentPrices, that.presentmentPrices) &&
         Objects.equals(price, that.price) &&
         Objects.equals(product, that.product) &&
+        Objects.equals(productParents, that.productParents) &&
         Objects.equals(productVariantComponents, that.productVariantComponents) &&
         requiresComponents == that.requiresComponents &&
         Objects.equals(selectedOptions, that.selectedOptions) &&
@@ -696,19 +771,21 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
         sellingPlanGroupCount == that.sellingPlanGroupCount &&
         Objects.equals(sellingPlanGroups, that.sellingPlanGroups) &&
         Objects.equals(sellingPlanGroupsCount, that.sellingPlanGroupsCount) &&
+        showUnitPrice == that.showUnitPrice &&
         Objects.equals(sku, that.sku) &&
         Objects.equals(storefrontId, that.storefrontId) &&
         Objects.equals(taxCode, that.taxCode) &&
         taxable == that.taxable &&
         Objects.equals(title, that.title) &&
         Objects.equals(translations, that.translations) &&
+        Objects.equals(unitPrice, that.unitPrice) &&
         Objects.equals(unitPriceMeasurement, that.unitPriceMeasurement) &&
         Objects.equals(updatedAt, that.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(availableForSale, barcode, compareAtPrice, contextualPricing, createdAt, defaultCursor, deliveryProfile, displayName, events, id, image, inventoryItem, inventoryPolicy, inventoryQuantity, legacyResourceId, media, metafield, metafieldDefinitions, metafields, position, presentmentPrices, price, product, productVariantComponents, requiresComponents, selectedOptions, sellableOnlineQuantity, sellingPlanGroupCount, sellingPlanGroups, sellingPlanGroupsCount, sku, storefrontId, taxCode, taxable, title, translations, unitPriceMeasurement, updatedAt);
+    return Objects.hash(availableForSale, barcode, compareAtPrice, contextualPricing, createdAt, defaultCursor, deliveryProfile, displayName, events, id, image, inventoryItem, inventoryPolicy, inventoryQuantity, legacyResourceId, media, metafield, metafieldDefinitions, metafields, position, presentmentPrices, price, product, productParents, productVariantComponents, requiresComponents, selectedOptions, sellableOnlineQuantity, sellingPlanGroupCount, sellingPlanGroups, sellingPlanGroupsCount, showUnitPrice, sku, storefrontId, taxCode, taxable, title, translations, unitPrice, unitPriceMeasurement, updatedAt);
   }
 
   public static Builder newBuilder() {
@@ -837,6 +914,11 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
     private Product product;
 
     /**
+     * A list of products that have product variants that contain this variant as a product component.
+     */
+    private ProductConnection productParents;
+
+    /**
      * A list of the product variant components.
      */
     private ProductVariantComponentConnection productVariantComponents;
@@ -876,6 +958,11 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
     private Count sellingPlanGroupsCount;
 
     /**
+     * Whether to show the unit price for this product variant.
+     */
+    private boolean showUnitPrice;
+
+    /**
      * A case-sensitive identifier for the product variant in the shop.
      * Required in order to connect to a fulfillment service.
      */
@@ -884,14 +971,14 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
     /**
      * The Storefront GraphQL API ID of the `ProductVariant`.
      *   
-     * As of the `2022-04` version release, the Storefront GraphQL API will no longer
-     * return Base64 encoded IDs to match the behavior of the Admin GraphQL API.
-     * Therefore, you can safely use the `id` field's value instead.
+     * The Storefront GraphQL API will no longer return Base64 encoded IDs to match
+     * the behavior of the Admin GraphQL API. Therefore, you can safely use the `id`
+     * field's value instead.
      */
     private String storefrontId;
 
     /**
-     * The tax code for the product variant.
+     * Avalara tax code for the product variant. Applies only to the stores that have the Avalara AvaTax app installed.
      */
     private String taxCode;
 
@@ -909,6 +996,11 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
      * The published translations associated with the resource.
      */
     private List<Translation> translations;
+
+    /**
+     * The unit price value for the variant based on the variant measurement.
+     */
+    private MoneyV2 unitPrice;
 
     /**
      * The unit price measurement for the variant.
@@ -945,6 +1037,7 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
       result.presentmentPrices = this.presentmentPrices;
       result.price = this.price;
       result.product = this.product;
+      result.productParents = this.productParents;
       result.productVariantComponents = this.productVariantComponents;
       result.requiresComponents = this.requiresComponents;
       result.selectedOptions = this.selectedOptions;
@@ -952,12 +1045,14 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
       result.sellingPlanGroupCount = this.sellingPlanGroupCount;
       result.sellingPlanGroups = this.sellingPlanGroups;
       result.sellingPlanGroupsCount = this.sellingPlanGroupsCount;
+      result.showUnitPrice = this.showUnitPrice;
       result.sku = this.sku;
       result.storefrontId = this.storefrontId;
       result.taxCode = this.taxCode;
       result.taxable = this.taxable;
       result.title = this.title;
       result.translations = this.translations;
+      result.unitPrice = this.unitPrice;
       result.unitPriceMeasurement = this.unitPriceMeasurement;
       result.updatedAt = this.updatedAt;
       return result;
@@ -1153,6 +1248,14 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
     }
 
     /**
+     * A list of products that have product variants that contain this variant as a product component.
+     */
+    public Builder productParents(ProductConnection productParents) {
+      this.productParents = productParents;
+      return this;
+    }
+
+    /**
      * A list of the product variant components.
      */
     public Builder productVariantComponents(
@@ -1214,6 +1317,14 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
     }
 
     /**
+     * Whether to show the unit price for this product variant.
+     */
+    public Builder showUnitPrice(boolean showUnitPrice) {
+      this.showUnitPrice = showUnitPrice;
+      return this;
+    }
+
+    /**
      * A case-sensitive identifier for the product variant in the shop.
      * Required in order to connect to a fulfillment service.
      */
@@ -1225,9 +1336,9 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
     /**
      * The Storefront GraphQL API ID of the `ProductVariant`.
      *   
-     * As of the `2022-04` version release, the Storefront GraphQL API will no longer
-     * return Base64 encoded IDs to match the behavior of the Admin GraphQL API.
-     * Therefore, you can safely use the `id` field's value instead.
+     * The Storefront GraphQL API will no longer return Base64 encoded IDs to match
+     * the behavior of the Admin GraphQL API. Therefore, you can safely use the `id`
+     * field's value instead.
      */
     public Builder storefrontId(String storefrontId) {
       this.storefrontId = storefrontId;
@@ -1235,7 +1346,7 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
     }
 
     /**
-     * The tax code for the product variant.
+     * Avalara tax code for the product variant. Applies only to the stores that have the Avalara AvaTax app installed.
      */
     public Builder taxCode(String taxCode) {
       this.taxCode = taxCode;
@@ -1263,6 +1374,14 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
      */
     public Builder translations(List<Translation> translations) {
       this.translations = translations;
+      return this;
+    }
+
+    /**
+     * The unit price value for the variant based on the variant measurement.
+     */
+    public Builder unitPrice(MoneyV2 unitPrice) {
+      this.unitPrice = unitPrice;
       return this;
     }
 

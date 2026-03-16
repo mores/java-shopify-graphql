@@ -8,7 +8,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Updates the capped amount on the usage pricing plan of an app subscription line item.
+ * Updates the capped amount on usage-based billing for an [`AppSubscriptionLineItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/AppSubscriptionLineItem).
+ * Enables you to modify the maximum charge limit that prevents merchants from
+ * exceeding a specified threshold during their billing period.
+ *   
+ * The mutation returns a [confirmation URL](https://shopify.dev/docs/api/admin-graphql/latest/mutations/appSubscriptionCreate#returns-confirmationUrl)
+ * where the merchant must approve the new pricing limit before it takes effect.
+ * Use this when adjusting usage limits based on merchant needs or changing
+ * pricing models.
+ *   
+ * Learn more about [updating the maximum charge for a subscription](https://shopify.dev/docs/apps/launch/billing/subscription-billing/update-max-charge).
  */
 public class AppSubscriptionLineItemUpdateGraphQLQuery extends GraphQLQuery {
   public AppSubscriptionLineItemUpdateGraphQLQuery(String id, MoneyInput cappedAmount,

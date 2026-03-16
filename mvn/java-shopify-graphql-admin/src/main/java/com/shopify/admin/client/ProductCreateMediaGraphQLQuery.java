@@ -9,7 +9,15 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Creates media for a product.
+ * Adds media files to a [`Product`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product),
+ * such as images, videos, or 3D models. Media files enhance product listings by
+ * providing visual representations that help customers understand the product.
+ *   
+ * The mutation accepts an array of [`CreateMediaInput`](https://shopify.dev/docs/api/admin-graphql/latest/input-objects/CreateMediaInput)
+ * objects, each specifying the source URL, content type, and optional alt text.
+ *   
+ * You can add multiple media files in a single request. The mutation adds all
+ * valid files and returns errors for any invalid ones.
  */
 public class ProductCreateMediaGraphQLQuery extends GraphQLQuery {
   public ProductCreateMediaGraphQLQuery(String productId, List<CreateMediaInput> media,

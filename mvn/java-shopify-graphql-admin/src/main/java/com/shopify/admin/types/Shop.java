@@ -9,12 +9,20 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Represents a collection of general settings and information about the shop.
+ * The central configuration and settings hub for a Shopify store. Access business
+ * information, operational preferences, feature availability, and store-wide
+ * settings that control how the shop operates.
+ *
+ * Includes core business details like the shop name, contact emails, billing
+ * address, and currency settings. The shop configuration determines customer
+ * account requirements, available sales channels, enabled features, payment
+ * settings, and policy documents. Also provides access to shop-level resources
+ * such as staff members, fulfillment services, navigation settings, and storefront access tokens.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
-public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMetafields, com.shopify.admin.types.HasPublishedTranslations, com.shopify.admin.types.Node {
+public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMetafieldDefinitions, com.shopify.admin.types.HasMetafields, com.shopify.admin.types.HasPublishedTranslations, com.shopify.admin.types.Node {
   /**
    * Account owner information.
    */
@@ -160,11 +168,6 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
   private StringConnection draftOrderTags;
 
   /**
-   * List of saved draft orders on the shop.
-   */
-  private DraftOrderConnection draftOrders;
-
-  /**
    * The shop owner's email address.
    * Shopify will use this email address to communicate with the shop owner.
    */
@@ -237,6 +240,11 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
    * for the purposes of adding and storing additional information.
    */
   private Metafield metafield;
+
+  /**
+   * List of metafield definitions.
+   */
+  private MetafieldDefinitionConnection metafieldDefinitions;
 
   /**
    * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
@@ -359,6 +367,11 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
    * The list of countries that the shop ships to.
    */
   private List<CountryCode> shipsToCountries;
+
+  /**
+   * The shop's address information as it will appear to buyers.
+   */
+  private ShopAddress shopAddress;
 
   /**
    * The name of the shop owner.
@@ -739,17 +752,6 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
   }
 
   /**
-   * List of saved draft orders on the shop.
-   */
-  public DraftOrderConnection getDraftOrders() {
-    return draftOrders;
-  }
-
-  public void setDraftOrders(DraftOrderConnection draftOrders) {
-    this.draftOrders = draftOrders;
-  }
-
-  /**
    * The shop owner's email address.
    * Shopify will use this email address to communicate with the shop owner.
    */
@@ -906,6 +908,17 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
 
   public void setMetafield(Metafield metafield) {
     this.metafield = metafield;
+  }
+
+  /**
+   * List of metafield definitions.
+   */
+  public MetafieldDefinitionConnection getMetafieldDefinitions() {
+    return metafieldDefinitions;
+  }
+
+  public void setMetafieldDefinitions(MetafieldDefinitionConnection metafieldDefinitions) {
+    this.metafieldDefinitions = metafieldDefinitions;
   }
 
   /**
@@ -1175,6 +1188,17 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
   }
 
   /**
+   * The shop's address information as it will appear to buyers.
+   */
+  public ShopAddress getShopAddress() {
+    return shopAddress;
+  }
+
+  public void setShopAddress(ShopAddress shopAddress) {
+    this.shopAddress = shopAddress;
+  }
+
+  /**
    * The name of the shop owner.
    */
   public String getShopOwnerName() {
@@ -1352,7 +1376,7 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
 
   @Override
   public String toString() {
-    return "Shop{accountOwner='" + accountOwner + "', alerts='" + alerts + "', allProductCategories='" + allProductCategories + "', allProductCategoriesList='" + allProductCategoriesList + "', analyticsToken='" + analyticsToken + "', assignedFulfillmentOrders='" + assignedFulfillmentOrders + "', availableChannelApps='" + availableChannelApps + "', billingAddress='" + billingAddress + "', channelDefinitionsForInstalledChannels='" + channelDefinitionsForInstalledChannels + "', channels='" + channels + "', checkoutApiSupported='" + checkoutApiSupported + "', collections='" + collections + "', contactEmail='" + contactEmail + "', countriesInShippingZones='" + countriesInShippingZones + "', createdAt='" + createdAt + "', currencyCode='" + currencyCode + "', currencyFormats='" + currencyFormats + "', currencySettings='" + currencySettings + "', customerAccounts='" + customerAccounts + "', customerAccountsV2='" + customerAccountsV2 + "', customerTags='" + customerTags + "', customers='" + customers + "', description='" + description + "', domains='" + domains + "', draftOrderTags='" + draftOrderTags + "', draftOrders='" + draftOrders + "', email='" + email + "', enabledPresentmentCurrencies='" + enabledPresentmentCurrencies + "', entitlements='" + entitlements + "', features='" + features + "', fulfillmentOrders='" + fulfillmentOrders + "', fulfillmentServices='" + fulfillmentServices + "', ianaTimezone='" + ianaTimezone + "', id='" + id + "', inventoryItems='" + inventoryItems + "', limitedPendingOrderCount='" + limitedPendingOrderCount + "', locations='" + locations + "', marketingSmsConsentEnabledAtCheckout='" + marketingSmsConsentEnabledAtCheckout + "', merchantApprovalSignals='" + merchantApprovalSignals + "', metafield='" + metafield + "', metafields='" + metafields + "', myshopifyDomain='" + myshopifyDomain + "', name='" + name + "', navigationSettings='" + navigationSettings + "', orderNumberFormatPrefix='" + orderNumberFormatPrefix + "', orderNumberFormatSuffix='" + orderNumberFormatSuffix + "', orderTags='" + orderTags + "', orders='" + orders + "', paymentSettings='" + paymentSettings + "', plan='" + plan + "', primaryDomain='" + primaryDomain + "', productImages='" + productImages + "', productTags='" + productTags + "', productTypes='" + productTypes + "', productVariants='" + productVariants + "', productVendors='" + productVendors + "', products='" + products + "', publicationCount='" + publicationCount + "', resourceLimits='" + resourceLimits + "', richTextEditorUrl='" + richTextEditorUrl + "', search='" + search + "', searchFilters='" + searchFilters + "', setupRequired='" + setupRequired + "', shipsToCountries='" + shipsToCountries + "', shopOwnerName='" + shopOwnerName + "', shopPolicies='" + shopPolicies + "', staffMembers='" + staffMembers + "', storefrontAccessTokens='" + storefrontAccessTokens + "', storefrontUrl='" + storefrontUrl + "', taxShipping='" + taxShipping + "', taxesIncluded='" + taxesIncluded + "', timezoneAbbreviation='" + timezoneAbbreviation + "', timezoneOffset='" + timezoneOffset + "', timezoneOffsetMinutes='" + timezoneOffsetMinutes + "', transactionalSmsDisabled='" + transactionalSmsDisabled + "', translations='" + translations + "', unitSystem='" + unitSystem + "', updatedAt='" + updatedAt + "', url='" + url + "', weightUnit='" + weightUnit + "'}";
+    return "Shop{accountOwner='" + accountOwner + "', alerts='" + alerts + "', allProductCategories='" + allProductCategories + "', allProductCategoriesList='" + allProductCategoriesList + "', analyticsToken='" + analyticsToken + "', assignedFulfillmentOrders='" + assignedFulfillmentOrders + "', availableChannelApps='" + availableChannelApps + "', billingAddress='" + billingAddress + "', channelDefinitionsForInstalledChannels='" + channelDefinitionsForInstalledChannels + "', channels='" + channels + "', checkoutApiSupported='" + checkoutApiSupported + "', collections='" + collections + "', contactEmail='" + contactEmail + "', countriesInShippingZones='" + countriesInShippingZones + "', createdAt='" + createdAt + "', currencyCode='" + currencyCode + "', currencyFormats='" + currencyFormats + "', currencySettings='" + currencySettings + "', customerAccounts='" + customerAccounts + "', customerAccountsV2='" + customerAccountsV2 + "', customerTags='" + customerTags + "', customers='" + customers + "', description='" + description + "', domains='" + domains + "', draftOrderTags='" + draftOrderTags + "', email='" + email + "', enabledPresentmentCurrencies='" + enabledPresentmentCurrencies + "', entitlements='" + entitlements + "', features='" + features + "', fulfillmentOrders='" + fulfillmentOrders + "', fulfillmentServices='" + fulfillmentServices + "', ianaTimezone='" + ianaTimezone + "', id='" + id + "', inventoryItems='" + inventoryItems + "', limitedPendingOrderCount='" + limitedPendingOrderCount + "', locations='" + locations + "', marketingSmsConsentEnabledAtCheckout='" + marketingSmsConsentEnabledAtCheckout + "', merchantApprovalSignals='" + merchantApprovalSignals + "', metafield='" + metafield + "', metafieldDefinitions='" + metafieldDefinitions + "', metafields='" + metafields + "', myshopifyDomain='" + myshopifyDomain + "', name='" + name + "', navigationSettings='" + navigationSettings + "', orderNumberFormatPrefix='" + orderNumberFormatPrefix + "', orderNumberFormatSuffix='" + orderNumberFormatSuffix + "', orderTags='" + orderTags + "', orders='" + orders + "', paymentSettings='" + paymentSettings + "', plan='" + plan + "', primaryDomain='" + primaryDomain + "', productImages='" + productImages + "', productTags='" + productTags + "', productTypes='" + productTypes + "', productVariants='" + productVariants + "', productVendors='" + productVendors + "', products='" + products + "', publicationCount='" + publicationCount + "', resourceLimits='" + resourceLimits + "', richTextEditorUrl='" + richTextEditorUrl + "', search='" + search + "', searchFilters='" + searchFilters + "', setupRequired='" + setupRequired + "', shipsToCountries='" + shipsToCountries + "', shopAddress='" + shopAddress + "', shopOwnerName='" + shopOwnerName + "', shopPolicies='" + shopPolicies + "', staffMembers='" + staffMembers + "', storefrontAccessTokens='" + storefrontAccessTokens + "', storefrontUrl='" + storefrontUrl + "', taxShipping='" + taxShipping + "', taxesIncluded='" + taxesIncluded + "', timezoneAbbreviation='" + timezoneAbbreviation + "', timezoneOffset='" + timezoneOffset + "', timezoneOffsetMinutes='" + timezoneOffsetMinutes + "', transactionalSmsDisabled='" + transactionalSmsDisabled + "', translations='" + translations + "', unitSystem='" + unitSystem + "', updatedAt='" + updatedAt + "', url='" + url + "', weightUnit='" + weightUnit + "'}";
   }
 
   @Override
@@ -1385,7 +1409,6 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
         Objects.equals(description, that.description) &&
         Objects.equals(domains, that.domains) &&
         Objects.equals(draftOrderTags, that.draftOrderTags) &&
-        Objects.equals(draftOrders, that.draftOrders) &&
         Objects.equals(email, that.email) &&
         Objects.equals(enabledPresentmentCurrencies, that.enabledPresentmentCurrencies) &&
         Objects.equals(entitlements, that.entitlements) &&
@@ -1400,6 +1423,7 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
         marketingSmsConsentEnabledAtCheckout == that.marketingSmsConsentEnabledAtCheckout &&
         Objects.equals(merchantApprovalSignals, that.merchantApprovalSignals) &&
         Objects.equals(metafield, that.metafield) &&
+        Objects.equals(metafieldDefinitions, that.metafieldDefinitions) &&
         Objects.equals(metafields, that.metafields) &&
         Objects.equals(myshopifyDomain, that.myshopifyDomain) &&
         Objects.equals(name, that.name) &&
@@ -1424,6 +1448,7 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
         Objects.equals(searchFilters, that.searchFilters) &&
         setupRequired == that.setupRequired &&
         Objects.equals(shipsToCountries, that.shipsToCountries) &&
+        Objects.equals(shopAddress, that.shopAddress) &&
         Objects.equals(shopOwnerName, that.shopOwnerName) &&
         Objects.equals(shopPolicies, that.shopPolicies) &&
         Objects.equals(staffMembers, that.staffMembers) &&
@@ -1444,7 +1469,7 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountOwner, alerts, allProductCategories, allProductCategoriesList, analyticsToken, assignedFulfillmentOrders, availableChannelApps, billingAddress, channelDefinitionsForInstalledChannels, channels, checkoutApiSupported, collections, contactEmail, countriesInShippingZones, createdAt, currencyCode, currencyFormats, currencySettings, customerAccounts, customerAccountsV2, customerTags, customers, description, domains, draftOrderTags, draftOrders, email, enabledPresentmentCurrencies, entitlements, features, fulfillmentOrders, fulfillmentServices, ianaTimezone, id, inventoryItems, limitedPendingOrderCount, locations, marketingSmsConsentEnabledAtCheckout, merchantApprovalSignals, metafield, metafields, myshopifyDomain, name, navigationSettings, orderNumberFormatPrefix, orderNumberFormatSuffix, orderTags, orders, paymentSettings, plan, primaryDomain, productImages, productTags, productTypes, productVariants, productVendors, products, publicationCount, resourceLimits, richTextEditorUrl, search, searchFilters, setupRequired, shipsToCountries, shopOwnerName, shopPolicies, staffMembers, storefrontAccessTokens, storefrontUrl, taxShipping, taxesIncluded, timezoneAbbreviation, timezoneOffset, timezoneOffsetMinutes, transactionalSmsDisabled, translations, unitSystem, updatedAt, url, weightUnit);
+    return Objects.hash(accountOwner, alerts, allProductCategories, allProductCategoriesList, analyticsToken, assignedFulfillmentOrders, availableChannelApps, billingAddress, channelDefinitionsForInstalledChannels, channels, checkoutApiSupported, collections, contactEmail, countriesInShippingZones, createdAt, currencyCode, currencyFormats, currencySettings, customerAccounts, customerAccountsV2, customerTags, customers, description, domains, draftOrderTags, email, enabledPresentmentCurrencies, entitlements, features, fulfillmentOrders, fulfillmentServices, ianaTimezone, id, inventoryItems, limitedPendingOrderCount, locations, marketingSmsConsentEnabledAtCheckout, merchantApprovalSignals, metafield, metafieldDefinitions, metafields, myshopifyDomain, name, navigationSettings, orderNumberFormatPrefix, orderNumberFormatSuffix, orderTags, orders, paymentSettings, plan, primaryDomain, productImages, productTags, productTypes, productVariants, productVendors, products, publicationCount, resourceLimits, richTextEditorUrl, search, searchFilters, setupRequired, shipsToCountries, shopAddress, shopOwnerName, shopPolicies, staffMembers, storefrontAccessTokens, storefrontUrl, taxShipping, taxesIncluded, timezoneAbbreviation, timezoneOffset, timezoneOffsetMinutes, transactionalSmsDisabled, translations, unitSystem, updatedAt, url, weightUnit);
   }
 
   public static Builder newBuilder() {
@@ -1597,11 +1622,6 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
     private StringConnection draftOrderTags;
 
     /**
-     * List of saved draft orders on the shop.
-     */
-    private DraftOrderConnection draftOrders;
-
-    /**
      * The shop owner's email address.
      * Shopify will use this email address to communicate with the shop owner.
      */
@@ -1674,6 +1694,11 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
      * for the purposes of adding and storing additional information.
      */
     private Metafield metafield;
+
+    /**
+     * List of metafield definitions.
+     */
+    private MetafieldDefinitionConnection metafieldDefinitions;
 
     /**
      * A list of [custom fields](https://shopify.dev/docs/apps/build/custom-data)
@@ -1798,6 +1823,11 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
     private List<CountryCode> shipsToCountries;
 
     /**
+     * The shop's address information as it will appear to buyers.
+     */
+    private ShopAddress shopAddress;
+
+    /**
      * The name of the shop owner.
      */
     private String shopOwnerName;
@@ -1904,7 +1934,6 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
       result.description = this.description;
       result.domains = this.domains;
       result.draftOrderTags = this.draftOrderTags;
-      result.draftOrders = this.draftOrders;
       result.email = this.email;
       result.enabledPresentmentCurrencies = this.enabledPresentmentCurrencies;
       result.entitlements = this.entitlements;
@@ -1919,6 +1948,7 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
       result.marketingSmsConsentEnabledAtCheckout = this.marketingSmsConsentEnabledAtCheckout;
       result.merchantApprovalSignals = this.merchantApprovalSignals;
       result.metafield = this.metafield;
+      result.metafieldDefinitions = this.metafieldDefinitions;
       result.metafields = this.metafields;
       result.myshopifyDomain = this.myshopifyDomain;
       result.name = this.name;
@@ -1943,6 +1973,7 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
       result.searchFilters = this.searchFilters;
       result.setupRequired = this.setupRequired;
       result.shipsToCountries = this.shipsToCountries;
+      result.shopAddress = this.shopAddress;
       result.shopOwnerName = this.shopOwnerName;
       result.shopPolicies = this.shopPolicies;
       result.staffMembers = this.staffMembers;
@@ -2183,14 +2214,6 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
     }
 
     /**
-     * List of saved draft orders on the shop.
-     */
-    public Builder draftOrders(DraftOrderConnection draftOrders) {
-      this.draftOrders = draftOrders;
-      return this;
-    }
-
-    /**
      * The shop owner's email address.
      * Shopify will use this email address to communicate with the shop owner.
      */
@@ -2304,6 +2327,14 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
      */
     public Builder metafield(Metafield metafield) {
       this.metafield = metafield;
+      return this;
+    }
+
+    /**
+     * List of metafield definitions.
+     */
+    public Builder metafieldDefinitions(MetafieldDefinitionConnection metafieldDefinitions) {
+      this.metafieldDefinitions = metafieldDefinitions;
       return this;
     }
 
@@ -2498,6 +2529,14 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
      */
     public Builder shipsToCountries(List<CountryCode> shipsToCountries) {
       this.shipsToCountries = shipsToCountries;
+      return this;
+    }
+
+    /**
+     * The shop's address information as it will appear to buyers.
+     */
+    public Builder shopAddress(ShopAddress shopAddress) {
+      this.shopAddress = shopAddress;
       return this;
     }
 

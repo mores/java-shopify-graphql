@@ -10,7 +10,18 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Sends a fulfillment request to the fulfillment service of a fulfillment order.
+ * Sends a fulfillment request to the fulfillment service assigned to a [`FulfillmentOrder`](https://shopify.dev/docs/api/admin-graphql/latest/objects/FulfillmentOrder).
+ * The fulfillment service must then accept or reject the request before
+ * processing can begin.
+ *   
+ * You can either request fulfillment for all line items or specify individual
+ * items with quantities for partial fulfillment. When requesting partial
+ * fulfillment, Shopify splits the original fulfillment order into two: one with
+ * the submitted items and another with the remaining unsubmitted items. Include
+ * an optional message to communicate special instructions to the fulfillment
+ * service, such as gift wrapping or handling requirements.
+ *   
+ * Learn more about [managing fulfillment requests as a fulfillment service](https://shopify.dev/docs/apps/build/orders-fulfillment/fulfillment-service-apps/build-for-fulfillment-services#step-4-act-on-fulfillment-requests).
  */
 public class FulfillmentOrderSubmitFulfillmentRequestGraphQLQuery extends GraphQLQuery {
   public FulfillmentOrderSubmitFulfillmentRequestGraphQLQuery(String id, String message,

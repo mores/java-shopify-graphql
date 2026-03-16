@@ -23,6 +23,16 @@ public class SegmentFloatFilterFragmentProjection<PARENT extends BaseSubProjecti
     return this;
   }
 
+  public SegmentFloatFilterFragmentProjection<PARENT, ROOT> maxRange() {
+    getFields().put("maxRange", null);
+    return this;
+  }
+
+  public SegmentFloatFilterFragmentProjection<PARENT, ROOT> minRange() {
+    getFields().put("minRange", null);
+    return this;
+  }
+
   public SegmentFloatFilterFragmentProjection<PARENT, ROOT> multiValue() {
     getFields().put("multiValue", null);
     return this;

@@ -20,7 +20,6 @@ import java.util.Objects;
  * - Re-create orders manually from active sales channels.
  * - Sell products at discount or wholesale rates.
  * - Take pre-orders.
- * - Save an order as a draft and resume working on it later.
  *
  * For draft orders in multiple currencies `presentment_money` is the source of
  * truth for what a customer is going to be charged and `shop_money` is an estimate
@@ -158,7 +157,7 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
 
   /**
    * A subtotal of the line items and corresponding discounts,
-   * excluding include shipping charges, shipping discounts, taxes, or order discounts.
+   * excluding shipping charges, shipping discounts, taxes, or order discounts.
    */
   private MoneyBag lineItemsSubtotalPrice;
 
@@ -306,7 +305,7 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
   private MoneyBag totalDiscountsSet;
 
   /**
-   * Total price of line items.
+   * Total price of line items, excluding discounts.
    */
   private MoneyBag totalLineItemsPriceSet;
 
@@ -637,7 +636,7 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
 
   /**
    * A subtotal of the line items and corresponding discounts,
-   * excluding include shipping charges, shipping discounts, taxes, or order discounts.
+   * excluding shipping charges, shipping discounts, taxes, or order discounts.
    */
   public MoneyBag getLineItemsSubtotalPrice() {
     return lineItemsSubtotalPrice;
@@ -953,7 +952,7 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
   }
 
   /**
-   * Total price of line items.
+   * Total price of line items, excluding discounts.
    */
   public MoneyBag getTotalLineItemsPriceSet() {
     return totalLineItemsPriceSet;
@@ -1306,7 +1305,7 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
 
     /**
      * A subtotal of the line items and corresponding discounts,
-     * excluding include shipping charges, shipping discounts, taxes, or order discounts.
+     * excluding shipping charges, shipping discounts, taxes, or order discounts.
      */
     private MoneyBag lineItemsSubtotalPrice;
 
@@ -1454,7 +1453,7 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
     private MoneyBag totalDiscountsSet;
 
     /**
-     * Total price of line items.
+     * Total price of line items, excluding discounts.
      */
     private MoneyBag totalLineItemsPriceSet;
 
@@ -1782,7 +1781,7 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
 
     /**
      * A subtotal of the line items and corresponding discounts,
-     * excluding include shipping charges, shipping discounts, taxes, or order discounts.
+     * excluding shipping charges, shipping discounts, taxes, or order discounts.
      */
     public Builder lineItemsSubtotalPrice(MoneyBag lineItemsSubtotalPrice) {
       this.lineItemsSubtotalPrice = lineItemsSubtotalPrice;
@@ -2014,7 +2013,7 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
     }
 
     /**
-     * Total price of line items.
+     * Total price of line items, excluding discounts.
      */
     public Builder totalLineItemsPriceSet(MoneyBag totalLineItemsPriceSet) {
       this.totalLineItemsPriceSet = totalLineItemsPriceSet;

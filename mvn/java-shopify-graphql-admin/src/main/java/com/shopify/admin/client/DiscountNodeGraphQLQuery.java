@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a discount resource by ID.
+ * Returns a `DiscountNode` resource by ID.
  */
 public class DiscountNodeGraphQLQuery extends GraphQLQuery {
   public DiscountNodeGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

@@ -11,7 +11,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The catalogs belonging to the shop.
+ * Returns a paginated list of catalogs for the shop. Catalogs control which
+ * products are published and how they're priced in different contexts, such as
+ * international markets (Canada vs. United States), B2B company locations
+ * (different branches of the same business), or specific sales channels (such as
+ * online store vs. POS).
+ *   
+ * Filter catalogs by [`type`](https://shopify.dev/docs/api/admin-graphql/latest/queries/catalogs#arguments-type) and use the [`query`](https://shopify.dev/docs/api/admin-graphql/latest/queries/catalogs#arguments-query)
+ * argument to search and filter by additional criteria.
+ *   
+ * Learn more about [Shopify Catalogs](https://shopify.dev/docs/apps/build/markets/catalogs-different-markets).
  */
 public class CatalogsGraphQLQuery extends GraphQLQuery {
   public CatalogsGraphQLQuery(CatalogType type, Integer first, String after, Integer last,
@@ -149,7 +158,7 @@ public class CatalogsGraphQLQuery extends GraphQLQuery {
      * | app_id | id |
      * | company_id | id |
      * | company_location_id | id |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
      * | managed_country_id | id |
      * | market_id | id |
      * | status | string |

@@ -120,6 +120,11 @@ public class BasicEvent implements com.shopify.admin.types.Event, com.shopify.ad
   private boolean attributeToUser;
 
   /**
+   * The entity which performed the action that generated the event.
+   */
+  private String author;
+
+  /**
    * The date and time when the event was created.
    */
   private OffsetDateTime createdAt;
@@ -246,6 +251,17 @@ public class BasicEvent implements com.shopify.admin.types.Event, com.shopify.ad
   }
 
   /**
+   * The entity which performed the action that generated the event.
+   */
+  public String getAuthor() {
+    return author;
+  }
+
+  public void setAuthor(String author) {
+    this.author = author;
+  }
+
+  /**
    * The date and time when the event was created.
    */
   public OffsetDateTime getCreatedAt() {
@@ -347,7 +363,7 @@ public class BasicEvent implements com.shopify.admin.types.Event, com.shopify.ad
 
   @Override
   public String toString() {
-    return "BasicEvent{action='" + action + "', additionalContent='" + additionalContent + "', additionalData='" + additionalData + "', appTitle='" + appTitle + "', arguments='" + arguments + "', attributeToApp='" + attributeToApp + "', attributeToUser='" + attributeToUser + "', createdAt='" + createdAt + "', criticalAlert='" + criticalAlert + "', hasAdditionalContent='" + hasAdditionalContent + "', id='" + id + "', message='" + message + "', secondaryMessage='" + secondaryMessage + "', subject='" + subject + "', subjectId='" + subjectId + "', subjectType='" + subjectType + "'}";
+    return "BasicEvent{action='" + action + "', additionalContent='" + additionalContent + "', additionalData='" + additionalData + "', appTitle='" + appTitle + "', arguments='" + arguments + "', attributeToApp='" + attributeToApp + "', attributeToUser='" + attributeToUser + "', author='" + author + "', createdAt='" + createdAt + "', criticalAlert='" + criticalAlert + "', hasAdditionalContent='" + hasAdditionalContent + "', id='" + id + "', message='" + message + "', secondaryMessage='" + secondaryMessage + "', subject='" + subject + "', subjectId='" + subjectId + "', subjectType='" + subjectType + "'}";
   }
 
   @Override
@@ -362,6 +378,7 @@ public class BasicEvent implements com.shopify.admin.types.Event, com.shopify.ad
         Objects.equals(arguments, that.arguments) &&
         attributeToApp == that.attributeToApp &&
         attributeToUser == that.attributeToUser &&
+        Objects.equals(author, that.author) &&
         Objects.equals(createdAt, that.createdAt) &&
         criticalAlert == that.criticalAlert &&
         hasAdditionalContent == that.hasAdditionalContent &&
@@ -375,7 +392,7 @@ public class BasicEvent implements com.shopify.admin.types.Event, com.shopify.ad
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, additionalContent, additionalData, appTitle, arguments, attributeToApp, attributeToUser, createdAt, criticalAlert, hasAdditionalContent, id, message, secondaryMessage, subject, subjectId, subjectType);
+    return Objects.hash(action, additionalContent, additionalData, appTitle, arguments, attributeToApp, attributeToUser, author, createdAt, criticalAlert, hasAdditionalContent, id, message, secondaryMessage, subject, subjectId, subjectType);
   }
 
   public static Builder newBuilder() {
@@ -417,6 +434,11 @@ public class BasicEvent implements com.shopify.admin.types.Event, com.shopify.ad
      * Whether the event was caused by an admin user.
      */
     private boolean attributeToUser;
+
+    /**
+     * The entity which performed the action that generated the event.
+     */
+    private String author;
 
     /**
      * The date and time when the event was created.
@@ -473,6 +495,7 @@ public class BasicEvent implements com.shopify.admin.types.Event, com.shopify.ad
       result.arguments = this.arguments;
       result.attributeToApp = this.attributeToApp;
       result.attributeToUser = this.attributeToUser;
+      result.author = this.author;
       result.createdAt = this.createdAt;
       result.criticalAlert = this.criticalAlert;
       result.hasAdditionalContent = this.hasAdditionalContent;
@@ -538,6 +561,14 @@ public class BasicEvent implements com.shopify.admin.types.Event, com.shopify.ad
      */
     public Builder attributeToUser(boolean attributeToUser) {
       this.attributeToUser = attributeToUser;
+      return this;
+    }
+
+    /**
+     * The entity which performed the action that generated the event.
+     */
+    public Builder author(String author) {
+      this.author = author;
       return this;
     }
 

@@ -12,9 +12,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * A list of app installations. To use this query, you need to contact [Shopify
- * Support](https://partners.shopify.com/current/support/) to grant your custom
- * app the `read_apps` access scope. Public apps can't be granted this access scope.
+ * A paginated list of [`AppInstallation`](https://shopify.dev/docs/api/admin-graphql/latest/objects/AppInstallation)
+ * objects across multiple stores where your app is installed. Use this query to
+ * monitor installation status, track billing and subscriptions through [`AppSubscription`](https://shopify.dev/docs/api/admin-graphql/latest/objects/AppSubscription)
+ * objects, and review granted [`AccessScope`](https://shopify.dev/docs/api/admin-graphql/latest/objects/AccessScope) objects.
+ *   
+ * Filter by [`AppInstallationCategory`](https://shopify.dev/docs/api/admin-graphql/latest/enums/AppInstallationCategory) to find specific types of installations (such as POS or channel apps) and by [`AppInstallationPrivacy`](https://shopify.dev/docs/api/admin-graphql/latest/enums/AppInstallationPrivacy)
+ * to scope to public or private installations.
  */
 public class AppInstallationsGraphQLQuery extends GraphQLQuery {
   public AppInstallationsGraphQLQuery(Integer first, String after, Integer last, String before,

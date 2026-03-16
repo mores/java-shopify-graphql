@@ -21,6 +21,11 @@ public class ShopifyPaymentsDispute implements com.shopify.admin.types.LegacyInt
   private MoneyV2 amount;
 
   /**
+   * The evidence associated with the dispute.
+   */
+  private ShopifyPaymentsDisputeEvidence disputeEvidence;
+
+  /**
    * The deadline for evidence submission.
    */
   private LocalDate evidenceDueBy;
@@ -82,6 +87,17 @@ public class ShopifyPaymentsDispute implements com.shopify.admin.types.LegacyInt
 
   public void setAmount(MoneyV2 amount) {
     this.amount = amount;
+  }
+
+  /**
+   * The evidence associated with the dispute.
+   */
+  public ShopifyPaymentsDisputeEvidence getDisputeEvidence() {
+    return disputeEvidence;
+  }
+
+  public void setDisputeEvidence(ShopifyPaymentsDisputeEvidence disputeEvidence) {
+    this.disputeEvidence = disputeEvidence;
   }
 
   /**
@@ -196,7 +212,7 @@ public class ShopifyPaymentsDispute implements com.shopify.admin.types.LegacyInt
 
   @Override
   public String toString() {
-    return "ShopifyPaymentsDispute{amount='" + amount + "', evidenceDueBy='" + evidenceDueBy + "', evidenceSentOn='" + evidenceSentOn + "', finalizedOn='" + finalizedOn + "', id='" + id + "', initiatedAt='" + initiatedAt + "', legacyResourceId='" + legacyResourceId + "', order='" + order + "', reasonDetails='" + reasonDetails + "', status='" + status + "', type='" + type + "'}";
+    return "ShopifyPaymentsDispute{amount='" + amount + "', disputeEvidence='" + disputeEvidence + "', evidenceDueBy='" + evidenceDueBy + "', evidenceSentOn='" + evidenceSentOn + "', finalizedOn='" + finalizedOn + "', id='" + id + "', initiatedAt='" + initiatedAt + "', legacyResourceId='" + legacyResourceId + "', order='" + order + "', reasonDetails='" + reasonDetails + "', status='" + status + "', type='" + type + "'}";
   }
 
   @Override
@@ -205,6 +221,7 @@ public class ShopifyPaymentsDispute implements com.shopify.admin.types.LegacyInt
     if (o == null || getClass() != o.getClass()) return false;
     ShopifyPaymentsDispute that = (ShopifyPaymentsDispute) o;
     return Objects.equals(amount, that.amount) &&
+        Objects.equals(disputeEvidence, that.disputeEvidence) &&
         Objects.equals(evidenceDueBy, that.evidenceDueBy) &&
         Objects.equals(evidenceSentOn, that.evidenceSentOn) &&
         Objects.equals(finalizedOn, that.finalizedOn) &&
@@ -219,7 +236,7 @@ public class ShopifyPaymentsDispute implements com.shopify.admin.types.LegacyInt
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, evidenceDueBy, evidenceSentOn, finalizedOn, id, initiatedAt, legacyResourceId, order, reasonDetails, status, type);
+    return Objects.hash(amount, disputeEvidence, evidenceDueBy, evidenceSentOn, finalizedOn, id, initiatedAt, legacyResourceId, order, reasonDetails, status, type);
   }
 
   public static Builder newBuilder() {
@@ -231,6 +248,11 @@ public class ShopifyPaymentsDispute implements com.shopify.admin.types.LegacyInt
      * The total amount disputed by the cardholder.
      */
     private MoneyV2 amount;
+
+    /**
+     * The evidence associated with the dispute.
+     */
+    private ShopifyPaymentsDisputeEvidence disputeEvidence;
 
     /**
      * The deadline for evidence submission.
@@ -285,6 +307,7 @@ public class ShopifyPaymentsDispute implements com.shopify.admin.types.LegacyInt
     public ShopifyPaymentsDispute build() {
       ShopifyPaymentsDispute result = new ShopifyPaymentsDispute();
       result.amount = this.amount;
+      result.disputeEvidence = this.disputeEvidence;
       result.evidenceDueBy = this.evidenceDueBy;
       result.evidenceSentOn = this.evidenceSentOn;
       result.finalizedOn = this.finalizedOn;
@@ -303,6 +326,14 @@ public class ShopifyPaymentsDispute implements com.shopify.admin.types.LegacyInt
      */
     public Builder amount(MoneyV2 amount) {
       this.amount = amount;
+      return this;
+    }
+
+    /**
+     * The evidence associated with the dispute.
+     */
+    public Builder disputeEvidence(ShopifyPaymentsDisputeEvidence disputeEvidence) {
+      this.disputeEvidence = disputeEvidence;
       return this;
     }
 

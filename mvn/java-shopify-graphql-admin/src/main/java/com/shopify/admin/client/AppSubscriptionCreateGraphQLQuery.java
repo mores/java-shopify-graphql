@@ -12,7 +12,18 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Allows an app to charge a store for features or services on a recurring basis.
+ * Creates a recurring or usage-based [`AppSubscription`](https://shopify.dev/docs/api/admin-graphql/latest/objects/AppSubscription)
+ * that charges merchants for app features and services. The subscription
+ * includes one or more [`AppSubscriptionLineItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/AppSubscriptionLineItem)
+ * objects that define the pricing structure, billing intervals, and optional [`AppSubscriptionDiscount`](https://shopify.dev/docs/api/admin-graphql/latest/objects/AppSubscriptionDiscount) values.
+ *   
+ * Returns a [confirmation URL](https://shopify.dev/docs/api/admin-graphql/latest/mutations/appSubscriptionCreate#returns-confirmationUrl)
+ * where the merchant approves or declines the charges. After approval, the
+ * subscription becomes active and billing begins after any trial period expires.
+ * You can specify [`AppSubscriptionReplacementBehavior`](https://shopify.dev/docs/api/admin-graphql/latest/enums/AppSubscriptionReplacementBehavior)
+ * to control how this subscription interacts with existing active subscriptions.
+ *   
+ * Learn more about [creating app subscriptions](https://shopify.dev/docs/apps/launch/billing/subscription-billing/create-time-based-subscriptions).
  */
 public class AppSubscriptionCreateGraphQLQuery extends GraphQLQuery {
   public AppSubscriptionCreateGraphQLQuery(String name,

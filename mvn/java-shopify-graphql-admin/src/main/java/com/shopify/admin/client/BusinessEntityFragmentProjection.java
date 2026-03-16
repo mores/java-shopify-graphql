@@ -32,6 +32,11 @@ public class BusinessEntityFragmentProjection<PARENT extends BaseSubProjectionNo
      return projection;
   }
 
+  public BusinessEntityFragmentProjection<PARENT, ROOT> archived() {
+    getFields().put("archived", null);
+    return this;
+  }
+
   public BusinessEntityFragmentProjection<PARENT, ROOT> companyName() {
     getFields().put("companyName", null);
     return this;

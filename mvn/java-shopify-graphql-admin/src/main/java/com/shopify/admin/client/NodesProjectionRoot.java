@@ -290,6 +290,13 @@ public class NodesProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROO
     return fragment;
   }
 
+  public CurrencyExchangeAdjustmentFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onCurrencyExchangeAdjustment(
+      ) {
+    CurrencyExchangeAdjustmentFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new CurrencyExchangeAdjustmentFragmentProjection<>(this, this);
+    getFragments().add(fragment);
+    return fragment;
+  }
+
   public CustomerFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onCustomer(
       ) {
     CustomerFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new CustomerFragmentProjection<>(this, this);
@@ -654,6 +661,34 @@ public class NodesProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROO
     return fragment;
   }
 
+  public InventoryShipmentFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onInventoryShipment(
+      ) {
+    InventoryShipmentFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new InventoryShipmentFragmentProjection<>(this, this);
+    getFragments().add(fragment);
+    return fragment;
+  }
+
+  public InventoryShipmentLineItemFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onInventoryShipmentLineItem(
+      ) {
+    InventoryShipmentLineItemFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new InventoryShipmentLineItemFragmentProjection<>(this, this);
+    getFragments().add(fragment);
+    return fragment;
+  }
+
+  public InventoryTransferFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onInventoryTransfer(
+      ) {
+    InventoryTransferFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new InventoryTransferFragmentProjection<>(this, this);
+    getFragments().add(fragment);
+    return fragment;
+  }
+
+  public InventoryTransferLineItemFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onInventoryTransferLineItem(
+      ) {
+    InventoryTransferLineItemFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new InventoryTransferLineItemFragmentProjection<>(this, this);
+    getFragments().add(fragment);
+    return fragment;
+  }
+
   public LineItemFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onLineItem(
       ) {
     LineItemFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new LineItemFragmentProjection<>(this, this);
@@ -801,6 +836,13 @@ public class NodesProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROO
     return fragment;
   }
 
+  public OrderEditSessionFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onOrderEditSession(
+      ) {
+    OrderEditSessionFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new OrderEditSessionFragmentProjection<>(this, this);
+    getFragments().add(fragment);
+    return fragment;
+  }
+
   public OrderTransactionFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onOrderTransaction(
       ) {
     OrderTransactionFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new OrderTransactionFragmentProjection<>(this, this);
@@ -846,6 +888,13 @@ public class NodesProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROO
   public PaymentTermsTemplateFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onPaymentTermsTemplate(
       ) {
     PaymentTermsTemplateFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new PaymentTermsTemplateFragmentProjection<>(this, this);
+    getFragments().add(fragment);
+    return fragment;
+  }
+
+  public PointOfSaleDeviceFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onPointOfSaleDevice(
+      ) {
+    PointOfSaleDeviceFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new PointOfSaleDeviceFragmentProjection<>(this, this);
     getFragments().add(fragment);
     return fragment;
   }
@@ -1004,6 +1053,13 @@ public class NodesProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROO
     return fragment;
   }
 
+  public ReturnReasonDefinitionFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onReturnReasonDefinition(
+      ) {
+    ReturnReasonDefinitionFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new ReturnReasonDefinitionFragmentProjection<>(this, this);
+    getFragments().add(fragment);
+    return fragment;
+  }
+
   public ReverseDeliveryFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onReverseDelivery(
       ) {
     ReverseDeliveryFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new ReverseDeliveryFragmentProjection<>(this, this);
@@ -1154,13 +1210,6 @@ public class NodesProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROO
   public ShopifyPaymentsPayoutFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onShopifyPaymentsPayout(
       ) {
     ShopifyPaymentsPayoutFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new ShopifyPaymentsPayoutFragmentProjection<>(this, this);
-    getFragments().add(fragment);
-    return fragment;
-  }
-
-  public ShopifyPaymentsVerificationFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onShopifyPaymentsVerification(
-      ) {
-    ShopifyPaymentsVerificationFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new ShopifyPaymentsVerificationFragmentProjection<>(this, this);
     getFragments().add(fragment);
     return fragment;
   }
@@ -1336,13 +1385,6 @@ public class NodesProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROO
   public WebPixelFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onWebPixel(
       ) {
     WebPixelFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new WebPixelFragmentProjection<>(this, this);
-    getFragments().add(fragment);
-    return fragment;
-  }
-
-  public WebPresenceFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onWebPresence(
-      ) {
-    WebPresenceFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new WebPresenceFragmentProjection<>(this, this);
     getFragments().add(fragment);
     return fragment;
   }

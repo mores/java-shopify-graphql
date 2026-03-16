@@ -4,6 +4,8 @@ import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -39,6 +41,11 @@ public class RefundInput {
   private ShippingRefundInput shipping;
 
   /**
+   * The date and time when the refund is being processed. If not provided, it will be set to the current time.
+   */
+  private OffsetDateTime processedAt;
+
+  /**
    * A list of line items to refund.
    */
   private List<RefundLineItemInput> refundLineItems;
@@ -54,9 +61,19 @@ public class RefundInput {
   private List<OrderTransactionInput> transactions;
 
   /**
+   * A list of instructions to process the financial outcome of the refund.
+   */
+  private List<RefundMethodInput> refundMethods = Collections.emptyList();
+
+  /**
    * An optional reason for a discrepancy between calculated and actual refund amounts.
    */
   private OrderAdjustmentInputDiscrepancyReason discrepancyReason;
+
+  /**
+   * Whether to allow the total refunded amount to surpass the amount paid for the order.
+   */
+  private Boolean allowOverRefunding = false;
 
   public RefundInput() {
   }
@@ -119,6 +136,17 @@ public class RefundInput {
   }
 
   /**
+   * The date and time when the refund is being processed. If not provided, it will be set to the current time.
+   */
+  public OffsetDateTime getProcessedAt() {
+    return processedAt;
+  }
+
+  public void setProcessedAt(OffsetDateTime processedAt) {
+    this.processedAt = processedAt;
+  }
+
+  /**
    * A list of line items to refund.
    */
   public List<RefundLineItemInput> getRefundLineItems() {
@@ -152,6 +180,17 @@ public class RefundInput {
   }
 
   /**
+   * A list of instructions to process the financial outcome of the refund.
+   */
+  public List<RefundMethodInput> getRefundMethods() {
+    return refundMethods;
+  }
+
+  public void setRefundMethods(List<RefundMethodInput> refundMethods) {
+    this.refundMethods = refundMethods;
+  }
+
+  /**
    * An optional reason for a discrepancy between calculated and actual refund amounts.
    */
   public OrderAdjustmentInputDiscrepancyReason getDiscrepancyReason() {
@@ -162,9 +201,20 @@ public class RefundInput {
     this.discrepancyReason = discrepancyReason;
   }
 
+  /**
+   * Whether to allow the total refunded amount to surpass the amount paid for the order.
+   */
+  public Boolean getAllowOverRefunding() {
+    return allowOverRefunding;
+  }
+
+  public void setAllowOverRefunding(Boolean allowOverRefunding) {
+    this.allowOverRefunding = allowOverRefunding;
+  }
+
   @Override
   public String toString() {
-    return "RefundInput{currency='" + currency + "', orderId='" + orderId + "', note='" + note + "', notify='" + notify + "', shipping='" + shipping + "', refundLineItems='" + refundLineItems + "', refundDuties='" + refundDuties + "', transactions='" + transactions + "', discrepancyReason='" + discrepancyReason + "'}";
+    return "RefundInput{currency='" + currency + "', orderId='" + orderId + "', note='" + note + "', notify='" + notify + "', shipping='" + shipping + "', processedAt='" + processedAt + "', refundLineItems='" + refundLineItems + "', refundDuties='" + refundDuties + "', transactions='" + transactions + "', refundMethods='" + refundMethods + "', discrepancyReason='" + discrepancyReason + "', allowOverRefunding='" + allowOverRefunding + "'}";
   }
 
   @Override
@@ -177,15 +227,18 @@ public class RefundInput {
         Objects.equals(note, that.note) &&
         Objects.equals(notify, that.notify) &&
         Objects.equals(shipping, that.shipping) &&
+        Objects.equals(processedAt, that.processedAt) &&
         Objects.equals(refundLineItems, that.refundLineItems) &&
         Objects.equals(refundDuties, that.refundDuties) &&
         Objects.equals(transactions, that.transactions) &&
-        Objects.equals(discrepancyReason, that.discrepancyReason);
+        Objects.equals(refundMethods, that.refundMethods) &&
+        Objects.equals(discrepancyReason, that.discrepancyReason) &&
+        Objects.equals(allowOverRefunding, that.allowOverRefunding);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currency, orderId, note, notify, shipping, refundLineItems, refundDuties, transactions, discrepancyReason);
+    return Objects.hash(currency, orderId, note, notify, shipping, processedAt, refundLineItems, refundDuties, transactions, refundMethods, discrepancyReason, allowOverRefunding);
   }
 
   public static Builder newBuilder() {
@@ -221,6 +274,11 @@ public class RefundInput {
     private ShippingRefundInput shipping;
 
     /**
+     * The date and time when the refund is being processed. If not provided, it will be set to the current time.
+     */
+    private OffsetDateTime processedAt;
+
+    /**
      * A list of line items to refund.
      */
     private List<RefundLineItemInput> refundLineItems;
@@ -236,9 +294,19 @@ public class RefundInput {
     private List<OrderTransactionInput> transactions;
 
     /**
+     * A list of instructions to process the financial outcome of the refund.
+     */
+    private List<RefundMethodInput> refundMethods = Collections.emptyList();
+
+    /**
      * An optional reason for a discrepancy between calculated and actual refund amounts.
      */
     private OrderAdjustmentInputDiscrepancyReason discrepancyReason;
+
+    /**
+     * Whether to allow the total refunded amount to surpass the amount paid for the order.
+     */
+    private Boolean allowOverRefunding = false;
 
     public RefundInput build() {
       RefundInput result = new RefundInput();
@@ -247,10 +315,13 @@ public class RefundInput {
       result.note = this.note;
       result.notify = this.notify;
       result.shipping = this.shipping;
+      result.processedAt = this.processedAt;
       result.refundLineItems = this.refundLineItems;
       result.refundDuties = this.refundDuties;
       result.transactions = this.transactions;
+      result.refundMethods = this.refundMethods;
       result.discrepancyReason = this.discrepancyReason;
+      result.allowOverRefunding = this.allowOverRefunding;
       return result;
     }
 
@@ -297,6 +368,14 @@ public class RefundInput {
     }
 
     /**
+     * The date and time when the refund is being processed. If not provided, it will be set to the current time.
+     */
+    public Builder processedAt(OffsetDateTime processedAt) {
+      this.processedAt = processedAt;
+      return this;
+    }
+
+    /**
      * A list of line items to refund.
      */
     public Builder refundLineItems(List<RefundLineItemInput> refundLineItems) {
@@ -321,10 +400,26 @@ public class RefundInput {
     }
 
     /**
+     * A list of instructions to process the financial outcome of the refund.
+     */
+    public Builder refundMethods(List<RefundMethodInput> refundMethods) {
+      this.refundMethods = refundMethods;
+      return this;
+    }
+
+    /**
      * An optional reason for a discrepancy between calculated and actual refund amounts.
      */
     public Builder discrepancyReason(OrderAdjustmentInputDiscrepancyReason discrepancyReason) {
       this.discrepancyReason = discrepancyReason;
+      return this;
+    }
+
+    /**
+     * Whether to allow the total refunded amount to surpass the amount paid for the order.
+     */
+    public Builder allowOverRefunding(Boolean allowOverRefunding) {
+      this.allowOverRefunding = allowOverRefunding;
       return this;
     }
   }

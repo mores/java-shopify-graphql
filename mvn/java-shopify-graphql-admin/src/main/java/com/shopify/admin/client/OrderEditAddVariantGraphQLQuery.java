@@ -8,8 +8,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Adds a line item from an existing product variant. As of API version 2025-04, the [orderEditAddVariant](https://shopify.dev/api/admin-graphql/latest/mutations/ordereditaddvariant)
- * API will respect the contextual pricing of the variant.
+ * Adds a [`ProductVariant`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant) as a line item to an
+ * [`Order`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order)
+ * that's being edited. The mutation respects the variant's contextual pricing.
+ *   
+ * You can specify a [`Location`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Location)
+ * to check for inventory availability and control whether duplicate variants are allowed. The [`quantity`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/orderEditAddVariant#arguments-quantity)
+ * must be a positive value.
+ *   
+ * Learn more about [editing existing orders](https://shopify.dev/docs/apps/build/orders-fulfillment/order-management-apps/edit-orders#add-a-new-variant).
  */
 public class OrderEditAddVariantGraphQLQuery extends GraphQLQuery {
   public OrderEditAddVariantGraphQLQuery(String id, String variantId, String locationId,
@@ -61,7 +68,7 @@ public class OrderEditAddVariantGraphQLQuery extends GraphQLQuery {
 
     /**
      * The ID of the [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
-     * to edit.
+     * or the order edit session to edit.
      */
     public Builder id(String id) {
       this.id = id;

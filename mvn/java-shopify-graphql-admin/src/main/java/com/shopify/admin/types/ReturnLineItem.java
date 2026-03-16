@@ -7,7 +7,15 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * A return line item.
+ * An item that a customer returns from a fulfilled order. Links to the original [`FulfillmentLineItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/FulfillmentLineItem)
+ * and tracks quantities through the return process.
+ *
+ * The line item includes the customer's reason for returning the item and any
+ * additional notes. It also tracks processing status with separate quantities for
+ * items that are processable, processed, refundable, and refunded. You can apply
+ * optional restocking fees to cover handling costs.
+ *
+ * Learn more about [creating a return](https://shopify.dev/docs/api/admin-graphql/latest/mutations/returnCreate).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -27,6 +35,16 @@ public class ReturnLineItem implements com.shopify.admin.types.Node, com.shopify
    * A globally-unique ID.
    */
   private String id;
+
+  /**
+   * The quantity that can be processed.
+   */
+  private int processableQuantity;
+
+  /**
+   * The quantity that has been processed.
+   */
+  private int processedQuantity;
 
   /**
    * The quantity being returned.
@@ -54,6 +72,11 @@ public class ReturnLineItem implements com.shopify.admin.types.Node, com.shopify
   private ReturnReason returnReason;
 
   /**
+   * The standardized reason for why the item is being returned.
+   */
+  private ReturnReasonDefinition returnReasonDefinition;
+
+  /**
    * Additional information about the reason for the return. Maximum length: 255 characters.
    */
   private String returnReasonNote;
@@ -62,6 +85,11 @@ public class ReturnLineItem implements com.shopify.admin.types.Node, com.shopify
    * The total weight of the item.
    */
   private Weight totalWeight;
+
+  /**
+   * The quantity that has't been processed.
+   */
+  private int unprocessedQuantity;
 
   /**
    * The total line price after all discounts on the line item, including both line
@@ -103,6 +131,28 @@ public class ReturnLineItem implements com.shopify.admin.types.Node, com.shopify
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  /**
+   * The quantity that can be processed.
+   */
+  public int getProcessableQuantity() {
+    return processableQuantity;
+  }
+
+  public void setProcessableQuantity(int processableQuantity) {
+    this.processableQuantity = processableQuantity;
+  }
+
+  /**
+   * The quantity that has been processed.
+   */
+  public int getProcessedQuantity() {
+    return processedQuantity;
+  }
+
+  public void setProcessedQuantity(int processedQuantity) {
+    this.processedQuantity = processedQuantity;
   }
 
   /**
@@ -161,6 +211,17 @@ public class ReturnLineItem implements com.shopify.admin.types.Node, com.shopify
   }
 
   /**
+   * The standardized reason for why the item is being returned.
+   */
+  public ReturnReasonDefinition getReturnReasonDefinition() {
+    return returnReasonDefinition;
+  }
+
+  public void setReturnReasonDefinition(ReturnReasonDefinition returnReasonDefinition) {
+    this.returnReasonDefinition = returnReasonDefinition;
+  }
+
+  /**
    * Additional information about the reason for the return. Maximum length: 255 characters.
    */
   public String getReturnReasonNote() {
@@ -183,6 +244,17 @@ public class ReturnLineItem implements com.shopify.admin.types.Node, com.shopify
   }
 
   /**
+   * The quantity that has't been processed.
+   */
+  public int getUnprocessedQuantity() {
+    return unprocessedQuantity;
+  }
+
+  public void setUnprocessedQuantity(int unprocessedQuantity) {
+    this.unprocessedQuantity = unprocessedQuantity;
+  }
+
+  /**
    * The total line price after all discounts on the line item, including both line
    * item level discounts and code-based line item discounts, are applied.
    */
@@ -196,7 +268,7 @@ public class ReturnLineItem implements com.shopify.admin.types.Node, com.shopify
 
   @Override
   public String toString() {
-    return "ReturnLineItem{customerNote='" + customerNote + "', fulfillmentLineItem='" + fulfillmentLineItem + "', id='" + id + "', quantity='" + quantity + "', refundableQuantity='" + refundableQuantity + "', refundedQuantity='" + refundedQuantity + "', restockingFee='" + restockingFee + "', returnReason='" + returnReason + "', returnReasonNote='" + returnReasonNote + "', totalWeight='" + totalWeight + "', withCodeDiscountedTotalPriceSet='" + withCodeDiscountedTotalPriceSet + "'}";
+    return "ReturnLineItem{customerNote='" + customerNote + "', fulfillmentLineItem='" + fulfillmentLineItem + "', id='" + id + "', processableQuantity='" + processableQuantity + "', processedQuantity='" + processedQuantity + "', quantity='" + quantity + "', refundableQuantity='" + refundableQuantity + "', refundedQuantity='" + refundedQuantity + "', restockingFee='" + restockingFee + "', returnReason='" + returnReason + "', returnReasonDefinition='" + returnReasonDefinition + "', returnReasonNote='" + returnReasonNote + "', totalWeight='" + totalWeight + "', unprocessedQuantity='" + unprocessedQuantity + "', withCodeDiscountedTotalPriceSet='" + withCodeDiscountedTotalPriceSet + "'}";
   }
 
   @Override
@@ -207,19 +279,23 @@ public class ReturnLineItem implements com.shopify.admin.types.Node, com.shopify
     return Objects.equals(customerNote, that.customerNote) &&
         Objects.equals(fulfillmentLineItem, that.fulfillmentLineItem) &&
         Objects.equals(id, that.id) &&
+        processableQuantity == that.processableQuantity &&
+        processedQuantity == that.processedQuantity &&
         quantity == that.quantity &&
         refundableQuantity == that.refundableQuantity &&
         refundedQuantity == that.refundedQuantity &&
         Objects.equals(restockingFee, that.restockingFee) &&
         Objects.equals(returnReason, that.returnReason) &&
+        Objects.equals(returnReasonDefinition, that.returnReasonDefinition) &&
         Objects.equals(returnReasonNote, that.returnReasonNote) &&
         Objects.equals(totalWeight, that.totalWeight) &&
+        unprocessedQuantity == that.unprocessedQuantity &&
         Objects.equals(withCodeDiscountedTotalPriceSet, that.withCodeDiscountedTotalPriceSet);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerNote, fulfillmentLineItem, id, quantity, refundableQuantity, refundedQuantity, restockingFee, returnReason, returnReasonNote, totalWeight, withCodeDiscountedTotalPriceSet);
+    return Objects.hash(customerNote, fulfillmentLineItem, id, processableQuantity, processedQuantity, quantity, refundableQuantity, refundedQuantity, restockingFee, returnReason, returnReasonDefinition, returnReasonNote, totalWeight, unprocessedQuantity, withCodeDiscountedTotalPriceSet);
   }
 
   public static Builder newBuilder() {
@@ -241,6 +317,16 @@ public class ReturnLineItem implements com.shopify.admin.types.Node, com.shopify
      * A globally-unique ID.
      */
     private String id;
+
+    /**
+     * The quantity that can be processed.
+     */
+    private int processableQuantity;
+
+    /**
+     * The quantity that has been processed.
+     */
+    private int processedQuantity;
 
     /**
      * The quantity being returned.
@@ -268,6 +354,11 @@ public class ReturnLineItem implements com.shopify.admin.types.Node, com.shopify
     private ReturnReason returnReason;
 
     /**
+     * The standardized reason for why the item is being returned.
+     */
+    private ReturnReasonDefinition returnReasonDefinition;
+
+    /**
      * Additional information about the reason for the return. Maximum length: 255 characters.
      */
     private String returnReasonNote;
@@ -276,6 +367,11 @@ public class ReturnLineItem implements com.shopify.admin.types.Node, com.shopify
      * The total weight of the item.
      */
     private Weight totalWeight;
+
+    /**
+     * The quantity that has't been processed.
+     */
+    private int unprocessedQuantity;
 
     /**
      * The total line price after all discounts on the line item, including both line
@@ -288,13 +384,17 @@ public class ReturnLineItem implements com.shopify.admin.types.Node, com.shopify
       result.customerNote = this.customerNote;
       result.fulfillmentLineItem = this.fulfillmentLineItem;
       result.id = this.id;
+      result.processableQuantity = this.processableQuantity;
+      result.processedQuantity = this.processedQuantity;
       result.quantity = this.quantity;
       result.refundableQuantity = this.refundableQuantity;
       result.refundedQuantity = this.refundedQuantity;
       result.restockingFee = this.restockingFee;
       result.returnReason = this.returnReason;
+      result.returnReasonDefinition = this.returnReasonDefinition;
       result.returnReasonNote = this.returnReasonNote;
       result.totalWeight = this.totalWeight;
+      result.unprocessedQuantity = this.unprocessedQuantity;
       result.withCodeDiscountedTotalPriceSet = this.withCodeDiscountedTotalPriceSet;
       return result;
     }
@@ -320,6 +420,22 @@ public class ReturnLineItem implements com.shopify.admin.types.Node, com.shopify
      */
     public Builder id(String id) {
       this.id = id;
+      return this;
+    }
+
+    /**
+     * The quantity that can be processed.
+     */
+    public Builder processableQuantity(int processableQuantity) {
+      this.processableQuantity = processableQuantity;
+      return this;
+    }
+
+    /**
+     * The quantity that has been processed.
+     */
+    public Builder processedQuantity(int processedQuantity) {
+      this.processedQuantity = processedQuantity;
       return this;
     }
 
@@ -364,6 +480,14 @@ public class ReturnLineItem implements com.shopify.admin.types.Node, com.shopify
     }
 
     /**
+     * The standardized reason for why the item is being returned.
+     */
+    public Builder returnReasonDefinition(ReturnReasonDefinition returnReasonDefinition) {
+      this.returnReasonDefinition = returnReasonDefinition;
+      return this;
+    }
+
+    /**
      * Additional information about the reason for the return. Maximum length: 255 characters.
      */
     public Builder returnReasonNote(String returnReasonNote) {
@@ -376,6 +500,14 @@ public class ReturnLineItem implements com.shopify.admin.types.Node, com.shopify
      */
     public Builder totalWeight(Weight totalWeight) {
       this.totalWeight = totalWeight;
+      return this;
+    }
+
+    /**
+     * The quantity that has't been processed.
+     */
+    public Builder unprocessedQuantity(int unprocessedQuantity) {
+      this.unprocessedQuantity = unprocessedQuantity;
       return this;
     }
 

@@ -68,6 +68,11 @@ public class DiscountCodeBxgy implements Discount, DiscountCode {
   private DiscountCombinesWith combinesWith;
 
   /**
+   * The context defining which buyers can use the discount.
+   */
+  private DiscountContext context;
+
+  /**
    * The date and time when the discount was created.
    */
   private OffsetDateTime createdAt;
@@ -150,8 +155,8 @@ public class DiscountCodeBxgy implements Discount, DiscountCode {
   private OffsetDateTime updatedAt;
 
   /**
-   * The maximum number of times that a customer can use the discount.
-   * For discounts with unlimited usage, specify `null`.
+   * The maximum number of times the discount can be redeemed.
+   * For unlimited usage, specify `null`.
    */
   private Integer usageLimit;
 
@@ -225,6 +230,17 @@ public class DiscountCodeBxgy implements Discount, DiscountCode {
 
   public void setCombinesWith(DiscountCombinesWith combinesWith) {
     this.combinesWith = combinesWith;
+  }
+
+  /**
+   * The context defining which buyers can use the discount.
+   */
+  public DiscountContext getContext() {
+    return context;
+  }
+
+  public void setContext(DiscountContext context) {
+    this.context = context;
   }
 
   /**
@@ -400,8 +416,8 @@ public class DiscountCodeBxgy implements Discount, DiscountCode {
   }
 
   /**
-   * The maximum number of times that a customer can use the discount.
-   * For discounts with unlimited usage, specify `null`.
+   * The maximum number of times the discount can be redeemed.
+   * For unlimited usage, specify `null`.
    */
   public Integer getUsageLimit() {
     return usageLimit;
@@ -424,7 +440,7 @@ public class DiscountCodeBxgy implements Discount, DiscountCode {
 
   @Override
   public String toString() {
-    return "DiscountCodeBxgy{appliesOncePerCustomer='" + appliesOncePerCustomer + "', asyncUsageCount='" + asyncUsageCount + "', codes='" + codes + "', codesCount='" + codesCount + "', combinesWith='" + combinesWith + "', createdAt='" + createdAt + "', customerBuys='" + customerBuys + "', customerGets='" + customerGets + "', customerSelection='" + customerSelection + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', endsAt='" + endsAt + "', hasTimelineComment='" + hasTimelineComment + "', shareableUrls='" + shareableUrls + "', startsAt='" + startsAt + "', status='" + status + "', summary='" + summary + "', title='" + title + "', totalSales='" + totalSales + "', updatedAt='" + updatedAt + "', usageLimit='" + usageLimit + "', usesPerOrderLimit='" + usesPerOrderLimit + "'}";
+    return "DiscountCodeBxgy{appliesOncePerCustomer='" + appliesOncePerCustomer + "', asyncUsageCount='" + asyncUsageCount + "', codes='" + codes + "', codesCount='" + codesCount + "', combinesWith='" + combinesWith + "', context='" + context + "', createdAt='" + createdAt + "', customerBuys='" + customerBuys + "', customerGets='" + customerGets + "', customerSelection='" + customerSelection + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', endsAt='" + endsAt + "', hasTimelineComment='" + hasTimelineComment + "', shareableUrls='" + shareableUrls + "', startsAt='" + startsAt + "', status='" + status + "', summary='" + summary + "', title='" + title + "', totalSales='" + totalSales + "', updatedAt='" + updatedAt + "', usageLimit='" + usageLimit + "', usesPerOrderLimit='" + usesPerOrderLimit + "'}";
   }
 
   @Override
@@ -437,6 +453,7 @@ public class DiscountCodeBxgy implements Discount, DiscountCode {
         Objects.equals(codes, that.codes) &&
         Objects.equals(codesCount, that.codesCount) &&
         Objects.equals(combinesWith, that.combinesWith) &&
+        Objects.equals(context, that.context) &&
         Objects.equals(createdAt, that.createdAt) &&
         Objects.equals(customerBuys, that.customerBuys) &&
         Objects.equals(customerGets, that.customerGets) &&
@@ -458,7 +475,7 @@ public class DiscountCodeBxgy implements Discount, DiscountCode {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appliesOncePerCustomer, asyncUsageCount, codes, codesCount, combinesWith, createdAt, customerBuys, customerGets, customerSelection, discountClass, discountClasses, endsAt, hasTimelineComment, shareableUrls, startsAt, status, summary, title, totalSales, updatedAt, usageLimit, usesPerOrderLimit);
+    return Objects.hash(appliesOncePerCustomer, asyncUsageCount, codes, codesCount, combinesWith, context, createdAt, customerBuys, customerGets, customerSelection, discountClass, discountClasses, endsAt, hasTimelineComment, shareableUrls, startsAt, status, summary, title, totalSales, updatedAt, usageLimit, usesPerOrderLimit);
   }
 
   public static Builder newBuilder() {
@@ -499,6 +516,11 @@ public class DiscountCodeBxgy implements Discount, DiscountCode {
      * [Shopify discount types](https://help.shopify.com/manual/discounts/discount-types).
      */
     private DiscountCombinesWith combinesWith;
+
+    /**
+     * The context defining which buyers can use the discount.
+     */
+    private DiscountContext context;
 
     /**
      * The date and time when the discount was created.
@@ -583,8 +605,8 @@ public class DiscountCodeBxgy implements Discount, DiscountCode {
     private OffsetDateTime updatedAt;
 
     /**
-     * The maximum number of times that a customer can use the discount.
-     * For discounts with unlimited usage, specify `null`.
+     * The maximum number of times the discount can be redeemed.
+     * For unlimited usage, specify `null`.
      */
     private Integer usageLimit;
 
@@ -600,6 +622,7 @@ public class DiscountCodeBxgy implements Discount, DiscountCode {
       result.codes = this.codes;
       result.codesCount = this.codesCount;
       result.combinesWith = this.combinesWith;
+      result.context = this.context;
       result.createdAt = this.createdAt;
       result.customerBuys = this.customerBuys;
       result.customerGets = this.customerGets;
@@ -666,6 +689,14 @@ public class DiscountCodeBxgy implements Discount, DiscountCode {
      */
     public Builder combinesWith(DiscountCombinesWith combinesWith) {
       this.combinesWith = combinesWith;
+      return this;
+    }
+
+    /**
+     * The context defining which buyers can use the discount.
+     */
+    public Builder context(DiscountContext context) {
+      this.context = context;
       return this;
     }
 
@@ -797,8 +828,8 @@ public class DiscountCodeBxgy implements Discount, DiscountCode {
     }
 
     /**
-     * The maximum number of times that a customer can use the discount.
-     * For discounts with unlimited usage, specify `null`.
+     * The maximum number of times the discount can be redeemed.
+     * For unlimited usage, specify `null`.
      */
     public Builder usageLimit(Integer usageLimit) {
       this.usageLimit = usageLimit;

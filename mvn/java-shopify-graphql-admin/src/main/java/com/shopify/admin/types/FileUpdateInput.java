@@ -16,7 +16,7 @@ public class FileUpdateInput {
   private String id;
 
   /**
-   * The alternative text description of the file.
+   * The alt text description of the file for screen readers and accessibility.
    */
   private String alt;
 
@@ -64,7 +64,7 @@ public class FileUpdateInput {
   }
 
   /**
-   * The alternative text description of the file.
+   * The alt text description of the file for screen readers and accessibility.
    */
   public String getAlt() {
     return alt;
@@ -168,7 +168,7 @@ public class FileUpdateInput {
     private String id;
 
     /**
-     * The alternative text description of the file.
+     * The alt text description of the file for screen readers and accessibility.
      */
     private String alt;
 
@@ -222,7 +222,7 @@ public class FileUpdateInput {
     }
 
     /**
-     * The alternative text description of the file.
+     * The alt text description of the file for screen readers and accessibility.
      */
     public Builder alt(String alt) {
       this.alt = alt;

@@ -12,7 +12,41 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Updates a product option.
+ * Updates an [option](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductOption)
+ * on a [product](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product),
+ * such as size, color, or material. Each option includes a name, position, and a list of values. The combination
+ * of a product option and value creates a [product variant](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant).
+ *   
+ * Use the `productOptionUpdate` mutation for the following use cases:
+ *   
+ * - **Update product choices**: Modify an existing option, like "Size" (Small, Medium, Large) or
+ * "Color" (Red, Blue, Green), so customers can select their preferred variant.
+ * - **Enable personalization features**: Update an option (for example,
+ * "Engraving text") to let customers customize their purchase.
+ * - **Offer seasonal or limited edition products**: Update a value
+ * (for example, "Holiday red") on an existing option to support limited-time or seasonal variants.
+ * - **Integrate with apps that manage product configuration**: Allow third-party apps to update options, like
+ * "Bundle size", when customers select or customize
+ * [product bundles](https://shopify.dev/docs/apps/build/product-merchandising/bundles).
+ * - **Link options to metafields**: Associate a product option with a custom
+ * [metafield](https://shopify.dev/docs/apps/build/custom-data), like "Fabric code", for
+ * richer integrations with other systems or apps.
+ *   
+ * > Note:
+ * > The `productOptionUpdate` mutation enforces strict data integrity for product options and variants.
+ * All option positions must be sequential, and every option should be used by at least one variant.
+ *   
+ * After you update a product option, you can further manage a product's configuration using related mutations:
+ *   
+ * - [`productOptionsCreate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productOptionsCreate)
+ * - [`productOptionsDelete`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productOptionsDelete)
+ * - [`productOptionsReorder`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productOptionsReorder)
+ * - [`productVariantsBulkCreate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productVariantsBulkCreate)
+ * - [`productVariantsBulkUpdate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productVariantsBulkUpdate)
+ * - [`productSet`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productSet)
+ *   
+ * Learn more about the [product model](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model)
+ * and [adding product data](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model/add-data).
  */
 public class ProductOptionUpdateGraphQLQuery extends GraphQLQuery {
   public ProductOptionUpdateGraphQLQuery(OptionUpdateInput option, String productId,

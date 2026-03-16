@@ -9,7 +9,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Updates an article.
+ * Updates an existing [`Article`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Article).
+ * You can modify the article's content, metadata, publication status, and
+ * associated properties like author information and tags.
+ *   
+ * If you update the [`handle`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/articleUpdate#arguments-article.fields.handle),
+ * then you can optionally create a redirect from the old URL to the new one by setting [`redirectNewHandle`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/articleUpdate#arguments-article.fields.redirectNewHandle) to `true`.
  */
 public class ArticleUpdateGraphQLQuery extends GraphQLQuery {
   public ArticleUpdateGraphQLQuery(String id, ArticleUpdateInput article, ArticleBlogInput blog,

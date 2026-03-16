@@ -21,6 +21,11 @@ public class OrderInput {
   private String email;
 
   /**
+   * A new customer phone number for the order. Overwrites the existing phone number.
+   */
+  private String phone;
+
+  /**
    * The new contents for the note associated with the order. Overwrites the existing note.
    */
   private String note;
@@ -80,6 +85,17 @@ public class OrderInput {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  /**
+   * A new customer phone number for the order. Overwrites the existing phone number.
+   */
+  public String getPhone() {
+    return phone;
+  }
+
+  public void setPhone(String phone) {
+    this.phone = phone;
   }
 
   /**
@@ -163,7 +179,7 @@ public class OrderInput {
 
   @Override
   public String toString() {
-    return "OrderInput{id='" + id + "', email='" + email + "', note='" + note + "', tags='" + tags + "', shippingAddress='" + shippingAddress + "', customAttributes='" + customAttributes + "', metafields='" + metafields + "', localizedFields='" + localizedFields + "', poNumber='" + poNumber + "'}";
+    return "OrderInput{id='" + id + "', email='" + email + "', phone='" + phone + "', note='" + note + "', tags='" + tags + "', shippingAddress='" + shippingAddress + "', customAttributes='" + customAttributes + "', metafields='" + metafields + "', localizedFields='" + localizedFields + "', poNumber='" + poNumber + "'}";
   }
 
   @Override
@@ -173,6 +189,7 @@ public class OrderInput {
     OrderInput that = (OrderInput) o;
     return Objects.equals(id, that.id) &&
         Objects.equals(email, that.email) &&
+        Objects.equals(phone, that.phone) &&
         Objects.equals(note, that.note) &&
         Objects.equals(tags, that.tags) &&
         Objects.equals(shippingAddress, that.shippingAddress) &&
@@ -184,7 +201,7 @@ public class OrderInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, email, note, tags, shippingAddress, customAttributes, metafields, localizedFields, poNumber);
+    return Objects.hash(id, email, phone, note, tags, shippingAddress, customAttributes, metafields, localizedFields, poNumber);
   }
 
   public static Builder newBuilder() {
@@ -201,6 +218,11 @@ public class OrderInput {
      * A new customer email address for the order. Overwrites the existing email address.
      */
     private String email;
+
+    /**
+     * A new customer phone number for the order. Overwrites the existing phone number.
+     */
+    private String phone;
 
     /**
      * The new contents for the note associated with the order. Overwrites the existing note.
@@ -243,6 +265,7 @@ public class OrderInput {
       OrderInput result = new OrderInput();
       result.id = this.id;
       result.email = this.email;
+      result.phone = this.phone;
       result.note = this.note;
       result.tags = this.tags;
       result.shippingAddress = this.shippingAddress;
@@ -266,6 +289,14 @@ public class OrderInput {
      */
     public Builder email(String email) {
       this.email = email;
+      return this;
+    }
+
+    /**
+     * A new customer phone number for the order. Overwrites the existing phone number.
+     */
+    public Builder phone(String phone) {
+      this.phone = phone;
       return this;
     }
 

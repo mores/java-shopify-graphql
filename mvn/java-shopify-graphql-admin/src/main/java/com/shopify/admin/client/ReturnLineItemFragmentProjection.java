@@ -39,6 +39,13 @@ public class ReturnLineItemFragmentProjection<PARENT extends BaseSubProjectionNo
      return projection;
   }
 
+  public ReturnReasonDefinitionProjection<ReturnLineItemFragmentProjection<PARENT, ROOT>, ROOT> returnReasonDefinition(
+      ) {
+     ReturnReasonDefinitionProjection<ReturnLineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new ReturnReasonDefinitionProjection<>(this, getRoot());
+     getFields().put("returnReasonDefinition", projection);
+     return projection;
+  }
+
   public WeightProjection<ReturnLineItemFragmentProjection<PARENT, ROOT>, ROOT> totalWeight() {
      WeightProjection<ReturnLineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new WeightProjection<>(this, getRoot());
      getFields().put("totalWeight", projection);
@@ -62,6 +69,16 @@ public class ReturnLineItemFragmentProjection<PARENT extends BaseSubProjectionNo
     return this;
   }
 
+  public ReturnLineItemFragmentProjection<PARENT, ROOT> processableQuantity() {
+    getFields().put("processableQuantity", null);
+    return this;
+  }
+
+  public ReturnLineItemFragmentProjection<PARENT, ROOT> processedQuantity() {
+    getFields().put("processedQuantity", null);
+    return this;
+  }
+
   public ReturnLineItemFragmentProjection<PARENT, ROOT> quantity() {
     getFields().put("quantity", null);
     return this;
@@ -79,6 +96,11 @@ public class ReturnLineItemFragmentProjection<PARENT extends BaseSubProjectionNo
 
   public ReturnLineItemFragmentProjection<PARENT, ROOT> returnReasonNote() {
     getFields().put("returnReasonNote", null);
+    return this;
+  }
+
+  public ReturnLineItemFragmentProjection<PARENT, ROOT> unprocessedQuantity() {
+    getFields().put("unprocessedQuantity", null);
     return this;
   }
 

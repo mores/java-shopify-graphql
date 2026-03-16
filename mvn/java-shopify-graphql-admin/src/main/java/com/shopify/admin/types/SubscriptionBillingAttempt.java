@@ -8,9 +8,14 @@ import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
- * A record of an execution of the subscription billing process. Billing attempts use
- * idempotency keys to avoid duplicate order creation. A successful billing attempt
- * will create an order.
+ * A record of an execution of the subscription billing process. Billing attempts
+ * use idempotency keys to avoid duplicate order creation.
+ *
+ * When a billing attempt completes successfully, it creates an
+ * [`Order`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order). The
+ * attempt includes associated payment transactions and any errors that occur
+ * during billing. If 3D Secure authentication is required, the `nextActionUrl`
+ * field provides the redirect URL for customer verification.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

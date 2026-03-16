@@ -25,4 +25,9 @@ public class OrderEditCommitProjectionRoot<PARENT extends BaseSubProjectionNode<
     getFields().put("userErrors", projection);
     return projection;
   }
+
+  public OrderEditCommitProjectionRoot<PARENT, ROOT> successMessages() {
+    getFields().put("successMessages", null);
+    return this;
+  }
 }

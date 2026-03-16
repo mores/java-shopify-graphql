@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a Comment resource by ID.
+ * Returns a `Comment` resource by ID.
  */
 public class CommentGraphQLQuery extends GraphQLQuery {
   public CommentGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

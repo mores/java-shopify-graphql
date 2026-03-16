@@ -11,7 +11,12 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Returns a paginated list of themes for the shop.
+ * Returns a paginated list of [`OnlineStoreTheme`](https://shopify.dev/docs/api/admin-graphql/latest/objects/OnlineStoreTheme)
+ * objects for the online store. Themes control the appearance and layout of the storefront.
+ *   
+ * You can filter themes by [`role`](https://shopify.dev/docs/api/admin-graphql/latest/queries/themes#arguments-roles)
+ * to find specific theme types, such as `MAIN` for the published theme and
+ * `UNPUBLISHED` for draft themes.
  */
 public class ThemesGraphQLQuery extends GraphQLQuery {
   public ThemesGraphQLQuery(List<ThemeRole> roles, List<String> names, Integer first, String after,

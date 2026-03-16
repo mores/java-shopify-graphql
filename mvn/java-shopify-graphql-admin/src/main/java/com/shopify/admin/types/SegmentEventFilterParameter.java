@@ -1,5 +1,6 @@
 package com.shopify.admin.types;
 
+import java.lang.Double;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
@@ -23,6 +24,16 @@ public class SegmentEventFilterParameter {
    * The localized name of the parameter.
    */
   private String localizedName;
+
+  /**
+   * The parameter maximum value range.
+   */
+  private Double maxRange;
+
+  /**
+   * The parameter minimum value range.
+   */
+  private Double minRange;
 
   /**
    * Whether the parameter is optional.
@@ -76,6 +87,28 @@ public class SegmentEventFilterParameter {
   }
 
   /**
+   * The parameter maximum value range.
+   */
+  public Double getMaxRange() {
+    return maxRange;
+  }
+
+  public void setMaxRange(Double maxRange) {
+    this.maxRange = maxRange;
+  }
+
+  /**
+   * The parameter minimum value range.
+   */
+  public Double getMinRange() {
+    return minRange;
+  }
+
+  public void setMinRange(Double minRange) {
+    this.minRange = minRange;
+  }
+
+  /**
    * Whether the parameter is optional.
    */
   public boolean getOptional() {
@@ -110,7 +143,7 @@ public class SegmentEventFilterParameter {
 
   @Override
   public String toString() {
-    return "SegmentEventFilterParameter{acceptsMultipleValues='" + acceptsMultipleValues + "', localizedDescription='" + localizedDescription + "', localizedName='" + localizedName + "', optional='" + optional + "', parameterType='" + parameterType + "', queryName='" + queryName + "'}";
+    return "SegmentEventFilterParameter{acceptsMultipleValues='" + acceptsMultipleValues + "', localizedDescription='" + localizedDescription + "', localizedName='" + localizedName + "', maxRange='" + maxRange + "', minRange='" + minRange + "', optional='" + optional + "', parameterType='" + parameterType + "', queryName='" + queryName + "'}";
   }
 
   @Override
@@ -121,6 +154,8 @@ public class SegmentEventFilterParameter {
     return acceptsMultipleValues == that.acceptsMultipleValues &&
         Objects.equals(localizedDescription, that.localizedDescription) &&
         Objects.equals(localizedName, that.localizedName) &&
+        Objects.equals(maxRange, that.maxRange) &&
+        Objects.equals(minRange, that.minRange) &&
         optional == that.optional &&
         Objects.equals(parameterType, that.parameterType) &&
         Objects.equals(queryName, that.queryName);
@@ -128,7 +163,7 @@ public class SegmentEventFilterParameter {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptsMultipleValues, localizedDescription, localizedName, optional, parameterType, queryName);
+    return Objects.hash(acceptsMultipleValues, localizedDescription, localizedName, maxRange, minRange, optional, parameterType, queryName);
   }
 
   public static Builder newBuilder() {
@@ -152,6 +187,16 @@ public class SegmentEventFilterParameter {
     private String localizedName;
 
     /**
+     * The parameter maximum value range.
+     */
+    private Double maxRange;
+
+    /**
+     * The parameter minimum value range.
+     */
+    private Double minRange;
+
+    /**
      * Whether the parameter is optional.
      */
     private boolean optional;
@@ -171,6 +216,8 @@ public class SegmentEventFilterParameter {
       result.acceptsMultipleValues = this.acceptsMultipleValues;
       result.localizedDescription = this.localizedDescription;
       result.localizedName = this.localizedName;
+      result.maxRange = this.maxRange;
+      result.minRange = this.minRange;
       result.optional = this.optional;
       result.parameterType = this.parameterType;
       result.queryName = this.queryName;
@@ -198,6 +245,22 @@ public class SegmentEventFilterParameter {
      */
     public Builder localizedName(String localizedName) {
       this.localizedName = localizedName;
+      return this;
+    }
+
+    /**
+     * The parameter maximum value range.
+     */
+    public Builder maxRange(Double maxRange) {
+      this.maxRange = maxRange;
+      return this;
+    }
+
+    /**
+     * The parameter minimum value range.
+     */
+    public Builder minRange(Double minRange) {
+      this.minRange = minRange;
       return this;
     }
 

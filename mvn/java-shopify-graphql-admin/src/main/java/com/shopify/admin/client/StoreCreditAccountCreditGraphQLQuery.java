@@ -8,10 +8,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Creates a credit transaction that increases the store credit account balance by the given amount.
- * This operation will create an account if one does not already exist.
- * A store credit account owner can hold multiple accounts each with a different currency.
- * Use the most appropriate currency for the given store credit account owner.
+ * Adds funds to a [`StoreCreditAccount`](https://shopify.dev/docs/api/admin-graphql/latest/objects/StoreCreditAccount) by creating a [`StoreCreditAccountCreditTransaction`](https://shopify.dev/docs/api/admin-graphql/latest/objects/StoreCreditAccountCreditTransaction).
+ * The mutation accepts either a store credit account ID, a [`Customer`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Customer) ID, or a [`CompanyLocation`](https://shopify.dev/docs/api/admin-graphql/latest/objects/CompanyLocation)
+ * ID. When you provide a customer or company location ID, it automatically
+ * creates an account if one doesn't exist for the specified currency.
+ *   
+ * Store credit accounts are currency-specific. A single owner can have multiple
+ * accounts, each holding a different currency. Use the most appropriate currency
+ * for the given store credit account owner.
+ *   
+ * Credits can optionally include an expiration date.
  */
 public class StoreCreditAccountCreditGraphQLQuery extends GraphQLQuery {
   public StoreCreditAccountCreditGraphQLQuery(String id, StoreCreditAccountCreditInput creditInput,

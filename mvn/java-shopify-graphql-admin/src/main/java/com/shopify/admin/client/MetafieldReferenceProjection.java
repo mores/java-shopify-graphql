@@ -12,6 +12,12 @@ public class MetafieldReferenceProjection<PARENT extends BaseSubProjectionNode<?
     return this;
   }
 
+  public ArticleFragmentProjection<MetafieldReferenceProjection<PARENT, ROOT>, ROOT> onArticle() {
+    ArticleFragmentProjection<MetafieldReferenceProjection<PARENT, ROOT>, ROOT> fragment = new ArticleFragmentProjection<>(this, getRoot());
+    getFragments().add(fragment);
+    return fragment;
+  }
+
   public CollectionFragmentProjection<MetafieldReferenceProjection<PARENT, ROOT>, ROOT> onCollection(
       ) {
     CollectionFragmentProjection<MetafieldReferenceProjection<PARENT, ROOT>, ROOT> fragment = new CollectionFragmentProjection<>(this, getRoot());

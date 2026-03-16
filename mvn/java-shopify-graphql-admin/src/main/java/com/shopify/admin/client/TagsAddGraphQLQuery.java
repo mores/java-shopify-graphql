@@ -8,7 +8,13 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Add tags to an order, a draft order, a customer, a product, or an online store article.
+ * Adds tags to a resource in the store. Supported resources include
+ * [`Order`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order), [`DraftOrder`](https://shopify.dev/docs/api/admin-graphql/latest/objects/DraftOrder), [`Customer`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Customer), [`Product`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product), and [`Article`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Article).
+ *   
+ * Tags help merchants organize and filter resources. See the [`tags`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/tagsAdd#arguments-tags)
+ * argument for supported input formats.
+ *   
+ * Learn more about [using tags to organize subscription orders](https://shopify.dev/docs/apps/build/purchase-options/subscriptions/fulfillments/sync-orders-subscriptions#order-tagging).
  */
 public class TagsAddGraphQLQuery extends GraphQLQuery {
   public TagsAddGraphQLQuery(String id, List<String> tags, String queryName,

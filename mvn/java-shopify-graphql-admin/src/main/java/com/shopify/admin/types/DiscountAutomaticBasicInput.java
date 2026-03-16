@@ -11,6 +11,11 @@ import java.util.Objects;
  * The input fields for creating or updating an
  * [amount off discount](https://help.shopify.com/manual/discounts/discount-types/percentage-fixed-amount)
  * that's automatically applied on a cart and at checkout.
+ *
+ * During creation the required fields are:
+ *   - `customerGets`
+ *   - `startsAt`
+ *   - `title`
  */
 public class DiscountAutomaticBasicInput {
   /**
@@ -36,6 +41,13 @@ public class DiscountAutomaticBasicInput {
    * For discounts without a fixed expiration date, specify `null`.
    */
   private OffsetDateTime endsAt;
+
+  /**
+   * The context defining which buyers can use the discount.
+   * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+   * Discounts automatically apply on Point of Sale (POS) for Pro locations when the context is not set to ALL.
+   */
+  private DiscountContextInput context;
 
   /**
    * The minimum subtotal or quantity of items that are required for the discount to be applied.
@@ -107,6 +119,19 @@ public class DiscountAutomaticBasicInput {
   }
 
   /**
+   * The context defining which buyers can use the discount.
+   * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+   * Discounts automatically apply on Point of Sale (POS) for Pro locations when the context is not set to ALL.
+   */
+  public DiscountContextInput getContext() {
+    return context;
+  }
+
+  public void setContext(DiscountContextInput context) {
+    this.context = context;
+  }
+
+  /**
    * The minimum subtotal or quantity of items that are required for the discount to be applied.
    */
   public DiscountMinimumRequirementInput getMinimumRequirement() {
@@ -144,7 +169,7 @@ public class DiscountAutomaticBasicInput {
 
   @Override
   public String toString() {
-    return "DiscountAutomaticBasicInput{combinesWith='" + combinesWith + "', title='" + title + "', startsAt='" + startsAt + "', endsAt='" + endsAt + "', minimumRequirement='" + minimumRequirement + "', customerGets='" + customerGets + "', recurringCycleLimit='" + recurringCycleLimit + "'}";
+    return "DiscountAutomaticBasicInput{combinesWith='" + combinesWith + "', title='" + title + "', startsAt='" + startsAt + "', endsAt='" + endsAt + "', context='" + context + "', minimumRequirement='" + minimumRequirement + "', customerGets='" + customerGets + "', recurringCycleLimit='" + recurringCycleLimit + "'}";
   }
 
   @Override
@@ -156,6 +181,7 @@ public class DiscountAutomaticBasicInput {
         Objects.equals(title, that.title) &&
         Objects.equals(startsAt, that.startsAt) &&
         Objects.equals(endsAt, that.endsAt) &&
+        Objects.equals(context, that.context) &&
         Objects.equals(minimumRequirement, that.minimumRequirement) &&
         Objects.equals(customerGets, that.customerGets) &&
         Objects.equals(recurringCycleLimit, that.recurringCycleLimit);
@@ -163,7 +189,7 @@ public class DiscountAutomaticBasicInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(combinesWith, title, startsAt, endsAt, minimumRequirement, customerGets, recurringCycleLimit);
+    return Objects.hash(combinesWith, title, startsAt, endsAt, context, minimumRequirement, customerGets, recurringCycleLimit);
   }
 
   public static Builder newBuilder() {
@@ -196,6 +222,13 @@ public class DiscountAutomaticBasicInput {
     private OffsetDateTime endsAt;
 
     /**
+     * The context defining which buyers can use the discount.
+     * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+     * Discounts automatically apply on Point of Sale (POS) for Pro locations when the context is not set to ALL.
+     */
+    private DiscountContextInput context;
+
+    /**
      * The minimum subtotal or quantity of items that are required for the discount to be applied.
      */
     private DiscountMinimumRequirementInput minimumRequirement;
@@ -219,6 +252,7 @@ public class DiscountAutomaticBasicInput {
       result.title = this.title;
       result.startsAt = this.startsAt;
       result.endsAt = this.endsAt;
+      result.context = this.context;
       result.minimumRequirement = this.minimumRequirement;
       result.customerGets = this.customerGets;
       result.recurringCycleLimit = this.recurringCycleLimit;
@@ -258,6 +292,16 @@ public class DiscountAutomaticBasicInput {
      */
     public Builder endsAt(OffsetDateTime endsAt) {
       this.endsAt = endsAt;
+      return this;
+    }
+
+    /**
+     * The context defining which buyers can use the discount.
+     * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+     * Discounts automatically apply on Point of Sale (POS) for Pro locations when the context is not set to ALL.
+     */
+    public Builder context(DiscountContextInput context) {
+      this.context = context;
       return this;
     }
 

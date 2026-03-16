@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a bulk code creation resource by ID.
+ * Returns a `DiscountRedeemCodeBulkCreation` resource by ID.
  */
 public class DiscountRedeemCodeBulkCreationGraphQLQuery extends GraphQLQuery {
   public DiscountRedeemCodeBulkCreationGraphQLQuery(String id, String queryName,

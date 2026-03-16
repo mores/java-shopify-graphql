@@ -9,7 +9,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The list of members, such as customers, that's associated with an individual segment.
+ * A paginated list of customers that belong to an individual [`Segment`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Segment).
+ * Segments group customers based on criteria defined through [ShopifyQL queries](https://shopify.dev/docs/api/shopifyql/segment-query-language-reference).
+ * Access segment members with their profile information and purchase summary
+ * data. The connection includes statistics for analyzing segment attributes
+ * (such as average and sum calculations) and a total count of all members.
  * The maximum page size is 1000.
  */
 public class CustomerSegmentMembersGraphQLQuery extends GraphQLQuery {
@@ -133,7 +137,15 @@ public class CustomerSegmentMembersGraphQLQuery extends GraphQLQuery {
     }
 
     /**
-     * Sort the list by a given key.
+     * Sort the list by a given key. Valid values:
+     * • `created_at` - Sort by customer creation date
+     * • `first_order_date` - Sort by the date of the customer's first order
+     * • `last_abandoned_order_date` - Sort by the date of the customer's last abandoned checkout
+     * • `last_order_date` - Sort by the date of the customer's most recent order
+     * • `number_of_orders` - Sort by the total number of orders placed by the customer
+     * • `amount_spent` - Sort by the total amount the customer has spent across all orders
+     *     
+     * Use with the `reverse` parameter to control sort direction (ascending by default, descending when reverse=true).
      */
     public Builder sortKey(String sortKey) {
       this.sortKey = sortKey;

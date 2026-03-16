@@ -9,7 +9,11 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Splits a fulfillment order or orders based on line item inputs and quantities.
+ * Splits [`FulfillmentOrder`](https://shopify.dev/docs/api/admin-graphql/latest/objects/FulfillmentOrder) objects by moving the specified [`LineItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/LineItem)
+ * objects and quantities into a new fulfillment order.
+ *   
+ * If the original fulfillment order can't be split due to its current state,
+ * then the mutation creates a replacement fulfillment order instead.
  */
 public class FulfillmentOrderSplitGraphQLQuery extends GraphQLQuery {
   public FulfillmentOrderSplitGraphQLQuery(List<FulfillmentOrderSplitInput> fulfillmentOrderSplits,

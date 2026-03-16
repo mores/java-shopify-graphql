@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Create new marketing activity.
+ * Create new marketing activity. Marketing activity app extensions are deprecated and will be removed in the near future.
  */
 public class MarketingActivityCreateGraphQLQuery extends GraphQLQuery {
   public MarketingActivityCreateGraphQLQuery(MarketingActivityCreateInput input, String queryName,

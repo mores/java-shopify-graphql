@@ -8,9 +8,20 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Applies and saves staged changes to an order. Mutations are operating on `OrderEdit`.
- * All order edits start with `orderEditBegin`, have any number of `orderEdit`*
- * mutations made, and end with `orderEditCommit`.
+ * Applies staged changes from an order editing session to the original order.
+ * This finalizes all modifications made during the edit session, including
+ * changes to line items, quantities, discounts, and shipping lines.
+ *   
+ * Order editing follows a three-step workflow: start with [`orderEditBegin`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/orderEditBegin)
+ * to create an editing session, apply changes using various orderEdit mutations,
+ * and then save the changes with the [`orderEditCommit`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/orderEditCommit)
+ * mutation. The mutation can optionally notify the customer of changes and add
+ * staff notes for internal tracking.
+ *   
+ * You can only edit unfulfilled line items. If an edit changes the total order
+ * value, then the customer might need to pay a balance or receive a refund.
+ *   
+ * Learn more about [editing existing orders](https://shopify.dev/docs/apps/build/orders-fulfillment/order-management-apps/edit-orders).
  */
 public class OrderEditCommitGraphQLQuery extends GraphQLQuery {
   public OrderEditCommitGraphQLQuery(String id, Boolean notifyCustomer, String staffNote,
@@ -56,7 +67,7 @@ public class OrderEditCommitGraphQLQuery extends GraphQLQuery {
 
     /**
      * The ID of the [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
-     * that will have its changes applied to the order.
+     * or the order edit session that will have its changes applied to the order.
      */
     public Builder id(String id) {
       this.id = id;

@@ -49,6 +49,13 @@ public class CommentEventSubjectProjection<PARENT extends BaseSubProjectionNode<
     return fragment;
   }
 
+  public InventoryTransferFragmentProjection<CommentEventSubjectProjection<PARENT, ROOT>, ROOT> onInventoryTransfer(
+      ) {
+    InventoryTransferFragmentProjection<CommentEventSubjectProjection<PARENT, ROOT>, ROOT> fragment = new InventoryTransferFragmentProjection<>(this, getRoot());
+    getFragments().add(fragment);
+    return fragment;
+  }
+
   public OrderFragmentProjection<CommentEventSubjectProjection<PARENT, ROOT>, ROOT> onOrder() {
     OrderFragmentProjection<CommentEventSubjectProjection<PARENT, ROOT>, ROOT> fragment = new OrderFragmentProjection<>(this, getRoot());
     getFragments().add(fragment);

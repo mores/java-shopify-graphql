@@ -26,7 +26,7 @@ public class CalculatedReturn {
   private List<CalculatedReturnLineItem> returnLineItems;
 
   /**
-   * The calulated return shipping fee.
+   * The calculated return shipping fee.
    */
   private CalculatedReturnShippingFee returnShippingFee;
 
@@ -67,7 +67,7 @@ public class CalculatedReturn {
   }
 
   /**
-   * The calulated return shipping fee.
+   * The calculated return shipping fee.
    */
   public CalculatedReturnShippingFee getReturnShippingFee() {
     return returnShippingFee;
@@ -119,7 +119,7 @@ public class CalculatedReturn {
     private List<CalculatedReturnLineItem> returnLineItems;
 
     /**
-     * The calulated return shipping fee.
+     * The calculated return shipping fee.
      */
     private CalculatedReturnShippingFee returnShippingFee;
 
@@ -157,7 +157,7 @@ public class CalculatedReturn {
     }
 
     /**
-     * The calulated return shipping fee.
+     * The calculated return shipping fee.
      */
     public Builder returnShippingFee(CalculatedReturnShippingFee returnShippingFee) {
       this.returnShippingFee = returnShippingFee;

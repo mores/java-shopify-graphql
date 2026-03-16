@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a `CompanyContact` object by ID.
+ * Returns a `CompanyContact` resource by ID.
  */
 public class CompanyContactGraphQLQuery extends GraphQLQuery {
   public CompanyContactGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

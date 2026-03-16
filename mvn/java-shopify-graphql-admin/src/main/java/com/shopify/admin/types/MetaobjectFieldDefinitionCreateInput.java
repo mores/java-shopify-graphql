@@ -43,6 +43,11 @@ public class MetaobjectFieldDefinitionCreateInput {
    */
   private List<MetafieldDefinitionValidationInput> validations;
 
+  /**
+   * Capabilities configuration for this field.
+   */
+  private MetaobjectFieldDefinitionCapabilityCreateInput capabilities;
+
   public MetaobjectFieldDefinitionCreateInput() {
   }
 
@@ -114,9 +119,20 @@ public class MetaobjectFieldDefinitionCreateInput {
     this.validations = validations;
   }
 
+  /**
+   * Capabilities configuration for this field.
+   */
+  public MetaobjectFieldDefinitionCapabilityCreateInput getCapabilities() {
+    return capabilities;
+  }
+
+  public void setCapabilities(MetaobjectFieldDefinitionCapabilityCreateInput capabilities) {
+    this.capabilities = capabilities;
+  }
+
   @Override
   public String toString() {
-    return "MetaobjectFieldDefinitionCreateInput{key='" + key + "', type='" + type + "', name='" + name + "', description='" + description + "', required='" + required + "', validations='" + validations + "'}";
+    return "MetaobjectFieldDefinitionCreateInput{key='" + key + "', type='" + type + "', name='" + name + "', description='" + description + "', required='" + required + "', validations='" + validations + "', capabilities='" + capabilities + "'}";
   }
 
   @Override
@@ -129,12 +145,13 @@ public class MetaobjectFieldDefinitionCreateInput {
         Objects.equals(name, that.name) &&
         Objects.equals(description, that.description) &&
         Objects.equals(required, that.required) &&
-        Objects.equals(validations, that.validations);
+        Objects.equals(validations, that.validations) &&
+        Objects.equals(capabilities, that.capabilities);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, type, name, description, required, validations);
+    return Objects.hash(key, type, name, description, required, validations, capabilities);
   }
 
   public static Builder newBuilder() {
@@ -174,6 +191,11 @@ public class MetaobjectFieldDefinitionCreateInput {
      */
     private List<MetafieldDefinitionValidationInput> validations;
 
+    /**
+     * Capabilities configuration for this field.
+     */
+    private MetaobjectFieldDefinitionCapabilityCreateInput capabilities;
+
     public MetaobjectFieldDefinitionCreateInput build() {
       MetaobjectFieldDefinitionCreateInput result = new MetaobjectFieldDefinitionCreateInput();
       result.key = this.key;
@@ -182,6 +204,7 @@ public class MetaobjectFieldDefinitionCreateInput {
       result.description = this.description;
       result.required = this.required;
       result.validations = this.validations;
+      result.capabilities = this.capabilities;
       return result;
     }
 
@@ -232,6 +255,14 @@ public class MetaobjectFieldDefinitionCreateInput {
      */
     public Builder validations(List<MetafieldDefinitionValidationInput> validations) {
       this.validations = validations;
+      return this;
+    }
+
+    /**
+     * Capabilities configuration for this field.
+     */
+    public Builder capabilities(MetaobjectFieldDefinitionCapabilityCreateInput capabilities) {
+      this.capabilities = capabilities;
       return this;
     }
   }

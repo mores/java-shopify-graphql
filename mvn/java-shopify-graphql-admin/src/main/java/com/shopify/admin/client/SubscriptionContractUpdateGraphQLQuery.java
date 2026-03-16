@@ -7,10 +7,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The subscriptionContractUpdate mutation allows you to create a draft of an
- * existing subscription contract. This [draft](https://shopify.dev/api/admin-graphql/latest/objects/SubscriptionDraft)
- * can be reviewed and modified as needed. Once the draft is committed with [subscriptionDraftCommit](https://shopify.dev/api/admin-graphql/latest/mutations/subscriptionDraftCommit),
- * the changes are applied to the original subscription contract.
+ * Creates a draft of an existing [`SubscriptionContract`](https://shopify.dev/docs/api/admin-graphql/latest/objects/SubscriptionContract).
+ * The draft captures the current state of the contract and allows incremental
+ * modifications through draft mutations such as [`subscriptionDraftLineAdd`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/subscriptionDraftLineAdd), [`subscriptionDraftDiscountAdd`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/subscriptionDraftDiscountAdd), and [`subscriptionDraftUpdate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/subscriptionDraftUpdate).
+ *   
+ * Changes remain in draft state and don't affect the live contract until
+ * committed. After you've made all necessary changes to the draft, commit it using [`subscriptionDraftCommit`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/subscriptionDraftCommit)
+ * to apply the updates to the original contract.
+ *   
+ * Learn more about [updating subscription contracts](https://shopify.dev/docs/apps/build/purchase-options/subscriptions/contracts/update-a-subscription-contract#step-2-create-a-draft-of-an-existing-contract).
  */
 public class SubscriptionContractUpdateGraphQLQuery extends GraphQLQuery {
   public SubscriptionContractUpdateGraphQLQuery(String contractId, String queryName,

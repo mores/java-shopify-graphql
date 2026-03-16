@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Lookup a returnable fulfillment by ID.
+ * Returns a `ReturnableFulfillment` resource by ID.
  */
 public class ReturnableFulfillmentGraphQLQuery extends GraphQLQuery {
   public ReturnableFulfillmentGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

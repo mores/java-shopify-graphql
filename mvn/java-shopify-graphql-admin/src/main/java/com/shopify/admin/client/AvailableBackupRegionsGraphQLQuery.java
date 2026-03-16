@@ -7,7 +7,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The regions that can be used as the backup region of the shop.
+ * The geographic regions that you can set as the
+ * [`Shop`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Shop)'s
+ * backup region. The backup region serves as a fallback when the system can't
+ * determine a buyer's actual location.
  */
 public class AvailableBackupRegionsGraphQLQuery extends GraphQLQuery {
   public AvailableBackupRegionsGraphQLQuery(String queryName) {

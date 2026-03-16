@@ -7,10 +7,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Each metafield definition has a type, which defines the type of information that it can store.
- * This type is enforced across every instance of the resource that owns the metafield definition.
+ * The available metafield types that you can use when creating [`MetafieldDefinition`](https://shopify.dev/docs/api/admin-graphql/current/objects/MetafieldDefinition)
+ * objects. Each type specifies what kind of data it stores (such as boolean,
+ * color, date, or references), its category, and which validations it supports.
  *   
- * Refer to the [list of supported metafield types](https://shopify.dev/apps/metafields/types).
+ * For a list of supported types and their capabilities, refer to the [metafield
+ * types documentation](https://shopify.dev/docs/apps/metafields/types).
  */
 public class MetafieldDefinitionTypesGraphQLQuery extends GraphQLQuery {
   public MetafieldDefinitionTypesGraphQLQuery(String queryName) {

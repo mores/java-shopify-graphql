@@ -25,12 +25,6 @@ public class MetafieldAccessProjection<PARENT extends BaseSubProjectionNode<?, ?
      return projection;
   }
 
-  public MetafieldAccessGrantProjection<MetafieldAccessProjection<PARENT, ROOT>, ROOT> grants() {
-     MetafieldAccessGrantProjection<MetafieldAccessProjection<PARENT, ROOT>, ROOT> projection = new MetafieldAccessGrantProjection<>(this, getRoot());
-     getFields().put("grants", projection);
-     return projection;
-  }
-
   public MetafieldStorefrontAccessProjection<MetafieldAccessProjection<PARENT, ROOT>, ROOT> storefront(
       ) {
      MetafieldStorefrontAccessProjection<MetafieldAccessProjection<PARENT, ROOT>, ROOT> projection = new MetafieldStorefrontAccessProjection<>(this, getRoot());

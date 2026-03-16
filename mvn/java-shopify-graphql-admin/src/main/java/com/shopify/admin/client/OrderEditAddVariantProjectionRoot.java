@@ -26,6 +26,13 @@ public class OrderEditAddVariantProjectionRoot<PARENT extends BaseSubProjectionN
     return projection;
   }
 
+  public OrderEditSessionProjection<OrderEditAddVariantProjectionRoot<PARENT, ROOT>, OrderEditAddVariantProjectionRoot<PARENT, ROOT>> orderEditSession(
+      ) {
+    OrderEditSessionProjection<OrderEditAddVariantProjectionRoot<PARENT, ROOT>, OrderEditAddVariantProjectionRoot<PARENT, ROOT>> projection = new OrderEditSessionProjection<>(this, this);    
+    getFields().put("orderEditSession", projection);
+    return projection;
+  }
+
   public UserErrorProjection<OrderEditAddVariantProjectionRoot<PARENT, ROOT>, OrderEditAddVariantProjectionRoot<PARENT, ROOT>> userErrors(
       ) {
     UserErrorProjection<OrderEditAddVariantProjectionRoot<PARENT, ROOT>, OrderEditAddVariantProjectionRoot<PARENT, ROOT>> projection = new UserErrorProjection<>(this, this);    

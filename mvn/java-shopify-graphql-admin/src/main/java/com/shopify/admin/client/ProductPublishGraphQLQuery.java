@@ -8,8 +8,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Publishes a product. Products that are sold exclusively on subscription
- * (`requiresSellingPlan: true`) can only be published on online stores.
+ * Publishes a [`Product`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product) to specified [`Publication`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication) objects.
+ *   
+ * Products sold exclusively on subscription (`requiresSellingPlan: true`) can only be published to online stores.
  */
 public class ProductPublishGraphQLQuery extends GraphQLQuery {
   public ProductPublishGraphQLQuery(ProductPublishInput input, String queryName,

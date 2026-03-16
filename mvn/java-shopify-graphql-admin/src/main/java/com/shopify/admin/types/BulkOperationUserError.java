@@ -8,7 +8,9 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Represents an error in the input of a mutation.
+ * An error in the input of a mutation. Mutations return `UserError` objects to
+ * indicate validation failures, such as invalid field values or business logic
+ * violations, that prevent the operation from completing.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

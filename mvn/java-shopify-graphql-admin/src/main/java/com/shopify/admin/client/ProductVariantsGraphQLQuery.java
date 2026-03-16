@@ -10,7 +10,32 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a list of product variants.
+ * Retrieves a list of [product variants](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant)
+ * associated with a [product](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product).
+ *   
+ * A product variant is a specific version of a product that comes in more than
+ * one [option](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductOption),
+ * such as size or color. For example, if a merchant sells t-shirts with options for size and color,
+ * then a small, blue t-shirt would be one product variant and a large, blue t-shirt would be another.
+ *   
+ * Use the `productVariants` query when you need to:
+ *   
+ * - Search for product variants by attributes such as SKU, barcode, or inventory quantity.
+ * - Filter product variants by attributes, such as whether they're gift cards or have custom metafields.
+ * - Fetch product variants for bulk operations, such as updating prices or inventory.
+ * - Preload data for product variants, such as inventory items, selected options, or associated products.
+ *   
+ * The `productVariants` query supports [pagination](https://shopify.dev/docs/api/usage/pagination-graphql)
+ * to handle large product catalogs and [saved searches](https://shopify.dev/docs/api/admin-graphql/latest/queries/productVariants#arguments-savedSearchId)
+ * for frequently used product variant queries.
+ *   
+ * The `productVariants` query returns product variants with their associated metadata, including:
+ *   
+ * - Basic product variant information (for example, title, SKU, barcode, price, and inventory)
+ * - Media attachments (for example, images and videos)
+ * - Associated products, selling plans, bundles, and metafields
+ *   
+ * Learn more about working with [Shopify's product model](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model/product-model-components).
  */
 public class ProductVariantsGraphQLQuery extends GraphQLQuery {
   public ProductVariantsGraphQLQuery(Integer first, String after, Integer last, String before,
@@ -149,7 +174,7 @@ public class ProductVariantsGraphQLQuery extends GraphQLQuery {
      * `exclude_variants_with_components:true` |
      * | gift_card | boolean | Filter by the product [`isGiftCard`](https://shopify.dev/api/admin-graphql/latest/objects/Product#field-isgiftcard)
      * field. | | | - `gift_card:true` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
      * | inventory_quantity | integer | Filter by an aggregate of inventory across
      * all locations where the product variant is stocked. | | | -
      * `inventory_quantity:10` |
@@ -171,32 +196,59 @@ public class ProductVariantsGraphQLQuery extends GraphQLQuery {
      * field. | | | - `product_id:8474977763649` |
      * | product_ids | string | Filter by a comma-separated list of product [IDs](https://shopify.dev/api/admin-graphql/latest/objects/Product#field-id).
      * | | | - `product_ids:8474977763649,8474977796417` |
-     * | product_publication_status | string | Filter by the publishable status of
-     * the resource on a channel, such as the online store. The value is a
-     * composite of the [channel `app`
-     * ID](https://shopify.dev/api/admin-graphql/latest/objects/Channel#app-price)
-     * (`Channel.app.id`) and one of the valid values. | - `approved`<br/> -
-     * `rejected`<br/> - `needs_action`<br/> - `awaiting_review`<br/> -
-     * `published`<br/> - `demoted`<br/> - `scheduled`<br/> -
-     * `provisionally_published` | | - `publishable_status:189769876-approved` |
+     * | product_publication_status | string | Filter by channel approval process
+     * status of the resource on a channel, such as the online store. The value is
+     * a composite of the [channel `app` ID](https://shopify.dev/api/admin-graphql/latest/objects/Channel#field-Channel.fields.app)
+     * (`Channel.app.id`) and one of the valid values. For simple visibility checks, use [published_status](https://shopify.dev/api/admin-graphql/latest/queries/products#argument-query-filter-publishable_status)
+     * instead. | - `* {channel_app_id}-approved`<br/> - `*
+     * {channel_app_id}-rejected`<br/> - `* {channel_app_id}-needs_action`<br/> -
+     * `* {channel_app_id}-awaiting_review`<br/> - `*
+     * {channel_app_id}-published`<br/> - `* {channel_app_id}-demoted`<br/> - `*
+     * {channel_app_id}-scheduled`<br/> - `*
+     * {channel_app_id}-provisionally_published` | | -
+     * `product_publication_status:189769876-approved` |
      * | product_status | string | Filter by a comma-separated list of product [statuses](https://shopify.dev/api/admin-graphql/latest/objects/Product#field-status).
      * | | | - `product_status:ACTIVE,DRAFT` |
      * | product_type | string | Filter by the product type that's associated with
      * the product variants. | | | - `product_type:snowboard` |
-     * | publishable_status | string | Filter by the publishable status of the
-     * resource on a channel, such as the online store. The value is a composite of
-     * either the [channel `app`
+     * | publishable_status | string | **Deprecated:** This parameter is deprecated
+     * as of 2025-12 and will be removed in a future API version. Use [published_status](https://shopify.dev/api/admin-graphql/latest/queries/products#argument-query-filter-publishable_status)
+     * for visibility checks. Filter by the publishable status of the resource on a
+     * channel. The value is a composite of the [channel `app`
      * ID](https://shopify.dev/api/admin-graphql/latest/objects/Channel#app-price)
-     * (`Channel.app.id`) or [channel `name`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Channel#field-name)
-     * and one of the valid values. | - `online_store_channel`<br/> -
-     * `published`<br/> - `unpublished`<br/> - `visible`<br/> - `unavailable`<br/>
-     * - `hidden`<br/> - `intended`<br/> - `visible` | | -
-     * `publishable_status:published`<br/> -
-     * `publishable_status:189769876:visible`<br/> -
-     * `publishable_status:pos:hidden` |
-     * | published_status | string | Filter by the published status of the resource
-     * on a channel, such as the online store. | - `unset`<br/> - `pending`<br/> -
-     * `approved`<br/> - `not approved` | | - `published_status:approved` |
+     * (`Channel.app.id`) and one of the valid status values. | - `*
+     * {channel_app_id}-unset`<br/> - `* {channel_app_id}-pending`<br/> - `*
+     * {channel_app_id}-approved`<br/> - `* {channel_app_id}-not_approved` | | -
+     * `publishable_status:580111-unset`<br/> - `publishable_status:580111-pending` |
+     * | published_status | string | Filter resources by their visibility and
+     * publication state on a channel. Online store channel filtering: -
+     * `online_store_channel`: Returns all resources in the online store channel,
+     * regardless of publication status. - `published`/`visible`: Returns resources
+     * that are published to the online store. - `unpublished`: Returns resources
+     * that are not published to the online store. Channel-specific filtering using
+     * a channel ID, channel handle, [channel `app`
+     * ID](https://shopify.dev/api/admin-graphql/latest/objects/Channel#app-price)
+     * (`Channel.app.id`), or app handle with suffixes: -
+     * `{id_or_handle}-published`: Returns resources published to the specified
+     * channel. - `{id_or_handle}-visible`: Same as `{id_or_handle}-published`
+     * (kept for backwards compatibility). - `{id_or_handle}-intended`: Returns
+     * resources added to the channel but not yet published. -
+     * `{id_or_handle}-hidden`: Returns resources not added to the channel or not
+     * published. Other: - `unavailable`: Returns resources not published to any
+     * channel. | - `online_store_channel`<br/> - `published`<br/> - `visible`<br/>
+     * - `unpublished`<br/> - `* {channel_id_or_handle}-published`<br/> - `*
+     * {channel_id_or_handle}-visible`<br/> - `*
+     * {channel_id_or_handle}-intended`<br/> - `*
+     * {channel_id_or_handle}-hidden`<br/> - `*
+     * {channel_app_id_or_handle}-published`<br/> - `*
+     * {channel_app_id_or_handle}-visible`<br/> - `*
+     * {channel_app_id_or_handle}-intended`<br/> - `*
+     * {channel_app_id_or_handle}-hidden`<br/> - `unavailable` | | -
+     * `published_status:online_store_channel`<br/> -
+     * `published_status:published`<br/> - `published_status:580111-published`<br/>
+     * - `published_status:580111-hidden`<br/> -
+     * `published_status:my-channel-handle-published`<br/> -
+     * `published_status:unavailable` |
      * | requires_components | boolean | Filter by whether the product variant can
      * only be purchased with components. [Learn more](https://shopify.dev/apps/build/product-merchandising/bundles#store-eligibility).
      * | | | - `requires_components:true` |
@@ -212,7 +264,7 @@ public class ProductVariantsGraphQLQuery extends GraphQLQuery {
      * field. | | | - `title:ice` |
      * | updated_at | time | Filter by date and time when the product variant was
      * updated. | | | - `updated_at:>2020-10-21T23:39:20Z`<br/> -
-     * `updated_at:&lt;now`<br/> - `updated_at:&lt;=2024` |
+     * `updated_at:<now`<br/> - `updated_at:<=2024` |
      * | vendor | string | Filter by the origin or source of the product variant.
      * Learn more about [vendors and managing vendor
      * information](https://help.shopify.com/manual/products/managing-vendor-info).

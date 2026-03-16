@@ -12,6 +12,13 @@ import java.util.Objects;
  * The input fields for creating or updating an [amount off discount](https://help.shopify.com/manual/discounts/discount-types/percentage-fixed-amount)
  * that's applied on a cart and at checkout when a customer enters a code. Amount
  * off discounts can be a percentage off or a fixed amount off.
+ *
+ * When creating, required fields are:
+ *   - `code`
+ *   - `context` (or deprecated `customerSelection`)
+ *   - `customerGets`
+ *   - `startsAt`
+ *   - `title`
  */
 public class DiscountCodeBasicInput {
   /**
@@ -49,15 +56,16 @@ public class DiscountCodeBasicInput {
   private String code;
 
   /**
-   * The customers that can use the discount.
-   */
-  private DiscountCustomerSelectionInput customerSelection;
-
-  /**
-   * The maximum number of times that a customer can use the discount.
-   * For discounts with unlimited usage, specify `null`.
+   * The maximum number of times the discount can be redeemed.
+   * For unlimited usage, specify `null`.
    */
   private Integer usageLimit;
+
+  /**
+   * The context defining which buyers can use the discount.
+   * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+   */
+  private DiscountContextInput context;
 
   /**
    * The minimum subtotal or quantity of items that are required for the discount to be applied.
@@ -151,19 +159,8 @@ public class DiscountCodeBasicInput {
   }
 
   /**
-   * The customers that can use the discount.
-   */
-  public DiscountCustomerSelectionInput getCustomerSelection() {
-    return customerSelection;
-  }
-
-  public void setCustomerSelection(DiscountCustomerSelectionInput customerSelection) {
-    this.customerSelection = customerSelection;
-  }
-
-  /**
-   * The maximum number of times that a customer can use the discount.
-   * For discounts with unlimited usage, specify `null`.
+   * The maximum number of times the discount can be redeemed.
+   * For unlimited usage, specify `null`.
    */
   public Integer getUsageLimit() {
     return usageLimit;
@@ -171,6 +168,18 @@ public class DiscountCodeBasicInput {
 
   public void setUsageLimit(Integer usageLimit) {
     this.usageLimit = usageLimit;
+  }
+
+  /**
+   * The context defining which buyers can use the discount.
+   * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+   */
+  public DiscountContextInput getContext() {
+    return context;
+  }
+
+  public void setContext(DiscountContextInput context) {
+    this.context = context;
   }
 
   /**
@@ -211,7 +220,7 @@ public class DiscountCodeBasicInput {
 
   @Override
   public String toString() {
-    return "DiscountCodeBasicInput{combinesWith='" + combinesWith + "', title='" + title + "', startsAt='" + startsAt + "', endsAt='" + endsAt + "', appliesOncePerCustomer='" + appliesOncePerCustomer + "', code='" + code + "', customerSelection='" + customerSelection + "', usageLimit='" + usageLimit + "', minimumRequirement='" + minimumRequirement + "', customerGets='" + customerGets + "', recurringCycleLimit='" + recurringCycleLimit + "'}";
+    return "DiscountCodeBasicInput{combinesWith='" + combinesWith + "', title='" + title + "', startsAt='" + startsAt + "', endsAt='" + endsAt + "', appliesOncePerCustomer='" + appliesOncePerCustomer + "', code='" + code + "', usageLimit='" + usageLimit + "', context='" + context + "', minimumRequirement='" + minimumRequirement + "', customerGets='" + customerGets + "', recurringCycleLimit='" + recurringCycleLimit + "'}";
   }
 
   @Override
@@ -225,8 +234,8 @@ public class DiscountCodeBasicInput {
         Objects.equals(endsAt, that.endsAt) &&
         Objects.equals(appliesOncePerCustomer, that.appliesOncePerCustomer) &&
         Objects.equals(code, that.code) &&
-        Objects.equals(customerSelection, that.customerSelection) &&
         Objects.equals(usageLimit, that.usageLimit) &&
+        Objects.equals(context, that.context) &&
         Objects.equals(minimumRequirement, that.minimumRequirement) &&
         Objects.equals(customerGets, that.customerGets) &&
         Objects.equals(recurringCycleLimit, that.recurringCycleLimit);
@@ -234,7 +243,7 @@ public class DiscountCodeBasicInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(combinesWith, title, startsAt, endsAt, appliesOncePerCustomer, code, customerSelection, usageLimit, minimumRequirement, customerGets, recurringCycleLimit);
+    return Objects.hash(combinesWith, title, startsAt, endsAt, appliesOncePerCustomer, code, usageLimit, context, minimumRequirement, customerGets, recurringCycleLimit);
   }
 
   public static Builder newBuilder() {
@@ -277,15 +286,16 @@ public class DiscountCodeBasicInput {
     private String code;
 
     /**
-     * The customers that can use the discount.
-     */
-    private DiscountCustomerSelectionInput customerSelection;
-
-    /**
-     * The maximum number of times that a customer can use the discount.
-     * For discounts with unlimited usage, specify `null`.
+     * The maximum number of times the discount can be redeemed.
+     * For unlimited usage, specify `null`.
      */
     private Integer usageLimit;
+
+    /**
+     * The context defining which buyers can use the discount.
+     * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+     */
+    private DiscountContextInput context;
 
     /**
      * The minimum subtotal or quantity of items that are required for the discount to be applied.
@@ -313,8 +323,8 @@ public class DiscountCodeBasicInput {
       result.endsAt = this.endsAt;
       result.appliesOncePerCustomer = this.appliesOncePerCustomer;
       result.code = this.code;
-      result.customerSelection = this.customerSelection;
       result.usageLimit = this.usageLimit;
+      result.context = this.context;
       result.minimumRequirement = this.minimumRequirement;
       result.customerGets = this.customerGets;
       result.recurringCycleLimit = this.recurringCycleLimit;
@@ -374,19 +384,20 @@ public class DiscountCodeBasicInput {
     }
 
     /**
-     * The customers that can use the discount.
+     * The maximum number of times the discount can be redeemed.
+     * For unlimited usage, specify `null`.
      */
-    public Builder customerSelection(DiscountCustomerSelectionInput customerSelection) {
-      this.customerSelection = customerSelection;
+    public Builder usageLimit(Integer usageLimit) {
+      this.usageLimit = usageLimit;
       return this;
     }
 
     /**
-     * The maximum number of times that a customer can use the discount.
-     * For discounts with unlimited usage, specify `null`.
+     * The context defining which buyers can use the discount.
+     * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
      */
-    public Builder usageLimit(Integer usageLimit) {
-      this.usageLimit = usageLimit;
+    public Builder context(DiscountContextInput context) {
+      this.context = context;
       return this;
     }
 

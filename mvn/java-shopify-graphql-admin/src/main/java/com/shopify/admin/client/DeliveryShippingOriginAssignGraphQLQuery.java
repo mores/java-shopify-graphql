@@ -8,6 +8,7 @@ import java.util.Set;
 
 /**
  * Assigns a location as the shipping origin while using legacy compatibility mode for multi-location delivery profiles.
+ * Deprecated as of 2026-04 and will be removed in a future version as single origin shipping mode has been retired.
  */
 public class DeliveryShippingOriginAssignGraphQLQuery extends GraphQLQuery {
   public DeliveryShippingOriginAssignGraphQLQuery(String locationId, String queryName,

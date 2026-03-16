@@ -8,7 +8,14 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * A Shopify application.
+ * A Shopify application that extends store functionality. Apps integrate with
+ * Shopify through APIs to add features, automate workflows, or connect external services.
+ *
+ * Provides metadata about the app including its developer information and listing
+ * details in the Shopify App Store. Use the [`installation`](https://shopify.dev/docs/api/admin-graphql/latest/objects/App#field-App.fields.installation)
+ * field to determine if the app is currently installed on the shop and access
+ * installation-specific details like granted [`AccessScope`](https://shopify.dev/docs/api/admin-graphql/latest/objects/AccessScope) objects. Check [`failedRequirements`](https://shopify.dev/docs/api/admin-graphql/latest/objects/App#field-App.fields.failedRequirements)
+ * before installation to identify any prerequisites that must be met.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -95,7 +102,7 @@ public class App implements com.shopify.admin.types.Node {
   private String id;
 
   /**
-   * Webpage where you can install the app.
+   * Webpage where you can install the app, if app requires explicit user permission.
    */
   private String installUrl;
 
@@ -377,7 +384,7 @@ public class App implements com.shopify.admin.types.Node {
   }
 
   /**
-   * Webpage where you can install the app.
+   * Webpage where you can install the app, if app requires explicit user permission.
    */
   public String getInstallUrl() {
     return installUrl;
@@ -731,7 +738,7 @@ public class App implements com.shopify.admin.types.Node {
     private String id;
 
     /**
-     * Webpage where you can install the app.
+     * Webpage where you can install the app, if app requires explicit user permission.
      */
     private String installUrl;
 
@@ -1002,7 +1009,7 @@ public class App implements com.shopify.admin.types.Node {
     }
 
     /**
-     * Webpage where you can install the app.
+     * Webpage where you can install the app, if app requires explicit user permission.
      */
     public Builder installUrl(String installUrl) {
       this.installUrl = installUrl;

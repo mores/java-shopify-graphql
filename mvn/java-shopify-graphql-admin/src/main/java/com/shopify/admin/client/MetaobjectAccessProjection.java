@@ -18,6 +18,13 @@ public class MetaobjectAccessProjection<PARENT extends BaseSubProjectionNode<?, 
      return projection;
   }
 
+  public MetaobjectCustomerAccountAccessProjection<MetaobjectAccessProjection<PARENT, ROOT>, ROOT> customerAccount(
+      ) {
+     MetaobjectCustomerAccountAccessProjection<MetaobjectAccessProjection<PARENT, ROOT>, ROOT> projection = new MetaobjectCustomerAccountAccessProjection<>(this, getRoot());
+     getFields().put("customerAccount", projection);
+     return projection;
+  }
+
   public MetaobjectStorefrontAccessProjection<MetaobjectAccessProjection<PARENT, ROOT>, ROOT> storefront(
       ) {
      MetaobjectStorefrontAccessProjection<MetaobjectAccessProjection<PARENT, ROOT>, ROOT> projection = new MetaobjectStorefrontAccessProjection<>(this, getRoot());

@@ -12,5 +12,7 @@ public enum ShopResourceFeedbackCreateUserErrorCode {
 
   BLANK,
 
-  PRESENT
+  PRESENT,
+
+  NOT_FOUND
 }

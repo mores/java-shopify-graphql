@@ -23,4 +23,9 @@ public class MarketCurrencySettingsProjection<PARENT extends BaseSubProjectionNo
     getFields().put("localCurrencies", null);
     return this;
   }
+
+  public MarketCurrencySettingsProjection<PARENT, ROOT> roundingEnabled() {
+    getFields().put("roundingEnabled", null);
+    return this;
+  }
 }

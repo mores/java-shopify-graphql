@@ -8,14 +8,24 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Creates a
- * [free shipping discount](https://help.shopify.com/manual/discounts/discount-types/free-shipping)
- * that's automatically applied on a cart and at checkout.
+ * Creates automatic free shipping discounts that apply to qualifying orders
+ * without requiring discount codes. These promotions automatically activate when
+ * customers meet specified criteria, streamlining the checkout experience.
  *   
- * > Note:
- * > To create code discounts, use the
- * [`discountCodeFreeShippingCreate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/discountCodeFreeShippingCreate)
- * mutation.
+ * For example, a store might create an automatic free shipping discount for
+ * orders over variable pricing to encourage larger purchases, or offer free
+ * shipping to specific customer segments during promotional periods.
+ *   
+ * Use `DiscountAutomaticFreeShippingCreate` to:
+ * - Set up code-free shipping promotions
+ * - Create order value-based shipping incentives
+ * - Target specific customer groups with shipping benefits
+ * - Establish location-based shipping discounts
+ *   
+ * The mutation validates discount configuration and returns the created
+ * automatic discount node along with any configuration errors that need resolution.
+ *   
+ * Learn more about [automatic discounts](https://shopify.dev/docs/api/admin-graphql/latest/objects/DiscountAutomaticNode).
  */
 public class DiscountAutomaticFreeShippingCreateGraphQLQuery extends GraphQLQuery {
   public DiscountAutomaticFreeShippingCreateGraphQLQuery(

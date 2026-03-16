@@ -55,6 +55,15 @@ public class BlogFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>, 
      return projection;
   }
 
+  public CountProjection<BlogFragmentProjection<PARENT, ROOT>, ROOT> articlesCount(Integer limit) {
+    CountProjection<BlogFragmentProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());    
+    getFields().put("articlesCount", projection);
+    getInputArguments().computeIfAbsent("articlesCount", k -> new ArrayList<>());                      
+    InputArgument limitArg = new InputArgument("limit", limit);
+    getInputArguments().get("articlesCount").add(limitArg);
+    return projection;
+  }
+
   public CommentPolicyProjection<BlogFragmentProjection<PARENT, ROOT>, ROOT> commentPolicy() {
      CommentPolicyProjection<BlogFragmentProjection<PARENT, ROOT>, ROOT> projection = new CommentPolicyProjection<>(this, getRoot());
      getFields().put("commentPolicy", projection);

@@ -59,6 +59,13 @@ public class ProductByIdentifierProjectionRoot<PARENT extends BaseSubProjectionN
     return projection;
   }
 
+  public ComponentizedProductsBundleConsolidatedOptionProjection<ProductByIdentifierProjectionRoot<PARENT, ROOT>, ProductByIdentifierProjectionRoot<PARENT, ROOT>> bundleConsolidatedOptions(
+      ) {
+    ComponentizedProductsBundleConsolidatedOptionProjection<ProductByIdentifierProjectionRoot<PARENT, ROOT>, ProductByIdentifierProjectionRoot<PARENT, ROOT>> projection = new ComponentizedProductsBundleConsolidatedOptionProjection<>(this, this);    
+    getFields().put("bundleConsolidatedOptions", projection);
+    return projection;
+  }
+
   public TaxonomyCategoryProjection<ProductByIdentifierProjectionRoot<PARENT, ROOT>, ProductByIdentifierProjectionRoot<PARENT, ROOT>> category(
       ) {
     TaxonomyCategoryProjection<ProductByIdentifierProjectionRoot<PARENT, ROOT>, ProductByIdentifierProjectionRoot<PARENT, ROOT>> projection = new TaxonomyCategoryProjection<>(this, this);    
@@ -389,6 +396,65 @@ public class ProductByIdentifierProjectionRoot<PARENT extends BaseSubProjectionN
       ) {
     ProductCategoryProjection<ProductByIdentifierProjectionRoot<PARENT, ROOT>, ProductByIdentifierProjectionRoot<PARENT, ROOT>> projection = new ProductCategoryProjection<>(this, this);    
     getFields().put("productCategory", projection);
+    return projection;
+  }
+
+  public ProductComponentTypeConnectionProjection<ProductByIdentifierProjectionRoot<PARENT, ROOT>, ProductByIdentifierProjectionRoot<PARENT, ROOT>> productComponents(
+      ) {
+    ProductComponentTypeConnectionProjection<ProductByIdentifierProjectionRoot<PARENT, ROOT>, ProductByIdentifierProjectionRoot<PARENT, ROOT>> projection = new ProductComponentTypeConnectionProjection<>(this, this);    
+    getFields().put("productComponents", projection);
+    return projection;
+  }
+
+  public ProductComponentTypeConnectionProjection<ProductByIdentifierProjectionRoot<PARENT, ROOT>, ProductByIdentifierProjectionRoot<PARENT, ROOT>> productComponents(
+      Integer first, String after, Integer last, String before, Boolean reverse) {
+    ProductComponentTypeConnectionProjection<ProductByIdentifierProjectionRoot<PARENT, ROOT>, ProductByIdentifierProjectionRoot<PARENT, ROOT>> projection = new ProductComponentTypeConnectionProjection<>(this, this);    
+    getFields().put("productComponents", projection);
+    getInputArguments().computeIfAbsent("productComponents", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("productComponents").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("productComponents").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("productComponents").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("productComponents").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    getInputArguments().get("productComponents").add(reverseArg);
+    return projection;
+  }
+
+  public CountProjection<ProductByIdentifierProjectionRoot<PARENT, ROOT>, ProductByIdentifierProjectionRoot<PARENT, ROOT>> productComponentsCount(
+      ) {
+    CountProjection<ProductByIdentifierProjectionRoot<PARENT, ROOT>, ProductByIdentifierProjectionRoot<PARENT, ROOT>> projection = new CountProjection<>(this, this);    
+    getFields().put("productComponentsCount", projection);
+    return projection;
+  }
+
+  public ProductConnectionProjection<ProductByIdentifierProjectionRoot<PARENT, ROOT>, ProductByIdentifierProjectionRoot<PARENT, ROOT>> productParents(
+      ) {
+    ProductConnectionProjection<ProductByIdentifierProjectionRoot<PARENT, ROOT>, ProductByIdentifierProjectionRoot<PARENT, ROOT>> projection = new ProductConnectionProjection<>(this, this);    
+    getFields().put("productParents", projection);
+    return projection;
+  }
+
+  public ProductConnectionProjection<ProductByIdentifierProjectionRoot<PARENT, ROOT>, ProductByIdentifierProjectionRoot<PARENT, ROOT>> productParents(
+      Integer first, String after, Integer last, String before, Boolean reverse, String query) {
+    ProductConnectionProjection<ProductByIdentifierProjectionRoot<PARENT, ROOT>, ProductByIdentifierProjectionRoot<PARENT, ROOT>> projection = new ProductConnectionProjection<>(this, this);    
+    getFields().put("productParents", projection);
+    getInputArguments().computeIfAbsent("productParents", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("productParents").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("productParents").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("productParents").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("productParents").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    getInputArguments().get("productParents").add(reverseArg);
+    InputArgument queryArg = new InputArgument("query", query);
+    getInputArguments().get("productParents").add(queryArg);
     return projection;
   }
 

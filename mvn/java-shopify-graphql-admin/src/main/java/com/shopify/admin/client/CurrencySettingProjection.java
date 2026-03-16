@@ -28,6 +28,11 @@ public class CurrencySettingProjection<PARENT extends BaseSubProjectionNode<?, ?
     return this;
   }
 
+  public CurrencySettingProjection<PARENT, ROOT> manualRate() {
+    getFields().put("manualRate", null);
+    return this;
+  }
+
   public CurrencySettingProjection<PARENT, ROOT> rateUpdatedAt() {
     getFields().put("rateUpdatedAt", null);
     return this;

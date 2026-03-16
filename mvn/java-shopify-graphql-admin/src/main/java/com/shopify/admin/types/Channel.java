@@ -8,8 +8,18 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * A channel represents an app where you sell a group of products and collections.
- * A channel can be a platform or marketplace such as Facebook or Pinterest, an online store, or POS.
+ * An authenticated link to an external platform that supports syndication and
+ * optionally order ingestion, such as Facebook, Pinterest, an online store, or
+ * Point of Sale (POS).
+ *
+ * Each channel provides access to its underlying
+ * [`App`](https://shopify.dev/docs/api/admin-graphql/latest/objects/App),
+ * published products and collections, and [`Publication`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
+ * settings, as well as what features of the platform it supports such as [scheduled publishing](https://shopify.dev/docs/apps/build/sales-channels/scheduled-product-publishing).
+ * Use channels to manage where catalog items appear, track publication status
+ * across platforms, and control
+ * [`Product`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+ * visibility for different customer touchpoints.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -21,7 +31,7 @@ public class Channel implements com.shopify.admin.types.Node {
   private App app;
 
   /**
-   * The collection publications for the list of collections published to the channel.
+   * The list of collection publications. Each record represents information about the publication of a collection.
    */
   private ResourcePublicationConnection collectionPublicationsV3;
 
@@ -66,7 +76,7 @@ public class Channel implements com.shopify.admin.types.Node {
   private ProductPublicationConnection productPublications;
 
   /**
-   * The product publications for the list of products published to the channel.
+   * The list of product publication records for products published to this channel.
    */
   private ResourcePublicationConnection productPublicationsV3;
 
@@ -76,7 +86,8 @@ public class Channel implements com.shopify.admin.types.Node {
   private ProductConnection products;
 
   /**
-   * The count of products published to the channel. Limited to a maximum of 10000.
+   * Retrieves the total count of [`products`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+   * published to a specific sales channel. Limited to a maximum of 10000 by default.
    */
   private Count productsCount;
 
@@ -100,7 +111,7 @@ public class Channel implements com.shopify.admin.types.Node {
   }
 
   /**
-   * The collection publications for the list of collections published to the channel.
+   * The list of collection publications. Each record represents information about the publication of a collection.
    */
   public ResourcePublicationConnection getCollectionPublicationsV3() {
     return collectionPublicationsV3;
@@ -199,7 +210,7 @@ public class Channel implements com.shopify.admin.types.Node {
   }
 
   /**
-   * The product publications for the list of products published to the channel.
+   * The list of product publication records for products published to this channel.
    */
   public ResourcePublicationConnection getProductPublicationsV3() {
     return productPublicationsV3;
@@ -221,7 +232,8 @@ public class Channel implements com.shopify.admin.types.Node {
   }
 
   /**
-   * The count of products published to the channel. Limited to a maximum of 10000.
+   * Retrieves the total count of [`products`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+   * published to a specific sales channel. Limited to a maximum of 10000 by default.
    */
   public Count getProductsCount() {
     return productsCount;
@@ -284,7 +296,7 @@ public class Channel implements com.shopify.admin.types.Node {
     private App app;
 
     /**
-     * The collection publications for the list of collections published to the channel.
+     * The list of collection publications. Each record represents information about the publication of a collection.
      */
     private ResourcePublicationConnection collectionPublicationsV3;
 
@@ -329,7 +341,7 @@ public class Channel implements com.shopify.admin.types.Node {
     private ProductPublicationConnection productPublications;
 
     /**
-     * The product publications for the list of products published to the channel.
+     * The list of product publication records for products published to this channel.
      */
     private ResourcePublicationConnection productPublicationsV3;
 
@@ -339,7 +351,8 @@ public class Channel implements com.shopify.admin.types.Node {
     private ProductConnection products;
 
     /**
-     * The count of products published to the channel. Limited to a maximum of 10000.
+     * Retrieves the total count of [`products`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+     * published to a specific sales channel. Limited to a maximum of 10000 by default.
      */
     private Count productsCount;
 
@@ -376,7 +389,7 @@ public class Channel implements com.shopify.admin.types.Node {
     }
 
     /**
-     * The collection publications for the list of collections published to the channel.
+     * The list of collection publications. Each record represents information about the publication of a collection.
      */
     public Builder collectionPublicationsV3(
         ResourcePublicationConnection collectionPublicationsV3) {
@@ -449,7 +462,7 @@ public class Channel implements com.shopify.admin.types.Node {
     }
 
     /**
-     * The product publications for the list of products published to the channel.
+     * The list of product publication records for products published to this channel.
      */
     public Builder productPublicationsV3(ResourcePublicationConnection productPublicationsV3) {
       this.productPublicationsV3 = productPublicationsV3;
@@ -465,7 +478,8 @@ public class Channel implements com.shopify.admin.types.Node {
     }
 
     /**
-     * The count of products published to the channel. Limited to a maximum of 10000.
+     * Retrieves the total count of [`products`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+     * published to a specific sales channel. Limited to a maximum of 10000 by default.
      */
     public Builder productsCount(Count productsCount) {
       this.productsCount = productsCount;

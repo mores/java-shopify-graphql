@@ -67,6 +67,16 @@ public class CompanyLocationProjection<PARENT extends BaseSubProjectionNode<?, ?
      return projection;
   }
 
+  public CountProjection<CompanyLocationProjection<PARENT, ROOT>, ROOT> catalogsCount(
+      Integer limit) {
+    CountProjection<CompanyLocationProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());    
+    getFields().put("catalogsCount", projection);
+    getInputArguments().computeIfAbsent("catalogsCount", k -> new ArrayList<>());                      
+    InputArgument limitArg = new InputArgument("limit", limit);
+    getInputArguments().get("catalogsCount").add(limitArg);
+    return projection;
+  }
+
   public CompanyProjection<CompanyLocationProjection<PARENT, ROOT>, ROOT> company() {
      CompanyProjection<CompanyLocationProjection<PARENT, ROOT>, ROOT> projection = new CompanyProjection<>(this, getRoot());
      getFields().put("company", projection);
@@ -322,6 +332,31 @@ public class CompanyLocationProjection<PARENT extends BaseSubProjectionNode<?, ?
     getInputArguments().get("staffMemberAssignments").add(sortKeyArg);
     InputArgument queryArg = new InputArgument("query", query);
     getInputArguments().get("staffMemberAssignments").add(queryArg);
+    return projection;
+  }
+
+  public StoreCreditAccountConnectionProjection<CompanyLocationProjection<PARENT, ROOT>, ROOT> storeCreditAccounts(
+      ) {
+     StoreCreditAccountConnectionProjection<CompanyLocationProjection<PARENT, ROOT>, ROOT> projection = new StoreCreditAccountConnectionProjection<>(this, getRoot());
+     getFields().put("storeCreditAccounts", projection);
+     return projection;
+  }
+
+  public StoreCreditAccountConnectionProjection<CompanyLocationProjection<PARENT, ROOT>, ROOT> storeCreditAccounts(
+      Integer first, String after, Integer last, String before, String query) {
+    StoreCreditAccountConnectionProjection<CompanyLocationProjection<PARENT, ROOT>, ROOT> projection = new StoreCreditAccountConnectionProjection<>(this, getRoot());    
+    getFields().put("storeCreditAccounts", projection);
+    getInputArguments().computeIfAbsent("storeCreditAccounts", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("storeCreditAccounts").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("storeCreditAccounts").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("storeCreditAccounts").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("storeCreditAccounts").add(beforeArg);
+    InputArgument queryArg = new InputArgument("query", query);
+    getInputArguments().get("storeCreditAccounts").add(queryArg);
     return projection;
   }
 

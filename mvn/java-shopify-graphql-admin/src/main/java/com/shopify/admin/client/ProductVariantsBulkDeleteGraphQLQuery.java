@@ -8,7 +8,10 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Deletes multiple variants in a single product. This mutation can be called directly or via the bulkOperation.
+ * Deletes multiple variants in a single [`Product`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product).
+ * Specify the product ID and an array of variant IDs to remove variants in bulk.
+ * You can call this mutation directly or through the [`bulkOperationRunMutation`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/bulkOperationRunMutation)
+ * mutation. Returns the updated product and any [`UserError`](https://shopify.dev/docs/api/admin-graphql/latest/objects/UserError) objects.
  */
 public class ProductVariantsBulkDeleteGraphQLQuery extends GraphQLQuery {
   public ProductVariantsBulkDeleteGraphQLQuery(List<String> variantsIds, String productId,

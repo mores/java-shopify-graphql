@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Lookup a channel by ID.
+ * Returns a `Channel` resource by ID.
  */
 public class ChannelGraphQLQuery extends GraphQLQuery {
   public ChannelGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

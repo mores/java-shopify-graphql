@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a DraftOrderTag resource by ID.
+ * Returns a `DraftOrderTag` resource by ID.
  */
 public class DraftOrderTagGraphQLQuery extends GraphQLQuery {
   public DraftOrderTagGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

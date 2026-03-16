@@ -9,9 +9,13 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Updates fixed prices on a price list. You can use the
- * `priceListFixedPricesUpdate` mutation to set a fixed price for specific
- * product variants or to delete prices for variants associated with the price list.
+ * Updates fixed prices on a [`PriceList`](https://shopify.dev/docs/api/admin-graphql/latest/objects/PriceList).
+ * This mutation lets you add new fixed prices for specific [`ProductVariant`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant)
+ * objects and remove existing prices in a single operation.
+ *   
+ * Use this mutation to modify variant pricing on a price list by providing prices to add and variant IDs to delete.
+ *   
+ * Learn more about [setting fixed prices for product variants](https://shopify.dev/docs/apps/build/markets/build-catalog#step-3-set-fixed-prices-for-specific-product-variants).
  */
 public class PriceListFixedPricesUpdateGraphQLQuery extends GraphQLQuery {
   public PriceListFixedPricesUpdateGraphQLQuery(String priceListId,

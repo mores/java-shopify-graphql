@@ -122,6 +122,13 @@ public class HasEventsProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROO
     return fragment;
   }
 
+  public InventoryTransferFragmentProjection<HasEventsProjection<PARENT, ROOT>, ROOT> onInventoryTransfer(
+      ) {
+    InventoryTransferFragmentProjection<HasEventsProjection<PARENT, ROOT>, ROOT> fragment = new InventoryTransferFragmentProjection<>(this, getRoot());
+    getFragments().add(fragment);
+    return fragment;
+  }
+
   public OrderFragmentProjection<HasEventsProjection<PARENT, ROOT>, ROOT> onOrder() {
     OrderFragmentProjection<HasEventsProjection<PARENT, ROOT>, ROOT> fragment = new OrderFragmentProjection<>(this, getRoot());
     getFragments().add(fragment);

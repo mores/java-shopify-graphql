@@ -3,10 +3,11 @@ package com.shopify.admin.client;
 import com.netflix.graphql.dgs.client.codegen.BaseSubProjectionNode;
 import com.shopify.admin.types.CollectionSortKeys;
 import com.shopify.admin.types.CustomerSortKeys;
-import com.shopify.admin.types.DraftOrderSortKeys;
 import com.shopify.admin.types.FulfillmentOrderAssignmentStatus;
 import com.shopify.admin.types.FulfillmentOrderSortKeys;
 import com.shopify.admin.types.LocationSortKeys;
+import com.shopify.admin.types.MetafieldDefinitionPinnedStatus;
+import com.shopify.admin.types.MetafieldDefinitionSortKeys;
 import com.shopify.admin.types.OrderSortKeys;
 import com.shopify.admin.types.ProductImageSortKeys;
 import com.shopify.admin.types.ProductSortKeys;
@@ -317,36 +318,6 @@ public class ShopProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROOT
     return projection;
   }
 
-  public DraftOrderConnectionProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> draftOrders(
-      ) {
-    DraftOrderConnectionProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> projection = new DraftOrderConnectionProjection<>(this, this);    
-    getFields().put("draftOrders", projection);
-    return projection;
-  }
-
-  public DraftOrderConnectionProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> draftOrders(
-      Integer first, String after, Integer last, String before, Boolean reverse,
-      DraftOrderSortKeys sortKey, String query) {
-    DraftOrderConnectionProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> projection = new DraftOrderConnectionProjection<>(this, this);    
-    getFields().put("draftOrders", projection);
-    getInputArguments().computeIfAbsent("draftOrders", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
-    getInputArguments().get("draftOrders").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("draftOrders").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
-    getInputArguments().get("draftOrders").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("draftOrders").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
-    getInputArguments().get("draftOrders").add(reverseArg);
-    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
-    getInputArguments().get("draftOrders").add(sortKeyArg);
-    InputArgument queryArg = new InputArgument("query", query);
-    getInputArguments().get("draftOrders").add(queryArg);
-    return projection;
-  }
-
   public CurrencyCodeProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> enabledPresentmentCurrencies(
       ) {
     CurrencyCodeProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> projection = new CurrencyCodeProjection<>(this, this);    
@@ -498,6 +469,41 @@ public class ShopProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROOT
     getInputArguments().get("metafield").add(namespaceArg);
     InputArgument keyArg = new InputArgument("key", key);
     getInputArguments().get("metafield").add(keyArg);
+    return projection;
+  }
+
+  public MetafieldDefinitionConnectionProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> metafieldDefinitions(
+      ) {
+    MetafieldDefinitionConnectionProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> projection = new MetafieldDefinitionConnectionProjection<>(this, this);    
+    getFields().put("metafieldDefinitions", projection);
+    return projection;
+  }
+
+  public MetafieldDefinitionConnectionProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> metafieldDefinitions(
+      String namespace, MetafieldDefinitionPinnedStatus pinnedStatus, Integer first, String after,
+      Integer last, String before, Boolean reverse, MetafieldDefinitionSortKeys sortKey,
+      String query) {
+    MetafieldDefinitionConnectionProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> projection = new MetafieldDefinitionConnectionProjection<>(this, this);    
+    getFields().put("metafieldDefinitions", projection);
+    getInputArguments().computeIfAbsent("metafieldDefinitions", k -> new ArrayList<>());                      
+    InputArgument namespaceArg = new InputArgument("namespace", namespace);
+    getInputArguments().get("metafieldDefinitions").add(namespaceArg);
+    InputArgument pinnedStatusArg = new InputArgument("pinnedStatus", pinnedStatus);
+    getInputArguments().get("metafieldDefinitions").add(pinnedStatusArg);
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("metafieldDefinitions").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("metafieldDefinitions").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("metafieldDefinitions").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("metafieldDefinitions").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    getInputArguments().get("metafieldDefinitions").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    getInputArguments().get("metafieldDefinitions").add(sortKeyArg);
+    InputArgument queryArg = new InputArgument("query", query);
+    getInputArguments().get("metafieldDefinitions").add(queryArg);
     return projection;
   }
 
@@ -790,6 +796,13 @@ public class ShopProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROOT
       ) {
     CountryCodeProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> projection = new CountryCodeProjection<>(this, this);    
     getFields().put("shipsToCountries", projection);
+    return projection;
+  }
+
+  public ShopAddressProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> shopAddress(
+      ) {
+    ShopAddressProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> projection = new ShopAddressProjection<>(this, this);    
+    getFields().put("shopAddress", projection);
     return projection;
   }
 

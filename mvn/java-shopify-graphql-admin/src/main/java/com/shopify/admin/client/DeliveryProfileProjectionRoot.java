@@ -164,6 +164,11 @@ public class DeliveryProfileProjectionRoot<PARENT extends BaseSubProjectionNode<
     return this;
   }
 
+  public DeliveryProfileProjectionRoot<PARENT, ROOT> version() {
+    getFields().put("version", null);
+    return this;
+  }
+
   public DeliveryProfileProjectionRoot<PARENT, ROOT> zoneCountryCount() {
     getFields().put("zoneCountryCount", null);
     return this;
