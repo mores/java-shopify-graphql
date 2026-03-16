@@ -10,6 +10,7 @@
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
+	<groupId>io.github.mores</groupId>
 	<artifactId>java-shopify-graphql-storefront</artifactId>
 	<version>2026.01.001</version>
 	<packaging>jar</packaging>
