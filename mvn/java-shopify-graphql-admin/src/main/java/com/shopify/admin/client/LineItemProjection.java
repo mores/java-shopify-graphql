@@ -3,6 +3,7 @@ package com.shopify.admin.client;
 import com.netflix.graphql.dgs.client.codegen.BaseSubProjectionNode;
 import java.lang.Boolean;
 import java.lang.Integer;
+import java.lang.String;
 import java.util.ArrayList;
 
 public class LineItemProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT extends BaseSubProjectionNode<?, ?>> extends BaseSubProjectionNode<PARENT, ROOT> {
@@ -115,6 +116,31 @@ public class LineItemProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT
      StaffMemberProjection<LineItemProjection<PARENT, ROOT>, ROOT> projection = new StaffMemberProjection<>(this, getRoot());
      getFields().put("staffMember", projection);
      return projection;
+  }
+
+  public ReturnReasonDefinitionConnectionProjection<LineItemProjection<PARENT, ROOT>, ROOT> suggestedReturnReasonDefinitions(
+      ) {
+     ReturnReasonDefinitionConnectionProjection<LineItemProjection<PARENT, ROOT>, ROOT> projection = new ReturnReasonDefinitionConnectionProjection<>(this, getRoot());
+     getFields().put("suggestedReturnReasonDefinitions", projection);
+     return projection;
+  }
+
+  public ReturnReasonDefinitionConnectionProjection<LineItemProjection<PARENT, ROOT>, ROOT> suggestedReturnReasonDefinitions(
+      Integer first, String after, Integer last, String before, Boolean reverse) {
+    ReturnReasonDefinitionConnectionProjection<LineItemProjection<PARENT, ROOT>, ROOT> projection = new ReturnReasonDefinitionConnectionProjection<>(this, getRoot());    
+    getFields().put("suggestedReturnReasonDefinitions", projection);
+    getInputArguments().computeIfAbsent("suggestedReturnReasonDefinitions", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("suggestedReturnReasonDefinitions").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("suggestedReturnReasonDefinitions").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("suggestedReturnReasonDefinitions").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("suggestedReturnReasonDefinitions").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    getInputArguments().get("suggestedReturnReasonDefinitions").add(reverseArg);
+    return projection;
   }
 
   public TaxLineProjection<LineItemProjection<PARENT, ROOT>, ROOT> taxLines() {

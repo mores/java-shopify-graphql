@@ -12,7 +12,7 @@ import java.util.Objects;
  */
 public class MetafieldInput {
   /**
-   * The unique ID of the metafield. Using `owner_id`, `namespace`, and `key` is preferred for creating and updating.
+   * The unique ID of the metafield. Using `namespace` and `key` is preferred for creating and updating.
    */
   private String id;
 
@@ -54,7 +54,7 @@ public class MetafieldInput {
   }
 
   /**
-   * The unique ID of the metafield. Using `owner_id`, `namespace`, and `key` is preferred for creating and updating.
+   * The unique ID of the metafield. Using `namespace` and `key` is preferred for creating and updating.
    */
   public String getId() {
     return id;
@@ -150,7 +150,7 @@ public class MetafieldInput {
 
   public static class Builder {
     /**
-     * The unique ID of the metafield. Using `owner_id`, `namespace`, and `key` is preferred for creating and updating.
+     * The unique ID of the metafield. Using `namespace` and `key` is preferred for creating and updating.
      */
     private String id;
 
@@ -199,7 +199,7 @@ public class MetafieldInput {
     }
 
     /**
-     * The unique ID of the metafield. Using `owner_id`, `namespace`, and `key` is preferred for creating and updating.
+     * The unique ID of the metafield. Using `namespace` and `key` is preferred for creating and updating.
      */
     public Builder id(String id) {
       this.id = id;

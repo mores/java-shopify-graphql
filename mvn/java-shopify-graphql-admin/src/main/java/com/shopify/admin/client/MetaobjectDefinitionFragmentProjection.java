@@ -87,6 +87,11 @@ public class MetaobjectDefinitionFragmentProjection<PARENT extends BaseSubProjec
      return projection;
   }
 
+  public MetaobjectDefinitionFragmentProjection<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
+    return this;
+  }
+
   public MetaobjectDefinitionFragmentProjection<PARENT, ROOT> description() {
     getFields().put("description", null);
     return this;
@@ -119,6 +124,11 @@ public class MetaobjectDefinitionFragmentProjection<PARENT extends BaseSubProjec
 
   public MetaobjectDefinitionFragmentProjection<PARENT, ROOT> type() {
     getFields().put("type", null);
+    return this;
+  }
+
+  public MetaobjectDefinitionFragmentProjection<PARENT, ROOT> updatedAt() {
+    getFields().put("updatedAt", null);
     return this;
   }
 

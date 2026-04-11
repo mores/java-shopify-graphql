@@ -8,7 +8,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Refunds a return when its status is `OPEN` or `CLOSED` and associates it with the related return request.
+ * Creates a refund for items being returned when the return status is `OPEN` or
+ * `CLOSED`. This mutation processes the financial aspects of a return by
+ * refunding line items, shipping costs, and duties back to the customer.
  */
 public class ReturnRefundGraphQLQuery extends GraphQLQuery {
   public ReturnRefundGraphQLQuery(ReturnRefundInput returnRefundInput, String queryName,

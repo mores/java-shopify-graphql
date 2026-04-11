@@ -8,7 +8,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Updates an inventory item.
+ * Updates an [`InventoryItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryItem)'s properties including whether inventory is tracked, cost, SKU, and whether
+ * shipping is required. Inventory items represent the goods available to be
+ * shipped to customers.
  */
 public class InventoryItemUpdateGraphQLQuery extends GraphQLQuery {
   public InventoryItemUpdateGraphQLQuery(String id, InventoryItemInput input, String queryName,

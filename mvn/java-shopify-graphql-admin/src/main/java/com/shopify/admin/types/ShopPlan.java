@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The billing plan of the shop.
+ * The shop's billing plan and subscription details. Indicates the plan tier (such
+ * as Basic, Advanced, or Plus), whether the shop has a Shopify Plus subscription,
+ * and if it's a dev store for testing.
  */
 public class ShopPlan {
   /**
@@ -21,8 +23,9 @@ public class ShopPlan {
 
   /**
    * The public display name of the shop's billing plan. Possible values are:
-   * Advanced, Basic, Development, Grow, Inactive, Lite, Other, Paused, Plus, Plus
-   * Trial, Retail, Shop Component, Staff Business, Starter, and Trial.
+   * Advanced, Agentic, Agentic Enterprise, Basic, Development, Grow, Inactive,
+   * Lite, Other, Paused, Plus, Plus Trial, Retail, Shop Component, Shopify
+   * Finance, Staff Business, Starter, and Trial.
    */
   private String publicDisplayName;
 
@@ -58,8 +61,9 @@ public class ShopPlan {
 
   /**
    * The public display name of the shop's billing plan. Possible values are:
-   * Advanced, Basic, Development, Grow, Inactive, Lite, Other, Paused, Plus, Plus
-   * Trial, Retail, Shop Component, Staff Business, Starter, and Trial.
+   * Advanced, Agentic, Agentic Enterprise, Basic, Development, Grow, Inactive,
+   * Lite, Other, Paused, Plus, Plus Trial, Retail, Shop Component, Shopify
+   * Finance, Staff Business, Starter, and Trial.
    */
   public String getPublicDisplayName() {
     return publicDisplayName;
@@ -118,8 +122,9 @@ public class ShopPlan {
 
     /**
      * The public display name of the shop's billing plan. Possible values are:
-     * Advanced, Basic, Development, Grow, Inactive, Lite, Other, Paused, Plus, Plus
-     * Trial, Retail, Shop Component, Staff Business, Starter, and Trial.
+     * Advanced, Agentic, Agentic Enterprise, Basic, Development, Grow, Inactive,
+     * Lite, Other, Paused, Plus, Plus Trial, Retail, Shop Component, Shopify
+     * Finance, Staff Business, Starter, and Trial.
      */
     private String publicDisplayName;
 
@@ -155,8 +160,9 @@ public class ShopPlan {
 
     /**
      * The public display name of the shop's billing plan. Possible values are:
-     * Advanced, Basic, Development, Grow, Inactive, Lite, Other, Paused, Plus, Plus
-     * Trial, Retail, Shop Component, Staff Business, Starter, and Trial.
+     * Advanced, Agentic, Agentic Enterprise, Basic, Development, Grow, Inactive,
+     * Lite, Other, Paused, Plus, Plus Trial, Retail, Shop Component, Shopify
+     * Finance, Staff Business, Starter, and Trial.
      */
     public Builder publicDisplayName(String publicDisplayName) {
       this.publicDisplayName = publicDisplayName;

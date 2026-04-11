@@ -144,11 +144,6 @@ public class DeliveryProfileProjectionRoot<PARENT extends BaseSubProjectionNode<
     return this;
   }
 
-  public DeliveryProfileProjectionRoot<PARENT, ROOT> legacyMode() {
-    getFields().put("legacyMode", null);
-    return this;
-  }
-
   public DeliveryProfileProjectionRoot<PARENT, ROOT> locationsWithoutRatesCount() {
     getFields().put("locationsWithoutRatesCount", null);
     return this;
@@ -161,6 +156,11 @@ public class DeliveryProfileProjectionRoot<PARENT extends BaseSubProjectionNode<
 
   public DeliveryProfileProjectionRoot<PARENT, ROOT> originLocationCount() {
     getFields().put("originLocationCount", null);
+    return this;
+  }
+
+  public DeliveryProfileProjectionRoot<PARENT, ROOT> version() {
+    getFields().put("version", null);
     return this;
   }
 

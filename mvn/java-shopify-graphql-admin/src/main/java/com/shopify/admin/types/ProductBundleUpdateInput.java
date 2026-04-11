@@ -21,6 +21,11 @@ public class ProductBundleUpdateInput {
   private String title;
 
   /**
+   * The consolidated options of the componentized product to update, if provided.
+   */
+  private List<ProductBundleConsolidatedOptionInput> consolidatedOptions;
+
+  /**
    * The components to update existing ones. If none provided, no changes occur.
    * Note: This replaces, not adds to, current components.
    */
@@ -52,6 +57,18 @@ public class ProductBundleUpdateInput {
   }
 
   /**
+   * The consolidated options of the componentized product to update, if provided.
+   */
+  public List<ProductBundleConsolidatedOptionInput> getConsolidatedOptions() {
+    return consolidatedOptions;
+  }
+
+  public void setConsolidatedOptions(
+      List<ProductBundleConsolidatedOptionInput> consolidatedOptions) {
+    this.consolidatedOptions = consolidatedOptions;
+  }
+
+  /**
    * The components to update existing ones. If none provided, no changes occur.
    * Note: This replaces, not adds to, current components.
    */
@@ -65,7 +82,7 @@ public class ProductBundleUpdateInput {
 
   @Override
   public String toString() {
-    return "ProductBundleUpdateInput{productId='" + productId + "', title='" + title + "', components='" + components + "'}";
+    return "ProductBundleUpdateInput{productId='" + productId + "', title='" + title + "', consolidatedOptions='" + consolidatedOptions + "', components='" + components + "'}";
   }
 
   @Override
@@ -75,12 +92,13 @@ public class ProductBundleUpdateInput {
     ProductBundleUpdateInput that = (ProductBundleUpdateInput) o;
     return Objects.equals(productId, that.productId) &&
         Objects.equals(title, that.title) &&
+        Objects.equals(consolidatedOptions, that.consolidatedOptions) &&
         Objects.equals(components, that.components);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(productId, title, components);
+    return Objects.hash(productId, title, consolidatedOptions, components);
   }
 
   public static Builder newBuilder() {
@@ -99,6 +117,11 @@ public class ProductBundleUpdateInput {
     private String title;
 
     /**
+     * The consolidated options of the componentized product to update, if provided.
+     */
+    private List<ProductBundleConsolidatedOptionInput> consolidatedOptions;
+
+    /**
      * The components to update existing ones. If none provided, no changes occur.
      * Note: This replaces, not adds to, current components.
      */
@@ -108,6 +131,7 @@ public class ProductBundleUpdateInput {
       ProductBundleUpdateInput result = new ProductBundleUpdateInput();
       result.productId = this.productId;
       result.title = this.title;
+      result.consolidatedOptions = this.consolidatedOptions;
       result.components = this.components;
       return result;
     }
@@ -125,6 +149,15 @@ public class ProductBundleUpdateInput {
      */
     public Builder title(String title) {
       this.title = title;
+      return this;
+    }
+
+    /**
+     * The consolidated options of the componentized product to update, if provided.
+     */
+    public Builder consolidatedOptions(
+        List<ProductBundleConsolidatedOptionInput> consolidatedOptions) {
+      this.consolidatedOptions = consolidatedOptions;
       return this;
     }
 

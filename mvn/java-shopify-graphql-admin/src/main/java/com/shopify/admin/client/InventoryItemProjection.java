@@ -54,12 +54,14 @@ public class InventoryItemProjection<PARENT extends BaseSubProjectionNode<?, ?>,
   }
 
   public InventoryLevelProjection<InventoryItemProjection<PARENT, ROOT>, ROOT> inventoryLevel(
-      String locationId) {
+      String locationId, Boolean includeInactive) {
     InventoryLevelProjection<InventoryItemProjection<PARENT, ROOT>, ROOT> projection = new InventoryLevelProjection<>(this, getRoot());    
     getFields().put("inventoryLevel", projection);
     getInputArguments().computeIfAbsent("inventoryLevel", k -> new ArrayList<>());                      
     InputArgument locationIdArg = new InputArgument("locationId", locationId);
     getInputArguments().get("inventoryLevel").add(locationIdArg);
+    InputArgument includeInactiveArg = new InputArgument("includeInactive", includeInactive);
+    getInputArguments().get("inventoryLevel").add(includeInactiveArg);
     return projection;
   }
 
@@ -71,10 +73,13 @@ public class InventoryItemProjection<PARENT extends BaseSubProjectionNode<?, ?>,
   }
 
   public InventoryLevelConnectionProjection<InventoryItemProjection<PARENT, ROOT>, ROOT> inventoryLevels(
-      Integer first, String after, Integer last, String before, Boolean reverse, String query) {
+      Boolean includeInactive, Integer first, String after, Integer last, String before,
+      Boolean reverse, String query) {
     InventoryLevelConnectionProjection<InventoryItemProjection<PARENT, ROOT>, ROOT> projection = new InventoryLevelConnectionProjection<>(this, getRoot());    
     getFields().put("inventoryLevels", projection);
     getInputArguments().computeIfAbsent("inventoryLevels", k -> new ArrayList<>());                      
+    InputArgument includeInactiveArg = new InputArgument("includeInactive", includeInactive);
+    getInputArguments().get("inventoryLevels").add(includeInactiveArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("inventoryLevels").add(firstArg);
     InputArgument afterArg = new InputArgument("after", after);
@@ -119,6 +124,29 @@ public class InventoryItemProjection<PARENT extends BaseSubProjectionNode<?, ?>,
      ProductVariantProjection<InventoryItemProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantProjection<>(this, getRoot());
      getFields().put("variant", projection);
      return projection;
+  }
+
+  public ProductVariantConnectionProjection<InventoryItemProjection<PARENT, ROOT>, ROOT> variants(
+      ) {
+     ProductVariantConnectionProjection<InventoryItemProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantConnectionProjection<>(this, getRoot());
+     getFields().put("variants", projection);
+     return projection;
+  }
+
+  public ProductVariantConnectionProjection<InventoryItemProjection<PARENT, ROOT>, ROOT> variants(
+      Integer first, String after, Integer last, String before) {
+    ProductVariantConnectionProjection<InventoryItemProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantConnectionProjection<>(this, getRoot());    
+    getFields().put("variants", projection);
+    getInputArguments().computeIfAbsent("variants", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("variants").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("variants").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("variants").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("variants").add(beforeArg);
+    return projection;
   }
 
   public InventoryItemProjection<PARENT, ROOT> createdAt() {

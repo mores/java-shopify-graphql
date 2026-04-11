@@ -9,9 +9,14 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Updates the fixed prices for all variants for a product on a price list. You
- * can use the `priceListFixedPricesByProductUpdate` mutation to set or remove a
- * fixed price for all variants of a product associated with the price list.
+ * Sets or removes fixed prices for all variants of a
+ * [`Product`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product) on a [`PriceList`](https://shopify.dev/docs/api/admin-graphql/latest/objects/PriceList).
+ * Simplifies pricing management when all variants of a product should have the
+ * same price on a price list, rather than setting individual variant prices.
+ *   
+ * When you add a fixed price for a product, all its [`ProductVariant`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant)
+ * objects receive the same price on the price list. When you remove a product's
+ * fixed prices, all variant prices revert to the price list's adjustment rules.
  */
 public class PriceListFixedPricesByProductUpdateGraphQLQuery extends GraphQLQuery {
   public PriceListFixedPricesByProductUpdateGraphQLQuery(

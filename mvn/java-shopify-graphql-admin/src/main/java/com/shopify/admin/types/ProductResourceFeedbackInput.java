@@ -41,6 +41,12 @@ public class ProductResourceFeedbackInput {
    */
   private List<String> messages;
 
+  /**
+   * The ID of the channel that the feedback is for. Used to scope feedback to a
+   * specific sales channel when the app has multiple channels.
+   */
+  private String channelId;
+
   public ProductResourceFeedbackInput() {
   }
 
@@ -104,9 +110,21 @@ public class ProductResourceFeedbackInput {
     this.messages = messages;
   }
 
+  /**
+   * The ID of the channel that the feedback is for. Used to scope feedback to a
+   * specific sales channel when the app has multiple channels.
+   */
+  public String getChannelId() {
+    return channelId;
+  }
+
+  public void setChannelId(String channelId) {
+    this.channelId = channelId;
+  }
+
   @Override
   public String toString() {
-    return "ProductResourceFeedbackInput{productId='" + productId + "', state='" + state + "', feedbackGeneratedAt='" + feedbackGeneratedAt + "', productUpdatedAt='" + productUpdatedAt + "', messages='" + messages + "'}";
+    return "ProductResourceFeedbackInput{productId='" + productId + "', state='" + state + "', feedbackGeneratedAt='" + feedbackGeneratedAt + "', productUpdatedAt='" + productUpdatedAt + "', messages='" + messages + "', channelId='" + channelId + "'}";
   }
 
   @Override
@@ -118,12 +136,13 @@ public class ProductResourceFeedbackInput {
         Objects.equals(state, that.state) &&
         Objects.equals(feedbackGeneratedAt, that.feedbackGeneratedAt) &&
         Objects.equals(productUpdatedAt, that.productUpdatedAt) &&
-        Objects.equals(messages, that.messages);
+        Objects.equals(messages, that.messages) &&
+        Objects.equals(channelId, that.channelId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(productId, state, feedbackGeneratedAt, productUpdatedAt, messages);
+    return Objects.hash(productId, state, feedbackGeneratedAt, productUpdatedAt, messages, channelId);
   }
 
   public static Builder newBuilder() {
@@ -161,6 +180,12 @@ public class ProductResourceFeedbackInput {
      */
     private List<String> messages;
 
+    /**
+     * The ID of the channel that the feedback is for. Used to scope feedback to a
+     * specific sales channel when the app has multiple channels.
+     */
+    private String channelId;
+
     public ProductResourceFeedbackInput build() {
       ProductResourceFeedbackInput result = new ProductResourceFeedbackInput();
       result.productId = this.productId;
@@ -168,6 +193,7 @@ public class ProductResourceFeedbackInput {
       result.feedbackGeneratedAt = this.feedbackGeneratedAt;
       result.productUpdatedAt = this.productUpdatedAt;
       result.messages = this.messages;
+      result.channelId = this.channelId;
       return result;
     }
 
@@ -213,6 +239,15 @@ public class ProductResourceFeedbackInput {
      */
     public Builder messages(List<String> messages) {
       this.messages = messages;
+      return this;
+    }
+
+    /**
+     * The ID of the channel that the feedback is for. Used to scope feedback to a
+     * specific sales channel when the app has multiple channels.
+     */
+    public Builder channelId(String channelId) {
+      this.channelId = channelId;
       return this;
     }
   }

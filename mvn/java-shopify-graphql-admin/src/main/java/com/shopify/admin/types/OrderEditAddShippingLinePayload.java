@@ -23,6 +23,11 @@ public class OrderEditAddShippingLinePayload {
   private CalculatedShippingLine calculatedShippingLine;
 
   /**
+   * The order edit session with the edits applied but not saved.
+   */
+  private OrderEditSession orderEditSession;
+
+  /**
    * The list of errors that occurred from executing the mutation.
    */
   private List<OrderEditAddShippingLineUserError> userErrors;
@@ -55,6 +60,17 @@ public class OrderEditAddShippingLinePayload {
   }
 
   /**
+   * The order edit session with the edits applied but not saved.
+   */
+  public OrderEditSession getOrderEditSession() {
+    return orderEditSession;
+  }
+
+  public void setOrderEditSession(OrderEditSession orderEditSession) {
+    this.orderEditSession = orderEditSession;
+  }
+
+  /**
    * The list of errors that occurred from executing the mutation.
    */
   public List<OrderEditAddShippingLineUserError> getUserErrors() {
@@ -67,7 +83,7 @@ public class OrderEditAddShippingLinePayload {
 
   @Override
   public String toString() {
-    return "OrderEditAddShippingLinePayload{calculatedOrder='" + calculatedOrder + "', calculatedShippingLine='" + calculatedShippingLine + "', userErrors='" + userErrors + "'}";
+    return "OrderEditAddShippingLinePayload{calculatedOrder='" + calculatedOrder + "', calculatedShippingLine='" + calculatedShippingLine + "', orderEditSession='" + orderEditSession + "', userErrors='" + userErrors + "'}";
   }
 
   @Override
@@ -77,12 +93,13 @@ public class OrderEditAddShippingLinePayload {
     OrderEditAddShippingLinePayload that = (OrderEditAddShippingLinePayload) o;
     return Objects.equals(calculatedOrder, that.calculatedOrder) &&
         Objects.equals(calculatedShippingLine, that.calculatedShippingLine) &&
+        Objects.equals(orderEditSession, that.orderEditSession) &&
         Objects.equals(userErrors, that.userErrors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(calculatedOrder, calculatedShippingLine, userErrors);
+    return Objects.hash(calculatedOrder, calculatedShippingLine, orderEditSession, userErrors);
   }
 
   public static Builder newBuilder() {
@@ -103,6 +120,11 @@ public class OrderEditAddShippingLinePayload {
     private CalculatedShippingLine calculatedShippingLine;
 
     /**
+     * The order edit session with the edits applied but not saved.
+     */
+    private OrderEditSession orderEditSession;
+
+    /**
      * The list of errors that occurred from executing the mutation.
      */
     private List<OrderEditAddShippingLineUserError> userErrors;
@@ -111,6 +133,7 @@ public class OrderEditAddShippingLinePayload {
       OrderEditAddShippingLinePayload result = new OrderEditAddShippingLinePayload();
       result.calculatedOrder = this.calculatedOrder;
       result.calculatedShippingLine = this.calculatedShippingLine;
+      result.orderEditSession = this.orderEditSession;
       result.userErrors = this.userErrors;
       return result;
     }
@@ -130,6 +153,14 @@ public class OrderEditAddShippingLinePayload {
      */
     public Builder calculatedShippingLine(CalculatedShippingLine calculatedShippingLine) {
       this.calculatedShippingLine = calculatedShippingLine;
+      return this;
+    }
+
+    /**
+     * The order edit session with the edits applied but not saved.
+     */
+    public Builder orderEditSession(OrderEditSession orderEditSession) {
+      this.orderEditSession = orderEditSession;
       return this;
     }
 

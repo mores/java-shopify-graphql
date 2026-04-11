@@ -16,6 +16,11 @@ public class OrderEditBeginPayload {
   private CalculatedOrder calculatedOrder;
 
   /**
+   * The order edit session that was created.
+   */
+  private OrderEditSession orderEditSession;
+
+  /**
    * The list of errors that occurred from executing the mutation.
    */
   private List<UserError> userErrors;
@@ -35,6 +40,17 @@ public class OrderEditBeginPayload {
   }
 
   /**
+   * The order edit session that was created.
+   */
+  public OrderEditSession getOrderEditSession() {
+    return orderEditSession;
+  }
+
+  public void setOrderEditSession(OrderEditSession orderEditSession) {
+    this.orderEditSession = orderEditSession;
+  }
+
+  /**
    * The list of errors that occurred from executing the mutation.
    */
   public List<UserError> getUserErrors() {
@@ -47,7 +63,7 @@ public class OrderEditBeginPayload {
 
   @Override
   public String toString() {
-    return "OrderEditBeginPayload{calculatedOrder='" + calculatedOrder + "', userErrors='" + userErrors + "'}";
+    return "OrderEditBeginPayload{calculatedOrder='" + calculatedOrder + "', orderEditSession='" + orderEditSession + "', userErrors='" + userErrors + "'}";
   }
 
   @Override
@@ -56,12 +72,13 @@ public class OrderEditBeginPayload {
     if (o == null || getClass() != o.getClass()) return false;
     OrderEditBeginPayload that = (OrderEditBeginPayload) o;
     return Objects.equals(calculatedOrder, that.calculatedOrder) &&
+        Objects.equals(orderEditSession, that.orderEditSession) &&
         Objects.equals(userErrors, that.userErrors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(calculatedOrder, userErrors);
+    return Objects.hash(calculatedOrder, orderEditSession, userErrors);
   }
 
   public static Builder newBuilder() {
@@ -75,6 +92,11 @@ public class OrderEditBeginPayload {
     private CalculatedOrder calculatedOrder;
 
     /**
+     * The order edit session that was created.
+     */
+    private OrderEditSession orderEditSession;
+
+    /**
      * The list of errors that occurred from executing the mutation.
      */
     private List<UserError> userErrors;
@@ -82,6 +104,7 @@ public class OrderEditBeginPayload {
     public OrderEditBeginPayload build() {
       OrderEditBeginPayload result = new OrderEditBeginPayload();
       result.calculatedOrder = this.calculatedOrder;
+      result.orderEditSession = this.orderEditSession;
       result.userErrors = this.userErrors;
       return result;
     }
@@ -91,6 +114,14 @@ public class OrderEditBeginPayload {
      */
     public Builder calculatedOrder(CalculatedOrder calculatedOrder) {
       this.calculatedOrder = calculatedOrder;
+      return this;
+    }
+
+    /**
+     * The order edit session that was created.
+     */
+    public Builder orderEditSession(OrderEditSession orderEditSession) {
+      this.orderEditSession = orderEditSession;
       return this;
     }
 

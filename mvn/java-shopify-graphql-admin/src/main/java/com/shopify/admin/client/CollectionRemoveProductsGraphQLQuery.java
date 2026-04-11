@@ -8,11 +8,22 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Removes a set of products from a given collection. The mutation can take a
- * long time to run. Instead of returning an updated collection the mutation
- * returns a job, which should be
- * [polled](https://shopify.dev/api/admin-graphql/latest/queries/job). For use
- * with manual collections only.
+ * Removes multiple products from a collection in a single operation. This
+ * mutation can process large product sets (up to 250 products) and may take
+ * significant time to complete for collections with many products.
+ *   
+ * For example, when ending a seasonal promotion, merchants can remove all sale
+ * items from a "Summer Clearance" collection at once rather than editing each
+ * product individually.
+ *   
+ * Use `CollectionRemoveProducts` to:
+ * - Bulk-remove products from collections efficiently
+ * - Clean up collection membership during catalog updates
+ * - Implement automated collection management workflows
+ *   
+ * The operation processes asynchronously to avoid timeouts and performance issues, especially for large product sets.
+ *   
+ * Learn more about [collection management](https://shopify.dev/docs/api/admin-graphql/latest/objects/Collection).
  */
 public class CollectionRemoveProductsGraphQLQuery extends GraphQLQuery {
   public CollectionRemoveProductsGraphQLQuery(String id, List<String> productIds, String queryName,

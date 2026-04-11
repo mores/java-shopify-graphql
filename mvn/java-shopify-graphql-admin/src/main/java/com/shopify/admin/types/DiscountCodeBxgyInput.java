@@ -6,12 +6,21 @@ import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
 import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.Objects;
 
 /**
  * The input fields for creating or updating a
  * [buy X get Y discount (BXGY)](https://help.shopify.com/manual/discounts/discount-types/buy-x-get-y)
  * that's applied on a cart and at checkout when a customer enters a code.
+ *
+ * When creating, required fields are:
+ *   - `code`
+ *   - `context` (or deprecated `customerSelection`)
+ *   - `customerBuys`
+ *   - `customerGets`
+ *   - `startsAt`
+ *   - `title`
  */
 public class DiscountCodeBxgyInput {
   /**
@@ -49,15 +58,29 @@ public class DiscountCodeBxgyInput {
   private String code;
 
   /**
-   * The customers that can use the discount.
-   */
-  private DiscountCustomerSelectionInput customerSelection;
-
-  /**
-   * The maximum number of times that a customer can use the discount.
-   * For discounts with unlimited usage, specify `null`.
+   * The maximum number of times the discount can be redeemed.
+   * For unlimited usage, specify `null`.
    */
   private Integer usageLimit;
+
+  /**
+   * The context defining which buyers can use the discount.
+   * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+   */
+  private DiscountContextInput context;
+
+  /**
+   * A list of searchable keywords that are associated with the discount.
+   *   
+   * For example, a `loyalty` tag could be applied to discounts
+   * that are associated with a loyalty program.
+   *   
+   * Updating `tags` overwrites any existing tags that were previously added to the discount.
+   * To add new tags without overwriting existing tags, use the
+   * [`tagsAdd`](https://shopify.dev/api/admin-graphql/latest/mutations/tagsadd)
+   * mutation.
+   */
+  private List<String> tags;
 
   /**
    * The items eligible for the discount and the required quantity of each to receive the discount.
@@ -148,19 +171,8 @@ public class DiscountCodeBxgyInput {
   }
 
   /**
-   * The customers that can use the discount.
-   */
-  public DiscountCustomerSelectionInput getCustomerSelection() {
-    return customerSelection;
-  }
-
-  public void setCustomerSelection(DiscountCustomerSelectionInput customerSelection) {
-    this.customerSelection = customerSelection;
-  }
-
-  /**
-   * The maximum number of times that a customer can use the discount.
-   * For discounts with unlimited usage, specify `null`.
+   * The maximum number of times the discount can be redeemed.
+   * For unlimited usage, specify `null`.
    */
   public Integer getUsageLimit() {
     return usageLimit;
@@ -168,6 +180,37 @@ public class DiscountCodeBxgyInput {
 
   public void setUsageLimit(Integer usageLimit) {
     this.usageLimit = usageLimit;
+  }
+
+  /**
+   * The context defining which buyers can use the discount.
+   * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+   */
+  public DiscountContextInput getContext() {
+    return context;
+  }
+
+  public void setContext(DiscountContextInput context) {
+    this.context = context;
+  }
+
+  /**
+   * A list of searchable keywords that are associated with the discount.
+   *   
+   * For example, a `loyalty` tag could be applied to discounts
+   * that are associated with a loyalty program.
+   *   
+   * Updating `tags` overwrites any existing tags that were previously added to the discount.
+   * To add new tags without overwriting existing tags, use the
+   * [`tagsAdd`](https://shopify.dev/api/admin-graphql/latest/mutations/tagsadd)
+   * mutation.
+   */
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
   }
 
   /**
@@ -205,7 +248,7 @@ public class DiscountCodeBxgyInput {
 
   @Override
   public String toString() {
-    return "DiscountCodeBxgyInput{combinesWith='" + combinesWith + "', title='" + title + "', startsAt='" + startsAt + "', endsAt='" + endsAt + "', appliesOncePerCustomer='" + appliesOncePerCustomer + "', code='" + code + "', customerSelection='" + customerSelection + "', usageLimit='" + usageLimit + "', customerBuys='" + customerBuys + "', customerGets='" + customerGets + "', usesPerOrderLimit='" + usesPerOrderLimit + "'}";
+    return "DiscountCodeBxgyInput{combinesWith='" + combinesWith + "', title='" + title + "', startsAt='" + startsAt + "', endsAt='" + endsAt + "', appliesOncePerCustomer='" + appliesOncePerCustomer + "', code='" + code + "', usageLimit='" + usageLimit + "', context='" + context + "', tags='" + tags + "', customerBuys='" + customerBuys + "', customerGets='" + customerGets + "', usesPerOrderLimit='" + usesPerOrderLimit + "'}";
   }
 
   @Override
@@ -219,8 +262,9 @@ public class DiscountCodeBxgyInput {
         Objects.equals(endsAt, that.endsAt) &&
         Objects.equals(appliesOncePerCustomer, that.appliesOncePerCustomer) &&
         Objects.equals(code, that.code) &&
-        Objects.equals(customerSelection, that.customerSelection) &&
         Objects.equals(usageLimit, that.usageLimit) &&
+        Objects.equals(context, that.context) &&
+        Objects.equals(tags, that.tags) &&
         Objects.equals(customerBuys, that.customerBuys) &&
         Objects.equals(customerGets, that.customerGets) &&
         Objects.equals(usesPerOrderLimit, that.usesPerOrderLimit);
@@ -228,7 +272,7 @@ public class DiscountCodeBxgyInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(combinesWith, title, startsAt, endsAt, appliesOncePerCustomer, code, customerSelection, usageLimit, customerBuys, customerGets, usesPerOrderLimit);
+    return Objects.hash(combinesWith, title, startsAt, endsAt, appliesOncePerCustomer, code, usageLimit, context, tags, customerBuys, customerGets, usesPerOrderLimit);
   }
 
   public static Builder newBuilder() {
@@ -271,15 +315,29 @@ public class DiscountCodeBxgyInput {
     private String code;
 
     /**
-     * The customers that can use the discount.
-     */
-    private DiscountCustomerSelectionInput customerSelection;
-
-    /**
-     * The maximum number of times that a customer can use the discount.
-     * For discounts with unlimited usage, specify `null`.
+     * The maximum number of times the discount can be redeemed.
+     * For unlimited usage, specify `null`.
      */
     private Integer usageLimit;
+
+    /**
+     * The context defining which buyers can use the discount.
+     * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+     */
+    private DiscountContextInput context;
+
+    /**
+     * A list of searchable keywords that are associated with the discount.
+     *   
+     * For example, a `loyalty` tag could be applied to discounts
+     * that are associated with a loyalty program.
+     *   
+     * Updating `tags` overwrites any existing tags that were previously added to the discount.
+     * To add new tags without overwriting existing tags, use the
+     * [`tagsAdd`](https://shopify.dev/api/admin-graphql/latest/mutations/tagsadd)
+     * mutation.
+     */
+    private List<String> tags;
 
     /**
      * The items eligible for the discount and the required quantity of each to receive the discount.
@@ -304,8 +362,9 @@ public class DiscountCodeBxgyInput {
       result.endsAt = this.endsAt;
       result.appliesOncePerCustomer = this.appliesOncePerCustomer;
       result.code = this.code;
-      result.customerSelection = this.customerSelection;
       result.usageLimit = this.usageLimit;
+      result.context = this.context;
+      result.tags = this.tags;
       result.customerBuys = this.customerBuys;
       result.customerGets = this.customerGets;
       result.usesPerOrderLimit = this.usesPerOrderLimit;
@@ -365,19 +424,36 @@ public class DiscountCodeBxgyInput {
     }
 
     /**
-     * The customers that can use the discount.
+     * The maximum number of times the discount can be redeemed.
+     * For unlimited usage, specify `null`.
      */
-    public Builder customerSelection(DiscountCustomerSelectionInput customerSelection) {
-      this.customerSelection = customerSelection;
+    public Builder usageLimit(Integer usageLimit) {
+      this.usageLimit = usageLimit;
       return this;
     }
 
     /**
-     * The maximum number of times that a customer can use the discount.
-     * For discounts with unlimited usage, specify `null`.
+     * The context defining which buyers can use the discount.
+     * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
      */
-    public Builder usageLimit(Integer usageLimit) {
-      this.usageLimit = usageLimit;
+    public Builder context(DiscountContextInput context) {
+      this.context = context;
+      return this;
+    }
+
+    /**
+     * A list of searchable keywords that are associated with the discount.
+     *   
+     * For example, a `loyalty` tag could be applied to discounts
+     * that are associated with a loyalty program.
+     *   
+     * Updating `tags` overwrites any existing tags that were previously added to the discount.
+     * To add new tags without overwriting existing tags, use the
+     * [`tagsAdd`](https://shopify.dev/api/admin-graphql/latest/mutations/tagsadd)
+     * mutation.
+     */
+    public Builder tags(List<String> tags) {
+      this.tags = tags;
       return this;
     }
 

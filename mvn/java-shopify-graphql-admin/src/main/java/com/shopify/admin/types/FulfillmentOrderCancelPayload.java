@@ -23,7 +23,7 @@ public class FulfillmentOrderCancelPayload {
   /**
    * The list of errors that occurred from executing the mutation.
    */
-  private List<UserError> userErrors;
+  private List<FulfillmentOrderCancelError> userErrors;
 
   public FulfillmentOrderCancelPayload() {
   }
@@ -53,11 +53,11 @@ public class FulfillmentOrderCancelPayload {
   /**
    * The list of errors that occurred from executing the mutation.
    */
-  public List<UserError> getUserErrors() {
+  public List<FulfillmentOrderCancelError> getUserErrors() {
     return userErrors;
   }
 
-  public void setUserErrors(List<UserError> userErrors) {
+  public void setUserErrors(List<FulfillmentOrderCancelError> userErrors) {
     this.userErrors = userErrors;
   }
 
@@ -99,7 +99,7 @@ public class FulfillmentOrderCancelPayload {
     /**
      * The list of errors that occurred from executing the mutation.
      */
-    private List<UserError> userErrors;
+    private List<FulfillmentOrderCancelError> userErrors;
 
     public FulfillmentOrderCancelPayload build() {
       FulfillmentOrderCancelPayload result = new FulfillmentOrderCancelPayload();
@@ -128,7 +128,7 @@ public class FulfillmentOrderCancelPayload {
     /**
      * The list of errors that occurred from executing the mutation.
      */
-    public Builder userErrors(List<UserError> userErrors) {
+    public Builder userErrors(List<FulfillmentOrderCancelError> userErrors) {
       this.userErrors = userErrors;
       return this;
     }

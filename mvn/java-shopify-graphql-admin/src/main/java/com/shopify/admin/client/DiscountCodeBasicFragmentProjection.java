@@ -67,6 +67,13 @@ public class DiscountCodeBasicFragmentProjection<PARENT extends BaseSubProjectio
      return projection;
   }
 
+  public DiscountContextProjection<DiscountCodeBasicFragmentProjection<PARENT, ROOT>, ROOT> context(
+      ) {
+     DiscountContextProjection<DiscountCodeBasicFragmentProjection<PARENT, ROOT>, ROOT> projection = new DiscountContextProjection<>(this, getRoot());
+     getFields().put("context", projection);
+     return projection;
+  }
+
   public DiscountCustomerGetsProjection<DiscountCodeBasicFragmentProjection<PARENT, ROOT>, ROOT> customerGets(
       ) {
      DiscountCustomerGetsProjection<DiscountCodeBasicFragmentProjection<PARENT, ROOT>, ROOT> projection = new DiscountCustomerGetsProjection<>(this, getRoot());
@@ -164,6 +171,11 @@ public class DiscountCodeBasicFragmentProjection<PARENT extends BaseSubProjectio
 
   public DiscountCodeBasicFragmentProjection<PARENT, ROOT> summary() {
     getFields().put("summary", null);
+    return this;
+  }
+
+  public DiscountCodeBasicFragmentProjection<PARENT, ROOT> tags() {
+    getFields().put("tags", null);
     return this;
   }
 

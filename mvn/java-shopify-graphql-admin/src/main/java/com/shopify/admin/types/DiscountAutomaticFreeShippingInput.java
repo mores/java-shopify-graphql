@@ -6,12 +6,17 @@ import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
 import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.Objects;
 
 /**
  * The input fields for creating or updating a
  * [free shipping discount](https://help.shopify.com/manual/discounts/discount-types/free-shipping)
  * that's automatically applied on a cart and at checkout.
+ *
+ * When creating, required fields are:
+ * - `startsAt`
+ * - `title`
  */
 public class DiscountAutomaticFreeShippingInput {
   /**
@@ -31,11 +36,31 @@ public class DiscountAutomaticFreeShippingInput {
   private OffsetDateTime endsAt;
 
   /**
+   * The context defining which buyers can use the discount.
+   * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+   * Discounts automatically apply on Point of Sale (POS) for Pro locations when the context is not set to ALL.
+   */
+  private DiscountContextInput context;
+
+  /**
    * The
    * [discount classes](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
    * that you can use in combination with the shipping discount.
    */
   private DiscountCombinesWithInput combinesWith;
+
+  /**
+   * A list of searchable keywords that are associated with the discount.
+   *   
+   * For example, a `loyalty` tag could be applied to discounts
+   * that are associated with a loyalty program.
+   *   
+   * Updating `tags` overwrites any existing tags that were previously added to the discount.
+   * To add new tags without overwriting existing tags, use the
+   * [`tagsAdd`](https://shopify.dev/api/admin-graphql/latest/mutations/tagsadd)
+   * mutation.
+   */
+  private List<String> tags;
 
   /**
    * The minimum subtotal or quantity of items that are required for the discount to be applied.
@@ -55,7 +80,7 @@ public class DiscountAutomaticFreeShippingInput {
   /**
    * Whether the discount applies on regular one-time-purchase items.
    */
-  private Boolean appliesOnOneTimePurchase = true;
+  private Boolean appliesOnOneTimePurchase;
 
   /**
    * Whether the discount applies on subscription items.
@@ -63,7 +88,7 @@ public class DiscountAutomaticFreeShippingInput {
    * enable customers to purchase products
    * on a recurring basis.
    */
-  private Boolean appliesOnSubscription = false;
+  private Boolean appliesOnSubscription;
 
   /**
    * The number of billing cycles for which the discount can be applied,
@@ -111,6 +136,19 @@ public class DiscountAutomaticFreeShippingInput {
   }
 
   /**
+   * The context defining which buyers can use the discount.
+   * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+   * Discounts automatically apply on Point of Sale (POS) for Pro locations when the context is not set to ALL.
+   */
+  public DiscountContextInput getContext() {
+    return context;
+  }
+
+  public void setContext(DiscountContextInput context) {
+    this.context = context;
+  }
+
+  /**
    * The
    * [discount classes](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
    * that you can use in combination with the shipping discount.
@@ -121,6 +159,25 @@ public class DiscountAutomaticFreeShippingInput {
 
   public void setCombinesWith(DiscountCombinesWithInput combinesWith) {
     this.combinesWith = combinesWith;
+  }
+
+  /**
+   * A list of searchable keywords that are associated with the discount.
+   *   
+   * For example, a `loyalty` tag could be applied to discounts
+   * that are associated with a loyalty program.
+   *   
+   * Updating `tags` overwrites any existing tags that were previously added to the discount.
+   * To add new tags without overwriting existing tags, use the
+   * [`tagsAdd`](https://shopify.dev/api/admin-graphql/latest/mutations/tagsadd)
+   * mutation.
+   */
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
   }
 
   /**
@@ -197,7 +254,7 @@ public class DiscountAutomaticFreeShippingInput {
 
   @Override
   public String toString() {
-    return "DiscountAutomaticFreeShippingInput{title='" + title + "', startsAt='" + startsAt + "', endsAt='" + endsAt + "', combinesWith='" + combinesWith + "', minimumRequirement='" + minimumRequirement + "', destination='" + destination + "', maximumShippingPrice='" + maximumShippingPrice + "', appliesOnOneTimePurchase='" + appliesOnOneTimePurchase + "', appliesOnSubscription='" + appliesOnSubscription + "', recurringCycleLimit='" + recurringCycleLimit + "'}";
+    return "DiscountAutomaticFreeShippingInput{title='" + title + "', startsAt='" + startsAt + "', endsAt='" + endsAt + "', context='" + context + "', combinesWith='" + combinesWith + "', tags='" + tags + "', minimumRequirement='" + minimumRequirement + "', destination='" + destination + "', maximumShippingPrice='" + maximumShippingPrice + "', appliesOnOneTimePurchase='" + appliesOnOneTimePurchase + "', appliesOnSubscription='" + appliesOnSubscription + "', recurringCycleLimit='" + recurringCycleLimit + "'}";
   }
 
   @Override
@@ -208,7 +265,9 @@ public class DiscountAutomaticFreeShippingInput {
     return Objects.equals(title, that.title) &&
         Objects.equals(startsAt, that.startsAt) &&
         Objects.equals(endsAt, that.endsAt) &&
+        Objects.equals(context, that.context) &&
         Objects.equals(combinesWith, that.combinesWith) &&
+        Objects.equals(tags, that.tags) &&
         Objects.equals(minimumRequirement, that.minimumRequirement) &&
         Objects.equals(destination, that.destination) &&
         Objects.equals(maximumShippingPrice, that.maximumShippingPrice) &&
@@ -219,7 +278,7 @@ public class DiscountAutomaticFreeShippingInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, startsAt, endsAt, combinesWith, minimumRequirement, destination, maximumShippingPrice, appliesOnOneTimePurchase, appliesOnSubscription, recurringCycleLimit);
+    return Objects.hash(title, startsAt, endsAt, context, combinesWith, tags, minimumRequirement, destination, maximumShippingPrice, appliesOnOneTimePurchase, appliesOnSubscription, recurringCycleLimit);
   }
 
   public static Builder newBuilder() {
@@ -244,11 +303,31 @@ public class DiscountAutomaticFreeShippingInput {
     private OffsetDateTime endsAt;
 
     /**
+     * The context defining which buyers can use the discount.
+     * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+     * Discounts automatically apply on Point of Sale (POS) for Pro locations when the context is not set to ALL.
+     */
+    private DiscountContextInput context;
+
+    /**
      * The
      * [discount classes](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
      * that you can use in combination with the shipping discount.
      */
     private DiscountCombinesWithInput combinesWith;
+
+    /**
+     * A list of searchable keywords that are associated with the discount.
+     *   
+     * For example, a `loyalty` tag could be applied to discounts
+     * that are associated with a loyalty program.
+     *   
+     * Updating `tags` overwrites any existing tags that were previously added to the discount.
+     * To add new tags without overwriting existing tags, use the
+     * [`tagsAdd`](https://shopify.dev/api/admin-graphql/latest/mutations/tagsadd)
+     * mutation.
+     */
+    private List<String> tags;
 
     /**
      * The minimum subtotal or quantity of items that are required for the discount to be applied.
@@ -268,7 +347,7 @@ public class DiscountAutomaticFreeShippingInput {
     /**
      * Whether the discount applies on regular one-time-purchase items.
      */
-    private Boolean appliesOnOneTimePurchase = true;
+    private Boolean appliesOnOneTimePurchase;
 
     /**
      * Whether the discount applies on subscription items.
@@ -276,7 +355,7 @@ public class DiscountAutomaticFreeShippingInput {
      * enable customers to purchase products
      * on a recurring basis.
      */
-    private Boolean appliesOnSubscription = false;
+    private Boolean appliesOnSubscription;
 
     /**
      * The number of billing cycles for which the discount can be applied,
@@ -291,7 +370,9 @@ public class DiscountAutomaticFreeShippingInput {
       result.title = this.title;
       result.startsAt = this.startsAt;
       result.endsAt = this.endsAt;
+      result.context = this.context;
       result.combinesWith = this.combinesWith;
+      result.tags = this.tags;
       result.minimumRequirement = this.minimumRequirement;
       result.destination = this.destination;
       result.maximumShippingPrice = this.maximumShippingPrice;
@@ -327,12 +408,38 @@ public class DiscountAutomaticFreeShippingInput {
     }
 
     /**
+     * The context defining which buyers can use the discount.
+     * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+     * Discounts automatically apply on Point of Sale (POS) for Pro locations when the context is not set to ALL.
+     */
+    public Builder context(DiscountContextInput context) {
+      this.context = context;
+      return this;
+    }
+
+    /**
      * The
      * [discount classes](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
      * that you can use in combination with the shipping discount.
      */
     public Builder combinesWith(DiscountCombinesWithInput combinesWith) {
       this.combinesWith = combinesWith;
+      return this;
+    }
+
+    /**
+     * A list of searchable keywords that are associated with the discount.
+     *   
+     * For example, a `loyalty` tag could be applied to discounts
+     * that are associated with a loyalty program.
+     *   
+     * Updating `tags` overwrites any existing tags that were previously added to the discount.
+     * To add new tags without overwriting existing tags, use the
+     * [`tagsAdd`](https://shopify.dev/api/admin-graphql/latest/mutations/tagsadd)
+     * mutation.
+     */
+    public Builder tags(List<String> tags) {
+      this.tags = tags;
       return this;
     }
 

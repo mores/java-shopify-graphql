@@ -18,6 +18,8 @@ public enum FulfillmentDisplayStatus {
 
   FULFILLED,
 
+  CARRIER_PICKED_UP,
+
   IN_TRANSIT,
 
   LABEL_PRINTED,

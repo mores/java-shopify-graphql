@@ -8,9 +8,18 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Asynchronously adds a set of products to a given collection. It can take a
- * long time to run. Instead of returning a collection, it returns a job which
- * should be polled.
+ * Adds products to a [`Collection`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Collection)
+ * asynchronously and returns a
+ * [`Job`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Job) to
+ * track the operation's progress. This mutation handles large product sets
+ * efficiently by processing them in the background.
+ *   
+ * You can poll the returned job using the
+ * [`job`](https://shopify.dev/docs/api/admin-graphql/latest/queries/job) query
+ * to monitor completion status.
+ *   
+ * > Note:
+ * > This mutation adds products in the order specified in the [`productIds`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/collectionAddProducts#arguments-productIds) argument.
  */
 public class CollectionAddProductsV2GraphQLQuery extends GraphQLQuery {
   public CollectionAddProductsV2GraphQLQuery(String id, List<String> productIds, String queryName,

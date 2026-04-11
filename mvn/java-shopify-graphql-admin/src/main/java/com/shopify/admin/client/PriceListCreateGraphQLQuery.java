@@ -8,9 +8,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Creates a price list. You can use the `priceListCreate` mutation to create a
- * new price list and associate it with a catalog. This enables you to sell your
- * products with contextual pricing.
+ * Creates a [`PriceList`](https://shopify.dev/docs/api/admin-graphql/latest/objects/PriceList). Price lists enable contextual pricing by defining fixed prices or
+ * percentage-based adjustments.
+ *   
+ * The price list requires a unique name, currency for fixed prices, and parent
+ * adjustment settings that determine how the system calculates prices relative
+ * to base prices. To apply contextual pricing, link the price list to a [`Catalog`](https://shopify.dev/docs/api/admin-graphql/latest/interfaces/Catalog).
+ * When that catalog's context is matched, customers receive the price list's prices.
+ *   
+ * Learn more about [building catalogs with price lists](https://shopify.dev/docs/apps/build/markets/build-catalog#step-2-associate-a-price-list-with-the-catalog).
  */
 public class PriceListCreateGraphQLQuery extends GraphQLQuery {
   public PriceListCreateGraphQLQuery(PriceListCreateInput input, String queryName,

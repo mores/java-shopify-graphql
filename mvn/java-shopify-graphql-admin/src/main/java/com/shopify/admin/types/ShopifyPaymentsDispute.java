@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
-import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
@@ -21,19 +20,24 @@ public class ShopifyPaymentsDispute implements com.shopify.admin.types.LegacyInt
   private MoneyV2 amount;
 
   /**
+   * The evidence associated with the dispute.
+   */
+  private ShopifyPaymentsDisputeEvidence disputeEvidence;
+
+  /**
    * The deadline for evidence submission.
    */
-  private LocalDate evidenceDueBy;
+  private OffsetDateTime evidenceDueBy;
 
   /**
    * The date when evidence was sent. Returns null if evidence hasn't yet been sent.
    */
-  private LocalDate evidenceSentOn;
+  private OffsetDateTime evidenceSentOn;
 
   /**
    * The date when this dispute was resolved. Returns null if the dispute isn't yet resolved.
    */
-  private LocalDate finalizedOn;
+  private OffsetDateTime finalizedOn;
 
   /**
    * A globally-unique ID.
@@ -85,35 +89,46 @@ public class ShopifyPaymentsDispute implements com.shopify.admin.types.LegacyInt
   }
 
   /**
+   * The evidence associated with the dispute.
+   */
+  public ShopifyPaymentsDisputeEvidence getDisputeEvidence() {
+    return disputeEvidence;
+  }
+
+  public void setDisputeEvidence(ShopifyPaymentsDisputeEvidence disputeEvidence) {
+    this.disputeEvidence = disputeEvidence;
+  }
+
+  /**
    * The deadline for evidence submission.
    */
-  public LocalDate getEvidenceDueBy() {
+  public OffsetDateTime getEvidenceDueBy() {
     return evidenceDueBy;
   }
 
-  public void setEvidenceDueBy(LocalDate evidenceDueBy) {
+  public void setEvidenceDueBy(OffsetDateTime evidenceDueBy) {
     this.evidenceDueBy = evidenceDueBy;
   }
 
   /**
    * The date when evidence was sent. Returns null if evidence hasn't yet been sent.
    */
-  public LocalDate getEvidenceSentOn() {
+  public OffsetDateTime getEvidenceSentOn() {
     return evidenceSentOn;
   }
 
-  public void setEvidenceSentOn(LocalDate evidenceSentOn) {
+  public void setEvidenceSentOn(OffsetDateTime evidenceSentOn) {
     this.evidenceSentOn = evidenceSentOn;
   }
 
   /**
    * The date when this dispute was resolved. Returns null if the dispute isn't yet resolved.
    */
-  public LocalDate getFinalizedOn() {
+  public OffsetDateTime getFinalizedOn() {
     return finalizedOn;
   }
 
-  public void setFinalizedOn(LocalDate finalizedOn) {
+  public void setFinalizedOn(OffsetDateTime finalizedOn) {
     this.finalizedOn = finalizedOn;
   }
 
@@ -196,7 +211,7 @@ public class ShopifyPaymentsDispute implements com.shopify.admin.types.LegacyInt
 
   @Override
   public String toString() {
-    return "ShopifyPaymentsDispute{amount='" + amount + "', evidenceDueBy='" + evidenceDueBy + "', evidenceSentOn='" + evidenceSentOn + "', finalizedOn='" + finalizedOn + "', id='" + id + "', initiatedAt='" + initiatedAt + "', legacyResourceId='" + legacyResourceId + "', order='" + order + "', reasonDetails='" + reasonDetails + "', status='" + status + "', type='" + type + "'}";
+    return "ShopifyPaymentsDispute{amount='" + amount + "', disputeEvidence='" + disputeEvidence + "', evidenceDueBy='" + evidenceDueBy + "', evidenceSentOn='" + evidenceSentOn + "', finalizedOn='" + finalizedOn + "', id='" + id + "', initiatedAt='" + initiatedAt + "', legacyResourceId='" + legacyResourceId + "', order='" + order + "', reasonDetails='" + reasonDetails + "', status='" + status + "', type='" + type + "'}";
   }
 
   @Override
@@ -205,6 +220,7 @@ public class ShopifyPaymentsDispute implements com.shopify.admin.types.LegacyInt
     if (o == null || getClass() != o.getClass()) return false;
     ShopifyPaymentsDispute that = (ShopifyPaymentsDispute) o;
     return Objects.equals(amount, that.amount) &&
+        Objects.equals(disputeEvidence, that.disputeEvidence) &&
         Objects.equals(evidenceDueBy, that.evidenceDueBy) &&
         Objects.equals(evidenceSentOn, that.evidenceSentOn) &&
         Objects.equals(finalizedOn, that.finalizedOn) &&
@@ -219,7 +235,7 @@ public class ShopifyPaymentsDispute implements com.shopify.admin.types.LegacyInt
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, evidenceDueBy, evidenceSentOn, finalizedOn, id, initiatedAt, legacyResourceId, order, reasonDetails, status, type);
+    return Objects.hash(amount, disputeEvidence, evidenceDueBy, evidenceSentOn, finalizedOn, id, initiatedAt, legacyResourceId, order, reasonDetails, status, type);
   }
 
   public static Builder newBuilder() {
@@ -233,19 +249,24 @@ public class ShopifyPaymentsDispute implements com.shopify.admin.types.LegacyInt
     private MoneyV2 amount;
 
     /**
+     * The evidence associated with the dispute.
+     */
+    private ShopifyPaymentsDisputeEvidence disputeEvidence;
+
+    /**
      * The deadline for evidence submission.
      */
-    private LocalDate evidenceDueBy;
+    private OffsetDateTime evidenceDueBy;
 
     /**
      * The date when evidence was sent. Returns null if evidence hasn't yet been sent.
      */
-    private LocalDate evidenceSentOn;
+    private OffsetDateTime evidenceSentOn;
 
     /**
      * The date when this dispute was resolved. Returns null if the dispute isn't yet resolved.
      */
-    private LocalDate finalizedOn;
+    private OffsetDateTime finalizedOn;
 
     /**
      * A globally-unique ID.
@@ -285,6 +306,7 @@ public class ShopifyPaymentsDispute implements com.shopify.admin.types.LegacyInt
     public ShopifyPaymentsDispute build() {
       ShopifyPaymentsDispute result = new ShopifyPaymentsDispute();
       result.amount = this.amount;
+      result.disputeEvidence = this.disputeEvidence;
       result.evidenceDueBy = this.evidenceDueBy;
       result.evidenceSentOn = this.evidenceSentOn;
       result.finalizedOn = this.finalizedOn;
@@ -307,9 +329,17 @@ public class ShopifyPaymentsDispute implements com.shopify.admin.types.LegacyInt
     }
 
     /**
+     * The evidence associated with the dispute.
+     */
+    public Builder disputeEvidence(ShopifyPaymentsDisputeEvidence disputeEvidence) {
+      this.disputeEvidence = disputeEvidence;
+      return this;
+    }
+
+    /**
      * The deadline for evidence submission.
      */
-    public Builder evidenceDueBy(LocalDate evidenceDueBy) {
+    public Builder evidenceDueBy(OffsetDateTime evidenceDueBy) {
       this.evidenceDueBy = evidenceDueBy;
       return this;
     }
@@ -317,7 +347,7 @@ public class ShopifyPaymentsDispute implements com.shopify.admin.types.LegacyInt
     /**
      * The date when evidence was sent. Returns null if evidence hasn't yet been sent.
      */
-    public Builder evidenceSentOn(LocalDate evidenceSentOn) {
+    public Builder evidenceSentOn(OffsetDateTime evidenceSentOn) {
       this.evidenceSentOn = evidenceSentOn;
       return this;
     }
@@ -325,7 +355,7 @@ public class ShopifyPaymentsDispute implements com.shopify.admin.types.LegacyInt
     /**
      * The date when this dispute was resolved. Returns null if the dispute isn't yet resolved.
      */
-    public Builder finalizedOn(LocalDate finalizedOn) {
+    public Builder finalizedOn(OffsetDateTime finalizedOn) {
       this.finalizedOn = finalizedOn;
       return this;
     }

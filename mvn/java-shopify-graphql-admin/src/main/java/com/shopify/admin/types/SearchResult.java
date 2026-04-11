@@ -20,7 +20,7 @@ public class SearchResult {
   private Image image;
 
   /**
-   * Returns the ID of the resource returned in the search result.
+   * Returns the resource represented by the search result.
    */
   private Node reference;
 
@@ -60,7 +60,7 @@ public class SearchResult {
   }
 
   /**
-   * Returns the ID of the resource returned in the search result.
+   * Returns the resource represented by the search result.
    */
   public Node getReference() {
     return reference;
@@ -130,7 +130,7 @@ public class SearchResult {
     private Image image;
 
     /**
-     * Returns the ID of the resource returned in the search result.
+     * Returns the resource represented by the search result.
      */
     private Node reference;
 
@@ -171,7 +171,7 @@ public class SearchResult {
     }
 
     /**
-     * Returns the ID of the resource returned in the search result.
+     * Returns the resource represented by the search result.
      */
     public Builder reference(Node reference) {
       this.reference = reference;

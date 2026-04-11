@@ -32,12 +32,12 @@ import java.util.Objects;
  * [fulfillmentServiceCreate](https://shopify.dev/api/admin-graphql/latest/mutations/fulfillmentServiceCreate)
  * mutation.
  *
- * - Shopify sends POST requests to the `&lt;callbackUrl>/fulfillment_order_notification` endpoint
+ * - Shopify sends POST requests to the `<callbackUrl>/fulfillment_order_notification` endpoint
  *   to notify the fulfillment service about fulfillment requests and fulfillment cancellation requests.
  *
  *   For more information, refer to
  *   [Receive fulfillment requests and cancellations](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments#step-2-receive-fulfillment-requests-and-cancellations).
- * - Shopify sends GET requests to the `&lt;callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers for orders
+ * - Shopify sends GET requests to the `<callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers for orders
  *   if `trackingSupport` is set to `true`.
  *
  *   For more information, refer to
@@ -46,7 +46,7 @@ import java.util.Objects;
  *   Fulfillment services can also update tracking information using the
  *   [fulfillmentTrackingInfoUpdate](https://shopify.dev/api/admin-graphql/latest/mutations/fulfillmentTrackingInfoUpdate) mutation,
  *   rather than waiting for Shopify to ask for tracking numbers.
- * - Shopify sends GET requests to the `&lt;callbackUrl>/fetch_stock` endpoint to retrieve
+ * - Shopify sends GET requests to the `<callbackUrl>/fetch_stock` endpoint to retrieve
  *   on hand inventory levels for the fulfillment service location if `inventoryManagement` is set to `true`.
  *
  *   For more information, refer to
@@ -73,11 +73,11 @@ public class FulfillmentService {
   /**
    * The callback URL that the fulfillment service has registered for requests. The following considerations apply:
    *   
-   * - Shopify queries the `&lt;callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
+   * - Shopify queries the `<callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
    *     for orders, if `trackingSupport` is set to `true`.
-   * - Shopify queries the `&lt;callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
+   * - Shopify queries the `<callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
    *     if `inventoryManagement` is set to `true`.
-   * - Shopify uses the `&lt;callbackUrl>/fulfillment_order_notification` endpoint to send
+   * - Shopify uses the `<callbackUrl>/fulfillment_order_notification` endpoint to send
    *     [fulfillment and cancellation requests](https://shopify.dev/apps/build/orders-fulfillment/fulfillment-service-apps/build-for-fulfillment-services#step-9-optional-enable-tracking-support).
    */
   private String callbackUrl;
@@ -113,11 +113,6 @@ public class FulfillmentService {
   private Location location;
 
   /**
-   * Whether the fulfillment service can stock inventory alongside other locations.
-   */
-  private boolean permitsSkuSharing;
-
-  /**
    * Whether the fulfillment service requires products to be physically shipped.
    */
   private boolean requiresShippingMethod;
@@ -143,11 +138,11 @@ public class FulfillmentService {
   /**
    * The callback URL that the fulfillment service has registered for requests. The following considerations apply:
    *   
-   * - Shopify queries the `&lt;callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
+   * - Shopify queries the `<callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
    *     for orders, if `trackingSupport` is set to `true`.
-   * - Shopify queries the `&lt;callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
+   * - Shopify queries the `<callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
    *     if `inventoryManagement` is set to `true`.
-   * - Shopify uses the `&lt;callbackUrl>/fulfillment_order_notification` endpoint to send
+   * - Shopify uses the `<callbackUrl>/fulfillment_order_notification` endpoint to send
    *     [fulfillment and cancellation requests](https://shopify.dev/apps/build/orders-fulfillment/fulfillment-service-apps/build-for-fulfillment-services#step-9-optional-enable-tracking-support).
    */
   public String getCallbackUrl() {
@@ -219,17 +214,6 @@ public class FulfillmentService {
   }
 
   /**
-   * Whether the fulfillment service can stock inventory alongside other locations.
-   */
-  public boolean getPermitsSkuSharing() {
-    return permitsSkuSharing;
-  }
-
-  public void setPermitsSkuSharing(boolean permitsSkuSharing) {
-    this.permitsSkuSharing = permitsSkuSharing;
-  }
-
-  /**
    * Whether the fulfillment service requires products to be physically shipped.
    */
   public boolean getRequiresShippingMethod() {
@@ -275,7 +259,7 @@ public class FulfillmentService {
 
   @Override
   public String toString() {
-    return "FulfillmentService{callbackUrl='" + callbackUrl + "', fulfillmentOrdersOptIn='" + fulfillmentOrdersOptIn + "', handle='" + handle + "', id='" + id + "', inventoryManagement='" + inventoryManagement + "', location='" + location + "', permitsSkuSharing='" + permitsSkuSharing + "', requiresShippingMethod='" + requiresShippingMethod + "', serviceName='" + serviceName + "', trackingSupport='" + trackingSupport + "', type='" + type + "'}";
+    return "FulfillmentService{callbackUrl='" + callbackUrl + "', fulfillmentOrdersOptIn='" + fulfillmentOrdersOptIn + "', handle='" + handle + "', id='" + id + "', inventoryManagement='" + inventoryManagement + "', location='" + location + "', requiresShippingMethod='" + requiresShippingMethod + "', serviceName='" + serviceName + "', trackingSupport='" + trackingSupport + "', type='" + type + "'}";
   }
 
   @Override
@@ -289,7 +273,6 @@ public class FulfillmentService {
         Objects.equals(id, that.id) &&
         inventoryManagement == that.inventoryManagement &&
         Objects.equals(location, that.location) &&
-        permitsSkuSharing == that.permitsSkuSharing &&
         requiresShippingMethod == that.requiresShippingMethod &&
         Objects.equals(serviceName, that.serviceName) &&
         trackingSupport == that.trackingSupport &&
@@ -298,7 +281,7 @@ public class FulfillmentService {
 
   @Override
   public int hashCode() {
-    return Objects.hash(callbackUrl, fulfillmentOrdersOptIn, handle, id, inventoryManagement, location, permitsSkuSharing, requiresShippingMethod, serviceName, trackingSupport, type);
+    return Objects.hash(callbackUrl, fulfillmentOrdersOptIn, handle, id, inventoryManagement, location, requiresShippingMethod, serviceName, trackingSupport, type);
   }
 
   public static Builder newBuilder() {
@@ -309,11 +292,11 @@ public class FulfillmentService {
     /**
      * The callback URL that the fulfillment service has registered for requests. The following considerations apply:
      *   
-     * - Shopify queries the `&lt;callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
+     * - Shopify queries the `<callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
      *     for orders, if `trackingSupport` is set to `true`.
-     * - Shopify queries the `&lt;callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
+     * - Shopify queries the `<callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
      *     if `inventoryManagement` is set to `true`.
-     * - Shopify uses the `&lt;callbackUrl>/fulfillment_order_notification` endpoint to send
+     * - Shopify uses the `<callbackUrl>/fulfillment_order_notification` endpoint to send
      *     [fulfillment and cancellation requests](https://shopify.dev/apps/build/orders-fulfillment/fulfillment-service-apps/build-for-fulfillment-services#step-9-optional-enable-tracking-support).
      */
     private String callbackUrl;
@@ -349,11 +332,6 @@ public class FulfillmentService {
     private Location location;
 
     /**
-     * Whether the fulfillment service can stock inventory alongside other locations.
-     */
-    private boolean permitsSkuSharing;
-
-    /**
      * Whether the fulfillment service requires products to be physically shipped.
      */
     private boolean requiresShippingMethod;
@@ -381,7 +359,6 @@ public class FulfillmentService {
       result.id = this.id;
       result.inventoryManagement = this.inventoryManagement;
       result.location = this.location;
-      result.permitsSkuSharing = this.permitsSkuSharing;
       result.requiresShippingMethod = this.requiresShippingMethod;
       result.serviceName = this.serviceName;
       result.trackingSupport = this.trackingSupport;
@@ -392,11 +369,11 @@ public class FulfillmentService {
     /**
      * The callback URL that the fulfillment service has registered for requests. The following considerations apply:
      *   
-     * - Shopify queries the `&lt;callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
+     * - Shopify queries the `<callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
      *     for orders, if `trackingSupport` is set to `true`.
-     * - Shopify queries the `&lt;callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
+     * - Shopify queries the `<callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
      *     if `inventoryManagement` is set to `true`.
-     * - Shopify uses the `&lt;callbackUrl>/fulfillment_order_notification` endpoint to send
+     * - Shopify uses the `<callbackUrl>/fulfillment_order_notification` endpoint to send
      *     [fulfillment and cancellation requests](https://shopify.dev/apps/build/orders-fulfillment/fulfillment-service-apps/build-for-fulfillment-services#step-9-optional-enable-tracking-support).
      */
     public Builder callbackUrl(String callbackUrl) {
@@ -446,14 +423,6 @@ public class FulfillmentService {
      */
     public Builder location(Location location) {
       this.location = location;
-      return this;
-    }
-
-    /**
-     * Whether the fulfillment service can stock inventory alongside other locations.
-     */
-    public Builder permitsSkuSharing(boolean permitsSkuSharing) {
-      this.permitsSkuSharing = permitsSkuSharing;
       return this;
     }
 

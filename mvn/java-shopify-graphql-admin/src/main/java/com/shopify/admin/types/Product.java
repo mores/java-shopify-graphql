@@ -48,6 +48,11 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
   private ProductBundleComponentConnection bundleComponents;
 
   /**
+   * A list of consolidated options for a product in a bundle.
+   */
+  private List<ComponentizedProductsBundleConsolidatedOption> bundleConsolidatedOptions;
+
+  /**
    * The category of a product
    * from [Shopify's Standard Product Taxonomy](https://shopify.github.io/product-taxonomy/releases/unstable/?categoryId=sg-4-17-2-17).
    */
@@ -503,7 +508,7 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
 
   /**
    * A list of [variants](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant) associated with the product.
-   * If querying a single product at the root, you can fetch up to 2000 variants.
+   * If querying a single product at the root, you can fetch up to 2048 variants.
    */
   private ProductVariantConnection variants;
 
@@ -558,6 +563,18 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
 
   public void setBundleComponents(ProductBundleComponentConnection bundleComponents) {
     this.bundleComponents = bundleComponents;
+  }
+
+  /**
+   * A list of consolidated options for a product in a bundle.
+   */
+  public List<ComponentizedProductsBundleConsolidatedOption> getBundleConsolidatedOptions() {
+    return bundleConsolidatedOptions;
+  }
+
+  public void setBundleConsolidatedOptions(
+      List<ComponentizedProductsBundleConsolidatedOption> bundleConsolidatedOptions) {
+    this.bundleConsolidatedOptions = bundleConsolidatedOptions;
   }
 
   /**
@@ -1455,7 +1472,7 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
 
   /**
    * A list of [variants](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant) associated with the product.
-   * If querying a single product at the root, you can fetch up to 2000 variants.
+   * If querying a single product at the root, you can fetch up to 2048 variants.
    */
   public ProductVariantConnection getVariants() {
     return variants;
@@ -1490,7 +1507,7 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
 
   @Override
   public String toString() {
-    return "Product{availablePublicationsCount='" + availablePublicationsCount + "', bodyHtml='" + bodyHtml + "', bundleComponents='" + bundleComponents + "', category='" + category + "', collections='" + collections + "', combinedListing='" + combinedListing + "', combinedListingRole='" + combinedListingRole + "', compareAtPriceRange='" + compareAtPriceRange + "', contextualPricing='" + contextualPricing + "', createdAt='" + createdAt + "', customProductType='" + customProductType + "', defaultCursor='" + defaultCursor + "', description='" + description + "', descriptionHtml='" + descriptionHtml + "', descriptionPlainSummary='" + descriptionPlainSummary + "', events='" + events + "', featuredImage='" + featuredImage + "', featuredMedia='" + featuredMedia + "', feedback='" + feedback + "', giftCardTemplateSuffix='" + giftCardTemplateSuffix + "', handle='" + handle + "', hasOnlyDefaultVariant='" + hasOnlyDefaultVariant + "', hasOutOfStockVariants='" + hasOutOfStockVariants + "', hasVariantsThatRequiresComponents='" + hasVariantsThatRequiresComponents + "', id='" + id + "', images='" + images + "', inCollection='" + inCollection + "', isGiftCard='" + isGiftCard + "', legacyResourceId='" + legacyResourceId + "', media='" + media + "', mediaCount='" + mediaCount + "', metafield='" + metafield + "', metafieldDefinitions='" + metafieldDefinitions + "', metafields='" + metafields + "', onlineStorePreviewUrl='" + onlineStorePreviewUrl + "', onlineStoreUrl='" + onlineStoreUrl + "', options='" + options + "', priceRange='" + priceRange + "', priceRangeV2='" + priceRangeV2 + "', productCategory='" + productCategory + "', productComponents='" + productComponents + "', productComponentsCount='" + productComponentsCount + "', productParents='" + productParents + "', productPublications='" + productPublications + "', productType='" + productType + "', publicationCount='" + publicationCount + "', publications='" + publications + "', publishedAt='" + publishedAt + "', publishedInContext='" + publishedInContext + "', publishedOnChannel='" + publishedOnChannel + "', publishedOnCurrentChannel='" + publishedOnCurrentChannel + "', publishedOnCurrentPublication='" + publishedOnCurrentPublication + "', publishedOnPublication='" + publishedOnPublication + "', requiresSellingPlan='" + requiresSellingPlan + "', resourcePublicationOnCurrentPublication='" + resourcePublicationOnCurrentPublication + "', resourcePublications='" + resourcePublications + "', resourcePublicationsCount='" + resourcePublicationsCount + "', resourcePublicationsV2='" + resourcePublicationsV2 + "', restrictedForResource='" + restrictedForResource + "', sellingPlanGroupCount='" + sellingPlanGroupCount + "', sellingPlanGroups='" + sellingPlanGroups + "', sellingPlanGroupsCount='" + sellingPlanGroupsCount + "', seo='" + seo + "', standardizedProductType='" + standardizedProductType + "', status='" + status + "', storefrontId='" + storefrontId + "', tags='" + tags + "', templateSuffix='" + templateSuffix + "', title='" + title + "', totalInventory='" + totalInventory + "', totalVariants='" + totalVariants + "', tracksInventory='" + tracksInventory + "', translations='" + translations + "', unpublishedChannels='" + unpublishedChannels + "', unpublishedPublications='" + unpublishedPublications + "', updatedAt='" + updatedAt + "', variants='" + variants + "', variantsCount='" + variantsCount + "', vendor='" + vendor + "'}";
+    return "Product{availablePublicationsCount='" + availablePublicationsCount + "', bodyHtml='" + bodyHtml + "', bundleComponents='" + bundleComponents + "', bundleConsolidatedOptions='" + bundleConsolidatedOptions + "', category='" + category + "', collections='" + collections + "', combinedListing='" + combinedListing + "', combinedListingRole='" + combinedListingRole + "', compareAtPriceRange='" + compareAtPriceRange + "', contextualPricing='" + contextualPricing + "', createdAt='" + createdAt + "', customProductType='" + customProductType + "', defaultCursor='" + defaultCursor + "', description='" + description + "', descriptionHtml='" + descriptionHtml + "', descriptionPlainSummary='" + descriptionPlainSummary + "', events='" + events + "', featuredImage='" + featuredImage + "', featuredMedia='" + featuredMedia + "', feedback='" + feedback + "', giftCardTemplateSuffix='" + giftCardTemplateSuffix + "', handle='" + handle + "', hasOnlyDefaultVariant='" + hasOnlyDefaultVariant + "', hasOutOfStockVariants='" + hasOutOfStockVariants + "', hasVariantsThatRequiresComponents='" + hasVariantsThatRequiresComponents + "', id='" + id + "', images='" + images + "', inCollection='" + inCollection + "', isGiftCard='" + isGiftCard + "', legacyResourceId='" + legacyResourceId + "', media='" + media + "', mediaCount='" + mediaCount + "', metafield='" + metafield + "', metafieldDefinitions='" + metafieldDefinitions + "', metafields='" + metafields + "', onlineStorePreviewUrl='" + onlineStorePreviewUrl + "', onlineStoreUrl='" + onlineStoreUrl + "', options='" + options + "', priceRange='" + priceRange + "', priceRangeV2='" + priceRangeV2 + "', productCategory='" + productCategory + "', productComponents='" + productComponents + "', productComponentsCount='" + productComponentsCount + "', productParents='" + productParents + "', productPublications='" + productPublications + "', productType='" + productType + "', publicationCount='" + publicationCount + "', publications='" + publications + "', publishedAt='" + publishedAt + "', publishedInContext='" + publishedInContext + "', publishedOnChannel='" + publishedOnChannel + "', publishedOnCurrentChannel='" + publishedOnCurrentChannel + "', publishedOnCurrentPublication='" + publishedOnCurrentPublication + "', publishedOnPublication='" + publishedOnPublication + "', requiresSellingPlan='" + requiresSellingPlan + "', resourcePublicationOnCurrentPublication='" + resourcePublicationOnCurrentPublication + "', resourcePublications='" + resourcePublications + "', resourcePublicationsCount='" + resourcePublicationsCount + "', resourcePublicationsV2='" + resourcePublicationsV2 + "', restrictedForResource='" + restrictedForResource + "', sellingPlanGroupCount='" + sellingPlanGroupCount + "', sellingPlanGroups='" + sellingPlanGroups + "', sellingPlanGroupsCount='" + sellingPlanGroupsCount + "', seo='" + seo + "', standardizedProductType='" + standardizedProductType + "', status='" + status + "', storefrontId='" + storefrontId + "', tags='" + tags + "', templateSuffix='" + templateSuffix + "', title='" + title + "', totalInventory='" + totalInventory + "', totalVariants='" + totalVariants + "', tracksInventory='" + tracksInventory + "', translations='" + translations + "', unpublishedChannels='" + unpublishedChannels + "', unpublishedPublications='" + unpublishedPublications + "', updatedAt='" + updatedAt + "', variants='" + variants + "', variantsCount='" + variantsCount + "', vendor='" + vendor + "'}";
   }
 
   @Override
@@ -1501,6 +1518,7 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
     return Objects.equals(availablePublicationsCount, that.availablePublicationsCount) &&
         Objects.equals(bodyHtml, that.bodyHtml) &&
         Objects.equals(bundleComponents, that.bundleComponents) &&
+        Objects.equals(bundleConsolidatedOptions, that.bundleConsolidatedOptions) &&
         Objects.equals(category, that.category) &&
         Objects.equals(collections, that.collections) &&
         Objects.equals(combinedListing, that.combinedListing) &&
@@ -1581,7 +1599,7 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
 
   @Override
   public int hashCode() {
-    return Objects.hash(availablePublicationsCount, bodyHtml, bundleComponents, category, collections, combinedListing, combinedListingRole, compareAtPriceRange, contextualPricing, createdAt, customProductType, defaultCursor, description, descriptionHtml, descriptionPlainSummary, events, featuredImage, featuredMedia, feedback, giftCardTemplateSuffix, handle, hasOnlyDefaultVariant, hasOutOfStockVariants, hasVariantsThatRequiresComponents, id, images, inCollection, isGiftCard, legacyResourceId, media, mediaCount, metafield, metafieldDefinitions, metafields, onlineStorePreviewUrl, onlineStoreUrl, options, priceRange, priceRangeV2, productCategory, productComponents, productComponentsCount, productParents, productPublications, productType, publicationCount, publications, publishedAt, publishedInContext, publishedOnChannel, publishedOnCurrentChannel, publishedOnCurrentPublication, publishedOnPublication, requiresSellingPlan, resourcePublicationOnCurrentPublication, resourcePublications, resourcePublicationsCount, resourcePublicationsV2, restrictedForResource, sellingPlanGroupCount, sellingPlanGroups, sellingPlanGroupsCount, seo, standardizedProductType, status, storefrontId, tags, templateSuffix, title, totalInventory, totalVariants, tracksInventory, translations, unpublishedChannels, unpublishedPublications, updatedAt, variants, variantsCount, vendor);
+    return Objects.hash(availablePublicationsCount, bodyHtml, bundleComponents, bundleConsolidatedOptions, category, collections, combinedListing, combinedListingRole, compareAtPriceRange, contextualPricing, createdAt, customProductType, defaultCursor, description, descriptionHtml, descriptionPlainSummary, events, featuredImage, featuredMedia, feedback, giftCardTemplateSuffix, handle, hasOnlyDefaultVariant, hasOutOfStockVariants, hasVariantsThatRequiresComponents, id, images, inCollection, isGiftCard, legacyResourceId, media, mediaCount, metafield, metafieldDefinitions, metafields, onlineStorePreviewUrl, onlineStoreUrl, options, priceRange, priceRangeV2, productCategory, productComponents, productComponentsCount, productParents, productPublications, productType, publicationCount, publications, publishedAt, publishedInContext, publishedOnChannel, publishedOnCurrentChannel, publishedOnCurrentPublication, publishedOnPublication, requiresSellingPlan, resourcePublicationOnCurrentPublication, resourcePublications, resourcePublicationsCount, resourcePublicationsV2, restrictedForResource, sellingPlanGroupCount, sellingPlanGroups, sellingPlanGroupsCount, seo, standardizedProductType, status, storefrontId, tags, templateSuffix, title, totalInventory, totalVariants, tracksInventory, translations, unpublishedChannels, unpublishedPublications, updatedAt, variants, variantsCount, vendor);
   }
 
   public static Builder newBuilder() {
@@ -1609,6 +1627,11 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
      * that are associated with a product in a bundle.
      */
     private ProductBundleComponentConnection bundleComponents;
+
+    /**
+     * A list of consolidated options for a product in a bundle.
+     */
+    private List<ComponentizedProductsBundleConsolidatedOption> bundleConsolidatedOptions;
 
     /**
      * The category of a product
@@ -2066,7 +2089,7 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
 
     /**
      * A list of [variants](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant) associated with the product.
-     * If querying a single product at the root, you can fetch up to 2000 variants.
+     * If querying a single product at the root, you can fetch up to 2048 variants.
      */
     private ProductVariantConnection variants;
 
@@ -2086,6 +2109,7 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
       result.availablePublicationsCount = this.availablePublicationsCount;
       result.bodyHtml = this.bodyHtml;
       result.bundleComponents = this.bundleComponents;
+      result.bundleConsolidatedOptions = this.bundleConsolidatedOptions;
       result.category = this.category;
       result.collections = this.collections;
       result.combinedListing = this.combinedListing;
@@ -2192,6 +2216,15 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
      */
     public Builder bundleComponents(ProductBundleComponentConnection bundleComponents) {
       this.bundleComponents = bundleComponents;
+      return this;
+    }
+
+    /**
+     * A list of consolidated options for a product in a bundle.
+     */
+    public Builder bundleConsolidatedOptions(
+        List<ComponentizedProductsBundleConsolidatedOption> bundleConsolidatedOptions) {
+      this.bundleConsolidatedOptions = bundleConsolidatedOptions;
       return this;
     }
 
@@ -2871,7 +2904,7 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
 
     /**
      * A list of [variants](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant) associated with the product.
-     * If querying a single product at the root, you can fetch up to 2000 variants.
+     * If querying a single product at the root, you can fetch up to 2048 variants.
      */
     public Builder variants(ProductVariantConnection variants) {
       this.variants = variants;

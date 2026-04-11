@@ -14,6 +14,9 @@ import java.util.Set;
  * Moving a fulfillment order will fail in the following circumstances:
  *   
  * * The fulfillment order is closed.
+ * * The fulfillment order has had progress manually reported. To move a
+ * fulfillment order that has had progress manually reported, the fulfillment
+ * order must first be marked as open resolving the ongoing progress state.
  * * The destination location doesn't stock the requested inventory item.
  * * The API client doesn't have the correct permissions.
  *   

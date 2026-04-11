@@ -8,7 +8,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Updates a metaobject definition with new settings and metafield definitions.
+ * Updates a [`MetaobjectDefinition`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MetaobjectDefinition)'s configuration and field structure. You can modify the definition's name,
+ * description, display name key, access controls, and capabilities, as well as
+ * those of all its fields.
+ *   
+ * The mutation supports reordering fields when `resetFieldOrder` is `true`,
+ * which arranges submitted fields first followed by alphabetized omitted fields.
+ *   
+ * Learn more about [managing metaobjects](https://shopify.dev/docs/apps/build/custom-data/metaobjects/manage-metaobjects).
  */
 public class MetaobjectDefinitionUpdateGraphQLQuery extends GraphQLQuery {
   public MetaobjectDefinitionUpdateGraphQLQuery(String id,

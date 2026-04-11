@@ -8,9 +8,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Creates a metafield definition. Any metafields existing under the same owner type, namespace, and key will be
- * checked against this definition and will have their type updated accordingly. For metafields that are not
- * valid, they will remain unchanged but any attempts to update them must align with this definition.
+ * Creates a [`MetafieldDefinition`](https://shopify.dev/docs/api/admin-graphql/current/objects/MetafieldDefinition) that establishes structure and validation rules for metafields. The definition
+ * specifies the data type, validation constraints, and access permissions for
+ * metafields with a given namespace and key combination.
+ *   
+ * When you create a new definition, the system validates any existing
+ * unstructured metafields matching the same owner type, namespace, and key
+ * against it. The system updates each valid metafield's type to match the
+ * definition. Invalid metafields remain unchanged but must conform to the
+ * definition when updated.
+ *   
+ * Learn more about [creating metafield definitions](https://shopify.dev/docs/apps/build/custom-data/metafields/definitions).
  */
 public class MetafieldDefinitionCreateGraphQLQuery extends GraphQLQuery {
   public MetafieldDefinitionCreateGraphQLQuery(MetafieldDefinitionInput definition,

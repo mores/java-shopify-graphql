@@ -23,14 +23,12 @@ import java.util.Set;
  *   
  * The mutation supports:
  *   
- * - Updating variants with custom options and values
+ * - Updating variants with custom option values
  * - Associating media (for example, images, videos, and 3D models) with the product or its variants
  * - Handling complex product configurations
  *   
  * > Note:
- * > By default, stores have a limit of 100 product variants for each product. You can create a development store and
- * > [enable the **Extended Variants** developer preview](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model/migrate-and-test#create-a-development-store-that-allows-2-048-variants-per-product)
- * > to update a maximum of 2,048 product variants in a single operation.
+ * > By default, stores have a limit of 2048 product variants for each product.
  *   
  * After creating variants, you can make additional changes using the
  * [`productSet`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productSet) mutation,

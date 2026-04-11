@@ -11,10 +11,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Standard metafield definitions are intended for specific, common use cases.
- * Their namespace and keys reflect these use cases and are reserved.
+ * Retrieves preset metafield definition templates for common use cases. Each
+ * template provides a reserved namespace and key combination for specific
+ * purposes like product subtitles, care guides, or ISBN numbers. Use these
+ * templates to create standardized metafields across your store. Filter
+ * templates by constraint status or exclude those you've already activated.
  *   
- * Refer to all available [`Standard Metafield Definition Templates`](https://shopify.dev/api/admin-graphql/latest/objects/StandardMetafieldDefinitionTemplate).
+ * See the [list of standard metafield definitions](https://shopify.dev/docs/apps/build/custom-data/metafields/list-of-standard-definitions)
+ * for available templates.
  */
 public class StandardMetafieldDefinitionTemplatesGraphQLQuery extends GraphQLQuery {
   public StandardMetafieldDefinitionTemplatesGraphQLQuery(

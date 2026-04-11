@@ -7,7 +7,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a store credit account resource by ID.
+ * Retrieves a [`StoreCreditAccount`](https://shopify.dev/docs/api/admin-graphql/latest/objects/StoreCreditAccount) by ID. Store credit accounts hold monetary balances that account owners can
+ * use at checkout. The owner is either a [`Customer`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Customer) or a [`CompanyLocation`](https://shopify.dev/docs/api/admin-graphql/latest/objects/CompanyLocation).
  */
 public class StoreCreditAccountGraphQLQuery extends GraphQLQuery {
   public StoreCreditAccountGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

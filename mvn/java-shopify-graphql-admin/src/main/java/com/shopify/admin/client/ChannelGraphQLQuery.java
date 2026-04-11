@@ -7,7 +7,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Lookup a channel by ID.
+ * Returns a [`Channel`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Channel)
+ * by ID. The channel must belong to the calling application.
  */
 public class ChannelGraphQLQuery extends GraphQLQuery {
   public ChannelGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
@@ -43,7 +44,7 @@ public class ChannelGraphQLQuery extends GraphQLQuery {
     }
 
     /**
-     * The ID of the `Channel` to return.
+     * The ID of the [`Channel`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Channel) to return.
      */
     public Builder id(String id) {
       this.id = id;

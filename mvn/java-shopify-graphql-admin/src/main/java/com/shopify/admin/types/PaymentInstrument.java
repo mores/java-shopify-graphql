@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
     property = "__typename"
 )
 @JsonSubTypes({
+    @JsonSubTypes.Type(value = BankAccount.class, name = "BankAccount"),
     @JsonSubTypes.Type(value = VaultCreditCard.class, name = "VaultCreditCard"),
     @JsonSubTypes.Type(value = VaultPaypalBillingAgreement.class, name = "VaultPaypalBillingAgreement")
 })

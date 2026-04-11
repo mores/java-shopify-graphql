@@ -8,7 +8,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Sends an email invoice for an order.
+ * Sends an email invoice for an [`Order`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order).
+ *   
+ * You can customize the email recipient, sender, and subject line using the [`email`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/orderInvoiceSend#arguments-email) argument.
+ *   
+ * > Note:
+ * > Use store or staff account email addresses for the [`from`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/orderInvoiceSend#arguments-email.fields.from) and [`bcc`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/orderInvoiceSend#arguments-email.fields.bcc) input fields.
  */
 public class OrderInvoiceSendGraphQLQuery extends GraphQLQuery {
   public OrderInvoiceSendGraphQLQuery(String id, EmailInput email, String queryName,

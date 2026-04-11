@@ -10,7 +10,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Retrieve a list of CarrierServices.
+ * A paginated list of carrier services configured for the shop. Carrier services
+ * provide real-time shipping rates from external providers like FedEx, UPS, or
+ * custom shipping solutions. Use the `query` parameter to filter results by
+ * attributes such as active status.
  */
 public class CarrierServicesGraphQLQuery extends GraphQLQuery {
   public CarrierServicesGraphQLQuery(Integer first, String after, Integer last, String before,
@@ -131,7 +134,7 @@ public class CarrierServicesGraphQLQuery extends GraphQLQuery {
      * | name | type | description | acceptable_values | default_value | example_use |
      * | ---- | ---- | ---- | ---- | ---- | ---- |
      * | active | boolean |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
      * You can apply one or more filters to a query. Learn more about [Shopify API
      * search syntax](https://shopify.dev/api/usage/search-syntax).
      */

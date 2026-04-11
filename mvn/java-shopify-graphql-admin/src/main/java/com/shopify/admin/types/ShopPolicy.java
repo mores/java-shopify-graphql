@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
-import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -23,7 +23,7 @@ public class ShopPolicy implements com.shopify.admin.types.HasPublishedTranslati
   /**
    * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the policy was created.
    */
-  private LocalDate createdAt;
+  private OffsetDateTime createdAt;
 
   /**
    * A globally-unique ID.
@@ -48,7 +48,7 @@ public class ShopPolicy implements com.shopify.admin.types.HasPublishedTranslati
   /**
    * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the policy was last modified.
    */
-  private LocalDate updatedAt;
+  private OffsetDateTime updatedAt;
 
   /**
    * The public URL of the policy.
@@ -72,11 +72,11 @@ public class ShopPolicy implements com.shopify.admin.types.HasPublishedTranslati
   /**
    * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the policy was created.
    */
-  public LocalDate getCreatedAt() {
+  public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(LocalDate createdAt) {
+  public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -127,11 +127,11 @@ public class ShopPolicy implements com.shopify.admin.types.HasPublishedTranslati
   /**
    * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the policy was last modified.
    */
-  public LocalDate getUpdatedAt() {
+  public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
 
-  public void setUpdatedAt(LocalDate updatedAt) {
+  public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 
@@ -184,7 +184,7 @@ public class ShopPolicy implements com.shopify.admin.types.HasPublishedTranslati
     /**
      * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the policy was created.
      */
-    private LocalDate createdAt;
+    private OffsetDateTime createdAt;
 
     /**
      * A globally-unique ID.
@@ -209,7 +209,7 @@ public class ShopPolicy implements com.shopify.admin.types.HasPublishedTranslati
     /**
      * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the policy was last modified.
      */
-    private LocalDate updatedAt;
+    private OffsetDateTime updatedAt;
 
     /**
      * The public URL of the policy.
@@ -240,7 +240,7 @@ public class ShopPolicy implements com.shopify.admin.types.HasPublishedTranslati
     /**
      * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the policy was created.
      */
-    public Builder createdAt(LocalDate createdAt) {
+    public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
       return this;
     }
@@ -280,7 +280,7 @@ public class ShopPolicy implements com.shopify.admin.types.HasPublishedTranslati
     /**
      * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the policy was last modified.
      */
-    public Builder updatedAt(LocalDate updatedAt) {
+    public Builder updatedAt(OffsetDateTime updatedAt) {
       this.updatedAt = updatedAt;
       return this;
     }

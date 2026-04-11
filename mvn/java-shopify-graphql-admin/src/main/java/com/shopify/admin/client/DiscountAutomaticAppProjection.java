@@ -26,6 +26,12 @@ public class DiscountAutomaticAppProjection<PARENT extends BaseSubProjectionNode
      return projection;
   }
 
+  public DiscountContextProjection<DiscountAutomaticAppProjection<PARENT, ROOT>, ROOT> context() {
+     DiscountContextProjection<DiscountAutomaticAppProjection<PARENT, ROOT>, ROOT> projection = new DiscountContextProjection<>(this, getRoot());
+     getFields().put("context", projection);
+     return projection;
+  }
+
   public DiscountClassProjection<DiscountAutomaticAppProjection<PARENT, ROOT>, ROOT> discountClass(
       ) {
      DiscountClassProjection<DiscountAutomaticAppProjection<PARENT, ROOT>, ROOT> projection = new DiscountClassProjection<>(this, getRoot());
@@ -90,6 +96,11 @@ public class DiscountAutomaticAppProjection<PARENT extends BaseSubProjectionNode
 
   public DiscountAutomaticAppProjection<PARENT, ROOT> startsAt() {
     getFields().put("startsAt", null);
+    return this;
+  }
+
+  public DiscountAutomaticAppProjection<PARENT, ROOT> tags() {
+    getFields().put("tags", null);
     return this;
   }
 

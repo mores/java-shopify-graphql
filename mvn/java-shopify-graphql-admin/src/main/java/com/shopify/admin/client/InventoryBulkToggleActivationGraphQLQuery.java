@@ -9,10 +9,15 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Modify the activation status of an inventory item at locations. Activating an
- * inventory item at a particular location allows that location to stock that
- * inventory item. Deactivating an inventory item at a location removes the
- * inventory item's quantities and turns off the inventory item from that location.
+ * Activates or deactivates an inventory item at multiple locations. When you activate an [`InventoryItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryItem) at a [`Location`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Location),
+ * that location can stock and track quantities for that item. When you
+ * deactivate an inventory item at a location, the inventory item is no longer
+ * stocked at that location.
+ *   
+ * The mutation accepts an inventory item ID and a list of location-specific
+ * activation settings. It returns the updated inventory item and any activated [`InventoryLevel`](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryLevel) objects.
+ *   
+ * Learn more about [managing inventory quantities and states](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#inventory-object-relationships).
  */
 public class InventoryBulkToggleActivationGraphQLQuery extends GraphQLQuery {
   public InventoryBulkToggleActivationGraphQLQuery(String inventoryItemId,

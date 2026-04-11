@@ -8,9 +8,18 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * A shipping profile. In Shopify, a shipping profile is a set of shipping rates
- * scoped to a set of products or variants that can be shipped from selected
- * locations to zones. Learn more about [building with delivery profiles](https://shopify.dev/apps/build/purchase-options/deferred/delivery-and-deferment/build-delivery-profiles).
+ * A shipping profile that defines shipping rates for specific
+ * [`Product`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product) objects and [`ProductVariant`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant)
+ * objects. Delivery profiles determine which products can ship from which
+ * [`Location`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Location)
+ * objects to which zones, and at what rates.
+ *
+ * Profiles can associate with [`SellingPlanGroup`](https://shopify.dev/docs/api/admin-graphql/latest/objects/SellingPlanGroup)
+ * objects to provide custom shipping rules for subscriptions, such as free
+ * shipping or restricted delivery zones. The default profile applies to all
+ * products that aren't assigned to other profiles.
+ *
+ * Learn more about [building delivery profiles](https://shopify.dev/apps/build/purchase-options/deferred/delivery-and-deferment/build-delivery-profiles).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -30,11 +39,6 @@ public class DeliveryProfile implements com.shopify.admin.types.Node {
    * A globally-unique ID.
    */
   private String id;
-
-  /**
-   * Whether this shop has enabled legacy compatibility mode for delivery profiles.
-   */
-  private boolean legacyMode;
 
   /**
    * The number of locations without rates defined.
@@ -87,6 +91,11 @@ public class DeliveryProfile implements com.shopify.admin.types.Node {
   private LocationConnection unassignedLocationsPaginated;
 
   /**
+   * The version of the delivery profile.
+   */
+  private int version;
+
+  /**
    * The number of countries with active rates to deliver to.
    */
   private int zoneCountryCount;
@@ -125,17 +134,6 @@ public class DeliveryProfile implements com.shopify.admin.types.Node {
 
   public void setId(String id) {
     this.id = id;
-  }
-
-  /**
-   * Whether this shop has enabled legacy compatibility mode for delivery profiles.
-   */
-  public boolean getLegacyMode() {
-    return legacyMode;
-  }
-
-  public void setLegacyMode(boolean legacyMode) {
-    this.legacyMode = legacyMode;
   }
 
   /**
@@ -249,6 +247,17 @@ public class DeliveryProfile implements com.shopify.admin.types.Node {
   }
 
   /**
+   * The version of the delivery profile.
+   */
+  public int getVersion() {
+    return version;
+  }
+
+  public void setVersion(int version) {
+    this.version = version;
+  }
+
+  /**
    * The number of countries with active rates to deliver to.
    */
   public int getZoneCountryCount() {
@@ -261,7 +270,7 @@ public class DeliveryProfile implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "DeliveryProfile{activeMethodDefinitionsCount='" + activeMethodDefinitionsCount + "', default='" + _default + "', id='" + id + "', legacyMode='" + legacyMode + "', locationsWithoutRatesCount='" + locationsWithoutRatesCount + "', name='" + name + "', originLocationCount='" + originLocationCount + "', productVariantsCount='" + productVariantsCount + "', productVariantsCountV2='" + productVariantsCountV2 + "', profileItems='" + profileItems + "', profileLocationGroups='" + profileLocationGroups + "', sellingPlanGroups='" + sellingPlanGroups + "', unassignedLocations='" + unassignedLocations + "', unassignedLocationsPaginated='" + unassignedLocationsPaginated + "', zoneCountryCount='" + zoneCountryCount + "'}";
+    return "DeliveryProfile{activeMethodDefinitionsCount='" + activeMethodDefinitionsCount + "', default='" + _default + "', id='" + id + "', locationsWithoutRatesCount='" + locationsWithoutRatesCount + "', name='" + name + "', originLocationCount='" + originLocationCount + "', productVariantsCount='" + productVariantsCount + "', productVariantsCountV2='" + productVariantsCountV2 + "', profileItems='" + profileItems + "', profileLocationGroups='" + profileLocationGroups + "', sellingPlanGroups='" + sellingPlanGroups + "', unassignedLocations='" + unassignedLocations + "', unassignedLocationsPaginated='" + unassignedLocationsPaginated + "', version='" + version + "', zoneCountryCount='" + zoneCountryCount + "'}";
   }
 
   @Override
@@ -272,7 +281,6 @@ public class DeliveryProfile implements com.shopify.admin.types.Node {
     return activeMethodDefinitionsCount == that.activeMethodDefinitionsCount &&
         _default == that._default &&
         Objects.equals(id, that.id) &&
-        legacyMode == that.legacyMode &&
         locationsWithoutRatesCount == that.locationsWithoutRatesCount &&
         Objects.equals(name, that.name) &&
         originLocationCount == that.originLocationCount &&
@@ -283,12 +291,13 @@ public class DeliveryProfile implements com.shopify.admin.types.Node {
         Objects.equals(sellingPlanGroups, that.sellingPlanGroups) &&
         Objects.equals(unassignedLocations, that.unassignedLocations) &&
         Objects.equals(unassignedLocationsPaginated, that.unassignedLocationsPaginated) &&
+        version == that.version &&
         zoneCountryCount == that.zoneCountryCount;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeMethodDefinitionsCount, _default, id, legacyMode, locationsWithoutRatesCount, name, originLocationCount, productVariantsCount, productVariantsCountV2, profileItems, profileLocationGroups, sellingPlanGroups, unassignedLocations, unassignedLocationsPaginated, zoneCountryCount);
+    return Objects.hash(activeMethodDefinitionsCount, _default, id, locationsWithoutRatesCount, name, originLocationCount, productVariantsCount, productVariantsCountV2, profileItems, profileLocationGroups, sellingPlanGroups, unassignedLocations, unassignedLocationsPaginated, version, zoneCountryCount);
   }
 
   public static Builder newBuilder() {
@@ -310,11 +319,6 @@ public class DeliveryProfile implements com.shopify.admin.types.Node {
      * A globally-unique ID.
      */
     private String id;
-
-    /**
-     * Whether this shop has enabled legacy compatibility mode for delivery profiles.
-     */
-    private boolean legacyMode;
 
     /**
      * The number of locations without rates defined.
@@ -367,6 +371,11 @@ public class DeliveryProfile implements com.shopify.admin.types.Node {
     private LocationConnection unassignedLocationsPaginated;
 
     /**
+     * The version of the delivery profile.
+     */
+    private int version;
+
+    /**
      * The number of countries with active rates to deliver to.
      */
     private int zoneCountryCount;
@@ -376,7 +385,6 @@ public class DeliveryProfile implements com.shopify.admin.types.Node {
       result.activeMethodDefinitionsCount = this.activeMethodDefinitionsCount;
       result._default = this._default;
       result.id = this.id;
-      result.legacyMode = this.legacyMode;
       result.locationsWithoutRatesCount = this.locationsWithoutRatesCount;
       result.name = this.name;
       result.originLocationCount = this.originLocationCount;
@@ -387,6 +395,7 @@ public class DeliveryProfile implements com.shopify.admin.types.Node {
       result.sellingPlanGroups = this.sellingPlanGroups;
       result.unassignedLocations = this.unassignedLocations;
       result.unassignedLocationsPaginated = this.unassignedLocationsPaginated;
+      result.version = this.version;
       result.zoneCountryCount = this.zoneCountryCount;
       return result;
     }
@@ -412,14 +421,6 @@ public class DeliveryProfile implements com.shopify.admin.types.Node {
      */
     public Builder id(String id) {
       this.id = id;
-      return this;
-    }
-
-    /**
-     * Whether this shop has enabled legacy compatibility mode for delivery profiles.
-     */
-    public Builder legacyMode(boolean legacyMode) {
-      this.legacyMode = legacyMode;
       return this;
     }
 
@@ -500,6 +501,14 @@ public class DeliveryProfile implements com.shopify.admin.types.Node {
      */
     public Builder unassignedLocationsPaginated(LocationConnection unassignedLocationsPaginated) {
       this.unassignedLocationsPaginated = unassignedLocationsPaginated;
+      return this;
+    }
+
+    /**
+     * The version of the delivery profile.
+     */
+    public Builder version(int version) {
+      this.version = version;
       return this;
     }
 

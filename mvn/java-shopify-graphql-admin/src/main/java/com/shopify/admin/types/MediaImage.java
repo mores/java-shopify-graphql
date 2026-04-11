@@ -37,7 +37,7 @@ import java.util.Objects;
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
-public class MediaImage implements MetafieldReference, com.shopify.admin.types.File, com.shopify.admin.types.HasMetafields, com.shopify.admin.types.Media, com.shopify.admin.types.Node {
+public class MediaImage implements MetafieldReference, com.shopify.admin.types.File, com.shopify.admin.types.HasMetafields, com.shopify.admin.types.HasPublishedTranslations, com.shopify.admin.types.Media, com.shopify.admin.types.Node {
   /**
    * A word or phrase to share the nature or contents of a media.
    */
@@ -115,6 +115,11 @@ public class MediaImage implements MetafieldReference, com.shopify.admin.types.F
    * Current status of the media.
    */
   private MediaStatus status;
+
+  /**
+   * The published translations associated with the resource.
+   */
+  private List<Translation> translations;
 
   /**
    * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the file was last updated.
@@ -293,6 +298,17 @@ public class MediaImage implements MetafieldReference, com.shopify.admin.types.F
   }
 
   /**
+   * The published translations associated with the resource.
+   */
+  public List<Translation> getTranslations() {
+    return translations;
+  }
+
+  public void setTranslations(List<Translation> translations) {
+    this.translations = translations;
+  }
+
+  /**
    * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the file was last updated.
    */
   public OffsetDateTime getUpdatedAt() {
@@ -305,7 +321,7 @@ public class MediaImage implements MetafieldReference, com.shopify.admin.types.F
 
   @Override
   public String toString() {
-    return "MediaImage{alt='" + alt + "', createdAt='" + createdAt + "', fileErrors='" + fileErrors + "', fileStatus='" + fileStatus + "', id='" + id + "', image='" + image + "', mediaContentType='" + mediaContentType + "', mediaErrors='" + mediaErrors + "', mediaWarnings='" + mediaWarnings + "', metafield='" + metafield + "', metafields='" + metafields + "', mimeType='" + mimeType + "', originalSource='" + originalSource + "', preview='" + preview + "', status='" + status + "', updatedAt='" + updatedAt + "'}";
+    return "MediaImage{alt='" + alt + "', createdAt='" + createdAt + "', fileErrors='" + fileErrors + "', fileStatus='" + fileStatus + "', id='" + id + "', image='" + image + "', mediaContentType='" + mediaContentType + "', mediaErrors='" + mediaErrors + "', mediaWarnings='" + mediaWarnings + "', metafield='" + metafield + "', metafields='" + metafields + "', mimeType='" + mimeType + "', originalSource='" + originalSource + "', preview='" + preview + "', status='" + status + "', translations='" + translations + "', updatedAt='" + updatedAt + "'}";
   }
 
   @Override
@@ -328,12 +344,13 @@ public class MediaImage implements MetafieldReference, com.shopify.admin.types.F
         Objects.equals(originalSource, that.originalSource) &&
         Objects.equals(preview, that.preview) &&
         Objects.equals(status, that.status) &&
+        Objects.equals(translations, that.translations) &&
         Objects.equals(updatedAt, that.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alt, createdAt, fileErrors, fileStatus, id, image, mediaContentType, mediaErrors, mediaWarnings, metafield, metafields, mimeType, originalSource, preview, status, updatedAt);
+    return Objects.hash(alt, createdAt, fileErrors, fileStatus, id, image, mediaContentType, mediaErrors, mediaWarnings, metafield, metafields, mimeType, originalSource, preview, status, translations, updatedAt);
   }
 
   public static Builder newBuilder() {
@@ -420,6 +437,11 @@ public class MediaImage implements MetafieldReference, com.shopify.admin.types.F
     private MediaStatus status;
 
     /**
+     * The published translations associated with the resource.
+     */
+    private List<Translation> translations;
+
+    /**
      * The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the file was last updated.
      */
     private OffsetDateTime updatedAt;
@@ -441,6 +463,7 @@ public class MediaImage implements MetafieldReference, com.shopify.admin.types.F
       result.originalSource = this.originalSource;
       result.preview = this.preview;
       result.status = this.status;
+      result.translations = this.translations;
       result.updatedAt = this.updatedAt;
       return result;
     }
@@ -565,6 +588,14 @@ public class MediaImage implements MetafieldReference, com.shopify.admin.types.F
      */
     public Builder status(MediaStatus status) {
       this.status = status;
+      return this;
+    }
+
+    /**
+     * The published translations associated with the resource.
+     */
+    public Builder translations(List<Translation> translations) {
+      this.translations = translations;
       return this;
     }
 

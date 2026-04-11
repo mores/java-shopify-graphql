@@ -8,8 +8,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Adds a shipping line to an existing order. For more information on how to use
- * the GraphQL Admin API to edit an existing order, refer to [Edit existing orders](https://shopify.dev/apps/fulfillment/order-management-apps/order-editing).
+ * Adds a custom shipping line to an
+ * [`Order`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order)
+ * during an edit session. Specify the shipping title and price to create a new [`ShippingLine`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShippingLine).
+ *   
+ *  Returns a [`CalculatedOrder`](https://shopify.dev/docs/api/admin-graphql/latest/objects/CalculatedOrder) showing the order with edits applied but not yet saved. To save your changes, use the [`orderEditCommit`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/orderEditCommit) mutation.
+ *   
+ * Learn more about [editing existing orders](https://shopify.dev/docs/apps/build/orders-fulfillment/order-management-apps/edit-orders).
  */
 public class OrderEditAddShippingLineGraphQLQuery extends GraphQLQuery {
   public OrderEditAddShippingLineGraphQLQuery(String id, OrderEditAddShippingLineInput shippingLine,
@@ -51,7 +56,7 @@ public class OrderEditAddShippingLineGraphQLQuery extends GraphQLQuery {
 
     /**
      * The ID of the [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
-     * to edit.
+     * or the order edit session to edit. This is the edit to which the shipping line is added.
      */
     public Builder id(String id) {
       this.id = id;

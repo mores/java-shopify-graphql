@@ -8,7 +8,14 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * A Shopify application.
+ * A Shopify application that extends store functionality. Apps integrate with
+ * Shopify through APIs to add features, automate workflows, or connect external services.
+ *
+ * Provides metadata about the app including its developer information and listing
+ * details in the Shopify App Store. Use the [`installation`](https://shopify.dev/docs/api/admin-graphql/latest/objects/App#field-App.fields.installation)
+ * field to determine if the app is currently installed on the shop and access
+ * installation-specific details like granted [`AccessScope`](https://shopify.dev/docs/api/admin-graphql/latest/objects/AccessScope) objects. Check [`failedRequirements`](https://shopify.dev/docs/api/admin-graphql/latest/objects/App#field-App.fields.failedRequirements)
+ * before installation to identify any prerequisites that must be met.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -38,6 +45,11 @@ public class App implements com.shopify.admin.types.Node {
    * Banner image for the app.
    */
   private Image banner;
+
+  /**
+   * The sales channels associated with this app.
+   */
+  private ChannelConnection channels;
 
   /**
    * Description of the app.
@@ -95,7 +107,7 @@ public class App implements com.shopify.admin.types.Node {
   private String id;
 
   /**
-   * Webpage where you can install the app.
+   * Webpage where you can install the app, if app requires explicit user permission.
    */
   private String installUrl;
 
@@ -256,6 +268,17 @@ public class App implements com.shopify.admin.types.Node {
   }
 
   /**
+   * The sales channels associated with this app.
+   */
+  public ChannelConnection getChannels() {
+    return channels;
+  }
+
+  public void setChannels(ChannelConnection channels) {
+    this.channels = channels;
+  }
+
+  /**
    * Description of the app.
    */
   public String getDescription() {
@@ -377,7 +400,7 @@ public class App implements com.shopify.admin.types.Node {
   }
 
   /**
-   * Webpage where you can install the app.
+   * Webpage where you can install the app, if app requires explicit user permission.
    */
   public String getInstallUrl() {
     return installUrl;
@@ -595,7 +618,7 @@ public class App implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "App{apiKey='" + apiKey + "', appStoreAppUrl='" + appStoreAppUrl + "', appStoreDeveloperUrl='" + appStoreDeveloperUrl + "', availableAccessScopes='" + availableAccessScopes + "', banner='" + banner + "', description='" + description + "', developerName='" + developerName + "', developerType='" + developerType + "', developerUrl='" + developerUrl + "', embedded='" + embedded + "', failedRequirements='" + failedRequirements + "', features='" + features + "', feedback='" + feedback + "', handle='" + handle + "', icon='" + icon + "', id='" + id + "', installUrl='" + installUrl + "', installation='" + installation + "', isPostPurchaseAppInUse='" + isPostPurchaseAppInUse + "', launchUrl='" + launchUrl + "', navigationItems='" + navigationItems + "', optionalAccessScopes='" + optionalAccessScopes + "', previouslyInstalled='" + previouslyInstalled + "', pricingDetails='" + pricingDetails + "', pricingDetailsSummary='" + pricingDetailsSummary + "', privacyPolicyUrl='" + privacyPolicyUrl + "', publicCategory='" + publicCategory + "', published='" + published + "', requestedAccessScopes='" + requestedAccessScopes + "', screenshots='" + screenshots + "', shopifyDeveloped='" + shopifyDeveloped + "', title='" + title + "', uninstallMessage='" + uninstallMessage + "', uninstallUrl='" + uninstallUrl + "', webhookApiVersion='" + webhookApiVersion + "'}";
+    return "App{apiKey='" + apiKey + "', appStoreAppUrl='" + appStoreAppUrl + "', appStoreDeveloperUrl='" + appStoreDeveloperUrl + "', availableAccessScopes='" + availableAccessScopes + "', banner='" + banner + "', channels='" + channels + "', description='" + description + "', developerName='" + developerName + "', developerType='" + developerType + "', developerUrl='" + developerUrl + "', embedded='" + embedded + "', failedRequirements='" + failedRequirements + "', features='" + features + "', feedback='" + feedback + "', handle='" + handle + "', icon='" + icon + "', id='" + id + "', installUrl='" + installUrl + "', installation='" + installation + "', isPostPurchaseAppInUse='" + isPostPurchaseAppInUse + "', launchUrl='" + launchUrl + "', navigationItems='" + navigationItems + "', optionalAccessScopes='" + optionalAccessScopes + "', previouslyInstalled='" + previouslyInstalled + "', pricingDetails='" + pricingDetails + "', pricingDetailsSummary='" + pricingDetailsSummary + "', privacyPolicyUrl='" + privacyPolicyUrl + "', publicCategory='" + publicCategory + "', published='" + published + "', requestedAccessScopes='" + requestedAccessScopes + "', screenshots='" + screenshots + "', shopifyDeveloped='" + shopifyDeveloped + "', title='" + title + "', uninstallMessage='" + uninstallMessage + "', uninstallUrl='" + uninstallUrl + "', webhookApiVersion='" + webhookApiVersion + "'}";
   }
 
   @Override
@@ -608,6 +631,7 @@ public class App implements com.shopify.admin.types.Node {
         Objects.equals(appStoreDeveloperUrl, that.appStoreDeveloperUrl) &&
         Objects.equals(availableAccessScopes, that.availableAccessScopes) &&
         Objects.equals(banner, that.banner) &&
+        Objects.equals(channels, that.channels) &&
         Objects.equals(description, that.description) &&
         Objects.equals(developerName, that.developerName) &&
         Objects.equals(developerType, that.developerType) &&
@@ -642,7 +666,7 @@ public class App implements com.shopify.admin.types.Node {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, appStoreAppUrl, appStoreDeveloperUrl, availableAccessScopes, banner, description, developerName, developerType, developerUrl, embedded, failedRequirements, features, feedback, handle, icon, id, installUrl, installation, isPostPurchaseAppInUse, launchUrl, navigationItems, optionalAccessScopes, previouslyInstalled, pricingDetails, pricingDetailsSummary, privacyPolicyUrl, publicCategory, published, requestedAccessScopes, screenshots, shopifyDeveloped, title, uninstallMessage, uninstallUrl, webhookApiVersion);
+    return Objects.hash(apiKey, appStoreAppUrl, appStoreDeveloperUrl, availableAccessScopes, banner, channels, description, developerName, developerType, developerUrl, embedded, failedRequirements, features, feedback, handle, icon, id, installUrl, installation, isPostPurchaseAppInUse, launchUrl, navigationItems, optionalAccessScopes, previouslyInstalled, pricingDetails, pricingDetailsSummary, privacyPolicyUrl, publicCategory, published, requestedAccessScopes, screenshots, shopifyDeveloped, title, uninstallMessage, uninstallUrl, webhookApiVersion);
   }
 
   public static Builder newBuilder() {
@@ -674,6 +698,11 @@ public class App implements com.shopify.admin.types.Node {
      * Banner image for the app.
      */
     private Image banner;
+
+    /**
+     * The sales channels associated with this app.
+     */
+    private ChannelConnection channels;
 
     /**
      * Description of the app.
@@ -731,7 +760,7 @@ public class App implements com.shopify.admin.types.Node {
     private String id;
 
     /**
-     * Webpage where you can install the app.
+     * Webpage where you can install the app, if app requires explicit user permission.
      */
     private String installUrl;
 
@@ -840,6 +869,7 @@ public class App implements com.shopify.admin.types.Node {
       result.appStoreDeveloperUrl = this.appStoreDeveloperUrl;
       result.availableAccessScopes = this.availableAccessScopes;
       result.banner = this.banner;
+      result.channels = this.channels;
       result.description = this.description;
       result.developerName = this.developerName;
       result.developerType = this.developerType;
@@ -910,6 +940,14 @@ public class App implements com.shopify.admin.types.Node {
      */
     public Builder banner(Image banner) {
       this.banner = banner;
+      return this;
+    }
+
+    /**
+     * The sales channels associated with this app.
+     */
+    public Builder channels(ChannelConnection channels) {
+      this.channels = channels;
       return this;
     }
 
@@ -1002,7 +1040,7 @@ public class App implements com.shopify.admin.types.Node {
     }
 
     /**
-     * Webpage where you can install the app.
+     * Webpage where you can install the app, if app requires explicit user permission.
      */
     public Builder installUrl(String installUrl) {
       this.installUrl = installUrl;

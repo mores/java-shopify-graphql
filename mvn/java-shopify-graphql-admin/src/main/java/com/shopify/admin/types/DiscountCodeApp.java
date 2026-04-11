@@ -86,6 +86,11 @@ public class DiscountCodeApp implements Discount, DiscountCode {
   private DiscountCombinesWith combinesWith;
 
   /**
+   * The context defining which buyers can use the discount.
+   */
+  private DiscountContext context;
+
+  /**
    * The date and time when the discount was created.
    */
   private OffsetDateTime createdAt;
@@ -157,6 +162,13 @@ public class DiscountCodeApp implements Discount, DiscountCode {
   private DiscountStatus status;
 
   /**
+   * A list of searchable keywords that are associated with the discount.
+   * For example, a merchant might apply the `loyalty` tag to discounts
+   * that are associated with their loyalty program.
+   */
+  private List<String> tags;
+
+  /**
    * The discount's name that displays to merchants in the Shopify admin and to customers.
    */
   private String title;
@@ -172,8 +184,8 @@ public class DiscountCodeApp implements Discount, DiscountCode {
   private OffsetDateTime updatedAt;
 
   /**
-   * The maximum number of times that a customer can use the discount.
-   * For discounts with unlimited usage, specify `null`.
+   * The maximum number of times the discount can be redeemed.
+   * For unlimited usage, specify `null`.
    */
   private Integer usageLimit;
 
@@ -282,6 +294,17 @@ public class DiscountCodeApp implements Discount, DiscountCode {
 
   public void setCombinesWith(DiscountCombinesWith combinesWith) {
     this.combinesWith = combinesWith;
+  }
+
+  /**
+   * The context defining which buyers can use the discount.
+   */
+  public DiscountContext getContext() {
+    return context;
+  }
+
+  public void setContext(DiscountContext context) {
+    this.context = context;
   }
 
   /**
@@ -428,6 +451,19 @@ public class DiscountCodeApp implements Discount, DiscountCode {
   }
 
   /**
+   * A list of searchable keywords that are associated with the discount.
+   * For example, a merchant might apply the `loyalty` tag to discounts
+   * that are associated with their loyalty program.
+   */
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
+  /**
    * The discount's name that displays to merchants in the Shopify admin and to customers.
    */
   public String getTitle() {
@@ -461,8 +497,8 @@ public class DiscountCodeApp implements Discount, DiscountCode {
   }
 
   /**
-   * The maximum number of times that a customer can use the discount.
-   * For discounts with unlimited usage, specify `null`.
+   * The maximum number of times the discount can be redeemed.
+   * For unlimited usage, specify `null`.
    */
   public Integer getUsageLimit() {
     return usageLimit;
@@ -474,7 +510,7 @@ public class DiscountCodeApp implements Discount, DiscountCode {
 
   @Override
   public String toString() {
-    return "DiscountCodeApp{appDiscountType='" + appDiscountType + "', appliesOnOneTimePurchase='" + appliesOnOneTimePurchase + "', appliesOnSubscription='" + appliesOnSubscription + "', appliesOncePerCustomer='" + appliesOncePerCustomer + "', asyncUsageCount='" + asyncUsageCount + "', codes='" + codes + "', codesCount='" + codesCount + "', combinesWith='" + combinesWith + "', createdAt='" + createdAt + "', customerSelection='" + customerSelection + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', discountId='" + discountId + "', endsAt='" + endsAt + "', errorHistory='" + errorHistory + "', hasTimelineComment='" + hasTimelineComment + "', recurringCycleLimit='" + recurringCycleLimit + "', shareableUrls='" + shareableUrls + "', startsAt='" + startsAt + "', status='" + status + "', title='" + title + "', totalSales='" + totalSales + "', updatedAt='" + updatedAt + "', usageLimit='" + usageLimit + "'}";
+    return "DiscountCodeApp{appDiscountType='" + appDiscountType + "', appliesOnOneTimePurchase='" + appliesOnOneTimePurchase + "', appliesOnSubscription='" + appliesOnSubscription + "', appliesOncePerCustomer='" + appliesOncePerCustomer + "', asyncUsageCount='" + asyncUsageCount + "', codes='" + codes + "', codesCount='" + codesCount + "', combinesWith='" + combinesWith + "', context='" + context + "', createdAt='" + createdAt + "', customerSelection='" + customerSelection + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', discountId='" + discountId + "', endsAt='" + endsAt + "', errorHistory='" + errorHistory + "', hasTimelineComment='" + hasTimelineComment + "', recurringCycleLimit='" + recurringCycleLimit + "', shareableUrls='" + shareableUrls + "', startsAt='" + startsAt + "', status='" + status + "', tags='" + tags + "', title='" + title + "', totalSales='" + totalSales + "', updatedAt='" + updatedAt + "', usageLimit='" + usageLimit + "'}";
   }
 
   @Override
@@ -490,6 +526,7 @@ public class DiscountCodeApp implements Discount, DiscountCode {
         Objects.equals(codes, that.codes) &&
         Objects.equals(codesCount, that.codesCount) &&
         Objects.equals(combinesWith, that.combinesWith) &&
+        Objects.equals(context, that.context) &&
         Objects.equals(createdAt, that.createdAt) &&
         Objects.equals(customerSelection, that.customerSelection) &&
         Objects.equals(discountClass, that.discountClass) &&
@@ -502,6 +539,7 @@ public class DiscountCodeApp implements Discount, DiscountCode {
         Objects.equals(shareableUrls, that.shareableUrls) &&
         Objects.equals(startsAt, that.startsAt) &&
         Objects.equals(status, that.status) &&
+        Objects.equals(tags, that.tags) &&
         Objects.equals(title, that.title) &&
         Objects.equals(totalSales, that.totalSales) &&
         Objects.equals(updatedAt, that.updatedAt) &&
@@ -510,7 +548,7 @@ public class DiscountCodeApp implements Discount, DiscountCode {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appDiscountType, appliesOnOneTimePurchase, appliesOnSubscription, appliesOncePerCustomer, asyncUsageCount, codes, codesCount, combinesWith, createdAt, customerSelection, discountClass, discountClasses, discountId, endsAt, errorHistory, hasTimelineComment, recurringCycleLimit, shareableUrls, startsAt, status, title, totalSales, updatedAt, usageLimit);
+    return Objects.hash(appDiscountType, appliesOnOneTimePurchase, appliesOnSubscription, appliesOncePerCustomer, asyncUsageCount, codes, codesCount, combinesWith, context, createdAt, customerSelection, discountClass, discountClasses, discountId, endsAt, errorHistory, hasTimelineComment, recurringCycleLimit, shareableUrls, startsAt, status, tags, title, totalSales, updatedAt, usageLimit);
   }
 
   public static Builder newBuilder() {
@@ -573,6 +611,11 @@ public class DiscountCodeApp implements Discount, DiscountCode {
      * [Shopify discount types](https://help.shopify.com/manual/discounts/discount-types).
      */
     private DiscountCombinesWith combinesWith;
+
+    /**
+     * The context defining which buyers can use the discount.
+     */
+    private DiscountContext context;
 
     /**
      * The date and time when the discount was created.
@@ -646,6 +689,13 @@ public class DiscountCodeApp implements Discount, DiscountCode {
     private DiscountStatus status;
 
     /**
+     * A list of searchable keywords that are associated with the discount.
+     * For example, a merchant might apply the `loyalty` tag to discounts
+     * that are associated with their loyalty program.
+     */
+    private List<String> tags;
+
+    /**
      * The discount's name that displays to merchants in the Shopify admin and to customers.
      */
     private String title;
@@ -661,8 +711,8 @@ public class DiscountCodeApp implements Discount, DiscountCode {
     private OffsetDateTime updatedAt;
 
     /**
-     * The maximum number of times that a customer can use the discount.
-     * For discounts with unlimited usage, specify `null`.
+     * The maximum number of times the discount can be redeemed.
+     * For unlimited usage, specify `null`.
      */
     private Integer usageLimit;
 
@@ -676,6 +726,7 @@ public class DiscountCodeApp implements Discount, DiscountCode {
       result.codes = this.codes;
       result.codesCount = this.codesCount;
       result.combinesWith = this.combinesWith;
+      result.context = this.context;
       result.createdAt = this.createdAt;
       result.customerSelection = this.customerSelection;
       result.discountClass = this.discountClass;
@@ -688,6 +739,7 @@ public class DiscountCodeApp implements Discount, DiscountCode {
       result.shareableUrls = this.shareableUrls;
       result.startsAt = this.startsAt;
       result.status = this.status;
+      result.tags = this.tags;
       result.title = this.title;
       result.totalSales = this.totalSales;
       result.updatedAt = this.updatedAt;
@@ -772,6 +824,14 @@ public class DiscountCodeApp implements Discount, DiscountCode {
      */
     public Builder combinesWith(DiscountCombinesWith combinesWith) {
       this.combinesWith = combinesWith;
+      return this;
+    }
+
+    /**
+     * The context defining which buyers can use the discount.
+     */
+    public Builder context(DiscountContext context) {
+      this.context = context;
       return this;
     }
 
@@ -883,6 +943,16 @@ public class DiscountCodeApp implements Discount, DiscountCode {
     }
 
     /**
+     * A list of searchable keywords that are associated with the discount.
+     * For example, a merchant might apply the `loyalty` tag to discounts
+     * that are associated with their loyalty program.
+     */
+    public Builder tags(List<String> tags) {
+      this.tags = tags;
+      return this;
+    }
+
+    /**
      * The discount's name that displays to merchants in the Shopify admin and to customers.
      */
     public Builder title(String title) {
@@ -907,8 +977,8 @@ public class DiscountCodeApp implements Discount, DiscountCode {
     }
 
     /**
-     * The maximum number of times that a customer can use the discount.
-     * For discounts with unlimited usage, specify `null`.
+     * The maximum number of times the discount can be redeemed.
+     * For unlimited usage, specify `null`.
      */
     public Builder usageLimit(Integer usageLimit) {
       this.usageLimit = usageLimit;

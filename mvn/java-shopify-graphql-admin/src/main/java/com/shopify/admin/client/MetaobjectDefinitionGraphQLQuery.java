@@ -7,7 +7,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Retrieves a metaobject definition by ID.
+ * Retrieves a [`MetaobjectDefinition`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MetaobjectDefinition) by its global ID. Metaobject definitions provide the structure and fields for metaobjects.
+ *   
+ * The definition includes field configurations, access settings, display
+ * preferences, and capabilities that determine how [metaobjects](https://shopify.dev/docs/api/admin-graphql/latest/objects/Metaobject)
+ * of this type behave across the Shopify platform.
  */
 public class MetaobjectDefinitionGraphQLQuery extends GraphQLQuery {
   public MetaobjectDefinitionGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

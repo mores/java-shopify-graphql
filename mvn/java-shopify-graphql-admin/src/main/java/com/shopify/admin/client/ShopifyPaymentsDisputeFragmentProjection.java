@@ -24,6 +24,13 @@ public class ShopifyPaymentsDisputeFragmentProjection<PARENT extends BaseSubProj
      return projection;
   }
 
+  public ShopifyPaymentsDisputeEvidenceProjection<ShopifyPaymentsDisputeFragmentProjection<PARENT, ROOT>, ROOT> disputeEvidence(
+      ) {
+     ShopifyPaymentsDisputeEvidenceProjection<ShopifyPaymentsDisputeFragmentProjection<PARENT, ROOT>, ROOT> projection = new ShopifyPaymentsDisputeEvidenceProjection<>(this, getRoot());
+     getFields().put("disputeEvidence", projection);
+     return projection;
+  }
+
   public OrderProjection<ShopifyPaymentsDisputeFragmentProjection<PARENT, ROOT>, ROOT> order() {
      OrderProjection<ShopifyPaymentsDisputeFragmentProjection<PARENT, ROOT>, ROOT> projection = new OrderProjection<>(this, getRoot());
      getFields().put("order", projection);

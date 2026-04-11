@@ -7,7 +7,18 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * A publication is a group of products and collections that is published to an app.
+ * A group of [products](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product) and [collections](https://shopify.dev/docs/api/admin-graphql/latest/objects/Collection)
+ * that are published to an app.
+ *
+ * Each publication manages which products and collections display on its associated
+ * [`Channel`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Channel).
+ * Merchants can automatically publish products when they're created if [`autoPublish`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication#field-Publication.fields.autoPublish)
+ * is enabled, or manually control publication through publication records.
+ *
+ * Publications support scheduled publishing through future publish dates for
+ * online store channels, allowing merchants to coordinate product launches and
+ * promotional campaigns. The [`catalog`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication#field-Publication.fields.catalog)
+ * field links to pricing and availability rules specific to that publication's context.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -29,7 +40,13 @@ public class Publication implements com.shopify.admin.types.Node {
   private Catalog catalog;
 
   /**
-   * The collection publications for the list of collections published to the publication.
+   * The channels associated with the publication.
+   */
+  private ChannelConnection channels;
+
+  /**
+   * The list of collection publication records, each representing the publication
+   * status and details for a collection published to this publication (typically channel).
    */
   private ResourcePublicationConnection collectionPublicationsV3;
 
@@ -52,6 +69,11 @@ public class Publication implements com.shopify.admin.types.Node {
    * The list of products included, but not necessarily published, in the publication.
    */
   private ProductConnection includedProducts;
+
+  /**
+   * The count of products included in the publication. Limited to a maximum of 10000 by default.
+   */
+  private Count includedProductsCount;
 
   /**
    * Name of the publication.
@@ -115,7 +137,19 @@ public class Publication implements com.shopify.admin.types.Node {
   }
 
   /**
-   * The collection publications for the list of collections published to the publication.
+   * The channels associated with the publication.
+   */
+  public ChannelConnection getChannels() {
+    return channels;
+  }
+
+  public void setChannels(ChannelConnection channels) {
+    this.channels = channels;
+  }
+
+  /**
+   * The list of collection publication records, each representing the publication
+   * status and details for a collection published to this publication (typically channel).
    */
   public ResourcePublicationConnection getCollectionPublicationsV3() {
     return collectionPublicationsV3;
@@ -167,6 +201,17 @@ public class Publication implements com.shopify.admin.types.Node {
 
   public void setIncludedProducts(ProductConnection includedProducts) {
     this.includedProducts = includedProducts;
+  }
+
+  /**
+   * The count of products included in the publication. Limited to a maximum of 10000 by default.
+   */
+  public Count getIncludedProductsCount() {
+    return includedProductsCount;
+  }
+
+  public void setIncludedProductsCount(Count includedProductsCount) {
+    this.includedProductsCount = includedProductsCount;
   }
 
   /**
@@ -226,7 +271,7 @@ public class Publication implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "Publication{app='" + app + "', autoPublish='" + autoPublish + "', catalog='" + catalog + "', collectionPublicationsV3='" + collectionPublicationsV3 + "', collections='" + collections + "', hasCollection='" + hasCollection + "', id='" + id + "', includedProducts='" + includedProducts + "', name='" + name + "', operation='" + operation + "', productPublicationsV3='" + productPublicationsV3 + "', products='" + products + "', supportsFuturePublishing='" + supportsFuturePublishing + "'}";
+    return "Publication{app='" + app + "', autoPublish='" + autoPublish + "', catalog='" + catalog + "', channels='" + channels + "', collectionPublicationsV3='" + collectionPublicationsV3 + "', collections='" + collections + "', hasCollection='" + hasCollection + "', id='" + id + "', includedProducts='" + includedProducts + "', includedProductsCount='" + includedProductsCount + "', name='" + name + "', operation='" + operation + "', productPublicationsV3='" + productPublicationsV3 + "', products='" + products + "', supportsFuturePublishing='" + supportsFuturePublishing + "'}";
   }
 
   @Override
@@ -237,11 +282,13 @@ public class Publication implements com.shopify.admin.types.Node {
     return Objects.equals(app, that.app) &&
         autoPublish == that.autoPublish &&
         Objects.equals(catalog, that.catalog) &&
+        Objects.equals(channels, that.channels) &&
         Objects.equals(collectionPublicationsV3, that.collectionPublicationsV3) &&
         Objects.equals(collections, that.collections) &&
         hasCollection == that.hasCollection &&
         Objects.equals(id, that.id) &&
         Objects.equals(includedProducts, that.includedProducts) &&
+        Objects.equals(includedProductsCount, that.includedProductsCount) &&
         Objects.equals(name, that.name) &&
         Objects.equals(operation, that.operation) &&
         Objects.equals(productPublicationsV3, that.productPublicationsV3) &&
@@ -251,7 +298,7 @@ public class Publication implements com.shopify.admin.types.Node {
 
   @Override
   public int hashCode() {
-    return Objects.hash(app, autoPublish, catalog, collectionPublicationsV3, collections, hasCollection, id, includedProducts, name, operation, productPublicationsV3, products, supportsFuturePublishing);
+    return Objects.hash(app, autoPublish, catalog, channels, collectionPublicationsV3, collections, hasCollection, id, includedProducts, includedProductsCount, name, operation, productPublicationsV3, products, supportsFuturePublishing);
   }
 
   public static Builder newBuilder() {
@@ -275,7 +322,13 @@ public class Publication implements com.shopify.admin.types.Node {
     private Catalog catalog;
 
     /**
-     * The collection publications for the list of collections published to the publication.
+     * The channels associated with the publication.
+     */
+    private ChannelConnection channels;
+
+    /**
+     * The list of collection publication records, each representing the publication
+     * status and details for a collection published to this publication (typically channel).
      */
     private ResourcePublicationConnection collectionPublicationsV3;
 
@@ -298,6 +351,11 @@ public class Publication implements com.shopify.admin.types.Node {
      * The list of products included, but not necessarily published, in the publication.
      */
     private ProductConnection includedProducts;
+
+    /**
+     * The count of products included in the publication. Limited to a maximum of 10000 by default.
+     */
+    private Count includedProductsCount;
 
     /**
      * Name of the publication.
@@ -329,11 +387,13 @@ public class Publication implements com.shopify.admin.types.Node {
       result.app = this.app;
       result.autoPublish = this.autoPublish;
       result.catalog = this.catalog;
+      result.channels = this.channels;
       result.collectionPublicationsV3 = this.collectionPublicationsV3;
       result.collections = this.collections;
       result.hasCollection = this.hasCollection;
       result.id = this.id;
       result.includedProducts = this.includedProducts;
+      result.includedProductsCount = this.includedProductsCount;
       result.name = this.name;
       result.operation = this.operation;
       result.productPublicationsV3 = this.productPublicationsV3;
@@ -367,7 +427,16 @@ public class Publication implements com.shopify.admin.types.Node {
     }
 
     /**
-     * The collection publications for the list of collections published to the publication.
+     * The channels associated with the publication.
+     */
+    public Builder channels(ChannelConnection channels) {
+      this.channels = channels;
+      return this;
+    }
+
+    /**
+     * The list of collection publication records, each representing the publication
+     * status and details for a collection published to this publication (typically channel).
      */
     public Builder collectionPublicationsV3(
         ResourcePublicationConnection collectionPublicationsV3) {
@@ -404,6 +473,14 @@ public class Publication implements com.shopify.admin.types.Node {
      */
     public Builder includedProducts(ProductConnection includedProducts) {
       this.includedProducts = includedProducts;
+      return this;
+    }
+
+    /**
+     * The count of products included in the publication. Limited to a maximum of 10000 by default.
+     */
+    public Builder includedProductsCount(Count includedProductsCount) {
+      this.includedProductsCount = includedProductsCount;
       return this;
     }
 

@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a redirect import resource by ID.
+ * Returns a `UrlRedirectImport` resource by ID.
  */
 public class UrlRedirectImportGraphQLQuery extends GraphQLQuery {
   public UrlRedirectImportGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

@@ -39,6 +39,13 @@ public class ReturnLineItemFragmentProjection<PARENT extends BaseSubProjectionNo
      return projection;
   }
 
+  public ReturnReasonDefinitionProjection<ReturnLineItemFragmentProjection<PARENT, ROOT>, ROOT> returnReasonDefinition(
+      ) {
+     ReturnReasonDefinitionProjection<ReturnLineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new ReturnReasonDefinitionProjection<>(this, getRoot());
+     getFields().put("returnReasonDefinition", projection);
+     return projection;
+  }
+
   public WeightProjection<ReturnLineItemFragmentProjection<PARENT, ROOT>, ROOT> totalWeight() {
      WeightProjection<ReturnLineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new WeightProjection<>(this, getRoot());
      getFields().put("totalWeight", projection);

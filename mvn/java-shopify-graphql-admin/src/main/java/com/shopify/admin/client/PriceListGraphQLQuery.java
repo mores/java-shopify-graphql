@@ -7,7 +7,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a price list resource by ID.
+ * Returns a [`PriceList`](https://shopify.dev/docs/api/admin-graphql/latest/objects/PriceList) by ID. You can use price lists to specify either fixed prices or adjusted
+ * relative prices that override initial
+ * [`Product`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product) prices.
+ *   
+ * Price lists enable contextual pricing for the [`Catalog`](https://shopify.dev/docs/api/admin-graphql/latest/interfaces/Catalog)
+ * they are associated to. Each price list can define fixed prices for specific [`ProductVariant`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant)
+ * objects or percentage-based adjustments relative to other prices.
  */
 public class PriceListGraphQLQuery extends GraphQLQuery {
   public PriceListGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

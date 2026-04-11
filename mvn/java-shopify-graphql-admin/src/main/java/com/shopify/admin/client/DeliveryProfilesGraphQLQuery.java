@@ -9,7 +9,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a list of saved delivery profiles.
+ * Returns a paginated list of [`DeliveryProfile`](https://shopify.dev/docs/api/admin-graphql/latest/objects/DeliveryProfile)
+ * objects for the shop. Delivery profiles group
+ * [`Product`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product) and [`ProductVariant`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant)
+ * objects that share shipping rates and zones.
+ *   
+ * Each profile contains [`DeliveryLocationGroup`](https://shopify.dev/docs/api/admin-graphql/latest/objects/DeliveryLocationGroup)
+ * objects that organize fulfillment [`Location`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Location)
+ * objects and their associated delivery zones. [`DeliveryZone`](https://shopify.dev/docs/api/admin-graphql/latest/objects/DeliveryZone)
+ * objects define geographic regions with specific shipping methods and rates. Use the [`merchantOwnedOnly`](https://shopify.dev/docs/api/admin-graphql/latest/queries/deliveryProfiles#arguments-merchantOwnedOnly)
+ * filter to exclude profiles that third-party apps manage.
+ *   
+ * Learn more about [delivery profiles](https://shopify.dev/docs/apps/build/purchase-options/deferred/delivery-and-deferment#whats-a-delivery-profile).
  */
 public class DeliveryProfilesGraphQLQuery extends GraphQLQuery {
   public DeliveryProfilesGraphQLQuery(Boolean merchantOwnedOnly, Integer first, String after,

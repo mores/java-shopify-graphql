@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a customer account page.
+ * Returns a `CustomerAccountPage` resource by ID.
  */
 public class CustomerAccountPageGraphQLQuery extends GraphQLQuery {
   public CustomerAccountPageGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

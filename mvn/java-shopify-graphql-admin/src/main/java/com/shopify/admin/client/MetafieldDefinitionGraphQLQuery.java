@@ -8,7 +8,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a metafield definition by identifier.
+ * Retrieves a [`MetafieldDefinition`](https://shopify.dev/docs/api/admin-graphql/current/objects/MetafieldDefinition) by its identifier. You can identify a definition using either its owner type,
+ * namespace, and key, or its global ID.
+ *   
+ * Use this query to inspect a definition's configuration, including its data
+ * type, validations, access settings, and the count of [metafields](https://shopify.dev/docs/api/admin-graphql/current/objects/Metafield) using it.
  */
 public class MetafieldDefinitionGraphQLQuery extends GraphQLQuery {
   public MetafieldDefinitionGraphQLQuery(MetafieldDefinitionIdentifierInput identifier,

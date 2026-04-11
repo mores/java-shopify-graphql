@@ -8,7 +8,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Creates a page.
+ * Creates a [`Page`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Page) for the online store.
+ *   
+ * Pages contain custom content like "About Us" or "Contact" information that
+ * merchants display outside their product catalog. The page requires a [`title`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Page#field-Page.fields.title)
+ * and can include HTML content, publishing settings, and custom [template suffixes](https://shopify.dev/docs/api/admin-graphql/latest/objects/Page#field-Page.fields.templateSuffix).
+ * You can control visibility through the [`isPublished`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Page#field-Page.fields.isPublished)
+ * flag or schedule publication with a specific date.
+ *   
+ * The mutation returns the complete page object upon successful creation or validation errors if the input is invalid.
  */
 public class PageCreateGraphQLQuery extends GraphQLQuery {
   public PageCreateGraphQLQuery(PageCreateInput page, String queryName, Set<String> fieldsSet) {

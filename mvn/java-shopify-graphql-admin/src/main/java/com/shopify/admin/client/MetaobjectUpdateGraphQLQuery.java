@@ -8,7 +8,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Updates an existing metaobject.
+ * Updates a [`Metaobject`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Metaobject) with new field values, handle, or capabilities. [Metaobjects](https://shopify.dev/docs/apps/build/custom-data#what-are-metaobjects)
+ * are custom data structures that extend Shopify's data model.
+ *   
+ * You can modify field values mapped to the metaobject's [`MetaobjectDefinition`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MetaobjectDefinition),
+ * update the handle for a unique identifier, and adjust capabilities like
+ * publishing status. When updating the handle, you can optionally create a
+ * redirect from the old handle to maintain existing references.
  */
 public class MetaobjectUpdateGraphQLQuery extends GraphQLQuery {
   public MetaobjectUpdateGraphQLQuery(String id, MetaobjectUpdateInput metaobject, String queryName,

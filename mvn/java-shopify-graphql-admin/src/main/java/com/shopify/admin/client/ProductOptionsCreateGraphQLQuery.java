@@ -33,9 +33,7 @@ import java.util.Set;
  * > The `productOptionsCreate` mutation enforces strict data integrity for product options and variants.
  * All option positions must be sequential, and every option should be used by at least one variant.
  * If you use the [`CREATE` variant strategy](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productOptionsCreate#arguments-variantStrategy.enums.CREATE),
- * consider the maximum allowed number of variants for each product
- * (100 by default, and 2,048 if you've
- * [enabled the **Extended Variants** developer preview](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model/migrate-and-test#create-a-development-store-that-allows-2-048-variants-per-product)).
+ * consider the maximum allowed number of variants for each product is 2048.
  *   
  * After you create product options, you can further manage a product's configuration using related mutations:
  *   

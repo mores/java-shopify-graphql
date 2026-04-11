@@ -20,6 +20,11 @@ public class AppCatalog implements com.shopify.admin.types.Catalog, com.shopify.
   private AppConnection apps;
 
   /**
+   * The channels associated with the catalog.
+   */
+  private ChannelConnection channels;
+
+  /**
    * A globally-unique ID.
    */
   private String id;
@@ -61,6 +66,17 @@ public class AppCatalog implements com.shopify.admin.types.Catalog, com.shopify.
 
   public void setApps(AppConnection apps) {
     this.apps = apps;
+  }
+
+  /**
+   * The channels associated with the catalog.
+   */
+  public ChannelConnection getChannels() {
+    return channels;
+  }
+
+  public void setChannels(ChannelConnection channels) {
+    this.channels = channels;
   }
 
   /**
@@ -131,7 +147,7 @@ public class AppCatalog implements com.shopify.admin.types.Catalog, com.shopify.
 
   @Override
   public String toString() {
-    return "AppCatalog{apps='" + apps + "', id='" + id + "', operations='" + operations + "', priceList='" + priceList + "', publication='" + publication + "', status='" + status + "', title='" + title + "'}";
+    return "AppCatalog{apps='" + apps + "', channels='" + channels + "', id='" + id + "', operations='" + operations + "', priceList='" + priceList + "', publication='" + publication + "', status='" + status + "', title='" + title + "'}";
   }
 
   @Override
@@ -140,6 +156,7 @@ public class AppCatalog implements com.shopify.admin.types.Catalog, com.shopify.
     if (o == null || getClass() != o.getClass()) return false;
     AppCatalog that = (AppCatalog) o;
     return Objects.equals(apps, that.apps) &&
+        Objects.equals(channels, that.channels) &&
         Objects.equals(id, that.id) &&
         Objects.equals(operations, that.operations) &&
         Objects.equals(priceList, that.priceList) &&
@@ -150,7 +167,7 @@ public class AppCatalog implements com.shopify.admin.types.Catalog, com.shopify.
 
   @Override
   public int hashCode() {
-    return Objects.hash(apps, id, operations, priceList, publication, status, title);
+    return Objects.hash(apps, channels, id, operations, priceList, publication, status, title);
   }
 
   public static Builder newBuilder() {
@@ -162,6 +179,11 @@ public class AppCatalog implements com.shopify.admin.types.Catalog, com.shopify.
      * The apps associated with the catalog.
      */
     private AppConnection apps;
+
+    /**
+     * The channels associated with the catalog.
+     */
+    private ChannelConnection channels;
 
     /**
      * A globally-unique ID.
@@ -196,6 +218,7 @@ public class AppCatalog implements com.shopify.admin.types.Catalog, com.shopify.
     public AppCatalog build() {
       AppCatalog result = new AppCatalog();
       result.apps = this.apps;
+      result.channels = this.channels;
       result.id = this.id;
       result.operations = this.operations;
       result.priceList = this.priceList;
@@ -210,6 +233,14 @@ public class AppCatalog implements com.shopify.admin.types.Catalog, com.shopify.
      */
     public Builder apps(AppConnection apps) {
       this.apps = apps;
+      return this;
+    }
+
+    /**
+     * The channels associated with the catalog.
+     */
+    public Builder channels(ChannelConnection channels) {
+      this.channels = channels;
       return this;
     }
 

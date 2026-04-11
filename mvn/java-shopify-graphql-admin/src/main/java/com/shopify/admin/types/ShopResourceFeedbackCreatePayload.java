@@ -11,7 +11,9 @@ import java.util.Objects;
  */
 public class ShopResourceFeedbackCreatePayload {
   /**
-   * The shop feedback that's created.
+   * The shop feedback that's created. Returns `null` when `state: ACCEPTED` is
+   * used, because setting state to `ACCEPTED` clears the active feedback signal. A
+   * `null` value here indicates success, not an error.
    */
   private AppFeedback feedback;
 
@@ -24,7 +26,9 @@ public class ShopResourceFeedbackCreatePayload {
   }
 
   /**
-   * The shop feedback that's created.
+   * The shop feedback that's created. Returns `null` when `state: ACCEPTED` is
+   * used, because setting state to `ACCEPTED` clears the active feedback signal. A
+   * `null` value here indicates success, not an error.
    */
   public AppFeedback getFeedback() {
     return feedback;
@@ -70,7 +74,9 @@ public class ShopResourceFeedbackCreatePayload {
 
   public static class Builder {
     /**
-     * The shop feedback that's created.
+     * The shop feedback that's created. Returns `null` when `state: ACCEPTED` is
+     * used, because setting state to `ACCEPTED` clears the active feedback signal. A
+     * `null` value here indicates success, not an error.
      */
     private AppFeedback feedback;
 
@@ -87,7 +93,9 @@ public class ShopResourceFeedbackCreatePayload {
     }
 
     /**
-     * The shop feedback that's created.
+     * The shop feedback that's created. Returns `null` when `state: ACCEPTED` is
+     * used, because setting state to `ACCEPTED` clears the active feedback signal. A
+     * `null` value here indicates success, not an error.
      */
     public Builder feedback(AppFeedback feedback) {
       this.feedback = feedback;

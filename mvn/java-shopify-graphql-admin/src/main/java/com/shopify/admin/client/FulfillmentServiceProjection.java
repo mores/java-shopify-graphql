@@ -49,11 +49,6 @@ public class FulfillmentServiceProjection<PARENT extends BaseSubProjectionNode<?
     return this;
   }
 
-  public FulfillmentServiceProjection<PARENT, ROOT> permitsSkuSharing() {
-    getFields().put("permitsSkuSharing", null);
-    return this;
-  }
-
   public FulfillmentServiceProjection<PARENT, ROOT> requiresShippingMethod() {
     getFields().put("requiresShippingMethod", null);
     return this;

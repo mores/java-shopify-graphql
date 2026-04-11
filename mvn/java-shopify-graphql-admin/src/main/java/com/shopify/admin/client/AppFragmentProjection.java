@@ -1,8 +1,11 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.BaseSubProjectionNode;
+import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
 
 public class AppFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT extends BaseSubProjectionNode<?, ?>> extends BaseSubProjectionNode<PARENT, ROOT> {
   {
@@ -28,6 +31,30 @@ public class AppFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>, R
      ImageProjection<AppFragmentProjection<PARENT, ROOT>, ROOT> projection = new ImageProjection<>(this, getRoot());
      getFields().put("banner", projection);
      return projection;
+  }
+
+  public ChannelConnectionProjection<AppFragmentProjection<PARENT, ROOT>, ROOT> channels() {
+     ChannelConnectionProjection<AppFragmentProjection<PARENT, ROOT>, ROOT> projection = new ChannelConnectionProjection<>(this, getRoot());
+     getFields().put("channels", projection);
+     return projection;
+  }
+
+  public ChannelConnectionProjection<AppFragmentProjection<PARENT, ROOT>, ROOT> channels(
+      Integer first, String after, Integer last, String before, Boolean reverse) {
+    ChannelConnectionProjection<AppFragmentProjection<PARENT, ROOT>, ROOT> projection = new ChannelConnectionProjection<>(this, getRoot());    
+    getFields().put("channels", projection);
+    getInputArguments().computeIfAbsent("channels", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("channels").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("channels").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("channels").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("channels").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    getInputArguments().get("channels").add(reverseArg);
+    return projection;
   }
 
   public AppDeveloperTypeProjection<AppFragmentProjection<PARENT, ROOT>, ROOT> developerType() {

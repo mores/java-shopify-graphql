@@ -8,11 +8,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Create a payment method from remote gateway identifiers. NOTE: This operation
- * processes payment methods asynchronously. The returned payment method will
- * initially have incomplete details. Developers must poll this payment method
- * using customerPaymentMethod query until all payment method details are
- * available, or the payment method is revoked (usually within seconds).
+ * Creates a customer payment method using identifiers from remote payment
+ * gateways like Stripe, Authorize.Net, or Braintree. Imports existing payment
+ * methods from external gateways and associates them with [`Customer`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Customer)
+ * objects in Shopify.
+ *   
+ * The operation processes payment methods asynchronously. The returned [`CustomerPaymentMethod`](https://shopify.dev/docs/api/admin-graphql/latest/objects/CustomerPaymentMethod)
+ * initially has incomplete details while Shopify validates and processes the
+ * remote gateway information. Use the [`customerPaymentMethod`](https://shopify.dev/docs/api/admin-graphql/latest/queries/customerPaymentMethod)
+ * query to retrieve the payment method status until all details are available or
+ * the payment method is revoked.
+ *   
+ * Learn more about [migrating customer payment methods from remote gateways](https://shopify.dev/docs/apps/build/purchase-options/subscriptions/migrate-to-subscriptions-api/migrate-customer-information#step-2-import-payment-methods-for-customers).
  */
 public class CustomerPaymentMethodRemoteCreateGraphQLQuery extends GraphQLQuery {
   public CustomerPaymentMethodRemoteCreateGraphQLQuery(String customerId,

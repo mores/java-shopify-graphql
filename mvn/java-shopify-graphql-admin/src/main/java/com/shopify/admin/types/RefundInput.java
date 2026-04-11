@@ -4,6 +4,7 @@ import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -38,6 +39,11 @@ public class RefundInput {
    * The input fields that are required to reimburse shipping costs.
    */
   private ShippingRefundInput shipping;
+
+  /**
+   * The date and time when the refund is being processed. If not provided, it will be set to the current time.
+   */
+  private OffsetDateTime processedAt;
 
   /**
    * A list of line items to refund.
@@ -130,6 +136,17 @@ public class RefundInput {
   }
 
   /**
+   * The date and time when the refund is being processed. If not provided, it will be set to the current time.
+   */
+  public OffsetDateTime getProcessedAt() {
+    return processedAt;
+  }
+
+  public void setProcessedAt(OffsetDateTime processedAt) {
+    this.processedAt = processedAt;
+  }
+
+  /**
    * A list of line items to refund.
    */
   public List<RefundLineItemInput> getRefundLineItems() {
@@ -197,7 +214,7 @@ public class RefundInput {
 
   @Override
   public String toString() {
-    return "RefundInput{currency='" + currency + "', orderId='" + orderId + "', note='" + note + "', notify='" + notify + "', shipping='" + shipping + "', refundLineItems='" + refundLineItems + "', refundDuties='" + refundDuties + "', transactions='" + transactions + "', refundMethods='" + refundMethods + "', discrepancyReason='" + discrepancyReason + "', allowOverRefunding='" + allowOverRefunding + "'}";
+    return "RefundInput{currency='" + currency + "', orderId='" + orderId + "', note='" + note + "', notify='" + notify + "', shipping='" + shipping + "', processedAt='" + processedAt + "', refundLineItems='" + refundLineItems + "', refundDuties='" + refundDuties + "', transactions='" + transactions + "', refundMethods='" + refundMethods + "', discrepancyReason='" + discrepancyReason + "', allowOverRefunding='" + allowOverRefunding + "'}";
   }
 
   @Override
@@ -210,6 +227,7 @@ public class RefundInput {
         Objects.equals(note, that.note) &&
         Objects.equals(notify, that.notify) &&
         Objects.equals(shipping, that.shipping) &&
+        Objects.equals(processedAt, that.processedAt) &&
         Objects.equals(refundLineItems, that.refundLineItems) &&
         Objects.equals(refundDuties, that.refundDuties) &&
         Objects.equals(transactions, that.transactions) &&
@@ -220,7 +238,7 @@ public class RefundInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(currency, orderId, note, notify, shipping, refundLineItems, refundDuties, transactions, refundMethods, discrepancyReason, allowOverRefunding);
+    return Objects.hash(currency, orderId, note, notify, shipping, processedAt, refundLineItems, refundDuties, transactions, refundMethods, discrepancyReason, allowOverRefunding);
   }
 
   public static Builder newBuilder() {
@@ -254,6 +272,11 @@ public class RefundInput {
      * The input fields that are required to reimburse shipping costs.
      */
     private ShippingRefundInput shipping;
+
+    /**
+     * The date and time when the refund is being processed. If not provided, it will be set to the current time.
+     */
+    private OffsetDateTime processedAt;
 
     /**
      * A list of line items to refund.
@@ -292,6 +315,7 @@ public class RefundInput {
       result.note = this.note;
       result.notify = this.notify;
       result.shipping = this.shipping;
+      result.processedAt = this.processedAt;
       result.refundLineItems = this.refundLineItems;
       result.refundDuties = this.refundDuties;
       result.transactions = this.transactions;
@@ -340,6 +364,14 @@ public class RefundInput {
      */
     public Builder shipping(ShippingRefundInput shipping) {
       this.shipping = shipping;
+      return this;
+    }
+
+    /**
+     * The date and time when the refund is being processed. If not provided, it will be set to the current time.
+     */
+    public Builder processedAt(OffsetDateTime processedAt) {
+      this.processedAt = processedAt;
       return this;
     }
 

@@ -27,9 +27,7 @@ import java.util.Set;
  * - **For all other field types**: Updates only the included fields. Any omitted fields will remain unchanged.
  *   
  * > Note:
- * > By default, stores have a limit of 100 product variants for each product. You can create a development store and
- * > [enable the **Extended Variants** developer preview](https://shopify.dev/docs/apps/build/graphql/migrate/new-product-model/migrate-and-test#create-a-development-store-that-allows-2-048-variants-per-product)
- * > to create or update a maximum of 2,048 product variants in a single operation.
+ * > By default, stores have a limit of 2048 product variants for each product.
  *   
  * You can run `productSet` in one of the following modes:
  *   

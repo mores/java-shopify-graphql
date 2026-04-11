@@ -8,7 +8,10 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Remove tags from an order, a draft order, a customer, a product, or an online store article.
+ * Removes tags from an
+ * [`Order`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order), [`DraftOrder`](https://shopify.dev/docs/api/admin-graphql/latest/objects/DraftOrder), [`Customer`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Customer), [`Product`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product), or [`Article`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Article).
+ *   
+ * Tags are searchable keywords that help organize and filter these resources.
  */
 public class TagsRemoveGraphQLQuery extends GraphQLQuery {
   public TagsRemoveGraphQLQuery(String id, List<String> tags, String queryName,

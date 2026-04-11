@@ -7,13 +7,16 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * Represents a price list, including information about related prices and eligibility rules.
- * You can use price lists to specify either fixed prices or adjusted relative prices that
- * override initial product variant prices. Price lists are applied to customers
- * using context rules, which determine price list eligibility.
+ * A list that defines pricing for [product variants](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant).
+ * Price lists override default product prices with either fixed prices or
+ * percentage-based adjustments.
  *
- *   For more information on price lists, refer to
- *   [Support different pricing models](https://shopify.dev/apps/internationalization/product-price-lists).
+ * Each price list associates with a [`Catalog`](https://shopify.dev/docs/api/admin-graphql/latest/interfaces/Catalog)
+ * to determine which customers see the pricing. The catalog's context rules
+ * control when the price list applies, such as for specific markets, company
+ * locations, or apps.
+ *
+ * Learn how to [support different pricing models](https://shopify.dev/docs/apps/build/markets/build-catalog).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

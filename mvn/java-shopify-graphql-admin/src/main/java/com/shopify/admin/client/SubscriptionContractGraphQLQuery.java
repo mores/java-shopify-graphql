@@ -7,7 +7,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a Subscription Contract resource by ID.
+ * Retrieves a [`SubscriptionContract`](https://shopify.dev/docs/api/customer/latest/objects/SubscriptionContract) by ID.
+ *   
+ * The contract tracks the subscription's lifecycle through various [statuses](https://shopify.dev/docs/api/admin-graphql/latest/queries/subscriptionContract#returns-SubscriptionContract.fields.status),
+ * and links to related billing attempts, generated
+ * [`Order`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order)
+ * objects, and the customer's [`CustomerPaymentMethod`](https://shopify.dev/docs/api/admin-graphql/latest/objects/CustomerPaymentMethod).
  */
 public class SubscriptionContractGraphQLQuery extends GraphQLQuery {
   public SubscriptionContractGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

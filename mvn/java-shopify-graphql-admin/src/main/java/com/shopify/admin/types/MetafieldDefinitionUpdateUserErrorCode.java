@@ -10,6 +10,8 @@ public enum MetafieldDefinitionUpdateUserErrorCode {
 
   BLANK,
 
+  INVALID,
+
   NOT_FOUND,
 
   INVALID_INPUT,
@@ -31,6 +33,8 @@ public enum MetafieldDefinitionUpdateUserErrorCode {
   METAFIELD_DEFINITION_IN_USE,
 
   OWNER_TYPE_LIMIT_EXCEEDED_FOR_AUTOMATED_COLLECTIONS,
+
+  OWNER_TYPE_LIMIT_EXCEEDED_FOR_USE_AS_ADMIN_FILTERS,
 
   METAOBJECT_DEFINITION_CHANGED,
 

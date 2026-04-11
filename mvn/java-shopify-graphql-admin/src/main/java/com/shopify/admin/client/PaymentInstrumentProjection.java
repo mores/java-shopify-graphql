@@ -12,6 +12,13 @@ public class PaymentInstrumentProjection<PARENT extends BaseSubProjectionNode<?,
     return this;
   }
 
+  public BankAccountFragmentProjection<PaymentInstrumentProjection<PARENT, ROOT>, ROOT> onBankAccount(
+      ) {
+    BankAccountFragmentProjection<PaymentInstrumentProjection<PARENT, ROOT>, ROOT> fragment = new BankAccountFragmentProjection<>(this, getRoot());
+    getFragments().add(fragment);
+    return fragment;
+  }
+
   public VaultCreditCardFragmentProjection<PaymentInstrumentProjection<PARENT, ROOT>, ROOT> onVaultCreditCard(
       ) {
     VaultCreditCardFragmentProjection<PaymentInstrumentProjection<PARENT, ROOT>, ROOT> fragment = new VaultCreditCardFragmentProjection<>(this, getRoot());

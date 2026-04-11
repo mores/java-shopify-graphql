@@ -10,7 +10,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * A list of a shop's segments.
+ * Returns a paginated list of
+ * [`Segment`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Segment)
+ * objects for the shop. Segments are dynamic groups of customers that meet
+ * specific criteria defined through [ShopifyQL queries](https://shopify.dev/docs/api/shopifyql/segment-query-language-reference).
+ * You can filter segments by search query and sort them by creation date or
+ * other criteria.
+ *   
+ * The query supports standard
+ * [pagination](https://shopify.dev/docs/api/usage/pagination-graphql) arguments and returns a [`SegmentConnection`](https://shopify.dev/docs/api/admin-graphql/latest/objects/SegmentConnection)
+ * containing segment details including names, creation dates, and the query
+ * definitions that determine segment membership.
  */
 public class SegmentsGraphQLQuery extends GraphQLQuery {
   public SegmentsGraphQLQuery(Integer first, String after, Integer last, String before,
@@ -131,7 +141,7 @@ public class SegmentsGraphQLQuery extends GraphQLQuery {
      * | ---- | ---- | ---- | ---- | ---- | ---- |
      * | default | string | Filter by a case-insensitive search of multiple fields
      * in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
      * | name | string |
      * You can apply one or more filters to a query. Learn more about [Shopify API
      * search syntax](https://shopify.dev/api/usage/search-syntax).

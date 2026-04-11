@@ -81,7 +81,6 @@ public class AppTest {
                 InventorySetQuantitiesGraphQLQuery.Builder builder = InventorySetQuantitiesGraphQLQuery.newRequest();
                 InventorySetQuantitiesInput input = new InventorySetQuantitiesInput();
                 input.setName("available");
-                input.setIgnoreCompareQuantity(true);
                 input.setReason("quality_control");
                 java.util.List<InventoryQuantityInput> quantities = new java.util.ArrayList<>();
                 InventoryQuantityInput quantity = new InventoryQuantityInput();

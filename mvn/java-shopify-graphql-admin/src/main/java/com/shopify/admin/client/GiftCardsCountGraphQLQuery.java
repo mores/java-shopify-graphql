@@ -56,13 +56,17 @@ public class GiftCardsCountGraphQLQuery extends GraphQLQuery {
      * A filter made up of terms, connectives, modifiers, and comparators.
      * | name | type | description | acceptable_values | default_value | example_use |
      * | ---- | ---- | ---- | ---- | ---- | ---- |
-     * | default | string | Searched fields: code. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
+     * | default | string | Filter by a case-insensitive search of multiple fields
+     * in a document, including gift card codes. | | | -
+     * `query=a5bh6h64b329j4k7`<br/> - `query=Bob Norman` |
      * | balance_status | string | | - `full`<br/> - `partial`<br/> - `empty`<br/>
      * - `full_or_partial` | | - `balance_status:full` |
      * | created_at | time | | | | - `created_at:>=2020-01-01T12:00:00Z` |
+     * | customer_id | id |
      * | expires_on | date | | | | - `expires_on:>=2020-01-01` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
      * | initial_value | string | | | | - `initial_value:>=100` |
+     * | recipient_id | id |
      * | source | string | | - `manual`<br/> - `purchased`<br/> - `api_client` | | - `source:manual` |
      * | status | string | | - `disabled`<br/> - `enabled`<br/> - `expired`<br/> -
      * `expiring` | | - `status:disabled OR status:expired` |

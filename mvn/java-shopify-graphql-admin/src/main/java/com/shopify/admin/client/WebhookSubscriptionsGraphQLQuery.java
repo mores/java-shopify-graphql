@@ -13,17 +13,24 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Returns a list of webhook subscriptions.
+ * Retrieves a paginated list of webhook subscriptions created using the API for the current app and shop.
+ *   
+ * > Note: Returns only shop-scoped subscriptions, not app-scoped subscriptions configured in TOML files.
+ *   
+ * Subscription details include event topics, endpoint URIs, filtering rules,
+ * field inclusion settings, and metafield namespace permissions. Results support
+ * cursor-based pagination that you can filter by topic, format, or custom search criteria.
+ *   
  *   
  * Building an app? If you only use app-specific webhooks, you won't need this.
  * App-specific webhook subscriptions specified in your `shopify.app.toml` may be
- * easier. They are automatically kept up to date by Shopify &amp; require less
+ * easier. They are automatically kept up to date by Shopify & require less
  * maintenance. Please read [About managing webhook
  * subscriptions](https://shopify.dev/docs/apps/build/webhooks/subscribe).
  */
 public class WebhookSubscriptionsGraphQLQuery extends GraphQLQuery {
   public WebhookSubscriptionsGraphQLQuery(Integer first, String after, Integer last, String before,
-      Boolean reverse, WebhookSubscriptionSortKeys sortKey, String query, String callbackUrl,
+      Boolean reverse, WebhookSubscriptionSortKeys sortKey, String query, String uri,
       WebhookSubscriptionFormat format, List<WebhookSubscriptionTopic> topics, String queryName,
       Set<String> fieldsSet) {
     super("query", queryName);
@@ -41,8 +48,8 @@ public class WebhookSubscriptionsGraphQLQuery extends GraphQLQuery {
         getInput().put("sortKey", sortKey);
     }if (query != null || fieldsSet.contains("query")) {
         getInput().put("query", query);
-    }if (callbackUrl != null || fieldsSet.contains("callbackUrl")) {
-        getInput().put("callbackUrl", callbackUrl);
+    }if (uri != null || fieldsSet.contains("uri")) {
+        getInput().put("uri", uri);
     }if (format != null || fieldsSet.contains("format")) {
         getInput().put("format", format);
     }if (topics != null || fieldsSet.contains("topics")) {
@@ -80,7 +87,7 @@ public class WebhookSubscriptionsGraphQLQuery extends GraphQLQuery {
 
     private String query;
 
-    private String callbackUrl;
+    private String uri;
 
     private WebhookSubscriptionFormat format;
 
@@ -89,7 +96,7 @@ public class WebhookSubscriptionsGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public WebhookSubscriptionsGraphQLQuery build() {
-      return new WebhookSubscriptionsGraphQLQuery(first, after, last, before, reverse, sortKey, query, callbackUrl, format, topics, queryName, fieldsSet);
+      return new WebhookSubscriptionsGraphQLQuery(first, after, last, before, reverse, sortKey, query, uri, format, topics, queryName, fieldsSet);
                
     }
 
@@ -153,7 +160,7 @@ public class WebhookSubscriptionsGraphQLQuery extends GraphQLQuery {
      * | name | type | description | acceptable_values | default_value | example_use |
      * | ---- | ---- | ---- | ---- | ---- | ---- |
      * | created_at | time |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
      * | updated_at | time |
      * You can apply one or more filters to a query. Learn more about [Shopify API
      * search syntax](https://shopify.dev/api/usage/search-syntax).
@@ -165,11 +172,12 @@ public class WebhookSubscriptionsGraphQLQuery extends GraphQLQuery {
     }
 
     /**
-     * Callback URL to filter by.
+     * URI to filter by. Supports an HTTPS URL, a Google Pub/Sub URI
+     * (pubsub://{project-id}:{topic-id}) or an Amazon EventBridge event source ARN.
      */
-    public Builder callbackUrl(String callbackUrl) {
-      this.callbackUrl = callbackUrl;
-      this.fieldsSet.add("callbackUrl");
+    public Builder uri(String uri) {
+      this.uri = uri;
+      this.fieldsSet.add("uri");
       return this;
     }
 

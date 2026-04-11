@@ -19,6 +19,11 @@ public class ProductFeedInput {
    */
   private CountryCode country;
 
+  /**
+   * The ID of the channel to associate with the product feed.
+   */
+  private String channelId;
+
   public ProductFeedInput() {
   }
 
@@ -44,9 +49,20 @@ public class ProductFeedInput {
     this.country = country;
   }
 
+  /**
+   * The ID of the channel to associate with the product feed.
+   */
+  public String getChannelId() {
+    return channelId;
+  }
+
+  public void setChannelId(String channelId) {
+    this.channelId = channelId;
+  }
+
   @Override
   public String toString() {
-    return "ProductFeedInput{language='" + language + "', country='" + country + "'}";
+    return "ProductFeedInput{language='" + language + "', country='" + country + "', channelId='" + channelId + "'}";
   }
 
   @Override
@@ -55,12 +71,13 @@ public class ProductFeedInput {
     if (o == null || getClass() != o.getClass()) return false;
     ProductFeedInput that = (ProductFeedInput) o;
     return Objects.equals(language, that.language) &&
-        Objects.equals(country, that.country);
+        Objects.equals(country, that.country) &&
+        Objects.equals(channelId, that.channelId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(language, country);
+    return Objects.hash(language, country, channelId);
   }
 
   public static Builder newBuilder() {
@@ -78,10 +95,16 @@ public class ProductFeedInput {
      */
     private CountryCode country;
 
+    /**
+     * The ID of the channel to associate with the product feed.
+     */
+    private String channelId;
+
     public ProductFeedInput build() {
       ProductFeedInput result = new ProductFeedInput();
       result.language = this.language;
       result.country = this.country;
+      result.channelId = this.channelId;
       return result;
     }
 
@@ -98,6 +121,14 @@ public class ProductFeedInput {
      */
     public Builder country(CountryCode country) {
       this.country = country;
+      return this;
+    }
+
+    /**
+     * The ID of the channel to associate with the product feed.
+     */
+    public Builder channelId(String channelId) {
+      this.channelId = channelId;
       return this;
     }
   }

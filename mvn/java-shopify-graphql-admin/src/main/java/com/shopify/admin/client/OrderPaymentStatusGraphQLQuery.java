@@ -7,7 +7,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a payment status by payment reference ID. Used to check the status of a deferred payment.
+ * Retrieves the status of a deferred payment by its payment reference ID. Use
+ * this query to monitor the processing status of payments that are initiated
+ * through payment mutations. Deferred payments are called [payment
+ * terms](https://shopify.dev/docs/apps/build/checkout/payments/payment-terms) in the API.
+ *   
+ * The query returns an [`OrderPaymentStatus`](https://shopify.dev/docs/api/admin-graphql/latest/objects/OrderPaymentStatus)
+ * object that includes the current payment status, any error messages, and
+ * associated transactions. Poll this query to track [asynchronous payment
+ * processing](https://shopify.dev/docs/apps/build/payments/processing) after
+ * initiating a deferred payment.
  */
 public class OrderPaymentStatusGraphQLQuery extends GraphQLQuery {
   public OrderPaymentStatusGraphQLQuery(String paymentReferenceId, String orderId, String queryName,

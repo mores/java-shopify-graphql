@@ -10,7 +10,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * List of the shop's blogs.
+ * Returns a paginated list of the shop's
+ * [`Blog`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Blog)
+ * objects. Blogs serve as containers for
+ * [`Article`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Article)
+ * objects and provide content management capabilities for the store's editorial content.
+ *   
+ * Supports [cursor-based
+ * pagination](https://shopify.dev/docs/api/usage/pagination-graphql) to control
+ * the number of blogs returned and their order. Use the [`query`](https://shopify.dev/docs/api/admin-graphql/latest/queries/blogs#arguments-query)
+ * argument to filter results by specific criteria.
  */
 public class BlogsGraphQLQuery extends GraphQLQuery {
   public BlogsGraphQLQuery(Integer first, String after, Integer last, String before,
@@ -134,7 +143,7 @@ public class BlogsGraphQLQuery extends GraphQLQuery {
      * in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
      * | created_at | time |
      * | handle | string |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
      * | title | string |
      * | updated_at | time |
      * You can apply one or more filters to a query. Learn more about [Shopify API

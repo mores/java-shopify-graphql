@@ -9,7 +9,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Update a customer's address information.
+ * Updates a [`Customer`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Customer)'s [`MailingAddress`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MailingAddress). You can modify any field of the address and optionally set it as the
+ * customer's default address.
  */
 public class CustomerAddressUpdateGraphQLQuery extends GraphQLQuery {
   public CustomerAddressUpdateGraphQLQuery(String customerId, String addressId,

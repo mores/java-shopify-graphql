@@ -11,6 +11,11 @@ import java.util.Set;
  * [`isActive`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Location#field-isactive) and
  * [`activatable`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Location#field-activatable)
  * fields on the `Location` object.
+ *   
+ * > Caution:
+ * > As of 2026-01, this mutation supports an optional idempotency key using the `@idempotent` directive.
+ * As of 2026-04, the idempotency key is required and must be provided using the `@idempotent` directive.
+ * For more information, see the [idempotency documentation](https://shopify.dev/docs/api/usage/idempotent-requests).
  */
 public class LocationActivateGraphQLQuery extends GraphQLQuery {
   public LocationActivateGraphQLQuery(String locationId, String queryName, Set<String> fieldsSet) {

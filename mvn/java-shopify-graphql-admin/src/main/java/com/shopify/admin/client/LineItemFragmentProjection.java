@@ -126,6 +126,31 @@ public class LineItemFragmentProjection<PARENT extends BaseSubProjectionNode<?, 
      return projection;
   }
 
+  public ReturnReasonDefinitionConnectionProjection<LineItemFragmentProjection<PARENT, ROOT>, ROOT> suggestedReturnReasonDefinitions(
+      ) {
+     ReturnReasonDefinitionConnectionProjection<LineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new ReturnReasonDefinitionConnectionProjection<>(this, getRoot());
+     getFields().put("suggestedReturnReasonDefinitions", projection);
+     return projection;
+  }
+
+  public ReturnReasonDefinitionConnectionProjection<LineItemFragmentProjection<PARENT, ROOT>, ROOT> suggestedReturnReasonDefinitions(
+      Integer first, String after, Integer last, String before, Boolean reverse) {
+    ReturnReasonDefinitionConnectionProjection<LineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new ReturnReasonDefinitionConnectionProjection<>(this, getRoot());    
+    getFields().put("suggestedReturnReasonDefinitions", projection);
+    getInputArguments().computeIfAbsent("suggestedReturnReasonDefinitions", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("suggestedReturnReasonDefinitions").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("suggestedReturnReasonDefinitions").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("suggestedReturnReasonDefinitions").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("suggestedReturnReasonDefinitions").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    getInputArguments().get("suggestedReturnReasonDefinitions").add(reverseArg);
+    return projection;
+  }
+
   public TaxLineProjection<LineItemFragmentProjection<PARENT, ROOT>, ROOT> taxLines() {
      TaxLineProjection<LineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new TaxLineProjection<>(this, getRoot());
      getFields().put("taxLines", projection);

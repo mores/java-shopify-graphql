@@ -7,7 +7,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Shopify Payments account information, including balances and payouts.
+ * Returns the Shopify Payments account information for the shop. Includes
+ * current balances across all currencies, payout schedules, and bank account
+ * configurations.
+ *   
+ * The account includes [`ShopifyPaymentsBalanceTransaction`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsBalanceTransaction)
+ * records showing charges, refunds, and adjustments that affect your balance. Also includes [`ShopifyPaymentsDispute`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsDispute) records and [`ShopifyPaymentsPayout`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsPayout)
+ * history between the account and connected [`ShopifyPaymentsBankAccount`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsBankAccount)
+ * configurations.
  */
 public class ShopifyPaymentsAccountGraphQLQuery extends GraphQLQuery {
   public ShopifyPaymentsAccountGraphQLQuery(String queryName) {

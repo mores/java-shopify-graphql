@@ -8,5 +8,7 @@ public enum ProductStatus {
 
   ARCHIVED,
 
-  DRAFT
+  DRAFT,
+
+  UNLISTED
 }

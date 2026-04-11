@@ -59,6 +59,11 @@ public class PaymentTermsProjection<PARENT extends BaseSubProjectionNode<?, ?>, 
      return projection;
   }
 
+  public PaymentTermsProjection<PARENT, ROOT> due() {
+    getFields().put("due", null);
+    return this;
+  }
+
   public PaymentTermsProjection<PARENT, ROOT> dueInDays() {
     getFields().put("dueInDays", null);
     return this;

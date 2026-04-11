@@ -113,6 +113,11 @@ public class MetaobjectFragmentProjection<PARENT extends BaseSubProjectionNode<?
      return projection;
   }
 
+  public MetaobjectFragmentProjection<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
+    return this;
+  }
+
   public MetaobjectFragmentProjection<PARENT, ROOT> displayName() {
     getFields().put("displayName", null);
     return this;

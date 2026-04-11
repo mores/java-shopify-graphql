@@ -26,4 +26,9 @@ public class DelegateAccessTokenProjection<PARENT extends BaseSubProjectionNode<
     getFields().put("createdAt", null);
     return this;
   }
+
+  public DelegateAccessTokenProjection<PARENT, ROOT> expiresIn() {
+    getFields().put("expiresIn", null);
+    return this;
+  }
 }

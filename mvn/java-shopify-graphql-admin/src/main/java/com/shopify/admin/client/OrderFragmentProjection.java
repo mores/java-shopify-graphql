@@ -1105,6 +1105,11 @@ public class OrderFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>,
     return this;
   }
 
+  public OrderFragmentProjection<PARENT, ROOT> productNetwork() {
+    getFields().put("productNetwork", null);
+    return this;
+  }
+
   public OrderFragmentProjection<PARENT, ROOT> referralCode() {
     getFields().put("referralCode", null);
     return this;

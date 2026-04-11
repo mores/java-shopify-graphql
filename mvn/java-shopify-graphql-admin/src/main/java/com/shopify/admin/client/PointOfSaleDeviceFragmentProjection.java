@@ -18,6 +18,20 @@ public class PointOfSaleDeviceFragmentProjection<PARENT extends BaseSubProjectio
     return this;
   }
 
+  public PointOfSaleDevicePaymentSessionProjection<PointOfSaleDeviceFragmentProjection<PARENT, ROOT>, ROOT> activePaymentSession(
+      ) {
+     PointOfSaleDevicePaymentSessionProjection<PointOfSaleDeviceFragmentProjection<PARENT, ROOT>, ROOT> projection = new PointOfSaleDevicePaymentSessionProjection<>(this, getRoot());
+     getFields().put("activePaymentSession", projection);
+     return projection;
+  }
+
+  public CashDrawerProjection<PointOfSaleDeviceFragmentProjection<PARENT, ROOT>, ROOT> cashDrawer(
+      ) {
+     CashDrawerProjection<PointOfSaleDeviceFragmentProjection<PARENT, ROOT>, ROOT> projection = new CashDrawerProjection<>(this, getRoot());
+     getFields().put("cashDrawer", projection);
+     return projection;
+  }
+
   public PointOfSaleDeviceFragmentProjection<PARENT, ROOT> id() {
     getFields().put("id", null);
     return this;

@@ -9,9 +9,24 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Charges a shop for features or services one time.
- * This type of charge is recommended for apps that aren't billed on a recurring basis.
- * Test and demo shops aren't charged.
+ * Creates a one-time charge for app features or services that don't require
+ * recurring billing. This mutation is ideal for apps that sell individual
+ * features, premium content, or services on a per-use basis rather than
+ * subscription models.
+ *   
+ * For example, a design app might charge merchants once for premium templates,
+ * or a marketing app could bill for individual campaign setups without ongoing monthly fees.
+ *   
+ * Use the `AppPurchaseOneTimeCreate` mutation to:
+ * - Charge for premium features or content purchases
+ * - Bill for professional services or setup fees
+ * - Generate revenue from one-time digital product sales
+ *   
+ * The mutation returns a confirmation URL that merchants must visit to approve
+ * the charge. Test and development stores are not charged, allowing safe testing
+ * of billing flows.
+ *   
+ * Explore one-time billing options on the [app purchases page](https://shopify.dev/docs/apps/launch/billing/support-one-time-purchases).
  */
 public class AppPurchaseOneTimeCreateGraphQLQuery extends GraphQLQuery {
   public AppPurchaseOneTimeCreateGraphQLQuery(String name, MoneyInput price, String returnUrl,

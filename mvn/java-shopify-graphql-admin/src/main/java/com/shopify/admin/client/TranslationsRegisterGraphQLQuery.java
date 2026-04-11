@@ -9,7 +9,15 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Creates or updates translations.
+ * Creates or updates translations for a resource's [translatable content](https://shopify.dev/docs/api/admin-graphql/latest/objects/TranslatableContent).
+ *   
+ * Each translation requires a digest value from the resource's translatable
+ * content. Use the [`translatableResource`](https://shopify.dev/docs/api/admin-graphql/latest/queries/translatableResource)
+ * query to get a resource's translatable content and digest values before
+ * creating translations. You can optionally scope translations to specific
+ * markets using the `marketId` field in each translation input.
+ *   
+ * Learn more about [managing translations](https://shopify.dev/docs/apps/build/markets/manage-translated-content).
  */
 public class TranslationsRegisterGraphQLQuery extends GraphQLQuery {
   public TranslationsRegisterGraphQLQuery(String resourceId, List<TranslationInput> translations,

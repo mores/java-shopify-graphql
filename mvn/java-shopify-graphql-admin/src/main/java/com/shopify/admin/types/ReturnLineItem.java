@@ -7,7 +7,15 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * A return line item.
+ * An item that a customer returns from a fulfilled order. Links to the original [`FulfillmentLineItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/FulfillmentLineItem)
+ * and tracks quantities through the return process.
+ *
+ * The line item includes the customer's reason for returning the item and any
+ * additional notes. It also tracks processing status with separate quantities for
+ * items that are processable, processed, refundable, and refunded. You can apply
+ * optional restocking fees to cover handling costs.
+ *
+ * Learn more about [creating a return](https://shopify.dev/docs/api/admin-graphql/latest/mutations/returnCreate).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -62,6 +70,11 @@ public class ReturnLineItem implements com.shopify.admin.types.Node, com.shopify
    * The reason for returning the item.
    */
   private ReturnReason returnReason;
+
+  /**
+   * The standardized reason for why the item is being returned.
+   */
+  private ReturnReasonDefinition returnReasonDefinition;
 
   /**
    * Additional information about the reason for the return. Maximum length: 255 characters.
@@ -198,6 +211,17 @@ public class ReturnLineItem implements com.shopify.admin.types.Node, com.shopify
   }
 
   /**
+   * The standardized reason for why the item is being returned.
+   */
+  public ReturnReasonDefinition getReturnReasonDefinition() {
+    return returnReasonDefinition;
+  }
+
+  public void setReturnReasonDefinition(ReturnReasonDefinition returnReasonDefinition) {
+    this.returnReasonDefinition = returnReasonDefinition;
+  }
+
+  /**
    * Additional information about the reason for the return. Maximum length: 255 characters.
    */
   public String getReturnReasonNote() {
@@ -244,7 +268,7 @@ public class ReturnLineItem implements com.shopify.admin.types.Node, com.shopify
 
   @Override
   public String toString() {
-    return "ReturnLineItem{customerNote='" + customerNote + "', fulfillmentLineItem='" + fulfillmentLineItem + "', id='" + id + "', processableQuantity='" + processableQuantity + "', processedQuantity='" + processedQuantity + "', quantity='" + quantity + "', refundableQuantity='" + refundableQuantity + "', refundedQuantity='" + refundedQuantity + "', restockingFee='" + restockingFee + "', returnReason='" + returnReason + "', returnReasonNote='" + returnReasonNote + "', totalWeight='" + totalWeight + "', unprocessedQuantity='" + unprocessedQuantity + "', withCodeDiscountedTotalPriceSet='" + withCodeDiscountedTotalPriceSet + "'}";
+    return "ReturnLineItem{customerNote='" + customerNote + "', fulfillmentLineItem='" + fulfillmentLineItem + "', id='" + id + "', processableQuantity='" + processableQuantity + "', processedQuantity='" + processedQuantity + "', quantity='" + quantity + "', refundableQuantity='" + refundableQuantity + "', refundedQuantity='" + refundedQuantity + "', restockingFee='" + restockingFee + "', returnReason='" + returnReason + "', returnReasonDefinition='" + returnReasonDefinition + "', returnReasonNote='" + returnReasonNote + "', totalWeight='" + totalWeight + "', unprocessedQuantity='" + unprocessedQuantity + "', withCodeDiscountedTotalPriceSet='" + withCodeDiscountedTotalPriceSet + "'}";
   }
 
   @Override
@@ -262,6 +286,7 @@ public class ReturnLineItem implements com.shopify.admin.types.Node, com.shopify
         refundedQuantity == that.refundedQuantity &&
         Objects.equals(restockingFee, that.restockingFee) &&
         Objects.equals(returnReason, that.returnReason) &&
+        Objects.equals(returnReasonDefinition, that.returnReasonDefinition) &&
         Objects.equals(returnReasonNote, that.returnReasonNote) &&
         Objects.equals(totalWeight, that.totalWeight) &&
         unprocessedQuantity == that.unprocessedQuantity &&
@@ -270,7 +295,7 @@ public class ReturnLineItem implements com.shopify.admin.types.Node, com.shopify
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerNote, fulfillmentLineItem, id, processableQuantity, processedQuantity, quantity, refundableQuantity, refundedQuantity, restockingFee, returnReason, returnReasonNote, totalWeight, unprocessedQuantity, withCodeDiscountedTotalPriceSet);
+    return Objects.hash(customerNote, fulfillmentLineItem, id, processableQuantity, processedQuantity, quantity, refundableQuantity, refundedQuantity, restockingFee, returnReason, returnReasonDefinition, returnReasonNote, totalWeight, unprocessedQuantity, withCodeDiscountedTotalPriceSet);
   }
 
   public static Builder newBuilder() {
@@ -329,6 +354,11 @@ public class ReturnLineItem implements com.shopify.admin.types.Node, com.shopify
     private ReturnReason returnReason;
 
     /**
+     * The standardized reason for why the item is being returned.
+     */
+    private ReturnReasonDefinition returnReasonDefinition;
+
+    /**
      * Additional information about the reason for the return. Maximum length: 255 characters.
      */
     private String returnReasonNote;
@@ -361,6 +391,7 @@ public class ReturnLineItem implements com.shopify.admin.types.Node, com.shopify
       result.refundedQuantity = this.refundedQuantity;
       result.restockingFee = this.restockingFee;
       result.returnReason = this.returnReason;
+      result.returnReasonDefinition = this.returnReasonDefinition;
       result.returnReasonNote = this.returnReasonNote;
       result.totalWeight = this.totalWeight;
       result.unprocessedQuantity = this.unprocessedQuantity;
@@ -445,6 +476,14 @@ public class ReturnLineItem implements com.shopify.admin.types.Node, com.shopify
      */
     public Builder returnReason(ReturnReason returnReason) {
       this.returnReason = returnReason;
+      return this;
+    }
+
+    /**
+     * The standardized reason for why the item is being returned.
+     */
+    public Builder returnReasonDefinition(ReturnReasonDefinition returnReasonDefinition) {
+      this.returnReasonDefinition = returnReasonDefinition;
       return this;
     }
 

@@ -58,6 +58,11 @@ public interface ReturnLineItemType {
   ReturnReason getReturnReason();
 
   /**
+   * The standardized reason for why the item is being returned.
+   */
+  ReturnReasonDefinition getReturnReasonDefinition();
+
+  /**
    * Additional information about the reason for the return. Maximum length: 255 characters.
    */
   String getReturnReasonNote();

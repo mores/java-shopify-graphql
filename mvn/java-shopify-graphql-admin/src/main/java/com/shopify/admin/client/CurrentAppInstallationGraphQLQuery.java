@@ -7,7 +7,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Return the AppInstallation for the currently authenticated App.
+ * Returns the [`AppInstallation`](https://shopify.dev/docs/api/admin-graphql/latest/objects/AppInstallation) for the currently authenticated app. Provides access to granted access scopes, active [`AppSubscription`](https://shopify.dev/docs/api/admin-graphql/latest/objects/AppSubscription)
+ * objects, and billing information for your app.
+ *   
+ * Use this query to check which permissions your app has, monitor subscription
+ * status, or retrieve [`AppCredit`](https://shopify.dev/docs/api/admin-graphql/latest/objects/AppCredit)
+ * objects. Learn more about [managing access scopes](https://shopify.dev/docs/api/usage/access-scopes#checking-granted-access-scopes), [subscription
+ * billing](https://shopify.dev/docs/apps/launch/billing/subscription-billing), and
+ * [app credits](https://shopify.dev/docs/apps/launch/billing/award-app-credits).
  */
 public class CurrentAppInstallationGraphQLQuery extends GraphQLQuery {
   public CurrentAppInstallationGraphQLQuery(String queryName) {

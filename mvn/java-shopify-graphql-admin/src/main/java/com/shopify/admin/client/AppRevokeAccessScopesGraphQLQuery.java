@@ -8,7 +8,22 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Revokes access scopes previously granted for an app installation.
+ * Revokes previously granted access scopes from an app installation, allowing
+ * merchants to reduce an app's permissions without completely uninstalling it.
+ * This provides granular control over what data and functionality apps can access.
+ *   
+ * For example, if a merchant no longer wants an app to access customer
+ * information but still wants to use its inventory features, they can revoke the
+ * customer-related scopes while keeping inventory permissions active.
+ *   
+ * Use the `appRevokeAccessScopes` mutation to:
+ * - Remove specific permissions from installed apps
+ * - Maintain app functionality while minimizing data exposure
+ *   
+ * The mutation returns details about which scopes were successfully revoked and
+ * any errors that prevented certain permissions from being removed.
+ *   
+ * Learn more about [managing app permissions](https://shopify.dev/docs/apps/build/authentication-authorization/app-installation/manage-access-scopes#revoke-granted-scopes-dynamically).
  */
 public class AppRevokeAccessScopesGraphQLQuery extends GraphQLQuery {
   public AppRevokeAccessScopesGraphQLQuery(List<String> scopes, String queryName,

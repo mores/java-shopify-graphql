@@ -10,7 +10,7 @@ import java.util.Objects;
  */
 public class DepositInput {
   /**
-   * The percentage of the order total that should be paid as a deposit.
+   * The percentage of the order total that should be paid as a deposit. Must be between 1 and 99, inclusive.
    */
   private double percentage;
 
@@ -18,7 +18,7 @@ public class DepositInput {
   }
 
   /**
-   * The percentage of the order total that should be paid as a deposit.
+   * The percentage of the order total that should be paid as a deposit. Must be between 1 and 99, inclusive.
    */
   public double getPercentage() {
     return percentage;
@@ -52,7 +52,7 @@ public class DepositInput {
 
   public static class Builder {
     /**
-     * The percentage of the order total that should be paid as a deposit.
+     * The percentage of the order total that should be paid as a deposit. Must be between 1 and 99, inclusive.
      */
     private double percentage;
 
@@ -63,7 +63,7 @@ public class DepositInput {
     }
 
     /**
-     * The percentage of the order total that should be paid as a deposit.
+     * The percentage of the order total that should be paid as a deposit. Must be between 1 and 99, inclusive.
      */
     public Builder percentage(double percentage) {
       this.percentage = percentage;

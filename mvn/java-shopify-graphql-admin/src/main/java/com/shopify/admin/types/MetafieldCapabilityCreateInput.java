@@ -24,6 +24,16 @@ public class MetafieldCapabilityCreateInput {
    */
   private MetafieldCapabilityUniqueValuesInput uniqueValues;
 
+  /**
+   * The input for the analytics queryable capability.
+   */
+  private MetafieldCapabilityAnalyticsQueryableInput analyticsQueryable;
+
+  /**
+   * The input for updating the cart to order copyable capability.
+   */
+  private MetafieldCapabilityCartToOrderCopyableInput cartToOrderCopyable;
+
   public MetafieldCapabilityCreateInput() {
   }
 
@@ -61,9 +71,32 @@ public class MetafieldCapabilityCreateInput {
     this.uniqueValues = uniqueValues;
   }
 
+  /**
+   * The input for the analytics queryable capability.
+   */
+  public MetafieldCapabilityAnalyticsQueryableInput getAnalyticsQueryable() {
+    return analyticsQueryable;
+  }
+
+  public void setAnalyticsQueryable(MetafieldCapabilityAnalyticsQueryableInput analyticsQueryable) {
+    this.analyticsQueryable = analyticsQueryable;
+  }
+
+  /**
+   * The input for updating the cart to order copyable capability.
+   */
+  public MetafieldCapabilityCartToOrderCopyableInput getCartToOrderCopyable() {
+    return cartToOrderCopyable;
+  }
+
+  public void setCartToOrderCopyable(
+      MetafieldCapabilityCartToOrderCopyableInput cartToOrderCopyable) {
+    this.cartToOrderCopyable = cartToOrderCopyable;
+  }
+
   @Override
   public String toString() {
-    return "MetafieldCapabilityCreateInput{smartCollectionCondition='" + smartCollectionCondition + "', adminFilterable='" + adminFilterable + "', uniqueValues='" + uniqueValues + "'}";
+    return "MetafieldCapabilityCreateInput{smartCollectionCondition='" + smartCollectionCondition + "', adminFilterable='" + adminFilterable + "', uniqueValues='" + uniqueValues + "', analyticsQueryable='" + analyticsQueryable + "', cartToOrderCopyable='" + cartToOrderCopyable + "'}";
   }
 
   @Override
@@ -73,12 +106,14 @@ public class MetafieldCapabilityCreateInput {
     MetafieldCapabilityCreateInput that = (MetafieldCapabilityCreateInput) o;
     return Objects.equals(smartCollectionCondition, that.smartCollectionCondition) &&
         Objects.equals(adminFilterable, that.adminFilterable) &&
-        Objects.equals(uniqueValues, that.uniqueValues);
+        Objects.equals(uniqueValues, that.uniqueValues) &&
+        Objects.equals(analyticsQueryable, that.analyticsQueryable) &&
+        Objects.equals(cartToOrderCopyable, that.cartToOrderCopyable);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(smartCollectionCondition, adminFilterable, uniqueValues);
+    return Objects.hash(smartCollectionCondition, adminFilterable, uniqueValues, analyticsQueryable, cartToOrderCopyable);
   }
 
   public static Builder newBuilder() {
@@ -101,11 +136,23 @@ public class MetafieldCapabilityCreateInput {
      */
     private MetafieldCapabilityUniqueValuesInput uniqueValues;
 
+    /**
+     * The input for the analytics queryable capability.
+     */
+    private MetafieldCapabilityAnalyticsQueryableInput analyticsQueryable;
+
+    /**
+     * The input for updating the cart to order copyable capability.
+     */
+    private MetafieldCapabilityCartToOrderCopyableInput cartToOrderCopyable;
+
     public MetafieldCapabilityCreateInput build() {
       MetafieldCapabilityCreateInput result = new MetafieldCapabilityCreateInput();
       result.smartCollectionCondition = this.smartCollectionCondition;
       result.adminFilterable = this.adminFilterable;
       result.uniqueValues = this.uniqueValues;
+      result.analyticsQueryable = this.analyticsQueryable;
+      result.cartToOrderCopyable = this.cartToOrderCopyable;
       return result;
     }
 
@@ -131,6 +178,24 @@ public class MetafieldCapabilityCreateInput {
      */
     public Builder uniqueValues(MetafieldCapabilityUniqueValuesInput uniqueValues) {
       this.uniqueValues = uniqueValues;
+      return this;
+    }
+
+    /**
+     * The input for the analytics queryable capability.
+     */
+    public Builder analyticsQueryable(
+        MetafieldCapabilityAnalyticsQueryableInput analyticsQueryable) {
+      this.analyticsQueryable = analyticsQueryable;
+      return this;
+    }
+
+    /**
+     * The input for updating the cart to order copyable capability.
+     */
+    public Builder cartToOrderCopyable(
+        MetafieldCapabilityCartToOrderCopyableInput cartToOrderCopyable) {
+      this.cartToOrderCopyable = cartToOrderCopyable;
       return this;
     }
   }

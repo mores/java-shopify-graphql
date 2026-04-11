@@ -4,11 +4,20 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
 /**
- * Provides the definition of a generic object structure composed of metafields.
+ * Defines the structure and configuration for a custom data type in Shopify. Each
+ * definition specifies the fields, validation rules, and capabilities that apply to all [`Metaobject`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Metaobject)
+ * entries created from it.
+ *
+ * The definition includes field definitions that determine what data to store,
+ * access controls for [the Shopify admin](https://shopify.dev/docs/apps/build/custom-data/permissions#admin-permissions) and [Storefront](https://shopify.dev/docs/apps/build/custom-data/permissions#storefront-permissions)
+ * APIs, and capabilities such as publishability and translatability. You can track
+ * which [`App`](https://shopify.dev/docs/api/admin-graphql/latest/objects/App) or [`StaffMember`](https://shopify.dev/docs/api/admin-graphql/latest/objects/StaffMember)
+ * created the definition and optionally base it on a [`StandardMetaobjectDefinitionTemplate`](https://shopify.dev/docs/api/admin-graphql/latest/objects/StandardMetaobjectDefinitionTemplate).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -23,6 +32,11 @@ public class MetaobjectDefinition implements com.shopify.admin.types.Node {
    * The capabilities of the metaobject definition.
    */
   private MetaobjectCapabilities capabilities;
+
+  /**
+   * The date and time when the metaobject definition was created.
+   */
+  private OffsetDateTime createdAt;
 
   /**
    * The app used to create the metaobject definition.
@@ -85,6 +99,11 @@ public class MetaobjectDefinition implements com.shopify.admin.types.Node {
    */
   private String type;
 
+  /**
+   * The date and time when the metaobject definition was last updated.
+   */
+  private OffsetDateTime updatedAt;
+
   public MetaobjectDefinition() {
   }
 
@@ -108,6 +127,17 @@ public class MetaobjectDefinition implements com.shopify.admin.types.Node {
 
   public void setCapabilities(MetaobjectCapabilities capabilities) {
     this.capabilities = capabilities;
+  }
+
+  /**
+   * The date and time when the metaobject definition was created.
+   */
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
   /**
@@ -243,9 +273,20 @@ public class MetaobjectDefinition implements com.shopify.admin.types.Node {
     this.type = type;
   }
 
+  /**
+   * The date and time when the metaobject definition was last updated.
+   */
+  public OffsetDateTime getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(OffsetDateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
   @Override
   public String toString() {
-    return "MetaobjectDefinition{access='" + access + "', capabilities='" + capabilities + "', createdByApp='" + createdByApp + "', createdByStaff='" + createdByStaff + "', description='" + description + "', displayNameKey='" + displayNameKey + "', fieldDefinitions='" + fieldDefinitions + "', hasThumbnailField='" + hasThumbnailField + "', id='" + id + "', metaobjects='" + metaobjects + "', metaobjectsCount='" + metaobjectsCount + "', name='" + name + "', standardTemplate='" + standardTemplate + "', type='" + type + "'}";
+    return "MetaobjectDefinition{access='" + access + "', capabilities='" + capabilities + "', createdAt='" + createdAt + "', createdByApp='" + createdByApp + "', createdByStaff='" + createdByStaff + "', description='" + description + "', displayNameKey='" + displayNameKey + "', fieldDefinitions='" + fieldDefinitions + "', hasThumbnailField='" + hasThumbnailField + "', id='" + id + "', metaobjects='" + metaobjects + "', metaobjectsCount='" + metaobjectsCount + "', name='" + name + "', standardTemplate='" + standardTemplate + "', type='" + type + "', updatedAt='" + updatedAt + "'}";
   }
 
   @Override
@@ -255,6 +296,7 @@ public class MetaobjectDefinition implements com.shopify.admin.types.Node {
     MetaobjectDefinition that = (MetaobjectDefinition) o;
     return Objects.equals(access, that.access) &&
         Objects.equals(capabilities, that.capabilities) &&
+        Objects.equals(createdAt, that.createdAt) &&
         Objects.equals(createdByApp, that.createdByApp) &&
         Objects.equals(createdByStaff, that.createdByStaff) &&
         Objects.equals(description, that.description) &&
@@ -266,12 +308,13 @@ public class MetaobjectDefinition implements com.shopify.admin.types.Node {
         metaobjectsCount == that.metaobjectsCount &&
         Objects.equals(name, that.name) &&
         Objects.equals(standardTemplate, that.standardTemplate) &&
-        Objects.equals(type, that.type);
+        Objects.equals(type, that.type) &&
+        Objects.equals(updatedAt, that.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(access, capabilities, createdByApp, createdByStaff, description, displayNameKey, fieldDefinitions, hasThumbnailField, id, metaobjects, metaobjectsCount, name, standardTemplate, type);
+    return Objects.hash(access, capabilities, createdAt, createdByApp, createdByStaff, description, displayNameKey, fieldDefinitions, hasThumbnailField, id, metaobjects, metaobjectsCount, name, standardTemplate, type, updatedAt);
   }
 
   public static Builder newBuilder() {
@@ -288,6 +331,11 @@ public class MetaobjectDefinition implements com.shopify.admin.types.Node {
      * The capabilities of the metaobject definition.
      */
     private MetaobjectCapabilities capabilities;
+
+    /**
+     * The date and time when the metaobject definition was created.
+     */
+    private OffsetDateTime createdAt;
 
     /**
      * The app used to create the metaobject definition.
@@ -350,10 +398,16 @@ public class MetaobjectDefinition implements com.shopify.admin.types.Node {
      */
     private String type;
 
+    /**
+     * The date and time when the metaobject definition was last updated.
+     */
+    private OffsetDateTime updatedAt;
+
     public MetaobjectDefinition build() {
       MetaobjectDefinition result = new MetaobjectDefinition();
       result.access = this.access;
       result.capabilities = this.capabilities;
+      result.createdAt = this.createdAt;
       result.createdByApp = this.createdByApp;
       result.createdByStaff = this.createdByStaff;
       result.description = this.description;
@@ -366,6 +420,7 @@ public class MetaobjectDefinition implements com.shopify.admin.types.Node {
       result.name = this.name;
       result.standardTemplate = this.standardTemplate;
       result.type = this.type;
+      result.updatedAt = this.updatedAt;
       return result;
     }
 
@@ -382,6 +437,14 @@ public class MetaobjectDefinition implements com.shopify.admin.types.Node {
      */
     public Builder capabilities(MetaobjectCapabilities capabilities) {
       this.capabilities = capabilities;
+      return this;
+    }
+
+    /**
+     * The date and time when the metaobject definition was created.
+     */
+    public Builder createdAt(OffsetDateTime createdAt) {
+      this.createdAt = createdAt;
       return this;
     }
 
@@ -479,6 +542,14 @@ public class MetaobjectDefinition implements com.shopify.admin.types.Node {
      */
     public Builder type(String type) {
       this.type = type;
+      return this;
+    }
+
+    /**
+     * The date and time when the metaobject definition was last updated.
+     */
+    public Builder updatedAt(OffsetDateTime updatedAt) {
+      this.updatedAt = updatedAt;
       return this;
     }
   }

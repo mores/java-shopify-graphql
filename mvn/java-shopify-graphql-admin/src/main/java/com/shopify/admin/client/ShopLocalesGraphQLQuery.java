@@ -8,7 +8,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * A list of locales available on a shop.
+ * Returns the locales enabled on a shop. Each locale represents a language for
+ * translations and determines how content displays to customers in different markets.
+ *   
+ * Use the optional `published` argument to filter for only the locales that are
+ * visible to customers. The response includes the ISO locale code, whether it's
+ * the shop's primary locale, and which [`MarketWebPresence`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MarketWebPresence)
+ * objects use each locale.
  */
 public class ShopLocalesGraphQLQuery extends GraphQLQuery {
   public ShopLocalesGraphQLQuery(Boolean published, String queryName, Set<String> fieldsSet) {

@@ -7,7 +7,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a FulfillmentService resource by ID.
+ * Returns a [`FulfillmentService`](https://shopify.dev/docs/api/admin-graphql/latest/objects/FulfillmentService) by its ID. The service can manage inventory, process fulfillment requests, and
+ * provide tracking details through callback endpoints or directly calling
+ * Shopify's APIs.
+ *   
+ * When you register a fulfillment service, Shopify automatically creates an associated [`Location`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Location)
+ * where fulfillment order's can be assigned to be processed.
+ *   
+ * Learn more about [building fulfillment service apps](https://shopify.dev/docs/apps/build/orders-fulfillment/fulfillment-service-apps/build-for-fulfillment-services).
  */
 public class FulfillmentServiceGraphQLQuery extends GraphQLQuery {
   public FulfillmentServiceGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

@@ -5,6 +5,7 @@ import java.lang.Integer;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -13,7 +14,7 @@ import java.util.Objects;
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
-public class Image implements com.shopify.admin.types.HasMetafields {
+public class Image implements com.shopify.admin.types.HasMetafields, com.shopify.admin.types.HasPublishedTranslations {
   /**
    * A word or phrase to share the nature or contents of an image.
    */
@@ -68,6 +69,11 @@ public class Image implements com.shopify.admin.types.HasMetafields {
    * Otherwise any transformations which an image type doesn't support will be ignored.
    */
   private String transformedSrc;
+
+  /**
+   * The published translations associated with the resource.
+   */
+  private List<Translation> translations;
 
   /**
    * The location of the image as a URL.
@@ -200,6 +206,17 @@ public class Image implements com.shopify.admin.types.HasMetafields {
   }
 
   /**
+   * The published translations associated with the resource.
+   */
+  public List<Translation> getTranslations() {
+    return translations;
+  }
+
+  public void setTranslations(List<Translation> translations) {
+    this.translations = translations;
+  }
+
+  /**
    * The location of the image as a URL.
    *   
    * If no transform options are specified, then the original image will be preserved including any pre-applied transforms.
@@ -231,7 +248,7 @@ public class Image implements com.shopify.admin.types.HasMetafields {
 
   @Override
   public String toString() {
-    return "Image{altText='" + altText + "', height='" + height + "', id='" + id + "', metafield='" + metafield + "', metafields='" + metafields + "', originalSrc='" + originalSrc + "', src='" + src + "', thumbhash='" + thumbhash + "', transformedSrc='" + transformedSrc + "', url='" + url + "', width='" + width + "'}";
+    return "Image{altText='" + altText + "', height='" + height + "', id='" + id + "', metafield='" + metafield + "', metafields='" + metafields + "', originalSrc='" + originalSrc + "', src='" + src + "', thumbhash='" + thumbhash + "', transformedSrc='" + transformedSrc + "', translations='" + translations + "', url='" + url + "', width='" + width + "'}";
   }
 
   @Override
@@ -248,13 +265,14 @@ public class Image implements com.shopify.admin.types.HasMetafields {
         Objects.equals(src, that.src) &&
         Objects.equals(thumbhash, that.thumbhash) &&
         Objects.equals(transformedSrc, that.transformedSrc) &&
+        Objects.equals(translations, that.translations) &&
         Objects.equals(url, that.url) &&
         Objects.equals(width, that.width);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(altText, height, id, metafield, metafields, originalSrc, src, thumbhash, transformedSrc, url, width);
+    return Objects.hash(altText, height, id, metafield, metafields, originalSrc, src, thumbhash, transformedSrc, translations, url, width);
   }
 
   public static Builder newBuilder() {
@@ -318,6 +336,11 @@ public class Image implements com.shopify.admin.types.HasMetafields {
     private String transformedSrc;
 
     /**
+     * The published translations associated with the resource.
+     */
+    private List<Translation> translations;
+
+    /**
      * The location of the image as a URL.
      *   
      * If no transform options are specified, then the original image will be preserved including any pre-applied transforms.
@@ -346,6 +369,7 @@ public class Image implements com.shopify.admin.types.HasMetafields {
       result.src = this.src;
       result.thumbhash = this.thumbhash;
       result.transformedSrc = this.transformedSrc;
+      result.translations = this.translations;
       result.url = this.url;
       result.width = this.width;
       return result;
@@ -430,6 +454,14 @@ public class Image implements com.shopify.admin.types.HasMetafields {
      */
     public Builder transformedSrc(String transformedSrc) {
       this.transformedSrc = transformedSrc;
+      return this;
+    }
+
+    /**
+     * The published translations associated with the resource.
+     */
+    public Builder translations(List<Translation> translations) {
+      this.translations = translations;
       return this;
     }
 

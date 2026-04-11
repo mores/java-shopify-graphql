@@ -9,7 +9,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * A list of tags that have been added to products.
+ * Returns tags added to
+ * [`Product`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+ * objects in the shop. Provides a paginated list of tag strings.
+ *   
+ * The maximum page size is 5000 tags per request. Tags are returned as simple
+ * strings through a [`StringConnection`](https://shopify.dev/docs/api/admin-graphql/latest/objects/StringConnection).
  * The maximum page size is 5000.
  */
 public class ProductTagsGraphQLQuery extends GraphQLQuery {

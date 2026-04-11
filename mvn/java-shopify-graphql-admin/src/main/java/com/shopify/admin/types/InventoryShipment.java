@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
@@ -13,6 +14,26 @@ import java.util.Objects;
     use = JsonTypeInfo.Id.NONE
 )
 public class InventoryShipment implements com.shopify.admin.types.Node {
+  /**
+   * A unique barcode for the shipment.
+   */
+  private String barcode;
+
+  /**
+   * The date the shipment was created in UTC.
+   */
+  private OffsetDateTime dateCreated;
+
+  /**
+   * The date the shipment was initially received in UTC.
+   */
+  private OffsetDateTime dateReceived;
+
+  /**
+   * The date the shipment was shipped in UTC.
+   */
+  private OffsetDateTime dateShipped;
+
   /**
    * A globally-unique ID.
    */
@@ -64,6 +85,50 @@ public class InventoryShipment implements com.shopify.admin.types.Node {
   private InventoryShipmentTracking tracking;
 
   public InventoryShipment() {
+  }
+
+  /**
+   * A unique barcode for the shipment.
+   */
+  public String getBarcode() {
+    return barcode;
+  }
+
+  public void setBarcode(String barcode) {
+    this.barcode = barcode;
+  }
+
+  /**
+   * The date the shipment was created in UTC.
+   */
+  public OffsetDateTime getDateCreated() {
+    return dateCreated;
+  }
+
+  public void setDateCreated(OffsetDateTime dateCreated) {
+    this.dateCreated = dateCreated;
+  }
+
+  /**
+   * The date the shipment was initially received in UTC.
+   */
+  public OffsetDateTime getDateReceived() {
+    return dateReceived;
+  }
+
+  public void setDateReceived(OffsetDateTime dateReceived) {
+    this.dateReceived = dateReceived;
+  }
+
+  /**
+   * The date the shipment was shipped in UTC.
+   */
+  public OffsetDateTime getDateShipped() {
+    return dateShipped;
+  }
+
+  public void setDateShipped(OffsetDateTime dateShipped) {
+    this.dateShipped = dateShipped;
   }
 
   /**
@@ -178,7 +243,7 @@ public class InventoryShipment implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "InventoryShipment{id='" + id + "', lineItemTotalQuantity='" + lineItemTotalQuantity + "', lineItems='" + lineItems + "', lineItemsCount='" + lineItemsCount + "', name='" + name + "', status='" + status + "', totalAcceptedQuantity='" + totalAcceptedQuantity + "', totalReceivedQuantity='" + totalReceivedQuantity + "', totalRejectedQuantity='" + totalRejectedQuantity + "', tracking='" + tracking + "'}";
+    return "InventoryShipment{barcode='" + barcode + "', dateCreated='" + dateCreated + "', dateReceived='" + dateReceived + "', dateShipped='" + dateShipped + "', id='" + id + "', lineItemTotalQuantity='" + lineItemTotalQuantity + "', lineItems='" + lineItems + "', lineItemsCount='" + lineItemsCount + "', name='" + name + "', status='" + status + "', totalAcceptedQuantity='" + totalAcceptedQuantity + "', totalReceivedQuantity='" + totalReceivedQuantity + "', totalRejectedQuantity='" + totalRejectedQuantity + "', tracking='" + tracking + "'}";
   }
 
   @Override
@@ -186,7 +251,11 @@ public class InventoryShipment implements com.shopify.admin.types.Node {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     InventoryShipment that = (InventoryShipment) o;
-    return Objects.equals(id, that.id) &&
+    return Objects.equals(barcode, that.barcode) &&
+        Objects.equals(dateCreated, that.dateCreated) &&
+        Objects.equals(dateReceived, that.dateReceived) &&
+        Objects.equals(dateShipped, that.dateShipped) &&
+        Objects.equals(id, that.id) &&
         lineItemTotalQuantity == that.lineItemTotalQuantity &&
         Objects.equals(lineItems, that.lineItems) &&
         Objects.equals(lineItemsCount, that.lineItemsCount) &&
@@ -200,7 +269,7 @@ public class InventoryShipment implements com.shopify.admin.types.Node {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, lineItemTotalQuantity, lineItems, lineItemsCount, name, status, totalAcceptedQuantity, totalReceivedQuantity, totalRejectedQuantity, tracking);
+    return Objects.hash(barcode, dateCreated, dateReceived, dateShipped, id, lineItemTotalQuantity, lineItems, lineItemsCount, name, status, totalAcceptedQuantity, totalReceivedQuantity, totalRejectedQuantity, tracking);
   }
 
   public static Builder newBuilder() {
@@ -208,6 +277,26 @@ public class InventoryShipment implements com.shopify.admin.types.Node {
   }
 
   public static class Builder {
+    /**
+     * A unique barcode for the shipment.
+     */
+    private String barcode;
+
+    /**
+     * The date the shipment was created in UTC.
+     */
+    private OffsetDateTime dateCreated;
+
+    /**
+     * The date the shipment was initially received in UTC.
+     */
+    private OffsetDateTime dateReceived;
+
+    /**
+     * The date the shipment was shipped in UTC.
+     */
+    private OffsetDateTime dateShipped;
+
     /**
      * A globally-unique ID.
      */
@@ -260,6 +349,10 @@ public class InventoryShipment implements com.shopify.admin.types.Node {
 
     public InventoryShipment build() {
       InventoryShipment result = new InventoryShipment();
+      result.barcode = this.barcode;
+      result.dateCreated = this.dateCreated;
+      result.dateReceived = this.dateReceived;
+      result.dateShipped = this.dateShipped;
       result.id = this.id;
       result.lineItemTotalQuantity = this.lineItemTotalQuantity;
       result.lineItems = this.lineItems;
@@ -271,6 +364,38 @@ public class InventoryShipment implements com.shopify.admin.types.Node {
       result.totalRejectedQuantity = this.totalRejectedQuantity;
       result.tracking = this.tracking;
       return result;
+    }
+
+    /**
+     * A unique barcode for the shipment.
+     */
+    public Builder barcode(String barcode) {
+      this.barcode = barcode;
+      return this;
+    }
+
+    /**
+     * The date the shipment was created in UTC.
+     */
+    public Builder dateCreated(OffsetDateTime dateCreated) {
+      this.dateCreated = dateCreated;
+      return this;
+    }
+
+    /**
+     * The date the shipment was initially received in UTC.
+     */
+    public Builder dateReceived(OffsetDateTime dateReceived) {
+      this.dateReceived = dateReceived;
+      return this;
+    }
+
+    /**
+     * The date the shipment was shipped in UTC.
+     */
+    public Builder dateShipped(OffsetDateTime dateShipped) {
+      this.dateShipped = dateShipped;
+      return this;
     }
 
     /**

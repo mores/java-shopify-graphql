@@ -8,7 +8,19 @@ import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
- * Represents a quantity of an inventory item at a specific location, for a specific name.
+ * The `InventoryQuantity` object lets you manage and track inventory quantities for specific [states](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states).
+ * Inventory quantities represent different states of items such as available for
+ * purchase, committed to orders, reserved for drafts, incoming from suppliers, or
+ * set aside for quality control or safety stock.
+ *
+ * You can use [inventory levels](https://shopify.dev/docs/api/admin-graphql/latest/objects/inventorylevel)
+ * to manage where inventory items are stocked. You can also [make inventory adjustments](https://shopify.dev/docs/api/admin-graphql/latest/mutations/inventoryAdjustQuantities)
+ * to apply changes to inventory quantities.
+ *
+ * Inventory quantities can be managed by a merchant or by [fulfillment services](https://shopify.dev/docs/api/admin-graphql/latest/objects/fulfillmentservice)
+ * that handle inventory tracking.
+ * Learn more about working with [Shopify's inventory management
+ * system](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -20,18 +32,19 @@ public class InventoryQuantity implements com.shopify.admin.types.Node {
   private String id;
 
   /**
-   * The [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states)
+   * The inventory state [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states)
    * that identifies the inventory quantity.
    */
   private String name;
 
   /**
-   * The quantity for the quantity name.
+   * The quantity of an inventory item at a specific location, for a quantity
+   * [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states).
    */
   private int quantity;
 
   /**
-   * When the quantity was last updated.
+   * When the inventory quantity was last updated.
    */
   private OffsetDateTime updatedAt;
 
@@ -50,7 +63,7 @@ public class InventoryQuantity implements com.shopify.admin.types.Node {
   }
 
   /**
-   * The [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states)
+   * The inventory state [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states)
    * that identifies the inventory quantity.
    */
   public String getName() {
@@ -62,7 +75,8 @@ public class InventoryQuantity implements com.shopify.admin.types.Node {
   }
 
   /**
-   * The quantity for the quantity name.
+   * The quantity of an inventory item at a specific location, for a quantity
+   * [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states).
    */
   public int getQuantity() {
     return quantity;
@@ -73,7 +87,7 @@ public class InventoryQuantity implements com.shopify.admin.types.Node {
   }
 
   /**
-   * When the quantity was last updated.
+   * When the inventory quantity was last updated.
    */
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -115,18 +129,19 @@ public class InventoryQuantity implements com.shopify.admin.types.Node {
     private String id;
 
     /**
-     * The [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states)
+     * The inventory state [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states)
      * that identifies the inventory quantity.
      */
     private String name;
 
     /**
-     * The quantity for the quantity name.
+     * The quantity of an inventory item at a specific location, for a quantity
+     * [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states).
      */
     private int quantity;
 
     /**
-     * When the quantity was last updated.
+     * When the inventory quantity was last updated.
      */
     private OffsetDateTime updatedAt;
 
@@ -148,7 +163,7 @@ public class InventoryQuantity implements com.shopify.admin.types.Node {
     }
 
     /**
-     * The [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states)
+     * The inventory state [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states)
      * that identifies the inventory quantity.
      */
     public Builder name(String name) {
@@ -157,7 +172,8 @@ public class InventoryQuantity implements com.shopify.admin.types.Node {
     }
 
     /**
-     * The quantity for the quantity name.
+     * The quantity of an inventory item at a specific location, for a quantity
+     * [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states).
      */
     public Builder quantity(int quantity) {
       this.quantity = quantity;
@@ -165,7 +181,7 @@ public class InventoryQuantity implements com.shopify.admin.types.Node {
     }
 
     /**
-     * When the quantity was last updated.
+     * When the inventory quantity was last updated.
      */
     public Builder updatedAt(OffsetDateTime updatedAt) {
       this.updatedAt = updatedAt;

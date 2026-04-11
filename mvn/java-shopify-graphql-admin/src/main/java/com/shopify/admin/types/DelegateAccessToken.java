@@ -1,5 +1,6 @@
 package com.shopify.admin.types;
 
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
@@ -28,6 +29,11 @@ public class DelegateAccessToken {
    * The date and time when the delegate access token was created.
    */
   private OffsetDateTime createdAt;
+
+  /**
+   * The number of seconds until the delegate access token expires.
+   */
+  private Integer expiresIn;
 
   public DelegateAccessToken() {
   }
@@ -65,9 +71,20 @@ public class DelegateAccessToken {
     this.createdAt = createdAt;
   }
 
+  /**
+   * The number of seconds until the delegate access token expires.
+   */
+  public Integer getExpiresIn() {
+    return expiresIn;
+  }
+
+  public void setExpiresIn(Integer expiresIn) {
+    this.expiresIn = expiresIn;
+  }
+
   @Override
   public String toString() {
-    return "DelegateAccessToken{accessScopes='" + accessScopes + "', accessToken='" + accessToken + "', createdAt='" + createdAt + "'}";
+    return "DelegateAccessToken{accessScopes='" + accessScopes + "', accessToken='" + accessToken + "', createdAt='" + createdAt + "', expiresIn='" + expiresIn + "'}";
   }
 
   @Override
@@ -77,12 +94,13 @@ public class DelegateAccessToken {
     DelegateAccessToken that = (DelegateAccessToken) o;
     return Objects.equals(accessScopes, that.accessScopes) &&
         Objects.equals(accessToken, that.accessToken) &&
-        Objects.equals(createdAt, that.createdAt);
+        Objects.equals(createdAt, that.createdAt) &&
+        Objects.equals(expiresIn, that.expiresIn);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessScopes, accessToken, createdAt);
+    return Objects.hash(accessScopes, accessToken, createdAt, expiresIn);
   }
 
   public static Builder newBuilder() {
@@ -105,11 +123,17 @@ public class DelegateAccessToken {
      */
     private OffsetDateTime createdAt;
 
+    /**
+     * The number of seconds until the delegate access token expires.
+     */
+    private Integer expiresIn;
+
     public DelegateAccessToken build() {
       DelegateAccessToken result = new DelegateAccessToken();
       result.accessScopes = this.accessScopes;
       result.accessToken = this.accessToken;
       result.createdAt = this.createdAt;
+      result.expiresIn = this.expiresIn;
       return result;
     }
 
@@ -134,6 +158,14 @@ public class DelegateAccessToken {
      */
     public Builder createdAt(OffsetDateTime createdAt) {
       this.createdAt = createdAt;
+      return this;
+    }
+
+    /**
+     * The number of seconds until the delegate access token expires.
+     */
+    public Builder expiresIn(Integer expiresIn) {
+      this.expiresIn = expiresIn;
       return this;
     }
   }

@@ -11,7 +11,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The markets configured for the shop.
+ * Returns a paginated list of
+ * [`Market`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Market)
+ * objects configured for the shop. Markets match buyers based on defined
+ * conditions to deliver customized shopping experiences.
+ *   
+ * Filter markets by [`MarketType`](https://shopify.dev/docs/api/admin-graphql/latest/enums/MarketType) and [`MarketStatus`](https://shopify.dev/docs/api/admin-graphql/latest/enums/MarketStatus),
+ * search by name, and control sort order. Retrieve market configurations including [`MarketCurrencySettings`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MarketCurrencySettings), [`MarketWebPresence`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MarketWebPresence) objects, and [`MarketConditions`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MarketConditions).
+ *   
+ * Learn more about [Shopify Markets](https://shopify.dev/docs/apps/build/markets).
  */
 public class MarketsGraphQLQuery extends GraphQLQuery {
   public MarketsGraphQLQuery(MarketType type, Integer first, String after, Integer last,
@@ -146,7 +154,7 @@ public class MarketsGraphQLQuery extends GraphQLQuery {
      * | ---- | ---- | ---- | ---- | ---- | ---- |
      * | default | string | Filter by a case-insensitive search of multiple fields
      * in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
      * | market_condition_types | string | A comma-separated list of condition types. |
      * | market_type | string |
      * | name | string |

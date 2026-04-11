@@ -12,13 +12,6 @@ public class DeliverySettingUpdateProjectionRoot<PARENT extends BaseSubProjectio
     return this;
   }
 
-  public DeliverySettingProjection<DeliverySettingUpdateProjectionRoot<PARENT, ROOT>, DeliverySettingUpdateProjectionRoot<PARENT, ROOT>> setting(
-      ) {
-    DeliverySettingProjection<DeliverySettingUpdateProjectionRoot<PARENT, ROOT>, DeliverySettingUpdateProjectionRoot<PARENT, ROOT>> projection = new DeliverySettingProjection<>(this, this);    
-    getFields().put("setting", projection);
-    return projection;
-  }
-
   public UserErrorProjection<DeliverySettingUpdateProjectionRoot<PARENT, ROOT>, DeliverySettingUpdateProjectionRoot<PARENT, ROOT>> userErrors(
       ) {
     UserErrorProjection<DeliverySettingUpdateProjectionRoot<PARENT, ROOT>, DeliverySettingUpdateProjectionRoot<PARENT, ROOT>> projection = new UserErrorProjection<>(this, this);    

@@ -10,7 +10,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The shop's menus.
+ * Retrieves navigation menus. Menus organize content into hierarchical
+ * navigation structures that merchants can display in the online store (for
+ * example, in headers, footers, and sidebars) and customer accounts.
+ *   
+ * Each [`Menu`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Menu)
+ * contains a handle for identification, a title for display, and a collection of [`MenuItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MenuItem)
+ * objects that can be nested up to 3 levels deep. Default menus have protected
+ * handles that can't be modified.
  */
 public class MenusGraphQLQuery extends GraphQLQuery {
   public MenusGraphQLQuery(Integer first, String after, Integer last, String before,
@@ -132,7 +139,7 @@ public class MenusGraphQLQuery extends GraphQLQuery {
      * | ---- | ---- | ---- | ---- | ---- | ---- |
      * | default | string | Filter by a case-insensitive search of multiple fields
      * in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
      * | title | string |
      * You can apply one or more filters to a query. Learn more about [Shopify API
      * search syntax](https://shopify.dev/api/usage/search-syntax).

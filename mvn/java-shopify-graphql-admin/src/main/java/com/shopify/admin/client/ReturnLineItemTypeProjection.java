@@ -18,6 +18,13 @@ public class ReturnLineItemTypeProjection<PARENT extends BaseSubProjectionNode<?
      return projection;
   }
 
+  public ReturnReasonDefinitionProjection<ReturnLineItemTypeProjection<PARENT, ROOT>, ROOT> returnReasonDefinition(
+      ) {
+     ReturnReasonDefinitionProjection<ReturnLineItemTypeProjection<PARENT, ROOT>, ROOT> projection = new ReturnReasonDefinitionProjection<>(this, getRoot());
+     getFields().put("returnReasonDefinition", projection);
+     return projection;
+  }
+
   public ReturnLineItemTypeProjection<PARENT, ROOT> customerNote() {
     getFields().put("customerNote", null);
     return this;

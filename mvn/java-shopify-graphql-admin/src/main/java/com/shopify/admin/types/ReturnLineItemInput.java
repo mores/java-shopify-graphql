@@ -15,9 +15,10 @@ public class ReturnLineItemInput {
   private int quantity;
 
   /**
-   * The reason for the item to be returned.
+   * The ID of a [`ReturnReasonDefinition`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ReturnReasonDefinition). Accepts any ID from the full library of reasons available via [`returnReasonDefinitions`](https://shopify.dev/docs/api/admin-graphql/latest/queries/returnReasonDefinitions),
+   * not limited to the suggested reasons for the line item.
    */
-  private ReturnReason returnReason;
+  private String returnReasonDefinitionId;
 
   /**
    * A note about the reason that the item is being returned.
@@ -51,14 +52,15 @@ public class ReturnLineItemInput {
   }
 
   /**
-   * The reason for the item to be returned.
+   * The ID of a [`ReturnReasonDefinition`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ReturnReasonDefinition). Accepts any ID from the full library of reasons available via [`returnReasonDefinitions`](https://shopify.dev/docs/api/admin-graphql/latest/queries/returnReasonDefinitions),
+   * not limited to the suggested reasons for the line item.
    */
-  public ReturnReason getReturnReason() {
-    return returnReason;
+  public String getReturnReasonDefinitionId() {
+    return returnReasonDefinitionId;
   }
 
-  public void setReturnReason(ReturnReason returnReason) {
-    this.returnReason = returnReason;
+  public void setReturnReasonDefinitionId(String returnReasonDefinitionId) {
+    this.returnReasonDefinitionId = returnReasonDefinitionId;
   }
 
   /**
@@ -98,7 +100,7 @@ public class ReturnLineItemInput {
 
   @Override
   public String toString() {
-    return "ReturnLineItemInput{quantity='" + quantity + "', returnReason='" + returnReason + "', returnReasonNote='" + returnReasonNote + "', fulfillmentLineItemId='" + fulfillmentLineItemId + "', restockingFee='" + restockingFee + "'}";
+    return "ReturnLineItemInput{quantity='" + quantity + "', returnReasonDefinitionId='" + returnReasonDefinitionId + "', returnReasonNote='" + returnReasonNote + "', fulfillmentLineItemId='" + fulfillmentLineItemId + "', restockingFee='" + restockingFee + "'}";
   }
 
   @Override
@@ -107,7 +109,7 @@ public class ReturnLineItemInput {
     if (o == null || getClass() != o.getClass()) return false;
     ReturnLineItemInput that = (ReturnLineItemInput) o;
     return quantity == that.quantity &&
-        Objects.equals(returnReason, that.returnReason) &&
+        Objects.equals(returnReasonDefinitionId, that.returnReasonDefinitionId) &&
         Objects.equals(returnReasonNote, that.returnReasonNote) &&
         Objects.equals(fulfillmentLineItemId, that.fulfillmentLineItemId) &&
         Objects.equals(restockingFee, that.restockingFee);
@@ -115,7 +117,7 @@ public class ReturnLineItemInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(quantity, returnReason, returnReasonNote, fulfillmentLineItemId, restockingFee);
+    return Objects.hash(quantity, returnReasonDefinitionId, returnReasonNote, fulfillmentLineItemId, restockingFee);
   }
 
   public static Builder newBuilder() {
@@ -129,9 +131,10 @@ public class ReturnLineItemInput {
     private int quantity;
 
     /**
-     * The reason for the item to be returned.
+     * The ID of a [`ReturnReasonDefinition`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ReturnReasonDefinition). Accepts any ID from the full library of reasons available via [`returnReasonDefinitions`](https://shopify.dev/docs/api/admin-graphql/latest/queries/returnReasonDefinitions),
+     * not limited to the suggested reasons for the line item.
      */
-    private ReturnReason returnReason;
+    private String returnReasonDefinitionId;
 
     /**
      * A note about the reason that the item is being returned.
@@ -153,7 +156,7 @@ public class ReturnLineItemInput {
     public ReturnLineItemInput build() {
       ReturnLineItemInput result = new ReturnLineItemInput();
       result.quantity = this.quantity;
-      result.returnReason = this.returnReason;
+      result.returnReasonDefinitionId = this.returnReasonDefinitionId;
       result.returnReasonNote = this.returnReasonNote;
       result.fulfillmentLineItemId = this.fulfillmentLineItemId;
       result.restockingFee = this.restockingFee;
@@ -169,10 +172,11 @@ public class ReturnLineItemInput {
     }
 
     /**
-     * The reason for the item to be returned.
+     * The ID of a [`ReturnReasonDefinition`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ReturnReasonDefinition). Accepts any ID from the full library of reasons available via [`returnReasonDefinitions`](https://shopify.dev/docs/api/admin-graphql/latest/queries/returnReasonDefinitions),
+     * not limited to the suggested reasons for the line item.
      */
-    public Builder returnReason(ReturnReason returnReason) {
-      this.returnReason = returnReason;
+    public Builder returnReasonDefinitionId(String returnReasonDefinitionId) {
+      this.returnReasonDefinitionId = returnReasonDefinitionId;
       return this;
     }
 

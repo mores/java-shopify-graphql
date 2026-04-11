@@ -26,6 +26,13 @@ public class OrderEditRemoveLineItemDiscountProjectionRoot<PARENT extends BaseSu
     return projection;
   }
 
+  public OrderEditSessionProjection<OrderEditRemoveLineItemDiscountProjectionRoot<PARENT, ROOT>, OrderEditRemoveLineItemDiscountProjectionRoot<PARENT, ROOT>> orderEditSession(
+      ) {
+    OrderEditSessionProjection<OrderEditRemoveLineItemDiscountProjectionRoot<PARENT, ROOT>, OrderEditRemoveLineItemDiscountProjectionRoot<PARENT, ROOT>> projection = new OrderEditSessionProjection<>(this, this);    
+    getFields().put("orderEditSession", projection);
+    return projection;
+  }
+
   public UserErrorProjection<OrderEditRemoveLineItemDiscountProjectionRoot<PARENT, ROOT>, OrderEditRemoveLineItemDiscountProjectionRoot<PARENT, ROOT>> userErrors(
       ) {
     UserErrorProjection<OrderEditRemoveLineItemDiscountProjectionRoot<PARENT, ROOT>, OrderEditRemoveLineItemDiscountProjectionRoot<PARENT, ROOT>> projection = new UserErrorProjection<>(this, this);    

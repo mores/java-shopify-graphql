@@ -7,8 +7,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Fetches app by handle.
- * Returns null if the app doesn't exist.
+ * Retrieves an app by its unique handle. The handle is a URL-friendly identifier for the app.
+ *   
+ * Returns the [`App`](https://shopify.dev/docs/api/admin-graphql/latest/objects/App) if
+ * found, or `null` if no app exists with the specified handle.
  */
 public class AppByHandleGraphQLQuery extends GraphQLQuery {
   public AppByHandleGraphQLQuery(String handle, String queryName, Set<String> fieldsSet) {

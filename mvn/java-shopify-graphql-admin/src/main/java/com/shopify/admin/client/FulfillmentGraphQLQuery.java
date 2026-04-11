@@ -7,7 +7,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a Fulfillment resource by ID.
+ * Retrieves a [`Fulfillment`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Fulfillment) by its ID. A fulfillment is a record that the merchant has completed their
+ * work required for one or more line items in an
+ * [`Order`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order). It
+ * includes tracking information, [`LineItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/LineItem)
+ * objects, and the status of the fulfillment.
+ *   
+ * Use this query to track the progress of shipped items, view tracking details,
+ * or check [fulfillment events](https://shopify.dev/docs/api/admin-graphql/latest/objects/FulfillmentEvent)
+ * for example when a package is out for delivery or delivered.
  */
 public class FulfillmentGraphQLQuery extends GraphQLQuery {
   public FulfillmentGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

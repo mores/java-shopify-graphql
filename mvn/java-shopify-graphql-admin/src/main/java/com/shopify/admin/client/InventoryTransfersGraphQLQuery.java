@@ -10,7 +10,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a paginated list of transfers.
+ * Returns a paginated list of [`InventoryTransfer`](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryTransfer)
+ * objects between locations. Transfers track the movement of [`InventoryItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryItem)
+ * objects between [`Location`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Location) objects.
+ *   
+ * Supports filtering transfers using query parameters and sorting by various
+ * criteria. Use the connection's edges to access transfer details including [`InventoryTransferLineItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryTransferLineItem)
+ * objects, quantities, and shipment status.
  */
 public class InventoryTransfersGraphQLQuery extends GraphQLQuery {
   public InventoryTransfersGraphQLQuery(Integer first, String after, Integer last, String before,
@@ -138,7 +144,7 @@ public class InventoryTransfersGraphQLQuery extends GraphQLQuery {
      * in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
      * | created_at | time |
      * | destination_id | id |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
      * | origin_id | id |
      * | product_id | id |
      * | product_variant_id | id |

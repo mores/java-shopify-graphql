@@ -7,9 +7,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Creates and runs a bulk operation query.
+ * Creates and runs a [bulk operation](https://shopify.dev/docs/api/admin-graphql/latest/objects/BulkOperation)
+ * to fetch data asynchronously. The operation processes your GraphQL query in
+ * the background and returns results in a [JSONL](http://jsonlines.org/) file when complete.
  *   
- * See the [bulk operations guide](https://shopify.dev/api/usage/bulk-operations/queries) for more details.
+ * Apps can run one bulk query operation and one bulk mutation operation at a
+ * time per shop. The query must include at least one connection field and
+ * supports up to five connections with a maximum nesting depth of two levels.
+ *   
+ * > Note: Results remain available for seven days after completion.
+ *   
+ * For more information, see the [bulk operations guide](https://shopify.dev/docs/api/usage/bulk-operations/queries).
  */
 public class BulkOperationRunQueryGraphQLQuery extends GraphQLQuery {
   public BulkOperationRunQueryGraphQLQuery(String query, boolean groupObjects, String queryName,
@@ -57,9 +65,10 @@ public class BulkOperationRunQueryGraphQLQuery extends GraphQLQuery {
     }
 
     /**
-     * Whether to group objects under their corresponding parent objects in the
-     * JSONL output. Grouping is costly, causes bulk operations to take longer to
-     * complete, and increases the chances of failures such as timeouts.
+     * Enables grouping objects directly under their corresponding parent objects
+     * in the JSONL output. Enabling grouping slows down bulk operations and
+     * increases the likelihood of timeouts. Only enable grouping if you depend on
+     * the grouped format.
      */
     public Builder groupObjects(boolean groupObjects) {
       this.groupObjects = groupObjects;

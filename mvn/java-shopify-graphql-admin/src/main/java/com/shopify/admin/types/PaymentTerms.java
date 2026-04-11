@@ -8,7 +8,18 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * Represents the payment terms for an order or draft order.
+ * Payment conditions for an
+ * [`Order`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order) or [`DraftOrder`](https://shopify.dev/docs/api/admin-graphql/latest/objects/DraftOrder),
+ * including when payment is due and how it's scheduled. Payment terms are created
+ * from templates that specify net terms (payment due after a certain number of
+ * days) or fixed schedules with specific due dates. You can optionally provide
+ * custom payment schedules using [`PaymentScheduleInput`](https://shopify.dev/docs/api/admin-graphql/latest/input-objects/PaymentScheduleInput).
+ *
+ * Each payment term contains one or more [`PaymentSchedule`](https://shopify.dev/docs/api/admin-graphql/latest/objects/PaymentSchedule),
+ * which you can access through the [`paymentSchedules`](https://shopify.dev/docs/api/admin-graphql/latest/objects/PaymentTerms#field-PaymentTerms.fields.paymentSchedules)
+ * field. Payment schedules contain detailed information for each payment installment.
+ *
+ * Learn more about [payment terms](https://shopify.dev/docs/apps/build/checkout/payments/payment-terms).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -18,6 +29,11 @@ public class PaymentTerms implements com.shopify.admin.types.Node {
    * The draft order associated with the payment terms.
    */
   private DraftOrder draftOrder;
+
+  /**
+   * Whether payment terms have a payment schedule that's due.
+   */
+  private boolean due;
 
   /**
    * Duration of payment terms in days based on the payment terms template used to create the payment terms.
@@ -71,6 +87,17 @@ public class PaymentTerms implements com.shopify.admin.types.Node {
 
   public void setDraftOrder(DraftOrder draftOrder) {
     this.draftOrder = draftOrder;
+  }
+
+  /**
+   * Whether payment terms have a payment schedule that's due.
+   */
+  public boolean getDue() {
+    return due;
+  }
+
+  public void setDue(boolean due) {
+    this.due = due;
   }
 
   /**
@@ -163,7 +190,7 @@ public class PaymentTerms implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "PaymentTerms{draftOrder='" + draftOrder + "', dueInDays='" + dueInDays + "', id='" + id + "', order='" + order + "', overdue='" + overdue + "', paymentSchedules='" + paymentSchedules + "', paymentTermsName='" + paymentTermsName + "', paymentTermsType='" + paymentTermsType + "', translatedName='" + translatedName + "'}";
+    return "PaymentTerms{draftOrder='" + draftOrder + "', due='" + due + "', dueInDays='" + dueInDays + "', id='" + id + "', order='" + order + "', overdue='" + overdue + "', paymentSchedules='" + paymentSchedules + "', paymentTermsName='" + paymentTermsName + "', paymentTermsType='" + paymentTermsType + "', translatedName='" + translatedName + "'}";
   }
 
   @Override
@@ -172,6 +199,7 @@ public class PaymentTerms implements com.shopify.admin.types.Node {
     if (o == null || getClass() != o.getClass()) return false;
     PaymentTerms that = (PaymentTerms) o;
     return Objects.equals(draftOrder, that.draftOrder) &&
+        due == that.due &&
         Objects.equals(dueInDays, that.dueInDays) &&
         Objects.equals(id, that.id) &&
         Objects.equals(order, that.order) &&
@@ -184,7 +212,7 @@ public class PaymentTerms implements com.shopify.admin.types.Node {
 
   @Override
   public int hashCode() {
-    return Objects.hash(draftOrder, dueInDays, id, order, overdue, paymentSchedules, paymentTermsName, paymentTermsType, translatedName);
+    return Objects.hash(draftOrder, due, dueInDays, id, order, overdue, paymentSchedules, paymentTermsName, paymentTermsType, translatedName);
   }
 
   public static Builder newBuilder() {
@@ -196,6 +224,11 @@ public class PaymentTerms implements com.shopify.admin.types.Node {
      * The draft order associated with the payment terms.
      */
     private DraftOrder draftOrder;
+
+    /**
+     * Whether payment terms have a payment schedule that's due.
+     */
+    private boolean due;
 
     /**
      * Duration of payment terms in days based on the payment terms template used to create the payment terms.
@@ -240,6 +273,7 @@ public class PaymentTerms implements com.shopify.admin.types.Node {
     public PaymentTerms build() {
       PaymentTerms result = new PaymentTerms();
       result.draftOrder = this.draftOrder;
+      result.due = this.due;
       result.dueInDays = this.dueInDays;
       result.id = this.id;
       result.order = this.order;
@@ -256,6 +290,14 @@ public class PaymentTerms implements com.shopify.admin.types.Node {
      */
     public Builder draftOrder(DraftOrder draftOrder) {
       this.draftOrder = draftOrder;
+      return this;
+    }
+
+    /**
+     * Whether payment terms have a payment schedule that's due.
+     */
+    public Builder due(boolean due) {
+      this.due = due;
       return this;
     }
 

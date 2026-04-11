@@ -9,9 +9,16 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Represents the location where the physical good resides. You can stock inventory at active locations. Active
- * locations that have `fulfills_online_orders: true` and are configured with a shipping rate, pickup enabled or
- * local delivery will be able to sell from their storefront.
+ * A physical location where merchants store and fulfill inventory. Locations
+ * include retail stores, warehouses, popups, dropshippers, or other places where
+ * inventory is managed or stocked.
+ *
+ * Active locations can fulfill online orders when configured with shipping rates,
+ * local pickup, or local delivery options. Locations track inventory quantities for
+ * [products](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product) and
+ * process [order](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order)
+ * fulfillment. Third-party apps using [`FulfillmentService`](https://shopify.dev/docs/api/admin-graphql/latest/objects/FulfillmentService)
+ * can create and manage their own locations.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -147,7 +154,7 @@ public class Location implements MetafieldReferencer, com.shopify.admin.types.Ha
   private String name;
 
   /**
-   * Whether this location is used for calculating shipping rates. In multi-origin shipping mode, this flag is ignored.
+   * Legacy field indicating this location was designated for shipping. All locations with valid addresses can now ship.
    */
   private boolean shipsInventory;
 
@@ -432,7 +439,7 @@ public class Location implements MetafieldReferencer, com.shopify.admin.types.Ha
   }
 
   /**
-   * Whether this location is used for calculating shipping rates. In multi-origin shipping mode, this flag is ignored.
+   * Legacy field indicating this location was designated for shipping. All locations with valid addresses can now ship.
    */
   public boolean getShipsInventory() {
     return shipsInventory;
@@ -642,7 +649,7 @@ public class Location implements MetafieldReferencer, com.shopify.admin.types.Ha
     private String name;
 
     /**
-     * Whether this location is used for calculating shipping rates. In multi-origin shipping mode, this flag is ignored.
+     * Legacy field indicating this location was designated for shipping. All locations with valid addresses can now ship.
      */
     private boolean shipsInventory;
 
@@ -886,7 +893,7 @@ public class Location implements MetafieldReferencer, com.shopify.admin.types.Ha
     }
 
     /**
-     * Whether this location is used for calculating shipping rates. In multi-origin shipping mode, this flag is ignored.
+     * Legacy field indicating this location was designated for shipping. All locations with valid addresses can now ship.
      */
     public Builder shipsInventory(boolean shipsInventory) {
       this.shipsInventory = shipsInventory;

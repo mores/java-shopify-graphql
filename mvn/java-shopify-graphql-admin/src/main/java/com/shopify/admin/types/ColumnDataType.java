@@ -1,0 +1,68 @@
+package com.shopify.admin.types;
+
+/**
+ * The data type of a column.
+ */
+public enum ColumnDataType {
+  UNSPECIFIED,
+
+  MONEY,
+
+  PERCENT,
+
+  INTEGER,
+
+  FLOAT,
+
+  DECIMAL,
+
+  STRING,
+
+  BOOLEAN,
+
+  TIMESTAMP,
+
+  MINUTE_TIMESTAMP,
+
+  HOUR_TIMESTAMP,
+
+  DAY_TIMESTAMP,
+
+  WEEK_TIMESTAMP,
+
+  MONTH_TIMESTAMP,
+
+  QUARTER_TIMESTAMP,
+
+  YEAR_TIMESTAMP,
+
+  DAY_OF_WEEK,
+
+  HOUR_OF_DAY,
+
+  IDENTITY,
+
+  MONTH_OF_YEAR,
+
+  WEEK_OF_YEAR,
+
+  SECOND_TIMESTAMP,
+
+  ARRAY,
+
+  MILLISECOND_DURATION,
+
+  SECOND_DURATION,
+
+  MINUTE_DURATION,
+
+  HOUR_DURATION,
+
+  DAY_DURATION,
+
+  COLOR,
+
+  STRING_IDENTITY,
+
+  RATING
+}

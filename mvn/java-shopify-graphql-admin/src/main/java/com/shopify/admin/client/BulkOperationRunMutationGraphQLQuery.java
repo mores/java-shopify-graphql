@@ -7,20 +7,27 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Creates and runs a bulk operation mutation.
+ * Creates and runs a [bulk operation](https://shopify.dev/docs/api/admin-graphql/latest/objects/BulkOperation)
+ * to import data asynchronously. This mutation executes a specified GraphQL
+ * mutation multiple times using input data from a [JSONL](http://jsonlines.org/)
+ * file that you've uploaded to Shopify.
  *   
- * To learn how to bulk import large volumes of data asynchronously, refer to the
- * [bulk import data guide](https://shopify.dev/api/usage/bulk-operations/imports).
+ * The operation processes each line in your JSONL file as a separate mutation
+ * execution. The operation delivers results in a JSONL file when it completes.
+ * You can run one bulk mutation operation at a time per shop, though a [`bulkOperationRunQuery`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/bulkoperationrunquery)
+ * operation can run simultaneously.
+ *   
+ * Learn more about [bulk importing data](https://shopify.dev/docs/api/usage/bulk-operations/imports).
  */
 public class BulkOperationRunMutationGraphQLQuery extends GraphQLQuery {
   public BulkOperationRunMutationGraphQLQuery(String mutation, String stagedUploadPath,
-      boolean groupObjects, String clientIdentifier, String queryName, Set<String> fieldsSet) {
+      String clientIdentifier, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
     if (mutation != null || fieldsSet.contains("mutation")) {
         getInput().put("mutation", mutation);
     }if (stagedUploadPath != null || fieldsSet.contains("stagedUploadPath")) {
         getInput().put("stagedUploadPath", stagedUploadPath);
-    }getInput().put("groupObjects", groupObjects);                   if (clientIdentifier != null || fieldsSet.contains("clientIdentifier")) {
+    }if (clientIdentifier != null || fieldsSet.contains("clientIdentifier")) {
         getInput().put("clientIdentifier", clientIdentifier);
     }
   }
@@ -45,14 +52,12 @@ public class BulkOperationRunMutationGraphQLQuery extends GraphQLQuery {
 
     private String stagedUploadPath;
 
-    private boolean groupObjects;
-
     private String clientIdentifier;
 
     private String queryName;
 
     public BulkOperationRunMutationGraphQLQuery build() {
-      return new BulkOperationRunMutationGraphQLQuery(mutation, stagedUploadPath, groupObjects, clientIdentifier, queryName, fieldsSet);
+      return new BulkOperationRunMutationGraphQLQuery(mutation, stagedUploadPath, clientIdentifier, queryName, fieldsSet);
                
     }
 
@@ -71,17 +76,6 @@ public class BulkOperationRunMutationGraphQLQuery extends GraphQLQuery {
     public Builder stagedUploadPath(String stagedUploadPath) {
       this.stagedUploadPath = stagedUploadPath;
       this.fieldsSet.add("stagedUploadPath");
-      return this;
-    }
-
-    /**
-     * Whether to group objects under their corresponding parent objects in the
-     * JSONL output. Grouping is costly, causes bulk operations to take longer to
-     * complete, and increases the chances of failures such as timeouts.
-     */
-    public Builder groupObjects(boolean groupObjects) {
-      this.groupObjects = groupObjects;
-      this.fieldsSet.add("groupObjects");
       return this;
     }
 

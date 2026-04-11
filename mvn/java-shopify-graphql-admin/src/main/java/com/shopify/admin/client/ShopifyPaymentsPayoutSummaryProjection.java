@@ -95,4 +95,11 @@ public class ShopifyPaymentsPayoutSummaryProjection<PARENT extends BaseSubProjec
      getFields().put("retriedPayoutsGross", projection);
      return projection;
   }
+
+  public MoneyV2Projection<ShopifyPaymentsPayoutSummaryProjection<PARENT, ROOT>, ROOT> usdcRebateCreditAmount(
+      ) {
+     MoneyV2Projection<ShopifyPaymentsPayoutSummaryProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());
+     getFields().put("usdcRebateCreditAmount", projection);
+     return projection;
+  }
 }

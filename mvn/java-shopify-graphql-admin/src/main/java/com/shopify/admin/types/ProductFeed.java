@@ -14,6 +14,11 @@ import java.util.Objects;
 )
 public class ProductFeed implements com.shopify.admin.types.Node {
   /**
+   * The ID of the channel to associate with the product feed.
+   */
+  private String channelId;
+
+  /**
    * The country of the product feed.
    */
   private CountryCode country;
@@ -34,6 +39,17 @@ public class ProductFeed implements com.shopify.admin.types.Node {
   private ProductFeedStatus status;
 
   public ProductFeed() {
+  }
+
+  /**
+   * The ID of the channel to associate with the product feed.
+   */
+  public String getChannelId() {
+    return channelId;
+  }
+
+  public void setChannelId(String channelId) {
+    this.channelId = channelId;
   }
 
   /**
@@ -82,7 +98,7 @@ public class ProductFeed implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "ProductFeed{country='" + country + "', id='" + id + "', language='" + language + "', status='" + status + "'}";
+    return "ProductFeed{channelId='" + channelId + "', country='" + country + "', id='" + id + "', language='" + language + "', status='" + status + "'}";
   }
 
   @Override
@@ -90,7 +106,8 @@ public class ProductFeed implements com.shopify.admin.types.Node {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     ProductFeed that = (ProductFeed) o;
-    return Objects.equals(country, that.country) &&
+    return Objects.equals(channelId, that.channelId) &&
+        Objects.equals(country, that.country) &&
         Objects.equals(id, that.id) &&
         Objects.equals(language, that.language) &&
         Objects.equals(status, that.status);
@@ -98,7 +115,7 @@ public class ProductFeed implements com.shopify.admin.types.Node {
 
   @Override
   public int hashCode() {
-    return Objects.hash(country, id, language, status);
+    return Objects.hash(channelId, country, id, language, status);
   }
 
   public static Builder newBuilder() {
@@ -106,6 +123,11 @@ public class ProductFeed implements com.shopify.admin.types.Node {
   }
 
   public static class Builder {
+    /**
+     * The ID of the channel to associate with the product feed.
+     */
+    private String channelId;
+
     /**
      * The country of the product feed.
      */
@@ -128,11 +150,20 @@ public class ProductFeed implements com.shopify.admin.types.Node {
 
     public ProductFeed build() {
       ProductFeed result = new ProductFeed();
+      result.channelId = this.channelId;
       result.country = this.country;
       result.id = this.id;
       result.language = this.language;
       result.status = this.status;
       return result;
+    }
+
+    /**
+     * The ID of the channel to associate with the product feed.
+     */
+    public Builder channelId(String channelId) {
+      this.channelId = channelId;
+      return this;
     }
 
     /**

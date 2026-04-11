@@ -1,0 +1,104 @@
+package com.shopify.admin.types;
+
+import java.lang.Object;
+import java.lang.Override;
+import java.lang.String;
+import java.util.Objects;
+
+/**
+ * The text fields customizations.
+ */
+public class CheckoutAndAccountsConfigurationBrandingTextField {
+  /**
+   * The border.
+   */
+  private CheckoutAndAccountsConfigurationBrandingBorder border;
+
+  /**
+   * The typography.
+   */
+  private CheckoutAndAccountsConfigurationBrandingTypographyStyle typography;
+
+  public CheckoutAndAccountsConfigurationBrandingTextField() {
+  }
+
+  /**
+   * The border.
+   */
+  public CheckoutAndAccountsConfigurationBrandingBorder getBorder() {
+    return border;
+  }
+
+  public void setBorder(CheckoutAndAccountsConfigurationBrandingBorder border) {
+    this.border = border;
+  }
+
+  /**
+   * The typography.
+   */
+  public CheckoutAndAccountsConfigurationBrandingTypographyStyle getTypography() {
+    return typography;
+  }
+
+  public void setTypography(CheckoutAndAccountsConfigurationBrandingTypographyStyle typography) {
+    this.typography = typography;
+  }
+
+  @Override
+  public String toString() {
+    return "CheckoutAndAccountsConfigurationBrandingTextField{border='" + border + "', typography='" + typography + "'}";
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    CheckoutAndAccountsConfigurationBrandingTextField that = (CheckoutAndAccountsConfigurationBrandingTextField) o;
+    return Objects.equals(border, that.border) &&
+        Objects.equals(typography, that.typography);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(border, typography);
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
+
+  public static class Builder {
+    /**
+     * The border.
+     */
+    private CheckoutAndAccountsConfigurationBrandingBorder border;
+
+    /**
+     * The typography.
+     */
+    private CheckoutAndAccountsConfigurationBrandingTypographyStyle typography;
+
+    public CheckoutAndAccountsConfigurationBrandingTextField build() {
+      CheckoutAndAccountsConfigurationBrandingTextField result = new CheckoutAndAccountsConfigurationBrandingTextField();
+      result.border = this.border;
+      result.typography = this.typography;
+      return result;
+    }
+
+    /**
+     * The border.
+     */
+    public Builder border(CheckoutAndAccountsConfigurationBrandingBorder border) {
+      this.border = border;
+      return this;
+    }
+
+    /**
+     * The typography.
+     */
+    public Builder typography(CheckoutAndAccountsConfigurationBrandingTypographyStyle typography) {
+      this.typography = typography;
+      return this;
+    }
+  }
+}

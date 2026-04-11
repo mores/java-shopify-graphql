@@ -10,7 +10,11 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Resources that can have localized values for different languages.
+ * Returns a paginated list of [`TranslatableResource`](https://shopify.dev/docs/api/admin-graphql/latest/objects/TranslatableResource)
+ * objects for the specified resource IDs. Each resource provides translatable
+ * content and digest values needed for the [`translationsRegister`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/translationsRegister) mutation.
+ *   
+ * Learn more about [managing translated content](https://shopify.dev/docs/apps/build/markets/manage-translated-content).
  */
 public class TranslatableResourcesByIdsGraphQLQuery extends GraphQLQuery {
   public TranslatableResourcesByIdsGraphQLQuery(List<String> resourceIds, Integer first,

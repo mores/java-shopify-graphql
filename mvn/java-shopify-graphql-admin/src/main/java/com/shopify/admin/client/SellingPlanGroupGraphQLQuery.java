@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a Selling Plan Group resource by ID.
+ * Returns a `SellingPlanGroup` resource by ID.
  */
 public class SellingPlanGroupGraphQLQuery extends GraphQLQuery {
   public SellingPlanGroupGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

@@ -8,7 +8,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Enables local pickup for a location.
+ * Enables local pickup for a location so customers can collect their orders in
+ * person. Configures the estimated pickup time that customers see at checkout
+ * and optional instructions for finding or accessing the pickup location.
  */
 public class LocationLocalPickupEnableGraphQLQuery extends GraphQLQuery {
   public LocationLocalPickupEnableGraphQLQuery(

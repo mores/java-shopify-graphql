@@ -40,6 +40,11 @@ public class EventBridgeWebhookSubscriptionInput {
   private List<HasMetafieldsMetafieldIdentifierInput> metafields;
 
   /**
+   * A human-readable name for the webhook subscription.
+   */
+  private String name;
+
+  /**
    * The ARN of the EventBridge partner event source.
    */
   private String arn;
@@ -107,6 +112,17 @@ public class EventBridgeWebhookSubscriptionInput {
   }
 
   /**
+   * A human-readable name for the webhook subscription.
+   */
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  /**
    * The ARN of the EventBridge partner event source.
    */
   public String getArn() {
@@ -119,7 +135,7 @@ public class EventBridgeWebhookSubscriptionInput {
 
   @Override
   public String toString() {
-    return "EventBridgeWebhookSubscriptionInput{format='" + format + "', includeFields='" + includeFields + "', filter='" + filter + "', metafieldNamespaces='" + metafieldNamespaces + "', metafields='" + metafields + "', arn='" + arn + "'}";
+    return "EventBridgeWebhookSubscriptionInput{format='" + format + "', includeFields='" + includeFields + "', filter='" + filter + "', metafieldNamespaces='" + metafieldNamespaces + "', metafields='" + metafields + "', name='" + name + "', arn='" + arn + "'}";
   }
 
   @Override
@@ -132,12 +148,13 @@ public class EventBridgeWebhookSubscriptionInput {
         Objects.equals(filter, that.filter) &&
         Objects.equals(metafieldNamespaces, that.metafieldNamespaces) &&
         Objects.equals(metafields, that.metafields) &&
+        Objects.equals(name, that.name) &&
         Objects.equals(arn, that.arn);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(format, includeFields, filter, metafieldNamespaces, metafields, arn);
+    return Objects.hash(format, includeFields, filter, metafieldNamespaces, metafields, name, arn);
   }
 
   public static Builder newBuilder() {
@@ -175,6 +192,11 @@ public class EventBridgeWebhookSubscriptionInput {
     private List<HasMetafieldsMetafieldIdentifierInput> metafields;
 
     /**
+     * A human-readable name for the webhook subscription.
+     */
+    private String name;
+
+    /**
      * The ARN of the EventBridge partner event source.
      */
     private String arn;
@@ -186,6 +208,7 @@ public class EventBridgeWebhookSubscriptionInput {
       result.filter = this.filter;
       result.metafieldNamespaces = this.metafieldNamespaces;
       result.metafields = this.metafields;
+      result.name = this.name;
       result.arn = this.arn;
       return result;
     }
@@ -231,6 +254,14 @@ public class EventBridgeWebhookSubscriptionInput {
      */
     public Builder metafields(List<HasMetafieldsMetafieldIdentifierInput> metafields) {
       this.metafields = metafields;
+      return this;
+    }
+
+    /**
+     * A human-readable name for the webhook subscription.
+     */
+    public Builder name(String name) {
+      this.name = name;
       return this;
     }
 

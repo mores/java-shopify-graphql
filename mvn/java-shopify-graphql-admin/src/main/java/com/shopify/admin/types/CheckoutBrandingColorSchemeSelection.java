@@ -12,5 +12,9 @@ public enum CheckoutBrandingColorSchemeSelection {
 
   COLOR_SCHEME3,
 
-  COLOR_SCHEME4
+  COLOR_SCHEME4,
+
+  COLOR_SCHEME5,
+
+  COLOR_SCHEME6
 }

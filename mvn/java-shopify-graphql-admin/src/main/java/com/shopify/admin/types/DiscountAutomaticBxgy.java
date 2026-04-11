@@ -27,6 +27,9 @@ import java.util.Objects;
  * > The [`DiscountCodeBxgy`](https://shopify.dev/docs/api/admin-graphql/latest/objects/DiscountCodeBxgy)
  * object has similar functionality to the `DiscountAutomaticBxgy` object, but customers need to enter a code to
  * receive a discount.
+ * >
+ * > API versions prior to `2025-10` only return automatic discounts with `context`
+ * set to `all`, discounts with other values are filtered out.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -50,6 +53,11 @@ public class DiscountAutomaticBxgy implements Discount, DiscountAutomatic, com.s
    * [Shopify discount types](https://help.shopify.com/manual/discounts/discount-types).
    */
   private DiscountCombinesWith combinesWith;
+
+  /**
+   * The context defining which buyers can use the discount.
+   */
+  private DiscountContext context;
 
   /**
    * The date and time when the discount was created.
@@ -112,6 +120,13 @@ public class DiscountAutomaticBxgy implements Discount, DiscountAutomatic, com.s
   private String summary;
 
   /**
+   * A list of searchable keywords that are associated with the discount.
+   * For example, a merchant might apply the `loyalty` tag to discounts
+   * that are associated with their loyalty program.
+   */
+  private List<String> tags;
+
+  /**
    * The discount's name that displays to merchants in the Shopify admin and to customers.
    */
   private String title;
@@ -163,6 +178,17 @@ public class DiscountAutomaticBxgy implements Discount, DiscountAutomatic, com.s
 
   public void setCombinesWith(DiscountCombinesWith combinesWith) {
     this.combinesWith = combinesWith;
+  }
+
+  /**
+   * The context defining which buyers can use the discount.
+   */
+  public DiscountContext getContext() {
+    return context;
+  }
+
+  public void setContext(DiscountContext context) {
+    this.context = context;
   }
 
   /**
@@ -292,6 +318,19 @@ public class DiscountAutomaticBxgy implements Discount, DiscountAutomatic, com.s
   }
 
   /**
+   * A list of searchable keywords that are associated with the discount.
+   * For example, a merchant might apply the `loyalty` tag to discounts
+   * that are associated with their loyalty program.
+   */
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
+  /**
    * The discount's name that displays to merchants in the Shopify admin and to customers.
    */
   public String getTitle() {
@@ -337,7 +376,7 @@ public class DiscountAutomaticBxgy implements Discount, DiscountAutomatic, com.s
 
   @Override
   public String toString() {
-    return "DiscountAutomaticBxgy{asyncUsageCount='" + asyncUsageCount + "', combinesWith='" + combinesWith + "', createdAt='" + createdAt + "', customerBuys='" + customerBuys + "', customerGets='" + customerGets + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', endsAt='" + endsAt + "', events='" + events + "', id='" + id + "', startsAt='" + startsAt + "', status='" + status + "', summary='" + summary + "', title='" + title + "', updatedAt='" + updatedAt + "', usageCount='" + usageCount + "', usesPerOrderLimit='" + usesPerOrderLimit + "'}";
+    return "DiscountAutomaticBxgy{asyncUsageCount='" + asyncUsageCount + "', combinesWith='" + combinesWith + "', context='" + context + "', createdAt='" + createdAt + "', customerBuys='" + customerBuys + "', customerGets='" + customerGets + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', endsAt='" + endsAt + "', events='" + events + "', id='" + id + "', startsAt='" + startsAt + "', status='" + status + "', summary='" + summary + "', tags='" + tags + "', title='" + title + "', updatedAt='" + updatedAt + "', usageCount='" + usageCount + "', usesPerOrderLimit='" + usesPerOrderLimit + "'}";
   }
 
   @Override
@@ -347,6 +386,7 @@ public class DiscountAutomaticBxgy implements Discount, DiscountAutomatic, com.s
     DiscountAutomaticBxgy that = (DiscountAutomaticBxgy) o;
     return asyncUsageCount == that.asyncUsageCount &&
         Objects.equals(combinesWith, that.combinesWith) &&
+        Objects.equals(context, that.context) &&
         Objects.equals(createdAt, that.createdAt) &&
         Objects.equals(customerBuys, that.customerBuys) &&
         Objects.equals(customerGets, that.customerGets) &&
@@ -358,6 +398,7 @@ public class DiscountAutomaticBxgy implements Discount, DiscountAutomatic, com.s
         Objects.equals(startsAt, that.startsAt) &&
         Objects.equals(status, that.status) &&
         Objects.equals(summary, that.summary) &&
+        Objects.equals(tags, that.tags) &&
         Objects.equals(title, that.title) &&
         Objects.equals(updatedAt, that.updatedAt) &&
         usageCount == that.usageCount &&
@@ -366,7 +407,7 @@ public class DiscountAutomaticBxgy implements Discount, DiscountAutomatic, com.s
 
   @Override
   public int hashCode() {
-    return Objects.hash(asyncUsageCount, combinesWith, createdAt, customerBuys, customerGets, discountClass, discountClasses, endsAt, events, id, startsAt, status, summary, title, updatedAt, usageCount, usesPerOrderLimit);
+    return Objects.hash(asyncUsageCount, combinesWith, context, createdAt, customerBuys, customerGets, discountClass, discountClasses, endsAt, events, id, startsAt, status, summary, tags, title, updatedAt, usageCount, usesPerOrderLimit);
   }
 
   public static Builder newBuilder() {
@@ -392,6 +433,11 @@ public class DiscountAutomaticBxgy implements Discount, DiscountAutomatic, com.s
      * [Shopify discount types](https://help.shopify.com/manual/discounts/discount-types).
      */
     private DiscountCombinesWith combinesWith;
+
+    /**
+     * The context defining which buyers can use the discount.
+     */
+    private DiscountContext context;
 
     /**
      * The date and time when the discount was created.
@@ -454,6 +500,13 @@ public class DiscountAutomaticBxgy implements Discount, DiscountAutomatic, com.s
     private String summary;
 
     /**
+     * A list of searchable keywords that are associated with the discount.
+     * For example, a merchant might apply the `loyalty` tag to discounts
+     * that are associated with their loyalty program.
+     */
+    private List<String> tags;
+
+    /**
      * The discount's name that displays to merchants in the Shopify admin and to customers.
      */
     private String title;
@@ -477,6 +530,7 @@ public class DiscountAutomaticBxgy implements Discount, DiscountAutomatic, com.s
       DiscountAutomaticBxgy result = new DiscountAutomaticBxgy();
       result.asyncUsageCount = this.asyncUsageCount;
       result.combinesWith = this.combinesWith;
+      result.context = this.context;
       result.createdAt = this.createdAt;
       result.customerBuys = this.customerBuys;
       result.customerGets = this.customerGets;
@@ -488,6 +542,7 @@ public class DiscountAutomaticBxgy implements Discount, DiscountAutomatic, com.s
       result.startsAt = this.startsAt;
       result.status = this.status;
       result.summary = this.summary;
+      result.tags = this.tags;
       result.title = this.title;
       result.updatedAt = this.updatedAt;
       result.usageCount = this.usageCount;
@@ -517,6 +572,14 @@ public class DiscountAutomaticBxgy implements Discount, DiscountAutomatic, com.s
      */
     public Builder combinesWith(DiscountCombinesWith combinesWith) {
       this.combinesWith = combinesWith;
+      return this;
+    }
+
+    /**
+     * The context defining which buyers can use the discount.
+     */
+    public Builder context(DiscountContext context) {
+      this.context = context;
       return this;
     }
 
@@ -610,6 +673,16 @@ public class DiscountAutomaticBxgy implements Discount, DiscountAutomatic, com.s
      */
     public Builder summary(String summary) {
       this.summary = summary;
+      return this;
+    }
+
+    /**
+     * A list of searchable keywords that are associated with the discount.
+     * For example, a merchant might apply the `loyalty` tag to discounts
+     * that are associated with their loyalty program.
+     */
+    public Builder tags(List<String> tags) {
+      this.tags = tags;
       return this;
     }
 

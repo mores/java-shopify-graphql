@@ -68,6 +68,24 @@ public class MetafieldFragmentProjection<PARENT extends BaseSubProjectionNode<?,
     return projection;
   }
 
+  public TranslationProjection<MetafieldFragmentProjection<PARENT, ROOT>, ROOT> translations() {
+     TranslationProjection<MetafieldFragmentProjection<PARENT, ROOT>, ROOT> projection = new TranslationProjection<>(this, getRoot());
+     getFields().put("translations", projection);
+     return projection;
+  }
+
+  public TranslationProjection<MetafieldFragmentProjection<PARENT, ROOT>, ROOT> translations(
+      String locale, String marketId) {
+    TranslationProjection<MetafieldFragmentProjection<PARENT, ROOT>, ROOT> projection = new TranslationProjection<>(this, getRoot());    
+    getFields().put("translations", projection);
+    getInputArguments().computeIfAbsent("translations", k -> new ArrayList<>());                      
+    InputArgument localeArg = new InputArgument("locale", locale);
+    getInputArguments().get("translations").add(localeArg);
+    InputArgument marketIdArg = new InputArgument("marketId", marketId);
+    getInputArguments().get("translations").add(marketIdArg);
+    return projection;
+  }
+
   public MetafieldFragmentProjection<PARENT, ROOT> compareDigest() {
     getFields().put("compareDigest", null);
     return this;

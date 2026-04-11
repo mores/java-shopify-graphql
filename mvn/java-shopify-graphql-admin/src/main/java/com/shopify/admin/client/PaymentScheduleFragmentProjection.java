@@ -24,6 +24,12 @@ public class PaymentScheduleFragmentProjection<PARENT extends BaseSubProjectionN
      return projection;
   }
 
+  public MoneyV2Projection<PaymentScheduleFragmentProjection<PARENT, ROOT>, ROOT> balanceDue() {
+     MoneyV2Projection<PaymentScheduleFragmentProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());
+     getFields().put("balanceDue", projection);
+     return projection;
+  }
+
   public PaymentTermsProjection<PaymentScheduleFragmentProjection<PARENT, ROOT>, ROOT> paymentTerms(
       ) {
      PaymentTermsProjection<PaymentScheduleFragmentProjection<PARENT, ROOT>, ROOT> projection = new PaymentTermsProjection<>(this, getRoot());
@@ -31,8 +37,19 @@ public class PaymentScheduleFragmentProjection<PARENT extends BaseSubProjectionN
      return projection;
   }
 
+  public MoneyV2Projection<PaymentScheduleFragmentProjection<PARENT, ROOT>, ROOT> totalBalance() {
+     MoneyV2Projection<PaymentScheduleFragmentProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());
+     getFields().put("totalBalance", projection);
+     return projection;
+  }
+
   public PaymentScheduleFragmentProjection<PARENT, ROOT> completedAt() {
     getFields().put("completedAt", null);
+    return this;
+  }
+
+  public PaymentScheduleFragmentProjection<PARENT, ROOT> due() {
+    getFields().put("due", null);
     return this;
   }
 

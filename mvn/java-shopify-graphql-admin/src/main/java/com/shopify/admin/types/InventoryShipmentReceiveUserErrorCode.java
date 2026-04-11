@@ -4,6 +4,12 @@ package com.shopify.admin.types;
  * Possible error codes that can be returned by `InventoryShipmentReceiveUserError`.
  */
 public enum InventoryShipmentReceiveUserErrorCode {
+  LOCATION_NOT_FOUND,
+
+  IDEMPOTENCY_CONCURRENT_REQUEST,
+
+  IDEMPOTENCY_KEY_PARAMETER_MISMATCH,
+
   INTERNAL_ERROR,
 
   INVALID_SHIPMENT_STATUS,
@@ -16,7 +22,5 @@ public enum InventoryShipmentReceiveUserErrorCode {
 
   ITEM_NOT_FOUND,
 
-  LOCATION_NOT_ACTIVE,
-
-  LOCATION_NOT_FOUND
+  LOCATION_NOT_ACTIVE
 }

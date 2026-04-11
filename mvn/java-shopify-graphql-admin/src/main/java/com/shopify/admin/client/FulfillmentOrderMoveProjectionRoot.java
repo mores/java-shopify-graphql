@@ -33,9 +33,9 @@ public class FulfillmentOrderMoveProjectionRoot<PARENT extends BaseSubProjection
     return projection;
   }
 
-  public UserErrorProjection<FulfillmentOrderMoveProjectionRoot<PARENT, ROOT>, FulfillmentOrderMoveProjectionRoot<PARENT, ROOT>> userErrors(
+  public FulfillmentOrderMoveFulfillmentOrderMoveUserErrorProjection<FulfillmentOrderMoveProjectionRoot<PARENT, ROOT>, FulfillmentOrderMoveProjectionRoot<PARENT, ROOT>> userErrors(
       ) {
-    UserErrorProjection<FulfillmentOrderMoveProjectionRoot<PARENT, ROOT>, FulfillmentOrderMoveProjectionRoot<PARENT, ROOT>> projection = new UserErrorProjection<>(this, this);    
+    FulfillmentOrderMoveFulfillmentOrderMoveUserErrorProjection<FulfillmentOrderMoveProjectionRoot<PARENT, ROOT>, FulfillmentOrderMoveProjectionRoot<PARENT, ROOT>> projection = new FulfillmentOrderMoveFulfillmentOrderMoveUserErrorProjection<>(this, this);    
     getFields().put("userErrors", projection);
     return projection;
   }

@@ -9,8 +9,12 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Unpublishes a resource from a channel. If the resource is a product, then it's
- * visible in the channel only if the product status is `active`.
+ * Unpublishes a resource, such as a
+ * [`Product`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product) or [`Collection`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Collection),
+ * from one or more [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+ * The resource remains in your store but becomes unavailable to customers.
+ *   
+ * For products to be visible in a channel, they must have an active [`ProductStatus`](https://shopify.dev/docs/api/admin-graphql/latest/enums/ProductStatus).
  */
 public class PublishableUnpublishGraphQLQuery extends GraphQLQuery {
   public PublishableUnpublishGraphQLQuery(String id, List<PublicationInput> input, String queryName,

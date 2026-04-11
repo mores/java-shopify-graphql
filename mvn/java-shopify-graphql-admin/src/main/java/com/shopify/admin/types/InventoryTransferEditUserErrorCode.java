@@ -16,5 +16,7 @@ public enum InventoryTransferEditUserErrorCode {
 
   LOCATION_NOT_FOUND,
 
-  INVENTORY_STATE_NOT_ACTIVE
+  INVENTORY_STATE_NOT_ACTIVE,
+
+  TAG_EXCEEDS_MAX_LENGTH
 }

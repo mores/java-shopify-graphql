@@ -8,7 +8,15 @@ import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
- * A dynamic collection of customers based on specific criteria.
+ * A group of [customers](https://shopify.dev/docs/api/admin-graphql/latest/objects/Customer)
+ * that meet specific criteria defined through [ShopifyQL
+ * query](https://shopify.dev/docs/api/shopifyql/segment-query-language-reference)
+ * conditions. Common use cases for segments include customer analytics, targeted
+ * marketing campaigns, and automated discount eligibility.
+ *
+ * The segment's [`query`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Segment#field-query) field contains ShopifyQL conditions that determine membership, such as purchase
+ * history, location, or engagement patterns. Tracks when the segment was created with [`creationDate`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Segment#field-creationDate)
+ * and when it was last modified with [`lastEditDate`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Segment#field-lastEditDate).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

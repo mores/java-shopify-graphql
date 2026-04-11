@@ -9,7 +9,16 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * A checkout that was abandoned by the customer.
+ * An incomplete checkout where the customer added items and provided contact
+ * information but didn't complete the purchase. Tracks the customer's cart
+ * contents, pricing details, addresses, and timestamps to enable recovery
+ * campaigns and abandonment analytics.
+ *
+ * The checkout includes a recovery URL that merchants can send to customers to
+ * resume their purchase. [`AbandonedCheckoutLineItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/AbandonedCheckoutLineItem)
+ * objects preserve the original
+ * [`Product`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+ * selections, quantities, and pricing at the time of abandonment.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

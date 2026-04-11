@@ -8,7 +8,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Adds a new location.
+ * Adds a new [`Location`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Location) where you can stock inventory and fulfill orders. Locations represent physical
+ * places like warehouses, retail stores, or fulfillment centers.
+ *   
+ * The location requires a name and address with at least a country code. You can
+ * specify whether the location fulfills online orders, which determines if its
+ * inventory is available for online sales. You can also attach custom
+ * [metafields](https://shopify.dev/docs/apps/build/custom-data) to store
+ * additional information about the location.
  */
 public class LocationAddGraphQLQuery extends GraphQLQuery {
   public LocationAddGraphQLQuery(LocationAddInput input, String queryName, Set<String> fieldsSet) {

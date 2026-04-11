@@ -4,6 +4,10 @@ package com.shopify.admin.types;
  * Possible error codes that can be returned by `InventoryShipmentCreateUserError`.
  */
 public enum InventoryShipmentCreateUserErrorCode {
+  BARCODE_DUPLICATE,
+
+  BARCODE_TOO_LONG,
+
   EMPTY_SHIPMENT_INPUT,
 
   ITEM_NOT_FOUND,
@@ -26,5 +30,11 @@ public enum InventoryShipmentCreateUserErrorCode {
 
   INVALID_URL,
 
-  LOCATION_NOT_ACTIVE
+  LOCATION_NOT_ACTIVE,
+
+  IDEMPOTENCY_CONCURRENT_REQUEST,
+
+  IDEMPOTENCY_KEY_PARAMETER_MISMATCH,
+
+  IDEMPOTENCY_RECORD_NOT_FOUND
 }

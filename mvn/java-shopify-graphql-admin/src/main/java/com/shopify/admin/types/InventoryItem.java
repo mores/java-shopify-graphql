@@ -8,9 +8,12 @@ import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
- * Represents the goods available to be shipped to a customer.
- * It holds essential information about the goods, including SKU and whether it is tracked.
- * Learn [more about the relationships between inventory objects](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#inventory-object-relationships).
+ * A [product variant's](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant) inventory information across all locations. The inventory item connects the
+ * product variant to its [inventory levels](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryLevel)
+ * at different locations, tracking stock keeping unit (SKU), whether quantities
+ * are tracked, shipping requirements, and customs information for the product.
+ *
+ * Learn more about [inventory object relationships](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#inventory-object-relationships).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -117,6 +120,11 @@ public class InventoryItem implements com.shopify.admin.types.LegacyInteroperabi
    * The variant that owns this inventory item.
    */
   private ProductVariant variant;
+
+  /**
+   * A paginated list of the variants that reference this inventory item.
+   */
+  private ProductVariantConnection variants;
 
   public InventoryItem() {
   }
@@ -344,9 +352,20 @@ public class InventoryItem implements com.shopify.admin.types.LegacyInteroperabi
     this.variant = variant;
   }
 
+  /**
+   * A paginated list of the variants that reference this inventory item.
+   */
+  public ProductVariantConnection getVariants() {
+    return variants;
+  }
+
+  public void setVariants(ProductVariantConnection variants) {
+    this.variants = variants;
+  }
+
   @Override
   public String toString() {
-    return "InventoryItem{countryCodeOfOrigin='" + countryCodeOfOrigin + "', countryHarmonizedSystemCodes='" + countryHarmonizedSystemCodes + "', createdAt='" + createdAt + "', duplicateSkuCount='" + duplicateSkuCount + "', harmonizedSystemCode='" + harmonizedSystemCode + "', id='" + id + "', inventoryHistoryUrl='" + inventoryHistoryUrl + "', inventoryLevel='" + inventoryLevel + "', inventoryLevels='" + inventoryLevels + "', legacyResourceId='" + legacyResourceId + "', locationsCount='" + locationsCount + "', measurement='" + measurement + "', provinceCodeOfOrigin='" + provinceCodeOfOrigin + "', requiresShipping='" + requiresShipping + "', sku='" + sku + "', tracked='" + tracked + "', trackedEditable='" + trackedEditable + "', unitCost='" + unitCost + "', updatedAt='" + updatedAt + "', variant='" + variant + "'}";
+    return "InventoryItem{countryCodeOfOrigin='" + countryCodeOfOrigin + "', countryHarmonizedSystemCodes='" + countryHarmonizedSystemCodes + "', createdAt='" + createdAt + "', duplicateSkuCount='" + duplicateSkuCount + "', harmonizedSystemCode='" + harmonizedSystemCode + "', id='" + id + "', inventoryHistoryUrl='" + inventoryHistoryUrl + "', inventoryLevel='" + inventoryLevel + "', inventoryLevels='" + inventoryLevels + "', legacyResourceId='" + legacyResourceId + "', locationsCount='" + locationsCount + "', measurement='" + measurement + "', provinceCodeOfOrigin='" + provinceCodeOfOrigin + "', requiresShipping='" + requiresShipping + "', sku='" + sku + "', tracked='" + tracked + "', trackedEditable='" + trackedEditable + "', unitCost='" + unitCost + "', updatedAt='" + updatedAt + "', variant='" + variant + "', variants='" + variants + "'}";
   }
 
   @Override
@@ -373,12 +392,13 @@ public class InventoryItem implements com.shopify.admin.types.LegacyInteroperabi
         Objects.equals(trackedEditable, that.trackedEditable) &&
         Objects.equals(unitCost, that.unitCost) &&
         Objects.equals(updatedAt, that.updatedAt) &&
-        Objects.equals(variant, that.variant);
+        Objects.equals(variant, that.variant) &&
+        Objects.equals(variants, that.variants);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(countryCodeOfOrigin, countryHarmonizedSystemCodes, createdAt, duplicateSkuCount, harmonizedSystemCode, id, inventoryHistoryUrl, inventoryLevel, inventoryLevels, legacyResourceId, locationsCount, measurement, provinceCodeOfOrigin, requiresShipping, sku, tracked, trackedEditable, unitCost, updatedAt, variant);
+    return Objects.hash(countryCodeOfOrigin, countryHarmonizedSystemCodes, createdAt, duplicateSkuCount, harmonizedSystemCode, id, inventoryHistoryUrl, inventoryLevel, inventoryLevels, legacyResourceId, locationsCount, measurement, provinceCodeOfOrigin, requiresShipping, sku, tracked, trackedEditable, unitCost, updatedAt, variant, variants);
   }
 
   public static Builder newBuilder() {
@@ -488,6 +508,11 @@ public class InventoryItem implements com.shopify.admin.types.LegacyInteroperabi
      */
     private ProductVariant variant;
 
+    /**
+     * A paginated list of the variants that reference this inventory item.
+     */
+    private ProductVariantConnection variants;
+
     public InventoryItem build() {
       InventoryItem result = new InventoryItem();
       result.countryCodeOfOrigin = this.countryCodeOfOrigin;
@@ -510,6 +535,7 @@ public class InventoryItem implements com.shopify.admin.types.LegacyInteroperabi
       result.unitCost = this.unitCost;
       result.updatedAt = this.updatedAt;
       result.variant = this.variant;
+      result.variants = this.variants;
       return result;
     }
 
@@ -673,6 +699,14 @@ public class InventoryItem implements com.shopify.admin.types.LegacyInteroperabi
      */
     public Builder variant(ProductVariant variant) {
       this.variant = variant;
+      return this;
+    }
+
+    /**
+     * A paginated list of the variants that reference this inventory item.
+     */
+    public Builder variants(ProductVariantConnection variants) {
+      this.variants = variants;
       return this;
     }
   }

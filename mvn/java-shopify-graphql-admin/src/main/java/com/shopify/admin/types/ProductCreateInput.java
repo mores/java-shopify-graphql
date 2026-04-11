@@ -40,12 +40,6 @@ public class ProductCreateInput {
   private String productType;
 
   /**
-   * The ID of the [category](https://shopify.github.io/product-taxonomy/releases/unstable/?categoryId=sg-4-17-2-17)
-   * that's associated with the product.
-   */
-  private String category;
-
-  /**
    * A list of searchable keywords that are
    * associated with the product. For example, a merchant might apply the `sports`
    * and `summer` tags to products that are associated with sportwear for summer.
@@ -81,6 +75,12 @@ public class ProductCreateInput {
    * The name of the product's vendor.
    */
   private String vendor;
+
+  /**
+   * The ID of the [category](https://shopify.github.io/product-taxonomy/releases/unstable/?categoryId=sg-4-17-2-17)
+   * that's associated with the product.
+   */
+  private String category;
 
   /**
    * Whether the product is a gift card.
@@ -189,18 +189,6 @@ public class ProductCreateInput {
   }
 
   /**
-   * The ID of the [category](https://shopify.github.io/product-taxonomy/releases/unstable/?categoryId=sg-4-17-2-17)
-   * that's associated with the product.
-   */
-  public String getCategory() {
-    return category;
-  }
-
-  public void setCategory(String category) {
-    this.category = category;
-  }
-
-  /**
    * A list of searchable keywords that are
    * associated with the product. For example, a merchant might apply the `sports`
    * and `summer` tags to products that are associated with sportwear for summer.
@@ -265,6 +253,18 @@ public class ProductCreateInput {
 
   public void setVendor(String vendor) {
     this.vendor = vendor;
+  }
+
+  /**
+   * The ID of the [category](https://shopify.github.io/product-taxonomy/releases/unstable/?categoryId=sg-4-17-2-17)
+   * that's associated with the product.
+   */
+  public String getCategory() {
+    return category;
+  }
+
+  public void setCategory(String category) {
+    this.category = category;
   }
 
   /**
@@ -368,7 +368,7 @@ public class ProductCreateInput {
 
   @Override
   public String toString() {
-    return "ProductCreateInput{descriptionHtml='" + descriptionHtml + "', handle='" + handle + "', seo='" + seo + "', productType='" + productType + "', category='" + category + "', tags='" + tags + "', templateSuffix='" + templateSuffix + "', giftCardTemplateSuffix='" + giftCardTemplateSuffix + "', title='" + title + "', vendor='" + vendor + "', giftCard='" + giftCard + "', collectionsToJoin='" + collectionsToJoin + "', combinedListingRole='" + combinedListingRole + "', metafields='" + metafields + "', productOptions='" + productOptions + "', status='" + status + "', requiresSellingPlan='" + requiresSellingPlan + "', claimOwnership='" + claimOwnership + "'}";
+    return "ProductCreateInput{descriptionHtml='" + descriptionHtml + "', handle='" + handle + "', seo='" + seo + "', productType='" + productType + "', tags='" + tags + "', templateSuffix='" + templateSuffix + "', giftCardTemplateSuffix='" + giftCardTemplateSuffix + "', title='" + title + "', vendor='" + vendor + "', category='" + category + "', giftCard='" + giftCard + "', collectionsToJoin='" + collectionsToJoin + "', combinedListingRole='" + combinedListingRole + "', metafields='" + metafields + "', productOptions='" + productOptions + "', status='" + status + "', requiresSellingPlan='" + requiresSellingPlan + "', claimOwnership='" + claimOwnership + "'}";
   }
 
   @Override
@@ -380,12 +380,12 @@ public class ProductCreateInput {
         Objects.equals(handle, that.handle) &&
         Objects.equals(seo, that.seo) &&
         Objects.equals(productType, that.productType) &&
-        Objects.equals(category, that.category) &&
         Objects.equals(tags, that.tags) &&
         Objects.equals(templateSuffix, that.templateSuffix) &&
         Objects.equals(giftCardTemplateSuffix, that.giftCardTemplateSuffix) &&
         Objects.equals(title, that.title) &&
         Objects.equals(vendor, that.vendor) &&
+        Objects.equals(category, that.category) &&
         Objects.equals(giftCard, that.giftCard) &&
         Objects.equals(collectionsToJoin, that.collectionsToJoin) &&
         Objects.equals(combinedListingRole, that.combinedListingRole) &&
@@ -398,7 +398,7 @@ public class ProductCreateInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(descriptionHtml, handle, seo, productType, category, tags, templateSuffix, giftCardTemplateSuffix, title, vendor, giftCard, collectionsToJoin, combinedListingRole, metafields, productOptions, status, requiresSellingPlan, claimOwnership);
+    return Objects.hash(descriptionHtml, handle, seo, productType, tags, templateSuffix, giftCardTemplateSuffix, title, vendor, category, giftCard, collectionsToJoin, combinedListingRole, metafields, productOptions, status, requiresSellingPlan, claimOwnership);
   }
 
   public static Builder newBuilder() {
@@ -433,12 +433,6 @@ public class ProductCreateInput {
      * that merchants define.
      */
     private String productType;
-
-    /**
-     * The ID of the [category](https://shopify.github.io/product-taxonomy/releases/unstable/?categoryId=sg-4-17-2-17)
-     * that's associated with the product.
-     */
-    private String category;
 
     /**
      * A list of searchable keywords that are
@@ -476,6 +470,12 @@ public class ProductCreateInput {
      * The name of the product's vendor.
      */
     private String vendor;
+
+    /**
+     * The ID of the [category](https://shopify.github.io/product-taxonomy/releases/unstable/?categoryId=sg-4-17-2-17)
+     * that's associated with the product.
+     */
+    private String category;
 
     /**
      * Whether the product is a gift card.
@@ -534,12 +534,12 @@ public class ProductCreateInput {
       result.handle = this.handle;
       result.seo = this.seo;
       result.productType = this.productType;
-      result.category = this.category;
       result.tags = this.tags;
       result.templateSuffix = this.templateSuffix;
       result.giftCardTemplateSuffix = this.giftCardTemplateSuffix;
       result.title = this.title;
       result.vendor = this.vendor;
+      result.category = this.category;
       result.giftCard = this.giftCard;
       result.collectionsToJoin = this.collectionsToJoin;
       result.combinedListingRole = this.combinedListingRole;
@@ -592,15 +592,6 @@ public class ProductCreateInput {
     }
 
     /**
-     * The ID of the [category](https://shopify.github.io/product-taxonomy/releases/unstable/?categoryId=sg-4-17-2-17)
-     * that's associated with the product.
-     */
-    public Builder category(String category) {
-      this.category = category;
-      return this;
-    }
-
-    /**
      * A list of searchable keywords that are
      * associated with the product. For example, a merchant might apply the `sports`
      * and `summer` tags to products that are associated with sportwear for summer.
@@ -649,6 +640,15 @@ public class ProductCreateInput {
      */
     public Builder vendor(String vendor) {
       this.vendor = vendor;
+      return this;
+    }
+
+    /**
+     * The ID of the [category](https://shopify.github.io/product-taxonomy/releases/unstable/?categoryId=sg-4-17-2-17)
+     * that's associated with the product.
+     */
+    public Builder category(String category) {
+      this.category = category;
       return this;
     }
 

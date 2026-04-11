@@ -9,7 +9,15 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Creates a menu.
+ * Creates a navigation
+ * [`Menu`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Menu) for
+ * the online store. Menus organize links that help customers navigate to [collections](https://shopify.dev/docs/api/admin-graphql/latest/objects/Collection),
+ * [products](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product),
+ * [pages](https://shopify.dev/docs/api/admin-graphql/latest/objects/Page),
+ * [blogs](https://shopify.dev/docs/api/admin-graphql/latest/objects/Blog), and custom URLs.
+ *   
+ * Each menu requires a unique handle for identification and can contain multiple [`MenuItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MenuItem)
+ * objects with nested sub-items up to three levels deep.
  */
 public class MenuCreateGraphQLQuery extends GraphQLQuery {
   public MenuCreateGraphQLQuery(String title, String handle, List<MenuItemCreateInput> items,

@@ -26,6 +26,11 @@ public class MetafieldDefinitionCreateUserError implements com.shopify.admin.typ
   private Integer elementIndex;
 
   /**
+   * The key of the failing validation element.
+   */
+  private String elementKey;
+
+  /**
    * The path to the input field that caused the error.
    */
   private List<String> field;
@@ -61,6 +66,17 @@ public class MetafieldDefinitionCreateUserError implements com.shopify.admin.typ
   }
 
   /**
+   * The key of the failing validation element.
+   */
+  public String getElementKey() {
+    return elementKey;
+  }
+
+  public void setElementKey(String elementKey) {
+    this.elementKey = elementKey;
+  }
+
+  /**
    * The path to the input field that caused the error.
    */
   public List<String> getField() {
@@ -84,7 +100,7 @@ public class MetafieldDefinitionCreateUserError implements com.shopify.admin.typ
 
   @Override
   public String toString() {
-    return "MetafieldDefinitionCreateUserError{code='" + code + "', elementIndex='" + elementIndex + "', field='" + field + "', message='" + message + "'}";
+    return "MetafieldDefinitionCreateUserError{code='" + code + "', elementIndex='" + elementIndex + "', elementKey='" + elementKey + "', field='" + field + "', message='" + message + "'}";
   }
 
   @Override
@@ -94,13 +110,14 @@ public class MetafieldDefinitionCreateUserError implements com.shopify.admin.typ
     MetafieldDefinitionCreateUserError that = (MetafieldDefinitionCreateUserError) o;
     return Objects.equals(code, that.code) &&
         Objects.equals(elementIndex, that.elementIndex) &&
+        Objects.equals(elementKey, that.elementKey) &&
         Objects.equals(field, that.field) &&
         Objects.equals(message, that.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, elementIndex, field, message);
+    return Objects.hash(code, elementIndex, elementKey, field, message);
   }
 
   public static Builder newBuilder() {
@@ -119,6 +136,11 @@ public class MetafieldDefinitionCreateUserError implements com.shopify.admin.typ
     private Integer elementIndex;
 
     /**
+     * The key of the failing validation element.
+     */
+    private String elementKey;
+
+    /**
      * The path to the input field that caused the error.
      */
     private List<String> field;
@@ -132,6 +154,7 @@ public class MetafieldDefinitionCreateUserError implements com.shopify.admin.typ
       MetafieldDefinitionCreateUserError result = new MetafieldDefinitionCreateUserError();
       result.code = this.code;
       result.elementIndex = this.elementIndex;
+      result.elementKey = this.elementKey;
       result.field = this.field;
       result.message = this.message;
       return result;
@@ -150,6 +173,14 @@ public class MetafieldDefinitionCreateUserError implements com.shopify.admin.typ
      */
     public Builder elementIndex(Integer elementIndex) {
       this.elementIndex = elementIndex;
+      return this;
+    }
+
+    /**
+     * The key of the failing validation element.
+     */
+    public Builder elementKey(String elementKey) {
+      this.elementKey = elementKey;
       return this;
     }
 

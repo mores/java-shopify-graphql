@@ -8,7 +8,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Closes an open order.
+ * Marks an open [`Order`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order) as
+ * closed. A closed order is one where merchants fulfill or cancel all [`LineItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/LineItem)
+ * objects and complete all financial transactions.
+ *   
+ * Once closed, the order indicates that no further work is required. The order's [`closedAt`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order#field-closedAt)
+ * timestamp is set when this mutation completes successfully.
  */
 public class OrderCloseGraphQLQuery extends GraphQLQuery {
   public OrderCloseGraphQLQuery(OrderCloseInput input, String queryName, Set<String> fieldsSet) {

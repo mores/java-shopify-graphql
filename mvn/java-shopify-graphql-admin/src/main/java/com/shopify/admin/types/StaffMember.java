@@ -8,8 +8,12 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Represents the data about a staff member's Shopify account. Merchants can use
- * staff member data to get more information about the staff members in their store.
+ * A user account that can access the Shopify admin to manage store operations.
+ * Includes personal information and account status.
+ *
+ * You can assign staff members to [`CompanyLocation`](https://shopify.dev/docs/api/admin-graphql/latest/objects/CompanyLocation)
+ * objects for [B2B operations](https://shopify.dev/docs/apps/build/b2b), limiting
+ * their actions to those locations.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

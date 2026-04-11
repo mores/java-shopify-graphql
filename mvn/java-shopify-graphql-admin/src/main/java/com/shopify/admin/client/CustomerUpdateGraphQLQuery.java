@@ -8,8 +8,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Update a customer's attributes. As of API version 2022-10, apps using
- * protected customer data must meet the protected customer data [requirements](https://shopify.dev/apps/store/data-protection/protected-customer-data).
+ * Updates a [`Customer`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Customer)'s attributes including personal information and [`tax exemptions`](https://shopify.dev/docs/api/admin-graphql/latest/enums/TaxExemption).
+ *   
+ * Apps using protected customer data must meet Shopify's [protected customer data requirements](https://shopify.dev/docs/apps/launch/protected-customer-data#requirements).
  */
 public class CustomerUpdateGraphQLQuery extends GraphQLQuery {
   public CustomerUpdateGraphQLQuery(CustomerInput input, String queryName, Set<String> fieldsSet) {

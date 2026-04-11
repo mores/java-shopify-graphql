@@ -9,7 +9,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a list of TenderTransactions associated with the shop.
+ * Transactions representing a movement of money between customers and the shop.
+ * Each transaction records the amount, payment method, processing details, and the associated
+ * [`Order`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order).
+ *   
+ * Positive amounts indicate customer payments to the merchant. Negative amounts
+ * represent refunds from the merchant to the customer. Use the [`query`](https://shopify.dev/docs/api/admin-graphql/latest/queries/tenderTransactions#arguments-query)
+ * parameter to filter transactions by attributes such as transaction ID,
+ * processing date, and point-of-sale device ID.
  */
 public class TenderTransactionsGraphQLQuery extends GraphQLQuery {
   public TenderTransactionsGraphQLQuery(Integer first, String after, Integer last, String before,
@@ -114,7 +121,7 @@ public class TenderTransactionsGraphQLQuery extends GraphQLQuery {
      * A filter made up of terms, connectives, modifiers, and comparators.
      * | name | type | description | acceptable_values | default_value | example_use |
      * | ---- | ---- | ---- | ---- | ---- | ---- |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
      * | point_of_sale_device_id | id |
      * | processed_at | time |
      * | test | boolean |

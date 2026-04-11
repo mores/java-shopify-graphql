@@ -8,7 +8,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Updates a publication.
+ * Updates a [`Publication`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+ *   
+ * You can add or remove
+ * [products](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+ * from the publication, with a maximum of 50 items per operation. The [`autoPublish`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/publicationUpdate#arguments-input.fields.autoPublish)
+ * field determines whether new products automatically display in this publication.
  */
 public class PublicationUpdateGraphQLQuery extends GraphQLQuery {
   public PublicationUpdateGraphQLQuery(String id, PublicationUpdateInput input, String queryName,

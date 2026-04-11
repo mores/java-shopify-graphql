@@ -185,7 +185,10 @@ public class OrderTransaction implements StoreCreditAccountTransactionOrigin, co
 
   /**
    * The transaction receipt that the payment gateway attaches to the transaction.
-   * The value of this field depends on which payment gateway processed the transaction.
+   * > **Note:** This field is **gateway-specific** and **not a stable contract**.
+   * > Its structure and contents can vary by payment gateway and may change without notice.
+   * > Apps **shouldn't parse or rely on this field for business logic**; prefer
+   * typed fields on `OrderTransaction` and related objects.
    */
   private String receiptJson;
 
@@ -564,7 +567,10 @@ public class OrderTransaction implements StoreCreditAccountTransactionOrigin, co
 
   /**
    * The transaction receipt that the payment gateway attaches to the transaction.
-   * The value of this field depends on which payment gateway processed the transaction.
+   * > **Note:** This field is **gateway-specific** and **not a stable contract**.
+   * > Its structure and contents can vary by payment gateway and may change without notice.
+   * > Apps **shouldn't parse or rely on this field for business logic**; prefer
+   * typed fields on `OrderTransaction` and related objects.
    */
   public String getReceiptJson() {
     return receiptJson;
@@ -887,7 +893,10 @@ public class OrderTransaction implements StoreCreditAccountTransactionOrigin, co
 
     /**
      * The transaction receipt that the payment gateway attaches to the transaction.
-     * The value of this field depends on which payment gateway processed the transaction.
+     * > **Note:** This field is **gateway-specific** and **not a stable contract**.
+     * > Its structure and contents can vary by payment gateway and may change without notice.
+     * > Apps **shouldn't parse or rely on this field for business logic**; prefer
+     * typed fields on `OrderTransaction` and related objects.
      */
     private String receiptJson;
 
@@ -1221,7 +1230,10 @@ public class OrderTransaction implements StoreCreditAccountTransactionOrigin, co
 
     /**
      * The transaction receipt that the payment gateway attaches to the transaction.
-     * The value of this field depends on which payment gateway processed the transaction.
+     * > **Note:** This field is **gateway-specific** and **not a stable contract**.
+     * > Its structure and contents can vary by payment gateway and may change without notice.
+     * > Apps **shouldn't parse or rely on this field for business logic**; prefer
+     * typed fields on `OrderTransaction` and related objects.
      */
     public Builder receiptJson(String receiptJson) {
       this.receiptJson = receiptJson;

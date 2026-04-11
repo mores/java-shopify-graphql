@@ -67,6 +67,24 @@ public class ImageProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     return projection;
   }
 
+  public TranslationProjection<ImageProjection<PARENT, ROOT>, ROOT> translations() {
+     TranslationProjection<ImageProjection<PARENT, ROOT>, ROOT> projection = new TranslationProjection<>(this, getRoot());
+     getFields().put("translations", projection);
+     return projection;
+  }
+
+  public TranslationProjection<ImageProjection<PARENT, ROOT>, ROOT> translations(String locale,
+      String marketId) {
+    TranslationProjection<ImageProjection<PARENT, ROOT>, ROOT> projection = new TranslationProjection<>(this, getRoot());    
+    getFields().put("translations", projection);
+    getInputArguments().computeIfAbsent("translations", k -> new ArrayList<>());                      
+    InputArgument localeArg = new InputArgument("locale", locale);
+    getInputArguments().get("translations").add(localeArg);
+    InputArgument marketIdArg = new InputArgument("marketId", marketId);
+    getInputArguments().get("translations").add(marketIdArg);
+    return projection;
+  }
+
   public ImageProjection<PARENT, ROOT> altText() {
     getFields().put("altText", null);
     return this;

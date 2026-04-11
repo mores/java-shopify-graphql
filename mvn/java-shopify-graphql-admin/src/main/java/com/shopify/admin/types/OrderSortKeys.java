@@ -6,6 +6,8 @@ package com.shopify.admin.types;
 public enum OrderSortKeys {
   CREATED_AT,
 
+  CURRENT_TOTAL_PRICE,
+
   CUSTOMER_NAME,
 
   DESTINATION,

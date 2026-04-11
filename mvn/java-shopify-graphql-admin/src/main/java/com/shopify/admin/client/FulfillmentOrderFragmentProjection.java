@@ -199,6 +199,13 @@ public class FulfillmentOrderFragmentProjection<PARENT extends BaseSubProjection
      return projection;
   }
 
+  public WeightProjection<FulfillmentOrderFragmentProjection<PARENT, ROOT>, ROOT> remainingLineItemsWeight(
+      ) {
+     WeightProjection<FulfillmentOrderFragmentProjection<PARENT, ROOT>, ROOT> projection = new WeightProjection<>(this, getRoot());
+     getFields().put("remainingLineItemsWeight", projection);
+     return projection;
+  }
+
   public FulfillmentOrderRequestStatusProjection<FulfillmentOrderFragmentProjection<PARENT, ROOT>, ROOT> requestStatus(
       ) {
      FulfillmentOrderRequestStatusProjection<FulfillmentOrderFragmentProjection<PARENT, ROOT>, ROOT> projection = new FulfillmentOrderRequestStatusProjection<>(this, getRoot());

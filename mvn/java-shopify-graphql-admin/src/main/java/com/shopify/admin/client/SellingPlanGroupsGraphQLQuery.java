@@ -10,7 +10,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * List Selling Plan Groups.
+ * Retrieves a paginated list of [`SellingPlanGroup`](https://shopify.dev/docs/api/admin-graphql/latest/objects/SellingPlanGroup)
+ * objects that belong to the app making the API call. Selling plan groups are
+ * selling methods like subscriptions, preorders, or other purchase options that
+ * merchants offer to customers.
+ *   
+ * Each group has one or more [`SellingPlan`](https://shopify.dev/docs/api/admin-graphql/latest/objects/SellingPlan)
+ * objects that define specific billing and delivery schedules, pricing
+ * adjustments, and policies. Use the [`query`](https://shopify.dev/docs/api/admin-graphql/latest/queries/sellingPlanGroups#arguments-query)
+ * argument to search by name or filter results by other criteria.
+ *   
+ * Learn more about [building selling plans](https://shopify.dev/docs/apps/build/purchase-options/subscriptions/selling-plans).
  */
 public class SellingPlanGroupsGraphQLQuery extends GraphQLQuery {
   public SellingPlanGroupsGraphQLQuery(Integer first, String after, Integer last, String before,
@@ -137,7 +147,7 @@ public class SellingPlanGroupsGraphQLQuery extends GraphQLQuery {
      * `SUBSCRIPTION`<br/> - `PRE_ORDER`<br/> - `TRY_BEFORE_YOU_BUY`<br/> - `OTHER` |
      * | created_at | time |
      * | delivery_frequency | string |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
      * | name | string |
      * | percentage_off | float |
      * You can apply one or more filters to a query. Learn more about [Shopify API

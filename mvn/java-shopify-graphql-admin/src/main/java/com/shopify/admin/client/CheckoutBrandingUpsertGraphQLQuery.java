@@ -8,15 +8,21 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Updates the checkout branding settings for a
- * [checkout profile](https://shopify.dev/api/admin-graphql/unstable/queries/checkoutProfile).
+ * Updates the visual branding for a [`CheckoutProfile`](https://shopify.dev/docs/api/admin-graphql/latest/objects/CheckoutProfile),
+ * customizing how checkout displays to customers. Creates new branding settings
+ * if none exist, or modifies existing settings.
  *   
- * If the settings don't exist, then new settings are created. The checkout branding settings applied to a
- * published checkout profile will be immediately visible within the store's checkout. The checkout branding
- * settings applied to a draft checkout profile could be previewed within the admin checkout editor.
+ * The mutation accepts two levels of customization through the [`CheckoutBrandingInput`](https://shopify.dev/docs/api/admin-graphql/latest/input-objects/CheckoutBrandingInput) input object. [`designSystem`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/checkoutBrandingUpsert#arguments-checkoutBrandingInput.fields.designSystem)
+ * defines foundational brand attributes like colors, typography, and corner
+ * radius that apply consistently throughout checkout. [`customizations`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/checkoutBrandingUpsert#arguments-checkoutBrandingInput.fields.customizations)
+ * defines styles for specific parts of the UI, individual components, or groups
+ * of components like the header, buttons, form fields, and sections.
  *   
- * To learn more about updating checkout branding settings, refer to the checkout branding
- * [tutorial](https://shopify.dev/docs/apps/checkout/styling).
+ * Changes to a published checkout profile display immediately in the store's
+ * checkout. You can preview draft profiles in the Shopify admin's checkout
+ * editor before publishing.
+ *   
+ * Learn more about [checkout styling](https://shopify.dev/docs/apps/checkout/styling).
  */
 public class CheckoutBrandingUpsertGraphQLQuery extends GraphQLQuery {
   public CheckoutBrandingUpsertGraphQLQuery(String checkoutProfileId,

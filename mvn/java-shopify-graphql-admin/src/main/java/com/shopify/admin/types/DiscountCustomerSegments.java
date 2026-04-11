@@ -8,12 +8,23 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * A list of customer segments who are eligible for the discount.
+ * Represents customer segments that are eligible to receive a specific discount,
+ * allowing merchants to target promotions to defined groups of customers. This
+ * enables personalized marketing campaigns based on customer behavior and
+ * characteristics.
+ *
+ * For example, a "VIP Customer 15% Off" promotion might target a segment of
+ * high-value repeat customers, while a "New Customer Welcome" discount could focus
+ * on first-time buyers.
+ *
+ * Segment-based discounts help merchants create more relevant promotional
+ * experiences and improve conversion rates by showing the right offers to the
+ * right customers at the right time.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
-public class DiscountCustomerSegments implements DiscountCustomerSelection {
+public class DiscountCustomerSegments implements DiscountContext, DiscountCustomerSelection {
   /**
    * The list of customer segments who are eligible for the discount.
    */

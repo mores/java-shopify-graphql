@@ -44,12 +44,14 @@ public class LocationFragmentProjection<PARENT extends BaseSubProjectionNode<?, 
   }
 
   public InventoryLevelProjection<LocationFragmentProjection<PARENT, ROOT>, ROOT> inventoryLevel(
-      String inventoryItemId) {
+      String inventoryItemId, Boolean includeInactive) {
     InventoryLevelProjection<LocationFragmentProjection<PARENT, ROOT>, ROOT> projection = new InventoryLevelProjection<>(this, getRoot());    
     getFields().put("inventoryLevel", projection);
     getInputArguments().computeIfAbsent("inventoryLevel", k -> new ArrayList<>());                      
     InputArgument inventoryItemIdArg = new InputArgument("inventoryItemId", inventoryItemId);
     getInputArguments().get("inventoryLevel").add(inventoryItemIdArg);
+    InputArgument includeInactiveArg = new InputArgument("includeInactive", includeInactive);
+    getInputArguments().get("inventoryLevel").add(includeInactiveArg);
     return projection;
   }
 
@@ -61,10 +63,13 @@ public class LocationFragmentProjection<PARENT extends BaseSubProjectionNode<?, 
   }
 
   public InventoryLevelConnectionProjection<LocationFragmentProjection<PARENT, ROOT>, ROOT> inventoryLevels(
-      Integer first, String after, Integer last, String before, Boolean reverse, String query) {
+      Boolean includeInactive, Integer first, String after, Integer last, String before,
+      Boolean reverse, String query) {
     InventoryLevelConnectionProjection<LocationFragmentProjection<PARENT, ROOT>, ROOT> projection = new InventoryLevelConnectionProjection<>(this, getRoot());    
     getFields().put("inventoryLevels", projection);
     getInputArguments().computeIfAbsent("inventoryLevels", k -> new ArrayList<>());                      
+    InputArgument includeInactiveArg = new InputArgument("includeInactive", includeInactive);
+    getInputArguments().get("inventoryLevels").add(includeInactiveArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("inventoryLevels").add(firstArg);
     InputArgument afterArg = new InputArgument("after", after);

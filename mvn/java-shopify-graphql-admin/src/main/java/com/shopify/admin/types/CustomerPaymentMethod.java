@@ -8,7 +8,9 @@ import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
- * A customer's payment method.
+ * A customer's saved payment method. Stores the payment instrument details and billing information for recurring charges.
+ *
+ * The payment method supports types included in the [`CustomerPaymentInstrument`](https://shopify.dev/docs/api/admin-graphql/latest/unions/CustomerPaymentInstrument) union.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -28,6 +30,11 @@ public class CustomerPaymentMethod implements com.shopify.admin.types.Node {
    * The instrument for this payment method.
    */
   private CustomerPaymentInstrument instrument;
+
+  /**
+   * The mandates associated with the payment method.
+   */
+  private PaymentMandateResourceConnection mandates;
 
   /**
    * The time that the payment method was revoked.
@@ -81,6 +88,17 @@ public class CustomerPaymentMethod implements com.shopify.admin.types.Node {
   }
 
   /**
+   * The mandates associated with the payment method.
+   */
+  public PaymentMandateResourceConnection getMandates() {
+    return mandates;
+  }
+
+  public void setMandates(PaymentMandateResourceConnection mandates) {
+    this.mandates = mandates;
+  }
+
+  /**
    * The time that the payment method was revoked.
    */
   public OffsetDateTime getRevokedAt() {
@@ -115,7 +133,7 @@ public class CustomerPaymentMethod implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "CustomerPaymentMethod{customer='" + customer + "', id='" + id + "', instrument='" + instrument + "', revokedAt='" + revokedAt + "', revokedReason='" + revokedReason + "', subscriptionContracts='" + subscriptionContracts + "'}";
+    return "CustomerPaymentMethod{customer='" + customer + "', id='" + id + "', instrument='" + instrument + "', mandates='" + mandates + "', revokedAt='" + revokedAt + "', revokedReason='" + revokedReason + "', subscriptionContracts='" + subscriptionContracts + "'}";
   }
 
   @Override
@@ -126,6 +144,7 @@ public class CustomerPaymentMethod implements com.shopify.admin.types.Node {
     return Objects.equals(customer, that.customer) &&
         Objects.equals(id, that.id) &&
         Objects.equals(instrument, that.instrument) &&
+        Objects.equals(mandates, that.mandates) &&
         Objects.equals(revokedAt, that.revokedAt) &&
         Objects.equals(revokedReason, that.revokedReason) &&
         Objects.equals(subscriptionContracts, that.subscriptionContracts);
@@ -133,7 +152,7 @@ public class CustomerPaymentMethod implements com.shopify.admin.types.Node {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customer, id, instrument, revokedAt, revokedReason, subscriptionContracts);
+    return Objects.hash(customer, id, instrument, mandates, revokedAt, revokedReason, subscriptionContracts);
   }
 
   public static Builder newBuilder() {
@@ -157,6 +176,11 @@ public class CustomerPaymentMethod implements com.shopify.admin.types.Node {
     private CustomerPaymentInstrument instrument;
 
     /**
+     * The mandates associated with the payment method.
+     */
+    private PaymentMandateResourceConnection mandates;
+
+    /**
      * The time that the payment method was revoked.
      */
     private OffsetDateTime revokedAt;
@@ -176,6 +200,7 @@ public class CustomerPaymentMethod implements com.shopify.admin.types.Node {
       result.customer = this.customer;
       result.id = this.id;
       result.instrument = this.instrument;
+      result.mandates = this.mandates;
       result.revokedAt = this.revokedAt;
       result.revokedReason = this.revokedReason;
       result.subscriptionContracts = this.subscriptionContracts;
@@ -203,6 +228,14 @@ public class CustomerPaymentMethod implements com.shopify.admin.types.Node {
      */
     public Builder instrument(CustomerPaymentInstrument instrument) {
       this.instrument = instrument;
+      return this;
+    }
+
+    /**
+     * The mandates associated with the payment method.
+     */
+    public Builder mandates(PaymentMandateResourceConnection mandates) {
+      this.mandates = mandates;
       return this;
     }
 

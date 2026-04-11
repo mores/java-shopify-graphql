@@ -157,7 +157,7 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
 
   /**
    * A subtotal of the line items and corresponding discounts,
-   * excluding include shipping charges, shipping discounts, taxes, or order discounts.
+   * excluding shipping charges, shipping discounts, taxes, or order discounts.
    */
   private MoneyBag lineItemsSubtotalPrice;
 
@@ -305,7 +305,7 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
   private MoneyBag totalDiscountsSet;
 
   /**
-   * Total price of line items.
+   * Total price of line items, excluding discounts.
    */
   private MoneyBag totalLineItemsPriceSet;
 
@@ -636,7 +636,7 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
 
   /**
    * A subtotal of the line items and corresponding discounts,
-   * excluding include shipping charges, shipping discounts, taxes, or order discounts.
+   * excluding shipping charges, shipping discounts, taxes, or order discounts.
    */
   public MoneyBag getLineItemsSubtotalPrice() {
     return lineItemsSubtotalPrice;
@@ -952,7 +952,7 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
   }
 
   /**
-   * Total price of line items.
+   * Total price of line items, excluding discounts.
    */
   public MoneyBag getTotalLineItemsPriceSet() {
     return totalLineItemsPriceSet;
@@ -1305,7 +1305,7 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
 
     /**
      * A subtotal of the line items and corresponding discounts,
-     * excluding include shipping charges, shipping discounts, taxes, or order discounts.
+     * excluding shipping charges, shipping discounts, taxes, or order discounts.
      */
     private MoneyBag lineItemsSubtotalPrice;
 
@@ -1453,7 +1453,7 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
     private MoneyBag totalDiscountsSet;
 
     /**
-     * Total price of line items.
+     * Total price of line items, excluding discounts.
      */
     private MoneyBag totalLineItemsPriceSet;
 
@@ -1781,7 +1781,7 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
 
     /**
      * A subtotal of the line items and corresponding discounts,
-     * excluding include shipping charges, shipping discounts, taxes, or order discounts.
+     * excluding shipping charges, shipping discounts, taxes, or order discounts.
      */
     public Builder lineItemsSubtotalPrice(MoneyBag lineItemsSubtotalPrice) {
       this.lineItemsSubtotalPrice = lineItemsSubtotalPrice;
@@ -2013,7 +2013,7 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
     }
 
     /**
-     * Total price of line items.
+     * Total price of line items, excluding discounts.
      */
     public Builder totalLineItemsPriceSet(MoneyBag totalLineItemsPriceSet) {
       this.totalLineItemsPriceSet = totalLineItemsPriceSet;

@@ -5,13 +5,14 @@ import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
 import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.Objects;
 
 /**
  * Metafields enable you to attach additional information to a Shopify resource, such
  * as a [Product](https://shopify.dev/api/admin-graphql/latest/objects/product) or
  * a [Collection](https://shopify.dev/api/admin-graphql/latest/objects/collection).
- * For more information about where you can attach metafields refer to [HasMetafields](https://shopify.dev/api/admin/graphql/reference/common-objects/HasMetafields).
+ * For more information about where you can attach metafields refer to [HasMetafields](https://shopify.dev/api/admin-graphql/latest/interfaces/HasMetafields).
  * Some examples of the data that metafields enable you to store are
  * specifications, size charts, downloadable documents, release dates, images, or part numbers.
  * Metafields are identified by an owner resource, namespace, and key. and store a
@@ -20,7 +21,7 @@ import java.util.Objects;
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
-public class Metafield implements com.shopify.admin.types.HasCompareDigest, com.shopify.admin.types.LegacyInteroperability, com.shopify.admin.types.Node {
+public class Metafield implements com.shopify.admin.types.HasCompareDigest, com.shopify.admin.types.HasPublishedTranslations, com.shopify.admin.types.LegacyInteroperability, com.shopify.admin.types.Node {
   /**
    * The data stored in the resource, represented as a digest.
    */
@@ -87,7 +88,12 @@ public class Metafield implements com.shopify.admin.types.HasCompareDigest, com.
   private MetafieldReferenceConnection references;
 
   /**
-   * The type of data that is stored in the metafield.
+   * The published translations associated with the resource.
+   */
+  private List<Translation> translations;
+
+  /**
+   * The type of data that's stored in the metafield.
    * Refer to the list of [supported types](https://shopify.dev/apps/metafields/types).
    */
   private String type;
@@ -249,7 +255,18 @@ public class Metafield implements com.shopify.admin.types.HasCompareDigest, com.
   }
 
   /**
-   * The type of data that is stored in the metafield.
+   * The published translations associated with the resource.
+   */
+  public List<Translation> getTranslations() {
+    return translations;
+  }
+
+  public void setTranslations(List<Translation> translations) {
+    this.translations = translations;
+  }
+
+  /**
+   * The type of data that's stored in the metafield.
    * Refer to the list of [supported types](https://shopify.dev/apps/metafields/types).
    */
   public String getType() {
@@ -284,7 +301,7 @@ public class Metafield implements com.shopify.admin.types.HasCompareDigest, com.
 
   @Override
   public String toString() {
-    return "Metafield{compareDigest='" + compareDigest + "', createdAt='" + createdAt + "', definition='" + definition + "', description='" + description + "', id='" + id + "', jsonValue='" + jsonValue + "', key='" + key + "', legacyResourceId='" + legacyResourceId + "', namespace='" + namespace + "', owner='" + owner + "', ownerType='" + ownerType + "', reference='" + reference + "', references='" + references + "', type='" + type + "', updatedAt='" + updatedAt + "', value='" + value + "'}";
+    return "Metafield{compareDigest='" + compareDigest + "', createdAt='" + createdAt + "', definition='" + definition + "', description='" + description + "', id='" + id + "', jsonValue='" + jsonValue + "', key='" + key + "', legacyResourceId='" + legacyResourceId + "', namespace='" + namespace + "', owner='" + owner + "', ownerType='" + ownerType + "', reference='" + reference + "', references='" + references + "', translations='" + translations + "', type='" + type + "', updatedAt='" + updatedAt + "', value='" + value + "'}";
   }
 
   @Override
@@ -305,6 +322,7 @@ public class Metafield implements com.shopify.admin.types.HasCompareDigest, com.
         Objects.equals(ownerType, that.ownerType) &&
         Objects.equals(reference, that.reference) &&
         Objects.equals(references, that.references) &&
+        Objects.equals(translations, that.translations) &&
         Objects.equals(type, that.type) &&
         Objects.equals(updatedAt, that.updatedAt) &&
         Objects.equals(value, that.value);
@@ -312,7 +330,7 @@ public class Metafield implements com.shopify.admin.types.HasCompareDigest, com.
 
   @Override
   public int hashCode() {
-    return Objects.hash(compareDigest, createdAt, definition, description, id, jsonValue, key, legacyResourceId, namespace, owner, ownerType, reference, references, type, updatedAt, value);
+    return Objects.hash(compareDigest, createdAt, definition, description, id, jsonValue, key, legacyResourceId, namespace, owner, ownerType, reference, references, translations, type, updatedAt, value);
   }
 
   public static Builder newBuilder() {
@@ -386,7 +404,12 @@ public class Metafield implements com.shopify.admin.types.HasCompareDigest, com.
     private MetafieldReferenceConnection references;
 
     /**
-     * The type of data that is stored in the metafield.
+     * The published translations associated with the resource.
+     */
+    private List<Translation> translations;
+
+    /**
+     * The type of data that's stored in the metafield.
      * Refer to the list of [supported types](https://shopify.dev/apps/metafields/types).
      */
     private String type;
@@ -416,6 +439,7 @@ public class Metafield implements com.shopify.admin.types.HasCompareDigest, com.
       result.ownerType = this.ownerType;
       result.reference = this.reference;
       result.references = this.references;
+      result.translations = this.translations;
       result.type = this.type;
       result.updatedAt = this.updatedAt;
       result.value = this.value;
@@ -527,7 +551,15 @@ public class Metafield implements com.shopify.admin.types.HasCompareDigest, com.
     }
 
     /**
-     * The type of data that is stored in the metafield.
+     * The published translations associated with the resource.
+     */
+    public Builder translations(List<Translation> translations) {
+      this.translations = translations;
+      return this;
+    }
+
+    /**
+     * The type of data that's stored in the metafield.
      * Refer to the list of [supported types](https://shopify.dev/apps/metafields/types).
      */
     public Builder type(String type) {

@@ -8,7 +8,20 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Apply changes to inventory quantities.
+ * Adjusts quantities for inventory items by applying incremental changes at
+ * specific locations. Each adjustment modifies the quantity by a delta value
+ * rather than setting an absolute amount.
+ *   
+ * The mutation tracks adjustments with a reason code and optional reference URI
+ * for audit trails. Returns an [`InventoryAdjustmentGroup`](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryAdjustmentGroup)
+ * that records all changes made in the operation.
+ *   
+ * Learn more about [managing inventory quantities and states](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#adjust-inventory-quantities).
+ *   
+ * > Caution:
+ * > As of version `2026-01`, this mutation supports an optional idempotency key using the `@idempotent` directive.
+ * > As of version `2026-04`, the idempotency key is required and must be provided using the `@idempotent` directive.
+ * > For more information, see the [idempotency documentation](https://shopify.dev/docs/api/usage/idempotent-requests).
  */
 public class InventoryAdjustQuantitiesGraphQLQuery extends GraphQLQuery {
   public InventoryAdjustQuantitiesGraphQLQuery(InventoryAdjustQuantitiesInput input,

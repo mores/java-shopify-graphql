@@ -7,7 +7,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * A checkout profile on a shop.
+ * Returns a [`CheckoutProfile`](https://shopify.dev/docs/api/admin-graphql/latest/objects/CheckoutProfile). Checkout profiles define the branding settings and UI extensions for a store's
+ * checkout experience. Stores can have one published profile that renders on
+ * their live checkout and multiple draft profiles for testing customizations in
+ * the checkout editor.
  */
 public class CheckoutProfileGraphQLQuery extends GraphQLQuery {
   public CheckoutProfileGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

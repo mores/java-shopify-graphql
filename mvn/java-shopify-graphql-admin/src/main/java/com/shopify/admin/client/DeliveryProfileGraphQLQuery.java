@@ -7,7 +7,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a Delivery Profile resource by ID.
+ * Retrieves a [`DeliveryProfile`](https://shopify.dev/docs/api/admin-graphql/latest/objects/DeliveryProfile) by ID. Delivery profiles group shipping settings for specific
+ * [`Product`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+ * objects that ship from selected [`Location`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Location)
+ * objects to [delivery
+ * zones](https://shopify.dev/docs/api/admin-graphql/latest/objects/DeliveryZone
+ * with defined rates.
+ *   
+ * Learn more about [delivery profiles](https://shopify.dev/docs/apps/build/purchase-options/deferred/delivery-and-deferment#whats-a-delivery-profile).
  */
 public class DeliveryProfileGraphQLQuery extends GraphQLQuery {
   public DeliveryProfileGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

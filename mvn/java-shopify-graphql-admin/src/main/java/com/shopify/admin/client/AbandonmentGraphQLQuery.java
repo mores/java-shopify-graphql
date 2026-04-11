@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns an abandonment by ID.
+ * Returns a `Abandonment` resource by ID.
  */
 public class AbandonmentGraphQLQuery extends GraphQLQuery {
   public AbandonmentGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

@@ -7,7 +7,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Finds a metaobject definition by type.
+ * Retrieves a [`MetaobjectDefinition`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MetaobjectDefinition) by its type. The type serves as a unique identifier that distinguishes one
+ * metaobject definition from another.
  */
 public class MetaobjectDefinitionByTypeGraphQLQuery extends GraphQLQuery {
   public MetaobjectDefinitionByTypeGraphQLQuery(String type, String queryName,

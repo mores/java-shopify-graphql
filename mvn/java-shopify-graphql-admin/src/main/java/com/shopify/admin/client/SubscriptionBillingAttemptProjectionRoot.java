@@ -37,6 +37,13 @@ public class SubscriptionBillingAttemptProjectionRoot<PARENT extends BaseSubProj
     return projection;
   }
 
+  public SubscriptionBillingAttemptStateProjection<SubscriptionBillingAttemptProjectionRoot<PARENT, ROOT>, SubscriptionBillingAttemptProjectionRoot<PARENT, ROOT>> state(
+      ) {
+    SubscriptionBillingAttemptStateProjection<SubscriptionBillingAttemptProjectionRoot<PARENT, ROOT>, SubscriptionBillingAttemptProjectionRoot<PARENT, ROOT>> projection = new SubscriptionBillingAttemptStateProjection<>(this, this);    
+    getFields().put("state", projection);
+    return projection;
+  }
+
   public SubscriptionContractProjection<SubscriptionBillingAttemptProjectionRoot<PARENT, ROOT>, SubscriptionBillingAttemptProjectionRoot<PARENT, ROOT>> subscriptionContract(
       ) {
     SubscriptionContractProjection<SubscriptionBillingAttemptProjectionRoot<PARENT, ROOT>, SubscriptionBillingAttemptProjectionRoot<PARENT, ROOT>> projection = new SubscriptionContractProjection<>(this, this);    

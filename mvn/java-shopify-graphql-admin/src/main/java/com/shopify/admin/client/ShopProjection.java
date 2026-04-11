@@ -3,7 +3,6 @@ package com.shopify.admin.client;
 import com.netflix.graphql.dgs.client.codegen.BaseSubProjectionNode;
 import com.shopify.admin.types.CollectionSortKeys;
 import com.shopify.admin.types.CustomerSortKeys;
-import com.shopify.admin.types.DraftOrderSortKeys;
 import com.shopify.admin.types.FulfillmentOrderAssignmentStatus;
 import com.shopify.admin.types.FulfillmentOrderSortKeys;
 import com.shopify.admin.types.LocationSortKeys;
@@ -299,35 +298,6 @@ public class ShopProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
     getInputArguments().computeIfAbsent("draftOrderTags", k -> new ArrayList<>());                      
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("draftOrderTags").add(firstArg);
-    return projection;
-  }
-
-  public DraftOrderConnectionProjection<ShopProjection<PARENT, ROOT>, ROOT> draftOrders() {
-     DraftOrderConnectionProjection<ShopProjection<PARENT, ROOT>, ROOT> projection = new DraftOrderConnectionProjection<>(this, getRoot());
-     getFields().put("draftOrders", projection);
-     return projection;
-  }
-
-  public DraftOrderConnectionProjection<ShopProjection<PARENT, ROOT>, ROOT> draftOrders(
-      Integer first, String after, Integer last, String before, Boolean reverse,
-      DraftOrderSortKeys sortKey, String query) {
-    DraftOrderConnectionProjection<ShopProjection<PARENT, ROOT>, ROOT> projection = new DraftOrderConnectionProjection<>(this, getRoot());    
-    getFields().put("draftOrders", projection);
-    getInputArguments().computeIfAbsent("draftOrders", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
-    getInputArguments().get("draftOrders").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
-    getInputArguments().get("draftOrders").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
-    getInputArguments().get("draftOrders").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
-    getInputArguments().get("draftOrders").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
-    getInputArguments().get("draftOrders").add(reverseArg);
-    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
-    getInputArguments().get("draftOrders").add(sortKeyArg);
-    InputArgument queryArg = new InputArgument("query", query);
-    getInputArguments().get("draftOrders").add(queryArg);
     return projection;
   }
 
@@ -781,6 +751,12 @@ public class ShopProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
   public CountryCodeProjection<ShopProjection<PARENT, ROOT>, ROOT> shipsToCountries() {
      CountryCodeProjection<ShopProjection<PARENT, ROOT>, ROOT> projection = new CountryCodeProjection<>(this, getRoot());
      getFields().put("shipsToCountries", projection);
+     return projection;
+  }
+
+  public ShopAddressProjection<ShopProjection<PARENT, ROOT>, ROOT> shopAddress() {
+     ShopAddressProjection<ShopProjection<PARENT, ROOT>, ROOT> projection = new ShopAddressProjection<>(this, getRoot());
+     getFields().put("shopAddress", projection);
      return projection;
   }
 

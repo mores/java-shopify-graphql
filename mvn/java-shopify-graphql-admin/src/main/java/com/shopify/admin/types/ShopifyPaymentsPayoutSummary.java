@@ -70,6 +70,11 @@ public class ShopifyPaymentsPayoutSummary {
    */
   private MoneyV2 retriedPayoutsGross;
 
+  /**
+   * Total amount for all usdc rebate credit balance adjustments.
+   */
+  private MoneyV2 usdcRebateCreditAmount;
+
   public ShopifyPaymentsPayoutSummary() {
   }
 
@@ -205,9 +210,20 @@ public class ShopifyPaymentsPayoutSummary {
     this.retriedPayoutsGross = retriedPayoutsGross;
   }
 
+  /**
+   * Total amount for all usdc rebate credit balance adjustments.
+   */
+  public MoneyV2 getUsdcRebateCreditAmount() {
+    return usdcRebateCreditAmount;
+  }
+
+  public void setUsdcRebateCreditAmount(MoneyV2 usdcRebateCreditAmount) {
+    this.usdcRebateCreditAmount = usdcRebateCreditAmount;
+  }
+
   @Override
   public String toString() {
-    return "ShopifyPaymentsPayoutSummary{adjustmentsFee='" + adjustmentsFee + "', adjustmentsGross='" + adjustmentsGross + "', advanceFees='" + advanceFees + "', advanceGross='" + advanceGross + "', chargesFee='" + chargesFee + "', chargesGross='" + chargesGross + "', refundsFee='" + refundsFee + "', refundsFeeGross='" + refundsFeeGross + "', reservedFundsFee='" + reservedFundsFee + "', reservedFundsGross='" + reservedFundsGross + "', retriedPayoutsFee='" + retriedPayoutsFee + "', retriedPayoutsGross='" + retriedPayoutsGross + "'}";
+    return "ShopifyPaymentsPayoutSummary{adjustmentsFee='" + adjustmentsFee + "', adjustmentsGross='" + adjustmentsGross + "', advanceFees='" + advanceFees + "', advanceGross='" + advanceGross + "', chargesFee='" + chargesFee + "', chargesGross='" + chargesGross + "', refundsFee='" + refundsFee + "', refundsFeeGross='" + refundsFeeGross + "', reservedFundsFee='" + reservedFundsFee + "', reservedFundsGross='" + reservedFundsGross + "', retriedPayoutsFee='" + retriedPayoutsFee + "', retriedPayoutsGross='" + retriedPayoutsGross + "', usdcRebateCreditAmount='" + usdcRebateCreditAmount + "'}";
   }
 
   @Override
@@ -226,12 +242,13 @@ public class ShopifyPaymentsPayoutSummary {
         Objects.equals(reservedFundsFee, that.reservedFundsFee) &&
         Objects.equals(reservedFundsGross, that.reservedFundsGross) &&
         Objects.equals(retriedPayoutsFee, that.retriedPayoutsFee) &&
-        Objects.equals(retriedPayoutsGross, that.retriedPayoutsGross);
+        Objects.equals(retriedPayoutsGross, that.retriedPayoutsGross) &&
+        Objects.equals(usdcRebateCreditAmount, that.usdcRebateCreditAmount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(adjustmentsFee, adjustmentsGross, advanceFees, advanceGross, chargesFee, chargesGross, refundsFee, refundsFeeGross, reservedFundsFee, reservedFundsGross, retriedPayoutsFee, retriedPayoutsGross);
+    return Objects.hash(adjustmentsFee, adjustmentsGross, advanceFees, advanceGross, chargesFee, chargesGross, refundsFee, refundsFeeGross, reservedFundsFee, reservedFundsGross, retriedPayoutsFee, retriedPayoutsGross, usdcRebateCreditAmount);
   }
 
   public static Builder newBuilder() {
@@ -299,6 +316,11 @@ public class ShopifyPaymentsPayoutSummary {
      */
     private MoneyV2 retriedPayoutsGross;
 
+    /**
+     * Total amount for all usdc rebate credit balance adjustments.
+     */
+    private MoneyV2 usdcRebateCreditAmount;
+
     public ShopifyPaymentsPayoutSummary build() {
       ShopifyPaymentsPayoutSummary result = new ShopifyPaymentsPayoutSummary();
       result.adjustmentsFee = this.adjustmentsFee;
@@ -313,6 +335,7 @@ public class ShopifyPaymentsPayoutSummary {
       result.reservedFundsGross = this.reservedFundsGross;
       result.retriedPayoutsFee = this.retriedPayoutsFee;
       result.retriedPayoutsGross = this.retriedPayoutsGross;
+      result.usdcRebateCreditAmount = this.usdcRebateCreditAmount;
       return result;
     }
 
@@ -409,6 +432,14 @@ public class ShopifyPaymentsPayoutSummary {
      */
     public Builder retriedPayoutsGross(MoneyV2 retriedPayoutsGross) {
       this.retriedPayoutsGross = retriedPayoutsGross;
+      return this;
+    }
+
+    /**
+     * Total amount for all usdc rebate credit balance adjustments.
+     */
+    public Builder usdcRebateCreditAmount(MoneyV2 usdcRebateCreditAmount) {
+      this.usdcRebateCreditAmount = usdcRebateCreditAmount;
       return this;
     }
   }

@@ -8,9 +8,15 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * The product property names. For example, "Size", "Color", and "Material".
- * Variants are selected based on permutations of these options.
- * The limit for each product property name is 255 characters.
+ * A product attribute that customers can choose from, such as "Size", "Color", or "Material".
+ * [`Product`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+ * objects use options to define the different variations available for purchase.
+ * Each option has a name and a set of possible values that combine to create [`ProductVariant`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant) objects.
+ *
+ * The option includes its display position, associated values, and optional [`LinkedMetafield`](https://shopify.dev/docs/api/admin-graphql/latest/objects/LinkedMetafield)
+ * for structured data. Options support translations for international selling and track which [`ProductOptionValue`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductOptionValue)
+ * objects that variants actively use versus unused values that exist without
+ * associated variants.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

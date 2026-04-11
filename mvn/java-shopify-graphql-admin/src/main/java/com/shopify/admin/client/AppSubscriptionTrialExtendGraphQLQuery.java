@@ -7,7 +7,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Extends the trial of an app subscription.
+ * Extends the trial period for an existing app subscription. Trial extensions
+ * give merchants additional time to use the app before committing to paid billing.
+ *   
+ * Requires the subscription ID and the number of days to extend (between one and
+ * 1000). The extension modifies the existing trial end date, allowing continued
+ * access to subscription features without immediate billing. Returns the updated [`AppSubscription`](https://shopify.dev/docs/api/admin-graphql/latest/objects/AppSubscription).
+ *   
+ * Learn more about [offering free trials](https://shopify.dev/docs/apps/launch/billing/offer-free-trials).
  */
 public class AppSubscriptionTrialExtendGraphQLQuery extends GraphQLQuery {
   public AppSubscriptionTrialExtendGraphQLQuery(String id, int days, String queryName,

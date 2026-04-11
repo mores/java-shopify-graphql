@@ -8,8 +8,14 @@ import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
- * Payouts represent the movement of money between a merchant's Shopify
- * Payments balance and their bank account.
+ * A transfer of funds between a merchant's Shopify Payments balance and their [`ShopifyPaymentsBankAccount`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsBankAccount).
+ * Provides the [net amount](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsPayout#field-ShopifyPaymentsPayout.fields.net), [issue date](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsPayout#field-ShopifyPaymentsPayout.fields.issuedAt), and current [`ShopifyPaymentsPayoutStatus`](https://shopify.dev/docs/api/admin-graphql/latest/enums/ShopifyPaymentsPayoutStatus).
+ *
+ * The payout includes a [`ShopifyPaymentsPayoutSummary`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShopifyPaymentsPayoutSummary)
+ * that breaks down fees and gross amounts by transaction type, such as charges,
+ * refunds, and adjustments. The [`ShopifyPaymentsPayoutTransactionType`](https://shopify.dev/docs/api/admin-graphql/latest/enums/ShopifyPaymentsPayoutTransactionType)
+ * indicates whether funds move into the bank account (deposit) or back to Shopify
+ * Payments (withdrawal).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -24,6 +30,11 @@ public class ShopifyPaymentsPayout implements com.shopify.admin.types.LegacyInte
    * The business entity associated with the payout.
    */
   private BusinessEntity businessEntity;
+
+  /**
+   * A unique trace ID from the financial institution. Use this reference number to track the payout with your provider.
+   */
+  private String externalTraceId;
 
   /**
    * The total amount and currency of the payout.
@@ -89,6 +100,17 @@ public class ShopifyPaymentsPayout implements com.shopify.admin.types.LegacyInte
 
   public void setBusinessEntity(BusinessEntity businessEntity) {
     this.businessEntity = businessEntity;
+  }
+
+  /**
+   * A unique trace ID from the financial institution. Use this reference number to track the payout with your provider.
+   */
+  public String getExternalTraceId() {
+    return externalTraceId;
+  }
+
+  public void setExternalTraceId(String externalTraceId) {
+    this.externalTraceId = externalTraceId;
   }
 
   /**
@@ -182,7 +204,7 @@ public class ShopifyPaymentsPayout implements com.shopify.admin.types.LegacyInte
 
   @Override
   public String toString() {
-    return "ShopifyPaymentsPayout{bankAccount='" + bankAccount + "', businessEntity='" + businessEntity + "', gross='" + gross + "', id='" + id + "', issuedAt='" + issuedAt + "', legacyResourceId='" + legacyResourceId + "', net='" + net + "', status='" + status + "', summary='" + summary + "', transactionType='" + transactionType + "'}";
+    return "ShopifyPaymentsPayout{bankAccount='" + bankAccount + "', businessEntity='" + businessEntity + "', externalTraceId='" + externalTraceId + "', gross='" + gross + "', id='" + id + "', issuedAt='" + issuedAt + "', legacyResourceId='" + legacyResourceId + "', net='" + net + "', status='" + status + "', summary='" + summary + "', transactionType='" + transactionType + "'}";
   }
 
   @Override
@@ -192,6 +214,7 @@ public class ShopifyPaymentsPayout implements com.shopify.admin.types.LegacyInte
     ShopifyPaymentsPayout that = (ShopifyPaymentsPayout) o;
     return Objects.equals(bankAccount, that.bankAccount) &&
         Objects.equals(businessEntity, that.businessEntity) &&
+        Objects.equals(externalTraceId, that.externalTraceId) &&
         Objects.equals(gross, that.gross) &&
         Objects.equals(id, that.id) &&
         Objects.equals(issuedAt, that.issuedAt) &&
@@ -204,7 +227,7 @@ public class ShopifyPaymentsPayout implements com.shopify.admin.types.LegacyInte
 
   @Override
   public int hashCode() {
-    return Objects.hash(bankAccount, businessEntity, gross, id, issuedAt, legacyResourceId, net, status, summary, transactionType);
+    return Objects.hash(bankAccount, businessEntity, externalTraceId, gross, id, issuedAt, legacyResourceId, net, status, summary, transactionType);
   }
 
   public static Builder newBuilder() {
@@ -221,6 +244,11 @@ public class ShopifyPaymentsPayout implements com.shopify.admin.types.LegacyInte
      * The business entity associated with the payout.
      */
     private BusinessEntity businessEntity;
+
+    /**
+     * A unique trace ID from the financial institution. Use this reference number to track the payout with your provider.
+     */
+    private String externalTraceId;
 
     /**
      * The total amount and currency of the payout.
@@ -267,6 +295,7 @@ public class ShopifyPaymentsPayout implements com.shopify.admin.types.LegacyInte
       ShopifyPaymentsPayout result = new ShopifyPaymentsPayout();
       result.bankAccount = this.bankAccount;
       result.businessEntity = this.businessEntity;
+      result.externalTraceId = this.externalTraceId;
       result.gross = this.gross;
       result.id = this.id;
       result.issuedAt = this.issuedAt;
@@ -291,6 +320,14 @@ public class ShopifyPaymentsPayout implements com.shopify.admin.types.LegacyInte
      */
     public Builder businessEntity(BusinessEntity businessEntity) {
       this.businessEntity = businessEntity;
+      return this;
+    }
+
+    /**
+     * A unique trace ID from the financial institution. Use this reference number to track the payout with your provider.
+     */
+    public Builder externalTraceId(String externalTraceId) {
+      this.externalTraceId = externalTraceId;
       return this;
     }
 

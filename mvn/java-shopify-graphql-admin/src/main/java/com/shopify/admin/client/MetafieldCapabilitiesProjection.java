@@ -19,6 +19,20 @@ public class MetafieldCapabilitiesProjection<PARENT extends BaseSubProjectionNod
      return projection;
   }
 
+  public MetafieldCapabilityAnalyticsQueryableProjection<MetafieldCapabilitiesProjection<PARENT, ROOT>, ROOT> analyticsQueryable(
+      ) {
+     MetafieldCapabilityAnalyticsQueryableProjection<MetafieldCapabilitiesProjection<PARENT, ROOT>, ROOT> projection = new MetafieldCapabilityAnalyticsQueryableProjection<>(this, getRoot());
+     getFields().put("analyticsQueryable", projection);
+     return projection;
+  }
+
+  public MetafieldCapabilityCartToOrderCopyableProjection<MetafieldCapabilitiesProjection<PARENT, ROOT>, ROOT> cartToOrderCopyable(
+      ) {
+     MetafieldCapabilityCartToOrderCopyableProjection<MetafieldCapabilitiesProjection<PARENT, ROOT>, ROOT> projection = new MetafieldCapabilityCartToOrderCopyableProjection<>(this, getRoot());
+     getFields().put("cartToOrderCopyable", projection);
+     return projection;
+  }
+
   public MetafieldCapabilitySmartCollectionConditionProjection<MetafieldCapabilitiesProjection<PARENT, ROOT>, ROOT> smartCollectionCondition(
       ) {
      MetafieldCapabilitySmartCollectionConditionProjection<MetafieldCapabilitiesProjection<PARENT, ROOT>, ROOT> projection = new MetafieldCapabilitySmartCollectionConditionProjection<>(this, getRoot());

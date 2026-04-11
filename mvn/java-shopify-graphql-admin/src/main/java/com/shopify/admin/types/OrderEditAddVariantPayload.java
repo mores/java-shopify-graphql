@@ -23,6 +23,11 @@ public class OrderEditAddVariantPayload {
   private CalculatedOrder calculatedOrder;
 
   /**
+   * The order edit session with the edits applied but not saved.
+   */
+  private OrderEditSession orderEditSession;
+
+  /**
    * The list of errors that occurred from executing the mutation.
    */
   private List<UserError> userErrors;
@@ -55,6 +60,17 @@ public class OrderEditAddVariantPayload {
   }
 
   /**
+   * The order edit session with the edits applied but not saved.
+   */
+  public OrderEditSession getOrderEditSession() {
+    return orderEditSession;
+  }
+
+  public void setOrderEditSession(OrderEditSession orderEditSession) {
+    this.orderEditSession = orderEditSession;
+  }
+
+  /**
    * The list of errors that occurred from executing the mutation.
    */
   public List<UserError> getUserErrors() {
@@ -67,7 +83,7 @@ public class OrderEditAddVariantPayload {
 
   @Override
   public String toString() {
-    return "OrderEditAddVariantPayload{calculatedLineItem='" + calculatedLineItem + "', calculatedOrder='" + calculatedOrder + "', userErrors='" + userErrors + "'}";
+    return "OrderEditAddVariantPayload{calculatedLineItem='" + calculatedLineItem + "', calculatedOrder='" + calculatedOrder + "', orderEditSession='" + orderEditSession + "', userErrors='" + userErrors + "'}";
   }
 
   @Override
@@ -77,12 +93,13 @@ public class OrderEditAddVariantPayload {
     OrderEditAddVariantPayload that = (OrderEditAddVariantPayload) o;
     return Objects.equals(calculatedLineItem, that.calculatedLineItem) &&
         Objects.equals(calculatedOrder, that.calculatedOrder) &&
+        Objects.equals(orderEditSession, that.orderEditSession) &&
         Objects.equals(userErrors, that.userErrors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(calculatedLineItem, calculatedOrder, userErrors);
+    return Objects.hash(calculatedLineItem, calculatedOrder, orderEditSession, userErrors);
   }
 
   public static Builder newBuilder() {
@@ -103,6 +120,11 @@ public class OrderEditAddVariantPayload {
     private CalculatedOrder calculatedOrder;
 
     /**
+     * The order edit session with the edits applied but not saved.
+     */
+    private OrderEditSession orderEditSession;
+
+    /**
      * The list of errors that occurred from executing the mutation.
      */
     private List<UserError> userErrors;
@@ -111,6 +133,7 @@ public class OrderEditAddVariantPayload {
       OrderEditAddVariantPayload result = new OrderEditAddVariantPayload();
       result.calculatedLineItem = this.calculatedLineItem;
       result.calculatedOrder = this.calculatedOrder;
+      result.orderEditSession = this.orderEditSession;
       result.userErrors = this.userErrors;
       return result;
     }
@@ -130,6 +153,14 @@ public class OrderEditAddVariantPayload {
      */
     public Builder calculatedOrder(CalculatedOrder calculatedOrder) {
       this.calculatedOrder = calculatedOrder;
+      return this;
+    }
+
+    /**
+     * The order edit session with the edits applied but not saved.
+     */
+    public Builder orderEditSession(OrderEditSession orderEditSession) {
+      this.orderEditSession = orderEditSession;
       return this;
     }
 

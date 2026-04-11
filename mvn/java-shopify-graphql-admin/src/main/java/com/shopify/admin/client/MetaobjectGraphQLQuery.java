@@ -7,7 +7,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Retrieves a metaobject by ID.
+ * Retrieves a single [`Metaobject`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Metaobject)
+ * by its global ID. [Metaobjects](https://shopify.dev/docs/apps/build/custom-data#what-are-metaobjects)
+ * store custom structured data based on defined schemas. The returned metaobject
+ * includes its fields with values, display name, handle, and associated metadata
+ * like update timestamps and capabilities.
  */
 public class MetaobjectGraphQLQuery extends GraphQLQuery {
   public MetaobjectGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

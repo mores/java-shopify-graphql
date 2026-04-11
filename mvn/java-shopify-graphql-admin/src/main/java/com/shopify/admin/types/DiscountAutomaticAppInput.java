@@ -49,12 +49,31 @@ public class DiscountAutomaticAppInput {
   private OffsetDateTime endsAt;
 
   /**
-   * The
-   * [function ID](https://shopify.dev/docs/apps/build/functions/input-output/metafields-for-input-queries)
-   * associated with the app extension providing the
-   * [discount type](https://help.shopify.com/manual/discounts/discount-types).
+   * The context defining which buyers can use the discount.
+   * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+   * Discounts automatically apply on Point of Sale (POS) for Pro locations. For
+   * app discounts using Admin UI Extensions, merchants can control POS eligibility
+   * when the context is set to ALL.
    */
-  private String functionId;
+  private DiscountContextInput context;
+
+  /**
+   * A list of searchable keywords that are associated with the discount.
+   *   
+   * For example, a `loyalty` tag could be applied to discounts
+   * that are associated with a loyalty program.
+   *   
+   * Updating `tags` overwrites any existing tags that were previously added to the discount.
+   * To add new tags without overwriting existing tags, use the
+   * [`tagsAdd`](https://shopify.dev/api/admin-graphql/latest/mutations/tagsadd)
+   * mutation.
+   */
+  private List<String> tags;
+
+  /**
+   * The handle of the function providing the discount.
+   */
+  private String functionHandle;
 
   /**
    * Additional metafields to associate to the discount.
@@ -149,17 +168,48 @@ public class DiscountAutomaticAppInput {
   }
 
   /**
-   * The
-   * [function ID](https://shopify.dev/docs/apps/build/functions/input-output/metafields-for-input-queries)
-   * associated with the app extension providing the
-   * [discount type](https://help.shopify.com/manual/discounts/discount-types).
+   * The context defining which buyers can use the discount.
+   * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+   * Discounts automatically apply on Point of Sale (POS) for Pro locations. For
+   * app discounts using Admin UI Extensions, merchants can control POS eligibility
+   * when the context is set to ALL.
    */
-  public String getFunctionId() {
-    return functionId;
+  public DiscountContextInput getContext() {
+    return context;
   }
 
-  public void setFunctionId(String functionId) {
-    this.functionId = functionId;
+  public void setContext(DiscountContextInput context) {
+    this.context = context;
+  }
+
+  /**
+   * A list of searchable keywords that are associated with the discount.
+   *   
+   * For example, a `loyalty` tag could be applied to discounts
+   * that are associated with a loyalty program.
+   *   
+   * Updating `tags` overwrites any existing tags that were previously added to the discount.
+   * To add new tags without overwriting existing tags, use the
+   * [`tagsAdd`](https://shopify.dev/api/admin-graphql/latest/mutations/tagsadd)
+   * mutation.
+   */
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
+  /**
+   * The handle of the function providing the discount.
+   */
+  public String getFunctionHandle() {
+    return functionHandle;
+  }
+
+  public void setFunctionHandle(String functionHandle) {
+    this.functionHandle = functionHandle;
   }
 
   /**
@@ -218,7 +268,7 @@ public class DiscountAutomaticAppInput {
 
   @Override
   public String toString() {
-    return "DiscountAutomaticAppInput{combinesWith='" + combinesWith + "', discountClasses='" + discountClasses + "', title='" + title + "', startsAt='" + startsAt + "', endsAt='" + endsAt + "', functionId='" + functionId + "', metafields='" + metafields + "', appliesOnSubscription='" + appliesOnSubscription + "', appliesOnOneTimePurchase='" + appliesOnOneTimePurchase + "', recurringCycleLimit='" + recurringCycleLimit + "'}";
+    return "DiscountAutomaticAppInput{combinesWith='" + combinesWith + "', discountClasses='" + discountClasses + "', title='" + title + "', startsAt='" + startsAt + "', endsAt='" + endsAt + "', context='" + context + "', tags='" + tags + "', functionHandle='" + functionHandle + "', metafields='" + metafields + "', appliesOnSubscription='" + appliesOnSubscription + "', appliesOnOneTimePurchase='" + appliesOnOneTimePurchase + "', recurringCycleLimit='" + recurringCycleLimit + "'}";
   }
 
   @Override
@@ -231,7 +281,9 @@ public class DiscountAutomaticAppInput {
         Objects.equals(title, that.title) &&
         Objects.equals(startsAt, that.startsAt) &&
         Objects.equals(endsAt, that.endsAt) &&
-        Objects.equals(functionId, that.functionId) &&
+        Objects.equals(context, that.context) &&
+        Objects.equals(tags, that.tags) &&
+        Objects.equals(functionHandle, that.functionHandle) &&
         Objects.equals(metafields, that.metafields) &&
         Objects.equals(appliesOnSubscription, that.appliesOnSubscription) &&
         Objects.equals(appliesOnOneTimePurchase, that.appliesOnOneTimePurchase) &&
@@ -240,7 +292,7 @@ public class DiscountAutomaticAppInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(combinesWith, discountClasses, title, startsAt, endsAt, functionId, metafields, appliesOnSubscription, appliesOnOneTimePurchase, recurringCycleLimit);
+    return Objects.hash(combinesWith, discountClasses, title, startsAt, endsAt, context, tags, functionHandle, metafields, appliesOnSubscription, appliesOnOneTimePurchase, recurringCycleLimit);
   }
 
   public static Builder newBuilder() {
@@ -278,12 +330,31 @@ public class DiscountAutomaticAppInput {
     private OffsetDateTime endsAt;
 
     /**
-     * The
-     * [function ID](https://shopify.dev/docs/apps/build/functions/input-output/metafields-for-input-queries)
-     * associated with the app extension providing the
-     * [discount type](https://help.shopify.com/manual/discounts/discount-types).
+     * The context defining which buyers can use the discount.
+     * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+     * Discounts automatically apply on Point of Sale (POS) for Pro locations. For
+     * app discounts using Admin UI Extensions, merchants can control POS eligibility
+     * when the context is set to ALL.
      */
-    private String functionId;
+    private DiscountContextInput context;
+
+    /**
+     * A list of searchable keywords that are associated with the discount.
+     *   
+     * For example, a `loyalty` tag could be applied to discounts
+     * that are associated with a loyalty program.
+     *   
+     * Updating `tags` overwrites any existing tags that were previously added to the discount.
+     * To add new tags without overwriting existing tags, use the
+     * [`tagsAdd`](https://shopify.dev/api/admin-graphql/latest/mutations/tagsadd)
+     * mutation.
+     */
+    private List<String> tags;
+
+    /**
+     * The handle of the function providing the discount.
+     */
+    private String functionHandle;
 
     /**
      * Additional metafields to associate to the discount.
@@ -322,7 +393,9 @@ public class DiscountAutomaticAppInput {
       result.title = this.title;
       result.startsAt = this.startsAt;
       result.endsAt = this.endsAt;
-      result.functionId = this.functionId;
+      result.context = this.context;
+      result.tags = this.tags;
+      result.functionHandle = this.functionHandle;
       result.metafields = this.metafields;
       result.appliesOnSubscription = this.appliesOnSubscription;
       result.appliesOnOneTimePurchase = this.appliesOnOneTimePurchase;
@@ -375,13 +448,38 @@ public class DiscountAutomaticAppInput {
     }
 
     /**
-     * The
-     * [function ID](https://shopify.dev/docs/apps/build/functions/input-output/metafields-for-input-queries)
-     * associated with the app extension providing the
-     * [discount type](https://help.shopify.com/manual/discounts/discount-types).
+     * The context defining which buyers can use the discount.
+     * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+     * Discounts automatically apply on Point of Sale (POS) for Pro locations. For
+     * app discounts using Admin UI Extensions, merchants can control POS eligibility
+     * when the context is set to ALL.
      */
-    public Builder functionId(String functionId) {
-      this.functionId = functionId;
+    public Builder context(DiscountContextInput context) {
+      this.context = context;
+      return this;
+    }
+
+    /**
+     * A list of searchable keywords that are associated with the discount.
+     *   
+     * For example, a `loyalty` tag could be applied to discounts
+     * that are associated with a loyalty program.
+     *   
+     * Updating `tags` overwrites any existing tags that were previously added to the discount.
+     * To add new tags without overwriting existing tags, use the
+     * [`tagsAdd`](https://shopify.dev/api/admin-graphql/latest/mutations/tagsadd)
+     * mutation.
+     */
+    public Builder tags(List<String> tags) {
+      this.tags = tags;
+      return this;
+    }
+
+    /**
+     * The handle of the function providing the discount.
+     */
+    public Builder functionHandle(String functionHandle) {
+      this.functionHandle = functionHandle;
       return this;
     }
 

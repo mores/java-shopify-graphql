@@ -8,14 +8,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Updates a fulfillment service.
+ * Updates the [`FulfillmentService`](https://shopify.dev/docs/api/admin-graphql/latest/objects/FulfillmentService) configuration, including its name, callback URL, and operational settings.
  *   
- * If you are using API version `2023-10` or later,
- * and you need to update the location managed by the fulfillment service
- * (for example, to change the address of a fulfillment service),
- * use the
- * [LocationEdit](https://shopify.dev/api/admin-graphql/latest/mutations/locationEdit)
- * mutation.
+ * The mutation modifies how the fulfillment service handles inventory tracking,
+ * shipping requirements, and package tracking support.
+ *   
+ * > Note:
+ * > To update the physical address or other location details of the fulfillment
+ * service, use the [`locationEdit`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/locationEdit)
+ * mutation instead.
+ *   
+ * Learn more about [editing fulfillment service locations](https://shopify.dev/docs/apps/build/orders-fulfillment/fulfillment-service-apps/build-for-fulfillment-services#step-2-edit-locations).
  */
 public class FulfillmentServiceUpdateGraphQLQuery extends GraphQLQuery {
   public FulfillmentServiceUpdateGraphQLQuery(String id, String name, String callbackUrl,
@@ -91,14 +94,20 @@ public class FulfillmentServiceUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
-     * The URL to send requests for the fulfillment service. The following considerations apply:
+     * The URL to send requests for the fulfillment service.
      *     
+     * If `callbackUrl` is provided:
      * - Shopify queries the <code>callback_url/fetch_tracking_numbers</code> endpoint to retrieve tracking numbers
      *     for orders, if `trackingSupport` is set to `true`.
      * - Shopify queries the <code>callback_url/fetch_stock</code> endpoint to retrieve inventory levels,
      *     if `inventoryManagement` is set to `true`.
      * - Shopify uses the <code>callback_url/fulfillment_order_notification</code> endpoint to send
      *     [fulfillment and cancellation requests](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments#step-2-receive-fulfillment-requests-and-cancellations).
+     *     
+     * Otherwise, if no `callbackUrl` is provided you need to submit this information via the api:
+     * - For submitting tracking info and handling fulfillment requests, see our
+     * docs on [building for fulfillment services](https://shopify.dev/apps/build/orders-fulfillment/fulfillment-service-apps/build-for-fulfillment-services).
+     * - For managing inventory quantities, see our docs on [managing inventory quantities and states](https://shopify.dev/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states).
      */
     public Builder callbackUrl(String callbackUrl) {
       this.callbackUrl = callbackUrl;
@@ -108,6 +117,11 @@ public class FulfillmentServiceUpdateGraphQLQuery extends GraphQLQuery {
 
     /**
      * Whether the fulfillment service provides tracking numbers for packages.
+     *     
+     * If `callbackUrl` is provided, Shopify will periodically fetch tracking numbers via the callback endpoint.
+     *     
+     * If no `callbackUrl` is provided you need to submit this information via the
+     * api, see our docs on [building for fulfillment services](https://shopify.dev/apps/build/orders-fulfillment/fulfillment-service-apps/build-for-fulfillment-services).
      */
     public Builder trackingSupport(Boolean trackingSupport) {
       this.trackingSupport = trackingSupport;
@@ -116,7 +130,12 @@ public class FulfillmentServiceUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
-     * Whether the fulfillment service tracks product inventory and provides updates to Shopify.
+     * Whether the fulfillment service manages product inventory and provides updates to Shopify.
+     *     
+     * If `callbackUrl` is provided, Shopify will periodically fetch inventory levels via the callback endpoint.
+     *     
+     * If no `callbackUrl` is provided you need to submit this information via the
+     * api, see our docs on [managing inventory quantities and states](https://shopify.dev/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states).
      */
     public Builder inventoryManagement(Boolean inventoryManagement) {
       this.inventoryManagement = inventoryManagement;
