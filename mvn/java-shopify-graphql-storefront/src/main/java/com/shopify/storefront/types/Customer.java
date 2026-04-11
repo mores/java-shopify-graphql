@@ -9,9 +9,17 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * A customer represents a customer account with the shop. Customer accounts store
- * contact information for the customer, saving logged-in customers the trouble of
- * having to provide it at every checkout.
+ * A customer account with the shop. Includes data such as contact information, [addresses](https://shopify.dev/docs/api/storefront/current/objects/MailingAddress)
+ * and marketing preferences for logged-in customers, so they don't have to provide
+ * these details at every checkout.
+ *
+ * Access the customer through the
+ * [`customer`](https://shopify.dev/docs/api/storefront/current/queries/customer)
+ * query using a customer access token obtained from the [`customerAccessTokenCreate`](https://shopify.dev/docs/api/storefront/current/mutations/customerAccessTokenCreate) mutation.
+ *
+ * The object implements the [`HasMetafields`](https://shopify.dev/docs/api/storefront/current/interfaces/HasMetafields)
+ * interface, enabling retrieval of [custom
+ * data](https://shopify.dev/docs/apps/build/custom-data) associated with the customer.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -26,6 +34,11 @@ public class Customer implements MetafieldParentResource, com.shopify.storefront
    * A list of addresses for the customer.
    */
   private MailingAddressConnection addresses;
+
+  /**
+   * The URL of the customer's avatar image.
+   */
+  private String avatarUrl;
 
   /**
    * The date and time when the customer was created.
@@ -90,6 +103,11 @@ public class Customer implements MetafieldParentResource, com.shopify.storefront
   private String phone;
 
   /**
+   * The social login provider associated with the customer.
+   */
+  private SocialLoginProvider socialLoginProvider;
+
+  /**
    * A comma separated list of tags that have been added to the customer.
    * Additional access scope required: unauthenticated_read_customer_tags.
    */
@@ -123,6 +141,17 @@ public class Customer implements MetafieldParentResource, com.shopify.storefront
 
   public void setAddresses(MailingAddressConnection addresses) {
     this.addresses = addresses;
+  }
+
+  /**
+   * The URL of the customer's avatar image.
+   */
+  public String getAvatarUrl() {
+    return avatarUrl;
+  }
+
+  public void setAvatarUrl(String avatarUrl) {
+    this.avatarUrl = avatarUrl;
   }
 
   /**
@@ -260,6 +289,17 @@ public class Customer implements MetafieldParentResource, com.shopify.storefront
   }
 
   /**
+   * The social login provider associated with the customer.
+   */
+  public SocialLoginProvider getSocialLoginProvider() {
+    return socialLoginProvider;
+  }
+
+  public void setSocialLoginProvider(SocialLoginProvider socialLoginProvider) {
+    this.socialLoginProvider = socialLoginProvider;
+  }
+
+  /**
    * A comma separated list of tags that have been added to the customer.
    * Additional access scope required: unauthenticated_read_customer_tags.
    */
@@ -284,7 +324,7 @@ public class Customer implements MetafieldParentResource, com.shopify.storefront
 
   @Override
   public String toString() {
-    return "Customer{acceptsMarketing='" + acceptsMarketing + "', addresses='" + addresses + "', createdAt='" + createdAt + "', defaultAddress='" + defaultAddress + "', displayName='" + displayName + "', email='" + email + "', firstName='" + firstName + "', id='" + id + "', lastName='" + lastName + "', metafield='" + metafield + "', metafields='" + metafields + "', numberOfOrders='" + numberOfOrders + "', orders='" + orders + "', phone='" + phone + "', tags='" + tags + "', updatedAt='" + updatedAt + "'}";
+    return "Customer{acceptsMarketing='" + acceptsMarketing + "', addresses='" + addresses + "', avatarUrl='" + avatarUrl + "', createdAt='" + createdAt + "', defaultAddress='" + defaultAddress + "', displayName='" + displayName + "', email='" + email + "', firstName='" + firstName + "', id='" + id + "', lastName='" + lastName + "', metafield='" + metafield + "', metafields='" + metafields + "', numberOfOrders='" + numberOfOrders + "', orders='" + orders + "', phone='" + phone + "', socialLoginProvider='" + socialLoginProvider + "', tags='" + tags + "', updatedAt='" + updatedAt + "'}";
   }
 
   @Override
@@ -294,6 +334,7 @@ public class Customer implements MetafieldParentResource, com.shopify.storefront
     Customer that = (Customer) o;
     return acceptsMarketing == that.acceptsMarketing &&
         Objects.equals(addresses, that.addresses) &&
+        Objects.equals(avatarUrl, that.avatarUrl) &&
         Objects.equals(createdAt, that.createdAt) &&
         Objects.equals(defaultAddress, that.defaultAddress) &&
         Objects.equals(displayName, that.displayName) &&
@@ -306,13 +347,14 @@ public class Customer implements MetafieldParentResource, com.shopify.storefront
         Objects.equals(numberOfOrders, that.numberOfOrders) &&
         Objects.equals(orders, that.orders) &&
         Objects.equals(phone, that.phone) &&
+        Objects.equals(socialLoginProvider, that.socialLoginProvider) &&
         Objects.equals(tags, that.tags) &&
         Objects.equals(updatedAt, that.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptsMarketing, addresses, createdAt, defaultAddress, displayName, email, firstName, id, lastName, metafield, metafields, numberOfOrders, orders, phone, tags, updatedAt);
+    return Objects.hash(acceptsMarketing, addresses, avatarUrl, createdAt, defaultAddress, displayName, email, firstName, id, lastName, metafield, metafields, numberOfOrders, orders, phone, socialLoginProvider, tags, updatedAt);
   }
 
   public static Builder newBuilder() {
@@ -329,6 +371,11 @@ public class Customer implements MetafieldParentResource, com.shopify.storefront
      * A list of addresses for the customer.
      */
     private MailingAddressConnection addresses;
+
+    /**
+     * The URL of the customer's avatar image.
+     */
+    private String avatarUrl;
 
     /**
      * The date and time when the customer was created.
@@ -393,6 +440,11 @@ public class Customer implements MetafieldParentResource, com.shopify.storefront
     private String phone;
 
     /**
+     * The social login provider associated with the customer.
+     */
+    private SocialLoginProvider socialLoginProvider;
+
+    /**
      * A comma separated list of tags that have been added to the customer.
      * Additional access scope required: unauthenticated_read_customer_tags.
      */
@@ -407,6 +459,7 @@ public class Customer implements MetafieldParentResource, com.shopify.storefront
       Customer result = new Customer();
       result.acceptsMarketing = this.acceptsMarketing;
       result.addresses = this.addresses;
+      result.avatarUrl = this.avatarUrl;
       result.createdAt = this.createdAt;
       result.defaultAddress = this.defaultAddress;
       result.displayName = this.displayName;
@@ -419,6 +472,7 @@ public class Customer implements MetafieldParentResource, com.shopify.storefront
       result.numberOfOrders = this.numberOfOrders;
       result.orders = this.orders;
       result.phone = this.phone;
+      result.socialLoginProvider = this.socialLoginProvider;
       result.tags = this.tags;
       result.updatedAt = this.updatedAt;
       return result;
@@ -437,6 +491,14 @@ public class Customer implements MetafieldParentResource, com.shopify.storefront
      */
     public Builder addresses(MailingAddressConnection addresses) {
       this.addresses = addresses;
+      return this;
+    }
+
+    /**
+     * The URL of the customer's avatar image.
+     */
+    public Builder avatarUrl(String avatarUrl) {
+      this.avatarUrl = avatarUrl;
       return this;
     }
 
@@ -535,6 +597,14 @@ public class Customer implements MetafieldParentResource, com.shopify.storefront
      */
     public Builder phone(String phone) {
       this.phone = phone;
+      return this;
+    }
+
+    /**
+     * The social login provider associated with the customer.
+     */
+    public Builder socialLoginProvider(SocialLoginProvider socialLoginProvider) {
+      this.socialLoginProvider = socialLoginProvider;
       return this;
     }
 

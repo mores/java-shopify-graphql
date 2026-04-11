@@ -9,7 +9,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * All active metaobjects for the shop.
+ * Returns a paginated list of [`Metaobject`](https://shopify.dev/docs/api/storefront/current/objects/Metaobject)
+ * entries for a specific type. Metaobjects are [custom data
+ * structures](https://shopify.dev/docs/apps/build/metaobjects) that extend
+ * Shopify's data model with merchant-defined or app-defined content like size
+ * charts, product highlights, or custom sections.
+ *   
+ * The required `type` argument specifies which metaobject type to retrieve. You
+ * can sort results by `id` or `updated_at` using the `sortKey` argument.
  */
 public class MetaobjectsGraphQLQuery extends GraphQLQuery {
   public MetaobjectsGraphQLQuery(String type, String sortKey, Integer first, String after,

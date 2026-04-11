@@ -9,7 +9,15 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Adds a merchandise line to the cart.
+ * Adds one or more merchandise lines to an existing
+ * [`Cart`](https://shopify.dev/docs/api/storefront/current/objects/Cart). Each
+ * line specifies the [product variant](https://shopify.dev/docs/api/storefront/current/objects/ProductVariant)
+ * to purchase. Quantity defaults to `1` if not provided.
+ *   
+ * You can add up to 250 lines in a single request. Use [`CartLineInput`](https://shopify.dev/docs/api/storefront/current/input-objects/CartLineInput)
+ * to configure each line's merchandise, quantity, selling plan, custom
+ * attributes, and any parent relationships for nested line items such as
+ * warranties or add-ons.
  */
 public class CartLinesAddGraphQLQuery extends GraphQLQuery {
   public CartLinesAddGraphQLQuery(String cartId, List<CartLineInput> lines, String queryName,

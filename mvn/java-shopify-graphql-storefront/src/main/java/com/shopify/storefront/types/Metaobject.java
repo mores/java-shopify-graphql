@@ -9,7 +9,19 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * An instance of a user-defined model based on a MetaobjectDefinition.
+ * An instance of [custom structured
+ * data](https://shopify.dev/docs/apps/build/metaobjects) defined by a metaobject
+ * definition. Metaobjects store reusable content that extends beyond standard
+ * Shopify resources, such as size charts, author profiles, or custom content sections.
+ *
+ * Each metaobject contains fields that match the types and validation rules
+ * specified in its definition.
+ * [`Metafield`](https://shopify.dev/docs/api/storefront/current/objects/Metafield)
+ * references can point to metaobjects, connecting custom data with products,
+ * collections, and other resources. If the definition has the `renderable`
+ * capability, then the [`seo`](https://shopify.dev/docs/api/storefront/current/objects/Metaobject#field-Metaobject.fields.seo)
+ * field provides SEO metadata. If it has the `online_store` capability, then the [`onlineStoreUrl`](https://shopify.dev/docs/api/storefront/current/objects/Metaobject#field-Metaobject.fields.onlineStoreUrl)
+ * field returns the public URL.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -49,7 +61,7 @@ public class Metaobject implements MenuItemResource, MetafieldReference, com.sho
   private MetaobjectSEO seo;
 
   /**
-   * The type of the metaobject. Defines the namespace of its associated metafields.
+   * The type of the metaobject.
    */
   private String type;
 
@@ -131,7 +143,7 @@ public class Metaobject implements MenuItemResource, MetafieldReference, com.sho
   }
 
   /**
-   * The type of the metaobject. Defines the namespace of its associated metafields.
+   * The type of the metaobject.
    */
   public String getType() {
     return type;
@@ -216,7 +228,7 @@ public class Metaobject implements MenuItemResource, MetafieldReference, com.sho
     private MetaobjectSEO seo;
 
     /**
-     * The type of the metaobject. Defines the namespace of its associated metafields.
+     * The type of the metaobject.
      */
     private String type;
 
@@ -290,7 +302,7 @@ public class Metaobject implements MenuItemResource, MetafieldReference, com.sho
     }
 
     /**
-     * The type of the metaobject. Defines the namespace of its associated metafields.
+     * The type of the metaobject.
      */
     public Builder type(String type) {
       this.type = type;

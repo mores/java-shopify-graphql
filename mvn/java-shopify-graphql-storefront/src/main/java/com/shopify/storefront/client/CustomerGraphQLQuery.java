@@ -7,8 +7,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The customer associated with the given access token. Tokens are obtained by using the
- * [`customerAccessTokenCreate` mutation](https://shopify.dev/docs/api/storefront/latest/mutations/customerAccessTokenCreate).
+ * Retrieves the [`Customer`](https://shopify.dev/docs/api/storefront/current/objects/Customer)
+ * associated with the provided access token. Use the [`customerAccessTokenCreate`](https://shopify.dev/docs/api/storefront/current/mutations/customerAccessTokenCreate)
+ * mutation to obtain an access token using legacy customer account
+ * authentication (email and password).
+ *   
+ * The returned customer includes data such as contact information, [addresses](https://shopify.dev/docs/api/storefront/current/objects/MailingAddress),
+ * [orders](https://shopify.dev/docs/api/storefront/current/objects/Order), and
+ * [custom data](https://shopify.dev/docs/apps/build/custom-data) associated with the customer.
  */
 public class CustomerGraphQLQuery extends GraphQLQuery {
   public CustomerGraphQLQuery(String customerAccessToken, String queryName, Set<String> fieldsSet) {

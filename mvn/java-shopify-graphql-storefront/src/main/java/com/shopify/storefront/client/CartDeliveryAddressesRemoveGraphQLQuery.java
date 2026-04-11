@@ -8,7 +8,9 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Removes delivery addresses from the cart.
+ * Removes delivery addresses from a
+ * [`Cart`](https://shopify.dev/docs/api/storefront/current/objects/Cart) by
+ * their IDs, allowing batch removal in a single request.
  */
 public class CartDeliveryAddressesRemoveGraphQLQuery extends GraphQLQuery {
   public CartDeliveryAddressesRemoveGraphQLQuery(String cartId, List<String> addressIds,

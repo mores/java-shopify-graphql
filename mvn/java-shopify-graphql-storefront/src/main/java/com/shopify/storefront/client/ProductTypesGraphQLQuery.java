@@ -7,7 +7,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * List of product types for the shop's products that are published to your app.
+ * Returns a list of product types from the shop's
+ * [`Product`](https://shopify.dev/docs/api/storefront/current/objects/Product)
+ * objects that are published to your app. Use this query to build [filtering interfaces](https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/products-collections/filter-products)
+ * or navigation menus based on product categorization.
  */
 public class ProductTypesGraphQLQuery extends GraphQLQuery {
   public ProductTypesGraphQLQuery(int first, String queryName, Set<String> fieldsSet) {

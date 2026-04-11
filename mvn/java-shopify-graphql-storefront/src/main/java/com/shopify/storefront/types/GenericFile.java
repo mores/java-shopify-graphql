@@ -8,9 +8,14 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The generic file resource lets you manage files in a merchant’s store. Generic
- * files include any file that doesn’t fit into a designated type such as image or
- * video. Example: PDF, JSON.
+ * Any file that doesn't fit into a designated type like image or video. For
+ * example, a PDF or JSON document. Use this object to manage files in a merchant's store.
+ *
+ * Generic files are commonly referenced through [file reference
+ * metafields](https://shopify.dev/docs/apps/build/metafields/list-of-data-types)
+ * and returned as part of the [`MetafieldReference`](https://shopify.dev/docs/api/storefront/current/unions/MetafieldReference) union.
+ *
+ * Includes the file's URL, MIME type, size in bytes, and an optional preview image.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

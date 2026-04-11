@@ -6,8 +6,12 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The discount application capture the intentions of a discount source at
- *         the time of application.
+ * Captures the intent of a discount source at the time it was applied to a cart.
+ * This includes the discount value, how it's allocated across entitled items, and
+ * which line types it targets.
+ *
+ * The actual discounted amounts on specific cart lines are represented by [`CartDiscountAllocation`](https://shopify.dev/docs/api/storefront/current/interfaces/CartDiscountAllocation)
+ * objects, which reference this application.
  */
 public class CartDiscountApplication {
   /**

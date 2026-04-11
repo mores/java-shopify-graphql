@@ -9,7 +9,11 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Represents information about a company which is also a customer of the shop.
+ * A B2B organization that purchases from the shop. In the Storefront API, company
+ * information is accessed through the [`PurchasingCompany`](https://shopify.dev/docs/api/storefront/current/objects/PurchasingCompany) object on [`CartBuyerIdentity`](https://shopify.dev/docs/api/storefront/current/objects/CartBuyerIdentity),
+ * which provides the associated location and contact for the current purchasing context.
+ *
+ * You can store custom data using [metafields](https://shopify.dev/docs/apps/build/metafields).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

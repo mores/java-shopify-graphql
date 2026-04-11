@@ -7,7 +7,15 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Information about the localized experiences configured for the shop.
+ * Information about the shop's configured localized experiences, including
+ * available countries and languages. The [`country`](https://shopify.dev/docs/api/storefront/current/objects/Localization#field-Localization.fields.country) and [`language`](https://shopify.dev/docs/api/storefront/current/objects/Localization#field-Localization.fields.language)
+ * fields reflect the active localization context, which you can change using the
+ * `@inContext` directive on queries.
+ *
+ * Use [`availableCountries`](https://shopify.dev/docs/api/storefront/current/objects/Localization#field-Localization.fields.availableCountries) to list all countries with enabled localized experiences, and [`availableLanguages`](https://shopify.dev/docs/api/storefront/current/objects/Localization#field-Localization.fields.availableLanguages)
+ * to get languages available for the currently active country. Each
+ * [`Country`](https://shopify.dev/docs/api/storefront/current/objects/Country)
+ * includes its own currency, unit system, and available languages.
  */
 public class Localization {
   /**

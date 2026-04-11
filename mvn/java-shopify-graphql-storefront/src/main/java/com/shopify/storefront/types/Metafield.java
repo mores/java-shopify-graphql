@@ -8,8 +8,17 @@ import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
- * Metafields represent custom metadata attached to a resource. Metafields can be sorted into namespaces and are
- * comprised of keys, values, and value types.
+ * [Custom metadata](https://shopify.dev/docs/apps/build/metafields) attached to a
+ * Shopify resource such as a
+ * [`Product`](https://shopify.dev/docs/api/storefront/current/objects/Product), [`Collection`](https://shopify.dev/docs/api/storefront/current/objects/Collection), or
+ * [`Customer`](https://shopify.dev/docs/api/storefront/current/objects/Customer).
+ * Each metafield is identified by a namespace and key, and stores a value with an
+ * associated type.
+ *
+ * Values are always stored as strings, but the [`type`](https://shopify.dev/docs/api/storefront/current/objects/Metafield#field-Metafield.fields.type)
+ * field indicates how to interpret the data. When a metafield's type is a resource
+ * reference, use the [`reference`](https://shopify.dev/docs/api/storefront/current/objects/Metafield#field-Metafield.fields.reference) or [`references`](https://shopify.dev/docs/api/storefront/current/objects/Metafield#field-Metafield.fields.references)
+ * fields to retrieve the linked objects. Access metafields on any resource that implements the [`HasMetafields`](https://shopify.dev/docs/api/storefront/current/interfaces/HasMetafields) interface.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -34,6 +43,11 @@ public class Metafield implements com.shopify.storefront.types.Node {
    * The unique identifier for the metafield within its namespace.
    */
   private String key;
+
+  /**
+   * Whether the metafield's type is a list type. Returns `true` for types like `list.color` or `list.single_line_text_field`.
+   */
+  private boolean list;
 
   /**
    * The container for a group of metafields that the metafield is associated with.
@@ -119,6 +133,17 @@ public class Metafield implements com.shopify.storefront.types.Node {
   }
 
   /**
+   * Whether the metafield's type is a list type. Returns `true` for types like `list.color` or `list.single_line_text_field`.
+   */
+  public boolean getList() {
+    return list;
+  }
+
+  public void setList(boolean list) {
+    this.list = list;
+  }
+
+  /**
    * The container for a group of metafields that the metafield is associated with.
    */
   public String getNamespace() {
@@ -198,7 +223,7 @@ public class Metafield implements com.shopify.storefront.types.Node {
 
   @Override
   public String toString() {
-    return "Metafield{createdAt='" + createdAt + "', description='" + description + "', id='" + id + "', key='" + key + "', namespace='" + namespace + "', parentResource='" + parentResource + "', reference='" + reference + "', references='" + references + "', type='" + type + "', updatedAt='" + updatedAt + "', value='" + value + "'}";
+    return "Metafield{createdAt='" + createdAt + "', description='" + description + "', id='" + id + "', key='" + key + "', list='" + list + "', namespace='" + namespace + "', parentResource='" + parentResource + "', reference='" + reference + "', references='" + references + "', type='" + type + "', updatedAt='" + updatedAt + "', value='" + value + "'}";
   }
 
   @Override
@@ -210,6 +235,7 @@ public class Metafield implements com.shopify.storefront.types.Node {
         Objects.equals(description, that.description) &&
         Objects.equals(id, that.id) &&
         Objects.equals(key, that.key) &&
+        list == that.list &&
         Objects.equals(namespace, that.namespace) &&
         Objects.equals(parentResource, that.parentResource) &&
         Objects.equals(reference, that.reference) &&
@@ -221,7 +247,7 @@ public class Metafield implements com.shopify.storefront.types.Node {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, description, id, key, namespace, parentResource, reference, references, type, updatedAt, value);
+    return Objects.hash(createdAt, description, id, key, list, namespace, parentResource, reference, references, type, updatedAt, value);
   }
 
   public static Builder newBuilder() {
@@ -248,6 +274,11 @@ public class Metafield implements com.shopify.storefront.types.Node {
      * The unique identifier for the metafield within its namespace.
      */
     private String key;
+
+    /**
+     * Whether the metafield's type is a list type. Returns `true` for types like `list.color` or `list.single_line_text_field`.
+     */
+    private boolean list;
 
     /**
      * The container for a group of metafields that the metafield is associated with.
@@ -291,6 +322,7 @@ public class Metafield implements com.shopify.storefront.types.Node {
       result.description = this.description;
       result.id = this.id;
       result.key = this.key;
+      result.list = this.list;
       result.namespace = this.namespace;
       result.parentResource = this.parentResource;
       result.reference = this.reference;
@@ -330,6 +362,14 @@ public class Metafield implements com.shopify.storefront.types.Node {
      */
     public Builder key(String key) {
       this.key = key;
+      return this;
+    }
+
+    /**
+     * Whether the metafield's type is a list type. Returns `true` for types like `list.color` or `list.single_line_text_field`.
+     */
+    public Builder list(boolean list) {
+      this.list = list;
       return this;
     }
 

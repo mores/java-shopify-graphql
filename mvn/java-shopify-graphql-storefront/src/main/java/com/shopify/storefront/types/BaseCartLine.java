@@ -6,7 +6,13 @@ import java.lang.String;
 import java.util.List;
 
 /**
- * Represents a cart line common fields.
+ * Defines the shared fields for items in a shopping cart. Implemented by
+ * [`CartLine`](https://shopify.dev/docs/api/storefront/current/objects/CartLine)
+ * for individual merchandise and [`ComponentizableCartLine`](https://shopify.dev/docs/api/storefront/current/objects/ComponentizableCartLine)
+ * for grouped merchandise like bundles.
+ *
+ * Each implementation includes the merchandise being purchased, quantity, cost
+ * breakdown, applied discounts, custom attributes, and any associated [`SellingPlan`](https://shopify.dev/docs/api/storefront/current/objects/SellingPlan).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,

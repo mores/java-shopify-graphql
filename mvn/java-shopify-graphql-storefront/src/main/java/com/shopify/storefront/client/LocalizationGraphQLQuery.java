@@ -7,7 +7,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns the localized experiences configured for the shop.
+ * Returns the shop's localization settings. Use this query to build [country and language selectors](https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/markets)
+ * for your storefront.
+ *   
+ * The [`country`](https://shopify.dev/docs/api/storefront/latest/queries/localization#returns-Localization.fields.country) and [`language`](https://shopify.dev/docs/api/storefront/latest/queries/localization#returns-Localization.fields.language) fields reflect the active localized experience. To change the context, use the
+ * [`@inContext`](https://shopify.dev/docs/api/storefront#directives) directive
+ * with your desired country or language code.
  */
 public class LocalizationGraphQLQuery extends GraphQLQuery {
   public LocalizationGraphQLQuery(String queryName) {

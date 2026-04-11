@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The store's [branding configuration](https://help.shopify.com/en/manual/promoting-marketing/managing-brand-assets).
+ * The store's [branding configuration](https://help.shopify.com/manual/promoting-marketing/managing-brand-assets),
+ * such as logos, colors, and slogan. Access this through the [`Shop`](https://shopify.dev/docs/api/storefront/current/objects/Shop#field-Shop.fields.brand)
+ * object to display consistent brand assets across your storefront.
  */
 public class Brand {
   /**

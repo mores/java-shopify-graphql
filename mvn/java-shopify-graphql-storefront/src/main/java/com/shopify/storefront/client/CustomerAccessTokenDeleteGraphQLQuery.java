@@ -7,7 +7,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Permanently destroys a customer access token.
+ * Permanently destroys a [`CustomerAccessToken`](https://shopify.dev/docs/api/storefront/current/objects/CustomerAccessToken).
+ * Use this mutation when a customer explicitly signs out or when you need to
+ * revoke the token. Use [`customerAccessTokenCreate`](https://shopify.dev/docs/api/storefront/current/mutations/customerAccessTokenCreate)
+ * to generate a new token with the customer's credentials.
+ *   
+ * > Caution:
+ * > This action is irreversible. The customer needs to sign in again to obtain a new access token.
  */
 public class CustomerAccessTokenDeleteGraphQLQuery extends GraphQLQuery {
   public CustomerAccessTokenDeleteGraphQLQuery(String customerAccessToken, String queryName,

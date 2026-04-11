@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The product option value swatch.
+ * A visual representation for a [`ProductOptionValue`](https://shopify.dev/docs/api/storefront/current/objects/ProductOptionValue),
+ * such as a color or image. Swatches help customers visualize options like "Red"
+ * or "Blue" without relying solely on text labels.
  */
 public class ProductOptionValueSwatch {
   /**

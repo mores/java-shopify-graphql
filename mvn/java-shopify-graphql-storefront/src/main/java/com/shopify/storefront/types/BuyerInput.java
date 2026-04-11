@@ -6,7 +6,12 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The input fields for obtaining the buyer's identity.
+ * Identifies a B2B buyer for the [`@inContext`](https://shopify.dev/docs/storefronts/headless/bring-your-own-stack/b2b)
+ * directive. Pass this input to contextualize Storefront API queries with data
+ * like B2B-specific pricing, quantity rules, and quantity price breaks.
+ *
+ * For B2B customers with access to multiple company locations, include the [`companyLocationId`](https://shopify.dev/docs/api/storefront/latest/input-objects/BuyerInput#fields-companyLocationId)
+ * to specify which location they're purchasing for.
  */
 public class BuyerInput {
   /**

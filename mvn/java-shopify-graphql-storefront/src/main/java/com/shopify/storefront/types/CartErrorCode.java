@@ -1,7 +1,9 @@
 package com.shopify.storefront.types;
 
 /**
- * Possible error codes that can be returned by `CartUserError`.
+ * Error codes returned by [`CartUserError`](https://shopify.dev/docs/api/storefront/current/objects/CartUserError)
+ * during cart mutations. Covers validation failures for addresses, quantities,
+ * delivery options, merchandise lines, discount codes, and metafields.
  */
 public enum CartErrorCode {
   INVALID,
@@ -9,6 +11,10 @@ public enum CartErrorCode {
   LESS_THAN,
 
   INVALID_MERCHANDISE_LINE,
+
+  MERCHANDISE_NOT_APPLICABLE,
+
+  MERCHANDISE_LINE_TRANSFORMERS_RUN_ERROR,
 
   MISSING_DISCOUNT_CODE,
 
@@ -51,6 +57,20 @@ public enum CartErrorCode {
   ONLY_ONE_DELIVERY_ADDRESS_CAN_BE_SELECTED,
 
   INVALID_DELIVERY_ADDRESS_ID,
+
+  BUYER_CANNOT_PURCHASE_FOR_COMPANY_LOCATION,
+
+  BUNDLES_AND_ADDONS_CANNOT_BE_MIXED,
+
+  PARENT_LINE_INVALID_REFERENCE,
+
+  PARENT_LINE_NOT_FOUND,
+
+  PARENT_LINE_NESTING_TOO_DEEP,
+
+  PARENT_LINE_OPERATION_BLOCKED,
+
+  GIFT_CARD_RECIPIENT_INVALID,
 
   ADDRESS_FIELD_IS_REQUIRED,
 

@@ -9,12 +9,21 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * An article in an online store blog.
+ * A post that belongs to a
+ * [`Blog`](https://shopify.dev/docs/api/storefront/current/objects/Blog). Each
+ * article includes content with optional HTML formatting, an excerpt for previews, [`ArticleAuthor`](https://shopify.dev/docs/api/storefront/current/objects/ArticleAuthor)
+ * information, and an associated
+ * [`Image`](https://shopify.dev/docs/api/storefront/current/objects/Image).
+ *
+ * Articles can be organized with tags and include
+ * [`SEO`](https://shopify.dev/docs/api/storefront/current/objects/SEO) metadata. You can manage
+ * [comments](https://shopify.dev/docs/api/storefront/current/objects/Comment) when
+ * the blog's comment policy enables them.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
-public class Article implements MenuItemResource, MetafieldParentResource, SearchResultItem, com.shopify.storefront.types.HasMetafields, com.shopify.storefront.types.Node, com.shopify.storefront.types.OnlineStorePublishable, com.shopify.storefront.types.Trackable {
+public class Article implements MenuItemResource, MetafieldParentResource, MetafieldReference, SearchResultItem, com.shopify.storefront.types.HasMetafields, com.shopify.storefront.types.Node, com.shopify.storefront.types.OnlineStorePublishable, com.shopify.storefront.types.Trackable {
   /**
    * The article's author.
    */

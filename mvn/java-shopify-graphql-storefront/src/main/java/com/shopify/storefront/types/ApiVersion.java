@@ -6,8 +6,13 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * A version of the API, as defined by [Shopify API versioning](https://shopify.dev/api/usage/versioning).
- * Versions are commonly referred to by their handle (for example, `2021-10`).
+ * A version of the Shopify API. Each version has a unique handle in date-based
+ * format (YYYY-MM) or `unstable` for the development version.
+ *
+ * Shopify guarantees supported versions are stable. Unsupported versions include
+ * unstable and release candidate versions. Use the [`publicApiVersions`](https://shopify.dev/docs/api/storefront/current/queries/publicApiVersions)
+ * query to retrieve all available versions. Learn more about [Shopify API
+ * versioning](https://shopify.dev/docs/api/usage/versioning).
  */
 public class ApiVersion {
   /**

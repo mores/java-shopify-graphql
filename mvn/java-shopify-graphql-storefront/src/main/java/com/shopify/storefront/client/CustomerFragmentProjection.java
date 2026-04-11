@@ -118,8 +118,20 @@ public class CustomerFragmentProjection<PARENT extends BaseSubProjectionNode<?, 
     return projection;
   }
 
+  public SocialLoginProviderProjection<CustomerFragmentProjection<PARENT, ROOT>, ROOT> socialLoginProvider(
+      ) {
+     SocialLoginProviderProjection<CustomerFragmentProjection<PARENT, ROOT>, ROOT> projection = new SocialLoginProviderProjection<>(this, getRoot());
+     getFields().put("socialLoginProvider", projection);
+     return projection;
+  }
+
   public CustomerFragmentProjection<PARENT, ROOT> acceptsMarketing() {
     getFields().put("acceptsMarketing", null);
+    return this;
+  }
+
+  public CustomerFragmentProjection<PARENT, ROOT> avatarUrl() {
+    getFields().put("avatarUrl", null);
     return this;
   }
 

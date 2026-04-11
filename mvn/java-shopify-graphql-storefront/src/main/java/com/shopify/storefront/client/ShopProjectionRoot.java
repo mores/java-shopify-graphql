@@ -23,6 +23,27 @@ public class ShopProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROOT
     return projection;
   }
 
+  public ShopPolicyProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> contactInformation(
+      ) {
+    ShopPolicyProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> projection = new ShopPolicyProjection<>(this, this);    
+    getFields().put("contactInformation", projection);
+    return projection;
+  }
+
+  public TranslationProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> customerAccountTranslations(
+      ) {
+    TranslationProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> projection = new TranslationProjection<>(this, this);    
+    getFields().put("customerAccountTranslations", projection);
+    return projection;
+  }
+
+  public ShopPolicyProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> legalNotice(
+      ) {
+    ShopPolicyProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> projection = new ShopPolicyProjection<>(this, this);    
+    getFields().put("legalNotice", projection);
+    return projection;
+  }
+
   public MetafieldProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> metafield(
       ) {
     MetafieldProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> projection = new MetafieldProjection<>(this, this);    
@@ -108,10 +129,24 @@ public class ShopProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROOT
     return projection;
   }
 
+  public SocialLoginProviderProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> socialLoginProviders(
+      ) {
+    SocialLoginProviderProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> projection = new SocialLoginProviderProjection<>(this, this);    
+    getFields().put("socialLoginProviders", projection);
+    return projection;
+  }
+
   public ShopPolicyWithDefaultProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> subscriptionPolicy(
       ) {
     ShopPolicyWithDefaultProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> projection = new ShopPolicyWithDefaultProjection<>(this, this);    
     getFields().put("subscriptionPolicy", projection);
+    return projection;
+  }
+
+  public ShopPolicyProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> termsOfSale(
+      ) {
+    ShopPolicyProjection<ShopProjectionRoot<PARENT, ROOT>, ShopProjectionRoot<PARENT, ROOT>> projection = new ShopPolicyProjection<>(this, this);    
+    getFields().put("termsOfSale", projection);
     return projection;
   }
 

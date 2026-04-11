@@ -60,9 +60,23 @@ public class CartLineFragmentProjection<PARENT extends BaseSubProjectionNode<?, 
      return projection;
   }
 
+  public CartLineInstructionsProjection<CartLineFragmentProjection<PARENT, ROOT>, ROOT> instructions(
+      ) {
+     CartLineInstructionsProjection<CartLineFragmentProjection<PARENT, ROOT>, ROOT> projection = new CartLineInstructionsProjection<>(this, getRoot());
+     getFields().put("instructions", projection);
+     return projection;
+  }
+
   public MerchandiseProjection<CartLineFragmentProjection<PARENT, ROOT>, ROOT> merchandise() {
      MerchandiseProjection<CartLineFragmentProjection<PARENT, ROOT>, ROOT> projection = new MerchandiseProjection<>(this, getRoot());
      getFields().put("merchandise", projection);
+     return projection;
+  }
+
+  public CartLineParentRelationshipProjection<CartLineFragmentProjection<PARENT, ROOT>, ROOT> parentRelationship(
+      ) {
+     CartLineParentRelationshipProjection<CartLineFragmentProjection<PARENT, ROOT>, ROOT> projection = new CartLineParentRelationshipProjection<>(this, getRoot());
+     getFields().put("parentRelationship", projection);
      return projection;
   }
 

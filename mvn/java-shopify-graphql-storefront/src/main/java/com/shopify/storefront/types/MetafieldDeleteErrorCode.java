@@ -6,5 +6,7 @@ package com.shopify.storefront.types;
 public enum MetafieldDeleteErrorCode {
   INVALID_OWNER,
 
-  METAFIELD_DOES_NOT_EXIST
+  METAFIELD_DOES_NOT_EXIST,
+
+  APP_NOT_AUTHORIZED
 }

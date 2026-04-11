@@ -8,7 +8,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Creates a new cart.
+ * Creates a new [`Cart`](https://shopify.dev/docs/api/storefront/current/objects/Cart)
+ * for a buyer session. You can optionally initialize the cart with merchandise
+ * lines, discount codes, gift card codes, buyer identity for international
+ * pricing, and custom attributes.
+ *   
+ * The returned cart includes a `checkoutUrl` that directs the buyer to complete their purchase.
  */
 public class CartCreateGraphQLQuery extends GraphQLQuery {
   public CartCreateGraphQLQuery(CartInput input, String queryName, Set<String> fieldsSet) {

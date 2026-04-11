@@ -7,10 +7,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Creates a customer access token using a
- * [multipass token](https://shopify.dev/api/multipass) instead of email and
- * password. A customer record is created if the customer doesn't exist. If a customer
- * record already exists but the record is disabled, then the customer record is enabled.
+ * Creates a [`CustomerAccessToken`](https://shopify.dev/docs/api/storefront/current/objects/CustomerAccessToken) using a [multipass token](https://shopify.dev/docs/api/multipass) instead of
+ * email and password. This enables single sign-on for customers who authenticate
+ * through an external system.
+ *   
+ * If the customer doesn't exist in Shopify, then a new customer record is
+ * created automatically. If the customer exists but the record is disabled, then
+ * the customer record is re-enabled.
+ *   
+ * > Caution:
+ * > Multipass tokens are only valid for 15 minutes and can only be used once.
+ * Generate tokens on-the-fly when needed rather than in advance.
  */
 public class CustomerAccessTokenCreateWithMultipassGraphQLQuery extends GraphQLQuery {
   public CustomerAccessTokenCreateWithMultipassGraphQLQuery(String multipassToken, String queryName,

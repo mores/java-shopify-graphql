@@ -3,7 +3,7 @@ package com.shopify.storefront;
 import java.lang.String;
 
 public class DgsConstants {
-  public static final String VERSION = "2025-07";
+  public static final String VERSION = "2026-04";
 
   public static final String QUERY_TYPE = "Query";
 
@@ -427,6 +427,16 @@ public class DgsConstants {
     public static final String Warnings = "warnings";
   }
 
+  public static class CARTCLONEPAYLOAD {
+    public static final String TYPE_NAME = "CartClonePayload";
+
+    public static final String Cart = "cart";
+
+    public static final String UserErrors = "userErrors";
+
+    public static final String Warnings = "warnings";
+  }
+
   public static class CARTCODEDISCOUNTALLOCATION {
     public static final String TYPE_NAME = "CartCodeDiscountAllocation";
 
@@ -589,6 +599,16 @@ public class DgsConstants {
     public static final String Warnings = "warnings";
   }
 
+  public static class CARTDELIVERYADDRESSESREPLACEPAYLOAD {
+    public static final String TYPE_NAME = "CartDeliveryAddressesReplacePayload";
+
+    public static final String Cart = "cart";
+
+    public static final String UserErrors = "userErrors";
+
+    public static final String Warnings = "warnings";
+  }
+
   public static class CARTDELIVERYADDRESSESUPDATEPAYLOAD {
     public static final String TYPE_NAME = "CartDeliveryAddressesUpdatePayload";
 
@@ -725,6 +745,16 @@ public class DgsConstants {
     public static final String TotalTaxAmount = "totalTaxAmount";
   }
 
+  public static class CARTGIFTCARDCODESADDPAYLOAD {
+    public static final String TYPE_NAME = "CartGiftCardCodesAddPayload";
+
+    public static final String Cart = "cart";
+
+    public static final String UserErrors = "userErrors";
+
+    public static final String Warnings = "warnings";
+  }
+
   public static class CARTGIFTCARDCODESREMOVEPAYLOAD {
     public static final String TYPE_NAME = "CartGiftCardCodesRemovePayload";
 
@@ -760,7 +790,11 @@ public class DgsConstants {
 
     public static final String Id = "id";
 
+    public static final String Instructions = "instructions";
+
     public static final String Merchandise = "merchandise";
+
+    public static final String ParentRelationship = "parentRelationship";
 
     public static final String Quantity = "quantity";
 
@@ -793,6 +827,20 @@ public class DgsConstants {
     public static final String SubtotalAmount = "subtotalAmount";
 
     public static final String TotalAmount = "totalAmount";
+  }
+
+  public static class CARTLINEINSTRUCTIONS {
+    public static final String TYPE_NAME = "CartLineInstructions";
+
+    public static final String CanRemove = "canRemove";
+
+    public static final String CanUpdateQuantity = "canUpdateQuantity";
+  }
+
+  public static class CARTLINEPARENTRELATIONSHIP {
+    public static final String TYPE_NAME = "CartLineParentRelationship";
+
+    public static final String Parent = "parent";
   }
 
   public static class CARTLINESADDPAYLOAD {
@@ -1246,6 +1294,8 @@ public class DgsConstants {
 
     public static final String Addresses = "addresses";
 
+    public static final String AvatarUrl = "avatarUrl";
+
     public static final String CreatedAt = "createdAt";
 
     public static final String DefaultAddress = "defaultAddress";
@@ -1269,6 +1319,8 @@ public class DgsConstants {
     public static final String Orders = "orders";
 
     public static final String Phone = "phone";
+
+    public static final String SocialLoginProvider = "socialLoginProvider";
 
     public static final String Tags = "tags";
 
@@ -2024,6 +2076,8 @@ public class DgsConstants {
 
     public static final String Key = "key";
 
+    public static final String List = "list";
+
     public static final String Namespace = "namespace";
 
     public static final String ParentResource = "parentResource";
@@ -2208,15 +2262,21 @@ public class DgsConstants {
 
     public static final String CartBuyerIdentityUpdate = "cartBuyerIdentityUpdate";
 
+    public static final String CartClone = "cartClone";
+
     public static final String CartCreate = "cartCreate";
 
     public static final String CartDeliveryAddressesAdd = "cartDeliveryAddressesAdd";
 
     public static final String CartDeliveryAddressesRemove = "cartDeliveryAddressesRemove";
 
+    public static final String CartDeliveryAddressesReplace = "cartDeliveryAddressesReplace";
+
     public static final String CartDeliveryAddressesUpdate = "cartDeliveryAddressesUpdate";
 
     public static final String CartDiscountCodesUpdate = "cartDiscountCodesUpdate";
+
+    public static final String CartGiftCardCodesAdd = "cartGiftCardCodesAdd";
 
     public static final String CartGiftCardCodesRemove = "cartGiftCardCodesRemove";
 
@@ -2296,6 +2356,10 @@ public class DgsConstants {
       public static final String BuyerIdentity = "buyerIdentity";
     }
 
+    public static class CARTCLONE_INPUT_ARGUMENT {
+      public static final String CartId = "cartId";
+    }
+
     public static class CARTCREATE_INPUT_ARGUMENT {
       public static final String Input = "input";
     }
@@ -2312,6 +2376,12 @@ public class DgsConstants {
       public static final String AddressIds = "addressIds";
     }
 
+    public static class CARTDELIVERYADDRESSESREPLACE_INPUT_ARGUMENT {
+      public static final String CartId = "cartId";
+
+      public static final String Addresses = "addresses";
+    }
+
     public static class CARTDELIVERYADDRESSESUPDATE_INPUT_ARGUMENT {
       public static final String CartId = "cartId";
 
@@ -2322,6 +2392,12 @@ public class DgsConstants {
       public static final String CartId = "cartId";
 
       public static final String DiscountCodes = "discountCodes";
+    }
+
+    public static class CARTGIFTCARDCODESADD_INPUT_ARGUMENT {
+      public static final String CartId = "cartId";
+
+      public static final String GiftCardCodes = "giftCardCodes";
     }
 
     public static class CARTGIFTCARDCODESREMOVE_INPUT_ARGUMENT {
@@ -3858,11 +3934,17 @@ public class DgsConstants {
 
     public static final String Brand = "brand";
 
+    public static final String ContactInformation = "contactInformation";
+
+    public static final String CustomerAccountTranslations = "customerAccountTranslations";
+
     public static final String CustomerAccountUrl = "customerAccountUrl";
 
     public static final String Description = "description";
 
     public static final String Id = "id";
+
+    public static final String LegalNotice = "legalNotice";
 
     public static final String Metafield = "metafield";
 
@@ -3886,7 +3968,11 @@ public class DgsConstants {
 
     public static final String ShopPayInstallmentsPricing = "shopPayInstallmentsPricing";
 
+    public static final String SocialLoginProviders = "socialLoginProviders";
+
     public static final String SubscriptionPolicy = "subscriptionPolicy";
+
+    public static final String TermsOfSale = "termsOfSale";
 
     public static final String TermsOfService = "termsOfService";
 
@@ -4201,6 +4287,12 @@ public class DgsConstants {
     public static final String UpdatedAt = "updatedAt";
   }
 
+  public static class SOCIALLOGINPROVIDER {
+    public static final String TYPE_NAME = "SocialLoginProvider";
+
+    public static final String Handle = "handle";
+  }
+
   public static class STOREAVAILABILITY {
     public static final String TYPE_NAME = "StoreAvailability";
 
@@ -4301,6 +4393,14 @@ public class DgsConstants {
     public static final String Id = "id";
 
     public static final String Name = "name";
+  }
+
+  public static class TRANSLATION {
+    public static final String TYPE_NAME = "Translation";
+
+    public static final String Key = "key";
+
+    public static final String Value = "value";
   }
 
   public static class UNITPRICEMEASUREMENT {
@@ -4569,6 +4669,16 @@ public class DgsConstants {
     public static final String MerchandiseId = "merchandiseId";
 
     public static final String SellingPlanId = "sellingPlanId";
+
+    public static final String Parent = "parent";
+  }
+
+  public static class CARTLINEPARENTINPUT {
+    public static final String TYPE_NAME = "CartLineParentInput";
+
+    public static final String LineId = "lineId";
+
+    public static final String MerchandiseId = "merchandiseId";
   }
 
   public static class CARTLINEUPDATEINPUT {
@@ -4997,6 +5107,18 @@ public class DgsConstants {
     public static final String Name = "name";
 
     public static final String Value = "value";
+  }
+
+  public static class VISITORCONSENT {
+    public static final String TYPE_NAME = "VisitorConsent";
+
+    public static final String Preferences = "preferences";
+
+    public static final String Analytics = "analytics";
+
+    public static final String Marketing = "marketing";
+
+    public static final String SaleOfData = "saleOfData";
   }
 
   public static class BASECARTLINE {

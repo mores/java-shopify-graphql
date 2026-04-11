@@ -6,13 +6,10 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * A filter used to view a subset of products in a collection matching a specific metafield value.
+ * Filters products in a collection by matching a specific metafield value. Used by the [`ProductFilter`](https://shopify.dev/docs/api/storefront/current/input-objects/ProductFilter)
+ * input's `productMetafield` and `variantMetafield` fields.
  *
- * Only the following metafield types are currently supported:
- * - `number_integer`
- * - `number_decimal`
- * - `single_line_text_field`
- * - `boolean` as of 2022-04.
+ * Supports the following metafield types: `number_integer`, `number_decimal`, `single_line_text_field`, and `boolean`.
  */
 public class MetafieldFilter {
   /**

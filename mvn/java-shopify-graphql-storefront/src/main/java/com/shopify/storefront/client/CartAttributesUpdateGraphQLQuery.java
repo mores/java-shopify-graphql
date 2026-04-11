@@ -9,7 +9,10 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Updates the attributes on a cart.
+ * Updates the attributes on a
+ * [`Cart`](https://shopify.dev/docs/api/storefront/current/objects/Cart).
+ * Attributes are custom key-value pairs that store additional information, such
+ * as gift messages, special instructions, or order notes.
  */
 public class CartAttributesUpdateGraphQLQuery extends GraphQLQuery {
   public CartAttributesUpdateGraphQLQuery(List<AttributeInput> attributes, String cartId,

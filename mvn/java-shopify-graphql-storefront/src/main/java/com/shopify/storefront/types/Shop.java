@@ -8,7 +8,18 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Shop represents a collection of the general settings and information about the shop.
+ * The central hub for store-wide settings and information accessible through the
+ * Storefront API. Provides the shop's name, description, and branding
+ * configuration including logos and colors through the
+ * [`Brand`](https://shopify.dev/docs/api/storefront/current/objects/Brand) object.
+ *
+ * Access store policies such as privacy, refund, shipping, and terms of service via [`ShopPolicy`](https://shopify.dev/docs/api/storefront/current/objects/ShopPolicy),
+ * and the subscription policy via [`ShopPolicyWithDefault`](https://shopify.dev/docs/api/storefront/current/objects/ShopPolicyWithDefault). [`PaymentSettings`](https://shopify.dev/docs/api/storefront/current/objects/PaymentSettings)
+ * expose accepted card brands, supported digital wallets, and enabled presentment
+ * currencies. The object also includes the primary
+ * [`Domain`](https://shopify.dev/docs/api/storefront/current/objects/Domain),
+ * countries the shop ships to, [`ShopPayInstallmentsPricing`](https://shopify.dev/docs/api/storefront/current/objects/ShopPayInstallmentsPricing), and [`SocialLoginProvider`](https://shopify.dev/docs/api/storefront/current/objects/SocialLoginProvider)
+ * options for customer accounts.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -18,6 +29,16 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
    * The shop's branding configuration.
    */
   private Brand brand;
+
+  /**
+   * The shop's contact information.
+   */
+  private ShopPolicy contactInformation;
+
+  /**
+   * Translations for customer accounts.
+   */
+  private List<Translation> customerAccountTranslations;
 
   /**
    * The URL for the customer account (only present if shop has a customer account vanity domain).
@@ -33,6 +54,11 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
    * A globally-unique ID.
    */
   private String id;
+
+  /**
+   * The shop's legal notice.
+   */
+  private ShopPolicy legalNotice;
 
   /**
    * A [custom field](https://shopify.dev/docs/apps/build/custom-data), including
@@ -92,9 +118,19 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
   private ShopPayInstallmentsPricing shopPayInstallmentsPricing;
 
   /**
+   * The social login providers for customer accounts.
+   */
+  private List<SocialLoginProvider> socialLoginProviders;
+
+  /**
    * The shop’s subscription policy.
    */
   private ShopPolicyWithDefault subscriptionPolicy;
+
+  /**
+   * The shop's terms of sale.
+   */
+  private ShopPolicy termsOfSale;
 
   /**
    * The shop’s terms of service.
@@ -113,6 +149,28 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
 
   public void setBrand(Brand brand) {
     this.brand = brand;
+  }
+
+  /**
+   * The shop's contact information.
+   */
+  public ShopPolicy getContactInformation() {
+    return contactInformation;
+  }
+
+  public void setContactInformation(ShopPolicy contactInformation) {
+    this.contactInformation = contactInformation;
+  }
+
+  /**
+   * Translations for customer accounts.
+   */
+  public List<Translation> getCustomerAccountTranslations() {
+    return customerAccountTranslations;
+  }
+
+  public void setCustomerAccountTranslations(List<Translation> customerAccountTranslations) {
+    this.customerAccountTranslations = customerAccountTranslations;
   }
 
   /**
@@ -146,6 +204,17 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  /**
+   * The shop's legal notice.
+   */
+  public ShopPolicy getLegalNotice() {
+    return legalNotice;
+  }
+
+  public void setLegalNotice(ShopPolicy legalNotice) {
+    this.legalNotice = legalNotice;
   }
 
   /**
@@ -272,6 +341,17 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
   }
 
   /**
+   * The social login providers for customer accounts.
+   */
+  public List<SocialLoginProvider> getSocialLoginProviders() {
+    return socialLoginProviders;
+  }
+
+  public void setSocialLoginProviders(List<SocialLoginProvider> socialLoginProviders) {
+    this.socialLoginProviders = socialLoginProviders;
+  }
+
+  /**
    * The shop’s subscription policy.
    */
   public ShopPolicyWithDefault getSubscriptionPolicy() {
@@ -280,6 +360,17 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
 
   public void setSubscriptionPolicy(ShopPolicyWithDefault subscriptionPolicy) {
     this.subscriptionPolicy = subscriptionPolicy;
+  }
+
+  /**
+   * The shop's terms of sale.
+   */
+  public ShopPolicy getTermsOfSale() {
+    return termsOfSale;
+  }
+
+  public void setTermsOfSale(ShopPolicy termsOfSale) {
+    this.termsOfSale = termsOfSale;
   }
 
   /**
@@ -295,7 +386,7 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
 
   @Override
   public String toString() {
-    return "Shop{brand='" + brand + "', customerAccountUrl='" + customerAccountUrl + "', description='" + description + "', id='" + id + "', metafield='" + metafield + "', metafields='" + metafields + "', moneyFormat='" + moneyFormat + "', name='" + name + "', paymentSettings='" + paymentSettings + "', primaryDomain='" + primaryDomain + "', privacyPolicy='" + privacyPolicy + "', refundPolicy='" + refundPolicy + "', shippingPolicy='" + shippingPolicy + "', shipsToCountries='" + shipsToCountries + "', shopPayInstallmentsPricing='" + shopPayInstallmentsPricing + "', subscriptionPolicy='" + subscriptionPolicy + "', termsOfService='" + termsOfService + "'}";
+    return "Shop{brand='" + brand + "', contactInformation='" + contactInformation + "', customerAccountTranslations='" + customerAccountTranslations + "', customerAccountUrl='" + customerAccountUrl + "', description='" + description + "', id='" + id + "', legalNotice='" + legalNotice + "', metafield='" + metafield + "', metafields='" + metafields + "', moneyFormat='" + moneyFormat + "', name='" + name + "', paymentSettings='" + paymentSettings + "', primaryDomain='" + primaryDomain + "', privacyPolicy='" + privacyPolicy + "', refundPolicy='" + refundPolicy + "', shippingPolicy='" + shippingPolicy + "', shipsToCountries='" + shipsToCountries + "', shopPayInstallmentsPricing='" + shopPayInstallmentsPricing + "', socialLoginProviders='" + socialLoginProviders + "', subscriptionPolicy='" + subscriptionPolicy + "', termsOfSale='" + termsOfSale + "', termsOfService='" + termsOfService + "'}";
   }
 
   @Override
@@ -304,9 +395,12 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
     if (o == null || getClass() != o.getClass()) return false;
     Shop that = (Shop) o;
     return Objects.equals(brand, that.brand) &&
+        Objects.equals(contactInformation, that.contactInformation) &&
+        Objects.equals(customerAccountTranslations, that.customerAccountTranslations) &&
         Objects.equals(customerAccountUrl, that.customerAccountUrl) &&
         Objects.equals(description, that.description) &&
         Objects.equals(id, that.id) &&
+        Objects.equals(legalNotice, that.legalNotice) &&
         Objects.equals(metafield, that.metafield) &&
         Objects.equals(metafields, that.metafields) &&
         Objects.equals(moneyFormat, that.moneyFormat) &&
@@ -318,13 +412,15 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
         Objects.equals(shippingPolicy, that.shippingPolicy) &&
         Objects.equals(shipsToCountries, that.shipsToCountries) &&
         Objects.equals(shopPayInstallmentsPricing, that.shopPayInstallmentsPricing) &&
+        Objects.equals(socialLoginProviders, that.socialLoginProviders) &&
         Objects.equals(subscriptionPolicy, that.subscriptionPolicy) &&
+        Objects.equals(termsOfSale, that.termsOfSale) &&
         Objects.equals(termsOfService, that.termsOfService);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, customerAccountUrl, description, id, metafield, metafields, moneyFormat, name, paymentSettings, primaryDomain, privacyPolicy, refundPolicy, shippingPolicy, shipsToCountries, shopPayInstallmentsPricing, subscriptionPolicy, termsOfService);
+    return Objects.hash(brand, contactInformation, customerAccountTranslations, customerAccountUrl, description, id, legalNotice, metafield, metafields, moneyFormat, name, paymentSettings, primaryDomain, privacyPolicy, refundPolicy, shippingPolicy, shipsToCountries, shopPayInstallmentsPricing, socialLoginProviders, subscriptionPolicy, termsOfSale, termsOfService);
   }
 
   public static Builder newBuilder() {
@@ -336,6 +432,16 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
      * The shop's branding configuration.
      */
     private Brand brand;
+
+    /**
+     * The shop's contact information.
+     */
+    private ShopPolicy contactInformation;
+
+    /**
+     * Translations for customer accounts.
+     */
+    private List<Translation> customerAccountTranslations;
 
     /**
      * The URL for the customer account (only present if shop has a customer account vanity domain).
@@ -351,6 +457,11 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
      * A globally-unique ID.
      */
     private String id;
+
+    /**
+     * The shop's legal notice.
+     */
+    private ShopPolicy legalNotice;
 
     /**
      * A [custom field](https://shopify.dev/docs/apps/build/custom-data), including
@@ -410,9 +521,19 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
     private ShopPayInstallmentsPricing shopPayInstallmentsPricing;
 
     /**
+     * The social login providers for customer accounts.
+     */
+    private List<SocialLoginProvider> socialLoginProviders;
+
+    /**
      * The shop’s subscription policy.
      */
     private ShopPolicyWithDefault subscriptionPolicy;
+
+    /**
+     * The shop's terms of sale.
+     */
+    private ShopPolicy termsOfSale;
 
     /**
      * The shop’s terms of service.
@@ -422,9 +543,12 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
     public Shop build() {
       Shop result = new Shop();
       result.brand = this.brand;
+      result.contactInformation = this.contactInformation;
+      result.customerAccountTranslations = this.customerAccountTranslations;
       result.customerAccountUrl = this.customerAccountUrl;
       result.description = this.description;
       result.id = this.id;
+      result.legalNotice = this.legalNotice;
       result.metafield = this.metafield;
       result.metafields = this.metafields;
       result.moneyFormat = this.moneyFormat;
@@ -436,7 +560,9 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
       result.shippingPolicy = this.shippingPolicy;
       result.shipsToCountries = this.shipsToCountries;
       result.shopPayInstallmentsPricing = this.shopPayInstallmentsPricing;
+      result.socialLoginProviders = this.socialLoginProviders;
       result.subscriptionPolicy = this.subscriptionPolicy;
+      result.termsOfSale = this.termsOfSale;
       result.termsOfService = this.termsOfService;
       return result;
     }
@@ -446,6 +572,22 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
      */
     public Builder brand(Brand brand) {
       this.brand = brand;
+      return this;
+    }
+
+    /**
+     * The shop's contact information.
+     */
+    public Builder contactInformation(ShopPolicy contactInformation) {
+      this.contactInformation = contactInformation;
+      return this;
+    }
+
+    /**
+     * Translations for customer accounts.
+     */
+    public Builder customerAccountTranslations(List<Translation> customerAccountTranslations) {
+      this.customerAccountTranslations = customerAccountTranslations;
       return this;
     }
 
@@ -470,6 +612,14 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
      */
     public Builder id(String id) {
       this.id = id;
+      return this;
+    }
+
+    /**
+     * The shop's legal notice.
+     */
+    public Builder legalNotice(ShopPolicy legalNotice) {
+      this.legalNotice = legalNotice;
       return this;
     }
 
@@ -565,10 +715,26 @@ public class Shop implements MetafieldParentResource, com.shopify.storefront.typ
     }
 
     /**
+     * The social login providers for customer accounts.
+     */
+    public Builder socialLoginProviders(List<SocialLoginProvider> socialLoginProviders) {
+      this.socialLoginProviders = socialLoginProviders;
+      return this;
+    }
+
+    /**
      * The shop’s subscription policy.
      */
     public Builder subscriptionPolicy(ShopPolicyWithDefault subscriptionPolicy) {
       this.subscriptionPolicy = subscriptionPolicy;
+      return this;
+    }
+
+    /**
+     * The shop's terms of sale.
+     */
+    public Builder termsOfSale(ShopPolicy termsOfSale) {
+      this.termsOfSale = termsOfSale;
       return this;
     }
 

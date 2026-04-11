@@ -6,7 +6,15 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The input fields to identify a metafield on an owner resource by namespace and key.
+ * The input fields to identify a
+ * [`Metafield`](https://shopify.dev/docs/api/storefront/current/objects/Metafield)
+ * on an owner resource by namespace and key. Used as an argument to the [`metafields`](https://shopify.dev/docs/api/storefront/current/interfaces/HasMetafields#fields-metafields)
+ * field of the `HasMetafields` interface to retrieve multiple metafields in a
+ * single request.
+ *
+ * If you omit the namespace, then the [app-reserved
+ * namespace](https://shopify.dev/docs/apps/build/metafields#app-owned-metafields)
+ * is used by default.
  */
 public class HasMetafieldsIdentifier {
   /**

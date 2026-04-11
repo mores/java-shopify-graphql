@@ -8,7 +8,15 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Represents information about the merchandise in the cart.
+ * An item in a customer's
+ * [`Cart`](https://shopify.dev/docs/api/storefront/current/objects/Cart)
+ * representing a product variant they intend to purchase. Each cart line tracks
+ * the merchandise, quantity, cost breakdown, and any applied discounts.
+ *
+ * Cart lines can include custom attributes for additional information like gift
+ * wrapping requests, and can be associated with a [`SellingPlanAllocation`](https://shopify.dev/docs/api/storefront/current/objects/SellingPlanAllocation)
+ * for purchase options like subscriptions, pre-orders, or try-before-you-buy. The [`instructions`](https://shopify.dev/docs/api/storefront/current/objects/CartLine#field-CartLine.fields.instructions)
+ * field indicates whether the line can be removed or have its quantity updated.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -47,9 +55,19 @@ public class CartLine implements com.shopify.storefront.types.BaseCartLine, com.
   private String id;
 
   /**
+   * The instructions for the line item.
+   */
+  private CartLineInstructions instructions;
+
+  /**
    * The merchandise that the buyer intends to purchase.
    */
   private Merchandise merchandise;
+
+  /**
+   * The parent of the line item.
+   */
+  private CartLineParentRelationship parentRelationship;
 
   /**
    * The quantity of the merchandise that the customer intends to purchase.
@@ -134,6 +152,17 @@ public class CartLine implements com.shopify.storefront.types.BaseCartLine, com.
   }
 
   /**
+   * The instructions for the line item.
+   */
+  public CartLineInstructions getInstructions() {
+    return instructions;
+  }
+
+  public void setInstructions(CartLineInstructions instructions) {
+    this.instructions = instructions;
+  }
+
+  /**
    * The merchandise that the buyer intends to purchase.
    */
   public Merchandise getMerchandise() {
@@ -142,6 +171,17 @@ public class CartLine implements com.shopify.storefront.types.BaseCartLine, com.
 
   public void setMerchandise(Merchandise merchandise) {
     this.merchandise = merchandise;
+  }
+
+  /**
+   * The parent of the line item.
+   */
+  public CartLineParentRelationship getParentRelationship() {
+    return parentRelationship;
+  }
+
+  public void setParentRelationship(CartLineParentRelationship parentRelationship) {
+    this.parentRelationship = parentRelationship;
   }
 
   /**
@@ -169,7 +209,7 @@ public class CartLine implements com.shopify.storefront.types.BaseCartLine, com.
 
   @Override
   public String toString() {
-    return "CartLine{attribute='" + attribute + "', attributes='" + attributes + "', cost='" + cost + "', discountAllocations='" + discountAllocations + "', estimatedCost='" + estimatedCost + "', id='" + id + "', merchandise='" + merchandise + "', quantity='" + quantity + "', sellingPlanAllocation='" + sellingPlanAllocation + "'}";
+    return "CartLine{attribute='" + attribute + "', attributes='" + attributes + "', cost='" + cost + "', discountAllocations='" + discountAllocations + "', estimatedCost='" + estimatedCost + "', id='" + id + "', instructions='" + instructions + "', merchandise='" + merchandise + "', parentRelationship='" + parentRelationship + "', quantity='" + quantity + "', sellingPlanAllocation='" + sellingPlanAllocation + "'}";
   }
 
   @Override
@@ -183,14 +223,16 @@ public class CartLine implements com.shopify.storefront.types.BaseCartLine, com.
         Objects.equals(discountAllocations, that.discountAllocations) &&
         Objects.equals(estimatedCost, that.estimatedCost) &&
         Objects.equals(id, that.id) &&
+        Objects.equals(instructions, that.instructions) &&
         Objects.equals(merchandise, that.merchandise) &&
+        Objects.equals(parentRelationship, that.parentRelationship) &&
         quantity == that.quantity &&
         Objects.equals(sellingPlanAllocation, that.sellingPlanAllocation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attribute, attributes, cost, discountAllocations, estimatedCost, id, merchandise, quantity, sellingPlanAllocation);
+    return Objects.hash(attribute, attributes, cost, discountAllocations, estimatedCost, id, instructions, merchandise, parentRelationship, quantity, sellingPlanAllocation);
   }
 
   public static Builder newBuilder() {
@@ -231,9 +273,19 @@ public class CartLine implements com.shopify.storefront.types.BaseCartLine, com.
     private String id;
 
     /**
+     * The instructions for the line item.
+     */
+    private CartLineInstructions instructions;
+
+    /**
      * The merchandise that the buyer intends to purchase.
      */
     private Merchandise merchandise;
+
+    /**
+     * The parent of the line item.
+     */
+    private CartLineParentRelationship parentRelationship;
 
     /**
      * The quantity of the merchandise that the customer intends to purchase.
@@ -254,7 +306,9 @@ public class CartLine implements com.shopify.storefront.types.BaseCartLine, com.
       result.discountAllocations = this.discountAllocations;
       result.estimatedCost = this.estimatedCost;
       result.id = this.id;
+      result.instructions = this.instructions;
       result.merchandise = this.merchandise;
+      result.parentRelationship = this.parentRelationship;
       result.quantity = this.quantity;
       result.sellingPlanAllocation = this.sellingPlanAllocation;
       return result;
@@ -311,10 +365,26 @@ public class CartLine implements com.shopify.storefront.types.BaseCartLine, com.
     }
 
     /**
+     * The instructions for the line item.
+     */
+    public Builder instructions(CartLineInstructions instructions) {
+      this.instructions = instructions;
+      return this;
+    }
+
+    /**
      * The merchandise that the buyer intends to purchase.
      */
     public Builder merchandise(Merchandise merchandise) {
       this.merchandise = merchandise;
+      return this;
+    }
+
+    /**
+     * The parent of the line item.
+     */
+    public Builder parentRelationship(CartLineParentRelationship parentRelationship) {
+      this.parentRelationship = parentRelationship;
       return this;
     }
 

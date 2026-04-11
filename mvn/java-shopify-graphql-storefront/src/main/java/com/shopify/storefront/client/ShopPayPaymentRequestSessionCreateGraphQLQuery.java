@@ -8,7 +8,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Create a new Shop Pay payment request session.
+ * Creates a [Shop Pay payment request session](https://shopify.dev/docs/api/storefront/current/objects/ShopPayPaymentRequestSession)
+ * for processing payments. The session includes a checkout URL where customers
+ * complete their purchase and a token for subsequent operations like submitting the payment.
+ *   
+ * The `sourceIdentifier` must be unique across all orders to ensure accurate reconciliation.
+ *   
+ * For a complete integration guide including the JavaScript SDK setup and
+ * checkout flow, refer to the [Shop Component API
+ * documentation](https://shopify.dev/docs/api/commerce-components/pay). For
+ * implementation steps, see the [development journey guide](https://shopify.dev/docs/api/commerce-components/pay/development-journey).
+ * For common error scenarios, see the [troubleshooting guide](https://shopify.dev/docs/api/commerce-components/pay/troubleshooting-guide).
  */
 public class ShopPayPaymentRequestSessionCreateGraphQLQuery extends GraphQLQuery {
   public ShopPayPaymentRequestSessionCreateGraphQLQuery(String sourceIdentifier,

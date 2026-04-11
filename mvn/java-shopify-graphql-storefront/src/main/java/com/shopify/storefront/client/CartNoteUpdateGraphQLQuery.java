@@ -7,7 +7,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Updates the note on the cart.
+ * Updates the note on a
+ * [`Cart`](https://shopify.dev/docs/api/storefront/current/objects/Cart). The
+ * note is a text field that stores additional information, such as a
+ * personalized message from the buyer or special instructions for the order.
  */
 public class CartNoteUpdateGraphQLQuery extends GraphQLQuery {
   public CartNoteUpdateGraphQLQuery(String cartId, String note, String queryName,

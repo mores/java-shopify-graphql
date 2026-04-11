@@ -9,7 +9,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * A list of redirects for a shop.
+ * Returns a paginated list of [`UrlRedirect`](https://shopify.dev/docs/api/storefront/current/objects/UrlRedirect)
+ * objects configured for the shop. Each redirect maps an old path to a target location.
  */
 public class UrlRedirectsGraphQLQuery extends GraphQLQuery {
   public UrlRedirectsGraphQLQuery(Integer first, String after, Integer last, String before,

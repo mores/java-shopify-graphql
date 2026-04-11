@@ -8,7 +8,9 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Removes the gift card codes applied to the cart.
+ * Removes gift cards from a
+ * [`Cart`](https://shopify.dev/docs/api/storefront/current/objects/Cart) using
+ * their IDs. You can retrieve the IDs of applied gift cards from the cart's [`appliedGiftCards`](https://shopify.dev/docs/api/storefront/current/objects/Cart#field-Cart.fields.appliedGiftCards) field.
  */
 public class CartGiftCardCodesRemoveGraphQLQuery extends GraphQLQuery {
   public CartGiftCardCodesRemoveGraphQLQuery(String cartId, List<String> appliedGiftCardIds,

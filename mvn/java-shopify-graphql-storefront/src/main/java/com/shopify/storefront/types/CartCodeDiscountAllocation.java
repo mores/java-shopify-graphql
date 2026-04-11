@@ -7,7 +7,7 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The discount that has been applied to the cart line using a discount code.
+ * A discount allocation applied to a cart line when a customer enters a [discount code](https://help.shopify.com/manual/discounts/discount-methods/discount-codes).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

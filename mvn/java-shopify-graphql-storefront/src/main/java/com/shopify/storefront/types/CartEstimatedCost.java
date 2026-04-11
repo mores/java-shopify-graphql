@@ -6,8 +6,12 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The estimated costs that the buyer will pay at checkout. The estimated cost uses [`CartBuyerIdentity`](https://shopify.dev/api/storefront/reference/cart/cartbuyeridentity)
- * to determine [international pricing](https://shopify.dev/custom-storefronts/internationalization/international-pricing).
+ * The estimated costs that the buyer pays at checkout. Uses [`CartBuyerIdentity`](https://shopify.dev/docs/api/storefront/current/objects/CartBuyerIdentity)
+ * to determine [international pricing](https://shopify.dev/docs/custom-storefronts/internationalization/international-pricing).
+ *
+ * Includes the subtotal, total amount, duties, and taxes. The [`checkoutChargeAmount`](https://shopify.dev/docs/api/storefront/current/objects/CartEstimatedCost#field-CartEstimatedCost.fields.checkoutChargeAmount)
+ * field excludes deferred payments that are charged later, making it useful for
+ * displaying what the customer pays immediately.
  */
 public class CartEstimatedCost {
   /**

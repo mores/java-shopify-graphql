@@ -26,7 +26,7 @@ public class SitemapResourceMetaobject implements com.shopify.storefront.types.S
   private String onlineStoreUrlHandle;
 
   /**
-   * The type of the metaobject. Defines the namespace of its associated metafields.
+   * The type of the metaobject.
    */
   private String type;
 
@@ -61,7 +61,7 @@ public class SitemapResourceMetaobject implements com.shopify.storefront.types.S
   }
 
   /**
-   * The type of the metaobject. Defines the namespace of its associated metafields.
+   * The type of the metaobject.
    */
   public String getType() {
     return type;
@@ -119,7 +119,7 @@ public class SitemapResourceMetaobject implements com.shopify.storefront.types.S
     private String onlineStoreUrlHandle;
 
     /**
-     * The type of the metaobject. Defines the namespace of its associated metafields.
+     * The type of the metaobject.
      */
     private String type;
 
@@ -154,7 +154,7 @@ public class SitemapResourceMetaobject implements com.shopify.storefront.types.S
     }
 
     /**
-     * The type of the metaobject. Defines the namespace of its associated metafields.
+     * The type of the metaobject.
      */
     public Builder type(String type) {
       this.type = type;

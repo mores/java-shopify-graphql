@@ -76,6 +76,11 @@ public class MetafieldFragmentProjection<PARENT extends BaseSubProjectionNode<?,
     return this;
   }
 
+  public MetafieldFragmentProjection<PARENT, ROOT> list() {
+    getFields().put("list", null);
+    return this;
+  }
+
   public MetafieldFragmentProjection<PARENT, ROOT> namespace() {
     getFields().put("namespace", null);
     return this;

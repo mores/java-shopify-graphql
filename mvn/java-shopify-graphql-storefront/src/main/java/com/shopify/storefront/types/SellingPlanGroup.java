@@ -7,9 +7,13 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Represents a selling method. For example, 'Subscribe and save' is a selling
- * method where customers pay for goods or services per delivery. A selling plan
- * group contains individual selling plans.
+ * A selling method that defines how products can be sold through purchase options
+ * like subscriptions, pre-orders, or try-before-you-buy. Groups one or more [`SellingPlan`](https://shopify.dev/docs/api/storefront/current/objects/SellingPlan)
+ * objects that share the same selling method and options.
+ *
+ * The `SellingPlanGroup` acts as a container for one or more individual
+ * `SellingPlan` objects, enabling merchants to offer multiple options (like weekly
+ * or monthly deliveries) under one, unified category on a product page.
  */
 public class SellingPlanGroup {
   /**

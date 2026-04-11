@@ -1,7 +1,10 @@
 package com.shopify.storefront.types;
 
 /**
- * Possible error codes that can be returned by `CustomerUserError`.
+ * Error codes returned by the [`CustomerUserError`](https://shopify.dev/docs/api/storefront/current/objects/CustomerUserError)
+ * object. These codes identify specific validation and processing failures for
+ * customer-related mutations, including account creation, updates, password
+ * resets, and address management.
  */
 public enum CustomerErrorCode {
   BLANK,

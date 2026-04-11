@@ -7,7 +7,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Find a collection by its handle.
+ * Retrieves a [`Collection`](https://shopify.dev/docs/api/storefront/current/objects/Collection) by its URL-friendly handle. Handles are automatically generated from
+ * collection titles but merchants can customize them.
  */
 public class CollectionByHandleGraphQLQuery extends GraphQLQuery {
   public CollectionByHandleGraphQLQuery(String handle, String queryName, Set<String> fieldsSet) {
