@@ -132,7 +132,7 @@ public class BulkOperationsGraphQLQuery extends GraphQLQuery {
      * | name | type | description | acceptable_values | default_value | example_use |
      * | ---- | ---- | ---- | ---- | ---- | ---- |
      * | created_at | time | Filter operations created after a specific date. |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | operation_type | string | Filter operations by type. | - `query`<br/> - `mutation` |
      * | status | string | Filter operations by status. | - `canceled`<br/> -
      * `canceling`<br/> - `completed`<br/> - `created`<br/> - `failed`<br/> - `running` |

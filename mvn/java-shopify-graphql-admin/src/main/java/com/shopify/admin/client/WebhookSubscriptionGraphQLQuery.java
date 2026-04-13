@@ -11,7 +11,7 @@ import java.util.Set;
  *   
  * Building an app? If you only use app-specific webhooks, you won't need this.
  * App-specific webhook subscriptions specified in your `shopify.app.toml` may be
- * easier. They are automatically kept up to date by Shopify & require less
+ * easier. They are automatically kept up to date by Shopify &amp; require less
  * maintenance. Please read [About managing webhook
  * subscriptions](https://shopify.dev/docs/apps/build/webhooks/subscribe).
  */

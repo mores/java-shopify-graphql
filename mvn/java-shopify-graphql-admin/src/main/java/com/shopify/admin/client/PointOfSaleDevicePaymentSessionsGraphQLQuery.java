@@ -131,7 +131,7 @@ public class PointOfSaleDevicePaymentSessionsGraphQLQuery extends GraphQLQuery {
      * | ---- | ---- | ---- | ---- | ---- | ---- |
      * | closing_date | date |
      * | closing_time | time |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | is_open | boolean |
      * | location_id | id |
      * | opening_date | date |

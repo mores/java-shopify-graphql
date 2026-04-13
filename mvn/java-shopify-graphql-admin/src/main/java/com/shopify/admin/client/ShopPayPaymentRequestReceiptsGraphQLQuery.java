@@ -132,9 +132,9 @@ public class ShopPayPaymentRequestReceiptsGraphQLQuery extends GraphQLQuery {
      * | ---- | ---- | ---- | ---- | ---- | ---- |
      * | created_at | time | Filter by the creation date of the payment request
      * receipt. | | | - `created_at:2021-01-01`<br/> -
-     * `created_at:2021-01-01..2021-01-02`<br/> - `created_at:<now`<br/> -
-     * `created_at:<2024-01-01` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * `created_at:2021-01-01..2021-01-02`<br/> - `created_at:&lt;now`<br/> -
+     * `created_at:&lt;2024-01-01` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | source_identifier | string | Filter by the source identifier of the
      * payment request receipt. | | | - `source_identifier:1282823` |
      * | state | string | Filter by the state of the payment request receipt.

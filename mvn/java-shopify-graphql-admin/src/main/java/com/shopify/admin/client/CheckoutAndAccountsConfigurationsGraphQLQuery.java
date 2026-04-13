@@ -130,7 +130,7 @@ public class CheckoutAndAccountsConfigurationsGraphQLQuery extends GraphQLQuery 
      * A filter made up of terms, connectives, modifiers, and comparators.
      * | name | type | description | acceptable_values | default_value | example_use |
      * | ---- | ---- | ---- | ---- | ---- | ---- |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | is_published | boolean |
      * | one_page_checkout_enabled | boolean |
      * | typ_osp_pages_enabled | boolean |

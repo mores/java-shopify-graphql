@@ -95,7 +95,7 @@ public class OrdersCountGraphQLQuery extends GraphQLQuery {
      * unique. | | | - `confirmation_number:ABC123` |
      * | created_at | time | Filter by the date and time when the order was created
      * in Shopify's system. | | | - `created_at:2020-10-21T23:39:20Z`<br/> -
-     * `created_at:<now`<br/> - `created_at:<=2024` |
+     * `created_at:&lt;now`<br/> - `created_at:&lt;=2024` |
      * | credit_card_last4 | string | Filter by the last four digits of the payment
      * card that was used to pay for the order. This filter matches only the last
      * four digits of the card for heightened security. | | | -
@@ -104,7 +104,7 @@ public class OrdersCountGraphQLQuery extends GraphQLQuery {
      * order in the shop currency, including any returns/refunds/removals. This
      * filter supports both exact values and ranges. | | | -
      * `current_total_price:10`<br/> - `current_total_price:>=5.00
-     * current_total_price:<=20.99` |
+     * current_total_price:&lt;=20.99` |
      * | customer_id | id | Filter orders by the customer [`id`](https://shopify.dev/api/admin-graphql/latest/objects/Customer#field-Customer.fields.id)
      * field. | | | - `customer_id:123` |
      * | delivery_method | string | Filter by the delivery [`methodType`](https://shopify.dev/api/admin-graphql/2024-07/objects/DeliveryMethod#field-DeliveryMethod.fields.methodType)
@@ -136,7 +136,7 @@ public class OrdersCountGraphQLQuery extends GraphQLQuery {
      * field. Use this filter to find orders that were processed through specific
      * payment providers like Shopify Payments, PayPal, or other custom payment
      * gateways. | | | - `gateway:shopify_payments` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | location_id | id | Filter by the location [`id`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Location#field-Location.fields.id)
      * that's associated with the order to view and manage orders for specific
      * locations. For POS orders, locations must be defined in the Shopify admin
@@ -202,11 +202,11 @@ public class OrdersCountGraphQLQuery extends GraphQLQuery {
      * both exact values and ranges, and is to be used to filter orders by the
      * total weight of all items (excluding packaging). It takes a unit of
      * measurement as a suffix. It accepts the following units: g, kg, lb, oz. | |
-     * | - `total_weight:10.5kg`<br/> - `total_weight:>=5g total_weight:<=20g`<br/>
+     * | - `total_weight:10.5kg`<br/> - `total_weight:>=5g total_weight:&lt;=20g`<br/>
      * - `total_weight:.5 lb` |
      * | updated_at | time | Filter by the date and time when the order was last
      * updated in Shopify's system. | | | - `updated_at:2020-10-21T23:39:20Z`<br/>
-     * - `updated_at:<now`<br/> - `updated_at:<=2024` |
+     * - `updated_at:&lt;now`<br/> - `updated_at:&lt;=2024` |
      * You can apply one or more filters to a query. Learn more about [Shopify API
      * search syntax](https://shopify.dev/api/usage/search-syntax).
      */
