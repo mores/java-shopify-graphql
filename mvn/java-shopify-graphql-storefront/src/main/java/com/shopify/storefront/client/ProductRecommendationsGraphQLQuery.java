@@ -15,7 +15,7 @@ import java.util.Set;
  * Shopify [auto-generates related recommendations](https://shopify.dev/docs/storefronts/themes/product-merchandising/recommendations)
  * based on sales data, product descriptions, and collection relationships.
  * Complementary recommendations require [manual configuration](https://help.shopify.com/manual/online-store/storefront-search/search-and-discovery-recommendations)
- * through the Shopify Search & Discovery app. Returns up to ten
+ * through the Shopify Search &amp; Discovery app. Returns up to ten
  * [`Product`](https://shopify.dev/docs/api/storefront/current/objects/Product) objects.
  */
 public class ProductRecommendationsGraphQLQuery extends GraphQLQuery {
