@@ -9,7 +9,11 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Deletes multiple metafields in bulk.
+ * Deletes [`Metafield`](https://shopify.dev/docs/api/admin-graphql/current/objects/Metafield) objects in bulk by specifying combinations of owner ID, namespace, and key.
+ *   
+ * Returns the identifiers of successfully deleted metafields. If a specified
+ * metafield doesn't exist, then the mutation still succeeds but returns `null`
+ * for that identifier in the response.
  */
 public class MetafieldsDeleteGraphQLQuery extends GraphQLQuery {
   public MetafieldsDeleteGraphQLQuery(List<MetafieldIdentifierInput> metafields, String queryName,

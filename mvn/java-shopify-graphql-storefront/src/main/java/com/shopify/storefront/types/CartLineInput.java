@@ -8,7 +8,12 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * The input fields to create a merchandise line on a cart.
+ * The input fields for adding a merchandise line to a cart. Each line represents a [`ProductVariant`](https://shopify.dev/docs/api/storefront/current/objects/ProductVariant)
+ * the buyer intends to purchase, along with the quantity and optional [`SellingPlan`](https://shopify.dev/docs/api/storefront/current/objects/SellingPlan)
+ * for subscriptions.
+ *
+ * Used by the [`cartCreate`](https://shopify.dev/docs/api/storefront/current/mutations/cartCreate) mutation when creating a cart with initial items, and the [`cartLinesAdd`](https://shopify.dev/docs/api/storefront/current/mutations/cartLinesAdd)
+ * mutation when adding items to an existing cart.
  */
 public class CartLineInput {
   /**
@@ -32,6 +37,11 @@ public class CartLineInput {
    * The ID of the selling plan that the merchandise is being purchased with.
    */
   private String sellingPlanId;
+
+  /**
+   * The parent line item of the cart line.
+   */
+  private CartLineParentInput _parent;
 
   public CartLineInput() {
   }
@@ -82,9 +92,20 @@ public class CartLineInput {
     this.sellingPlanId = sellingPlanId;
   }
 
+  /**
+   * The parent line item of the cart line.
+   */
+  public CartLineParentInput getParent() {
+    return _parent;
+  }
+
+  public void setParent(CartLineParentInput _parent) {
+    this._parent = _parent;
+  }
+
   @Override
   public String toString() {
-    return "CartLineInput{attributes='" + attributes + "', quantity='" + quantity + "', merchandiseId='" + merchandiseId + "', sellingPlanId='" + sellingPlanId + "'}";
+    return "CartLineInput{attributes='" + attributes + "', quantity='" + quantity + "', merchandiseId='" + merchandiseId + "', sellingPlanId='" + sellingPlanId + "', parent='" + _parent + "'}";
   }
 
   @Override
@@ -95,12 +116,13 @@ public class CartLineInput {
     return Objects.equals(attributes, that.attributes) &&
         Objects.equals(quantity, that.quantity) &&
         Objects.equals(merchandiseId, that.merchandiseId) &&
-        Objects.equals(sellingPlanId, that.sellingPlanId);
+        Objects.equals(sellingPlanId, that.sellingPlanId) &&
+        Objects.equals(_parent, that._parent);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, quantity, merchandiseId, sellingPlanId);
+    return Objects.hash(attributes, quantity, merchandiseId, sellingPlanId, _parent);
   }
 
   public static Builder newBuilder() {
@@ -130,12 +152,18 @@ public class CartLineInput {
      */
     private String sellingPlanId;
 
+    /**
+     * The parent line item of the cart line.
+     */
+    private CartLineParentInput _parent;
+
     public CartLineInput build() {
       CartLineInput result = new CartLineInput();
       result.attributes = this.attributes;
       result.quantity = this.quantity;
       result.merchandiseId = this.merchandiseId;
       result.sellingPlanId = this.sellingPlanId;
+      result._parent = this._parent;
       return result;
     }
 
@@ -170,6 +198,14 @@ public class CartLineInput {
      */
     public Builder sellingPlanId(String sellingPlanId) {
       this.sellingPlanId = sellingPlanId;
+      return this;
+    }
+
+    /**
+     * The parent line item of the cart line.
+     */
+    public Builder _parent(CartLineParentInput _parent) {
+      this._parent = _parent;
       return this;
     }
   }

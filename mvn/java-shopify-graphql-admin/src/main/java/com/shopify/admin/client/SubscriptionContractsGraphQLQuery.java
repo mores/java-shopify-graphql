@@ -10,7 +10,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * List Subscription Contracts.
+ * Returns a [`SubscriptionContractConnection`](https://shopify.dev/docs/api/admin-graphql/latest/objects/SubscriptionContractConnection) containing [subscription contracts](https://shopify.dev/docs/api/customer/latest/objects/SubscriptionContract).
+ * Subscription contracts are agreements between [customers](https://shopify.dev/docs/api/admin-graphql/latest/objects/Customer)
+ * and merchants for recurring purchases with defined billing and delivery schedules.
+ *   
+ * Filter results with the [`query`](https://shopify.dev/docs/api/admin-graphql/latest/queries/subscriptionContracts#arguments-query)
+ * argument. You can paginate results using standard [cursor-based
+ * pagination](https://shopify.dev/docs/api/usage/pagination-graphql).
  */
 public class SubscriptionContractsGraphQLQuery extends GraphQLQuery {
   public SubscriptionContractsGraphQLQuery(Integer first, String after, Integer last, String before,

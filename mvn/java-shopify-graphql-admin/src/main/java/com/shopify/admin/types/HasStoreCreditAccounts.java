@@ -11,7 +11,10 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
     include = JsonTypeInfo.As.PROPERTY,
     property = "__typename"
 )
-@JsonSubTypes(@JsonSubTypes.Type(value = Customer.class, name = "Customer"))
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = CompanyLocation.class, name = "CompanyLocation"),
+    @JsonSubTypes.Type(value = Customer.class, name = "Customer")
+})
 public interface HasStoreCreditAccounts {
   /**
    * Returns a list of store credit accounts that belong to the owner resource.

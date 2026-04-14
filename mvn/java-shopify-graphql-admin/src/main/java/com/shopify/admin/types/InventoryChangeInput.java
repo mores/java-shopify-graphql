@@ -1,5 +1,6 @@
 package com.shopify.admin.types;
 
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
@@ -13,6 +14,24 @@ public class InventoryChangeInput {
    * The amount by which the inventory quantity will be changed.
    */
   private int delta;
+
+  /**
+   * The quantity currently expected at this location, before the delta is applied.
+   *   
+   * This field enables a compare-and-swap (CAS) safety check. If the location’s
+   * current quantity doesn't match the value you provide, then the mutation fails
+   * with a `CHANGE_FROM_QUANTITY_STALE` error. This prevents unintended overwrites
+   * when the request is based on stale inventory data.
+   *   
+   * To skip the CAS check, pass `null`. Use this only when your system is the
+   * source of truth for this inventory and you don’t need to protect against
+   * concurrent updates.
+   * This field is mandatory: you must explicitly pass in a value, even if that
+   * value is `null`, or the mutation returns an error.
+   *   
+   * For more information, refer to the [compare and swap documentation](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#compare-and-swap).
+   */
+  private Integer changeFromQuantity;
 
   /**
    * Specifies the inventory item to which the change will be applied.
@@ -54,6 +73,30 @@ public class InventoryChangeInput {
 
   public void setDelta(int delta) {
     this.delta = delta;
+  }
+
+  /**
+   * The quantity currently expected at this location, before the delta is applied.
+   *   
+   * This field enables a compare-and-swap (CAS) safety check. If the location’s
+   * current quantity doesn't match the value you provide, then the mutation fails
+   * with a `CHANGE_FROM_QUANTITY_STALE` error. This prevents unintended overwrites
+   * when the request is based on stale inventory data.
+   *   
+   * To skip the CAS check, pass `null`. Use this only when your system is the
+   * source of truth for this inventory and you don’t need to protect against
+   * concurrent updates.
+   * This field is mandatory: you must explicitly pass in a value, even if that
+   * value is `null`, or the mutation returns an error.
+   *   
+   * For more information, refer to the [compare and swap documentation](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#compare-and-swap).
+   */
+  public Integer getChangeFromQuantity() {
+    return changeFromQuantity;
+  }
+
+  public void setChangeFromQuantity(Integer changeFromQuantity) {
+    this.changeFromQuantity = changeFromQuantity;
   }
 
   /**
@@ -104,7 +147,7 @@ public class InventoryChangeInput {
 
   @Override
   public String toString() {
-    return "InventoryChangeInput{delta='" + delta + "', inventoryItemId='" + inventoryItemId + "', locationId='" + locationId + "', ledgerDocumentUri='" + ledgerDocumentUri + "'}";
+    return "InventoryChangeInput{delta='" + delta + "', changeFromQuantity='" + changeFromQuantity + "', inventoryItemId='" + inventoryItemId + "', locationId='" + locationId + "', ledgerDocumentUri='" + ledgerDocumentUri + "'}";
   }
 
   @Override
@@ -113,6 +156,7 @@ public class InventoryChangeInput {
     if (o == null || getClass() != o.getClass()) return false;
     InventoryChangeInput that = (InventoryChangeInput) o;
     return delta == that.delta &&
+        Objects.equals(changeFromQuantity, that.changeFromQuantity) &&
         Objects.equals(inventoryItemId, that.inventoryItemId) &&
         Objects.equals(locationId, that.locationId) &&
         Objects.equals(ledgerDocumentUri, that.ledgerDocumentUri);
@@ -120,7 +164,7 @@ public class InventoryChangeInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(delta, inventoryItemId, locationId, ledgerDocumentUri);
+    return Objects.hash(delta, changeFromQuantity, inventoryItemId, locationId, ledgerDocumentUri);
   }
 
   public static Builder newBuilder() {
@@ -132,6 +176,24 @@ public class InventoryChangeInput {
      * The amount by which the inventory quantity will be changed.
      */
     private int delta;
+
+    /**
+     * The quantity currently expected at this location, before the delta is applied.
+     *   
+     * This field enables a compare-and-swap (CAS) safety check. If the location’s
+     * current quantity doesn't match the value you provide, then the mutation fails
+     * with a `CHANGE_FROM_QUANTITY_STALE` error. This prevents unintended overwrites
+     * when the request is based on stale inventory data.
+     *   
+     * To skip the CAS check, pass `null`. Use this only when your system is the
+     * source of truth for this inventory and you don’t need to protect against
+     * concurrent updates.
+     * This field is mandatory: you must explicitly pass in a value, even if that
+     * value is `null`, or the mutation returns an error.
+     *   
+     * For more information, refer to the [compare and swap documentation](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#compare-and-swap).
+     */
+    private Integer changeFromQuantity;
 
     /**
      * Specifies the inventory item to which the change will be applied.
@@ -164,6 +226,7 @@ public class InventoryChangeInput {
     public InventoryChangeInput build() {
       InventoryChangeInput result = new InventoryChangeInput();
       result.delta = this.delta;
+      result.changeFromQuantity = this.changeFromQuantity;
       result.inventoryItemId = this.inventoryItemId;
       result.locationId = this.locationId;
       result.ledgerDocumentUri = this.ledgerDocumentUri;
@@ -175,6 +238,27 @@ public class InventoryChangeInput {
      */
     public Builder delta(int delta) {
       this.delta = delta;
+      return this;
+    }
+
+    /**
+     * The quantity currently expected at this location, before the delta is applied.
+     *   
+     * This field enables a compare-and-swap (CAS) safety check. If the location’s
+     * current quantity doesn't match the value you provide, then the mutation fails
+     * with a `CHANGE_FROM_QUANTITY_STALE` error. This prevents unintended overwrites
+     * when the request is based on stale inventory data.
+     *   
+     * To skip the CAS check, pass `null`. Use this only when your system is the
+     * source of truth for this inventory and you don’t need to protect against
+     * concurrent updates.
+     * This field is mandatory: you must explicitly pass in a value, even if that
+     * value is `null`, or the mutation returns an error.
+     *   
+     * For more information, refer to the [compare and swap documentation](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#compare-and-swap).
+     */
+    public Builder changeFromQuantity(Integer changeFromQuantity) {
+      this.changeFromQuantity = changeFromQuantity;
       return this;
     }
 

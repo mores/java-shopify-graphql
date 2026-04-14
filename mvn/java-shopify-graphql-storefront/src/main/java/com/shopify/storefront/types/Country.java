@@ -7,7 +7,13 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * A country.
+ * A country with localization settings for a storefront. Includes the country's
+ * currency, available languages, default language, and unit system (metric or imperial).
+ *
+ * Access countries through the [localization](https://shopify.dev/docs/api/storefront/current/queries/localization)
+ * query, which returns both the list of available countries and the currently
+ * active country. Use the [`@inContext`](https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/in-context)
+ * directive to change the active country context.
  */
 public class Country {
   /**

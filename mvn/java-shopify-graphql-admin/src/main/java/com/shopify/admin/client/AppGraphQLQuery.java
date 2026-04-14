@@ -7,7 +7,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Lookup an App by ID or return the currently authenticated App.
+ * Retrieves an [`App`](https://shopify.dev/docs/api/admin-graphql/latest/objects/App) by
+ * its ID. If no ID is provided, returns details about the currently
+ * authenticated app. The query provides access to app details including title,
+ * icon, and pricing information.
+ *   
+ * If the app isn't installed on the current shop, then the [`installation`](https://shopify.dev/docs/api/admin-graphql/latest/queries/app#returns-App.fields.installation)
+ * field will be `null`.
  */
 public class AppGraphQLQuery extends GraphQLQuery {
   public AppGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

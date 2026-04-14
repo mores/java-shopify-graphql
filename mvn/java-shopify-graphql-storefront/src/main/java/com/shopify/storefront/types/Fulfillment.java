@@ -7,7 +7,12 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Represents a single fulfillment in an order.
+ * A shipment of one or more items in an order. Accessed through the
+ * [`Order`](https://shopify.dev/docs/api/storefront/current/objects/Order) object's [`successfulFulfillments`](https://shopify.dev/docs/api/storefront/current/objects/Order#field-Order.fields.successfulFulfillments) field.
+ *
+ * Each fulfillment includes the line items that shipped, the tracking company
+ * name, and tracking details like numbers and URLs. An order can have multiple
+ * fulfillments when items ship separately or from different locations.
  */
 public class Fulfillment {
   /**

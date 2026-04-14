@@ -10,6 +10,8 @@ public enum InventoryTransferMarkAsReadyToShipUserErrorCode {
 
   INVALID_TRANSFER_STATUS,
 
+  LOCATION_REQUIRED,
+
   INVALID_ITEM,
 
   LOCATION_NOT_ACTIVE,

@@ -10,7 +10,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * List of the shop's blogs.
+ * Returns a paginated list of the shop's
+ * [`Blog`](https://shopify.dev/docs/api/storefront/current/objects/Blog)
+ * objects. Each blog serves as a container for
+ * [`Article`](https://shopify.dev/docs/api/storefront/current/objects/Article) objects.
  */
 public class BlogsGraphQLQuery extends GraphQLQuery {
   public BlogsGraphQLQuery(Integer first, String after, Integer last, String before,

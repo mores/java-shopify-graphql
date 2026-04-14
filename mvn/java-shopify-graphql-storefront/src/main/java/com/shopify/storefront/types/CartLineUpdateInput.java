@@ -8,7 +8,11 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * The input fields to update a line item on a cart.
+ * The input fields for updating a merchandise line in a cart. Used by the [`cartLinesUpdate`](https://shopify.dev/docs/api/storefront/current/mutations/cartLinesUpdate) mutation.
+ *
+ * Specify the line item's [`id`](https://shopify.dev/docs/api/storefront/current/input-objects/CartLineUpdateInput#fields-id)
+ * along with any fields to modify. You can change the quantity, swap the
+ * merchandise, update custom attributes, or associate a different selling plan.
  */
 public class CartLineUpdateInput {
   /**

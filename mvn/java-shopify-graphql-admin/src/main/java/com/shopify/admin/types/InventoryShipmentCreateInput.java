@@ -3,6 +3,7 @@ package com.shopify.admin.types;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -24,6 +25,16 @@ public class InventoryShipmentCreateInput {
    * The list of line items for the inventory shipment.
    */
   private List<InventoryShipmentLineItemInput> lineItems;
+
+  /**
+   * The date the shipment was created.
+   */
+  private OffsetDateTime dateCreated;
+
+  /**
+   * A unique barcode for the shipment.
+   */
+  private String barcode;
 
   public InventoryShipmentCreateInput() {
   }
@@ -61,9 +72,31 @@ public class InventoryShipmentCreateInput {
     this.lineItems = lineItems;
   }
 
+  /**
+   * The date the shipment was created.
+   */
+  public OffsetDateTime getDateCreated() {
+    return dateCreated;
+  }
+
+  public void setDateCreated(OffsetDateTime dateCreated) {
+    this.dateCreated = dateCreated;
+  }
+
+  /**
+   * A unique barcode for the shipment.
+   */
+  public String getBarcode() {
+    return barcode;
+  }
+
+  public void setBarcode(String barcode) {
+    this.barcode = barcode;
+  }
+
   @Override
   public String toString() {
-    return "InventoryShipmentCreateInput{movementId='" + movementId + "', trackingInput='" + trackingInput + "', lineItems='" + lineItems + "'}";
+    return "InventoryShipmentCreateInput{movementId='" + movementId + "', trackingInput='" + trackingInput + "', lineItems='" + lineItems + "', dateCreated='" + dateCreated + "', barcode='" + barcode + "'}";
   }
 
   @Override
@@ -73,12 +106,14 @@ public class InventoryShipmentCreateInput {
     InventoryShipmentCreateInput that = (InventoryShipmentCreateInput) o;
     return Objects.equals(movementId, that.movementId) &&
         Objects.equals(trackingInput, that.trackingInput) &&
-        Objects.equals(lineItems, that.lineItems);
+        Objects.equals(lineItems, that.lineItems) &&
+        Objects.equals(dateCreated, that.dateCreated) &&
+        Objects.equals(barcode, that.barcode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(movementId, trackingInput, lineItems);
+    return Objects.hash(movementId, trackingInput, lineItems, dateCreated, barcode);
   }
 
   public static Builder newBuilder() {
@@ -101,11 +136,23 @@ public class InventoryShipmentCreateInput {
      */
     private List<InventoryShipmentLineItemInput> lineItems;
 
+    /**
+     * The date the shipment was created.
+     */
+    private OffsetDateTime dateCreated;
+
+    /**
+     * A unique barcode for the shipment.
+     */
+    private String barcode;
+
     public InventoryShipmentCreateInput build() {
       InventoryShipmentCreateInput result = new InventoryShipmentCreateInput();
       result.movementId = this.movementId;
       result.trackingInput = this.trackingInput;
       result.lineItems = this.lineItems;
+      result.dateCreated = this.dateCreated;
+      result.barcode = this.barcode;
       return result;
     }
 
@@ -130,6 +177,22 @@ public class InventoryShipmentCreateInput {
      */
     public Builder lineItems(List<InventoryShipmentLineItemInput> lineItems) {
       this.lineItems = lineItems;
+      return this;
+    }
+
+    /**
+     * The date the shipment was created.
+     */
+    public Builder dateCreated(OffsetDateTime dateCreated) {
+      this.dateCreated = dateCreated;
+      return this;
+    }
+
+    /**
+     * A unique barcode for the shipment.
+     */
+    public Builder barcode(String barcode) {
+      this.barcode = barcode;
       return this;
     }
   }

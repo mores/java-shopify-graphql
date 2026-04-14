@@ -92,6 +92,11 @@ public class Return implements com.shopify.admin.types.Node {
   private ReverseFulfillmentOrderConnection reverseFulfillmentOrders;
 
   /**
+   * The staff member that created the return.
+   */
+  private StaffMember staffMember;
+
+  /**
    * The status of the return.
    */
   private ReturnStatus status;
@@ -110,6 +115,11 @@ public class Return implements com.shopify.admin.types.Node {
    * The sum of all return line item quantities for the return.
    */
   private int totalQuantity;
+
+  /**
+   * The order transactions created from the return.
+   */
+  private OrderTransactionConnection transactions;
 
   public Return() {
   }
@@ -248,6 +258,17 @@ public class Return implements com.shopify.admin.types.Node {
   }
 
   /**
+   * The staff member that created the return.
+   */
+  public StaffMember getStaffMember() {
+    return staffMember;
+  }
+
+  public void setStaffMember(StaffMember staffMember) {
+    this.staffMember = staffMember;
+  }
+
+  /**
    * The status of the return.
    */
   public ReturnStatus getStatus() {
@@ -292,9 +313,20 @@ public class Return implements com.shopify.admin.types.Node {
     this.totalQuantity = totalQuantity;
   }
 
+  /**
+   * The order transactions created from the return.
+   */
+  public OrderTransactionConnection getTransactions() {
+    return transactions;
+  }
+
+  public void setTransactions(OrderTransactionConnection transactions) {
+    this.transactions = transactions;
+  }
+
   @Override
   public String toString() {
-    return "Return{closedAt='" + closedAt + "', createdAt='" + createdAt + "', decline='" + decline + "', exchangeLineItems='" + exchangeLineItems + "', id='" + id + "', name='" + name + "', order='" + order + "', refunds='" + refunds + "', requestApprovedAt='" + requestApprovedAt + "', returnLineItems='" + returnLineItems + "', returnShippingFees='" + returnShippingFees + "', reverseFulfillmentOrders='" + reverseFulfillmentOrders + "', status='" + status + "', suggestedFinancialOutcome='" + suggestedFinancialOutcome + "', suggestedRefund='" + suggestedRefund + "', totalQuantity='" + totalQuantity + "'}";
+    return "Return{closedAt='" + closedAt + "', createdAt='" + createdAt + "', decline='" + decline + "', exchangeLineItems='" + exchangeLineItems + "', id='" + id + "', name='" + name + "', order='" + order + "', refunds='" + refunds + "', requestApprovedAt='" + requestApprovedAt + "', returnLineItems='" + returnLineItems + "', returnShippingFees='" + returnShippingFees + "', reverseFulfillmentOrders='" + reverseFulfillmentOrders + "', staffMember='" + staffMember + "', status='" + status + "', suggestedFinancialOutcome='" + suggestedFinancialOutcome + "', suggestedRefund='" + suggestedRefund + "', totalQuantity='" + totalQuantity + "', transactions='" + transactions + "'}";
   }
 
   @Override
@@ -314,15 +346,17 @@ public class Return implements com.shopify.admin.types.Node {
         Objects.equals(returnLineItems, that.returnLineItems) &&
         Objects.equals(returnShippingFees, that.returnShippingFees) &&
         Objects.equals(reverseFulfillmentOrders, that.reverseFulfillmentOrders) &&
+        Objects.equals(staffMember, that.staffMember) &&
         Objects.equals(status, that.status) &&
         Objects.equals(suggestedFinancialOutcome, that.suggestedFinancialOutcome) &&
         Objects.equals(suggestedRefund, that.suggestedRefund) &&
-        totalQuantity == that.totalQuantity;
+        totalQuantity == that.totalQuantity &&
+        Objects.equals(transactions, that.transactions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(closedAt, createdAt, decline, exchangeLineItems, id, name, order, refunds, requestApprovedAt, returnLineItems, returnShippingFees, reverseFulfillmentOrders, status, suggestedFinancialOutcome, suggestedRefund, totalQuantity);
+    return Objects.hash(closedAt, createdAt, decline, exchangeLineItems, id, name, order, refunds, requestApprovedAt, returnLineItems, returnShippingFees, reverseFulfillmentOrders, staffMember, status, suggestedFinancialOutcome, suggestedRefund, totalQuantity, transactions);
   }
 
   public static Builder newBuilder() {
@@ -391,6 +425,11 @@ public class Return implements com.shopify.admin.types.Node {
     private ReverseFulfillmentOrderConnection reverseFulfillmentOrders;
 
     /**
+     * The staff member that created the return.
+     */
+    private StaffMember staffMember;
+
+    /**
      * The status of the return.
      */
     private ReturnStatus status;
@@ -410,6 +449,11 @@ public class Return implements com.shopify.admin.types.Node {
      */
     private int totalQuantity;
 
+    /**
+     * The order transactions created from the return.
+     */
+    private OrderTransactionConnection transactions;
+
     public Return build() {
       Return result = new Return();
       result.closedAt = this.closedAt;
@@ -424,10 +468,12 @@ public class Return implements com.shopify.admin.types.Node {
       result.returnLineItems = this.returnLineItems;
       result.returnShippingFees = this.returnShippingFees;
       result.reverseFulfillmentOrders = this.reverseFulfillmentOrders;
+      result.staffMember = this.staffMember;
       result.status = this.status;
       result.suggestedFinancialOutcome = this.suggestedFinancialOutcome;
       result.suggestedRefund = this.suggestedRefund;
       result.totalQuantity = this.totalQuantity;
+      result.transactions = this.transactions;
       return result;
     }
 
@@ -529,6 +575,14 @@ public class Return implements com.shopify.admin.types.Node {
     }
 
     /**
+     * The staff member that created the return.
+     */
+    public Builder staffMember(StaffMember staffMember) {
+      this.staffMember = staffMember;
+      return this;
+    }
+
+    /**
      * The status of the return.
      */
     public Builder status(ReturnStatus status) {
@@ -558,6 +612,14 @@ public class Return implements com.shopify.admin.types.Node {
      */
     public Builder totalQuantity(int totalQuantity) {
       this.totalQuantity = totalQuantity;
+      return this;
+    }
+
+    /**
+     * The order transactions created from the return.
+     */
+    public Builder transactions(OrderTransactionConnection transactions) {
+      this.transactions = transactions;
       return this;
     }
   }

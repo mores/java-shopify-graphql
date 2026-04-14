@@ -6,9 +6,13 @@ package com.shopify.admin.types;
 public enum TranslatableResourceType {
   ARTICLE,
 
+  ARTICLE_IMAGE,
+
   BLOG,
 
   COLLECTION,
+
+  COLLECTION_IMAGE,
 
   DELIVERY_METHOD_DEFINITION,
 
@@ -17,6 +21,8 @@ public enum TranslatableResourceType {
   FILTER,
 
   LINK,
+
+  MEDIA_IMAGE,
 
   MENU,
 

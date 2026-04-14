@@ -113,11 +113,6 @@ public class FulfillmentService {
   private Location location;
 
   /**
-   * Whether the fulfillment service can stock inventory alongside other locations.
-   */
-  private boolean permitsSkuSharing;
-
-  /**
    * Whether the fulfillment service requires products to be physically shipped.
    */
   private boolean requiresShippingMethod;
@@ -219,17 +214,6 @@ public class FulfillmentService {
   }
 
   /**
-   * Whether the fulfillment service can stock inventory alongside other locations.
-   */
-  public boolean getPermitsSkuSharing() {
-    return permitsSkuSharing;
-  }
-
-  public void setPermitsSkuSharing(boolean permitsSkuSharing) {
-    this.permitsSkuSharing = permitsSkuSharing;
-  }
-
-  /**
    * Whether the fulfillment service requires products to be physically shipped.
    */
   public boolean getRequiresShippingMethod() {
@@ -275,7 +259,7 @@ public class FulfillmentService {
 
   @Override
   public String toString() {
-    return "FulfillmentService{callbackUrl='" + callbackUrl + "', fulfillmentOrdersOptIn='" + fulfillmentOrdersOptIn + "', handle='" + handle + "', id='" + id + "', inventoryManagement='" + inventoryManagement + "', location='" + location + "', permitsSkuSharing='" + permitsSkuSharing + "', requiresShippingMethod='" + requiresShippingMethod + "', serviceName='" + serviceName + "', trackingSupport='" + trackingSupport + "', type='" + type + "'}";
+    return "FulfillmentService{callbackUrl='" + callbackUrl + "', fulfillmentOrdersOptIn='" + fulfillmentOrdersOptIn + "', handle='" + handle + "', id='" + id + "', inventoryManagement='" + inventoryManagement + "', location='" + location + "', requiresShippingMethod='" + requiresShippingMethod + "', serviceName='" + serviceName + "', trackingSupport='" + trackingSupport + "', type='" + type + "'}";
   }
 
   @Override
@@ -289,7 +273,6 @@ public class FulfillmentService {
         Objects.equals(id, that.id) &&
         inventoryManagement == that.inventoryManagement &&
         Objects.equals(location, that.location) &&
-        permitsSkuSharing == that.permitsSkuSharing &&
         requiresShippingMethod == that.requiresShippingMethod &&
         Objects.equals(serviceName, that.serviceName) &&
         trackingSupport == that.trackingSupport &&
@@ -298,7 +281,7 @@ public class FulfillmentService {
 
   @Override
   public int hashCode() {
-    return Objects.hash(callbackUrl, fulfillmentOrdersOptIn, handle, id, inventoryManagement, location, permitsSkuSharing, requiresShippingMethod, serviceName, trackingSupport, type);
+    return Objects.hash(callbackUrl, fulfillmentOrdersOptIn, handle, id, inventoryManagement, location, requiresShippingMethod, serviceName, trackingSupport, type);
   }
 
   public static Builder newBuilder() {
@@ -349,11 +332,6 @@ public class FulfillmentService {
     private Location location;
 
     /**
-     * Whether the fulfillment service can stock inventory alongside other locations.
-     */
-    private boolean permitsSkuSharing;
-
-    /**
      * Whether the fulfillment service requires products to be physically shipped.
      */
     private boolean requiresShippingMethod;
@@ -381,7 +359,6 @@ public class FulfillmentService {
       result.id = this.id;
       result.inventoryManagement = this.inventoryManagement;
       result.location = this.location;
-      result.permitsSkuSharing = this.permitsSkuSharing;
       result.requiresShippingMethod = this.requiresShippingMethod;
       result.serviceName = this.serviceName;
       result.trackingSupport = this.trackingSupport;
@@ -446,14 +423,6 @@ public class FulfillmentService {
      */
     public Builder location(Location location) {
       this.location = location;
-      return this;
-    }
-
-    /**
-     * Whether the fulfillment service can stock inventory alongside other locations.
-     */
-    public Builder permitsSkuSharing(boolean permitsSkuSharing) {
-      this.permitsSkuSharing = permitsSkuSharing;
       return this;
     }
 

@@ -8,8 +8,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Delete a customer. As of API version 2022-10, apps using protected customer
- * data must meet the protected customer data [requirements](https://shopify.dev/apps/store/data-protection/protected-customer-data).
+ * Deletes a [`Customer`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Customer) from the store. You can only delete customers who haven't placed any
+ * [orders](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order).
+ *   
+ * Apps using protected customer data must meet Shopify's [protected customer data requirements](https://shopify.dev/docs/apps/launch/protected-customer-data#requirements).
  */
 public class CustomerDeleteGraphQLQuery extends GraphQLQuery {
   public CustomerDeleteGraphQLQuery(CustomerDeleteInput input, String queryName,

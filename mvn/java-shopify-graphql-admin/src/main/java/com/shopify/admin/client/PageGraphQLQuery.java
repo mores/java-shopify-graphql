@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a Page resource by ID.
+ * Returns a `Page` resource by ID.
  */
 public class PageGraphQLQuery extends GraphQLQuery {
   public PageGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

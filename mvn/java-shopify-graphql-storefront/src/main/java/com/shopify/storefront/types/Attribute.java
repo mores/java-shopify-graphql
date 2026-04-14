@@ -6,7 +6,17 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * Represents a generic custom attribute, such as whether an order is a customer's first.
+ * A custom key-value pair for storing additional information on
+ * [carts](https://shopify.dev/docs/api/storefront/current/objects/Cart), [cart
+ * lines](https://shopify.dev/docs/api/storefront/current/objects/CartLine),
+ * [orders](https://shopify.dev/docs/api/storefront/current/objects/Order), and [order line
+ * items](https://shopify.dev/docs/api/storefront/current/objects/OrderLineItem).
+ * Common uses include gift wrapping requests, customer notes, and tracking whether
+ * a customer is a first-time buyer.
+ *
+ * Attributes set on a cart carry over to the resulting order after checkout. Use the [`cartAttributesUpdate`](https://shopify.dev/docs/api/storefront/current/mutations/cartAttributesUpdate)
+ * mutation to add or modify cart attributes. For a step-by-step guide, see
+ * [managing carts with the Storefront API](https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/cart/manage).
  */
 public class Attribute {
   /**

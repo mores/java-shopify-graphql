@@ -7,7 +7,20 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Marks a comment as spam.
+ * Marks a comment as spam, removing it from public view. This mutation enables
+ * merchants to quickly handle unwanted promotional content, malicious links, or
+ * other spam that appears in blog discussions.
+ *   
+ * For example, when a comment contains suspicious links to unrelated products or
+ * services, merchants can mark it as spam to immediately hide it from customers.
+ *   
+ * Use the `commentSpam` mutation to:
+ * - Hide promotional or malicious comments from public view
+ * - Protect customers from potentially harmful links
+ * - Maintain professional discussion quality on blog articles
+ *   
+ * Spam-marked comments can be reviewed later and potentially restored using the
+ * `commentNotSpam` mutation if they were incorrectly classified.
  */
 public class CommentSpamGraphQLQuery extends GraphQLQuery {
   public CommentSpamGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

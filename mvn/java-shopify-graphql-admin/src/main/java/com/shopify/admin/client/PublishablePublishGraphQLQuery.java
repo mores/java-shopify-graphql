@@ -9,10 +9,15 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Publishes a resource to a channel. If the resource is a product, then it's
- * visible in the channel only if the product status is `active`. Products that
- * are sold exclusively on subscription (`requiresSellingPlan: true`) can be
- * published only on online stores.
+ * Publishes a resource, such as a
+ * [`Product`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product) or [`Collection`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Collection), to one or more [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+ *   
+ * For products to be visible in a channel, they must have an active [`ProductStatus`](https://shopify.dev/docs/api/admin-graphql/latest/enums/ProductStatus).
+ * Products sold exclusively on subscription (`requiresSellingPlan: true`) can
+ * only be published to online stores.
+ *   
+ * You can schedule future publication by providing a publish date. Only online
+ * store channels support [scheduled publishing](https://shopify.dev/docs/apps/build/sales-channels/scheduled-product-publishing).
  */
 public class PublishablePublishGraphQLQuery extends GraphQLQuery {
   public PublishablePublishGraphQLQuery(String id, List<PublicationInput> input, String queryName,

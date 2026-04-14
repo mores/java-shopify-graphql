@@ -8,7 +8,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Accepts a fulfillment request sent to a fulfillment service for a fulfillment order.
+ * Accepts a fulfillment request that the fulfillment service has received for a [`FulfillmentOrder`](https://shopify.dev/docs/api/admin-graphql/latest/objects/FulfillmentOrder)
+ * which signals that the fulfillment service will process and fulfill the order.
+ * The fulfillment service can optionally provide a message to the merchant and
+ * an estimated shipped date when accepting the request.
+ *   
+ * Learn more about [accepting fulfillment requests](https://shopify.dev/docs/apps/build/orders-fulfillment/fulfillment-service-apps/build-for-fulfillment-services#accept-a-fulfillment-request).
  */
 public class FulfillmentOrderAcceptFulfillmentRequestGraphQLQuery extends GraphQLQuery {
   public FulfillmentOrderAcceptFulfillmentRequestGraphQLQuery(String id, String message,

@@ -7,8 +7,15 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * Discount code applications capture the intentions of a discount code at
- * the time that it is applied.
+ * Records the configuration and intent of a [discount
+ * code](https://help.shopify.com/manual/discounts/discount-methods/discount-codes)
+ * when a customer applies it. This includes the code string, allocation method,
+ * target type, and discount value at the time of application. The [`applicable`](https://shopify.dev/docs/api/storefront/latest/objects/DiscountCodeApplication#field-DiscountCodeApplication.fields.applicable)
+ * field indicates whether the code was successfully applied.
+ *
+ * > Note:
+ * > To see the actual amounts discounted on specific line items or shipping lines, use the [`DiscountAllocation`](https://shopify.dev/docs/api/storefront/current/objects/DiscountAllocation)
+ * object instead.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

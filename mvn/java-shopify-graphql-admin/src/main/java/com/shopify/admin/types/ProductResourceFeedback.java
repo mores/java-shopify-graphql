@@ -14,6 +14,11 @@ import java.util.Objects;
  */
 public class ProductResourceFeedback {
   /**
+   * The channel this feedback is for.
+   */
+  private Channel channel;
+
+  /**
    * The time when the feedback was generated. Used to help determine whether
    * incoming feedback is outdated compared to existing feedback.
    */
@@ -40,6 +45,17 @@ public class ProductResourceFeedback {
   private ResourceFeedbackState state;
 
   public ProductResourceFeedback() {
+  }
+
+  /**
+   * The channel this feedback is for.
+   */
+  public Channel getChannel() {
+    return channel;
+  }
+
+  public void setChannel(Channel channel) {
+    this.channel = channel;
   }
 
   /**
@@ -100,7 +116,7 @@ public class ProductResourceFeedback {
 
   @Override
   public String toString() {
-    return "ProductResourceFeedback{feedbackGeneratedAt='" + feedbackGeneratedAt + "', messages='" + messages + "', productId='" + productId + "', productUpdatedAt='" + productUpdatedAt + "', state='" + state + "'}";
+    return "ProductResourceFeedback{channel='" + channel + "', feedbackGeneratedAt='" + feedbackGeneratedAt + "', messages='" + messages + "', productId='" + productId + "', productUpdatedAt='" + productUpdatedAt + "', state='" + state + "'}";
   }
 
   @Override
@@ -108,7 +124,8 @@ public class ProductResourceFeedback {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     ProductResourceFeedback that = (ProductResourceFeedback) o;
-    return Objects.equals(feedbackGeneratedAt, that.feedbackGeneratedAt) &&
+    return Objects.equals(channel, that.channel) &&
+        Objects.equals(feedbackGeneratedAt, that.feedbackGeneratedAt) &&
         Objects.equals(messages, that.messages) &&
         Objects.equals(productId, that.productId) &&
         Objects.equals(productUpdatedAt, that.productUpdatedAt) &&
@@ -117,7 +134,7 @@ public class ProductResourceFeedback {
 
   @Override
   public int hashCode() {
-    return Objects.hash(feedbackGeneratedAt, messages, productId, productUpdatedAt, state);
+    return Objects.hash(channel, feedbackGeneratedAt, messages, productId, productUpdatedAt, state);
   }
 
   public static Builder newBuilder() {
@@ -125,6 +142,11 @@ public class ProductResourceFeedback {
   }
 
   public static class Builder {
+    /**
+     * The channel this feedback is for.
+     */
+    private Channel channel;
+
     /**
      * The time when the feedback was generated. Used to help determine whether
      * incoming feedback is outdated compared to existing feedback.
@@ -153,12 +175,21 @@ public class ProductResourceFeedback {
 
     public ProductResourceFeedback build() {
       ProductResourceFeedback result = new ProductResourceFeedback();
+      result.channel = this.channel;
       result.feedbackGeneratedAt = this.feedbackGeneratedAt;
       result.messages = this.messages;
       result.productId = this.productId;
       result.productUpdatedAt = this.productUpdatedAt;
       result.state = this.state;
       return result;
+    }
+
+    /**
+     * The channel this feedback is for.
+     */
+    public Builder channel(Channel channel) {
+      this.channel = channel;
+      return this;
     }
 
     /**

@@ -54,9 +54,22 @@ public class CartLineProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT
      return projection;
   }
 
+  public CartLineInstructionsProjection<CartLineProjection<PARENT, ROOT>, ROOT> instructions() {
+     CartLineInstructionsProjection<CartLineProjection<PARENT, ROOT>, ROOT> projection = new CartLineInstructionsProjection<>(this, getRoot());
+     getFields().put("instructions", projection);
+     return projection;
+  }
+
   public MerchandiseProjection<CartLineProjection<PARENT, ROOT>, ROOT> merchandise() {
      MerchandiseProjection<CartLineProjection<PARENT, ROOT>, ROOT> projection = new MerchandiseProjection<>(this, getRoot());
      getFields().put("merchandise", projection);
+     return projection;
+  }
+
+  public CartLineParentRelationshipProjection<CartLineProjection<PARENT, ROOT>, ROOT> parentRelationship(
+      ) {
+     CartLineParentRelationshipProjection<CartLineProjection<PARENT, ROOT>, ROOT> projection = new CartLineParentRelationshipProjection<>(this, getRoot());
+     getFields().put("parentRelationship", projection);
      return projection;
   }
 

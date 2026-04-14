@@ -7,7 +7,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a gift card resource by ID.
+ * Retrieves a [`GiftCard`](https://shopify.dev/docs/api/admin-graphql/latest/objects/GiftCard) by its ID. Returns the gift card's balance, transaction history, [`Customer`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Customer)
+ * information, and whether it's enabled.
+ *   
+ * Additional fields include the initial value, expiration date, deactivation
+ * timestamp (if applicable), and the associated
+ * [`Order`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order) if
+ * the gift card was purchased by a customer through checkout. Gift cards that
+ * merchants create manually won't have an associated order.
  */
 public class GiftCardGraphQLQuery extends GraphQLQuery {
   public GiftCardGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

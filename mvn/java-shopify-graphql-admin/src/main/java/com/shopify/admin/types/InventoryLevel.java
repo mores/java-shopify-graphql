@@ -9,8 +9,10 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * The quantities of an inventory item that are related to a specific location.
- * Learn [more about the relationships between inventory objects](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#inventory-object-relationships).
+ * The quantities of an inventory item at a specific location. Each inventory level connects one [`InventoryItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryItem) to one [`Location`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Location),
+ * tracking multiple quantity states like available, on-hand, incoming, and committed.
+ *
+ * The [`quantities`](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryLevel#field-InventoryLevel.fields.quantities) field provides access to different inventory states. Learn [more about inventory states and relationships](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#inventory-object-relationships).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -37,6 +39,11 @@ public class InventoryLevel implements com.shopify.admin.types.Node {
   private String id;
 
   /**
+   * Whether the inventory level is active.
+   */
+  private boolean isActive;
+
+  /**
    * Inventory item associated with the inventory level.
    */
   private InventoryItem item;
@@ -47,7 +54,8 @@ public class InventoryLevel implements com.shopify.admin.types.Node {
   private Location location;
 
   /**
-   * Quantities for the requested names.
+   * The quantity of an inventory item at a specific location, for a quantity
+   * [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states).
    */
   private List<InventoryQuantity> quantities;
 
@@ -109,6 +117,17 @@ public class InventoryLevel implements com.shopify.admin.types.Node {
   }
 
   /**
+   * Whether the inventory level is active.
+   */
+  public boolean getIsActive() {
+    return isActive;
+  }
+
+  public void setIsActive(boolean isActive) {
+    this.isActive = isActive;
+  }
+
+  /**
    * Inventory item associated with the inventory level.
    */
   public InventoryItem getItem() {
@@ -131,7 +150,8 @@ public class InventoryLevel implements com.shopify.admin.types.Node {
   }
 
   /**
-   * Quantities for the requested names.
+   * The quantity of an inventory item at a specific location, for a quantity
+   * [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states).
    */
   public List<InventoryQuantity> getQuantities() {
     return quantities;
@@ -165,7 +185,7 @@ public class InventoryLevel implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "InventoryLevel{canDeactivate='" + canDeactivate + "', createdAt='" + createdAt + "', deactivationAlert='" + deactivationAlert + "', id='" + id + "', item='" + item + "', location='" + location + "', quantities='" + quantities + "', scheduledChanges='" + scheduledChanges + "', updatedAt='" + updatedAt + "'}";
+    return "InventoryLevel{canDeactivate='" + canDeactivate + "', createdAt='" + createdAt + "', deactivationAlert='" + deactivationAlert + "', id='" + id + "', isActive='" + isActive + "', item='" + item + "', location='" + location + "', quantities='" + quantities + "', scheduledChanges='" + scheduledChanges + "', updatedAt='" + updatedAt + "'}";
   }
 
   @Override
@@ -177,6 +197,7 @@ public class InventoryLevel implements com.shopify.admin.types.Node {
         Objects.equals(createdAt, that.createdAt) &&
         Objects.equals(deactivationAlert, that.deactivationAlert) &&
         Objects.equals(id, that.id) &&
+        isActive == that.isActive &&
         Objects.equals(item, that.item) &&
         Objects.equals(location, that.location) &&
         Objects.equals(quantities, that.quantities) &&
@@ -186,7 +207,7 @@ public class InventoryLevel implements com.shopify.admin.types.Node {
 
   @Override
   public int hashCode() {
-    return Objects.hash(canDeactivate, createdAt, deactivationAlert, id, item, location, quantities, scheduledChanges, updatedAt);
+    return Objects.hash(canDeactivate, createdAt, deactivationAlert, id, isActive, item, location, quantities, scheduledChanges, updatedAt);
   }
 
   public static Builder newBuilder() {
@@ -215,6 +236,11 @@ public class InventoryLevel implements com.shopify.admin.types.Node {
     private String id;
 
     /**
+     * Whether the inventory level is active.
+     */
+    private boolean isActive;
+
+    /**
      * Inventory item associated with the inventory level.
      */
     private InventoryItem item;
@@ -225,7 +251,8 @@ public class InventoryLevel implements com.shopify.admin.types.Node {
     private Location location;
 
     /**
-     * Quantities for the requested names.
+     * The quantity of an inventory item at a specific location, for a quantity
+     * [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states).
      */
     private List<InventoryQuantity> quantities;
 
@@ -245,6 +272,7 @@ public class InventoryLevel implements com.shopify.admin.types.Node {
       result.createdAt = this.createdAt;
       result.deactivationAlert = this.deactivationAlert;
       result.id = this.id;
+      result.isActive = this.isActive;
       result.item = this.item;
       result.location = this.location;
       result.quantities = this.quantities;
@@ -286,6 +314,14 @@ public class InventoryLevel implements com.shopify.admin.types.Node {
     }
 
     /**
+     * Whether the inventory level is active.
+     */
+    public Builder isActive(boolean isActive) {
+      this.isActive = isActive;
+      return this;
+    }
+
+    /**
      * Inventory item associated with the inventory level.
      */
     public Builder item(InventoryItem item) {
@@ -302,7 +338,8 @@ public class InventoryLevel implements com.shopify.admin.types.Node {
     }
 
     /**
-     * Quantities for the requested names.
+     * The quantity of an inventory item at a specific location, for a quantity
+     * [name](https://shopify.dev/docs/apps/fulfillment/inventory-management-apps#inventory-states).
      */
     public Builder quantities(List<InventoryQuantity> quantities) {
       this.quantities = quantities;

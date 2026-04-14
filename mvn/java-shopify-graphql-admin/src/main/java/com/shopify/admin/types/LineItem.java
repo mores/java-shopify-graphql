@@ -230,6 +230,13 @@ public class LineItem implements com.shopify.admin.types.Node {
   private StaffMember staffMember;
 
   /**
+   * Return reasons suggested based on the line item's product category in
+   * Shopify's product taxonomy. Use [`returnReasonDefinitions`](https://shopify.dev/docs/api/admin-graphql/latest/queries/returnReasonDefinitions)
+   * to access the full library of available reasons.
+   */
+  private ReturnReasonDefinitionConnection suggestedReturnReasonDefinitions;
+
+  /**
    * The taxes charged for the line item, including taxes charged for refunded and removed quantities.
    */
   private List<TaxLine> taxLines;
@@ -698,6 +705,20 @@ public class LineItem implements com.shopify.admin.types.Node {
   }
 
   /**
+   * Return reasons suggested based on the line item's product category in
+   * Shopify's product taxonomy. Use [`returnReasonDefinitions`](https://shopify.dev/docs/api/admin-graphql/latest/queries/returnReasonDefinitions)
+   * to access the full library of available reasons.
+   */
+  public ReturnReasonDefinitionConnection getSuggestedReturnReasonDefinitions() {
+    return suggestedReturnReasonDefinitions;
+  }
+
+  public void setSuggestedReturnReasonDefinitions(
+      ReturnReasonDefinitionConnection suggestedReturnReasonDefinitions) {
+    this.suggestedReturnReasonDefinitions = suggestedReturnReasonDefinitions;
+  }
+
+  /**
    * The taxes charged for the line item, including taxes charged for refunded and removed quantities.
    */
   public List<TaxLine> getTaxLines() {
@@ -847,7 +868,7 @@ public class LineItem implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "LineItem{canRestock='" + canRestock + "', contract='" + contract + "', currentQuantity='" + currentQuantity + "', customAttributes='" + customAttributes + "', discountAllocations='" + discountAllocations + "', discountedTotal='" + discountedTotal + "', discountedTotalSet='" + discountedTotalSet + "', discountedUnitPrice='" + discountedUnitPrice + "', discountedUnitPriceAfterAllDiscountsSet='" + discountedUnitPriceAfterAllDiscountsSet + "', discountedUnitPriceSet='" + discountedUnitPriceSet + "', duties='" + duties + "', fulfillableQuantity='" + fulfillableQuantity + "', fulfillmentService='" + fulfillmentService + "', fulfillmentStatus='" + fulfillmentStatus + "', id='" + id + "', image='" + image + "', isGiftCard='" + isGiftCard + "', lineItemGroup='" + lineItemGroup + "', merchantEditable='" + merchantEditable + "', name='" + name + "', nonFulfillableQuantity='" + nonFulfillableQuantity + "', originalTotal='" + originalTotal + "', originalTotalSet='" + originalTotalSet + "', originalUnitPrice='" + originalUnitPrice + "', originalUnitPriceSet='" + originalUnitPriceSet + "', product='" + product + "', quantity='" + quantity + "', refundableQuantity='" + refundableQuantity + "', requiresShipping='" + requiresShipping + "', restockable='" + restockable + "', sellingPlan='" + sellingPlan + "', sku='" + sku + "', staffMember='" + staffMember + "', taxLines='" + taxLines + "', taxable='" + taxable + "', title='" + title + "', totalDiscount='" + totalDiscount + "', totalDiscountSet='" + totalDiscountSet + "', unfulfilledDiscountedTotal='" + unfulfilledDiscountedTotal + "', unfulfilledDiscountedTotalSet='" + unfulfilledDiscountedTotalSet + "', unfulfilledOriginalTotal='" + unfulfilledOriginalTotal + "', unfulfilledOriginalTotalSet='" + unfulfilledOriginalTotalSet + "', unfulfilledQuantity='" + unfulfilledQuantity + "', variant='" + variant + "', variantTitle='" + variantTitle + "', vendor='" + vendor + "'}";
+    return "LineItem{canRestock='" + canRestock + "', contract='" + contract + "', currentQuantity='" + currentQuantity + "', customAttributes='" + customAttributes + "', discountAllocations='" + discountAllocations + "', discountedTotal='" + discountedTotal + "', discountedTotalSet='" + discountedTotalSet + "', discountedUnitPrice='" + discountedUnitPrice + "', discountedUnitPriceAfterAllDiscountsSet='" + discountedUnitPriceAfterAllDiscountsSet + "', discountedUnitPriceSet='" + discountedUnitPriceSet + "', duties='" + duties + "', fulfillableQuantity='" + fulfillableQuantity + "', fulfillmentService='" + fulfillmentService + "', fulfillmentStatus='" + fulfillmentStatus + "', id='" + id + "', image='" + image + "', isGiftCard='" + isGiftCard + "', lineItemGroup='" + lineItemGroup + "', merchantEditable='" + merchantEditable + "', name='" + name + "', nonFulfillableQuantity='" + nonFulfillableQuantity + "', originalTotal='" + originalTotal + "', originalTotalSet='" + originalTotalSet + "', originalUnitPrice='" + originalUnitPrice + "', originalUnitPriceSet='" + originalUnitPriceSet + "', product='" + product + "', quantity='" + quantity + "', refundableQuantity='" + refundableQuantity + "', requiresShipping='" + requiresShipping + "', restockable='" + restockable + "', sellingPlan='" + sellingPlan + "', sku='" + sku + "', staffMember='" + staffMember + "', suggestedReturnReasonDefinitions='" + suggestedReturnReasonDefinitions + "', taxLines='" + taxLines + "', taxable='" + taxable + "', title='" + title + "', totalDiscount='" + totalDiscount + "', totalDiscountSet='" + totalDiscountSet + "', unfulfilledDiscountedTotal='" + unfulfilledDiscountedTotal + "', unfulfilledDiscountedTotalSet='" + unfulfilledDiscountedTotalSet + "', unfulfilledOriginalTotal='" + unfulfilledOriginalTotal + "', unfulfilledOriginalTotalSet='" + unfulfilledOriginalTotalSet + "', unfulfilledQuantity='" + unfulfilledQuantity + "', variant='" + variant + "', variantTitle='" + variantTitle + "', vendor='" + vendor + "'}";
   }
 
   @Override
@@ -888,6 +909,7 @@ public class LineItem implements com.shopify.admin.types.Node {
         Objects.equals(sellingPlan, that.sellingPlan) &&
         Objects.equals(sku, that.sku) &&
         Objects.equals(staffMember, that.staffMember) &&
+        Objects.equals(suggestedReturnReasonDefinitions, that.suggestedReturnReasonDefinitions) &&
         Objects.equals(taxLines, that.taxLines) &&
         taxable == that.taxable &&
         Objects.equals(title, that.title) &&
@@ -905,7 +927,7 @@ public class LineItem implements com.shopify.admin.types.Node {
 
   @Override
   public int hashCode() {
-    return Objects.hash(canRestock, contract, currentQuantity, customAttributes, discountAllocations, discountedTotal, discountedTotalSet, discountedUnitPrice, discountedUnitPriceAfterAllDiscountsSet, discountedUnitPriceSet, duties, fulfillableQuantity, fulfillmentService, fulfillmentStatus, id, image, isGiftCard, lineItemGroup, merchantEditable, name, nonFulfillableQuantity, originalTotal, originalTotalSet, originalUnitPrice, originalUnitPriceSet, product, quantity, refundableQuantity, requiresShipping, restockable, sellingPlan, sku, staffMember, taxLines, taxable, title, totalDiscount, totalDiscountSet, unfulfilledDiscountedTotal, unfulfilledDiscountedTotalSet, unfulfilledOriginalTotal, unfulfilledOriginalTotalSet, unfulfilledQuantity, variant, variantTitle, vendor);
+    return Objects.hash(canRestock, contract, currentQuantity, customAttributes, discountAllocations, discountedTotal, discountedTotalSet, discountedUnitPrice, discountedUnitPriceAfterAllDiscountsSet, discountedUnitPriceSet, duties, fulfillableQuantity, fulfillmentService, fulfillmentStatus, id, image, isGiftCard, lineItemGroup, merchantEditable, name, nonFulfillableQuantity, originalTotal, originalTotalSet, originalUnitPrice, originalUnitPriceSet, product, quantity, refundableQuantity, requiresShipping, restockable, sellingPlan, sku, staffMember, suggestedReturnReasonDefinitions, taxLines, taxable, title, totalDiscount, totalDiscountSet, unfulfilledDiscountedTotal, unfulfilledDiscountedTotalSet, unfulfilledOriginalTotal, unfulfilledOriginalTotalSet, unfulfilledQuantity, variant, variantTitle, vendor);
   }
 
   public static Builder newBuilder() {
@@ -1110,6 +1132,13 @@ public class LineItem implements com.shopify.admin.types.Node {
     private StaffMember staffMember;
 
     /**
+     * Return reasons suggested based on the line item's product category in
+     * Shopify's product taxonomy. Use [`returnReasonDefinitions`](https://shopify.dev/docs/api/admin-graphql/latest/queries/returnReasonDefinitions)
+     * to access the full library of available reasons.
+     */
+    private ReturnReasonDefinitionConnection suggestedReturnReasonDefinitions;
+
+    /**
      * The taxes charged for the line item, including taxes charged for refunded and removed quantities.
      */
     private List<TaxLine> taxLines;
@@ -1214,6 +1243,7 @@ public class LineItem implements com.shopify.admin.types.Node {
       result.sellingPlan = this.sellingPlan;
       result.sku = this.sku;
       result.staffMember = this.staffMember;
+      result.suggestedReturnReasonDefinitions = this.suggestedReturnReasonDefinitions;
       result.taxLines = this.taxLines;
       result.taxable = this.taxable;
       result.title = this.title;
@@ -1523,6 +1553,17 @@ public class LineItem implements com.shopify.admin.types.Node {
      */
     public Builder staffMember(StaffMember staffMember) {
       this.staffMember = staffMember;
+      return this;
+    }
+
+    /**
+     * Return reasons suggested based on the line item's product category in
+     * Shopify's product taxonomy. Use [`returnReasonDefinitions`](https://shopify.dev/docs/api/admin-graphql/latest/queries/returnReasonDefinitions)
+     * to access the full library of available reasons.
+     */
+    public Builder suggestedReturnReasonDefinitions(
+        ReturnReasonDefinitionConnection suggestedReturnReasonDefinitions) {
+      this.suggestedReturnReasonDefinitions = suggestedReturnReasonDefinitions;
       return this;
     }
 

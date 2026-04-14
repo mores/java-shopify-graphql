@@ -9,7 +9,17 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Create or update theme files.
+ * Creates or updates theme files in an online store theme. This mutation allows
+ * batch operations on multiple theme files, either creating new files or
+ * overwriting existing ones with the same filename.
+ *   
+ * > Note: You can process a maximum of 50 files in a single request.
+ *   
+ * Each file requires a filename and body content. The body must specify a [`type`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/themeFilesUpsert#arguments-files.fields.body.type)
+ * with the corresponding [`value`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/themeFilesUpsert#arguments-files.fields.body.value).
+ * The mutation returns a [`job`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/themeFilesUpsert#returns-job)
+ * field for tracking asynchronous operations and an [`upsertedThemeFiles`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/themeFilesUpsert#returns-upsertedThemeFiles)
+ * field with details about the processed files.
  */
 public class ThemeFilesUpsertGraphQLQuery extends GraphQLQuery {
   public ThemeFilesUpsertGraphQLQuery(String themeId,

@@ -10,8 +10,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a list of the shop's products. For storefront search, use the
- * [`search`](https://shopify.dev/docs/api/storefront/latest/queries/search) query.
+ * Returns a paginated list of the shop's [products](https://shopify.dev/docs/api/storefront/current/objects/Product).
+ *   
+ * For full-text storefront search, use the
+ * [`search`](https://shopify.dev/docs/api/storefront/current/queries/search) query instead.
  */
 public class ProductsGraphQLQuery extends GraphQLQuery {
   public ProductsGraphQLQuery(Integer first, String after, Integer last, String before,

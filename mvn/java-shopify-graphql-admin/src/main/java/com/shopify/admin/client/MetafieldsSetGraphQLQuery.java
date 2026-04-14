@@ -11,7 +11,7 @@ import java.util.Set;
 /**
  * Sets metafield values. Metafield values will be set regardless if they were previously created or not.
  *   
- * Allows a maximum of 25 metafields to be set at a time.
+ * Allows a maximum of 25 metafields to be set at a time, with a maximum total request payload size of 10MB.
  *   
  * This operation is atomic, meaning no changes are persisted if an error is encountered.
  *   

@@ -19,6 +19,13 @@ public class OrderEditUpdateDiscountProjectionRoot<PARENT extends BaseSubProject
     return projection;
   }
 
+  public OrderEditSessionProjection<OrderEditUpdateDiscountProjectionRoot<PARENT, ROOT>, OrderEditUpdateDiscountProjectionRoot<PARENT, ROOT>> orderEditSession(
+      ) {
+    OrderEditSessionProjection<OrderEditUpdateDiscountProjectionRoot<PARENT, ROOT>, OrderEditUpdateDiscountProjectionRoot<PARENT, ROOT>> projection = new OrderEditSessionProjection<>(this, this);    
+    getFields().put("orderEditSession", projection);
+    return projection;
+  }
+
   public OrderEditUpdateDiscountUserErrorProjection<OrderEditUpdateDiscountProjectionRoot<PARENT, ROOT>, OrderEditUpdateDiscountProjectionRoot<PARENT, ROOT>> userErrors(
       ) {
     OrderEditUpdateDiscountUserErrorProjection<OrderEditUpdateDiscountProjectionRoot<PARENT, ROOT>, OrderEditUpdateDiscountProjectionRoot<PARENT, ROOT>> projection = new OrderEditUpdateDiscountUserErrorProjection<>(this, this);    

@@ -25,15 +25,22 @@ import java.util.Set;
  *   
  * You can send resource feedback on a shop to let the merchant know what steps
  * they need to take to make sure that your app is set up correctly. Feedback can
- * have one of two states: `requires_action` or `success`. You need to send a
- * `requires_action` feedback request for each step that the merchant is required to complete.
+ * have one of two states: `REQUIRES_ACTION` or `ACCEPTED`. You need to send a
+ * `REQUIRES_ACTION` feedback request for each step that the merchant is required to complete.
  *   
  * If there are multiple set-up steps that require merchant action, then send
- * feedback with a state of `requires_action` as merchants complete prior steps.
- * And to remove the feedback message from the Shopify admin, send a `success`
- * feedback request.
+ * feedback with a state of `REQUIRES_ACTION` as merchants complete prior steps.
+ * When all required actions are resolved, send an `ACCEPTED` feedback request to
+ * clear the active feedback signal.
  *   
- * #### Important
+ * ### Clearing feedback with ACCEPTED
+ * Sending `state: ACCEPTED` removes the active feedback entry. After this
+ * mutation succeeds, reading `channel.resourceFeedback`, `app.feedback`, or the
+ * `feedback` field on this payload may return `null`—this is expected behavior,
+ * not a mutation failure. A `null` result means no outstanding feedback exists
+ * for the channel.
+ *   
+ * ### Important
  * Sending feedback replaces previously sent feedback for the shop. Send a new
  * `shopResourceFeedbackCreate` mutation to push the latest state of a shop or
  * its resources to Shopify.

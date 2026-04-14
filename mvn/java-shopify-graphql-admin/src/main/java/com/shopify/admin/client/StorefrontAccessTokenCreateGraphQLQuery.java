@@ -8,11 +8,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Creates a storefront access token for use with the [Storefront API](https://shopify.dev/docs/api/storefront).
+ * Creates a storefront access token that delegates unauthenticated access scopes
+ * to clients using the [Storefront
+ * API](https://shopify.dev/docs/api/storefront). The token provides public
+ * access to storefront resources without requiring customer authentication.
  *   
- * An app can have a maximum of 100 active storefront access tokens for each shop.
+ * Each shop can have up to 100 active [`StorefrontAccessToken`](https://shopify.dev/docs/api/admin-graphql/latest/objects/StorefrontAccessToken)
+ * objects. Headless storefronts, mobile apps, and other client applications
+ * typically use these tokens to access public storefront data.
  *   
- * [Get started with the Storefront API](https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/getting-started).
+ * Learn more about [building with the Storefront API](https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/getting-started).
  */
 public class StorefrontAccessTokenCreateGraphQLQuery extends GraphQLQuery {
   public StorefrontAccessTokenCreateGraphQLQuery(StorefrontAccessTokenInput input, String queryName,

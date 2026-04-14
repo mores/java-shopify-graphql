@@ -157,6 +157,34 @@ public class NodesProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROO
     return fragment;
   }
 
+  public CashDrawerFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onCashDrawer(
+      ) {
+    CashDrawerFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new CashDrawerFragmentProjection<>(this, this);
+    getFragments().add(fragment);
+    return fragment;
+  }
+
+  public CashManagementCustomReasonCodeFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onCashManagementCustomReasonCode(
+      ) {
+    CashManagementCustomReasonCodeFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new CashManagementCustomReasonCodeFragmentProjection<>(this, this);
+    getFragments().add(fragment);
+    return fragment;
+  }
+
+  public CashManagementDefaultReasonCodeFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onCashManagementDefaultReasonCode(
+      ) {
+    CashManagementDefaultReasonCodeFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new CashManagementDefaultReasonCodeFragmentProjection<>(this, this);
+    getFragments().add(fragment);
+    return fragment;
+  }
+
+  public CashManagementSystemReasonCodeFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onCashManagementSystemReasonCode(
+      ) {
+    CashManagementSystemReasonCodeFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new CashManagementSystemReasonCodeFragmentProjection<>(this, this);
+    getFragments().add(fragment);
+    return fragment;
+  }
+
   public CashTrackingAdjustmentFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onCashTrackingAdjustment(
       ) {
     CashTrackingAdjustmentFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new CashTrackingAdjustmentFragmentProjection<>(this, this);
@@ -195,6 +223,20 @@ public class NodesProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROO
   public ChannelInformationFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onChannelInformation(
       ) {
     ChannelInformationFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new ChannelInformationFragmentProjection<>(this, this);
+    getFragments().add(fragment);
+    return fragment;
+  }
+
+  public CheckoutAndAccountsConfigurationFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onCheckoutAndAccountsConfiguration(
+      ) {
+    CheckoutAndAccountsConfigurationFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new CheckoutAndAccountsConfigurationFragmentProjection<>(this, this);
+    getFragments().add(fragment);
+    return fragment;
+  }
+
+  public CheckoutAndAccountsConfigurationOverrideFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onCheckoutAndAccountsConfigurationOverride(
+      ) {
+    CheckoutAndAccountsConfigurationOverrideFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new CheckoutAndAccountsConfigurationOverrideFragmentProjection<>(this, this);
     getFragments().add(fragment);
     return fragment;
   }
@@ -836,6 +878,13 @@ public class NodesProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROO
     return fragment;
   }
 
+  public OrderEditSessionFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onOrderEditSession(
+      ) {
+    OrderEditSessionFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new OrderEditSessionFragmentProjection<>(this, this);
+    getFragments().add(fragment);
+    return fragment;
+  }
+
   public OrderTransactionFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onOrderTransaction(
       ) {
     OrderTransactionFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new OrderTransactionFragmentProjection<>(this, this);
@@ -888,6 +937,13 @@ public class NodesProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROO
   public PointOfSaleDeviceFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onPointOfSaleDevice(
       ) {
     PointOfSaleDeviceFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new PointOfSaleDeviceFragmentProjection<>(this, this);
+    getFragments().add(fragment);
+    return fragment;
+  }
+
+  public PointOfSaleDevicePaymentSessionFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onPointOfSaleDevicePaymentSession(
+      ) {
+    PointOfSaleDevicePaymentSessionFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new PointOfSaleDevicePaymentSessionFragmentProjection<>(this, this);
     getFragments().add(fragment);
     return fragment;
   }
@@ -1042,6 +1098,13 @@ public class NodesProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROO
   public ReturnLineItemFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onReturnLineItem(
       ) {
     ReturnLineItemFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new ReturnLineItemFragmentProjection<>(this, this);
+    getFragments().add(fragment);
+    return fragment;
+  }
+
+  public ReturnReasonDefinitionFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> onReturnReasonDefinition(
+      ) {
+    ReturnReasonDefinitionFragmentProjection<NodesProjectionRoot<PARENT, ROOT>, NodesProjectionRoot<PARENT, ROOT>> fragment = new ReturnReasonDefinitionFragmentProjection<>(this, this);
     getFragments().add(fragment);
     return fragment;
   }

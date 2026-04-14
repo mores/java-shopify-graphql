@@ -6,7 +6,14 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * Represents the cart transform feature configuration for the shop.
+ * Controls which cart transformation operations apps can perform in your store.
+ * This lets you define exactly what types of cart modifications are allowed based
+ * on your checkout setup and business needs.
+ *
+ * The eligible operations determine what cart transform functions can accomplish,
+ * providing a clear boundary for app capabilities within the store's ecosystem.
+ *
+ * Learn more about [cart transform operations](https://shopify.dev/docs/api/functions/latest/cart-transform#multiple-operations).
  */
 public class CartTransformEligibleOperations {
   /**

@@ -7,7 +7,14 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * A filter that is supported on the parent field.
+ * A filter option available on collection and search results pages. Each filter
+ * includes a type, display label, and selectable values that customers can use to
+ * narrow down products.
+ *
+ * The [`FilterValue`](https://shopify.dev/docs/api/storefront/current/objects/FilterValue) objects contain an [`input`](https://shopify.dev/docs/api/storefront/current/objects/FilterValue#field-FilterValue.fields.input)
+ * field that you can combine to [build dynamic filtering queries](https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/products-collections/filter-products).
+ * Merchants [configure available filters](https://help.shopify.com/manual/online-store/search-and-discovery/filters)
+ * using the Shopify Search &amp; Discovery app.
  */
 public class Filter {
   /**

@@ -40,6 +40,11 @@ import java.util.Set;
  * mutation. The key difference is that the `refundCreate` mutation lets you to specify restocking behavior
  * for line items, whereas the `returnRefund` mutation focuses solely on handling the financial refund without
  * any restocking input.
+ *   
+ * > Caution:
+ * > As of 2026-01, this mutation supports an optional idempotency key using the `@idempotent` directive.
+ * > As of 2026-04, the idempotency key is required and must be provided using the `@idempotent` directive.
+ * > For more information, see the [idempotency documentation](https://shopify.dev/docs/api/usage/idempotent-requests).
  */
 public class RefundCreateGraphQLQuery extends GraphQLQuery {
   public RefundCreateGraphQLQuery(RefundInput input, String queryName, Set<String> fieldsSet) {

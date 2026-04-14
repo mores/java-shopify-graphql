@@ -9,7 +9,14 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Update the selected delivery options for a delivery group.
+ * Updates the selected delivery option for one or more [`CartDeliveryGroup`](https://shopify.dev/docs/api/storefront/current/objects/CartDeliveryGroup)
+ * objects in a cart. Each delivery group represents items shipping to a specific
+ * address and offers multiple delivery options with different costs and methods.
+ *   
+ * Use this mutation when a customer chooses their preferred shipping method
+ * during checkout. The [`deliveryOptionHandle`](https://shopify.dev/docs/api/storefront/current/input-objects/CartSelectedDeliveryOptionInput#field-CartSelectedDeliveryOptionInput.fields.deliveryOptionHandle)
+ * identifies which [`CartDeliveryOption`](https://shopify.dev/docs/api/storefront/current/objects/CartDeliveryOption)
+ * to select for each delivery group.
  */
 public class CartSelectedDeliveryOptionsUpdateGraphQLQuery extends GraphQLQuery {
   public CartSelectedDeliveryOptionsUpdateGraphQLQuery(String cartId,

@@ -10,6 +10,8 @@ public enum DisputeStatus {
 
   NEEDS_RESPONSE,
 
+  PREVENTED,
+
   UNDER_REVIEW,
 
   WON,

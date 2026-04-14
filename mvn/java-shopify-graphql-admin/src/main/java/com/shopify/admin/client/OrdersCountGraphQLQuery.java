@@ -8,7 +8,20 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns the count of orders for the given shop. Limited to a maximum of 10000 by default.
+ * Returns the number of
+ * [orders](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order) in
+ * the shop. You can filter orders using [search
+ * syntax](https://shopify.dev/docs/api/usage/search-syntax) or a [`SavedSearch`](https://shopify.dev/docs/api/admin-graphql/latest/objects/SavedSearch),
+ * and set a maximum count limit to control query performance.
+ *   
+ * Use the [`query`](https://shopify.dev/docs/api/admin-graphql/latest/queries/ordersCount#arguments-query) argument to filter the count by criteria like order status, financial state,
+ * or fulfillment status. The response includes both the count value and its
+ * precision, indicating whether the count is exact or an estimate.
+ *   
+ * > Note:
+ * > The count is limited to 10,000 orders by default. Use the [`limit`](https://shopify.dev/docs/api/admin-graphql/latest/queries/ordersCount#arguments-limit)
+ * argument to adjust this value, or pass `null` for no limit. Limited to a
+ * maximum of 10000 by default.
  */
 public class OrdersCountGraphQLQuery extends GraphQLQuery {
   public OrdersCountGraphQLQuery(String query, String savedSearchId, Integer limit,
@@ -87,14 +100,19 @@ public class OrdersCountGraphQLQuery extends GraphQLQuery {
      * card that was used to pay for the order. This filter matches only the last
      * four digits of the card for heightened security. | | | -
      * `credit_card_last4:1234` |
+     * | current_total_price | float | Filter by the current total price of the
+     * order in the shop currency, including any returns/refunds/removals. This
+     * filter supports both exact values and ranges. | | | -
+     * `current_total_price:10`<br/> - `current_total_price:>=5.00
+     * current_total_price:&lt;=20.99` |
      * | customer_id | id | Filter orders by the customer [`id`](https://shopify.dev/api/admin-graphql/latest/objects/Customer#field-Customer.fields.id)
      * field. | | | - `customer_id:123` |
      * | delivery_method | string | Filter by the delivery [`methodType`](https://shopify.dev/api/admin-graphql/2024-07/objects/DeliveryMethod#field-DeliveryMethod.fields.methodType)
      * field. | - `shipping`<br/> - `pick-up`<br/> - `retail`<br/> - `local`<br/> -
      * `pickup-point`<br/> - `none` | | - `delivery_method:shipping` |
      * | discount_code | string | Filter by the case-insensitive discount code that
-     * was applied to the order at checkout. Maximum characters: 255. | | | -
-     * `discount_code:ABC123` |
+     * was applied to the order at checkout. Limited to the first discount code
+     * used on an order. Maximum characters: 255. | | | - `discount_code:ABC123` |
      * | email | string | Filter by the email address that's associated with the
      * order to provide customer support or analyze purchasing patterns. | | | -
      * `email:example@shopify.com` |
@@ -124,6 +142,11 @@ public class OrdersCountGraphQLQuery extends GraphQLQuery {
      * locations. For POS orders, locations must be defined in the Shopify admin
      * under **Settings** > **Locations**. If no ID is provided, then the primary
      * location of the shop is returned. | | | - `location_id:123` |
+     * | metafields.{namespace}.{key} | mixed | Filters resources by metafield
+     * value. Format: `metafields.{namespace}.{key}:{value}`. Learn more about
+     * [querying by metafield value](https://shopify.dev/apps/build/custom-data/metafields/query-by-metafield-value).
+     * | | | - `metafields.custom.on_sale:true`<br/> -
+     * `metafields.product.material:"gid://shopify/Metaobject/43458085"` |
      * | name | string | Filter by the order [`name`](https://shopify.dev/api/admin-graphql/latest/objects/Order#field-name)
      * field. | | | - `name:1001-A` |
      * | payment_id | string | Filter by the payment ID that's associated with the
@@ -175,6 +198,12 @@ public class OrdersCountGraphQLQuery extends GraphQLQuery {
      * | tag_not | string | Filter by objects that don’t have the specified tag. | | | - `tag_not:my_tag` |
      * | test | boolean | Filter by test orders. Test orders are made using the [Shopify Bogus Gateway](https://help.shopify.com/manual/checkout-settings/test-orders/payments-test-mode#bogus-gateway)
      * or a payment provider with test mode enabled. | | | - `test:true` |
+     * | total_weight | string | Filter by the order weight. This filter supports
+     * both exact values and ranges, and is to be used to filter orders by the
+     * total weight of all items (excluding packaging). It takes a unit of
+     * measurement as a suffix. It accepts the following units: g, kg, lb, oz. | |
+     * | - `total_weight:10.5kg`<br/> - `total_weight:>=5g total_weight:&lt;=20g`<br/>
+     * - `total_weight:.5 lb` |
      * | updated_at | time | Filter by the date and time when the order was last
      * updated in Shopify's system. | | | - `updated_at:2020-10-21T23:39:20Z`<br/>
      * - `updated_at:&lt;now`<br/> - `updated_at:&lt;=2024` |

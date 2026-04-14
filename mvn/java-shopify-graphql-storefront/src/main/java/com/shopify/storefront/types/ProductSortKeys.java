@@ -1,7 +1,13 @@
 package com.shopify.storefront.types;
 
 /**
- * The set of valid sort keys for the Product query.
+ * Sorting options for the
+ * [`products`](https://shopify.dev/docs/api/storefront/current/queries/products)
+ * query. Supports sorting products by criteria such as best-selling and price, and
+ * by product attributes such as type, and vendor. 
+ *
+ * > Note: Use the [`RELEVANCE`](https://shopify.dev/docs/api/storefront/current/enums/ProductSortKeys#enums-RELEVANCE)
+ * key only when a search query is specified.
  */
 public enum ProductSortKeys {
   TITLE,

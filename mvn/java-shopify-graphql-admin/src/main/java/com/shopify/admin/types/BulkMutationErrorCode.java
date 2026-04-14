@@ -12,5 +12,7 @@ public enum BulkMutationErrorCode {
 
   NO_SUCH_FILE,
 
-  INTERNAL_FILE_SERVER_ERROR
+  INTERNAL_FILE_SERVER_ERROR,
+
+  LIMIT_REACHED
 }

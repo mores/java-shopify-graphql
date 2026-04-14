@@ -6,10 +6,14 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * Specifies the input fields to update the buyer information associated with a cart.
- * Buyer identity is used to determine
- * [international pricing](https://shopify.dev/custom-storefronts/internationalization/international-pricing)
+ * The input fields for identifying the buyer associated with a cart. Buyer
+ * identity determines [international pricing](https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/markets/international-pricing)
  * and should match the customer's shipping address.
+ *
+ * Used by [`cartCreate`](https://shopify.dev/docs/api/storefront/current/mutations/cartCreate) and [`cartBuyerIdentityUpdate`](https://shopify.dev/docs/api/storefront/current/mutations/cartBuyerIdentityUpdate) to set contact information, location, and checkout preferences.
+ *
+ * > Note:
+ * > Preferences prefill fields at checkout but don't sync back to the cart if overwritten.
  */
 public class CartBuyerIdentityInput {
   /**

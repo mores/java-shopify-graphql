@@ -12,11 +12,6 @@ import java.util.Objects;
  */
 public class CustomerInput {
   /**
-   * The addresses for a customer.
-   */
-  private List<MailingAddressInput> addresses;
-
-  /**
    * The unique email address of the customer.
    */
   private String email;
@@ -91,18 +86,12 @@ public class CustomerInput {
    */
   private List<TaxExemption> taxExemptions;
 
-  public CustomerInput() {
-  }
-
   /**
-   * The addresses for a customer.
+   * A unique identifier for the customer that's used with Multipass login.
    */
-  public List<MailingAddressInput> getAddresses() {
-    return addresses;
-  }
+  private String multipassIdentifier;
 
-  public void setAddresses(List<MailingAddressInput> addresses) {
-    this.addresses = addresses;
+  public CustomerInput() {
   }
 
   /**
@@ -258,9 +247,20 @@ public class CustomerInput {
     this.taxExemptions = taxExemptions;
   }
 
+  /**
+   * A unique identifier for the customer that's used with Multipass login.
+   */
+  public String getMultipassIdentifier() {
+    return multipassIdentifier;
+  }
+
+  public void setMultipassIdentifier(String multipassIdentifier) {
+    this.multipassIdentifier = multipassIdentifier;
+  }
+
   @Override
   public String toString() {
-    return "CustomerInput{addresses='" + addresses + "', email='" + email + "', firstName='" + firstName + "', id='" + id + "', lastName='" + lastName + "', locale='" + locale + "', metafields='" + metafields + "', note='" + note + "', phone='" + phone + "', tags='" + tags + "', emailMarketingConsent='" + emailMarketingConsent + "', smsMarketingConsent='" + smsMarketingConsent + "', taxExempt='" + taxExempt + "', taxExemptions='" + taxExemptions + "'}";
+    return "CustomerInput{email='" + email + "', firstName='" + firstName + "', id='" + id + "', lastName='" + lastName + "', locale='" + locale + "', metafields='" + metafields + "', note='" + note + "', phone='" + phone + "', tags='" + tags + "', emailMarketingConsent='" + emailMarketingConsent + "', smsMarketingConsent='" + smsMarketingConsent + "', taxExempt='" + taxExempt + "', taxExemptions='" + taxExemptions + "', multipassIdentifier='" + multipassIdentifier + "'}";
   }
 
   @Override
@@ -268,8 +268,7 @@ public class CustomerInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     CustomerInput that = (CustomerInput) o;
-    return Objects.equals(addresses, that.addresses) &&
-        Objects.equals(email, that.email) &&
+    return Objects.equals(email, that.email) &&
         Objects.equals(firstName, that.firstName) &&
         Objects.equals(id, that.id) &&
         Objects.equals(lastName, that.lastName) &&
@@ -281,12 +280,13 @@ public class CustomerInput {
         Objects.equals(emailMarketingConsent, that.emailMarketingConsent) &&
         Objects.equals(smsMarketingConsent, that.smsMarketingConsent) &&
         Objects.equals(taxExempt, that.taxExempt) &&
-        Objects.equals(taxExemptions, that.taxExemptions);
+        Objects.equals(taxExemptions, that.taxExemptions) &&
+        Objects.equals(multipassIdentifier, that.multipassIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addresses, email, firstName, id, lastName, locale, metafields, note, phone, tags, emailMarketingConsent, smsMarketingConsent, taxExempt, taxExemptions);
+    return Objects.hash(email, firstName, id, lastName, locale, metafields, note, phone, tags, emailMarketingConsent, smsMarketingConsent, taxExempt, taxExemptions, multipassIdentifier);
   }
 
   public static Builder newBuilder() {
@@ -294,11 +294,6 @@ public class CustomerInput {
   }
 
   public static class Builder {
-    /**
-     * The addresses for a customer.
-     */
-    private List<MailingAddressInput> addresses;
-
     /**
      * The unique email address of the customer.
      */
@@ -374,9 +369,13 @@ public class CustomerInput {
      */
     private List<TaxExemption> taxExemptions;
 
+    /**
+     * A unique identifier for the customer that's used with Multipass login.
+     */
+    private String multipassIdentifier;
+
     public CustomerInput build() {
       CustomerInput result = new CustomerInput();
-      result.addresses = this.addresses;
       result.email = this.email;
       result.firstName = this.firstName;
       result.id = this.id;
@@ -390,15 +389,8 @@ public class CustomerInput {
       result.smsMarketingConsent = this.smsMarketingConsent;
       result.taxExempt = this.taxExempt;
       result.taxExemptions = this.taxExemptions;
+      result.multipassIdentifier = this.multipassIdentifier;
       return result;
-    }
-
-    /**
-     * The addresses for a customer.
-     */
-    public Builder addresses(List<MailingAddressInput> addresses) {
-      this.addresses = addresses;
-      return this;
     }
 
     /**
@@ -512,6 +504,14 @@ public class CustomerInput {
      */
     public Builder taxExemptions(List<TaxExemption> taxExemptions) {
       this.taxExemptions = taxExemptions;
+      return this;
+    }
+
+    /**
+     * A unique identifier for the customer that's used with Multipass login.
+     */
+    public Builder multipassIdentifier(String multipassIdentifier) {
+      this.multipassIdentifier = multipassIdentifier;
       return this;
     }
   }

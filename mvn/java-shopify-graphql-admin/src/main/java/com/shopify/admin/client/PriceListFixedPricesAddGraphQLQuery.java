@@ -9,10 +9,11 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Creates or updates fixed prices on a price list. You can use the
- * `priceListFixedPricesAdd` mutation to set a fixed price for specific product
- * variants. This lets you change product variant pricing on a per country basis.
- * Any existing fixed price list prices for these variants will be overwritten.
+ * Creates or updates fixed prices on a [`PriceList`](https://shopify.dev/docs/api/admin-graphql/latest/objects/PriceList).
+ * Use this mutation to set specific prices for [`ProductVariant`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant)
+ * objects that override the price list's default percentage-based adjustments.
+ *   
+ * When you add fixed prices, the mutation replaces any existing fixed prices for those variants on the price list.
  */
 public class PriceListFixedPricesAddGraphQLQuery extends GraphQLQuery {
   public PriceListFixedPricesAddGraphQLQuery(String priceListId, List<PriceListPriceInput> prices,

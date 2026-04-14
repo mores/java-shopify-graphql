@@ -10,7 +10,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The shop staff members.
+ * Returns a paginated list of [`StaffMember`](https://shopify.dev/docs/api/admin-graphql/latest/objects/StaffMember)
+ * objects for the shop. Staff members are users who can access the Shopify admin
+ * to manage store operations.
+ *   
+ * Supports filtering by account type, email, and name, with an option to sort
+ * results. The query returns a [`StaffMemberConnection`](https://shopify.dev/docs/api/admin-graphql/latest/connections/StaffMemberConnection)
+ * for [cursor-based
+ * pagination](https://shopify.dev/docs/api/usage/pagination-graphql).
  */
 public class StaffMembersGraphQLQuery extends GraphQLQuery {
   public StaffMembersGraphQLQuery(Integer first, String after, Integer last, String before,

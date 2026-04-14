@@ -67,6 +67,13 @@ public class DiscountCodeBxgyFragmentProjection<PARENT extends BaseSubProjection
      return projection;
   }
 
+  public DiscountContextProjection<DiscountCodeBxgyFragmentProjection<PARENT, ROOT>, ROOT> context(
+      ) {
+     DiscountContextProjection<DiscountCodeBxgyFragmentProjection<PARENT, ROOT>, ROOT> projection = new DiscountContextProjection<>(this, getRoot());
+     getFields().put("context", projection);
+     return projection;
+  }
+
   public DiscountCustomerBuysProjection<DiscountCodeBxgyFragmentProjection<PARENT, ROOT>, ROOT> customerBuys(
       ) {
      DiscountCustomerBuysProjection<DiscountCodeBxgyFragmentProjection<PARENT, ROOT>, ROOT> projection = new DiscountCustomerBuysProjection<>(this, getRoot());
@@ -153,6 +160,11 @@ public class DiscountCodeBxgyFragmentProjection<PARENT extends BaseSubProjection
 
   public DiscountCodeBxgyFragmentProjection<PARENT, ROOT> summary() {
     getFields().put("summary", null);
+    return this;
+  }
+
+  public DiscountCodeBxgyFragmentProjection<PARENT, ROOT> tags() {
+    getFields().put("tags", null);
     return this;
   }
 

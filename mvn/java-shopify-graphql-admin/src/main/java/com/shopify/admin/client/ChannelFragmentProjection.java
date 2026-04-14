@@ -175,6 +175,22 @@ public class ChannelFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?
     return projection;
   }
 
+  public AppFeedbackProjection<ChannelFragmentProjection<PARENT, ROOT>, ROOT> resourceFeedback() {
+     AppFeedbackProjection<ChannelFragmentProjection<PARENT, ROOT>, ROOT> projection = new AppFeedbackProjection<>(this, getRoot());
+     getFields().put("resourceFeedback", projection);
+     return projection;
+  }
+
+  public ChannelFragmentProjection<PARENT, ROOT> accountId() {
+    getFields().put("accountId", null);
+    return this;
+  }
+
+  public ChannelFragmentProjection<PARENT, ROOT> accountName() {
+    getFields().put("accountName", null);
+    return this;
+  }
+
   public ChannelFragmentProjection<PARENT, ROOT> handle() {
     getFields().put("handle", null);
     return this;
@@ -205,6 +221,11 @@ public class ChannelFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?
 
   public ChannelFragmentProjection<PARENT, ROOT> overviewPath() {
     getFields().put("overviewPath", null);
+    return this;
+  }
+
+  public ChannelFragmentProjection<PARENT, ROOT> specificationHandle() {
+    getFields().put("specificationHandle", null);
     return this;
   }
 

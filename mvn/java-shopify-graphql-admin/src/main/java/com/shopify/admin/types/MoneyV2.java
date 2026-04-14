@@ -7,7 +7,9 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * A precise monetary value and its associated currency. For example, 12.99 USD.
+ * A precise monetary value and its associated currency. Combines a decimal amount
+ * with a three-letter currency code to express prices, costs, and other financial
+ * values throughout the API. For example, 12.99 USD.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

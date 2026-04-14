@@ -8,7 +8,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Activates a customer.
+ * Activates a customer account using an activation token received from the [`customerCreate`](https://shopify.dev/docs/api/storefront/current/mutations/customerCreate)
+ * mutation. The customer sets their password during activation and receives a [`CustomerAccessToken`](https://shopify.dev/docs/api/storefront/current/objects/CustomerAccessToken)
+ * for authenticated access.
+ *   
+ * For a simpler approach that doesn't require parsing the activation URL, use [`customerActivateByUrl`](https://shopify.dev/docs/api/storefront/current/mutations/customerActivateByUrl) instead.
+ *   
+ * > Caution:
+ * > This mutation handles customer credentials. Always use HTTPS and never log or expose the password or access token.
  */
 public class CustomerActivateGraphQLQuery extends GraphQLQuery {
   public CustomerActivateGraphQLQuery(String id, CustomerActivateInput input, String queryName,

@@ -7,7 +7,13 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * A search query suggestion.
+ * A suggested search term returned by the [`predictiveSearch`](https://shopify.dev/docs/api/storefront/current/queries/predictiveSearch)
+ * query. Query suggestions help customers refine their searches by showing
+ * relevant terms as they type.
+ *
+ * The [`text`](https://shopify.dev/docs/api/storefront/current/objects/SearchQuerySuggestion#field-SearchQuerySuggestion.fields.text) field provides the plain suggestion, while [`styledText`](https://shopify.dev/docs/api/storefront/current/objects/SearchQuerySuggestion#field-SearchQuerySuggestion.fields.styledText)
+ * includes HTML tags to highlight matching portions. Implements [`Trackable`](https://shopify.dev/docs/api/storefront/current/interfaces/Trackable)
+ * for analytics reporting on search traffic origins.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

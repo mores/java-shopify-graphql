@@ -10,7 +10,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a list of active inventory locations.
+ * A paginated list of inventory locations where merchants can stock
+ * [`Product`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+ * items and fulfill
+ * [`Order`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order) items.
+ *   
+ * Returns only active locations by default. Use the [`includeInactive`](https://shopify.dev/docs/api/admin-graphql/latest/queries/locations#arguments-includeInactive)
+ * argument to retrieve deactivated locations that can no longer stock inventory
+ * or fulfill orders. Use the [`includeLegacy`](https://shopify.dev/docs/api/admin-graphql/latest/queries/locations#arguments-includeLegacy)
+ * argument to include locations that [`FulfillmentService`](https://shopify.dev/docs/api/admin-graphql/latest/objects/FulfillmentService)
+ * apps manage. Use the [`query`](https://shopify.dev/docs/api/admin-graphql/latest/queries/locations#arguments-query)
+ * argument to filter by location attributes like name, address, and whether
+ * local pickup is enabled.
  */
 public class LocationsGraphQLQuery extends GraphQLQuery {
   public LocationsGraphQLQuery(Integer first, String after, Integer last, String before,

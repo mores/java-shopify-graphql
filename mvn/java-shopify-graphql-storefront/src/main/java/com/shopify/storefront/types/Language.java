@@ -6,7 +6,14 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * A language.
+ * A language available for a localized storefront experience. Provides the
+ * language name in both its native form (endonym) and translated into the current
+ * language, along with its [`LanguageCode`](https://shopify.dev/docs/api/storefront/current/enums/LanguageCode).
+ *
+ * Returned by the [`Localization`](https://shopify.dev/docs/api/storefront/current/objects/Localization)
+ * and [`Country`](https://shopify.dev/docs/api/storefront/current/objects/Country)
+ * objects to indicate available and active languages. Pass the `isoCode` to the [`@inContext`](https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/in-context)
+ * directive to retrieve translated content in that language.
  */
 public class Language {
   /**

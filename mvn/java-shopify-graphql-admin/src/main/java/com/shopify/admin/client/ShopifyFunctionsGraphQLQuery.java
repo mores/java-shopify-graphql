@@ -9,7 +9,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns the Shopify Functions owned by the querying API client installed on the shop.
+ * Returns Shopify Functions owned by the querying API client installed on the
+ * shop. [Functions](https://shopify.dev/docs/apps/build/functions) enable you to customize
+ * Shopify's backend logic at specific points in the commerce loop, such as discounts,
+ * checkout validation, and fulfillment.
+ *   
+ * You can filter the results by API type to find specific function implementations,
+ * or by whether they provide a merchant configuration interface in the Shopify Admin.
+ *   
+ * The response includes details about each function's configuration, including its
+ * title, description, API version, and the input query used to provide data to the function logic.
+ *   
+ * Learn more about [building functions](https://shopify.dev/docs/api/functions).
  */
 public class ShopifyFunctionsGraphQLQuery extends GraphQLQuery {
   public ShopifyFunctionsGraphQLQuery(String apiType, Boolean useCreationUi, Integer first,

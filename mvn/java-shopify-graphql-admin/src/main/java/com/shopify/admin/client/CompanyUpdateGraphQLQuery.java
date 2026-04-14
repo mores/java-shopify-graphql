@@ -8,7 +8,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Updates a company.
+ * Updates a [`Company`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Company)
+ * with new information. Companies represent business customers that can have
+ * multiple contacts and locations with specific pricing, payment terms, and
+ * checkout settings.
+ *   
+ * The mutation accepts the company's ID and an input object containing the
+ * fields to update. You can modify the company name, add or update internal
+ * notes, set an external ID for integration with other systems, or adjust the
+ * customer relationship start date.
+ *   
+ * Learn more about [building B2B features](https://shopify.dev/docs/apps/build/b2b/start-building).
  */
 public class CompanyUpdateGraphQLQuery extends GraphQLQuery {
   public CompanyUpdateGraphQLQuery(String companyId, CompanyInput input, String queryName,

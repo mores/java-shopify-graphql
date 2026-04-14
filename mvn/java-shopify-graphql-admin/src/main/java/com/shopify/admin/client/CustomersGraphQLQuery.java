@@ -147,8 +147,8 @@ public class CustomersGraphQLQuery extends GraphQLQuery {
      * `country:Canada`<br/> - `country:JP` |
      * | customer_date | time | Filter by the date and time when the customer
      * record was created. This query parameter filters by the [`createdAt`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Customer#field-createdAt)
-     * field. | | | - `customer_date:'2024-03-15T14:30:00Z'`<br/> -
-     * `customer_date:'>=2024-01-01'` |
+     * field. | | | - `customer_date:'2024-03-15T14:30:00Z'`<br/> - `customer_date:
+     * >='2024-01-01'` |
      * | email | string | The customer's email address, used to communicate
      * information about orders and for the purposes of email marketing campaigns.
      * You can use a wildcard value to filter the query by customers who have an
@@ -164,12 +164,12 @@ public class CustomersGraphQLQuery extends GraphQLQuery {
      * a customer adds items to their cart, begins the checkout process, but leaves
      * the site without completing their purchase. | | | -
      * `last_abandoned_order_date:'2024-04-01T10:00:00Z'`<br/> -
-     * `last_abandoned_order_date:'>=2024-01-01'` |
+     * `last_abandoned_order_date: >='2024-01-01'` |
      * | last_name | string | Filter by the customer's last name. | | | - `last_name:Reeves` |
      * | order_date | time | Filter by the date and time that the order was placed
      * by the customer. Use this query filter to check if a customer has placed at
      * least one order within a specified date range. | | | -
-     * `order_date:'2024-02-20T00:00:00Z'`<br/> - `order_date:'>=2024-01-01'`<br/>
+     * `order_date:'2024-02-20T00:00:00Z'`<br/> - `order_date: >='2024-01-01'`<br/>
      * - `order_date:'2024-01-01..2024-03-31'` |
      * | orders_count | integer | Filter by the total number of orders a customer has placed. | | | - `orders_count:5` |
      * | phone | string | The phone number of the customer, used to communicate

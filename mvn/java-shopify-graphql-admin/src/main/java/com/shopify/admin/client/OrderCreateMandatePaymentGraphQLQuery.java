@@ -9,7 +9,22 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Creates a payment for an order by mandate.
+ * Creates a payment for an
+ * [`Order`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order) using a stored [`PaymentMandate`](https://shopify.dev/docs/api/admin-graphql/latest/objects/PaymentMandate).
+ * A payment mandate represents the customer's authorization to charge their
+ * payment method for deferred payments, such as pre-orders or try-before-you-buy purchases.
+ *   
+ * The mutation processes the payment asynchronously and returns a
+ * [`Job`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Job) for
+ * tracking the payment status. You can specify the payment amount to collect, and use the [`autoCapture`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/orderCreateMandatePayment#arguments-autoCapture)
+ * argument to either immediately capture the payment or only authorize it for
+ * later capture. Each payment request requires a unique [`idempotencyKey`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/orderCreateMandatePayment#arguments-idempotencyKey)
+ * to prevent duplicate charges. Subsequent calls with the same key return the
+ * original payment result rather than creating a new payment.
+ *   
+ * Learn more about [deferred payments and payment mandates](https://shopify.dev/docs/apps/build/purchase-options/deferred#charging-the-remaining-balance)
+ * and [idempotent
+ * requests](https://shopify.dev/docs/api/usage/idempotent-requests).
  */
 public class OrderCreateMandatePaymentGraphQLQuery extends GraphQLQuery {
   public OrderCreateMandatePaymentGraphQLQuery(String id, String paymentScheduleId,

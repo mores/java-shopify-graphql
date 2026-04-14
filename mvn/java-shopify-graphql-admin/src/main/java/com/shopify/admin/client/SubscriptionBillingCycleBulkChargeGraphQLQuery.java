@@ -2,6 +2,7 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.SubscriptionBillingAttemptInventoryPolicy;
+import com.shopify.admin.types.SubscriptionBillingAttemptPaymentProcessingPolicy;
 import com.shopify.admin.types.SubscriptionBillingCycleBulkFilters;
 import com.shopify.admin.types.SubscriptionBillingCyclesDateRangeSelector;
 import java.lang.Override;
@@ -18,7 +19,8 @@ public class SubscriptionBillingCycleBulkChargeGraphQLQuery extends GraphQLQuery
   public SubscriptionBillingCycleBulkChargeGraphQLQuery(
       SubscriptionBillingCyclesDateRangeSelector billingAttemptExpectedDateRange,
       SubscriptionBillingCycleBulkFilters filters,
-      SubscriptionBillingAttemptInventoryPolicy inventoryPolicy, String queryName,
+      SubscriptionBillingAttemptInventoryPolicy inventoryPolicy,
+      SubscriptionBillingAttemptPaymentProcessingPolicy paymentProcessingPolicy, String queryName,
       Set<String> fieldsSet) {
     super("mutation", queryName);
     if (billingAttemptExpectedDateRange != null || fieldsSet.contains("billingAttemptExpectedDateRange")) {
@@ -27,6 +29,8 @@ public class SubscriptionBillingCycleBulkChargeGraphQLQuery extends GraphQLQuery
         getInput().put("filters", filters);
     }if (inventoryPolicy != null || fieldsSet.contains("inventoryPolicy")) {
         getInput().put("inventoryPolicy", inventoryPolicy);
+    }if (paymentProcessingPolicy != null || fieldsSet.contains("paymentProcessingPolicy")) {
+        getInput().put("paymentProcessingPolicy", paymentProcessingPolicy);
     }
   }
 
@@ -52,10 +56,12 @@ public class SubscriptionBillingCycleBulkChargeGraphQLQuery extends GraphQLQuery
 
     private SubscriptionBillingAttemptInventoryPolicy inventoryPolicy;
 
+    private SubscriptionBillingAttemptPaymentProcessingPolicy paymentProcessingPolicy;
+
     private String queryName;
 
     public SubscriptionBillingCycleBulkChargeGraphQLQuery build() {
-      return new SubscriptionBillingCycleBulkChargeGraphQLQuery(billingAttemptExpectedDateRange, filters, inventoryPolicy, queryName, fieldsSet);
+      return new SubscriptionBillingCycleBulkChargeGraphQLQuery(billingAttemptExpectedDateRange, filters, inventoryPolicy, paymentProcessingPolicy, queryName, fieldsSet);
                
     }
 
@@ -84,6 +90,16 @@ public class SubscriptionBillingCycleBulkChargeGraphQLQuery extends GraphQLQuery
     public Builder inventoryPolicy(SubscriptionBillingAttemptInventoryPolicy inventoryPolicy) {
       this.inventoryPolicy = inventoryPolicy;
       this.fieldsSet.add("inventoryPolicy");
+      return this;
+    }
+
+    /**
+     * Selected payment processing policy for the billing attempt. Defaults to FAIL_UNLESS_VALID_PAYMENT_METHOD.
+     */
+    public Builder paymentProcessingPolicy(
+        SubscriptionBillingAttemptPaymentProcessingPolicy paymentProcessingPolicy) {
+      this.paymentProcessingPolicy = paymentProcessingPolicy;
+      this.fieldsSet.add("paymentProcessingPolicy");
       return this;
     }
 

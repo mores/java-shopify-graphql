@@ -10,7 +10,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a list of gift cards.
+ * Returns a paginated list of [`GiftCard`](https://shopify.dev/docs/api/admin-graphql/latest/objects/GiftCard)
+ * objects issued for the shop.
+ *   
+ * You can filter gift cards by attributes such as status, last characters of the
+ * code, balance status, and other values using the [`query`](https://shopify.dev/docs/api/admin-graphql/latest/queries/giftCards#arguments-query)
+ * parameter. You can also apply [`SavedSearch`](https://shopify.dev/docs/api/admin-graphql/latest/objects/SavedSearch)
+ * objects to filter results.
  */
 public class GiftCardsGraphQLQuery extends GraphQLQuery {
   public GiftCardsGraphQLQuery(Integer first, String after, Integer last, String before,
@@ -134,13 +140,17 @@ public class GiftCardsGraphQLQuery extends GraphQLQuery {
      * A filter made up of terms, connectives, modifiers, and comparators.
      * | name | type | description | acceptable_values | default_value | example_use |
      * | ---- | ---- | ---- | ---- | ---- | ---- |
-     * | default | string | Searched fields: code. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
+     * | default | string | Filter by a case-insensitive search of multiple fields
+     * in a document, including gift card codes. | | | -
+     * `query=a5bh6h64b329j4k7`<br/> - `query=Bob Norman` |
      * | balance_status | string | | - `full`<br/> - `partial`<br/> - `empty`<br/>
      * - `full_or_partial` | | - `balance_status:full` |
      * | created_at | time | | | | - `created_at:>=2020-01-01T12:00:00Z` |
+     * | customer_id | id |
      * | expires_on | date | | | | - `expires_on:>=2020-01-01` |
      * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | initial_value | string | | | | - `initial_value:>=100` |
+     * | recipient_id | id |
      * | source | string | | - `manual`<br/> - `purchased`<br/> - `api_client` | | - `source:manual` |
      * | status | string | | - `disabled`<br/> - `enabled`<br/> - `expired`<br/> -
      * `expiring` | | - `status:disabled OR status:expired` |

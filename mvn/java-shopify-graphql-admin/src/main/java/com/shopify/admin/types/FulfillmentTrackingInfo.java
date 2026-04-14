@@ -76,7 +76,8 @@ public class FulfillmentTrackingInfo {
    *   * Israel Post
    *   * Japan Post (EN)
    *   * Japan Post (JA)
-   *   * La Poste
+   *   * La Poste Colissimo
+   *   * La Poste Burkina Faso
    *   * Lasership
    *   * Latvia Post
    *   * Lietuvos Paštas
@@ -261,7 +262,8 @@ public class FulfillmentTrackingInfo {
    *   * Israel Post
    *   * Japan Post (EN)
    *   * Japan Post (JA)
-   *   * La Poste
+   *   * La Poste Colissimo
+   *   * La Poste Burkina Faso
    *   * Lasership
    *   * Latvia Post
    *   * Lietuvos Paštas
@@ -486,7 +488,8 @@ public class FulfillmentTrackingInfo {
      *   * Israel Post
      *   * Japan Post (EN)
      *   * Japan Post (JA)
-     *   * La Poste
+     *   * La Poste Colissimo
+     *   * La Poste Burkina Faso
      *   * Lasership
      *   * Latvia Post
      *   * Lietuvos Paštas
@@ -676,7 +679,8 @@ public class FulfillmentTrackingInfo {
      *   * Israel Post
      *   * Japan Post (EN)
      *   * Japan Post (JA)
-     *   * La Poste
+     *   * La Poste Colissimo
+     *   * La Poste Burkina Faso
      *   * Lasership
      *   * Latvia Post
      *   * Lietuvos Paštas

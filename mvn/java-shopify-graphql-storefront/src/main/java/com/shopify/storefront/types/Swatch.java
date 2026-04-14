@@ -6,7 +6,8 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * Color and image for visual representation.
+ * A visual representation for filter values, containing a color, an image, or both. The [`FilterValue`](https://shopify.dev/docs/api/storefront/current/objects/FilterValue) object's [`swatch`](https://shopify.dev/docs/api/storefront/current/objects/FilterValue#field-FilterValue.fields.swatch)
+ * field returns this when the filter's presentation is set to `SWATCH`.
  */
 public class Swatch {
   /**

@@ -6,7 +6,12 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * A warning that occurred during a cart mutation.
+ * A non-blocking issue that occurred during a cart mutation. Unlike errors,
+ * warnings don't prevent the mutation from completing but indicate potential
+ * problems that may affect the buyer's experience.
+ *
+ * Each warning includes a code identifying the issue type, a human-readable
+ * message, and a target ID pointing to the affected resource.
  */
 public class CartWarning {
   /**

@@ -9,7 +9,13 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Updates one or more merchandise lines on a cart.
+ * Updates one or more merchandise lines on a
+ * [`Cart`](https://shopify.dev/docs/api/storefront/current/objects/Cart). You
+ * can modify the quantity, swap the merchandise, change custom attributes, or
+ * update the selling plan for each line. You can update a maximum of 250 lines per request.
+ *   
+ * Omitting the [`attributes`](https://shopify.dev/docs/api/storefront/current/mutations/cartLinesUpdate#arguments-lines.fields.attributes) field or setting it to null preserves existing line attributes. Pass an empty
+ * array to clear all attributes from a line.
  */
 public class CartLinesUpdateGraphQLQuery extends GraphQLQuery {
   public CartLinesUpdateGraphQLQuery(String cartId, List<CartLineUpdateInput> lines,

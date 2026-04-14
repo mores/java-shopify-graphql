@@ -6,7 +6,7 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * A shipping rate is an additional cost added to the cost of the products that were ordered.
+ * A shipping option associated with order delivery that includes pricing and service information.
  */
 public class ShippingRate {
   /**

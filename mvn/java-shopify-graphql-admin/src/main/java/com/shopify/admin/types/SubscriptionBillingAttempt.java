@@ -8,9 +8,14 @@ import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
- * A record of an execution of the subscription billing process. Billing attempts use
- * idempotency keys to avoid duplicate order creation. A successful billing attempt
- * will create an order.
+ * A record of an execution of the subscription billing process. Billing attempts
+ * use idempotency keys to avoid duplicate order creation.
+ *
+ * When a billing attempt completes successfully, it creates an
+ * [`Order`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order). The
+ * attempt includes associated payment transactions and any errors that occur
+ * during billing. If 3D Secure authentication is required, the `nextActionUrl`
+ * field provides the redirect URL for customer verification.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -87,6 +92,11 @@ public class SubscriptionBillingAttempt implements com.shopify.admin.types.Node 
    * Whether the billing attempt respects the merchant's inventory policy.
    */
   private boolean respectInventoryPolicy;
+
+  /**
+   * The state of the billing attempt with state-specific data.
+   */
+  private SubscriptionBillingAttemptState state;
 
   /**
    * The subscription contract.
@@ -258,6 +268,17 @@ public class SubscriptionBillingAttempt implements com.shopify.admin.types.Node 
   }
 
   /**
+   * The state of the billing attempt with state-specific data.
+   */
+  public SubscriptionBillingAttemptState getState() {
+    return state;
+  }
+
+  public void setState(SubscriptionBillingAttemptState state) {
+    this.state = state;
+  }
+
+  /**
    * The subscription contract.
    */
   public SubscriptionContract getSubscriptionContract() {
@@ -281,7 +302,7 @@ public class SubscriptionBillingAttempt implements com.shopify.admin.types.Node 
 
   @Override
   public String toString() {
-    return "SubscriptionBillingAttempt{completedAt='" + completedAt + "', createdAt='" + createdAt + "', errorCode='" + errorCode + "', errorMessage='" + errorMessage + "', id='" + id + "', idempotencyKey='" + idempotencyKey + "', nextActionUrl='" + nextActionUrl + "', order='" + order + "', originTime='" + originTime + "', paymentGroupId='" + paymentGroupId + "', paymentSessionId='" + paymentSessionId + "', processingError='" + processingError + "', ready='" + ready + "', respectInventoryPolicy='" + respectInventoryPolicy + "', subscriptionContract='" + subscriptionContract + "', transactions='" + transactions + "'}";
+    return "SubscriptionBillingAttempt{completedAt='" + completedAt + "', createdAt='" + createdAt + "', errorCode='" + errorCode + "', errorMessage='" + errorMessage + "', id='" + id + "', idempotencyKey='" + idempotencyKey + "', nextActionUrl='" + nextActionUrl + "', order='" + order + "', originTime='" + originTime + "', paymentGroupId='" + paymentGroupId + "', paymentSessionId='" + paymentSessionId + "', processingError='" + processingError + "', ready='" + ready + "', respectInventoryPolicy='" + respectInventoryPolicy + "', state='" + state + "', subscriptionContract='" + subscriptionContract + "', transactions='" + transactions + "'}";
   }
 
   @Override
@@ -303,13 +324,14 @@ public class SubscriptionBillingAttempt implements com.shopify.admin.types.Node 
         Objects.equals(processingError, that.processingError) &&
         ready == that.ready &&
         respectInventoryPolicy == that.respectInventoryPolicy &&
+        Objects.equals(state, that.state) &&
         Objects.equals(subscriptionContract, that.subscriptionContract) &&
         Objects.equals(transactions, that.transactions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(completedAt, createdAt, errorCode, errorMessage, id, idempotencyKey, nextActionUrl, order, originTime, paymentGroupId, paymentSessionId, processingError, ready, respectInventoryPolicy, subscriptionContract, transactions);
+    return Objects.hash(completedAt, createdAt, errorCode, errorMessage, id, idempotencyKey, nextActionUrl, order, originTime, paymentGroupId, paymentSessionId, processingError, ready, respectInventoryPolicy, state, subscriptionContract, transactions);
   }
 
   public static Builder newBuilder() {
@@ -390,6 +412,11 @@ public class SubscriptionBillingAttempt implements com.shopify.admin.types.Node 
     private boolean respectInventoryPolicy;
 
     /**
+     * The state of the billing attempt with state-specific data.
+     */
+    private SubscriptionBillingAttemptState state;
+
+    /**
      * The subscription contract.
      */
     private SubscriptionContract subscriptionContract;
@@ -415,6 +442,7 @@ public class SubscriptionBillingAttempt implements com.shopify.admin.types.Node 
       result.processingError = this.processingError;
       result.ready = this.ready;
       result.respectInventoryPolicy = this.respectInventoryPolicy;
+      result.state = this.state;
       result.subscriptionContract = this.subscriptionContract;
       result.transactions = this.transactions;
       return result;
@@ -531,6 +559,14 @@ public class SubscriptionBillingAttempt implements com.shopify.admin.types.Node 
      */
     public Builder respectInventoryPolicy(boolean respectInventoryPolicy) {
       this.respectInventoryPolicy = respectInventoryPolicy;
+      return this;
+    }
+
+    /**
+     * The state of the billing attempt with state-specific data.
+     */
+    public Builder state(SubscriptionBillingAttemptState state) {
+      this.state = state;
       return this;
     }
 

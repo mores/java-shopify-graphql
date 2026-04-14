@@ -79,6 +79,26 @@ public class InventoryShipmentProjection<PARENT extends BaseSubProjectionNode<?,
      return projection;
   }
 
+  public InventoryShipmentProjection<PARENT, ROOT> barcode() {
+    getFields().put("barcode", null);
+    return this;
+  }
+
+  public InventoryShipmentProjection<PARENT, ROOT> dateCreated() {
+    getFields().put("dateCreated", null);
+    return this;
+  }
+
+  public InventoryShipmentProjection<PARENT, ROOT> dateReceived() {
+    getFields().put("dateReceived", null);
+    return this;
+  }
+
+  public InventoryShipmentProjection<PARENT, ROOT> dateShipped() {
+    getFields().put("dateShipped", null);
+    return this;
+  }
+
   public InventoryShipmentProjection<PARENT, ROOT> id() {
     getFields().put("id", null);
     return this;

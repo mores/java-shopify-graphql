@@ -7,7 +7,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Get a single event by its id.
+ * Retrieves a single event by ID. Events chronicle activities in your store such
+ * as resource creation, updates, or staff comments. The query returns an
+ * [`Event`](https://shopify.dev/docs/api/admin-graphql/latest/interfaces/Event)
+ * interface of type [`BasicEvent`](https://shopify.dev/docs/api/admin-graphql/latest/objects/BasicEvent) or [`CommentEvent`](https://shopify.dev/docs/api/admin-graphql/latest/objects/CommentEvent).
  */
 public class EventGraphQLQuery extends GraphQLQuery {
   public EventGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

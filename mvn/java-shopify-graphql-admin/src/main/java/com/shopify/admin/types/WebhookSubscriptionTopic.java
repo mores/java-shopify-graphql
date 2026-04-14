@@ -14,6 +14,8 @@ package com.shopify.admin.types;
  * names](https://shopify.dev/docs/api/webhooks?reference=graphql).
  */
 public enum WebhookSubscriptionTopic {
+  TAX_SUMMARIES_CREATE,
+
   APP_UNINSTALLED,
 
   APP_SCOPES_UPDATE,
@@ -120,6 +122,8 @@ public enum WebhookSubscriptionTopic {
 
   ORDERS_UPDATED,
 
+  ORDERS_LINK_REQUESTED,
+
   FULFILLMENT_ORDERS_MOVED,
 
   FULFILLMENT_ORDERS_HOLD_RELEASED,
@@ -155,6 +159,10 @@ public enum WebhookSubscriptionTopic {
   FULFILLMENT_ORDERS_MERGED,
 
   FULFILLMENT_ORDERS_SPLIT,
+
+  FULFILLMENT_ORDERS_PROGRESS_REPORTED,
+
+  FULFILLMENT_ORDERS_MANUALLY_REPORTED_PROGRESS_STOPPED,
 
   PRODUCT_LISTINGS_ADD,
 
@@ -245,6 +253,8 @@ public enum WebhookSubscriptionTopic {
   LOCALES_CREATE,
 
   LOCALES_UPDATE,
+
+  LOCALES_DESTROY,
 
   DOMAINS_CREATE,
 

@@ -357,6 +357,31 @@ public class CompanyLocationProjectionRoot<PARENT extends BaseSubProjectionNode<
     return projection;
   }
 
+  public StoreCreditAccountConnectionProjection<CompanyLocationProjectionRoot<PARENT, ROOT>, CompanyLocationProjectionRoot<PARENT, ROOT>> storeCreditAccounts(
+      ) {
+    StoreCreditAccountConnectionProjection<CompanyLocationProjectionRoot<PARENT, ROOT>, CompanyLocationProjectionRoot<PARENT, ROOT>> projection = new StoreCreditAccountConnectionProjection<>(this, this);    
+    getFields().put("storeCreditAccounts", projection);
+    return projection;
+  }
+
+  public StoreCreditAccountConnectionProjection<CompanyLocationProjectionRoot<PARENT, ROOT>, CompanyLocationProjectionRoot<PARENT, ROOT>> storeCreditAccounts(
+      Integer first, String after, Integer last, String before, String query) {
+    StoreCreditAccountConnectionProjection<CompanyLocationProjectionRoot<PARENT, ROOT>, CompanyLocationProjectionRoot<PARENT, ROOT>> projection = new StoreCreditAccountConnectionProjection<>(this, this);    
+    getFields().put("storeCreditAccounts", projection);
+    getInputArguments().computeIfAbsent("storeCreditAccounts", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("storeCreditAccounts").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("storeCreditAccounts").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("storeCreditAccounts").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("storeCreditAccounts").add(beforeArg);
+    InputArgument queryArg = new InputArgument("query", query);
+    getInputArguments().get("storeCreditAccounts").add(queryArg);
+    return projection;
+  }
+
   public TaxExemptionProjection<CompanyLocationProjectionRoot<PARENT, ROOT>, CompanyLocationProjectionRoot<PARENT, ROOT>> taxExemptions(
       ) {
     TaxExemptionProjection<CompanyLocationProjectionRoot<PARENT, ROOT>, CompanyLocationProjectionRoot<PARENT, ROOT>> projection = new TaxExemptionProjection<>(this, this);    

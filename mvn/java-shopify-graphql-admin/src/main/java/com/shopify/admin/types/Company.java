@@ -8,7 +8,11 @@ import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
- * Represents information about a company which is also a customer of the shop.
+ * A business entity that purchases from the shop as part of B2B commerce.
+ * Companies organize multiple locations and contacts who can place orders on
+ * behalf of the organization. [`CompanyLocation`](https://shopify.dev/docs/api/admin-graphql/latest/objects/CompanyLocation)
+ * objects can have custom pricing through [`Catalog`](https://shopify.dev/docs/api/admin-graphql/latest/interfaces/Catalog) and [`PriceList`](https://shopify.dev/docs/api/admin-graphql/latest/objects/PriceList)
+ * configurations.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

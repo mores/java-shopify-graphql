@@ -25,6 +25,13 @@ public class UnverifiedReturnLineItemFragmentProjection<PARENT extends BaseSubPr
      return projection;
   }
 
+  public ReturnReasonDefinitionProjection<UnverifiedReturnLineItemFragmentProjection<PARENT, ROOT>, ROOT> returnReasonDefinition(
+      ) {
+     ReturnReasonDefinitionProjection<UnverifiedReturnLineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new ReturnReasonDefinitionProjection<>(this, getRoot());
+     getFields().put("returnReasonDefinition", projection);
+     return projection;
+  }
+
   public MoneyV2Projection<UnverifiedReturnLineItemFragmentProjection<PARENT, ROOT>, ROOT> unitPrice(
       ) {
      MoneyV2Projection<UnverifiedReturnLineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());

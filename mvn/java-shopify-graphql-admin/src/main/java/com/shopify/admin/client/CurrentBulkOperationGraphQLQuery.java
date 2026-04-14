@@ -8,8 +8,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns the current app's most recent BulkOperation. Apps can run one bulk
- * query and one bulk mutation operation at a time, by shop.
+ * Returns the current app's most recent [`BulkOperation`](https://shopify.dev/docs/api/admin-graphql/latest/objects/BulkOperation).
+ * Apps can run one bulk query and one bulk mutation operation at a time per shop.
+ *   
+ * The operation type parameter determines whether to retrieve the most recent
+ * query or mutation bulk operation. Use this query to check the operation's
+ * status, track its progress, and retrieve the result URL when it completes.
  */
 public class CurrentBulkOperationGraphQLQuery extends GraphQLQuery {
   public CurrentBulkOperationGraphQLQuery(BulkOperationType type, String queryName,

@@ -7,7 +7,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Deletes a comment.
+ * Permanently removes a comment from a blog article.
+ *   
+ * For example, when a comment contains spam links or inappropriate language that
+ * violates store policies, merchants can delete it entirely.
+ *   
+ * Use the `commentDelete` mutation to:
+ * - Remove spam or inappropriate comments permanently
+ * - Clean up irrelevant discussions
+ * - Maintain content standards on blog articles
+ *   
+ * Deletion is permanent and can't be undone.
  */
 public class CommentDeleteGraphQLQuery extends GraphQLQuery {
   public CommentDeleteGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

@@ -1,7 +1,14 @@
 package com.shopify.storefront.types;
 
 /**
- * Language codes supported by Shopify.
+ * Supported languages for retrieving translated storefront content. Pass a
+ * language code to the [`@inContext`](https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/in-context)
+ * directive to return product titles, descriptions, and other translatable fields
+ * in that language. 
+ *
+ * The [`Localization`](https://shopify.dev/docs/api/storefront/current/objects/Localization) object provides the list of available languages for the active country, and each
+ * [`Country`](https://shopify.dev/docs/api/storefront/current/objects/Country) in [`availableCountries`](https://shopify.dev/docs/api/storefront/current/objects/Localization#field-Localization.fields.availableCountries)
+ * includes its own available languages.
  */
 public enum LanguageCode {
   AF,

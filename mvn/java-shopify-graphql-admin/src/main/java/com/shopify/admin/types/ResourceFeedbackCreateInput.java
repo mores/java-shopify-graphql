@@ -37,6 +37,12 @@ public class ResourceFeedbackCreateInput {
    */
   private ResourceFeedbackState state;
 
+  /**
+   * The ID of the channel that the feedback is for. Used to scope feedback to a
+   * specific sales channel when the app has multiple channels.
+   */
+  private String channelId;
+
   public ResourceFeedbackCreateInput() {
   }
 
@@ -84,9 +90,21 @@ public class ResourceFeedbackCreateInput {
     this.state = state;
   }
 
+  /**
+   * The ID of the channel that the feedback is for. Used to scope feedback to a
+   * specific sales channel when the app has multiple channels.
+   */
+  public String getChannelId() {
+    return channelId;
+  }
+
+  public void setChannelId(String channelId) {
+    this.channelId = channelId;
+  }
+
   @Override
   public String toString() {
-    return "ResourceFeedbackCreateInput{feedbackGeneratedAt='" + feedbackGeneratedAt + "', messages='" + messages + "', state='" + state + "'}";
+    return "ResourceFeedbackCreateInput{feedbackGeneratedAt='" + feedbackGeneratedAt + "', messages='" + messages + "', state='" + state + "', channelId='" + channelId + "'}";
   }
 
   @Override
@@ -96,12 +114,13 @@ public class ResourceFeedbackCreateInput {
     ResourceFeedbackCreateInput that = (ResourceFeedbackCreateInput) o;
     return Objects.equals(feedbackGeneratedAt, that.feedbackGeneratedAt) &&
         Objects.equals(messages, that.messages) &&
-        Objects.equals(state, that.state);
+        Objects.equals(state, that.state) &&
+        Objects.equals(channelId, that.channelId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(feedbackGeneratedAt, messages, state);
+    return Objects.hash(feedbackGeneratedAt, messages, state, channelId);
   }
 
   public static Builder newBuilder() {
@@ -135,11 +154,18 @@ public class ResourceFeedbackCreateInput {
      */
     private ResourceFeedbackState state;
 
+    /**
+     * The ID of the channel that the feedback is for. Used to scope feedback to a
+     * specific sales channel when the app has multiple channels.
+     */
+    private String channelId;
+
     public ResourceFeedbackCreateInput build() {
       ResourceFeedbackCreateInput result = new ResourceFeedbackCreateInput();
       result.feedbackGeneratedAt = this.feedbackGeneratedAt;
       result.messages = this.messages;
       result.state = this.state;
+      result.channelId = this.channelId;
       return result;
     }
 
@@ -175,6 +201,15 @@ public class ResourceFeedbackCreateInput {
      */
     public Builder state(ResourceFeedbackState state) {
       this.state = state;
+      return this;
+    }
+
+    /**
+     * The ID of the channel that the feedback is for. Used to scope feedback to a
+     * specific sales channel when the app has multiple channels.
+     */
+    public Builder channelId(String channelId) {
+      this.channelId = channelId;
       return this;
     }
   }

@@ -44,6 +44,11 @@ public class ProductVariantsBulkInput {
   private List<InventoryLevelInput> inventoryQuantities;
 
   /**
+   * Adjust inventory quantities with deltas.
+   */
+  private List<InventoryAdjustmentInput> quantityAdjustments;
+
+  /**
    * The inventory item associated with the variant, used for unit cost.
    */
   private InventoryItemInput inventoryItem;
@@ -167,6 +172,17 @@ public class ProductVariantsBulkInput {
   }
 
   /**
+   * Adjust inventory quantities with deltas.
+   */
+  public List<InventoryAdjustmentInput> getQuantityAdjustments() {
+    return quantityAdjustments;
+  }
+
+  public void setQuantityAdjustments(List<InventoryAdjustmentInput> quantityAdjustments) {
+    this.quantityAdjustments = quantityAdjustments;
+  }
+
+  /**
    * The inventory item associated with the variant, used for unit cost.
    */
   public InventoryItemInput getInventoryItem() {
@@ -280,7 +296,7 @@ public class ProductVariantsBulkInput {
 
   @Override
   public String toString() {
-    return "ProductVariantsBulkInput{barcode='" + barcode + "', compareAtPrice='" + compareAtPrice + "', id='" + id + "', mediaSrc='" + mediaSrc + "', inventoryPolicy='" + inventoryPolicy + "', inventoryQuantities='" + inventoryQuantities + "', inventoryItem='" + inventoryItem + "', mediaId='" + mediaId + "', metafields='" + metafields + "', optionValues='" + optionValues + "', price='" + price + "', taxable='" + taxable + "', taxCode='" + taxCode + "', unitPriceMeasurement='" + unitPriceMeasurement + "', showUnitPrice='" + showUnitPrice + "', requiresComponents='" + requiresComponents + "'}";
+    return "ProductVariantsBulkInput{barcode='" + barcode + "', compareAtPrice='" + compareAtPrice + "', id='" + id + "', mediaSrc='" + mediaSrc + "', inventoryPolicy='" + inventoryPolicy + "', inventoryQuantities='" + inventoryQuantities + "', quantityAdjustments='" + quantityAdjustments + "', inventoryItem='" + inventoryItem + "', mediaId='" + mediaId + "', metafields='" + metafields + "', optionValues='" + optionValues + "', price='" + price + "', taxable='" + taxable + "', taxCode='" + taxCode + "', unitPriceMeasurement='" + unitPriceMeasurement + "', showUnitPrice='" + showUnitPrice + "', requiresComponents='" + requiresComponents + "'}";
   }
 
   @Override
@@ -294,6 +310,7 @@ public class ProductVariantsBulkInput {
         Objects.equals(mediaSrc, that.mediaSrc) &&
         Objects.equals(inventoryPolicy, that.inventoryPolicy) &&
         Objects.equals(inventoryQuantities, that.inventoryQuantities) &&
+        Objects.equals(quantityAdjustments, that.quantityAdjustments) &&
         Objects.equals(inventoryItem, that.inventoryItem) &&
         Objects.equals(mediaId, that.mediaId) &&
         Objects.equals(metafields, that.metafields) &&
@@ -308,7 +325,7 @@ public class ProductVariantsBulkInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(barcode, compareAtPrice, id, mediaSrc, inventoryPolicy, inventoryQuantities, inventoryItem, mediaId, metafields, optionValues, price, taxable, taxCode, unitPriceMeasurement, showUnitPrice, requiresComponents);
+    return Objects.hash(barcode, compareAtPrice, id, mediaSrc, inventoryPolicy, inventoryQuantities, quantityAdjustments, inventoryItem, mediaId, metafields, optionValues, price, taxable, taxCode, unitPriceMeasurement, showUnitPrice, requiresComponents);
   }
 
   public static Builder newBuilder() {
@@ -347,6 +364,11 @@ public class ProductVariantsBulkInput {
      * Supported as input with the `productVariantsBulkCreate` mutation only.
      */
     private List<InventoryLevelInput> inventoryQuantities;
+
+    /**
+     * Adjust inventory quantities with deltas.
+     */
+    private List<InventoryAdjustmentInput> quantityAdjustments;
 
     /**
      * The inventory item associated with the variant, used for unit cost.
@@ -408,6 +430,7 @@ public class ProductVariantsBulkInput {
       result.mediaSrc = this.mediaSrc;
       result.inventoryPolicy = this.inventoryPolicy;
       result.inventoryQuantities = this.inventoryQuantities;
+      result.quantityAdjustments = this.quantityAdjustments;
       result.inventoryItem = this.inventoryItem;
       result.mediaId = this.mediaId;
       result.metafields = this.metafields;
@@ -468,6 +491,14 @@ public class ProductVariantsBulkInput {
      */
     public Builder inventoryQuantities(List<InventoryLevelInput> inventoryQuantities) {
       this.inventoryQuantities = inventoryQuantities;
+      return this;
+    }
+
+    /**
+     * Adjust inventory quantities with deltas.
+     */
+    public Builder quantityAdjustments(List<InventoryAdjustmentInput> quantityAdjustments) {
+      this.quantityAdjustments = quantityAdjustments;
       return this;
     }
 

@@ -8,7 +8,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Updates an existing catalog.
+ * Updates an existing [catalog's](https://shopify.dev/docs/api/admin-graphql/latest/interfaces/Catalog)
+ * configuration. Catalogs control product publishing and pricing for specific contexts like
+ * [markets](https://shopify.dev/docs/api/admin-graphql/latest/objects/Market) or B2B [company locations](https://shopify.dev/docs/api/admin-graphql/latest/objects/CompanyLocation).
+ *   
+ * You can modify the catalog's title, status, and associated context. You can
+ * also update the [`PriceList`](https://shopify.dev/docs/api/admin-graphql/latest/objects/PriceList)
+ * that determines pricing adjustments or the [`Publication`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
+ * that controls which products customers see.
  */
 public class CatalogUpdateGraphQLQuery extends GraphQLQuery {
   public CatalogUpdateGraphQLQuery(String id, CatalogUpdateInput input, String queryName,

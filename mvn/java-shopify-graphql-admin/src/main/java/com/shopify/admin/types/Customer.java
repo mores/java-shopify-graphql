@@ -9,20 +9,25 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Represents information about a customer of the shop, such as the customer's contact details, their order
- * history, and whether they've agreed to receive marketing material by email.
+ * Information about a customer of the shop, such as the customer's contact
+ * details, purchase history, and marketing preferences.
  *
- * **Caution:** Only use this data if it's required for your app's functionality.
- * Shopify will restrict [access to
- * scopes](https://shopify.dev/api/usage/access-scopes) for apps that don't have a
- * legitimate use for the associated data.
+ * Tracks the customer's total spending through the [`amountSpent`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Customer#field-amountSpent)
+ * field and provides access to associated data such as payment methods and
+ * subscription contracts.
+ *
+ * > Caution:
+ * > Only use this data if it's required for your app's functionality. Shopify will
+ * restrict [access to scopes](https://shopify.dev/api/usage/access-scopes) for
+ * apps that don't have a legitimate use for the associated data.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class Customer implements CommentEventEmbed, MetafieldReference, MetafieldReferencer, PurchasingEntity, com.shopify.admin.types.CommentEventSubject, com.shopify.admin.types.HasEvents, com.shopify.admin.types.HasMetafieldDefinitions, com.shopify.admin.types.HasMetafields, com.shopify.admin.types.HasStoreCreditAccounts, com.shopify.admin.types.LegacyInteroperability, com.shopify.admin.types.Node {
   /**
-   * A list of addresses associated with the customer.
+   * A list of addresses associated with the customer. Limited to 250 addresses.
+   * Use `addressesV2` for paginated access to all addresses.
    */
   private List<MailingAddress> addresses;
 
@@ -281,7 +286,8 @@ public class Customer implements CommentEventEmbed, MetafieldReference, Metafiel
   }
 
   /**
-   * A list of addresses associated with the customer.
+   * A list of addresses associated with the customer. Limited to 250 addresses.
+   * Use `addressesV2` for paginated access to all addresses.
    */
   public List<MailingAddress> getAddresses() {
     return addresses;
@@ -888,7 +894,8 @@ public class Customer implements CommentEventEmbed, MetafieldReference, Metafiel
 
   public static class Builder {
     /**
-     * A list of addresses associated with the customer.
+     * A list of addresses associated with the customer. Limited to 250 addresses.
+     * Use `addressesV2` for paginated access to all addresses.
      */
     private List<MailingAddress> addresses;
 
@@ -1196,7 +1203,8 @@ public class Customer implements CommentEventEmbed, MetafieldReference, Metafiel
     }
 
     /**
-     * A list of addresses associated with the customer.
+     * A list of addresses associated with the customer. Limited to 250 addresses.
+     * Use `addressesV2` for paginated access to all addresses.
      */
     public Builder addresses(List<MailingAddress> addresses) {
       this.addresses = addresses;

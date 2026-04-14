@@ -11,7 +11,7 @@ import java.util.Objects;
  */
 public class ProductBundleUpdatePayload {
   /**
-   * The asynchronous ProductBundleOperation updating the componentized product.
+   * The asynchronous ProductBundleOperation updating the product bundle or componentized product.
    */
   private ProductBundleOperation productBundleOperation;
 
@@ -24,7 +24,7 @@ public class ProductBundleUpdatePayload {
   }
 
   /**
-   * The asynchronous ProductBundleOperation updating the componentized product.
+   * The asynchronous ProductBundleOperation updating the product bundle or componentized product.
    */
   public ProductBundleOperation getProductBundleOperation() {
     return productBundleOperation;
@@ -70,7 +70,7 @@ public class ProductBundleUpdatePayload {
 
   public static class Builder {
     /**
-     * The asynchronous ProductBundleOperation updating the componentized product.
+     * The asynchronous ProductBundleOperation updating the product bundle or componentized product.
      */
     private ProductBundleOperation productBundleOperation;
 
@@ -87,7 +87,7 @@ public class ProductBundleUpdatePayload {
     }
 
     /**
-     * The asynchronous ProductBundleOperation updating the componentized product.
+     * The asynchronous ProductBundleOperation updating the product bundle or componentized product.
      */
     public Builder productBundleOperation(ProductBundleOperation productBundleOperation) {
       this.productBundleOperation = productBundleOperation;

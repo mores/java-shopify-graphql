@@ -33,6 +33,11 @@ public class ProductFeedProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?
     return projection;
   }
 
+  public ProductFeedProjectionRoot<PARENT, ROOT> channelId() {
+    getFields().put("channelId", null);
+    return this;
+  }
+
   public ProductFeedProjectionRoot<PARENT, ROOT> id() {
     getFields().put("id", null);
     return this;

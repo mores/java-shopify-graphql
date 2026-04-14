@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns an Article resource by ID.
+ * Returns a `Article` resource by ID.
  */
 public class ArticleGraphQLQuery extends GraphQLQuery {
   public ArticleGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

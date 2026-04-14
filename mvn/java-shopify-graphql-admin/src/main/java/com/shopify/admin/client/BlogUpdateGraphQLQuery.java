@@ -8,7 +8,19 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Updates a blog.
+ * Updates an existing blog's configuration and settings. This mutation allows
+ * merchants to modify blog properties to keep their content strategy current.
+ *   
+ * For example, a merchant might update their blog's title from "Company News" to
+ * "Sustainability Stories" when shifting their content focus, or modify the
+ * handle to improve URL structure.
+ *   
+ * Use the `blogUpdate` mutation to:
+ * - Change blog titles for rebranding
+ * - Modify blog handles for better URLs
+ * - Adjust comment settings and moderation preferences
+ *   
+ * The mutation returns the updated blog with any validation errors.
  */
 public class BlogUpdateGraphQLQuery extends GraphQLQuery {
   public BlogUpdateGraphQLQuery(String id, BlogUpdateInput blog, String queryName,

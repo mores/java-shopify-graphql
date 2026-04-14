@@ -10,7 +10,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The paginated list of events associated with the store.
+ * A paginated list of events that chronicle activities in the store.
+ * [`Event`](https://shopify.dev/docs/api/admin-graphql/latest/interfaces/Event)
+ * is an interface implemented by types such as [`BasicEvent`](https://shopify.dev/docs/api/admin-graphql/latest/objects/BasicEvent) and [`CommentEvent`](https://shopify.dev/docs/api/admin-graphql/latest/objects/CommentEvent)
+ * that track actions such as creating
+ * [`Article`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Article)
+ * objects, fulfilling
+ * [`Order`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order)
+ * objects, adding
+ * [`Product`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+ * objects, or staff comments on timelines.
+ *   
+ * The query supports filtering and sorting to help you find specific events or audit store activity over time.
  */
 public class EventsGraphQLQuery extends GraphQLQuery {
   public EventsGraphQLQuery(Integer first, String after, Integer last, String before,
@@ -134,8 +145,9 @@ public class EventsGraphQLQuery extends GraphQLQuery {
      * | comments | boolean | Whether or not to include [comment-events](https://shopify.dev/api/admin-graphql/latest/objects/CommentEvent)
      * in your search, passing `false` will exclude comment-events, any other value
      * will include comment-events. | | | - `false`<br/> - `true` |
-     * | created_at | time | Filter by the date and time when the event happened. |
-     * | | - `created_at:>2020-10-21`<br/> - `created_at:&lt;now` |
+     * | created_at | time | Filter by the date and time when the event occurred.
+     * Event data is retained for 1 year. | | | - `created_at:>2025-10-21`<br/> -
+     * `created_at:&lt;now` |
      * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | subject_type | string | The resource type affected by this event. See [EventSubjectType](https://shopify.dev/api/admin-graphql/latest/enums/EventSubjectType)
      * for possible values. | | | - `PRODUCT_VARIANT`<br/> - `PRODUCT`<br/> - `COLLECTION` |

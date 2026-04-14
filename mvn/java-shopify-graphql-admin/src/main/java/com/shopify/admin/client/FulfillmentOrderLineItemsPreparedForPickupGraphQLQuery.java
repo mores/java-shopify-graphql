@@ -8,10 +8,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Mark line items associated with a fulfillment order as being ready for pickup by a customer.
+ * Marks [fulfillment order line items](https://shopify.dev/docs/api/admin-graphql/latest/objects/FulfillmentOrderLineItem)
+ * as ready for customer pickup. When executed, this mutation automatically sends
+ * a "Ready For Pickup" notification to the customer.
  *   
- * Sends a Ready For Pickup notification to the customer to let them know that their order is ready
- * to be picked up.
+ * Use this mutation for local pickup orders after the items have been prepared
+ * and are available for the customer to collect. You can specify one or more [fulfillment order](https://shopify.dev/docs/api/admin-graphql/latest/objects/FulfillmentOrder)
+ * objects by providing the fulfillment order IDs in the [`lineItemsByFulfillmentOrder`](https://shopify.dev/docs/api/admin-graphql/latest/input-objects/PreparedFulfillmentOrderLineItemsInput)
+ * field. This allows you to mark fulfillment order line items from different
+ * fulfillment orders as ready for pickup.
  */
 public class FulfillmentOrderLineItemsPreparedForPickupGraphQLQuery extends GraphQLQuery {
   public FulfillmentOrderLineItemsPreparedForPickupGraphQLQuery(

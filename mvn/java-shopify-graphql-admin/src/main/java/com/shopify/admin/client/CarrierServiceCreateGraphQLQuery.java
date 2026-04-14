@@ -8,7 +8,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Creates a new carrier service.
+ * Creates a carrier service that provides real-time shipping rates to Shopify.
+ * Carrier services provide real-time shipping rates from external providers like
+ * FedEx, UPS, or custom shipping solutions. The carrier service connects to your
+ * external shipping rate calculation system through a callback URL.
+ *   
+ * When customers reach checkout, Shopify sends order details to your callback
+ * URL and displays the returned shipping rates. The service must be active to
+ * provide rates during checkout.
  */
 public class CarrierServiceCreateGraphQLQuery extends GraphQLQuery {
   public CarrierServiceCreateGraphQLQuery(DeliveryCarrierServiceCreateInput input, String queryName,

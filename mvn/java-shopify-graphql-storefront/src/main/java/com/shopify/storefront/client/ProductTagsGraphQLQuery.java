@@ -7,8 +7,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Tags added to products.
- * Additional access scope required: unauthenticated_read_product_tags.
+ * Returns a paginated list of all tags that have been added to
+ * [products](https://shopify.dev/docs/api/storefront/current/objects/Product) in
+ * the shop. Useful for building tag-based product filtering or navigation in a storefront.
  */
 public class ProductTagsGraphQLQuery extends GraphQLQuery {
   public ProductTagsGraphQLQuery(int first, String queryName, Set<String> fieldsSet) {

@@ -6,7 +6,11 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * An amount discounting the line that has been allocated by a discount.
+ * The calculated discount amount applied to a line item or shipping line. While a [`DiscountApplication`](https://shopify.dev/docs/api/storefront/current/interfaces/DiscountApplication)
+ * captures the discount's rules and intentions, the allocation shows how much was
+ * actually deducted.
+ *
+ * Each allocation includes the discounted amount and a reference to the originating discount application.
  */
 public class DiscountAllocation {
   /**

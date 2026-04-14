@@ -7,7 +7,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a specific node by ID.
+ * Retrieves any object that implements the
+ * [`Node`](https://shopify.dev/docs/api/storefront/current/interfaces/Node)
+ * interface by its globally-unique ID. Use inline fragments to access
+ * type-specific fields on the returned object.
+ *   
+ * This query follows the [Relay specification](https://relay.dev/graphql/objectidentification.htm#sec-Node-Interface)
+ * and is commonly used for refetching objects when you have their ID but need updated data.
  */
 public class NodeGraphQLQuery extends GraphQLQuery {
   public NodeGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

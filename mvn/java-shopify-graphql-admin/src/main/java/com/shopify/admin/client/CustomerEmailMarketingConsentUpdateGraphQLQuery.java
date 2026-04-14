@@ -8,7 +8,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Update a customer's email marketing information information.
+ * Updates a [`Customer`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Customer)'s email marketing consent information. The customer must have an email address
+ * to update their consent. Records the [marketing state](https://shopify.dev/docs/api/admin-graphql/latest/objects/CustomerEmailAddress#field-marketingState)
+ * (such as subscribed, pending, unsubscribed), [opt-in level](https://shopify.dev/docs/api/admin-graphql/latest/objects/CustomerEmailAddress#field-marketingOptInLevel),
+ * and when and where the customer gave or withdrew consent.
+ *   
+ * Only three values are accepted as input: SUBSCRIBED, UNSUBSCRIBED, and PENDING.
+ * NOT_SUBSCRIBED, REDACTED, and INVALID cannot be set via this mutation; they are
+ * read-only or internally-set states.
  */
 public class CustomerEmailMarketingConsentUpdateGraphQLQuery extends GraphQLQuery {
   public CustomerEmailMarketingConsentUpdateGraphQLQuery(

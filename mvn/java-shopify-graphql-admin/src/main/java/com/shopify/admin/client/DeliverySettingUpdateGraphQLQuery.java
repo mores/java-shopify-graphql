@@ -1,7 +1,6 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
-import com.shopify.admin.types.DeliverySettingInput;
 import java.lang.Override;
 import java.lang.String;
 import java.util.HashSet;
@@ -11,12 +10,8 @@ import java.util.Set;
  * Set the delivery settings for a shop.
  */
 public class DeliverySettingUpdateGraphQLQuery extends GraphQLQuery {
-  public DeliverySettingUpdateGraphQLQuery(DeliverySettingInput setting, String queryName,
-      Set<String> fieldsSet) {
+  public DeliverySettingUpdateGraphQLQuery(String queryName) {
     super("mutation", queryName);
-    if (setting != null || fieldsSet.contains("setting")) {
-        getInput().put("setting", setting);
-    }
   }
 
   public DeliverySettingUpdateGraphQLQuery() {
@@ -35,22 +30,10 @@ public class DeliverySettingUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
-    private DeliverySettingInput setting;
-
     private String queryName;
 
     public DeliverySettingUpdateGraphQLQuery build() {
-      return new DeliverySettingUpdateGraphQLQuery(setting, queryName, fieldsSet);
-               
-    }
-
-    /**
-     * Specifies the input fields for the delivery shop level settings.
-     */
-    public Builder setting(DeliverySettingInput setting) {
-      this.setting = setting;
-      this.fieldsSet.add("setting");
-      return this;
+      return new DeliverySettingUpdateGraphQLQuery(queryName);                                     
     }
 
     public Builder queryName(String queryName) {

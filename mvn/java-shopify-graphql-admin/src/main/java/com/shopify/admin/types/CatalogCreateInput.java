@@ -30,7 +30,9 @@ public class CatalogCreateInput {
   private String priceListId;
 
   /**
-   * The ID of the publication to associate to the catalog.
+   * The ID of the publication to associate to the catalog. Only include this if
+   * you need to control which products are visible in the catalog. When omitted,
+   * product availability is determined by the sales channel.
    */
   private String publicationId;
 
@@ -82,7 +84,9 @@ public class CatalogCreateInput {
   }
 
   /**
-   * The ID of the publication to associate to the catalog.
+   * The ID of the publication to associate to the catalog. Only include this if
+   * you need to control which products are visible in the catalog. When omitted,
+   * product availability is determined by the sales channel.
    */
   public String getPublicationId() {
     return publicationId;
@@ -140,7 +144,9 @@ public class CatalogCreateInput {
     private String priceListId;
 
     /**
-     * The ID of the publication to associate to the catalog.
+     * The ID of the publication to associate to the catalog. Only include this if
+     * you need to control which products are visible in the catalog. When omitted,
+     * product availability is determined by the sales channel.
      */
     private String publicationId;
 
@@ -187,7 +193,9 @@ public class CatalogCreateInput {
     }
 
     /**
-     * The ID of the publication to associate to the catalog.
+     * The ID of the publication to associate to the catalog. Only include this if
+     * you need to control which products are visible in the catalog. When omitted,
+     * product availability is determined by the sales channel.
      */
     public Builder publicationId(String publicationId) {
       this.publicationId = publicationId;

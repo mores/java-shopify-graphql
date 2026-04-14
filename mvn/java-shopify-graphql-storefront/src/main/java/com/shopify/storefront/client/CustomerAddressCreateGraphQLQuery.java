@@ -8,7 +8,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Creates a new address for a customer.
+ * Creates a new [`MailingAddress`](https://shopify.dev/docs/api/storefront/current/objects/MailingAddress) for a [`Customer`](https://shopify.dev/docs/api/storefront/current/objects/Customer). Use the customer's [access token](https://shopify.dev/docs/api/storefront/current/mutations/customerAddressCreate#arguments-customerAccessToken)
+ * to identify them. Successful creation returns the new address. 
+ *   
+ * Each customer can have multiple addresses.
  */
 public class CustomerAddressCreateGraphQLQuery extends GraphQLQuery {
   public CustomerAddressCreateGraphQLQuery(String customerAccessToken, MailingAddressInput address,

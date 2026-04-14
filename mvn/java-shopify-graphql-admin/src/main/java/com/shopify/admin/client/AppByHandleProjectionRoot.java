@@ -1,6 +1,10 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.BaseSubProjectionNode;
+import java.lang.Boolean;
+import java.lang.Integer;
+import java.lang.String;
+import java.util.ArrayList;
 
 public class AppByHandleProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROOT extends BaseSubProjectionNode<?, ?>> extends BaseSubProjectionNode<PARENT, ROOT> {
   public AppByHandleProjectionRoot() {
@@ -23,6 +27,31 @@ public class AppByHandleProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?
       ) {
     ImageProjection<AppByHandleProjectionRoot<PARENT, ROOT>, AppByHandleProjectionRoot<PARENT, ROOT>> projection = new ImageProjection<>(this, this);    
     getFields().put("banner", projection);
+    return projection;
+  }
+
+  public ChannelConnectionProjection<AppByHandleProjectionRoot<PARENT, ROOT>, AppByHandleProjectionRoot<PARENT, ROOT>> channels(
+      ) {
+    ChannelConnectionProjection<AppByHandleProjectionRoot<PARENT, ROOT>, AppByHandleProjectionRoot<PARENT, ROOT>> projection = new ChannelConnectionProjection<>(this, this);    
+    getFields().put("channels", projection);
+    return projection;
+  }
+
+  public ChannelConnectionProjection<AppByHandleProjectionRoot<PARENT, ROOT>, AppByHandleProjectionRoot<PARENT, ROOT>> channels(
+      Integer first, String after, Integer last, String before, Boolean reverse) {
+    ChannelConnectionProjection<AppByHandleProjectionRoot<PARENT, ROOT>, AppByHandleProjectionRoot<PARENT, ROOT>> projection = new ChannelConnectionProjection<>(this, this);    
+    getFields().put("channels", projection);
+    getInputArguments().computeIfAbsent("channels", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("channels").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("channels").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("channels").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("channels").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    getInputArguments().get("channels").add(reverseArg);
     return projection;
   }
 

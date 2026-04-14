@@ -10,6 +10,8 @@ public enum BulkProductResourceFeedbackCreateUserErrorCode {
 
   PRODUCT_NOT_FOUND,
 
+  NOT_FOUND,
+
   INVALID,
 
   BLANK,

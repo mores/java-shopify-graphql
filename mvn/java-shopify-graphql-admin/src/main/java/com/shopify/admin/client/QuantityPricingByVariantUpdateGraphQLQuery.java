@@ -8,11 +8,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Updates quantity pricing on a price list. You can use the
- * `quantityPricingByVariantUpdate` mutation to set fixed prices, quantity rules,
- * and quantity price breaks. This mutation does not allow partial successes. If
- * any of the requested resources fail to update, none of the requested resources
- * will be updated. Delete operations are executed before create operations.
+ * Updates quantity pricing on a [`PriceList`](https://shopify.dev/docs/api/admin-graphql/latest/objects/PriceList) for specific [`ProductVariant`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant)
+ * objects. You can set fixed prices (see [`PriceListPrice`](https://shopify.dev/docs/api/admin-graphql/latest/objects/PriceListPrice)),
+ * quantity rules, and quantity price breaks in a single operation.
+ *   
+ * [`QuantityRule`](https://shopify.dev/docs/api/admin-graphql/latest/objects/QuantityRule) objects define minimum, maximum, and increment constraints for ordering. [`QuantityPriceBreak`](https://shopify.dev/docs/api/admin-graphql/latest/objects/QuantityPriceBreak)
+ * objects offer tiered pricing based on purchase volume.
+ *   
+ * The mutation executes delete operations before create operations and doesn't allow partial updates.
+ *   
+ * > Note: If any requested change fails, then the mutation doesn't apply any of the changes.
  */
 public class QuantityPricingByVariantUpdateGraphQLQuery extends GraphQLQuery {
   public QuantityPricingByVariantUpdateGraphQLQuery(String priceListId,

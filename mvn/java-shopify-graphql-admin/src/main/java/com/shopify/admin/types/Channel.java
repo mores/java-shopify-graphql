@@ -8,20 +8,45 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * A channel represents an app where you sell a group of products and collections.
- * A channel can be a platform or marketplace such as Facebook or Pinterest, an online store, or POS.
+ * A connection between a Shopify shop and an external selling platform that
+ * supports product syndication and optionally order ingestion. Each channel binds
+ * a merchant's account on a specific platform — such as Amazon, eBay, Google, or a
+ * point-of-sale system — to the shop, establishing the publishing destination for product feeds.
+ *
+ * Sales Channel applications use [`channelCreate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/channelCreate)
+ * to establish channels after merchant authentication, and can manage multiple
+ * channel connections per app. Each channel is bound to a channel specification
+ * that declares the platform's regional coverage, capabilities, and requirements.
+ *
+ * Use channels to manage where catalog items are syndicated, track publication
+ * status across platforms, and control
+ * [`Product`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+ * visibility for different selling destinations.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
 public class Channel implements com.shopify.admin.types.Node {
   /**
+   * The unique account ID for the merchant on the external platform. This value is
+   * opaque to Shopify — its format is determined by the channel, such as an Amazon
+   * Seller ID or Google Merchant Center ID.
+   */
+  private String accountId;
+
+  /**
+   * The merchant-facing name for the external account. Displayed in Shopify Admin
+   * wherever the channel connection is referenced, such as in Markets and order attribution.
+   */
+  private String accountName;
+
+  /**
    * The underlying app used by the channel.
    */
   private App app;
 
   /**
-   * The collection publications for the list of collections published to the channel.
+   * The list of collection publications. Each record represents information about the publication of a collection.
    */
   private ResourcePublicationConnection collectionPublicationsV3;
 
@@ -31,7 +56,8 @@ public class Channel implements com.shopify.admin.types.Node {
   private CollectionConnection collections;
 
   /**
-   * The unique identifier for the channel.
+   * A unique, human-readable identifier for the channel within the shop. Set during [`channelCreate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/channelCreate)
+   * or auto-generated from the specification handle and account ID. Use with [`channelByHandle`](https://shopify.dev/docs/api/admin-graphql/latest/queries/channelByHandle) for lookups.
    */
   private String handle;
 
@@ -66,7 +92,7 @@ public class Channel implements com.shopify.admin.types.Node {
   private ProductPublicationConnection productPublications;
 
   /**
-   * The product publications for the list of products published to the channel.
+   * The list of product publication records for products published to this channel.
    */
   private ResourcePublicationConnection productPublicationsV3;
 
@@ -76,9 +102,26 @@ public class Channel implements com.shopify.admin.types.Node {
   private ProductConnection products;
 
   /**
-   * The count of products published to the channel. Limited to a maximum of 10000 by default.
+   * Retrieves the total count of [`products`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+   * published to a specific sales channel. Limited to a maximum of 10000 by default.
    */
   private Count productsCount;
+
+  /**
+   * The resource feedback for the channel. Returns `null` when no active feedback
+   * exists—for example, after `shopResourceFeedbackCreate` is called with `state:
+   * ACCEPTED`, which clears the feedback signal. A `null` result is expected and
+   * means the channel has no outstanding feedback.
+   */
+  private AppFeedback resourceFeedback;
+
+  /**
+   * The handle of the [channel specification](https://shopify.dev/docs/apps/build/sales-channels/channel-config-extension)
+   * bound to this channel. The specification declares the channel's regional
+   * coverage, capabilities, and requirements, and is deployed by the Sales Channel
+   * application via `shopify app deploy`.
+   */
+  private String specificationHandle;
 
   /**
    * Whether the channel supports future publishing.
@@ -86,6 +129,31 @@ public class Channel implements com.shopify.admin.types.Node {
   private boolean supportsFuturePublishing;
 
   public Channel() {
+  }
+
+  /**
+   * The unique account ID for the merchant on the external platform. This value is
+   * opaque to Shopify — its format is determined by the channel, such as an Amazon
+   * Seller ID or Google Merchant Center ID.
+   */
+  public String getAccountId() {
+    return accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
+
+  /**
+   * The merchant-facing name for the external account. Displayed in Shopify Admin
+   * wherever the channel connection is referenced, such as in Markets and order attribution.
+   */
+  public String getAccountName() {
+    return accountName;
+  }
+
+  public void setAccountName(String accountName) {
+    this.accountName = accountName;
   }
 
   /**
@@ -100,7 +168,7 @@ public class Channel implements com.shopify.admin.types.Node {
   }
 
   /**
-   * The collection publications for the list of collections published to the channel.
+   * The list of collection publications. Each record represents information about the publication of a collection.
    */
   public ResourcePublicationConnection getCollectionPublicationsV3() {
     return collectionPublicationsV3;
@@ -122,7 +190,8 @@ public class Channel implements com.shopify.admin.types.Node {
   }
 
   /**
-   * The unique identifier for the channel.
+   * A unique, human-readable identifier for the channel within the shop. Set during [`channelCreate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/channelCreate)
+   * or auto-generated from the specification handle and account ID. Use with [`channelByHandle`](https://shopify.dev/docs/api/admin-graphql/latest/queries/channelByHandle) for lookups.
    */
   public String getHandle() {
     return handle;
@@ -199,7 +268,7 @@ public class Channel implements com.shopify.admin.types.Node {
   }
 
   /**
-   * The product publications for the list of products published to the channel.
+   * The list of product publication records for products published to this channel.
    */
   public ResourcePublicationConnection getProductPublicationsV3() {
     return productPublicationsV3;
@@ -221,7 +290,8 @@ public class Channel implements com.shopify.admin.types.Node {
   }
 
   /**
-   * The count of products published to the channel. Limited to a maximum of 10000 by default.
+   * Retrieves the total count of [`products`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+   * published to a specific sales channel. Limited to a maximum of 10000 by default.
    */
   public Count getProductsCount() {
     return productsCount;
@@ -229,6 +299,34 @@ public class Channel implements com.shopify.admin.types.Node {
 
   public void setProductsCount(Count productsCount) {
     this.productsCount = productsCount;
+  }
+
+  /**
+   * The resource feedback for the channel. Returns `null` when no active feedback
+   * exists—for example, after `shopResourceFeedbackCreate` is called with `state:
+   * ACCEPTED`, which clears the feedback signal. A `null` result is expected and
+   * means the channel has no outstanding feedback.
+   */
+  public AppFeedback getResourceFeedback() {
+    return resourceFeedback;
+  }
+
+  public void setResourceFeedback(AppFeedback resourceFeedback) {
+    this.resourceFeedback = resourceFeedback;
+  }
+
+  /**
+   * The handle of the [channel specification](https://shopify.dev/docs/apps/build/sales-channels/channel-config-extension)
+   * bound to this channel. The specification declares the channel's regional
+   * coverage, capabilities, and requirements, and is deployed by the Sales Channel
+   * application via `shopify app deploy`.
+   */
+  public String getSpecificationHandle() {
+    return specificationHandle;
+  }
+
+  public void setSpecificationHandle(String specificationHandle) {
+    this.specificationHandle = specificationHandle;
   }
 
   /**
@@ -244,7 +342,7 @@ public class Channel implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "Channel{app='" + app + "', collectionPublicationsV3='" + collectionPublicationsV3 + "', collections='" + collections + "', handle='" + handle + "', hasCollection='" + hasCollection + "', id='" + id + "', name='" + name + "', navigationItems='" + navigationItems + "', overviewPath='" + overviewPath + "', productPublications='" + productPublications + "', productPublicationsV3='" + productPublicationsV3 + "', products='" + products + "', productsCount='" + productsCount + "', supportsFuturePublishing='" + supportsFuturePublishing + "'}";
+    return "Channel{accountId='" + accountId + "', accountName='" + accountName + "', app='" + app + "', collectionPublicationsV3='" + collectionPublicationsV3 + "', collections='" + collections + "', handle='" + handle + "', hasCollection='" + hasCollection + "', id='" + id + "', name='" + name + "', navigationItems='" + navigationItems + "', overviewPath='" + overviewPath + "', productPublications='" + productPublications + "', productPublicationsV3='" + productPublicationsV3 + "', products='" + products + "', productsCount='" + productsCount + "', resourceFeedback='" + resourceFeedback + "', specificationHandle='" + specificationHandle + "', supportsFuturePublishing='" + supportsFuturePublishing + "'}";
   }
 
   @Override
@@ -252,7 +350,9 @@ public class Channel implements com.shopify.admin.types.Node {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Channel that = (Channel) o;
-    return Objects.equals(app, that.app) &&
+    return Objects.equals(accountId, that.accountId) &&
+        Objects.equals(accountName, that.accountName) &&
+        Objects.equals(app, that.app) &&
         Objects.equals(collectionPublicationsV3, that.collectionPublicationsV3) &&
         Objects.equals(collections, that.collections) &&
         Objects.equals(handle, that.handle) &&
@@ -265,12 +365,14 @@ public class Channel implements com.shopify.admin.types.Node {
         Objects.equals(productPublicationsV3, that.productPublicationsV3) &&
         Objects.equals(products, that.products) &&
         Objects.equals(productsCount, that.productsCount) &&
+        Objects.equals(resourceFeedback, that.resourceFeedback) &&
+        Objects.equals(specificationHandle, that.specificationHandle) &&
         supportsFuturePublishing == that.supportsFuturePublishing;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(app, collectionPublicationsV3, collections, handle, hasCollection, id, name, navigationItems, overviewPath, productPublications, productPublicationsV3, products, productsCount, supportsFuturePublishing);
+    return Objects.hash(accountId, accountName, app, collectionPublicationsV3, collections, handle, hasCollection, id, name, navigationItems, overviewPath, productPublications, productPublicationsV3, products, productsCount, resourceFeedback, specificationHandle, supportsFuturePublishing);
   }
 
   public static Builder newBuilder() {
@@ -279,12 +381,25 @@ public class Channel implements com.shopify.admin.types.Node {
 
   public static class Builder {
     /**
+     * The unique account ID for the merchant on the external platform. This value is
+     * opaque to Shopify — its format is determined by the channel, such as an Amazon
+     * Seller ID or Google Merchant Center ID.
+     */
+    private String accountId;
+
+    /**
+     * The merchant-facing name for the external account. Displayed in Shopify Admin
+     * wherever the channel connection is referenced, such as in Markets and order attribution.
+     */
+    private String accountName;
+
+    /**
      * The underlying app used by the channel.
      */
     private App app;
 
     /**
-     * The collection publications for the list of collections published to the channel.
+     * The list of collection publications. Each record represents information about the publication of a collection.
      */
     private ResourcePublicationConnection collectionPublicationsV3;
 
@@ -294,7 +409,8 @@ public class Channel implements com.shopify.admin.types.Node {
     private CollectionConnection collections;
 
     /**
-     * The unique identifier for the channel.
+     * A unique, human-readable identifier for the channel within the shop. Set during [`channelCreate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/channelCreate)
+     * or auto-generated from the specification handle and account ID. Use with [`channelByHandle`](https://shopify.dev/docs/api/admin-graphql/latest/queries/channelByHandle) for lookups.
      */
     private String handle;
 
@@ -329,7 +445,7 @@ public class Channel implements com.shopify.admin.types.Node {
     private ProductPublicationConnection productPublications;
 
     /**
-     * The product publications for the list of products published to the channel.
+     * The list of product publication records for products published to this channel.
      */
     private ResourcePublicationConnection productPublicationsV3;
 
@@ -339,9 +455,26 @@ public class Channel implements com.shopify.admin.types.Node {
     private ProductConnection products;
 
     /**
-     * The count of products published to the channel. Limited to a maximum of 10000 by default.
+     * Retrieves the total count of [`products`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+     * published to a specific sales channel. Limited to a maximum of 10000 by default.
      */
     private Count productsCount;
+
+    /**
+     * The resource feedback for the channel. Returns `null` when no active feedback
+     * exists—for example, after `shopResourceFeedbackCreate` is called with `state:
+     * ACCEPTED`, which clears the feedback signal. A `null` result is expected and
+     * means the channel has no outstanding feedback.
+     */
+    private AppFeedback resourceFeedback;
+
+    /**
+     * The handle of the [channel specification](https://shopify.dev/docs/apps/build/sales-channels/channel-config-extension)
+     * bound to this channel. The specification declares the channel's regional
+     * coverage, capabilities, and requirements, and is deployed by the Sales Channel
+     * application via `shopify app deploy`.
+     */
+    private String specificationHandle;
 
     /**
      * Whether the channel supports future publishing.
@@ -350,6 +483,8 @@ public class Channel implements com.shopify.admin.types.Node {
 
     public Channel build() {
       Channel result = new Channel();
+      result.accountId = this.accountId;
+      result.accountName = this.accountName;
       result.app = this.app;
       result.collectionPublicationsV3 = this.collectionPublicationsV3;
       result.collections = this.collections;
@@ -363,8 +498,29 @@ public class Channel implements com.shopify.admin.types.Node {
       result.productPublicationsV3 = this.productPublicationsV3;
       result.products = this.products;
       result.productsCount = this.productsCount;
+      result.resourceFeedback = this.resourceFeedback;
+      result.specificationHandle = this.specificationHandle;
       result.supportsFuturePublishing = this.supportsFuturePublishing;
       return result;
+    }
+
+    /**
+     * The unique account ID for the merchant on the external platform. This value is
+     * opaque to Shopify — its format is determined by the channel, such as an Amazon
+     * Seller ID or Google Merchant Center ID.
+     */
+    public Builder accountId(String accountId) {
+      this.accountId = accountId;
+      return this;
+    }
+
+    /**
+     * The merchant-facing name for the external account. Displayed in Shopify Admin
+     * wherever the channel connection is referenced, such as in Markets and order attribution.
+     */
+    public Builder accountName(String accountName) {
+      this.accountName = accountName;
+      return this;
     }
 
     /**
@@ -376,7 +532,7 @@ public class Channel implements com.shopify.admin.types.Node {
     }
 
     /**
-     * The collection publications for the list of collections published to the channel.
+     * The list of collection publications. Each record represents information about the publication of a collection.
      */
     public Builder collectionPublicationsV3(
         ResourcePublicationConnection collectionPublicationsV3) {
@@ -393,7 +549,8 @@ public class Channel implements com.shopify.admin.types.Node {
     }
 
     /**
-     * The unique identifier for the channel.
+     * A unique, human-readable identifier for the channel within the shop. Set during [`channelCreate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/channelCreate)
+     * or auto-generated from the specification handle and account ID. Use with [`channelByHandle`](https://shopify.dev/docs/api/admin-graphql/latest/queries/channelByHandle) for lookups.
      */
     public Builder handle(String handle) {
       this.handle = handle;
@@ -449,7 +606,7 @@ public class Channel implements com.shopify.admin.types.Node {
     }
 
     /**
-     * The product publications for the list of products published to the channel.
+     * The list of product publication records for products published to this channel.
      */
     public Builder productPublicationsV3(ResourcePublicationConnection productPublicationsV3) {
       this.productPublicationsV3 = productPublicationsV3;
@@ -465,10 +622,33 @@ public class Channel implements com.shopify.admin.types.Node {
     }
 
     /**
-     * The count of products published to the channel. Limited to a maximum of 10000 by default.
+     * Retrieves the total count of [`products`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+     * published to a specific sales channel. Limited to a maximum of 10000 by default.
      */
     public Builder productsCount(Count productsCount) {
       this.productsCount = productsCount;
+      return this;
+    }
+
+    /**
+     * The resource feedback for the channel. Returns `null` when no active feedback
+     * exists—for example, after `shopResourceFeedbackCreate` is called with `state:
+     * ACCEPTED`, which clears the feedback signal. A `null` result is expected and
+     * means the channel has no outstanding feedback.
+     */
+    public Builder resourceFeedback(AppFeedback resourceFeedback) {
+      this.resourceFeedback = resourceFeedback;
+      return this;
+    }
+
+    /**
+     * The handle of the [channel specification](https://shopify.dev/docs/apps/build/sales-channels/channel-config-extension)
+     * bound to this channel. The specification declares the channel's regional
+     * coverage, capabilities, and requirements, and is deployed by the Sales Channel
+     * application via `shopify app deploy`.
+     */
+    public Builder specificationHandle(String specificationHandle) {
+      this.specificationHandle = specificationHandle;
       return this;
     }
 

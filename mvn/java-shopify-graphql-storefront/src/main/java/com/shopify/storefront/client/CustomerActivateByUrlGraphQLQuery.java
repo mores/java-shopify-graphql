@@ -7,7 +7,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Activates a customer with the activation url received from `customerCreate`.
+ * Activates a customer account using the full activation URL from the [`customerCreate`](https://shopify.dev/docs/api/storefront/current/mutations/customerCreate)
+ * mutation. This approach simplifies activation by accepting the complete URL
+ * directly, eliminating the need to parse it for the customer ID and activation
+ * token. Returns a [`CustomerAccessToken`](https://shopify.dev/docs/api/storefront/current/objects/CustomerAccessToken)
+ * for authenticating subsequent requests.
+ *   
+ * > Caution:
+ * > Store the returned access token securely. It grants access to the customer's account data.
  */
 public class CustomerActivateByUrlGraphQLQuery extends GraphQLQuery {
   public CustomerActivateByUrlGraphQLQuery(String activationUrl, String password, String queryName,

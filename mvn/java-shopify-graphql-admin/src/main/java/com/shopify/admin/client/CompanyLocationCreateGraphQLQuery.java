@@ -8,7 +8,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Creates a company location.
+ * Creates a new location for a [`Company`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Company).
+ * Company locations are branches or offices where B2B customers can place orders
+ * with specific pricing, catalogs, and payment terms.
+ *   
+ * Creates a company location. Each location can have its own billing and
+ * shipping addresses, tax settings, and [`buyer experience configuration`](https://shopify.dev/docs/api/admin-graphql/latest/objects/BuyerExperienceConfiguration).
+ * You can assign [staff members](https://shopify.dev/docs/api/admin-graphql/latest/objects/StaffMember) and [`CompanyContact`](https://shopify.dev/docs/api/admin-graphql/latest/objects/CompanyContact)
+ * objects to manage the location.
  */
 public class CompanyLocationCreateGraphQLQuery extends GraphQLQuery {
   public CompanyLocationCreateGraphQLQuery(String companyId, CompanyLocationInput input,

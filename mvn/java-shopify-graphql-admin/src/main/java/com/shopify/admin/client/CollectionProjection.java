@@ -22,6 +22,13 @@ public class CollectionProjection<PARENT extends BaseSubProjectionNode<?, ?>, RO
     return this;
   }
 
+  public CollectionOperationsProjection<CollectionProjection<PARENT, ROOT>, ROOT> activeOperations(
+      ) {
+     CollectionOperationsProjection<CollectionProjection<PARENT, ROOT>, ROOT> projection = new CollectionOperationsProjection<>(this, getRoot());
+     getFields().put("activeOperations", projection);
+     return projection;
+  }
+
   public CountProjection<CollectionProjection<PARENT, ROOT>, ROOT> availablePublicationsCount() {
      CountProjection<CollectionProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());
      getFields().put("availablePublicationsCount", projection);

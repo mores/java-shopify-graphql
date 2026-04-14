@@ -7,10 +7,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Renews a customer access token.
+ * Extends the validity of a [`CustomerAccessToken`](https://shopify.dev/docs/api/storefront/current/objects/CustomerAccessToken)
+ * before it expires. The renewed token maintains authenticated access to
+ * customer operations.
  *   
- * Access token renewal must happen *before* a token expires.
- * If a token has already expired, a new one should be created instead via `customerAccessTokenCreate`.
+ * Renewal must happen before the token's [`expiresAt`](https://shopify.dev/docs/api/storefront/current/objects/CustomerAccessToken#field-CustomerAccessToken.fields.expiresAt)
+ * time. If a token has already expired, then use [`customerAccessTokenCreate`](https://shopify.dev/docs/api/storefront/current/mutations/customerAccessTokenCreate)
+ * to generate a new token with the customer's credentials.
+ *   
+ * > Caution:
+ * > Store access tokens securely. Never store tokens in plain text or insecure
+ * locations, and avoid exposing them in URLs or logs.
  */
 public class CustomerAccessTokenRenewGraphQLQuery extends GraphQLQuery {
   public CustomerAccessTokenRenewGraphQLQuery(String customerAccessToken, String queryName,

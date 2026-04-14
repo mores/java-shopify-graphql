@@ -1,6 +1,5 @@
 package com.shopify.admin.types;
 
-import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
@@ -49,11 +48,6 @@ public class InventorySetQuantitiesInput {
    * The values to which each quantities will be set.
    */
   private List<InventoryQuantityInput> quantities;
-
-  /**
-   * Skip the compare quantity check in the quantities field.
-   */
-  private Boolean ignoreCompareQuantity = false;
 
   public InventorySetQuantitiesInput() {
   }
@@ -121,20 +115,9 @@ public class InventorySetQuantitiesInput {
     this.quantities = quantities;
   }
 
-  /**
-   * Skip the compare quantity check in the quantities field.
-   */
-  public Boolean getIgnoreCompareQuantity() {
-    return ignoreCompareQuantity;
-  }
-
-  public void setIgnoreCompareQuantity(Boolean ignoreCompareQuantity) {
-    this.ignoreCompareQuantity = ignoreCompareQuantity;
-  }
-
   @Override
   public String toString() {
-    return "InventorySetQuantitiesInput{reason='" + reason + "', name='" + name + "', referenceDocumentUri='" + referenceDocumentUri + "', quantities='" + quantities + "', ignoreCompareQuantity='" + ignoreCompareQuantity + "'}";
+    return "InventorySetQuantitiesInput{reason='" + reason + "', name='" + name + "', referenceDocumentUri='" + referenceDocumentUri + "', quantities='" + quantities + "'}";
   }
 
   @Override
@@ -145,13 +128,12 @@ public class InventorySetQuantitiesInput {
     return Objects.equals(reason, that.reason) &&
         Objects.equals(name, that.name) &&
         Objects.equals(referenceDocumentUri, that.referenceDocumentUri) &&
-        Objects.equals(quantities, that.quantities) &&
-        Objects.equals(ignoreCompareQuantity, that.ignoreCompareQuantity);
+        Objects.equals(quantities, that.quantities);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reason, name, referenceDocumentUri, quantities, ignoreCompareQuantity);
+    return Objects.hash(reason, name, referenceDocumentUri, quantities);
   }
 
   public static Builder newBuilder() {
@@ -198,18 +180,12 @@ public class InventorySetQuantitiesInput {
      */
     private List<InventoryQuantityInput> quantities;
 
-    /**
-     * Skip the compare quantity check in the quantities field.
-     */
-    private Boolean ignoreCompareQuantity = false;
-
     public InventorySetQuantitiesInput build() {
       InventorySetQuantitiesInput result = new InventorySetQuantitiesInput();
       result.reason = this.reason;
       result.name = this.name;
       result.referenceDocumentUri = this.referenceDocumentUri;
       result.quantities = this.quantities;
-      result.ignoreCompareQuantity = this.ignoreCompareQuantity;
       return result;
     }
 
@@ -261,14 +237,6 @@ public class InventorySetQuantitiesInput {
      */
     public Builder quantities(List<InventoryQuantityInput> quantities) {
       this.quantities = quantities;
-      return this;
-    }
-
-    /**
-     * Skip the compare quantity check in the quantities field.
-     */
-    public Builder ignoreCompareQuantity(Boolean ignoreCompareQuantity) {
-      this.ignoreCompareQuantity = ignoreCompareQuantity;
       return this;
     }
   }

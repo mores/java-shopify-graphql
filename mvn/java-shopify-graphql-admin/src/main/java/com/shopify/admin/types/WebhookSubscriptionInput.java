@@ -40,9 +40,16 @@ public class WebhookSubscriptionInput {
   private List<HasMetafieldsMetafieldIdentifierInput> metafields;
 
   /**
-   * URL where the webhook subscription should send the POST request when the event occurs.
+   * A human-readable name for the webhook subscription.
    */
-  private String callbackUrl;
+  private String name;
+
+  /**
+   * The URI where the webhook subscription should send events. Supports an HTTPS
+   * URL, a Google Pub/Sub URI (pubsub://{project-id}:{topic-id}) or an Amazon
+   * EventBridge event source ARN.
+   */
+  private String uri;
 
   public WebhookSubscriptionInput() {
   }
@@ -107,19 +114,32 @@ public class WebhookSubscriptionInput {
   }
 
   /**
-   * URL where the webhook subscription should send the POST request when the event occurs.
+   * A human-readable name for the webhook subscription.
    */
-  public String getCallbackUrl() {
-    return callbackUrl;
+  public String getName() {
+    return name;
   }
 
-  public void setCallbackUrl(String callbackUrl) {
-    this.callbackUrl = callbackUrl;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  /**
+   * The URI where the webhook subscription should send events. Supports an HTTPS
+   * URL, a Google Pub/Sub URI (pubsub://{project-id}:{topic-id}) or an Amazon
+   * EventBridge event source ARN.
+   */
+  public String getUri() {
+    return uri;
+  }
+
+  public void setUri(String uri) {
+    this.uri = uri;
   }
 
   @Override
   public String toString() {
-    return "WebhookSubscriptionInput{format='" + format + "', includeFields='" + includeFields + "', filter='" + filter + "', metafieldNamespaces='" + metafieldNamespaces + "', metafields='" + metafields + "', callbackUrl='" + callbackUrl + "'}";
+    return "WebhookSubscriptionInput{format='" + format + "', includeFields='" + includeFields + "', filter='" + filter + "', metafieldNamespaces='" + metafieldNamespaces + "', metafields='" + metafields + "', name='" + name + "', uri='" + uri + "'}";
   }
 
   @Override
@@ -132,12 +152,13 @@ public class WebhookSubscriptionInput {
         Objects.equals(filter, that.filter) &&
         Objects.equals(metafieldNamespaces, that.metafieldNamespaces) &&
         Objects.equals(metafields, that.metafields) &&
-        Objects.equals(callbackUrl, that.callbackUrl);
+        Objects.equals(name, that.name) &&
+        Objects.equals(uri, that.uri);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(format, includeFields, filter, metafieldNamespaces, metafields, callbackUrl);
+    return Objects.hash(format, includeFields, filter, metafieldNamespaces, metafields, name, uri);
   }
 
   public static Builder newBuilder() {
@@ -175,9 +196,16 @@ public class WebhookSubscriptionInput {
     private List<HasMetafieldsMetafieldIdentifierInput> metafields;
 
     /**
-     * URL where the webhook subscription should send the POST request when the event occurs.
+     * A human-readable name for the webhook subscription.
      */
-    private String callbackUrl;
+    private String name;
+
+    /**
+     * The URI where the webhook subscription should send events. Supports an HTTPS
+     * URL, a Google Pub/Sub URI (pubsub://{project-id}:{topic-id}) or an Amazon
+     * EventBridge event source ARN.
+     */
+    private String uri;
 
     public WebhookSubscriptionInput build() {
       WebhookSubscriptionInput result = new WebhookSubscriptionInput();
@@ -186,7 +214,8 @@ public class WebhookSubscriptionInput {
       result.filter = this.filter;
       result.metafieldNamespaces = this.metafieldNamespaces;
       result.metafields = this.metafields;
-      result.callbackUrl = this.callbackUrl;
+      result.name = this.name;
+      result.uri = this.uri;
       return result;
     }
 
@@ -235,10 +264,20 @@ public class WebhookSubscriptionInput {
     }
 
     /**
-     * URL where the webhook subscription should send the POST request when the event occurs.
+     * A human-readable name for the webhook subscription.
      */
-    public Builder callbackUrl(String callbackUrl) {
-      this.callbackUrl = callbackUrl;
+    public Builder name(String name) {
+      this.name = name;
+      return this;
+    }
+
+    /**
+     * The URI where the webhook subscription should send events. Supports an HTTPS
+     * URL, a Google Pub/Sub URI (pubsub://{project-id}:{topic-id}) or an Amazon
+     * EventBridge event source ARN.
+     */
+    public Builder uri(String uri) {
+      this.uri = uri;
       return this;
     }
   }

@@ -8,7 +8,27 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Cancels an app subscription on a store.
+ * Cancels an active app subscription, stopping future billing cycles. The
+ * cancellation behavior depends on the `replacementBehavior` setting - it can
+ * either disable auto-renewal (allowing the subscription to continue until the
+ * end of the current billing period) or immediately cancel with prorated refunds.
+ *   
+ * When a merchant decides to discontinue using subscription features, this
+ * mutation provides a clean cancellation workflow that respects billing periods
+ * and merchant expectations.
+ *   
+ * Use the `AppSubscriptionCancel` mutation to:
+ * - Process merchant-initiated subscription cancellations
+ * - Terminate subscriptions due to policy violations or account issues
+ * - Handle subscription cancellations during app uninstallation workflows
+ *   
+ * The cancellation timing and merchant access depends on the
+ * `replacementBehavior` setting and the app's specific implementation of
+ * subscription management.
+ *   
+ * For subscription lifecycle management and cancellation best practices, consult
+ * the [subscription management
+ * guide](https://shopify.dev/docs/apps/launch/billing/subscription-billing).
  */
 public class AppSubscriptionCancelGraphQLQuery extends GraphQLQuery {
   public AppSubscriptionCancelGraphQLQuery(String id, Boolean prorate, String queryName,

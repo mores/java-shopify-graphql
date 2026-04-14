@@ -64,6 +64,13 @@ public class ProductFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?
     return projection;
   }
 
+  public ComponentizedProductsBundleConsolidatedOptionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> bundleConsolidatedOptions(
+      ) {
+     ComponentizedProductsBundleConsolidatedOptionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new ComponentizedProductsBundleConsolidatedOptionProjection<>(this, getRoot());
+     getFields().put("bundleConsolidatedOptions", projection);
+     return projection;
+  }
+
   public TaxonomyCategoryProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> category() {
      TaxonomyCategoryProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new TaxonomyCategoryProjection<>(this, getRoot());
      getFields().put("category", projection);

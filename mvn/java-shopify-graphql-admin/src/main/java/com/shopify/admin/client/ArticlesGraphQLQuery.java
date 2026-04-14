@@ -10,7 +10,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * List of the shop's articles.
+ * Returns a paginated list of articles from the shop's blogs.
+ * [`Article`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Article)
+ * objects are blog posts that contain content like text, images, and tags.
+ *   
+ * Supports [cursor-based
+ * pagination](https://shopify.dev/docs/api/usage/pagination-graphql) to control
+ * the number of articles returned and their order. Use the [`query`](https://shopify.dev/docs/api/admin-graphql/latest/queries/articles#arguments-query)
+ * argument to filter results by specific criteria.
  */
 public class ArticlesGraphQLQuery extends GraphQLQuery {
   public ArticlesGraphQLQuery(Integer first, String after, Integer last, String before,

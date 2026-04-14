@@ -7,7 +7,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Fetch a specific `Page` by one of its unique attributes.
+ * Retrieves a [`Page`](https://shopify.dev/docs/api/storefront/current/objects/Page) by its [`handle`](https://shopify.dev/docs/api/storefront/current/queries/page#arguments-handle) or [`id`](https://shopify.dev/docs/api/storefront/current/queries/page#arguments-id).
+ * Pages are static content pages that merchants display outside their product
+ * catalog, such as "About Us," "Contact," or policy pages.
+ *   
+ * The returned page includes information such as the [HTML body content](https://shopify.dev/docs/api/storefront/current/queries/page#returns-Page.fields.body),
+ * [`SEO`](https://shopify.dev/docs/api/storefront/current/objects/SEO)
+ * information, and any associated [`Metafield`](https://shopify.dev/docs/api/storefront/current/objects/Metafield) objects.
  */
 public class PageGraphQLQuery extends GraphQLQuery {
   public PageGraphQLQuery(String handle, String id, String queryName, Set<String> fieldsSet) {

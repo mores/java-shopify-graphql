@@ -18,7 +18,7 @@ public class CollectionReorderProductsPayload {
   /**
    * The list of errors that occurred from executing the mutation.
    */
-  private List<UserError> userErrors;
+  private List<CollectionReorderProductsUserError> userErrors;
 
   public CollectionReorderProductsPayload() {
   }
@@ -37,11 +37,11 @@ public class CollectionReorderProductsPayload {
   /**
    * The list of errors that occurred from executing the mutation.
    */
-  public List<UserError> getUserErrors() {
+  public List<CollectionReorderProductsUserError> getUserErrors() {
     return userErrors;
   }
 
-  public void setUserErrors(List<UserError> userErrors) {
+  public void setUserErrors(List<CollectionReorderProductsUserError> userErrors) {
     this.userErrors = userErrors;
   }
 
@@ -77,7 +77,7 @@ public class CollectionReorderProductsPayload {
     /**
      * The list of errors that occurred from executing the mutation.
      */
-    private List<UserError> userErrors;
+    private List<CollectionReorderProductsUserError> userErrors;
 
     public CollectionReorderProductsPayload build() {
       CollectionReorderProductsPayload result = new CollectionReorderProductsPayload();
@@ -97,7 +97,7 @@ public class CollectionReorderProductsPayload {
     /**
      * The list of errors that occurred from executing the mutation.
      */
-    public Builder userErrors(List<UserError> userErrors) {
+    public Builder userErrors(List<CollectionReorderProductsUserError> userErrors) {
       this.userErrors = userErrors;
       return this;
     }

@@ -4,7 +4,14 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 /**
- * The discounts that have been applied to the cart line.
+ * A common interface for querying discount allocations regardless of how the
+ * discount was applied ([automatic](https://help.shopify.com/manual/discounts/discount-methods/automatic-discounts), [code](https://help.shopify.com/manual/discounts/discount-methods/discount-codes),
+ * or custom). Each implementation represents a different discount source.
+ *
+ * Tracks how a discount distributes across [cart
+ * lines](https://shopify.dev/docs/api/storefront/current/objects/CartLine). Each
+ * allocation includes the [`CartDiscountApplication`](https://shopify.dev/docs/api/storefront/current/objects/CartDiscountApplication)
+ * details, the discounted amount, and whether the discount targets line items or shipping.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,

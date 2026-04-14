@@ -18,14 +18,31 @@ public class PaymentScheduleProjection<PARENT extends BaseSubProjectionNode<?, ?
      return projection;
   }
 
+  public MoneyV2Projection<PaymentScheduleProjection<PARENT, ROOT>, ROOT> balanceDue() {
+     MoneyV2Projection<PaymentScheduleProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());
+     getFields().put("balanceDue", projection);
+     return projection;
+  }
+
   public PaymentTermsProjection<PaymentScheduleProjection<PARENT, ROOT>, ROOT> paymentTerms() {
      PaymentTermsProjection<PaymentScheduleProjection<PARENT, ROOT>, ROOT> projection = new PaymentTermsProjection<>(this, getRoot());
      getFields().put("paymentTerms", projection);
      return projection;
   }
 
+  public MoneyV2Projection<PaymentScheduleProjection<PARENT, ROOT>, ROOT> totalBalance() {
+     MoneyV2Projection<PaymentScheduleProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());
+     getFields().put("totalBalance", projection);
+     return projection;
+  }
+
   public PaymentScheduleProjection<PARENT, ROOT> completedAt() {
     getFields().put("completedAt", null);
+    return this;
+  }
+
+  public PaymentScheduleProjection<PARENT, ROOT> due() {
+    getFields().put("due", null);
     return this;
   }
 

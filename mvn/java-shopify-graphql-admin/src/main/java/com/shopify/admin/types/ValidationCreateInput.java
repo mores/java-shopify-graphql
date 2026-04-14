@@ -13,9 +13,9 @@ import java.util.Objects;
  */
 public class ValidationCreateInput {
   /**
-   * The function ID representing the extension to install.
+   * The function handle representing the extension to install.
    */
-  private String functionId;
+  private String functionHandle;
 
   /**
    * Whether the validation should be live on the merchant checkout.
@@ -41,14 +41,14 @@ public class ValidationCreateInput {
   }
 
   /**
-   * The function ID representing the extension to install.
+   * The function handle representing the extension to install.
    */
-  public String getFunctionId() {
-    return functionId;
+  public String getFunctionHandle() {
+    return functionHandle;
   }
 
-  public void setFunctionId(String functionId) {
-    this.functionId = functionId;
+  public void setFunctionHandle(String functionHandle) {
+    this.functionHandle = functionHandle;
   }
 
   /**
@@ -97,7 +97,7 @@ public class ValidationCreateInput {
 
   @Override
   public String toString() {
-    return "ValidationCreateInput{functionId='" + functionId + "', enable='" + enable + "', blockOnFailure='" + blockOnFailure + "', metafields='" + metafields + "', title='" + title + "'}";
+    return "ValidationCreateInput{functionHandle='" + functionHandle + "', enable='" + enable + "', blockOnFailure='" + blockOnFailure + "', metafields='" + metafields + "', title='" + title + "'}";
   }
 
   @Override
@@ -105,7 +105,7 @@ public class ValidationCreateInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     ValidationCreateInput that = (ValidationCreateInput) o;
-    return Objects.equals(functionId, that.functionId) &&
+    return Objects.equals(functionHandle, that.functionHandle) &&
         Objects.equals(enable, that.enable) &&
         Objects.equals(blockOnFailure, that.blockOnFailure) &&
         Objects.equals(metafields, that.metafields) &&
@@ -114,7 +114,7 @@ public class ValidationCreateInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, enable, blockOnFailure, metafields, title);
+    return Objects.hash(functionHandle, enable, blockOnFailure, metafields, title);
   }
 
   public static Builder newBuilder() {
@@ -123,9 +123,9 @@ public class ValidationCreateInput {
 
   public static class Builder {
     /**
-     * The function ID representing the extension to install.
+     * The function handle representing the extension to install.
      */
-    private String functionId;
+    private String functionHandle;
 
     /**
      * Whether the validation should be live on the merchant checkout.
@@ -149,7 +149,7 @@ public class ValidationCreateInput {
 
     public ValidationCreateInput build() {
       ValidationCreateInput result = new ValidationCreateInput();
-      result.functionId = this.functionId;
+      result.functionHandle = this.functionHandle;
       result.enable = this.enable;
       result.blockOnFailure = this.blockOnFailure;
       result.metafields = this.metafields;
@@ -158,10 +158,10 @@ public class ValidationCreateInput {
     }
 
     /**
-     * The function ID representing the extension to install.
+     * The function handle representing the extension to install.
      */
-    public Builder functionId(String functionId) {
-      this.functionId = functionId;
+    public Builder functionHandle(String functionHandle) {
+      this.functionHandle = functionHandle;
       return this;
     }
 

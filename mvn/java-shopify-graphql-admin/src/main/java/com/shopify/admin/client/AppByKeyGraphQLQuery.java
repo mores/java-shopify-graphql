@@ -7,8 +7,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Fetches an app by its client ID.
- * Returns null if the app doesn't exist.
+ * Retrieves an [`App`](https://shopify.dev/docs/api/admin-graphql/latest/objects/App) by
+ * its client ID (API key). Returns the app's configuration, installation status, [`AccessScope`](https://shopify.dev/docs/api/admin-graphql/latest/objects/AccessScope)
+ * objects, and developer information.
+ *   
+ * Returns `null` if no app exists with the specified client ID.
  */
 public class AppByKeyGraphQLQuery extends GraphQLQuery {
   public AppByKeyGraphQLQuery(String apiKey, String queryName, Set<String> fieldsSet) {

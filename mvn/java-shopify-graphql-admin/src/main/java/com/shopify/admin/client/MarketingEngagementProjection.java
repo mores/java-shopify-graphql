@@ -31,6 +31,11 @@ public class MarketingEngagementProjection<PARENT extends BaseSubProjectionNode<
      return projection;
   }
 
+  public MarketingEngagementProjection<PARENT, ROOT> allConversions() {
+    getFields().put("allConversions", null);
+    return this;
+  }
+
   public MarketingEngagementProjection<PARENT, ROOT> channelHandle() {
     getFields().put("channelHandle", null);
     return this;
@@ -83,6 +88,11 @@ public class MarketingEngagementProjection<PARENT extends BaseSubProjectionNode<
 
   public MarketingEngagementProjection<PARENT, ROOT> orders() {
     getFields().put("orders", null);
+    return this;
+  }
+
+  public MarketingEngagementProjection<PARENT, ROOT> primaryConversions() {
+    getFields().put("primaryConversions", null);
     return this;
   }
 

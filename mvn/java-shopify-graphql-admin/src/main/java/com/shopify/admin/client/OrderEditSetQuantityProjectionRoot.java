@@ -26,6 +26,13 @@ public class OrderEditSetQuantityProjectionRoot<PARENT extends BaseSubProjection
     return projection;
   }
 
+  public OrderEditSessionProjection<OrderEditSetQuantityProjectionRoot<PARENT, ROOT>, OrderEditSetQuantityProjectionRoot<PARENT, ROOT>> orderEditSession(
+      ) {
+    OrderEditSessionProjection<OrderEditSetQuantityProjectionRoot<PARENT, ROOT>, OrderEditSetQuantityProjectionRoot<PARENT, ROOT>> projection = new OrderEditSessionProjection<>(this, this);    
+    getFields().put("orderEditSession", projection);
+    return projection;
+  }
+
   public UserErrorProjection<OrderEditSetQuantityProjectionRoot<PARENT, ROOT>, OrderEditSetQuantityProjectionRoot<PARENT, ROOT>> userErrors(
       ) {
     UserErrorProjection<OrderEditSetQuantityProjectionRoot<PARENT, ROOT>, OrderEditSetQuantityProjectionRoot<PARENT, ROOT>> projection = new UserErrorProjection<>(this, this);    

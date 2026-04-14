@@ -7,7 +7,16 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The input fields to create a new customer.
+ * The input fields for creating a new
+ * [`Customer`](https://shopify.dev/docs/api/storefront/current/objects/Customer)
+ * account. Used by the [`customerCreate`](https://shopify.dev/docs/api/storefront/current/mutations/customerCreate) mutation.
+ *
+ * For legacy customer accounts only and requires an email address and password.
+ * Optionally accepts the customer's name, phone number, and email marketing consent.
+ *
+ * > Caution:
+ * > The password is used for customer authentication. Ensure it's transmitted
+ * securely and never logged or stored in plain text.
  */
 public class CustomerCreateInput {
   /**

@@ -10,7 +10,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The shop's menus.
+ * Retrieves navigation menus. Menus organize content into hierarchical
+ * navigation structures that merchants can display in the online store (for
+ * example, in headers, footers, and sidebars) and customer accounts.
+ *   
+ * Each [`Menu`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Menu)
+ * contains a handle for identification, a title for display, and a collection of [`MenuItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MenuItem)
+ * objects that can be nested up to 3 levels deep. Default menus have protected
+ * handles that can't be modified.
  */
 public class MenusGraphQLQuery extends GraphQLQuery {
   public MenusGraphQLQuery(Integer first, String after, Integer last, String before,

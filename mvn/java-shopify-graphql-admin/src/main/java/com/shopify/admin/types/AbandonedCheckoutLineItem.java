@@ -72,6 +72,11 @@ public class AbandonedCheckoutLineItem implements com.shopify.admin.types.Node {
   private MoneyBag originalUnitPriceSet;
 
   /**
+   * The parent relationship for this line item.
+   */
+  private AbandonedCheckoutLineItemParentRelationship parentRelationship;
+
+  /**
    * Product for this line item.
    * NULL for custom line items and products that were deleted after checkout began.
    */
@@ -232,6 +237,18 @@ public class AbandonedCheckoutLineItem implements com.shopify.admin.types.Node {
   }
 
   /**
+   * The parent relationship for this line item.
+   */
+  public AbandonedCheckoutLineItemParentRelationship getParentRelationship() {
+    return parentRelationship;
+  }
+
+  public void setParentRelationship(
+      AbandonedCheckoutLineItemParentRelationship parentRelationship) {
+    this.parentRelationship = parentRelationship;
+  }
+
+  /**
    * Product for this line item.
    * NULL for custom line items and products that were deleted after checkout began.
    */
@@ -302,7 +319,7 @@ public class AbandonedCheckoutLineItem implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "AbandonedCheckoutLineItem{components='" + components + "', customAttributes='" + customAttributes + "', discountAllocations='" + discountAllocations + "', discountedTotalPriceSet='" + discountedTotalPriceSet + "', discountedTotalPriceWithCodeDiscount='" + discountedTotalPriceWithCodeDiscount + "', discountedUnitPriceSet='" + discountedUnitPriceSet + "', discountedUnitPriceWithCodeDiscount='" + discountedUnitPriceWithCodeDiscount + "', id='" + id + "', image='" + image + "', originalTotalPriceSet='" + originalTotalPriceSet + "', originalUnitPriceSet='" + originalUnitPriceSet + "', product='" + product + "', quantity='" + quantity + "', sku='" + sku + "', title='" + title + "', variant='" + variant + "', variantTitle='" + variantTitle + "'}";
+    return "AbandonedCheckoutLineItem{components='" + components + "', customAttributes='" + customAttributes + "', discountAllocations='" + discountAllocations + "', discountedTotalPriceSet='" + discountedTotalPriceSet + "', discountedTotalPriceWithCodeDiscount='" + discountedTotalPriceWithCodeDiscount + "', discountedUnitPriceSet='" + discountedUnitPriceSet + "', discountedUnitPriceWithCodeDiscount='" + discountedUnitPriceWithCodeDiscount + "', id='" + id + "', image='" + image + "', originalTotalPriceSet='" + originalTotalPriceSet + "', originalUnitPriceSet='" + originalUnitPriceSet + "', parentRelationship='" + parentRelationship + "', product='" + product + "', quantity='" + quantity + "', sku='" + sku + "', title='" + title + "', variant='" + variant + "', variantTitle='" + variantTitle + "'}";
   }
 
   @Override
@@ -321,6 +338,7 @@ public class AbandonedCheckoutLineItem implements com.shopify.admin.types.Node {
         Objects.equals(image, that.image) &&
         Objects.equals(originalTotalPriceSet, that.originalTotalPriceSet) &&
         Objects.equals(originalUnitPriceSet, that.originalUnitPriceSet) &&
+        Objects.equals(parentRelationship, that.parentRelationship) &&
         Objects.equals(product, that.product) &&
         quantity == that.quantity &&
         Objects.equals(sku, that.sku) &&
@@ -331,7 +349,7 @@ public class AbandonedCheckoutLineItem implements com.shopify.admin.types.Node {
 
   @Override
   public int hashCode() {
-    return Objects.hash(components, customAttributes, discountAllocations, discountedTotalPriceSet, discountedTotalPriceWithCodeDiscount, discountedUnitPriceSet, discountedUnitPriceWithCodeDiscount, id, image, originalTotalPriceSet, originalUnitPriceSet, product, quantity, sku, title, variant, variantTitle);
+    return Objects.hash(components, customAttributes, discountAllocations, discountedTotalPriceSet, discountedTotalPriceWithCodeDiscount, discountedUnitPriceSet, discountedUnitPriceWithCodeDiscount, id, image, originalTotalPriceSet, originalUnitPriceSet, parentRelationship, product, quantity, sku, title, variant, variantTitle);
   }
 
   public static Builder newBuilder() {
@@ -397,6 +415,11 @@ public class AbandonedCheckoutLineItem implements com.shopify.admin.types.Node {
     private MoneyBag originalUnitPriceSet;
 
     /**
+     * The parent relationship for this line item.
+     */
+    private AbandonedCheckoutLineItemParentRelationship parentRelationship;
+
+    /**
      * Product for this line item.
      * NULL for custom line items and products that were deleted after checkout began.
      */
@@ -442,6 +465,7 @@ public class AbandonedCheckoutLineItem implements com.shopify.admin.types.Node {
       result.image = this.image;
       result.originalTotalPriceSet = this.originalTotalPriceSet;
       result.originalUnitPriceSet = this.originalUnitPriceSet;
+      result.parentRelationship = this.parentRelationship;
       result.product = this.product;
       result.quantity = this.quantity;
       result.sku = this.sku;
@@ -540,6 +564,15 @@ public class AbandonedCheckoutLineItem implements com.shopify.admin.types.Node {
      */
     public Builder originalUnitPriceSet(MoneyBag originalUnitPriceSet) {
       this.originalUnitPriceSet = originalUnitPriceSet;
+      return this;
+    }
+
+    /**
+     * The parent relationship for this line item.
+     */
+    public Builder parentRelationship(
+        AbandonedCheckoutLineItemParentRelationship parentRelationship) {
+      this.parentRelationship = parentRelationship;
       return this;
     }
 

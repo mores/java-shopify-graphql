@@ -6,10 +6,31 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The settings of checkout visual customizations.
+ * Creates a unified visual identity for your checkout that keeps customers engaged
+ * and reinforces your brand throughout the purchase process. This comprehensive
+ * branding system lets you control every visual aspect of checkout, from colors
+ * and fonts to layouts and imagery, so your checkout feels like a natural
+ * extension of your store.
  *
- * To learn more about updating checkout branding settings, refer to the
- * [checkoutBrandingUpsert](https://shopify.dev/api/admin-graphql/unstable/mutations/checkoutBrandingUpsert) mutation.
+ * For example, a luxury fashion retailer can configure their checkout with custom
+ * color palettes, premium typography, rounded corners for a softer feel, and
+ * branded imagery that matches their main website aesthetic.
+ *
+ * Use the `Branding` object to:
+ * - Configure comprehensive checkout visual identity
+ * - Coordinate color schemes across all checkout elements
+ * - Apply consistent typography and spacing standards
+ * - Manage background imagery and layout customizations
+ * - Control visibility of various checkout components
+ *
+ * The branding configuration includes design system foundations like color roles,
+ * typography scales, and spacing units, plus specific customizations for sections,
+ * dividers, and interactive elements. This allows merchants to create cohesive
+ * checkout experiences that reinforce their brand identity while maintaining
+ * usability standards.
+ *
+ * Different color schemes can be defined for various contexts, ensuring optimal
+ * contrast and accessibility across different checkout states and customer preferences.
  */
 public class CheckoutBranding {
   /**

@@ -6,5 +6,7 @@ package com.shopify.admin.types;
 public enum ProductVariantsBulkCreateStrategy {
   DEFAULT,
 
-  REMOVE_STANDALONE_VARIANT
+  REMOVE_STANDALONE_VARIANT,
+
+  PRESERVE_STANDALONE_VARIANT
 }

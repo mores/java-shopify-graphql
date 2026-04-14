@@ -1,0 +1,20 @@
+package com.shopify.admin.types;
+
+/**
+ * Possible error codes that can be returned by `FulfillmentOrderReportProgressUserError`.
+ */
+public enum FulfillmentOrderReportProgressUserErrorCode {
+  FULFILLMENT_ORDER_NOT_FOUND,
+
+  FULFILLMENT_ORDER_STATUS_INVALID,
+
+  FULFILLMENT_ORDER_CONTAINS_PICKED_ITEMS,
+
+  FULFILLMENT_ORDER_INVALID_DELIVERY_METHOD,
+
+  FULFILLMENT_ORDER_INVALID_FULFILLMENT_SERVICE_OWNERSHIP,
+
+  FULFILLMENT_ORDER_UNSUPPORTED_ACTION,
+
+  MARKETPLACE_APP_NOT_ELIGIBLE
+}

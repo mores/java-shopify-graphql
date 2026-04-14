@@ -24,5 +24,7 @@ public enum FulfillmentOrderAction {
 
   SPLIT,
 
-  MERGE
+  MERGE,
+
+  REPORT_PROGRESS
 }

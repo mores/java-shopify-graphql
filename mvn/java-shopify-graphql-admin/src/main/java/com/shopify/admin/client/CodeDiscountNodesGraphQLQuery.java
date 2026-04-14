@@ -146,8 +146,8 @@ public class CodeDiscountNodesGraphQLQuery extends GraphQLQuery {
      * `created_at:&lt;now`<br/> - `created_at:&lt;='2024'` |
      * | discount_type | string | Filter by the [discount
      * type](https://help.shopify.com/manual/discounts/discount-types). | -
-     * `bogo`<br/> - `fixed_amount`<br/> - `free_shipping`<br/> - `percentage` | |
-     * - `discount_type:fixed_amount` |
+     * `app`<br/> - `bogo`<br/> - `fixed_amount`<br/> - `free_shipping`<br/> -
+     * `percentage` | | - `discount_type:fixed_amount` |
      * | ends_at | time | Filter by the date and time when the discount expires and
      * is no longer available for customer use. | | | -
      * `ends_at:>'2020-10-21T23:39:20Z'`<br/> - `ends_at:&lt;now`<br/> -
@@ -159,6 +159,7 @@ public class CodeDiscountNodesGraphQLQuery extends GraphQLQuery {
      * `starts_at:&lt;='2024'` |
      * | status | string | Filter by the status of the discount. | - `active`<br/>
      * - `expired`<br/> - `scheduled` | | - `status:scheduled` |
+     * | tag | string | Filter by a tag applied to the discount. | | | - `tag:loyalty`<br/> - `tag:clearance` |
      * | times_used | integer | Filter by the number of times the discount has been
      * used. For example, if a "Buy 3, Get 1 Free" t-shirt discount is
      * automatically applied in 200 transactions, then the discount has been used

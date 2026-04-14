@@ -14,5 +14,7 @@ public enum MarketsSortKeys {
 
   NAME,
 
+  STATUS,
+
   UPDATED_AT
 }

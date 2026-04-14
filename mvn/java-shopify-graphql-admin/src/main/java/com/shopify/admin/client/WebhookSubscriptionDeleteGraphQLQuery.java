@@ -7,7 +7,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Deletes a webhook subscription.
+ * Deletes a [`WebhookSubscription`](https://shopify.dev/docs/api/admin-graphql/latest/objects/WebhookSubscription) and stops all future webhooks to its endpoint. Returns the deleted
+ * subscription's ID for confirmation.
+ *   
  *   
  * Building an app? If you only use app-specific webhooks, you won't need this.
  * App-specific webhook subscriptions specified in your `shopify.app.toml` may be

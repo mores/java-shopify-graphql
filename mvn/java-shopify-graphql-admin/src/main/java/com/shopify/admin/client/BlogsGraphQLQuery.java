@@ -10,7 +10,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * List of the shop's blogs.
+ * Returns a paginated list of the shop's
+ * [`Blog`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Blog)
+ * objects. Blogs serve as containers for
+ * [`Article`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Article)
+ * objects and provide content management capabilities for the store's editorial content.
+ *   
+ * Supports [cursor-based
+ * pagination](https://shopify.dev/docs/api/usage/pagination-graphql) to control
+ * the number of blogs returned and their order. Use the [`query`](https://shopify.dev/docs/api/admin-graphql/latest/queries/blogs#arguments-query)
+ * argument to filter results by specific criteria.
  */
 public class BlogsGraphQLQuery extends GraphQLQuery {
   public BlogsGraphQLQuery(Integer first, String after, Integer last, String before,

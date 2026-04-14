@@ -49,7 +49,7 @@ public class OrderEditRemoveLineItemDiscountGraphQLQuery extends GraphQLQuery {
 
     /**
      * The ID of the [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
-     * from which to remove the discount.
+     * or the order edit session to edit. This is the edit from which the line item discount is removed.
      */
     public Builder id(String id) {
       this.id = id;

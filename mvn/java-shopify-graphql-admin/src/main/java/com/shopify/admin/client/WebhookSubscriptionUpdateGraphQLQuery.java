@@ -8,7 +8,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Updates a webhook subscription.
+ * Updates a webhook subscription's configuration. Modify the endpoint URL, event
+ * filters, included fields, or metafield namespaces without recreating the subscription.
+ *   
+ * The mutation accepts a [`WebhookSubscriptionInput`](https://shopify.dev/docs/api/admin-graphql/latest/input-objects/WebhookSubscriptionInput)
+ * that specifies the new configuration. You can switch between endpoint types
+ * (HTTP, Pub/Sub, EventBridge) by providing a different URI format. Updates
+ * apply atomically without interrupting webhook delivery.
+ *   
  *   
  * Building an app? If you only use app-specific webhooks, you won't need this.
  * App-specific webhook subscriptions specified in your `shopify.app.toml` may be

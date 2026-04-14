@@ -8,8 +8,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Create a new customer. As of API version 2022-10, apps using protected
- * customer data must meet the protected customer data [requirements](https://shopify.dev/apps/store/data-protection/protected-customer-data).
+ * Creates a new [`Customer`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Customer) in the store.
+ *   
+ * Accepts customer details including contact information, marketing consent
+ * preferences, and tax exemptions through the [`CustomerInput`](https://shopify.dev/docs/api/admin-graphql/latest/input-objects/CustomerInput)
+ * input object. You can also associate [`metafields`](https://shopify.dev/docs/api/admin-graphql/latest/input-objects/MetafieldInput)
+ * and tags to organize and extend customer data.
+ *   
+ * Apps using protected customer data must meet Shopify's [protected customer data requirements](https://shopify.dev/docs/apps/launch/protected-customer-data#requirements).
  */
 public class CustomerCreateGraphQLQuery extends GraphQLQuery {
   public CustomerCreateGraphQLQuery(CustomerInput input, String queryName, Set<String> fieldsSet) {

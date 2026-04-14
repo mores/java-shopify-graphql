@@ -7,7 +7,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Find a blog by its handle.
+ * Retrieves a [`Blog`](https://shopify.dev/docs/api/storefront/current/objects/Blog) by
+ * its handle. A blog organizes
+ * [`Article`](https://shopify.dev/docs/api/storefront/current/objects/Article)
+ * objects for the online store and includes author information,
+ * [`SEO`](https://shopify.dev/docs/api/storefront/current/objects/SEO) settings, and custom [`Metafield`](https://shopify.dev/docs/api/storefront/current/objects/Metafield) objects.
  */
 public class BlogByHandleGraphQLQuery extends GraphQLQuery {
   public BlogByHandleGraphQLQuery(String handle, String queryName, Set<String> fieldsSet) {

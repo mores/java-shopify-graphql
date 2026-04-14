@@ -83,6 +83,11 @@ public class MetaobjectDefinitionProjectionRoot<PARENT extends BaseSubProjection
     return projection;
   }
 
+  public MetaobjectDefinitionProjectionRoot<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
+    return this;
+  }
+
   public MetaobjectDefinitionProjectionRoot<PARENT, ROOT> description() {
     getFields().put("description", null);
     return this;
@@ -115,6 +120,11 @@ public class MetaobjectDefinitionProjectionRoot<PARENT extends BaseSubProjection
 
   public MetaobjectDefinitionProjectionRoot<PARENT, ROOT> type() {
     getFields().put("type", null);
+    return this;
+  }
+
+  public MetaobjectDefinitionProjectionRoot<PARENT, ROOT> updatedAt() {
+    getFields().put("updatedAt", null);
     return this;
   }
 }

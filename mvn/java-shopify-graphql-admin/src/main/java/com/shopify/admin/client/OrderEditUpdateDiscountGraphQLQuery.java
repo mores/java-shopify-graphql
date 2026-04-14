@@ -56,7 +56,7 @@ public class OrderEditUpdateDiscountGraphQLQuery extends GraphQLQuery {
 
     /**
      * The ID of the [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
-     * from which to update the discount.
+     * or the order edit session to edit. This is the edit used to update the discount.
      */
     public Builder id(String id) {
       this.id = id;

@@ -45,6 +45,30 @@ public class AppCatalogFragmentProjection<PARENT extends BaseSubProjectionNode<?
     return projection;
   }
 
+  public ChannelConnectionProjection<AppCatalogFragmentProjection<PARENT, ROOT>, ROOT> channels() {
+     ChannelConnectionProjection<AppCatalogFragmentProjection<PARENT, ROOT>, ROOT> projection = new ChannelConnectionProjection<>(this, getRoot());
+     getFields().put("channels", projection);
+     return projection;
+  }
+
+  public ChannelConnectionProjection<AppCatalogFragmentProjection<PARENT, ROOT>, ROOT> channels(
+      Integer first, String after, Integer last, String before, Boolean reverse) {
+    ChannelConnectionProjection<AppCatalogFragmentProjection<PARENT, ROOT>, ROOT> projection = new ChannelConnectionProjection<>(this, getRoot());    
+    getFields().put("channels", projection);
+    getInputArguments().computeIfAbsent("channels", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("channels").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("channels").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("channels").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("channels").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    getInputArguments().get("channels").add(reverseArg);
+    return projection;
+  }
+
   public ResourceOperationProjection<AppCatalogFragmentProjection<PARENT, ROOT>, ROOT> operations(
       ) {
      ResourceOperationProjection<AppCatalogFragmentProjection<PARENT, ROOT>, ROOT> projection = new ResourceOperationProjection<>(this, getRoot());

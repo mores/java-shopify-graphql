@@ -8,7 +8,10 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Represents how products and variants can be sold and purchased.
+ * Represents deferred or recurring purchase options for
+ * [products](https://shopify.dev/docs/api/storefront/current/objects/Product) and [product variants](https://shopify.dev/docs/api/storefront/current/objects/ProductVariant),
+ * such as subscriptions, pre-orders, or try-before-you-buy. Each selling plan belongs to a [`SellingPlanGroup`](https://shopify.dev/docs/api/storefront/current/objects/SellingPlanGroup)
+ * and defines billing, pricing, inventory, and delivery policies.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

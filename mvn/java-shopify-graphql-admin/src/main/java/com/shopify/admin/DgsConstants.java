@@ -3,7 +3,7 @@ package com.shopify.admin;
 import java.lang.String;
 
 public class DgsConstants {
-  public static final String VERSION = "2025-07";
+  public static final String VERSION = "2026-04";
 
   public static final String QUERY_TYPE = "Query";
 
@@ -114,6 +114,8 @@ public class DgsConstants {
 
     public static final String OriginalUnitPriceSet = "originalUnitPriceSet";
 
+    public static final String ParentRelationship = "parentRelationship";
+
     public static final String Product = "product";
 
     public static final String Quantity = "quantity";
@@ -169,6 +171,12 @@ public class DgsConstants {
     public static final String Cursor = "cursor";
 
     public static final String Node = "node";
+  }
+
+  public static class ABANDONEDCHECKOUTLINEITEMPARENTRELATIONSHIP {
+    public static final String TYPE_NAME = "AbandonedCheckoutLineItemParentRelationship";
+
+    public static final String Parent = "parent";
   }
 
   public static class ABANDONMENT {
@@ -406,6 +414,8 @@ public class DgsConstants {
 
     public static final String Banner = "banner";
 
+    public static final String Channels = "channels";
+
     public static final String Description = "description";
 
     public static final String DeveloperName = "developerName";
@@ -465,12 +475,26 @@ public class DgsConstants {
     public static final String UninstallUrl = "uninstallUrl";
 
     public static final String WebhookApiVersion = "webhookApiVersion";
+
+    public static class CHANNELS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+    }
   }
 
   public static class APPCATALOG {
     public static final String TYPE_NAME = "AppCatalog";
 
     public static final String Apps = "apps";
+
+    public static final String Channels = "channels";
 
     public static final String Id = "id";
 
@@ -485,6 +509,18 @@ public class DgsConstants {
     public static final String Title = "title";
 
     public static class APPS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+    }
+
+    public static class CHANNELS_INPUT_ARGUMENT {
       public static final String First = "first";
 
       public static final String After = "after";
@@ -591,6 +627,8 @@ public class DgsConstants {
     public static final String TYPE_NAME = "AppFeedback";
 
     public static final String App = "app";
+
+    public static final String Channel = "channel";
 
     public static final String FeedbackGeneratedAt = "feedbackGeneratedAt";
 
@@ -1337,6 +1375,20 @@ public class DgsConstants {
     public static final String UserErrors = "userErrors";
   }
 
+  public static class BANKACCOUNT {
+    public static final String TYPE_NAME = "BankAccount";
+
+    public static final String AccountHolderType = "accountHolderType";
+
+    public static final String AccountType = "accountType";
+
+    public static final String BankName = "bankName";
+
+    public static final String BillingAddress = "billingAddress";
+
+    public static final String LastDigits = "lastDigits";
+  }
+
   public static class BASICEVENT {
     public static final String TYPE_NAME = "BasicEvent";
 
@@ -1625,6 +1677,24 @@ public class DgsConstants {
     public static final String BulkOperation = "bulkOperation";
 
     public static final String UserErrors = "userErrors";
+  }
+
+  public static class BULKOPERATIONCONNECTION {
+    public static final String TYPE_NAME = "BulkOperationConnection";
+
+    public static final String Edges = "edges";
+
+    public static final String Nodes = "nodes";
+
+    public static final String PageInfo = "pageInfo";
+  }
+
+  public static class BULKOPERATIONEDGE {
+    public static final String TYPE_NAME = "BulkOperationEdge";
+
+    public static final String Cursor = "cursor";
+
+    public static final String Node = "node";
   }
 
   public static class BULKOPERATIONRUNMUTATIONPAYLOAD {
@@ -2395,6 +2465,302 @@ public class DgsConstants {
     public static final String EligibleOperations = "eligibleOperations";
   }
 
+  public static class CASHACTIVITYCONNECTION {
+    public static final String TYPE_NAME = "CashActivityConnection";
+
+    public static final String Edges = "edges";
+
+    public static final String Nodes = "nodes";
+
+    public static final String PageInfo = "pageInfo";
+  }
+
+  public static class CASHACTIVITYEDGE {
+    public static final String TYPE_NAME = "CashActivityEdge";
+
+    public static final String Cursor = "cursor";
+
+    public static final String Node = "node";
+  }
+
+  public static class CASHADJUSTMENTACTIVITY {
+    public static final String TYPE_NAME = "CashAdjustmentActivity";
+
+    public static final String Cash = "cash";
+
+    public static final String GiftCard = "giftCard";
+
+    public static final String Note = "note";
+
+    public static final String PaymentSession = "paymentSession";
+
+    public static final String ReasonCode = "reasonCode";
+
+    public static final String StaffMember = "staffMember";
+
+    public static final String Time = "time";
+
+    public static final String Type = "type";
+  }
+
+  public static class CASHCOUNTACTIVITY {
+    public static final String TYPE_NAME = "CashCountActivity";
+
+    public static final String Cash = "cash";
+
+    public static final String CashCounted = "cashCounted";
+
+    public static final String CashDiscrepancy = "cashDiscrepancy";
+
+    public static final String CashExpected = "cashExpected";
+
+    public static final String PaymentSession = "paymentSession";
+
+    public static final String StaffMember = "staffMember";
+
+    public static final String Time = "time";
+
+    public static final String Type = "type";
+  }
+
+  public static class CASHDRAWER {
+    public static final String TYPE_NAME = "CashDrawer";
+
+    public static final String CashActivities = "cashActivities";
+
+    public static final String Id = "id";
+
+    public static final String Location = "location";
+
+    public static final String Name = "name";
+
+    public static final String NetSales = "netSales";
+
+    public static final String PointOfSaleDevices = "pointOfSaleDevices";
+
+    public static final String TotalAdjustments = "totalAdjustments";
+
+    public static final String TotalDiscrepancies = "totalDiscrepancies";
+
+    public static final String TotalRefunds = "totalRefunds";
+
+    public static final String TotalSales = "totalSales";
+
+    public static class CASHACTIVITIES_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+
+      public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
+
+      public static final String StaffMemberId = "staffMemberId";
+    }
+
+    public static class NETSALES_INPUT_ARGUMENT {
+      public static final String DateRange = "dateRange";
+    }
+
+    public static class POINTOFSALEDEVICES_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+    }
+
+    public static class TOTALADJUSTMENTS_INPUT_ARGUMENT {
+      public static final String DateRange = "dateRange";
+    }
+
+    public static class TOTALDISCREPANCIES_INPUT_ARGUMENT {
+      public static final String DateRange = "dateRange";
+    }
+
+    public static class TOTALREFUNDS_INPUT_ARGUMENT {
+      public static final String DateRange = "dateRange";
+    }
+
+    public static class TOTALSALES_INPUT_ARGUMENT {
+      public static final String DateRange = "dateRange";
+    }
+  }
+
+  public static class CASHDRAWERCONNECTION {
+    public static final String TYPE_NAME = "CashDrawerConnection";
+
+    public static final String Edges = "edges";
+
+    public static final String Nodes = "nodes";
+
+    public static final String PageInfo = "pageInfo";
+  }
+
+  public static class CASHDRAWERCREATEPAYLOAD {
+    public static final String TYPE_NAME = "CashDrawerCreatePayload";
+
+    public static final String CashDrawer = "cashDrawer";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class CASHDRAWERCREATEUSERERROR {
+    public static final String TYPE_NAME = "CashDrawerCreateUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class CASHDRAWEREDGE {
+    public static final String TYPE_NAME = "CashDrawerEdge";
+
+    public static final String Cursor = "cursor";
+
+    public static final String Node = "node";
+  }
+
+  public static class CASHDRAWERFINDORCREATEPAYLOAD {
+    public static final String TYPE_NAME = "CashDrawerFindOrCreatePayload";
+
+    public static final String CashDrawer = "cashDrawer";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class CASHDRAWERFINDORCREATEUSERERROR {
+    public static final String TYPE_NAME = "CashDrawerFindOrCreateUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class CASHDRAWERUPDATEPAYLOAD {
+    public static final String TYPE_NAME = "CashDrawerUpdatePayload";
+
+    public static final String CashDrawer = "cashDrawer";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class CASHDRAWERUPDATEUSERERROR {
+    public static final String TYPE_NAME = "CashDrawerUpdateUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class CASHMANAGEMENTCUSTOMREASONCODE {
+    public static final String TYPE_NAME = "CashManagementCustomReasonCode";
+
+    public static final String Code = "code";
+
+    public static final String Id = "id";
+  }
+
+  public static class CASHMANAGEMENTDEFAULTREASONCODE {
+    public static final String TYPE_NAME = "CashManagementDefaultReasonCode";
+
+    public static final String Code = "code";
+
+    public static final String Id = "id";
+  }
+
+  public static class CASHMANAGEMENTREASONCODECONNECTION {
+    public static final String TYPE_NAME = "CashManagementReasonCodeConnection";
+
+    public static final String Edges = "edges";
+
+    public static final String Nodes = "nodes";
+
+    public static final String PageInfo = "pageInfo";
+  }
+
+  public static class CASHMANAGEMENTREASONCODECREATEPAYLOAD {
+    public static final String TYPE_NAME = "CashManagementReasonCodeCreatePayload";
+
+    public static final String ReasonCode = "reasonCode";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class CASHMANAGEMENTREASONCODECREATEUSERERROR {
+    public static final String TYPE_NAME = "CashManagementReasonCodeCreateUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class CASHMANAGEMENTREASONCODEDELETEPAYLOAD {
+    public static final String TYPE_NAME = "CashManagementReasonCodeDeletePayload";
+
+    public static final String DeletedId = "deletedId";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class CASHMANAGEMENTREASONCODEDELETEUSERERROR {
+    public static final String TYPE_NAME = "CashManagementReasonCodeDeleteUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class CASHMANAGEMENTREASONCODEEDGE {
+    public static final String TYPE_NAME = "CashManagementReasonCodeEdge";
+
+    public static final String Cursor = "cursor";
+
+    public static final String Node = "node";
+  }
+
+  public static class CASHMANAGEMENTSUMMARY {
+    public static final String TYPE_NAME = "CashManagementSummary";
+
+    public static final String CashBalanceAtEnd = "cashBalanceAtEnd";
+
+    public static final String CashBalanceAtStart = "cashBalanceAtStart";
+
+    public static final String NetCash = "netCash";
+
+    public static final String SessionsClosed = "sessionsClosed";
+
+    public static final String SessionsOpened = "sessionsOpened";
+
+    public static final String TotalDiscrepancies = "totalDiscrepancies";
+  }
+
+  public static class CASHMANAGEMENTSYSTEMREASONCODE {
+    public static final String TYPE_NAME = "CashManagementSystemReasonCode";
+
+    public static final String Code = "code";
+
+    public static final String Id = "id";
+  }
+
   public static class CASHROUNDINGADJUSTMENT {
     public static final String TYPE_NAME = "CashRoundingAdjustment";
 
@@ -2531,6 +2897,22 @@ public class DgsConstants {
     public static final String Node = "node";
   }
 
+  public static class CASHTRANSACTIONACTIVITY {
+    public static final String TYPE_NAME = "CashTransactionActivity";
+
+    public static final String Cash = "cash";
+
+    public static final String OrderTransaction = "orderTransaction";
+
+    public static final String PaymentSession = "paymentSession";
+
+    public static final String StaffMember = "staffMember";
+
+    public static final String Time = "time";
+
+    public static final String Type = "type";
+  }
+
   public static class CATALOGCONNECTION {
     public static final String TYPE_NAME = "CatalogConnection";
 
@@ -2606,6 +2988,10 @@ public class DgsConstants {
   public static class CHANNEL {
     public static final String TYPE_NAME = "Channel";
 
+    public static final String AccountId = "accountId";
+
+    public static final String AccountName = "accountName";
+
     public static final String App = "app";
 
     public static final String CollectionPublicationsV3 = "collectionPublicationsV3";
@@ -2631,6 +3017,10 @@ public class DgsConstants {
     public static final String Products = "products";
 
     public static final String ProductsCount = "productsCount";
+
+    public static final String ResourceFeedback = "resourceFeedback";
+
+    public static final String SpecificationHandle = "specificationHandle";
 
     public static final String SupportsFuturePublishing = "supportsFuturePublishing";
 
@@ -2715,6 +3105,24 @@ public class DgsConstants {
     public static final String PageInfo = "pageInfo";
   }
 
+  public static class CHANNELCREATEPAYLOAD {
+    public static final String TYPE_NAME = "ChannelCreatePayload";
+
+    public static final String Channel = "channel";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class CHANNELCREATEUSERERROR {
+    public static final String TYPE_NAME = "ChannelCreateUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
   public static class CHANNELDEFINITION {
     public static final String TYPE_NAME = "ChannelDefinition";
 
@@ -2731,12 +3139,48 @@ public class DgsConstants {
     public static final String SvgIcon = "svgIcon";
   }
 
+  public static class CHANNELDELETEPAYLOAD {
+    public static final String TYPE_NAME = "ChannelDeletePayload";
+
+    public static final String DeletedId = "deletedId";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class CHANNELDELETEUSERERROR {
+    public static final String TYPE_NAME = "ChannelDeleteUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
   public static class CHANNELEDGE {
     public static final String TYPE_NAME = "ChannelEdge";
 
     public static final String Cursor = "cursor";
 
     public static final String Node = "node";
+  }
+
+  public static class CHANNELFULLSYNCPAYLOAD {
+    public static final String TYPE_NAME = "ChannelFullSyncPayload";
+
+    public static final String FullSyncTraceInfo = "fullSyncTraceInfo";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class CHANNELFULLSYNCUSERERROR {
+    public static final String TYPE_NAME = "ChannelFullSyncUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
   }
 
   public static class CHANNELINFORMATION {
@@ -2751,6 +3195,868 @@ public class DgsConstants {
     public static final String DisplayName = "displayName";
 
     public static final String Id = "id";
+  }
+
+  public static class CHANNELUPDATEPAYLOAD {
+    public static final String TYPE_NAME = "ChannelUpdatePayload";
+
+    public static final String Channel = "channel";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class CHANNELUPDATEUSERERROR {
+    public static final String TYPE_NAME = "ChannelUpdateUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATION {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfiguration";
+
+    public static final String Branding = "branding";
+
+    public static final String CreatedAt = "createdAt";
+
+    public static final String EditedAt = "editedAt";
+
+    public static final String Id = "id";
+
+    public static final String IsPublished = "isPublished";
+
+    public static final String Name = "name";
+
+    public static final String Overrides = "overrides";
+
+    public static final String UpdatedAt = "updatedAt";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDING {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBranding";
+
+    public static final String Components = "components";
+
+    public static final String DesignTokens = "designTokens";
+
+    public static final String Surfaces = "surfaces";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGBASECOLORROLES {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingBaseColorRoles";
+
+    public static final String Accent = "accent";
+
+    public static final String Background = "background";
+
+    public static final String Border = "border";
+
+    public static final String Decorative = "decorative";
+
+    public static final String Icon = "icon";
+
+    public static final String Text = "text";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGBUTTON {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingButton";
+
+    public static final String BlockPadding = "blockPadding";
+
+    public static final String Border = "border";
+
+    public static final String CornerRadius = "cornerRadius";
+
+    public static final String InlinePadding = "inlinePadding";
+
+    public static final String Typography = "typography";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGBUYERJOURNEY {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingBuyerJourney";
+
+    public static final String Visibility = "visibility";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCARTLINK {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCartLink";
+
+    public static final String Visibility = "visibility";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCHECKBOX {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCheckbox";
+
+    public static final String CornerRadius = "cornerRadius";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCHECKOUTCOMPONENTS {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCheckoutComponents";
+
+    public static final String BuyerJourney = "buyerJourney";
+
+    public static final String CartLink = "cartLink";
+
+    public static final String Content = "content";
+
+    public static final String ExpressCheckout = "expressCheckout";
+
+    public static final String Footer = "footer";
+
+    public static final String Header = "header";
+
+    public static final String Main = "main";
+
+    public static final String OrderSummary = "orderSummary";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCHECKOUTFOOTER {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCheckoutFooter";
+
+    public static final String Alignment = "alignment";
+
+    public static final String Background = "background";
+
+    public static final String Colors = "colors";
+
+    public static final String Content = "content";
+
+    public static final String Divided = "divided";
+
+    public static final String Padding = "padding";
+
+    public static final String Position = "position";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCHECKOUTHEADER {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCheckoutHeader";
+
+    public static final String Alignment = "alignment";
+
+    public static final String Background = "background";
+
+    public static final String CartLink = "cartLink";
+
+    public static final String Colors = "colors";
+
+    public static final String Divided = "divided";
+
+    public static final String Logo = "logo";
+
+    public static final String Padding = "padding";
+
+    public static final String Position = "position";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCHECKOUTSURFACE {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCheckoutSurface";
+
+    public static final String Components = "components";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCHOICELIST {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingChoiceList";
+
+    public static final String Group = "group";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCHOICELISTGROUP {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingChoiceListGroup";
+
+    public static final String Spacing = "spacing";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCOLORROLES {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingColorRoles";
+
+    public static final String Accent = "accent";
+
+    public static final String Background = "background";
+
+    public static final String Border = "border";
+
+    public static final String Decorative = "decorative";
+
+    public static final String Icon = "icon";
+
+    public static final String Text = "text";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCOLORS {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingColors";
+
+    public static final String Base = "base";
+
+    public static final String Control = "control";
+
+    public static final String PrimaryButton = "primaryButton";
+
+    public static final String SecondaryButton = "secondaryButton";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCOMPONENTS {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingComponents";
+
+    public static final String Checkbox = "checkbox";
+
+    public static final String ChoiceList = "choiceList";
+
+    public static final String Control = "control";
+
+    public static final String Divider = "divider";
+
+    public static final String Favicon = "favicon";
+
+    public static final String Footer = "footer";
+
+    public static final String Header = "header";
+
+    public static final String HeadingLevel1 = "headingLevel1";
+
+    public static final String HeadingLevel2 = "headingLevel2";
+
+    public static final String HeadingLevel3 = "headingLevel3";
+
+    public static final String Main = "main";
+
+    public static final String MerchandiseThumbnail = "merchandiseThumbnail";
+
+    public static final String PrimaryButton = "primaryButton";
+
+    public static final String SecondaryButton = "secondaryButton";
+
+    public static final String Select = "select";
+
+    public static final String Shared = "shared";
+
+    public static final String TextField = "textField";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCONTAINERDIVIDER {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingContainerDivider";
+
+    public static final String BorderStyle = "borderStyle";
+
+    public static final String BorderWidth = "borderWidth";
+
+    public static final String Visibility = "visibility";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCONTENT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingContent";
+
+    public static final String Divider = "divider";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCONTROL {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingControl";
+
+    public static final String Border = "border";
+
+    public static final String CornerRadius = "cornerRadius";
+
+    public static final String LabelPosition = "labelPosition";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCONTROLCOLORROLES {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingControlColorRoles";
+
+    public static final String Accent = "accent";
+
+    public static final String Background = "background";
+
+    public static final String Border = "border";
+
+    public static final String Decorative = "decorative";
+
+    public static final String Icon = "icon";
+
+    public static final String Selected = "selected";
+
+    public static final String Text = "text";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCORNERRADIUSVARIABLES {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCornerRadiusVariables";
+
+    public static final String Base = "base";
+
+    public static final String Large = "large";
+
+    public static final String Small = "small";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCUSTOMERACCOUNTSCOMPONENTS {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCustomerAccountsComponents";
+
+    public static final String Footer = "footer";
+
+    public static final String Header = "header";
+
+    public static final String Main = "main";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCUSTOMERACCOUNTSFOOTER {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCustomerAccountsFooter";
+
+    public static final String Alignment = "alignment";
+
+    public static final String Colors = "colors";
+
+    public static final String Padding = "padding";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCUSTOMERACCOUNTSHEADER {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCustomerAccountsHeader";
+
+    public static final String Alignment = "alignment";
+
+    public static final String Colors = "colors";
+
+    public static final String Logo = "logo";
+
+    public static final String Padding = "padding";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCUSTOMERACCOUNTSLOGO {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCustomerAccountsLogo";
+
+    public static final String Image = "image";
+
+    public static final String MaxWidth = "maxWidth";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCUSTOMERACCOUNTSMAIN {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCustomerAccountsMain";
+
+    public static final String Colors = "colors";
+
+    public static final String Section = "section";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCUSTOMERACCOUNTSMAINSECTION {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCustomerAccountsMainSection";
+
+    public static final String Background = "background";
+
+    public static final String Border = "border";
+
+    public static final String BorderStyle = "borderStyle";
+
+    public static final String BorderWidth = "borderWidth";
+
+    public static final String Colors = "colors";
+
+    public static final String CornerRadius = "cornerRadius";
+
+    public static final String Padding = "padding";
+
+    public static final String Shadow = "shadow";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCUSTOMERACCOUNTSSURFACE {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCustomerAccountsSurface";
+
+    public static final String Components = "components";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCUSTOMFONT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCustomFont";
+
+    public static final String GenericFileId = "genericFileId";
+
+    public static final String Sources = "sources";
+
+    public static final String Weight = "weight";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCUSTOMFONTGROUP {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCustomFontGroup";
+
+    public static final String Base = "base";
+
+    public static final String Bold = "bold";
+
+    public static final String LoadingStrategy = "loadingStrategy";
+
+    public static final String Name = "name";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGDESIGNTOKENCOLORS {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingDesignTokenColors";
+
+    public static final String Palette = "palette";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGDESIGNTOKENS {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingDesignTokens";
+
+    public static final String Colors = "colors";
+
+    public static final String CornerRadius = "cornerRadius";
+
+    public static final String Typography = "typography";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGDIVIDERSTYLE {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingDividerStyle";
+
+    public static final String BorderStyle = "borderStyle";
+
+    public static final String BorderWidth = "borderWidth";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGEXPRESSCHECKOUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingExpressCheckout";
+
+    public static final String Button = "button";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGEXPRESSCHECKOUTBUTTON {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingExpressCheckoutButton";
+
+    public static final String CornerRadius = "cornerRadius";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGFONTSIZE {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingFontSize";
+
+    public static final String Base = "base";
+
+    public static final String Ratio = "ratio";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGFOOTER {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingFooter";
+
+    public static final String Alignment = "alignment";
+
+    public static final String Background = "background";
+
+    public static final String Colors = "colors";
+
+    public static final String Content = "content";
+
+    public static final String Divided = "divided";
+
+    public static final String Padding = "padding";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGFOOTERCONTENT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingFooterContent";
+
+    public static final String Visibility = "visibility";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGHEADER {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingHeader";
+
+    public static final String Alignment = "alignment";
+
+    public static final String Background = "background";
+
+    public static final String Colors = "colors";
+
+    public static final String Divided = "divided";
+
+    public static final String Logo = "logo";
+
+    public static final String Padding = "padding";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGHEADERCARTLINK {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingHeaderCartLink";
+
+    public static final String ContentType = "contentType";
+
+    public static final String Image = "image";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGHEADINGLEVEL {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingHeadingLevel";
+
+    public static final String Typography = "typography";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGIMAGE {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingImage";
+
+    public static final String Image = "image";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGLOGO {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingLogo";
+
+    public static final String Image = "image";
+
+    public static final String MaxWidth = "maxWidth";
+
+    public static final String Visibility = "visibility";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGMAIN {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingMain";
+
+    public static final String Colors = "colors";
+
+    public static final String Divider = "divider";
+
+    public static final String Section = "section";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGMAINSECTION {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingMainSection";
+
+    public static final String Background = "background";
+
+    public static final String Border = "border";
+
+    public static final String BorderStyle = "borderStyle";
+
+    public static final String BorderWidth = "borderWidth";
+
+    public static final String Colors = "colors";
+
+    public static final String CornerRadius = "cornerRadius";
+
+    public static final String Padding = "padding";
+
+    public static final String Shadow = "shadow";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGMERCHANDISETHUMBNAIL {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingMerchandiseThumbnail";
+
+    public static final String Badge = "badge";
+
+    public static final String Border = "border";
+
+    public static final String CornerRadius = "cornerRadius";
+
+    public static final String Fit = "fit";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGMERCHANDISETHUMBNAILBADGE {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingMerchandiseThumbnailBadge";
+
+    public static final String Background = "background";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGORDERSUMMARY {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingOrderSummary";
+
+    public static final String BackgroundImage = "backgroundImage";
+
+    public static final String Colors = "colors";
+
+    public static final String Divider = "divider";
+
+    public static final String Section = "section";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGORDERSUMMARYSECTION {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingOrderSummarySection";
+
+    public static final String Background = "background";
+
+    public static final String Border = "border";
+
+    public static final String BorderStyle = "borderStyle";
+
+    public static final String BorderWidth = "borderWidth";
+
+    public static final String Colors = "colors";
+
+    public static final String CornerRadius = "cornerRadius";
+
+    public static final String Padding = "padding";
+
+    public static final String Shadow = "shadow";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGPALETTE {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingPalette";
+
+    public static final String Color1 = "color1";
+
+    public static final String Color10 = "color10";
+
+    public static final String Color11 = "color11";
+
+    public static final String Color12 = "color12";
+
+    public static final String Color13 = "color13";
+
+    public static final String Color14 = "color14";
+
+    public static final String Color15 = "color15";
+
+    public static final String Color16 = "color16";
+
+    public static final String Color17 = "color17";
+
+    public static final String Color18 = "color18";
+
+    public static final String Color19 = "color19";
+
+    public static final String Color2 = "color2";
+
+    public static final String Color20 = "color20";
+
+    public static final String Color3 = "color3";
+
+    public static final String Color4 = "color4";
+
+    public static final String Color5 = "color5";
+
+    public static final String Color6 = "color6";
+
+    public static final String Color7 = "color7";
+
+    public static final String Color8 = "color8";
+
+    public static final String Color9 = "color9";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGPRIMARYBUTTONCOLORROLES {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingPrimaryButtonColorRoles";
+
+    public static final String Accent = "accent";
+
+    public static final String Background = "background";
+
+    public static final String Border = "border";
+
+    public static final String Decorative = "decorative";
+
+    public static final String Hover = "hover";
+
+    public static final String Icon = "icon";
+
+    public static final String Text = "text";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSECONDARYBUTTONCOLORROLES {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingSecondaryButtonColorRoles";
+
+    public static final String Accent = "accent";
+
+    public static final String Background = "background";
+
+    public static final String Border = "border";
+
+    public static final String Decorative = "decorative";
+
+    public static final String Hover = "hover";
+
+    public static final String Icon = "icon";
+
+    public static final String Text = "text";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSELECT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingSelect";
+
+    public static final String Border = "border";
+
+    public static final String Typography = "typography";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSHARED {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingShared";
+
+    public static final String Colors = "colors";
+
+    public static final String CornerRadius = "cornerRadius";
+
+    public static final String Typography = "typography";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSHAREDCOLORS {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingSharedColors";
+
+    public static final String Accent = "accent";
+
+    public static final String Button = "button";
+
+    public static final String Control = "control";
+
+    public static final String Critical = "critical";
+
+    public static final String Decorative = "decorative";
+
+    public static final String Info = "info";
+
+    public static final String Success = "success";
+
+    public static final String Warning = "warning";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSHAREDTYPOGRAPHYSTYLE {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingSharedTypographyStyle";
+
+    public static final String Kerning = "kerning";
+
+    public static final String LetterCase = "letterCase";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSHOPIFYFONT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingShopifyFont";
+
+    public static final String Sources = "sources";
+
+    public static final String Weight = "weight";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSHOPIFYFONTGROUP {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingShopifyFontGroup";
+
+    public static final String Base = "base";
+
+    public static final String Bold = "bold";
+
+    public static final String LoadingStrategy = "loadingStrategy";
+
+    public static final String Name = "name";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSIGNINCOMPONENTS {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingSignInComponents";
+
+    public static final String Header = "header";
+
+    public static final String Main = "main";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSIGNINHEADER {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingSignInHeader";
+
+    public static final String Logo = "logo";
+
+    public static final String Padding = "padding";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSIGNINLOGO {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingSignInLogo";
+
+    public static final String Image = "image";
+
+    public static final String MaxWidth = "maxWidth";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSIGNINMAIN {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingSignInMain";
+
+    public static final String BackgroundImage = "backgroundImage";
+
+    public static final String Colors = "colors";
+
+    public static final String Section = "section";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSIGNINSURFACE {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingSignInSurface";
+
+    public static final String Components = "components";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSURFACES {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingSurfaces";
+
+    public static final String Checkout = "checkout";
+
+    public static final String CustomerAccounts = "customerAccounts";
+
+    public static final String SignIn = "signIn";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGTEXTFIELD {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingTextField";
+
+    public static final String Border = "border";
+
+    public static final String Typography = "typography";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGTYPOGRAPHY {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingTypography";
+
+    public static final String Primary = "primary";
+
+    public static final String Secondary = "secondary";
+
+    public static final String Size = "size";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGTYPOGRAPHYSTYLE {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingTypographyStyle";
+
+    public static final String Font = "font";
+
+    public static final String Kerning = "kerning";
+
+    public static final String LetterCase = "letterCase";
+
+    public static final String Size = "size";
+
+    public static final String Weight = "weight";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONCONNECTION {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationConnection";
+
+    public static final String Edges = "edges";
+
+    public static final String Nodes = "nodes";
+
+    public static final String PageInfo = "pageInfo";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONEDGE {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationEdge";
+
+    public static final String Cursor = "cursor";
+
+    public static final String Node = "node";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONOVERRIDE {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationOverride";
+
+    public static final String Branding = "branding";
+
+    public static final String CreatedAt = "createdAt";
+
+    public static final String EditedAt = "editedAt";
+
+    public static final String Id = "id";
+
+    public static final String Name = "name";
+
+    public static final String UpdatedAt = "updatedAt";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONUPDATEPAYLOAD {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationUpdatePayload";
+
+    public static final String Configuration = "configuration";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONUSERERROR {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+
+    public static final String Reason = "reason";
   }
 
   public static class CHECKOUTBRANDING {
@@ -2889,6 +4195,10 @@ public class DgsConstants {
     public static final String Scheme3 = "scheme3";
 
     public static final String Scheme4 = "scheme4";
+
+    public static final String Scheme5 = "scheme5";
+
+    public static final String Scheme6 = "scheme6";
   }
 
   public static class CHECKOUTBRANDINGCONTAINERDIVIDER {
@@ -3330,6 +4640,8 @@ public class DgsConstants {
   public static class COLLECTION {
     public static final String TYPE_NAME = "Collection";
 
+    public static final String ActiveOperations = "activeOperations";
+
     public static final String AvailablePublicationsCount = "availablePublicationsCount";
 
     public static final String Description = "description";
@@ -3623,12 +4935,46 @@ public class DgsConstants {
     public static final String UserErrors = "userErrors";
   }
 
+  public static class COLLECTIONDUPLICATEOPERATION {
+    public static final String TYPE_NAME = "CollectionDuplicateOperation";
+
+    public static final String CollectionRole = "collectionRole";
+
+    public static final String Job = "job";
+  }
+
+  public static class COLLECTIONDUPLICATEPAYLOAD {
+    public static final String TYPE_NAME = "CollectionDuplicatePayload";
+
+    public static final String Collection = "collection";
+
+    public static final String Job = "job";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class COLLECTIONDUPLICATEUSERERROR {
+    public static final String TYPE_NAME = "CollectionDuplicateUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
   public static class COLLECTIONEDGE {
     public static final String TYPE_NAME = "CollectionEdge";
 
     public static final String Cursor = "cursor";
 
     public static final String Node = "node";
+  }
+
+  public static class COLLECTIONOPERATIONS {
+    public static final String TYPE_NAME = "CollectionOperations";
+
+    public static final String Duplicate = "duplicate";
   }
 
   public static class COLLECTIONPUBLICATION {
@@ -3689,6 +5035,16 @@ public class DgsConstants {
     public static final String Job = "job";
 
     public static final String UserErrors = "userErrors";
+  }
+
+  public static class COLLECTIONREORDERPRODUCTSUSERERROR {
+    public static final String TYPE_NAME = "CollectionReorderProductsUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
   }
 
   public static class COLLECTIONRULE {
@@ -4624,6 +5980,8 @@ public class DgsConstants {
 
     public static final String StaffMemberAssignments = "staffMemberAssignments";
 
+    public static final String StoreCreditAccounts = "storeCreditAccounts";
+
     public static final String TaxExemptions = "taxExemptions";
 
     public static final String TaxRegistrationId = "taxRegistrationId";
@@ -4770,6 +6128,18 @@ public class DgsConstants {
       public static final String Reverse = "reverse";
 
       public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
+    }
+
+    public static class STORECREDITACCOUNTS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
 
       public static final String Query = "query";
     }
@@ -5013,6 +6383,30 @@ public class DgsConstants {
     public static final String Company = "company";
 
     public static final String UserErrors = "userErrors";
+  }
+
+  public static class COMPONENTIZEDPRODUCTSBUNDLECONSOLIDATEDOPTION {
+    public static final String TYPE_NAME = "ComponentizedProductsBundleConsolidatedOption";
+
+    public static final String Name = "name";
+
+    public static final String Selections = "selections";
+  }
+
+  public static class COMPONENTIZEDPRODUCTSBUNDLECONSOLIDATEDOPTIONSELECTION {
+    public static final String TYPE_NAME = "ComponentizedProductsBundleConsolidatedOptionSelection";
+
+    public static final String Components = "components";
+
+    public static final String Value = "value";
+  }
+
+  public static class COMPONENTIZEDPRODUCTSBUNDLECONSOLIDATEDOPTIONSELECTIONCOMPONENT {
+    public static final String TYPE_NAME = "ComponentizedProductsBundleConsolidatedOptionSelectionComponent";
+
+    public static final String OptionId = "optionId";
+
+    public static final String Value = "value";
   }
 
   public static class CONSENTPOLICY {
@@ -5938,11 +7332,25 @@ public class DgsConstants {
 
     public static final String Instrument = "instrument";
 
+    public static final String Mandates = "mandates";
+
     public static final String RevokedAt = "revokedAt";
 
     public static final String RevokedReason = "revokedReason";
 
     public static final String SubscriptionContracts = "subscriptionContracts";
+
+    public static class MANDATES_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+    }
 
     public static class SUBSCRIPTIONCONTRACTS_INPUT_ARGUMENT {
       public static final String First = "first";
@@ -6475,6 +7883,8 @@ public class DgsConstants {
     public static final String AccessToken = "accessToken";
 
     public static final String CreatedAt = "createdAt";
+
+    public static final String ExpiresIn = "expiresIn";
   }
 
   public static class DELEGATEACCESSTOKENCREATEPAYLOAD {
@@ -6789,14 +8199,6 @@ public class DgsConstants {
     public static final String UserErrors = "userErrors";
   }
 
-  public static class DELIVERYLEGACYMODEBLOCKED {
-    public static final String TYPE_NAME = "DeliveryLegacyModeBlocked";
-
-    public static final String Blocked = "blocked";
-
-    public static final String Reasons = "reasons";
-  }
-
   public static class DELIVERYLOCALPICKUPSETTINGS {
     public static final String TYPE_NAME = "DeliveryLocalPickupSettings";
 
@@ -7004,8 +8406,6 @@ public class DgsConstants {
 
     public static final String Id = "id";
 
-    public static final String LegacyMode = "legacyMode";
-
     public static final String LocationsWithoutRatesCount = "locationsWithoutRatesCount";
 
     public static final String Name = "name";
@@ -7025,6 +8425,8 @@ public class DgsConstants {
     public static final String UnassignedLocations = "unassignedLocations";
 
     public static final String UnassignedLocationsPaginated = "unassignedLocationsPaginated";
+
+    public static final String Version = "version";
 
     public static final String ZoneCountryCount = "zoneCountryCount";
 
@@ -7269,18 +8671,8 @@ public class DgsConstants {
     public static final String Price = "price";
   }
 
-  public static class DELIVERYSETTING {
-    public static final String TYPE_NAME = "DeliverySetting";
-
-    public static final String LegacyModeBlocked = "legacyModeBlocked";
-
-    public static final String LegacyModeProfiles = "legacyModeProfiles";
-  }
-
   public static class DELIVERYSETTINGUPDATEPAYLOAD {
     public static final String TYPE_NAME = "DeliverySettingUpdatePayload";
-
-    public static final String Setting = "setting";
 
     public static final String UserErrors = "userErrors";
   }
@@ -7382,6 +8774,8 @@ public class DgsConstants {
 
     public static final String CombinesWith = "combinesWith";
 
+    public static final String Context = "context";
+
     public static final String CreatedAt = "createdAt";
 
     public static final String DiscountClass = "discountClass";
@@ -7399,6 +8793,8 @@ public class DgsConstants {
     public static final String StartsAt = "startsAt";
 
     public static final String Status = "status";
+
+    public static final String Tags = "tags";
 
     public static final String Title = "title";
 
@@ -7428,6 +8824,8 @@ public class DgsConstants {
 
     public static final String CombinesWith = "combinesWith";
 
+    public static final String Context = "context";
+
     public static final String CreatedAt = "createdAt";
 
     public static final String CustomerGets = "customerGets";
@@ -7449,6 +8847,8 @@ public class DgsConstants {
     public static final String Status = "status";
 
     public static final String Summary = "summary";
+
+    public static final String Tags = "tags";
 
     public static final String Title = "title";
 
@@ -7488,6 +8888,8 @@ public class DgsConstants {
 
     public static final String CombinesWith = "combinesWith";
 
+    public static final String Context = "context";
+
     public static final String CreatedAt = "createdAt";
 
     public static final String CustomerBuys = "customerBuys";
@@ -7509,6 +8911,8 @@ public class DgsConstants {
     public static final String Status = "status";
 
     public static final String Summary = "summary";
+
+    public static final String Tags = "tags";
 
     public static final String Title = "title";
 
@@ -7596,6 +9000,8 @@ public class DgsConstants {
 
     public static final String CombinesWith = "combinesWith";
 
+    public static final String Context = "context";
+
     public static final String CreatedAt = "createdAt";
 
     public static final String DestinationSelection = "destinationSelection";
@@ -7621,6 +9027,8 @@ public class DgsConstants {
     public static final String Status = "status";
 
     public static final String Summary = "summary";
+
+    public static final String Tags = "tags";
 
     public static final String Title = "title";
 
@@ -7737,6 +9145,28 @@ public class DgsConstants {
     public static final String Node = "node";
   }
 
+  public static class DISCOUNTBULKTAGSADDPAYLOAD {
+    public static final String TYPE_NAME = "DiscountBulkTagsAddPayload";
+
+    public static final String Job = "job";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class DISCOUNTBULKTAGSREMOVEPAYLOAD {
+    public static final String TYPE_NAME = "DiscountBulkTagsRemovePayload";
+
+    public static final String Job = "job";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class DISCOUNTBUYERSELECTIONALL {
+    public static final String TYPE_NAME = "DiscountBuyerSelectionAll";
+
+    public static final String All = "all";
+  }
+
   public static class DISCOUNTCODEACTIVATEPAYLOAD {
     public static final String TYPE_NAME = "DiscountCodeActivatePayload";
 
@@ -7764,6 +9194,8 @@ public class DgsConstants {
 
     public static final String CombinesWith = "combinesWith";
 
+    public static final String Context = "context";
+
     public static final String CreatedAt = "createdAt";
 
     public static final String CustomerSelection = "customerSelection";
@@ -7787,6 +9219,8 @@ public class DgsConstants {
     public static final String StartsAt = "startsAt";
 
     public static final String Status = "status";
+
+    public static final String Tags = "tags";
 
     public static final String Title = "title";
 
@@ -7860,6 +9294,8 @@ public class DgsConstants {
 
     public static final String CombinesWith = "combinesWith";
 
+    public static final String Context = "context";
+
     public static final String CreatedAt = "createdAt";
 
     public static final String CustomerGets = "customerGets";
@@ -7887,6 +9323,8 @@ public class DgsConstants {
     public static final String Status = "status";
 
     public static final String Summary = "summary";
+
+    public static final String Tags = "tags";
 
     public static final String Title = "title";
 
@@ -7968,6 +9406,8 @@ public class DgsConstants {
 
     public static final String CombinesWith = "combinesWith";
 
+    public static final String Context = "context";
+
     public static final String CreatedAt = "createdAt";
 
     public static final String CustomerBuys = "customerBuys";
@@ -7991,6 +9431,8 @@ public class DgsConstants {
     public static final String Status = "status";
 
     public static final String Summary = "summary";
+
+    public static final String Tags = "tags";
 
     public static final String Title = "title";
 
@@ -8070,6 +9512,8 @@ public class DgsConstants {
 
     public static final String CombinesWith = "combinesWith";
 
+    public static final String Context = "context";
+
     public static final String CreatedAt = "createdAt";
 
     public static final String CustomerSelection = "customerSelection";
@@ -8099,6 +9543,8 @@ public class DgsConstants {
     public static final String Status = "status";
 
     public static final String Summary = "summary";
+
+    public static final String Tags = "tags";
 
     public static final String Title = "title";
 
@@ -10082,6 +11528,8 @@ public class DgsConstants {
 
     public static final String OrderProcessedAt = "orderProcessedAt";
 
+    public static final String RemainingLineItemsWeight = "remainingLineItemsWeight";
+
     public static final String RequestStatus = "requestStatus";
 
     public static final String Status = "status";
@@ -10195,6 +11643,16 @@ public class DgsConstants {
     public static final String Province = "province";
 
     public static final String Zip = "zip";
+  }
+
+  public static class FULFILLMENTORDERCANCELERROR {
+    public static final String TYPE_NAME = "FulfillmentOrderCancelError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
   }
 
   public static class FULFILLMENTORDERCANCELPAYLOAD {
@@ -10501,6 +11959,16 @@ public class DgsConstants {
     public static final String Message = "message";
   }
 
+  public static class FULFILLMENTORDERMOVEFULFILLMENTORDERMOVEUSERERROR {
+    public static final String TYPE_NAME = "FulfillmentOrderMoveFulfillmentOrderMoveUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
   public static class FULFILLMENTORDERMOVEPAYLOAD {
     public static final String TYPE_NAME = "FulfillmentOrderMovePayload";
 
@@ -10555,6 +12023,24 @@ public class DgsConstants {
     public static final String Message = "message";
   }
 
+  public static class FULFILLMENTORDERREPORTPROGRESSPAYLOAD {
+    public static final String TYPE_NAME = "FulfillmentOrderReportProgressPayload";
+
+    public static final String FulfillmentOrder = "fulfillmentOrder";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class FULFILLMENTORDERREPORTPROGRESSUSERERROR {
+    public static final String TYPE_NAME = "FulfillmentOrderReportProgressUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
   public static class FULFILLMENTORDERRESCHEDULEPAYLOAD {
     public static final String TYPE_NAME = "FulfillmentOrderReschedulePayload";
 
@@ -10593,6 +12079,24 @@ public class DgsConstants {
 
   public static class FULFILLMENTORDERSPLITUSERERROR {
     public static final String TYPE_NAME = "FulfillmentOrderSplitUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class FULFILLMENTORDERSREROUTEPAYLOAD {
+    public static final String TYPE_NAME = "FulfillmentOrdersReroutePayload";
+
+    public static final String MovedFulfillmentOrders = "movedFulfillmentOrders";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class FULFILLMENTORDERSREROUTEUSERERROR {
+    public static final String TYPE_NAME = "FulfillmentOrdersRerouteUserError";
 
     public static final String Code = "code";
 
@@ -10678,8 +12182,6 @@ public class DgsConstants {
 
     public static final String Location = "location";
 
-    public static final String PermitsSkuSharing = "permitsSkuSharing";
-
     public static final String RequiresShippingMethod = "requiresShippingMethod";
 
     public static final String ServiceName = "serviceName";
@@ -10737,6 +12239,16 @@ public class DgsConstants {
     public static final String Fulfillment = "fulfillment";
 
     public static final String UserErrors = "userErrors";
+  }
+
+  public static class FULLSYNCTRACEINFO {
+    public static final String TYPE_NAME = "FullSyncTraceInfo";
+
+    public static final String Country = "country";
+
+    public static final String Language = "language";
+
+    public static final String OperationId = "operationId";
   }
 
   public static class FUNCTIONSAPPBRIDGE {
@@ -10833,6 +12345,8 @@ public class DgsConstants {
 
   public static class GIFTCARDCONFIGURATION {
     public static final String TYPE_NAME = "GiftCardConfiguration";
+
+    public static final String ExpirationConfiguration = "expirationConfiguration";
 
     public static final String IssueLimit = "issueLimit";
 
@@ -10981,6 +12495,14 @@ public class DgsConstants {
     public static final String Node = "node";
   }
 
+  public static class GIFTCARDEXPIRATIONCONFIGURATION {
+    public static final String TYPE_NAME = "GiftCardExpirationConfiguration";
+
+    public static final String ExpirationUnit = "expirationUnit";
+
+    public static final String ExpirationValue = "expirationValue";
+  }
+
   public static class GIFTCARDRECIPIENT {
     public static final String TYPE_NAME = "GiftCardRecipient";
 
@@ -11120,6 +12642,8 @@ public class DgsConstants {
 
     public static final String TransformedSrc = "transformedSrc";
 
+    public static final String Translations = "translations";
+
     public static final String Url = "url";
 
     public static final String Width = "width";
@@ -11156,6 +12680,12 @@ public class DgsConstants {
       public static final String Scale = "scale";
 
       public static final String PreferredContentType = "preferredContentType";
+    }
+
+    public static class TRANSLATIONS_INPUT_ARGUMENT {
+      public static final String Locale = "locale";
+
+      public static final String MarketId = "marketId";
     }
 
     public static class URL_INPUT_ARGUMENT {
@@ -11326,6 +12856,8 @@ public class DgsConstants {
 
     public static final String Variant = "variant";
 
+    public static final String Variants = "variants";
+
     public static class COUNTRYHARMONIZEDSYSTEMCODES_INPUT_ARGUMENT {
       public static final String First = "first";
 
@@ -11340,9 +12872,13 @@ public class DgsConstants {
 
     public static class INVENTORYLEVEL_INPUT_ARGUMENT {
       public static final String LocationId = "locationId";
+
+      public static final String IncludeInactive = "includeInactive";
     }
 
     public static class INVENTORYLEVELS_INPUT_ARGUMENT {
+      public static final String IncludeInactive = "includeInactive";
+
       public static final String First = "first";
 
       public static final String After = "after";
@@ -11354,6 +12890,16 @@ public class DgsConstants {
       public static final String Reverse = "reverse";
 
       public static final String Query = "query";
+    }
+
+    public static class VARIANTS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
     }
   }
 
@@ -11401,6 +12947,8 @@ public class DgsConstants {
     public static final String DeactivationAlert = "deactivationAlert";
 
     public static final String Id = "id";
+
+    public static final String IsActive = "isActive";
 
     public static final String Item = "item";
 
@@ -11591,6 +13139,14 @@ public class DgsConstants {
 
   public static class INVENTORYSHIPMENT {
     public static final String TYPE_NAME = "InventoryShipment";
+
+    public static final String Barcode = "barcode";
+
+    public static final String DateCreated = "dateCreated";
+
+    public static final String DateReceived = "dateReceived";
+
+    public static final String DateShipped = "dateShipped";
 
     public static final String Id = "id";
 
@@ -11807,6 +13363,24 @@ public class DgsConstants {
 
   public static class INVENTORYSHIPMENTREMOVEITEMSUSERERROR {
     public static final String TYPE_NAME = "InventoryShipmentRemoveItemsUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class INVENTORYSHIPMENTSETBARCODEPAYLOAD {
+    public static final String TYPE_NAME = "InventoryShipmentSetBarcodePayload";
+
+    public static final String InventoryShipment = "inventoryShipment";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class INVENTORYSHIPMENTSETBARCODEUSERERROR {
+    public static final String TYPE_NAME = "InventoryShipmentSetBarcodeUserError";
 
     public static final String Code = "code";
 
@@ -12322,6 +13896,8 @@ public class DgsConstants {
 
     public static final String StaffMember = "staffMember";
 
+    public static final String SuggestedReturnReasonDefinitions = "suggestedReturnReasonDefinitions";
+
     public static final String TaxLines = "taxLines";
 
     public static final String Taxable = "taxable";
@@ -12350,6 +13926,18 @@ public class DgsConstants {
 
     public static class DISCOUNTEDTOTALSET_INPUT_ARGUMENT {
       public static final String WithCodeDiscounts = "withCodeDiscounts";
+    }
+
+    public static class SUGGESTEDRETURNREASONDEFINITIONS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
     }
 
     public static class TAXLINES_INPUT_ARGUMENT {
@@ -12562,9 +14150,13 @@ public class DgsConstants {
 
     public static class INVENTORYLEVEL_INPUT_ARGUMENT {
       public static final String InventoryItemId = "inventoryItemId";
+
+      public static final String IncludeInactive = "includeInactive";
     }
 
     public static class INVENTORYLEVELS_INPUT_ARGUMENT {
+      public static final String IncludeInactive = "includeInactive";
+
       public static final String First = "first";
 
       public static final String After = "after";
@@ -13350,6 +14942,8 @@ public class DgsConstants {
 
     public static final String AdSpend = "adSpend";
 
+    public static final String AllConversions = "allConversions";
+
     public static final String ChannelHandle = "channelHandle";
 
     public static final String ClicksCount = "clicksCount";
@@ -13373,6 +14967,8 @@ public class DgsConstants {
     public static final String OccurredOn = "occurredOn";
 
     public static final String Orders = "orders";
+
+    public static final String PrimaryConversions = "primaryConversions";
 
     public static final String ReturningCustomers = "returningCustomers";
 
@@ -13854,6 +15450,8 @@ public class DgsConstants {
 
     public static final String Status = "status";
 
+    public static final String Translations = "translations";
+
     public static final String UpdatedAt = "updatedAt";
 
     public static class METAFIELD_INPUT_ARGUMENT {
@@ -13876,6 +15474,12 @@ public class DgsConstants {
       public static final String Before = "before";
 
       public static final String Reverse = "reverse";
+    }
+
+    public static class TRANSLATIONS_INPUT_ARGUMENT {
+      public static final String Locale = "locale";
+
+      public static final String MarketId = "marketId";
     }
   }
 
@@ -14068,6 +15672,8 @@ public class DgsConstants {
 
     public static final String References = "references";
 
+    public static final String Translations = "translations";
+
     public static final String Type = "type";
 
     public static final String UpdatedAt = "updatedAt";
@@ -14082,6 +15688,12 @@ public class DgsConstants {
       public static final String Last = "last";
 
       public static final String Before = "before";
+    }
+
+    public static class TRANSLATIONS_INPUT_ARGUMENT {
+      public static final String Locale = "locale";
+
+      public static final String MarketId = "marketId";
     }
   }
 
@@ -14100,6 +15712,10 @@ public class DgsConstants {
 
     public static final String AdminFilterable = "adminFilterable";
 
+    public static final String AnalyticsQueryable = "analyticsQueryable";
+
+    public static final String CartToOrderCopyable = "cartToOrderCopyable";
+
     public static final String SmartCollectionCondition = "smartCollectionCondition";
 
     public static final String UniqueValues = "uniqueValues";
@@ -14113,6 +15729,22 @@ public class DgsConstants {
     public static final String Enabled = "enabled";
 
     public static final String Status = "status";
+  }
+
+  public static class METAFIELDCAPABILITYANALYTICSQUERYABLE {
+    public static final String TYPE_NAME = "MetafieldCapabilityAnalyticsQueryable";
+
+    public static final String Eligible = "eligible";
+
+    public static final String Enabled = "enabled";
+  }
+
+  public static class METAFIELDCAPABILITYCARTTOORDERCOPYABLE {
+    public static final String TYPE_NAME = "MetafieldCapabilityCartToOrderCopyable";
+
+    public static final String Eligible = "eligible";
+
+    public static final String Enabled = "enabled";
   }
 
   public static class METAFIELDCAPABILITYSMARTCOLLECTIONCONDITION {
@@ -14266,6 +15898,8 @@ public class DgsConstants {
 
     public static final String ElementIndex = "elementIndex";
 
+    public static final String ElementKey = "elementKey";
+
     public static final String Field = "field";
 
     public static final String Message = "message";
@@ -14384,6 +16018,8 @@ public class DgsConstants {
 
     public static final String ElementIndex = "elementIndex";
 
+    public static final String ElementKey = "elementKey";
+
     public static final String Field = "field";
 
     public static final String Message = "message";
@@ -14500,6 +16136,8 @@ public class DgsConstants {
 
     public static final String Capabilities = "capabilities";
 
+    public static final String CreatedAt = "createdAt";
+
     public static final String CreatedBy = "createdBy";
 
     public static final String CreatedByApp = "createdByApp";
@@ -14549,6 +16187,8 @@ public class DgsConstants {
     public static final String TYPE_NAME = "MetaobjectAccess";
 
     public static final String Admin = "admin";
+
+    public static final String CustomerAccount = "customerAccount";
 
     public static final String Storefront = "storefront";
   }
@@ -14662,6 +16302,8 @@ public class DgsConstants {
 
     public static final String Capabilities = "capabilities";
 
+    public static final String CreatedAt = "createdAt";
+
     public static final String CreatedByApp = "createdByApp";
 
     public static final String CreatedByStaff = "createdByStaff";
@@ -14685,6 +16327,8 @@ public class DgsConstants {
     public static final String StandardTemplate = "standardTemplate";
 
     public static final String Type = "type";
+
+    public static final String UpdatedAt = "updatedAt";
 
     public static class METAOBJECTS_INPUT_ARGUMENT {
       public static final String First = "first";
@@ -14787,8 +16431,18 @@ public class DgsConstants {
     }
   }
 
+  public static class METAOBJECTFIELDCAPABILITYADMINFILTERABLE {
+    public static final String TYPE_NAME = "MetaobjectFieldCapabilityAdminFilterable";
+
+    public static final String Eligible = "eligible";
+
+    public static final String Enabled = "enabled";
+  }
+
   public static class METAOBJECTFIELDDEFINITION {
     public static final String TYPE_NAME = "MetaobjectFieldDefinition";
+
+    public static final String Capabilities = "capabilities";
 
     public static final String Description = "description";
 
@@ -14801,6 +16455,12 @@ public class DgsConstants {
     public static final String Type = "type";
 
     public static final String Validations = "validations";
+  }
+
+  public static class METAOBJECTFIELDDEFINITIONCAPABILITIES {
+    public static final String TYPE_NAME = "MetaobjectFieldDefinitionCapabilities";
+
+    public static final String AdminFilterable = "adminFilterable";
   }
 
   public static class METAOBJECTTHUMBNAIL {
@@ -15016,6 +16676,16 @@ public class DgsConstants {
 
     public static final String CartTransformDelete = "cartTransformDelete";
 
+    public static final String CashDrawerCreate = "cashDrawerCreate";
+
+    public static final String CashDrawerFindOrCreate = "cashDrawerFindOrCreate";
+
+    public static final String CashDrawerUpdate = "cashDrawerUpdate";
+
+    public static final String CashManagementReasonCodeCreate = "cashManagementReasonCodeCreate";
+
+    public static final String CashManagementReasonCodeDelete = "cashManagementReasonCodeDelete";
+
     public static final String CatalogContextUpdate = "catalogContextUpdate";
 
     public static final String CatalogCreate = "catalogCreate";
@@ -15023,6 +16693,16 @@ public class DgsConstants {
     public static final String CatalogDelete = "catalogDelete";
 
     public static final String CatalogUpdate = "catalogUpdate";
+
+    public static final String ChannelCreate = "channelCreate";
+
+    public static final String ChannelDelete = "channelDelete";
+
+    public static final String ChannelFullSync = "channelFullSync";
+
+    public static final String ChannelUpdate = "channelUpdate";
+
+    public static final String CheckoutAndAccountsConfigurationUpdate = "checkoutAndAccountsConfigurationUpdate";
 
     public static final String CheckoutBrandingUpsert = "checkoutBrandingUpsert";
 
@@ -15033,6 +16713,8 @@ public class DgsConstants {
     public static final String CollectionCreate = "collectionCreate";
 
     public static final String CollectionDelete = "collectionDelete";
+
+    public static final String CollectionDuplicate = "collectionDuplicate";
 
     public static final String CollectionPublish = "collectionPublish";
 
@@ -15230,6 +16912,10 @@ public class DgsConstants {
 
     public static final String DiscountAutomaticFreeShippingUpdate = "discountAutomaticFreeShippingUpdate";
 
+    public static final String DiscountBulkTagsAdd = "discountBulkTagsAdd";
+
+    public static final String DiscountBulkTagsRemove = "discountBulkTagsRemove";
+
     public static final String DiscountCodeActivate = "discountCodeActivate";
 
     public static final String DiscountCodeAppCreate = "discountCodeAppCreate";
@@ -15344,6 +17030,8 @@ public class DgsConstants {
 
     public static final String FulfillmentOrderReleaseHold = "fulfillmentOrderReleaseHold";
 
+    public static final String FulfillmentOrderReportProgress = "fulfillmentOrderReportProgress";
+
     public static final String FulfillmentOrderReschedule = "fulfillmentOrderReschedule";
 
     public static final String FulfillmentOrderSplit = "fulfillmentOrderSplit";
@@ -15351,6 +17039,8 @@ public class DgsConstants {
     public static final String FulfillmentOrderSubmitCancellationRequest = "fulfillmentOrderSubmitCancellationRequest";
 
     public static final String FulfillmentOrderSubmitFulfillmentRequest = "fulfillmentOrderSubmitFulfillmentRequest";
+
+    public static final String FulfillmentOrdersReroute = "fulfillmentOrdersReroute";
 
     public static final String FulfillmentOrdersSetFulfillmentDeadline = "fulfillmentOrdersSetFulfillmentDeadline";
 
@@ -15409,6 +17099,8 @@ public class DgsConstants {
     public static final String InventoryShipmentReceive = "inventoryShipmentReceive";
 
     public static final String InventoryShipmentRemoveItems = "inventoryShipmentRemoveItems";
+
+    public static final String InventoryShipmentSetBarcode = "inventoryShipmentSetBarcode";
 
     public static final String InventoryShipmentSetTracking = "inventoryShipmentSetTracking";
 
@@ -15603,6 +17295,16 @@ public class DgsConstants {
     public static final String PaymentTermsDelete = "paymentTermsDelete";
 
     public static final String PaymentTermsUpdate = "paymentTermsUpdate";
+
+    public static final String PointOfSaleDeviceAssignToCashDrawer = "pointOfSaleDeviceAssignToCashDrawer";
+
+    public static final String PointOfSaleDevicePaymentSessionAdjust = "pointOfSaleDevicePaymentSessionAdjust";
+
+    public static final String PointOfSaleDevicePaymentSessionClose = "pointOfSaleDevicePaymentSessionClose";
+
+    public static final String PointOfSaleDevicePaymentSessionCount = "pointOfSaleDevicePaymentSessionCount";
+
+    public static final String PointOfSaleDevicePaymentSessionOpen = "pointOfSaleDevicePaymentSessionOpen";
 
     public static final String PriceListCreate = "priceListCreate";
 
@@ -15884,9 +17586,13 @@ public class DgsConstants {
 
     public static final String TaxAppConfigure = "taxAppConfigure";
 
+    public static final String TaxSummaryCreate = "taxSummaryCreate";
+
     public static final String ThemeCreate = "themeCreate";
 
     public static final String ThemeDelete = "themeDelete";
+
+    public static final String ThemeDuplicate = "themeDuplicate";
 
     public static final String ThemeFilesCopy = "themeFilesCopy";
 
@@ -16069,8 +17775,6 @@ public class DgsConstants {
 
       public static final String StagedUploadPath = "stagedUploadPath";
 
-      public static final String GroupObjects = "groupObjects";
-
       public static final String ClientIdentifier = "clientIdentifier";
     }
 
@@ -16097,7 +17801,7 @@ public class DgsConstants {
     }
 
     public static class CARTTRANSFORMCREATE_INPUT_ARGUMENT {
-      public static final String FunctionId = "functionId";
+      public static final String FunctionHandle = "functionHandle";
 
       public static final String BlockOnFailure = "blockOnFailure";
 
@@ -16105,6 +17809,34 @@ public class DgsConstants {
     }
 
     public static class CARTTRANSFORMDELETE_INPUT_ARGUMENT {
+      public static final String Id = "id";
+    }
+
+    public static class CASHDRAWERCREATE_INPUT_ARGUMENT {
+      public static final String LocationId = "locationId";
+
+      public static final String Name = "name";
+    }
+
+    public static class CASHDRAWERFINDORCREATE_INPUT_ARGUMENT {
+      public static final String LocationId = "locationId";
+
+      public static final String Name = "name";
+
+      public static final String PointOfSaleDeviceId = "pointOfSaleDeviceId";
+    }
+
+    public static class CASHDRAWERUPDATE_INPUT_ARGUMENT {
+      public static final String Id = "id";
+
+      public static final String Input = "input";
+    }
+
+    public static class CASHMANAGEMENTREASONCODECREATE_INPUT_ARGUMENT {
+      public static final String Code = "code";
+    }
+
+    public static class CASHMANAGEMENTREASONCODEDELETE_INPUT_ARGUMENT {
       public static final String Id = "id";
     }
 
@@ -16132,6 +17864,38 @@ public class DgsConstants {
       public static final String Input = "input";
     }
 
+    public static class CHANNELCREATE_INPUT_ARGUMENT {
+      public static final String Input = "input";
+    }
+
+    public static class CHANNELDELETE_INPUT_ARGUMENT {
+      public static final String Id = "id";
+    }
+
+    public static class CHANNELFULLSYNC_INPUT_ARGUMENT {
+      public static final String ChannelId = "channelId";
+
+      public static final String Language = "language";
+
+      public static final String Country = "country";
+
+      public static final String BeforeUpdatedAt = "beforeUpdatedAt";
+
+      public static final String UpdatedAtSince = "updatedAtSince";
+    }
+
+    public static class CHANNELUPDATE_INPUT_ARGUMENT {
+      public static final String Id = "id";
+
+      public static final String Input = "input";
+    }
+
+    public static class CHECKOUTANDACCOUNTSCONFIGURATIONUPDATE_INPUT_ARGUMENT {
+      public static final String Id = "id";
+
+      public static final String Configuration = "configuration";
+    }
+
     public static class CHECKOUTBRANDINGUPSERT_INPUT_ARGUMENT {
       public static final String CheckoutProfileId = "checkoutProfileId";
 
@@ -16155,6 +17919,10 @@ public class DgsConstants {
     }
 
     public static class COLLECTIONDELETE_INPUT_ARGUMENT {
+      public static final String Input = "input";
+    }
+
+    public static class COLLECTIONDUPLICATE_INPUT_ARGUMENT {
       public static final String Input = "input";
     }
 
@@ -16612,8 +18380,6 @@ public class DgsConstants {
       public static final String Id = "id";
 
       public static final String Profile = "profile";
-
-      public static final String LeaveLegacyModeProfiles = "leaveLegacyModeProfiles";
     }
 
     public static class DELIVERYPROMISEPARTICIPANTSUPDATE_INPUT_ARGUMENT {
@@ -16632,10 +18398,6 @@ public class DgsConstants {
       public static final String TimeZone = "timeZone";
 
       public static final String LocationId = "locationId";
-    }
-
-    public static class DELIVERYSETTINGUPDATE_INPUT_ARGUMENT {
-      public static final String Setting = "setting";
     }
 
     public static class DELIVERYSHIPPINGORIGINASSIGN_INPUT_ARGUMENT {
@@ -16700,6 +18462,26 @@ public class DgsConstants {
       public static final String Id = "id";
 
       public static final String FreeShippingAutomaticDiscount = "freeShippingAutomaticDiscount";
+    }
+
+    public static class DISCOUNTBULKTAGSADD_INPUT_ARGUMENT {
+      public static final String Search = "search";
+
+      public static final String SavedSearchId = "savedSearchId";
+
+      public static final String Ids = "ids";
+
+      public static final String Tags = "tags";
+    }
+
+    public static class DISCOUNTBULKTAGSREMOVE_INPUT_ARGUMENT {
+      public static final String Search = "search";
+
+      public static final String SavedSearchId = "savedSearchId";
+
+      public static final String Ids = "ids";
+
+      public static final String Tags = "tags";
     }
 
     public static class DISCOUNTCODEACTIVATE_INPUT_ARGUMENT {
@@ -16923,7 +18705,7 @@ public class DgsConstants {
     }
 
     public static class FULFILLMENTCONSTRAINTRULECREATE_INPUT_ARGUMENT {
-      public static final String FunctionId = "functionId";
+      public static final String FunctionHandle = "functionHandle";
 
       public static final String DeliveryMethodTypes = "deliveryMethodTypes";
 
@@ -17030,6 +18812,12 @@ public class DgsConstants {
       public static final String ExternalId = "externalId";
     }
 
+    public static class FULFILLMENTORDERREPORTPROGRESS_INPUT_ARGUMENT {
+      public static final String Id = "id";
+
+      public static final String ProgressReport = "progressReport";
+    }
+
     public static class FULFILLMENTORDERRESCHEDULE_INPUT_ARGUMENT {
       public static final String Id = "id";
 
@@ -17054,6 +18842,14 @@ public class DgsConstants {
       public static final String NotifyCustomer = "notifyCustomer";
 
       public static final String FulfillmentOrderLineItems = "fulfillmentOrderLineItems";
+    }
+
+    public static class FULFILLMENTORDERSREROUTE_INPUT_ARGUMENT {
+      public static final String FulfillmentOrderIds = "fulfillmentOrderIds";
+
+      public static final String IncludedLocationIds = "includedLocationIds";
+
+      public static final String ExcludedLocationIds = "excludedLocationIds";
     }
 
     public static class FULFILLMENTORDERSSETFULFILLMENTDEADLINE_INPUT_ARGUMENT {
@@ -17214,12 +19010,16 @@ public class DgsConstants {
 
     public static class INVENTORYSHIPMENTMARKINTRANSIT_INPUT_ARGUMENT {
       public static final String Id = "id";
+
+      public static final String DateShipped = "dateShipped";
     }
 
     public static class INVENTORYSHIPMENTRECEIVE_INPUT_ARGUMENT {
       public static final String Id = "id";
 
       public static final String LineItems = "lineItems";
+
+      public static final String DateReceived = "dateReceived";
 
       public static final String BulkReceiveAction = "bulkReceiveAction";
     }
@@ -17228,6 +19028,12 @@ public class DgsConstants {
       public static final String Id = "id";
 
       public static final String LineItems = "lineItems";
+    }
+
+    public static class INVENTORYSHIPMENTSETBARCODE_INPUT_ARGUMENT {
+      public static final String Id = "id";
+
+      public static final String Barcode = "barcode";
     }
 
     public static class INVENTORYSHIPMENTSETTRACKING_INPUT_ARGUMENT {
@@ -17772,6 +19578,68 @@ public class DgsConstants {
       public static final String Input = "input";
     }
 
+    public static class POINTOFSALEDEVICEASSIGNTOCASHDRAWER_INPUT_ARGUMENT {
+      public static final String CashDrawerId = "cashDrawerId";
+
+      public static final String PointOfSaleDeviceId = "pointOfSaleDeviceId";
+    }
+
+    public static class POINTOFSALEDEVICEPAYMENTSESSIONADJUST_INPUT_ARGUMENT {
+      public static final String PointOfSaleDevicePaymentSessionId = "pointOfSaleDevicePaymentSessionId";
+
+      public static final String Cash = "cash";
+
+      public static final String StaffMemberId = "staffMemberId";
+
+      public static final String ReasonCodeId = "reasonCodeId";
+
+      public static final String Note = "note";
+
+      public static final String Time = "time";
+    }
+
+    public static class POINTOFSALEDEVICEPAYMENTSESSIONCLOSE_INPUT_ARGUMENT {
+      public static final String PointOfSaleDevicePaymentSessionId = "pointOfSaleDevicePaymentSessionId";
+
+      public static final String Balance = "balance";
+
+      public static final String StaffMemberId = "staffMemberId";
+
+      public static final String Time = "time";
+
+      public static final String ReasonCodeId = "reasonCodeId";
+
+      public static final String Note = "note";
+    }
+
+    public static class POINTOFSALEDEVICEPAYMENTSESSIONCOUNT_INPUT_ARGUMENT {
+      public static final String PointOfSaleDevicePaymentSessionId = "pointOfSaleDevicePaymentSessionId";
+
+      public static final String Balance = "balance";
+
+      public static final String StaffMemberId = "staffMemberId";
+
+      public static final String Time = "time";
+
+      public static final String ReasonCodeId = "reasonCodeId";
+
+      public static final String Note = "note";
+    }
+
+    public static class POINTOFSALEDEVICEPAYMENTSESSIONOPEN_INPUT_ARGUMENT {
+      public static final String PointOfSaleDeviceId = "pointOfSaleDeviceId";
+
+      public static final String Balance = "balance";
+
+      public static final String StaffMemberId = "staffMemberId";
+
+      public static final String Time = "time";
+
+      public static final String ReasonCodeId = "reasonCodeId";
+
+      public static final String Note = "note";
+    }
+
     public static class PRICELISTCREATE_INPUT_ARGUMENT {
       public static final String Input = "input";
     }
@@ -17960,6 +19828,8 @@ public class DgsConstants {
       public static final String Product = "product";
 
       public static final String Media = "media";
+
+      public static final String Identifier = "identifier";
     }
 
     public static class PRODUCTUPDATEMEDIA_INPUT_ARGUMENT {
@@ -18370,6 +20240,8 @@ public class DgsConstants {
       public static final String Filters = "filters";
 
       public static final String InventoryPolicy = "inventoryPolicy";
+
+      public static final String PaymentProcessingPolicy = "paymentProcessingPolicy";
     }
 
     public static class SUBSCRIPTIONBILLINGCYCLEBULKSEARCH_INPUT_ARGUMENT {
@@ -18384,6 +20256,8 @@ public class DgsConstants {
       public static final String BillingCycleSelector = "billingCycleSelector";
 
       public static final String InventoryPolicy = "inventoryPolicy";
+
+      public static final String PaymentProcessingPolicy = "paymentProcessingPolicy";
     }
 
     public static class SUBSCRIPTIONBILLINGCYCLECONTRACTDRAFTCOMMIT_INPUT_ARGUMENT {
@@ -18556,6 +20430,14 @@ public class DgsConstants {
       public static final String Ready = "ready";
     }
 
+    public static class TAXSUMMARYCREATE_INPUT_ARGUMENT {
+      public static final String OrderId = "orderId";
+
+      public static final String StartTime = "startTime";
+
+      public static final String EndTime = "endTime";
+    }
+
     public static class THEMECREATE_INPUT_ARGUMENT {
       public static final String Source = "source";
 
@@ -18566,6 +20448,12 @@ public class DgsConstants {
 
     public static class THEMEDELETE_INPUT_ARGUMENT {
       public static final String Id = "id";
+    }
+
+    public static class THEMEDUPLICATE_INPUT_ARGUMENT {
+      public static final String Id = "id";
+
+      public static final String Name = "name";
     }
 
     public static class THEMEFILESCOPY_INPUT_ARGUMENT {
@@ -19069,6 +20957,8 @@ public class DgsConstants {
     public static final String PresentmentCurrencyCode = "presentmentCurrencyCode";
 
     public static final String ProcessedAt = "processedAt";
+
+    public static final String ProductNetwork = "productNetwork";
 
     public static final String Publication = "publication";
 
@@ -19684,6 +21574,8 @@ public class DgsConstants {
 
     public static final String CalculatedOrder = "calculatedOrder";
 
+    public static final String OrderEditSession = "orderEditSession";
+
     public static final String UserErrors = "userErrors";
   }
 
@@ -19696,6 +21588,8 @@ public class DgsConstants {
 
     public static final String CalculatedOrder = "calculatedOrder";
 
+    public static final String OrderEditSession = "orderEditSession";
+
     public static final String UserErrors = "userErrors";
   }
 
@@ -19705,6 +21599,8 @@ public class DgsConstants {
     public static final String CalculatedOrder = "calculatedOrder";
 
     public static final String CalculatedShippingLine = "calculatedShippingLine";
+
+    public static final String OrderEditSession = "orderEditSession";
 
     public static final String UserErrors = "userErrors";
   }
@@ -19725,6 +21621,8 @@ public class DgsConstants {
     public static final String CalculatedLineItem = "calculatedLineItem";
 
     public static final String CalculatedOrder = "calculatedOrder";
+
+    public static final String OrderEditSession = "orderEditSession";
 
     public static final String UserErrors = "userErrors";
   }
@@ -19762,6 +21660,8 @@ public class DgsConstants {
 
     public static final String CalculatedOrder = "calculatedOrder";
 
+    public static final String OrderEditSession = "orderEditSession";
+
     public static final String UserErrors = "userErrors";
   }
 
@@ -19770,6 +21670,8 @@ public class DgsConstants {
 
     public static final String Order = "order";
 
+    public static final String SuccessMessages = "successMessages";
+
     public static final String UserErrors = "userErrors";
   }
 
@@ -19777,6 +21679,8 @@ public class DgsConstants {
     public static final String TYPE_NAME = "OrderEditRemoveDiscountPayload";
 
     public static final String CalculatedOrder = "calculatedOrder";
+
+    public static final String OrderEditSession = "orderEditSession";
 
     public static final String UserErrors = "userErrors";
   }
@@ -19798,6 +21702,8 @@ public class DgsConstants {
 
     public static final String CalculatedOrder = "calculatedOrder";
 
+    public static final String OrderEditSession = "orderEditSession";
+
     public static final String UserErrors = "userErrors";
   }
 
@@ -19805,6 +21711,8 @@ public class DgsConstants {
     public static final String TYPE_NAME = "OrderEditRemoveShippingLinePayload";
 
     public static final String CalculatedOrder = "calculatedOrder";
+
+    public static final String OrderEditSession = "orderEditSession";
 
     public static final String UserErrors = "userErrors";
   }
@@ -19819,12 +21727,20 @@ public class DgsConstants {
     public static final String Message = "message";
   }
 
+  public static class ORDEREDITSESSION {
+    public static final String TYPE_NAME = "OrderEditSession";
+
+    public static final String Id = "id";
+  }
+
   public static class ORDEREDITSETQUANTITYPAYLOAD {
     public static final String TYPE_NAME = "OrderEditSetQuantityPayload";
 
     public static final String CalculatedLineItem = "calculatedLineItem";
 
     public static final String CalculatedOrder = "calculatedOrder";
+
+    public static final String OrderEditSession = "orderEditSession";
 
     public static final String UserErrors = "userErrors";
   }
@@ -19833,6 +21749,8 @@ public class DgsConstants {
     public static final String TYPE_NAME = "OrderEditUpdateDiscountPayload";
 
     public static final String CalculatedOrder = "calculatedOrder";
+
+    public static final String OrderEditSession = "orderEditSession";
 
     public static final String UserErrors = "userErrors";
   }
@@ -19851,6 +21769,8 @@ public class DgsConstants {
     public static final String TYPE_NAME = "OrderEditUpdateShippingLinePayload";
 
     public static final String CalculatedOrder = "calculatedOrder";
+
+    public static final String OrderEditSession = "orderEditSession";
 
     public static final String UserErrors = "userErrors";
   }
@@ -20041,6 +21961,12 @@ public class DgsConstants {
     public static final String Delta = "delta";
 
     public static final String LineItem = "lineItem";
+  }
+
+  public static class ORDERSTAGEDCHANGEREMOVEDISCOUNT {
+    public static final String TYPE_NAME = "OrderStagedChangeRemoveDiscount";
+
+    public static final String DiscountApplication = "discountApplication";
   }
 
   public static class ORDERSTAGEDCHANGEREMOVESHIPPINGLINE {
@@ -20473,6 +22399,32 @@ public class DgsConstants {
     public static final String PaymentInstrument = "paymentInstrument";
   }
 
+  public static class PAYMENTMANDATERESOURCE {
+    public static final String TYPE_NAME = "PaymentMandateResource";
+
+    public static final String ResourceId = "resourceId";
+
+    public static final String ResourceType = "resourceType";
+  }
+
+  public static class PAYMENTMANDATERESOURCECONNECTION {
+    public static final String TYPE_NAME = "PaymentMandateResourceConnection";
+
+    public static final String Edges = "edges";
+
+    public static final String Nodes = "nodes";
+
+    public static final String PageInfo = "pageInfo";
+  }
+
+  public static class PAYMENTMANDATERESOURCEEDGE {
+    public static final String TYPE_NAME = "PaymentMandateResourceEdge";
+
+    public static final String Cursor = "cursor";
+
+    public static final String Node = "node";
+  }
+
   public static class PAYMENTREMINDERSENDPAYLOAD {
     public static final String TYPE_NAME = "PaymentReminderSendPayload";
 
@@ -20496,7 +22448,11 @@ public class DgsConstants {
 
     public static final String Amount = "amount";
 
+    public static final String BalanceDue = "balanceDue";
+
     public static final String CompletedAt = "completedAt";
+
+    public static final String Due = "due";
 
     public static final String DueAt = "dueAt";
 
@@ -20505,6 +22461,8 @@ public class DgsConstants {
     public static final String IssuedAt = "issuedAt";
 
     public static final String PaymentTerms = "paymentTerms";
+
+    public static final String TotalBalance = "totalBalance";
   }
 
   public static class PAYMENTSCHEDULECONNECTION {
@@ -20535,6 +22493,8 @@ public class DgsConstants {
     public static final String TYPE_NAME = "PaymentTerms";
 
     public static final String DraftOrder = "draftOrder";
+
+    public static final String Due = "due";
 
     public static final String DueInDays = "dueInDays";
 
@@ -20662,7 +22622,203 @@ public class DgsConstants {
   public static class POINTOFSALEDEVICE {
     public static final String TYPE_NAME = "PointOfSaleDevice";
 
+    public static final String ActivePaymentSession = "activePaymentSession";
+
+    public static final String CashDrawer = "cashDrawer";
+
     public static final String Id = "id";
+  }
+
+  public static class POINTOFSALEDEVICEASSIGNTOCASHDRAWERPAYLOAD {
+    public static final String TYPE_NAME = "PointOfSaleDeviceAssignToCashDrawerPayload";
+
+    public static final String PointOfSaleDevice = "pointOfSaleDevice";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class POINTOFSALEDEVICEASSIGNTOCASHDRAWERUSERERROR {
+    public static final String TYPE_NAME = "PointOfSaleDeviceAssignToCashDrawerUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class POINTOFSALEDEVICECONNECTION {
+    public static final String TYPE_NAME = "PointOfSaleDeviceConnection";
+
+    public static final String Edges = "edges";
+
+    public static final String Nodes = "nodes";
+
+    public static final String PageInfo = "pageInfo";
+  }
+
+  public static class POINTOFSALEDEVICEEDGE {
+    public static final String TYPE_NAME = "PointOfSaleDeviceEdge";
+
+    public static final String Cursor = "cursor";
+
+    public static final String Node = "node";
+  }
+
+  public static class POINTOFSALEDEVICEPAYMENTSESSION {
+    public static final String TYPE_NAME = "PointOfSaleDevicePaymentSession";
+
+    public static final String CashActivities = "cashActivities";
+
+    public static final String CashCountedAtClose = "cashCountedAtClose";
+
+    public static final String CashCountedAtOpen = "cashCountedAtOpen";
+
+    public static final String CashDrawer = "cashDrawer";
+
+    public static final String ClosingAdjustment = "closingAdjustment";
+
+    public static final String ClosingBalance = "closingBalance";
+
+    public static final String ClosingNote = "closingNote";
+
+    public static final String ClosingStaffMember = "closingStaffMember";
+
+    public static final String ClosingTime = "closingTime";
+
+    public static final String Currency = "currency";
+
+    public static final String ExpectedCashAtClose = "expectedCashAtClose";
+
+    public static final String ExpectedCashAtOpen = "expectedCashAtOpen";
+
+    public static final String Id = "id";
+
+    public static final String Location = "location";
+
+    public static final String NetCashSales = "netCashSales";
+
+    public static final String NetSales = "netSales";
+
+    public static final String OpeningNote = "openingNote";
+
+    public static final String OpeningStaffMember = "openingStaffMember";
+
+    public static final String OpeningTime = "openingTime";
+
+    public static final String PointOfSaleDevice = "pointOfSaleDevice";
+
+    public static final String Status = "status";
+
+    public static final String TotalAdjustments = "totalAdjustments";
+
+    public static final String TotalCashRefunds = "totalCashRefunds";
+
+    public static final String TotalCashSales = "totalCashSales";
+
+    public static final String TotalDiscrepancy = "totalDiscrepancy";
+
+    public static final String TotalRefunds = "totalRefunds";
+
+    public static final String TotalSales = "totalSales";
+
+    public static final String TotalsReady = "totalsReady";
+
+    public static class CASHACTIVITIES_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+
+      public static final String Query = "query";
+
+      public static final String StaffMemberId = "staffMemberId";
+    }
+  }
+
+  public static class POINTOFSALEDEVICEPAYMENTSESSIONADJUSTPAYLOAD {
+    public static final String TYPE_NAME = "PointOfSaleDevicePaymentSessionAdjustPayload";
+
+    public static final String PointOfSaleDevicePaymentSession = "pointOfSaleDevicePaymentSession";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class POINTOFSALEDEVICEPAYMENTSESSIONCLOSEPAYLOAD {
+    public static final String TYPE_NAME = "PointOfSaleDevicePaymentSessionClosePayload";
+
+    public static final String PointOfSaleDevicePaymentSession = "pointOfSaleDevicePaymentSession";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class POINTOFSALEDEVICEPAYMENTSESSIONCLOSEUSERERROR {
+    public static final String TYPE_NAME = "PointOfSaleDevicePaymentSessionCloseUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class POINTOFSALEDEVICEPAYMENTSESSIONCONNECTION {
+    public static final String TYPE_NAME = "PointOfSaleDevicePaymentSessionConnection";
+
+    public static final String Edges = "edges";
+
+    public static final String Nodes = "nodes";
+
+    public static final String PageInfo = "pageInfo";
+  }
+
+  public static class POINTOFSALEDEVICEPAYMENTSESSIONCOUNTPAYLOAD {
+    public static final String TYPE_NAME = "PointOfSaleDevicePaymentSessionCountPayload";
+
+    public static final String PointOfSaleDevicePaymentSession = "pointOfSaleDevicePaymentSession";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class POINTOFSALEDEVICEPAYMENTSESSIONCOUNTUSERERROR {
+    public static final String TYPE_NAME = "PointOfSaleDevicePaymentSessionCountUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class POINTOFSALEDEVICEPAYMENTSESSIONEDGE {
+    public static final String TYPE_NAME = "PointOfSaleDevicePaymentSessionEdge";
+
+    public static final String Cursor = "cursor";
+
+    public static final String Node = "node";
+  }
+
+  public static class POINTOFSALEDEVICEPAYMENTSESSIONOPENPAYLOAD {
+    public static final String TYPE_NAME = "PointOfSaleDevicePaymentSessionOpenPayload";
+
+    public static final String PointOfSaleDevicePaymentSession = "pointOfSaleDevicePaymentSession";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class POINTOFSALEDEVICEPAYMENTSESSIONOPENUSERERROR {
+    public static final String TYPE_NAME = "PointOfSaleDevicePaymentSessionOpenUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
   }
 
   public static class PRICELIST {
@@ -21293,6 +23449,8 @@ public class DgsConstants {
     public static final String BodyHtml = "bodyHtml";
 
     public static final String BundleComponents = "bundleComponents";
+
+    public static final String BundleConsolidatedOptions = "bundleConsolidatedOptions";
 
     public static final String Category = "category";
 
@@ -22080,6 +24238,8 @@ public class DgsConstants {
   public static class PRODUCTFEED {
     public static final String TYPE_NAME = "ProductFeed";
 
+    public static final String ChannelId = "channelId";
+
     public static final String Country = "country";
 
     public static final String Id = "id";
@@ -22375,6 +24535,8 @@ public class DgsConstants {
 
   public static class PRODUCTRESOURCEFEEDBACK {
     public static final String TYPE_NAME = "ProductResourceFeedback";
+
+    public static final String Channel = "channel";
 
     public static final String FeedbackGeneratedAt = "feedbackGeneratedAt";
 
@@ -22944,6 +25106,8 @@ public class DgsConstants {
 
     public static final String Catalog = "catalog";
 
+    public static final String Channels = "channels";
+
     public static final String CollectionPublicationsV3 = "collectionPublicationsV3";
 
     public static final String Collections = "collections";
@@ -22954,6 +25118,8 @@ public class DgsConstants {
 
     public static final String IncludedProducts = "includedProducts";
 
+    public static final String IncludedProductsCount = "includedProductsCount";
+
     public static final String Name = "name";
 
     public static final String Operation = "operation";
@@ -22963,6 +25129,18 @@ public class DgsConstants {
     public static final String Products = "products";
 
     public static final String SupportsFuturePublishing = "supportsFuturePublishing";
+
+    public static class CHANNELS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+    }
 
     public static class COLLECTIONPUBLICATIONSV3_INPUT_ARGUMENT {
       public static final String First = "first";
@@ -23002,6 +25180,20 @@ public class DgsConstants {
       public static final String Before = "before";
 
       public static final String Reverse = "reverse";
+
+      public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
+
+      public static final String SavedSearchId = "savedSearchId";
+    }
+
+    public static class INCLUDEDPRODUCTSCOUNT_INPUT_ARGUMENT {
+      public static final String Query = "query";
+
+      public static final String SavedSearchId = "savedSearchId";
+
+      public static final String Limit = "limit";
     }
 
     public static class PRODUCTPUBLICATIONSV3_INPUT_ARGUMENT {
@@ -23026,6 +25218,12 @@ public class DgsConstants {
       public static final String Before = "before";
 
       public static final String Reverse = "reverse";
+
+      public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
+
+      public static final String SavedSearchId = "savedSearchId";
     }
   }
 
@@ -23358,6 +25556,10 @@ public class DgsConstants {
 
     public static final String BlogsCount = "blogsCount";
 
+    public static final String BulkOperation = "bulkOperation";
+
+    public static final String BulkOperations = "bulkOperations";
+
     public static final String BusinessEntities = "businessEntities";
 
     public static final String BusinessEntity = "businessEntity";
@@ -23367,6 +25569,16 @@ public class DgsConstants {
     public static final String CarrierServices = "carrierServices";
 
     public static final String CartTransforms = "cartTransforms";
+
+    public static final String CashDrawer = "cashDrawer";
+
+    public static final String CashDrawers = "cashDrawers";
+
+    public static final String CashManagementLocationSummary = "cashManagementLocationSummary";
+
+    public static final String CashManagementReasonCodes = "cashManagementReasonCodes";
+
+    public static final String CashManagementShopSummary = "cashManagementShopSummary";
 
     public static final String CashTrackingSession = "cashTrackingSession";
 
@@ -23382,7 +25594,13 @@ public class DgsConstants {
 
     public static final String Channel = "channel";
 
+    public static final String ChannelByHandle = "channelByHandle";
+
     public static final String Channels = "channels";
+
+    public static final String CheckoutAndAccountsConfiguration = "checkoutAndAccountsConfiguration";
+
+    public static final String CheckoutAndAccountsConfigurations = "checkoutAndAccountsConfigurations";
 
     public static final String CheckoutBranding = "checkoutBranding";
 
@@ -23482,8 +25700,6 @@ public class DgsConstants {
 
     public static final String DeliveryPromiseSettings = "deliveryPromiseSettings";
 
-    public static final String DeliverySettings = "deliverySettings";
-
     public static final String DiscountCodesCount = "discountCodesCount";
 
     public static final String DiscountNode = "discountNode";
@@ -23495,6 +25711,8 @@ public class DgsConstants {
     public static final String DiscountRedeemCodeBulkCreation = "discountRedeemCodeBulkCreation";
 
     public static final String DiscountRedeemCodeSavedSearches = "discountRedeemCodeSavedSearches";
+
+    public static final String DiscountTags = "discountTags";
 
     public static final String Dispute = "dispute";
 
@@ -23557,6 +25775,8 @@ public class DgsConstants {
     public static final String InventoryProperties = "inventoryProperties";
 
     public static final String InventoryShipment = "inventoryShipment";
+
+    public static final String InventoryShipments = "inventoryShipments";
 
     public static final String InventoryTransfer = "inventoryTransfer";
 
@@ -23636,6 +25856,8 @@ public class DgsConstants {
 
     public static final String OrderByIdentifier = "orderByIdentifier";
 
+    public static final String OrderEditSession = "orderEditSession";
+
     public static final String OrderPaymentStatus = "orderPaymentStatus";
 
     public static final String OrderSavedSearches = "orderSavedSearches";
@@ -23659,6 +25881,10 @@ public class DgsConstants {
     public static final String PendingOrdersCount = "pendingOrdersCount";
 
     public static final String PointOfSaleDevice = "pointOfSaleDevice";
+
+    public static final String PointOfSaleDevicePaymentSession = "pointOfSaleDevicePaymentSession";
+
+    public static final String PointOfSaleDevicePaymentSessions = "pointOfSaleDevicePaymentSessions";
 
     public static final String PriceList = "priceList";
 
@@ -23720,6 +25946,8 @@ public class DgsConstants {
 
     public static final String ReturnCalculate = "returnCalculate";
 
+    public static final String ReturnReasonDefinitions = "returnReasonDefinitions";
+
     public static final String ReturnableFulfillment = "returnableFulfillment";
 
     public static final String ReturnableFulfillments = "returnableFulfillments";
@@ -23768,6 +25996,8 @@ public class DgsConstants {
 
     public static final String ShopifyPaymentsAccount = "shopifyPaymentsAccount";
 
+    public static final String ShopifyqlQuery = "shopifyqlQuery";
+
     public static final String StaffMember = "staffMember";
 
     public static final String StaffMembers = "staffMembers";
@@ -23775,6 +26005,8 @@ public class DgsConstants {
     public static final String StandardMetafieldDefinitionTemplates = "standardMetafieldDefinitionTemplates";
 
     public static final String StoreCreditAccount = "storeCreditAccount";
+
+    public static final String StoreCreditConfiguration = "storeCreditConfiguration";
 
     public static final String SubscriptionBillingAttempt = "subscriptionBillingAttempt";
 
@@ -24052,6 +26284,26 @@ public class DgsConstants {
       public static final String Limit = "limit";
     }
 
+    public static class BULKOPERATION_INPUT_ARGUMENT {
+      public static final String Id = "id";
+    }
+
+    public static class BULKOPERATIONS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+
+      public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
+    }
+
     public static class BUSINESSENTITY_INPUT_ARGUMENT {
       public static final String Id = "id";
     }
@@ -24086,6 +26338,50 @@ public class DgsConstants {
       public static final String Before = "before";
 
       public static final String Reverse = "reverse";
+    }
+
+    public static class CASHDRAWER_INPUT_ARGUMENT {
+      public static final String Id = "id";
+    }
+
+    public static class CASHDRAWERS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Query = "query";
+    }
+
+    public static class CASHMANAGEMENTLOCATIONSUMMARY_INPUT_ARGUMENT {
+      public static final String LocationId = "locationId";
+
+      public static final String StartDate = "startDate";
+
+      public static final String EndDate = "endDate";
+    }
+
+    public static class CASHMANAGEMENTREASONCODES_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+    }
+
+    public static class CASHMANAGEMENTSHOPSUMMARY_INPUT_ARGUMENT {
+      public static final String CurrencyCode = "currencyCode";
+
+      public static final String StartDate = "startDate";
+
+      public static final String EndDate = "endDate";
     }
 
     public static class CASHTRACKINGSESSION_INPUT_ARGUMENT {
@@ -24142,6 +26438,10 @@ public class DgsConstants {
       public static final String Id = "id";
     }
 
+    public static class CHANNELBYHANDLE_INPUT_ARGUMENT {
+      public static final String Handle = "handle";
+    }
+
     public static class CHANNELS_INPUT_ARGUMENT {
       public static final String First = "first";
 
@@ -24152,6 +26452,26 @@ public class DgsConstants {
       public static final String Before = "before";
 
       public static final String Reverse = "reverse";
+    }
+
+    public static class CHECKOUTANDACCOUNTSCONFIGURATION_INPUT_ARGUMENT {
+      public static final String Id = "id";
+    }
+
+    public static class CHECKOUTANDACCOUNTSCONFIGURATIONS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+
+      public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
     }
 
     public static class CHECKOUTBRANDING_INPUT_ARGUMENT {
@@ -24596,6 +26916,22 @@ public class DgsConstants {
       public static final String Query = "query";
     }
 
+    public static class DISCOUNTTAGS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+
+      public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
+    }
+
     public static class DISPUTE_INPUT_ARGUMENT {
       public static final String Id = "id";
     }
@@ -24818,6 +27154,20 @@ public class DgsConstants {
 
     public static class INVENTORYSHIPMENT_INPUT_ARGUMENT {
       public static final String Id = "id";
+    }
+
+    public static class INVENTORYSHIPMENTS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
     }
 
     public static class INVENTORYTRANSFER_INPUT_ARGUMENT {
@@ -25146,6 +27496,10 @@ public class DgsConstants {
       public static final String Identifier = "identifier";
     }
 
+    public static class ORDEREDITSESSION_INPUT_ARGUMENT {
+      public static final String Id = "id";
+    }
+
     public static class ORDERPAYMENTSTATUS_INPUT_ARGUMENT {
       public static final String PaymentReferenceId = "paymentReferenceId";
 
@@ -25242,6 +27596,26 @@ public class DgsConstants {
       public static final String Id = "id";
     }
 
+    public static class POINTOFSALEDEVICEPAYMENTSESSION_INPUT_ARGUMENT {
+      public static final String Id = "id";
+    }
+
+    public static class POINTOFSALEDEVICEPAYMENTSESSIONS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+
+      public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
+    }
+
     public static class PRICELIST_INPUT_ARGUMENT {
       public static final String Id = "id";
     }
@@ -25298,6 +27672,8 @@ public class DgsConstants {
 
     public static class PRODUCTRESOURCEFEEDBACK_INPUT_ARGUMENT {
       public static final String Id = "id";
+
+      public static final String ChannelId = "channelId";
     }
 
     public static class PRODUCTSAVEDSEARCHES_INPUT_ARGUMENT {
@@ -25446,6 +27822,26 @@ public class DgsConstants {
 
     public static class RETURNCALCULATE_INPUT_ARGUMENT {
       public static final String Input = "input";
+    }
+
+    public static class RETURNREASONDEFINITIONS_INPUT_ARGUMENT {
+      public static final String Ids = "ids";
+
+      public static final String Handles = "handles";
+
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+
+      public static final String SortKey = "sortKey";
+
+      public static final String Query = "query";
     }
 
     public static class RETURNABLEFULFILLMENT_INPUT_ARGUMENT {
@@ -25626,6 +28022,10 @@ public class DgsConstants {
       public static final String Before = "before";
 
       public static final String Reverse = "reverse";
+    }
+
+    public static class SHOPIFYQLQUERY_INPUT_ARGUMENT {
+      public static final String Query = "query";
     }
 
     public static class STAFFMEMBER_INPUT_ARGUMENT {
@@ -25917,7 +28317,7 @@ public class DgsConstants {
 
       public static final String Query = "query";
 
-      public static final String CallbackUrl = "callbackUrl";
+      public static final String Uri = "uri";
 
       public static final String Format = "format";
 
@@ -25947,6 +28347,8 @@ public class DgsConstants {
     public static final String Order = "order";
 
     public static final String OrderAdjustments = "orderAdjustments";
+
+    public static final String ProcessedAt = "processedAt";
 
     public static final String RefundLineItems = "refundLineItems";
 
@@ -26346,6 +28748,8 @@ public class DgsConstants {
 
     public static final String ReverseFulfillmentOrders = "reverseFulfillmentOrders";
 
+    public static final String StaffMember = "staffMember";
+
     public static final String Status = "status";
 
     public static final String SuggestedFinancialOutcome = "suggestedFinancialOutcome";
@@ -26354,8 +28758,12 @@ public class DgsConstants {
 
     public static final String TotalQuantity = "totalQuantity";
 
+    public static final String Transactions = "transactions";
+
     public static class EXCHANGELINEITEMS_INPUT_ARGUMENT {
       public static final String IncludeRemovedItems = "includeRemovedItems";
+
+      public static final String ProcessingStatus = "processingStatus";
 
       public static final String First = "first";
 
@@ -26381,6 +28789,8 @@ public class DgsConstants {
     }
 
     public static class RETURNLINEITEMS_INPUT_ARGUMENT {
+      public static final String ProcessingStatus = "processingStatus";
+
       public static final String First = "first";
 
       public static final String After = "after";
@@ -26411,6 +28821,8 @@ public class DgsConstants {
 
       public static final String RefundShipping = "refundShipping";
 
+      public static final String TipLineId = "tipLineId";
+
       public static final String RefundDuties = "refundDuties";
 
       public static final String RefundMethodAllocation = "refundMethodAllocation";
@@ -26422,6 +28834,18 @@ public class DgsConstants {
       public static final String RefundShipping = "refundShipping";
 
       public static final String RefundDuties = "refundDuties";
+    }
+
+    public static class TRANSACTIONS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
     }
   }
 
@@ -26610,6 +29034,8 @@ public class DgsConstants {
 
     public static final String ReturnReason = "returnReason";
 
+    public static final String ReturnReasonDefinition = "returnReasonDefinition";
+
     public static final String ReturnReasonNote = "returnReasonNote";
 
     public static final String TotalWeight = "totalWeight";
@@ -26651,6 +29077,36 @@ public class DgsConstants {
     public static final String Return = "return";
 
     public static final String UserErrors = "userErrors";
+  }
+
+  public static class RETURNREASONDEFINITION {
+    public static final String TYPE_NAME = "ReturnReasonDefinition";
+
+    public static final String Deleted = "deleted";
+
+    public static final String Handle = "handle";
+
+    public static final String Id = "id";
+
+    public static final String Name = "name";
+  }
+
+  public static class RETURNREASONDEFINITIONCONNECTION {
+    public static final String TYPE_NAME = "ReturnReasonDefinitionConnection";
+
+    public static final String Edges = "edges";
+
+    public static final String Nodes = "nodes";
+
+    public static final String PageInfo = "pageInfo";
+  }
+
+  public static class RETURNREASONDEFINITIONEDGE {
+    public static final String TYPE_NAME = "ReturnReasonDefinitionEdge";
+
+    public static final String Cursor = "cursor";
+
+    public static final String Node = "node";
   }
 
   public static class RETURNREFUNDPAYLOAD {
@@ -28094,8 +30550,6 @@ public class DgsConstants {
 
     public static final String DraftOrderTags = "draftOrderTags";
 
-    public static final String DraftOrders = "draftOrders";
-
     public static final String Email = "email";
 
     public static final String EnabledPresentmentCurrencies = "enabledPresentmentCurrencies";
@@ -28173,6 +30627,8 @@ public class DgsConstants {
     public static final String SetupRequired = "setupRequired";
 
     public static final String ShipsToCountries = "shipsToCountries";
+
+    public static final String ShopAddress = "shopAddress";
 
     public static final String ShopOwnerName = "shopOwnerName";
 
@@ -28300,22 +30756,6 @@ public class DgsConstants {
 
     public static class DRAFTORDERTAGS_INPUT_ARGUMENT {
       public static final String First = "first";
-    }
-
-    public static class DRAFTORDERS_INPUT_ARGUMENT {
-      public static final String First = "first";
-
-      public static final String After = "after";
-
-      public static final String Last = "last";
-
-      public static final String Before = "before";
-
-      public static final String Reverse = "reverse";
-
-      public static final String SortKey = "sortKey";
-
-      public static final String Query = "query";
     }
 
     public static class FULFILLMENTORDERS_INPUT_ARGUMENT {
@@ -28676,6 +31116,8 @@ public class DgsConstants {
 
     public static final String Description = "description";
 
+    public static final String Handle = "handle";
+
     public static final String Id = "id";
 
     public static final String InputQuery = "inputQuery";
@@ -28972,6 +31414,8 @@ public class DgsConstants {
 
     public static final String Amount = "amount";
 
+    public static final String DisputeEvidence = "disputeEvidence";
+
     public static final String EvidenceDueBy = "evidenceDueBy";
 
     public static final String EvidenceSentOn = "evidenceSentOn";
@@ -29140,6 +31584,8 @@ public class DgsConstants {
 
     public static final String BusinessEntity = "businessEntity";
 
+    public static final String ExternalTraceId = "externalTraceId";
+
     public static final String Gross = "gross";
 
     public static final String Id = "id";
@@ -29231,6 +31677,8 @@ public class DgsConstants {
     public static final String RetriedPayoutsFee = "retriedPayoutsFee";
 
     public static final String RetriedPayoutsGross = "retriedPayoutsGross";
+
+    public static final String UsdcRebateCreditAmount = "usdcRebateCreditAmount";
   }
 
   public static class SHOPIFYPAYMENTSREFUNDSET {
@@ -29281,6 +31729,34 @@ public class DgsConstants {
     public static final String Eligibility = "eligibility";
 
     public static final String Status = "status";
+  }
+
+  public static class SHOPIFYQLQUERYRESPONSE {
+    public static final String TYPE_NAME = "ShopifyqlQueryResponse";
+
+    public static final String ParseErrors = "parseErrors";
+
+    public static final String TableData = "tableData";
+  }
+
+  public static class SHOPIFYQLTABLEDATA {
+    public static final String TYPE_NAME = "ShopifyqlTableData";
+
+    public static final String Columns = "columns";
+
+    public static final String Rows = "rows";
+  }
+
+  public static class SHOPIFYQLTABLEDATACOLUMN {
+    public static final String TYPE_NAME = "ShopifyqlTableDataColumn";
+
+    public static final String DataType = "dataType";
+
+    public static final String DisplayName = "displayName";
+
+    public static final String Name = "name";
+
+    public static final String SubType = "subType";
   }
 
   public static class SHOPLOCALE {
@@ -29975,6 +32451,12 @@ public class DgsConstants {
     public static final String Node = "node";
   }
 
+  public static class STORECREDITCONFIGURATION {
+    public static final String TYPE_NAME = "StoreCreditConfiguration";
+
+    public static final String StoreCreditEnabled = "storeCreditEnabled";
+  }
+
   public static class STOREFRONTACCESSTOKEN {
     public static final String TYPE_NAME = "StorefrontAccessToken";
 
@@ -30086,6 +32568,8 @@ public class DgsConstants {
 
     public static final String RespectInventoryPolicy = "respectInventoryPolicy";
 
+    public static final String State = "state";
+
     public static final String SubscriptionContract = "subscriptionContract";
 
     public static final String Transactions = "transactions";
@@ -30101,6 +32585,12 @@ public class DgsConstants {
 
       public static final String Reverse = "reverse";
     }
+  }
+
+  public static class SUBSCRIPTIONBILLINGATTEMPTACTIONREQUIREDSTATE {
+    public static final String TYPE_NAME = "SubscriptionBillingAttemptActionRequiredState";
+
+    public static final String Action = "action";
   }
 
   public static class SUBSCRIPTIONBILLINGATTEMPTCONNECTION {
@@ -30129,6 +32619,18 @@ public class DgsConstants {
     public static final String Node = "node";
   }
 
+  public static class SUBSCRIPTIONBILLINGATTEMPTFAILEDSTATE {
+    public static final String TYPE_NAME = "SubscriptionBillingAttemptFailedState";
+
+    public static final String Error = "error";
+  }
+
+  public static class SUBSCRIPTIONBILLINGATTEMPTGENERALERROR {
+    public static final String TYPE_NAME = "SubscriptionBillingAttemptGeneralError";
+
+    public static final String Code = "code";
+  }
+
   public static class SUBSCRIPTIONBILLINGATTEMPTGENERICERROR {
     public static final String TYPE_NAME = "SubscriptionBillingAttemptGenericError";
 
@@ -30145,6 +32647,26 @@ public class DgsConstants {
     public static final String InsufficientStockProductVariants = "insufficientStockProductVariants";
 
     public static final String Message = "message";
+
+    public static class INSUFFICIENTSTOCKPRODUCTVARIANTS_INPUT_ARGUMENT {
+      public static final String First = "first";
+
+      public static final String After = "after";
+
+      public static final String Last = "last";
+
+      public static final String Before = "before";
+
+      public static final String Reverse = "reverse";
+    }
+  }
+
+  public static class SUBSCRIPTIONBILLINGATTEMPTINVENTORYERROR {
+    public static final String TYPE_NAME = "SubscriptionBillingAttemptInventoryError";
+
+    public static final String Code = "code";
+
+    public static final String InsufficientStockProductVariants = "insufficientStockProductVariants";
 
     public static class INSUFFICIENTSTOCKPRODUCTVARIANTS_INPUT_ARGUMENT {
       public static final String First = "first";
@@ -30179,6 +32701,38 @@ public class DgsConstants {
 
       public static final String Reverse = "reverse";
     }
+  }
+
+  public static class SUBSCRIPTIONBILLINGATTEMPTPAYMENTCHALLENGE {
+    public static final String TYPE_NAME = "SubscriptionBillingAttemptPaymentChallenge";
+
+    public static final String NextActionUrl = "nextActionUrl";
+
+    public static final String Status = "status";
+  }
+
+  public static class SUBSCRIPTIONBILLINGATTEMPTPAYMENTERROR {
+    public static final String TYPE_NAME = "SubscriptionBillingAttemptPaymentError";
+
+    public static final String Code = "code";
+  }
+
+  public static class SUBSCRIPTIONBILLINGATTEMPTPENDINGSTATE {
+    public static final String TYPE_NAME = "SubscriptionBillingAttemptPendingState";
+
+    public static final String Processing = "processing";
+  }
+
+  public static class SUBSCRIPTIONBILLINGATTEMPTSUCCESSSTATE {
+    public static final String TYPE_NAME = "SubscriptionBillingAttemptSuccessState";
+
+    public static final String Order = "order";
+  }
+
+  public static class SUBSCRIPTIONBILLINGATTEMPTUNEXPECTEDERROR {
+    public static final String TYPE_NAME = "SubscriptionBillingAttemptUnexpectedError";
+
+    public static final String Message = "message";
   }
 
   public static class SUBSCRIPTIONBILLINGCYCLE {
@@ -31641,6 +34195,24 @@ public class DgsConstants {
     public static final String Node = "node";
   }
 
+  public static class TAXSUMMARYCREATEPAYLOAD {
+    public static final String TYPE_NAME = "TaxSummaryCreatePayload";
+
+    public static final String EnqueuedOrders = "enqueuedOrders";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class TAXSUMMARYCREATEUSERERROR {
+    public static final String TYPE_NAME = "TaxSummaryCreateUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
   public static class TENDERTRANSACTION {
     public static final String TYPE_NAME = "TenderTransaction";
 
@@ -31717,6 +34289,24 @@ public class DgsConstants {
 
   public static class THEMEDELETEUSERERROR {
     public static final String TYPE_NAME = "ThemeDeleteUserError";
+
+    public static final String Code = "code";
+
+    public static final String Field = "field";
+
+    public static final String Message = "message";
+  }
+
+  public static class THEMEDUPLICATEPAYLOAD {
+    public static final String TYPE_NAME = "ThemeDuplicatePayload";
+
+    public static final String NewTheme = "newTheme";
+
+    public static final String UserErrors = "userErrors";
+  }
+
+  public static class THEMEDUPLICATEUSERERROR {
+    public static final String TYPE_NAME = "ThemeDuplicateUserError";
 
     public static final String Code = "code";
 
@@ -32023,6 +34613,8 @@ public class DgsConstants {
     public static final String RefundedQuantity = "refundedQuantity";
 
     public static final String ReturnReason = "returnReason";
+
+    public static final String ReturnReasonDefinition = "returnReasonDefinition";
 
     public static final String ReturnReasonNote = "returnReasonNote";
 
@@ -32480,9 +35072,13 @@ public class DgsConstants {
 
     public static final String Metafields = "metafields";
 
+    public static final String Name = "name";
+
     public static final String Topic = "topic";
 
     public static final String UpdatedAt = "updatedAt";
+
+    public static final String Uri = "uri";
   }
 
   public static class WEBHOOKSUBSCRIPTIONCONNECTION {
@@ -32833,6 +35429,20 @@ public class DgsConstants {
     public static final String Quantity = "quantity";
   }
 
+  public static class CASHDRAWERDATERANGEINPUT {
+    public static final String TYPE_NAME = "CashDrawerDateRangeInput";
+
+    public static final String From = "from";
+
+    public static final String To = "to";
+  }
+
+  public static class CASHDRAWERUPDATEINPUT {
+    public static final String TYPE_NAME = "CashDrawerUpdateInput";
+
+    public static final String Name = "name";
+  }
+
   public static class CATALOGCONTEXTINPUT {
     public static final String TYPE_NAME = "CatalogContextInput";
 
@@ -32867,6 +35477,812 @@ public class DgsConstants {
     public static final String PriceListId = "priceListId";
 
     public static final String PublicationId = "publicationId";
+  }
+
+  public static class CHANNELCREATEINPUT {
+    public static final String TYPE_NAME = "ChannelCreateInput";
+
+    public static final String Handle = "handle";
+
+    public static final String SpecificationHandle = "specificationHandle";
+
+    public static final String AccountId = "accountId";
+
+    public static final String AccountName = "accountName";
+  }
+
+  public static class CHANNELUPDATEINPUT {
+    public static final String TYPE_NAME = "ChannelUpdateInput";
+
+    public static final String Handle = "handle";
+
+    public static final String SpecificationHandle = "specificationHandle";
+
+    public static final String AccountId = "accountId";
+
+    public static final String AccountName = "accountName";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGBASECOLORROLESINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingBaseColorRolesInput";
+
+    public static final String Background = "background";
+
+    public static final String Text = "text";
+
+    public static final String Border = "border";
+
+    public static final String Icon = "icon";
+
+    public static final String Accent = "accent";
+
+    public static final String Decorative = "decorative";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGBUTTONINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingButtonInput";
+
+    public static final String Border = "border";
+
+    public static final String CornerRadius = "cornerRadius";
+
+    public static final String BlockPadding = "blockPadding";
+
+    public static final String InlinePadding = "inlinePadding";
+
+    public static final String Typography = "typography";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGBUYERJOURNEYINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingBuyerJourneyInput";
+
+    public static final String Visibility = "visibility";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCARTLINKINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCartLinkInput";
+
+    public static final String Visibility = "visibility";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCHECKBOXINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCheckboxInput";
+
+    public static final String CornerRadius = "cornerRadius";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCHECKOUTCOMPONENTSINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCheckoutComponentsInput";
+
+    public static final String Footer = "footer";
+
+    public static final String Header = "header";
+
+    public static final String CartLink = "cartLink";
+
+    public static final String BuyerJourney = "buyerJourney";
+
+    public static final String Content = "content";
+
+    public static final String ExpressCheckout = "expressCheckout";
+
+    public static final String OrderSummary = "orderSummary";
+
+    public static final String Main = "main";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCHECKOUTFOOTERINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCheckoutFooterInput";
+
+    public static final String Divided = "divided";
+
+    public static final String Alignment = "alignment";
+
+    public static final String Content = "content";
+
+    public static final String Colors = "colors";
+
+    public static final String Background = "background";
+
+    public static final String Padding = "padding";
+
+    public static final String Position = "position";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCHECKOUTHEADERINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCheckoutHeaderInput";
+
+    public static final String Alignment = "alignment";
+
+    public static final String Logo = "logo";
+
+    public static final String Divided = "divided";
+
+    public static final String Colors = "colors";
+
+    public static final String Background = "background";
+
+    public static final String Padding = "padding";
+
+    public static final String Position = "position";
+
+    public static final String CartLink = "cartLink";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCHECKOUTSURFACEINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCheckoutSurfaceInput";
+
+    public static final String Components = "components";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCHOICELISTGROUPINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingChoiceListGroupInput";
+
+    public static final String Spacing = "spacing";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCHOICELISTINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingChoiceListInput";
+
+    public static final String Group = "group";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCOLORROLESINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingColorRolesInput";
+
+    public static final String Background = "background";
+
+    public static final String Text = "text";
+
+    public static final String Border = "border";
+
+    public static final String Icon = "icon";
+
+    public static final String Accent = "accent";
+
+    public static final String Decorative = "decorative";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCOLORSINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingColorsInput";
+
+    public static final String Base = "base";
+
+    public static final String Control = "control";
+
+    public static final String PrimaryButton = "primaryButton";
+
+    public static final String SecondaryButton = "secondaryButton";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCOMPONENTSINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingComponentsInput";
+
+    public static final String Checkbox = "checkbox";
+
+    public static final String ChoiceList = "choiceList";
+
+    public static final String Control = "control";
+
+    public static final String Divider = "divider";
+
+    public static final String Favicon = "favicon";
+
+    public static final String Shared = "shared";
+
+    public static final String HeadingLevel1 = "headingLevel1";
+
+    public static final String HeadingLevel2 = "headingLevel2";
+
+    public static final String HeadingLevel3 = "headingLevel3";
+
+    public static final String MerchandiseThumbnail = "merchandiseThumbnail";
+
+    public static final String PrimaryButton = "primaryButton";
+
+    public static final String SecondaryButton = "secondaryButton";
+
+    public static final String Select = "select";
+
+    public static final String TextField = "textField";
+
+    public static final String Main = "main";
+
+    public static final String Footer = "footer";
+
+    public static final String Header = "header";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCONTAINERDIVIDERINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingContainerDividerInput";
+
+    public static final String BorderStyle = "borderStyle";
+
+    public static final String BorderWidth = "borderWidth";
+
+    public static final String Visibility = "visibility";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCONTENTINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingContentInput";
+
+    public static final String Divider = "divider";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCONTROLCOLORROLESINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingControlColorRolesInput";
+
+    public static final String Background = "background";
+
+    public static final String Text = "text";
+
+    public static final String Border = "border";
+
+    public static final String Icon = "icon";
+
+    public static final String Accent = "accent";
+
+    public static final String Decorative = "decorative";
+
+    public static final String Selected = "selected";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCONTROLINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingControlInput";
+
+    public static final String CornerRadius = "cornerRadius";
+
+    public static final String Border = "border";
+
+    public static final String LabelPosition = "labelPosition";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCORNERRADIUSVARIABLESINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCornerRadiusVariablesInput";
+
+    public static final String Small = "small";
+
+    public static final String Base = "base";
+
+    public static final String Large = "large";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCUSTOMERACCOUNTSCOMPONENTSINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCustomerAccountsComponentsInput";
+
+    public static final String Footer = "footer";
+
+    public static final String Header = "header";
+
+    public static final String Main = "main";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCUSTOMERACCOUNTSFOOTERINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCustomerAccountsFooterInput";
+
+    public static final String Alignment = "alignment";
+
+    public static final String Colors = "colors";
+
+    public static final String Padding = "padding";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCUSTOMERACCOUNTSHEADERINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCustomerAccountsHeaderInput";
+
+    public static final String Alignment = "alignment";
+
+    public static final String Colors = "colors";
+
+    public static final String Logo = "logo";
+
+    public static final String Padding = "padding";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCUSTOMERACCOUNTSLOGOINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCustomerAccountsLogoInput";
+
+    public static final String Image = "image";
+
+    public static final String MaxWidth = "maxWidth";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCUSTOMERACCOUNTSMAININPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCustomerAccountsMainInput";
+
+    public static final String Colors = "colors";
+
+    public static final String Section = "section";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCUSTOMERACCOUNTSMAINSECTIONINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCustomerAccountsMainSectionInput";
+
+    public static final String Colors = "colors";
+
+    public static final String Background = "background";
+
+    public static final String CornerRadius = "cornerRadius";
+
+    public static final String Border = "border";
+
+    public static final String BorderStyle = "borderStyle";
+
+    public static final String BorderWidth = "borderWidth";
+
+    public static final String Shadow = "shadow";
+
+    public static final String Padding = "padding";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCUSTOMERACCOUNTSSURFACEINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCustomerAccountsSurfaceInput";
+
+    public static final String Components = "components";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCUSTOMFONTGROUPINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCustomFontGroupInput";
+
+    public static final String Base = "base";
+
+    public static final String Bold = "bold";
+
+    public static final String LoadingStrategy = "loadingStrategy";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGCUSTOMFONTINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingCustomFontInput";
+
+    public static final String Weight = "weight";
+
+    public static final String GenericFileId = "genericFileId";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGDESIGNTOKENSCOLORSINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingDesignTokensColorsInput";
+
+    public static final String Palette = "palette";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGDESIGNTOKENSINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingDesignTokensInput";
+
+    public static final String Colors = "colors";
+
+    public static final String Typography = "typography";
+
+    public static final String CornerRadius = "cornerRadius";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGDIVIDERSTYLEINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingDividerStyleInput";
+
+    public static final String BorderStyle = "borderStyle";
+
+    public static final String BorderWidth = "borderWidth";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGEXPRESSCHECKOUTBUTTONINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingExpressCheckoutButtonInput";
+
+    public static final String CornerRadius = "cornerRadius";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGEXPRESSCHECKOUTINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingExpressCheckoutInput";
+
+    public static final String Button = "button";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGFONTGROUPINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingFontGroupInput";
+
+    public static final String ShopifyFontGroup = "shopifyFontGroup";
+
+    public static final String CustomFontGroup = "customFontGroup";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGFONTSIZEINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingFontSizeInput";
+
+    public static final String Base = "base";
+
+    public static final String Ratio = "ratio";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGFOOTERCONTENTINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingFooterContentInput";
+
+    public static final String Visibility = "visibility";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGFOOTERINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingFooterInput";
+
+    public static final String Divided = "divided";
+
+    public static final String Alignment = "alignment";
+
+    public static final String Content = "content";
+
+    public static final String Colors = "colors";
+
+    public static final String Background = "background";
+
+    public static final String Padding = "padding";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGHEADERCARTLINKINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingHeaderCartLinkInput";
+
+    public static final String ContentType = "contentType";
+
+    public static final String Image = "image";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGHEADERINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingHeaderInput";
+
+    public static final String Alignment = "alignment";
+
+    public static final String Logo = "logo";
+
+    public static final String Divided = "divided";
+
+    public static final String Colors = "colors";
+
+    public static final String Background = "background";
+
+    public static final String Padding = "padding";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGHEADINGLEVELINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingHeadingLevelInput";
+
+    public static final String Typography = "typography";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGIMAGEINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingImageInput";
+
+    public static final String MediaImageId = "mediaImageId";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingInput";
+
+    public static final String DesignTokens = "designTokens";
+
+    public static final String Components = "components";
+
+    public static final String Surfaces = "surfaces";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGLOGOINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingLogoInput";
+
+    public static final String Image = "image";
+
+    public static final String MaxWidth = "maxWidth";
+
+    public static final String Visibility = "visibility";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGMAININPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingMainInput";
+
+    public static final String Colors = "colors";
+
+    public static final String Divider = "divider";
+
+    public static final String Section = "section";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGMAINSECTIONINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingMainSectionInput";
+
+    public static final String Colors = "colors";
+
+    public static final String Background = "background";
+
+    public static final String CornerRadius = "cornerRadius";
+
+    public static final String Border = "border";
+
+    public static final String BorderStyle = "borderStyle";
+
+    public static final String BorderWidth = "borderWidth";
+
+    public static final String Shadow = "shadow";
+
+    public static final String Padding = "padding";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGMERCHANDISETHUMBNAILBADGEINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingMerchandiseThumbnailBadgeInput";
+
+    public static final String Background = "background";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGMERCHANDISETHUMBNAILINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingMerchandiseThumbnailInput";
+
+    public static final String Border = "border";
+
+    public static final String CornerRadius = "cornerRadius";
+
+    public static final String AspectRatio = "aspectRatio";
+
+    public static final String Fit = "fit";
+
+    public static final String Badge = "badge";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGORDERSUMMARYINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingOrderSummaryInput";
+
+    public static final String Colors = "colors";
+
+    public static final String BackgroundImage = "backgroundImage";
+
+    public static final String Divider = "divider";
+
+    public static final String Section = "section";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGORDERSUMMARYSECTIONINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingOrderSummarySectionInput";
+
+    public static final String Colors = "colors";
+
+    public static final String Background = "background";
+
+    public static final String CornerRadius = "cornerRadius";
+
+    public static final String Border = "border";
+
+    public static final String BorderStyle = "borderStyle";
+
+    public static final String BorderWidth = "borderWidth";
+
+    public static final String Shadow = "shadow";
+
+    public static final String Padding = "padding";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGPALETTEINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingPaletteInput";
+
+    public static final String Color1 = "color1";
+
+    public static final String Color2 = "color2";
+
+    public static final String Color3 = "color3";
+
+    public static final String Color4 = "color4";
+
+    public static final String Color5 = "color5";
+
+    public static final String Color6 = "color6";
+
+    public static final String Color7 = "color7";
+
+    public static final String Color8 = "color8";
+
+    public static final String Color9 = "color9";
+
+    public static final String Color10 = "color10";
+
+    public static final String Color11 = "color11";
+
+    public static final String Color12 = "color12";
+
+    public static final String Color13 = "color13";
+
+    public static final String Color14 = "color14";
+
+    public static final String Color15 = "color15";
+
+    public static final String Color16 = "color16";
+
+    public static final String Color17 = "color17";
+
+    public static final String Color18 = "color18";
+
+    public static final String Color19 = "color19";
+
+    public static final String Color20 = "color20";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGPRIMARYBUTTONCOLORROLESINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingPrimaryButtonColorRolesInput";
+
+    public static final String Background = "background";
+
+    public static final String Text = "text";
+
+    public static final String Border = "border";
+
+    public static final String Icon = "icon";
+
+    public static final String Accent = "accent";
+
+    public static final String Decorative = "decorative";
+
+    public static final String Hover = "hover";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSECONDARYBUTTONCOLORROLESINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingSecondaryButtonColorRolesInput";
+
+    public static final String Background = "background";
+
+    public static final String Text = "text";
+
+    public static final String Border = "border";
+
+    public static final String Icon = "icon";
+
+    public static final String Accent = "accent";
+
+    public static final String Decorative = "decorative";
+
+    public static final String Hover = "hover";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSELECTINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingSelectInput";
+
+    public static final String Border = "border";
+
+    public static final String Typography = "typography";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSHAREDCOLORSINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingSharedColorsInput";
+
+    public static final String Accent = "accent";
+
+    public static final String Button = "button";
+
+    public static final String Control = "control";
+
+    public static final String Decorative = "decorative";
+
+    public static final String Critical = "critical";
+
+    public static final String Success = "success";
+
+    public static final String Warning = "warning";
+
+    public static final String Info = "info";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSHAREDINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingSharedInput";
+
+    public static final String CornerRadius = "cornerRadius";
+
+    public static final String Typography = "typography";
+
+    public static final String Colors = "colors";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSHAREDTYPOGRAPHYSTYLEINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingSharedTypographyStyleInput";
+
+    public static final String LetterCase = "letterCase";
+
+    public static final String Kerning = "kerning";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSHOPIFYFONTGROUPINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingShopifyFontGroupInput";
+
+    public static final String BaseFontHandle = "baseFontHandle";
+
+    public static final String BoldFontHandle = "boldFontHandle";
+
+    public static final String LoadingStrategy = "loadingStrategy";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSIGNINCOMPONENTSINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingSignInComponentsInput";
+
+    public static final String Main = "main";
+
+    public static final String Header = "header";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSIGNINHEADERINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingSignInHeaderInput";
+
+    public static final String Logo = "logo";
+
+    public static final String Padding = "padding";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSIGNINLOGOINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingSignInLogoInput";
+
+    public static final String Image = "image";
+
+    public static final String MaxWidth = "maxWidth";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSIGNINMAININPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingSignInMainInput";
+
+    public static final String BackgroundImage = "backgroundImage";
+
+    public static final String Colors = "colors";
+
+    public static final String Section = "section";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSIGNINSURFACEINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingSignInSurfaceInput";
+
+    public static final String Components = "components";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGSURFACESINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingSurfacesInput";
+
+    public static final String Checkout = "checkout";
+
+    public static final String CustomerAccounts = "customerAccounts";
+
+    public static final String SignIn = "signIn";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGTEXTFIELDINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingTextFieldInput";
+
+    public static final String Border = "border";
+
+    public static final String Typography = "typography";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGTYPOGRAPHYINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingTypographyInput";
+
+    public static final String Size = "size";
+
+    public static final String Primary = "primary";
+
+    public static final String Secondary = "secondary";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONBRANDINGTYPOGRAPHYSTYLEINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationBrandingTypographyStyleInput";
+
+    public static final String Font = "font";
+
+    public static final String Size = "size";
+
+    public static final String Weight = "weight";
+
+    public static final String LetterCase = "letterCase";
+
+    public static final String Kerning = "kerning";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationInput";
+
+    public static final String Overrides = "overrides";
+
+    public static final String Branding = "branding";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONOVERRIDEINPUT {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationOverrideInput";
+
+    public static final String Id = "id";
+
+    public static final String Branding = "branding";
   }
 
   public static class CHECKOUTBRANDINGBUTTONCOLORROLESINPUT {
@@ -32989,6 +36405,10 @@ public class DgsConstants {
     public static final String Scheme3 = "scheme3";
 
     public static final String Scheme4 = "scheme4";
+
+    public static final String Scheme5 = "scheme5";
+
+    public static final String Scheme6 = "scheme6";
   }
 
   public static class CHECKOUTBRANDINGCOLORSINPUT {
@@ -33411,6 +36831,16 @@ public class DgsConstants {
     public static final String Id = "id";
   }
 
+  public static class COLLECTIONDUPLICATEINPUT {
+    public static final String TYPE_NAME = "CollectionDuplicateInput";
+
+    public static final String CollectionId = "collectionId";
+
+    public static final String NewTitle = "newTitle";
+
+    public static final String CopyPublications = "copyPublications";
+  }
+
   public static class COLLECTIONIDENTIFIERINPUT {
     public static final String TYPE_NAME = "CollectionIdentifierInput";
 
@@ -33704,8 +37134,6 @@ public class DgsConstants {
   public static class CUSTOMERINPUT {
     public static final String TYPE_NAME = "CustomerInput";
 
-    public static final String Addresses = "addresses";
-
     public static final String Email = "email";
 
     public static final String FirstName = "firstName";
@@ -33731,6 +37159,8 @@ public class DgsConstants {
     public static final String TaxExempt = "taxExempt";
 
     public static final String TaxExemptions = "taxExemptions";
+
+    public static final String MultipassIdentifier = "multipassIdentifier";
   }
 
   public static class CUSTOMERMERGEOVERRIDEFIELDS {
@@ -33892,7 +37322,7 @@ public class DgsConstants {
   public static class DELIVERYCUSTOMIZATIONINPUT {
     public static final String TYPE_NAME = "DeliveryCustomizationInput";
 
-    public static final String FunctionId = "functionId";
+    public static final String FunctionHandle = "functionHandle";
 
     public static final String Title = "title";
 
@@ -34037,12 +37467,6 @@ public class DgsConstants {
     public static final String Price = "price";
   }
 
-  public static class DELIVERYSETTINGINPUT {
-    public static final String TYPE_NAME = "DeliverySettingInput";
-
-    public static final String LegacyModeProfiles = "legacyModeProfiles";
-  }
-
   public static class DELIVERYUPDATECONDITIONINPUT {
     public static final String TYPE_NAME = "DeliveryUpdateConditionInput";
 
@@ -34092,7 +37516,11 @@ public class DgsConstants {
 
     public static final String EndsAt = "endsAt";
 
-    public static final String FunctionId = "functionId";
+    public static final String Context = "context";
+
+    public static final String Tags = "tags";
+
+    public static final String FunctionHandle = "functionHandle";
 
     public static final String Metafields = "metafields";
 
@@ -34114,6 +37542,10 @@ public class DgsConstants {
 
     public static final String EndsAt = "endsAt";
 
+    public static final String Context = "context";
+
+    public static final String Tags = "tags";
+
     public static final String MinimumRequirement = "minimumRequirement";
 
     public static final String CustomerGets = "customerGets";
@@ -34132,6 +37564,10 @@ public class DgsConstants {
 
     public static final String EndsAt = "endsAt";
 
+    public static final String Context = "context";
+
+    public static final String Tags = "tags";
+
     public static final String UsesPerOrderLimit = "usesPerOrderLimit";
 
     public static final String CustomerBuys = "customerBuys";
@@ -34148,7 +37584,11 @@ public class DgsConstants {
 
     public static final String EndsAt = "endsAt";
 
+    public static final String Context = "context";
+
     public static final String CombinesWith = "combinesWith";
+
+    public static final String Tags = "tags";
 
     public static final String MinimumRequirement = "minimumRequirement";
 
@@ -34180,11 +37620,13 @@ public class DgsConstants {
 
     public static final String Code = "code";
 
-    public static final String CustomerSelection = "customerSelection";
-
     public static final String UsageLimit = "usageLimit";
 
-    public static final String FunctionId = "functionId";
+    public static final String Context = "context";
+
+    public static final String Tags = "tags";
+
+    public static final String FunctionHandle = "functionHandle";
 
     public static final String AppliesOnSubscription = "appliesOnSubscription";
 
@@ -34210,9 +37652,11 @@ public class DgsConstants {
 
     public static final String Code = "code";
 
-    public static final String CustomerSelection = "customerSelection";
-
     public static final String UsageLimit = "usageLimit";
+
+    public static final String Context = "context";
+
+    public static final String Tags = "tags";
 
     public static final String MinimumRequirement = "minimumRequirement";
 
@@ -34236,9 +37680,11 @@ public class DgsConstants {
 
     public static final String Code = "code";
 
-    public static final String CustomerSelection = "customerSelection";
-
     public static final String UsageLimit = "usageLimit";
+
+    public static final String Context = "context";
+
+    public static final String Tags = "tags";
 
     public static final String CustomerBuys = "customerBuys";
 
@@ -34262,9 +37708,11 @@ public class DgsConstants {
 
     public static final String Code = "code";
 
-    public static final String CustomerSelection = "customerSelection";
-
     public static final String UsageLimit = "usageLimit";
+
+    public static final String Context = "context";
+
+    public static final String Tags = "tags";
 
     public static final String MinimumRequirement = "minimumRequirement";
 
@@ -34295,6 +37743,16 @@ public class DgsConstants {
     public static final String OrderDiscounts = "orderDiscounts";
 
     public static final String ShippingDiscounts = "shippingDiscounts";
+  }
+
+  public static class DISCOUNTCONTEXTINPUT {
+    public static final String TYPE_NAME = "DiscountContextInput";
+
+    public static final String All = "all";
+
+    public static final String Customers = "customers";
+
+    public static final String CustomerSegments = "customerSegments";
   }
 
   public static class DISCOUNTCOUNTRIESINPUT {
@@ -34612,6 +38070,8 @@ public class DgsConstants {
 
     public static final String Metafields = "metafields";
 
+    public static final String Name = "name";
+
     public static final String Arn = "arn";
   }
 
@@ -34791,6 +38251,12 @@ public class DgsConstants {
     public static final String FulfillmentOrderId = "fulfillmentOrderId";
   }
 
+  public static class FULFILLMENTORDERREPORTPROGRESSINPUT {
+    public static final String TYPE_NAME = "FulfillmentOrderReportProgressInput";
+
+    public static final String ReasonNotes = "reasonNotes";
+  }
+
   public static class FULFILLMENTORDERSPLITINPUT {
     public static final String TYPE_NAME = "FulfillmentOrderSplitInput";
 
@@ -34945,6 +38411,16 @@ public class DgsConstants {
     public static final String Message = "message";
   }
 
+  public static class INVENTORYADJUSTMENTINPUT {
+    public static final String TYPE_NAME = "InventoryAdjustmentInput";
+
+    public static final String LocationId = "locationId";
+
+    public static final String Adjustment = "adjustment";
+
+    public static final String ChangeFromQuantity = "changeFromQuantity";
+  }
+
   public static class INVENTORYADJUSTQUANTITIESINPUT {
     public static final String TYPE_NAME = "InventoryAdjustQuantitiesInput";
 
@@ -34969,6 +38445,8 @@ public class DgsConstants {
     public static final String TYPE_NAME = "InventoryChangeInput";
 
     public static final String Delta = "delta";
+
+    public static final String ChangeFromQuantity = "changeFromQuantity";
 
     public static final String InventoryItemId = "inventoryItemId";
 
@@ -35003,6 +38481,8 @@ public class DgsConstants {
     public static final String TYPE_NAME = "InventoryItemMeasurementInput";
 
     public static final String Weight = "weight";
+
+    public static final String ShippingPackageId = "shippingPackageId";
   }
 
   public static class INVENTORYLEVELINPUT {
@@ -35043,6 +38523,8 @@ public class DgsConstants {
     public static final String Name = "name";
 
     public static final String LedgerDocumentUri = "ledgerDocumentUri";
+
+    public static final String ChangeFromQuantity = "changeFromQuantity";
   }
 
   public static class INVENTORYQUANTITYINPUT {
@@ -35054,7 +38536,7 @@ public class DgsConstants {
 
     public static final String Quantity = "quantity";
 
-    public static final String CompareQuantity = "compareQuantity";
+    public static final String ChangeFromQuantity = "changeFromQuantity";
   }
 
   public static class INVENTORYSCHEDULEDCHANGEINPUT {
@@ -35099,8 +38581,6 @@ public class DgsConstants {
     public static final String ReferenceDocumentUri = "referenceDocumentUri";
 
     public static final String Quantities = "quantities";
-
-    public static final String IgnoreCompareQuantity = "ignoreCompareQuantity";
   }
 
   public static class INVENTORYSETQUANTITYINPUT {
@@ -35111,6 +38591,8 @@ public class DgsConstants {
     public static final String LocationId = "locationId";
 
     public static final String Quantity = "quantity";
+
+    public static final String ChangeFromQuantity = "changeFromQuantity";
   }
 
   public static class INVENTORYSETSCHEDULEDCHANGESINPUT {
@@ -35131,6 +38613,10 @@ public class DgsConstants {
     public static final String TrackingInput = "trackingInput";
 
     public static final String LineItems = "lineItems";
+
+    public static final String DateCreated = "dateCreated";
+
+    public static final String Barcode = "barcode";
   }
 
   public static class INVENTORYSHIPMENTLINEITEMINPUT {
@@ -35649,6 +39135,10 @@ public class DgsConstants {
     public static final String FirstTimeCustomers = "firstTimeCustomers";
 
     public static final String ReturningCustomers = "returningCustomers";
+
+    public static final String PrimaryConversions = "primaryConversions";
+
+    public static final String AllConversions = "allConversions";
   }
 
   public static class MARKETLOCALIZATIONREGISTERINPUT {
@@ -35791,6 +39281,18 @@ public class DgsConstants {
     public static final String Enabled = "enabled";
   }
 
+  public static class METAFIELDCAPABILITYANALYTICSQUERYABLEINPUT {
+    public static final String TYPE_NAME = "MetafieldCapabilityAnalyticsQueryableInput";
+
+    public static final String Enabled = "enabled";
+  }
+
+  public static class METAFIELDCAPABILITYCARTTOORDERCOPYABLEINPUT {
+    public static final String TYPE_NAME = "MetafieldCapabilityCartToOrderCopyableInput";
+
+    public static final String Enabled = "enabled";
+  }
+
   public static class METAFIELDCAPABILITYCREATEINPUT {
     public static final String TYPE_NAME = "MetafieldCapabilityCreateInput";
 
@@ -35799,6 +39301,10 @@ public class DgsConstants {
     public static final String AdminFilterable = "adminFilterable";
 
     public static final String UniqueValues = "uniqueValues";
+
+    public static final String AnalyticsQueryable = "analyticsQueryable";
+
+    public static final String CartToOrderCopyable = "cartToOrderCopyable";
   }
 
   public static class METAFIELDCAPABILITYSMARTCOLLECTIONCONDITIONINPUT {
@@ -35821,6 +39327,10 @@ public class DgsConstants {
     public static final String AdminFilterable = "adminFilterable";
 
     public static final String UniqueValues = "uniqueValues";
+
+    public static final String AnalyticsQueryable = "analyticsQueryable";
+
+    public static final String CartToOrderCopyable = "cartToOrderCopyable";
   }
 
   public static class METAFIELDDEFINITIONCONSTRAINTSINPUT {
@@ -35969,6 +39479,8 @@ public class DgsConstants {
     public static final String Admin = "admin";
 
     public static final String Storefront = "storefront";
+
+    public static final String CustomerAccount = "customerAccount";
   }
 
   public static class METAOBJECTBULKDELETEWHERECONDITION {
@@ -36115,6 +39627,18 @@ public class DgsConstants {
     public static final String Capabilities = "capabilities";
   }
 
+  public static class METAOBJECTFIELDCAPABILITYADMINFILTERABLEINPUT {
+    public static final String TYPE_NAME = "MetaobjectFieldCapabilityAdminFilterableInput";
+
+    public static final String Enabled = "enabled";
+  }
+
+  public static class METAOBJECTFIELDDEFINITIONCAPABILITYCREATEINPUT {
+    public static final String TYPE_NAME = "MetaobjectFieldDefinitionCapabilityCreateInput";
+
+    public static final String AdminFilterable = "adminFilterable";
+  }
+
   public static class METAOBJECTFIELDDEFINITIONCREATEINPUT {
     public static final String TYPE_NAME = "MetaobjectFieldDefinitionCreateInput";
 
@@ -36129,6 +39653,8 @@ public class DgsConstants {
     public static final String Required = "required";
 
     public static final String Validations = "validations";
+
+    public static final String Capabilities = "capabilities";
   }
 
   public static class METAOBJECTFIELDDEFINITIONDELETEINPUT {
@@ -36159,6 +39685,8 @@ public class DgsConstants {
     public static final String Required = "required";
 
     public static final String Validations = "validations";
+
+    public static final String Capabilities = "capabilities";
   }
 
   public static class METAOBJECTFIELDINPUT {
@@ -36784,6 +40312,8 @@ public class DgsConstants {
 
     public static final String Email = "email";
 
+    public static final String Phone = "phone";
+
     public static final String Note = "note";
 
     public static final String Tags = "tags";
@@ -36884,7 +40414,7 @@ public class DgsConstants {
   public static class PAYMENTCUSTOMIZATIONINPUT {
     public static final String TYPE_NAME = "PaymentCustomizationInput";
 
-    public static final String FunctionId = "functionId";
+    public static final String FunctionHandle = "functionHandle";
 
     public static final String Title = "title";
 
@@ -37003,6 +40533,8 @@ public class DgsConstants {
     public static final String ProductId = "productId";
 
     public static final String Price = "price";
+
+    public static final String CompareAtPrice = "compareAtPrice";
   }
 
   public static class PRICELISTUPDATEINPUT {
@@ -37055,10 +40587,36 @@ public class DgsConstants {
     public static final String Quantity = "quantity";
   }
 
+  public static class PRODUCTBUNDLECONSOLIDATEDOPTIONCOMPONENTINPUT {
+    public static final String TYPE_NAME = "ProductBundleConsolidatedOptionComponentInput";
+
+    public static final String ComponentOptionValue = "componentOptionValue";
+
+    public static final String ComponentOptionId = "componentOptionId";
+  }
+
+  public static class PRODUCTBUNDLECONSOLIDATEDOPTIONINPUT {
+    public static final String TYPE_NAME = "ProductBundleConsolidatedOptionInput";
+
+    public static final String OptionName = "optionName";
+
+    public static final String OptionSelections = "optionSelections";
+  }
+
+  public static class PRODUCTBUNDLECONSOLIDATEDOPTIONSELECTIONINPUT {
+    public static final String TYPE_NAME = "ProductBundleConsolidatedOptionSelectionInput";
+
+    public static final String OptionValue = "optionValue";
+
+    public static final String Components = "components";
+  }
+
   public static class PRODUCTBUNDLECREATEINPUT {
     public static final String TYPE_NAME = "ProductBundleCreateInput";
 
     public static final String Title = "title";
+
+    public static final String ConsolidatedOptions = "consolidatedOptions";
 
     public static final String Components = "components";
   }
@@ -37069,6 +40627,8 @@ public class DgsConstants {
     public static final String ProductId = "productId";
 
     public static final String Title = "title";
+
+    public static final String ConsolidatedOptions = "consolidatedOptions";
 
     public static final String Components = "components";
   }
@@ -37090,8 +40650,6 @@ public class DgsConstants {
 
     public static final String ProductType = "productType";
 
-    public static final String Category = "category";
-
     public static final String Tags = "tags";
 
     public static final String TemplateSuffix = "templateSuffix";
@@ -37101,6 +40659,8 @@ public class DgsConstants {
     public static final String Title = "title";
 
     public static final String Vendor = "vendor";
+
+    public static final String Category = "category";
 
     public static final String GiftCard = "giftCard";
 
@@ -37131,6 +40691,8 @@ public class DgsConstants {
     public static final String Language = "language";
 
     public static final String Country = "country";
+
+    public static final String ChannelId = "channelId";
   }
 
   public static class PRODUCTIDENTIFIERINPUT {
@@ -37154,8 +40716,6 @@ public class DgsConstants {
 
     public static final String ProductType = "productType";
 
-    public static final String Category = "category";
-
     public static final String Tags = "tags";
 
     public static final String TemplateSuffix = "templateSuffix";
@@ -37165,6 +40725,8 @@ public class DgsConstants {
     public static final String Title = "title";
 
     public static final String Vendor = "vendor";
+
+    public static final String Category = "category";
 
     public static final String GiftCard = "giftCard";
 
@@ -37217,6 +40779,8 @@ public class DgsConstants {
     public static final String ProductUpdatedAt = "productUpdatedAt";
 
     public static final String Messages = "messages";
+
+    public static final String ChannelId = "channelId";
   }
 
   public static class PRODUCTSETIDENTIFIERS {
@@ -37240,8 +40804,6 @@ public class DgsConstants {
 
     public static final String ProductType = "productType";
 
-    public static final String Category = "category";
-
     public static final String Tags = "tags";
 
     public static final String TemplateSuffix = "templateSuffix";
@@ -37252,23 +40814,25 @@ public class DgsConstants {
 
     public static final String Vendor = "vendor";
 
+    public static final String Category = "category";
+
     public static final String GiftCard = "giftCard";
 
     public static final String RedirectNewHandle = "redirectNewHandle";
+
+    public static final String Status = "status";
 
     public static final String Collections = "collections";
 
     public static final String Metafields = "metafields";
 
-    public static final String Variants = "variants";
-
     public static final String Files = "files";
 
-    public static final String Status = "status";
+    public static final String ProductOptions = "productOptions";
+
+    public static final String Variants = "variants";
 
     public static final String RequiresSellingPlan = "requiresSellingPlan";
-
-    public static final String ProductOptions = "productOptions";
 
     public static final String ClaimOwnership = "claimOwnership";
 
@@ -37293,6 +40857,16 @@ public class DgsConstants {
     public static final String ProductPublications = "productPublications";
   }
 
+  public static class PRODUCTUPDATEIDENTIFIERS {
+    public static final String TYPE_NAME = "ProductUpdateIdentifiers";
+
+    public static final String Id = "id";
+
+    public static final String Handle = "handle";
+
+    public static final String CustomId = "customId";
+  }
+
   public static class PRODUCTUPDATEINPUT {
     public static final String TYPE_NAME = "ProductUpdateInput";
 
@@ -37304,8 +40878,6 @@ public class DgsConstants {
 
     public static final String ProductType = "productType";
 
-    public static final String Category = "category";
-
     public static final String Tags = "tags";
 
     public static final String TemplateSuffix = "templateSuffix";
@@ -37315,6 +40887,8 @@ public class DgsConstants {
     public static final String Title = "title";
 
     public static final String Vendor = "vendor";
+
+    public static final String Category = "category";
 
     public static final String RedirectNewHandle = "redirectNewHandle";
 
@@ -37406,6 +40980,8 @@ public class DgsConstants {
 
     public static final String InventoryQuantities = "inventoryQuantities";
 
+    public static final String QuantityAdjustments = "quantityAdjustments";
+
     public static final String InventoryItem = "inventoryItem";
 
     public static final String MediaId = "mediaId";
@@ -37430,31 +41006,31 @@ public class DgsConstants {
   public static class PRODUCTVARIANTSETINPUT {
     public static final String TYPE_NAME = "ProductVariantSetInput";
 
-    public static final String RequiresComponents = "requiresComponents";
+    public static final String Id = "id";
+
+    public static final String OptionValues = "optionValues";
+
+    public static final String Price = "price";
+
+    public static final String Sku = "sku";
 
     public static final String Barcode = "barcode";
 
-    public static final String CompareAtPrice = "compareAtPrice";
-
-    public static final String Id = "id";
+    public static final String Position = "position";
 
     public static final String File = "file";
+
+    public static final String Metafields = "metafields";
+
+    public static final String CompareAtPrice = "compareAtPrice";
+
+    public static final String RequiresComponents = "requiresComponents";
 
     public static final String InventoryPolicy = "inventoryPolicy";
 
     public static final String InventoryQuantities = "inventoryQuantities";
 
     public static final String InventoryItem = "inventoryItem";
-
-    public static final String Metafields = "metafields";
-
-    public static final String OptionValues = "optionValues";
-
-    public static final String Position = "position";
-
-    public static final String Price = "price";
-
-    public static final String Sku = "sku";
 
     public static final String Taxable = "taxable";
 
@@ -37505,6 +41081,8 @@ public class DgsConstants {
     public static final String MetafieldNamespaces = "metafieldNamespaces";
 
     public static final String Metafields = "metafields";
+
+    public static final String Name = "name";
 
     public static final String PubSubProject = "pubSubProject";
 
@@ -37590,6 +41168,8 @@ public class DgsConstants {
 
     public static final String Shipping = "shipping";
 
+    public static final String ProcessedAt = "processedAt";
+
     public static final String RefundLineItems = "refundLineItems";
 
     public static final String RefundDuties = "refundDuties";
@@ -37661,6 +41241,8 @@ public class DgsConstants {
     public static final String Messages = "messages";
 
     public static final String State = "state";
+
+    public static final String ChannelId = "channelId";
   }
 
   public static class RESTOCKINGFEEINPUT {
@@ -37708,7 +41290,7 @@ public class DgsConstants {
 
     public static final String Quantity = "quantity";
 
-    public static final String ReturnReason = "returnReason";
+    public static final String ReturnReasonDefinitionId = "returnReasonDefinitionId";
 
     public static final String ReturnReasonNote = "returnReasonNote";
 
@@ -37832,7 +41414,7 @@ public class DgsConstants {
 
     public static final String RestockingFee = "restockingFee";
 
-    public static final String ReturnReason = "returnReason";
+    public static final String ReturnReasonDefinitionId = "returnReasonDefinitionId";
 
     public static final String CustomerNote = "customerNote";
   }
@@ -38269,6 +41851,8 @@ public class DgsConstants {
     public static final String CreditAmount = "creditAmount";
 
     public static final String ExpiresAt = "expiresAt";
+
+    public static final String Notify = "notify";
   }
 
   public static class STORECREDITACCOUNTDEBITINPUT {
@@ -38323,6 +41907,8 @@ public class DgsConstants {
     public static final String OriginTime = "originTime";
 
     public static final String BillingCycleSelector = "billingCycleSelector";
+
+    public static final String PaymentProcessingPolicy = "paymentProcessingPolicy";
 
     public static final String InventoryPolicy = "inventoryPolicy";
   }
@@ -38736,7 +42322,7 @@ public class DgsConstants {
   public static class VALIDATIONCREATEINPUT {
     public static final String TYPE_NAME = "ValidationCreateInput";
 
-    public static final String FunctionId = "functionId";
+    public static final String FunctionHandle = "functionHandle";
 
     public static final String Enable = "enable";
 
@@ -38786,7 +42372,9 @@ public class DgsConstants {
 
     public static final String Metafields = "metafields";
 
-    public static final String CallbackUrl = "callbackUrl";
+    public static final String Name = "name";
+
+    public static final String Uri = "uri";
   }
 
   public static class WEBPIXELINPUT {
@@ -38871,6 +42459,18 @@ public class DgsConstants {
     public static final String Id = "id";
   }
 
+  public static class CASHACTIVITY {
+    public static final String TYPE_NAME = "CashActivity";
+
+    public static final String Cash = "cash";
+
+    public static final String PaymentSession = "paymentSession";
+
+    public static final String StaffMember = "staffMember";
+
+    public static final String Time = "time";
+  }
+
   public static class CATALOG {
     public static final String TYPE_NAME = "Catalog";
 
@@ -38885,6 +42485,20 @@ public class DgsConstants {
     public static final String Status = "status";
 
     public static final String Title = "title";
+  }
+
+  public static class CHECKOUTANDACCOUNTSCONFIGURATIONINTERFACE {
+    public static final String TYPE_NAME = "CheckoutAndAccountsConfigurationInterface";
+
+    public static final String Branding = "branding";
+
+    public static final String CreatedAt = "createdAt";
+
+    public static final String EditedAt = "editedAt";
+
+    public static final String Name = "name";
+
+    public static final String UpdatedAt = "updatedAt";
   }
 
   public static class CHECKOUTBRANDINGFONT {
@@ -39187,6 +42801,8 @@ public class DgsConstants {
     public static final String RefundedQuantity = "refundedQuantity";
 
     public static final String ReturnReason = "returnReason";
+
+    public static final String ReturnReasonDefinition = "returnReasonDefinition";
 
     public static final String ReturnReasonNote = "returnReasonNote";
 

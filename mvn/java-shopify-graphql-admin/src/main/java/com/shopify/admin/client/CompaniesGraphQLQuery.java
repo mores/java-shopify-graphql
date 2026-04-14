@@ -10,7 +10,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns the list of companies in the shop.
+ * A paginated list of companies in the shop.
+ * [`Company`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Company)
+ * objects are business entities that purchase from the merchant.
+ *   
+ * Use the [`query`](https://shopify.dev/docs/api/admin-graphql/latest/queries/companies#arguments-query) argument to filter companies by attributes like name or externalId. Sort and
+ * paginate results to handle large datasets efficiently. Learn more about
+ * [Shopify API search syntax](https://shopify.dev/docs/api/usage/search-syntax).
  */
 public class CompaniesGraphQLQuery extends GraphQLQuery {
   public CompaniesGraphQLQuery(Integer first, String after, Integer last, String before,
@@ -141,6 +147,7 @@ public class CompaniesGraphQLQuery extends GraphQLQuery {
      * | | | - `metafields.custom.on_sale:true`<br/> -
      * `metafields.product.material:"gid://shopify/Metaobject/43458085"` |
      * | name | string |
+     * | ordering_status | string |
      * | since_date | time |
      * | updated_at | time |
      * You can apply one or more filters to a query. Learn more about [Shopify API

@@ -8,7 +8,10 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Removes one or more merchandise lines from the cart.
+ * Removes one or more merchandise lines from a
+ * [`Cart`](https://shopify.dev/docs/api/storefront/current/objects/Cart).
+ * Accepts up to 250 line IDs per request. Returns the updated cart along with
+ * any errors or warnings.
  */
 public class CartLinesRemoveGraphQLQuery extends GraphQLQuery {
   public CartLinesRemoveGraphQLQuery(String cartId, List<String> lineIds, String queryName,

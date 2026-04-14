@@ -41,12 +41,14 @@ public class LocationProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, 
   }
 
   public InventoryLevelProjection<LocationProjectionRoot<PARENT, ROOT>, LocationProjectionRoot<PARENT, ROOT>> inventoryLevel(
-      String inventoryItemId) {
+      String inventoryItemId, Boolean includeInactive) {
     InventoryLevelProjection<LocationProjectionRoot<PARENT, ROOT>, LocationProjectionRoot<PARENT, ROOT>> projection = new InventoryLevelProjection<>(this, this);    
     getFields().put("inventoryLevel", projection);
     getInputArguments().computeIfAbsent("inventoryLevel", k -> new ArrayList<>());                      
     InputArgument inventoryItemIdArg = new InputArgument("inventoryItemId", inventoryItemId);
     getInputArguments().get("inventoryLevel").add(inventoryItemIdArg);
+    InputArgument includeInactiveArg = new InputArgument("includeInactive", includeInactive);
+    getInputArguments().get("inventoryLevel").add(includeInactiveArg);
     return projection;
   }
 
@@ -58,10 +60,13 @@ public class LocationProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, 
   }
 
   public InventoryLevelConnectionProjection<LocationProjectionRoot<PARENT, ROOT>, LocationProjectionRoot<PARENT, ROOT>> inventoryLevels(
-      Integer first, String after, Integer last, String before, Boolean reverse, String query) {
+      Boolean includeInactive, Integer first, String after, Integer last, String before,
+      Boolean reverse, String query) {
     InventoryLevelConnectionProjection<LocationProjectionRoot<PARENT, ROOT>, LocationProjectionRoot<PARENT, ROOT>> projection = new InventoryLevelConnectionProjection<>(this, this);    
     getFields().put("inventoryLevels", projection);
     getInputArguments().computeIfAbsent("inventoryLevels", k -> new ArrayList<>());                      
+    InputArgument includeInactiveArg = new InputArgument("includeInactive", includeInactive);
+    getInputArguments().get("inventoryLevels").add(includeInactiveArg);
     InputArgument firstArg = new InputArgument("first", first);
     getInputArguments().get("inventoryLevels").add(firstArg);
     InputArgument afterArg = new InputArgument("after", after);

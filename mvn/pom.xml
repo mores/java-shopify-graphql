@@ -6,7 +6,7 @@
 
 	<groupId>io.github.mores</groupId>
 	<artifactId>java-shopify-graphql</artifactId>
-	<version>2025.07.001</version>
+	<version>2026.04.001</version>
 	<packaging>pom</packaging>
 
 	<name>java-shopify-graphql</name>
@@ -43,9 +43,23 @@
 		<dgs-core.version>8.1.1</dgs-core.version>
 		<dgs-codegen.version>1.61.5</dgs-codegen.version>
 		<formatter.version>2.27.0</formatter.version>
-		<jackson.version>2.19.2</jackson.version>
+
+		<!-- same that is used in: com.netflix.graphql.dgs.codegen:graphql-dgs-codegen-shared-core:jar:8.1.1:compile -->
+		<jackson.version>2.18.3</jackson.version>
 		<log4j.version>2.25.1</log4j.version>
 	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.fasterxml.jackson</groupId>
+				<artifactId>jackson-bom</artifactId>
+				<version>${jackson.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<modules>
 		<module>java-shopify-graphql-admin</module>
@@ -108,6 +122,30 @@
 								</requireMavenVersion>
 							</rules>
 						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>flatten-maven-plugin</artifactId>
+				<version>1.7.3</version>
+				<configuration>
+					<pomElements>
+						<description>keep</description>
+						<developers>keep</developers>
+						<name>keep</name>
+						<scm>keep</scm>
+						<url>keep</url>
+					</pomElements>
+				</configuration>
+				<executions>
+					<execution>
+						<id>flatten</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>flatten</goal>
+						</goals>
 					</execution>
 				</executions>
 			</plugin>

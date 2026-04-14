@@ -6,5 +6,7 @@ package com.shopify.admin.types;
 public enum BulkOperationUserErrorCode {
   OPERATION_IN_PROGRESS,
 
-  INVALID
+  INVALID,
+
+  LIMIT_REACHED
 }

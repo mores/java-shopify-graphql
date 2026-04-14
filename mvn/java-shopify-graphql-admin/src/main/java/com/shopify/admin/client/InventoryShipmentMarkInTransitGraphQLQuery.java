@@ -3,6 +3,7 @@ package com.shopify.admin.client;
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,11 +11,13 @@ import java.util.Set;
  * Marks a draft inventory shipment as in transit.
  */
 public class InventoryShipmentMarkInTransitGraphQLQuery extends GraphQLQuery {
-  public InventoryShipmentMarkInTransitGraphQLQuery(String id, String queryName,
-      Set<String> fieldsSet) {
+  public InventoryShipmentMarkInTransitGraphQLQuery(String id, OffsetDateTime dateShipped,
+      String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
     if (id != null || fieldsSet.contains("id")) {
         getInput().put("id", id);
+    }if (dateShipped != null || fieldsSet.contains("dateShipped")) {
+        getInput().put("dateShipped", dateShipped);
     }
   }
 
@@ -36,10 +39,12 @@ public class InventoryShipmentMarkInTransitGraphQLQuery extends GraphQLQuery {
 
     private String id;
 
+    private OffsetDateTime dateShipped;
+
     private String queryName;
 
     public InventoryShipmentMarkInTransitGraphQLQuery build() {
-      return new InventoryShipmentMarkInTransitGraphQLQuery(id, queryName, fieldsSet);
+      return new InventoryShipmentMarkInTransitGraphQLQuery(id, dateShipped, queryName, fieldsSet);
                
     }
 
@@ -49,6 +54,15 @@ public class InventoryShipmentMarkInTransitGraphQLQuery extends GraphQLQuery {
     public Builder id(String id) {
       this.id = id;
       this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
+     * The date the shipment was shipped.
+     */
+    public Builder dateShipped(OffsetDateTime dateShipped) {
+      this.dateShipped = dateShipped;
+      this.fieldsSet.add("dateShipped");
       return this;
     }
 

@@ -7,7 +7,14 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Information about the options available for one or more line items to be delivered to a specific address.
+ * Groups cart line items that share the same delivery destination. Each group
+ * provides the available [`CartDeliveryOption`](https://shopify.dev/docs/api/storefront/current/objects/CartDeliveryOption)
+ * choices for that address, along with the customer's selected option.
+ *
+ * Access through the
+ * [`Cart`](https://shopify.dev/docs/api/storefront/current/objects/Cart) object's
+ * `deliveryGroups` field. Items are grouped by merchandise type (one-time purchase
+ * vs subscription), allowing different delivery methods for each.
  */
 public class CartDeliveryGroup {
   /**

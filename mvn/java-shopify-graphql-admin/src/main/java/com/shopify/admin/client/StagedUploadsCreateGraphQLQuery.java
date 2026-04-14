@@ -18,9 +18,6 @@ import java.util.Set;
  * - **Bulk importing**: CSV files, product catalogs, or other bulk data
  * - **Using external file sources**: When files are stored remotely and need to be transferred to Shopify
  *   
- * For small files or simple use cases, you can use [`fileCreate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/fileCreate)
- * directly by providing the file content inline.
- *   
  * The `stagedUploadsCreate` mutation is the first step in Shopify's secure two-step upload process:
  *   
  * **Step 1: Create staged upload targets** (this mutation)

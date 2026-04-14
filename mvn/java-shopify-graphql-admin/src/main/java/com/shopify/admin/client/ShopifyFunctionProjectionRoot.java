@@ -46,6 +46,11 @@ public class ShopifyFunctionProjectionRoot<PARENT extends BaseSubProjectionNode<
     return this;
   }
 
+  public ShopifyFunctionProjectionRoot<PARENT, ROOT> handle() {
+    getFields().put("handle", null);
+    return this;
+  }
+
   public ShopifyFunctionProjectionRoot<PARENT, ROOT> id() {
     getFields().put("id", null);
     return this;

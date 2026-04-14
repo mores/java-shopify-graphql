@@ -35,7 +35,7 @@ public class FulfillmentOrderMovePayload {
   /**
    * The list of errors that occurred from executing the mutation.
    */
-  private List<UserError> userErrors;
+  private List<FulfillmentOrderMoveFulfillmentOrderMoveUserError> userErrors;
 
   public FulfillmentOrderMovePayload() {
   }
@@ -83,11 +83,11 @@ public class FulfillmentOrderMovePayload {
   /**
    * The list of errors that occurred from executing the mutation.
    */
-  public List<UserError> getUserErrors() {
+  public List<FulfillmentOrderMoveFulfillmentOrderMoveUserError> getUserErrors() {
     return userErrors;
   }
 
-  public void setUserErrors(List<UserError> userErrors) {
+  public void setUserErrors(List<FulfillmentOrderMoveFulfillmentOrderMoveUserError> userErrors) {
     this.userErrors = userErrors;
   }
 
@@ -142,7 +142,7 @@ public class FulfillmentOrderMovePayload {
     /**
      * The list of errors that occurred from executing the mutation.
      */
-    private List<UserError> userErrors;
+    private List<FulfillmentOrderMoveFulfillmentOrderMoveUserError> userErrors;
 
     public FulfillmentOrderMovePayload build() {
       FulfillmentOrderMovePayload result = new FulfillmentOrderMovePayload();
@@ -187,7 +187,7 @@ public class FulfillmentOrderMovePayload {
     /**
      * The list of errors that occurred from executing the mutation.
      */
-    public Builder userErrors(List<UserError> userErrors) {
+    public Builder userErrors(List<FulfillmentOrderMoveFulfillmentOrderMoveUserError> userErrors) {
       this.userErrors = userErrors;
       return this;
     }

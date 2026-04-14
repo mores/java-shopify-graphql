@@ -10,7 +10,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a paginated list of transfers.
+ * Returns a paginated list of [`InventoryTransfer`](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryTransfer)
+ * objects between locations. Transfers track the movement of [`InventoryItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryItem)
+ * objects between [`Location`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Location) objects.
+ *   
+ * Supports filtering transfers using query parameters and sorting by various
+ * criteria. Use the connection's edges to access transfer details including [`InventoryTransferLineItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryTransferLineItem)
+ * objects, quantities, and shipment status.
  */
 public class InventoryTransfersGraphQLQuery extends GraphQLQuery {
   public InventoryTransfersGraphQLQuery(Integer first, String after, Integer last, String before,

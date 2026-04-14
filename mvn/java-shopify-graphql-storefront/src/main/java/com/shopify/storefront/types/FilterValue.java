@@ -6,7 +6,15 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * A selectable value within a filter.
+ * A selectable option within a
+ * [`Filter`](https://shopify.dev/docs/api/storefront/current/objects/Filter), such
+ * as a specific color, size, or product type. Each value includes a count of
+ * matching results and a human-readable label for display.
+ *
+ * The [`input`](https://shopify.dev/docs/api/storefront/current/objects/FilterValue#field-FilterValue.fields.input) field provides ready-to-use JSON for building dynamic filtering interfaces. You
+ * can combine the `input` values from multiple selected [`FilterValue`](https://shopify.dev/docs/api/storefront/current/objects/FilterValue)
+ * objects to construct filter queries. Visual representations are available through the [`image`](https://shopify.dev/docs/api/storefront/current/objects/FilterValue#field-FilterValue.fields.image) or [`swatch`](https://shopify.dev/docs/api/storefront/current/objects/FilterValue#field-FilterValue.fields.swatch)
+ * fields when the parent filter's presentation type supports them.
  */
 public class FilterValue {
   /**

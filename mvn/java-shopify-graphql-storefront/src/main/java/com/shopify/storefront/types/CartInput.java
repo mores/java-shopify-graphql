@@ -7,7 +7,12 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * The input fields to create a cart.
+ * The input fields for creating a
+ * [`Cart`](https://shopify.dev/docs/api/storefront/current/objects/Cart). Used by the [`cartCreate`](https://shopify.dev/docs/api/storefront/current/mutations/cartCreate) mutation.
+ *
+ * Accepts merchandise lines, discount codes, gift card codes, and a note. You can
+ * also set custom attributes, metafields, buyer identity for international
+ * pricing, and delivery addresses.
  */
 public class CartInput {
   /**

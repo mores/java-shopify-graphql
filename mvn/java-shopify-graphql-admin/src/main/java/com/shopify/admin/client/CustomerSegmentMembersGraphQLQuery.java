@@ -9,7 +9,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The list of members, such as customers, that's associated with an individual segment.
+ * A paginated list of customers that belong to an individual [`Segment`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Segment).
+ * Segments group customers based on criteria defined through [ShopifyQL queries](https://shopify.dev/docs/api/shopifyql/segment-query-language-reference).
+ * Access segment members with their profile information and purchase summary
+ * data. The connection includes statistics for analyzing segment attributes
+ * (such as average and sum calculations) and a total count of all members.
  * The maximum page size is 1000.
  */
 public class CustomerSegmentMembersGraphQLQuery extends GraphQLQuery {

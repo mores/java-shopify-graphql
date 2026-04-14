@@ -7,8 +7,12 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * A predictive search result represents a list of products, collections, pages, articles, and query suggestions
- * that matches the predictive search query.
+ * Returned by the [`predictiveSearch`](https://shopify.dev/docs/api/storefront/current/queries/predictiveSearch)
+ * query to power type-ahead search experiences. Includes matching
+ * [`Product`](https://shopify.dev/docs/api/storefront/current/objects/Product), [`Collection`](https://shopify.dev/docs/api/storefront/current/objects/Collection),
+ * [`Page`](https://shopify.dev/docs/api/storefront/current/objects/Page), and
+ * [`Article`](https://shopify.dev/docs/api/storefront/current/objects/Article)
+ * objects, along with query suggestions that help customers refine their search.
  */
 public class PredictiveSearchResult {
   /**

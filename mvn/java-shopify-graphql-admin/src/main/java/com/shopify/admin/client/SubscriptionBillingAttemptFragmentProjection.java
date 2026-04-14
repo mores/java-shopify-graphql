@@ -41,6 +41,13 @@ public class SubscriptionBillingAttemptFragmentProjection<PARENT extends BaseSub
      return projection;
   }
 
+  public SubscriptionBillingAttemptStateProjection<SubscriptionBillingAttemptFragmentProjection<PARENT, ROOT>, ROOT> state(
+      ) {
+     SubscriptionBillingAttemptStateProjection<SubscriptionBillingAttemptFragmentProjection<PARENT, ROOT>, ROOT> projection = new SubscriptionBillingAttemptStateProjection<>(this, getRoot());
+     getFields().put("state", projection);
+     return projection;
+  }
+
   public SubscriptionContractProjection<SubscriptionBillingAttemptFragmentProjection<PARENT, ROOT>, ROOT> subscriptionContract(
       ) {
      SubscriptionContractProjection<SubscriptionBillingAttemptFragmentProjection<PARENT, ROOT>, ROOT> projection = new SubscriptionContractProjection<>(this, getRoot());

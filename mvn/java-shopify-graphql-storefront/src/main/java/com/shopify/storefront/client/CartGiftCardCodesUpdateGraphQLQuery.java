@@ -8,7 +8,9 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Updates the gift card codes applied to the cart.
+ * Updates the gift card codes applied to the cart. Unlike [`cartGiftCardCodesAdd`](https://shopify.dev/docs/api/storefront/current/mutations/cartGiftCardCodesAdd),
+ * which adds codes without replacing existing ones, this mutation sets the gift
+ * card codes for the cart. Gift card codes are case-insensitive.
  */
 public class CartGiftCardCodesUpdateGraphQLQuery extends GraphQLQuery {
   public CartGiftCardCodesUpdateGraphQLQuery(String cartId, List<String> giftCardCodes,

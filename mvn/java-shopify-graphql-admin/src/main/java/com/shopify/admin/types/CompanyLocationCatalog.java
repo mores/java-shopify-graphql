@@ -9,6 +9,10 @@ import java.util.Objects;
 
 /**
  * A list of products with publishing and pricing information associated with company locations.
+ *
+ * Company location catalogs can include an optional publication to control product
+ * visibility and a price list to customize pricing. When a publication isn't
+ * associated with the catalog, product availability is determined by the sales channel.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

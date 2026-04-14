@@ -291,6 +291,11 @@ public class FulfillmentOrder implements MetafieldReferencer, com.shopify.admin.
   private OffsetDateTime orderProcessedAt;
 
   /**
+   * The total weight of all line items in the fulfillment order that aren't yet fulfilled.
+   */
+  private Weight remainingLineItemsWeight;
+
+  /**
    * The request status of the fulfillment order.
    */
   private FulfillmentOrderRequestStatus requestStatus;
@@ -543,6 +548,17 @@ public class FulfillmentOrder implements MetafieldReferencer, com.shopify.admin.
   }
 
   /**
+   * The total weight of all line items in the fulfillment order that aren't yet fulfilled.
+   */
+  public Weight getRemainingLineItemsWeight() {
+    return remainingLineItemsWeight;
+  }
+
+  public void setRemainingLineItemsWeight(Weight remainingLineItemsWeight) {
+    this.remainingLineItemsWeight = remainingLineItemsWeight;
+  }
+
+  /**
    * The request status of the fulfillment order.
    */
   public FulfillmentOrderRequestStatus getRequestStatus() {
@@ -588,7 +604,7 @@ public class FulfillmentOrder implements MetafieldReferencer, com.shopify.admin.
 
   @Override
   public String toString() {
-    return "FulfillmentOrder{assignedLocation='" + assignedLocation + "', channelId='" + channelId + "', createdAt='" + createdAt + "', deliveryMethod='" + deliveryMethod + "', destination='" + destination + "', fulfillAt='" + fulfillAt + "', fulfillBy='" + fulfillBy + "', fulfillmentHolds='" + fulfillmentHolds + "', fulfillmentOrdersForMerge='" + fulfillmentOrdersForMerge + "', fulfillments='" + fulfillments + "', id='" + id + "', internationalDuties='" + internationalDuties + "', lineItems='" + lineItems + "', locationsForMove='" + locationsForMove + "', merchantRequests='" + merchantRequests + "', order='" + order + "', orderId='" + orderId + "', orderName='" + orderName + "', orderProcessedAt='" + orderProcessedAt + "', requestStatus='" + requestStatus + "', status='" + status + "', supportedActions='" + supportedActions + "', updatedAt='" + updatedAt + "'}";
+    return "FulfillmentOrder{assignedLocation='" + assignedLocation + "', channelId='" + channelId + "', createdAt='" + createdAt + "', deliveryMethod='" + deliveryMethod + "', destination='" + destination + "', fulfillAt='" + fulfillAt + "', fulfillBy='" + fulfillBy + "', fulfillmentHolds='" + fulfillmentHolds + "', fulfillmentOrdersForMerge='" + fulfillmentOrdersForMerge + "', fulfillments='" + fulfillments + "', id='" + id + "', internationalDuties='" + internationalDuties + "', lineItems='" + lineItems + "', locationsForMove='" + locationsForMove + "', merchantRequests='" + merchantRequests + "', order='" + order + "', orderId='" + orderId + "', orderName='" + orderName + "', orderProcessedAt='" + orderProcessedAt + "', remainingLineItemsWeight='" + remainingLineItemsWeight + "', requestStatus='" + requestStatus + "', status='" + status + "', supportedActions='" + supportedActions + "', updatedAt='" + updatedAt + "'}";
   }
 
   @Override
@@ -615,6 +631,7 @@ public class FulfillmentOrder implements MetafieldReferencer, com.shopify.admin.
         Objects.equals(orderId, that.orderId) &&
         Objects.equals(orderName, that.orderName) &&
         Objects.equals(orderProcessedAt, that.orderProcessedAt) &&
+        Objects.equals(remainingLineItemsWeight, that.remainingLineItemsWeight) &&
         Objects.equals(requestStatus, that.requestStatus) &&
         Objects.equals(status, that.status) &&
         Objects.equals(supportedActions, that.supportedActions) &&
@@ -623,7 +640,7 @@ public class FulfillmentOrder implements MetafieldReferencer, com.shopify.admin.
 
   @Override
   public int hashCode() {
-    return Objects.hash(assignedLocation, channelId, createdAt, deliveryMethod, destination, fulfillAt, fulfillBy, fulfillmentHolds, fulfillmentOrdersForMerge, fulfillments, id, internationalDuties, lineItems, locationsForMove, merchantRequests, order, orderId, orderName, orderProcessedAt, requestStatus, status, supportedActions, updatedAt);
+    return Objects.hash(assignedLocation, channelId, createdAt, deliveryMethod, destination, fulfillAt, fulfillBy, fulfillmentHolds, fulfillmentOrdersForMerge, fulfillments, id, internationalDuties, lineItems, locationsForMove, merchantRequests, order, orderId, orderName, orderProcessedAt, remainingLineItemsWeight, requestStatus, status, supportedActions, updatedAt);
   }
 
   public static Builder newBuilder() {
@@ -747,6 +764,11 @@ public class FulfillmentOrder implements MetafieldReferencer, com.shopify.admin.
     private OffsetDateTime orderProcessedAt;
 
     /**
+     * The total weight of all line items in the fulfillment order that aren't yet fulfilled.
+     */
+    private Weight remainingLineItemsWeight;
+
+    /**
      * The request status of the fulfillment order.
      */
     private FulfillmentOrderRequestStatus requestStatus;
@@ -787,6 +809,7 @@ public class FulfillmentOrder implements MetafieldReferencer, com.shopify.admin.
       result.orderId = this.orderId;
       result.orderName = this.orderName;
       result.orderProcessedAt = this.orderProcessedAt;
+      result.remainingLineItemsWeight = this.remainingLineItemsWeight;
       result.requestStatus = this.requestStatus;
       result.status = this.status;
       result.supportedActions = this.supportedActions;
@@ -963,6 +986,14 @@ public class FulfillmentOrder implements MetafieldReferencer, com.shopify.admin.
      */
     public Builder orderProcessedAt(OffsetDateTime orderProcessedAt) {
       this.orderProcessedAt = orderProcessedAt;
+      return this;
+    }
+
+    /**
+     * The total weight of all line items in the fulfillment order that aren't yet fulfilled.
+     */
+    public Builder remainingLineItemsWeight(Weight remainingLineItemsWeight) {
+      this.remainingLineItemsWeight = remainingLineItemsWeight;
       return this;
     }
 

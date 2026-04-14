@@ -10,7 +10,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Resources that can have localized values for different languages.
+ * Returns a paginated list of [`TranslatableResource`](https://shopify.dev/docs/api/admin-graphql/latest/objects/TranslatableResource)
+ * objects for a specific resource type. Each resource provides translatable
+ * content and digest values needed for the [`translationsRegister`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/translationsRegister) mutation.
+ *   
+ * Learn more about [managing translated content](https://shopify.dev/docs/apps/build/markets/manage-translated-content).
+ *   
+ *         Learn more about [managing translated content](https://shopify.dev/docs/apps/build/markets/manage-translated-content).
  */
 public class TranslatableResourcesGraphQLQuery extends GraphQLQuery {
   public TranslatableResourcesGraphQLQuery(TranslatableResourceType resourceType, Integer first,

@@ -12,6 +12,11 @@ import java.util.Objects;
  */
 public class MetaobjectFieldDefinition {
   /**
+   * Capabilities available for this metaobject field definition.
+   */
+  private MetaobjectFieldDefinitionCapabilities capabilities;
+
+  /**
    * The administrative description.
    */
   private String description;
@@ -43,6 +48,17 @@ public class MetaobjectFieldDefinition {
   private List<MetafieldDefinitionValidation> validations;
 
   public MetaobjectFieldDefinition() {
+  }
+
+  /**
+   * Capabilities available for this metaobject field definition.
+   */
+  public MetaobjectFieldDefinitionCapabilities getCapabilities() {
+    return capabilities;
+  }
+
+  public void setCapabilities(MetaobjectFieldDefinitionCapabilities capabilities) {
+    this.capabilities = capabilities;
   }
 
   /**
@@ -114,7 +130,7 @@ public class MetaobjectFieldDefinition {
 
   @Override
   public String toString() {
-    return "MetaobjectFieldDefinition{description='" + description + "', key='" + key + "', name='" + name + "', required='" + required + "', type='" + type + "', validations='" + validations + "'}";
+    return "MetaobjectFieldDefinition{capabilities='" + capabilities + "', description='" + description + "', key='" + key + "', name='" + name + "', required='" + required + "', type='" + type + "', validations='" + validations + "'}";
   }
 
   @Override
@@ -122,7 +138,8 @@ public class MetaobjectFieldDefinition {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     MetaobjectFieldDefinition that = (MetaobjectFieldDefinition) o;
-    return Objects.equals(description, that.description) &&
+    return Objects.equals(capabilities, that.capabilities) &&
+        Objects.equals(description, that.description) &&
         Objects.equals(key, that.key) &&
         Objects.equals(name, that.name) &&
         required == that.required &&
@@ -132,7 +149,7 @@ public class MetaobjectFieldDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, key, name, required, type, validations);
+    return Objects.hash(capabilities, description, key, name, required, type, validations);
   }
 
   public static Builder newBuilder() {
@@ -140,6 +157,11 @@ public class MetaobjectFieldDefinition {
   }
 
   public static class Builder {
+    /**
+     * Capabilities available for this metaobject field definition.
+     */
+    private MetaobjectFieldDefinitionCapabilities capabilities;
+
     /**
      * The administrative description.
      */
@@ -173,6 +195,7 @@ public class MetaobjectFieldDefinition {
 
     public MetaobjectFieldDefinition build() {
       MetaobjectFieldDefinition result = new MetaobjectFieldDefinition();
+      result.capabilities = this.capabilities;
       result.description = this.description;
       result.key = this.key;
       result.name = this.name;
@@ -180,6 +203,14 @@ public class MetaobjectFieldDefinition {
       result.type = this.type;
       result.validations = this.validations;
       return result;
+    }
+
+    /**
+     * Capabilities available for this metaobject field definition.
+     */
+    public Builder capabilities(MetaobjectFieldDefinitionCapabilities capabilities) {
+      this.capabilities = capabilities;
+      return this;
     }
 
     /**

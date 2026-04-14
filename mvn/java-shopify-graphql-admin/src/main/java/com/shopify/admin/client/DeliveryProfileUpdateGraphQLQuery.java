@@ -2,25 +2,34 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.DeliveryProfileInput;
-import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Update a delivery profile.
+ * Updates a [`DeliveryProfile`](https://shopify.dev/docs/api/admin-graphql/latest/objects/DeliveryProfile)'s configuration, including its shipping zones, rates, and associated products.
+ *   
+ * Modify location groups to control which fulfillment [`Location`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Location)
+ * objects serve specific geographic areas. Add or remove shipping zones with
+ * custom countries and provinces. Create or update shipping methods with rate
+ * definitions and delivery conditions. Associate or dissociate [`ProductVariant`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant) objects and [`SellingPlanGroup`](https://shopify.dev/docs/api/admin-graphql/latest/objects/SellingPlanGroup)
+ * objects to determine which products use this profile's shipping rules.
+ *   
+ * The mutation supports partial updates through dedicated input fields for
+ * creating, updating, and deleting specific components without affecting the
+ * entire profile structure.
+ *   
+ * Learn more about [building delivery profiles](https://shopify.dev/docs/apps/build/purchase-options/deferred/delivery-and-deferment/build-delivery-profiles).
  */
 public class DeliveryProfileUpdateGraphQLQuery extends GraphQLQuery {
   public DeliveryProfileUpdateGraphQLQuery(String id, DeliveryProfileInput profile,
-      Boolean leaveLegacyModeProfiles, String queryName, Set<String> fieldsSet) {
+      String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
     if (id != null || fieldsSet.contains("id")) {
         getInput().put("id", id);
     }if (profile != null || fieldsSet.contains("profile")) {
         getInput().put("profile", profile);
-    }if (leaveLegacyModeProfiles != null || fieldsSet.contains("leaveLegacyModeProfiles")) {
-        getInput().put("leaveLegacyModeProfiles", leaveLegacyModeProfiles);
     }
   }
 
@@ -44,12 +53,10 @@ public class DeliveryProfileUpdateGraphQLQuery extends GraphQLQuery {
 
     private DeliveryProfileInput profile;
 
-    private Boolean leaveLegacyModeProfiles;
-
     private String queryName;
 
     public DeliveryProfileUpdateGraphQLQuery build() {
-      return new DeliveryProfileUpdateGraphQLQuery(id, profile, leaveLegacyModeProfiles, queryName, fieldsSet);
+      return new DeliveryProfileUpdateGraphQLQuery(id, profile, queryName, fieldsSet);
                
     }
 
@@ -68,15 +75,6 @@ public class DeliveryProfileUpdateGraphQLQuery extends GraphQLQuery {
     public Builder profile(DeliveryProfileInput profile) {
       this.profile = profile;
       this.fieldsSet.add("profile");
-      return this;
-    }
-
-    /**
-     * Whether this delivery profile should leave legacy mode.
-     */
-    public Builder leaveLegacyModeProfiles(Boolean leaveLegacyModeProfiles) {
-      this.leaveLegacyModeProfiles = leaveLegacyModeProfiles;
-      this.fieldsSet.add("leaveLegacyModeProfiles");
       return this;
     }
 

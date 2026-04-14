@@ -171,6 +171,11 @@ public class RefundProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT e
     return this;
   }
 
+  public RefundProjection<PARENT, ROOT> processedAt() {
+    getFields().put("processedAt", null);
+    return this;
+  }
+
   public RefundProjection<PARENT, ROOT> updatedAt() {
     getFields().put("updatedAt", null);
     return this;

@@ -9,6 +9,11 @@ import java.util.Set;
 
 /**
  * Adds a draft shipment to an inventory transfer.
+ *   
+ * > Caution:
+ * > As of 2026-01, this mutation supports an optional idempotency key using the `@idempotent` directive.
+ * > As of 2026-04, the idempotency key is required and must be provided using the `@idempotent` directive.
+ * > For more information, see the [idempotency documentation](https://shopify.dev/docs/api/usage/idempotent-requests).
  */
 public class InventoryShipmentCreateGraphQLQuery extends GraphQLQuery {
   public InventoryShipmentCreateGraphQLQuery(InventoryShipmentCreateInput input, String queryName,

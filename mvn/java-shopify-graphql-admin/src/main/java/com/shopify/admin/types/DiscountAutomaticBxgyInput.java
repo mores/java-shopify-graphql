@@ -4,12 +4,19 @@ import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
 import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.Objects;
 
 /**
  * The input fields for creating or updating a
  * [buy X get Y discount (BXGY)](https://help.shopify.com/manual/discounts/discount-types/buy-x-get-y)
  * that's automatically applied on a cart and at checkout.
+ *
+ * When creating, required fields are:
+ *   - `customerBuys`
+ *   - `customerGets`
+ *   - `startsAt`
+ *   - `title`
  */
 public class DiscountAutomaticBxgyInput {
   /**
@@ -35,6 +42,26 @@ public class DiscountAutomaticBxgyInput {
    * For discounts without a fixed expiration date, specify `null`.
    */
   private OffsetDateTime endsAt;
+
+  /**
+   * The context defining which buyers can use the discount.
+   * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+   * Discounts automatically apply on Point of Sale (POS) for Pro locations when the context is not set to ALL.
+   */
+  private DiscountContextInput context;
+
+  /**
+   * A list of searchable keywords that are associated with the discount.
+   *   
+   * For example, a `loyalty` tag could be applied to discounts
+   * that are associated with a loyalty program.
+   *   
+   * Updating `tags` overwrites any existing tags that were previously added to the discount.
+   * To add new tags without overwriting existing tags, use the
+   * [`tagsAdd`](https://shopify.dev/api/admin-graphql/latest/mutations/tagsadd)
+   * mutation.
+   */
+  private List<String> tags;
 
   /**
    * The maximum number of times that the discount can be applied to an order.
@@ -103,6 +130,38 @@ public class DiscountAutomaticBxgyInput {
   }
 
   /**
+   * The context defining which buyers can use the discount.
+   * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+   * Discounts automatically apply on Point of Sale (POS) for Pro locations when the context is not set to ALL.
+   */
+  public DiscountContextInput getContext() {
+    return context;
+  }
+
+  public void setContext(DiscountContextInput context) {
+    this.context = context;
+  }
+
+  /**
+   * A list of searchable keywords that are associated with the discount.
+   *   
+   * For example, a `loyalty` tag could be applied to discounts
+   * that are associated with a loyalty program.
+   *   
+   * Updating `tags` overwrites any existing tags that were previously added to the discount.
+   * To add new tags without overwriting existing tags, use the
+   * [`tagsAdd`](https://shopify.dev/api/admin-graphql/latest/mutations/tagsadd)
+   * mutation.
+   */
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
+  /**
    * The maximum number of times that the discount can be applied to an order.
    */
   public String getUsesPerOrderLimit() {
@@ -137,7 +196,7 @@ public class DiscountAutomaticBxgyInput {
 
   @Override
   public String toString() {
-    return "DiscountAutomaticBxgyInput{combinesWith='" + combinesWith + "', title='" + title + "', startsAt='" + startsAt + "', endsAt='" + endsAt + "', usesPerOrderLimit='" + usesPerOrderLimit + "', customerBuys='" + customerBuys + "', customerGets='" + customerGets + "'}";
+    return "DiscountAutomaticBxgyInput{combinesWith='" + combinesWith + "', title='" + title + "', startsAt='" + startsAt + "', endsAt='" + endsAt + "', context='" + context + "', tags='" + tags + "', usesPerOrderLimit='" + usesPerOrderLimit + "', customerBuys='" + customerBuys + "', customerGets='" + customerGets + "'}";
   }
 
   @Override
@@ -149,6 +208,8 @@ public class DiscountAutomaticBxgyInput {
         Objects.equals(title, that.title) &&
         Objects.equals(startsAt, that.startsAt) &&
         Objects.equals(endsAt, that.endsAt) &&
+        Objects.equals(context, that.context) &&
+        Objects.equals(tags, that.tags) &&
         Objects.equals(usesPerOrderLimit, that.usesPerOrderLimit) &&
         Objects.equals(customerBuys, that.customerBuys) &&
         Objects.equals(customerGets, that.customerGets);
@@ -156,7 +217,7 @@ public class DiscountAutomaticBxgyInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(combinesWith, title, startsAt, endsAt, usesPerOrderLimit, customerBuys, customerGets);
+    return Objects.hash(combinesWith, title, startsAt, endsAt, context, tags, usesPerOrderLimit, customerBuys, customerGets);
   }
 
   public static Builder newBuilder() {
@@ -189,6 +250,26 @@ public class DiscountAutomaticBxgyInput {
     private OffsetDateTime endsAt;
 
     /**
+     * The context defining which buyers can use the discount.
+     * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+     * Discounts automatically apply on Point of Sale (POS) for Pro locations when the context is not set to ALL.
+     */
+    private DiscountContextInput context;
+
+    /**
+     * A list of searchable keywords that are associated with the discount.
+     *   
+     * For example, a `loyalty` tag could be applied to discounts
+     * that are associated with a loyalty program.
+     *   
+     * Updating `tags` overwrites any existing tags that were previously added to the discount.
+     * To add new tags without overwriting existing tags, use the
+     * [`tagsAdd`](https://shopify.dev/api/admin-graphql/latest/mutations/tagsadd)
+     * mutation.
+     */
+    private List<String> tags;
+
+    /**
      * The maximum number of times that the discount can be applied to an order.
      */
     private String usesPerOrderLimit;
@@ -209,6 +290,8 @@ public class DiscountAutomaticBxgyInput {
       result.title = this.title;
       result.startsAt = this.startsAt;
       result.endsAt = this.endsAt;
+      result.context = this.context;
+      result.tags = this.tags;
       result.usesPerOrderLimit = this.usesPerOrderLimit;
       result.customerBuys = this.customerBuys;
       result.customerGets = this.customerGets;
@@ -248,6 +331,32 @@ public class DiscountAutomaticBxgyInput {
      */
     public Builder endsAt(OffsetDateTime endsAt) {
       this.endsAt = endsAt;
+      return this;
+    }
+
+    /**
+     * The context defining which buyers can use the discount.
+     * You can target specific customer IDs, customer segments, or make the discount available to all buyers.
+     * Discounts automatically apply on Point of Sale (POS) for Pro locations when the context is not set to ALL.
+     */
+    public Builder context(DiscountContextInput context) {
+      this.context = context;
+      return this;
+    }
+
+    /**
+     * A list of searchable keywords that are associated with the discount.
+     *   
+     * For example, a `loyalty` tag could be applied to discounts
+     * that are associated with a loyalty program.
+     *   
+     * Updating `tags` overwrites any existing tags that were previously added to the discount.
+     * To add new tags without overwriting existing tags, use the
+     * [`tagsAdd`](https://shopify.dev/api/admin-graphql/latest/mutations/tagsadd)
+     * mutation.
+     */
+    public Builder tags(List<String> tags) {
+      this.tags = tags;
       return this;
     }
 

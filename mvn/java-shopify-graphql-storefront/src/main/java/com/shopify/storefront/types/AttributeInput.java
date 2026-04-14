@@ -6,7 +6,11 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The input fields for an attribute.
+ * A custom key-value pair that stores additional information on a
+ * [cart](https://shopify.dev/docs/api/storefront/current/objects/Cart) or [cart
+ * line](https://shopify.dev/docs/api/storefront/current/objects/CartLine).
+ * Attributes capture additional information like gift messages, special
+ * instructions, or custom order details. Learn more about [managing carts with the Storefront API](https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/cart/manage).
  */
 public class AttributeInput {
   /**

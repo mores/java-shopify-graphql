@@ -2,6 +2,7 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.CreateMediaInput;
+import com.shopify.admin.types.ProductUpdateIdentifiers;
 import com.shopify.admin.types.ProductUpdateInput;
 import java.lang.Override;
 import java.lang.String;
@@ -40,12 +41,14 @@ import java.util.Set;
  */
 public class ProductUpdateGraphQLQuery extends GraphQLQuery {
   public ProductUpdateGraphQLQuery(ProductUpdateInput product, List<CreateMediaInput> media,
-      String queryName, Set<String> fieldsSet) {
+      ProductUpdateIdentifiers identifier, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
     if (product != null || fieldsSet.contains("product")) {
         getInput().put("product", product);
     }if (media != null || fieldsSet.contains("media")) {
         getInput().put("media", media);
+    }if (identifier != null || fieldsSet.contains("identifier")) {
+        getInput().put("identifier", identifier);
     }
   }
 
@@ -69,10 +72,12 @@ public class ProductUpdateGraphQLQuery extends GraphQLQuery {
 
     private List<CreateMediaInput> media;
 
+    private ProductUpdateIdentifiers identifier;
+
     private String queryName;
 
     public ProductUpdateGraphQLQuery build() {
-      return new ProductUpdateGraphQLQuery(product, media, queryName, fieldsSet);
+      return new ProductUpdateGraphQLQuery(product, media, identifier, queryName, fieldsSet);
                
     }
 
@@ -91,6 +96,15 @@ public class ProductUpdateGraphQLQuery extends GraphQLQuery {
     public Builder media(List<CreateMediaInput> media) {
       this.media = media;
       this.fieldsSet.add("media");
+      return this;
+    }
+
+    /**
+     * Specifies the identifier that will be used to lookup the resource.
+     */
+    public Builder identifier(ProductUpdateIdentifiers identifier) {
+      this.identifier = identifier;
+      this.fieldsSet.add("identifier");
       return this;
     }
 

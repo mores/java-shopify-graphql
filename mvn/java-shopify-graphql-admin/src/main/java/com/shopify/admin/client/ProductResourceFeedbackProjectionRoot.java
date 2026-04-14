@@ -12,6 +12,13 @@ public class ProductResourceFeedbackProjectionRoot<PARENT extends BaseSubProject
     return this;
   }
 
+  public ChannelProjection<ProductResourceFeedbackProjectionRoot<PARENT, ROOT>, ProductResourceFeedbackProjectionRoot<PARENT, ROOT>> channel(
+      ) {
+    ChannelProjection<ProductResourceFeedbackProjectionRoot<PARENT, ROOT>, ProductResourceFeedbackProjectionRoot<PARENT, ROOT>> projection = new ChannelProjection<>(this, this);    
+    getFields().put("channel", projection);
+    return projection;
+  }
+
   public ResourceFeedbackStateProjection<ProductResourceFeedbackProjectionRoot<PARENT, ROOT>, ProductResourceFeedbackProjectionRoot<PARENT, ROOT>> state(
       ) {
     ResourceFeedbackStateProjection<ProductResourceFeedbackProjectionRoot<PARENT, ROOT>, ProductResourceFeedbackProjectionRoot<PARENT, ROOT>> projection = new ResourceFeedbackStateProjection<>(this, this);    

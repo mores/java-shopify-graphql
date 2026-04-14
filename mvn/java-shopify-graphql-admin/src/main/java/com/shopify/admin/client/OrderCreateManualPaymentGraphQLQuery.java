@@ -9,8 +9,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Create a manual payment for an order. You can only create a manual payment for an order if it isn't already
- * fully paid.
+ * Records a manual payment for an
+ * [`Order`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order)
+ * that isn't fully paid. Use this mutation to track payments received outside
+ * the standard checkout process, such as cash, check, bank transfer, or other
+ * offline payment methods.
+ *   
+ * You can specify the payment [amount](https://shopify.dev/docs/api/admin-graphql/latest/mutations/orderCreateManualPayment#arguments-amount), [method name](https://shopify.dev/docs/api/admin-graphql/latest/mutations/orderCreateManualPayment#arguments-paymentMethodName),
+ * and [when it was processed](https://shopify.dev/docs/api/admin-graphql/latest/mutations/orderCreateManualPayment#arguments-processedAt).
  */
 public class OrderCreateManualPaymentGraphQLQuery extends GraphQLQuery {
   public OrderCreateManualPaymentGraphQLQuery(String id, MoneyInput amount,

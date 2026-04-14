@@ -59,6 +59,11 @@ public class ShopifyPaymentsPayoutProjection<PARENT extends BaseSubProjectionNod
      return projection;
   }
 
+  public ShopifyPaymentsPayoutProjection<PARENT, ROOT> externalTraceId() {
+    getFields().put("externalTraceId", null);
+    return this;
+  }
+
   public ShopifyPaymentsPayoutProjection<PARENT, ROOT> id() {
     getFields().put("id", null);
     return this;

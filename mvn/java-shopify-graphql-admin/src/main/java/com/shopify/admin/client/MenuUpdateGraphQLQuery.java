@@ -9,7 +9,14 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Updates a menu.
+ * Updates a [`Menu`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Menu) for
+ * display on the storefront. Modifies the menu's title and navigation structure,
+ * including nested [`MenuItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MenuItem)
+ * objects. You can update the handle for non-default menus.
+ *   
+ * The items argument accepts a list of menu items with their nested structure.
+ * Each item can include nested items to create multi-level navigation
+ * hierarchies. Default menus have restricted updates—you can't change their handles.
  */
 public class MenuUpdateGraphQLQuery extends GraphQLQuery {
   public MenuUpdateGraphQLQuery(String id, String title, String handle,

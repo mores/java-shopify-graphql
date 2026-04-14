@@ -31,6 +31,11 @@ public class SubscriptionBillingAttemptInput {
   private SubscriptionBillingCycleSelector billingCycleSelector;
 
   /**
+   * Select payment processing policy for the billing attempt. Defaults to FAIL_UNLESS_VALID_PAYMENT_METHOD.
+   */
+  private SubscriptionBillingAttemptPaymentProcessingPolicy paymentProcessingPolicy = SubscriptionBillingAttemptPaymentProcessingPolicy.FAIL_UNLESS_VALID_PAYMENT_METHOD;
+
+  /**
    * The behaviour to follow when creating an order for a product variant
    *       when it's out of stock.
    */
@@ -78,6 +83,18 @@ public class SubscriptionBillingAttemptInput {
   }
 
   /**
+   * Select payment processing policy for the billing attempt. Defaults to FAIL_UNLESS_VALID_PAYMENT_METHOD.
+   */
+  public SubscriptionBillingAttemptPaymentProcessingPolicy getPaymentProcessingPolicy() {
+    return paymentProcessingPolicy;
+  }
+
+  public void setPaymentProcessingPolicy(
+      SubscriptionBillingAttemptPaymentProcessingPolicy paymentProcessingPolicy) {
+    this.paymentProcessingPolicy = paymentProcessingPolicy;
+  }
+
+  /**
    * The behaviour to follow when creating an order for a product variant
    *       when it's out of stock.
    */
@@ -91,7 +108,7 @@ public class SubscriptionBillingAttemptInput {
 
   @Override
   public String toString() {
-    return "SubscriptionBillingAttemptInput{idempotencyKey='" + idempotencyKey + "', originTime='" + originTime + "', billingCycleSelector='" + billingCycleSelector + "', inventoryPolicy='" + inventoryPolicy + "'}";
+    return "SubscriptionBillingAttemptInput{idempotencyKey='" + idempotencyKey + "', originTime='" + originTime + "', billingCycleSelector='" + billingCycleSelector + "', paymentProcessingPolicy='" + paymentProcessingPolicy + "', inventoryPolicy='" + inventoryPolicy + "'}";
   }
 
   @Override
@@ -102,12 +119,13 @@ public class SubscriptionBillingAttemptInput {
     return Objects.equals(idempotencyKey, that.idempotencyKey) &&
         Objects.equals(originTime, that.originTime) &&
         Objects.equals(billingCycleSelector, that.billingCycleSelector) &&
+        Objects.equals(paymentProcessingPolicy, that.paymentProcessingPolicy) &&
         Objects.equals(inventoryPolicy, that.inventoryPolicy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(idempotencyKey, originTime, billingCycleSelector, inventoryPolicy);
+    return Objects.hash(idempotencyKey, originTime, billingCycleSelector, paymentProcessingPolicy, inventoryPolicy);
   }
 
   public static Builder newBuilder() {
@@ -136,6 +154,11 @@ public class SubscriptionBillingAttemptInput {
     private SubscriptionBillingCycleSelector billingCycleSelector;
 
     /**
+     * Select payment processing policy for the billing attempt. Defaults to FAIL_UNLESS_VALID_PAYMENT_METHOD.
+     */
+    private SubscriptionBillingAttemptPaymentProcessingPolicy paymentProcessingPolicy = SubscriptionBillingAttemptPaymentProcessingPolicy.FAIL_UNLESS_VALID_PAYMENT_METHOD;
+
+    /**
      * The behaviour to follow when creating an order for a product variant
      *       when it's out of stock.
      */
@@ -146,6 +169,7 @@ public class SubscriptionBillingAttemptInput {
       result.idempotencyKey = this.idempotencyKey;
       result.originTime = this.originTime;
       result.billingCycleSelector = this.billingCycleSelector;
+      result.paymentProcessingPolicy = this.paymentProcessingPolicy;
       result.inventoryPolicy = this.inventoryPolicy;
       return result;
     }
@@ -176,6 +200,15 @@ public class SubscriptionBillingAttemptInput {
      */
     public Builder billingCycleSelector(SubscriptionBillingCycleSelector billingCycleSelector) {
       this.billingCycleSelector = billingCycleSelector;
+      return this;
+    }
+
+    /**
+     * Select payment processing policy for the billing attempt. Defaults to FAIL_UNLESS_VALID_PAYMENT_METHOD.
+     */
+    public Builder paymentProcessingPolicy(
+        SubscriptionBillingAttemptPaymentProcessingPolicy paymentProcessingPolicy) {
+      this.paymentProcessingPolicy = paymentProcessingPolicy;
       return this;
     }
 

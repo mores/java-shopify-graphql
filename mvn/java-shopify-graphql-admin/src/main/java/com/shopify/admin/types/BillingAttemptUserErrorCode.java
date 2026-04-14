@@ -28,5 +28,7 @@ public enum BillingAttemptUserErrorCode {
 
   CONTRACT_TERMINATED,
 
-  CONTRACT_PAUSED
+  CONTRACT_PAUSED,
+
+  THROTTLED
 }

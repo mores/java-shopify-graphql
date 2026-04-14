@@ -9,7 +9,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Create a new customer address.
+ * Creates a new [`MailingAddress`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MailingAddress) for a [`Customer`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Customer). You can optionally set the address as the customer's default address.
+ *   
+ * You can only add addresses to existing customers. Each customer can have multiple addresses.
  */
 public class CustomerAddressCreateGraphQLQuery extends GraphQLQuery {
   public CustomerAddressCreateGraphQLQuery(String customerId, MailingAddressInput address,

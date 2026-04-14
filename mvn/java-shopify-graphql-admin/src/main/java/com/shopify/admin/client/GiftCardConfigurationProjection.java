@@ -12,6 +12,13 @@ public class GiftCardConfigurationProjection<PARENT extends BaseSubProjectionNod
     return this;
   }
 
+  public GiftCardExpirationConfigurationProjection<GiftCardConfigurationProjection<PARENT, ROOT>, ROOT> expirationConfiguration(
+      ) {
+     GiftCardExpirationConfigurationProjection<GiftCardConfigurationProjection<PARENT, ROOT>, ROOT> projection = new GiftCardExpirationConfigurationProjection<>(this, getRoot());
+     getFields().put("expirationConfiguration", projection);
+     return projection;
+  }
+
   public MoneyV2Projection<GiftCardConfigurationProjection<PARENT, ROOT>, ROOT> issueLimit() {
      MoneyV2Projection<GiftCardConfigurationProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());
      getFields().put("issueLimit", projection);

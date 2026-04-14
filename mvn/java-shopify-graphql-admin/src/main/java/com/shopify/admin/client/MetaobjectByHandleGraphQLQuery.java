@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Retrieves a metaobject by handle.
+ * Retrieves a [`Metaobject`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Metaobject) by its handle and type. Handles are unique identifiers within a metaobject type.
  */
 public class MetaobjectByHandleGraphQLQuery extends GraphQLQuery {
   public MetaobjectByHandleGraphQLQuery(MetaobjectHandleInput handle, String queryName,

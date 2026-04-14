@@ -7,7 +7,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Permanently deletes the address of an existing customer.
+ * Permanently deletes a specific [`MailingAddress`](https://shopify.dev/docs/api/storefront/current/objects/MailingAddress) for a [`Customer`](https://shopify.dev/docs/api/storefront/current/objects/Customer).
+ * Requires a valid [customer access token](https://shopify.dev/docs/api/storefront/current/mutations/customerAddressDelete#arguments-customerAccessToken)
+ * to authenticate the request.
+ *   
+ * > Caution:
+ * > This action is irreversible. You can't recover the deleted address.
  */
 public class CustomerAddressDeleteGraphQLQuery extends GraphQLQuery {
   public CustomerAddressDeleteGraphQLQuery(String id, String customerAccessToken, String queryName,

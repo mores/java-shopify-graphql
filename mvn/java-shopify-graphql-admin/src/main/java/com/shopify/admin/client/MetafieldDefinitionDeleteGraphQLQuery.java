@@ -9,8 +9,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Delete a metafield definition.
- * Optionally deletes all associated metafields asynchronously when specified.
+ * Deletes a [`MetafieldDefinition`](https://shopify.dev/docs/api/admin-graphql/current/objects/MetafieldDefinition). You can identify the definition by providing either its owner type, namespace,
+ * and key, or its global ID.
+ *   
+ * When you set [`deleteAllAssociatedMetafields`](https://shopify.dev/docs/api/admin-graphql/current/mutations/metafieldDefinitionDelete#arguments-deleteAllAssociatedMetafields) to `true`, the mutation asynchronously deletes all [`Metafield`](https://shopify.dev/docs/api/admin-graphql/current/objects/Metafield)
+ * objects that use this definition. This option must be `true` when deleting
+ * definitions under the `$app` namespace.
+ *   
+ * Learn more about [deleting metafield definitions](https://shopify.dev/docs/apps/build/custom-data/metafields/definitions).
  */
 public class MetafieldDefinitionDeleteGraphQLQuery extends GraphQLQuery {
   public MetafieldDefinitionDeleteGraphQLQuery(String id,

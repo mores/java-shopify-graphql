@@ -99,6 +99,11 @@ public class InventoryLevelProjectionRoot<PARENT extends BaseSubProjectionNode<?
     return this;
   }
 
+  public InventoryLevelProjectionRoot<PARENT, ROOT> isActive() {
+    getFields().put("isActive", null);
+    return this;
+  }
+
   public InventoryLevelProjectionRoot<PARENT, ROOT> updatedAt() {
     getFields().put("updatedAt", null);
     return this;

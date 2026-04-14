@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a Menu resource by ID.
+ * Returns a `Menu` resource by ID.
  */
 public class MenuGraphQLQuery extends GraphQLQuery {
   public MenuGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

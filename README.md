@@ -3,6 +3,9 @@
 ## Building
 mvn -DskipTests clean javadoc:jar source:jar install
 
+## Known Issues
+https://github.com/mores/java-shopify-graphql/issues/9 - unable to pass @idempotent directive
+
 ## Using these objects in your project
 
 ### Admin API
@@ -11,7 +14,7 @@ mvn -DskipTests clean javadoc:jar source:jar install
 <dependency>
 	<groupId>io.github.mores</groupId>
 	<artifactId>java-shopify-graphql-admin</artifactId>
-	<version>2025.07.001</version>
+	<version>2026.04.001</version>
 </dependency>
 ```
 
@@ -23,7 +26,7 @@ mvn -DskipTests clean javadoc:jar source:jar install
 <dependency>
         <groupId>io.github.mores</groupId>
         <artifactId>java-shopify-graphql-storefront</artifactId>
-        <version>2025.07.001</version>
+        <version>2026.04.001</version>
 </dependency>
 ```
 

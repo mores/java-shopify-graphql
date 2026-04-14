@@ -19,6 +19,11 @@ public class AppFeedback {
   private App app;
 
   /**
+   * The channel this feedback is for.
+   */
+  private Channel channel;
+
+  /**
    * The date and time when the app feedback was generated.
    */
   private OffsetDateTime feedbackGeneratedAt;
@@ -50,6 +55,17 @@ public class AppFeedback {
 
   public void setApp(App app) {
     this.app = app;
+  }
+
+  /**
+   * The channel this feedback is for.
+   */
+  public Channel getChannel() {
+    return channel;
+  }
+
+  public void setChannel(Channel channel) {
+    this.channel = channel;
   }
 
   /**
@@ -98,7 +114,7 @@ public class AppFeedback {
 
   @Override
   public String toString() {
-    return "AppFeedback{app='" + app + "', feedbackGeneratedAt='" + feedbackGeneratedAt + "', link='" + link + "', messages='" + messages + "', state='" + state + "'}";
+    return "AppFeedback{app='" + app + "', channel='" + channel + "', feedbackGeneratedAt='" + feedbackGeneratedAt + "', link='" + link + "', messages='" + messages + "', state='" + state + "'}";
   }
 
   @Override
@@ -107,6 +123,7 @@ public class AppFeedback {
     if (o == null || getClass() != o.getClass()) return false;
     AppFeedback that = (AppFeedback) o;
     return Objects.equals(app, that.app) &&
+        Objects.equals(channel, that.channel) &&
         Objects.equals(feedbackGeneratedAt, that.feedbackGeneratedAt) &&
         Objects.equals(link, that.link) &&
         Objects.equals(messages, that.messages) &&
@@ -115,7 +132,7 @@ public class AppFeedback {
 
   @Override
   public int hashCode() {
-    return Objects.hash(app, feedbackGeneratedAt, link, messages, state);
+    return Objects.hash(app, channel, feedbackGeneratedAt, link, messages, state);
   }
 
   public static Builder newBuilder() {
@@ -127,6 +144,11 @@ public class AppFeedback {
      * The application associated to the feedback.
      */
     private App app;
+
+    /**
+     * The channel this feedback is for.
+     */
+    private Channel channel;
 
     /**
      * The date and time when the app feedback was generated.
@@ -151,6 +173,7 @@ public class AppFeedback {
     public AppFeedback build() {
       AppFeedback result = new AppFeedback();
       result.app = this.app;
+      result.channel = this.channel;
       result.feedbackGeneratedAt = this.feedbackGeneratedAt;
       result.link = this.link;
       result.messages = this.messages;
@@ -163,6 +186,14 @@ public class AppFeedback {
      */
     public Builder app(App app) {
       this.app = app;
+      return this;
+    }
+
+    /**
+     * The channel this feedback is for.
+     */
+    public Builder channel(Channel channel) {
+      this.channel = channel;
       return this;
     }
 

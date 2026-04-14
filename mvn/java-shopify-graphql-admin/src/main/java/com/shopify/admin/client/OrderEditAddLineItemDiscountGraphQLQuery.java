@@ -8,8 +8,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Adds a discount to a line item on the current order edit. For more information
- * on how to use the GraphQL Admin API to edit an existing order, refer to [Edit existing orders](https://shopify.dev/apps/fulfillment/order-management-apps/order-editing).
+ * Applies a discount to a [`LineItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/LineItem)
+ * during an order edit session. The discount can be either a fixed amount or
+ * percentage value.
+ *   
+ * To modify pricing on specific line items, use this mutation after starting an
+ * order edit with the [`orderEditBegin`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/orderEditBegin)
+ * mutation. The changes remain staged until you commit them with the [`orderEditCommit`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/orderEditCommit) mutation.
+ *   
+ * Learn more about [editing existing orders](https://shopify.dev/docs/apps/build/orders-fulfillment/order-management-apps/edit-orders).
  */
 public class OrderEditAddLineItemDiscountGraphQLQuery extends GraphQLQuery {
   public OrderEditAddLineItemDiscountGraphQLQuery(String id, String lineItemId,
@@ -55,7 +62,7 @@ public class OrderEditAddLineItemDiscountGraphQLQuery extends GraphQLQuery {
 
     /**
      * The ID of the [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
-     * to update.
+     * or the order edit session to edit.
      */
     public Builder id(String id) {
       this.id = id;

@@ -6,7 +6,12 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The input fields to create or update a mailing address.
+ * The input fields for creating or updating a [`MailingAddress`](https://shopify.dev/docs/api/storefront/current/objects/MailingAddress).
+ * Accepts standard address components including street address, city, province,
+ * country, and postal code, along with customer name and contact information.
+ *
+ * Used by the [`customerAddressCreate`](https://shopify.dev/docs/api/storefront/current/mutations/customerAddressCreate) and [`customerAddressUpdate`](https://shopify.dev/docs/api/storefront/current/mutations/customerAddressUpdate) mutations, and as part of [`DeliveryAddressInput`](https://shopify.dev/docs/api/storefront/current/input-objects/DeliveryAddressInput)
+ * for cart delivery preferences.
  */
 public class MailingAddressInput {
   /**

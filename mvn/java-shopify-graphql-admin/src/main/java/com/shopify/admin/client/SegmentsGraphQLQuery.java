@@ -10,7 +10,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * A list of a shop's segments.
+ * Returns a paginated list of
+ * [`Segment`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Segment)
+ * objects for the shop. Segments are dynamic groups of customers that meet
+ * specific criteria defined through [ShopifyQL queries](https://shopify.dev/docs/api/shopifyql/segment-query-language-reference).
+ * You can filter segments by search query and sort them by creation date or
+ * other criteria.
+ *   
+ * The query supports standard
+ * [pagination](https://shopify.dev/docs/api/usage/pagination-graphql) arguments and returns a [`SegmentConnection`](https://shopify.dev/docs/api/admin-graphql/latest/objects/SegmentConnection)
+ * containing segment details including names, creation dates, and the query
+ * definitions that determine segment membership.
  */
 public class SegmentsGraphQLQuery extends GraphQLQuery {
   public SegmentsGraphQLQuery(Integer first, String after, Integer last, String before,

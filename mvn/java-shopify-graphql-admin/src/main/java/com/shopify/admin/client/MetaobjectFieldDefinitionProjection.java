@@ -12,6 +12,13 @@ public class MetaobjectFieldDefinitionProjection<PARENT extends BaseSubProjectio
     return this;
   }
 
+  public MetaobjectFieldDefinitionCapabilitiesProjection<MetaobjectFieldDefinitionProjection<PARENT, ROOT>, ROOT> capabilities(
+      ) {
+     MetaobjectFieldDefinitionCapabilitiesProjection<MetaobjectFieldDefinitionProjection<PARENT, ROOT>, ROOT> projection = new MetaobjectFieldDefinitionCapabilitiesProjection<>(this, getRoot());
+     getFields().put("capabilities", projection);
+     return projection;
+  }
+
   public MetafieldDefinitionTypeProjection<MetaobjectFieldDefinitionProjection<PARENT, ROOT>, ROOT> type(
       ) {
      MetafieldDefinitionTypeProjection<MetaobjectFieldDefinitionProjection<PARENT, ROOT>, ROOT> projection = new MetafieldDefinitionTypeProjection<>(this, getRoot());

@@ -16,6 +16,11 @@ public class OrderEditRemoveDiscountPayload {
   private CalculatedOrder calculatedOrder;
 
   /**
+   * The order edit session with the edits applied but not saved.
+   */
+  private OrderEditSession orderEditSession;
+
+  /**
    * The list of errors that occurred from executing the mutation.
    */
   private List<OrderEditRemoveDiscountUserError> userErrors;
@@ -35,6 +40,17 @@ public class OrderEditRemoveDiscountPayload {
   }
 
   /**
+   * The order edit session with the edits applied but not saved.
+   */
+  public OrderEditSession getOrderEditSession() {
+    return orderEditSession;
+  }
+
+  public void setOrderEditSession(OrderEditSession orderEditSession) {
+    this.orderEditSession = orderEditSession;
+  }
+
+  /**
    * The list of errors that occurred from executing the mutation.
    */
   public List<OrderEditRemoveDiscountUserError> getUserErrors() {
@@ -47,7 +63,7 @@ public class OrderEditRemoveDiscountPayload {
 
   @Override
   public String toString() {
-    return "OrderEditRemoveDiscountPayload{calculatedOrder='" + calculatedOrder + "', userErrors='" + userErrors + "'}";
+    return "OrderEditRemoveDiscountPayload{calculatedOrder='" + calculatedOrder + "', orderEditSession='" + orderEditSession + "', userErrors='" + userErrors + "'}";
   }
 
   @Override
@@ -56,12 +72,13 @@ public class OrderEditRemoveDiscountPayload {
     if (o == null || getClass() != o.getClass()) return false;
     OrderEditRemoveDiscountPayload that = (OrderEditRemoveDiscountPayload) o;
     return Objects.equals(calculatedOrder, that.calculatedOrder) &&
+        Objects.equals(orderEditSession, that.orderEditSession) &&
         Objects.equals(userErrors, that.userErrors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(calculatedOrder, userErrors);
+    return Objects.hash(calculatedOrder, orderEditSession, userErrors);
   }
 
   public static Builder newBuilder() {
@@ -75,6 +92,11 @@ public class OrderEditRemoveDiscountPayload {
     private CalculatedOrder calculatedOrder;
 
     /**
+     * The order edit session with the edits applied but not saved.
+     */
+    private OrderEditSession orderEditSession;
+
+    /**
      * The list of errors that occurred from executing the mutation.
      */
     private List<OrderEditRemoveDiscountUserError> userErrors;
@@ -82,6 +104,7 @@ public class OrderEditRemoveDiscountPayload {
     public OrderEditRemoveDiscountPayload build() {
       OrderEditRemoveDiscountPayload result = new OrderEditRemoveDiscountPayload();
       result.calculatedOrder = this.calculatedOrder;
+      result.orderEditSession = this.orderEditSession;
       result.userErrors = this.userErrors;
       return result;
     }
@@ -91,6 +114,14 @@ public class OrderEditRemoveDiscountPayload {
      */
     public Builder calculatedOrder(CalculatedOrder calculatedOrder) {
       this.calculatedOrder = calculatedOrder;
+      return this;
+    }
+
+    /**
+     * The order edit session with the edits applied but not saved.
+     */
+    public Builder orderEditSession(OrderEditSession orderEditSession) {
+      this.orderEditSession = orderEditSession;
       return this;
     }
 

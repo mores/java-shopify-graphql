@@ -15,9 +15,14 @@ public class PriceListProductPriceInput {
   private String productId;
 
   /**
-   * The price of the product to use for all variants with its currency.
+   * Specifies the price and currency to apply to the product's variants on the price list.
    */
   private MoneyInput price;
+
+  /**
+   * Specifies the compare-at price and currency to apply to the product's variants on the price list.
+   */
+  private MoneyInput compareAtPrice;
 
   public PriceListProductPriceInput() {
   }
@@ -34,7 +39,7 @@ public class PriceListProductPriceInput {
   }
 
   /**
-   * The price of the product to use for all variants with its currency.
+   * Specifies the price and currency to apply to the product's variants on the price list.
    */
   public MoneyInput getPrice() {
     return price;
@@ -44,9 +49,20 @@ public class PriceListProductPriceInput {
     this.price = price;
   }
 
+  /**
+   * Specifies the compare-at price and currency to apply to the product's variants on the price list.
+   */
+  public MoneyInput getCompareAtPrice() {
+    return compareAtPrice;
+  }
+
+  public void setCompareAtPrice(MoneyInput compareAtPrice) {
+    this.compareAtPrice = compareAtPrice;
+  }
+
   @Override
   public String toString() {
-    return "PriceListProductPriceInput{productId='" + productId + "', price='" + price + "'}";
+    return "PriceListProductPriceInput{productId='" + productId + "', price='" + price + "', compareAtPrice='" + compareAtPrice + "'}";
   }
 
   @Override
@@ -55,12 +71,13 @@ public class PriceListProductPriceInput {
     if (o == null || getClass() != o.getClass()) return false;
     PriceListProductPriceInput that = (PriceListProductPriceInput) o;
     return Objects.equals(productId, that.productId) &&
-        Objects.equals(price, that.price);
+        Objects.equals(price, that.price) &&
+        Objects.equals(compareAtPrice, that.compareAtPrice);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(productId, price);
+    return Objects.hash(productId, price, compareAtPrice);
   }
 
   public static Builder newBuilder() {
@@ -74,14 +91,20 @@ public class PriceListProductPriceInput {
     private String productId;
 
     /**
-     * The price of the product to use for all variants with its currency.
+     * Specifies the price and currency to apply to the product's variants on the price list.
      */
     private MoneyInput price;
+
+    /**
+     * Specifies the compare-at price and currency to apply to the product's variants on the price list.
+     */
+    private MoneyInput compareAtPrice;
 
     public PriceListProductPriceInput build() {
       PriceListProductPriceInput result = new PriceListProductPriceInput();
       result.productId = this.productId;
       result.price = this.price;
+      result.compareAtPrice = this.compareAtPrice;
       return result;
     }
 
@@ -94,10 +117,18 @@ public class PriceListProductPriceInput {
     }
 
     /**
-     * The price of the product to use for all variants with its currency.
+     * Specifies the price and currency to apply to the product's variants on the price list.
      */
     public Builder price(MoneyInput price) {
       this.price = price;
+      return this;
+    }
+
+    /**
+     * Specifies the compare-at price and currency to apply to the product's variants on the price list.
+     */
+    public Builder compareAtPrice(MoneyInput compareAtPrice) {
+      this.compareAtPrice = compareAtPrice;
       return this;
     }
   }

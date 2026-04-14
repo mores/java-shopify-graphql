@@ -88,8 +88,18 @@ public class WebhookSubscriptionFragmentProjection<PARENT extends BaseSubProject
     return this;
   }
 
+  public WebhookSubscriptionFragmentProjection<PARENT, ROOT> name() {
+    getFields().put("name", null);
+    return this;
+  }
+
   public WebhookSubscriptionFragmentProjection<PARENT, ROOT> updatedAt() {
     getFields().put("updatedAt", null);
+    return this;
+  }
+
+  public WebhookSubscriptionFragmentProjection<PARENT, ROOT> uri() {
+    getFields().put("uri", null);
     return this;
   }
 

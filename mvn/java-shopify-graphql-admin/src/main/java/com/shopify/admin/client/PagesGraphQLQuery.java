@@ -10,7 +10,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * List of the shop's pages.
+ * A paginated list of pages from the online store.
+ * [`Page`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Page)
+ * objects are content pages that merchants create to provide information to
+ * customers, such as "About Us", "Contact", or policy pages.
+ *   
+ * The query supports filtering with a [search
+ * query](https://shopify.dev/docs/api/usage/search-syntax) and sorting by
+ * various criteria. Advanced filtering is available through saved searches using the [`savedSearchId`](https://shopify.dev/docs/api/admin-graphql/latest/queries/pages#arguments-savedSearchId) argument.
  */
 public class PagesGraphQLQuery extends GraphQLQuery {
   public PagesGraphQLQuery(Integer first, String after, Integer last, String before,

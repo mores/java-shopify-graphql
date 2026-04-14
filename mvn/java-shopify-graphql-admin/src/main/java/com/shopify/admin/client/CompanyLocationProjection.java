@@ -335,6 +335,31 @@ public class CompanyLocationProjection<PARENT extends BaseSubProjectionNode<?, ?
     return projection;
   }
 
+  public StoreCreditAccountConnectionProjection<CompanyLocationProjection<PARENT, ROOT>, ROOT> storeCreditAccounts(
+      ) {
+     StoreCreditAccountConnectionProjection<CompanyLocationProjection<PARENT, ROOT>, ROOT> projection = new StoreCreditAccountConnectionProjection<>(this, getRoot());
+     getFields().put("storeCreditAccounts", projection);
+     return projection;
+  }
+
+  public StoreCreditAccountConnectionProjection<CompanyLocationProjection<PARENT, ROOT>, ROOT> storeCreditAccounts(
+      Integer first, String after, Integer last, String before, String query) {
+    StoreCreditAccountConnectionProjection<CompanyLocationProjection<PARENT, ROOT>, ROOT> projection = new StoreCreditAccountConnectionProjection<>(this, getRoot());    
+    getFields().put("storeCreditAccounts", projection);
+    getInputArguments().computeIfAbsent("storeCreditAccounts", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("storeCreditAccounts").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("storeCreditAccounts").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("storeCreditAccounts").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("storeCreditAccounts").add(beforeArg);
+    InputArgument queryArg = new InputArgument("query", query);
+    getInputArguments().get("storeCreditAccounts").add(queryArg);
+    return projection;
+  }
+
   public TaxExemptionProjection<CompanyLocationProjection<PARENT, ROOT>, ROOT> taxExemptions() {
      TaxExemptionProjection<CompanyLocationProjection<PARENT, ROOT>, ROOT> projection = new TaxExemptionProjection<>(this, getRoot());
      getFields().put("taxExemptions", projection);

@@ -1,0 +1,26 @@
+package com.shopify.admin.types;
+
+/**
+ * Error codes for other billing attempt failures.
+ */
+public enum SubscriptionBillingAttemptGeneralErrorCode {
+  NON_TEST_ORDER_LIMIT_REACHED,
+
+  FREE_GIFT_CARD_NOT_ALLOWED,
+
+  CUSTOMER_NOT_FOUND,
+
+  CUSTOMER_INVALID,
+
+  INVALID_BILLING_ADDRESS,
+
+  MERCHANT_ACCOUNT_ERROR,
+
+  PAYMENT_METHOD_NOT_FOUND,
+
+  PAYMENT_METHOD_NOT_SPECIFIED,
+
+  PAYMENT_METHOD_INCOMPATIBLE_WITH_GATEWAY_CONFIG,
+
+  PAYMENT_PROVIDER_IS_NOT_ENABLED
+}

@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a segment members query resource by ID.
+ * Returns a `CustomerSegmentMembersQuery` resource by ID.
  */
 public class CustomerSegmentMembersQueryGraphQLQuery extends GraphQLQuery {
   public CustomerSegmentMembersQueryGraphQLQuery(String id, String queryName,

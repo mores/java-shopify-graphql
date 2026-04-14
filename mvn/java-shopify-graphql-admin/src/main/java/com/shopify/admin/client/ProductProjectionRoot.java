@@ -59,6 +59,13 @@ public class ProductProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, R
     return projection;
   }
 
+  public ComponentizedProductsBundleConsolidatedOptionProjection<ProductProjectionRoot<PARENT, ROOT>, ProductProjectionRoot<PARENT, ROOT>> bundleConsolidatedOptions(
+      ) {
+    ComponentizedProductsBundleConsolidatedOptionProjection<ProductProjectionRoot<PARENT, ROOT>, ProductProjectionRoot<PARENT, ROOT>> projection = new ComponentizedProductsBundleConsolidatedOptionProjection<>(this, this);    
+    getFields().put("bundleConsolidatedOptions", projection);
+    return projection;
+  }
+
   public TaxonomyCategoryProjection<ProductProjectionRoot<PARENT, ROOT>, ProductProjectionRoot<PARENT, ROOT>> category(
       ) {
     TaxonomyCategoryProjection<ProductProjectionRoot<PARENT, ROOT>, ProductProjectionRoot<PARENT, ROOT>> projection = new TaxonomyCategoryProjection<>(this, this);    

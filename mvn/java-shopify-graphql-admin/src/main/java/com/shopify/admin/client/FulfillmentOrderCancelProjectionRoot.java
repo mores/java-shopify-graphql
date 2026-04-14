@@ -26,9 +26,9 @@ public class FulfillmentOrderCancelProjectionRoot<PARENT extends BaseSubProjecti
     return projection;
   }
 
-  public UserErrorProjection<FulfillmentOrderCancelProjectionRoot<PARENT, ROOT>, FulfillmentOrderCancelProjectionRoot<PARENT, ROOT>> userErrors(
+  public FulfillmentOrderCancelErrorProjection<FulfillmentOrderCancelProjectionRoot<PARENT, ROOT>, FulfillmentOrderCancelProjectionRoot<PARENT, ROOT>> userErrors(
       ) {
-    UserErrorProjection<FulfillmentOrderCancelProjectionRoot<PARENT, ROOT>, FulfillmentOrderCancelProjectionRoot<PARENT, ROOT>> projection = new UserErrorProjection<>(this, this);    
+    FulfillmentOrderCancelErrorProjection<FulfillmentOrderCancelProjectionRoot<PARENT, ROOT>, FulfillmentOrderCancelProjectionRoot<PARENT, ROOT>> projection = new FulfillmentOrderCancelErrorProjection<>(this, this);    
     getFields().put("userErrors", projection);
     return projection;
   }

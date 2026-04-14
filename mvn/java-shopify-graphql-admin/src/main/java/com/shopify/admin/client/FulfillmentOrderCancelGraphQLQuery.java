@@ -7,7 +7,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Marks a fulfillment order as canceled.
+ * Cancels a [`FulfillmentOrder`](https://shopify.dev/docs/api/admin-graphql/latest/objects/FulfillmentOrder) and creates a replacement fulfillment order to represent the work left to be
+ * done. The original fulfillment order will be marked as closed.
+ *   
+ * This mutation works when the fulfillment order has a `SUBMITTED` or
+ * `CANCELLATION_REQUESTED` status. For `SUBMITTED` orders, cancellation happens
+ * immediately because the fulfillment service hasn't accepted the request.
+ *   
+ * > Note: Orders that have had cancellation requested but the cancellation has
+ * yet to be accepted by the fulfillment service might still have work completed
+ * despite cancellation.
  */
 public class FulfillmentOrderCancelGraphQLQuery extends GraphQLQuery {
   public FulfillmentOrderCancelGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

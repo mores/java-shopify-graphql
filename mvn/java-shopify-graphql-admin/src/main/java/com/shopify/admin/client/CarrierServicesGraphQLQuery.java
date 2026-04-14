@@ -10,7 +10,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Retrieve a list of CarrierServices.
+ * A paginated list of carrier services configured for the shop. Carrier services
+ * provide real-time shipping rates from external providers like FedEx, UPS, or
+ * custom shipping solutions. Use the `query` parameter to filter results by
+ * attributes such as active status.
  */
 public class CarrierServicesGraphQLQuery extends GraphQLQuery {
   public CarrierServicesGraphQLQuery(Integer first, String after, Integer last, String before,

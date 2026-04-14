@@ -11,27 +11,11 @@ import java.util.Objects;
  */
 public class DeliverySettingUpdatePayload {
   /**
-   * The updated delivery shop level settings.
-   */
-  private DeliverySetting setting;
-
-  /**
    * The list of errors that occurred from executing the mutation.
    */
   private List<UserError> userErrors;
 
   public DeliverySettingUpdatePayload() {
-  }
-
-  /**
-   * The updated delivery shop level settings.
-   */
-  public DeliverySetting getSetting() {
-    return setting;
-  }
-
-  public void setSetting(DeliverySetting setting) {
-    this.setting = setting;
   }
 
   /**
@@ -47,7 +31,7 @@ public class DeliverySettingUpdatePayload {
 
   @Override
   public String toString() {
-    return "DeliverySettingUpdatePayload{setting='" + setting + "', userErrors='" + userErrors + "'}";
+    return "DeliverySettingUpdatePayload{userErrors='" + userErrors + "'}";
   }
 
   @Override
@@ -55,13 +39,12 @@ public class DeliverySettingUpdatePayload {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     DeliverySettingUpdatePayload that = (DeliverySettingUpdatePayload) o;
-    return Objects.equals(setting, that.setting) &&
-        Objects.equals(userErrors, that.userErrors);
+    return Objects.equals(userErrors, that.userErrors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(setting, userErrors);
+    return Objects.hash(userErrors);
   }
 
   public static Builder newBuilder() {
@@ -70,28 +53,14 @@ public class DeliverySettingUpdatePayload {
 
   public static class Builder {
     /**
-     * The updated delivery shop level settings.
-     */
-    private DeliverySetting setting;
-
-    /**
      * The list of errors that occurred from executing the mutation.
      */
     private List<UserError> userErrors;
 
     public DeliverySettingUpdatePayload build() {
       DeliverySettingUpdatePayload result = new DeliverySettingUpdatePayload();
-      result.setting = this.setting;
       result.userErrors = this.userErrors;
       return result;
-    }
-
-    /**
-     * The updated delivery shop level settings.
-     */
-    public Builder setting(DeliverySetting setting) {
-      this.setting = setting;
-      return this;
     }
 
     /**

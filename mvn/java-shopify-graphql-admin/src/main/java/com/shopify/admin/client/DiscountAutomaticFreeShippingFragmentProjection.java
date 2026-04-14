@@ -25,6 +25,13 @@ public class DiscountAutomaticFreeShippingFragmentProjection<PARENT extends Base
      return projection;
   }
 
+  public DiscountContextProjection<DiscountAutomaticFreeShippingFragmentProjection<PARENT, ROOT>, ROOT> context(
+      ) {
+     DiscountContextProjection<DiscountAutomaticFreeShippingFragmentProjection<PARENT, ROOT>, ROOT> projection = new DiscountContextProjection<>(this, getRoot());
+     getFields().put("context", projection);
+     return projection;
+  }
+
   public DiscountShippingDestinationSelectionProjection<DiscountAutomaticFreeShippingFragmentProjection<PARENT, ROOT>, ROOT> destinationSelection(
       ) {
      DiscountShippingDestinationSelectionProjection<DiscountAutomaticFreeShippingFragmentProjection<PARENT, ROOT>, ROOT> projection = new DiscountShippingDestinationSelectionProjection<>(this, getRoot());
@@ -121,6 +128,11 @@ public class DiscountAutomaticFreeShippingFragmentProjection<PARENT extends Base
 
   public DiscountAutomaticFreeShippingFragmentProjection<PARENT, ROOT> summary() {
     getFields().put("summary", null);
+    return this;
+  }
+
+  public DiscountAutomaticFreeShippingFragmentProjection<PARENT, ROOT> tags() {
+    getFields().put("tags", null);
     return this;
   }
 

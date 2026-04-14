@@ -7,7 +7,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The shop's billing preferences.
+ * The shop's billing preferences, including the currency for paying for apps and
+ * services. Use this to create [app charges in the merchant's local billing
+ * currency](https://shopify.dev/docs/apps/launch/billing#supported-currencies),
+ * helping them budget their app spend without exposure to exchange rate fluctuations.
  */
 public class ShopBillingPreferencesGraphQLQuery extends GraphQLQuery {
   public ShopBillingPreferencesGraphQLQuery(String queryName) {

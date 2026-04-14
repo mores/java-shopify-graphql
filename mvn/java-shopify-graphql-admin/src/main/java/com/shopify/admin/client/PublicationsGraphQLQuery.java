@@ -10,7 +10,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * List of publications.
+ * Returns a paginated list of [`Publication`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+ *   
+ * Filter publications by [`CatalogType`](https://shopify.dev/docs/api/admin-graphql/latest/enums/CatalogType).
  */
 public class PublicationsGraphQLQuery extends GraphQLQuery {
   public PublicationsGraphQLQuery(CatalogType catalogType, Integer first, String after,

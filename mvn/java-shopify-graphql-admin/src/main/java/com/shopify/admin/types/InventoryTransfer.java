@@ -9,12 +9,21 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Represents the intention to move inventory between locations.
+ * Tracks the movement of [`InventoryItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryItem)
+ * objects between
+ * [`Location`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Location)
+ * objects. A transfer includes origin and destination information, [`InventoryTransferLineItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryTransferLineItem)
+ * objects with quantities, and shipment details.
+ *
+ * Transfers progress through multiple [`statuses`](https://shopify.dev/docs/api/admin-graphql/latest/enums/InventoryTransferStatus).
+ * The transfer maintains [`LocationSnapshot`](https://shopify.dev/docs/api/admin-graphql/latest/objects/LocationSnapshot)
+ * objects of location details to preserve historical data even if locations change
+ * or are deleted later.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
-public class InventoryTransfer implements com.shopify.admin.types.CommentEventSubject, com.shopify.admin.types.HasEvents, com.shopify.admin.types.HasMetafieldDefinitions, com.shopify.admin.types.HasMetafields, com.shopify.admin.types.Node {
+public class InventoryTransfer implements CommentEventEmbed, com.shopify.admin.types.CommentEventSubject, com.shopify.admin.types.HasEvents, com.shopify.admin.types.HasMetafieldDefinitions, com.shopify.admin.types.HasMetafields, com.shopify.admin.types.Node {
   /**
    * The date and time the inventory transfer was created in UTC format.
    */

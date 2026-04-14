@@ -10,7 +10,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * List of abandoned checkouts. Includes checkouts that were recovered after being abandoned.
+ * Returns a list of abandoned checkouts. A checkout is considered abandoned when
+ * a customer adds contact information but doesn't complete their purchase.
+ * Includes both abandoned and recovered checkouts.
+ *   
+ * Each checkout provides [`Customer`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Customer) details, [`AbandonedCheckoutLineItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/AbandonedCheckoutLineItem)
+ * objects, pricing information, and a recovery URL for re-engaging customers who
+ * didn't complete their purchase.
  */
 public class AbandonedCheckoutsGraphQLQuery extends GraphQLQuery {
   public AbandonedCheckoutsGraphQLQuery(Integer first, String after, Integer last, String before,

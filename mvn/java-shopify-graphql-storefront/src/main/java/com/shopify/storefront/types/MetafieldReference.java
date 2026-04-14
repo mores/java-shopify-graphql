@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
     property = "__typename"
 )
 @JsonSubTypes({
+    @JsonSubTypes.Type(value = Article.class, name = "Article"),
     @JsonSubTypes.Type(value = Collection.class, name = "Collection"),
     @JsonSubTypes.Type(value = GenericFile.class, name = "GenericFile"),
     @JsonSubTypes.Type(value = MediaImage.class, name = "MediaImage"),

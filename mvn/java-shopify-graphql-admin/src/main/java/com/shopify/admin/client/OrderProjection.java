@@ -1088,6 +1088,11 @@ public class OrderProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
     return this;
   }
 
+  public OrderProjection<PARENT, ROOT> productNetwork() {
+    getFields().put("productNetwork", null);
+    return this;
+  }
+
   public OrderProjection<PARENT, ROOT> referralCode() {
     getFields().put("referralCode", null);
     return this;

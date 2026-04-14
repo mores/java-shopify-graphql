@@ -8,7 +8,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Submits a Shop Pay payment request session.
+ * Finalizes a [Shop Pay payment request session](https://shopify.dev/docs/api/storefront/current/objects/ShopPayPaymentRequestSession).
+ * Call this mutation after creating a session with [`shopPayPaymentRequestSessionCreate`](https://shopify.dev/docs/api/storefront/current/mutations/shopPayPaymentRequestSessionCreate).
+ *   
+ * The [`idempotencyKey`](https://shopify.dev/docs/api/storefront/current/mutations/shopPayPaymentRequestSessionSubmit#arguments-idempotencyKey) argument ensures the payment transaction occurs only once, preventing
+ * duplicate charges. On success, returns a [`ShopPayPaymentRequestReceipt`](https://shopify.dev/docs/api/storefront/current/objects/ShopPayPaymentRequestReceipt)
+ * with the processing status and a receipt token.
+ *   
+ * For a complete integration guide including the JavaScript SDK setup and
+ * checkout flow, refer to the [Shop Component API
+ * documentation](https://shopify.dev/docs/api/commerce-components/pay). For
+ * implementation steps, see the [development journey guide](https://shopify.dev/docs/api/commerce-components/pay/development-journey).
+ * For common error scenarios, see the [troubleshooting guide](https://shopify.dev/docs/api/commerce-components/pay/troubleshooting-guide).
  */
 public class ShopPayPaymentRequestSessionSubmitGraphQLQuery extends GraphQLQuery {
   public ShopPayPaymentRequestSessionSubmitGraphQLQuery(String token,

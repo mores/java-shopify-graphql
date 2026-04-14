@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a SubscriptionBillingAttempt by ID.
+ * Returns a `SubscriptionBillingAttempt` resource by ID.
  */
 public class SubscriptionBillingAttemptGraphQLQuery extends GraphQLQuery {
   public SubscriptionBillingAttemptGraphQLQuery(String id, String queryName,

@@ -6,7 +6,12 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * Represents a component of a bundle variant.
+ * An individual product variant included in a [fixed
+ * bundle](https://shopify.dev/docs/apps/build/product-merchandising/bundles).
+ * Fixed bundles group multiple products together and sell them as a single unit,
+ * with the bundle's inventory determined by its components.
+ *
+ * Access components through the `ProductVariant` object's [`components`](https://shopify.dev/docs/api/storefront/current/objects/ProductVariant#field-ProductVariant.fields.components) field.
  */
 public class ProductVariantComponent {
   /**

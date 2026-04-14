@@ -6,7 +6,9 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * Represents a web address.
+ * A web address associated with a shop. The
+ * [`Shop`](https://shopify.dev/docs/api/storefront/current/objects/Shop) object's [`primaryDomain`](https://shopify.dev/docs/api/storefront/current/objects/Shop#field-Shop.fields.primaryDomain)
+ * field returns this to identify the shop's online store URL.
  */
 public class Domain {
   /**

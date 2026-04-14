@@ -7,7 +7,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Generate an account activation URL for a customer.
+ * Generates a one-time activation URL for a [`Customer`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Customer)
+ * whose legacy customer account isn't yet enabled. Use this after importing
+ * customers or creating accounts that need activation.
+ *   
+ * The generated URL expires after 30 days and becomes invalid if you generate a new one.
+ *   
+ * > Note: The generated URL only works when legacy customer accounts are enabled
+ * on the shop. It only works for customers with disabled or invited [`account states`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Customer#field-Customer.fields.state).
+ * Attempting to generate a URL for an already-enabled customer returns an error.
  */
 public class CustomerGenerateAccountActivationUrlGraphQLQuery extends GraphQLQuery {
   public CustomerGenerateAccountActivationUrlGraphQLQuery(String customerId, String queryName,

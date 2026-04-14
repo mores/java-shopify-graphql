@@ -8,8 +8,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Updates a price list.
- * If you modify the currency, then any fixed prices set on the price list will be deleted.
+ * Updates a [`PriceList`](https://shopify.dev/docs/api/admin-graphql/latest/objects/PriceList)'s configuration, including its name, currency, [`Catalog`](https://shopify.dev/docs/api/admin-graphql/latest/interfaces/Catalog)
+ * association, and pricing adjustments.
+ *   
+ * Changing the currency removes all fixed prices from the price list. The affected [`ProductVariant`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant)
+ * objects revert to prices calculated from the price list's adjustment settings.
  */
 public class PriceListUpdateGraphQLQuery extends GraphQLQuery {
   public PriceListUpdateGraphQLQuery(String id, PriceListUpdateInput input, String queryName,

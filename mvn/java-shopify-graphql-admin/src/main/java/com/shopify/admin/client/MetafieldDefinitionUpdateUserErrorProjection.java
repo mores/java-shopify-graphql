@@ -24,6 +24,11 @@ public class MetafieldDefinitionUpdateUserErrorProjection<PARENT extends BaseSub
     return this;
   }
 
+  public MetafieldDefinitionUpdateUserErrorProjection<PARENT, ROOT> elementKey() {
+    getFields().put("elementKey", null);
+    return this;
+  }
+
   public MetafieldDefinitionUpdateUserErrorProjection<PARENT, ROOT> field() {
     getFields().put("field", null);
     return this;

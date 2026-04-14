@@ -9,7 +9,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The list of types added to products.
+ * Returns a paginated list of product types assigned to
+ * [products](https://shopify.dev/docs/api/admin-graphql/latest/objects/Product)
+ * in the store. The maximum page size is 1000.
  * The maximum page size is 1000.
  */
 public class ProductTypesGraphQLQuery extends GraphQLQuery {

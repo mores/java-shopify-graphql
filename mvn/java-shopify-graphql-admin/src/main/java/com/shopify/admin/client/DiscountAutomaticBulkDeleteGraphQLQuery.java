@@ -8,9 +8,24 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Asynchronously delete automatic discounts in bulk if a `search` or `saved_search_id` argument is provided or if a
- * maximum discount threshold is reached (1,000). Otherwise, deletions will occur inline.
- * **Warning:** All automatic discounts will be deleted if a blank `search` argument is provided.
+ * Deletes multiple automatic discounts in a single operation, providing
+ * efficient bulk management for stores with extensive discount catalogs. This
+ * mutation processes deletions asynchronously to handle large volumes without
+ * blocking other operations.
+ *   
+ * For example, when cleaning up expired seasonal promotions or removing outdated
+ * automatic discounts across product categories, merchants can delete dozens of
+ * discounts simultaneously rather than processing each individually.
+ *   
+ * Use `DiscountAutomaticBulkDelete` to:
+ * - Remove multiple automatic discounts efficiently
+ * - Clean up expired or obsolete promotions
+ * - Streamline discount management workflows
+ * - Process large-scale discount removals asynchronously
+ *   
+ * The operation returns a job object for tracking deletion progress and any validation errors encountered during processing.
+ *   
+ * Learn more about [discount management](https://shopify.dev/docs/api/admin-graphql/latest/objects/DiscountAutomatic).
  */
 public class DiscountAutomaticBulkDeleteGraphQLQuery extends GraphQLQuery {
   public DiscountAutomaticBulkDeleteGraphQLQuery(String search, String savedSearchId,

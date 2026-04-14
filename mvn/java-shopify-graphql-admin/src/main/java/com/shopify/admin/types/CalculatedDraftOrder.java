@@ -8,7 +8,15 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * The calculated fields for a draft order.
+ * Calculated pricing, taxes, and discounts for a [`DraftOrder`](https://shopify.dev/docs/api/admin-graphql/latest/objects/DraftOrder).
+ * Includes the complete financial breakdown with line items, discounts, shipping
+ * costs, tax calculations, and totals in both shop and presentment currencies.
+ *
+ * Available [`ShippingRate`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ShippingRate) options are included when a valid shipping address and line items are present.
+ *
+ * > Note:
+ * > Returns alerts and warnings when issues occur during calculation, such as
+ * insufficient inventory or incompatible discounts.
  */
 public class CalculatedDraftOrder {
   /**
@@ -71,7 +79,7 @@ public class CalculatedDraftOrder {
 
   /**
    * A subtotal of the line items and corresponding discounts,
-   * excluding include shipping charges, shipping discounts, taxes, or order discounts.
+   * excluding shipping charges, shipping discounts, taxes, or order discounts.
    */
   private MoneyBag lineItemsSubtotalPrice;
 
@@ -137,7 +145,7 @@ public class CalculatedDraftOrder {
   private MoneyBag totalDiscountsSet;
 
   /**
-   * Total price of line items.
+   * Total price of line items, excluding discounts.
    */
   private MoneyBag totalLineItemsPriceSet;
 
@@ -319,7 +327,7 @@ public class CalculatedDraftOrder {
 
   /**
    * A subtotal of the line items and corresponding discounts,
-   * excluding include shipping charges, shipping discounts, taxes, or order discounts.
+   * excluding shipping charges, shipping discounts, taxes, or order discounts.
    */
   public MoneyBag getLineItemsSubtotalPrice() {
     return lineItemsSubtotalPrice;
@@ -463,7 +471,7 @@ public class CalculatedDraftOrder {
   }
 
   /**
-   * Total price of line items.
+   * Total price of line items, excluding discounts.
    */
   public MoneyBag getTotalLineItemsPriceSet() {
     return totalLineItemsPriceSet;
@@ -691,7 +699,7 @@ public class CalculatedDraftOrder {
 
     /**
      * A subtotal of the line items and corresponding discounts,
-     * excluding include shipping charges, shipping discounts, taxes, or order discounts.
+     * excluding shipping charges, shipping discounts, taxes, or order discounts.
      */
     private MoneyBag lineItemsSubtotalPrice;
 
@@ -757,7 +765,7 @@ public class CalculatedDraftOrder {
     private MoneyBag totalDiscountsSet;
 
     /**
-     * Total price of line items.
+     * Total price of line items, excluding discounts.
      */
     private MoneyBag totalLineItemsPriceSet;
 
@@ -942,7 +950,7 @@ public class CalculatedDraftOrder {
 
     /**
      * A subtotal of the line items and corresponding discounts,
-     * excluding include shipping charges, shipping discounts, taxes, or order discounts.
+     * excluding shipping charges, shipping discounts, taxes, or order discounts.
      */
     public Builder lineItemsSubtotalPrice(MoneyBag lineItemsSubtotalPrice) {
       this.lineItemsSubtotalPrice = lineItemsSubtotalPrice;
@@ -1047,7 +1055,7 @@ public class CalculatedDraftOrder {
     }
 
     /**
-     * Total price of line items.
+     * Total price of line items, excluding discounts.
      */
     public Builder totalLineItemsPriceSet(MoneyBag totalLineItemsPriceSet) {
       this.totalLineItemsPriceSet = totalLineItemsPriceSet;

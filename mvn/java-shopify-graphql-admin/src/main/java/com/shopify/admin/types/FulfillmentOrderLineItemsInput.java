@@ -18,6 +18,7 @@ public class FulfillmentOrderLineItemsInput {
   /**
    * The fulfillment order line items to be fulfilled.
    * If left blank, all line items of the fulfillment order will be fulfilled.
+   * Accepts a maximum of 512 line items.
    */
   private List<FulfillmentOrderLineItemInput> fulfillmentOrderLineItems;
 
@@ -38,6 +39,7 @@ public class FulfillmentOrderLineItemsInput {
   /**
    * The fulfillment order line items to be fulfilled.
    * If left blank, all line items of the fulfillment order will be fulfilled.
+   * Accepts a maximum of 512 line items.
    */
   public List<FulfillmentOrderLineItemInput> getFulfillmentOrderLineItems() {
     return fulfillmentOrderLineItems;
@@ -80,6 +82,7 @@ public class FulfillmentOrderLineItemsInput {
     /**
      * The fulfillment order line items to be fulfilled.
      * If left blank, all line items of the fulfillment order will be fulfilled.
+     * Accepts a maximum of 512 line items.
      */
     private List<FulfillmentOrderLineItemInput> fulfillmentOrderLineItems;
 
@@ -101,6 +104,7 @@ public class FulfillmentOrderLineItemsInput {
     /**
      * The fulfillment order line items to be fulfilled.
      * If left blank, all line items of the fulfillment order will be fulfilled.
+     * Accepts a maximum of 512 line items.
      */
     public Builder fulfillmentOrderLineItems(
         List<FulfillmentOrderLineItemInput> fulfillmentOrderLineItems) {

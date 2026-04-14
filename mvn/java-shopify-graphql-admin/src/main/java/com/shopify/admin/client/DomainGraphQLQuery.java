@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Lookup a Domain by ID.
+ * Returns a `Domain` resource by ID.
  */
 public class DomainGraphQLQuery extends GraphQLQuery {
   public DomainGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

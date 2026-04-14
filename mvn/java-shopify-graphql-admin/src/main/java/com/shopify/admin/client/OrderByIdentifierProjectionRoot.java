@@ -1174,6 +1174,11 @@ public class OrderByIdentifierProjectionRoot<PARENT extends BaseSubProjectionNod
     return this;
   }
 
+  public OrderByIdentifierProjectionRoot<PARENT, ROOT> productNetwork() {
+    getFields().put("productNetwork", null);
+    return this;
+  }
+
   public OrderByIdentifierProjectionRoot<PARENT, ROOT> referralCode() {
     getFields().put("referralCode", null);
     return this;

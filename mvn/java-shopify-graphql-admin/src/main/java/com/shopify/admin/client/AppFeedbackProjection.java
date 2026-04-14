@@ -18,6 +18,12 @@ public class AppFeedbackProjection<PARENT extends BaseSubProjectionNode<?, ?>, R
      return projection;
   }
 
+  public ChannelProjection<AppFeedbackProjection<PARENT, ROOT>, ROOT> channel() {
+     ChannelProjection<AppFeedbackProjection<PARENT, ROOT>, ROOT> projection = new ChannelProjection<>(this, getRoot());
+     getFields().put("channel", projection);
+     return projection;
+  }
+
   public LinkProjection<AppFeedbackProjection<PARENT, ROOT>, ROOT> link() {
      LinkProjection<AppFeedbackProjection<PARENT, ROOT>, ROOT> projection = new LinkProjection<>(this, getRoot());
      getFields().put("link", projection);

@@ -7,7 +7,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Fetch a specific Article by its ID.
+ * Returns an [`Article`](https://shopify.dev/docs/api/storefront/current/objects/Article)
+ * by its ID. Each article belongs to a
+ * [`Blog`](https://shopify.dev/docs/api/storefront/current/objects/Blog) and
+ * includes content in both plain text and HTML formats, [`ArticleAuthor`](https://shopify.dev/docs/api/storefront/current/objects/ArticleAuthor) information,
+ * [`Comment`](https://shopify.dev/docs/api/storefront/current/objects/Comment)
+ * objects, tags, and
+ * [`SEO`](https://shopify.dev/docs/api/storefront/current/objects/SEO) data.
  */
 public class ArticleGraphQLQuery extends GraphQLQuery {
   public ArticleGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

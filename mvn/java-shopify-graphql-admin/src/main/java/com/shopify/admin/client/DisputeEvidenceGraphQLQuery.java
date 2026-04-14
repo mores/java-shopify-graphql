@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns dispute evidence details based on ID.
+ * Returns a `ShopifyPaymentsDisputeEvidence` resource by ID.
  */
 public class DisputeEvidenceGraphQLQuery extends GraphQLQuery {
   public DisputeEvidenceGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

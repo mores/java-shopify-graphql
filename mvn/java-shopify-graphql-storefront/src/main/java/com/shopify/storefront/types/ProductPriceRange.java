@@ -6,7 +6,8 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The price range of the product.
+ * The minimum and maximum prices across all variants of a
+ * [`Product`](https://shopify.dev/docs/api/storefront/current/objects/Product).
  */
 public class ProductPriceRange {
   /**

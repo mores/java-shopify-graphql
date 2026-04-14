@@ -196,33 +196,59 @@ public class ProductVariantsGraphQLQuery extends GraphQLQuery {
      * field. | | | - `product_id:8474977763649` |
      * | product_ids | string | Filter by a comma-separated list of product [IDs](https://shopify.dev/api/admin-graphql/latest/objects/Product#field-id).
      * | | | - `product_ids:8474977763649,8474977796417` |
-     * | product_publication_status | string | Filter by the publication status of
-     * the resource on a channel, such as the online store. The value is a
-     * composite of the [channel `app`
-     * ID](https://shopify.dev/api/admin-graphql/latest/objects/Channel#app-price)
-     * (`Channel.app.id`) and one of the valid values. | - `approved`<br/> -
-     * `rejected`<br/> - `needs_action`<br/> - `awaiting_review`<br/> -
-     * `published`<br/> - `demoted`<br/> - `scheduled`<br/> -
-     * `provisionally_published` | | -
+     * | product_publication_status | string | Filter by channel approval process
+     * status of the resource on a channel, such as the online store. The value is
+     * a composite of the [channel `app` ID](https://shopify.dev/api/admin-graphql/latest/objects/Channel#field-Channel.fields.app)
+     * (`Channel.app.id`) and one of the valid values. For simple visibility checks, use [published_status](https://shopify.dev/api/admin-graphql/latest/queries/products#argument-query-filter-publishable_status)
+     * instead. | - `* {channel_app_id}-approved`<br/> - `*
+     * {channel_app_id}-rejected`<br/> - `* {channel_app_id}-needs_action`<br/> -
+     * `* {channel_app_id}-awaiting_review`<br/> - `*
+     * {channel_app_id}-published`<br/> - `* {channel_app_id}-demoted`<br/> - `*
+     * {channel_app_id}-scheduled`<br/> - `*
+     * {channel_app_id}-provisionally_published` | | -
      * `product_publication_status:189769876-approved` |
      * | product_status | string | Filter by a comma-separated list of product [statuses](https://shopify.dev/api/admin-graphql/latest/objects/Product#field-status).
      * | | | - `product_status:ACTIVE,DRAFT` |
      * | product_type | string | Filter by the product type that's associated with
      * the product variants. | | | - `product_type:snowboard` |
-     * | publishable_status | string | Filter by the publishable status of the
-     * resource on a channel, such as the online store. The value is a composite of
-     * either the [channel `app`
+     * | publishable_status | string | **Deprecated:** This parameter is deprecated
+     * as of 2025-12 and will be removed in a future API version. Use [published_status](https://shopify.dev/api/admin-graphql/latest/queries/products#argument-query-filter-publishable_status)
+     * for visibility checks. Filter by the publishable status of the resource on a
+     * channel. The value is a composite of the [channel `app`
      * ID](https://shopify.dev/api/admin-graphql/latest/objects/Channel#app-price)
-     * (`Channel.app.id`) or [channel `name`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Channel#field-name)
-     * and one of the valid values. | - `online_store_channel`<br/> -
-     * `published`<br/> - `unpublished`<br/> - `visible`<br/> - `unavailable`<br/>
-     * - `hidden`<br/> - `intended`<br/> - `visible` | | -
-     * `publishable_status:published`<br/> -
-     * `publishable_status:189769876-visible`<br/> -
-     * `publishable_status:pos-hidden` |
-     * | published_status | string | Filter by the published status of the resource
-     * on a channel, such as the online store. | - `unset`<br/> - `pending`<br/> -
-     * `approved`<br/> - `not approved` | | - `published_status:approved` |
+     * (`Channel.app.id`) and one of the valid status values. | - `*
+     * {channel_app_id}-unset`<br/> - `* {channel_app_id}-pending`<br/> - `*
+     * {channel_app_id}-approved`<br/> - `* {channel_app_id}-not_approved` | | -
+     * `publishable_status:580111-unset`<br/> - `publishable_status:580111-pending` |
+     * | published_status | string | Filter resources by their visibility and
+     * publication state on a channel. Online store channel filtering: -
+     * `online_store_channel`: Returns all resources in the online store channel,
+     * regardless of publication status. - `published`/`visible`: Returns resources
+     * that are published to the online store. - `unpublished`: Returns resources
+     * that are not published to the online store. Channel-specific filtering using
+     * a channel ID, channel handle, [channel `app`
+     * ID](https://shopify.dev/api/admin-graphql/latest/objects/Channel#app-price)
+     * (`Channel.app.id`), or app handle with suffixes: -
+     * `{id_or_handle}-published`: Returns resources published to the specified
+     * channel. - `{id_or_handle}-visible`: Same as `{id_or_handle}-published`
+     * (kept for backwards compatibility). - `{id_or_handle}-intended`: Returns
+     * resources added to the channel but not yet published. -
+     * `{id_or_handle}-hidden`: Returns resources not added to the channel or not
+     * published. Other: - `unavailable`: Returns resources not published to any
+     * channel. | - `online_store_channel`<br/> - `published`<br/> - `visible`<br/>
+     * - `unpublished`<br/> - `* {channel_id_or_handle}-published`<br/> - `*
+     * {channel_id_or_handle}-visible`<br/> - `*
+     * {channel_id_or_handle}-intended`<br/> - `*
+     * {channel_id_or_handle}-hidden`<br/> - `*
+     * {channel_app_id_or_handle}-published`<br/> - `*
+     * {channel_app_id_or_handle}-visible`<br/> - `*
+     * {channel_app_id_or_handle}-intended`<br/> - `*
+     * {channel_app_id_or_handle}-hidden`<br/> - `unavailable` | | -
+     * `published_status:online_store_channel`<br/> -
+     * `published_status:published`<br/> - `published_status:580111-published`<br/>
+     * - `published_status:580111-hidden`<br/> -
+     * `published_status:my-channel-handle-published`<br/> -
+     * `published_status:unavailable` |
      * | requires_components | boolean | Filter by whether the product variant can
      * only be purchased with components. [Learn more](https://shopify.dev/apps/build/product-merchandising/bundles#store-eligibility).
      * | | | - `requires_components:true` |

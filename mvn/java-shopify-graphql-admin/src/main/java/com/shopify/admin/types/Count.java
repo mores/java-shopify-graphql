@@ -6,7 +6,7 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * Details for count of elements.
+ * A numeric count with precision information indicating whether the count is exact or an estimate.
  */
 public class Count {
   /**

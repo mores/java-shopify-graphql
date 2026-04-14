@@ -7,8 +7,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Retrieve a cart by its ID. For more information, refer to
- * [Manage a cart with the Storefront API](https://shopify.dev/custom-storefronts/cart/manage).
+ * Returns a [`Cart`](https://shopify.dev/docs/api/storefront/current/objects/Cart) by
+ * its ID. The cart contains the merchandise lines a buyer intends to purchase,
+ * along with estimated costs, applied discounts, gift cards, and delivery options.
+ *   
+ * Use the [`checkoutUrl`](https://shopify.dev/docs/api/storefront/latest/queries/cart#returns-Cart.fields.checkoutUrl) field to redirect buyers to Shopify's web checkout when they're ready to
+ * complete their purchase. For more information, refer to [Manage a cart with the Storefront API](https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/cart/manage).
  */
 public class CartGraphQLQuery extends GraphQLQuery {
   public CartGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

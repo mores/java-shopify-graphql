@@ -9,7 +9,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * List of the active sales channels.
+ * The list of [`Channel`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Channel)
+ * objects on the shop. When the calling application supports multi-channel, only
+ * channels established by the calling application are returned. Each channel
+ * represents an authenticated connection to an external selling platform such as
+ * a marketplace, social media platform, online store, or point-of-sale system.
  */
 public class ChannelsGraphQLQuery extends GraphQLQuery {
   public ChannelsGraphQLQuery(Integer first, String after, Integer last, String before,

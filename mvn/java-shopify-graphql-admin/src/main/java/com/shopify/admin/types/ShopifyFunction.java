@@ -40,6 +40,11 @@ public class ShopifyFunction {
   private String description;
 
   /**
+   * The handle of the Shopify Function.
+   */
+  private String handle;
+
+  /**
    * The ID of the Shopify Function.
    */
   private String id;
@@ -129,6 +134,17 @@ public class ShopifyFunction {
   }
 
   /**
+   * The handle of the Shopify Function.
+   */
+  public String getHandle() {
+    return handle;
+  }
+
+  public void setHandle(String handle) {
+    this.handle = handle;
+  }
+
+  /**
    * The ID of the Shopify Function.
    */
   public String getId() {
@@ -174,7 +190,7 @@ public class ShopifyFunction {
 
   @Override
   public String toString() {
-    return "ShopifyFunction{apiType='" + apiType + "', apiVersion='" + apiVersion + "', app='" + app + "', appBridge='" + appBridge + "', appKey='" + appKey + "', description='" + description + "', id='" + id + "', inputQuery='" + inputQuery + "', title='" + title + "', useCreationUi='" + useCreationUi + "'}";
+    return "ShopifyFunction{apiType='" + apiType + "', apiVersion='" + apiVersion + "', app='" + app + "', appBridge='" + appBridge + "', appKey='" + appKey + "', description='" + description + "', handle='" + handle + "', id='" + id + "', inputQuery='" + inputQuery + "', title='" + title + "', useCreationUi='" + useCreationUi + "'}";
   }
 
   @Override
@@ -188,6 +204,7 @@ public class ShopifyFunction {
         Objects.equals(appBridge, that.appBridge) &&
         Objects.equals(appKey, that.appKey) &&
         Objects.equals(description, that.description) &&
+        Objects.equals(handle, that.handle) &&
         Objects.equals(id, that.id) &&
         Objects.equals(inputQuery, that.inputQuery) &&
         Objects.equals(title, that.title) &&
@@ -196,7 +213,7 @@ public class ShopifyFunction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiType, apiVersion, app, appBridge, appKey, description, id, inputQuery, title, useCreationUi);
+    return Objects.hash(apiType, apiVersion, app, appBridge, appKey, description, handle, id, inputQuery, title, useCreationUi);
   }
 
   public static Builder newBuilder() {
@@ -235,6 +252,11 @@ public class ShopifyFunction {
     private String description;
 
     /**
+     * The handle of the Shopify Function.
+     */
+    private String handle;
+
+    /**
      * The ID of the Shopify Function.
      */
     private String id;
@@ -262,6 +284,7 @@ public class ShopifyFunction {
       result.appBridge = this.appBridge;
       result.appKey = this.appKey;
       result.description = this.description;
+      result.handle = this.handle;
       result.id = this.id;
       result.inputQuery = this.inputQuery;
       result.title = this.title;
@@ -314,6 +337,14 @@ public class ShopifyFunction {
      */
     public Builder description(String description) {
       this.description = description;
+      return this;
+    }
+
+    /**
+     * The handle of the Shopify Function.
+     */
+    public Builder handle(String handle) {
+      this.handle = handle;
       return this;
     }
 

@@ -8,6 +8,9 @@ import java.util.Set;
 
 /**
  * Marks a scheduled fulfillment order as open.
+ *   
+ * From API version 2026-01, this will also mark a fulfillment order as open when
+ * it is assigned to a merchant managed location and has had progress reported.
  */
 public class FulfillmentOrderOpenGraphQLQuery extends GraphQLQuery {
   public FulfillmentOrderOpenGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

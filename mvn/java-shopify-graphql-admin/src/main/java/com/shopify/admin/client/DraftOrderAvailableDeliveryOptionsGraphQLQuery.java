@@ -9,7 +9,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a list of available delivery options for a draft order.
+ * Available delivery options for a [`DraftOrder`](https://shopify.dev/docs/api/admin-graphql/latest/objects/DraftOrder)
+ * based on the provided input. The query returns shipping rates, local delivery
+ * rates, and pickup locations that merchants can choose from when creating draft orders.
+ *   
+ * Accepts draft order details including [`LineItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/LineItem) objects, [`MailingAddress`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MailingAddress)
+ * for shipping, and discounts to determine which delivery methods are available.
+ * Pagination parameters control the number of local pickup options returned.
  */
 public class DraftOrderAvailableDeliveryOptionsGraphQLQuery extends GraphQLQuery {
   public DraftOrderAvailableDeliveryOptionsGraphQLQuery(

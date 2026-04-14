@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a `DeliveryCarrierService` object by ID.
+ * Returns a `DeliveryCarrierService` resource by ID.
  */
 public class CarrierServiceGraphQLQuery extends GraphQLQuery {
   public CarrierServiceGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

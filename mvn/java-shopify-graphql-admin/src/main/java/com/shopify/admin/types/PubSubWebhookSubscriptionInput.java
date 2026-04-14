@@ -40,6 +40,11 @@ public class PubSubWebhookSubscriptionInput {
   private List<HasMetafieldsMetafieldIdentifierInput> metafields;
 
   /**
+   * A human-readable name for the webhook subscription.
+   */
+  private String name;
+
+  /**
    * The Pub/Sub project ID.
    */
   private String pubSubProject;
@@ -112,6 +117,17 @@ public class PubSubWebhookSubscriptionInput {
   }
 
   /**
+   * A human-readable name for the webhook subscription.
+   */
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  /**
    * The Pub/Sub project ID.
    */
   public String getPubSubProject() {
@@ -135,7 +151,7 @@ public class PubSubWebhookSubscriptionInput {
 
   @Override
   public String toString() {
-    return "PubSubWebhookSubscriptionInput{format='" + format + "', includeFields='" + includeFields + "', filter='" + filter + "', metafieldNamespaces='" + metafieldNamespaces + "', metafields='" + metafields + "', pubSubProject='" + pubSubProject + "', pubSubTopic='" + pubSubTopic + "'}";
+    return "PubSubWebhookSubscriptionInput{format='" + format + "', includeFields='" + includeFields + "', filter='" + filter + "', metafieldNamespaces='" + metafieldNamespaces + "', metafields='" + metafields + "', name='" + name + "', pubSubProject='" + pubSubProject + "', pubSubTopic='" + pubSubTopic + "'}";
   }
 
   @Override
@@ -148,13 +164,14 @@ public class PubSubWebhookSubscriptionInput {
         Objects.equals(filter, that.filter) &&
         Objects.equals(metafieldNamespaces, that.metafieldNamespaces) &&
         Objects.equals(metafields, that.metafields) &&
+        Objects.equals(name, that.name) &&
         Objects.equals(pubSubProject, that.pubSubProject) &&
         Objects.equals(pubSubTopic, that.pubSubTopic);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(format, includeFields, filter, metafieldNamespaces, metafields, pubSubProject, pubSubTopic);
+    return Objects.hash(format, includeFields, filter, metafieldNamespaces, metafields, name, pubSubProject, pubSubTopic);
   }
 
   public static Builder newBuilder() {
@@ -192,6 +209,11 @@ public class PubSubWebhookSubscriptionInput {
     private List<HasMetafieldsMetafieldIdentifierInput> metafields;
 
     /**
+     * A human-readable name for the webhook subscription.
+     */
+    private String name;
+
+    /**
      * The Pub/Sub project ID.
      */
     private String pubSubProject;
@@ -208,6 +230,7 @@ public class PubSubWebhookSubscriptionInput {
       result.filter = this.filter;
       result.metafieldNamespaces = this.metafieldNamespaces;
       result.metafields = this.metafields;
+      result.name = this.name;
       result.pubSubProject = this.pubSubProject;
       result.pubSubTopic = this.pubSubTopic;
       return result;
@@ -254,6 +277,14 @@ public class PubSubWebhookSubscriptionInput {
      */
     public Builder metafields(List<HasMetafieldsMetafieldIdentifierInput> metafields) {
       this.metafields = metafields;
+      return this;
+    }
+
+    /**
+     * A human-readable name for the webhook subscription.
+     */
+    public Builder name(String name) {
+      this.name = name;
       return this;
     }
 

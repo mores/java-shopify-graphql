@@ -8,9 +8,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Sets the quantity of a line item on an order that is being edited. For more
- * information on how to use the GraphQL Admin API to edit an existing order,
- * refer to [Edit existing orders](https://shopify.dev/apps/fulfillment/order-management-apps/order-editing).
+ * Sets the quantity of a line item on an order that's being edited. Use this
+ * mutation to increase, decrease, or remove items by adjusting their quantities.
+ *   
+ * Setting the quantity to zero effectively removes the line item from the order.
+ * The item still exists as a data structure with zero quantity. When decreasing
+ * quantities, you can optionally restock the removed items to inventory by
+ * setting the `restock` parameter to `true`.
+ *   
+ * Learn more about [editing workflows for existing orders](https://shopify.dev/docs/apps/build/orders-fulfillment/order-management-apps/edit-orders).
  */
 public class OrderEditSetQuantityGraphQLQuery extends GraphQLQuery {
   public OrderEditSetQuantityGraphQLQuery(String id, String lineItemId, int quantity,
@@ -58,7 +64,7 @@ public class OrderEditSetQuantityGraphQLQuery extends GraphQLQuery {
 
     /**
      * The ID of the [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
-     * to edit. The edit changes the quantity on the line item.
+     * or the order edit session to edit. The edit changes the quantity on the line item.
      */
     public Builder id(String id) {
       this.id = id;

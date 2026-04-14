@@ -29,6 +29,31 @@ public class CustomerPaymentMethodProjection<PARENT extends BaseSubProjectionNod
      return projection;
   }
 
+  public PaymentMandateResourceConnectionProjection<CustomerPaymentMethodProjection<PARENT, ROOT>, ROOT> mandates(
+      ) {
+     PaymentMandateResourceConnectionProjection<CustomerPaymentMethodProjection<PARENT, ROOT>, ROOT> projection = new PaymentMandateResourceConnectionProjection<>(this, getRoot());
+     getFields().put("mandates", projection);
+     return projection;
+  }
+
+  public PaymentMandateResourceConnectionProjection<CustomerPaymentMethodProjection<PARENT, ROOT>, ROOT> mandates(
+      Integer first, String after, Integer last, String before, Boolean reverse) {
+    PaymentMandateResourceConnectionProjection<CustomerPaymentMethodProjection<PARENT, ROOT>, ROOT> projection = new PaymentMandateResourceConnectionProjection<>(this, getRoot());    
+    getFields().put("mandates", projection);
+    getInputArguments().computeIfAbsent("mandates", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first);
+    getInputArguments().get("mandates").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after);
+    getInputArguments().get("mandates").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last);
+    getInputArguments().get("mandates").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before);
+    getInputArguments().get("mandates").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    getInputArguments().get("mandates").add(reverseArg);
+    return projection;
+  }
+
   public CustomerPaymentMethodRevocationReasonProjection<CustomerPaymentMethodProjection<PARENT, ROOT>, ROOT> revokedReason(
       ) {
      CustomerPaymentMethodRevocationReasonProjection<CustomerPaymentMethodProjection<PARENT, ROOT>, ROOT> projection = new CustomerPaymentMethodRevocationReasonProjection<>(this, getRoot());

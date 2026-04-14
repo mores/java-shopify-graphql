@@ -85,6 +85,11 @@ public class Refund implements com.shopify.admin.types.LegacyInteroperability, c
   private OrderAdjustmentConnection orderAdjustments;
 
   /**
+   * The date and time when the refund was processed.
+   */
+  private OffsetDateTime processedAt;
+
+  /**
    * The `RefundLineItem` resources attached to the refund.
    */
   private RefundLineItemConnection refundLineItems;
@@ -205,6 +210,17 @@ public class Refund implements com.shopify.admin.types.LegacyInteroperability, c
   }
 
   /**
+   * The date and time when the refund was processed.
+   */
+  public OffsetDateTime getProcessedAt() {
+    return processedAt;
+  }
+
+  public void setProcessedAt(OffsetDateTime processedAt) {
+    this.processedAt = processedAt;
+  }
+
+  /**
    * The `RefundLineItem` resources attached to the refund.
    */
   public RefundLineItemConnection getRefundLineItems() {
@@ -294,7 +310,7 @@ public class Refund implements com.shopify.admin.types.LegacyInteroperability, c
 
   @Override
   public String toString() {
-    return "Refund{createdAt='" + createdAt + "', duties='" + duties + "', id='" + id + "', legacyResourceId='" + legacyResourceId + "', note='" + note + "', order='" + order + "', orderAdjustments='" + orderAdjustments + "', refundLineItems='" + refundLineItems + "', refundShippingLines='" + refundShippingLines + "', return='" + _return + "', staffMember='" + staffMember + "', totalRefunded='" + totalRefunded + "', totalRefundedSet='" + totalRefundedSet + "', transactions='" + transactions + "', updatedAt='" + updatedAt + "'}";
+    return "Refund{createdAt='" + createdAt + "', duties='" + duties + "', id='" + id + "', legacyResourceId='" + legacyResourceId + "', note='" + note + "', order='" + order + "', orderAdjustments='" + orderAdjustments + "', processedAt='" + processedAt + "', refundLineItems='" + refundLineItems + "', refundShippingLines='" + refundShippingLines + "', return='" + _return + "', staffMember='" + staffMember + "', totalRefunded='" + totalRefunded + "', totalRefundedSet='" + totalRefundedSet + "', transactions='" + transactions + "', updatedAt='" + updatedAt + "'}";
   }
 
   @Override
@@ -309,6 +325,7 @@ public class Refund implements com.shopify.admin.types.LegacyInteroperability, c
         Objects.equals(note, that.note) &&
         Objects.equals(order, that.order) &&
         Objects.equals(orderAdjustments, that.orderAdjustments) &&
+        Objects.equals(processedAt, that.processedAt) &&
         Objects.equals(refundLineItems, that.refundLineItems) &&
         Objects.equals(refundShippingLines, that.refundShippingLines) &&
         Objects.equals(_return, that._return) &&
@@ -321,7 +338,7 @@ public class Refund implements com.shopify.admin.types.LegacyInteroperability, c
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, duties, id, legacyResourceId, note, order, orderAdjustments, refundLineItems, refundShippingLines, _return, staffMember, totalRefunded, totalRefundedSet, transactions, updatedAt);
+    return Objects.hash(createdAt, duties, id, legacyResourceId, note, order, orderAdjustments, processedAt, refundLineItems, refundShippingLines, _return, staffMember, totalRefunded, totalRefundedSet, transactions, updatedAt);
   }
 
   public static Builder newBuilder() {
@@ -363,6 +380,11 @@ public class Refund implements com.shopify.admin.types.LegacyInteroperability, c
      * The order adjustments that are attached with the refund.
      */
     private OrderAdjustmentConnection orderAdjustments;
+
+    /**
+     * The date and time when the refund was processed.
+     */
+    private OffsetDateTime processedAt;
 
     /**
      * The `RefundLineItem` resources attached to the refund.
@@ -413,6 +435,7 @@ public class Refund implements com.shopify.admin.types.LegacyInteroperability, c
       result.note = this.note;
       result.order = this.order;
       result.orderAdjustments = this.orderAdjustments;
+      result.processedAt = this.processedAt;
       result.refundLineItems = this.refundLineItems;
       result.refundShippingLines = this.refundShippingLines;
       result._return = this._return;
@@ -477,6 +500,14 @@ public class Refund implements com.shopify.admin.types.LegacyInteroperability, c
      */
     public Builder orderAdjustments(OrderAdjustmentConnection orderAdjustments) {
       this.orderAdjustments = orderAdjustments;
+      return this;
+    }
+
+    /**
+     * The date and time when the refund was processed.
+     */
+    public Builder processedAt(OffsetDateTime processedAt) {
+      this.processedAt = processedAt;
       return this;
     }
 

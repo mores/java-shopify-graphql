@@ -9,7 +9,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * All metaobjects for the shop.
+ * Returns a paginated list of [`Metaobject`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Metaobject)
+ * entries for a specific type. Metaobjects are custom data structures that
+ * extend Shopify's data model with merchant or app-specific data types.
+ *   
+ * Filter results using the query parameter with a search syntax for metaobject
+ * fields. Use `fields.{key}:{value}` to filter by field values, supporting any
+ * field previously marked as filterable. The `sortKey` parameter accepts `id`,
+ * `type`, `updated_at`, or `display_name` to control result ordering.
+ *   
+ * Learn more about [querying metaobjects by field value](https://shopify.dev/docs/apps/build/custom-data/metafields/query-by-metafield-value).
  */
 public class MetaobjectsGraphQLQuery extends GraphQLQuery {
   public MetaobjectsGraphQLQuery(String type, String sortKey, Integer first, String after,

@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Returns a market resource by ID.
+ * Returns a `Market` resource by ID.
  */
 public class MarketGraphQLQuery extends GraphQLQuery {
   public MarketGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {

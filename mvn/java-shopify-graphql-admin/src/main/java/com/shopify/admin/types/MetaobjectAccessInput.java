@@ -19,6 +19,11 @@ public class MetaobjectAccessInput {
    */
   private MetaobjectStorefrontAccess storefront;
 
+  /**
+   * The access permitted on the Customer Account API.
+   */
+  private MetaobjectCustomerAccountAccess customerAccount;
+
   public MetaobjectAccessInput() {
   }
 
@@ -44,9 +49,20 @@ public class MetaobjectAccessInput {
     this.storefront = storefront;
   }
 
+  /**
+   * The access permitted on the Customer Account API.
+   */
+  public MetaobjectCustomerAccountAccess getCustomerAccount() {
+    return customerAccount;
+  }
+
+  public void setCustomerAccount(MetaobjectCustomerAccountAccess customerAccount) {
+    this.customerAccount = customerAccount;
+  }
+
   @Override
   public String toString() {
-    return "MetaobjectAccessInput{admin='" + admin + "', storefront='" + storefront + "'}";
+    return "MetaobjectAccessInput{admin='" + admin + "', storefront='" + storefront + "', customerAccount='" + customerAccount + "'}";
   }
 
   @Override
@@ -55,12 +71,13 @@ public class MetaobjectAccessInput {
     if (o == null || getClass() != o.getClass()) return false;
     MetaobjectAccessInput that = (MetaobjectAccessInput) o;
     return Objects.equals(admin, that.admin) &&
-        Objects.equals(storefront, that.storefront);
+        Objects.equals(storefront, that.storefront) &&
+        Objects.equals(customerAccount, that.customerAccount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(admin, storefront);
+    return Objects.hash(admin, storefront, customerAccount);
   }
 
   public static Builder newBuilder() {
@@ -78,10 +95,16 @@ public class MetaobjectAccessInput {
      */
     private MetaobjectStorefrontAccess storefront;
 
+    /**
+     * The access permitted on the Customer Account API.
+     */
+    private MetaobjectCustomerAccountAccess customerAccount;
+
     public MetaobjectAccessInput build() {
       MetaobjectAccessInput result = new MetaobjectAccessInput();
       result.admin = this.admin;
       result.storefront = this.storefront;
+      result.customerAccount = this.customerAccount;
       return result;
     }
 
@@ -98,6 +121,14 @@ public class MetaobjectAccessInput {
      */
     public Builder storefront(MetaobjectStorefrontAccess storefront) {
       this.storefront = storefront;
+      return this;
+    }
+
+    /**
+     * The access permitted on the Customer Account API.
+     */
+    public Builder customerAccount(MetaobjectCustomerAccountAccess customerAccount) {
+      this.customerAccount = customerAccount;
       return this;
     }
   }

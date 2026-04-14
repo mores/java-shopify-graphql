@@ -7,7 +7,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Updates the default address of an existing customer.
+ * Updates the default address of an existing [`Customer`](https://shopify.dev/docs/api/storefront/current/objects/Customer).
+ * Requires a [customer access token](https://shopify.dev/docs/api/storefront/current/mutations/customerDefaultAddressUpdate#arguments-customerAccessToken)
+ * to identify the customer and an address ID to specify which address to set as
+ * the new default.
  */
 public class CustomerDefaultAddressUpdateGraphQLQuery extends GraphQLQuery {
   public CustomerDefaultAddressUpdateGraphQLQuery(String customerAccessToken, String addressId,

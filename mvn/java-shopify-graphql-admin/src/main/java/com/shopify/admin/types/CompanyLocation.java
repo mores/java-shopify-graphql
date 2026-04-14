@@ -9,15 +9,24 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * A location or branch of a [company that's a
- * customer](https://shopify.dev/api/admin-graphql/latest/objects/company) of the
- * shop. Configuration of B2B relationship, for example prices lists and checkout
- * settings, may be done for a location.
+ * A location or branch of a
+ * [`Company`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Company)
+ * that's a customer of the shop. Company locations enable B2B customers to manage
+ * multiple branches with distinct billing and shipping addresses, tax settings,
+ * and checkout configurations.
+ *
+ * Each location can have its own [`Catalog`](https://shopify.dev/docs/api/admin-graphql/latest/interfaces/Catalog)
+ * objects that determine which products are published and their pricing. The [`BuyerExperienceConfiguration`](https://shopify.dev/docs/api/admin-graphql/latest/objects/BuyerExperienceConfiguration)
+ * determines checkout behavior including [`PaymentTerms`](https://shopify.dev/docs/api/admin-graphql/latest/objects/PaymentTerms),
+ * and whether orders require merchant review. B2B customers select which location
+ * they're purchasing for, which determines the applicable catalogs, pricing, [`TaxExemption`](https://shopify.dev/docs/api/admin-graphql/latest/enums/TaxExemption)
+ * values, and checkout settings for their
+ * [`Order`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Order) objects.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
-public class CompanyLocation implements MetafieldReferencer, com.shopify.admin.types.CommentEventSubject, com.shopify.admin.types.HasEvents, com.shopify.admin.types.HasMetafieldDefinitions, com.shopify.admin.types.HasMetafields, com.shopify.admin.types.Navigable, com.shopify.admin.types.Node {
+public class CompanyLocation implements MetafieldReferencer, com.shopify.admin.types.CommentEventSubject, com.shopify.admin.types.HasEvents, com.shopify.admin.types.HasMetafieldDefinitions, com.shopify.admin.types.HasMetafields, com.shopify.admin.types.HasStoreCreditAccounts, com.shopify.admin.types.Navigable, com.shopify.admin.types.Node {
   /**
    * The address used as billing address for the location.
    */
@@ -164,6 +173,12 @@ public class CompanyLocation implements MetafieldReferencer, com.shopify.admin.t
    * The list of staff members assigned to the company location.
    */
   private CompanyLocationStaffMemberAssignmentConnection staffMemberAssignments;
+
+  /**
+   * Returns a list of store credit accounts that belong to the owner resource.
+   * A store credit account owner can hold multiple accounts each with a different currency.
+   */
+  private StoreCreditAccountConnection storeCreditAccounts;
 
   /**
    * The list of tax exemptions applied to the location.
@@ -512,6 +527,18 @@ public class CompanyLocation implements MetafieldReferencer, com.shopify.admin.t
   }
 
   /**
+   * Returns a list of store credit accounts that belong to the owner resource.
+   * A store credit account owner can hold multiple accounts each with a different currency.
+   */
+  public StoreCreditAccountConnection getStoreCreditAccounts() {
+    return storeCreditAccounts;
+  }
+
+  public void setStoreCreditAccounts(StoreCreditAccountConnection storeCreditAccounts) {
+    this.storeCreditAccounts = storeCreditAccounts;
+  }
+
+  /**
    * The list of tax exemptions applied to the location.
    */
   public List<TaxExemption> getTaxExemptions() {
@@ -569,7 +596,7 @@ public class CompanyLocation implements MetafieldReferencer, com.shopify.admin.t
 
   @Override
   public String toString() {
-    return "CompanyLocation{billingAddress='" + billingAddress + "', buyerExperienceConfiguration='" + buyerExperienceConfiguration + "', catalogs='" + catalogs + "', catalogsCount='" + catalogsCount + "', company='" + company + "', createdAt='" + createdAt + "', currency='" + currency + "', defaultCursor='" + defaultCursor + "', draftOrders='" + draftOrders + "', events='" + events + "', externalId='" + externalId + "', hasTimelineComment='" + hasTimelineComment + "', id='" + id + "', inCatalog='" + inCatalog + "', locale='" + locale + "', market='" + market + "', metafield='" + metafield + "', metafieldDefinitions='" + metafieldDefinitions + "', metafields='" + metafields + "', name='" + name + "', note='" + note + "', orderCount='" + orderCount + "', orders='" + orders + "', ordersCount='" + ordersCount + "', phone='" + phone + "', roleAssignments='" + roleAssignments + "', shippingAddress='" + shippingAddress + "', staffMemberAssignments='" + staffMemberAssignments + "', taxExemptions='" + taxExemptions + "', taxRegistrationId='" + taxRegistrationId + "', taxSettings='" + taxSettings + "', totalSpent='" + totalSpent + "', updatedAt='" + updatedAt + "'}";
+    return "CompanyLocation{billingAddress='" + billingAddress + "', buyerExperienceConfiguration='" + buyerExperienceConfiguration + "', catalogs='" + catalogs + "', catalogsCount='" + catalogsCount + "', company='" + company + "', createdAt='" + createdAt + "', currency='" + currency + "', defaultCursor='" + defaultCursor + "', draftOrders='" + draftOrders + "', events='" + events + "', externalId='" + externalId + "', hasTimelineComment='" + hasTimelineComment + "', id='" + id + "', inCatalog='" + inCatalog + "', locale='" + locale + "', market='" + market + "', metafield='" + metafield + "', metafieldDefinitions='" + metafieldDefinitions + "', metafields='" + metafields + "', name='" + name + "', note='" + note + "', orderCount='" + orderCount + "', orders='" + orders + "', ordersCount='" + ordersCount + "', phone='" + phone + "', roleAssignments='" + roleAssignments + "', shippingAddress='" + shippingAddress + "', staffMemberAssignments='" + staffMemberAssignments + "', storeCreditAccounts='" + storeCreditAccounts + "', taxExemptions='" + taxExemptions + "', taxRegistrationId='" + taxRegistrationId + "', taxSettings='" + taxSettings + "', totalSpent='" + totalSpent + "', updatedAt='" + updatedAt + "'}";
   }
 
   @Override
@@ -605,6 +632,7 @@ public class CompanyLocation implements MetafieldReferencer, com.shopify.admin.t
         Objects.equals(roleAssignments, that.roleAssignments) &&
         Objects.equals(shippingAddress, that.shippingAddress) &&
         Objects.equals(staffMemberAssignments, that.staffMemberAssignments) &&
+        Objects.equals(storeCreditAccounts, that.storeCreditAccounts) &&
         Objects.equals(taxExemptions, that.taxExemptions) &&
         Objects.equals(taxRegistrationId, that.taxRegistrationId) &&
         Objects.equals(taxSettings, that.taxSettings) &&
@@ -614,7 +642,7 @@ public class CompanyLocation implements MetafieldReferencer, com.shopify.admin.t
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingAddress, buyerExperienceConfiguration, catalogs, catalogsCount, company, createdAt, currency, defaultCursor, draftOrders, events, externalId, hasTimelineComment, id, inCatalog, locale, market, metafield, metafieldDefinitions, metafields, name, note, orderCount, orders, ordersCount, phone, roleAssignments, shippingAddress, staffMemberAssignments, taxExemptions, taxRegistrationId, taxSettings, totalSpent, updatedAt);
+    return Objects.hash(billingAddress, buyerExperienceConfiguration, catalogs, catalogsCount, company, createdAt, currency, defaultCursor, draftOrders, events, externalId, hasTimelineComment, id, inCatalog, locale, market, metafield, metafieldDefinitions, metafields, name, note, orderCount, orders, ordersCount, phone, roleAssignments, shippingAddress, staffMemberAssignments, storeCreditAccounts, taxExemptions, taxRegistrationId, taxSettings, totalSpent, updatedAt);
   }
 
   public static Builder newBuilder() {
@@ -770,6 +798,12 @@ public class CompanyLocation implements MetafieldReferencer, com.shopify.admin.t
     private CompanyLocationStaffMemberAssignmentConnection staffMemberAssignments;
 
     /**
+     * Returns a list of store credit accounts that belong to the owner resource.
+     * A store credit account owner can hold multiple accounts each with a different currency.
+     */
+    private StoreCreditAccountConnection storeCreditAccounts;
+
+    /**
      * The list of tax exemptions applied to the location.
      */
     private List<TaxExemption> taxExemptions;
@@ -825,6 +859,7 @@ public class CompanyLocation implements MetafieldReferencer, com.shopify.admin.t
       result.roleAssignments = this.roleAssignments;
       result.shippingAddress = this.shippingAddress;
       result.staffMemberAssignments = this.staffMemberAssignments;
+      result.storeCreditAccounts = this.storeCreditAccounts;
       result.taxExemptions = this.taxExemptions;
       result.taxRegistrationId = this.taxRegistrationId;
       result.taxSettings = this.taxSettings;
@@ -1063,6 +1098,15 @@ public class CompanyLocation implements MetafieldReferencer, com.shopify.admin.t
     public Builder staffMemberAssignments(
         CompanyLocationStaffMemberAssignmentConnection staffMemberAssignments) {
       this.staffMemberAssignments = staffMemberAssignments;
+      return this;
+    }
+
+    /**
+     * Returns a list of store credit accounts that belong to the owner resource.
+     * A store credit account owner can hold multiple accounts each with a different currency.
+     */
+    public Builder storeCreditAccounts(StoreCreditAccountConnection storeCreditAccounts) {
+      this.storeCreditAccounts = storeCreditAccounts;
       return this;
     }
 

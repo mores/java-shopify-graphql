@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * List of automatic discounts.
+ * Returns a list of automatic discounts that are applied in the cart and at checkout without requiring a discount code.
  */
 public class AutomaticDiscountsGraphQLQuery extends GraphQLQuery {
   public AutomaticDiscountsGraphQLQuery(Integer first, String after, Integer last, String before,
@@ -139,6 +139,7 @@ public class AutomaticDiscountsGraphQLQuery extends GraphQLQuery {
      * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | status | string | Filter by the discount status. | - `active`<br/> -
      * `expired`<br/> - `scheduled` | | - `status:scheduled` |
+     * | tag | string | Filter by a tag applied to the discount. | | | - `tag:loyalty`<br/> - `tag:clearance` |
      * | type | string | Filter by the [discount
      * type](https://help.shopify.com/manual/discounts/discount-types). | -
      * `all`<br/> - `all_with_app`<br/> - `app`<br/> - `bxgy`<br/> -
