@@ -6,6 +6,12 @@ mvn -DskipTests clean javadoc:jar source:jar install
 ## Known Issues
 https://github.com/mores/java-shopify-graphql/issues/9 - unable to pass @idempotent directive
 
+## Wish List
+
+https://github.com/Netflix/dgs-codegen/pull/920
+
+https://github.com/Netflix/dgs-codegen/pull/935
+
 ## Using these objects in your project
 
 ### Admin API
