@@ -1,8 +1,14 @@
+
 import com.netflix.graphql.dgs.client.CustomGraphQLClient;
-import com.netflix.graphql.dgs.client.codegen.GraphQLQueryRequest;
+//import com.netflix.graphql.dgs.client.codegen.GraphQLQueryRequest;
+//import com.netflix.graphql.dgs.client.codegen.GraphQLDirective;
 import com.netflix.graphql.dgs.client.GraphQLClient;
 import com.netflix.graphql.dgs.client.GraphQLResponse;
 import com.netflix.graphql.dgs.client.HttpResponse;
+
+// tempoaraily using until merge https://github.com/Netflix/dgs-codegen/pull/935
+import io.github.mores.GraphQLQueryRequest;
+import io.github.mores.GraphQLDirective;
 
 import com.shopify.admin.DgsConstants;
 import com.shopify.admin.client.*;
@@ -56,9 +62,7 @@ public class AppTest {
         createProductFixedBundle();
         createVariantFixedBundle();
         listProducts(null);
-
-        // currently broken due to 2026-04, the idempotency key is required
-        // setInventory();
+        setInventory();
     }
 
     private void setInventory() {
@@ -106,7 +110,9 @@ public class AppTest {
                 userErrors.field();
                 userErrors.message();
 
-                GraphQLQueryRequest request = new GraphQLQueryRequest(query, root);
+                java.util.List<GraphQLDirective> directives = java.util.List.of(new GraphQLDirective("idempotent",
+                        java.util.Map.of("key", java.util.UUID.randomUUID().toString())));
+                GraphQLQueryRequest request = new GraphQLQueryRequest(query, root, null, directives);
                 log.debug("Request: " + request.serialize());
                 GraphQLResponse response = client.executeQuery(request.serialize());
                 log.debug("Response: " + response);

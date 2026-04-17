@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration monitorinterval="30" status="INFO" strict="true" name="vp" xmlns="http://logging.apache.org/log4j/2.0/config">
+<Configuration monitorinterval="30" status="WARN" strict="true" name="vp" xmlns="http://logging.apache.org/log4j/2.0/config">
 
         <Appenders>
                 <Console name="CONSOLE" target="SYSTEM_OUT">

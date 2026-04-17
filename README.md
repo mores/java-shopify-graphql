@@ -3,7 +3,7 @@
 ## Building
 mvn -DskipTests clean javadoc:jar source:jar install
 
-## Known Issues
+## Known Issues with work around
 https://github.com/mores/java-shopify-graphql/issues/9 - unable to pass @idempotent directive
 
 ## Wish List

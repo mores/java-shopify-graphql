@@ -6,7 +6,7 @@
 
 	<groupId>io.github.mores</groupId>
 	<artifactId>java-shopify-graphql</artifactId>
-	<version>2026.04.001</version>
+	<version>2026.04.002</version>
 	<packaging>pom</packaging>
 
 	<name>java-shopify-graphql</name>
@@ -62,6 +62,7 @@
 	</dependencyManagement>
 
 	<modules>
+		<module>java-shopify-graphql-support</module>
 		<module>java-shopify-graphql-admin</module>
 		<module>java-shopify-graphql-storefront</module>
 	</modules>
