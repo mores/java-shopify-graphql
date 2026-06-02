@@ -745,9 +745,17 @@ public class AppTest {
         uploadImage(product, file);
 
         java.util.Map<String, Publication> publications = listPublications();
+        for (java.util.Map.Entry<String, Publication> entry : publications.entrySet()) {
+            log.trace("\tPublication: " + entry.getKey());
+        }
+
         publish(product.getId(), publications.get("Online Store"));
-        // Lets also make this available using the storefront API
-        publish(product.getId(), publications.get("APP storefront"));
+
+        // Lets also make this available using the storefront API if available
+        Publication appStorefront = publications.get("APP storefront");
+        if (appStorefront != null) {
+            publish(product.getId(), appStorefront);
+        }
 
         return product;
     }
