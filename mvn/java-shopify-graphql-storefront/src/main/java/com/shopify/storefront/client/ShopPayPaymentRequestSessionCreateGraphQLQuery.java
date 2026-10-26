@@ -1,10 +1,14 @@
 package com.shopify.storefront.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
-import com.shopify.storefront.types.ShopPayPaymentRequestInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -21,14 +25,28 @@ import java.util.Set;
  * For common error scenarios, see the [troubleshooting guide](https://shopify.dev/docs/api/commerce-components/pay/troubleshooting-guide).
  */
 public class ShopPayPaymentRequestSessionCreateGraphQLQuery extends GraphQLQuery {
-  public ShopPayPaymentRequestSessionCreateGraphQLQuery(String sourceIdentifier,
-      ShopPayPaymentRequestInput paymentRequest, String queryName, Set<String> fieldsSet) {
+  public ShopPayPaymentRequestSessionCreateGraphQLQuery(String sourceIdentifier, String queryName,
+      Set<String> fieldsSet) {
     super("mutation", queryName);
     if (sourceIdentifier != null || fieldsSet.contains("sourceIdentifier")) {
         getInput().put("sourceIdentifier", sourceIdentifier);
-    }if (paymentRequest != null || fieldsSet.contains("paymentRequest")) {
-        getInput().put("paymentRequest", paymentRequest);
     }
+  }
+
+  public ShopPayPaymentRequestSessionCreateGraphQLQuery(String sourceIdentifier, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (sourceIdentifier != null || fieldsSet.contains("sourceIdentifier")) {
+        getInput().put("sourceIdentifier", sourceIdentifier);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public ShopPayPaymentRequestSessionCreateGraphQLQuery() {
@@ -47,14 +65,16 @@ public class ShopPayPaymentRequestSessionCreateGraphQLQuery extends GraphQLQuery
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
-    private String sourceIdentifier;
+    private final Map<String, String> variableReferences = new HashMap<>();
 
-    private ShopPayPaymentRequestInput paymentRequest;
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
+    private String sourceIdentifier;
 
     private String queryName;
 
     public ShopPayPaymentRequestSessionCreateGraphQLQuery build() {
-      return new ShopPayPaymentRequestSessionCreateGraphQLQuery(sourceIdentifier, paymentRequest, queryName, fieldsSet);
+      return new ShopPayPaymentRequestSessionCreateGraphQLQuery(sourceIdentifier, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -68,11 +88,12 @@ public class ShopPayPaymentRequestSessionCreateGraphQLQuery extends GraphQLQuery
     }
 
     /**
-     * A payment request object.
+     * A unique identifier for the payment request session.
      */
-    public Builder paymentRequest(ShopPayPaymentRequestInput paymentRequest) {
-      this.paymentRequest = paymentRequest;
-      this.fieldsSet.add("paymentRequest");
+    public Builder sourceIdentifierReference(String variableRef) {
+      this.variableReferences.put("sourceIdentifier", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("String"))).build());
+      this.fieldsSet.add("sourceIdentifier");
       return this;
     }
 

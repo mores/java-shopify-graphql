@@ -1,9 +1,14 @@
 package com.shopify.storefront.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -28,6 +33,22 @@ public class CustomerAccessTokenCreateWithMultipassGraphQLQuery extends GraphQLQ
     }
   }
 
+  public CustomerAccessTokenCreateWithMultipassGraphQLQuery(String multipassToken, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (multipassToken != null || fieldsSet.contains("multipassToken")) {
+        getInput().put("multipassToken", multipassToken);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public CustomerAccessTokenCreateWithMultipassGraphQLQuery() {
     super("mutation");
   }
@@ -44,12 +65,16 @@ public class CustomerAccessTokenCreateWithMultipassGraphQLQuery extends GraphQLQ
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String multipassToken;
 
     private String queryName;
 
     public CustomerAccessTokenCreateWithMultipassGraphQLQuery build() {
-      return new CustomerAccessTokenCreateWithMultipassGraphQLQuery(multipassToken, queryName, fieldsSet);
+      return new CustomerAccessTokenCreateWithMultipassGraphQLQuery(multipassToken, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -58,6 +83,16 @@ public class CustomerAccessTokenCreateWithMultipassGraphQLQuery extends GraphQLQ
      */
     public Builder multipassToken(String multipassToken) {
       this.multipassToken = multipassToken;
+      this.fieldsSet.add("multipassToken");
+      return this;
+    }
+
+    /**
+     * A valid [multipass token](https://shopify.dev/api/multipass) to be authenticated.
+     */
+    public Builder multipassTokenReference(String variableRef) {
+      this.variableReferences.put("multipassToken", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("String"))).build());
       this.fieldsSet.add("multipassToken");
       return this;
     }

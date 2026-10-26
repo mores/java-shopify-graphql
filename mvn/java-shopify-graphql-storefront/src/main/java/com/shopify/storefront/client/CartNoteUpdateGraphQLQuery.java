@@ -1,9 +1,14 @@
 package com.shopify.storefront.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -23,6 +28,24 @@ public class CartNoteUpdateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public CartNoteUpdateGraphQLQuery(String cartId, String note, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (cartId != null || fieldsSet.contains("cartId")) {
+        getInput().put("cartId", cartId);
+    }if (note != null || fieldsSet.contains("note")) {
+        getInput().put("note", note);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public CartNoteUpdateGraphQLQuery() {
     super("mutation");
   }
@@ -39,6 +62,10 @@ public class CartNoteUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String cartId;
 
     private String note;
@@ -46,7 +73,7 @@ public class CartNoteUpdateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public CartNoteUpdateGraphQLQuery build() {
-      return new CartNoteUpdateGraphQLQuery(cartId, note, queryName, fieldsSet);
+      return new CartNoteUpdateGraphQLQuery(cartId, note, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -60,10 +87,30 @@ public class CartNoteUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the cart.
+     */
+    public Builder cartIdReference(String variableRef) {
+      this.variableReferences.put("cartId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("cartId");
+      return this;
+    }
+
+    /**
      * The note on the cart.
      */
     public Builder note(String note) {
       this.note = note;
+      this.fieldsSet.add("note");
+      return this;
+    }
+
+    /**
+     * The note on the cart.
+     */
+    public Builder noteReference(String variableRef) {
+      this.variableReferences.put("note", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("String"))).build());
       this.fieldsSet.add("note");
       return this;
     }

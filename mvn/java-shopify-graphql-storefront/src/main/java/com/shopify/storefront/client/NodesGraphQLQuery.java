@@ -1,10 +1,14 @@
 package com.shopify.storefront.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -25,6 +29,21 @@ public class NodesGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public NodesGraphQLQuery(List<String> ids, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("query", queryName);
+    if (ids != null || fieldsSet.contains("ids")) {
+        getInput().put("ids", ids);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public NodesGraphQLQuery() {
     super("query");
   }
@@ -41,12 +60,16 @@ public class NodesGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private List<String> ids;
 
     private String queryName;
 
     public NodesGraphQLQuery build() {
-      return new NodesGraphQLQuery(ids, queryName, fieldsSet);
+      return new NodesGraphQLQuery(ids, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -57,6 +80,18 @@ public class NodesGraphQLQuery extends GraphQLQuery {
      */
     public Builder ids(List<String> ids) {
       this.ids = ids;
+      this.fieldsSet.add("ids");
+      return this;
+    }
+
+    /**
+     * The IDs of the Nodes to return.
+     *     
+     * The input must not contain more than `250` values.
+     */
+    public Builder idsReference(String variableRef) {
+      this.variableReferences.put("ids", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("ID"))))).build());
       this.fieldsSet.add("ids");
       return this;
     }

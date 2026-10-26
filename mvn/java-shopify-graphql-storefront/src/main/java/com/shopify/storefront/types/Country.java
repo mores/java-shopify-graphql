@@ -37,7 +37,8 @@ public class Country {
   private CountryCode isoCode;
 
   /**
-   * The market that includes this country.
+   * The market that applies to this country. In cases where multiple markets
+   * match, this returns the most-specific country region market.
    */
   private Market market;
 
@@ -99,7 +100,8 @@ public class Country {
   }
 
   /**
-   * The market that includes this country.
+   * The market that applies to this country. In cases where multiple markets
+   * match, this returns the most-specific country region market.
    */
   public Market getMarket() {
     return market;
@@ -181,7 +183,8 @@ public class Country {
     private CountryCode isoCode;
 
     /**
-     * The market that includes this country.
+     * The market that applies to this country. In cases where multiple markets
+     * match, this returns the most-specific country region market.
      */
     private Market market;
 
@@ -240,7 +243,8 @@ public class Country {
     }
 
     /**
-     * The market that includes this country.
+     * The market that applies to this country. In cases where multiple markets
+     * match, this returns the most-specific country region market.
      */
     public Builder market(Market market) {
       this.market = market;

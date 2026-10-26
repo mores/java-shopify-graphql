@@ -222,7 +222,7 @@ public class Product implements MenuItemResource, MetafieldParentResource, Metaf
    * plan](/docs/apps/build/purchase-options/subscriptions/selling-plans). Products
    * that are sold on subscription (`requiresSellingPlan: true`) can be updated
    * only for online stores. If you update a product to be subscription-only
-   * (`requiresSellingPlan:false`), then the product is unpublished from all
+   * (`requiresSellingPlan: true`), then the product is unpublished from all
    * channels, except the online store.
    */
   private boolean requiresSellingPlan;
@@ -642,7 +642,7 @@ public class Product implements MenuItemResource, MetafieldParentResource, Metaf
    * plan](/docs/apps/build/purchase-options/subscriptions/selling-plans). Products
    * that are sold on subscription (`requiresSellingPlan: true`) can be updated
    * only for online stores. If you update a product to be subscription-only
-   * (`requiresSellingPlan:false`), then the product is unpublished from all
+   * (`requiresSellingPlan: true`), then the product is unpublished from all
    * channels, except the online store.
    */
   public boolean getRequiresSellingPlan() {
@@ -1057,7 +1057,7 @@ public class Product implements MenuItemResource, MetafieldParentResource, Metaf
      * plan](/docs/apps/build/purchase-options/subscriptions/selling-plans). Products
      * that are sold on subscription (`requiresSellingPlan: true`) can be updated
      * only for online stores. If you update a product to be subscription-only
-     * (`requiresSellingPlan:false`), then the product is unpublished from all
+     * (`requiresSellingPlan: true`), then the product is unpublished from all
      * channels, except the online store.
      */
     private boolean requiresSellingPlan;
@@ -1446,7 +1446,7 @@ public class Product implements MenuItemResource, MetafieldParentResource, Metaf
      * plan](/docs/apps/build/purchase-options/subscriptions/selling-plans). Products
      * that are sold on subscription (`requiresSellingPlan: true`) can be updated
      * only for online stores. If you update a product to be subscription-only
-     * (`requiresSellingPlan:false`), then the product is unpublished from all
+     * (`requiresSellingPlan: true`), then the product is unpublished from all
      * channels, except the online store.
      */
     public Builder requiresSellingPlan(boolean requiresSellingPlan) {

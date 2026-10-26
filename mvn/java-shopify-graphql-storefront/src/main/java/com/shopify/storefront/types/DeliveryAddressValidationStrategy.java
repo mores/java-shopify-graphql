@@ -9,7 +9,16 @@ package com.shopify.storefront.types;
  * when managing cart delivery addresses.
  */
 public enum DeliveryAddressValidationStrategy {
+  /**
+   * Only the country code is validated.
+   */
   COUNTRY_CODE_ONLY,
 
+  /**
+   * Strict validation is performed, i.e. all fields in the address are validated
+   * according to Shopify's checkout rules. If the address fails validation, the cart will not be updated.
+   * Doesn't apply to addresses copied with `copyFromCustomerAddressId`, which are copied as-is.
+   * Validation can be requested on later delivery address updates and always occurs in checkout.
+   */
   STRICT
 }

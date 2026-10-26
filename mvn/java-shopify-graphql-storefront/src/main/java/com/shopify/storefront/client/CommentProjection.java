@@ -28,7 +28,7 @@ public class CommentProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT 
   public CommentProjection content(Integer truncateAt) {
     getFields().put("content", null);
     getInputArguments().computeIfAbsent("content", k -> new ArrayList<>());
-    InputArgument truncateAtArg = new InputArgument("truncateAt", truncateAt);
+    InputArgument truncateAtArg = new InputArgument("truncateAt", truncateAt, false, null);
     getInputArguments().get("content").add(truncateAtArg);
     return this;
   }

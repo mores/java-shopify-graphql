@@ -184,6 +184,9 @@ public enum SubmissionErrorCode {
 
   PAYMENTS_BILLING_ADDRESS_ZONE_REQUIRED_FOR_COUNTRY,
 
+  /**
+   * Redirect to checkout required to complete this action.
+   */
   REDIRECT_TO_CHECKOUT_REQUIRED,
 
   TAXES_MUST_BE_DEFINED,
@@ -192,5 +195,8 @@ public enum SubmissionErrorCode {
 
   TAXES_DELIVERY_GROUP_ID_NOT_FOUND,
 
+  /**
+   * Validation failed.
+   */
   VALIDATION_CUSTOM
 }

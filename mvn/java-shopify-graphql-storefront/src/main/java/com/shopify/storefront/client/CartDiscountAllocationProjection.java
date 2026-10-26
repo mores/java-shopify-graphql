@@ -26,6 +26,13 @@ public class CartDiscountAllocationProjection<PARENT extends BaseSubProjectionNo
      return projection;
   }
 
+  public BaseCartDiscountApplicationProjection<CartDiscountAllocationProjection<PARENT, ROOT>, ROOT> sourceDiscountApplication(
+      ) {
+     BaseCartDiscountApplicationProjection<CartDiscountAllocationProjection<PARENT, ROOT>, ROOT> projection = new BaseCartDiscountApplicationProjection<>(this, getRoot());
+     getFields().put("sourceDiscountApplication", projection);
+     return projection;
+  }
+
   public DiscountApplicationTargetTypeProjection<CartDiscountAllocationProjection<PARENT, ROOT>, ROOT> targetType(
       ) {
      DiscountApplicationTargetTypeProjection<CartDiscountAllocationProjection<PARENT, ROOT>, ROOT> projection = new DiscountApplicationTargetTypeProjection<>(this, getRoot());

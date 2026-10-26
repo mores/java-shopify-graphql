@@ -1,9 +1,14 @@
 package com.shopify.storefront.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -29,6 +34,24 @@ public class CustomerResetByUrlGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public CustomerResetByUrlGraphQLQuery(String resetUrl, String password, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (resetUrl != null || fieldsSet.contains("resetUrl")) {
+        getInput().put("resetUrl", resetUrl);
+    }if (password != null || fieldsSet.contains("password")) {
+        getInput().put("password", password);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public CustomerResetByUrlGraphQLQuery() {
     super("mutation");
   }
@@ -45,6 +68,10 @@ public class CustomerResetByUrlGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String resetUrl;
 
     private String password;
@@ -52,7 +79,7 @@ public class CustomerResetByUrlGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public CustomerResetByUrlGraphQLQuery build() {
-      return new CustomerResetByUrlGraphQLQuery(resetUrl, password, queryName, fieldsSet);
+      return new CustomerResetByUrlGraphQLQuery(resetUrl, password, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -66,10 +93,30 @@ public class CustomerResetByUrlGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The customer's reset password url.
+     */
+    public Builder resetUrlReference(String variableRef) {
+      this.variableReferences.put("resetUrl", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("URL"))).build());
+      this.fieldsSet.add("resetUrl");
+      return this;
+    }
+
+    /**
      * New password that will be set as part of the reset password process.
      */
     public Builder password(String password) {
       this.password = password;
+      this.fieldsSet.add("password");
+      return this;
+    }
+
+    /**
+     * New password that will be set as part of the reset password process.
+     */
+    public Builder passwordReference(String variableRef) {
+      this.variableReferences.put("password", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("String"))).build());
       this.fieldsSet.add("password");
       return this;
     }

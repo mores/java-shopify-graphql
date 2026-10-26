@@ -17,7 +17,9 @@ public class CartAddressInput {
   private CartDeliveryAddressInput deliveryAddress;
 
   /**
-   * Copies details from the customer address to an address on this cart.
+   * Copies details from the customer address to an address on this cart. The
+   * address is copied as-is, regardless of `validationStrategy`. Validation can be
+   * requested on later delivery address updates and always occurs in checkout.
    */
   private String copyFromCustomerAddressId;
 
@@ -36,7 +38,9 @@ public class CartAddressInput {
   }
 
   /**
-   * Copies details from the customer address to an address on this cart.
+   * Copies details from the customer address to an address on this cart. The
+   * address is copied as-is, regardless of `validationStrategy`. Validation can be
+   * requested on later delivery address updates and always occurs in checkout.
    */
   public String getCopyFromCustomerAddressId() {
     return copyFromCustomerAddressId;
@@ -76,7 +80,9 @@ public class CartAddressInput {
     private CartDeliveryAddressInput deliveryAddress;
 
     /**
-     * Copies details from the customer address to an address on this cart.
+     * Copies details from the customer address to an address on this cart. The
+     * address is copied as-is, regardless of `validationStrategy`. Validation can be
+     * requested on later delivery address updates and always occurs in checkout.
      */
     private String copyFromCustomerAddressId;
 
@@ -96,7 +102,9 @@ public class CartAddressInput {
     }
 
     /**
-     * Copies details from the customer address to an address on this cart.
+     * Copies details from the customer address to an address on this cart. The
+     * address is copied as-is, regardless of `validationStrategy`. Validation can be
+     * requested on later delivery address updates and always occurs in checkout.
      */
     public Builder copyFromCustomerAddressId(String copyFromCustomerAddressId) {
       this.copyFromCustomerAddressId = copyFromCustomerAddressId;

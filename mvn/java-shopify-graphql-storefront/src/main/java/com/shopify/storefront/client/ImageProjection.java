@@ -56,15 +56,15 @@ public class ImageProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
       Integer scale, ImageContentType preferredContentType) {
     getFields().put("transformedSrc", null);
     getInputArguments().computeIfAbsent("transformedSrc", k -> new ArrayList<>());
-    InputArgument maxWidthArg = new InputArgument("maxWidth", maxWidth);
+    InputArgument maxWidthArg = new InputArgument("maxWidth", maxWidth, false, null);
     getInputArguments().get("transformedSrc").add(maxWidthArg);
-    InputArgument maxHeightArg = new InputArgument("maxHeight", maxHeight);
+    InputArgument maxHeightArg = new InputArgument("maxHeight", maxHeight, false, null);
     getInputArguments().get("transformedSrc").add(maxHeightArg);
-    InputArgument cropArg = new InputArgument("crop", crop);
+    InputArgument cropArg = new InputArgument("crop", crop, false, null);
     getInputArguments().get("transformedSrc").add(cropArg);
-    InputArgument scaleArg = new InputArgument("scale", scale);
+    InputArgument scaleArg = new InputArgument("scale", scale, false, null);
     getInputArguments().get("transformedSrc").add(scaleArg);
-    InputArgument preferredContentTypeArg = new InputArgument("preferredContentType", preferredContentType);
+    InputArgument preferredContentTypeArg = new InputArgument("preferredContentType", preferredContentType, false, null);
     getInputArguments().get("transformedSrc").add(preferredContentTypeArg);
     return this;
   }
@@ -77,7 +77,7 @@ public class ImageProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ex
   public ImageProjection url(ImageTransformInput transform) {
     getFields().put("url", null);
     getInputArguments().computeIfAbsent("url", k -> new ArrayList<>());
-    InputArgument transformArg = new InputArgument("transform", transform);
+    InputArgument transformArg = new InputArgument("transform", transform, false, null);
     getInputArguments().get("url").add(transformArg);
     return this;
   }

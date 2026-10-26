@@ -35,15 +35,34 @@ public class SellingPlanGroupProjection<PARENT extends BaseSubProjectionNode<?, 
     SellingPlanConnectionProjection<SellingPlanGroupProjection<PARENT, ROOT>, ROOT> projection = new SellingPlanConnectionProjection<>(this, getRoot());    
     getFields().put("sellingPlans", projection);
     getInputArguments().computeIfAbsent("sellingPlans", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("sellingPlans").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("sellingPlans").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("sellingPlans").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("sellingPlans").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("sellingPlans").add(reverseArg);
+    return projection;
+  }
+
+  public SellingPlanConnectionProjection<SellingPlanGroupProjection<PARENT, ROOT>, ROOT> sellingPlansWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    SellingPlanConnectionProjection<SellingPlanGroupProjection<PARENT, ROOT>, ROOT> projection = new SellingPlanConnectionProjection<>(this, getRoot());    
+    getFields().put("sellingPlans", projection);
+    getInputArguments().computeIfAbsent("sellingPlans", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("sellingPlans").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("sellingPlans").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("sellingPlans").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("sellingPlans").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("sellingPlans").add(reverseArg);
     return projection;
   }

@@ -67,6 +67,12 @@ public class CartInput {
    */
   private List<CartInputMetafieldInput> metafields;
 
+  /**
+   * The source name of the channel to use for order attribution.
+   * The value must match the source name of a channel that the client, identified by the storefront access token, owns.
+   */
+  private String sourceName;
+
   public CartInput() {
   }
 
@@ -170,9 +176,21 @@ public class CartInput {
     this.metafields = metafields;
   }
 
+  /**
+   * The source name of the channel to use for order attribution.
+   * The value must match the source name of a channel that the client, identified by the storefront access token, owns.
+   */
+  public String getSourceName() {
+    return sourceName;
+  }
+
+  public void setSourceName(String sourceName) {
+    this.sourceName = sourceName;
+  }
+
   @Override
   public String toString() {
-    return "CartInput{attributes='" + attributes + "', lines='" + lines + "', discountCodes='" + discountCodes + "', giftCardCodes='" + giftCardCodes + "', note='" + note + "', buyerIdentity='" + buyerIdentity + "', delivery='" + delivery + "', metafields='" + metafields + "'}";
+    return "CartInput{attributes='" + attributes + "', lines='" + lines + "', discountCodes='" + discountCodes + "', giftCardCodes='" + giftCardCodes + "', note='" + note + "', buyerIdentity='" + buyerIdentity + "', delivery='" + delivery + "', metafields='" + metafields + "', sourceName='" + sourceName + "'}";
   }
 
   @Override
@@ -187,12 +205,13 @@ public class CartInput {
         Objects.equals(note, that.note) &&
         Objects.equals(buyerIdentity, that.buyerIdentity) &&
         Objects.equals(delivery, that.delivery) &&
-        Objects.equals(metafields, that.metafields);
+        Objects.equals(metafields, that.metafields) &&
+        Objects.equals(sourceName, that.sourceName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, lines, discountCodes, giftCardCodes, note, buyerIdentity, delivery, metafields);
+    return Objects.hash(attributes, lines, discountCodes, giftCardCodes, note, buyerIdentity, delivery, metafields, sourceName);
   }
 
   public static Builder newBuilder() {
@@ -252,6 +271,12 @@ public class CartInput {
      */
     private List<CartInputMetafieldInput> metafields;
 
+    /**
+     * The source name of the channel to use for order attribution.
+     * The value must match the source name of a channel that the client, identified by the storefront access token, owns.
+     */
+    private String sourceName;
+
     public CartInput build() {
       CartInput result = new CartInput();
       result.attributes = this.attributes;
@@ -262,6 +287,7 @@ public class CartInput {
       result.buyerIdentity = this.buyerIdentity;
       result.delivery = this.delivery;
       result.metafields = this.metafields;
+      result.sourceName = this.sourceName;
       return result;
     }
 
@@ -338,6 +364,15 @@ public class CartInput {
      */
     public Builder metafields(List<CartInputMetafieldInput> metafields) {
       this.metafields = metafields;
+      return this;
+    }
+
+    /**
+     * The source name of the channel to use for order attribution.
+     * The value must match the source name of a channel that the client, identified by the storefront access token, owns.
+     */
+    public Builder sourceName(String sourceName) {
+      this.sourceName = sourceName;
       return this;
     }
   }

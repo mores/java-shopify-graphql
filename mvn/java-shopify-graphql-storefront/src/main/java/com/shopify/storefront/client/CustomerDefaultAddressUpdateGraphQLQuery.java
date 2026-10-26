@@ -1,9 +1,14 @@
 package com.shopify.storefront.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -23,6 +28,24 @@ public class CustomerDefaultAddressUpdateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public CustomerDefaultAddressUpdateGraphQLQuery(String customerAccessToken, String addressId,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (customerAccessToken != null || fieldsSet.contains("customerAccessToken")) {
+        getInput().put("customerAccessToken", customerAccessToken);
+    }if (addressId != null || fieldsSet.contains("addressId")) {
+        getInput().put("addressId", addressId);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public CustomerDefaultAddressUpdateGraphQLQuery() {
     super("mutation");
   }
@@ -39,6 +62,10 @@ public class CustomerDefaultAddressUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String customerAccessToken;
 
     private String addressId;
@@ -46,7 +73,7 @@ public class CustomerDefaultAddressUpdateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public CustomerDefaultAddressUpdateGraphQLQuery build() {
-      return new CustomerDefaultAddressUpdateGraphQLQuery(customerAccessToken, addressId, queryName, fieldsSet);
+      return new CustomerDefaultAddressUpdateGraphQLQuery(customerAccessToken, addressId, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -60,10 +87,30 @@ public class CustomerDefaultAddressUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The access token used to identify the customer.
+     */
+    public Builder customerAccessTokenReference(String variableRef) {
+      this.variableReferences.put("customerAccessToken", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("String"))).build());
+      this.fieldsSet.add("customerAccessToken");
+      return this;
+    }
+
+    /**
      * ID of the address to set as the new default for the customer.
      */
     public Builder addressId(String addressId) {
       this.addressId = addressId;
+      this.fieldsSet.add("addressId");
+      return this;
+    }
+
+    /**
+     * ID of the address to set as the new default for the customer.
+     */
+    public Builder addressIdReference(String variableRef) {
+      this.variableReferences.put("addressId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("addressId");
       return this;
     }

@@ -47,15 +47,34 @@ public class ArticleProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT 
     CommentConnectionProjection<ArticleProjection<PARENT, ROOT>, ROOT> projection = new CommentConnectionProjection<>(this, getRoot());    
     getFields().put("comments", projection);
     getInputArguments().computeIfAbsent("comments", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("comments").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("comments").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("comments").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("comments").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("comments").add(reverseArg);
+    return projection;
+  }
+
+  public CommentConnectionProjection<ArticleProjection<PARENT, ROOT>, ROOT> commentsWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    CommentConnectionProjection<ArticleProjection<PARENT, ROOT>, ROOT> projection = new CommentConnectionProjection<>(this, getRoot());    
+    getFields().put("comments", projection);
+    getInputArguments().computeIfAbsent("comments", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("comments").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("comments").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("comments").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("comments").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("comments").add(reverseArg);
     return projection;
   }
@@ -77,9 +96,21 @@ public class ArticleProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT 
     MetafieldProjection<ArticleProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
     getFields().put("metafield", projection);
     getInputArguments().computeIfAbsent("metafield", k -> new ArrayList<>());                      
-    InputArgument namespaceArg = new InputArgument("namespace", namespace);
+    InputArgument namespaceArg = new InputArgument("namespace", namespace, false, null);
     getInputArguments().get("metafield").add(namespaceArg);
-    InputArgument keyArg = new InputArgument("key", key);
+    InputArgument keyArg = new InputArgument("key", key, false, null);
+    getInputArguments().get("metafield").add(keyArg);
+    return projection;
+  }
+
+  public MetafieldProjection<ArticleProjection<PARENT, ROOT>, ROOT> metafieldWithVariableReferences(
+      String namespaceReference, String keyReference) {
+    MetafieldProjection<ArticleProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
+    getFields().put("metafield", projection);
+    getInputArguments().computeIfAbsent("metafield", k -> new ArrayList<>());              
+    InputArgument namespaceArg = new InputArgument("namespace", namespaceReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("metafield").add(namespaceArg);
+    InputArgument keyArg = new InputArgument("key", keyReference, true, new graphql.language.NonNullType(new graphql.language.TypeName("String")));
     getInputArguments().get("metafield").add(keyArg);
     return projection;
   }
@@ -95,7 +126,17 @@ public class ArticleProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT 
     MetafieldProjection<ArticleProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
     getFields().put("metafields", projection);
     getInputArguments().computeIfAbsent("metafields", k -> new ArrayList<>());                      
-    InputArgument identifiersArg = new InputArgument("identifiers", identifiers);
+    InputArgument identifiersArg = new InputArgument("identifiers", identifiers, false, null);
+    getInputArguments().get("metafields").add(identifiersArg);
+    return projection;
+  }
+
+  public MetafieldProjection<ArticleProjection<PARENT, ROOT>, ROOT> metafieldsWithVariableReferences(
+      String identifiersReference) {
+    MetafieldProjection<ArticleProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
+    getFields().put("metafields", projection);
+    getInputArguments().computeIfAbsent("metafields", k -> new ArrayList<>());              
+    InputArgument identifiersArg = new InputArgument("identifiers", identifiersReference, true, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("HasMetafieldsIdentifier")))));
     getInputArguments().get("metafields").add(identifiersArg);
     return projection;
   }
@@ -114,7 +155,7 @@ public class ArticleProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT 
   public ArticleProjection content(Integer truncateAt) {
     getFields().put("content", null);
     getInputArguments().computeIfAbsent("content", k -> new ArrayList<>());
-    InputArgument truncateAtArg = new InputArgument("truncateAt", truncateAt);
+    InputArgument truncateAtArg = new InputArgument("truncateAt", truncateAt, false, null);
     getInputArguments().get("content").add(truncateAtArg);
     return this;
   }
@@ -132,7 +173,7 @@ public class ArticleProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT 
   public ArticleProjection excerpt(Integer truncateAt) {
     getFields().put("excerpt", null);
     getInputArguments().computeIfAbsent("excerpt", k -> new ArrayList<>());
-    InputArgument truncateAtArg = new InputArgument("truncateAt", truncateAt);
+    InputArgument truncateAtArg = new InputArgument("truncateAt", truncateAt, false, null);
     getInputArguments().get("excerpt").add(truncateAtArg);
     return this;
   }

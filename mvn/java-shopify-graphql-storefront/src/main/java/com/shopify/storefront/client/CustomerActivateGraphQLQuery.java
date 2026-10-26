@@ -2,9 +2,14 @@ package com.shopify.storefront.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.storefront.types.CustomerActivateInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -28,6 +33,24 @@ public class CustomerActivateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public CustomerActivateGraphQLQuery(String id, CustomerActivateInput input, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (input != null || fieldsSet.contains("input")) {
+        getInput().put("input", input);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public CustomerActivateGraphQLQuery() {
     super("mutation");
   }
@@ -44,6 +67,10 @@ public class CustomerActivateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private CustomerActivateInput input;
@@ -51,7 +78,7 @@ public class CustomerActivateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public CustomerActivateGraphQLQuery build() {
-      return new CustomerActivateGraphQLQuery(id, input, queryName, fieldsSet);
+      return new CustomerActivateGraphQLQuery(id, input, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -65,10 +92,30 @@ public class CustomerActivateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * Specifies the customer to activate.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The fields used to activate a customer.
      */
     public Builder input(CustomerActivateInput input) {
       this.input = input;
+      this.fieldsSet.add("input");
+      return this;
+    }
+
+    /**
+     * The fields used to activate a customer.
+     */
+    public Builder inputReference(String variableRef) {
+      this.variableReferences.put("input", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("CustomerActivateInput"))).build());
       this.fieldsSet.add("input");
       return this;
     }

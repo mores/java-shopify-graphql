@@ -24,7 +24,17 @@ public class MetaobjectProjection<PARENT extends BaseSubProjectionNode<?, ?>, RO
     MetaobjectFieldProjection<MetaobjectProjection<PARENT, ROOT>, ROOT> projection = new MetaobjectFieldProjection<>(this, getRoot());    
     getFields().put("field", projection);
     getInputArguments().computeIfAbsent("field", k -> new ArrayList<>());                      
-    InputArgument keyArg = new InputArgument("key", key);
+    InputArgument keyArg = new InputArgument("key", key, false, null);
+    getInputArguments().get("field").add(keyArg);
+    return projection;
+  }
+
+  public MetaobjectFieldProjection<MetaobjectProjection<PARENT, ROOT>, ROOT> fieldWithVariableReferences(
+      String keyReference) {
+    MetaobjectFieldProjection<MetaobjectProjection<PARENT, ROOT>, ROOT> projection = new MetaobjectFieldProjection<>(this, getRoot());    
+    getFields().put("field", projection);
+    getInputArguments().computeIfAbsent("field", k -> new ArrayList<>());              
+    InputArgument keyArg = new InputArgument("key", keyReference, true, new graphql.language.NonNullType(new graphql.language.TypeName("String")));
     getInputArguments().get("field").add(keyArg);
     return projection;
   }

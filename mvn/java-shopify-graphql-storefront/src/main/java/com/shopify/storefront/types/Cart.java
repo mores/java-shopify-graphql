@@ -74,6 +74,11 @@ public class Cart implements MetafieldParentResource, com.shopify.storefront.typ
   private List<CartDiscountAllocation> discountAllocations;
 
   /**
+   * The discount applications applied to the cart.
+   */
+  private List<BaseCartDiscountApplication> discountApplications;
+
+  /**
    * The case-insensitive discount codes that the customer added at checkout.
    */
   private List<CartDiscountCode> discountCodes;
@@ -239,6 +244,17 @@ public class Cart implements MetafieldParentResource, com.shopify.storefront.typ
   }
 
   /**
+   * The discount applications applied to the cart.
+   */
+  public List<BaseCartDiscountApplication> getDiscountApplications() {
+    return discountApplications;
+  }
+
+  public void setDiscountApplications(List<BaseCartDiscountApplication> discountApplications) {
+    this.discountApplications = discountApplications;
+  }
+
+  /**
    * The case-insensitive discount codes that the customer added at checkout.
    */
   public List<CartDiscountCode> getDiscountCodes() {
@@ -343,7 +359,7 @@ public class Cart implements MetafieldParentResource, com.shopify.storefront.typ
 
   @Override
   public String toString() {
-    return "Cart{appliedGiftCards='" + appliedGiftCards + "', attribute='" + attribute + "', attributes='" + attributes + "', buyerIdentity='" + buyerIdentity + "', checkoutUrl='" + checkoutUrl + "', cost='" + cost + "', createdAt='" + createdAt + "', delivery='" + delivery + "', deliveryGroups='" + deliveryGroups + "', discountAllocations='" + discountAllocations + "', discountCodes='" + discountCodes + "', estimatedCost='" + estimatedCost + "', id='" + id + "', lines='" + lines + "', metafield='" + metafield + "', metafields='" + metafields + "', note='" + note + "', totalQuantity='" + totalQuantity + "', updatedAt='" + updatedAt + "'}";
+    return "Cart{appliedGiftCards='" + appliedGiftCards + "', attribute='" + attribute + "', attributes='" + attributes + "', buyerIdentity='" + buyerIdentity + "', checkoutUrl='" + checkoutUrl + "', cost='" + cost + "', createdAt='" + createdAt + "', delivery='" + delivery + "', deliveryGroups='" + deliveryGroups + "', discountAllocations='" + discountAllocations + "', discountApplications='" + discountApplications + "', discountCodes='" + discountCodes + "', estimatedCost='" + estimatedCost + "', id='" + id + "', lines='" + lines + "', metafield='" + metafield + "', metafields='" + metafields + "', note='" + note + "', totalQuantity='" + totalQuantity + "', updatedAt='" + updatedAt + "'}";
   }
 
   @Override
@@ -361,6 +377,7 @@ public class Cart implements MetafieldParentResource, com.shopify.storefront.typ
         Objects.equals(delivery, that.delivery) &&
         Objects.equals(deliveryGroups, that.deliveryGroups) &&
         Objects.equals(discountAllocations, that.discountAllocations) &&
+        Objects.equals(discountApplications, that.discountApplications) &&
         Objects.equals(discountCodes, that.discountCodes) &&
         Objects.equals(estimatedCost, that.estimatedCost) &&
         Objects.equals(id, that.id) &&
@@ -374,7 +391,7 @@ public class Cart implements MetafieldParentResource, com.shopify.storefront.typ
 
   @Override
   public int hashCode() {
-    return Objects.hash(appliedGiftCards, attribute, attributes, buyerIdentity, checkoutUrl, cost, createdAt, delivery, deliveryGroups, discountAllocations, discountCodes, estimatedCost, id, lines, metafield, metafields, note, totalQuantity, updatedAt);
+    return Objects.hash(appliedGiftCards, attribute, attributes, buyerIdentity, checkoutUrl, cost, createdAt, delivery, deliveryGroups, discountAllocations, discountApplications, discountCodes, estimatedCost, id, lines, metafield, metafields, note, totalQuantity, updatedAt);
   }
 
   public static Builder newBuilder() {
@@ -434,6 +451,11 @@ public class Cart implements MetafieldParentResource, com.shopify.storefront.typ
      * The discounts that have been applied to the entire cart.
      */
     private List<CartDiscountAllocation> discountAllocations;
+
+    /**
+     * The discount applications applied to the cart.
+     */
+    private List<BaseCartDiscountApplication> discountApplications;
 
     /**
      * The case-insensitive discount codes that the customer added at checkout.
@@ -496,6 +518,7 @@ public class Cart implements MetafieldParentResource, com.shopify.storefront.typ
       result.delivery = this.delivery;
       result.deliveryGroups = this.deliveryGroups;
       result.discountAllocations = this.discountAllocations;
+      result.discountApplications = this.discountApplications;
       result.discountCodes = this.discountCodes;
       result.estimatedCost = this.estimatedCost;
       result.id = this.id;
@@ -588,6 +611,14 @@ public class Cart implements MetafieldParentResource, com.shopify.storefront.typ
      */
     public Builder discountAllocations(List<CartDiscountAllocation> discountAllocations) {
       this.discountAllocations = discountAllocations;
+      return this;
+    }
+
+    /**
+     * The discount applications applied to the cart.
+     */
+    public Builder discountApplications(List<BaseCartDiscountApplication> discountApplications) {
+      this.discountApplications = discountApplications;
       return this;
     }
 

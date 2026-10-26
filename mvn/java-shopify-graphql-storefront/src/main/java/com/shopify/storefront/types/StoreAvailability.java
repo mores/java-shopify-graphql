@@ -6,19 +6,27 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * Inventory information for a product variant at a physical store location that
- * offers local pickup. Includes stock availability, quantity on hand, and
- * estimated pickup readiness time.
+ * Inventory information for a product variant at a physical store location.
+ * Includes stock availability, quantity on hand, and estimated pickup readiness
+ * time. When the location offers local pickup, availability also includes
+ * inventory that can be moved to it through a store transfer route, so a variant
+ * can be available for pickup with no on-hand stock at the location.
  *
- * Local pickup must be [enabled in the store's shipping settings](https://help.shopify.com/manual/shipping/setting-up-and-managing-your-shipping/local-methods/local-pickup)
- * for this data to be returned. Results can be sorted by proximity to a customer's
- * location using the `near` argument on the [`ProductVariant.storeAvailability`](https://shopify.dev/docs/api/storefront/current/objects/ProductVariant#field-ProductVariant.fields.storeAvailability) connection. 
+ * Local pickup is [configured in the store's shipping settings](https://help.shopify.com/manual/shipping/setting-up-and-managing-your-shipping/local-methods/local-pickup),
+ * and a returned location isn't guaranteed to offer it. Results can be sorted by
+ * proximity to a customer's location using the `near` argument on the [`ProductVariant.storeAvailability`](https://shopify.dev/docs/api/storefront/current/objects/ProductVariant#field-ProductVariant.fields.storeAvailability) connection. 
  *
  * Learn more about [supporting local pickup on storefronts](https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/products-collections/local-pickup).
  */
 public class StoreAvailability {
   /**
-   * Whether the product variant is in-stock at this location.
+   * Whether the product variant is available at this location. This is `true` when
+   * the variant is in stock here, can be supplied through a store transfer from
+   * another location when this location offers local pickup, or is sold with
+   * untracked or oversellable inventory (its inventory isn't tracked, or its
+   * inventory policy allows continuing to sell when out of stock). As a result,
+   * `available` can be `true` even when `quantityAvailable` is `0` or less. It
+   * doesn't mean the location offers local pickup.
    */
   private boolean available;
 
@@ -28,12 +36,18 @@ public class StoreAvailability {
   private Location location;
 
   /**
-   * Returns the estimated amount of time it takes for pickup to be ready (Example: Usually ready in 24 hours).
+   * Returns the estimated amount of time it takes for pickup to be ready (Example:
+   * Usually ready in 24 hours). When the variant is out of stock at this location
+   * and supplied through a store transfer, this reflects the estimated transfer
+   * transit time when available, otherwise it falls back to the location's
+   * standard pickup processing time.
    */
   private String pickUpTime;
 
   /**
-   * The quantity of the product variant in-stock at this location.
+   * The quantity of the product variant physically in stock at this location. This
+   * counts on-hand inventory only and excludes inventory available through a store
+   * transfer, so it can be `0` while `available` is `true`.
    */
   private int quantityAvailable;
 
@@ -41,7 +55,13 @@ public class StoreAvailability {
   }
 
   /**
-   * Whether the product variant is in-stock at this location.
+   * Whether the product variant is available at this location. This is `true` when
+   * the variant is in stock here, can be supplied through a store transfer from
+   * another location when this location offers local pickup, or is sold with
+   * untracked or oversellable inventory (its inventory isn't tracked, or its
+   * inventory policy allows continuing to sell when out of stock). As a result,
+   * `available` can be `true` even when `quantityAvailable` is `0` or less. It
+   * doesn't mean the location offers local pickup.
    */
   public boolean getAvailable() {
     return available;
@@ -63,7 +83,11 @@ public class StoreAvailability {
   }
 
   /**
-   * Returns the estimated amount of time it takes for pickup to be ready (Example: Usually ready in 24 hours).
+   * Returns the estimated amount of time it takes for pickup to be ready (Example:
+   * Usually ready in 24 hours). When the variant is out of stock at this location
+   * and supplied through a store transfer, this reflects the estimated transfer
+   * transit time when available, otherwise it falls back to the location's
+   * standard pickup processing time.
    */
   public String getPickUpTime() {
     return pickUpTime;
@@ -74,7 +98,9 @@ public class StoreAvailability {
   }
 
   /**
-   * The quantity of the product variant in-stock at this location.
+   * The quantity of the product variant physically in stock at this location. This
+   * counts on-hand inventory only and excludes inventory available through a store
+   * transfer, so it can be `0` while `available` is `true`.
    */
   public int getQuantityAvailable() {
     return quantityAvailable;
@@ -111,7 +137,13 @@ public class StoreAvailability {
 
   public static class Builder {
     /**
-     * Whether the product variant is in-stock at this location.
+     * Whether the product variant is available at this location. This is `true` when
+     * the variant is in stock here, can be supplied through a store transfer from
+     * another location when this location offers local pickup, or is sold with
+     * untracked or oversellable inventory (its inventory isn't tracked, or its
+     * inventory policy allows continuing to sell when out of stock). As a result,
+     * `available` can be `true` even when `quantityAvailable` is `0` or less. It
+     * doesn't mean the location offers local pickup.
      */
     private boolean available;
 
@@ -121,12 +153,18 @@ public class StoreAvailability {
     private Location location;
 
     /**
-     * Returns the estimated amount of time it takes for pickup to be ready (Example: Usually ready in 24 hours).
+     * Returns the estimated amount of time it takes for pickup to be ready (Example:
+     * Usually ready in 24 hours). When the variant is out of stock at this location
+     * and supplied through a store transfer, this reflects the estimated transfer
+     * transit time when available, otherwise it falls back to the location's
+     * standard pickup processing time.
      */
     private String pickUpTime;
 
     /**
-     * The quantity of the product variant in-stock at this location.
+     * The quantity of the product variant physically in stock at this location. This
+     * counts on-hand inventory only and excludes inventory available through a store
+     * transfer, so it can be `0` while `available` is `true`.
      */
     private int quantityAvailable;
 
@@ -140,7 +178,13 @@ public class StoreAvailability {
     }
 
     /**
-     * Whether the product variant is in-stock at this location.
+     * Whether the product variant is available at this location. This is `true` when
+     * the variant is in stock here, can be supplied through a store transfer from
+     * another location when this location offers local pickup, or is sold with
+     * untracked or oversellable inventory (its inventory isn't tracked, or its
+     * inventory policy allows continuing to sell when out of stock). As a result,
+     * `available` can be `true` even when `quantityAvailable` is `0` or less. It
+     * doesn't mean the location offers local pickup.
      */
     public Builder available(boolean available) {
       this.available = available;
@@ -156,7 +200,11 @@ public class StoreAvailability {
     }
 
     /**
-     * Returns the estimated amount of time it takes for pickup to be ready (Example: Usually ready in 24 hours).
+     * Returns the estimated amount of time it takes for pickup to be ready (Example:
+     * Usually ready in 24 hours). When the variant is out of stock at this location
+     * and supplied through a store transfer, this reflects the estimated transfer
+     * transit time when available, otherwise it falls back to the location's
+     * standard pickup processing time.
      */
     public Builder pickUpTime(String pickUpTime) {
       this.pickUpTime = pickUpTime;
@@ -164,7 +212,9 @@ public class StoreAvailability {
     }
 
     /**
-     * The quantity of the product variant in-stock at this location.
+     * The quantity of the product variant physically in stock at this location. This
+     * counts on-hand inventory only and excludes inventory available through a store
+     * transfer, so it can be `0` while `available` is `true`.
      */
     public Builder quantityAvailable(int quantityAvailable) {
       this.quantityAvailable = quantityAvailable;

@@ -28,7 +28,7 @@ public class MediaPresentationFragmentProjection<PARENT extends BaseSubProjectio
   public MediaPresentationFragmentProjection asJson(MediaPresentationFormat format) {
     getFields().put("asJson", null);
     getInputArguments().computeIfAbsent("asJson", k -> new ArrayList<>());
-    InputArgument formatArg = new InputArgument("format", format);
+    InputArgument formatArg = new InputArgument("format", format, false, null);
     getInputArguments().get("asJson").add(formatArg);
     return this;
   }

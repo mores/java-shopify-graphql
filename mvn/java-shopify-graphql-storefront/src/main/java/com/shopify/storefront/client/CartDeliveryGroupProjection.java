@@ -28,15 +28,34 @@ public class CartDeliveryGroupProjection<PARENT extends BaseSubProjectionNode<?,
     BaseCartLineConnectionProjection<CartDeliveryGroupProjection<PARENT, ROOT>, ROOT> projection = new BaseCartLineConnectionProjection<>(this, getRoot());    
     getFields().put("cartLines", projection);
     getInputArguments().computeIfAbsent("cartLines", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("cartLines").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("cartLines").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("cartLines").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("cartLines").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("cartLines").add(reverseArg);
+    return projection;
+  }
+
+  public BaseCartLineConnectionProjection<CartDeliveryGroupProjection<PARENT, ROOT>, ROOT> cartLinesWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    BaseCartLineConnectionProjection<CartDeliveryGroupProjection<PARENT, ROOT>, ROOT> projection = new BaseCartLineConnectionProjection<>(this, getRoot());    
+    getFields().put("cartLines", projection);
+    getInputArguments().computeIfAbsent("cartLines", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("cartLines").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("cartLines").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("cartLines").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("cartLines").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("cartLines").add(reverseArg);
     return projection;
   }
@@ -52,6 +71,13 @@ public class CartDeliveryGroupProjection<PARENT extends BaseSubProjectionNode<?,
       ) {
      CartDeliveryOptionProjection<CartDeliveryGroupProjection<PARENT, ROOT>, ROOT> projection = new CartDeliveryOptionProjection<>(this, getRoot());
      getFields().put("deliveryOptions", projection);
+     return projection;
+  }
+
+  public CartDiscountAllocationProjection<CartDeliveryGroupProjection<PARENT, ROOT>, ROOT> discountAllocations(
+      ) {
+     CartDiscountAllocationProjection<CartDeliveryGroupProjection<PARENT, ROOT>, ROOT> projection = new CartDiscountAllocationProjection<>(this, getRoot());
+     getFields().put("discountAllocations", projection);
      return projection;
   }
 

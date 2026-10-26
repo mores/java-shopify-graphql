@@ -1,6 +1,7 @@
 package com.shopify.storefront.client;
 
 import com.netflix.graphql.dgs.client.codegen.BaseSubProjectionNode;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.ArrayList;
 
@@ -24,7 +25,17 @@ public class CartLineProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT
     AttributeProjection<CartLineProjection<PARENT, ROOT>, ROOT> projection = new AttributeProjection<>(this, getRoot());    
     getFields().put("attribute", projection);
     getInputArguments().computeIfAbsent("attribute", k -> new ArrayList<>());                      
-    InputArgument keyArg = new InputArgument("key", key);
+    InputArgument keyArg = new InputArgument("key", key, false, null);
+    getInputArguments().get("attribute").add(keyArg);
+    return projection;
+  }
+
+  public AttributeProjection<CartLineProjection<PARENT, ROOT>, ROOT> attributeWithVariableReferences(
+      String keyReference) {
+    AttributeProjection<CartLineProjection<PARENT, ROOT>, ROOT> projection = new AttributeProjection<>(this, getRoot());    
+    getFields().put("attribute", projection);
+    getInputArguments().computeIfAbsent("attribute", k -> new ArrayList<>());              
+    InputArgument keyArg = new InputArgument("key", keyReference, true, new graphql.language.NonNullType(new graphql.language.TypeName("String")));
     getInputArguments().get("attribute").add(keyArg);
     return projection;
   }
@@ -46,6 +57,26 @@ public class CartLineProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT
      CartDiscountAllocationProjection<CartLineProjection<PARENT, ROOT>, ROOT> projection = new CartDiscountAllocationProjection<>(this, getRoot());
      getFields().put("discountAllocations", projection);
      return projection;
+  }
+
+  public CartDiscountAllocationProjection<CartLineProjection<PARENT, ROOT>, ROOT> discountAllocations(
+      Boolean lineLevelOnly) {
+    CartDiscountAllocationProjection<CartLineProjection<PARENT, ROOT>, ROOT> projection = new CartDiscountAllocationProjection<>(this, getRoot());    
+    getFields().put("discountAllocations", projection);
+    getInputArguments().computeIfAbsent("discountAllocations", k -> new ArrayList<>());                      
+    InputArgument lineLevelOnlyArg = new InputArgument("lineLevelOnly", lineLevelOnly, false, null);
+    getInputArguments().get("discountAllocations").add(lineLevelOnlyArg);
+    return projection;
+  }
+
+  public CartDiscountAllocationProjection<CartLineProjection<PARENT, ROOT>, ROOT> discountAllocationsWithVariableReferences(
+      String lineLevelOnlyReference) {
+    CartDiscountAllocationProjection<CartLineProjection<PARENT, ROOT>, ROOT> projection = new CartDiscountAllocationProjection<>(this, getRoot());    
+    getFields().put("discountAllocations", projection);
+    getInputArguments().computeIfAbsent("discountAllocations", k -> new ArrayList<>());              
+    InputArgument lineLevelOnlyArg = new InputArgument("lineLevelOnly", lineLevelOnlyReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("discountAllocations").add(lineLevelOnlyArg);
+    return projection;
   }
 
   public CartLineEstimatedCostProjection<CartLineProjection<PARENT, ROOT>, ROOT> estimatedCost() {
@@ -87,6 +118,11 @@ public class CartLineProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT
 
   public CartLineProjection<PARENT, ROOT> quantity() {
     getFields().put("quantity", null);
+    return this;
+  }
+
+  public CartLineProjection<PARENT, ROOT> viewKey() {
+    getFields().put("viewKey", null);
     return this;
   }
 }

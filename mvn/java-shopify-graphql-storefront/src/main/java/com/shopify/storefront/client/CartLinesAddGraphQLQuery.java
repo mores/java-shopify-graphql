@@ -2,10 +2,14 @@ package com.shopify.storefront.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.storefront.types.CartLineInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -30,6 +34,24 @@ public class CartLinesAddGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public CartLinesAddGraphQLQuery(String cartId, List<CartLineInput> lines, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (cartId != null || fieldsSet.contains("cartId")) {
+        getInput().put("cartId", cartId);
+    }if (lines != null || fieldsSet.contains("lines")) {
+        getInput().put("lines", lines);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public CartLinesAddGraphQLQuery() {
     super("mutation");
   }
@@ -46,6 +68,10 @@ public class CartLinesAddGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String cartId;
 
     private List<CartLineInput> lines;
@@ -53,7 +79,7 @@ public class CartLinesAddGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public CartLinesAddGraphQLQuery build() {
-      return new CartLinesAddGraphQLQuery(cartId, lines, queryName, fieldsSet);
+      return new CartLinesAddGraphQLQuery(cartId, lines, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -67,12 +93,34 @@ public class CartLinesAddGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the cart.
+     */
+    public Builder cartIdReference(String variableRef) {
+      this.variableReferences.put("cartId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("cartId");
+      return this;
+    }
+
+    /**
      * A list of merchandise lines to add to the cart.
      *     
      * The input must not contain more than `250` values.
      */
     public Builder lines(List<CartLineInput> lines) {
       this.lines = lines;
+      this.fieldsSet.add("lines");
+      return this;
+    }
+
+    /**
+     * A list of merchandise lines to add to the cart.
+     *     
+     * The input must not contain more than `250` values.
+     */
+    public Builder linesReference(String variableRef) {
+      this.variableReferences.put("lines", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("CartLineInput"))))).build());
       this.fieldsSet.add("lines");
       return this;
     }

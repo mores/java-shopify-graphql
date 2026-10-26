@@ -66,4 +66,11 @@ public interface BaseCartLine {
    * selling plan has on variants when they're purchased.
    */
   SellingPlanAllocation getSellingPlanAllocation();
+
+  /**
+   * A stable identifier for the line matching the value exposed in Liquid via the
+   * `view_key` filter and accepted as input on `cartLinesUpdate` and
+   * `cartLinesRemove`.
+   */
+  String getViewKey();
 }

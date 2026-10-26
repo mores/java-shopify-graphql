@@ -2,11 +2,16 @@ package com.shopify.storefront.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.storefront.types.ProductSortKeys;
+import graphql.language.VariableDefinition;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -37,6 +42,35 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public ProductsGraphQLQuery(Integer first, String after, Integer last, String before,
+      Boolean reverse, ProductSortKeys sortKey, String query, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("query", queryName);
+    if (first != null || fieldsSet.contains("first")) {
+        getInput().put("first", first);
+    }if (after != null || fieldsSet.contains("after")) {
+        getInput().put("after", after);
+    }if (last != null || fieldsSet.contains("last")) {
+        getInput().put("last", last);
+    }if (before != null || fieldsSet.contains("before")) {
+        getInput().put("before", before);
+    }if (reverse != null || fieldsSet.contains("reverse")) {
+        getInput().put("reverse", reverse);
+    }if (sortKey != null || fieldsSet.contains("sortKey")) {
+        getInput().put("sortKey", sortKey);
+    }if (query != null || fieldsSet.contains("query")) {
+        getInput().put("query", query);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public ProductsGraphQLQuery() {
     super("query");
   }
@@ -52,6 +86,10 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
 
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
+
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
 
     private Integer first;
 
@@ -70,7 +108,7 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public ProductsGraphQLQuery build() {
-      return new ProductsGraphQLQuery(first, after, last, before, reverse, sortKey, query, queryName, fieldsSet);
+      return new ProductsGraphQLQuery(first, after, last, before, reverse, sortKey, query, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -79,6 +117,16 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
      */
     public Builder first(Integer first) {
       this.first = first;
+      this.fieldsSet.add("first");
+      return this;
+    }
+
+    /**
+     * Returns up to the first `n` elements from the list.
+     */
+    public Builder firstReference(String variableRef) {
+      this.variableReferences.put("first", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Int")).build());
       this.fieldsSet.add("first");
       return this;
     }
@@ -93,10 +141,30 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * Returns the elements that come after the specified cursor.
+     */
+    public Builder afterReference(String variableRef) {
+      this.variableReferences.put("after", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
+      this.fieldsSet.add("after");
+      return this;
+    }
+
+    /**
      * Returns up to the last `n` elements from the list.
      */
     public Builder last(Integer last) {
       this.last = last;
+      this.fieldsSet.add("last");
+      return this;
+    }
+
+    /**
+     * Returns up to the last `n` elements from the list.
+     */
+    public Builder lastReference(String variableRef) {
+      this.variableReferences.put("last", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Int")).build());
       this.fieldsSet.add("last");
       return this;
     }
@@ -111,10 +179,30 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * Returns the elements that come before the specified cursor.
+     */
+    public Builder beforeReference(String variableRef) {
+      this.variableReferences.put("before", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
+      this.fieldsSet.add("before");
+      return this;
+    }
+
+    /**
      * Reverse the order of the underlying list.
      */
     public Builder reverse(Boolean reverse) {
       this.reverse = reverse;
+      this.fieldsSet.add("reverse");
+      return this;
+    }
+
+    /**
+     * Reverse the order of the underlying list.
+     */
+    public Builder reverseReference(String variableRef) {
+      this.variableReferences.put("reverse", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Boolean")).build());
       this.fieldsSet.add("reverse");
       return this;
     }
@@ -129,13 +217,23 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * Sort the underlying list by the given key.
+     */
+    public Builder sortKeyReference(String variableRef) {
+      this.variableReferences.put("sortKey", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("ProductSortKeys")).build());
+      this.fieldsSet.add("sortKey");
+      return this;
+    }
+
+    /**
      * You can apply one or multiple filters to a query.
      * | name | description | acceptable_values | default_value | example_use |
      * | ---- | ---- | ---- | ---- | ---- |
      * | available_for_sale | Filter by products that have at least one product variant available for sale. |
      * | created_at | Filter by the date and time when the product was created. | |
-     * | - `created_at:>'2020-10-21T23:39:20Z'`<br/> - `created_at:&lt;now`<br/> -
-     * `created_at:&lt;=2024` |
+     * | - `created_at:>'2020-10-21T23:39:20Z'`<br/> - `created_at:<now`<br/> -
+     * `created_at:<=2024` |
      * | product_type | Filter by a comma-separated list of [product
      * types](https://help.shopify.com/en/manual/products/details/product-type). |
      * | | `product_type:snowboard` |
@@ -147,7 +245,7 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
      * field. | | | `title:The Minimal Snowboard` |
      * | updated_at | Filter by the date and time when the product was last
      * updated. | | | - `updated_at:>'2020-10-21T23:39:20Z'`<br/> -
-     * `updated_at:&lt;now`<br/> - `updated_at:&lt;=2024` |
+     * `updated_at:<now`<br/> - `updated_at:<=2024` |
      * | variants.price | Filter by the price of the product's variants. |
      * | vendor | Filter by the product [`vendor`](https://shopify.dev/docs/api/storefront/latest/objects/Product#field-vendor)
      * field. | | | - `vendor:Snowdevil`<br/> - `vendor:Snowdevil OR
@@ -156,6 +254,39 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
      */
     public Builder query(String query) {
       this.query = query;
+      this.fieldsSet.add("query");
+      return this;
+    }
+
+    /**
+     * You can apply one or multiple filters to a query.
+     * | name | description | acceptable_values | default_value | example_use |
+     * | ---- | ---- | ---- | ---- | ---- |
+     * | available_for_sale | Filter by products that have at least one product variant available for sale. |
+     * | created_at | Filter by the date and time when the product was created. | |
+     * | - `created_at:>'2020-10-21T23:39:20Z'`<br/> - `created_at:<now`<br/> -
+     * `created_at:<=2024` |
+     * | product_type | Filter by a comma-separated list of [product
+     * types](https://help.shopify.com/en/manual/products/details/product-type). |
+     * | | `product_type:snowboard` |
+     * | tag | Filter products by the product [`tags`](https://shopify.dev/docs/api/storefront/latest/objects/Product#field-tags)
+     * field. | | | `tag:my_tag` |
+     * | tag_not | Filter by products that don't have the specified product [tags](https://shopify.dev/docs/api/storefront/latest/objects/Product#field-tags).
+     * | | | `tag_not:my_tag` |
+     * | title | Filter by the product [`title`](https://shopify.dev/docs/api/storefront/latest/objects/Product#field-title)
+     * field. | | | `title:The Minimal Snowboard` |
+     * | updated_at | Filter by the date and time when the product was last
+     * updated. | | | - `updated_at:>'2020-10-21T23:39:20Z'`<br/> -
+     * `updated_at:<now`<br/> - `updated_at:<=2024` |
+     * | variants.price | Filter by the price of the product's variants. |
+     * | vendor | Filter by the product [`vendor`](https://shopify.dev/docs/api/storefront/latest/objects/Product#field-vendor)
+     * field. | | | - `vendor:Snowdevil`<br/> - `vendor:Snowdevil OR
+     * vendor:Icedevil` |
+     * Learn more about [Shopify API search syntax](https://shopify.dev/api/usage/search-syntax).
+     */
+    public Builder queryReference(String variableRef) {
+      this.variableReferences.put("query", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
       this.fieldsSet.add("query");
       return this;
     }

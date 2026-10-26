@@ -20,6 +20,11 @@ public class ShopPayPaymentRequestReceipt {
   private String processingStatusType;
 
   /**
+   * The Shop user that authorized the payment request.
+   */
+  private ShopPayPaymentRequestShopUser shopUser;
+
+  /**
    * The token of the receipt.
    */
   private String token;
@@ -50,6 +55,17 @@ public class ShopPayPaymentRequestReceipt {
   }
 
   /**
+   * The Shop user that authorized the payment request.
+   */
+  public ShopPayPaymentRequestShopUser getShopUser() {
+    return shopUser;
+  }
+
+  public void setShopUser(ShopPayPaymentRequestShopUser shopUser) {
+    this.shopUser = shopUser;
+  }
+
+  /**
    * The token of the receipt.
    */
   public String getToken() {
@@ -62,7 +78,7 @@ public class ShopPayPaymentRequestReceipt {
 
   @Override
   public String toString() {
-    return "ShopPayPaymentRequestReceipt{paymentRequest='" + paymentRequest + "', processingStatusType='" + processingStatusType + "', token='" + token + "'}";
+    return "ShopPayPaymentRequestReceipt{paymentRequest='" + paymentRequest + "', processingStatusType='" + processingStatusType + "', shopUser='" + shopUser + "', token='" + token + "'}";
   }
 
   @Override
@@ -72,12 +88,13 @@ public class ShopPayPaymentRequestReceipt {
     ShopPayPaymentRequestReceipt that = (ShopPayPaymentRequestReceipt) o;
     return Objects.equals(paymentRequest, that.paymentRequest) &&
         Objects.equals(processingStatusType, that.processingStatusType) &&
+        Objects.equals(shopUser, that.shopUser) &&
         Objects.equals(token, that.token);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(paymentRequest, processingStatusType, token);
+    return Objects.hash(paymentRequest, processingStatusType, shopUser, token);
   }
 
   public static Builder newBuilder() {
@@ -96,6 +113,11 @@ public class ShopPayPaymentRequestReceipt {
     private String processingStatusType;
 
     /**
+     * The Shop user that authorized the payment request.
+     */
+    private ShopPayPaymentRequestShopUser shopUser;
+
+    /**
      * The token of the receipt.
      */
     private String token;
@@ -104,6 +126,7 @@ public class ShopPayPaymentRequestReceipt {
       ShopPayPaymentRequestReceipt result = new ShopPayPaymentRequestReceipt();
       result.paymentRequest = this.paymentRequest;
       result.processingStatusType = this.processingStatusType;
+      result.shopUser = this.shopUser;
       result.token = this.token;
       return result;
     }
@@ -121,6 +144,14 @@ public class ShopPayPaymentRequestReceipt {
      */
     public Builder processingStatusType(String processingStatusType) {
       this.processingStatusType = processingStatusType;
+      return this;
+    }
+
+    /**
+     * The Shop user that authorized the payment request.
+     */
+    public Builder shopUser(ShopPayPaymentRequestShopUser shopUser) {
+      this.shopUser = shopUser;
       return this;
     }
 
