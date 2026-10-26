@@ -2,10 +2,15 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.DraftOrderAvailableDeliveryOptionsInput;
+import graphql.language.VariableDefinition;
 import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -35,6 +40,31 @@ public class DraftOrderAvailableDeliveryOptionsGraphQLQuery extends GraphQLQuery
     }
   }
 
+  public DraftOrderAvailableDeliveryOptionsGraphQLQuery(
+      DraftOrderAvailableDeliveryOptionsInput input, String search, Integer localPickupFrom,
+      Integer localPickupCount, String sessionToken, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("query", queryName);
+    if (input != null || fieldsSet.contains("input")) {
+        getInput().put("input", input);
+    }if (search != null || fieldsSet.contains("search")) {
+        getInput().put("search", search);
+    }if (localPickupFrom != null || fieldsSet.contains("localPickupFrom")) {
+        getInput().put("localPickupFrom", localPickupFrom);
+    }if (localPickupCount != null || fieldsSet.contains("localPickupCount")) {
+        getInput().put("localPickupCount", localPickupCount);
+    }if (sessionToken != null || fieldsSet.contains("sessionToken")) {
+        getInput().put("sessionToken", sessionToken);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public DraftOrderAvailableDeliveryOptionsGraphQLQuery() {
     super("query");
   }
@@ -51,6 +81,10 @@ public class DraftOrderAvailableDeliveryOptionsGraphQLQuery extends GraphQLQuery
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private DraftOrderAvailableDeliveryOptionsInput input;
 
     private String search;
@@ -64,7 +98,7 @@ public class DraftOrderAvailableDeliveryOptionsGraphQLQuery extends GraphQLQuery
     private String queryName;
 
     public DraftOrderAvailableDeliveryOptionsGraphQLQuery build() {
-      return new DraftOrderAvailableDeliveryOptionsGraphQLQuery(input, search, localPickupFrom, localPickupCount, sessionToken, queryName, fieldsSet);
+      return new DraftOrderAvailableDeliveryOptionsGraphQLQuery(input, search, localPickupFrom, localPickupCount, sessionToken, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -73,6 +107,16 @@ public class DraftOrderAvailableDeliveryOptionsGraphQLQuery extends GraphQLQuery
      */
     public Builder input(DraftOrderAvailableDeliveryOptionsInput input) {
       this.input = input;
+      this.fieldsSet.add("input");
+      return this;
+    }
+
+    /**
+     * The fields for the draft order.
+     */
+    public Builder inputReference(String variableRef) {
+      this.variableReferences.put("input", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("DraftOrderAvailableDeliveryOptionsInput"))).build());
       this.fieldsSet.add("input");
       return this;
     }
@@ -87,10 +131,30 @@ public class DraftOrderAvailableDeliveryOptionsGraphQLQuery extends GraphQLQuery
     }
 
     /**
+     * The search term for the delivery options.
+     */
+    public Builder searchReference(String variableRef) {
+      this.variableReferences.put("search", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
+      this.fieldsSet.add("search");
+      return this;
+    }
+
+    /**
      * The offset for the local pickup options.
      */
     public Builder localPickupFrom(Integer localPickupFrom) {
       this.localPickupFrom = localPickupFrom;
+      this.fieldsSet.add("localPickupFrom");
+      return this;
+    }
+
+    /**
+     * The offset for the local pickup options.
+     */
+    public Builder localPickupFromReference(String variableRef) {
+      this.variableReferences.put("localPickupFrom", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Int")).build());
       this.fieldsSet.add("localPickupFrom");
       return this;
     }
@@ -105,10 +169,30 @@ public class DraftOrderAvailableDeliveryOptionsGraphQLQuery extends GraphQLQuery
     }
 
     /**
+     * The number of local pickup options required.
+     */
+    public Builder localPickupCountReference(String variableRef) {
+      this.variableReferences.put("localPickupCount", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Int")).build());
+      this.fieldsSet.add("localPickupCount");
+      return this;
+    }
+
+    /**
      * Unique token used to trace execution and help optimize the calculation.
      */
     public Builder sessionToken(String sessionToken) {
       this.sessionToken = sessionToken;
+      this.fieldsSet.add("sessionToken");
+      return this;
+    }
+
+    /**
+     * Unique token used to trace execution and help optimize the calculation.
+     */
+    public Builder sessionTokenReference(String variableRef) {
+      this.variableReferences.put("sessionToken", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
       this.fieldsSet.add("sessionToken");
       return this;
     }

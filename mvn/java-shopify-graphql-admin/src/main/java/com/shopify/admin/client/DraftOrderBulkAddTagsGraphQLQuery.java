@@ -1,10 +1,14 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -25,6 +29,28 @@ public class DraftOrderBulkAddTagsGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public DraftOrderBulkAddTagsGraphQLQuery(String search, String savedSearchId, List<String> ids,
+      List<String> tags, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (search != null || fieldsSet.contains("search")) {
+        getInput().put("search", search);
+    }if (savedSearchId != null || fieldsSet.contains("savedSearchId")) {
+        getInput().put("savedSearchId", savedSearchId);
+    }if (ids != null || fieldsSet.contains("ids")) {
+        getInput().put("ids", ids);
+    }if (tags != null || fieldsSet.contains("tags")) {
+        getInput().put("tags", tags);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public DraftOrderBulkAddTagsGraphQLQuery() {
     super("mutation");
   }
@@ -41,6 +67,10 @@ public class DraftOrderBulkAddTagsGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String search;
 
     private String savedSearchId;
@@ -52,7 +82,7 @@ public class DraftOrderBulkAddTagsGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public DraftOrderBulkAddTagsGraphQLQuery build() {
-      return new DraftOrderBulkAddTagsGraphQLQuery(search, savedSearchId, ids, tags, queryName, fieldsSet);
+      return new DraftOrderBulkAddTagsGraphQLQuery(search, savedSearchId, ids, tags, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -67,10 +97,31 @@ public class DraftOrderBulkAddTagsGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The conditions for filtering draft orders on.
+     * See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax).
+     */
+    public Builder searchReference(String variableRef) {
+      this.variableReferences.put("search", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
+      this.fieldsSet.add("search");
+      return this;
+    }
+
+    /**
      * The ID of the draft order saved search for filtering draft orders on.
      */
     public Builder savedSearchId(String savedSearchId) {
       this.savedSearchId = savedSearchId;
+      this.fieldsSet.add("savedSearchId");
+      return this;
+    }
+
+    /**
+     * The ID of the draft order saved search for filtering draft orders on.
+     */
+    public Builder savedSearchIdReference(String variableRef) {
+      this.variableReferences.put("savedSearchId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("ID")).build());
       this.fieldsSet.add("savedSearchId");
       return this;
     }
@@ -85,10 +136,30 @@ public class DraftOrderBulkAddTagsGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The IDs of the draft orders to add tags to.
+     */
+    public Builder idsReference(String variableRef) {
+      this.variableReferences.put("ids", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("ID")))).build());
+      this.fieldsSet.add("ids");
+      return this;
+    }
+
+    /**
      * List of tags to be added.
      */
     public Builder tags(List<String> tags) {
       this.tags = tags;
+      this.fieldsSet.add("tags");
+      return this;
+    }
+
+    /**
+     * List of tags to be added.
+     */
+    public Builder tagsReference(String variableRef) {
+      this.variableReferences.put("tags", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("String"))))).build());
       this.fieldsSet.add("tags");
       return this;
     }

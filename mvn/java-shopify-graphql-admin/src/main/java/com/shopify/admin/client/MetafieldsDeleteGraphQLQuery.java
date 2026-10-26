@@ -2,10 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.MetafieldIdentifierInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -24,6 +28,22 @@ public class MetafieldsDeleteGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public MetafieldsDeleteGraphQLQuery(List<MetafieldIdentifierInput> metafields, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (metafields != null || fieldsSet.contains("metafields")) {
+        getInput().put("metafields", metafields);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public MetafieldsDeleteGraphQLQuery() {
     super("mutation");
   }
@@ -40,12 +60,16 @@ public class MetafieldsDeleteGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private List<MetafieldIdentifierInput> metafields;
 
     private String queryName;
 
     public MetafieldsDeleteGraphQLQuery build() {
-      return new MetafieldsDeleteGraphQLQuery(metafields, queryName, fieldsSet);
+      return new MetafieldsDeleteGraphQLQuery(metafields, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -54,6 +78,16 @@ public class MetafieldsDeleteGraphQLQuery extends GraphQLQuery {
      */
     public Builder metafields(List<MetafieldIdentifierInput> metafields) {
       this.metafields = metafields;
+      this.fieldsSet.add("metafields");
+      return this;
+    }
+
+    /**
+     * A list of identifiers specifying metafields to delete. At least one identifier must be specified.
+     */
+    public Builder metafieldsReference(String variableRef) {
+      this.variableReferences.put("metafields", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("MetafieldIdentifierInput"))))).build());
       this.fieldsSet.add("metafields");
       return this;
     }

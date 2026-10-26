@@ -27,13 +27,29 @@ public class TaxonomyCategoryProjection<PARENT extends BaseSubProjectionNode<?, 
     TaxonomyCategoryAttributeConnectionProjection<TaxonomyCategoryProjection<PARENT, ROOT>, ROOT> projection = new TaxonomyCategoryAttributeConnectionProjection<>(this, getRoot());    
     getFields().put("attributes", projection);
     getInputArguments().computeIfAbsent("attributes", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("attributes").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("attributes").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("attributes").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
+    getInputArguments().get("attributes").add(beforeArg);
+    return projection;
+  }
+
+  public TaxonomyCategoryAttributeConnectionProjection<TaxonomyCategoryProjection<PARENT, ROOT>, ROOT> attributesWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference) {
+    TaxonomyCategoryAttributeConnectionProjection<TaxonomyCategoryProjection<PARENT, ROOT>, ROOT> projection = new TaxonomyCategoryAttributeConnectionProjection<>(this, getRoot());    
+    getFields().put("attributes", projection);
+    getInputArguments().computeIfAbsent("attributes", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("attributes").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("attributes").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("attributes").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
     getInputArguments().get("attributes").add(beforeArg);
     return projection;
   }

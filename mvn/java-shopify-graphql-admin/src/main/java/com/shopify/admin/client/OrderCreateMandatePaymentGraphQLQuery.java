@@ -2,10 +2,15 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.MoneyInput;
+import graphql.language.VariableDefinition;
 import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -46,6 +51,33 @@ public class OrderCreateMandatePaymentGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public OrderCreateMandatePaymentGraphQLQuery(String id, String paymentScheduleId,
+      String idempotencyKey, String mandateId, MoneyInput amount, Boolean autoCapture,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (paymentScheduleId != null || fieldsSet.contains("paymentScheduleId")) {
+        getInput().put("paymentScheduleId", paymentScheduleId);
+    }if (idempotencyKey != null || fieldsSet.contains("idempotencyKey")) {
+        getInput().put("idempotencyKey", idempotencyKey);
+    }if (mandateId != null || fieldsSet.contains("mandateId")) {
+        getInput().put("mandateId", mandateId);
+    }if (amount != null || fieldsSet.contains("amount")) {
+        getInput().put("amount", amount);
+    }if (autoCapture != null || fieldsSet.contains("autoCapture")) {
+        getInput().put("autoCapture", autoCapture);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public OrderCreateMandatePaymentGraphQLQuery() {
     super("mutation");
   }
@@ -62,6 +94,10 @@ public class OrderCreateMandatePaymentGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private String paymentScheduleId;
@@ -77,7 +113,7 @@ public class OrderCreateMandatePaymentGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public OrderCreateMandatePaymentGraphQLQuery build() {
-      return new OrderCreateMandatePaymentGraphQLQuery(id, paymentScheduleId, idempotencyKey, mandateId, amount, autoCapture, queryName, fieldsSet);
+      return new OrderCreateMandatePaymentGraphQLQuery(id, paymentScheduleId, idempotencyKey, mandateId, amount, autoCapture, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -86,6 +122,16 @@ public class OrderCreateMandatePaymentGraphQLQuery extends GraphQLQuery {
      */
     public Builder id(String id) {
       this.id = id;
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
+     * The ID of the order to collect the balance for.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("id");
       return this;
     }
@@ -100,10 +146,30 @@ public class OrderCreateMandatePaymentGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the payment schedule to collect the balance for.
+     */
+    public Builder paymentScheduleIdReference(String variableRef) {
+      this.variableReferences.put("paymentScheduleId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("ID")).build());
+      this.fieldsSet.add("paymentScheduleId");
+      return this;
+    }
+
+    /**
      * A unique key to identify the payment request.
      */
     public Builder idempotencyKey(String idempotencyKey) {
       this.idempotencyKey = idempotencyKey;
+      this.fieldsSet.add("idempotencyKey");
+      return this;
+    }
+
+    /**
+     * A unique key to identify the payment request.
+     */
+    public Builder idempotencyKeyReference(String variableRef) {
+      this.variableReferences.put("idempotencyKey", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("String"))).build());
       this.fieldsSet.add("idempotencyKey");
       return this;
     }
@@ -118,10 +184,30 @@ public class OrderCreateMandatePaymentGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The mandate ID used for payment.
+     */
+    public Builder mandateIdReference(String variableRef) {
+      this.variableReferences.put("mandateId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("mandateId");
+      return this;
+    }
+
+    /**
      * The payment amount to collect.
      */
     public Builder amount(MoneyInput amount) {
       this.amount = amount;
+      this.fieldsSet.add("amount");
+      return this;
+    }
+
+    /**
+     * The payment amount to collect.
+     */
+    public Builder amountReference(String variableRef) {
+      this.variableReferences.put("amount", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("MoneyInput")).build());
       this.fieldsSet.add("amount");
       return this;
     }
@@ -132,6 +218,17 @@ public class OrderCreateMandatePaymentGraphQLQuery extends GraphQLQuery {
      */
     public Builder autoCapture(Boolean autoCapture) {
       this.autoCapture = autoCapture;
+      this.fieldsSet.add("autoCapture");
+      return this;
+    }
+
+    /**
+     * Whether the payment should be authorized or captured. If `false`, then the authorization of
+     *             the payment is triggered.
+     */
+    public Builder autoCaptureReference(String variableRef) {
+      this.variableReferences.put("autoCapture", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Boolean")).build());
       this.fieldsSet.add("autoCapture");
       return this;
     }

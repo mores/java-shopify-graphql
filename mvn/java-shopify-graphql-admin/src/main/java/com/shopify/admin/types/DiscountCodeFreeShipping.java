@@ -32,7 +32,7 @@ import java.util.Objects;
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
-public class DiscountCodeFreeShipping implements Discount, DiscountCode {
+public class DiscountCodeFreeShipping implements Discount, DiscountCode, com.shopify.admin.types.HasRollouts {
   /**
    * Whether the discount applies on one-time purchases.
    * A one-time purchase is a transaction where you pay a
@@ -148,6 +148,15 @@ public class DiscountCodeFreeShipping implements Discount, DiscountCode {
    * subscription. If you specify `0`, then the discount applies indefinitely.
    */
   private Integer recurringCycleLimit;
+
+  /**
+   * The rollouts that include this discount. A rollout includes a discount when
+   * one of its treatments adds or removes the discount. Walk
+   * `treatments.changes` to see what each treatment does to the discount.
+   * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+   * Use `query` to filter by rollout `status`.
+   */
+  private RolloutConnection rollouts;
 
   /**
    * A list of URLs that the app can use to share the discount.
@@ -435,6 +444,21 @@ public class DiscountCodeFreeShipping implements Discount, DiscountCode {
   }
 
   /**
+   * The rollouts that include this discount. A rollout includes a discount when
+   * one of its treatments adds or removes the discount. Walk
+   * `treatments.changes` to see what each treatment does to the discount.
+   * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+   * Use `query` to filter by rollout `status`.
+   */
+  public RolloutConnection getRollouts() {
+    return rollouts;
+  }
+
+  public void setRollouts(RolloutConnection rollouts) {
+    this.rollouts = rollouts;
+  }
+
+  /**
    * A list of URLs that the app can use to share the discount.
    */
   public List<DiscountShareableUrl> getShareableUrls() {
@@ -554,7 +578,7 @@ public class DiscountCodeFreeShipping implements Discount, DiscountCode {
 
   @Override
   public String toString() {
-    return "DiscountCodeFreeShipping{appliesOnOneTimePurchase='" + appliesOnOneTimePurchase + "', appliesOnSubscription='" + appliesOnSubscription + "', appliesOncePerCustomer='" + appliesOncePerCustomer + "', asyncUsageCount='" + asyncUsageCount + "', codes='" + codes + "', codesCount='" + codesCount + "', combinesWith='" + combinesWith + "', context='" + context + "', createdAt='" + createdAt + "', customerSelection='" + customerSelection + "', destinationSelection='" + destinationSelection + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', endsAt='" + endsAt + "', hasTimelineComment='" + hasTimelineComment + "', maximumShippingPrice='" + maximumShippingPrice + "', minimumRequirement='" + minimumRequirement + "', recurringCycleLimit='" + recurringCycleLimit + "', shareableUrls='" + shareableUrls + "', shortSummary='" + shortSummary + "', startsAt='" + startsAt + "', status='" + status + "', summary='" + summary + "', tags='" + tags + "', title='" + title + "', totalSales='" + totalSales + "', updatedAt='" + updatedAt + "', usageLimit='" + usageLimit + "'}";
+    return "DiscountCodeFreeShipping{appliesOnOneTimePurchase='" + appliesOnOneTimePurchase + "', appliesOnSubscription='" + appliesOnSubscription + "', appliesOncePerCustomer='" + appliesOncePerCustomer + "', asyncUsageCount='" + asyncUsageCount + "', codes='" + codes + "', codesCount='" + codesCount + "', combinesWith='" + combinesWith + "', context='" + context + "', createdAt='" + createdAt + "', customerSelection='" + customerSelection + "', destinationSelection='" + destinationSelection + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', endsAt='" + endsAt + "', hasTimelineComment='" + hasTimelineComment + "', maximumShippingPrice='" + maximumShippingPrice + "', minimumRequirement='" + minimumRequirement + "', recurringCycleLimit='" + recurringCycleLimit + "', rollouts='" + rollouts + "', shareableUrls='" + shareableUrls + "', shortSummary='" + shortSummary + "', startsAt='" + startsAt + "', status='" + status + "', summary='" + summary + "', tags='" + tags + "', title='" + title + "', totalSales='" + totalSales + "', updatedAt='" + updatedAt + "', usageLimit='" + usageLimit + "'}";
   }
 
   @Override
@@ -580,6 +604,7 @@ public class DiscountCodeFreeShipping implements Discount, DiscountCode {
         Objects.equals(maximumShippingPrice, that.maximumShippingPrice) &&
         Objects.equals(minimumRequirement, that.minimumRequirement) &&
         Objects.equals(recurringCycleLimit, that.recurringCycleLimit) &&
+        Objects.equals(rollouts, that.rollouts) &&
         Objects.equals(shareableUrls, that.shareableUrls) &&
         Objects.equals(shortSummary, that.shortSummary) &&
         Objects.equals(startsAt, that.startsAt) &&
@@ -594,7 +619,7 @@ public class DiscountCodeFreeShipping implements Discount, DiscountCode {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appliesOnOneTimePurchase, appliesOnSubscription, appliesOncePerCustomer, asyncUsageCount, codes, codesCount, combinesWith, context, createdAt, customerSelection, destinationSelection, discountClass, discountClasses, endsAt, hasTimelineComment, maximumShippingPrice, minimumRequirement, recurringCycleLimit, shareableUrls, shortSummary, startsAt, status, summary, tags, title, totalSales, updatedAt, usageLimit);
+    return Objects.hash(appliesOnOneTimePurchase, appliesOnSubscription, appliesOncePerCustomer, asyncUsageCount, codes, codesCount, combinesWith, context, createdAt, customerSelection, destinationSelection, discountClass, discountClasses, endsAt, hasTimelineComment, maximumShippingPrice, minimumRequirement, recurringCycleLimit, rollouts, shareableUrls, shortSummary, startsAt, status, summary, tags, title, totalSales, updatedAt, usageLimit);
   }
 
   public static Builder newBuilder() {
@@ -719,6 +744,15 @@ public class DiscountCodeFreeShipping implements Discount, DiscountCode {
     private Integer recurringCycleLimit;
 
     /**
+     * The rollouts that include this discount. A rollout includes a discount when
+     * one of its treatments adds or removes the discount. Walk
+     * `treatments.changes` to see what each treatment does to the discount.
+     * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+     * Use `query` to filter by rollout `status`.
+     */
+    private RolloutConnection rollouts;
+
+    /**
      * A list of URLs that the app can use to share the discount.
      */
     private List<DiscountShareableUrl> shareableUrls;
@@ -796,6 +830,7 @@ public class DiscountCodeFreeShipping implements Discount, DiscountCode {
       result.maximumShippingPrice = this.maximumShippingPrice;
       result.minimumRequirement = this.minimumRequirement;
       result.recurringCycleLimit = this.recurringCycleLimit;
+      result.rollouts = this.rollouts;
       result.shareableUrls = this.shareableUrls;
       result.shortSummary = this.shortSummary;
       result.startsAt = this.startsAt;
@@ -976,6 +1011,18 @@ public class DiscountCodeFreeShipping implements Discount, DiscountCode {
      */
     public Builder recurringCycleLimit(Integer recurringCycleLimit) {
       this.recurringCycleLimit = recurringCycleLimit;
+      return this;
+    }
+
+    /**
+     * The rollouts that include this discount. A rollout includes a discount when
+     * one of its treatments adds or removes the discount. Walk
+     * `treatments.changes` to see what each treatment does to the discount.
+     * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+     * Use `query` to filter by rollout `status`.
+     */
+    public Builder rollouts(RolloutConnection rollouts) {
+      this.rollouts = rollouts;
       return this;
     }
 

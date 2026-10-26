@@ -12,10 +12,24 @@ public class ShopifyqlTableDataColumnProjection<PARENT extends BaseSubProjection
     return this;
   }
 
+  public ShopifyqlColumnOriginProjection<ShopifyqlTableDataColumnProjection<PARENT, ROOT>, ROOT> columnOrigin(
+      ) {
+     ShopifyqlColumnOriginProjection<ShopifyqlTableDataColumnProjection<PARENT, ROOT>, ROOT> projection = new ShopifyqlColumnOriginProjection<>(this, getRoot());
+     getFields().put("columnOrigin", projection);
+     return projection;
+  }
+
   public ColumnDataTypeProjection<ShopifyqlTableDataColumnProjection<PARENT, ROOT>, ROOT> dataType(
       ) {
      ColumnDataTypeProjection<ShopifyqlTableDataColumnProjection<PARENT, ROOT>, ROOT> projection = new ColumnDataTypeProjection<>(this, getRoot());
      getFields().put("dataType", projection);
+     return projection;
+  }
+
+  public ShopifyqlDynamicColumnMetadataProjection<ShopifyqlTableDataColumnProjection<PARENT, ROOT>, ROOT> dynamicColumnMetadata(
+      ) {
+     ShopifyqlDynamicColumnMetadataProjection<ShopifyqlTableDataColumnProjection<PARENT, ROOT>, ROOT> projection = new ShopifyqlDynamicColumnMetadataProjection<>(this, getRoot());
+     getFields().put("dynamicColumnMetadata", projection);
      return projection;
   }
 
@@ -33,6 +47,11 @@ public class ShopifyqlTableDataColumnProjection<PARENT extends BaseSubProjection
 
   public ShopifyqlTableDataColumnProjection<PARENT, ROOT> name() {
     getFields().put("name", null);
+    return this;
+  }
+
+  public ShopifyqlTableDataColumnProjection<PARENT, ROOT> shortDisplayName() {
+    getFields().put("shortDisplayName", null);
     return this;
   }
 }

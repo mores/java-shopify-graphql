@@ -32,19 +32,42 @@ public class PageProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
     EventConnectionProjection<PageProjection<PARENT, ROOT>, ROOT> projection = new EventConnectionProjection<>(this, getRoot());    
     getFields().put("events", projection);
     getInputArguments().computeIfAbsent("events", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("events").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("events").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("events").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("events").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
     getInputArguments().get("events").add(reverseArg);
-    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey, false, null);
     getInputArguments().get("events").add(sortKeyArg);
-    InputArgument queryArg = new InputArgument("query", query);
+    InputArgument queryArg = new InputArgument("query", query, false, null);
+    getInputArguments().get("events").add(queryArg);
+    return projection;
+  }
+
+  public EventConnectionProjection<PageProjection<PARENT, ROOT>, ROOT> eventsWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference, String sortKeyReference, String queryReference) {
+    EventConnectionProjection<PageProjection<PARENT, ROOT>, ROOT> projection = new EventConnectionProjection<>(this, getRoot());    
+    getFields().put("events", projection);
+    getInputArguments().computeIfAbsent("events", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("events").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("events").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("events").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("events").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("events").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKeyReference, true, new graphql.language.TypeName("EventSortKeys"));
+    getInputArguments().get("events").add(sortKeyArg);
+    InputArgument queryArg = new InputArgument("query", queryReference, true, new graphql.language.TypeName("String"));
     getInputArguments().get("events").add(queryArg);
     return projection;
   }
@@ -60,9 +83,21 @@ public class PageProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
     MetafieldProjection<PageProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
     getFields().put("metafield", projection);
     getInputArguments().computeIfAbsent("metafield", k -> new ArrayList<>());                      
-    InputArgument namespaceArg = new InputArgument("namespace", namespace);
+    InputArgument namespaceArg = new InputArgument("namespace", namespace, false, null);
     getInputArguments().get("metafield").add(namespaceArg);
-    InputArgument keyArg = new InputArgument("key", key);
+    InputArgument keyArg = new InputArgument("key", key, false, null);
+    getInputArguments().get("metafield").add(keyArg);
+    return projection;
+  }
+
+  public MetafieldProjection<PageProjection<PARENT, ROOT>, ROOT> metafieldWithVariableReferences(
+      String namespaceReference, String keyReference) {
+    MetafieldProjection<PageProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
+    getFields().put("metafield", projection);
+    getInputArguments().computeIfAbsent("metafield", k -> new ArrayList<>());              
+    InputArgument namespaceArg = new InputArgument("namespace", namespaceReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("metafield").add(namespaceArg);
+    InputArgument keyArg = new InputArgument("key", keyReference, true, new graphql.language.NonNullType(new graphql.language.TypeName("String")));
     getInputArguments().get("metafield").add(keyArg);
     return projection;
   }
@@ -81,23 +116,51 @@ public class PageProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
     MetafieldDefinitionConnectionProjection<PageProjection<PARENT, ROOT>, ROOT> projection = new MetafieldDefinitionConnectionProjection<>(this, getRoot());    
     getFields().put("metafieldDefinitions", projection);
     getInputArguments().computeIfAbsent("metafieldDefinitions", k -> new ArrayList<>());                      
-    InputArgument namespaceArg = new InputArgument("namespace", namespace);
+    InputArgument namespaceArg = new InputArgument("namespace", namespace, false, null);
     getInputArguments().get("metafieldDefinitions").add(namespaceArg);
-    InputArgument pinnedStatusArg = new InputArgument("pinnedStatus", pinnedStatus);
+    InputArgument pinnedStatusArg = new InputArgument("pinnedStatus", pinnedStatus, false, null);
     getInputArguments().get("metafieldDefinitions").add(pinnedStatusArg);
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("metafieldDefinitions").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("metafieldDefinitions").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("metafieldDefinitions").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("metafieldDefinitions").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
     getInputArguments().get("metafieldDefinitions").add(reverseArg);
-    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey, false, null);
     getInputArguments().get("metafieldDefinitions").add(sortKeyArg);
-    InputArgument queryArg = new InputArgument("query", query);
+    InputArgument queryArg = new InputArgument("query", query, false, null);
+    getInputArguments().get("metafieldDefinitions").add(queryArg);
+    return projection;
+  }
+
+  public MetafieldDefinitionConnectionProjection<PageProjection<PARENT, ROOT>, ROOT> metafieldDefinitionsWithVariableReferences(
+      String namespaceReference, String pinnedStatusReference, String firstReference,
+      String afterReference, String lastReference, String beforeReference, String reverseReference,
+      String sortKeyReference, String queryReference) {
+    MetafieldDefinitionConnectionProjection<PageProjection<PARENT, ROOT>, ROOT> projection = new MetafieldDefinitionConnectionProjection<>(this, getRoot());    
+    getFields().put("metafieldDefinitions", projection);
+    getInputArguments().computeIfAbsent("metafieldDefinitions", k -> new ArrayList<>());              
+    InputArgument namespaceArg = new InputArgument("namespace", namespaceReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("metafieldDefinitions").add(namespaceArg);
+    InputArgument pinnedStatusArg = new InputArgument("pinnedStatus", pinnedStatusReference, true, new graphql.language.TypeName("MetafieldDefinitionPinnedStatus"));
+    getInputArguments().get("metafieldDefinitions").add(pinnedStatusArg);
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("metafieldDefinitions").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("metafieldDefinitions").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("metafieldDefinitions").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("metafieldDefinitions").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("metafieldDefinitions").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKeyReference, true, new graphql.language.TypeName("MetafieldDefinitionSortKeys"));
+    getInputArguments().get("metafieldDefinitions").add(sortKeyArg);
+    InputArgument queryArg = new InputArgument("query", queryReference, true, new graphql.language.TypeName("String"));
     getInputArguments().get("metafieldDefinitions").add(queryArg);
     return projection;
   }
@@ -114,19 +177,42 @@ public class PageProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
     MetafieldConnectionProjection<PageProjection<PARENT, ROOT>, ROOT> projection = new MetafieldConnectionProjection<>(this, getRoot());    
     getFields().put("metafields", projection);
     getInputArguments().computeIfAbsent("metafields", k -> new ArrayList<>());                      
-    InputArgument namespaceArg = new InputArgument("namespace", namespace);
+    InputArgument namespaceArg = new InputArgument("namespace", namespace, false, null);
     getInputArguments().get("metafields").add(namespaceArg);
-    InputArgument keysArg = new InputArgument("keys", keys);
+    InputArgument keysArg = new InputArgument("keys", keys, false, null);
     getInputArguments().get("metafields").add(keysArg);
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("metafields").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("metafields").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("metafields").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("metafields").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("metafields").add(reverseArg);
+    return projection;
+  }
+
+  public MetafieldConnectionProjection<PageProjection<PARENT, ROOT>, ROOT> metafieldsWithVariableReferences(
+      String namespaceReference, String keysReference, String firstReference, String afterReference,
+      String lastReference, String beforeReference, String reverseReference) {
+    MetafieldConnectionProjection<PageProjection<PARENT, ROOT>, ROOT> projection = new MetafieldConnectionProjection<>(this, getRoot());    
+    getFields().put("metafields", projection);
+    getInputArguments().computeIfAbsent("metafields", k -> new ArrayList<>());              
+    InputArgument namespaceArg = new InputArgument("namespace", namespaceReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("metafields").add(namespaceArg);
+    InputArgument keysArg = new InputArgument("keys", keysReference, true, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("String"))));
+    getInputArguments().get("metafields").add(keysArg);
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("metafields").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("metafields").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("metafields").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("metafields").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("metafields").add(reverseArg);
     return projection;
   }
@@ -142,9 +228,21 @@ public class PageProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
     TranslationProjection<PageProjection<PARENT, ROOT>, ROOT> projection = new TranslationProjection<>(this, getRoot());    
     getFields().put("translations", projection);
     getInputArguments().computeIfAbsent("translations", k -> new ArrayList<>());                      
-    InputArgument localeArg = new InputArgument("locale", locale);
+    InputArgument localeArg = new InputArgument("locale", locale, false, null);
     getInputArguments().get("translations").add(localeArg);
-    InputArgument marketIdArg = new InputArgument("marketId", marketId);
+    InputArgument marketIdArg = new InputArgument("marketId", marketId, false, null);
+    getInputArguments().get("translations").add(marketIdArg);
+    return projection;
+  }
+
+  public TranslationProjection<PageProjection<PARENT, ROOT>, ROOT> translationsWithVariableReferences(
+      String localeReference, String marketIdReference) {
+    TranslationProjection<PageProjection<PARENT, ROOT>, ROOT> projection = new TranslationProjection<>(this, getRoot());    
+    getFields().put("translations", projection);
+    getInputArguments().computeIfAbsent("translations", k -> new ArrayList<>());              
+    InputArgument localeArg = new InputArgument("locale", localeReference, true, new graphql.language.NonNullType(new graphql.language.TypeName("String")));
+    getInputArguments().get("translations").add(localeArg);
+    InputArgument marketIdArg = new InputArgument("marketId", marketIdReference, true, new graphql.language.TypeName("ID"));
     getInputArguments().get("translations").add(marketIdArg);
     return projection;
   }

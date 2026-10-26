@@ -38,6 +38,13 @@ public class FulfillmentOrderLineItemProjection<PARENT extends BaseSubProjection
      return projection;
   }
 
+  public ShippingLineProjection<FulfillmentOrderLineItemProjection<PARENT, ROOT>, ROOT> shippingLine(
+      ) {
+     ShippingLineProjection<FulfillmentOrderLineItemProjection<PARENT, ROOT>, ROOT> projection = new ShippingLineProjection<>(this, getRoot());
+     getFields().put("shippingLine", projection);
+     return projection;
+  }
+
   public ProductVariantProjection<FulfillmentOrderLineItemProjection<PARENT, ROOT>, ROOT> variant(
       ) {
      ProductVariantProjection<FulfillmentOrderLineItemProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantProjection<>(this, getRoot());

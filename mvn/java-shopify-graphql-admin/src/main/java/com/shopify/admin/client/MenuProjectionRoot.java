@@ -27,7 +27,17 @@ public class MenuProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROOT
     MenuItemProjection<MenuProjectionRoot<PARENT, ROOT>, MenuProjectionRoot<PARENT, ROOT>> projection = new MenuItemProjection<>(this, this);    
     getFields().put("items", projection);
     getInputArguments().computeIfAbsent("items", k -> new ArrayList<>());                      
-    InputArgument limitArg = new InputArgument("limit", limit);
+    InputArgument limitArg = new InputArgument("limit", limit, false, null);
+    getInputArguments().get("items").add(limitArg);
+    return projection;
+  }
+
+  public MenuItemProjection<MenuProjectionRoot<PARENT, ROOT>, MenuProjectionRoot<PARENT, ROOT>> itemsWithVariableReferences(
+      String limitReference) {
+    MenuItemProjection<MenuProjectionRoot<PARENT, ROOT>, MenuProjectionRoot<PARENT, ROOT>> projection = new MenuItemProjection<>(this, this);    
+    getFields().put("items", projection);
+    getInputArguments().computeIfAbsent("items", k -> new ArrayList<>());              
+    InputArgument limitArg = new InputArgument("limit", limitReference, true, new graphql.language.TypeName("Int"));
     getInputArguments().get("items").add(limitArg);
     return projection;
   }
@@ -44,11 +54,28 @@ public class MenuProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROOT
     TranslationProjection<MenuProjectionRoot<PARENT, ROOT>, MenuProjectionRoot<PARENT, ROOT>> projection = new TranslationProjection<>(this, this);    
     getFields().put("translations", projection);
     getInputArguments().computeIfAbsent("translations", k -> new ArrayList<>());                      
-    InputArgument localeArg = new InputArgument("locale", locale);
+    InputArgument localeArg = new InputArgument("locale", locale, false, null);
     getInputArguments().get("translations").add(localeArg);
-    InputArgument marketIdArg = new InputArgument("marketId", marketId);
+    InputArgument marketIdArg = new InputArgument("marketId", marketId, false, null);
     getInputArguments().get("translations").add(marketIdArg);
     return projection;
+  }
+
+  public TranslationProjection<MenuProjectionRoot<PARENT, ROOT>, MenuProjectionRoot<PARENT, ROOT>> translationsWithVariableReferences(
+      String localeReference, String marketIdReference) {
+    TranslationProjection<MenuProjectionRoot<PARENT, ROOT>, MenuProjectionRoot<PARENT, ROOT>> projection = new TranslationProjection<>(this, this);    
+    getFields().put("translations", projection);
+    getInputArguments().computeIfAbsent("translations", k -> new ArrayList<>());              
+    InputArgument localeArg = new InputArgument("locale", localeReference, true, new graphql.language.NonNullType(new graphql.language.TypeName("String")));
+    getInputArguments().get("translations").add(localeArg);
+    InputArgument marketIdArg = new InputArgument("marketId", marketIdReference, true, new graphql.language.TypeName("ID"));
+    getInputArguments().get("translations").add(marketIdArg);
+    return projection;
+  }
+
+  public MenuProjectionRoot<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
+    return this;
   }
 
   public MenuProjectionRoot<PARENT, ROOT> handle() {

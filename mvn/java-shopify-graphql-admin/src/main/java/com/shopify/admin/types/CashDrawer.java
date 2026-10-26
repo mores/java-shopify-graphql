@@ -14,6 +14,11 @@ import java.util.Objects;
 )
 public class CashDrawer implements com.shopify.admin.types.Node {
   /**
+   * The current balance in the cash drawer.
+   */
+  private MoneyV2 balance;
+
+  /**
    * The activities on the cash drawer.
    */
   private CashActivityConnection cashActivities;
@@ -64,6 +69,17 @@ public class CashDrawer implements com.shopify.admin.types.Node {
   private MoneyV2 totalSales;
 
   public CashDrawer() {
+  }
+
+  /**
+   * The current balance in the cash drawer.
+   */
+  public MoneyV2 getBalance() {
+    return balance;
+  }
+
+  public void setBalance(MoneyV2 balance) {
+    this.balance = balance;
   }
 
   /**
@@ -178,7 +194,7 @@ public class CashDrawer implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "CashDrawer{cashActivities='" + cashActivities + "', id='" + id + "', location='" + location + "', name='" + name + "', netSales='" + netSales + "', pointOfSaleDevices='" + pointOfSaleDevices + "', totalAdjustments='" + totalAdjustments + "', totalDiscrepancies='" + totalDiscrepancies + "', totalRefunds='" + totalRefunds + "', totalSales='" + totalSales + "'}";
+    return "CashDrawer{balance='" + balance + "', cashActivities='" + cashActivities + "', id='" + id + "', location='" + location + "', name='" + name + "', netSales='" + netSales + "', pointOfSaleDevices='" + pointOfSaleDevices + "', totalAdjustments='" + totalAdjustments + "', totalDiscrepancies='" + totalDiscrepancies + "', totalRefunds='" + totalRefunds + "', totalSales='" + totalSales + "'}";
   }
 
   @Override
@@ -186,7 +202,8 @@ public class CashDrawer implements com.shopify.admin.types.Node {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     CashDrawer that = (CashDrawer) o;
-    return Objects.equals(cashActivities, that.cashActivities) &&
+    return Objects.equals(balance, that.balance) &&
+        Objects.equals(cashActivities, that.cashActivities) &&
         Objects.equals(id, that.id) &&
         Objects.equals(location, that.location) &&
         Objects.equals(name, that.name) &&
@@ -200,7 +217,7 @@ public class CashDrawer implements com.shopify.admin.types.Node {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cashActivities, id, location, name, netSales, pointOfSaleDevices, totalAdjustments, totalDiscrepancies, totalRefunds, totalSales);
+    return Objects.hash(balance, cashActivities, id, location, name, netSales, pointOfSaleDevices, totalAdjustments, totalDiscrepancies, totalRefunds, totalSales);
   }
 
   public static Builder newBuilder() {
@@ -208,6 +225,11 @@ public class CashDrawer implements com.shopify.admin.types.Node {
   }
 
   public static class Builder {
+    /**
+     * The current balance in the cash drawer.
+     */
+    private MoneyV2 balance;
+
     /**
      * The activities on the cash drawer.
      */
@@ -260,6 +282,7 @@ public class CashDrawer implements com.shopify.admin.types.Node {
 
     public CashDrawer build() {
       CashDrawer result = new CashDrawer();
+      result.balance = this.balance;
       result.cashActivities = this.cashActivities;
       result.id = this.id;
       result.location = this.location;
@@ -271,6 +294,14 @@ public class CashDrawer implements com.shopify.admin.types.Node {
       result.totalRefunds = this.totalRefunds;
       result.totalSales = this.totalSales;
       return result;
+    }
+
+    /**
+     * The current balance in the cash drawer.
+     */
+    public Builder balance(MoneyV2 balance) {
+      this.balance = balance;
+      return this;
     }
 
     /**

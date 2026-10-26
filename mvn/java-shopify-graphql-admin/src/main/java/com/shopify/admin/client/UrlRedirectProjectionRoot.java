@@ -12,6 +12,11 @@ public class UrlRedirectProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?
     return this;
   }
 
+  public UrlRedirectProjectionRoot<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
+    return this;
+  }
+
   public UrlRedirectProjectionRoot<PARENT, ROOT> id() {
     getFields().put("id", null);
     return this;

@@ -2,10 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.OnlineStoreThemeFilesUpsertFileInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -32,6 +36,24 @@ public class ThemeFilesUpsertGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public ThemeFilesUpsertGraphQLQuery(String themeId,
+      List<OnlineStoreThemeFilesUpsertFileInput> files, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (themeId != null || fieldsSet.contains("themeId")) {
+        getInput().put("themeId", themeId);
+    }if (files != null || fieldsSet.contains("files")) {
+        getInput().put("files", files);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public ThemeFilesUpsertGraphQLQuery() {
     super("mutation");
   }
@@ -48,6 +70,10 @@ public class ThemeFilesUpsertGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String themeId;
 
     private List<OnlineStoreThemeFilesUpsertFileInput> files;
@@ -55,7 +81,7 @@ public class ThemeFilesUpsertGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public ThemeFilesUpsertGraphQLQuery build() {
-      return new ThemeFilesUpsertGraphQLQuery(themeId, files, queryName, fieldsSet);
+      return new ThemeFilesUpsertGraphQLQuery(themeId, files, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -69,10 +95,30 @@ public class ThemeFilesUpsertGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The theme to update.
+     */
+    public Builder themeIdReference(String variableRef) {
+      this.variableReferences.put("themeId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("themeId");
+      return this;
+    }
+
+    /**
      * The files to update.
      */
     public Builder files(List<OnlineStoreThemeFilesUpsertFileInput> files) {
       this.files = files;
+      this.fieldsSet.add("files");
+      return this;
+    }
+
+    /**
+     * The files to update.
+     */
+    public Builder filesReference(String variableRef) {
+      this.variableReferences.put("files", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("OnlineStoreThemeFilesUpsertFileInput"))))).build());
       this.fieldsSet.add("files");
       return this;
     }

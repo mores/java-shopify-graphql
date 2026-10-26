@@ -4,10 +4,14 @@ import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.CreateMediaInput;
 import com.shopify.admin.types.ProductVariantsBulkCreateStrategy;
 import com.shopify.admin.types.ProductVariantsBulkInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -63,6 +67,29 @@ public class ProductVariantsBulkCreateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public ProductVariantsBulkCreateGraphQLQuery(List<ProductVariantsBulkInput> variants,
+      String productId, List<CreateMediaInput> media, ProductVariantsBulkCreateStrategy strategy,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (variants != null || fieldsSet.contains("variants")) {
+        getInput().put("variants", variants);
+    }if (productId != null || fieldsSet.contains("productId")) {
+        getInput().put("productId", productId);
+    }if (media != null || fieldsSet.contains("media")) {
+        getInput().put("media", media);
+    }if (strategy != null || fieldsSet.contains("strategy")) {
+        getInput().put("strategy", strategy);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public ProductVariantsBulkCreateGraphQLQuery() {
     super("mutation");
   }
@@ -79,6 +106,10 @@ public class ProductVariantsBulkCreateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private List<ProductVariantsBulkInput> variants;
 
     private String productId;
@@ -90,7 +121,7 @@ public class ProductVariantsBulkCreateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public ProductVariantsBulkCreateGraphQLQuery build() {
-      return new ProductVariantsBulkCreateGraphQLQuery(variants, productId, media, strategy, queryName, fieldsSet);
+      return new ProductVariantsBulkCreateGraphQLQuery(variants, productId, media, strategy, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -99,6 +130,16 @@ public class ProductVariantsBulkCreateGraphQLQuery extends GraphQLQuery {
      */
     public Builder variants(List<ProductVariantsBulkInput> variants) {
       this.variants = variants;
+      this.fieldsSet.add("variants");
+      return this;
+    }
+
+    /**
+     * An array of product variants to be created.
+     */
+    public Builder variantsReference(String variableRef) {
+      this.variableReferences.put("variants", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("ProductVariantsBulkInput"))))).build());
       this.fieldsSet.add("variants");
       return this;
     }
@@ -113,10 +154,30 @@ public class ProductVariantsBulkCreateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the product on which to create the variants.
+     */
+    public Builder productIdReference(String variableRef) {
+      this.variableReferences.put("productId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("productId");
+      return this;
+    }
+
+    /**
      * List of new media to be added to the product.
      */
     public Builder media(List<CreateMediaInput> media) {
       this.media = media;
+      this.fieldsSet.add("media");
+      return this;
+    }
+
+    /**
+     * List of new media to be added to the product.
+     */
+    public Builder mediaReference(String variableRef) {
+      this.variableReferences.put("media", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("CreateMediaInput")))).build());
       this.fieldsSet.add("media");
       return this;
     }
@@ -128,6 +189,18 @@ public class ProductVariantsBulkCreateGraphQLQuery extends GraphQLQuery {
      */
     public Builder strategy(ProductVariantsBulkCreateStrategy strategy) {
       this.strategy = strategy;
+      this.fieldsSet.add("strategy");
+      return this;
+    }
+
+    /**
+     * The strategy defines which behavior the mutation should observe, such as
+     * whether to keep or delete the standalone variant (when product has only a
+     * single or default variant) when creating new variants in bulk.
+     */
+    public Builder strategyReference(String variableRef) {
+      this.variableReferences.put("strategy", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("ProductVariantsBulkCreateStrategy")).build());
       this.fieldsSet.add("strategy");
       return this;
     }

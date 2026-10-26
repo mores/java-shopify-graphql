@@ -1,10 +1,14 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -33,6 +37,28 @@ public class DiscountBulkTagsRemoveGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public DiscountBulkTagsRemoveGraphQLQuery(String search, String savedSearchId, List<String> ids,
+      List<String> tags, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (search != null || fieldsSet.contains("search")) {
+        getInput().put("search", search);
+    }if (savedSearchId != null || fieldsSet.contains("savedSearchId")) {
+        getInput().put("savedSearchId", savedSearchId);
+    }if (ids != null || fieldsSet.contains("ids")) {
+        getInput().put("ids", ids);
+    }if (tags != null || fieldsSet.contains("tags")) {
+        getInput().put("tags", tags);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public DiscountBulkTagsRemoveGraphQLQuery() {
     super("mutation");
   }
@@ -49,6 +75,10 @@ public class DiscountBulkTagsRemoveGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String search;
 
     private String savedSearchId;
@@ -60,7 +90,7 @@ public class DiscountBulkTagsRemoveGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public DiscountBulkTagsRemoveGraphQLQuery build() {
-      return new DiscountBulkTagsRemoveGraphQLQuery(search, savedSearchId, ids, tags, queryName, fieldsSet);
+      return new DiscountBulkTagsRemoveGraphQLQuery(search, savedSearchId, ids, tags, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -76,10 +106,32 @@ public class DiscountBulkTagsRemoveGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The search query for filtering discounts.
+     * <br><br>
+     * For more information on the list of supported fields and search syntax, refer to the [`discountNodes`](https://shopify.dev/docs/api/admin-graphql/latest/queries/discountNodes#query-arguments) query.
+     */
+    public Builder searchReference(String variableRef) {
+      this.variableReferences.put("search", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
+      this.fieldsSet.add("search");
+      return this;
+    }
+
+    /**
      * The ID of the saved search for filtering discounts to remove tags from.
      */
     public Builder savedSearchId(String savedSearchId) {
       this.savedSearchId = savedSearchId;
+      this.fieldsSet.add("savedSearchId");
+      return this;
+    }
+
+    /**
+     * The ID of the saved search for filtering discounts to remove tags from.
+     */
+    public Builder savedSearchIdReference(String variableRef) {
+      this.variableReferences.put("savedSearchId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("ID")).build());
       this.fieldsSet.add("savedSearchId");
       return this;
     }
@@ -94,10 +146,30 @@ public class DiscountBulkTagsRemoveGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The IDs of the discounts to untag.
+     */
+    public Builder idsReference(String variableRef) {
+      this.variableReferences.put("ids", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("ID")))).build());
+      this.fieldsSet.add("ids");
+      return this;
+    }
+
+    /**
      * The tags to remove from the discounts.
      */
     public Builder tags(List<String> tags) {
       this.tags = tags;
+      this.fieldsSet.add("tags");
+      return this;
+    }
+
+    /**
+     * The tags to remove from the discounts.
+     */
+    public Builder tagsReference(String variableRef) {
+      this.variableReferences.put("tags", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("String"))))).build());
       this.fieldsSet.add("tags");
       return this;
     }

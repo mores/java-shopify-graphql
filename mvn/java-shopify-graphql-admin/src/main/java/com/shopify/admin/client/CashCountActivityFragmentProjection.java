@@ -50,6 +50,13 @@ public class CashCountActivityFragmentProjection<PARENT extends BaseSubProjectio
      return projection;
   }
 
+  public CashManagementReasonCodeProjection<CashCountActivityFragmentProjection<PARENT, ROOT>, ROOT> reasonCode(
+      ) {
+     CashManagementReasonCodeProjection<CashCountActivityFragmentProjection<PARENT, ROOT>, ROOT> projection = new CashManagementReasonCodeProjection<>(this, getRoot());
+     getFields().put("reasonCode", projection);
+     return projection;
+  }
+
   public StaffMemberProjection<CashCountActivityFragmentProjection<PARENT, ROOT>, ROOT> staffMember(
       ) {
      StaffMemberProjection<CashCountActivityFragmentProjection<PARENT, ROOT>, ROOT> projection = new StaffMemberProjection<>(this, getRoot());
@@ -62,6 +69,11 @@ public class CashCountActivityFragmentProjection<PARENT extends BaseSubProjectio
      CashCountActivityTypeProjection<CashCountActivityFragmentProjection<PARENT, ROOT>, ROOT> projection = new CashCountActivityTypeProjection<>(this, getRoot());
      getFields().put("type", projection);
      return projection;
+  }
+
+  public CashCountActivityFragmentProjection<PARENT, ROOT> note() {
+    getFields().put("note", null);
+    return this;
   }
 
   public CashCountActivityFragmentProjection<PARENT, ROOT> time() {

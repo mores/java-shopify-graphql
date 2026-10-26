@@ -3,6 +3,7 @@ package com.shopify.admin.types;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
@@ -32,12 +33,12 @@ import java.util.Objects;
  * [fulfillmentServiceCreate](https://shopify.dev/api/admin-graphql/latest/mutations/fulfillmentServiceCreate)
  * mutation.
  *
- * - Shopify sends POST requests to the `&lt;callbackUrl>/fulfillment_order_notification` endpoint
+ * - Shopify sends POST requests to the `<callbackUrl>/fulfillment_order_notification` endpoint
  *   to notify the fulfillment service about fulfillment requests and fulfillment cancellation requests.
  *
  *   For more information, refer to
  *   [Receive fulfillment requests and cancellations](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments#step-2-receive-fulfillment-requests-and-cancellations).
- * - Shopify sends GET requests to the `&lt;callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers for orders
+ * - Shopify sends GET requests to the `<callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers for orders
  *   if `trackingSupport` is set to `true`.
  *
  *   For more information, refer to
@@ -46,7 +47,7 @@ import java.util.Objects;
  *   Fulfillment services can also update tracking information using the
  *   [fulfillmentTrackingInfoUpdate](https://shopify.dev/api/admin-graphql/latest/mutations/fulfillmentTrackingInfoUpdate) mutation,
  *   rather than waiting for Shopify to ask for tracking numbers.
- * - Shopify sends GET requests to the `&lt;callbackUrl>/fetch_stock` endpoint to retrieve
+ * - Shopify sends GET requests to the `<callbackUrl>/fetch_stock` endpoint to retrieve
  *   on hand inventory levels for the fulfillment service location if `inventoryManagement` is set to `true`.
  *
  *   For more information, refer to
@@ -73,14 +74,19 @@ public class FulfillmentService {
   /**
    * The callback URL that the fulfillment service has registered for requests. The following considerations apply:
    *   
-   * - Shopify queries the `&lt;callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
+   * - Shopify queries the `<callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
    *     for orders, if `trackingSupport` is set to `true`.
-   * - Shopify queries the `&lt;callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
+   * - Shopify queries the `<callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
    *     if `inventoryManagement` is set to `true`.
-   * - Shopify uses the `&lt;callbackUrl>/fulfillment_order_notification` endpoint to send
+   * - Shopify uses the `<callbackUrl>/fulfillment_order_notification` endpoint to send
    *     [fulfillment and cancellation requests](https://shopify.dev/apps/build/orders-fulfillment/fulfillment-service-apps/build-for-fulfillment-services#step-9-optional-enable-tracking-support).
    */
   private String callbackUrl;
+
+  /**
+   * The date and time when the fulfillment service was created.
+   */
+  private OffsetDateTime createdAt;
 
   /**
    * Whether the fulfillment service uses the [fulfillment order based workflow](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments)
@@ -138,11 +144,11 @@ public class FulfillmentService {
   /**
    * The callback URL that the fulfillment service has registered for requests. The following considerations apply:
    *   
-   * - Shopify queries the `&lt;callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
+   * - Shopify queries the `<callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
    *     for orders, if `trackingSupport` is set to `true`.
-   * - Shopify queries the `&lt;callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
+   * - Shopify queries the `<callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
    *     if `inventoryManagement` is set to `true`.
-   * - Shopify uses the `&lt;callbackUrl>/fulfillment_order_notification` endpoint to send
+   * - Shopify uses the `<callbackUrl>/fulfillment_order_notification` endpoint to send
    *     [fulfillment and cancellation requests](https://shopify.dev/apps/build/orders-fulfillment/fulfillment-service-apps/build-for-fulfillment-services#step-9-optional-enable-tracking-support).
    */
   public String getCallbackUrl() {
@@ -151,6 +157,17 @@ public class FulfillmentService {
 
   public void setCallbackUrl(String callbackUrl) {
     this.callbackUrl = callbackUrl;
+  }
+
+  /**
+   * The date and time when the fulfillment service was created.
+   */
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
   /**
@@ -259,7 +276,7 @@ public class FulfillmentService {
 
   @Override
   public String toString() {
-    return "FulfillmentService{callbackUrl='" + callbackUrl + "', fulfillmentOrdersOptIn='" + fulfillmentOrdersOptIn + "', handle='" + handle + "', id='" + id + "', inventoryManagement='" + inventoryManagement + "', location='" + location + "', requiresShippingMethod='" + requiresShippingMethod + "', serviceName='" + serviceName + "', trackingSupport='" + trackingSupport + "', type='" + type + "'}";
+    return "FulfillmentService{callbackUrl='" + callbackUrl + "', createdAt='" + createdAt + "', fulfillmentOrdersOptIn='" + fulfillmentOrdersOptIn + "', handle='" + handle + "', id='" + id + "', inventoryManagement='" + inventoryManagement + "', location='" + location + "', requiresShippingMethod='" + requiresShippingMethod + "', serviceName='" + serviceName + "', trackingSupport='" + trackingSupport + "', type='" + type + "'}";
   }
 
   @Override
@@ -268,6 +285,7 @@ public class FulfillmentService {
     if (o == null || getClass() != o.getClass()) return false;
     FulfillmentService that = (FulfillmentService) o;
     return Objects.equals(callbackUrl, that.callbackUrl) &&
+        Objects.equals(createdAt, that.createdAt) &&
         fulfillmentOrdersOptIn == that.fulfillmentOrdersOptIn &&
         Objects.equals(handle, that.handle) &&
         Objects.equals(id, that.id) &&
@@ -281,7 +299,7 @@ public class FulfillmentService {
 
   @Override
   public int hashCode() {
-    return Objects.hash(callbackUrl, fulfillmentOrdersOptIn, handle, id, inventoryManagement, location, requiresShippingMethod, serviceName, trackingSupport, type);
+    return Objects.hash(callbackUrl, createdAt, fulfillmentOrdersOptIn, handle, id, inventoryManagement, location, requiresShippingMethod, serviceName, trackingSupport, type);
   }
 
   public static Builder newBuilder() {
@@ -292,14 +310,19 @@ public class FulfillmentService {
     /**
      * The callback URL that the fulfillment service has registered for requests. The following considerations apply:
      *   
-     * - Shopify queries the `&lt;callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
+     * - Shopify queries the `<callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
      *     for orders, if `trackingSupport` is set to `true`.
-     * - Shopify queries the `&lt;callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
+     * - Shopify queries the `<callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
      *     if `inventoryManagement` is set to `true`.
-     * - Shopify uses the `&lt;callbackUrl>/fulfillment_order_notification` endpoint to send
+     * - Shopify uses the `<callbackUrl>/fulfillment_order_notification` endpoint to send
      *     [fulfillment and cancellation requests](https://shopify.dev/apps/build/orders-fulfillment/fulfillment-service-apps/build-for-fulfillment-services#step-9-optional-enable-tracking-support).
      */
     private String callbackUrl;
+
+    /**
+     * The date and time when the fulfillment service was created.
+     */
+    private OffsetDateTime createdAt;
 
     /**
      * Whether the fulfillment service uses the [fulfillment order based workflow](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments)
@@ -354,6 +377,7 @@ public class FulfillmentService {
     public FulfillmentService build() {
       FulfillmentService result = new FulfillmentService();
       result.callbackUrl = this.callbackUrl;
+      result.createdAt = this.createdAt;
       result.fulfillmentOrdersOptIn = this.fulfillmentOrdersOptIn;
       result.handle = this.handle;
       result.id = this.id;
@@ -369,15 +393,23 @@ public class FulfillmentService {
     /**
      * The callback URL that the fulfillment service has registered for requests. The following considerations apply:
      *   
-     * - Shopify queries the `&lt;callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
+     * - Shopify queries the `<callbackUrl>/fetch_tracking_numbers` endpoint to retrieve tracking numbers
      *     for orders, if `trackingSupport` is set to `true`.
-     * - Shopify queries the `&lt;callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
+     * - Shopify queries the `<callbackUrl>/fetch_stock` endpoint to retrieve inventory levels,
      *     if `inventoryManagement` is set to `true`.
-     * - Shopify uses the `&lt;callbackUrl>/fulfillment_order_notification` endpoint to send
+     * - Shopify uses the `<callbackUrl>/fulfillment_order_notification` endpoint to send
      *     [fulfillment and cancellation requests](https://shopify.dev/apps/build/orders-fulfillment/fulfillment-service-apps/build-for-fulfillment-services#step-9-optional-enable-tracking-support).
      */
     public Builder callbackUrl(String callbackUrl) {
       this.callbackUrl = callbackUrl;
+      return this;
+    }
+
+    /**
+     * The date and time when the fulfillment service was created.
+     */
+    public Builder createdAt(OffsetDateTime createdAt) {
+      this.createdAt = createdAt;
       return this;
     }
 

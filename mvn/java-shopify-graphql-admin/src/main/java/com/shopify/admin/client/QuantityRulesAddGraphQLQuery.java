@@ -2,10 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.QuantityRuleInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -24,6 +28,24 @@ public class QuantityRulesAddGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public QuantityRulesAddGraphQLQuery(String priceListId, List<QuantityRuleInput> quantityRules,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (priceListId != null || fieldsSet.contains("priceListId")) {
+        getInput().put("priceListId", priceListId);
+    }if (quantityRules != null || fieldsSet.contains("quantityRules")) {
+        getInput().put("quantityRules", quantityRules);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public QuantityRulesAddGraphQLQuery() {
     super("mutation");
   }
@@ -40,6 +62,10 @@ public class QuantityRulesAddGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String priceListId;
 
     private List<QuantityRuleInput> quantityRules;
@@ -47,7 +73,7 @@ public class QuantityRulesAddGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public QuantityRulesAddGraphQLQuery build() {
-      return new QuantityRulesAddGraphQLQuery(priceListId, quantityRules, queryName, fieldsSet);
+      return new QuantityRulesAddGraphQLQuery(priceListId, quantityRules, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -61,10 +87,30 @@ public class QuantityRulesAddGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the price list to which the quantity rules will be added or updated.
+     */
+    public Builder priceListIdReference(String variableRef) {
+      this.variableReferences.put("priceListId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("priceListId");
+      return this;
+    }
+
+    /**
      * The list of quantity rules to add or update in the price list.
      */
     public Builder quantityRules(List<QuantityRuleInput> quantityRules) {
       this.quantityRules = quantityRules;
+      this.fieldsSet.add("quantityRules");
+      return this;
+    }
+
+    /**
+     * The list of quantity rules to add or update in the price list.
+     */
+    public Builder quantityRulesReference(String variableRef) {
+      this.variableReferences.put("quantityRules", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("QuantityRuleInput"))))).build());
       this.fieldsSet.add("quantityRules");
       return this;
     }

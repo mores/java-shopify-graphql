@@ -25,7 +25,6 @@ import java.lang.String;
     @JsonSubTypes.Type(value = MarketingEvent.class, name = "MarketingEvent"),
     @JsonSubTypes.Type(value = Metafield.class, name = "Metafield"),
     @JsonSubTypes.Type(value = Order.class, name = "Order"),
-    @JsonSubTypes.Type(value = PriceRule.class, name = "PriceRule"),
     @JsonSubTypes.Type(value = Product.class, name = "Product"),
     @JsonSubTypes.Type(value = ProductVariant.class, name = "ProductVariant"),
     @JsonSubTypes.Type(value = Refund.class, name = "Refund"),

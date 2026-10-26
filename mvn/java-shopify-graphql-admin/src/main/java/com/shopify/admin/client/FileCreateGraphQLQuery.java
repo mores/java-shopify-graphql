@@ -2,10 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.FileCreateInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -56,6 +60,22 @@ public class FileCreateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public FileCreateGraphQLQuery(List<FileCreateInput> files, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (files != null || fieldsSet.contains("files")) {
+        getInput().put("files", files);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public FileCreateGraphQLQuery() {
     super("mutation");
   }
@@ -72,12 +92,16 @@ public class FileCreateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private List<FileCreateInput> files;
 
     private String queryName;
 
     public FileCreateGraphQLQuery build() {
-      return new FileCreateGraphQLQuery(files, queryName, fieldsSet);
+      return new FileCreateGraphQLQuery(files, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -86,6 +110,16 @@ public class FileCreateGraphQLQuery extends GraphQLQuery {
      */
     public Builder files(List<FileCreateInput> files) {
       this.files = files;
+      this.fieldsSet.add("files");
+      return this;
+    }
+
+    /**
+     * List of new files to be created.
+     */
+    public Builder filesReference(String variableRef) {
+      this.variableReferences.put("files", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("FileCreateInput"))))).build());
       this.fieldsSet.add("files");
       return this;
     }

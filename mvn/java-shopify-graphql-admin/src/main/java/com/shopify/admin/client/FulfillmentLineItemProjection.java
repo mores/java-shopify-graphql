@@ -31,6 +31,11 @@ public class FulfillmentLineItemProjection<PARENT extends BaseSubProjectionNode<
      return projection;
   }
 
+  public FulfillmentLineItemProjection<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
+    return this;
+  }
+
   public FulfillmentLineItemProjection<PARENT, ROOT> discountedTotal() {
     getFields().put("discountedTotal", null);
     return this;

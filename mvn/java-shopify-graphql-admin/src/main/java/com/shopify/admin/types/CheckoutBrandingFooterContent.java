@@ -10,7 +10,9 @@ import java.util.Objects;
  */
 public class CheckoutBrandingFooterContent {
   /**
-   * The visibility settings for footer content.
+   * The visibility of the footer content. Shopify reserves the right to add
+   * required legal notices to the footer and prevent them from being modified or
+   * hidden. This setting doesn't control the visibility of those notices.
    */
   private CheckoutBrandingVisibility visibility;
 
@@ -18,7 +20,9 @@ public class CheckoutBrandingFooterContent {
   }
 
   /**
-   * The visibility settings for footer content.
+   * The visibility of the footer content. Shopify reserves the right to add
+   * required legal notices to the footer and prevent them from being modified or
+   * hidden. This setting doesn't control the visibility of those notices.
    */
   public CheckoutBrandingVisibility getVisibility() {
     return visibility;
@@ -52,7 +56,9 @@ public class CheckoutBrandingFooterContent {
 
   public static class Builder {
     /**
-     * The visibility settings for footer content.
+     * The visibility of the footer content. Shopify reserves the right to add
+     * required legal notices to the footer and prevent them from being modified or
+     * hidden. This setting doesn't control the visibility of those notices.
      */
     private CheckoutBrandingVisibility visibility;
 
@@ -63,7 +69,9 @@ public class CheckoutBrandingFooterContent {
     }
 
     /**
-     * The visibility settings for footer content.
+     * The visibility of the footer content. Shopify reserves the right to add
+     * required legal notices to the footer and prevent them from being modified or
+     * hidden. This setting doesn't control the visibility of those notices.
      */
     public Builder visibility(CheckoutBrandingVisibility visibility) {
       this.visibility = visibility;

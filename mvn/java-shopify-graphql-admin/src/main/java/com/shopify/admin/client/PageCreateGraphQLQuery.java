@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.PageCreateInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -26,6 +31,21 @@ public class PageCreateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public PageCreateGraphQLQuery(PageCreateInput page, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (page != null || fieldsSet.contains("page")) {
+        getInput().put("page", page);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public PageCreateGraphQLQuery() {
     super("mutation");
   }
@@ -42,12 +62,16 @@ public class PageCreateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private PageCreateInput page;
 
     private String queryName;
 
     public PageCreateGraphQLQuery build() {
-      return new PageCreateGraphQLQuery(page, queryName, fieldsSet);
+      return new PageCreateGraphQLQuery(page, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -56,6 +80,16 @@ public class PageCreateGraphQLQuery extends GraphQLQuery {
      */
     public Builder page(PageCreateInput page) {
       this.page = page;
+      this.fieldsSet.add("page");
+      return this;
+    }
+
+    /**
+     * The properties of the new page.
+     */
+    public Builder pageReference(String variableRef) {
+      this.variableReferences.put("page", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("PageCreateInput"))).build());
       this.fieldsSet.add("page");
       return this;
     }

@@ -2,10 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.MetafieldsSetInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -34,6 +38,22 @@ public class MetafieldsSetGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public MetafieldsSetGraphQLQuery(List<MetafieldsSetInput> metafields, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (metafields != null || fieldsSet.contains("metafields")) {
+        getInput().put("metafields", metafields);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public MetafieldsSetGraphQLQuery() {
     super("mutation");
   }
@@ -50,12 +70,16 @@ public class MetafieldsSetGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private List<MetafieldsSetInput> metafields;
 
     private String queryName;
 
     public MetafieldsSetGraphQLQuery build() {
-      return new MetafieldsSetGraphQLQuery(metafields, queryName, fieldsSet);
+      return new MetafieldsSetGraphQLQuery(metafields, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -64,6 +88,16 @@ public class MetafieldsSetGraphQLQuery extends GraphQLQuery {
      */
     public Builder metafields(List<MetafieldsSetInput> metafields) {
       this.metafields = metafields;
+      this.fieldsSet.add("metafields");
+      return this;
+    }
+
+    /**
+     * The list of metafield values to set. Maximum of 25.
+     */
+    public Builder metafieldsReference(String variableRef) {
+      this.variableReferences.put("metafields", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("MetafieldsSetInput"))))).build());
       this.fieldsSet.add("metafields");
       return this;
     }

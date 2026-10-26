@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.OrderEditAddShippingLineInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -27,6 +32,24 @@ public class OrderEditAddShippingLineGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public OrderEditAddShippingLineGraphQLQuery(String id, OrderEditAddShippingLineInput shippingLine,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (shippingLine != null || fieldsSet.contains("shippingLine")) {
+        getInput().put("shippingLine", shippingLine);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public OrderEditAddShippingLineGraphQLQuery() {
     super("mutation");
   }
@@ -43,6 +66,10 @@ public class OrderEditAddShippingLineGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private OrderEditAddShippingLineInput shippingLine;
@@ -50,7 +77,7 @@ public class OrderEditAddShippingLineGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public OrderEditAddShippingLineGraphQLQuery build() {
-      return new OrderEditAddShippingLineGraphQLQuery(id, shippingLine, queryName, fieldsSet);
+      return new OrderEditAddShippingLineGraphQLQuery(id, shippingLine, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -65,10 +92,31 @@ public class OrderEditAddShippingLineGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
+     * or the order edit session to edit. This is the edit to which the shipping line is added.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The shipping line to be added.
      */
     public Builder shippingLine(OrderEditAddShippingLineInput shippingLine) {
       this.shippingLine = shippingLine;
+      this.fieldsSet.add("shippingLine");
+      return this;
+    }
+
+    /**
+     * The shipping line to be added.
+     */
+    public Builder shippingLineReference(String variableRef) {
+      this.variableReferences.put("shippingLine", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("OrderEditAddShippingLineInput"))).build());
       this.fieldsSet.add("shippingLine");
       return this;
     }

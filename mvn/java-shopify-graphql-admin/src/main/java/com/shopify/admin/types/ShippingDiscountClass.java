@@ -5,5 +5,8 @@ package com.shopify.admin.types;
  * that's used to control how discounts can be combined.
  */
 public enum ShippingDiscountClass {
+  /**
+   * Combined as a shipping discount.
+   */
   SHIPPING
 }

@@ -1,10 +1,14 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -49,6 +53,21 @@ public class FileDeleteGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public FileDeleteGraphQLQuery(List<String> fileIds, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (fileIds != null || fieldsSet.contains("fileIds")) {
+        getInput().put("fileIds", fileIds);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public FileDeleteGraphQLQuery() {
     super("mutation");
   }
@@ -65,12 +84,16 @@ public class FileDeleteGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private List<String> fileIds;
 
     private String queryName;
 
     public FileDeleteGraphQLQuery build() {
-      return new FileDeleteGraphQLQuery(fileIds, queryName, fieldsSet);
+      return new FileDeleteGraphQLQuery(fileIds, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -79,6 +102,16 @@ public class FileDeleteGraphQLQuery extends GraphQLQuery {
      */
     public Builder fileIds(List<String> fileIds) {
       this.fileIds = fileIds;
+      this.fieldsSet.add("fileIds");
+      return this;
+    }
+
+    /**
+     * The IDs of the files to be deleted.
+     */
+    public Builder fileIdsReference(String variableRef) {
+      this.variableReferences.put("fileIds", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("ID"))))).build());
       this.fieldsSet.add("fileIds");
       return this;
     }

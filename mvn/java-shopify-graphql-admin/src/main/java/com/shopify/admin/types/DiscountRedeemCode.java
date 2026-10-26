@@ -3,6 +3,7 @@ package com.shopify.admin.types;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
@@ -21,6 +22,11 @@ public class DiscountRedeemCode {
    * The code that a customer can use at checkout to receive a discount.
    */
   private String code;
+
+  /**
+   * The date and time when the discount redeem code was created.
+   */
+  private OffsetDateTime createdAt;
 
   /**
    * The application that created the discount redeem code.
@@ -59,6 +65,17 @@ public class DiscountRedeemCode {
   }
 
   /**
+   * The date and time when the discount redeem code was created.
+   */
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  /**
    * The application that created the discount redeem code.
    */
   public App getCreatedBy() {
@@ -82,7 +99,7 @@ public class DiscountRedeemCode {
 
   @Override
   public String toString() {
-    return "DiscountRedeemCode{asyncUsageCount='" + asyncUsageCount + "', code='" + code + "', createdBy='" + createdBy + "', id='" + id + "'}";
+    return "DiscountRedeemCode{asyncUsageCount='" + asyncUsageCount + "', code='" + code + "', createdAt='" + createdAt + "', createdBy='" + createdBy + "', id='" + id + "'}";
   }
 
   @Override
@@ -92,13 +109,14 @@ public class DiscountRedeemCode {
     DiscountRedeemCode that = (DiscountRedeemCode) o;
     return asyncUsageCount == that.asyncUsageCount &&
         Objects.equals(code, that.code) &&
+        Objects.equals(createdAt, that.createdAt) &&
         Objects.equals(createdBy, that.createdBy) &&
         Objects.equals(id, that.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(asyncUsageCount, code, createdBy, id);
+    return Objects.hash(asyncUsageCount, code, createdAt, createdBy, id);
   }
 
   public static Builder newBuilder() {
@@ -118,6 +136,11 @@ public class DiscountRedeemCode {
     private String code;
 
     /**
+     * The date and time when the discount redeem code was created.
+     */
+    private OffsetDateTime createdAt;
+
+    /**
      * The application that created the discount redeem code.
      */
     private App createdBy;
@@ -131,6 +154,7 @@ public class DiscountRedeemCode {
       DiscountRedeemCode result = new DiscountRedeemCode();
       result.asyncUsageCount = this.asyncUsageCount;
       result.code = this.code;
+      result.createdAt = this.createdAt;
       result.createdBy = this.createdBy;
       result.id = this.id;
       return result;
@@ -150,6 +174,14 @@ public class DiscountRedeemCode {
      */
     public Builder code(String code) {
       this.code = code;
+      return this;
+    }
+
+    /**
+     * The date and time when the discount redeem code was created.
+     */
+    public Builder createdAt(OffsetDateTime createdAt) {
+      this.createdAt = createdAt;
       return this;
     }
 

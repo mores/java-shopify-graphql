@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.SubscriptionBillingAttemptInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -40,6 +45,25 @@ public class SubscriptionBillingAttemptCreateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public SubscriptionBillingAttemptCreateGraphQLQuery(String subscriptionContractId,
+      SubscriptionBillingAttemptInput subscriptionBillingAttemptInput, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (subscriptionContractId != null || fieldsSet.contains("subscriptionContractId")) {
+        getInput().put("subscriptionContractId", subscriptionContractId);
+    }if (subscriptionBillingAttemptInput != null || fieldsSet.contains("subscriptionBillingAttemptInput")) {
+        getInput().put("subscriptionBillingAttemptInput", subscriptionBillingAttemptInput);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public SubscriptionBillingAttemptCreateGraphQLQuery() {
     super("mutation");
   }
@@ -56,6 +80,10 @@ public class SubscriptionBillingAttemptCreateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String subscriptionContractId;
 
     private SubscriptionBillingAttemptInput subscriptionBillingAttemptInput;
@@ -63,7 +91,7 @@ public class SubscriptionBillingAttemptCreateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public SubscriptionBillingAttemptCreateGraphQLQuery build() {
-      return new SubscriptionBillingAttemptCreateGraphQLQuery(subscriptionContractId, subscriptionBillingAttemptInput, queryName, fieldsSet);
+      return new SubscriptionBillingAttemptCreateGraphQLQuery(subscriptionContractId, subscriptionBillingAttemptInput, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -77,11 +105,31 @@ public class SubscriptionBillingAttemptCreateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the subscription contract.
+     */
+    public Builder subscriptionContractIdReference(String variableRef) {
+      this.variableReferences.put("subscriptionContractId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("subscriptionContractId");
+      return this;
+    }
+
+    /**
      * The information to apply as a billing attempt.
      */
     public Builder subscriptionBillingAttemptInput(
         SubscriptionBillingAttemptInput subscriptionBillingAttemptInput) {
       this.subscriptionBillingAttemptInput = subscriptionBillingAttemptInput;
+      this.fieldsSet.add("subscriptionBillingAttemptInput");
+      return this;
+    }
+
+    /**
+     * The information to apply as a billing attempt.
+     */
+    public Builder subscriptionBillingAttemptInputReference(String variableRef) {
+      this.variableReferences.put("subscriptionBillingAttemptInput", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("SubscriptionBillingAttemptInput"))).build());
       this.fieldsSet.add("subscriptionBillingAttemptInput");
       return this;
     }

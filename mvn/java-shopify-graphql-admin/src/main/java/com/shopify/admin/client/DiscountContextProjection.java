@@ -19,6 +19,13 @@ public class DiscountContextProjection<PARENT extends BaseSubProjectionNode<?, ?
     return fragment;
   }
 
+  public DiscountContextUnknownFragmentProjection<DiscountContextProjection<PARENT, ROOT>, ROOT> onDiscountContextUnknown(
+      ) {
+    DiscountContextUnknownFragmentProjection<DiscountContextProjection<PARENT, ROOT>, ROOT> fragment = new DiscountContextUnknownFragmentProjection<>(this, getRoot());
+    getFragments().add(fragment);
+    return fragment;
+  }
+
   public DiscountCustomerSegmentsFragmentProjection<DiscountContextProjection<PARENT, ROOT>, ROOT> onDiscountCustomerSegments(
       ) {
     DiscountCustomerSegmentsFragmentProjection<DiscountContextProjection<PARENT, ROOT>, ROOT> fragment = new DiscountCustomerSegmentsFragmentProjection<>(this, getRoot());
@@ -29,6 +36,13 @@ public class DiscountContextProjection<PARENT extends BaseSubProjectionNode<?, ?
   public DiscountCustomersFragmentProjection<DiscountContextProjection<PARENT, ROOT>, ROOT> onDiscountCustomers(
       ) {
     DiscountCustomersFragmentProjection<DiscountContextProjection<PARENT, ROOT>, ROOT> fragment = new DiscountCustomersFragmentProjection<>(this, getRoot());
+    getFragments().add(fragment);
+    return fragment;
+  }
+
+  public DiscountMarketsFragmentProjection<DiscountContextProjection<PARENT, ROOT>, ROOT> onDiscountMarkets(
+      ) {
+    DiscountMarketsFragmentProjection<DiscountContextProjection<PARENT, ROOT>, ROOT> fragment = new DiscountMarketsFragmentProjection<>(this, getRoot());
     getFragments().add(fragment);
     return fragment;
   }

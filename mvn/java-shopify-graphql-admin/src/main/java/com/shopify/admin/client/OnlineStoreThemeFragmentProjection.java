@@ -33,11 +33,25 @@ public class OnlineStoreThemeFragmentProjection<PARENT extends BaseSubProjection
     OnlineStoreThemeFileConnectionProjection<OnlineStoreThemeFragmentProjection<PARENT, ROOT>, ROOT> projection = new OnlineStoreThemeFileConnectionProjection<>(this, getRoot());    
     getFields().put("files", projection);
     getInputArguments().computeIfAbsent("files", k -> new ArrayList<>());                      
-    InputArgument filenamesArg = new InputArgument("filenames", filenames);
+    InputArgument filenamesArg = new InputArgument("filenames", filenames, false, null);
     getInputArguments().get("files").add(filenamesArg);
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("files").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
+    getInputArguments().get("files").add(afterArg);
+    return projection;
+  }
+
+  public OnlineStoreThemeFileConnectionProjection<OnlineStoreThemeFragmentProjection<PARENT, ROOT>, ROOT> filesWithVariableReferences(
+      String filenamesReference, String firstReference, String afterReference) {
+    OnlineStoreThemeFileConnectionProjection<OnlineStoreThemeFragmentProjection<PARENT, ROOT>, ROOT> projection = new OnlineStoreThemeFileConnectionProjection<>(this, getRoot());    
+    getFields().put("files", projection);
+    getInputArguments().computeIfAbsent("files", k -> new ArrayList<>());              
+    InputArgument filenamesArg = new InputArgument("filenames", filenamesReference, true, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("String"))));
+    getInputArguments().get("files").add(filenamesArg);
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("files").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
     getInputArguments().get("files").add(afterArg);
     return projection;
   }
@@ -60,9 +74,21 @@ public class OnlineStoreThemeFragmentProjection<PARENT extends BaseSubProjection
     TranslationProjection<OnlineStoreThemeFragmentProjection<PARENT, ROOT>, ROOT> projection = new TranslationProjection<>(this, getRoot());    
     getFields().put("translations", projection);
     getInputArguments().computeIfAbsent("translations", k -> new ArrayList<>());                      
-    InputArgument localeArg = new InputArgument("locale", locale);
+    InputArgument localeArg = new InputArgument("locale", locale, false, null);
     getInputArguments().get("translations").add(localeArg);
-    InputArgument marketIdArg = new InputArgument("marketId", marketId);
+    InputArgument marketIdArg = new InputArgument("marketId", marketId, false, null);
+    getInputArguments().get("translations").add(marketIdArg);
+    return projection;
+  }
+
+  public TranslationProjection<OnlineStoreThemeFragmentProjection<PARENT, ROOT>, ROOT> translationsWithVariableReferences(
+      String localeReference, String marketIdReference) {
+    TranslationProjection<OnlineStoreThemeFragmentProjection<PARENT, ROOT>, ROOT> projection = new TranslationProjection<>(this, getRoot());    
+    getFields().put("translations", projection);
+    getInputArguments().computeIfAbsent("translations", k -> new ArrayList<>());              
+    InputArgument localeArg = new InputArgument("locale", localeReference, true, new graphql.language.NonNullType(new graphql.language.TypeName("String")));
+    getInputArguments().get("translations").add(localeArg);
+    InputArgument marketIdArg = new InputArgument("marketId", marketIdReference, true, new graphql.language.TypeName("ID"));
     getInputArguments().get("translations").add(marketIdArg);
     return projection;
   }

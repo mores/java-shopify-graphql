@@ -39,9 +39,21 @@ public class CustomerPhoneNumber {
   private String phoneNumber;
 
   /**
+   * The [SMS marketing consent](https://shopify.dev/docs/api/admin-graphql/latest/objects/CustomerSmsMarketingConsent)
+   * information for the customer's phone number. Update with the [`customerSmsMarketingConsentUpdate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/customerSmsMarketingConsentUpdate) mutation.
+   */
+  private CustomerSmsMarketingConsent smsMarketingConsent;
+
+  /**
    * The location where the customer consented to receive marketing material by SMS.
    */
   private Location sourceLocation;
+
+  /**
+   * The [WhatsApp marketing consent](https://shopify.dev/docs/api/admin-graphql/latest/objects/CustomerWhatsAppMarketingConsent)
+   * information for the customer's phone number. Update with the [`customerWhatsAppMarketingConsentUpdate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/customerWhatsAppMarketingConsentUpdate) mutation.
+   */
+  private CustomerWhatsAppMarketingConsent whatsAppMarketingConsent;
 
   public CustomerPhoneNumber() {
   }
@@ -105,6 +117,18 @@ public class CustomerPhoneNumber {
   }
 
   /**
+   * The [SMS marketing consent](https://shopify.dev/docs/api/admin-graphql/latest/objects/CustomerSmsMarketingConsent)
+   * information for the customer's phone number. Update with the [`customerSmsMarketingConsentUpdate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/customerSmsMarketingConsentUpdate) mutation.
+   */
+  public CustomerSmsMarketingConsent getSmsMarketingConsent() {
+    return smsMarketingConsent;
+  }
+
+  public void setSmsMarketingConsent(CustomerSmsMarketingConsent smsMarketingConsent) {
+    this.smsMarketingConsent = smsMarketingConsent;
+  }
+
+  /**
    * The location where the customer consented to receive marketing material by SMS.
    */
   public Location getSourceLocation() {
@@ -115,9 +139,22 @@ public class CustomerPhoneNumber {
     this.sourceLocation = sourceLocation;
   }
 
+  /**
+   * The [WhatsApp marketing consent](https://shopify.dev/docs/api/admin-graphql/latest/objects/CustomerWhatsAppMarketingConsent)
+   * information for the customer's phone number. Update with the [`customerWhatsAppMarketingConsentUpdate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/customerWhatsAppMarketingConsentUpdate) mutation.
+   */
+  public CustomerWhatsAppMarketingConsent getWhatsAppMarketingConsent() {
+    return whatsAppMarketingConsent;
+  }
+
+  public void setWhatsAppMarketingConsent(
+      CustomerWhatsAppMarketingConsent whatsAppMarketingConsent) {
+    this.whatsAppMarketingConsent = whatsAppMarketingConsent;
+  }
+
   @Override
   public String toString() {
-    return "CustomerPhoneNumber{marketingCollectedFrom='" + marketingCollectedFrom + "', marketingOptInLevel='" + marketingOptInLevel + "', marketingState='" + marketingState + "', marketingUpdatedAt='" + marketingUpdatedAt + "', phoneNumber='" + phoneNumber + "', sourceLocation='" + sourceLocation + "'}";
+    return "CustomerPhoneNumber{marketingCollectedFrom='" + marketingCollectedFrom + "', marketingOptInLevel='" + marketingOptInLevel + "', marketingState='" + marketingState + "', marketingUpdatedAt='" + marketingUpdatedAt + "', phoneNumber='" + phoneNumber + "', smsMarketingConsent='" + smsMarketingConsent + "', sourceLocation='" + sourceLocation + "', whatsAppMarketingConsent='" + whatsAppMarketingConsent + "'}";
   }
 
   @Override
@@ -130,12 +167,14 @@ public class CustomerPhoneNumber {
         Objects.equals(marketingState, that.marketingState) &&
         Objects.equals(marketingUpdatedAt, that.marketingUpdatedAt) &&
         Objects.equals(phoneNumber, that.phoneNumber) &&
-        Objects.equals(sourceLocation, that.sourceLocation);
+        Objects.equals(smsMarketingConsent, that.smsMarketingConsent) &&
+        Objects.equals(sourceLocation, that.sourceLocation) &&
+        Objects.equals(whatsAppMarketingConsent, that.whatsAppMarketingConsent);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(marketingCollectedFrom, marketingOptInLevel, marketingState, marketingUpdatedAt, phoneNumber, sourceLocation);
+    return Objects.hash(marketingCollectedFrom, marketingOptInLevel, marketingState, marketingUpdatedAt, phoneNumber, smsMarketingConsent, sourceLocation, whatsAppMarketingConsent);
   }
 
   public static Builder newBuilder() {
@@ -172,9 +211,21 @@ public class CustomerPhoneNumber {
     private String phoneNumber;
 
     /**
+     * The [SMS marketing consent](https://shopify.dev/docs/api/admin-graphql/latest/objects/CustomerSmsMarketingConsent)
+     * information for the customer's phone number. Update with the [`customerSmsMarketingConsentUpdate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/customerSmsMarketingConsentUpdate) mutation.
+     */
+    private CustomerSmsMarketingConsent smsMarketingConsent;
+
+    /**
      * The location where the customer consented to receive marketing material by SMS.
      */
     private Location sourceLocation;
+
+    /**
+     * The [WhatsApp marketing consent](https://shopify.dev/docs/api/admin-graphql/latest/objects/CustomerWhatsAppMarketingConsent)
+     * information for the customer's phone number. Update with the [`customerWhatsAppMarketingConsentUpdate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/customerWhatsAppMarketingConsentUpdate) mutation.
+     */
+    private CustomerWhatsAppMarketingConsent whatsAppMarketingConsent;
 
     public CustomerPhoneNumber build() {
       CustomerPhoneNumber result = new CustomerPhoneNumber();
@@ -183,7 +234,9 @@ public class CustomerPhoneNumber {
       result.marketingState = this.marketingState;
       result.marketingUpdatedAt = this.marketingUpdatedAt;
       result.phoneNumber = this.phoneNumber;
+      result.smsMarketingConsent = this.smsMarketingConsent;
       result.sourceLocation = this.sourceLocation;
+      result.whatsAppMarketingConsent = this.whatsAppMarketingConsent;
       return result;
     }
 
@@ -231,10 +284,29 @@ public class CustomerPhoneNumber {
     }
 
     /**
+     * The [SMS marketing consent](https://shopify.dev/docs/api/admin-graphql/latest/objects/CustomerSmsMarketingConsent)
+     * information for the customer's phone number. Update with the [`customerSmsMarketingConsentUpdate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/customerSmsMarketingConsentUpdate) mutation.
+     */
+    public Builder smsMarketingConsent(CustomerSmsMarketingConsent smsMarketingConsent) {
+      this.smsMarketingConsent = smsMarketingConsent;
+      return this;
+    }
+
+    /**
      * The location where the customer consented to receive marketing material by SMS.
      */
     public Builder sourceLocation(Location sourceLocation) {
       this.sourceLocation = sourceLocation;
+      return this;
+    }
+
+    /**
+     * The [WhatsApp marketing consent](https://shopify.dev/docs/api/admin-graphql/latest/objects/CustomerWhatsAppMarketingConsent)
+     * information for the customer's phone number. Update with the [`customerWhatsAppMarketingConsentUpdate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/customerWhatsAppMarketingConsentUpdate) mutation.
+     */
+    public Builder whatsAppMarketingConsent(
+        CustomerWhatsAppMarketingConsent whatsAppMarketingConsent) {
+      this.whatsAppMarketingConsent = whatsAppMarketingConsent;
       return this;
     }
   }

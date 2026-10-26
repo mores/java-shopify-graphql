@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.RefundInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -36,7 +41,7 @@ import java.util.Set;
  *   
  * > Note:
  * > The refunding behavior of the `refundCreate` mutation is similar to the
- * [`refundReturn`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/returnRefund)
+ * [`returnRefund`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/returnRefund)
  * mutation. The key difference is that the `refundCreate` mutation lets you to specify restocking behavior
  * for line items, whereas the `returnRefund` mutation focuses solely on handling the financial refund without
  * any restocking input.
@@ -52,6 +57,21 @@ public class RefundCreateGraphQLQuery extends GraphQLQuery {
     if (input != null || fieldsSet.contains("input")) {
         getInput().put("input", input);
     }
+  }
+
+  public RefundCreateGraphQLQuery(RefundInput input, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (input != null || fieldsSet.contains("input")) {
+        getInput().put("input", input);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public RefundCreateGraphQLQuery() {
@@ -70,12 +90,16 @@ public class RefundCreateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private RefundInput input;
 
     private String queryName;
 
     public RefundCreateGraphQLQuery build() {
-      return new RefundCreateGraphQLQuery(input, queryName, fieldsSet);
+      return new RefundCreateGraphQLQuery(input, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -84,6 +108,16 @@ public class RefundCreateGraphQLQuery extends GraphQLQuery {
      */
     public Builder input(RefundInput input) {
       this.input = input;
+      this.fieldsSet.add("input");
+      return this;
+    }
+
+    /**
+     * The input fields that are used in the mutation for creating a refund.
+     */
+    public Builder inputReference(String variableRef) {
+      this.variableReferences.put("input", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("RefundInput"))).build());
       this.fieldsSet.add("input");
       return this;
     }

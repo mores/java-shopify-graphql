@@ -41,16 +41,36 @@ import java.util.Objects;
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
-public class ProductVariant implements CommentEventEmbed, DeliveryPromiseParticipantOwner, MetafieldReference, MetafieldReferencer, com.shopify.admin.types.HasEvents, com.shopify.admin.types.HasMetafieldDefinitions, com.shopify.admin.types.HasMetafields, com.shopify.admin.types.HasPublishedTranslations, com.shopify.admin.types.LegacyInteroperability, com.shopify.admin.types.Navigable, com.shopify.admin.types.Node {
+public class ProductVariant implements CommentEventEmbed, DeliveryPromiseParticipantOwner, MetafieldReference, MetafieldReferencer, com.shopify.admin.types.HasEvents, com.shopify.admin.types.HasMetafieldDefinitions, com.shopify.admin.types.HasMetafields, com.shopify.admin.types.HasPublishedTranslations, com.shopify.admin.types.LegacyInteroperability, com.shopify.admin.types.Navigable, com.shopify.admin.types.Node, com.shopify.admin.types.Publishable {
   /**
    * Whether the product variant is available for sale.
    */
   private boolean availableForSale;
 
   /**
+   * The number of
+   * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
+   * that a resource is published to, without
+   * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+   */
+  private Count availablePublicationsCount;
+
+  /**
    * The value of the barcode associated with the product.
+   *   
+   * When a variant has more than one barcode, this field returns the first entry in `barcodes`.
    */
   private String barcode;
+
+  /**
+   * The barcodes associated with the product variant.
+   *   
+   * A variant supports up to 20 barcodes, each of
+   * which can have a
+   * [type](https://shopify.dev/docs/api/admin-graphql/latest/enums/BarcodeType).
+   * Barcode types are validated against their respective format standards.
+   */
+  private ProductVariantBarcodeConnection barcodes;
 
   /**
    * The compare-at price of the variant in the default shop currency.
@@ -173,11 +193,70 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
   private ProductVariantComponentConnection productVariantComponents;
 
   /**
+   * The total number of
+   * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
+   * that a resource is published to, including publications with
+   * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+   * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
+   */
+  private int publicationCount;
+
+  /**
+   * Whether the resource is published to a specific channel.
+   */
+  private boolean publishedOnChannel;
+
+  /**
+   * Whether the resource is published to a
+   * [channel](https://shopify.dev/docs/api/admin-graphql/latest/objects/Channel).
+   * For example, the resource might be published to the online store channel.
+   */
+  private boolean publishedOnCurrentChannel;
+
+  /**
+   * Whether the resource is published to the app's
+   * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+   * For example, the resource might be published to the app's online store channel.
+   */
+  private boolean publishedOnCurrentPublication;
+
+  /**
+   * Whether the resource is published to a specified
+   * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+   */
+  private boolean publishedOnPublication;
+
+  /**
    * Whether a product variant requires components. The default value is `false`.
    * If `true`, then the product variant can only be purchased as a parent bundle with components and it will be omitted
    * from channels that don't support bundles.
    */
   private boolean requiresComponents;
+
+  /**
+   * The list of resources that are published to a
+   * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+   */
+  private ResourcePublicationConnection resourcePublications;
+
+  /**
+   * The total number of
+   * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
+   * that a resource is published to, including publications with
+   * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+   * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
+   */
+  private Count resourcePublicationsCount;
+
+  /**
+   * The list of resources that are either published or staged to be published to a
+   * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+   * By default, only publications to `APP` catalog types are returned.
+   * For `Product` and `ProductVariant`, use the `catalogType` argument to retrieve
+   * publications for other catalog types, such as `COMPANY_LOCATION` (B2B) or `MARKET`.
+   * `Collection` only supports publications to `APP` catalog types.
+   */
+  private ResourcePublicationV2Connection resourcePublicationsV2;
 
   /**
    * List of product options applied to the variant.
@@ -257,6 +336,17 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
   private UnitPriceMeasurement unitPriceMeasurement;
 
   /**
+   * The list of channels that the resource is not published to.
+   */
+  private ChannelConnection unpublishedChannels;
+
+  /**
+   * The list of [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
+   * that the resource isn't published to.
+   */
+  private PublicationConnection unpublishedPublications;
+
+  /**
    * The date and time (ISO 8601 format) when the product variant was last modified.
    */
   private OffsetDateTime updatedAt;
@@ -276,7 +366,23 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
   }
 
   /**
+   * The number of
+   * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
+   * that a resource is published to, without
+   * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+   */
+  public Count getAvailablePublicationsCount() {
+    return availablePublicationsCount;
+  }
+
+  public void setAvailablePublicationsCount(Count availablePublicationsCount) {
+    this.availablePublicationsCount = availablePublicationsCount;
+  }
+
+  /**
    * The value of the barcode associated with the product.
+   *   
+   * When a variant has more than one barcode, this field returns the first entry in `barcodes`.
    */
   public String getBarcode() {
     return barcode;
@@ -284,6 +390,22 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
 
   public void setBarcode(String barcode) {
     this.barcode = barcode;
+  }
+
+  /**
+   * The barcodes associated with the product variant.
+   *   
+   * A variant supports up to 20 barcodes, each of
+   * which can have a
+   * [type](https://shopify.dev/docs/api/admin-graphql/latest/enums/BarcodeType).
+   * Barcode types are validated against their respective format standards.
+   */
+  public ProductVariantBarcodeConnection getBarcodes() {
+    return barcodes;
+  }
+
+  public void setBarcodes(ProductVariantBarcodeConnection barcodes) {
+    this.barcodes = barcodes;
   }
 
   /**
@@ -546,6 +668,70 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
   }
 
   /**
+   * The total number of
+   * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
+   * that a resource is published to, including publications with
+   * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+   * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
+   */
+  public int getPublicationCount() {
+    return publicationCount;
+  }
+
+  public void setPublicationCount(int publicationCount) {
+    this.publicationCount = publicationCount;
+  }
+
+  /**
+   * Whether the resource is published to a specific channel.
+   */
+  public boolean getPublishedOnChannel() {
+    return publishedOnChannel;
+  }
+
+  public void setPublishedOnChannel(boolean publishedOnChannel) {
+    this.publishedOnChannel = publishedOnChannel;
+  }
+
+  /**
+   * Whether the resource is published to a
+   * [channel](https://shopify.dev/docs/api/admin-graphql/latest/objects/Channel).
+   * For example, the resource might be published to the online store channel.
+   */
+  public boolean getPublishedOnCurrentChannel() {
+    return publishedOnCurrentChannel;
+  }
+
+  public void setPublishedOnCurrentChannel(boolean publishedOnCurrentChannel) {
+    this.publishedOnCurrentChannel = publishedOnCurrentChannel;
+  }
+
+  /**
+   * Whether the resource is published to the app's
+   * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+   * For example, the resource might be published to the app's online store channel.
+   */
+  public boolean getPublishedOnCurrentPublication() {
+    return publishedOnCurrentPublication;
+  }
+
+  public void setPublishedOnCurrentPublication(boolean publishedOnCurrentPublication) {
+    this.publishedOnCurrentPublication = publishedOnCurrentPublication;
+  }
+
+  /**
+   * Whether the resource is published to a specified
+   * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+   */
+  public boolean getPublishedOnPublication() {
+    return publishedOnPublication;
+  }
+
+  public void setPublishedOnPublication(boolean publishedOnPublication) {
+    this.publishedOnPublication = publishedOnPublication;
+  }
+
+  /**
    * Whether a product variant requires components. The default value is `false`.
    * If `true`, then the product variant can only be purchased as a parent bundle with components and it will be omitted
    * from channels that don't support bundles.
@@ -556,6 +742,49 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
 
   public void setRequiresComponents(boolean requiresComponents) {
     this.requiresComponents = requiresComponents;
+  }
+
+  /**
+   * The list of resources that are published to a
+   * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+   */
+  public ResourcePublicationConnection getResourcePublications() {
+    return resourcePublications;
+  }
+
+  public void setResourcePublications(ResourcePublicationConnection resourcePublications) {
+    this.resourcePublications = resourcePublications;
+  }
+
+  /**
+   * The total number of
+   * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
+   * that a resource is published to, including publications with
+   * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+   * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
+   */
+  public Count getResourcePublicationsCount() {
+    return resourcePublicationsCount;
+  }
+
+  public void setResourcePublicationsCount(Count resourcePublicationsCount) {
+    this.resourcePublicationsCount = resourcePublicationsCount;
+  }
+
+  /**
+   * The list of resources that are either published or staged to be published to a
+   * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+   * By default, only publications to `APP` catalog types are returned.
+   * For `Product` and `ProductVariant`, use the `catalogType` argument to retrieve
+   * publications for other catalog types, such as `COMPANY_LOCATION` (B2B) or `MARKET`.
+   * `Collection` only supports publications to `APP` catalog types.
+   */
+  public ResourcePublicationV2Connection getResourcePublicationsV2() {
+    return resourcePublicationsV2;
+  }
+
+  public void setResourcePublicationsV2(ResourcePublicationV2Connection resourcePublicationsV2) {
+    this.resourcePublicationsV2 = resourcePublicationsV2;
   }
 
   /**
@@ -720,6 +949,29 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
   }
 
   /**
+   * The list of channels that the resource is not published to.
+   */
+  public ChannelConnection getUnpublishedChannels() {
+    return unpublishedChannels;
+  }
+
+  public void setUnpublishedChannels(ChannelConnection unpublishedChannels) {
+    this.unpublishedChannels = unpublishedChannels;
+  }
+
+  /**
+   * The list of [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
+   * that the resource isn't published to.
+   */
+  public PublicationConnection getUnpublishedPublications() {
+    return unpublishedPublications;
+  }
+
+  public void setUnpublishedPublications(PublicationConnection unpublishedPublications) {
+    this.unpublishedPublications = unpublishedPublications;
+  }
+
+  /**
    * The date and time (ISO 8601 format) when the product variant was last modified.
    */
   public OffsetDateTime getUpdatedAt() {
@@ -732,7 +984,7 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
 
   @Override
   public String toString() {
-    return "ProductVariant{availableForSale='" + availableForSale + "', barcode='" + barcode + "', compareAtPrice='" + compareAtPrice + "', contextualPricing='" + contextualPricing + "', createdAt='" + createdAt + "', defaultCursor='" + defaultCursor + "', deliveryProfile='" + deliveryProfile + "', displayName='" + displayName + "', events='" + events + "', id='" + id + "', image='" + image + "', inventoryItem='" + inventoryItem + "', inventoryPolicy='" + inventoryPolicy + "', inventoryQuantity='" + inventoryQuantity + "', legacyResourceId='" + legacyResourceId + "', media='" + media + "', metafield='" + metafield + "', metafieldDefinitions='" + metafieldDefinitions + "', metafields='" + metafields + "', position='" + position + "', presentmentPrices='" + presentmentPrices + "', price='" + price + "', product='" + product + "', productParents='" + productParents + "', productVariantComponents='" + productVariantComponents + "', requiresComponents='" + requiresComponents + "', selectedOptions='" + selectedOptions + "', sellableOnlineQuantity='" + sellableOnlineQuantity + "', sellingPlanGroupCount='" + sellingPlanGroupCount + "', sellingPlanGroups='" + sellingPlanGroups + "', sellingPlanGroupsCount='" + sellingPlanGroupsCount + "', showUnitPrice='" + showUnitPrice + "', sku='" + sku + "', storefrontId='" + storefrontId + "', taxCode='" + taxCode + "', taxable='" + taxable + "', title='" + title + "', translations='" + translations + "', unitPrice='" + unitPrice + "', unitPriceMeasurement='" + unitPriceMeasurement + "', updatedAt='" + updatedAt + "'}";
+    return "ProductVariant{availableForSale='" + availableForSale + "', availablePublicationsCount='" + availablePublicationsCount + "', barcode='" + barcode + "', barcodes='" + barcodes + "', compareAtPrice='" + compareAtPrice + "', contextualPricing='" + contextualPricing + "', createdAt='" + createdAt + "', defaultCursor='" + defaultCursor + "', deliveryProfile='" + deliveryProfile + "', displayName='" + displayName + "', events='" + events + "', id='" + id + "', image='" + image + "', inventoryItem='" + inventoryItem + "', inventoryPolicy='" + inventoryPolicy + "', inventoryQuantity='" + inventoryQuantity + "', legacyResourceId='" + legacyResourceId + "', media='" + media + "', metafield='" + metafield + "', metafieldDefinitions='" + metafieldDefinitions + "', metafields='" + metafields + "', position='" + position + "', presentmentPrices='" + presentmentPrices + "', price='" + price + "', product='" + product + "', productParents='" + productParents + "', productVariantComponents='" + productVariantComponents + "', publicationCount='" + publicationCount + "', publishedOnChannel='" + publishedOnChannel + "', publishedOnCurrentChannel='" + publishedOnCurrentChannel + "', publishedOnCurrentPublication='" + publishedOnCurrentPublication + "', publishedOnPublication='" + publishedOnPublication + "', requiresComponents='" + requiresComponents + "', resourcePublications='" + resourcePublications + "', resourcePublicationsCount='" + resourcePublicationsCount + "', resourcePublicationsV2='" + resourcePublicationsV2 + "', selectedOptions='" + selectedOptions + "', sellableOnlineQuantity='" + sellableOnlineQuantity + "', sellingPlanGroupCount='" + sellingPlanGroupCount + "', sellingPlanGroups='" + sellingPlanGroups + "', sellingPlanGroupsCount='" + sellingPlanGroupsCount + "', showUnitPrice='" + showUnitPrice + "', sku='" + sku + "', storefrontId='" + storefrontId + "', taxCode='" + taxCode + "', taxable='" + taxable + "', title='" + title + "', translations='" + translations + "', unitPrice='" + unitPrice + "', unitPriceMeasurement='" + unitPriceMeasurement + "', unpublishedChannels='" + unpublishedChannels + "', unpublishedPublications='" + unpublishedPublications + "', updatedAt='" + updatedAt + "'}";
   }
 
   @Override
@@ -741,7 +993,9 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
     if (o == null || getClass() != o.getClass()) return false;
     ProductVariant that = (ProductVariant) o;
     return availableForSale == that.availableForSale &&
+        Objects.equals(availablePublicationsCount, that.availablePublicationsCount) &&
         Objects.equals(barcode, that.barcode) &&
+        Objects.equals(barcodes, that.barcodes) &&
         Objects.equals(compareAtPrice, that.compareAtPrice) &&
         Objects.equals(contextualPricing, that.contextualPricing) &&
         Objects.equals(createdAt, that.createdAt) &&
@@ -765,7 +1019,15 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
         Objects.equals(product, that.product) &&
         Objects.equals(productParents, that.productParents) &&
         Objects.equals(productVariantComponents, that.productVariantComponents) &&
+        publicationCount == that.publicationCount &&
+        publishedOnChannel == that.publishedOnChannel &&
+        publishedOnCurrentChannel == that.publishedOnCurrentChannel &&
+        publishedOnCurrentPublication == that.publishedOnCurrentPublication &&
+        publishedOnPublication == that.publishedOnPublication &&
         requiresComponents == that.requiresComponents &&
+        Objects.equals(resourcePublications, that.resourcePublications) &&
+        Objects.equals(resourcePublicationsCount, that.resourcePublicationsCount) &&
+        Objects.equals(resourcePublicationsV2, that.resourcePublicationsV2) &&
         Objects.equals(selectedOptions, that.selectedOptions) &&
         sellableOnlineQuantity == that.sellableOnlineQuantity &&
         sellingPlanGroupCount == that.sellingPlanGroupCount &&
@@ -780,12 +1042,14 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
         Objects.equals(translations, that.translations) &&
         Objects.equals(unitPrice, that.unitPrice) &&
         Objects.equals(unitPriceMeasurement, that.unitPriceMeasurement) &&
+        Objects.equals(unpublishedChannels, that.unpublishedChannels) &&
+        Objects.equals(unpublishedPublications, that.unpublishedPublications) &&
         Objects.equals(updatedAt, that.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(availableForSale, barcode, compareAtPrice, contextualPricing, createdAt, defaultCursor, deliveryProfile, displayName, events, id, image, inventoryItem, inventoryPolicy, inventoryQuantity, legacyResourceId, media, metafield, metafieldDefinitions, metafields, position, presentmentPrices, price, product, productParents, productVariantComponents, requiresComponents, selectedOptions, sellableOnlineQuantity, sellingPlanGroupCount, sellingPlanGroups, sellingPlanGroupsCount, showUnitPrice, sku, storefrontId, taxCode, taxable, title, translations, unitPrice, unitPriceMeasurement, updatedAt);
+    return Objects.hash(availableForSale, availablePublicationsCount, barcode, barcodes, compareAtPrice, contextualPricing, createdAt, defaultCursor, deliveryProfile, displayName, events, id, image, inventoryItem, inventoryPolicy, inventoryQuantity, legacyResourceId, media, metafield, metafieldDefinitions, metafields, position, presentmentPrices, price, product, productParents, productVariantComponents, publicationCount, publishedOnChannel, publishedOnCurrentChannel, publishedOnCurrentPublication, publishedOnPublication, requiresComponents, resourcePublications, resourcePublicationsCount, resourcePublicationsV2, selectedOptions, sellableOnlineQuantity, sellingPlanGroupCount, sellingPlanGroups, sellingPlanGroupsCount, showUnitPrice, sku, storefrontId, taxCode, taxable, title, translations, unitPrice, unitPriceMeasurement, unpublishedChannels, unpublishedPublications, updatedAt);
   }
 
   public static Builder newBuilder() {
@@ -799,9 +1063,29 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
     private boolean availableForSale;
 
     /**
+     * The number of
+     * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
+     * that a resource is published to, without
+     * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+     */
+    private Count availablePublicationsCount;
+
+    /**
      * The value of the barcode associated with the product.
+     *   
+     * When a variant has more than one barcode, this field returns the first entry in `barcodes`.
      */
     private String barcode;
+
+    /**
+     * The barcodes associated with the product variant.
+     *   
+     * A variant supports up to 20 barcodes, each of
+     * which can have a
+     * [type](https://shopify.dev/docs/api/admin-graphql/latest/enums/BarcodeType).
+     * Barcode types are validated against their respective format standards.
+     */
+    private ProductVariantBarcodeConnection barcodes;
 
     /**
      * The compare-at price of the variant in the default shop currency.
@@ -924,11 +1208,70 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
     private ProductVariantComponentConnection productVariantComponents;
 
     /**
+     * The total number of
+     * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
+     * that a resource is published to, including publications with
+     * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+     * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
+     */
+    private int publicationCount;
+
+    /**
+     * Whether the resource is published to a specific channel.
+     */
+    private boolean publishedOnChannel;
+
+    /**
+     * Whether the resource is published to a
+     * [channel](https://shopify.dev/docs/api/admin-graphql/latest/objects/Channel).
+     * For example, the resource might be published to the online store channel.
+     */
+    private boolean publishedOnCurrentChannel;
+
+    /**
+     * Whether the resource is published to the app's
+     * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+     * For example, the resource might be published to the app's online store channel.
+     */
+    private boolean publishedOnCurrentPublication;
+
+    /**
+     * Whether the resource is published to a specified
+     * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+     */
+    private boolean publishedOnPublication;
+
+    /**
      * Whether a product variant requires components. The default value is `false`.
      * If `true`, then the product variant can only be purchased as a parent bundle with components and it will be omitted
      * from channels that don't support bundles.
      */
     private boolean requiresComponents;
+
+    /**
+     * The list of resources that are published to a
+     * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+     */
+    private ResourcePublicationConnection resourcePublications;
+
+    /**
+     * The total number of
+     * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
+     * that a resource is published to, including publications with
+     * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+     * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
+     */
+    private Count resourcePublicationsCount;
+
+    /**
+     * The list of resources that are either published or staged to be published to a
+     * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+     * By default, only publications to `APP` catalog types are returned.
+     * For `Product` and `ProductVariant`, use the `catalogType` argument to retrieve
+     * publications for other catalog types, such as `COMPANY_LOCATION` (B2B) or `MARKET`.
+     * `Collection` only supports publications to `APP` catalog types.
+     */
+    private ResourcePublicationV2Connection resourcePublicationsV2;
 
     /**
      * List of product options applied to the variant.
@@ -1008,6 +1351,17 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
     private UnitPriceMeasurement unitPriceMeasurement;
 
     /**
+     * The list of channels that the resource is not published to.
+     */
+    private ChannelConnection unpublishedChannels;
+
+    /**
+     * The list of [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
+     * that the resource isn't published to.
+     */
+    private PublicationConnection unpublishedPublications;
+
+    /**
      * The date and time (ISO 8601 format) when the product variant was last modified.
      */
     private OffsetDateTime updatedAt;
@@ -1015,7 +1369,9 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
     public ProductVariant build() {
       ProductVariant result = new ProductVariant();
       result.availableForSale = this.availableForSale;
+      result.availablePublicationsCount = this.availablePublicationsCount;
       result.barcode = this.barcode;
+      result.barcodes = this.barcodes;
       result.compareAtPrice = this.compareAtPrice;
       result.contextualPricing = this.contextualPricing;
       result.createdAt = this.createdAt;
@@ -1039,7 +1395,15 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
       result.product = this.product;
       result.productParents = this.productParents;
       result.productVariantComponents = this.productVariantComponents;
+      result.publicationCount = this.publicationCount;
+      result.publishedOnChannel = this.publishedOnChannel;
+      result.publishedOnCurrentChannel = this.publishedOnCurrentChannel;
+      result.publishedOnCurrentPublication = this.publishedOnCurrentPublication;
+      result.publishedOnPublication = this.publishedOnPublication;
       result.requiresComponents = this.requiresComponents;
+      result.resourcePublications = this.resourcePublications;
+      result.resourcePublicationsCount = this.resourcePublicationsCount;
+      result.resourcePublicationsV2 = this.resourcePublicationsV2;
       result.selectedOptions = this.selectedOptions;
       result.sellableOnlineQuantity = this.sellableOnlineQuantity;
       result.sellingPlanGroupCount = this.sellingPlanGroupCount;
@@ -1054,6 +1418,8 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
       result.translations = this.translations;
       result.unitPrice = this.unitPrice;
       result.unitPriceMeasurement = this.unitPriceMeasurement;
+      result.unpublishedChannels = this.unpublishedChannels;
+      result.unpublishedPublications = this.unpublishedPublications;
       result.updatedAt = this.updatedAt;
       return result;
     }
@@ -1067,10 +1433,36 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
     }
 
     /**
+     * The number of
+     * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
+     * that a resource is published to, without
+     * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+     */
+    public Builder availablePublicationsCount(Count availablePublicationsCount) {
+      this.availablePublicationsCount = availablePublicationsCount;
+      return this;
+    }
+
+    /**
      * The value of the barcode associated with the product.
+     *   
+     * When a variant has more than one barcode, this field returns the first entry in `barcodes`.
      */
     public Builder barcode(String barcode) {
       this.barcode = barcode;
+      return this;
+    }
+
+    /**
+     * The barcodes associated with the product variant.
+     *   
+     * A variant supports up to 20 barcodes, each of
+     * which can have a
+     * [type](https://shopify.dev/docs/api/admin-graphql/latest/enums/BarcodeType).
+     * Barcode types are validated against their respective format standards.
+     */
+    public Builder barcodes(ProductVariantBarcodeConnection barcodes) {
+      this.barcodes = barcodes;
       return this;
     }
 
@@ -1265,12 +1657,95 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
     }
 
     /**
+     * The total number of
+     * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
+     * that a resource is published to, including publications with
+     * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+     * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
+     */
+    public Builder publicationCount(int publicationCount) {
+      this.publicationCount = publicationCount;
+      return this;
+    }
+
+    /**
+     * Whether the resource is published to a specific channel.
+     */
+    public Builder publishedOnChannel(boolean publishedOnChannel) {
+      this.publishedOnChannel = publishedOnChannel;
+      return this;
+    }
+
+    /**
+     * Whether the resource is published to a
+     * [channel](https://shopify.dev/docs/api/admin-graphql/latest/objects/Channel).
+     * For example, the resource might be published to the online store channel.
+     */
+    public Builder publishedOnCurrentChannel(boolean publishedOnCurrentChannel) {
+      this.publishedOnCurrentChannel = publishedOnCurrentChannel;
+      return this;
+    }
+
+    /**
+     * Whether the resource is published to the app's
+     * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+     * For example, the resource might be published to the app's online store channel.
+     */
+    public Builder publishedOnCurrentPublication(boolean publishedOnCurrentPublication) {
+      this.publishedOnCurrentPublication = publishedOnCurrentPublication;
+      return this;
+    }
+
+    /**
+     * Whether the resource is published to a specified
+     * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+     */
+    public Builder publishedOnPublication(boolean publishedOnPublication) {
+      this.publishedOnPublication = publishedOnPublication;
+      return this;
+    }
+
+    /**
      * Whether a product variant requires components. The default value is `false`.
      * If `true`, then the product variant can only be purchased as a parent bundle with components and it will be omitted
      * from channels that don't support bundles.
      */
     public Builder requiresComponents(boolean requiresComponents) {
       this.requiresComponents = requiresComponents;
+      return this;
+    }
+
+    /**
+     * The list of resources that are published to a
+     * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+     */
+    public Builder resourcePublications(ResourcePublicationConnection resourcePublications) {
+      this.resourcePublications = resourcePublications;
+      return this;
+    }
+
+    /**
+     * The total number of
+     * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
+     * that a resource is published to, including publications with
+     * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+     * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
+     */
+    public Builder resourcePublicationsCount(Count resourcePublicationsCount) {
+      this.resourcePublicationsCount = resourcePublicationsCount;
+      return this;
+    }
+
+    /**
+     * The list of resources that are either published or staged to be published to a
+     * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+     * By default, only publications to `APP` catalog types are returned.
+     * For `Product` and `ProductVariant`, use the `catalogType` argument to retrieve
+     * publications for other catalog types, such as `COMPANY_LOCATION` (B2B) or `MARKET`.
+     * `Collection` only supports publications to `APP` catalog types.
+     */
+    public Builder resourcePublicationsV2(ResourcePublicationV2Connection resourcePublicationsV2) {
+      this.resourcePublicationsV2 = resourcePublicationsV2;
       return this;
     }
 
@@ -1390,6 +1865,23 @@ public class ProductVariant implements CommentEventEmbed, DeliveryPromisePartici
      */
     public Builder unitPriceMeasurement(UnitPriceMeasurement unitPriceMeasurement) {
       this.unitPriceMeasurement = unitPriceMeasurement;
+      return this;
+    }
+
+    /**
+     * The list of channels that the resource is not published to.
+     */
+    public Builder unpublishedChannels(ChannelConnection unpublishedChannels) {
+      this.unpublishedChannels = unpublishedChannels;
+      return this;
+    }
+
+    /**
+     * The list of [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
+     * that the resource isn't published to.
+     */
+    public Builder unpublishedPublications(PublicationConnection unpublishedPublications) {
+      this.unpublishedPublications = unpublishedPublications;
       return this;
     }
 

@@ -14,14 +14,24 @@ import java.util.Objects;
 )
 public class PointOfSaleDevice implements com.shopify.admin.types.Node {
   /**
-   * The currently open payment session for this device.
+   * The currently open payment session for this device. Data is returned only if
+   * the device's location has a POS Pro subscription.
    */
   private PointOfSaleDevicePaymentSession activePaymentSession;
 
   /**
-   * The cash drawer that this device is currently assigned to.
+   * The cash drawer that this device is currently assigned to. Data is returned
+   * only if the device's location has a POS Pro subscription.
    */
   private CashDrawer cashDrawer;
+
+  /**
+   * The Shopify-assigned fiscal register identifier for the device, such as
+   * Sweden's manufacturing number (tillverkningsnummer). Only present for devices
+   * at locations in countries whose fiscal regulations require registering the
+   * device with the tax authority.
+   */
+  private String fiscalDeviceIdentifier;
 
   /**
    * A globally-unique ID.
@@ -32,7 +42,8 @@ public class PointOfSaleDevice implements com.shopify.admin.types.Node {
   }
 
   /**
-   * The currently open payment session for this device.
+   * The currently open payment session for this device. Data is returned only if
+   * the device's location has a POS Pro subscription.
    */
   public PointOfSaleDevicePaymentSession getActivePaymentSession() {
     return activePaymentSession;
@@ -43,7 +54,8 @@ public class PointOfSaleDevice implements com.shopify.admin.types.Node {
   }
 
   /**
-   * The cash drawer that this device is currently assigned to.
+   * The cash drawer that this device is currently assigned to. Data is returned
+   * only if the device's location has a POS Pro subscription.
    */
   public CashDrawer getCashDrawer() {
     return cashDrawer;
@@ -51,6 +63,20 @@ public class PointOfSaleDevice implements com.shopify.admin.types.Node {
 
   public void setCashDrawer(CashDrawer cashDrawer) {
     this.cashDrawer = cashDrawer;
+  }
+
+  /**
+   * The Shopify-assigned fiscal register identifier for the device, such as
+   * Sweden's manufacturing number (tillverkningsnummer). Only present for devices
+   * at locations in countries whose fiscal regulations require registering the
+   * device with the tax authority.
+   */
+  public String getFiscalDeviceIdentifier() {
+    return fiscalDeviceIdentifier;
+  }
+
+  public void setFiscalDeviceIdentifier(String fiscalDeviceIdentifier) {
+    this.fiscalDeviceIdentifier = fiscalDeviceIdentifier;
   }
 
   /**
@@ -66,7 +92,7 @@ public class PointOfSaleDevice implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "PointOfSaleDevice{activePaymentSession='" + activePaymentSession + "', cashDrawer='" + cashDrawer + "', id='" + id + "'}";
+    return "PointOfSaleDevice{activePaymentSession='" + activePaymentSession + "', cashDrawer='" + cashDrawer + "', fiscalDeviceIdentifier='" + fiscalDeviceIdentifier + "', id='" + id + "'}";
   }
 
   @Override
@@ -76,12 +102,13 @@ public class PointOfSaleDevice implements com.shopify.admin.types.Node {
     PointOfSaleDevice that = (PointOfSaleDevice) o;
     return Objects.equals(activePaymentSession, that.activePaymentSession) &&
         Objects.equals(cashDrawer, that.cashDrawer) &&
+        Objects.equals(fiscalDeviceIdentifier, that.fiscalDeviceIdentifier) &&
         Objects.equals(id, that.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activePaymentSession, cashDrawer, id);
+    return Objects.hash(activePaymentSession, cashDrawer, fiscalDeviceIdentifier, id);
   }
 
   public static Builder newBuilder() {
@@ -90,14 +117,24 @@ public class PointOfSaleDevice implements com.shopify.admin.types.Node {
 
   public static class Builder {
     /**
-     * The currently open payment session for this device.
+     * The currently open payment session for this device. Data is returned only if
+     * the device's location has a POS Pro subscription.
      */
     private PointOfSaleDevicePaymentSession activePaymentSession;
 
     /**
-     * The cash drawer that this device is currently assigned to.
+     * The cash drawer that this device is currently assigned to. Data is returned
+     * only if the device's location has a POS Pro subscription.
      */
     private CashDrawer cashDrawer;
+
+    /**
+     * The Shopify-assigned fiscal register identifier for the device, such as
+     * Sweden's manufacturing number (tillverkningsnummer). Only present for devices
+     * at locations in countries whose fiscal regulations require registering the
+     * device with the tax authority.
+     */
+    private String fiscalDeviceIdentifier;
 
     /**
      * A globally-unique ID.
@@ -108,12 +145,14 @@ public class PointOfSaleDevice implements com.shopify.admin.types.Node {
       PointOfSaleDevice result = new PointOfSaleDevice();
       result.activePaymentSession = this.activePaymentSession;
       result.cashDrawer = this.cashDrawer;
+      result.fiscalDeviceIdentifier = this.fiscalDeviceIdentifier;
       result.id = this.id;
       return result;
     }
 
     /**
-     * The currently open payment session for this device.
+     * The currently open payment session for this device. Data is returned only if
+     * the device's location has a POS Pro subscription.
      */
     public Builder activePaymentSession(PointOfSaleDevicePaymentSession activePaymentSession) {
       this.activePaymentSession = activePaymentSession;
@@ -121,10 +160,22 @@ public class PointOfSaleDevice implements com.shopify.admin.types.Node {
     }
 
     /**
-     * The cash drawer that this device is currently assigned to.
+     * The cash drawer that this device is currently assigned to. Data is returned
+     * only if the device's location has a POS Pro subscription.
      */
     public Builder cashDrawer(CashDrawer cashDrawer) {
       this.cashDrawer = cashDrawer;
+      return this;
+    }
+
+    /**
+     * The Shopify-assigned fiscal register identifier for the device, such as
+     * Sweden's manufacturing number (tillverkningsnummer). Only present for devices
+     * at locations in countries whose fiscal regulations require registering the
+     * device with the tax authority.
+     */
+    public Builder fiscalDeviceIdentifier(String fiscalDeviceIdentifier) {
+      this.fiscalDeviceIdentifier = fiscalDeviceIdentifier;
       return this;
     }
 

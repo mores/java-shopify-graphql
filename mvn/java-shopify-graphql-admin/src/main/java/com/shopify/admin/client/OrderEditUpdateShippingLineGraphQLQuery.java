@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.OrderEditUpdateShippingLineInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -25,6 +30,27 @@ public class OrderEditUpdateShippingLineGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public OrderEditUpdateShippingLineGraphQLQuery(String id,
+      OrderEditUpdateShippingLineInput shippingLine, String shippingLineId, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (shippingLine != null || fieldsSet.contains("shippingLine")) {
+        getInput().put("shippingLine", shippingLine);
+    }if (shippingLineId != null || fieldsSet.contains("shippingLineId")) {
+        getInput().put("shippingLineId", shippingLineId);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public OrderEditUpdateShippingLineGraphQLQuery() {
     super("mutation");
   }
@@ -41,6 +67,10 @@ public class OrderEditUpdateShippingLineGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private OrderEditUpdateShippingLineInput shippingLine;
@@ -50,7 +80,7 @@ public class OrderEditUpdateShippingLineGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public OrderEditUpdateShippingLineGraphQLQuery build() {
-      return new OrderEditUpdateShippingLineGraphQLQuery(id, shippingLine, shippingLineId, queryName, fieldsSet);
+      return new OrderEditUpdateShippingLineGraphQLQuery(id, shippingLine, shippingLineId, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -65,6 +95,17 @@ public class OrderEditUpdateShippingLineGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
+     * or the order edit session to edit. This is the edit used to update the shipping line.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The updated shipping line.
      */
     public Builder shippingLine(OrderEditUpdateShippingLineInput shippingLine) {
@@ -74,10 +115,30 @@ public class OrderEditUpdateShippingLineGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The updated shipping line.
+     */
+    public Builder shippingLineReference(String variableRef) {
+      this.variableReferences.put("shippingLine", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("OrderEditUpdateShippingLineInput"))).build());
+      this.fieldsSet.add("shippingLine");
+      return this;
+    }
+
+    /**
      * The ID of the calculated shipping line to update.
      */
     public Builder shippingLineId(String shippingLineId) {
       this.shippingLineId = shippingLineId;
+      this.fieldsSet.add("shippingLineId");
+      return this;
+    }
+
+    /**
+     * The ID of the calculated shipping line to update.
+     */
+    public Builder shippingLineIdReference(String variableRef) {
+      this.variableReferences.put("shippingLineId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("shippingLineId");
       return this;
     }

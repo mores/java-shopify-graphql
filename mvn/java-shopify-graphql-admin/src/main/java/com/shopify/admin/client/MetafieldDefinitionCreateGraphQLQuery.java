@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.MetafieldDefinitionInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -29,6 +34,22 @@ public class MetafieldDefinitionCreateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public MetafieldDefinitionCreateGraphQLQuery(MetafieldDefinitionInput definition,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (definition != null || fieldsSet.contains("definition")) {
+        getInput().put("definition", definition);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public MetafieldDefinitionCreateGraphQLQuery() {
     super("mutation");
   }
@@ -45,12 +66,16 @@ public class MetafieldDefinitionCreateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private MetafieldDefinitionInput definition;
 
     private String queryName;
 
     public MetafieldDefinitionCreateGraphQLQuery build() {
-      return new MetafieldDefinitionCreateGraphQLQuery(definition, queryName, fieldsSet);
+      return new MetafieldDefinitionCreateGraphQLQuery(definition, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -59,6 +84,16 @@ public class MetafieldDefinitionCreateGraphQLQuery extends GraphQLQuery {
      */
     public Builder definition(MetafieldDefinitionInput definition) {
       this.definition = definition;
+      this.fieldsSet.add("definition");
+      return this;
+    }
+
+    /**
+     * Specifies the input fields for a metafield definition.
+     */
+    public Builder definitionReference(String variableRef) {
+      this.variableReferences.put("definition", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("MetafieldDefinitionInput"))).build());
       this.fieldsSet.add("definition");
       return this;
     }

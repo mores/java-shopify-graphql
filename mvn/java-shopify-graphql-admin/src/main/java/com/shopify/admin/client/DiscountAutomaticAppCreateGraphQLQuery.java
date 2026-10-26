@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.DiscountAutomaticAppInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -32,6 +37,22 @@ public class DiscountAutomaticAppCreateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public DiscountAutomaticAppCreateGraphQLQuery(DiscountAutomaticAppInput automaticAppDiscount,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (automaticAppDiscount != null || fieldsSet.contains("automaticAppDiscount")) {
+        getInput().put("automaticAppDiscount", automaticAppDiscount);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public DiscountAutomaticAppCreateGraphQLQuery() {
     super("mutation");
   }
@@ -48,12 +69,16 @@ public class DiscountAutomaticAppCreateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private DiscountAutomaticAppInput automaticAppDiscount;
 
     private String queryName;
 
     public DiscountAutomaticAppCreateGraphQLQuery build() {
-      return new DiscountAutomaticAppCreateGraphQLQuery(automaticAppDiscount, queryName, fieldsSet);
+      return new DiscountAutomaticAppCreateGraphQLQuery(automaticAppDiscount, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -62,6 +87,16 @@ public class DiscountAutomaticAppCreateGraphQLQuery extends GraphQLQuery {
      */
     public Builder automaticAppDiscount(DiscountAutomaticAppInput automaticAppDiscount) {
       this.automaticAppDiscount = automaticAppDiscount;
+      this.fieldsSet.add("automaticAppDiscount");
+      return this;
+    }
+
+    /**
+     * The input data used to create the automatic discount.
+     */
+    public Builder automaticAppDiscountReference(String variableRef) {
+      this.variableReferences.put("automaticAppDiscount", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("DiscountAutomaticAppInput"))).build());
       this.fieldsSet.add("automaticAppDiscount");
       return this;
     }

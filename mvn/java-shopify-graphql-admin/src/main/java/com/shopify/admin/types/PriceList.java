@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
@@ -26,6 +27,11 @@ public class PriceList implements com.shopify.admin.types.Node {
    * The catalog that the price list is associated with.
    */
   private Catalog catalog;
+
+  /**
+   * The date and time when the price list was created.
+   */
+  private OffsetDateTime createdAt;
 
   /**
    * The currency for fixed prices associated with this price list.
@@ -74,6 +80,17 @@ public class PriceList implements com.shopify.admin.types.Node {
 
   public void setCatalog(Catalog catalog) {
     this.catalog = catalog;
+  }
+
+  /**
+   * The date and time when the price list was created.
+   */
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
   /**
@@ -155,7 +172,7 @@ public class PriceList implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "PriceList{catalog='" + catalog + "', currency='" + currency + "', fixedPricesCount='" + fixedPricesCount + "', id='" + id + "', name='" + name + "', parent='" + _parent + "', prices='" + prices + "', quantityRules='" + quantityRules + "'}";
+    return "PriceList{catalog='" + catalog + "', createdAt='" + createdAt + "', currency='" + currency + "', fixedPricesCount='" + fixedPricesCount + "', id='" + id + "', name='" + name + "', parent='" + _parent + "', prices='" + prices + "', quantityRules='" + quantityRules + "'}";
   }
 
   @Override
@@ -164,6 +181,7 @@ public class PriceList implements com.shopify.admin.types.Node {
     if (o == null || getClass() != o.getClass()) return false;
     PriceList that = (PriceList) o;
     return Objects.equals(catalog, that.catalog) &&
+        Objects.equals(createdAt, that.createdAt) &&
         Objects.equals(currency, that.currency) &&
         fixedPricesCount == that.fixedPricesCount &&
         Objects.equals(id, that.id) &&
@@ -175,7 +193,7 @@ public class PriceList implements com.shopify.admin.types.Node {
 
   @Override
   public int hashCode() {
-    return Objects.hash(catalog, currency, fixedPricesCount, id, name, _parent, prices, quantityRules);
+    return Objects.hash(catalog, createdAt, currency, fixedPricesCount, id, name, _parent, prices, quantityRules);
   }
 
   public static Builder newBuilder() {
@@ -187,6 +205,11 @@ public class PriceList implements com.shopify.admin.types.Node {
      * The catalog that the price list is associated with.
      */
     private Catalog catalog;
+
+    /**
+     * The date and time when the price list was created.
+     */
+    private OffsetDateTime createdAt;
 
     /**
      * The currency for fixed prices associated with this price list.
@@ -226,6 +249,7 @@ public class PriceList implements com.shopify.admin.types.Node {
     public PriceList build() {
       PriceList result = new PriceList();
       result.catalog = this.catalog;
+      result.createdAt = this.createdAt;
       result.currency = this.currency;
       result.fixedPricesCount = this.fixedPricesCount;
       result.id = this.id;
@@ -241,6 +265,14 @@ public class PriceList implements com.shopify.admin.types.Node {
      */
     public Builder catalog(Catalog catalog) {
       this.catalog = catalog;
+      return this;
+    }
+
+    /**
+     * The date and time when the price list was created.
+     */
+    public Builder createdAt(OffsetDateTime createdAt) {
+      this.createdAt = createdAt;
       return this;
     }
 

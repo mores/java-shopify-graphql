@@ -12,11 +12,6 @@ import java.util.Objects;
  */
 public class CustomerSetInput {
   /**
-   * The addresses for a customer.
-   */
-  private List<MailingAddressInput> addresses;
-
-  /**
    * The unique email address of the customer.
    */
   private String email;
@@ -68,17 +63,6 @@ public class CustomerSetInput {
   private List<TaxExemption> taxExemptions;
 
   public CustomerSetInput() {
-  }
-
-  /**
-   * The addresses for a customer.
-   */
-  public List<MailingAddressInput> getAddresses() {
-    return addresses;
-  }
-
-  public void setAddresses(List<MailingAddressInput> addresses) {
-    this.addresses = addresses;
   }
 
   /**
@@ -188,7 +172,7 @@ public class CustomerSetInput {
 
   @Override
   public String toString() {
-    return "CustomerSetInput{addresses='" + addresses + "', email='" + email + "', firstName='" + firstName + "', lastName='" + lastName + "', locale='" + locale + "', note='" + note + "', phone='" + phone + "', tags='" + tags + "', taxExempt='" + taxExempt + "', taxExemptions='" + taxExemptions + "'}";
+    return "CustomerSetInput{email='" + email + "', firstName='" + firstName + "', lastName='" + lastName + "', locale='" + locale + "', note='" + note + "', phone='" + phone + "', tags='" + tags + "', taxExempt='" + taxExempt + "', taxExemptions='" + taxExemptions + "'}";
   }
 
   @Override
@@ -196,8 +180,7 @@ public class CustomerSetInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     CustomerSetInput that = (CustomerSetInput) o;
-    return Objects.equals(addresses, that.addresses) &&
-        Objects.equals(email, that.email) &&
+    return Objects.equals(email, that.email) &&
         Objects.equals(firstName, that.firstName) &&
         Objects.equals(lastName, that.lastName) &&
         Objects.equals(locale, that.locale) &&
@@ -210,7 +193,7 @@ public class CustomerSetInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addresses, email, firstName, lastName, locale, note, phone, tags, taxExempt, taxExemptions);
+    return Objects.hash(email, firstName, lastName, locale, note, phone, tags, taxExempt, taxExemptions);
   }
 
   public static Builder newBuilder() {
@@ -218,11 +201,6 @@ public class CustomerSetInput {
   }
 
   public static class Builder {
-    /**
-     * The addresses for a customer.
-     */
-    private List<MailingAddressInput> addresses;
-
     /**
      * The unique email address of the customer.
      */
@@ -276,7 +254,6 @@ public class CustomerSetInput {
 
     public CustomerSetInput build() {
       CustomerSetInput result = new CustomerSetInput();
-      result.addresses = this.addresses;
       result.email = this.email;
       result.firstName = this.firstName;
       result.lastName = this.lastName;
@@ -287,14 +264,6 @@ public class CustomerSetInput {
       result.taxExempt = this.taxExempt;
       result.taxExemptions = this.taxExemptions;
       return result;
-    }
-
-    /**
-     * The addresses for a customer.
-     */
-    public Builder addresses(List<MailingAddressInput> addresses) {
-      this.addresses = addresses;
-      return this;
     }
 
     /**

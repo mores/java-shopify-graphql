@@ -31,7 +31,8 @@ public class FileCreateInput {
   private FileCreateInputDuplicateResolutionMode duplicateResolutionMode = FileCreateInputDuplicateResolutionMode.APPEND_UUID;
 
   /**
-   * An external URL (for images only) or a
+   * The source URL of the file. An external URL can be used for images, generic files, or external videos.
+   * Videos and 3D models require a
    * [staged upload URL](https://shopify.dev/api/admin-graphql/latest/mutations/stageduploadscreate).
    */
   private String originalSource;
@@ -86,7 +87,8 @@ public class FileCreateInput {
   }
 
   /**
-   * An external URL (for images only) or a
+   * The source URL of the file. An external URL can be used for images, generic files, or external videos.
+   * Videos and 3D models require a
    * [staged upload URL](https://shopify.dev/api/admin-graphql/latest/mutations/stageduploadscreate).
    */
   public String getOriginalSource() {
@@ -146,7 +148,8 @@ public class FileCreateInput {
     private FileCreateInputDuplicateResolutionMode duplicateResolutionMode = FileCreateInputDuplicateResolutionMode.APPEND_UUID;
 
     /**
-     * An external URL (for images only) or a
+     * The source URL of the file. An external URL can be used for images, generic files, or external videos.
+     * Videos and 3D models require a
      * [staged upload URL](https://shopify.dev/api/admin-graphql/latest/mutations/stageduploadscreate).
      */
     private String originalSource;
@@ -196,7 +199,8 @@ public class FileCreateInput {
     }
 
     /**
-     * An external URL (for images only) or a
+     * The source URL of the file. An external URL can be used for images, generic files, or external videos.
+     * Videos and 3D models require a
      * [staged upload URL](https://shopify.dev/api/admin-graphql/latest/mutations/stageduploadscreate).
      */
     public Builder originalSource(String originalSource) {

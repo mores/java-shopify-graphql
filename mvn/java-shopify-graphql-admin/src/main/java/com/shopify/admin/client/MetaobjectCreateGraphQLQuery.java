@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.MetaobjectCreateInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -27,6 +32,22 @@ public class MetaobjectCreateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public MetaobjectCreateGraphQLQuery(MetaobjectCreateInput metaobject, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (metaobject != null || fieldsSet.contains("metaobject")) {
+        getInput().put("metaobject", metaobject);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public MetaobjectCreateGraphQLQuery() {
     super("mutation");
   }
@@ -43,12 +64,16 @@ public class MetaobjectCreateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private MetaobjectCreateInput metaobject;
 
     private String queryName;
 
     public MetaobjectCreateGraphQLQuery build() {
-      return new MetaobjectCreateGraphQLQuery(metaobject, queryName, fieldsSet);
+      return new MetaobjectCreateGraphQLQuery(metaobject, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -57,6 +82,16 @@ public class MetaobjectCreateGraphQLQuery extends GraphQLQuery {
      */
     public Builder metaobject(MetaobjectCreateInput metaobject) {
       this.metaobject = metaobject;
+      this.fieldsSet.add("metaobject");
+      return this;
+    }
+
+    /**
+     * The parameters for the metaobject to create.
+     */
+    public Builder metaobjectReference(String variableRef) {
+      this.variableReferences.put("metaobject", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("MetaobjectCreateInput"))).build());
       this.fieldsSet.add("metaobject");
       return this;
     }

@@ -34,14 +34,27 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
   private List<ShopAlert> alerts;
 
   /**
-   * A list of the shop's product categories. Limit: 1000 product categories.
+   * A list of the shop's product categories. Limit: 500 product categories.
    */
   private List<ProductCategory> allProductCategories;
 
   /**
-   * A list of the shop's product categories. Limit: 1000 product categories.
+   * A list of the shop's product categories. Limit: 500 product categories.
    */
   private List<TaxonomyCategory> allProductCategoriesList;
+
+  /**
+   * Returns a paginated list of [analytics annotations](https://shopify.dev/docs/api/admin-graphql/latest/objects/AnalyticsAnnotation)
+   * for the shop, including Shopify-generated annotations and annotations created by staff members or apps.
+   * Annotations are markers that can be overlaid on analytics charts to give merchants context for changes in
+   * their metrics.
+   *   
+   * Supports filtering by title, type, source, start date and time, end date and time, creation date and time, and
+   * update date and time. Results can be sorted by ID or by any of the supported date and time fields. Use the
+   * [`analyticsAnnotationCreate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/analyticsAnnotationCreate)
+   * mutation to add new app-created annotations.
+   */
+  private AnalyticsAnnotationConnection analyticsAnnotations;
 
   /**
    * The token required to query the shop's reports or dashboards.
@@ -479,7 +492,7 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
   }
 
   /**
-   * A list of the shop's product categories. Limit: 1000 product categories.
+   * A list of the shop's product categories. Limit: 500 product categories.
    */
   public List<ProductCategory> getAllProductCategories() {
     return allProductCategories;
@@ -490,7 +503,7 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
   }
 
   /**
-   * A list of the shop's product categories. Limit: 1000 product categories.
+   * A list of the shop's product categories. Limit: 500 product categories.
    */
   public List<TaxonomyCategory> getAllProductCategoriesList() {
     return allProductCategoriesList;
@@ -498,6 +511,25 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
 
   public void setAllProductCategoriesList(List<TaxonomyCategory> allProductCategoriesList) {
     this.allProductCategoriesList = allProductCategoriesList;
+  }
+
+  /**
+   * Returns a paginated list of [analytics annotations](https://shopify.dev/docs/api/admin-graphql/latest/objects/AnalyticsAnnotation)
+   * for the shop, including Shopify-generated annotations and annotations created by staff members or apps.
+   * Annotations are markers that can be overlaid on analytics charts to give merchants context for changes in
+   * their metrics.
+   *   
+   * Supports filtering by title, type, source, start date and time, end date and time, creation date and time, and
+   * update date and time. Results can be sorted by ID or by any of the supported date and time fields. Use the
+   * [`analyticsAnnotationCreate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/analyticsAnnotationCreate)
+   * mutation to add new app-created annotations.
+   */
+  public AnalyticsAnnotationConnection getAnalyticsAnnotations() {
+    return analyticsAnnotations;
+  }
+
+  public void setAnalyticsAnnotations(AnalyticsAnnotationConnection analyticsAnnotations) {
+    this.analyticsAnnotations = analyticsAnnotations;
   }
 
   /**
@@ -1376,7 +1408,7 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
 
   @Override
   public String toString() {
-    return "Shop{accountOwner='" + accountOwner + "', alerts='" + alerts + "', allProductCategories='" + allProductCategories + "', allProductCategoriesList='" + allProductCategoriesList + "', analyticsToken='" + analyticsToken + "', assignedFulfillmentOrders='" + assignedFulfillmentOrders + "', availableChannelApps='" + availableChannelApps + "', billingAddress='" + billingAddress + "', channelDefinitionsForInstalledChannels='" + channelDefinitionsForInstalledChannels + "', channels='" + channels + "', checkoutApiSupported='" + checkoutApiSupported + "', collections='" + collections + "', contactEmail='" + contactEmail + "', countriesInShippingZones='" + countriesInShippingZones + "', createdAt='" + createdAt + "', currencyCode='" + currencyCode + "', currencyFormats='" + currencyFormats + "', currencySettings='" + currencySettings + "', customerAccounts='" + customerAccounts + "', customerAccountsV2='" + customerAccountsV2 + "', customerTags='" + customerTags + "', customers='" + customers + "', description='" + description + "', domains='" + domains + "', draftOrderTags='" + draftOrderTags + "', email='" + email + "', enabledPresentmentCurrencies='" + enabledPresentmentCurrencies + "', entitlements='" + entitlements + "', features='" + features + "', fulfillmentOrders='" + fulfillmentOrders + "', fulfillmentServices='" + fulfillmentServices + "', ianaTimezone='" + ianaTimezone + "', id='" + id + "', inventoryItems='" + inventoryItems + "', limitedPendingOrderCount='" + limitedPendingOrderCount + "', locations='" + locations + "', marketingSmsConsentEnabledAtCheckout='" + marketingSmsConsentEnabledAtCheckout + "', merchantApprovalSignals='" + merchantApprovalSignals + "', metafield='" + metafield + "', metafieldDefinitions='" + metafieldDefinitions + "', metafields='" + metafields + "', myshopifyDomain='" + myshopifyDomain + "', name='" + name + "', navigationSettings='" + navigationSettings + "', orderNumberFormatPrefix='" + orderNumberFormatPrefix + "', orderNumberFormatSuffix='" + orderNumberFormatSuffix + "', orderTags='" + orderTags + "', orders='" + orders + "', paymentSettings='" + paymentSettings + "', plan='" + plan + "', primaryDomain='" + primaryDomain + "', productImages='" + productImages + "', productTags='" + productTags + "', productTypes='" + productTypes + "', productVariants='" + productVariants + "', productVendors='" + productVendors + "', products='" + products + "', publicationCount='" + publicationCount + "', resourceLimits='" + resourceLimits + "', richTextEditorUrl='" + richTextEditorUrl + "', search='" + search + "', searchFilters='" + searchFilters + "', setupRequired='" + setupRequired + "', shipsToCountries='" + shipsToCountries + "', shopAddress='" + shopAddress + "', shopOwnerName='" + shopOwnerName + "', shopPolicies='" + shopPolicies + "', staffMembers='" + staffMembers + "', storefrontAccessTokens='" + storefrontAccessTokens + "', storefrontUrl='" + storefrontUrl + "', taxShipping='" + taxShipping + "', taxesIncluded='" + taxesIncluded + "', timezoneAbbreviation='" + timezoneAbbreviation + "', timezoneOffset='" + timezoneOffset + "', timezoneOffsetMinutes='" + timezoneOffsetMinutes + "', transactionalSmsDisabled='" + transactionalSmsDisabled + "', translations='" + translations + "', unitSystem='" + unitSystem + "', updatedAt='" + updatedAt + "', url='" + url + "', weightUnit='" + weightUnit + "'}";
+    return "Shop{accountOwner='" + accountOwner + "', alerts='" + alerts + "', allProductCategories='" + allProductCategories + "', allProductCategoriesList='" + allProductCategoriesList + "', analyticsAnnotations='" + analyticsAnnotations + "', analyticsToken='" + analyticsToken + "', assignedFulfillmentOrders='" + assignedFulfillmentOrders + "', availableChannelApps='" + availableChannelApps + "', billingAddress='" + billingAddress + "', channelDefinitionsForInstalledChannels='" + channelDefinitionsForInstalledChannels + "', channels='" + channels + "', checkoutApiSupported='" + checkoutApiSupported + "', collections='" + collections + "', contactEmail='" + contactEmail + "', countriesInShippingZones='" + countriesInShippingZones + "', createdAt='" + createdAt + "', currencyCode='" + currencyCode + "', currencyFormats='" + currencyFormats + "', currencySettings='" + currencySettings + "', customerAccounts='" + customerAccounts + "', customerAccountsV2='" + customerAccountsV2 + "', customerTags='" + customerTags + "', customers='" + customers + "', description='" + description + "', domains='" + domains + "', draftOrderTags='" + draftOrderTags + "', email='" + email + "', enabledPresentmentCurrencies='" + enabledPresentmentCurrencies + "', entitlements='" + entitlements + "', features='" + features + "', fulfillmentOrders='" + fulfillmentOrders + "', fulfillmentServices='" + fulfillmentServices + "', ianaTimezone='" + ianaTimezone + "', id='" + id + "', inventoryItems='" + inventoryItems + "', limitedPendingOrderCount='" + limitedPendingOrderCount + "', locations='" + locations + "', marketingSmsConsentEnabledAtCheckout='" + marketingSmsConsentEnabledAtCheckout + "', merchantApprovalSignals='" + merchantApprovalSignals + "', metafield='" + metafield + "', metafieldDefinitions='" + metafieldDefinitions + "', metafields='" + metafields + "', myshopifyDomain='" + myshopifyDomain + "', name='" + name + "', navigationSettings='" + navigationSettings + "', orderNumberFormatPrefix='" + orderNumberFormatPrefix + "', orderNumberFormatSuffix='" + orderNumberFormatSuffix + "', orderTags='" + orderTags + "', orders='" + orders + "', paymentSettings='" + paymentSettings + "', plan='" + plan + "', primaryDomain='" + primaryDomain + "', productImages='" + productImages + "', productTags='" + productTags + "', productTypes='" + productTypes + "', productVariants='" + productVariants + "', productVendors='" + productVendors + "', products='" + products + "', publicationCount='" + publicationCount + "', resourceLimits='" + resourceLimits + "', richTextEditorUrl='" + richTextEditorUrl + "', search='" + search + "', searchFilters='" + searchFilters + "', setupRequired='" + setupRequired + "', shipsToCountries='" + shipsToCountries + "', shopAddress='" + shopAddress + "', shopOwnerName='" + shopOwnerName + "', shopPolicies='" + shopPolicies + "', staffMembers='" + staffMembers + "', storefrontAccessTokens='" + storefrontAccessTokens + "', storefrontUrl='" + storefrontUrl + "', taxShipping='" + taxShipping + "', taxesIncluded='" + taxesIncluded + "', timezoneAbbreviation='" + timezoneAbbreviation + "', timezoneOffset='" + timezoneOffset + "', timezoneOffsetMinutes='" + timezoneOffsetMinutes + "', transactionalSmsDisabled='" + transactionalSmsDisabled + "', translations='" + translations + "', unitSystem='" + unitSystem + "', updatedAt='" + updatedAt + "', url='" + url + "', weightUnit='" + weightUnit + "'}";
   }
 
   @Override
@@ -1388,6 +1420,7 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
         Objects.equals(alerts, that.alerts) &&
         Objects.equals(allProductCategories, that.allProductCategories) &&
         Objects.equals(allProductCategoriesList, that.allProductCategoriesList) &&
+        Objects.equals(analyticsAnnotations, that.analyticsAnnotations) &&
         Objects.equals(analyticsToken, that.analyticsToken) &&
         Objects.equals(assignedFulfillmentOrders, that.assignedFulfillmentOrders) &&
         Objects.equals(availableChannelApps, that.availableChannelApps) &&
@@ -1469,7 +1502,7 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountOwner, alerts, allProductCategories, allProductCategoriesList, analyticsToken, assignedFulfillmentOrders, availableChannelApps, billingAddress, channelDefinitionsForInstalledChannels, channels, checkoutApiSupported, collections, contactEmail, countriesInShippingZones, createdAt, currencyCode, currencyFormats, currencySettings, customerAccounts, customerAccountsV2, customerTags, customers, description, domains, draftOrderTags, email, enabledPresentmentCurrencies, entitlements, features, fulfillmentOrders, fulfillmentServices, ianaTimezone, id, inventoryItems, limitedPendingOrderCount, locations, marketingSmsConsentEnabledAtCheckout, merchantApprovalSignals, metafield, metafieldDefinitions, metafields, myshopifyDomain, name, navigationSettings, orderNumberFormatPrefix, orderNumberFormatSuffix, orderTags, orders, paymentSettings, plan, primaryDomain, productImages, productTags, productTypes, productVariants, productVendors, products, publicationCount, resourceLimits, richTextEditorUrl, search, searchFilters, setupRequired, shipsToCountries, shopAddress, shopOwnerName, shopPolicies, staffMembers, storefrontAccessTokens, storefrontUrl, taxShipping, taxesIncluded, timezoneAbbreviation, timezoneOffset, timezoneOffsetMinutes, transactionalSmsDisabled, translations, unitSystem, updatedAt, url, weightUnit);
+    return Objects.hash(accountOwner, alerts, allProductCategories, allProductCategoriesList, analyticsAnnotations, analyticsToken, assignedFulfillmentOrders, availableChannelApps, billingAddress, channelDefinitionsForInstalledChannels, channels, checkoutApiSupported, collections, contactEmail, countriesInShippingZones, createdAt, currencyCode, currencyFormats, currencySettings, customerAccounts, customerAccountsV2, customerTags, customers, description, domains, draftOrderTags, email, enabledPresentmentCurrencies, entitlements, features, fulfillmentOrders, fulfillmentServices, ianaTimezone, id, inventoryItems, limitedPendingOrderCount, locations, marketingSmsConsentEnabledAtCheckout, merchantApprovalSignals, metafield, metafieldDefinitions, metafields, myshopifyDomain, name, navigationSettings, orderNumberFormatPrefix, orderNumberFormatSuffix, orderTags, orders, paymentSettings, plan, primaryDomain, productImages, productTags, productTypes, productVariants, productVendors, products, publicationCount, resourceLimits, richTextEditorUrl, search, searchFilters, setupRequired, shipsToCountries, shopAddress, shopOwnerName, shopPolicies, staffMembers, storefrontAccessTokens, storefrontUrl, taxShipping, taxesIncluded, timezoneAbbreviation, timezoneOffset, timezoneOffsetMinutes, transactionalSmsDisabled, translations, unitSystem, updatedAt, url, weightUnit);
   }
 
   public static Builder newBuilder() {
@@ -1488,14 +1521,27 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
     private List<ShopAlert> alerts;
 
     /**
-     * A list of the shop's product categories. Limit: 1000 product categories.
+     * A list of the shop's product categories. Limit: 500 product categories.
      */
     private List<ProductCategory> allProductCategories;
 
     /**
-     * A list of the shop's product categories. Limit: 1000 product categories.
+     * A list of the shop's product categories. Limit: 500 product categories.
      */
     private List<TaxonomyCategory> allProductCategoriesList;
+
+    /**
+     * Returns a paginated list of [analytics annotations](https://shopify.dev/docs/api/admin-graphql/latest/objects/AnalyticsAnnotation)
+     * for the shop, including Shopify-generated annotations and annotations created by staff members or apps.
+     * Annotations are markers that can be overlaid on analytics charts to give merchants context for changes in
+     * their metrics.
+     *   
+     * Supports filtering by title, type, source, start date and time, end date and time, creation date and time, and
+     * update date and time. Results can be sorted by ID or by any of the supported date and time fields. Use the
+     * [`analyticsAnnotationCreate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/analyticsAnnotationCreate)
+     * mutation to add new app-created annotations.
+     */
+    private AnalyticsAnnotationConnection analyticsAnnotations;
 
     /**
      * The token required to query the shop's reports or dashboards.
@@ -1913,6 +1959,7 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
       result.alerts = this.alerts;
       result.allProductCategories = this.allProductCategories;
       result.allProductCategoriesList = this.allProductCategoriesList;
+      result.analyticsAnnotations = this.analyticsAnnotations;
       result.analyticsToken = this.analyticsToken;
       result.assignedFulfillmentOrders = this.assignedFulfillmentOrders;
       result.availableChannelApps = this.availableChannelApps;
@@ -2010,7 +2057,7 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
     }
 
     /**
-     * A list of the shop's product categories. Limit: 1000 product categories.
+     * A list of the shop's product categories. Limit: 500 product categories.
      */
     public Builder allProductCategories(List<ProductCategory> allProductCategories) {
       this.allProductCategories = allProductCategories;
@@ -2018,10 +2065,26 @@ public class Shop implements MetafieldReferencer, com.shopify.admin.types.HasMet
     }
 
     /**
-     * A list of the shop's product categories. Limit: 1000 product categories.
+     * A list of the shop's product categories. Limit: 500 product categories.
      */
     public Builder allProductCategoriesList(List<TaxonomyCategory> allProductCategoriesList) {
       this.allProductCategoriesList = allProductCategoriesList;
+      return this;
+    }
+
+    /**
+     * Returns a paginated list of [analytics annotations](https://shopify.dev/docs/api/admin-graphql/latest/objects/AnalyticsAnnotation)
+     * for the shop, including Shopify-generated annotations and annotations created by staff members or apps.
+     * Annotations are markers that can be overlaid on analytics charts to give merchants context for changes in
+     * their metrics.
+     *   
+     * Supports filtering by title, type, source, start date and time, end date and time, creation date and time, and
+     * update date and time. Results can be sorted by ID or by any of the supported date and time fields. Use the
+     * [`analyticsAnnotationCreate`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/analyticsAnnotationCreate)
+     * mutation to add new app-created annotations.
+     */
+    public Builder analyticsAnnotations(AnalyticsAnnotationConnection analyticsAnnotations) {
+      this.analyticsAnnotations = analyticsAnnotations;
       return this;
     }
 

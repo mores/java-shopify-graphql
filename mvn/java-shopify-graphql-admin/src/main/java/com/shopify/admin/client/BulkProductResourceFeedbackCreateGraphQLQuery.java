@@ -2,10 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.ProductResourceFeedbackInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -18,6 +22,22 @@ public class BulkProductResourceFeedbackCreateGraphQLQuery extends GraphQLQuery 
     if (feedbackInput != null || fieldsSet.contains("feedbackInput")) {
         getInput().put("feedbackInput", feedbackInput);
     }
+  }
+
+  public BulkProductResourceFeedbackCreateGraphQLQuery(
+      List<ProductResourceFeedbackInput> feedbackInput, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (feedbackInput != null || fieldsSet.contains("feedbackInput")) {
+        getInput().put("feedbackInput", feedbackInput);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public BulkProductResourceFeedbackCreateGraphQLQuery() {
@@ -36,12 +56,16 @@ public class BulkProductResourceFeedbackCreateGraphQLQuery extends GraphQLQuery 
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private List<ProductResourceFeedbackInput> feedbackInput;
 
     private String queryName;
 
     public BulkProductResourceFeedbackCreateGraphQLQuery build() {
-      return new BulkProductResourceFeedbackCreateGraphQLQuery(feedbackInput, queryName, fieldsSet);
+      return new BulkProductResourceFeedbackCreateGraphQLQuery(feedbackInput, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -50,6 +74,16 @@ public class BulkProductResourceFeedbackCreateGraphQLQuery extends GraphQLQuery 
      */
     public Builder feedbackInput(List<ProductResourceFeedbackInput> feedbackInput) {
       this.feedbackInput = feedbackInput;
+      this.fieldsSet.add("feedbackInput");
+      return this;
+    }
+
+    /**
+     * An array of inputs to create the feedback. Limited to 50.
+     */
+    public Builder feedbackInputReference(String variableRef) {
+      this.variableReferences.put("feedbackInput", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("ProductResourceFeedbackInput"))))).build());
       this.fieldsSet.add("feedbackInput");
       return this;
     }

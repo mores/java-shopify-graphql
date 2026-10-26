@@ -28,6 +28,11 @@ public class DiscountRedeemCodeProjection<PARENT extends BaseSubProjectionNode<?
     return this;
   }
 
+  public DiscountRedeemCodeProjection<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
+    return this;
+  }
+
   public DiscountRedeemCodeProjection<PARENT, ROOT> id() {
     getFields().put("id", null);
     return this;

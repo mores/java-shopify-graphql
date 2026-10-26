@@ -12,6 +12,13 @@ public class StandardMetaobjectDefinitionTemplateProjection<PARENT extends BaseS
     return this;
   }
 
+  public MetaobjectAccessProjection<StandardMetaobjectDefinitionTemplateProjection<PARENT, ROOT>, ROOT> access(
+      ) {
+     MetaobjectAccessProjection<StandardMetaobjectDefinitionTemplateProjection<PARENT, ROOT>, ROOT> projection = new MetaobjectAccessProjection<>(this, getRoot());
+     getFields().put("access", projection);
+     return projection;
+  }
+
   public StandardMetaobjectCapabilityTemplateProjection<StandardMetaobjectDefinitionTemplateProjection<PARENT, ROOT>, ROOT> enabledCapabilities(
       ) {
      StandardMetaobjectCapabilityTemplateProjection<StandardMetaobjectDefinitionTemplateProjection<PARENT, ROOT>, ROOT> projection = new StandardMetaobjectCapabilityTemplateProjection<>(this, getRoot());

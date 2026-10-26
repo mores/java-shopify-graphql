@@ -43,7 +43,7 @@ public class MetafieldInput {
   private String value;
 
   /**
-   * The type of data that is stored in the metafield.
+   * The type of data that's stored in the metafield.
    * Refer to the list of [supported types](https://shopify.dev/apps/metafields/types).
    *   
    * Required when creating or updating a metafield without a definition.
@@ -109,7 +109,7 @@ public class MetafieldInput {
   }
 
   /**
-   * The type of data that is stored in the metafield.
+   * The type of data that's stored in the metafield.
    * Refer to the list of [supported types](https://shopify.dev/apps/metafields/types).
    *   
    * Required when creating or updating a metafield without a definition.
@@ -181,7 +181,7 @@ public class MetafieldInput {
     private String value;
 
     /**
-     * The type of data that is stored in the metafield.
+     * The type of data that's stored in the metafield.
      * Refer to the list of [supported types](https://shopify.dev/apps/metafields/types).
      *   
      * Required when creating or updating a metafield without a definition.
@@ -242,7 +242,7 @@ public class MetafieldInput {
     }
 
     /**
-     * The type of data that is stored in the metafield.
+     * The type of data that's stored in the metafield.
      * Refer to the list of [supported types](https://shopify.dev/apps/metafields/types).
      *   
      * Required when creating or updating a metafield without a definition.

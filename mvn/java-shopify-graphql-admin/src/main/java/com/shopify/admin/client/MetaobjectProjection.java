@@ -57,7 +57,17 @@ public class MetaobjectProjection<PARENT extends BaseSubProjectionNode<?, ?>, RO
     MetaobjectFieldProjection<MetaobjectProjection<PARENT, ROOT>, ROOT> projection = new MetaobjectFieldProjection<>(this, getRoot());    
     getFields().put("field", projection);
     getInputArguments().computeIfAbsent("field", k -> new ArrayList<>());                      
-    InputArgument keyArg = new InputArgument("key", key);
+    InputArgument keyArg = new InputArgument("key", key, false, null);
+    getInputArguments().get("field").add(keyArg);
+    return projection;
+  }
+
+  public MetaobjectFieldProjection<MetaobjectProjection<PARENT, ROOT>, ROOT> fieldWithVariableReferences(
+      String keyReference) {
+    MetaobjectFieldProjection<MetaobjectProjection<PARENT, ROOT>, ROOT> projection = new MetaobjectFieldProjection<>(this, getRoot());    
+    getFields().put("field", projection);
+    getInputArguments().computeIfAbsent("field", k -> new ArrayList<>());              
+    InputArgument keyArg = new InputArgument("key", keyReference, true, new graphql.language.NonNullType(new graphql.language.TypeName("String")));
     getInputArguments().get("field").add(keyArg);
     return projection;
   }
@@ -80,15 +90,34 @@ public class MetaobjectProjection<PARENT extends BaseSubProjectionNode<?, ?>, RO
     MetafieldRelationConnectionProjection<MetaobjectProjection<PARENT, ROOT>, ROOT> projection = new MetafieldRelationConnectionProjection<>(this, getRoot());    
     getFields().put("referencedBy", projection);
     getInputArguments().computeIfAbsent("referencedBy", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("referencedBy").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("referencedBy").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("referencedBy").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("referencedBy").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("referencedBy").add(reverseArg);
+    return projection;
+  }
+
+  public MetafieldRelationConnectionProjection<MetaobjectProjection<PARENT, ROOT>, ROOT> referencedByWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    MetafieldRelationConnectionProjection<MetaobjectProjection<PARENT, ROOT>, ROOT> projection = new MetafieldRelationConnectionProjection<>(this, getRoot());    
+    getFields().put("referencedBy", projection);
+    getInputArguments().computeIfAbsent("referencedBy", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("referencedBy").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("referencedBy").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("referencedBy").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("referencedBy").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("referencedBy").add(reverseArg);
     return projection;
   }
@@ -132,6 +161,11 @@ public class MetaobjectProjection<PARENT extends BaseSubProjectionNode<?, ?>, RO
 
   public MetaobjectProjection<PARENT, ROOT> updatedAt() {
     getFields().put("updatedAt", null);
+    return this;
+  }
+
+  public MetaobjectProjection<PARENT, ROOT> values() {
+    getFields().put("values", null);
     return this;
   }
 }

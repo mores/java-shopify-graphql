@@ -1,10 +1,15 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -33,6 +38,28 @@ public class OrderEditAddVariantGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public OrderEditAddVariantGraphQLQuery(String id, String variantId, String locationId,
+      int quantity, Boolean allowDuplicates, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (variantId != null || fieldsSet.contains("variantId")) {
+        getInput().put("variantId", variantId);
+    }if (locationId != null || fieldsSet.contains("locationId")) {
+        getInput().put("locationId", locationId);
+    }getInput().put("quantity", quantity);                   if (allowDuplicates != null || fieldsSet.contains("allowDuplicates")) {
+        getInput().put("allowDuplicates", allowDuplicates);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public OrderEditAddVariantGraphQLQuery() {
     super("mutation");
   }
@@ -49,6 +76,10 @@ public class OrderEditAddVariantGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private String variantId;
@@ -62,7 +93,7 @@ public class OrderEditAddVariantGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public OrderEditAddVariantGraphQLQuery build() {
-      return new OrderEditAddVariantGraphQLQuery(id, variantId, locationId, quantity, allowDuplicates, queryName, fieldsSet);
+      return new OrderEditAddVariantGraphQLQuery(id, variantId, locationId, quantity, allowDuplicates, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -77,6 +108,17 @@ public class OrderEditAddVariantGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
+     * or the order edit session to edit.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The ID of the variant to add.
      */
     public Builder variantId(String variantId) {
@@ -86,11 +128,34 @@ public class OrderEditAddVariantGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the variant to add.
+     */
+    public Builder variantIdReference(String variableRef) {
+      this.variableReferences.put("variantId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("variantId");
+      return this;
+    }
+
+    /**
      * The ID of the [location](https://shopify.dev/api/admin-graphql/latest/objects/location)
-     * to check for inventory availability. A default location ID is chosen automatically if none is provided.
+     * to check for inventory availability. Used for tax calculations. A default
+     * location ID is chosen automatically if none is provided.
      */
     public Builder locationId(String locationId) {
       this.locationId = locationId;
+      this.fieldsSet.add("locationId");
+      return this;
+    }
+
+    /**
+     * The ID of the [location](https://shopify.dev/api/admin-graphql/latest/objects/location)
+     * to check for inventory availability. Used for tax calculations. A default
+     * location ID is chosen automatically if none is provided.
+     */
+    public Builder locationIdReference(String variableRef) {
+      this.variableReferences.put("locationId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("ID")).build());
       this.fieldsSet.add("locationId");
       return this;
     }
@@ -105,10 +170,30 @@ public class OrderEditAddVariantGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The quantity of the item to add to the order. Must be a positive value.
+     */
+    public Builder quantityReference(String variableRef) {
+      this.variableReferences.put("quantity", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("Int"))).build());
+      this.fieldsSet.add("quantity");
+      return this;
+    }
+
+    /**
      * Whether the mutation can create a line item for a variant that's already on the calculated order.
      */
     public Builder allowDuplicates(Boolean allowDuplicates) {
       this.allowDuplicates = allowDuplicates;
+      this.fieldsSet.add("allowDuplicates");
+      return this;
+    }
+
+    /**
+     * Whether the mutation can create a line item for a variant that's already on the calculated order.
+     */
+    public Builder allowDuplicatesReference(String variableRef) {
+      this.variableReferences.put("allowDuplicates", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Boolean")).build());
       this.fieldsSet.add("allowDuplicates");
       return this;
     }

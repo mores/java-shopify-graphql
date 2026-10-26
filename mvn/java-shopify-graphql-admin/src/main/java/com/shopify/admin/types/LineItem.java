@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,6 +43,11 @@ public class LineItem implements com.shopify.admin.types.Node {
    * The subscription contract associated with this line item.
    */
   private SubscriptionContract contract;
+
+  /**
+   * The date and time when the line item was created.
+   */
+  private OffsetDateTime createdAt;
 
   /**
    * The number of units ordered, excluding refunded and removed units.
@@ -190,6 +196,13 @@ public class LineItem implements com.shopify.admin.types.Node {
   private MoneyBag originalUnitPriceSet;
 
   /**
+   * The total price of the line item in shop and presentment currencies,
+   * after all discounts are applied and excluding refunded and removed quantities.
+   * This value doesn't include taxes.
+   */
+  private MoneyBag priceAfterAllDiscountsBeforeTaxesSet;
+
+  /**
    * The Product object associated with this line item's variant.
    */
   private Product product;
@@ -306,6 +319,11 @@ public class LineItem implements com.shopify.admin.types.Node {
    */
   private String vendor;
 
+  /**
+   * The weight of a line item unit.
+   */
+  private Weight weight;
+
   public LineItem() {
   }
 
@@ -329,6 +347,17 @@ public class LineItem implements com.shopify.admin.types.Node {
 
   public void setContract(SubscriptionContract contract) {
     this.contract = contract;
+  }
+
+  /**
+   * The date and time when the line item was created.
+   */
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
   /**
@@ -617,6 +646,20 @@ public class LineItem implements com.shopify.admin.types.Node {
   }
 
   /**
+   * The total price of the line item in shop and presentment currencies,
+   * after all discounts are applied and excluding refunded and removed quantities.
+   * This value doesn't include taxes.
+   */
+  public MoneyBag getPriceAfterAllDiscountsBeforeTaxesSet() {
+    return priceAfterAllDiscountsBeforeTaxesSet;
+  }
+
+  public void setPriceAfterAllDiscountsBeforeTaxesSet(
+      MoneyBag priceAfterAllDiscountsBeforeTaxesSet) {
+    this.priceAfterAllDiscountsBeforeTaxesSet = priceAfterAllDiscountsBeforeTaxesSet;
+  }
+
+  /**
    * The Product object associated with this line item's variant.
    */
   public Product getProduct() {
@@ -866,9 +909,20 @@ public class LineItem implements com.shopify.admin.types.Node {
     this.vendor = vendor;
   }
 
+  /**
+   * The weight of a line item unit.
+   */
+  public Weight getWeight() {
+    return weight;
+  }
+
+  public void setWeight(Weight weight) {
+    this.weight = weight;
+  }
+
   @Override
   public String toString() {
-    return "LineItem{canRestock='" + canRestock + "', contract='" + contract + "', currentQuantity='" + currentQuantity + "', customAttributes='" + customAttributes + "', discountAllocations='" + discountAllocations + "', discountedTotal='" + discountedTotal + "', discountedTotalSet='" + discountedTotalSet + "', discountedUnitPrice='" + discountedUnitPrice + "', discountedUnitPriceAfterAllDiscountsSet='" + discountedUnitPriceAfterAllDiscountsSet + "', discountedUnitPriceSet='" + discountedUnitPriceSet + "', duties='" + duties + "', fulfillableQuantity='" + fulfillableQuantity + "', fulfillmentService='" + fulfillmentService + "', fulfillmentStatus='" + fulfillmentStatus + "', id='" + id + "', image='" + image + "', isGiftCard='" + isGiftCard + "', lineItemGroup='" + lineItemGroup + "', merchantEditable='" + merchantEditable + "', name='" + name + "', nonFulfillableQuantity='" + nonFulfillableQuantity + "', originalTotal='" + originalTotal + "', originalTotalSet='" + originalTotalSet + "', originalUnitPrice='" + originalUnitPrice + "', originalUnitPriceSet='" + originalUnitPriceSet + "', product='" + product + "', quantity='" + quantity + "', refundableQuantity='" + refundableQuantity + "', requiresShipping='" + requiresShipping + "', restockable='" + restockable + "', sellingPlan='" + sellingPlan + "', sku='" + sku + "', staffMember='" + staffMember + "', suggestedReturnReasonDefinitions='" + suggestedReturnReasonDefinitions + "', taxLines='" + taxLines + "', taxable='" + taxable + "', title='" + title + "', totalDiscount='" + totalDiscount + "', totalDiscountSet='" + totalDiscountSet + "', unfulfilledDiscountedTotal='" + unfulfilledDiscountedTotal + "', unfulfilledDiscountedTotalSet='" + unfulfilledDiscountedTotalSet + "', unfulfilledOriginalTotal='" + unfulfilledOriginalTotal + "', unfulfilledOriginalTotalSet='" + unfulfilledOriginalTotalSet + "', unfulfilledQuantity='" + unfulfilledQuantity + "', variant='" + variant + "', variantTitle='" + variantTitle + "', vendor='" + vendor + "'}";
+    return "LineItem{canRestock='" + canRestock + "', contract='" + contract + "', createdAt='" + createdAt + "', currentQuantity='" + currentQuantity + "', customAttributes='" + customAttributes + "', discountAllocations='" + discountAllocations + "', discountedTotal='" + discountedTotal + "', discountedTotalSet='" + discountedTotalSet + "', discountedUnitPrice='" + discountedUnitPrice + "', discountedUnitPriceAfterAllDiscountsSet='" + discountedUnitPriceAfterAllDiscountsSet + "', discountedUnitPriceSet='" + discountedUnitPriceSet + "', duties='" + duties + "', fulfillableQuantity='" + fulfillableQuantity + "', fulfillmentService='" + fulfillmentService + "', fulfillmentStatus='" + fulfillmentStatus + "', id='" + id + "', image='" + image + "', isGiftCard='" + isGiftCard + "', lineItemGroup='" + lineItemGroup + "', merchantEditable='" + merchantEditable + "', name='" + name + "', nonFulfillableQuantity='" + nonFulfillableQuantity + "', originalTotal='" + originalTotal + "', originalTotalSet='" + originalTotalSet + "', originalUnitPrice='" + originalUnitPrice + "', originalUnitPriceSet='" + originalUnitPriceSet + "', priceAfterAllDiscountsBeforeTaxesSet='" + priceAfterAllDiscountsBeforeTaxesSet + "', product='" + product + "', quantity='" + quantity + "', refundableQuantity='" + refundableQuantity + "', requiresShipping='" + requiresShipping + "', restockable='" + restockable + "', sellingPlan='" + sellingPlan + "', sku='" + sku + "', staffMember='" + staffMember + "', suggestedReturnReasonDefinitions='" + suggestedReturnReasonDefinitions + "', taxLines='" + taxLines + "', taxable='" + taxable + "', title='" + title + "', totalDiscount='" + totalDiscount + "', totalDiscountSet='" + totalDiscountSet + "', unfulfilledDiscountedTotal='" + unfulfilledDiscountedTotal + "', unfulfilledDiscountedTotalSet='" + unfulfilledDiscountedTotalSet + "', unfulfilledOriginalTotal='" + unfulfilledOriginalTotal + "', unfulfilledOriginalTotalSet='" + unfulfilledOriginalTotalSet + "', unfulfilledQuantity='" + unfulfilledQuantity + "', variant='" + variant + "', variantTitle='" + variantTitle + "', vendor='" + vendor + "', weight='" + weight + "'}";
   }
 
   @Override
@@ -878,6 +932,7 @@ public class LineItem implements com.shopify.admin.types.Node {
     LineItem that = (LineItem) o;
     return canRestock == that.canRestock &&
         Objects.equals(contract, that.contract) &&
+        Objects.equals(createdAt, that.createdAt) &&
         currentQuantity == that.currentQuantity &&
         Objects.equals(customAttributes, that.customAttributes) &&
         Objects.equals(discountAllocations, that.discountAllocations) &&
@@ -901,6 +956,7 @@ public class LineItem implements com.shopify.admin.types.Node {
         Objects.equals(originalTotalSet, that.originalTotalSet) &&
         Objects.equals(originalUnitPrice, that.originalUnitPrice) &&
         Objects.equals(originalUnitPriceSet, that.originalUnitPriceSet) &&
+        Objects.equals(priceAfterAllDiscountsBeforeTaxesSet, that.priceAfterAllDiscountsBeforeTaxesSet) &&
         Objects.equals(product, that.product) &&
         quantity == that.quantity &&
         refundableQuantity == that.refundableQuantity &&
@@ -922,12 +978,13 @@ public class LineItem implements com.shopify.admin.types.Node {
         unfulfilledQuantity == that.unfulfilledQuantity &&
         Objects.equals(variant, that.variant) &&
         Objects.equals(variantTitle, that.variantTitle) &&
-        Objects.equals(vendor, that.vendor);
+        Objects.equals(vendor, that.vendor) &&
+        Objects.equals(weight, that.weight);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(canRestock, contract, currentQuantity, customAttributes, discountAllocations, discountedTotal, discountedTotalSet, discountedUnitPrice, discountedUnitPriceAfterAllDiscountsSet, discountedUnitPriceSet, duties, fulfillableQuantity, fulfillmentService, fulfillmentStatus, id, image, isGiftCard, lineItemGroup, merchantEditable, name, nonFulfillableQuantity, originalTotal, originalTotalSet, originalUnitPrice, originalUnitPriceSet, product, quantity, refundableQuantity, requiresShipping, restockable, sellingPlan, sku, staffMember, suggestedReturnReasonDefinitions, taxLines, taxable, title, totalDiscount, totalDiscountSet, unfulfilledDiscountedTotal, unfulfilledDiscountedTotalSet, unfulfilledOriginalTotal, unfulfilledOriginalTotalSet, unfulfilledQuantity, variant, variantTitle, vendor);
+    return Objects.hash(canRestock, contract, createdAt, currentQuantity, customAttributes, discountAllocations, discountedTotal, discountedTotalSet, discountedUnitPrice, discountedUnitPriceAfterAllDiscountsSet, discountedUnitPriceSet, duties, fulfillableQuantity, fulfillmentService, fulfillmentStatus, id, image, isGiftCard, lineItemGroup, merchantEditable, name, nonFulfillableQuantity, originalTotal, originalTotalSet, originalUnitPrice, originalUnitPriceSet, priceAfterAllDiscountsBeforeTaxesSet, product, quantity, refundableQuantity, requiresShipping, restockable, sellingPlan, sku, staffMember, suggestedReturnReasonDefinitions, taxLines, taxable, title, totalDiscount, totalDiscountSet, unfulfilledDiscountedTotal, unfulfilledDiscountedTotalSet, unfulfilledOriginalTotal, unfulfilledOriginalTotalSet, unfulfilledQuantity, variant, variantTitle, vendor, weight);
   }
 
   public static Builder newBuilder() {
@@ -944,6 +1001,11 @@ public class LineItem implements com.shopify.admin.types.Node {
      * The subscription contract associated with this line item.
      */
     private SubscriptionContract contract;
+
+    /**
+     * The date and time when the line item was created.
+     */
+    private OffsetDateTime createdAt;
 
     /**
      * The number of units ordered, excluding refunded and removed units.
@@ -1092,6 +1154,13 @@ public class LineItem implements com.shopify.admin.types.Node {
     private MoneyBag originalUnitPriceSet;
 
     /**
+     * The total price of the line item in shop and presentment currencies,
+     * after all discounts are applied and excluding refunded and removed quantities.
+     * This value doesn't include taxes.
+     */
+    private MoneyBag priceAfterAllDiscountsBeforeTaxesSet;
+
+    /**
      * The Product object associated with this line item's variant.
      */
     private Product product;
@@ -1208,10 +1277,16 @@ public class LineItem implements com.shopify.admin.types.Node {
      */
     private String vendor;
 
+    /**
+     * The weight of a line item unit.
+     */
+    private Weight weight;
+
     public LineItem build() {
       LineItem result = new LineItem();
       result.canRestock = this.canRestock;
       result.contract = this.contract;
+      result.createdAt = this.createdAt;
       result.currentQuantity = this.currentQuantity;
       result.customAttributes = this.customAttributes;
       result.discountAllocations = this.discountAllocations;
@@ -1235,6 +1310,7 @@ public class LineItem implements com.shopify.admin.types.Node {
       result.originalTotalSet = this.originalTotalSet;
       result.originalUnitPrice = this.originalUnitPrice;
       result.originalUnitPriceSet = this.originalUnitPriceSet;
+      result.priceAfterAllDiscountsBeforeTaxesSet = this.priceAfterAllDiscountsBeforeTaxesSet;
       result.product = this.product;
       result.quantity = this.quantity;
       result.refundableQuantity = this.refundableQuantity;
@@ -1257,6 +1333,7 @@ public class LineItem implements com.shopify.admin.types.Node {
       result.variant = this.variant;
       result.variantTitle = this.variantTitle;
       result.vendor = this.vendor;
+      result.weight = this.weight;
       return result;
     }
 
@@ -1273,6 +1350,14 @@ public class LineItem implements com.shopify.admin.types.Node {
      */
     public Builder contract(SubscriptionContract contract) {
       this.contract = contract;
+      return this;
+    }
+
+    /**
+     * The date and time when the line item was created.
+     */
+    public Builder createdAt(OffsetDateTime createdAt) {
+      this.createdAt = createdAt;
       return this;
     }
 
@@ -1493,6 +1578,17 @@ public class LineItem implements com.shopify.admin.types.Node {
     }
 
     /**
+     * The total price of the line item in shop and presentment currencies,
+     * after all discounts are applied and excluding refunded and removed quantities.
+     * This value doesn't include taxes.
+     */
+    public Builder priceAfterAllDiscountsBeforeTaxesSet(
+        MoneyBag priceAfterAllDiscountsBeforeTaxesSet) {
+      this.priceAfterAllDiscountsBeforeTaxesSet = priceAfterAllDiscountsBeforeTaxesSet;
+      return this;
+    }
+
+    /**
      * The Product object associated with this line item's variant.
      */
     public Builder product(Product product) {
@@ -1673,6 +1769,14 @@ public class LineItem implements com.shopify.admin.types.Node {
      */
     public Builder vendor(String vendor) {
       this.vendor = vendor;
+      return this;
+    }
+
+    /**
+     * The weight of a line item unit.
+     */
+    public Builder weight(Weight weight) {
+      this.weight = weight;
       return this;
     }
   }

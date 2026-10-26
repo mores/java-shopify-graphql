@@ -19,6 +19,14 @@ public class ReturnShippingFee implements com.shopify.admin.types.Fee {
   private MoneyBag amountSet;
 
   /**
+   * The finalized tax amount on the return shipping fee, in shop and presentment
+   * currencies. Locked in when the return is processed, and can differ from the
+   * estimate in `CalculatedReturnShippingFee.taxAmountSet`. Returns `null` until
+   * the return is processed, and zero if no tax applied to the fee.
+   */
+  private MoneyBag finalizedTaxAmountSet;
+
+  /**
    * The unique ID for the Fee.
    */
   private String id;
@@ -38,6 +46,20 @@ public class ReturnShippingFee implements com.shopify.admin.types.Fee {
   }
 
   /**
+   * The finalized tax amount on the return shipping fee, in shop and presentment
+   * currencies. Locked in when the return is processed, and can differ from the
+   * estimate in `CalculatedReturnShippingFee.taxAmountSet`. Returns `null` until
+   * the return is processed, and zero if no tax applied to the fee.
+   */
+  public MoneyBag getFinalizedTaxAmountSet() {
+    return finalizedTaxAmountSet;
+  }
+
+  public void setFinalizedTaxAmountSet(MoneyBag finalizedTaxAmountSet) {
+    this.finalizedTaxAmountSet = finalizedTaxAmountSet;
+  }
+
+  /**
    * The unique ID for the Fee.
    */
   public String getId() {
@@ -50,7 +72,7 @@ public class ReturnShippingFee implements com.shopify.admin.types.Fee {
 
   @Override
   public String toString() {
-    return "ReturnShippingFee{amountSet='" + amountSet + "', id='" + id + "'}";
+    return "ReturnShippingFee{amountSet='" + amountSet + "', finalizedTaxAmountSet='" + finalizedTaxAmountSet + "', id='" + id + "'}";
   }
 
   @Override
@@ -59,12 +81,13 @@ public class ReturnShippingFee implements com.shopify.admin.types.Fee {
     if (o == null || getClass() != o.getClass()) return false;
     ReturnShippingFee that = (ReturnShippingFee) o;
     return Objects.equals(amountSet, that.amountSet) &&
+        Objects.equals(finalizedTaxAmountSet, that.finalizedTaxAmountSet) &&
         Objects.equals(id, that.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amountSet, id);
+    return Objects.hash(amountSet, finalizedTaxAmountSet, id);
   }
 
   public static Builder newBuilder() {
@@ -78,6 +101,14 @@ public class ReturnShippingFee implements com.shopify.admin.types.Fee {
     private MoneyBag amountSet;
 
     /**
+     * The finalized tax amount on the return shipping fee, in shop and presentment
+     * currencies. Locked in when the return is processed, and can differ from the
+     * estimate in `CalculatedReturnShippingFee.taxAmountSet`. Returns `null` until
+     * the return is processed, and zero if no tax applied to the fee.
+     */
+    private MoneyBag finalizedTaxAmountSet;
+
+    /**
      * The unique ID for the Fee.
      */
     private String id;
@@ -85,6 +116,7 @@ public class ReturnShippingFee implements com.shopify.admin.types.Fee {
     public ReturnShippingFee build() {
       ReturnShippingFee result = new ReturnShippingFee();
       result.amountSet = this.amountSet;
+      result.finalizedTaxAmountSet = this.finalizedTaxAmountSet;
       result.id = this.id;
       return result;
     }
@@ -94,6 +126,17 @@ public class ReturnShippingFee implements com.shopify.admin.types.Fee {
      */
     public Builder amountSet(MoneyBag amountSet) {
       this.amountSet = amountSet;
+      return this;
+    }
+
+    /**
+     * The finalized tax amount on the return shipping fee, in shop and presentment
+     * currencies. Locked in when the return is processed, and can differ from the
+     * estimate in `CalculatedReturnShippingFee.taxAmountSet`. Returns `null` until
+     * the return is processed, and zero if no tax applied to the fee.
+     */
+    public Builder finalizedTaxAmountSet(MoneyBag finalizedTaxAmountSet) {
+      this.finalizedTaxAmountSet = finalizedTaxAmountSet;
       return this;
     }
 

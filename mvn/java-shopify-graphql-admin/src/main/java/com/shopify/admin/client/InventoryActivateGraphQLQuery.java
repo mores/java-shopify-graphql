@@ -1,11 +1,15 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
-import java.lang.Boolean;
+import graphql.language.VariableDefinition;
 import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -27,7 +31,7 @@ import java.util.Set;
  */
 public class InventoryActivateGraphQLQuery extends GraphQLQuery {
   public InventoryActivateGraphQLQuery(String inventoryItemId, String locationId, Integer available,
-      Integer onHand, Boolean stockAtLegacyLocation, String queryName, Set<String> fieldsSet) {
+      Integer onHand, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
     if (inventoryItemId != null || fieldsSet.contains("inventoryItemId")) {
         getInput().put("inventoryItemId", inventoryItemId);
@@ -37,9 +41,29 @@ public class InventoryActivateGraphQLQuery extends GraphQLQuery {
         getInput().put("available", available);
     }if (onHand != null || fieldsSet.contains("onHand")) {
         getInput().put("onHand", onHand);
-    }if (stockAtLegacyLocation != null || fieldsSet.contains("stockAtLegacyLocation")) {
-        getInput().put("stockAtLegacyLocation", stockAtLegacyLocation);
     }
+  }
+
+  public InventoryActivateGraphQLQuery(String inventoryItemId, String locationId, Integer available,
+      Integer onHand, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (inventoryItemId != null || fieldsSet.contains("inventoryItemId")) {
+        getInput().put("inventoryItemId", inventoryItemId);
+    }if (locationId != null || fieldsSet.contains("locationId")) {
+        getInput().put("locationId", locationId);
+    }if (available != null || fieldsSet.contains("available")) {
+        getInput().put("available", available);
+    }if (onHand != null || fieldsSet.contains("onHand")) {
+        getInput().put("onHand", onHand);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public InventoryActivateGraphQLQuery() {
@@ -58,6 +82,10 @@ public class InventoryActivateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String inventoryItemId;
 
     private String locationId;
@@ -66,12 +94,10 @@ public class InventoryActivateGraphQLQuery extends GraphQLQuery {
 
     private Integer onHand;
 
-    private Boolean stockAtLegacyLocation;
-
     private String queryName;
 
     public InventoryActivateGraphQLQuery build() {
-      return new InventoryActivateGraphQLQuery(inventoryItemId, locationId, available, onHand, stockAtLegacyLocation, queryName, fieldsSet);
+      return new InventoryActivateGraphQLQuery(inventoryItemId, locationId, available, onHand, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -80,6 +106,16 @@ public class InventoryActivateGraphQLQuery extends GraphQLQuery {
      */
     public Builder inventoryItemId(String inventoryItemId) {
       this.inventoryItemId = inventoryItemId;
+      this.fieldsSet.add("inventoryItemId");
+      return this;
+    }
+
+    /**
+     * The ID of the inventory item to activate.
+     */
+    public Builder inventoryItemIdReference(String variableRef) {
+      this.variableReferences.put("inventoryItemId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("inventoryItemId");
       return this;
     }
@@ -94,10 +130,30 @@ public class InventoryActivateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the location of the inventory item being activated.
+     */
+    public Builder locationIdReference(String variableRef) {
+      this.variableReferences.put("locationId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("locationId");
+      return this;
+    }
+
+    /**
      * The initial available quantity of the inventory item being activated at the location.
      */
     public Builder available(Integer available) {
       this.available = available;
+      this.fieldsSet.add("available");
+      return this;
+    }
+
+    /**
+     * The initial available quantity of the inventory item being activated at the location.
+     */
+    public Builder availableReference(String variableRef) {
+      this.variableReferences.put("available", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Int")).build());
       this.fieldsSet.add("available");
       return this;
     }
@@ -112,12 +168,12 @@ public class InventoryActivateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
-     * Allow activation at or away from fulfillment service location with sku
-     * sharing off. This will deactivate inventory at all other locations.
+     * The initial on_hand quantity of the inventory item being activated at the location.
      */
-    public Builder stockAtLegacyLocation(Boolean stockAtLegacyLocation) {
-      this.stockAtLegacyLocation = stockAtLegacyLocation;
-      this.fieldsSet.add("stockAtLegacyLocation");
+    public Builder onHandReference(String variableRef) {
+      this.variableReferences.put("onHand", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Int")).build());
+      this.fieldsSet.add("onHand");
       return this;
     }
 

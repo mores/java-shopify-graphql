@@ -2,10 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.ProductVariantAppendMediaInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -38,6 +42,24 @@ public class ProductVariantAppendMediaGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public ProductVariantAppendMediaGraphQLQuery(String productId,
+      List<ProductVariantAppendMediaInput> variantMedia, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (productId != null || fieldsSet.contains("productId")) {
+        getInput().put("productId", productId);
+    }if (variantMedia != null || fieldsSet.contains("variantMedia")) {
+        getInput().put("variantMedia", variantMedia);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public ProductVariantAppendMediaGraphQLQuery() {
     super("mutation");
   }
@@ -54,6 +76,10 @@ public class ProductVariantAppendMediaGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String productId;
 
     private List<ProductVariantAppendMediaInput> variantMedia;
@@ -61,7 +87,7 @@ public class ProductVariantAppendMediaGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public ProductVariantAppendMediaGraphQLQuery build() {
-      return new ProductVariantAppendMediaGraphQLQuery(productId, variantMedia, queryName, fieldsSet);
+      return new ProductVariantAppendMediaGraphQLQuery(productId, variantMedia, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -75,10 +101,30 @@ public class ProductVariantAppendMediaGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * Specifies the product associated to the media.
+     */
+    public Builder productIdReference(String variableRef) {
+      this.variableReferences.put("productId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("productId");
+      return this;
+    }
+
+    /**
      * A list of pairs of variants and media to be attached to the variants.
      */
     public Builder variantMedia(List<ProductVariantAppendMediaInput> variantMedia) {
       this.variantMedia = variantMedia;
+      this.fieldsSet.add("variantMedia");
+      return this;
+    }
+
+    /**
+     * A list of pairs of variants and media to be attached to the variants.
+     */
+    public Builder variantMediaReference(String variableRef) {
+      this.variableReferences.put("variantMedia", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("ProductVariantAppendMediaInput"))))).build());
       this.fieldsSet.add("variantMedia");
       return this;
     }

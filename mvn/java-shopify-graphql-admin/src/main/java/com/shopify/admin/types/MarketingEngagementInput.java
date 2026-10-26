@@ -103,17 +103,6 @@ public class MarketingEngagementInput {
   private MoneyInput adSpend;
 
   /**
-   * Specifies how the provided metrics have been aggregated. Cumulative metrics
-   * are aggregated from the first day of reporting up to and including
-   * `occuredOn`. Non-cumulative metrics are aggregated over the single day
-   * indicated in `occuredOn`. Cumulative metrics will monotonically increase in
-   * time as each record includes the previous day's values, and so on.
-   * Non-cumulative is strongly preferred, and support for cumulative metrics may
-   * be deprecated in the future.
-   */
-  private boolean isCumulative;
-
-  /**
    * The UTC offset for the time zone in which the metrics are being reported, in
    * the format `"+HH:MM"` or `"-HH:MM"`. Used in combination with occurredOn when
    * aggregating daily metrics. Must match the account settings for the shop to
@@ -343,23 +332,6 @@ public class MarketingEngagementInput {
   }
 
   /**
-   * Specifies how the provided metrics have been aggregated. Cumulative metrics
-   * are aggregated from the first day of reporting up to and including
-   * `occuredOn`. Non-cumulative metrics are aggregated over the single day
-   * indicated in `occuredOn`. Cumulative metrics will monotonically increase in
-   * time as each record includes the previous day's values, and so on.
-   * Non-cumulative is strongly preferred, and support for cumulative metrics may
-   * be deprecated in the future.
-   */
-  public boolean getIsCumulative() {
-    return isCumulative;
-  }
-
-  public void setIsCumulative(boolean isCumulative) {
-    this.isCumulative = isCumulative;
-  }
-
-  /**
    * The UTC offset for the time zone in which the metrics are being reported, in
    * the format `"+HH:MM"` or `"-HH:MM"`. Used in combination with occurredOn when
    * aggregating daily metrics. Must match the account settings for the shop to
@@ -460,7 +432,7 @@ public class MarketingEngagementInput {
 
   @Override
   public String toString() {
-    return "MarketingEngagementInput{occurredOn='" + occurredOn + "', impressionsCount='" + impressionsCount + "', viewsCount='" + viewsCount + "', clicksCount='" + clicksCount + "', sharesCount='" + sharesCount + "', favoritesCount='" + favoritesCount + "', commentsCount='" + commentsCount + "', unsubscribesCount='" + unsubscribesCount + "', complaintsCount='" + complaintsCount + "', failsCount='" + failsCount + "', sendsCount='" + sendsCount + "', uniqueViewsCount='" + uniqueViewsCount + "', uniqueClicksCount='" + uniqueClicksCount + "', adSpend='" + adSpend + "', isCumulative='" + isCumulative + "', utcOffset='" + utcOffset + "', sales='" + sales + "', sessionsCount='" + sessionsCount + "', orders='" + orders + "', firstTimeCustomers='" + firstTimeCustomers + "', returningCustomers='" + returningCustomers + "', primaryConversions='" + primaryConversions + "', allConversions='" + allConversions + "'}";
+    return "MarketingEngagementInput{occurredOn='" + occurredOn + "', impressionsCount='" + impressionsCount + "', viewsCount='" + viewsCount + "', clicksCount='" + clicksCount + "', sharesCount='" + sharesCount + "', favoritesCount='" + favoritesCount + "', commentsCount='" + commentsCount + "', unsubscribesCount='" + unsubscribesCount + "', complaintsCount='" + complaintsCount + "', failsCount='" + failsCount + "', sendsCount='" + sendsCount + "', uniqueViewsCount='" + uniqueViewsCount + "', uniqueClicksCount='" + uniqueClicksCount + "', adSpend='" + adSpend + "', utcOffset='" + utcOffset + "', sales='" + sales + "', sessionsCount='" + sessionsCount + "', orders='" + orders + "', firstTimeCustomers='" + firstTimeCustomers + "', returningCustomers='" + returningCustomers + "', primaryConversions='" + primaryConversions + "', allConversions='" + allConversions + "'}";
   }
 
   @Override
@@ -482,7 +454,6 @@ public class MarketingEngagementInput {
         Objects.equals(uniqueViewsCount, that.uniqueViewsCount) &&
         Objects.equals(uniqueClicksCount, that.uniqueClicksCount) &&
         Objects.equals(adSpend, that.adSpend) &&
-        isCumulative == that.isCumulative &&
         Objects.equals(utcOffset, that.utcOffset) &&
         Objects.equals(sales, that.sales) &&
         Objects.equals(sessionsCount, that.sessionsCount) &&
@@ -495,7 +466,7 @@ public class MarketingEngagementInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(occurredOn, impressionsCount, viewsCount, clicksCount, sharesCount, favoritesCount, commentsCount, unsubscribesCount, complaintsCount, failsCount, sendsCount, uniqueViewsCount, uniqueClicksCount, adSpend, isCumulative, utcOffset, sales, sessionsCount, orders, firstTimeCustomers, returningCustomers, primaryConversions, allConversions);
+    return Objects.hash(occurredOn, impressionsCount, viewsCount, clicksCount, sharesCount, favoritesCount, commentsCount, unsubscribesCount, complaintsCount, failsCount, sendsCount, uniqueViewsCount, uniqueClicksCount, adSpend, utcOffset, sales, sessionsCount, orders, firstTimeCustomers, returningCustomers, primaryConversions, allConversions);
   }
 
   public static Builder newBuilder() {
@@ -595,17 +566,6 @@ public class MarketingEngagementInput {
     private MoneyInput adSpend;
 
     /**
-     * Specifies how the provided metrics have been aggregated. Cumulative metrics
-     * are aggregated from the first day of reporting up to and including
-     * `occuredOn`. Non-cumulative metrics are aggregated over the single day
-     * indicated in `occuredOn`. Cumulative metrics will monotonically increase in
-     * time as each record includes the previous day's values, and so on.
-     * Non-cumulative is strongly preferred, and support for cumulative metrics may
-     * be deprecated in the future.
-     */
-    private boolean isCumulative;
-
-    /**
      * The UTC offset for the time zone in which the metrics are being reported, in
      * the format `"+HH:MM"` or `"-HH:MM"`. Used in combination with occurredOn when
      * aggregating daily metrics. Must match the account settings for the shop to
@@ -672,7 +632,6 @@ public class MarketingEngagementInput {
       result.uniqueViewsCount = this.uniqueViewsCount;
       result.uniqueClicksCount = this.uniqueClicksCount;
       result.adSpend = this.adSpend;
-      result.isCumulative = this.isCumulative;
       result.utcOffset = this.utcOffset;
       result.sales = this.sales;
       result.sessionsCount = this.sessionsCount;
@@ -814,20 +773,6 @@ public class MarketingEngagementInput {
      */
     public Builder adSpend(MoneyInput adSpend) {
       this.adSpend = adSpend;
-      return this;
-    }
-
-    /**
-     * Specifies how the provided metrics have been aggregated. Cumulative metrics
-     * are aggregated from the first day of reporting up to and including
-     * `occuredOn`. Non-cumulative metrics are aggregated over the single day
-     * indicated in `occuredOn`. Cumulative metrics will monotonically increase in
-     * time as each record includes the previous day's values, and so on.
-     * Non-cumulative is strongly preferred, and support for cumulative metrics may
-     * be deprecated in the future.
-     */
-    public Builder isCumulative(boolean isCumulative) {
-      this.isCumulative = isCumulative;
       return this;
     }
 

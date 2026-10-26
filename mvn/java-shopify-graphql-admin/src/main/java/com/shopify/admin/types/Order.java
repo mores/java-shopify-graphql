@@ -70,6 +70,11 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
   private OrderApp app;
 
   /**
+   * The attribution details for the order.
+   */
+  private OrderAttribution attribution;
+
+  /**
    * The billing address associated with the payment method selected by the customer for an order.
    * Returns `null` if no billing address was provided during checkout.
    */
@@ -135,6 +140,11 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
   private MoneyBag cartDiscountAmountSet;
 
   /**
+   * The token associated with the cart that was used to create the order.
+   */
+  private String cartToken;
+
+  /**
    * The sales channel from which an order originated, such as the [Online
    * Store](https://shopify.dev/docs/apps/build/app-surfaces#online-store) or
    * [Shopify POS](https://shopify.dev/docs/apps/build/app-surfaces#point-of-sale).
@@ -146,6 +156,13 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
    * and [channel name](https://shopify.dev/docs/api/admin-graphql/latest/objects/ChannelDefinition#field-ChannelDefinition.fields.channelName), which helps to track order sources.
    */
   private ChannelInformation channelInformation;
+
+  /**
+   * The token associated with the checkout that was used to create the order.
+   * Useful for correlating an order with the checkout it originated from,
+   * including in web pixels and analytics workflows.
+   */
+  private String checkoutToken;
 
   /**
    * The IP address of the customer who placed the order. Useful for fraud detection and geographic analysis.
@@ -337,6 +354,13 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
   private OrderDisplayFulfillmentStatus displayFulfillmentStatus;
 
   /**
+   * The order's aggregated requested order edit status for display purposes.
+   * Indicates the overall state of buyer-initiated requested order edits for the order,
+   * helping merchants track and manage pending requests.
+   */
+  private OrderDisplayRequestedEditStatus displayRequestedEditStatus;
+
+  /**
    * A list of payment disputes associated with the order, such as chargebacks or payment inquiries.
    * Disputes occur when customers challenge transactions with their bank or payment provider.
    */
@@ -522,6 +546,7 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
    * The note associated with the order.
    * Contains additional information or instructions added by merchants or customers during the order process.
    * Commonly used for special delivery instructions, gift messages, or internal processing notes.
+   * The maximum length is 5000 characters.
    */
   private String note;
 
@@ -670,6 +695,11 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
    * registry. Returns `null` if the source URL isn't in the domain registry.
    */
   private String registeredSourceUrl;
+
+  /**
+   * The buyer-initiated requested order edits on unfulfilled line items for this order.
+   */
+  private RequestedOrderEditConnection requestedOrderEdits;
 
   /**
    * Whether the order requires physical shipping to the customer.
@@ -1024,6 +1054,17 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
   }
 
   /**
+   * The attribution details for the order.
+   */
+  public OrderAttribution getAttribution() {
+    return attribution;
+  }
+
+  public void setAttribution(OrderAttribution attribution) {
+    this.attribution = attribution;
+  }
+
+  /**
    * The billing address associated with the payment method selected by the customer for an order.
    * Returns `null` if no billing address was provided during checkout.
    */
@@ -1150,6 +1191,17 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
   }
 
   /**
+   * The token associated with the cart that was used to create the order.
+   */
+  public String getCartToken() {
+    return cartToken;
+  }
+
+  public void setCartToken(String cartToken) {
+    this.cartToken = cartToken;
+  }
+
+  /**
    * The sales channel from which an order originated, such as the [Online
    * Store](https://shopify.dev/docs/apps/build/app-surfaces#online-store) or
    * [Shopify POS](https://shopify.dev/docs/apps/build/app-surfaces#point-of-sale).
@@ -1172,6 +1224,19 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
 
   public void setChannelInformation(ChannelInformation channelInformation) {
     this.channelInformation = channelInformation;
+  }
+
+  /**
+   * The token associated with the checkout that was used to create the order.
+   * Useful for correlating an order with the checkout it originated from,
+   * including in web pixels and analytics workflows.
+   */
+  public String getCheckoutToken() {
+    return checkoutToken;
+  }
+
+  public void setCheckoutToken(String checkoutToken) {
+    this.checkoutToken = checkoutToken;
   }
 
   /**
@@ -1541,6 +1606,20 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
 
   public void setDisplayFulfillmentStatus(OrderDisplayFulfillmentStatus displayFulfillmentStatus) {
     this.displayFulfillmentStatus = displayFulfillmentStatus;
+  }
+
+  /**
+   * The order's aggregated requested order edit status for display purposes.
+   * Indicates the overall state of buyer-initiated requested order edits for the order,
+   * helping merchants track and manage pending requests.
+   */
+  public OrderDisplayRequestedEditStatus getDisplayRequestedEditStatus() {
+    return displayRequestedEditStatus;
+  }
+
+  public void setDisplayRequestedEditStatus(
+      OrderDisplayRequestedEditStatus displayRequestedEditStatus) {
+    this.displayRequestedEditStatus = displayRequestedEditStatus;
   }
 
   /**
@@ -1915,6 +1994,7 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
    * The note associated with the order.
    * Contains additional information or instructions added by merchants or customers during the order process.
    * Commonly used for special delivery instructions, gift messages, or internal processing notes.
+   * The maximum length is 5000 characters.
    */
   public String getNote() {
     return note;
@@ -2200,6 +2280,17 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
 
   public void setRegisteredSourceUrl(String registeredSourceUrl) {
     this.registeredSourceUrl = registeredSourceUrl;
+  }
+
+  /**
+   * The buyer-initiated requested order edits on unfulfilled line items for this order.
+   */
+  public RequestedOrderEditConnection getRequestedOrderEdits() {
+    return requestedOrderEdits;
+  }
+
+  public void setRequestedOrderEdits(RequestedOrderEditConnection requestedOrderEdits) {
+    this.requestedOrderEdits = requestedOrderEdits;
   }
 
   /**
@@ -2798,7 +2889,7 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
 
   @Override
   public String toString() {
-    return "Order{additionalFees='" + additionalFees + "', agreements='" + agreements + "', alerts='" + alerts + "', app='" + app + "', billingAddress='" + billingAddress + "', billingAddressMatchesShippingAddress='" + billingAddressMatchesShippingAddress + "', canMarkAsPaid='" + canMarkAsPaid + "', canNotifyCustomer='" + canNotifyCustomer + "', cancelReason='" + cancelReason + "', cancellation='" + cancellation + "', cancelledAt='" + cancelledAt + "', capturable='" + capturable + "', cartDiscountAmount='" + cartDiscountAmount + "', cartDiscountAmountSet='" + cartDiscountAmountSet + "', channel='" + channel + "', channelInformation='" + channelInformation + "', clientIp='" + clientIp + "', closed='" + closed + "', closedAt='" + closedAt + "', confirmationNumber='" + confirmationNumber + "', confirmed='" + confirmed + "', createdAt='" + createdAt + "', currencyCode='" + currencyCode + "', currentCartDiscountAmountSet='" + currentCartDiscountAmountSet + "', currentShippingPriceSet='" + currentShippingPriceSet + "', currentSubtotalLineItemsQuantity='" + currentSubtotalLineItemsQuantity + "', currentSubtotalPriceSet='" + currentSubtotalPriceSet + "', currentTaxLines='" + currentTaxLines + "', currentTotalAdditionalFeesSet='" + currentTotalAdditionalFeesSet + "', currentTotalDiscountsSet='" + currentTotalDiscountsSet + "', currentTotalDutiesSet='" + currentTotalDutiesSet + "', currentTotalPriceSet='" + currentTotalPriceSet + "', currentTotalTaxSet='" + currentTotalTaxSet + "', currentTotalWeight='" + currentTotalWeight + "', customAttributes='" + customAttributes + "', customer='" + customer + "', customerAcceptsMarketing='" + customerAcceptsMarketing + "', customerJourney='" + customerJourney + "', customerJourneySummary='" + customerJourneySummary + "', customerLocale='" + customerLocale + "', discountApplications='" + discountApplications + "', discountCode='" + discountCode + "', discountCodes='" + discountCodes + "', displayAddress='" + displayAddress + "', displayFinancialStatus='" + displayFinancialStatus + "', displayFulfillmentStatus='" + displayFulfillmentStatus + "', disputes='" + disputes + "', dutiesIncluded='" + dutiesIncluded + "', edited='" + edited + "', email='" + email + "', estimatedTaxes='" + estimatedTaxes + "', events='" + events + "', exchangeV2s='" + exchangeV2s + "', fulfillable='" + fulfillable + "', fulfillmentOrders='" + fulfillmentOrders + "', fulfillments='" + fulfillments + "', fulfillmentsCount='" + fulfillmentsCount + "', fullyPaid='" + fullyPaid + "', hasTimelineComment='" + hasTimelineComment + "', id='" + id + "', landingPageDisplayText='" + landingPageDisplayText + "', landingPageUrl='" + landingPageUrl + "', legacyResourceId='" + legacyResourceId + "', lineItems='" + lineItems + "', localizationExtensions='" + localizationExtensions + "', localizedFields='" + localizedFields + "', merchantBusinessEntity='" + merchantBusinessEntity + "', merchantEditable='" + merchantEditable + "', merchantEditableErrors='" + merchantEditableErrors + "', merchantOfRecordApp='" + merchantOfRecordApp + "', metafield='" + metafield + "', metafieldDefinitions='" + metafieldDefinitions + "', metafields='" + metafields + "', name='" + name + "', netPayment='" + netPayment + "', netPaymentSet='" + netPaymentSet + "', nonFulfillableLineItems='" + nonFulfillableLineItems + "', note='" + note + "', number='" + number + "', originalTotalAdditionalFeesSet='" + originalTotalAdditionalFeesSet + "', originalTotalDutiesSet='" + originalTotalDutiesSet + "', originalTotalPriceSet='" + originalTotalPriceSet + "', paymentCollectionDetails='" + paymentCollectionDetails + "', paymentGatewayNames='" + paymentGatewayNames + "', paymentTerms='" + paymentTerms + "', phone='" + phone + "', physicalLocation='" + physicalLocation + "', poNumber='" + poNumber + "', presentmentCurrencyCode='" + presentmentCurrencyCode + "', processedAt='" + processedAt + "', productNetwork='" + productNetwork + "', publication='" + publication + "', purchasingEntity='" + purchasingEntity + "', referralCode='" + referralCode + "', referrerDisplayText='" + referrerDisplayText + "', referrerUrl='" + referrerUrl + "', refundDiscrepancySet='" + refundDiscrepancySet + "', refundable='" + refundable + "', refunds='" + refunds + "', registeredSourceUrl='" + registeredSourceUrl + "', requiresShipping='" + requiresShipping + "', restockable='" + restockable + "', retailLocation='" + retailLocation + "', returnStatus='" + returnStatus + "', returns='" + returns + "', risk='" + risk + "', riskLevel='" + riskLevel + "', risks='" + risks + "', shippingAddress='" + shippingAddress + "', shippingLine='" + shippingLine + "', shippingLines='" + shippingLines + "', shopifyProtect='" + shopifyProtect + "', sourceIdentifier='" + sourceIdentifier + "', sourceName='" + sourceName + "', staffMember='" + staffMember + "', statusPageUrl='" + statusPageUrl + "', subtotalLineItemsQuantity='" + subtotalLineItemsQuantity + "', subtotalPrice='" + subtotalPrice + "', subtotalPriceSet='" + subtotalPriceSet + "', suggestedRefund='" + suggestedRefund + "', tags='" + tags + "', taxExempt='" + taxExempt + "', taxLines='" + taxLines + "', taxesIncluded='" + taxesIncluded + "', test='" + test + "', totalCapturable='" + totalCapturable + "', totalCapturableSet='" + totalCapturableSet + "', totalCashRoundingAdjustment='" + totalCashRoundingAdjustment + "', totalDiscounts='" + totalDiscounts + "', totalDiscountsSet='" + totalDiscountsSet + "', totalOutstandingSet='" + totalOutstandingSet + "', totalPrice='" + totalPrice + "', totalPriceSet='" + totalPriceSet + "', totalReceived='" + totalReceived + "', totalReceivedSet='" + totalReceivedSet + "', totalRefunded='" + totalRefunded + "', totalRefundedSet='" + totalRefundedSet + "', totalRefundedShippingSet='" + totalRefundedShippingSet + "', totalShippingPrice='" + totalShippingPrice + "', totalShippingPriceSet='" + totalShippingPriceSet + "', totalTax='" + totalTax + "', totalTaxSet='" + totalTaxSet + "', totalTipReceived='" + totalTipReceived + "', totalTipReceivedSet='" + totalTipReceivedSet + "', totalWeight='" + totalWeight + "', transactions='" + transactions + "', transactionsCount='" + transactionsCount + "', unpaid='" + unpaid + "', updatedAt='" + updatedAt + "'}";
+    return "Order{additionalFees='" + additionalFees + "', agreements='" + agreements + "', alerts='" + alerts + "', app='" + app + "', attribution='" + attribution + "', billingAddress='" + billingAddress + "', billingAddressMatchesShippingAddress='" + billingAddressMatchesShippingAddress + "', canMarkAsPaid='" + canMarkAsPaid + "', canNotifyCustomer='" + canNotifyCustomer + "', cancelReason='" + cancelReason + "', cancellation='" + cancellation + "', cancelledAt='" + cancelledAt + "', capturable='" + capturable + "', cartDiscountAmount='" + cartDiscountAmount + "', cartDiscountAmountSet='" + cartDiscountAmountSet + "', cartToken='" + cartToken + "', channel='" + channel + "', channelInformation='" + channelInformation + "', checkoutToken='" + checkoutToken + "', clientIp='" + clientIp + "', closed='" + closed + "', closedAt='" + closedAt + "', confirmationNumber='" + confirmationNumber + "', confirmed='" + confirmed + "', createdAt='" + createdAt + "', currencyCode='" + currencyCode + "', currentCartDiscountAmountSet='" + currentCartDiscountAmountSet + "', currentShippingPriceSet='" + currentShippingPriceSet + "', currentSubtotalLineItemsQuantity='" + currentSubtotalLineItemsQuantity + "', currentSubtotalPriceSet='" + currentSubtotalPriceSet + "', currentTaxLines='" + currentTaxLines + "', currentTotalAdditionalFeesSet='" + currentTotalAdditionalFeesSet + "', currentTotalDiscountsSet='" + currentTotalDiscountsSet + "', currentTotalDutiesSet='" + currentTotalDutiesSet + "', currentTotalPriceSet='" + currentTotalPriceSet + "', currentTotalTaxSet='" + currentTotalTaxSet + "', currentTotalWeight='" + currentTotalWeight + "', customAttributes='" + customAttributes + "', customer='" + customer + "', customerAcceptsMarketing='" + customerAcceptsMarketing + "', customerJourney='" + customerJourney + "', customerJourneySummary='" + customerJourneySummary + "', customerLocale='" + customerLocale + "', discountApplications='" + discountApplications + "', discountCode='" + discountCode + "', discountCodes='" + discountCodes + "', displayAddress='" + displayAddress + "', displayFinancialStatus='" + displayFinancialStatus + "', displayFulfillmentStatus='" + displayFulfillmentStatus + "', displayRequestedEditStatus='" + displayRequestedEditStatus + "', disputes='" + disputes + "', dutiesIncluded='" + dutiesIncluded + "', edited='" + edited + "', email='" + email + "', estimatedTaxes='" + estimatedTaxes + "', events='" + events + "', exchangeV2s='" + exchangeV2s + "', fulfillable='" + fulfillable + "', fulfillmentOrders='" + fulfillmentOrders + "', fulfillments='" + fulfillments + "', fulfillmentsCount='" + fulfillmentsCount + "', fullyPaid='" + fullyPaid + "', hasTimelineComment='" + hasTimelineComment + "', id='" + id + "', landingPageDisplayText='" + landingPageDisplayText + "', landingPageUrl='" + landingPageUrl + "', legacyResourceId='" + legacyResourceId + "', lineItems='" + lineItems + "', localizationExtensions='" + localizationExtensions + "', localizedFields='" + localizedFields + "', merchantBusinessEntity='" + merchantBusinessEntity + "', merchantEditable='" + merchantEditable + "', merchantEditableErrors='" + merchantEditableErrors + "', merchantOfRecordApp='" + merchantOfRecordApp + "', metafield='" + metafield + "', metafieldDefinitions='" + metafieldDefinitions + "', metafields='" + metafields + "', name='" + name + "', netPayment='" + netPayment + "', netPaymentSet='" + netPaymentSet + "', nonFulfillableLineItems='" + nonFulfillableLineItems + "', note='" + note + "', number='" + number + "', originalTotalAdditionalFeesSet='" + originalTotalAdditionalFeesSet + "', originalTotalDutiesSet='" + originalTotalDutiesSet + "', originalTotalPriceSet='" + originalTotalPriceSet + "', paymentCollectionDetails='" + paymentCollectionDetails + "', paymentGatewayNames='" + paymentGatewayNames + "', paymentTerms='" + paymentTerms + "', phone='" + phone + "', physicalLocation='" + physicalLocation + "', poNumber='" + poNumber + "', presentmentCurrencyCode='" + presentmentCurrencyCode + "', processedAt='" + processedAt + "', productNetwork='" + productNetwork + "', publication='" + publication + "', purchasingEntity='" + purchasingEntity + "', referralCode='" + referralCode + "', referrerDisplayText='" + referrerDisplayText + "', referrerUrl='" + referrerUrl + "', refundDiscrepancySet='" + refundDiscrepancySet + "', refundable='" + refundable + "', refunds='" + refunds + "', registeredSourceUrl='" + registeredSourceUrl + "', requestedOrderEdits='" + requestedOrderEdits + "', requiresShipping='" + requiresShipping + "', restockable='" + restockable + "', retailLocation='" + retailLocation + "', returnStatus='" + returnStatus + "', returns='" + returns + "', risk='" + risk + "', riskLevel='" + riskLevel + "', risks='" + risks + "', shippingAddress='" + shippingAddress + "', shippingLine='" + shippingLine + "', shippingLines='" + shippingLines + "', shopifyProtect='" + shopifyProtect + "', sourceIdentifier='" + sourceIdentifier + "', sourceName='" + sourceName + "', staffMember='" + staffMember + "', statusPageUrl='" + statusPageUrl + "', subtotalLineItemsQuantity='" + subtotalLineItemsQuantity + "', subtotalPrice='" + subtotalPrice + "', subtotalPriceSet='" + subtotalPriceSet + "', suggestedRefund='" + suggestedRefund + "', tags='" + tags + "', taxExempt='" + taxExempt + "', taxLines='" + taxLines + "', taxesIncluded='" + taxesIncluded + "', test='" + test + "', totalCapturable='" + totalCapturable + "', totalCapturableSet='" + totalCapturableSet + "', totalCashRoundingAdjustment='" + totalCashRoundingAdjustment + "', totalDiscounts='" + totalDiscounts + "', totalDiscountsSet='" + totalDiscountsSet + "', totalOutstandingSet='" + totalOutstandingSet + "', totalPrice='" + totalPrice + "', totalPriceSet='" + totalPriceSet + "', totalReceived='" + totalReceived + "', totalReceivedSet='" + totalReceivedSet + "', totalRefunded='" + totalRefunded + "', totalRefundedSet='" + totalRefundedSet + "', totalRefundedShippingSet='" + totalRefundedShippingSet + "', totalShippingPrice='" + totalShippingPrice + "', totalShippingPriceSet='" + totalShippingPriceSet + "', totalTax='" + totalTax + "', totalTaxSet='" + totalTaxSet + "', totalTipReceived='" + totalTipReceived + "', totalTipReceivedSet='" + totalTipReceivedSet + "', totalWeight='" + totalWeight + "', transactions='" + transactions + "', transactionsCount='" + transactionsCount + "', unpaid='" + unpaid + "', updatedAt='" + updatedAt + "'}";
   }
 
   @Override
@@ -2810,6 +2901,7 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
         Objects.equals(agreements, that.agreements) &&
         Objects.equals(alerts, that.alerts) &&
         Objects.equals(app, that.app) &&
+        Objects.equals(attribution, that.attribution) &&
         Objects.equals(billingAddress, that.billingAddress) &&
         billingAddressMatchesShippingAddress == that.billingAddressMatchesShippingAddress &&
         canMarkAsPaid == that.canMarkAsPaid &&
@@ -2820,8 +2912,10 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
         capturable == that.capturable &&
         Objects.equals(cartDiscountAmount, that.cartDiscountAmount) &&
         Objects.equals(cartDiscountAmountSet, that.cartDiscountAmountSet) &&
+        Objects.equals(cartToken, that.cartToken) &&
         Objects.equals(channel, that.channel) &&
         Objects.equals(channelInformation, that.channelInformation) &&
+        Objects.equals(checkoutToken, that.checkoutToken) &&
         Objects.equals(clientIp, that.clientIp) &&
         closed == that.closed &&
         Objects.equals(closedAt, that.closedAt) &&
@@ -2852,6 +2946,7 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
         Objects.equals(displayAddress, that.displayAddress) &&
         Objects.equals(displayFinancialStatus, that.displayFinancialStatus) &&
         Objects.equals(displayFulfillmentStatus, that.displayFulfillmentStatus) &&
+        Objects.equals(displayRequestedEditStatus, that.displayRequestedEditStatus) &&
         Objects.equals(disputes, that.disputes) &&
         dutiesIncluded == that.dutiesIncluded &&
         edited == that.edited &&
@@ -2906,6 +3001,7 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
         refundable == that.refundable &&
         Objects.equals(refunds, that.refunds) &&
         Objects.equals(registeredSourceUrl, that.registeredSourceUrl) &&
+        Objects.equals(requestedOrderEdits, that.requestedOrderEdits) &&
         requiresShipping == that.requiresShipping &&
         restockable == that.restockable &&
         Objects.equals(retailLocation, that.retailLocation) &&
@@ -2959,7 +3055,7 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalFees, agreements, alerts, app, billingAddress, billingAddressMatchesShippingAddress, canMarkAsPaid, canNotifyCustomer, cancelReason, cancellation, cancelledAt, capturable, cartDiscountAmount, cartDiscountAmountSet, channel, channelInformation, clientIp, closed, closedAt, confirmationNumber, confirmed, createdAt, currencyCode, currentCartDiscountAmountSet, currentShippingPriceSet, currentSubtotalLineItemsQuantity, currentSubtotalPriceSet, currentTaxLines, currentTotalAdditionalFeesSet, currentTotalDiscountsSet, currentTotalDutiesSet, currentTotalPriceSet, currentTotalTaxSet, currentTotalWeight, customAttributes, customer, customerAcceptsMarketing, customerJourney, customerJourneySummary, customerLocale, discountApplications, discountCode, discountCodes, displayAddress, displayFinancialStatus, displayFulfillmentStatus, disputes, dutiesIncluded, edited, email, estimatedTaxes, events, exchangeV2s, fulfillable, fulfillmentOrders, fulfillments, fulfillmentsCount, fullyPaid, hasTimelineComment, id, landingPageDisplayText, landingPageUrl, legacyResourceId, lineItems, localizationExtensions, localizedFields, merchantBusinessEntity, merchantEditable, merchantEditableErrors, merchantOfRecordApp, metafield, metafieldDefinitions, metafields, name, netPayment, netPaymentSet, nonFulfillableLineItems, note, number, originalTotalAdditionalFeesSet, originalTotalDutiesSet, originalTotalPriceSet, paymentCollectionDetails, paymentGatewayNames, paymentTerms, phone, physicalLocation, poNumber, presentmentCurrencyCode, processedAt, productNetwork, publication, purchasingEntity, referralCode, referrerDisplayText, referrerUrl, refundDiscrepancySet, refundable, refunds, registeredSourceUrl, requiresShipping, restockable, retailLocation, returnStatus, returns, risk, riskLevel, risks, shippingAddress, shippingLine, shippingLines, shopifyProtect, sourceIdentifier, sourceName, staffMember, statusPageUrl, subtotalLineItemsQuantity, subtotalPrice, subtotalPriceSet, suggestedRefund, tags, taxExempt, taxLines, taxesIncluded, test, totalCapturable, totalCapturableSet, totalCashRoundingAdjustment, totalDiscounts, totalDiscountsSet, totalOutstandingSet, totalPrice, totalPriceSet, totalReceived, totalReceivedSet, totalRefunded, totalRefundedSet, totalRefundedShippingSet, totalShippingPrice, totalShippingPriceSet, totalTax, totalTaxSet, totalTipReceived, totalTipReceivedSet, totalWeight, transactions, transactionsCount, unpaid, updatedAt);
+    return Objects.hash(additionalFees, agreements, alerts, app, attribution, billingAddress, billingAddressMatchesShippingAddress, canMarkAsPaid, canNotifyCustomer, cancelReason, cancellation, cancelledAt, capturable, cartDiscountAmount, cartDiscountAmountSet, cartToken, channel, channelInformation, checkoutToken, clientIp, closed, closedAt, confirmationNumber, confirmed, createdAt, currencyCode, currentCartDiscountAmountSet, currentShippingPriceSet, currentSubtotalLineItemsQuantity, currentSubtotalPriceSet, currentTaxLines, currentTotalAdditionalFeesSet, currentTotalDiscountsSet, currentTotalDutiesSet, currentTotalPriceSet, currentTotalTaxSet, currentTotalWeight, customAttributes, customer, customerAcceptsMarketing, customerJourney, customerJourneySummary, customerLocale, discountApplications, discountCode, discountCodes, displayAddress, displayFinancialStatus, displayFulfillmentStatus, displayRequestedEditStatus, disputes, dutiesIncluded, edited, email, estimatedTaxes, events, exchangeV2s, fulfillable, fulfillmentOrders, fulfillments, fulfillmentsCount, fullyPaid, hasTimelineComment, id, landingPageDisplayText, landingPageUrl, legacyResourceId, lineItems, localizationExtensions, localizedFields, merchantBusinessEntity, merchantEditable, merchantEditableErrors, merchantOfRecordApp, metafield, metafieldDefinitions, metafields, name, netPayment, netPaymentSet, nonFulfillableLineItems, note, number, originalTotalAdditionalFeesSet, originalTotalDutiesSet, originalTotalPriceSet, paymentCollectionDetails, paymentGatewayNames, paymentTerms, phone, physicalLocation, poNumber, presentmentCurrencyCode, processedAt, productNetwork, publication, purchasingEntity, referralCode, referrerDisplayText, referrerUrl, refundDiscrepancySet, refundable, refunds, registeredSourceUrl, requestedOrderEdits, requiresShipping, restockable, retailLocation, returnStatus, returns, risk, riskLevel, risks, shippingAddress, shippingLine, shippingLines, shopifyProtect, sourceIdentifier, sourceName, staffMember, statusPageUrl, subtotalLineItemsQuantity, subtotalPrice, subtotalPriceSet, suggestedRefund, tags, taxExempt, taxLines, taxesIncluded, test, totalCapturable, totalCapturableSet, totalCashRoundingAdjustment, totalDiscounts, totalDiscountsSet, totalOutstandingSet, totalPrice, totalPriceSet, totalReceived, totalReceivedSet, totalRefunded, totalRefundedSet, totalRefundedShippingSet, totalShippingPrice, totalShippingPriceSet, totalTax, totalTaxSet, totalTipReceived, totalTipReceivedSet, totalWeight, transactions, transactionsCount, unpaid, updatedAt);
   }
 
   public static Builder newBuilder() {
@@ -2991,6 +3087,11 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
      * Learn more about [building apps for orders and fulfillment](https://shopify.dev/docs/apps/build/orders-fulfillment).
      */
     private OrderApp app;
+
+    /**
+     * The attribution details for the order.
+     */
+    private OrderAttribution attribution;
 
     /**
      * The billing address associated with the payment method selected by the customer for an order.
@@ -3058,6 +3159,11 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
     private MoneyBag cartDiscountAmountSet;
 
     /**
+     * The token associated with the cart that was used to create the order.
+     */
+    private String cartToken;
+
+    /**
      * The sales channel from which an order originated, such as the [Online
      * Store](https://shopify.dev/docs/apps/build/app-surfaces#online-store) or
      * [Shopify POS](https://shopify.dev/docs/apps/build/app-surfaces#point-of-sale).
@@ -3069,6 +3175,13 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
      * and [channel name](https://shopify.dev/docs/api/admin-graphql/latest/objects/ChannelDefinition#field-ChannelDefinition.fields.channelName), which helps to track order sources.
      */
     private ChannelInformation channelInformation;
+
+    /**
+     * The token associated with the checkout that was used to create the order.
+     * Useful for correlating an order with the checkout it originated from,
+     * including in web pixels and analytics workflows.
+     */
+    private String checkoutToken;
 
     /**
      * The IP address of the customer who placed the order. Useful for fraud detection and geographic analysis.
@@ -3260,6 +3373,13 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
     private OrderDisplayFulfillmentStatus displayFulfillmentStatus;
 
     /**
+     * The order's aggregated requested order edit status for display purposes.
+     * Indicates the overall state of buyer-initiated requested order edits for the order,
+     * helping merchants track and manage pending requests.
+     */
+    private OrderDisplayRequestedEditStatus displayRequestedEditStatus;
+
+    /**
      * A list of payment disputes associated with the order, such as chargebacks or payment inquiries.
      * Disputes occur when customers challenge transactions with their bank or payment provider.
      */
@@ -3445,6 +3565,7 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
      * The note associated with the order.
      * Contains additional information or instructions added by merchants or customers during the order process.
      * Commonly used for special delivery instructions, gift messages, or internal processing notes.
+     * The maximum length is 5000 characters.
      */
     private String note;
 
@@ -3593,6 +3714,11 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
      * registry. Returns `null` if the source URL isn't in the domain registry.
      */
     private String registeredSourceUrl;
+
+    /**
+     * The buyer-initiated requested order edits on unfulfilled line items for this order.
+     */
+    private RequestedOrderEditConnection requestedOrderEdits;
 
     /**
      * Whether the order requires physical shipping to the customer.
@@ -3900,6 +4026,7 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
       result.agreements = this.agreements;
       result.alerts = this.alerts;
       result.app = this.app;
+      result.attribution = this.attribution;
       result.billingAddress = this.billingAddress;
       result.billingAddressMatchesShippingAddress = this.billingAddressMatchesShippingAddress;
       result.canMarkAsPaid = this.canMarkAsPaid;
@@ -3910,8 +4037,10 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
       result.capturable = this.capturable;
       result.cartDiscountAmount = this.cartDiscountAmount;
       result.cartDiscountAmountSet = this.cartDiscountAmountSet;
+      result.cartToken = this.cartToken;
       result.channel = this.channel;
       result.channelInformation = this.channelInformation;
+      result.checkoutToken = this.checkoutToken;
       result.clientIp = this.clientIp;
       result.closed = this.closed;
       result.closedAt = this.closedAt;
@@ -3942,6 +4071,7 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
       result.displayAddress = this.displayAddress;
       result.displayFinancialStatus = this.displayFinancialStatus;
       result.displayFulfillmentStatus = this.displayFulfillmentStatus;
+      result.displayRequestedEditStatus = this.displayRequestedEditStatus;
       result.disputes = this.disputes;
       result.dutiesIncluded = this.dutiesIncluded;
       result.edited = this.edited;
@@ -3996,6 +4126,7 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
       result.refundable = this.refundable;
       result.refunds = this.refunds;
       result.registeredSourceUrl = this.registeredSourceUrl;
+      result.requestedOrderEdits = this.requestedOrderEdits;
       result.requiresShipping = this.requiresShipping;
       result.restockable = this.restockable;
       result.retailLocation = this.retailLocation;
@@ -4082,6 +4213,14 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
      */
     public Builder app(OrderApp app) {
       this.app = app;
+      return this;
+    }
+
+    /**
+     * The attribution details for the order.
+     */
+    public Builder attribution(OrderAttribution attribution) {
+      this.attribution = attribution;
       return this;
     }
 
@@ -4182,6 +4321,14 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
     }
 
     /**
+     * The token associated with the cart that was used to create the order.
+     */
+    public Builder cartToken(String cartToken) {
+      this.cartToken = cartToken;
+      return this;
+    }
+
+    /**
      * The sales channel from which an order originated, such as the [Online
      * Store](https://shopify.dev/docs/apps/build/app-surfaces#online-store) or
      * [Shopify POS](https://shopify.dev/docs/apps/build/app-surfaces#point-of-sale).
@@ -4197,6 +4344,16 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
      */
     public Builder channelInformation(ChannelInformation channelInformation) {
       this.channelInformation = channelInformation;
+      return this;
+    }
+
+    /**
+     * The token associated with the checkout that was used to create the order.
+     * Useful for correlating an order with the checkout it originated from,
+     * including in web pixels and analytics workflows.
+     */
+    public Builder checkoutToken(String checkoutToken) {
+      this.checkoutToken = checkoutToken;
       return this;
     }
 
@@ -4481,6 +4638,17 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
     }
 
     /**
+     * The order's aggregated requested order edit status for display purposes.
+     * Indicates the overall state of buyer-initiated requested order edits for the order,
+     * helping merchants track and manage pending requests.
+     */
+    public Builder displayRequestedEditStatus(
+        OrderDisplayRequestedEditStatus displayRequestedEditStatus) {
+      this.displayRequestedEditStatus = displayRequestedEditStatus;
+      return this;
+    }
+
+    /**
      * A list of payment disputes associated with the order, such as chargebacks or payment inquiries.
      * Disputes occur when customers challenge transactions with their bank or payment provider.
      */
@@ -4759,6 +4927,7 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
      * The note associated with the order.
      * Contains additional information or instructions added by merchants or customers during the order process.
      * Commonly used for special delivery instructions, gift messages, or internal processing notes.
+     * The maximum length is 5000 characters.
      */
     public Builder note(String note) {
       this.note = note;
@@ -4975,6 +5144,14 @@ public class Order implements CommentEventEmbed, MetafieldReference, MetafieldRe
      */
     public Builder registeredSourceUrl(String registeredSourceUrl) {
       this.registeredSourceUrl = registeredSourceUrl;
+      return this;
+    }
+
+    /**
+     * The buyer-initiated requested order edits on unfulfilled line items for this order.
+     */
+    public Builder requestedOrderEdits(RequestedOrderEditConnection requestedOrderEdits) {
+      this.requestedOrderEdits = requestedOrderEdits;
       return this;
     }
 

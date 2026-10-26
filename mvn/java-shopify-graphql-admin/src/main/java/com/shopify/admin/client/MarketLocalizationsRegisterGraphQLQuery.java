@@ -2,10 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.MarketLocalizationRegisterInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -21,6 +25,25 @@ public class MarketLocalizationsRegisterGraphQLQuery extends GraphQLQuery {
     }if (marketLocalizations != null || fieldsSet.contains("marketLocalizations")) {
         getInput().put("marketLocalizations", marketLocalizations);
     }
+  }
+
+  public MarketLocalizationsRegisterGraphQLQuery(String resourceId,
+      List<MarketLocalizationRegisterInput> marketLocalizations, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (resourceId != null || fieldsSet.contains("resourceId")) {
+        getInput().put("resourceId", resourceId);
+    }if (marketLocalizations != null || fieldsSet.contains("marketLocalizations")) {
+        getInput().put("marketLocalizations", marketLocalizations);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public MarketLocalizationsRegisterGraphQLQuery() {
@@ -39,6 +62,10 @@ public class MarketLocalizationsRegisterGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String resourceId;
 
     private List<MarketLocalizationRegisterInput> marketLocalizations;
@@ -46,7 +73,7 @@ public class MarketLocalizationsRegisterGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public MarketLocalizationsRegisterGraphQLQuery build() {
-      return new MarketLocalizationsRegisterGraphQLQuery(resourceId, marketLocalizations, queryName, fieldsSet);
+      return new MarketLocalizationsRegisterGraphQLQuery(resourceId, marketLocalizations, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -60,10 +87,30 @@ public class MarketLocalizationsRegisterGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the resource that is being localized within the context of a market.
+     */
+    public Builder resourceIdReference(String variableRef) {
+      this.variableReferences.put("resourceId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("resourceId");
+      return this;
+    }
+
+    /**
      * The input fields for a market localization.
      */
     public Builder marketLocalizations(List<MarketLocalizationRegisterInput> marketLocalizations) {
       this.marketLocalizations = marketLocalizations;
+      this.fieldsSet.add("marketLocalizations");
+      return this;
+    }
+
+    /**
+     * The input fields for a market localization.
+     */
+    public Builder marketLocalizationsReference(String variableRef) {
+      this.variableReferences.put("marketLocalizations", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("MarketLocalizationRegisterInput"))))).build());
       this.fieldsSet.add("marketLocalizations");
       return this;
     }

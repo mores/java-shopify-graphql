@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.MetaobjectUpdateInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -27,6 +32,24 @@ public class MetaobjectUpdateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public MetaobjectUpdateGraphQLQuery(String id, MetaobjectUpdateInput metaobject, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (metaobject != null || fieldsSet.contains("metaobject")) {
+        getInput().put("metaobject", metaobject);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public MetaobjectUpdateGraphQLQuery() {
     super("mutation");
   }
@@ -43,6 +66,10 @@ public class MetaobjectUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private MetaobjectUpdateInput metaobject;
@@ -50,7 +77,7 @@ public class MetaobjectUpdateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public MetaobjectUpdateGraphQLQuery build() {
-      return new MetaobjectUpdateGraphQLQuery(id, metaobject, queryName, fieldsSet);
+      return new MetaobjectUpdateGraphQLQuery(id, metaobject, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -64,10 +91,30 @@ public class MetaobjectUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the metaobject to update.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * Specifies parameters to update on the metaobject.
      */
     public Builder metaobject(MetaobjectUpdateInput metaobject) {
       this.metaobject = metaobject;
+      this.fieldsSet.add("metaobject");
+      return this;
+    }
+
+    /**
+     * Specifies parameters to update on the metaobject.
+     */
+    public Builder metaobjectReference(String variableRef) {
+      this.variableReferences.put("metaobject", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("MetaobjectUpdateInput"))).build());
       this.fieldsSet.add("metaobject");
       return this;
     }

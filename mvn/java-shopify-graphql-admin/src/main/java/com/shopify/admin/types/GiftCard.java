@@ -35,7 +35,12 @@ public class GiftCard implements com.shopify.admin.types.Node {
   private OffsetDateTime createdAt;
 
   /**
-   * The customer who will receive the gift card.
+   * The strategy used to convert the gift card's balance when it's redeemed in a currency other than the one it was issued in.
+   */
+  private GiftCardCrossCurrencyRedemptionStrategy crossCurrencyRedemptionStrategy;
+
+  /**
+   * The customer that the gift card was sold or issued to, as opposed to the gift recipient. This customer can be reassigned.
    */
   private Customer customer;
 
@@ -65,9 +70,20 @@ public class GiftCard implements com.shopify.admin.types.Node {
   private MoneyV2 initialValue;
 
   /**
+   * Whether the gift card is redeemable in any active market currency.
+   */
+  private boolean isRedeemable;
+
+  /**
    * The final four characters of the gift card code.
    */
   private String lastCharacters;
+
+  /**
+   * The line item from an order that initiated the creation of this gift card.
+   * This value is `null` if the gift card was issued manually.
+   */
+  private LineItem lineItem;
 
   /**
    * The gift card code. Everything but the final four characters is masked.
@@ -85,7 +101,7 @@ public class GiftCard implements com.shopify.admin.types.Node {
   private Order order;
 
   /**
-   * The recipient who will receive the gift card.
+   * The recipient of the gift card and the details sent with it: preferred name, message, and send time.
    */
   private GiftCardRecipient recipientAttributes;
 
@@ -130,7 +146,19 @@ public class GiftCard implements com.shopify.admin.types.Node {
   }
 
   /**
-   * The customer who will receive the gift card.
+   * The strategy used to convert the gift card's balance when it's redeemed in a currency other than the one it was issued in.
+   */
+  public GiftCardCrossCurrencyRedemptionStrategy getCrossCurrencyRedemptionStrategy() {
+    return crossCurrencyRedemptionStrategy;
+  }
+
+  public void setCrossCurrencyRedemptionStrategy(
+      GiftCardCrossCurrencyRedemptionStrategy crossCurrencyRedemptionStrategy) {
+    this.crossCurrencyRedemptionStrategy = crossCurrencyRedemptionStrategy;
+  }
+
+  /**
+   * The customer that the gift card was sold or issued to, as opposed to the gift recipient. This customer can be reassigned.
    */
   public Customer getCustomer() {
     return customer;
@@ -196,6 +224,17 @@ public class GiftCard implements com.shopify.admin.types.Node {
   }
 
   /**
+   * Whether the gift card is redeemable in any active market currency.
+   */
+  public boolean getIsRedeemable() {
+    return isRedeemable;
+  }
+
+  public void setIsRedeemable(boolean isRedeemable) {
+    this.isRedeemable = isRedeemable;
+  }
+
+  /**
    * The final four characters of the gift card code.
    */
   public String getLastCharacters() {
@@ -204,6 +243,18 @@ public class GiftCard implements com.shopify.admin.types.Node {
 
   public void setLastCharacters(String lastCharacters) {
     this.lastCharacters = lastCharacters;
+  }
+
+  /**
+   * The line item from an order that initiated the creation of this gift card.
+   * This value is `null` if the gift card was issued manually.
+   */
+  public LineItem getLineItem() {
+    return lineItem;
+  }
+
+  public void setLineItem(LineItem lineItem) {
+    this.lineItem = lineItem;
   }
 
   /**
@@ -240,7 +291,7 @@ public class GiftCard implements com.shopify.admin.types.Node {
   }
 
   /**
-   * The recipient who will receive the gift card.
+   * The recipient of the gift card and the details sent with it: preferred name, message, and send time.
    */
   public GiftCardRecipient getRecipientAttributes() {
     return recipientAttributes;
@@ -285,7 +336,7 @@ public class GiftCard implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "GiftCard{balance='" + balance + "', createdAt='" + createdAt + "', customer='" + customer + "', deactivatedAt='" + deactivatedAt + "', enabled='" + enabled + "', expiresOn='" + expiresOn + "', id='" + id + "', initialValue='" + initialValue + "', lastCharacters='" + lastCharacters + "', maskedCode='" + maskedCode + "', note='" + note + "', order='" + order + "', recipientAttributes='" + recipientAttributes + "', templateSuffix='" + templateSuffix + "', transactions='" + transactions + "', updatedAt='" + updatedAt + "'}";
+    return "GiftCard{balance='" + balance + "', createdAt='" + createdAt + "', crossCurrencyRedemptionStrategy='" + crossCurrencyRedemptionStrategy + "', customer='" + customer + "', deactivatedAt='" + deactivatedAt + "', enabled='" + enabled + "', expiresOn='" + expiresOn + "', id='" + id + "', initialValue='" + initialValue + "', isRedeemable='" + isRedeemable + "', lastCharacters='" + lastCharacters + "', lineItem='" + lineItem + "', maskedCode='" + maskedCode + "', note='" + note + "', order='" + order + "', recipientAttributes='" + recipientAttributes + "', templateSuffix='" + templateSuffix + "', transactions='" + transactions + "', updatedAt='" + updatedAt + "'}";
   }
 
   @Override
@@ -295,13 +346,16 @@ public class GiftCard implements com.shopify.admin.types.Node {
     GiftCard that = (GiftCard) o;
     return Objects.equals(balance, that.balance) &&
         Objects.equals(createdAt, that.createdAt) &&
+        Objects.equals(crossCurrencyRedemptionStrategy, that.crossCurrencyRedemptionStrategy) &&
         Objects.equals(customer, that.customer) &&
         Objects.equals(deactivatedAt, that.deactivatedAt) &&
         enabled == that.enabled &&
         Objects.equals(expiresOn, that.expiresOn) &&
         Objects.equals(id, that.id) &&
         Objects.equals(initialValue, that.initialValue) &&
+        isRedeemable == that.isRedeemable &&
         Objects.equals(lastCharacters, that.lastCharacters) &&
+        Objects.equals(lineItem, that.lineItem) &&
         Objects.equals(maskedCode, that.maskedCode) &&
         Objects.equals(note, that.note) &&
         Objects.equals(order, that.order) &&
@@ -313,7 +367,7 @@ public class GiftCard implements com.shopify.admin.types.Node {
 
   @Override
   public int hashCode() {
-    return Objects.hash(balance, createdAt, customer, deactivatedAt, enabled, expiresOn, id, initialValue, lastCharacters, maskedCode, note, order, recipientAttributes, templateSuffix, transactions, updatedAt);
+    return Objects.hash(balance, createdAt, crossCurrencyRedemptionStrategy, customer, deactivatedAt, enabled, expiresOn, id, initialValue, isRedeemable, lastCharacters, lineItem, maskedCode, note, order, recipientAttributes, templateSuffix, transactions, updatedAt);
   }
 
   public static Builder newBuilder() {
@@ -332,7 +386,12 @@ public class GiftCard implements com.shopify.admin.types.Node {
     private OffsetDateTime createdAt;
 
     /**
-     * The customer who will receive the gift card.
+     * The strategy used to convert the gift card's balance when it's redeemed in a currency other than the one it was issued in.
+     */
+    private GiftCardCrossCurrencyRedemptionStrategy crossCurrencyRedemptionStrategy;
+
+    /**
+     * The customer that the gift card was sold or issued to, as opposed to the gift recipient. This customer can be reassigned.
      */
     private Customer customer;
 
@@ -362,9 +421,20 @@ public class GiftCard implements com.shopify.admin.types.Node {
     private MoneyV2 initialValue;
 
     /**
+     * Whether the gift card is redeemable in any active market currency.
+     */
+    private boolean isRedeemable;
+
+    /**
      * The final four characters of the gift card code.
      */
     private String lastCharacters;
+
+    /**
+     * The line item from an order that initiated the creation of this gift card.
+     * This value is `null` if the gift card was issued manually.
+     */
+    private LineItem lineItem;
 
     /**
      * The gift card code. Everything but the final four characters is masked.
@@ -382,7 +452,7 @@ public class GiftCard implements com.shopify.admin.types.Node {
     private Order order;
 
     /**
-     * The recipient who will receive the gift card.
+     * The recipient of the gift card and the details sent with it: preferred name, message, and send time.
      */
     private GiftCardRecipient recipientAttributes;
 
@@ -405,13 +475,16 @@ public class GiftCard implements com.shopify.admin.types.Node {
       GiftCard result = new GiftCard();
       result.balance = this.balance;
       result.createdAt = this.createdAt;
+      result.crossCurrencyRedemptionStrategy = this.crossCurrencyRedemptionStrategy;
       result.customer = this.customer;
       result.deactivatedAt = this.deactivatedAt;
       result.enabled = this.enabled;
       result.expiresOn = this.expiresOn;
       result.id = this.id;
       result.initialValue = this.initialValue;
+      result.isRedeemable = this.isRedeemable;
       result.lastCharacters = this.lastCharacters;
+      result.lineItem = this.lineItem;
       result.maskedCode = this.maskedCode;
       result.note = this.note;
       result.order = this.order;
@@ -439,7 +512,16 @@ public class GiftCard implements com.shopify.admin.types.Node {
     }
 
     /**
-     * The customer who will receive the gift card.
+     * The strategy used to convert the gift card's balance when it's redeemed in a currency other than the one it was issued in.
+     */
+    public Builder crossCurrencyRedemptionStrategy(
+        GiftCardCrossCurrencyRedemptionStrategy crossCurrencyRedemptionStrategy) {
+      this.crossCurrencyRedemptionStrategy = crossCurrencyRedemptionStrategy;
+      return this;
+    }
+
+    /**
+     * The customer that the gift card was sold or issued to, as opposed to the gift recipient. This customer can be reassigned.
      */
     public Builder customer(Customer customer) {
       this.customer = customer;
@@ -487,10 +569,27 @@ public class GiftCard implements com.shopify.admin.types.Node {
     }
 
     /**
+     * Whether the gift card is redeemable in any active market currency.
+     */
+    public Builder isRedeemable(boolean isRedeemable) {
+      this.isRedeemable = isRedeemable;
+      return this;
+    }
+
+    /**
      * The final four characters of the gift card code.
      */
     public Builder lastCharacters(String lastCharacters) {
       this.lastCharacters = lastCharacters;
+      return this;
+    }
+
+    /**
+     * The line item from an order that initiated the creation of this gift card.
+     * This value is `null` if the gift card was issued manually.
+     */
+    public Builder lineItem(LineItem lineItem) {
+      this.lineItem = lineItem;
       return this;
     }
 
@@ -519,7 +618,7 @@ public class GiftCard implements com.shopify.admin.types.Node {
     }
 
     /**
-     * The recipient who will receive the gift card.
+     * The recipient of the gift card and the details sent with it: preferred name, message, and send time.
      */
     public Builder recipientAttributes(GiftCardRecipient recipientAttributes) {
       this.recipientAttributes = recipientAttributes;

@@ -28,4 +28,9 @@ public class FlowGenerateSignatureProjectionRoot<PARENT extends BaseSubProjectio
     getFields().put("signature", null);
     return this;
   }
+
+  public FlowGenerateSignatureProjectionRoot<PARENT, ROOT> targetUrl() {
+    getFields().put("targetUrl", null);
+    return this;
+  }
 }

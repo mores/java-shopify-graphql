@@ -6,7 +6,13 @@ package com.shopify.admin.types;
  * be adjusted or corrected.
  */
 public enum PointOfSaleDevicePaymentSessionStatus {
+  /**
+   * The point of sale device payment session is open.
+   */
   OPEN,
 
+  /**
+   * The point of sale device payment session is closed.
+   */
   CLOSED
 }

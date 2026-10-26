@@ -132,7 +132,9 @@ public class OrderCreateOrderInput {
    * when an order was processed. This value is the date that appears on your
    * orders and that's used in the analytic reports. If you're importing orders
    * from an app or another platform, then you can set processed_at to a date and
-   * time in the past to match when the original order was created.
+   * time in the past to match when the original order was created. As of API
+   * version 2026-07, values in the future are clamped to the current time. In
+   * earlier versions, future values return a `PROCESSED_AT_INVALID` error.
    */
   private OffsetDateTime processedAt;
 
@@ -163,13 +165,11 @@ public class OrderCreateOrderInput {
   private String sourceIdentifier;
 
   /**
-   * The source of the checkout. To use this field for sales attribution, you must
-   * register the channels that your app is managing. You can register the channels
-   * that your app is managing by completing [this Google Form](https://docs.google.com/forms/d/e/1FAIpQLScmVTZRQNjOJ7RD738mL1lGeFjqKVe_FM2tO9xsm21QEo5Ozg/viewform?usp=sf_link).
-   * After you've submited your request, you need to wait for your request to be
-   * processed by Shopify. You can find a list of your channels in the Partner
-   * Dashboard, in your app's Marketplace extension. You can specify a handle as
-   * the source_name value in your request.
+   * The source channel that the order is attributed to. Set this to the handle of
+   * an order attribution definition configured for your sales channel app, such as
+   * `youtube` or `channel:amazon-us`. To set up order attribution for your app,
+   * follow the [order attribution
+   * guide](https://shopify.dev/docs/apps/build/sales-channels/order-attribution).
    */
   private String sourceName;
 
@@ -209,7 +209,7 @@ public class OrderCreateOrderInput {
   private List<OrderCreateOrderTransactionInput> transactions;
 
   /**
-   * The ID of the user logged into Shopify POS who processed the order, if applicable.
+   * The ID of the user who processed the order, if applicable.
    */
   private String userId;
 
@@ -450,7 +450,9 @@ public class OrderCreateOrderInput {
    * when an order was processed. This value is the date that appears on your
    * orders and that's used in the analytic reports. If you're importing orders
    * from an app or another platform, then you can set processed_at to a date and
-   * time in the past to match when the original order was created.
+   * time in the past to match when the original order was created. As of API
+   * version 2026-07, values in the future are clamped to the current time. In
+   * earlier versions, future values return a `PROCESSED_AT_INVALID` error.
    */
   public OffsetDateTime getProcessedAt() {
     return processedAt;
@@ -511,13 +513,11 @@ public class OrderCreateOrderInput {
   }
 
   /**
-   * The source of the checkout. To use this field for sales attribution, you must
-   * register the channels that your app is managing. You can register the channels
-   * that your app is managing by completing [this Google Form](https://docs.google.com/forms/d/e/1FAIpQLScmVTZRQNjOJ7RD738mL1lGeFjqKVe_FM2tO9xsm21QEo5Ozg/viewform?usp=sf_link).
-   * After you've submited your request, you need to wait for your request to be
-   * processed by Shopify. You can find a list of your channels in the Partner
-   * Dashboard, in your app's Marketplace extension. You can specify a handle as
-   * the source_name value in your request.
+   * The source channel that the order is attributed to. Set this to the handle of
+   * an order attribution definition configured for your sales channel app, such as
+   * `youtube` or `channel:amazon-us`. To set up order attribution for your app,
+   * follow the [order attribution
+   * guide](https://shopify.dev/docs/apps/build/sales-channels/order-attribution).
    */
   public String getSourceName() {
     return sourceName;
@@ -599,7 +599,7 @@ public class OrderCreateOrderInput {
   }
 
   /**
-   * The ID of the user logged into Shopify POS who processed the order, if applicable.
+   * The ID of the user who processed the order, if applicable.
    */
   public String getUserId() {
     return userId;
@@ -783,7 +783,9 @@ public class OrderCreateOrderInput {
      * when an order was processed. This value is the date that appears on your
      * orders and that's used in the analytic reports. If you're importing orders
      * from an app or another platform, then you can set processed_at to a date and
-     * time in the past to match when the original order was created.
+     * time in the past to match when the original order was created. As of API
+     * version 2026-07, values in the future are clamped to the current time. In
+     * earlier versions, future values return a `PROCESSED_AT_INVALID` error.
      */
     private OffsetDateTime processedAt;
 
@@ -814,13 +816,11 @@ public class OrderCreateOrderInput {
     private String sourceIdentifier;
 
     /**
-     * The source of the checkout. To use this field for sales attribution, you must
-     * register the channels that your app is managing. You can register the channels
-     * that your app is managing by completing [this Google Form](https://docs.google.com/forms/d/e/1FAIpQLScmVTZRQNjOJ7RD738mL1lGeFjqKVe_FM2tO9xsm21QEo5Ozg/viewform?usp=sf_link).
-     * After you've submited your request, you need to wait for your request to be
-     * processed by Shopify. You can find a list of your channels in the Partner
-     * Dashboard, in your app's Marketplace extension. You can specify a handle as
-     * the source_name value in your request.
+     * The source channel that the order is attributed to. Set this to the handle of
+     * an order attribution definition configured for your sales channel app, such as
+     * `youtube` or `channel:amazon-us`. To set up order attribution for your app,
+     * follow the [order attribution
+     * guide](https://shopify.dev/docs/apps/build/sales-channels/order-attribution).
      */
     private String sourceName;
 
@@ -860,7 +860,7 @@ public class OrderCreateOrderInput {
     private List<OrderCreateOrderTransactionInput> transactions;
 
     /**
-     * The ID of the user logged into Shopify POS who processed the order, if applicable.
+     * The ID of the user who processed the order, if applicable.
      */
     private String userId;
 
@@ -1078,7 +1078,9 @@ public class OrderCreateOrderInput {
      * when an order was processed. This value is the date that appears on your
      * orders and that's used in the analytic reports. If you're importing orders
      * from an app or another platform, then you can set processed_at to a date and
-     * time in the past to match when the original order was created.
+     * time in the past to match when the original order was created. As of API
+     * version 2026-07, values in the future are clamped to the current time. In
+     * earlier versions, future values return a `PROCESSED_AT_INVALID` error.
      */
     public Builder processedAt(OffsetDateTime processedAt) {
       this.processedAt = processedAt;
@@ -1124,13 +1126,11 @@ public class OrderCreateOrderInput {
     }
 
     /**
-     * The source of the checkout. To use this field for sales attribution, you must
-     * register the channels that your app is managing. You can register the channels
-     * that your app is managing by completing [this Google Form](https://docs.google.com/forms/d/e/1FAIpQLScmVTZRQNjOJ7RD738mL1lGeFjqKVe_FM2tO9xsm21QEo5Ozg/viewform?usp=sf_link).
-     * After you've submited your request, you need to wait for your request to be
-     * processed by Shopify. You can find a list of your channels in the Partner
-     * Dashboard, in your app's Marketplace extension. You can specify a handle as
-     * the source_name value in your request.
+     * The source channel that the order is attributed to. Set this to the handle of
+     * an order attribution definition configured for your sales channel app, such as
+     * `youtube` or `channel:amazon-us`. To set up order attribution for your app,
+     * follow the [order attribution
+     * guide](https://shopify.dev/docs/apps/build/sales-channels/order-attribution).
      */
     public Builder sourceName(String sourceName) {
       this.sourceName = sourceName;
@@ -1191,7 +1191,7 @@ public class OrderCreateOrderInput {
     }
 
     /**
-     * The ID of the user logged into Shopify POS who processed the order, if applicable.
+     * The ID of the user who processed the order, if applicable.
      */
     public Builder userId(String userId) {
       this.userId = userId;

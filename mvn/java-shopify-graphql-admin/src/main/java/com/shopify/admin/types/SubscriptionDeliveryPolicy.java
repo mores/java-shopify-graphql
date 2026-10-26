@@ -25,6 +25,13 @@ public class SubscriptionDeliveryPolicy {
    */
   private int intervalCount;
 
+  /**
+   * The multiple fulfillment configuration when the contract delivers more than
+   * once per billing cycle, as derived from the billing and delivery cadences.
+   * Null when each billing cycle has a single fulfillment.
+   */
+  private SubscriptionContractCalculationMultipleFulfillmentConfig multiFulfillment;
+
   public SubscriptionDeliveryPolicy() {
   }
 
@@ -61,9 +68,23 @@ public class SubscriptionDeliveryPolicy {
     this.intervalCount = intervalCount;
   }
 
+  /**
+   * The multiple fulfillment configuration when the contract delivers more than
+   * once per billing cycle, as derived from the billing and delivery cadences.
+   * Null when each billing cycle has a single fulfillment.
+   */
+  public SubscriptionContractCalculationMultipleFulfillmentConfig getMultiFulfillment() {
+    return multiFulfillment;
+  }
+
+  public void setMultiFulfillment(
+      SubscriptionContractCalculationMultipleFulfillmentConfig multiFulfillment) {
+    this.multiFulfillment = multiFulfillment;
+  }
+
   @Override
   public String toString() {
-    return "SubscriptionDeliveryPolicy{anchors='" + anchors + "', interval='" + interval + "', intervalCount='" + intervalCount + "'}";
+    return "SubscriptionDeliveryPolicy{anchors='" + anchors + "', interval='" + interval + "', intervalCount='" + intervalCount + "', multiFulfillment='" + multiFulfillment + "'}";
   }
 
   @Override
@@ -73,12 +94,13 @@ public class SubscriptionDeliveryPolicy {
     SubscriptionDeliveryPolicy that = (SubscriptionDeliveryPolicy) o;
     return Objects.equals(anchors, that.anchors) &&
         Objects.equals(interval, that.interval) &&
-        intervalCount == that.intervalCount;
+        intervalCount == that.intervalCount &&
+        Objects.equals(multiFulfillment, that.multiFulfillment);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(anchors, interval, intervalCount);
+    return Objects.hash(anchors, interval, intervalCount, multiFulfillment);
   }
 
   public static Builder newBuilder() {
@@ -101,11 +123,19 @@ public class SubscriptionDeliveryPolicy {
      */
     private int intervalCount;
 
+    /**
+     * The multiple fulfillment configuration when the contract delivers more than
+     * once per billing cycle, as derived from the billing and delivery cadences.
+     * Null when each billing cycle has a single fulfillment.
+     */
+    private SubscriptionContractCalculationMultipleFulfillmentConfig multiFulfillment;
+
     public SubscriptionDeliveryPolicy build() {
       SubscriptionDeliveryPolicy result = new SubscriptionDeliveryPolicy();
       result.anchors = this.anchors;
       result.interval = this.interval;
       result.intervalCount = this.intervalCount;
+      result.multiFulfillment = this.multiFulfillment;
       return result;
     }
 
@@ -130,6 +160,17 @@ public class SubscriptionDeliveryPolicy {
      */
     public Builder intervalCount(int intervalCount) {
       this.intervalCount = intervalCount;
+      return this;
+    }
+
+    /**
+     * The multiple fulfillment configuration when the contract delivers more than
+     * once per billing cycle, as derived from the billing and delivery cadences.
+     * Null when each billing cycle has a single fulfillment.
+     */
+    public Builder multiFulfillment(
+        SubscriptionContractCalculationMultipleFulfillmentConfig multiFulfillment) {
+      this.multiFulfillment = multiFulfillment;
       return this;
     }
   }

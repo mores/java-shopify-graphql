@@ -2,10 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.FulfillmentOrderMergeInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -20,6 +24,23 @@ public class FulfillmentOrderMergeGraphQLQuery extends GraphQLQuery {
     if (fulfillmentOrderMergeInputs != null || fieldsSet.contains("fulfillmentOrderMergeInputs")) {
         getInput().put("fulfillmentOrderMergeInputs", fulfillmentOrderMergeInputs);
     }
+  }
+
+  public FulfillmentOrderMergeGraphQLQuery(
+      List<FulfillmentOrderMergeInput> fulfillmentOrderMergeInputs, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (fulfillmentOrderMergeInputs != null || fieldsSet.contains("fulfillmentOrderMergeInputs")) {
+        getInput().put("fulfillmentOrderMergeInputs", fulfillmentOrderMergeInputs);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public FulfillmentOrderMergeGraphQLQuery() {
@@ -38,12 +59,16 @@ public class FulfillmentOrderMergeGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private List<FulfillmentOrderMergeInput> fulfillmentOrderMergeInputs;
 
     private String queryName;
 
     public FulfillmentOrderMergeGraphQLQuery build() {
-      return new FulfillmentOrderMergeGraphQLQuery(fulfillmentOrderMergeInputs, queryName, fieldsSet);
+      return new FulfillmentOrderMergeGraphQLQuery(fulfillmentOrderMergeInputs, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -53,6 +78,16 @@ public class FulfillmentOrderMergeGraphQLQuery extends GraphQLQuery {
     public Builder fulfillmentOrderMergeInputs(
         List<FulfillmentOrderMergeInput> fulfillmentOrderMergeInputs) {
       this.fulfillmentOrderMergeInputs = fulfillmentOrderMergeInputs;
+      this.fieldsSet.add("fulfillmentOrderMergeInputs");
+      return this;
+    }
+
+    /**
+     * One or more sets of fulfillment orders to be merged.
+     */
+    public Builder fulfillmentOrderMergeInputsReference(String variableRef) {
+      this.variableReferences.put("fulfillmentOrderMergeInputs", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("FulfillmentOrderMergeInput"))))).build());
       this.fieldsSet.add("fulfillmentOrderMergeInputs");
       return this;
     }

@@ -38,17 +38,38 @@ public class CompanyProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, R
     CompanyContactRoleConnectionProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> projection = new CompanyContactRoleConnectionProjection<>(this, this);    
     getFields().put("contactRoles", projection);
     getInputArguments().computeIfAbsent("contactRoles", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("contactRoles").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("contactRoles").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("contactRoles").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("contactRoles").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
     getInputArguments().get("contactRoles").add(reverseArg);
-    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey, false, null);
+    getInputArguments().get("contactRoles").add(sortKeyArg);
+    return projection;
+  }
+
+  public CompanyContactRoleConnectionProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> contactRolesWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference, String sortKeyReference) {
+    CompanyContactRoleConnectionProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> projection = new CompanyContactRoleConnectionProjection<>(this, this);    
+    getFields().put("contactRoles", projection);
+    getInputArguments().computeIfAbsent("contactRoles", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("contactRoles").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("contactRoles").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("contactRoles").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("contactRoles").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("contactRoles").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKeyReference, true, new graphql.language.TypeName("CompanyContactRoleSortKeys"));
     getInputArguments().get("contactRoles").add(sortKeyArg);
     return projection;
   }
@@ -66,19 +87,42 @@ public class CompanyProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, R
     CompanyContactConnectionProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> projection = new CompanyContactConnectionProjection<>(this, this);    
     getFields().put("contacts", projection);
     getInputArguments().computeIfAbsent("contacts", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("contacts").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("contacts").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("contacts").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("contacts").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
     getInputArguments().get("contacts").add(reverseArg);
-    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey, false, null);
     getInputArguments().get("contacts").add(sortKeyArg);
-    InputArgument queryArg = new InputArgument("query", query);
+    InputArgument queryArg = new InputArgument("query", query, false, null);
+    getInputArguments().get("contacts").add(queryArg);
+    return projection;
+  }
+
+  public CompanyContactConnectionProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> contactsWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference, String sortKeyReference, String queryReference) {
+    CompanyContactConnectionProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> projection = new CompanyContactConnectionProjection<>(this, this);    
+    getFields().put("contacts", projection);
+    getInputArguments().computeIfAbsent("contacts", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("contacts").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("contacts").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("contacts").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("contacts").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("contacts").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKeyReference, true, new graphql.language.TypeName("CompanyContactSortKeys"));
+    getInputArguments().get("contacts").add(sortKeyArg);
+    InputArgument queryArg = new InputArgument("query", queryReference, true, new graphql.language.TypeName("String"));
     getInputArguments().get("contacts").add(queryArg);
     return projection;
   }
@@ -110,19 +154,42 @@ public class CompanyProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, R
     DraftOrderConnectionProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> projection = new DraftOrderConnectionProjection<>(this, this);    
     getFields().put("draftOrders", projection);
     getInputArguments().computeIfAbsent("draftOrders", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("draftOrders").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("draftOrders").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("draftOrders").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("draftOrders").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
     getInputArguments().get("draftOrders").add(reverseArg);
-    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey, false, null);
     getInputArguments().get("draftOrders").add(sortKeyArg);
-    InputArgument queryArg = new InputArgument("query", query);
+    InputArgument queryArg = new InputArgument("query", query, false, null);
+    getInputArguments().get("draftOrders").add(queryArg);
+    return projection;
+  }
+
+  public DraftOrderConnectionProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> draftOrdersWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference, String sortKeyReference, String queryReference) {
+    DraftOrderConnectionProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> projection = new DraftOrderConnectionProjection<>(this, this);    
+    getFields().put("draftOrders", projection);
+    getInputArguments().computeIfAbsent("draftOrders", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("draftOrders").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("draftOrders").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("draftOrders").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("draftOrders").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("draftOrders").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKeyReference, true, new graphql.language.TypeName("DraftOrderSortKeys"));
+    getInputArguments().get("draftOrders").add(sortKeyArg);
+    InputArgument queryArg = new InputArgument("query", queryReference, true, new graphql.language.TypeName("String"));
     getInputArguments().get("draftOrders").add(queryArg);
     return projection;
   }
@@ -140,19 +207,42 @@ public class CompanyProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, R
     EventConnectionProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> projection = new EventConnectionProjection<>(this, this);    
     getFields().put("events", projection);
     getInputArguments().computeIfAbsent("events", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("events").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("events").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("events").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("events").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
     getInputArguments().get("events").add(reverseArg);
-    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey, false, null);
     getInputArguments().get("events").add(sortKeyArg);
-    InputArgument queryArg = new InputArgument("query", query);
+    InputArgument queryArg = new InputArgument("query", query, false, null);
+    getInputArguments().get("events").add(queryArg);
+    return projection;
+  }
+
+  public EventConnectionProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> eventsWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference, String sortKeyReference, String queryReference) {
+    EventConnectionProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> projection = new EventConnectionProjection<>(this, this);    
+    getFields().put("events", projection);
+    getInputArguments().computeIfAbsent("events", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("events").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("events").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("events").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("events").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("events").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKeyReference, true, new graphql.language.TypeName("EventSortKeys"));
+    getInputArguments().get("events").add(sortKeyArg);
+    InputArgument queryArg = new InputArgument("query", queryReference, true, new graphql.language.TypeName("String"));
     getInputArguments().get("events").add(queryArg);
     return projection;
   }
@@ -170,19 +260,42 @@ public class CompanyProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, R
     CompanyLocationConnectionProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> projection = new CompanyLocationConnectionProjection<>(this, this);    
     getFields().put("locations", projection);
     getInputArguments().computeIfAbsent("locations", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("locations").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("locations").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("locations").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("locations").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
     getInputArguments().get("locations").add(reverseArg);
-    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey, false, null);
     getInputArguments().get("locations").add(sortKeyArg);
-    InputArgument queryArg = new InputArgument("query", query);
+    InputArgument queryArg = new InputArgument("query", query, false, null);
+    getInputArguments().get("locations").add(queryArg);
+    return projection;
+  }
+
+  public CompanyLocationConnectionProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> locationsWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference, String sortKeyReference, String queryReference) {
+    CompanyLocationConnectionProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> projection = new CompanyLocationConnectionProjection<>(this, this);    
+    getFields().put("locations", projection);
+    getInputArguments().computeIfAbsent("locations", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("locations").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("locations").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("locations").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("locations").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("locations").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKeyReference, true, new graphql.language.TypeName("CompanyLocationSortKeys"));
+    getInputArguments().get("locations").add(sortKeyArg);
+    InputArgument queryArg = new InputArgument("query", queryReference, true, new graphql.language.TypeName("String"));
     getInputArguments().get("locations").add(queryArg);
     return projection;
   }
@@ -213,9 +326,21 @@ public class CompanyProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, R
     MetafieldProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> projection = new MetafieldProjection<>(this, this);    
     getFields().put("metafield", projection);
     getInputArguments().computeIfAbsent("metafield", k -> new ArrayList<>());                      
-    InputArgument namespaceArg = new InputArgument("namespace", namespace);
+    InputArgument namespaceArg = new InputArgument("namespace", namespace, false, null);
     getInputArguments().get("metafield").add(namespaceArg);
-    InputArgument keyArg = new InputArgument("key", key);
+    InputArgument keyArg = new InputArgument("key", key, false, null);
+    getInputArguments().get("metafield").add(keyArg);
+    return projection;
+  }
+
+  public MetafieldProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> metafieldWithVariableReferences(
+      String namespaceReference, String keyReference) {
+    MetafieldProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> projection = new MetafieldProjection<>(this, this);    
+    getFields().put("metafield", projection);
+    getInputArguments().computeIfAbsent("metafield", k -> new ArrayList<>());              
+    InputArgument namespaceArg = new InputArgument("namespace", namespaceReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("metafield").add(namespaceArg);
+    InputArgument keyArg = new InputArgument("key", keyReference, true, new graphql.language.NonNullType(new graphql.language.TypeName("String")));
     getInputArguments().get("metafield").add(keyArg);
     return projection;
   }
@@ -234,23 +359,51 @@ public class CompanyProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, R
     MetafieldDefinitionConnectionProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> projection = new MetafieldDefinitionConnectionProjection<>(this, this);    
     getFields().put("metafieldDefinitions", projection);
     getInputArguments().computeIfAbsent("metafieldDefinitions", k -> new ArrayList<>());                      
-    InputArgument namespaceArg = new InputArgument("namespace", namespace);
+    InputArgument namespaceArg = new InputArgument("namespace", namespace, false, null);
     getInputArguments().get("metafieldDefinitions").add(namespaceArg);
-    InputArgument pinnedStatusArg = new InputArgument("pinnedStatus", pinnedStatus);
+    InputArgument pinnedStatusArg = new InputArgument("pinnedStatus", pinnedStatus, false, null);
     getInputArguments().get("metafieldDefinitions").add(pinnedStatusArg);
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("metafieldDefinitions").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("metafieldDefinitions").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("metafieldDefinitions").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("metafieldDefinitions").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
     getInputArguments().get("metafieldDefinitions").add(reverseArg);
-    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey, false, null);
     getInputArguments().get("metafieldDefinitions").add(sortKeyArg);
-    InputArgument queryArg = new InputArgument("query", query);
+    InputArgument queryArg = new InputArgument("query", query, false, null);
+    getInputArguments().get("metafieldDefinitions").add(queryArg);
+    return projection;
+  }
+
+  public MetafieldDefinitionConnectionProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> metafieldDefinitionsWithVariableReferences(
+      String namespaceReference, String pinnedStatusReference, String firstReference,
+      String afterReference, String lastReference, String beforeReference, String reverseReference,
+      String sortKeyReference, String queryReference) {
+    MetafieldDefinitionConnectionProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> projection = new MetafieldDefinitionConnectionProjection<>(this, this);    
+    getFields().put("metafieldDefinitions", projection);
+    getInputArguments().computeIfAbsent("metafieldDefinitions", k -> new ArrayList<>());              
+    InputArgument namespaceArg = new InputArgument("namespace", namespaceReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("metafieldDefinitions").add(namespaceArg);
+    InputArgument pinnedStatusArg = new InputArgument("pinnedStatus", pinnedStatusReference, true, new graphql.language.TypeName("MetafieldDefinitionPinnedStatus"));
+    getInputArguments().get("metafieldDefinitions").add(pinnedStatusArg);
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("metafieldDefinitions").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("metafieldDefinitions").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("metafieldDefinitions").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("metafieldDefinitions").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("metafieldDefinitions").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKeyReference, true, new graphql.language.TypeName("MetafieldDefinitionSortKeys"));
+    getInputArguments().get("metafieldDefinitions").add(sortKeyArg);
+    InputArgument queryArg = new InputArgument("query", queryReference, true, new graphql.language.TypeName("String"));
     getInputArguments().get("metafieldDefinitions").add(queryArg);
     return projection;
   }
@@ -268,19 +421,42 @@ public class CompanyProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, R
     MetafieldConnectionProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> projection = new MetafieldConnectionProjection<>(this, this);    
     getFields().put("metafields", projection);
     getInputArguments().computeIfAbsent("metafields", k -> new ArrayList<>());                      
-    InputArgument namespaceArg = new InputArgument("namespace", namespace);
+    InputArgument namespaceArg = new InputArgument("namespace", namespace, false, null);
     getInputArguments().get("metafields").add(namespaceArg);
-    InputArgument keysArg = new InputArgument("keys", keys);
+    InputArgument keysArg = new InputArgument("keys", keys, false, null);
     getInputArguments().get("metafields").add(keysArg);
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("metafields").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("metafields").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("metafields").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("metafields").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("metafields").add(reverseArg);
+    return projection;
+  }
+
+  public MetafieldConnectionProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> metafieldsWithVariableReferences(
+      String namespaceReference, String keysReference, String firstReference, String afterReference,
+      String lastReference, String beforeReference, String reverseReference) {
+    MetafieldConnectionProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> projection = new MetafieldConnectionProjection<>(this, this);    
+    getFields().put("metafields", projection);
+    getInputArguments().computeIfAbsent("metafields", k -> new ArrayList<>());              
+    InputArgument namespaceArg = new InputArgument("namespace", namespaceReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("metafields").add(namespaceArg);
+    InputArgument keysArg = new InputArgument("keys", keysReference, true, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("String"))));
+    getInputArguments().get("metafields").add(keysArg);
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("metafields").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("metafields").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("metafields").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("metafields").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("metafields").add(reverseArg);
     return projection;
   }
@@ -298,17 +474,38 @@ public class CompanyProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, R
     OrderConnectionProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> projection = new OrderConnectionProjection<>(this, this);    
     getFields().put("orders", projection);
     getInputArguments().computeIfAbsent("orders", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("orders").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("orders").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("orders").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("orders").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
     getInputArguments().get("orders").add(reverseArg);
-    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey, false, null);
+    getInputArguments().get("orders").add(sortKeyArg);
+    return projection;
+  }
+
+  public OrderConnectionProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> ordersWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference, String sortKeyReference) {
+    OrderConnectionProjection<CompanyProjectionRoot<PARENT, ROOT>, CompanyProjectionRoot<PARENT, ROOT>> projection = new OrderConnectionProjection<>(this, this);    
+    getFields().put("orders", projection);
+    getInputArguments().computeIfAbsent("orders", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("orders").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("orders").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("orders").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("orders").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("orders").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKeyReference, true, new graphql.language.TypeName("OrderSortKeys"));
     getInputArguments().get("orders").add(sortKeyArg);
     return projection;
   }

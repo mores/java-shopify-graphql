@@ -29,19 +29,42 @@ public class PointOfSaleDevicePaymentSessionProjection<PARENT extends BaseSubPro
     CashActivityConnectionProjection<PointOfSaleDevicePaymentSessionProjection<PARENT, ROOT>, ROOT> projection = new CashActivityConnectionProjection<>(this, getRoot());    
     getFields().put("cashActivities", projection);
     getInputArguments().computeIfAbsent("cashActivities", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("cashActivities").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("cashActivities").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("cashActivities").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("cashActivities").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
     getInputArguments().get("cashActivities").add(reverseArg);
-    InputArgument queryArg = new InputArgument("query", query);
+    InputArgument queryArg = new InputArgument("query", query, false, null);
     getInputArguments().get("cashActivities").add(queryArg);
-    InputArgument staffMemberIdArg = new InputArgument("staffMemberId", staffMemberId);
+    InputArgument staffMemberIdArg = new InputArgument("staffMemberId", staffMemberId, false, null);
+    getInputArguments().get("cashActivities").add(staffMemberIdArg);
+    return projection;
+  }
+
+  public CashActivityConnectionProjection<PointOfSaleDevicePaymentSessionProjection<PARENT, ROOT>, ROOT> cashActivitiesWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference, String queryReference, String staffMemberIdReference) {
+    CashActivityConnectionProjection<PointOfSaleDevicePaymentSessionProjection<PARENT, ROOT>, ROOT> projection = new CashActivityConnectionProjection<>(this, getRoot());    
+    getFields().put("cashActivities", projection);
+    getInputArguments().computeIfAbsent("cashActivities", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("cashActivities").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("cashActivities").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("cashActivities").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("cashActivities").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("cashActivities").add(reverseArg);
+    InputArgument queryArg = new InputArgument("query", queryReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("cashActivities").add(queryArg);
+    InputArgument staffMemberIdArg = new InputArgument("staffMemberId", staffMemberIdReference, true, new graphql.language.TypeName("ID"));
     getInputArguments().get("cashActivities").add(staffMemberIdArg);
     return projection;
   }

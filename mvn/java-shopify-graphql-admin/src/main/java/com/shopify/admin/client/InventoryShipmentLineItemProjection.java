@@ -24,6 +24,11 @@ public class InventoryShipmentLineItemProjection<PARENT extends BaseSubProjectio
     return this;
   }
 
+  public InventoryShipmentLineItemProjection<PARENT, ROOT> canceledQuantity() {
+    getFields().put("canceledQuantity", null);
+    return this;
+  }
+
   public InventoryShipmentLineItemProjection<PARENT, ROOT> id() {
     getFields().put("id", null);
     return this;

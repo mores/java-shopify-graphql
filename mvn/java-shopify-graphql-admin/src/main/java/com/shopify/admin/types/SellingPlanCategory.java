@@ -6,11 +6,23 @@ package com.shopify.admin.types;
  *          where we'll review your request for a new purchase option.
  */
 public enum SellingPlanCategory {
+  /**
+   * The selling plan is for anything not in one of the other categories.
+   */
   OTHER,
 
+  /**
+   * The selling plan is for pre-orders.
+   */
   PRE_ORDER,
 
+  /**
+   * The selling plan is for subscriptions.
+   */
   SUBSCRIPTION,
 
+  /**
+   * The selling plan is for try before you buy purchases.
+   */
   TRY_BEFORE_YOU_BUY
 }

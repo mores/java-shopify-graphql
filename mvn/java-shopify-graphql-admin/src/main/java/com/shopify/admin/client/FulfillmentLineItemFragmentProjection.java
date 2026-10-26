@@ -38,6 +38,11 @@ public class FulfillmentLineItemFragmentProjection<PARENT extends BaseSubProject
      return projection;
   }
 
+  public FulfillmentLineItemFragmentProjection<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
+    return this;
+  }
+
   public FulfillmentLineItemFragmentProjection<PARENT, ROOT> discountedTotal() {
     getFields().put("discountedTotal", null);
     return this;

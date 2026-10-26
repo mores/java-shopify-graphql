@@ -45,23 +45,51 @@ public class ShopifyPaymentsBankAccountProjection<PARENT extends BaseSubProjecti
     ShopifyPaymentsPayoutConnectionProjection<ShopifyPaymentsBankAccountProjection<PARENT, ROOT>, ROOT> projection = new ShopifyPaymentsPayoutConnectionProjection<>(this, getRoot());    
     getFields().put("payouts", projection);
     getInputArguments().computeIfAbsent("payouts", k -> new ArrayList<>());                      
-    InputArgument transactionTypeArg = new InputArgument("transactionType", transactionType);
+    InputArgument transactionTypeArg = new InputArgument("transactionType", transactionType, false, null);
     getInputArguments().get("payouts").add(transactionTypeArg);
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("payouts").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("payouts").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("payouts").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("payouts").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
     getInputArguments().get("payouts").add(reverseArg);
-    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey, false, null);
     getInputArguments().get("payouts").add(sortKeyArg);
-    InputArgument queryArg = new InputArgument("query", query);
+    InputArgument queryArg = new InputArgument("query", query, false, null);
     getInputArguments().get("payouts").add(queryArg);
-    InputArgument savedSearchIdArg = new InputArgument("savedSearchId", savedSearchId);
+    InputArgument savedSearchIdArg = new InputArgument("savedSearchId", savedSearchId, false, null);
+    getInputArguments().get("payouts").add(savedSearchIdArg);
+    return projection;
+  }
+
+  public ShopifyPaymentsPayoutConnectionProjection<ShopifyPaymentsBankAccountProjection<PARENT, ROOT>, ROOT> payoutsWithVariableReferences(
+      String transactionTypeReference, String firstReference, String afterReference,
+      String lastReference, String beforeReference, String reverseReference,
+      String sortKeyReference, String queryReference, String savedSearchIdReference) {
+    ShopifyPaymentsPayoutConnectionProjection<ShopifyPaymentsBankAccountProjection<PARENT, ROOT>, ROOT> projection = new ShopifyPaymentsPayoutConnectionProjection<>(this, getRoot());    
+    getFields().put("payouts", projection);
+    getInputArguments().computeIfAbsent("payouts", k -> new ArrayList<>());              
+    InputArgument transactionTypeArg = new InputArgument("transactionType", transactionTypeReference, true, new graphql.language.TypeName("ShopifyPaymentsPayoutTransactionType"));
+    getInputArguments().get("payouts").add(transactionTypeArg);
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("payouts").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("payouts").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("payouts").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("payouts").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("payouts").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKeyReference, true, new graphql.language.TypeName("PayoutSortKeys"));
+    getInputArguments().get("payouts").add(sortKeyArg);
+    InputArgument queryArg = new InputArgument("query", queryReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("payouts").add(queryArg);
+    InputArgument savedSearchIdArg = new InputArgument("savedSearchId", savedSearchIdReference, true, new graphql.language.TypeName("ID"));
     getInputArguments().get("payouts").add(savedSearchIdArg);
     return projection;
   }

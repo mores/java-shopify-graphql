@@ -40,6 +40,11 @@ public class CardPaymentDetailsFragmentProjection<PARENT extends BaseSubProjecti
     return this;
   }
 
+  public CardPaymentDetailsFragmentProjection<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
+    return this;
+  }
+
   public CardPaymentDetailsFragmentProjection<PARENT, ROOT> cvvResultCode() {
     getFields().put("cvvResultCode", null);
     return this;

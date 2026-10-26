@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.DiscountCodeBasicInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -27,6 +32,24 @@ public class DiscountCodeBasicUpdateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public DiscountCodeBasicUpdateGraphQLQuery(String id, DiscountCodeBasicInput basicCodeDiscount,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (basicCodeDiscount != null || fieldsSet.contains("basicCodeDiscount")) {
+        getInput().put("basicCodeDiscount", basicCodeDiscount);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public DiscountCodeBasicUpdateGraphQLQuery() {
     super("mutation");
   }
@@ -43,6 +66,10 @@ public class DiscountCodeBasicUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private DiscountCodeBasicInput basicCodeDiscount;
@@ -50,7 +77,7 @@ public class DiscountCodeBasicUpdateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public DiscountCodeBasicUpdateGraphQLQuery build() {
-      return new DiscountCodeBasicUpdateGraphQLQuery(id, basicCodeDiscount, queryName, fieldsSet);
+      return new DiscountCodeBasicUpdateGraphQLQuery(id, basicCodeDiscount, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -64,10 +91,30 @@ public class DiscountCodeBasicUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the discount code to update.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The input data used to update the discount code.
      */
     public Builder basicCodeDiscount(DiscountCodeBasicInput basicCodeDiscount) {
       this.basicCodeDiscount = basicCodeDiscount;
+      this.fieldsSet.add("basicCodeDiscount");
+      return this;
+    }
+
+    /**
+     * The input data used to update the discount code.
+     */
+    public Builder basicCodeDiscountReference(String variableRef) {
+      this.variableReferences.put("basicCodeDiscount", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("DiscountCodeBasicInput"))).build());
       this.fieldsSet.add("basicCodeDiscount");
       return this;
     }

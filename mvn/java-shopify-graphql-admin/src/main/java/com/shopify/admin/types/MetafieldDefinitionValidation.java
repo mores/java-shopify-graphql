@@ -11,7 +11,7 @@ import java.util.Objects;
  * For example, for a metafield definition of `number_integer` type, you can set a validation with the name `max`
  * and a value of `15`. This validation will ensure that the value of the metafield is a number less than or equal to 15.
  *
- * Refer to the [list of supported validations](https://shopify.dev/api/admin/graphql/reference/common-objects/metafieldDefinitionTypes#examples-Fetch_all_metafield_definition_types).
+ * Refer to the [list of supported validations](https://shopify.dev/docs/apps/build/metafields/list-of-validation-options).
  */
 public class MetafieldDefinitionValidation {
   /**

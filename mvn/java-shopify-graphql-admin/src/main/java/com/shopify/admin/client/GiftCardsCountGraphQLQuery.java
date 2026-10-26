@@ -1,14 +1,22 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
- * The total number of gift cards issued for the shop. Limited to a maximum of 10000 by default.
+ * Returns the total count of gift cards that have been issued by the shop. Use
+ * this for dashboard summaries or to understand the scale of a merchant's gift
+ * card program. The count includes all gift cards regardless of status (active,
+ * disabled, or fully redeemed). Limited to a maximum of 10000 by default.
  */
 public class GiftCardsCountGraphQLQuery extends GraphQLQuery {
   public GiftCardsCountGraphQLQuery(String query, String savedSearchId, Integer limit,
@@ -21,6 +29,26 @@ public class GiftCardsCountGraphQLQuery extends GraphQLQuery {
     }if (limit != null || fieldsSet.contains("limit")) {
         getInput().put("limit", limit);
     }
+  }
+
+  public GiftCardsCountGraphQLQuery(String query, String savedSearchId, Integer limit,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("query", queryName);
+    if (query != null || fieldsSet.contains("query")) {
+        getInput().put("query", query);
+    }if (savedSearchId != null || fieldsSet.contains("savedSearchId")) {
+        getInput().put("savedSearchId", savedSearchId);
+    }if (limit != null || fieldsSet.contains("limit")) {
+        getInput().put("limit", limit);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public GiftCardsCountGraphQLQuery() {
@@ -39,6 +67,10 @@ public class GiftCardsCountGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String query;
 
     private String savedSearchId;
@@ -48,7 +80,7 @@ public class GiftCardsCountGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public GiftCardsCountGraphQLQuery build() {
-      return new GiftCardsCountGraphQLQuery(query, savedSearchId, limit, queryName, fieldsSet);
+      return new GiftCardsCountGraphQLQuery(query, savedSearchId, limit, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -61,10 +93,10 @@ public class GiftCardsCountGraphQLQuery extends GraphQLQuery {
      * `query=a5bh6h64b329j4k7`<br/> - `query=Bob Norman` |
      * | balance_status | string | | - `full`<br/> - `partial`<br/> - `empty`<br/>
      * - `full_or_partial` | | - `balance_status:full` |
-     * | created_at | time | | | | - `created_at:>=2020-01-01T12:00:00Z` |
+     * | created_at | time | | | | - `created_at:>='2020-01-01T12:00:00Z'` |
      * | customer_id | id |
      * | expires_on | date | | | | - `expires_on:>=2020-01-01` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
      * | initial_value | string | | | | - `initial_value:>=100` |
      * | recipient_id | id |
      * | source | string | | - `manual`<br/> - `purchased`<br/> - `api_client` | | - `source:manual` |
@@ -75,6 +107,34 @@ public class GiftCardsCountGraphQLQuery extends GraphQLQuery {
      */
     public Builder query(String query) {
       this.query = query;
+      this.fieldsSet.add("query");
+      return this;
+    }
+
+    /**
+     * A filter made up of terms, connectives, modifiers, and comparators.
+     * | name | type | description | acceptable_values | default_value | example_use |
+     * | ---- | ---- | ---- | ---- | ---- | ---- |
+     * | default | string | Filter by a case-insensitive search of multiple fields
+     * in a document, including gift card codes. | | | -
+     * `query=a5bh6h64b329j4k7`<br/> - `query=Bob Norman` |
+     * | balance_status | string | | - `full`<br/> - `partial`<br/> - `empty`<br/>
+     * - `full_or_partial` | | - `balance_status:full` |
+     * | created_at | time | | | | - `created_at:>='2020-01-01T12:00:00Z'` |
+     * | customer_id | id |
+     * | expires_on | date | | | | - `expires_on:>=2020-01-01` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | initial_value | string | | | | - `initial_value:>=100` |
+     * | recipient_id | id |
+     * | source | string | | - `manual`<br/> - `purchased`<br/> - `api_client` | | - `source:manual` |
+     * | status | string | | - `disabled`<br/> - `enabled`<br/> - `expired`<br/> -
+     * `expiring` | | - `status:disabled OR status:expired` |
+     * You can apply one or more filters to a query. Learn more about [Shopify API
+     * search syntax](https://shopify.dev/api/usage/search-syntax).
+     */
+    public Builder queryReference(String variableRef) {
+      this.variableReferences.put("query", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
       this.fieldsSet.add("query");
       return this;
     }
@@ -91,10 +151,32 @@ public class GiftCardsCountGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of an existing saved search.
+     * The search’s query string is used as the query argument.
+     * Refer to the [`SavedSearch`](https://shopify.dev/api/admin-graphql/latest/objects/savedsearch) object.
+     */
+    public Builder savedSearchIdReference(String variableRef) {
+      this.variableReferences.put("savedSearchId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("ID")).build());
+      this.fieldsSet.add("savedSearchId");
+      return this;
+    }
+
+    /**
      * The upper bound on count value before returning a result. Use `null` to have no limit.
      */
     public Builder limit(Integer limit) {
       this.limit = limit;
+      this.fieldsSet.add("limit");
+      return this;
+    }
+
+    /**
+     * The upper bound on count value before returning a result. Use `null` to have no limit.
+     */
+    public Builder limitReference(String variableRef) {
+      this.variableReferences.put("limit", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Int")).build());
       this.fieldsSet.add("limit");
       return this;
     }

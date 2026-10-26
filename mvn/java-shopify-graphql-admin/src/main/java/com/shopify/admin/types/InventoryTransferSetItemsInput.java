@@ -16,7 +16,10 @@ public class InventoryTransferSetItemsInput {
   private String id;
 
   /**
-   * The line items to be set on the Transfer.
+   * The line items to set on the Transfer. Only the items included in this list
+   * are affected; items already on the transfer that aren't referenced here will
+   * stay unchanged. Each inventory item may appear at most once in this list;
+   * duplicate `inventoryItemId` entries are rejected.
    */
   private List<InventoryTransferLineItemInput> lineItems;
 
@@ -35,7 +38,10 @@ public class InventoryTransferSetItemsInput {
   }
 
   /**
-   * The line items to be set on the Transfer.
+   * The line items to set on the Transfer. Only the items included in this list
+   * are affected; items already on the transfer that aren't referenced here will
+   * stay unchanged. Each inventory item may appear at most once in this list;
+   * duplicate `inventoryItemId` entries are rejected.
    */
   public List<InventoryTransferLineItemInput> getLineItems() {
     return lineItems;
@@ -75,7 +81,10 @@ public class InventoryTransferSetItemsInput {
     private String id;
 
     /**
-     * The line items to be set on the Transfer.
+     * The line items to set on the Transfer. Only the items included in this list
+     * are affected; items already on the transfer that aren't referenced here will
+     * stay unchanged. Each inventory item may appear at most once in this list;
+     * duplicate `inventoryItemId` entries are rejected.
      */
     private List<InventoryTransferLineItemInput> lineItems;
 
@@ -95,7 +104,10 @@ public class InventoryTransferSetItemsInput {
     }
 
     /**
-     * The line items to be set on the Transfer.
+     * The line items to set on the Transfer. Only the items included in this list
+     * are affected; items already on the transfer that aren't referenced here will
+     * stay unchanged. Each inventory item may appear at most once in this list;
+     * duplicate `inventoryItemId` entries are rejected.
      */
     public Builder lineItems(List<InventoryTransferLineItemInput> lineItems) {
       this.lineItems = lineItems;

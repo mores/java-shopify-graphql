@@ -8,5 +8,8 @@ package com.shopify.admin.types;
  * selection on specific objects while leaving the global corner radius unset.
  */
 public enum CheckoutBrandingGlobalCornerRadius {
+  /**
+   * Set the global corner radius override to 0px (square corners).
+   */
   NONE
 }

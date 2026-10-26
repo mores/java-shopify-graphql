@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.OrderEditAppliedDiscountInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -31,6 +36,26 @@ public class OrderEditAddLineItemDiscountGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public OrderEditAddLineItemDiscountGraphQLQuery(String id, String lineItemId,
+      OrderEditAppliedDiscountInput discount, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (lineItemId != null || fieldsSet.contains("lineItemId")) {
+        getInput().put("lineItemId", lineItemId);
+    }if (discount != null || fieldsSet.contains("discount")) {
+        getInput().put("discount", discount);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public OrderEditAddLineItemDiscountGraphQLQuery() {
     super("mutation");
   }
@@ -47,6 +72,10 @@ public class OrderEditAddLineItemDiscountGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private String lineItemId;
@@ -56,7 +85,7 @@ public class OrderEditAddLineItemDiscountGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public OrderEditAddLineItemDiscountGraphQLQuery build() {
-      return new OrderEditAddLineItemDiscountGraphQLQuery(id, lineItemId, discount, queryName, fieldsSet);
+      return new OrderEditAddLineItemDiscountGraphQLQuery(id, lineItemId, discount, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -71,6 +100,17 @@ public class OrderEditAddLineItemDiscountGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
+     * or the order edit session to edit.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The ID of the calculated line item to add the discount to.
      */
     public Builder lineItemId(String lineItemId) {
@@ -80,10 +120,30 @@ public class OrderEditAddLineItemDiscountGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the calculated line item to add the discount to.
+     */
+    public Builder lineItemIdReference(String variableRef) {
+      this.variableReferences.put("lineItemId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("lineItemId");
+      return this;
+    }
+
+    /**
      * The discount to add to the line item.
      */
     public Builder discount(OrderEditAppliedDiscountInput discount) {
       this.discount = discount;
+      this.fieldsSet.add("discount");
+      return this;
+    }
+
+    /**
+     * The discount to add to the line item.
+     */
+    public Builder discountReference(String variableRef) {
+      this.variableReferences.put("discount", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("OrderEditAppliedDiscountInput"))).build());
       this.fieldsSet.add("discount");
       return this;
     }

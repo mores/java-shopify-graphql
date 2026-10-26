@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.FulfillmentEventInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -24,6 +29,22 @@ public class FulfillmentEventCreateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public FulfillmentEventCreateGraphQLQuery(FulfillmentEventInput fulfillmentEvent,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (fulfillmentEvent != null || fieldsSet.contains("fulfillmentEvent")) {
+        getInput().put("fulfillmentEvent", fulfillmentEvent);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public FulfillmentEventCreateGraphQLQuery() {
     super("mutation");
   }
@@ -40,12 +61,16 @@ public class FulfillmentEventCreateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private FulfillmentEventInput fulfillmentEvent;
 
     private String queryName;
 
     public FulfillmentEventCreateGraphQLQuery build() {
-      return new FulfillmentEventCreateGraphQLQuery(fulfillmentEvent, queryName, fieldsSet);
+      return new FulfillmentEventCreateGraphQLQuery(fulfillmentEvent, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -54,6 +79,16 @@ public class FulfillmentEventCreateGraphQLQuery extends GraphQLQuery {
      */
     public Builder fulfillmentEvent(FulfillmentEventInput fulfillmentEvent) {
       this.fulfillmentEvent = fulfillmentEvent;
+      this.fieldsSet.add("fulfillmentEvent");
+      return this;
+    }
+
+    /**
+     * The input fields used to create a fulfillment event for a fulfillment.
+     */
+    public Builder fulfillmentEventReference(String variableRef) {
+      this.variableReferences.put("fulfillmentEvent", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("FulfillmentEventInput"))).build());
       this.fieldsSet.add("fulfillmentEvent");
       return this;
     }

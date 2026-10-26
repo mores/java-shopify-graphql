@@ -28,7 +28,7 @@ import java.util.Objects;
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
-public class DiscountCodeApp implements Discount, DiscountCode {
+public class DiscountCodeApp implements Discount, DiscountCode, com.shopify.admin.types.HasRollouts {
   /**
    * The details about the app extension that's providing the
    * [discount type](https://help.shopify.com/manual/discounts/discount-types).
@@ -144,6 +144,15 @@ public class DiscountCodeApp implements Discount, DiscountCode {
    * subscription. If you specify `0`, then the discount applies indefinitely.
    */
   private Integer recurringCycleLimit;
+
+  /**
+   * The rollouts that include this discount. A rollout includes a discount when
+   * one of its treatments adds or removes the discount. Walk
+   * `treatments.changes` to see what each treatment does to the discount.
+   * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+   * Use `query` to filter by rollout `status`.
+   */
+  private RolloutConnection rollouts;
 
   /**
    * A list of URLs that the app can use to share the discount.
@@ -417,6 +426,21 @@ public class DiscountCodeApp implements Discount, DiscountCode {
   }
 
   /**
+   * The rollouts that include this discount. A rollout includes a discount when
+   * one of its treatments adds or removes the discount. Walk
+   * `treatments.changes` to see what each treatment does to the discount.
+   * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+   * Use `query` to filter by rollout `status`.
+   */
+  public RolloutConnection getRollouts() {
+    return rollouts;
+  }
+
+  public void setRollouts(RolloutConnection rollouts) {
+    this.rollouts = rollouts;
+  }
+
+  /**
    * A list of URLs that the app can use to share the discount.
    */
   public List<DiscountShareableUrl> getShareableUrls() {
@@ -510,7 +534,7 @@ public class DiscountCodeApp implements Discount, DiscountCode {
 
   @Override
   public String toString() {
-    return "DiscountCodeApp{appDiscountType='" + appDiscountType + "', appliesOnOneTimePurchase='" + appliesOnOneTimePurchase + "', appliesOnSubscription='" + appliesOnSubscription + "', appliesOncePerCustomer='" + appliesOncePerCustomer + "', asyncUsageCount='" + asyncUsageCount + "', codes='" + codes + "', codesCount='" + codesCount + "', combinesWith='" + combinesWith + "', context='" + context + "', createdAt='" + createdAt + "', customerSelection='" + customerSelection + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', discountId='" + discountId + "', endsAt='" + endsAt + "', errorHistory='" + errorHistory + "', hasTimelineComment='" + hasTimelineComment + "', recurringCycleLimit='" + recurringCycleLimit + "', shareableUrls='" + shareableUrls + "', startsAt='" + startsAt + "', status='" + status + "', tags='" + tags + "', title='" + title + "', totalSales='" + totalSales + "', updatedAt='" + updatedAt + "', usageLimit='" + usageLimit + "'}";
+    return "DiscountCodeApp{appDiscountType='" + appDiscountType + "', appliesOnOneTimePurchase='" + appliesOnOneTimePurchase + "', appliesOnSubscription='" + appliesOnSubscription + "', appliesOncePerCustomer='" + appliesOncePerCustomer + "', asyncUsageCount='" + asyncUsageCount + "', codes='" + codes + "', codesCount='" + codesCount + "', combinesWith='" + combinesWith + "', context='" + context + "', createdAt='" + createdAt + "', customerSelection='" + customerSelection + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', discountId='" + discountId + "', endsAt='" + endsAt + "', errorHistory='" + errorHistory + "', hasTimelineComment='" + hasTimelineComment + "', recurringCycleLimit='" + recurringCycleLimit + "', rollouts='" + rollouts + "', shareableUrls='" + shareableUrls + "', startsAt='" + startsAt + "', status='" + status + "', tags='" + tags + "', title='" + title + "', totalSales='" + totalSales + "', updatedAt='" + updatedAt + "', usageLimit='" + usageLimit + "'}";
   }
 
   @Override
@@ -536,6 +560,7 @@ public class DiscountCodeApp implements Discount, DiscountCode {
         Objects.equals(errorHistory, that.errorHistory) &&
         hasTimelineComment == that.hasTimelineComment &&
         Objects.equals(recurringCycleLimit, that.recurringCycleLimit) &&
+        Objects.equals(rollouts, that.rollouts) &&
         Objects.equals(shareableUrls, that.shareableUrls) &&
         Objects.equals(startsAt, that.startsAt) &&
         Objects.equals(status, that.status) &&
@@ -548,7 +573,7 @@ public class DiscountCodeApp implements Discount, DiscountCode {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appDiscountType, appliesOnOneTimePurchase, appliesOnSubscription, appliesOncePerCustomer, asyncUsageCount, codes, codesCount, combinesWith, context, createdAt, customerSelection, discountClass, discountClasses, discountId, endsAt, errorHistory, hasTimelineComment, recurringCycleLimit, shareableUrls, startsAt, status, tags, title, totalSales, updatedAt, usageLimit);
+    return Objects.hash(appDiscountType, appliesOnOneTimePurchase, appliesOnSubscription, appliesOncePerCustomer, asyncUsageCount, codes, codesCount, combinesWith, context, createdAt, customerSelection, discountClass, discountClasses, discountId, endsAt, errorHistory, hasTimelineComment, recurringCycleLimit, rollouts, shareableUrls, startsAt, status, tags, title, totalSales, updatedAt, usageLimit);
   }
 
   public static Builder newBuilder() {
@@ -673,6 +698,15 @@ public class DiscountCodeApp implements Discount, DiscountCode {
     private Integer recurringCycleLimit;
 
     /**
+     * The rollouts that include this discount. A rollout includes a discount when
+     * one of its treatments adds or removes the discount. Walk
+     * `treatments.changes` to see what each treatment does to the discount.
+     * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+     * Use `query` to filter by rollout `status`.
+     */
+    private RolloutConnection rollouts;
+
+    /**
      * A list of URLs that the app can use to share the discount.
      */
     private List<DiscountShareableUrl> shareableUrls;
@@ -736,6 +770,7 @@ public class DiscountCodeApp implements Discount, DiscountCode {
       result.errorHistory = this.errorHistory;
       result.hasTimelineComment = this.hasTimelineComment;
       result.recurringCycleLimit = this.recurringCycleLimit;
+      result.rollouts = this.rollouts;
       result.shareableUrls = this.shareableUrls;
       result.startsAt = this.startsAt;
       result.status = this.status;
@@ -914,6 +949,18 @@ public class DiscountCodeApp implements Discount, DiscountCode {
      */
     public Builder recurringCycleLimit(Integer recurringCycleLimit) {
       this.recurringCycleLimit = recurringCycleLimit;
+      return this;
+    }
+
+    /**
+     * The rollouts that include this discount. A rollout includes a discount when
+     * one of its treatments adds or removes the discount. Walk
+     * `treatments.changes` to see what each treatment does to the discount.
+     * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+     * Use `query` to filter by rollout `status`.
+     */
+    public Builder rollouts(RolloutConnection rollouts) {
+      this.rollouts = rollouts;
       return this;
     }
 

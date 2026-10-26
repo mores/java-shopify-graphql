@@ -2,11 +2,15 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.FulfillmentOrderLineItemInput;
+import graphql.language.VariableDefinition;
 import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -39,6 +43,29 @@ public class FulfillmentOrderSubmitFulfillmentRequestGraphQLQuery extends GraphQ
     }
   }
 
+  public FulfillmentOrderSubmitFulfillmentRequestGraphQLQuery(String id, String message,
+      Boolean notifyCustomer, List<FulfillmentOrderLineItemInput> fulfillmentOrderLineItems,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (message != null || fieldsSet.contains("message")) {
+        getInput().put("message", message);
+    }if (notifyCustomer != null || fieldsSet.contains("notifyCustomer")) {
+        getInput().put("notifyCustomer", notifyCustomer);
+    }if (fulfillmentOrderLineItems != null || fieldsSet.contains("fulfillmentOrderLineItems")) {
+        getInput().put("fulfillmentOrderLineItems", fulfillmentOrderLineItems);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public FulfillmentOrderSubmitFulfillmentRequestGraphQLQuery() {
     super("mutation");
   }
@@ -55,6 +82,10 @@ public class FulfillmentOrderSubmitFulfillmentRequestGraphQLQuery extends GraphQ
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private String message;
@@ -66,7 +97,7 @@ public class FulfillmentOrderSubmitFulfillmentRequestGraphQLQuery extends GraphQ
     private String queryName;
 
     public FulfillmentOrderSubmitFulfillmentRequestGraphQLQuery build() {
-      return new FulfillmentOrderSubmitFulfillmentRequestGraphQLQuery(id, message, notifyCustomer, fulfillmentOrderLineItems, queryName, fieldsSet);
+      return new FulfillmentOrderSubmitFulfillmentRequestGraphQLQuery(id, message, notifyCustomer, fulfillmentOrderLineItems, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -75,6 +106,16 @@ public class FulfillmentOrderSubmitFulfillmentRequestGraphQLQuery extends GraphQ
      */
     public Builder id(String id) {
       this.id = id;
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
+     * The ID of the fulfillment order associated with fulfillment request.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("id");
       return this;
     }
@@ -89,10 +130,30 @@ public class FulfillmentOrderSubmitFulfillmentRequestGraphQLQuery extends GraphQ
     }
 
     /**
+     * An optional message for the fulfillment request.
+     */
+    public Builder messageReference(String variableRef) {
+      this.variableReferences.put("message", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
+      this.fieldsSet.add("message");
+      return this;
+    }
+
+    /**
      * Whether the customer should be notified when fulfillments are created for this fulfillment order.
      */
     public Builder notifyCustomer(Boolean notifyCustomer) {
       this.notifyCustomer = notifyCustomer;
+      this.fieldsSet.add("notifyCustomer");
+      return this;
+    }
+
+    /**
+     * Whether the customer should be notified when fulfillments are created for this fulfillment order.
+     */
+    public Builder notifyCustomerReference(String variableRef) {
+      this.variableReferences.put("notifyCustomer", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Boolean")).build());
       this.fieldsSet.add("notifyCustomer");
       return this;
     }
@@ -104,6 +165,17 @@ public class FulfillmentOrderSubmitFulfillmentRequestGraphQLQuery extends GraphQ
     public Builder fulfillmentOrderLineItems(
         List<FulfillmentOrderLineItemInput> fulfillmentOrderLineItems) {
       this.fulfillmentOrderLineItems = fulfillmentOrderLineItems;
+      this.fieldsSet.add("fulfillmentOrderLineItems");
+      return this;
+    }
+
+    /**
+     * The fulfillment order line items to be requested for fulfillment.
+     * If left blank, all line items of the fulfillment order are requested for fulfillment.
+     */
+    public Builder fulfillmentOrderLineItemsReference(String variableRef) {
+      this.variableReferences.put("fulfillmentOrderLineItems", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("FulfillmentOrderLineItemInput")))).build());
       this.fieldsSet.add("fulfillmentOrderLineItems");
       return this;
     }

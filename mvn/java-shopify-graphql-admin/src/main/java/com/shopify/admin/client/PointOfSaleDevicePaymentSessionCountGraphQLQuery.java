@@ -2,10 +2,15 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.MoneyInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -31,6 +36,33 @@ public class PointOfSaleDevicePaymentSessionCountGraphQLQuery extends GraphQLQue
     }
   }
 
+  public PointOfSaleDevicePaymentSessionCountGraphQLQuery(String pointOfSaleDevicePaymentSessionId,
+      MoneyInput balance, String staffMemberId, OffsetDateTime time, String reasonCodeId,
+      String note, String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (pointOfSaleDevicePaymentSessionId != null || fieldsSet.contains("pointOfSaleDevicePaymentSessionId")) {
+        getInput().put("pointOfSaleDevicePaymentSessionId", pointOfSaleDevicePaymentSessionId);
+    }if (balance != null || fieldsSet.contains("balance")) {
+        getInput().put("balance", balance);
+    }if (staffMemberId != null || fieldsSet.contains("staffMemberId")) {
+        getInput().put("staffMemberId", staffMemberId);
+    }if (time != null || fieldsSet.contains("time")) {
+        getInput().put("time", time);
+    }if (reasonCodeId != null || fieldsSet.contains("reasonCodeId")) {
+        getInput().put("reasonCodeId", reasonCodeId);
+    }if (note != null || fieldsSet.contains("note")) {
+        getInput().put("note", note);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public PointOfSaleDevicePaymentSessionCountGraphQLQuery() {
     super("mutation");
   }
@@ -47,6 +79,10 @@ public class PointOfSaleDevicePaymentSessionCountGraphQLQuery extends GraphQLQue
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String pointOfSaleDevicePaymentSessionId;
 
     private MoneyInput balance;
@@ -62,7 +98,7 @@ public class PointOfSaleDevicePaymentSessionCountGraphQLQuery extends GraphQLQue
     private String queryName;
 
     public PointOfSaleDevicePaymentSessionCountGraphQLQuery build() {
-      return new PointOfSaleDevicePaymentSessionCountGraphQLQuery(pointOfSaleDevicePaymentSessionId, balance, staffMemberId, time, reasonCodeId, note, queryName, fieldsSet);
+      return new PointOfSaleDevicePaymentSessionCountGraphQLQuery(pointOfSaleDevicePaymentSessionId, balance, staffMemberId, time, reasonCodeId, note, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -71,6 +107,16 @@ public class PointOfSaleDevicePaymentSessionCountGraphQLQuery extends GraphQLQue
      */
     public Builder pointOfSaleDevicePaymentSessionId(String pointOfSaleDevicePaymentSessionId) {
       this.pointOfSaleDevicePaymentSessionId = pointOfSaleDevicePaymentSessionId;
+      this.fieldsSet.add("pointOfSaleDevicePaymentSessionId");
+      return this;
+    }
+
+    /**
+     * The point of sale device payment session to record a count for.
+     */
+    public Builder pointOfSaleDevicePaymentSessionIdReference(String variableRef) {
+      this.variableReferences.put("pointOfSaleDevicePaymentSessionId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("pointOfSaleDevicePaymentSessionId");
       return this;
     }
@@ -85,10 +131,30 @@ public class PointOfSaleDevicePaymentSessionCountGraphQLQuery extends GraphQLQue
     }
 
     /**
+     * The counted cash drawer balance.
+     */
+    public Builder balanceReference(String variableRef) {
+      this.variableReferences.put("balance", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("MoneyInput"))).build());
+      this.fieldsSet.add("balance");
+      return this;
+    }
+
+    /**
      * The staff member who performed the count.
      */
     public Builder staffMemberId(String staffMemberId) {
       this.staffMemberId = staffMemberId;
+      this.fieldsSet.add("staffMemberId");
+      return this;
+    }
+
+    /**
+     * The staff member who performed the count.
+     */
+    public Builder staffMemberIdReference(String variableRef) {
+      this.variableReferences.put("staffMemberId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("staffMemberId");
       return this;
     }
@@ -103,6 +169,16 @@ public class PointOfSaleDevicePaymentSessionCountGraphQLQuery extends GraphQLQue
     }
 
     /**
+     * When the count was performed. Defaults to the current time.
+     */
+    public Builder timeReference(String variableRef) {
+      this.variableReferences.put("time", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("DateTime")).build());
+      this.fieldsSet.add("time");
+      return this;
+    }
+
+    /**
      * The reason code for the count.
      */
     public Builder reasonCodeId(String reasonCodeId) {
@@ -112,10 +188,30 @@ public class PointOfSaleDevicePaymentSessionCountGraphQLQuery extends GraphQLQue
     }
 
     /**
+     * The reason code for the count.
+     */
+    public Builder reasonCodeIdReference(String variableRef) {
+      this.variableReferences.put("reasonCodeId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("ID")).build());
+      this.fieldsSet.add("reasonCodeId");
+      return this;
+    }
+
+    /**
      * The note entered when the count was performed.
      */
     public Builder note(String note) {
       this.note = note;
+      this.fieldsSet.add("note");
+      return this;
+    }
+
+    /**
+     * The note entered when the count was performed.
+     */
+    public Builder noteReference(String variableRef) {
+      this.variableReferences.put("note", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
       this.fieldsSet.add("note");
       return this;
     }

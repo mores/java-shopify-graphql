@@ -15,8 +15,7 @@ public class RemoteAuthorizeNetCustomerPaymentProfileInput {
   private String customerProfileId;
 
   /**
-   * The customerPaymentProfileId value from the Authorize.net API. Starting on 2025,
-   * customer_payment_profile_id will become mandatory for all API versions.
+   * The customerPaymentProfileId value from the Authorize.net API.
    */
   private String customerPaymentProfileId;
 
@@ -35,8 +34,7 @@ public class RemoteAuthorizeNetCustomerPaymentProfileInput {
   }
 
   /**
-   * The customerPaymentProfileId value from the Authorize.net API. Starting on 2025,
-   * customer_payment_profile_id will become mandatory for all API versions.
+   * The customerPaymentProfileId value from the Authorize.net API.
    */
   public String getCustomerPaymentProfileId() {
     return customerPaymentProfileId;
@@ -76,8 +74,7 @@ public class RemoteAuthorizeNetCustomerPaymentProfileInput {
     private String customerProfileId;
 
     /**
-     * The customerPaymentProfileId value from the Authorize.net API. Starting on 2025,
-     * customer_payment_profile_id will become mandatory for all API versions.
+     * The customerPaymentProfileId value from the Authorize.net API.
      */
     private String customerPaymentProfileId;
 
@@ -97,8 +94,7 @@ public class RemoteAuthorizeNetCustomerPaymentProfileInput {
     }
 
     /**
-     * The customerPaymentProfileId value from the Authorize.net API. Starting on 2025,
-     * customer_payment_profile_id will become mandatory for all API versions.
+     * The customerPaymentProfileId value from the Authorize.net API.
      */
     public Builder customerPaymentProfileId(String customerPaymentProfileId) {
       this.customerPaymentProfileId = customerPaymentProfileId;

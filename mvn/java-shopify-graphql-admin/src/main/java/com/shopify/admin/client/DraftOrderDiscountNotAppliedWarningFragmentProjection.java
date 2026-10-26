@@ -18,13 +18,6 @@ public class DraftOrderDiscountNotAppliedWarningFragmentProjection<PARENT extend
     return this;
   }
 
-  public PriceRuleProjection<DraftOrderDiscountNotAppliedWarningFragmentProjection<PARENT, ROOT>, ROOT> priceRule(
-      ) {
-     PriceRuleProjection<DraftOrderDiscountNotAppliedWarningFragmentProjection<PARENT, ROOT>, ROOT> projection = new PriceRuleProjection<>(this, getRoot());
-     getFields().put("priceRule", projection);
-     return projection;
-  }
-
   public DraftOrderDiscountNotAppliedWarningFragmentProjection<PARENT, ROOT> discountCode() {
     getFields().put("discountCode", null);
     return this;

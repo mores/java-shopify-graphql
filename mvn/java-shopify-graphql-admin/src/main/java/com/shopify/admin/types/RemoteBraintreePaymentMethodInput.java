@@ -15,8 +15,7 @@ public class RemoteBraintreePaymentMethodInput {
   private String customerId;
 
   /**
-   * The `payment_method_token` value from the Braintree API. Starting on 2025,
-   * payment_method_token will become mandatory for all API versions.
+   * The `payment_method_token` value from the Braintree API.
    */
   private String paymentMethodToken;
 
@@ -35,8 +34,7 @@ public class RemoteBraintreePaymentMethodInput {
   }
 
   /**
-   * The `payment_method_token` value from the Braintree API. Starting on 2025,
-   * payment_method_token will become mandatory for all API versions.
+   * The `payment_method_token` value from the Braintree API.
    */
   public String getPaymentMethodToken() {
     return paymentMethodToken;
@@ -76,8 +74,7 @@ public class RemoteBraintreePaymentMethodInput {
     private String customerId;
 
     /**
-     * The `payment_method_token` value from the Braintree API. Starting on 2025,
-     * payment_method_token will become mandatory for all API versions.
+     * The `payment_method_token` value from the Braintree API.
      */
     private String paymentMethodToken;
 
@@ -97,8 +94,7 @@ public class RemoteBraintreePaymentMethodInput {
     }
 
     /**
-     * The `payment_method_token` value from the Braintree API. Starting on 2025,
-     * payment_method_token will become mandatory for all API versions.
+     * The `payment_method_token` value from the Braintree API.
      */
     public Builder paymentMethodToken(String paymentMethodToken) {
       this.paymentMethodToken = paymentMethodToken;

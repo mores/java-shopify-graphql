@@ -77,6 +77,13 @@ public class CustomerInput {
   private CustomerSmsMarketingConsentInput smsMarketingConsent;
 
   /**
+   * The marketing consent information when the customer consented to receiving marketing
+   *         material by WhatsApp. The `phone` field is required when creating a customer with WhatsApp
+   *         marketing consent information.
+   */
+  private CustomerMarketingConsentInput whatsAppMarketingConsent;
+
+  /**
    * Whether the customer is exempt from paying taxes on their order.
    */
   private Boolean taxExempt;
@@ -226,6 +233,19 @@ public class CustomerInput {
   }
 
   /**
+   * The marketing consent information when the customer consented to receiving marketing
+   *         material by WhatsApp. The `phone` field is required when creating a customer with WhatsApp
+   *         marketing consent information.
+   */
+  public CustomerMarketingConsentInput getWhatsAppMarketingConsent() {
+    return whatsAppMarketingConsent;
+  }
+
+  public void setWhatsAppMarketingConsent(CustomerMarketingConsentInput whatsAppMarketingConsent) {
+    this.whatsAppMarketingConsent = whatsAppMarketingConsent;
+  }
+
+  /**
    * Whether the customer is exempt from paying taxes on their order.
    */
   public Boolean getTaxExempt() {
@@ -260,7 +280,7 @@ public class CustomerInput {
 
   @Override
   public String toString() {
-    return "CustomerInput{email='" + email + "', firstName='" + firstName + "', id='" + id + "', lastName='" + lastName + "', locale='" + locale + "', metafields='" + metafields + "', note='" + note + "', phone='" + phone + "', tags='" + tags + "', emailMarketingConsent='" + emailMarketingConsent + "', smsMarketingConsent='" + smsMarketingConsent + "', taxExempt='" + taxExempt + "', taxExemptions='" + taxExemptions + "', multipassIdentifier='" + multipassIdentifier + "'}";
+    return "CustomerInput{email='" + email + "', firstName='" + firstName + "', id='" + id + "', lastName='" + lastName + "', locale='" + locale + "', metafields='" + metafields + "', note='" + note + "', phone='" + phone + "', tags='" + tags + "', emailMarketingConsent='" + emailMarketingConsent + "', smsMarketingConsent='" + smsMarketingConsent + "', whatsAppMarketingConsent='" + whatsAppMarketingConsent + "', taxExempt='" + taxExempt + "', taxExemptions='" + taxExemptions + "', multipassIdentifier='" + multipassIdentifier + "'}";
   }
 
   @Override
@@ -279,6 +299,7 @@ public class CustomerInput {
         Objects.equals(tags, that.tags) &&
         Objects.equals(emailMarketingConsent, that.emailMarketingConsent) &&
         Objects.equals(smsMarketingConsent, that.smsMarketingConsent) &&
+        Objects.equals(whatsAppMarketingConsent, that.whatsAppMarketingConsent) &&
         Objects.equals(taxExempt, that.taxExempt) &&
         Objects.equals(taxExemptions, that.taxExemptions) &&
         Objects.equals(multipassIdentifier, that.multipassIdentifier);
@@ -286,7 +307,7 @@ public class CustomerInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, firstName, id, lastName, locale, metafields, note, phone, tags, emailMarketingConsent, smsMarketingConsent, taxExempt, taxExemptions, multipassIdentifier);
+    return Objects.hash(email, firstName, id, lastName, locale, metafields, note, phone, tags, emailMarketingConsent, smsMarketingConsent, whatsAppMarketingConsent, taxExempt, taxExemptions, multipassIdentifier);
   }
 
   public static Builder newBuilder() {
@@ -360,6 +381,13 @@ public class CustomerInput {
     private CustomerSmsMarketingConsentInput smsMarketingConsent;
 
     /**
+     * The marketing consent information when the customer consented to receiving marketing
+     *         material by WhatsApp. The `phone` field is required when creating a customer with WhatsApp
+     *         marketing consent information.
+     */
+    private CustomerMarketingConsentInput whatsAppMarketingConsent;
+
+    /**
      * Whether the customer is exempt from paying taxes on their order.
      */
     private Boolean taxExempt;
@@ -387,6 +415,7 @@ public class CustomerInput {
       result.tags = this.tags;
       result.emailMarketingConsent = this.emailMarketingConsent;
       result.smsMarketingConsent = this.smsMarketingConsent;
+      result.whatsAppMarketingConsent = this.whatsAppMarketingConsent;
       result.taxExempt = this.taxExempt;
       result.taxExemptions = this.taxExemptions;
       result.multipassIdentifier = this.multipassIdentifier;
@@ -488,6 +517,17 @@ public class CustomerInput {
      */
     public Builder smsMarketingConsent(CustomerSmsMarketingConsentInput smsMarketingConsent) {
       this.smsMarketingConsent = smsMarketingConsent;
+      return this;
+    }
+
+    /**
+     * The marketing consent information when the customer consented to receiving marketing
+     *         material by WhatsApp. The `phone` field is required when creating a customer with WhatsApp
+     *         marketing consent information.
+     */
+    public Builder whatsAppMarketingConsent(
+        CustomerMarketingConsentInput whatsAppMarketingConsent) {
+      this.whatsAppMarketingConsent = whatsAppMarketingConsent;
       return this;
     }
 

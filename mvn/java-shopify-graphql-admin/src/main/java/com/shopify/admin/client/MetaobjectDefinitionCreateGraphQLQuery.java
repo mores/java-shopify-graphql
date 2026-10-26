@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.MetaobjectDefinitionCreateInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -29,6 +34,22 @@ public class MetaobjectDefinitionCreateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public MetaobjectDefinitionCreateGraphQLQuery(MetaobjectDefinitionCreateInput definition,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (definition != null || fieldsSet.contains("definition")) {
+        getInput().put("definition", definition);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public MetaobjectDefinitionCreateGraphQLQuery() {
     super("mutation");
   }
@@ -45,12 +66,16 @@ public class MetaobjectDefinitionCreateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private MetaobjectDefinitionCreateInput definition;
 
     private String queryName;
 
     public MetaobjectDefinitionCreateGraphQLQuery build() {
-      return new MetaobjectDefinitionCreateGraphQLQuery(definition, queryName, fieldsSet);
+      return new MetaobjectDefinitionCreateGraphQLQuery(definition, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -59,6 +84,16 @@ public class MetaobjectDefinitionCreateGraphQLQuery extends GraphQLQuery {
      */
     public Builder definition(MetaobjectDefinitionCreateInput definition) {
       this.definition = definition;
+      this.fieldsSet.add("definition");
+      return this;
+    }
+
+    /**
+     * The input fields for creating a metaobject definition.
+     */
+    public Builder definitionReference(String variableRef) {
+      this.variableReferences.put("definition", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("MetaobjectDefinitionCreateInput"))).build());
       this.fieldsSet.add("definition");
       return this;
     }

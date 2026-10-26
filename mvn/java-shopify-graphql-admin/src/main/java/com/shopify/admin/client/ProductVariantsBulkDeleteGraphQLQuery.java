@@ -1,10 +1,14 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -24,6 +28,24 @@ public class ProductVariantsBulkDeleteGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public ProductVariantsBulkDeleteGraphQLQuery(List<String> variantsIds, String productId,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (variantsIds != null || fieldsSet.contains("variantsIds")) {
+        getInput().put("variantsIds", variantsIds);
+    }if (productId != null || fieldsSet.contains("productId")) {
+        getInput().put("productId", productId);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public ProductVariantsBulkDeleteGraphQLQuery() {
     super("mutation");
   }
@@ -40,6 +62,10 @@ public class ProductVariantsBulkDeleteGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private List<String> variantsIds;
 
     private String productId;
@@ -47,7 +73,7 @@ public class ProductVariantsBulkDeleteGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public ProductVariantsBulkDeleteGraphQLQuery build() {
-      return new ProductVariantsBulkDeleteGraphQLQuery(variantsIds, productId, queryName, fieldsSet);
+      return new ProductVariantsBulkDeleteGraphQLQuery(variantsIds, productId, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -61,10 +87,30 @@ public class ProductVariantsBulkDeleteGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * An array of product variants IDs to delete.
+     */
+    public Builder variantsIdsReference(String variableRef) {
+      this.variableReferences.put("variantsIds", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("ID"))))).build());
+      this.fieldsSet.add("variantsIds");
+      return this;
+    }
+
+    /**
      * The ID of the product with the variants to update.
      */
     public Builder productId(String productId) {
       this.productId = productId;
+      this.fieldsSet.add("productId");
+      return this;
+    }
+
+    /**
+     * The ID of the product with the variants to update.
+     */
+    public Builder productIdReference(String variableRef) {
+      this.variableReferences.put("productId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("productId");
       return this;
     }

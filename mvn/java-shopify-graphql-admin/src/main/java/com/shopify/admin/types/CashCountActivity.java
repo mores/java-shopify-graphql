@@ -35,9 +35,19 @@ public class CashCountActivity implements com.shopify.admin.types.CashActivity {
   private MoneyV2 cashExpected;
 
   /**
+   * A note associated with the activity.
+   */
+  private String note;
+
+  /**
    * The point of sale device payment session associated with the activity.
    */
   private PointOfSaleDevicePaymentSession paymentSession;
+
+  /**
+   * The reason code for the activity.
+   */
+  private CashManagementReasonCode reasonCode;
 
   /**
    * The staff member who performed the activity.
@@ -102,6 +112,17 @@ public class CashCountActivity implements com.shopify.admin.types.CashActivity {
   }
 
   /**
+   * A note associated with the activity.
+   */
+  public String getNote() {
+    return note;
+  }
+
+  public void setNote(String note) {
+    this.note = note;
+  }
+
+  /**
    * The point of sale device payment session associated with the activity.
    */
   public PointOfSaleDevicePaymentSession getPaymentSession() {
@@ -110,6 +131,17 @@ public class CashCountActivity implements com.shopify.admin.types.CashActivity {
 
   public void setPaymentSession(PointOfSaleDevicePaymentSession paymentSession) {
     this.paymentSession = paymentSession;
+  }
+
+  /**
+   * The reason code for the activity.
+   */
+  public CashManagementReasonCode getReasonCode() {
+    return reasonCode;
+  }
+
+  public void setReasonCode(CashManagementReasonCode reasonCode) {
+    this.reasonCode = reasonCode;
   }
 
   /**
@@ -147,7 +179,7 @@ public class CashCountActivity implements com.shopify.admin.types.CashActivity {
 
   @Override
   public String toString() {
-    return "CashCountActivity{cash='" + cash + "', cashCounted='" + cashCounted + "', cashDiscrepancy='" + cashDiscrepancy + "', cashExpected='" + cashExpected + "', paymentSession='" + paymentSession + "', staffMember='" + staffMember + "', time='" + time + "', type='" + type + "'}";
+    return "CashCountActivity{cash='" + cash + "', cashCounted='" + cashCounted + "', cashDiscrepancy='" + cashDiscrepancy + "', cashExpected='" + cashExpected + "', note='" + note + "', paymentSession='" + paymentSession + "', reasonCode='" + reasonCode + "', staffMember='" + staffMember + "', time='" + time + "', type='" + type + "'}";
   }
 
   @Override
@@ -159,7 +191,9 @@ public class CashCountActivity implements com.shopify.admin.types.CashActivity {
         Objects.equals(cashCounted, that.cashCounted) &&
         Objects.equals(cashDiscrepancy, that.cashDiscrepancy) &&
         Objects.equals(cashExpected, that.cashExpected) &&
+        Objects.equals(note, that.note) &&
         Objects.equals(paymentSession, that.paymentSession) &&
+        Objects.equals(reasonCode, that.reasonCode) &&
         Objects.equals(staffMember, that.staffMember) &&
         Objects.equals(time, that.time) &&
         Objects.equals(type, that.type);
@@ -167,7 +201,7 @@ public class CashCountActivity implements com.shopify.admin.types.CashActivity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cash, cashCounted, cashDiscrepancy, cashExpected, paymentSession, staffMember, time, type);
+    return Objects.hash(cash, cashCounted, cashDiscrepancy, cashExpected, note, paymentSession, reasonCode, staffMember, time, type);
   }
 
   public static Builder newBuilder() {
@@ -196,9 +230,19 @@ public class CashCountActivity implements com.shopify.admin.types.CashActivity {
     private MoneyV2 cashExpected;
 
     /**
+     * A note associated with the activity.
+     */
+    private String note;
+
+    /**
      * The point of sale device payment session associated with the activity.
      */
     private PointOfSaleDevicePaymentSession paymentSession;
+
+    /**
+     * The reason code for the activity.
+     */
+    private CashManagementReasonCode reasonCode;
 
     /**
      * The staff member who performed the activity.
@@ -221,7 +265,9 @@ public class CashCountActivity implements com.shopify.admin.types.CashActivity {
       result.cashCounted = this.cashCounted;
       result.cashDiscrepancy = this.cashDiscrepancy;
       result.cashExpected = this.cashExpected;
+      result.note = this.note;
       result.paymentSession = this.paymentSession;
+      result.reasonCode = this.reasonCode;
       result.staffMember = this.staffMember;
       result.time = this.time;
       result.type = this.type;
@@ -261,10 +307,26 @@ public class CashCountActivity implements com.shopify.admin.types.CashActivity {
     }
 
     /**
+     * A note associated with the activity.
+     */
+    public Builder note(String note) {
+      this.note = note;
+      return this;
+    }
+
+    /**
      * The point of sale device payment session associated with the activity.
      */
     public Builder paymentSession(PointOfSaleDevicePaymentSession paymentSession) {
       this.paymentSession = paymentSession;
+      return this;
+    }
+
+    /**
+     * The reason code for the activity.
+     */
+    public Builder reasonCode(CashManagementReasonCode reasonCode) {
+      this.reasonCode = reasonCode;
       return this;
     }
 

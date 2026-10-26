@@ -1,9 +1,14 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -19,6 +24,21 @@ public class AppByKeyGraphQLQuery extends GraphQLQuery {
     if (apiKey != null || fieldsSet.contains("apiKey")) {
         getInput().put("apiKey", apiKey);
     }
+  }
+
+  public AppByKeyGraphQLQuery(String apiKey, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("query", queryName);
+    if (apiKey != null || fieldsSet.contains("apiKey")) {
+        getInput().put("apiKey", apiKey);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public AppByKeyGraphQLQuery() {
@@ -37,12 +57,16 @@ public class AppByKeyGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String apiKey;
 
     private String queryName;
 
     public AppByKeyGraphQLQuery build() {
-      return new AppByKeyGraphQLQuery(apiKey, queryName, fieldsSet);
+      return new AppByKeyGraphQLQuery(apiKey, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -51,6 +75,16 @@ public class AppByKeyGraphQLQuery extends GraphQLQuery {
      */
     public Builder apiKey(String apiKey) {
       this.apiKey = apiKey;
+      this.fieldsSet.add("apiKey");
+      return this;
+    }
+
+    /**
+     * Client ID of the app.
+     */
+    public Builder apiKeyReference(String variableRef) {
+      this.variableReferences.put("apiKey", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("String"))).build());
       this.fieldsSet.add("apiKey");
       return this;
     }

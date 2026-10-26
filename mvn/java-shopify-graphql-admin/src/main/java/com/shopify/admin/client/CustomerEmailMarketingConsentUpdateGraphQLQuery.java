@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.CustomerEmailMarketingConsentUpdateInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -26,6 +31,22 @@ public class CustomerEmailMarketingConsentUpdateGraphQLQuery extends GraphQLQuer
     }
   }
 
+  public CustomerEmailMarketingConsentUpdateGraphQLQuery(
+      CustomerEmailMarketingConsentUpdateInput input, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (input != null || fieldsSet.contains("input")) {
+        getInput().put("input", input);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public CustomerEmailMarketingConsentUpdateGraphQLQuery() {
     super("mutation");
   }
@@ -42,12 +63,16 @@ public class CustomerEmailMarketingConsentUpdateGraphQLQuery extends GraphQLQuer
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private CustomerEmailMarketingConsentUpdateInput input;
 
     private String queryName;
 
     public CustomerEmailMarketingConsentUpdateGraphQLQuery build() {
-      return new CustomerEmailMarketingConsentUpdateGraphQLQuery(input, queryName, fieldsSet);
+      return new CustomerEmailMarketingConsentUpdateGraphQLQuery(input, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -56,6 +81,16 @@ public class CustomerEmailMarketingConsentUpdateGraphQLQuery extends GraphQLQuer
      */
     public Builder input(CustomerEmailMarketingConsentUpdateInput input) {
       this.input = input;
+      this.fieldsSet.add("input");
+      return this;
+    }
+
+    /**
+     * Specifies the input fields to update a customer's email marketing consent information.
+     */
+    public Builder inputReference(String variableRef) {
+      this.variableReferences.put("input", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("CustomerEmailMarketingConsentUpdateInput"))).build());
       this.fieldsSet.add("input");
       return this;
     }

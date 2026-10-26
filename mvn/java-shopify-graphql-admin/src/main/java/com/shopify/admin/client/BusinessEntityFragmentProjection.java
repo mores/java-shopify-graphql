@@ -52,6 +52,11 @@ public class BusinessEntityFragmentProjection<PARENT extends BaseSubProjectionNo
     return this;
   }
 
+  public BusinessEntityFragmentProjection<PARENT, ROOT> legalEntityId() {
+    getFields().put("legalEntityId", null);
+    return this;
+  }
+
   public BusinessEntityFragmentProjection<PARENT, ROOT> primary() {
     getFields().put("primary", null);
     return this;

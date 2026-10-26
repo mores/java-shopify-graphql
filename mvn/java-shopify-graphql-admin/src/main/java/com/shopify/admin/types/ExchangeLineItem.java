@@ -42,9 +42,19 @@ public class ExchangeLineItem implements com.shopify.admin.types.Node {
   private int processedQuantity;
 
   /**
+   * The ID of the product at time of return creation.
+   */
+  private String productId;
+
+  /**
    * The number of units ordered, including refunded and removed units.
    */
   private int quantity;
+
+  /**
+   * The title of the product at time of return creation.
+   */
+  private String title;
 
   /**
    * The quantity of the exchange item that haven't been processed.
@@ -55,6 +65,16 @@ public class ExchangeLineItem implements com.shopify.admin.types.Node {
    * The ID of the variant at time of return creation.
    */
   private String variantId;
+
+  /**
+   * The SKU of the variant at time of return creation.
+   */
+  private String variantSku;
+
+  /**
+   * The title of the variant at time of return creation.
+   */
+  private String variantTitle;
 
   public ExchangeLineItem() {
   }
@@ -117,6 +137,17 @@ public class ExchangeLineItem implements com.shopify.admin.types.Node {
   }
 
   /**
+   * The ID of the product at time of return creation.
+   */
+  public String getProductId() {
+    return productId;
+  }
+
+  public void setProductId(String productId) {
+    this.productId = productId;
+  }
+
+  /**
    * The number of units ordered, including refunded and removed units.
    */
   public int getQuantity() {
@@ -125,6 +156,17 @@ public class ExchangeLineItem implements com.shopify.admin.types.Node {
 
   public void setQuantity(int quantity) {
     this.quantity = quantity;
+  }
+
+  /**
+   * The title of the product at time of return creation.
+   */
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
   }
 
   /**
@@ -149,9 +191,31 @@ public class ExchangeLineItem implements com.shopify.admin.types.Node {
     this.variantId = variantId;
   }
 
+  /**
+   * The SKU of the variant at time of return creation.
+   */
+  public String getVariantSku() {
+    return variantSku;
+  }
+
+  public void setVariantSku(String variantSku) {
+    this.variantSku = variantSku;
+  }
+
+  /**
+   * The title of the variant at time of return creation.
+   */
+  public String getVariantTitle() {
+    return variantTitle;
+  }
+
+  public void setVariantTitle(String variantTitle) {
+    this.variantTitle = variantTitle;
+  }
+
   @Override
   public String toString() {
-    return "ExchangeLineItem{id='" + id + "', lineItem='" + lineItem + "', lineItems='" + lineItems + "', processableQuantity='" + processableQuantity + "', processedQuantity='" + processedQuantity + "', quantity='" + quantity + "', unprocessedQuantity='" + unprocessedQuantity + "', variantId='" + variantId + "'}";
+    return "ExchangeLineItem{id='" + id + "', lineItem='" + lineItem + "', lineItems='" + lineItems + "', processableQuantity='" + processableQuantity + "', processedQuantity='" + processedQuantity + "', productId='" + productId + "', quantity='" + quantity + "', title='" + title + "', unprocessedQuantity='" + unprocessedQuantity + "', variantId='" + variantId + "', variantSku='" + variantSku + "', variantTitle='" + variantTitle + "'}";
   }
 
   @Override
@@ -164,14 +228,18 @@ public class ExchangeLineItem implements com.shopify.admin.types.Node {
         Objects.equals(lineItems, that.lineItems) &&
         processableQuantity == that.processableQuantity &&
         processedQuantity == that.processedQuantity &&
+        Objects.equals(productId, that.productId) &&
         quantity == that.quantity &&
+        Objects.equals(title, that.title) &&
         unprocessedQuantity == that.unprocessedQuantity &&
-        Objects.equals(variantId, that.variantId);
+        Objects.equals(variantId, that.variantId) &&
+        Objects.equals(variantSku, that.variantSku) &&
+        Objects.equals(variantTitle, that.variantTitle);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, lineItem, lineItems, processableQuantity, processedQuantity, quantity, unprocessedQuantity, variantId);
+    return Objects.hash(id, lineItem, lineItems, processableQuantity, processedQuantity, productId, quantity, title, unprocessedQuantity, variantId, variantSku, variantTitle);
   }
 
   public static Builder newBuilder() {
@@ -207,9 +275,19 @@ public class ExchangeLineItem implements com.shopify.admin.types.Node {
     private int processedQuantity;
 
     /**
+     * The ID of the product at time of return creation.
+     */
+    private String productId;
+
+    /**
      * The number of units ordered, including refunded and removed units.
      */
     private int quantity;
+
+    /**
+     * The title of the product at time of return creation.
+     */
+    private String title;
 
     /**
      * The quantity of the exchange item that haven't been processed.
@@ -221,6 +299,16 @@ public class ExchangeLineItem implements com.shopify.admin.types.Node {
      */
     private String variantId;
 
+    /**
+     * The SKU of the variant at time of return creation.
+     */
+    private String variantSku;
+
+    /**
+     * The title of the variant at time of return creation.
+     */
+    private String variantTitle;
+
     public ExchangeLineItem build() {
       ExchangeLineItem result = new ExchangeLineItem();
       result.id = this.id;
@@ -228,9 +316,13 @@ public class ExchangeLineItem implements com.shopify.admin.types.Node {
       result.lineItems = this.lineItems;
       result.processableQuantity = this.processableQuantity;
       result.processedQuantity = this.processedQuantity;
+      result.productId = this.productId;
       result.quantity = this.quantity;
+      result.title = this.title;
       result.unprocessedQuantity = this.unprocessedQuantity;
       result.variantId = this.variantId;
+      result.variantSku = this.variantSku;
+      result.variantTitle = this.variantTitle;
       return result;
     }
 
@@ -277,10 +369,26 @@ public class ExchangeLineItem implements com.shopify.admin.types.Node {
     }
 
     /**
+     * The ID of the product at time of return creation.
+     */
+    public Builder productId(String productId) {
+      this.productId = productId;
+      return this;
+    }
+
+    /**
      * The number of units ordered, including refunded and removed units.
      */
     public Builder quantity(int quantity) {
       this.quantity = quantity;
+      return this;
+    }
+
+    /**
+     * The title of the product at time of return creation.
+     */
+    public Builder title(String title) {
+      this.title = title;
       return this;
     }
 
@@ -297,6 +405,22 @@ public class ExchangeLineItem implements com.shopify.admin.types.Node {
      */
     public Builder variantId(String variantId) {
       this.variantId = variantId;
+      return this;
+    }
+
+    /**
+     * The SKU of the variant at time of return creation.
+     */
+    public Builder variantSku(String variantSku) {
+      this.variantSku = variantSku;
+      return this;
+    }
+
+    /**
+     * The title of the variant at time of return creation.
+     */
+    public Builder variantTitle(String variantTitle) {
+      this.variantTitle = variantTitle;
       return this;
     }
   }

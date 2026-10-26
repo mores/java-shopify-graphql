@@ -1,10 +1,14 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -17,6 +21,22 @@ public class CompanyContactsDeleteGraphQLQuery extends GraphQLQuery {
     if (companyContactIds != null || fieldsSet.contains("companyContactIds")) {
         getInput().put("companyContactIds", companyContactIds);
     }
+  }
+
+  public CompanyContactsDeleteGraphQLQuery(List<String> companyContactIds, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (companyContactIds != null || fieldsSet.contains("companyContactIds")) {
+        getInput().put("companyContactIds", companyContactIds);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public CompanyContactsDeleteGraphQLQuery() {
@@ -35,12 +55,16 @@ public class CompanyContactsDeleteGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private List<String> companyContactIds;
 
     private String queryName;
 
     public CompanyContactsDeleteGraphQLQuery build() {
-      return new CompanyContactsDeleteGraphQLQuery(companyContactIds, queryName, fieldsSet);
+      return new CompanyContactsDeleteGraphQLQuery(companyContactIds, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -49,6 +73,16 @@ public class CompanyContactsDeleteGraphQLQuery extends GraphQLQuery {
      */
     public Builder companyContactIds(List<String> companyContactIds) {
       this.companyContactIds = companyContactIds;
+      this.fieldsSet.add("companyContactIds");
+      return this;
+    }
+
+    /**
+     * The list of IDs of the company contacts to delete.
+     */
+    public Builder companyContactIdsReference(String variableRef) {
+      this.variableReferences.put("companyContactIds", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("ID"))))).build());
       this.fieldsSet.add("companyContactIds");
       return this;
     }

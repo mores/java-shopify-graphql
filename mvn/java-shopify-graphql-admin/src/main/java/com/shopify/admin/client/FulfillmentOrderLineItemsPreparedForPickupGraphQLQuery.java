@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.FulfillmentOrderLineItemsPreparedForPickupInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -28,6 +33,23 @@ public class FulfillmentOrderLineItemsPreparedForPickupGraphQLQuery extends Grap
     }
   }
 
+  public FulfillmentOrderLineItemsPreparedForPickupGraphQLQuery(
+      FulfillmentOrderLineItemsPreparedForPickupInput input, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (input != null || fieldsSet.contains("input")) {
+        getInput().put("input", input);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public FulfillmentOrderLineItemsPreparedForPickupGraphQLQuery() {
     super("mutation");
   }
@@ -44,12 +66,16 @@ public class FulfillmentOrderLineItemsPreparedForPickupGraphQLQuery extends Grap
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private FulfillmentOrderLineItemsPreparedForPickupInput input;
 
     private String queryName;
 
     public FulfillmentOrderLineItemsPreparedForPickupGraphQLQuery build() {
-      return new FulfillmentOrderLineItemsPreparedForPickupGraphQLQuery(input, queryName, fieldsSet);
+      return new FulfillmentOrderLineItemsPreparedForPickupGraphQLQuery(input, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -58,6 +84,16 @@ public class FulfillmentOrderLineItemsPreparedForPickupGraphQLQuery extends Grap
      */
     public Builder input(FulfillmentOrderLineItemsPreparedForPickupInput input) {
       this.input = input;
+      this.fieldsSet.add("input");
+      return this;
+    }
+
+    /**
+     * The input for marking fulfillment order line items as ready for pickup.
+     */
+    public Builder inputReference(String variableRef) {
+      this.variableReferences.put("input", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("FulfillmentOrderLineItemsPreparedForPickupInput"))).build());
       this.fieldsSet.add("input");
       return this;
     }

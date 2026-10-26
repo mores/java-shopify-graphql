@@ -26,7 +26,17 @@ public class SegmentStatisticsProjection<PARENT extends BaseSubProjectionNode<?,
     SegmentAttributeStatisticsProjection<SegmentStatisticsProjection<PARENT, ROOT>, ROOT> projection = new SegmentAttributeStatisticsProjection<>(this, getRoot());    
     getFields().put("attributeStatistics", projection);
     getInputArguments().computeIfAbsent("attributeStatistics", k -> new ArrayList<>());                      
-    InputArgument attributeNameArg = new InputArgument("attributeName", attributeName);
+    InputArgument attributeNameArg = new InputArgument("attributeName", attributeName, false, null);
+    getInputArguments().get("attributeStatistics").add(attributeNameArg);
+    return projection;
+  }
+
+  public SegmentAttributeStatisticsProjection<SegmentStatisticsProjection<PARENT, ROOT>, ROOT> attributeStatisticsWithVariableReferences(
+      String attributeNameReference) {
+    SegmentAttributeStatisticsProjection<SegmentStatisticsProjection<PARENT, ROOT>, ROOT> projection = new SegmentAttributeStatisticsProjection<>(this, getRoot());    
+    getFields().put("attributeStatistics", projection);
+    getInputArguments().computeIfAbsent("attributeStatistics", k -> new ArrayList<>());              
+    InputArgument attributeNameArg = new InputArgument("attributeName", attributeNameReference, true, new graphql.language.NonNullType(new graphql.language.TypeName("String")));
     getInputArguments().get("attributeStatistics").add(attributeNameArg);
     return projection;
   }

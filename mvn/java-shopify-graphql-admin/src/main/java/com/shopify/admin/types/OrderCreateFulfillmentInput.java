@@ -4,6 +4,7 @@ import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -47,17 +48,43 @@ public class OrderCreateFulfillmentInput {
   private String trackingNumber;
 
   /**
+   * The tracking numbers of the fulfillment, one or many.
+   *   
+   * With multiple tracking numbers, you can provide tracking information
+   * for all shipments associated with the fulfillment, if there are more than one.
+   * For example, if you're shipping the items in an order in several boxes, each with its
+   * own tracking number.
+   *   
+   * > Note:
+   * > If you provide the `trackingNumbers` field, you shouldn't provide the `trackingNumber` field.
+   *   
+   * Tracking numbers will be clickable in the interface if one of the following applies
+   * (the highest in the list has the highest priority):
+   *   
+   * * [Shopify-known tracking company name](https://shopify.dev/api/admin-graphql/latest/objects/FulfillmentTrackingInfo#supported-tracking-companies)
+   *   specified in the `trackingCompany` field.
+   *   Shopify will build tracking URLs automatically for all tracking numbers specified.
+   *   The same tracking company will be applied to all tracking numbers.
+   * * Tracking numbers have a Shopify-known format.
+   *   Shopify will guess tracking providers and build tracking URLs based on the tracking number formats.
+   *   Not all tracking carriers are supported, and multiple tracking carriers may use similarly formatted tracking numbers.
+   *   This can result in an invalid tracking URL.
+   *   It is highly recommended that you send the tracking company.
+   */
+  private List<String> trackingNumbers;
+
+  /**
    * The name of the tracking company.
    *   
    * If you specify a tracking company name from
    * [the list](https://shopify.dev/api/admin-graphql/latest/objects/FulfillmentTrackingInfo#supported-tracking-companies),
    * Shopify will automatically build tracking URLs for all provided tracking numbers,
-   * which will make the tracking numbers clickable in the interface.
+   * which will make the tracking numbers clickable in the interface. This doesn't mean
+   * that Shopify automatically updates the fulfillment's `shipment_status` field in Admin.
    * The same tracking company will be applied to all tracking numbers specified.
    *   
-   * Additionally, for the tracking companies listed on the
-   * [Shipping Carriers help page](https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers#integrated-shipping-carriers)
-   * Shopify will automatically update the fulfillment's `shipment_status` field during the fulfillment process.
+   * For tracking companies whose `shipment_status` field is updated automatically, see the
+   * [Shipping Carriers help page](https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers#integrated-shipping-carriers).
    *   
    * > Note:
    * > Send the tracking company name exactly as written in
@@ -136,17 +163,49 @@ public class OrderCreateFulfillmentInput {
   }
 
   /**
+   * The tracking numbers of the fulfillment, one or many.
+   *   
+   * With multiple tracking numbers, you can provide tracking information
+   * for all shipments associated with the fulfillment, if there are more than one.
+   * For example, if you're shipping the items in an order in several boxes, each with its
+   * own tracking number.
+   *   
+   * > Note:
+   * > If you provide the `trackingNumbers` field, you shouldn't provide the `trackingNumber` field.
+   *   
+   * Tracking numbers will be clickable in the interface if one of the following applies
+   * (the highest in the list has the highest priority):
+   *   
+   * * [Shopify-known tracking company name](https://shopify.dev/api/admin-graphql/latest/objects/FulfillmentTrackingInfo#supported-tracking-companies)
+   *   specified in the `trackingCompany` field.
+   *   Shopify will build tracking URLs automatically for all tracking numbers specified.
+   *   The same tracking company will be applied to all tracking numbers.
+   * * Tracking numbers have a Shopify-known format.
+   *   Shopify will guess tracking providers and build tracking URLs based on the tracking number formats.
+   *   Not all tracking carriers are supported, and multiple tracking carriers may use similarly formatted tracking numbers.
+   *   This can result in an invalid tracking URL.
+   *   It is highly recommended that you send the tracking company.
+   */
+  public List<String> getTrackingNumbers() {
+    return trackingNumbers;
+  }
+
+  public void setTrackingNumbers(List<String> trackingNumbers) {
+    this.trackingNumbers = trackingNumbers;
+  }
+
+  /**
    * The name of the tracking company.
    *   
    * If you specify a tracking company name from
    * [the list](https://shopify.dev/api/admin-graphql/latest/objects/FulfillmentTrackingInfo#supported-tracking-companies),
    * Shopify will automatically build tracking URLs for all provided tracking numbers,
-   * which will make the tracking numbers clickable in the interface.
+   * which will make the tracking numbers clickable in the interface. This doesn't mean
+   * that Shopify automatically updates the fulfillment's `shipment_status` field in Admin.
    * The same tracking company will be applied to all tracking numbers specified.
    *   
-   * Additionally, for the tracking companies listed on the
-   * [Shipping Carriers help page](https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers#integrated-shipping-carriers)
-   * Shopify will automatically update the fulfillment's `shipment_status` field during the fulfillment process.
+   * For tracking companies whose `shipment_status` field is updated automatically, see the
+   * [Shipping Carriers help page](https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers#integrated-shipping-carriers).
    *   
    * > Note:
    * > Send the tracking company name exactly as written in
@@ -163,7 +222,7 @@ public class OrderCreateFulfillmentInput {
 
   @Override
   public String toString() {
-    return "OrderCreateFulfillmentInput{locationId='" + locationId + "', originAddress='" + originAddress + "', notifyCustomer='" + notifyCustomer + "', shipmentStatus='" + shipmentStatus + "', trackingNumber='" + trackingNumber + "', trackingCompany='" + trackingCompany + "'}";
+    return "OrderCreateFulfillmentInput{locationId='" + locationId + "', originAddress='" + originAddress + "', notifyCustomer='" + notifyCustomer + "', shipmentStatus='" + shipmentStatus + "', trackingNumber='" + trackingNumber + "', trackingNumbers='" + trackingNumbers + "', trackingCompany='" + trackingCompany + "'}";
   }
 
   @Override
@@ -176,12 +235,13 @@ public class OrderCreateFulfillmentInput {
         Objects.equals(notifyCustomer, that.notifyCustomer) &&
         Objects.equals(shipmentStatus, that.shipmentStatus) &&
         Objects.equals(trackingNumber, that.trackingNumber) &&
+        Objects.equals(trackingNumbers, that.trackingNumbers) &&
         Objects.equals(trackingCompany, that.trackingCompany);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(locationId, originAddress, notifyCustomer, shipmentStatus, trackingNumber, trackingCompany);
+    return Objects.hash(locationId, originAddress, notifyCustomer, shipmentStatus, trackingNumber, trackingNumbers, trackingCompany);
   }
 
   public static Builder newBuilder() {
@@ -226,17 +286,43 @@ public class OrderCreateFulfillmentInput {
     private String trackingNumber;
 
     /**
+     * The tracking numbers of the fulfillment, one or many.
+     *   
+     * With multiple tracking numbers, you can provide tracking information
+     * for all shipments associated with the fulfillment, if there are more than one.
+     * For example, if you're shipping the items in an order in several boxes, each with its
+     * own tracking number.
+     *   
+     * > Note:
+     * > If you provide the `trackingNumbers` field, you shouldn't provide the `trackingNumber` field.
+     *   
+     * Tracking numbers will be clickable in the interface if one of the following applies
+     * (the highest in the list has the highest priority):
+     *   
+     * * [Shopify-known tracking company name](https://shopify.dev/api/admin-graphql/latest/objects/FulfillmentTrackingInfo#supported-tracking-companies)
+     *   specified in the `trackingCompany` field.
+     *   Shopify will build tracking URLs automatically for all tracking numbers specified.
+     *   The same tracking company will be applied to all tracking numbers.
+     * * Tracking numbers have a Shopify-known format.
+     *   Shopify will guess tracking providers and build tracking URLs based on the tracking number formats.
+     *   Not all tracking carriers are supported, and multiple tracking carriers may use similarly formatted tracking numbers.
+     *   This can result in an invalid tracking URL.
+     *   It is highly recommended that you send the tracking company.
+     */
+    private List<String> trackingNumbers;
+
+    /**
      * The name of the tracking company.
      *   
      * If you specify a tracking company name from
      * [the list](https://shopify.dev/api/admin-graphql/latest/objects/FulfillmentTrackingInfo#supported-tracking-companies),
      * Shopify will automatically build tracking URLs for all provided tracking numbers,
-     * which will make the tracking numbers clickable in the interface.
+     * which will make the tracking numbers clickable in the interface. This doesn't mean
+     * that Shopify automatically updates the fulfillment's `shipment_status` field in Admin.
      * The same tracking company will be applied to all tracking numbers specified.
      *   
-     * Additionally, for the tracking companies listed on the
-     * [Shipping Carriers help page](https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers#integrated-shipping-carriers)
-     * Shopify will automatically update the fulfillment's `shipment_status` field during the fulfillment process.
+     * For tracking companies whose `shipment_status` field is updated automatically, see the
+     * [Shipping Carriers help page](https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers#integrated-shipping-carriers).
      *   
      * > Note:
      * > Send the tracking company name exactly as written in
@@ -252,6 +338,7 @@ public class OrderCreateFulfillmentInput {
       result.notifyCustomer = this.notifyCustomer;
       result.shipmentStatus = this.shipmentStatus;
       result.trackingNumber = this.trackingNumber;
+      result.trackingNumbers = this.trackingNumbers;
       result.trackingCompany = this.trackingCompany;
       return result;
     }
@@ -308,17 +395,46 @@ public class OrderCreateFulfillmentInput {
     }
 
     /**
+     * The tracking numbers of the fulfillment, one or many.
+     *   
+     * With multiple tracking numbers, you can provide tracking information
+     * for all shipments associated with the fulfillment, if there are more than one.
+     * For example, if you're shipping the items in an order in several boxes, each with its
+     * own tracking number.
+     *   
+     * > Note:
+     * > If you provide the `trackingNumbers` field, you shouldn't provide the `trackingNumber` field.
+     *   
+     * Tracking numbers will be clickable in the interface if one of the following applies
+     * (the highest in the list has the highest priority):
+     *   
+     * * [Shopify-known tracking company name](https://shopify.dev/api/admin-graphql/latest/objects/FulfillmentTrackingInfo#supported-tracking-companies)
+     *   specified in the `trackingCompany` field.
+     *   Shopify will build tracking URLs automatically for all tracking numbers specified.
+     *   The same tracking company will be applied to all tracking numbers.
+     * * Tracking numbers have a Shopify-known format.
+     *   Shopify will guess tracking providers and build tracking URLs based on the tracking number formats.
+     *   Not all tracking carriers are supported, and multiple tracking carriers may use similarly formatted tracking numbers.
+     *   This can result in an invalid tracking URL.
+     *   It is highly recommended that you send the tracking company.
+     */
+    public Builder trackingNumbers(List<String> trackingNumbers) {
+      this.trackingNumbers = trackingNumbers;
+      return this;
+    }
+
+    /**
      * The name of the tracking company.
      *   
      * If you specify a tracking company name from
      * [the list](https://shopify.dev/api/admin-graphql/latest/objects/FulfillmentTrackingInfo#supported-tracking-companies),
      * Shopify will automatically build tracking URLs for all provided tracking numbers,
-     * which will make the tracking numbers clickable in the interface.
+     * which will make the tracking numbers clickable in the interface. This doesn't mean
+     * that Shopify automatically updates the fulfillment's `shipment_status` field in Admin.
      * The same tracking company will be applied to all tracking numbers specified.
      *   
-     * Additionally, for the tracking companies listed on the
-     * [Shipping Carriers help page](https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers#integrated-shipping-carriers)
-     * Shopify will automatically update the fulfillment's `shipment_status` field during the fulfillment process.
+     * For tracking companies whose `shipment_status` field is updated automatically, see the
+     * [Shipping Carriers help page](https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers#integrated-shipping-carriers).
      *   
      * > Note:
      * > Send the tracking company name exactly as written in

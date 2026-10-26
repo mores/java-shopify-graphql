@@ -1,9 +1,14 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -16,6 +21,22 @@ public class AbandonmentByAbandonedCheckoutIdGraphQLQuery extends GraphQLQuery {
     if (abandonedCheckoutId != null || fieldsSet.contains("abandonedCheckoutId")) {
         getInput().put("abandonedCheckoutId", abandonedCheckoutId);
     }
+  }
+
+  public AbandonmentByAbandonedCheckoutIdGraphQLQuery(String abandonedCheckoutId, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("query", queryName);
+    if (abandonedCheckoutId != null || fieldsSet.contains("abandonedCheckoutId")) {
+        getInput().put("abandonedCheckoutId", abandonedCheckoutId);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public AbandonmentByAbandonedCheckoutIdGraphQLQuery() {
@@ -34,12 +55,16 @@ public class AbandonmentByAbandonedCheckoutIdGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String abandonedCheckoutId;
 
     private String queryName;
 
     public AbandonmentByAbandonedCheckoutIdGraphQLQuery build() {
-      return new AbandonmentByAbandonedCheckoutIdGraphQLQuery(abandonedCheckoutId, queryName, fieldsSet);
+      return new AbandonmentByAbandonedCheckoutIdGraphQLQuery(abandonedCheckoutId, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -48,6 +73,16 @@ public class AbandonmentByAbandonedCheckoutIdGraphQLQuery extends GraphQLQuery {
      */
     public Builder abandonedCheckoutId(String abandonedCheckoutId) {
       this.abandonedCheckoutId = abandonedCheckoutId;
+      this.fieldsSet.add("abandonedCheckoutId");
+      return this;
+    }
+
+    /**
+     * The ID of the Abandoned Checkout ID to query by.
+     */
+    public Builder abandonedCheckoutIdReference(String variableRef) {
+      this.variableReferences.put("abandonedCheckoutId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("abandonedCheckoutId");
       return this;
     }

@@ -6,11 +6,16 @@ import com.shopify.admin.types.MetafieldDefinitionConstraintSubtypeIdentifier;
 import com.shopify.admin.types.MetafieldDefinitionPinnedStatus;
 import com.shopify.admin.types.MetafieldDefinitionSortKeys;
 import com.shopify.admin.types.MetafieldOwnerType;
+import graphql.language.VariableDefinition;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -53,6 +58,50 @@ public class MetafieldDefinitionsGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public MetafieldDefinitionsGraphQLQuery(String key, String namespace,
+      MetafieldOwnerType ownerType, MetafieldDefinitionPinnedStatus pinnedStatus,
+      MetafieldDefinitionConstraintSubtypeIdentifier constraintSubtype,
+      MetafieldDefinitionConstraintStatus constraintStatus, Integer first, String after,
+      Integer last, String before, Boolean reverse, MetafieldDefinitionSortKeys sortKey,
+      String query, String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("query", queryName);
+    if (key != null || fieldsSet.contains("key")) {
+        getInput().put("key", key);
+    }if (namespace != null || fieldsSet.contains("namespace")) {
+        getInput().put("namespace", namespace);
+    }if (ownerType != null || fieldsSet.contains("ownerType")) {
+        getInput().put("ownerType", ownerType);
+    }if (pinnedStatus != null || fieldsSet.contains("pinnedStatus")) {
+        getInput().put("pinnedStatus", pinnedStatus);
+    }if (constraintSubtype != null || fieldsSet.contains("constraintSubtype")) {
+        getInput().put("constraintSubtype", constraintSubtype);
+    }if (constraintStatus != null || fieldsSet.contains("constraintStatus")) {
+        getInput().put("constraintStatus", constraintStatus);
+    }if (first != null || fieldsSet.contains("first")) {
+        getInput().put("first", first);
+    }if (after != null || fieldsSet.contains("after")) {
+        getInput().put("after", after);
+    }if (last != null || fieldsSet.contains("last")) {
+        getInput().put("last", last);
+    }if (before != null || fieldsSet.contains("before")) {
+        getInput().put("before", before);
+    }if (reverse != null || fieldsSet.contains("reverse")) {
+        getInput().put("reverse", reverse);
+    }if (sortKey != null || fieldsSet.contains("sortKey")) {
+        getInput().put("sortKey", sortKey);
+    }if (query != null || fieldsSet.contains("query")) {
+        getInput().put("query", query);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public MetafieldDefinitionsGraphQLQuery() {
     super("query");
   }
@@ -68,6 +117,10 @@ public class MetafieldDefinitionsGraphQLQuery extends GraphQLQuery {
 
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
+
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
 
     private String key;
 
@@ -98,7 +151,7 @@ public class MetafieldDefinitionsGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public MetafieldDefinitionsGraphQLQuery build() {
-      return new MetafieldDefinitionsGraphQLQuery(key, namespace, ownerType, pinnedStatus, constraintSubtype, constraintStatus, first, after, last, before, reverse, sortKey, query, queryName, fieldsSet);
+      return new MetafieldDefinitionsGraphQLQuery(key, namespace, ownerType, pinnedStatus, constraintSubtype, constraintStatus, first, after, last, before, reverse, sortKey, query, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -107,6 +160,16 @@ public class MetafieldDefinitionsGraphQLQuery extends GraphQLQuery {
      */
     public Builder key(String key) {
       this.key = key;
+      this.fieldsSet.add("key");
+      return this;
+    }
+
+    /**
+     * Filter metafield definition by key.
+     */
+    public Builder keyReference(String variableRef) {
+      this.variableReferences.put("key", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
       this.fieldsSet.add("key");
       return this;
     }
@@ -121,6 +184,16 @@ public class MetafieldDefinitionsGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * Filter metafield definition by namespace.
+     */
+    public Builder namespaceReference(String variableRef) {
+      this.variableReferences.put("namespace", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
+      this.fieldsSet.add("namespace");
+      return this;
+    }
+
+    /**
      * Filter the metafield definition by the specific owner type.
      */
     public Builder ownerType(MetafieldOwnerType ownerType) {
@@ -130,10 +203,30 @@ public class MetafieldDefinitionsGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * Filter the metafield definition by the specific owner type.
+     */
+    public Builder ownerTypeReference(String variableRef) {
+      this.variableReferences.put("ownerType", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("MetafieldOwnerType"))).build());
+      this.fieldsSet.add("ownerType");
+      return this;
+    }
+
+    /**
      * Filter the metafield definition by the pinned status.
      */
     public Builder pinnedStatus(MetafieldDefinitionPinnedStatus pinnedStatus) {
       this.pinnedStatus = pinnedStatus;
+      this.fieldsSet.add("pinnedStatus");
+      return this;
+    }
+
+    /**
+     * Filter the metafield definition by the pinned status.
+     */
+    public Builder pinnedStatusReference(String variableRef) {
+      this.variableReferences.put("pinnedStatus", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("MetafieldDefinitionPinnedStatus")).build());
       this.fieldsSet.add("pinnedStatus");
       return this;
     }
@@ -149,10 +242,30 @@ public class MetafieldDefinitionsGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * Filter metafield definitions based on whether they apply to a given resource subtype.
+     */
+    public Builder constraintSubtypeReference(String variableRef) {
+      this.variableReferences.put("constraintSubtype", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("MetafieldDefinitionConstraintSubtypeIdentifier")).build());
+      this.fieldsSet.add("constraintSubtype");
+      return this;
+    }
+
+    /**
      * Filter metafield definitions based on whether they are constrained.
      */
     public Builder constraintStatus(MetafieldDefinitionConstraintStatus constraintStatus) {
       this.constraintStatus = constraintStatus;
+      this.fieldsSet.add("constraintStatus");
+      return this;
+    }
+
+    /**
+     * Filter metafield definitions based on whether they are constrained.
+     */
+    public Builder constraintStatusReference(String variableRef) {
+      this.variableReferences.put("constraintStatus", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("MetafieldDefinitionConstraintStatus")).build());
       this.fieldsSet.add("constraintStatus");
       return this;
     }
@@ -167,10 +280,30 @@ public class MetafieldDefinitionsGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+     */
+    public Builder firstReference(String variableRef) {
+      this.variableReferences.put("first", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Int")).build());
+      this.fieldsSet.add("first");
+      return this;
+    }
+
+    /**
      * The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
      */
     public Builder after(String after) {
       this.after = after;
+      this.fieldsSet.add("after");
+      return this;
+    }
+
+    /**
+     * The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+     */
+    public Builder afterReference(String variableRef) {
+      this.variableReferences.put("after", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
       this.fieldsSet.add("after");
       return this;
     }
@@ -185,6 +318,16 @@ public class MetafieldDefinitionsGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+     */
+    public Builder lastReference(String variableRef) {
+      this.variableReferences.put("last", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Int")).build());
+      this.fieldsSet.add("last");
+      return this;
+    }
+
+    /**
      * The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
      */
     public Builder before(String before) {
@@ -194,10 +337,30 @@ public class MetafieldDefinitionsGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+     */
+    public Builder beforeReference(String variableRef) {
+      this.variableReferences.put("before", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
+      this.fieldsSet.add("before");
+      return this;
+    }
+
+    /**
      * Reverse the order of the underlying list.
      */
     public Builder reverse(Boolean reverse) {
       this.reverse = reverse;
+      this.fieldsSet.add("reverse");
+      return this;
+    }
+
+    /**
+     * Reverse the order of the underlying list.
+     */
+    public Builder reverseReference(String variableRef) {
+      this.variableReferences.put("reverse", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Boolean")).build());
       this.fieldsSet.add("reverse");
       return this;
     }
@@ -213,15 +376,26 @@ public class MetafieldDefinitionsGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * Sort the underlying list using a key. If your query is slow or returns an
+     * error, then [try specifying a sort key that matches the field used in the search](https://shopify.dev/api/usage/pagination-graphql#search-performance-considerations).
+     */
+    public Builder sortKeyReference(String variableRef) {
+      this.variableReferences.put("sortKey", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("MetafieldDefinitionSortKeys")).build());
+      this.fieldsSet.add("sortKey");
+      return this;
+    }
+
+    /**
      * A filter made up of terms, connectives, modifiers, and comparators.
      * | name | type | description | acceptable_values | default_value | example_use |
      * | ---- | ---- | ---- | ---- | ---- | ---- |
      * | default | string | Filter by a case-insensitive search of multiple fields
      * in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
      * | created_at | time | Filter by the date and time when the metafield
-     * definition was created. | | | - `created_at:>2020-10-21T23:39:20Z`<br/> -
-     * `created_at:&lt;now`<br/> - `created_at:&lt;=2024` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
+     * definition was created. | | | - `created_at:>'2020-10-21T23:39:20Z'`<br/> -
+     * `created_at:<now`<br/> - `created_at:<=2024` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
      * | key | string | Filter by the metafield definition [`key`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MetafieldDefinition#field-key)
      * field. | | | - `key:some-key` |
      * | namespace | string | Filter by the metafield definition [`namespace`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MetafieldDefinition#field-namespace)
@@ -231,13 +405,46 @@ public class MetafieldDefinitionsGraphQLQuery extends GraphQLQuery {
      * | type | string | Filter by the metafield definition [`type`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MetafieldDefinition#field-type)
      * field. | | | - `type:single_line_text_field` |
      * | updated_at | time | Filter by the date and time when the metafield
-     * definition was last updated. | | | - `updated_at:>2020-10-21T23:39:20Z`<br/>
-     * - `updated_at:&lt;now`<br/> - `updated_at:&lt;=2024` |
+     * definition was last updated. | | | -
+     * `updated_at:>'2020-10-21T23:39:20Z'`<br/> - `updated_at:<now`<br/> -
+     * `updated_at:<=2024` |
      * You can apply one or more filters to a query. Learn more about [Shopify API
      * search syntax](https://shopify.dev/api/usage/search-syntax).
      */
     public Builder query(String query) {
       this.query = query;
+      this.fieldsSet.add("query");
+      return this;
+    }
+
+    /**
+     * A filter made up of terms, connectives, modifiers, and comparators.
+     * | name | type | description | acceptable_values | default_value | example_use |
+     * | ---- | ---- | ---- | ---- | ---- | ---- |
+     * | default | string | Filter by a case-insensitive search of multiple fields
+     * in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
+     * | created_at | time | Filter by the date and time when the metafield
+     * definition was created. | | | - `created_at:>'2020-10-21T23:39:20Z'`<br/> -
+     * `created_at:<now`<br/> - `created_at:<=2024` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | key | string | Filter by the metafield definition [`key`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MetafieldDefinition#field-key)
+     * field. | | | - `key:some-key` |
+     * | namespace | string | Filter by the metafield definition [`namespace`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MetafieldDefinition#field-namespace)
+     * field. | | | - `namespace:some-namespace` |
+     * | owner_type | string | Filter by the metafield definition [`ownerType`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MetafieldDefinition#field-ownertype)
+     * field. | | | - `owner_type:PRODUCT` |
+     * | type | string | Filter by the metafield definition [`type`](https://shopify.dev/docs/api/admin-graphql/latest/objects/MetafieldDefinition#field-type)
+     * field. | | | - `type:single_line_text_field` |
+     * | updated_at | time | Filter by the date and time when the metafield
+     * definition was last updated. | | | -
+     * `updated_at:>'2020-10-21T23:39:20Z'`<br/> - `updated_at:<now`<br/> -
+     * `updated_at:<=2024` |
+     * You can apply one or more filters to a query. Learn more about [Shopify API
+     * search syntax](https://shopify.dev/api/usage/search-syntax).
+     */
+    public Builder queryReference(String variableRef) {
+      this.variableReferences.put("query", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
       this.fieldsSet.add("query");
       return this;
     }

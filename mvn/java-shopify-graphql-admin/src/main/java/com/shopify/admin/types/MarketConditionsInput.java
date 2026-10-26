@@ -24,6 +24,11 @@ public class MarketConditionsInput {
    */
   private MarketConditionsRegionsInput regionsCondition;
 
+  /**
+   * The channels to include in the market conditions.
+   */
+  private MarketConditionsChannelsInput channelsCondition;
+
   public MarketConditionsInput() {
   }
 
@@ -61,9 +66,20 @@ public class MarketConditionsInput {
     this.regionsCondition = regionsCondition;
   }
 
+  /**
+   * The channels to include in the market conditions.
+   */
+  public MarketConditionsChannelsInput getChannelsCondition() {
+    return channelsCondition;
+  }
+
+  public void setChannelsCondition(MarketConditionsChannelsInput channelsCondition) {
+    this.channelsCondition = channelsCondition;
+  }
+
   @Override
   public String toString() {
-    return "MarketConditionsInput{companyLocationsCondition='" + companyLocationsCondition + "', locationsCondition='" + locationsCondition + "', regionsCondition='" + regionsCondition + "'}";
+    return "MarketConditionsInput{companyLocationsCondition='" + companyLocationsCondition + "', locationsCondition='" + locationsCondition + "', regionsCondition='" + regionsCondition + "', channelsCondition='" + channelsCondition + "'}";
   }
 
   @Override
@@ -73,12 +89,13 @@ public class MarketConditionsInput {
     MarketConditionsInput that = (MarketConditionsInput) o;
     return Objects.equals(companyLocationsCondition, that.companyLocationsCondition) &&
         Objects.equals(locationsCondition, that.locationsCondition) &&
-        Objects.equals(regionsCondition, that.regionsCondition);
+        Objects.equals(regionsCondition, that.regionsCondition) &&
+        Objects.equals(channelsCondition, that.channelsCondition);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(companyLocationsCondition, locationsCondition, regionsCondition);
+    return Objects.hash(companyLocationsCondition, locationsCondition, regionsCondition, channelsCondition);
   }
 
   public static Builder newBuilder() {
@@ -101,11 +118,17 @@ public class MarketConditionsInput {
      */
     private MarketConditionsRegionsInput regionsCondition;
 
+    /**
+     * The channels to include in the market conditions.
+     */
+    private MarketConditionsChannelsInput channelsCondition;
+
     public MarketConditionsInput build() {
       MarketConditionsInput result = new MarketConditionsInput();
       result.companyLocationsCondition = this.companyLocationsCondition;
       result.locationsCondition = this.locationsCondition;
       result.regionsCondition = this.regionsCondition;
+      result.channelsCondition = this.channelsCondition;
       return result;
     }
 
@@ -131,6 +154,14 @@ public class MarketConditionsInput {
      */
     public Builder regionsCondition(MarketConditionsRegionsInput regionsCondition) {
       this.regionsCondition = regionsCondition;
+      return this;
+    }
+
+    /**
+     * The channels to include in the market conditions.
+     */
+    public Builder channelsCondition(MarketConditionsChannelsInput channelsCondition) {
+      this.channelsCondition = channelsCondition;
       return this;
     }
   }

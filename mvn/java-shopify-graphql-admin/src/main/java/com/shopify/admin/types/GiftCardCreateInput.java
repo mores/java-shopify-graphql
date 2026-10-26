@@ -11,9 +11,9 @@ import java.util.Objects;
  */
 public class GiftCardCreateInput {
   /**
-   * The initial value of the gift card.
+   * The initial amount of the gift card.
    */
-  private String initialValue;
+  private MoneyInput initialAmount;
 
   /**
    * The gift card's code. It must be 8-20 characters long and contain only letters(a-z) and numbers(0-9).
@@ -22,7 +22,8 @@ public class GiftCardCreateInput {
   private String code;
 
   /**
-   * The ID of the customer who will receive the gift card. Requires `write_customers` access_scope.
+   * The ID of the customer the gift card is issued to, as opposed to the gift
+   * recipient. Requires `write_customers` access_scope.
    */
   private String customerId;
 
@@ -35,6 +36,14 @@ public class GiftCardCreateInput {
    * The note associated with the gift card, which isn't visible to the customer.
    */
   private String note;
+
+  /**
+   * The strategy used to convert the gift card's balance when it's redeemed in a
+   * currency other than the one it was issued in. When not provided, defaults to
+   * `MARKET_FX` for gift cards issued in the shop's currency, and `NONE` for gift
+   * cards issued in a different currency.
+   */
+  private GiftCardCrossCurrencyRedemptionStrategy crossCurrencyRedemptionStrategy;
 
   /**
    * The recipient attributes of the gift card.
@@ -52,14 +61,14 @@ public class GiftCardCreateInput {
   }
 
   /**
-   * The initial value of the gift card.
+   * The initial amount of the gift card.
    */
-  public String getInitialValue() {
-    return initialValue;
+  public MoneyInput getInitialAmount() {
+    return initialAmount;
   }
 
-  public void setInitialValue(String initialValue) {
-    this.initialValue = initialValue;
+  public void setInitialAmount(MoneyInput initialAmount) {
+    this.initialAmount = initialAmount;
   }
 
   /**
@@ -75,7 +84,8 @@ public class GiftCardCreateInput {
   }
 
   /**
-   * The ID of the customer who will receive the gift card. Requires `write_customers` access_scope.
+   * The ID of the customer the gift card is issued to, as opposed to the gift
+   * recipient. Requires `write_customers` access_scope.
    */
   public String getCustomerId() {
     return customerId;
@@ -108,6 +118,21 @@ public class GiftCardCreateInput {
   }
 
   /**
+   * The strategy used to convert the gift card's balance when it's redeemed in a
+   * currency other than the one it was issued in. When not provided, defaults to
+   * `MARKET_FX` for gift cards issued in the shop's currency, and `NONE` for gift
+   * cards issued in a different currency.
+   */
+  public GiftCardCrossCurrencyRedemptionStrategy getCrossCurrencyRedemptionStrategy() {
+    return crossCurrencyRedemptionStrategy;
+  }
+
+  public void setCrossCurrencyRedemptionStrategy(
+      GiftCardCrossCurrencyRedemptionStrategy crossCurrencyRedemptionStrategy) {
+    this.crossCurrencyRedemptionStrategy = crossCurrencyRedemptionStrategy;
+  }
+
+  /**
    * The recipient attributes of the gift card.
    */
   public GiftCardRecipientInput getRecipientAttributes() {
@@ -133,7 +158,7 @@ public class GiftCardCreateInput {
 
   @Override
   public String toString() {
-    return "GiftCardCreateInput{initialValue='" + initialValue + "', code='" + code + "', customerId='" + customerId + "', expiresOn='" + expiresOn + "', note='" + note + "', recipientAttributes='" + recipientAttributes + "', templateSuffix='" + templateSuffix + "'}";
+    return "GiftCardCreateInput{initialAmount='" + initialAmount + "', code='" + code + "', customerId='" + customerId + "', expiresOn='" + expiresOn + "', note='" + note + "', crossCurrencyRedemptionStrategy='" + crossCurrencyRedemptionStrategy + "', recipientAttributes='" + recipientAttributes + "', templateSuffix='" + templateSuffix + "'}";
   }
 
   @Override
@@ -141,18 +166,19 @@ public class GiftCardCreateInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     GiftCardCreateInput that = (GiftCardCreateInput) o;
-    return Objects.equals(initialValue, that.initialValue) &&
+    return Objects.equals(initialAmount, that.initialAmount) &&
         Objects.equals(code, that.code) &&
         Objects.equals(customerId, that.customerId) &&
         Objects.equals(expiresOn, that.expiresOn) &&
         Objects.equals(note, that.note) &&
+        Objects.equals(crossCurrencyRedemptionStrategy, that.crossCurrencyRedemptionStrategy) &&
         Objects.equals(recipientAttributes, that.recipientAttributes) &&
         Objects.equals(templateSuffix, that.templateSuffix);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(initialValue, code, customerId, expiresOn, note, recipientAttributes, templateSuffix);
+    return Objects.hash(initialAmount, code, customerId, expiresOn, note, crossCurrencyRedemptionStrategy, recipientAttributes, templateSuffix);
   }
 
   public static Builder newBuilder() {
@@ -161,9 +187,9 @@ public class GiftCardCreateInput {
 
   public static class Builder {
     /**
-     * The initial value of the gift card.
+     * The initial amount of the gift card.
      */
-    private String initialValue;
+    private MoneyInput initialAmount;
 
     /**
      * The gift card's code. It must be 8-20 characters long and contain only letters(a-z) and numbers(0-9).
@@ -172,7 +198,8 @@ public class GiftCardCreateInput {
     private String code;
 
     /**
-     * The ID of the customer who will receive the gift card. Requires `write_customers` access_scope.
+     * The ID of the customer the gift card is issued to, as opposed to the gift
+     * recipient. Requires `write_customers` access_scope.
      */
     private String customerId;
 
@@ -185,6 +212,14 @@ public class GiftCardCreateInput {
      * The note associated with the gift card, which isn't visible to the customer.
      */
     private String note;
+
+    /**
+     * The strategy used to convert the gift card's balance when it's redeemed in a
+     * currency other than the one it was issued in. When not provided, defaults to
+     * `MARKET_FX` for gift cards issued in the shop's currency, and `NONE` for gift
+     * cards issued in a different currency.
+     */
+    private GiftCardCrossCurrencyRedemptionStrategy crossCurrencyRedemptionStrategy;
 
     /**
      * The recipient attributes of the gift card.
@@ -200,21 +235,22 @@ public class GiftCardCreateInput {
 
     public GiftCardCreateInput build() {
       GiftCardCreateInput result = new GiftCardCreateInput();
-      result.initialValue = this.initialValue;
+      result.initialAmount = this.initialAmount;
       result.code = this.code;
       result.customerId = this.customerId;
       result.expiresOn = this.expiresOn;
       result.note = this.note;
+      result.crossCurrencyRedemptionStrategy = this.crossCurrencyRedemptionStrategy;
       result.recipientAttributes = this.recipientAttributes;
       result.templateSuffix = this.templateSuffix;
       return result;
     }
 
     /**
-     * The initial value of the gift card.
+     * The initial amount of the gift card.
      */
-    public Builder initialValue(String initialValue) {
-      this.initialValue = initialValue;
+    public Builder initialAmount(MoneyInput initialAmount) {
+      this.initialAmount = initialAmount;
       return this;
     }
 
@@ -228,7 +264,8 @@ public class GiftCardCreateInput {
     }
 
     /**
-     * The ID of the customer who will receive the gift card. Requires `write_customers` access_scope.
+     * The ID of the customer the gift card is issued to, as opposed to the gift
+     * recipient. Requires `write_customers` access_scope.
      */
     public Builder customerId(String customerId) {
       this.customerId = customerId;
@@ -248,6 +285,18 @@ public class GiftCardCreateInput {
      */
     public Builder note(String note) {
       this.note = note;
+      return this;
+    }
+
+    /**
+     * The strategy used to convert the gift card's balance when it's redeemed in a
+     * currency other than the one it was issued in. When not provided, defaults to
+     * `MARKET_FX` for gift cards issued in the shop's currency, and `NONE` for gift
+     * cards issued in a different currency.
+     */
+    public Builder crossCurrencyRedemptionStrategy(
+        GiftCardCrossCurrencyRedemptionStrategy crossCurrencyRedemptionStrategy) {
+      this.crossCurrencyRedemptionStrategy = crossCurrencyRedemptionStrategy;
       return this;
     }
 

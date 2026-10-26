@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.WebhookSubscriptionInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -19,7 +24,7 @@ import java.util.Set;
  *   
  * Building an app? If you only use app-specific webhooks, you won't need this.
  * App-specific webhook subscriptions specified in your `shopify.app.toml` may be
- * easier. They are automatically kept up to date by Shopify &amp; require less
+ * easier. They are automatically kept up to date by Shopify & require less
  * maintenance. Please read [About managing webhook
  * subscriptions](https://shopify.dev/docs/apps/build/webhooks/subscribe).
  */
@@ -32,6 +37,24 @@ public class WebhookSubscriptionUpdateGraphQLQuery extends GraphQLQuery {
     }if (webhookSubscription != null || fieldsSet.contains("webhookSubscription")) {
         getInput().put("webhookSubscription", webhookSubscription);
     }
+  }
+
+  public WebhookSubscriptionUpdateGraphQLQuery(String id,
+      WebhookSubscriptionInput webhookSubscription, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (webhookSubscription != null || fieldsSet.contains("webhookSubscription")) {
+        getInput().put("webhookSubscription", webhookSubscription);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public WebhookSubscriptionUpdateGraphQLQuery() {
@@ -50,6 +73,10 @@ public class WebhookSubscriptionUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private WebhookSubscriptionInput webhookSubscription;
@@ -57,7 +84,7 @@ public class WebhookSubscriptionUpdateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public WebhookSubscriptionUpdateGraphQLQuery build() {
-      return new WebhookSubscriptionUpdateGraphQLQuery(id, webhookSubscription, queryName, fieldsSet);
+      return new WebhookSubscriptionUpdateGraphQLQuery(id, webhookSubscription, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -71,10 +98,30 @@ public class WebhookSubscriptionUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the webhook subscription to update.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * Specifies the input fields for a webhook subscription.
      */
     public Builder webhookSubscription(WebhookSubscriptionInput webhookSubscription) {
       this.webhookSubscription = webhookSubscription;
+      this.fieldsSet.add("webhookSubscription");
+      return this;
+    }
+
+    /**
+     * Specifies the input fields for a webhook subscription.
+     */
+    public Builder webhookSubscriptionReference(String variableRef) {
+      this.variableReferences.put("webhookSubscription", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("WebhookSubscriptionInput"))).build());
       this.fieldsSet.add("webhookSubscription");
       return this;
     }

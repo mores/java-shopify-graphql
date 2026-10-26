@@ -8,10 +8,15 @@ import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
- * A [product variant's](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant) inventory information across all locations. The inventory item connects the
- * product variant to its [inventory levels](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryLevel)
- * at different locations, tracking stock keeping unit (SKU), whether quantities
- * are tracked, shipping requirements, and customs information for the product.
+ * An inventory item represents the inventory for a [product variant](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant).
+ * It holds the stock keeping unit (SKU), whether quantities are tracked, shipping
+ * requirements, and customs information.
+ *
+ * Use the [`inventoryLevels`](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryItem#field-InventoryItem.fields.inventoryLevels) field to get the [inventory
+ * level](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryLevel)
+ * for each location that stocks the item, and the level's [`quantities`](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryLevel#field-InventoryLevel.fields.quantities)
+ * field to read its inventory quantities by name. Quantity names represent the [inventory states](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps#inventory-states)
+ * that merchants use to track inventory.
  *
  * Learn more about [inventory object relationships](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#inventory-object-relationships).
  */
@@ -85,7 +90,7 @@ public class InventoryItem implements com.shopify.admin.types.LegacyInteroperabi
   private String provinceCodeOfOrigin;
 
   /**
-   * Whether the inventory item requires shipping.
+   * Whether a customer needs to provide a shipping address when placing an order containing the inventory item.
    */
   private boolean requiresShipping;
 
@@ -105,9 +110,9 @@ public class InventoryItem implements com.shopify.admin.types.LegacyInteroperabi
   private EditableProperty trackedEditable;
 
   /**
-   * Unit cost associated with the inventory item. Note: the user must have "View
-   * product costs" permission granted in order to access this field once product
-   * granular permissions are enabled.
+   * Unit cost associated with the inventory item. The shop's currency is used.
+   * Note: the user must have "View product costs" permission granted in order to
+   * access this field once product granular permissions are enabled.
    */
   private MoneyV2 unitCost;
 
@@ -274,7 +279,7 @@ public class InventoryItem implements com.shopify.admin.types.LegacyInteroperabi
   }
 
   /**
-   * Whether the inventory item requires shipping.
+   * Whether a customer needs to provide a shipping address when placing an order containing the inventory item.
    */
   public boolean getRequiresShipping() {
     return requiresShipping;
@@ -318,9 +323,9 @@ public class InventoryItem implements com.shopify.admin.types.LegacyInteroperabi
   }
 
   /**
-   * Unit cost associated with the inventory item. Note: the user must have "View
-   * product costs" permission granted in order to access this field once product
-   * granular permissions are enabled.
+   * Unit cost associated with the inventory item. The shop's currency is used.
+   * Note: the user must have "View product costs" permission granted in order to
+   * access this field once product granular permissions are enabled.
    */
   public MoneyV2 getUnitCost() {
     return unitCost;
@@ -472,7 +477,7 @@ public class InventoryItem implements com.shopify.admin.types.LegacyInteroperabi
     private String provinceCodeOfOrigin;
 
     /**
-     * Whether the inventory item requires shipping.
+     * Whether a customer needs to provide a shipping address when placing an order containing the inventory item.
      */
     private boolean requiresShipping;
 
@@ -492,9 +497,9 @@ public class InventoryItem implements com.shopify.admin.types.LegacyInteroperabi
     private EditableProperty trackedEditable;
 
     /**
-     * Unit cost associated with the inventory item. Note: the user must have "View
-     * product costs" permission granted in order to access this field once product
-     * granular permissions are enabled.
+     * Unit cost associated with the inventory item. The shop's currency is used.
+     * Note: the user must have "View product costs" permission granted in order to
+     * access this field once product granular permissions are enabled.
      */
     private MoneyV2 unitCost;
 
@@ -645,7 +650,7 @@ public class InventoryItem implements com.shopify.admin.types.LegacyInteroperabi
     }
 
     /**
-     * Whether the inventory item requires shipping.
+     * Whether a customer needs to provide a shipping address when placing an order containing the inventory item.
      */
     public Builder requiresShipping(boolean requiresShipping) {
       this.requiresShipping = requiresShipping;
@@ -677,9 +682,9 @@ public class InventoryItem implements com.shopify.admin.types.LegacyInteroperabi
     }
 
     /**
-     * Unit cost associated with the inventory item. Note: the user must have "View
-     * product costs" permission granted in order to access this field once product
-     * granular permissions are enabled.
+     * Unit cost associated with the inventory item. The shop's currency is used.
+     * Note: the user must have "View product costs" permission granted in order to
+     * access this field once product granular permissions are enabled.
      */
     public Builder unitCost(MoneyV2 unitCost) {
       this.unitCost = unitCost;

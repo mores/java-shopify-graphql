@@ -28,7 +28,7 @@ import java.util.Objects;
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
-public class SubscriptionContract implements com.shopify.admin.types.Node, com.shopify.admin.types.SubscriptionContractBase {
+public class SubscriptionContract implements SubscriptionCommittedContract, com.shopify.admin.types.Node, com.shopify.admin.types.SubscriptionContractBase {
   /**
    * The subscription app that the subscription contract is registered to.
    */
@@ -95,6 +95,11 @@ public class SubscriptionContract implements com.shopify.admin.types.Node, com.s
   private SubscriptionManualDiscountConnection discounts;
 
   /**
+   * The list of subscription lines grouped by bundle parent, with bundle components nested under their parent line.
+   */
+  private SubscriptionGroupedLineConnection groupedLines;
+
+  /**
    * A globally-unique ID.
    */
   private String id;
@@ -108,6 +113,13 @@ public class SubscriptionContract implements com.shopify.admin.types.Node, com.s
    * The current status of the last payment.
    */
   private SubscriptionContractLastPaymentStatus lastPaymentStatus;
+
+  /**
+   * The projected order totals from the last successful commit of the subscription
+   * contract. Returns null when no projected order totals have been persisted for
+   * the contract, or the latest version was committed through a subscription draft.
+   */
+  private SubscriptionContractCalculationProjectedOrderTotals latestCommittedProjectedOrderTotals;
 
   /**
    * The number of lines associated with the subscription contract.
@@ -309,6 +321,17 @@ public class SubscriptionContract implements com.shopify.admin.types.Node, com.s
   }
 
   /**
+   * The list of subscription lines grouped by bundle parent, with bundle components nested under their parent line.
+   */
+  public SubscriptionGroupedLineConnection getGroupedLines() {
+    return groupedLines;
+  }
+
+  public void setGroupedLines(SubscriptionGroupedLineConnection groupedLines) {
+    this.groupedLines = groupedLines;
+  }
+
+  /**
    * A globally-unique ID.
    */
   public String getId() {
@@ -340,6 +363,21 @@ public class SubscriptionContract implements com.shopify.admin.types.Node, com.s
 
   public void setLastPaymentStatus(SubscriptionContractLastPaymentStatus lastPaymentStatus) {
     this.lastPaymentStatus = lastPaymentStatus;
+  }
+
+  /**
+   * The projected order totals from the last successful commit of the subscription
+   * contract. Returns null when no projected order totals have been persisted for
+   * the contract, or the latest version was committed through a subscription draft.
+   */
+  public SubscriptionContractCalculationProjectedOrderTotals getLatestCommittedProjectedOrderTotals(
+      ) {
+    return latestCommittedProjectedOrderTotals;
+  }
+
+  public void setLatestCommittedProjectedOrderTotals(
+      SubscriptionContractCalculationProjectedOrderTotals latestCommittedProjectedOrderTotals) {
+    this.latestCommittedProjectedOrderTotals = latestCommittedProjectedOrderTotals;
   }
 
   /**
@@ -457,7 +495,7 @@ public class SubscriptionContract implements com.shopify.admin.types.Node, com.s
 
   @Override
   public String toString() {
-    return "SubscriptionContract{app='" + app + "', appAdminUrl='" + appAdminUrl + "', billingAttempts='" + billingAttempts + "', billingPolicy='" + billingPolicy + "', createdAt='" + createdAt + "', currencyCode='" + currencyCode + "', customAttributes='" + customAttributes + "', customer='" + customer + "', customerPaymentMethod='" + customerPaymentMethod + "', deliveryMethod='" + deliveryMethod + "', deliveryPolicy='" + deliveryPolicy + "', deliveryPrice='" + deliveryPrice + "', discounts='" + discounts + "', id='" + id + "', lastBillingAttemptErrorType='" + lastBillingAttemptErrorType + "', lastPaymentStatus='" + lastPaymentStatus + "', lineCount='" + lineCount + "', lines='" + lines + "', linesCount='" + linesCount + "', nextBillingDate='" + nextBillingDate + "', note='" + note + "', orders='" + orders + "', originOrder='" + originOrder + "', revisionId='" + revisionId + "', status='" + status + "', updatedAt='" + updatedAt + "'}";
+    return "SubscriptionContract{app='" + app + "', appAdminUrl='" + appAdminUrl + "', billingAttempts='" + billingAttempts + "', billingPolicy='" + billingPolicy + "', createdAt='" + createdAt + "', currencyCode='" + currencyCode + "', customAttributes='" + customAttributes + "', customer='" + customer + "', customerPaymentMethod='" + customerPaymentMethod + "', deliveryMethod='" + deliveryMethod + "', deliveryPolicy='" + deliveryPolicy + "', deliveryPrice='" + deliveryPrice + "', discounts='" + discounts + "', groupedLines='" + groupedLines + "', id='" + id + "', lastBillingAttemptErrorType='" + lastBillingAttemptErrorType + "', lastPaymentStatus='" + lastPaymentStatus + "', latestCommittedProjectedOrderTotals='" + latestCommittedProjectedOrderTotals + "', lineCount='" + lineCount + "', lines='" + lines + "', linesCount='" + linesCount + "', nextBillingDate='" + nextBillingDate + "', note='" + note + "', orders='" + orders + "', originOrder='" + originOrder + "', revisionId='" + revisionId + "', status='" + status + "', updatedAt='" + updatedAt + "'}";
   }
 
   @Override
@@ -478,9 +516,11 @@ public class SubscriptionContract implements com.shopify.admin.types.Node, com.s
         Objects.equals(deliveryPolicy, that.deliveryPolicy) &&
         Objects.equals(deliveryPrice, that.deliveryPrice) &&
         Objects.equals(discounts, that.discounts) &&
+        Objects.equals(groupedLines, that.groupedLines) &&
         Objects.equals(id, that.id) &&
         Objects.equals(lastBillingAttemptErrorType, that.lastBillingAttemptErrorType) &&
         Objects.equals(lastPaymentStatus, that.lastPaymentStatus) &&
+        Objects.equals(latestCommittedProjectedOrderTotals, that.latestCommittedProjectedOrderTotals) &&
         lineCount == that.lineCount &&
         Objects.equals(lines, that.lines) &&
         Objects.equals(linesCount, that.linesCount) &&
@@ -495,7 +535,7 @@ public class SubscriptionContract implements com.shopify.admin.types.Node, com.s
 
   @Override
   public int hashCode() {
-    return Objects.hash(app, appAdminUrl, billingAttempts, billingPolicy, createdAt, currencyCode, customAttributes, customer, customerPaymentMethod, deliveryMethod, deliveryPolicy, deliveryPrice, discounts, id, lastBillingAttemptErrorType, lastPaymentStatus, lineCount, lines, linesCount, nextBillingDate, note, orders, originOrder, revisionId, status, updatedAt);
+    return Objects.hash(app, appAdminUrl, billingAttempts, billingPolicy, createdAt, currencyCode, customAttributes, customer, customerPaymentMethod, deliveryMethod, deliveryPolicy, deliveryPrice, discounts, groupedLines, id, lastBillingAttemptErrorType, lastPaymentStatus, latestCommittedProjectedOrderTotals, lineCount, lines, linesCount, nextBillingDate, note, orders, originOrder, revisionId, status, updatedAt);
   }
 
   public static Builder newBuilder() {
@@ -569,6 +609,11 @@ public class SubscriptionContract implements com.shopify.admin.types.Node, com.s
     private SubscriptionManualDiscountConnection discounts;
 
     /**
+     * The list of subscription lines grouped by bundle parent, with bundle components nested under their parent line.
+     */
+    private SubscriptionGroupedLineConnection groupedLines;
+
+    /**
      * A globally-unique ID.
      */
     private String id;
@@ -582,6 +627,13 @@ public class SubscriptionContract implements com.shopify.admin.types.Node, com.s
      * The current status of the last payment.
      */
     private SubscriptionContractLastPaymentStatus lastPaymentStatus;
+
+    /**
+     * The projected order totals from the last successful commit of the subscription
+     * contract. Returns null when no projected order totals have been persisted for
+     * the contract, or the latest version was committed through a subscription draft.
+     */
+    private SubscriptionContractCalculationProjectedOrderTotals latestCommittedProjectedOrderTotals;
 
     /**
      * The number of lines associated with the subscription contract.
@@ -651,9 +703,11 @@ public class SubscriptionContract implements com.shopify.admin.types.Node, com.s
       result.deliveryPolicy = this.deliveryPolicy;
       result.deliveryPrice = this.deliveryPrice;
       result.discounts = this.discounts;
+      result.groupedLines = this.groupedLines;
       result.id = this.id;
       result.lastBillingAttemptErrorType = this.lastBillingAttemptErrorType;
       result.lastPaymentStatus = this.lastPaymentStatus;
+      result.latestCommittedProjectedOrderTotals = this.latestCommittedProjectedOrderTotals;
       result.lineCount = this.lineCount;
       result.lines = this.lines;
       result.linesCount = this.linesCount;
@@ -772,6 +826,14 @@ public class SubscriptionContract implements com.shopify.admin.types.Node, com.s
     }
 
     /**
+     * The list of subscription lines grouped by bundle parent, with bundle components nested under their parent line.
+     */
+    public Builder groupedLines(SubscriptionGroupedLineConnection groupedLines) {
+      this.groupedLines = groupedLines;
+      return this;
+    }
+
+    /**
      * A globally-unique ID.
      */
     public Builder id(String id) {
@@ -793,6 +855,17 @@ public class SubscriptionContract implements com.shopify.admin.types.Node, com.s
      */
     public Builder lastPaymentStatus(SubscriptionContractLastPaymentStatus lastPaymentStatus) {
       this.lastPaymentStatus = lastPaymentStatus;
+      return this;
+    }
+
+    /**
+     * The projected order totals from the last successful commit of the subscription
+     * contract. Returns null when no projected order totals have been persisted for
+     * the contract, or the latest version was committed through a subscription draft.
+     */
+    public Builder latestCommittedProjectedOrderTotals(
+        SubscriptionContractCalculationProjectedOrderTotals latestCommittedProjectedOrderTotals) {
+      this.latestCommittedProjectedOrderTotals = latestCommittedProjectedOrderTotals;
       return this;
     }
 

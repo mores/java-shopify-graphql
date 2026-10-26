@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.BlogCreateInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -29,6 +34,21 @@ public class BlogCreateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public BlogCreateGraphQLQuery(BlogCreateInput blog, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (blog != null || fieldsSet.contains("blog")) {
+        getInput().put("blog", blog);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public BlogCreateGraphQLQuery() {
     super("mutation");
   }
@@ -45,12 +65,16 @@ public class BlogCreateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private BlogCreateInput blog;
 
     private String queryName;
 
     public BlogCreateGraphQLQuery build() {
-      return new BlogCreateGraphQLQuery(blog, queryName, fieldsSet);
+      return new BlogCreateGraphQLQuery(blog, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -59,6 +83,16 @@ public class BlogCreateGraphQLQuery extends GraphQLQuery {
      */
     public Builder blog(BlogCreateInput blog) {
       this.blog = blog;
+      this.fieldsSet.add("blog");
+      return this;
+    }
+
+    /**
+     * The properties of the new blog.
+     */
+    public Builder blogReference(String variableRef) {
+      this.variableReferences.put("blog", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("BlogCreateInput"))).build());
       this.fieldsSet.add("blog");
       return this;
     }

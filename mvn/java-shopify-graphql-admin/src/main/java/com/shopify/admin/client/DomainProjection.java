@@ -24,6 +24,11 @@ public class DomainProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT e
      return projection;
   }
 
+  public DomainProjection<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
+    return this;
+  }
+
   public DomainProjection<PARENT, ROOT> host() {
     getFields().put("host", null);
     return this;

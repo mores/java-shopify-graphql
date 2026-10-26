@@ -2,6 +2,7 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.BaseSubProjectionNode;
 import com.shopify.admin.types.StaffMemberDefaultImage;
+import java.lang.String;
 import java.util.ArrayList;
 
 public class StaffMemberProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROOT extends BaseSubProjectionNode<?, ?>> extends BaseSubProjectionNode<PARENT, ROOT> {
@@ -33,7 +34,17 @@ public class StaffMemberProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?
     ImageProjection<StaffMemberProjectionRoot<PARENT, ROOT>, StaffMemberProjectionRoot<PARENT, ROOT>> projection = new ImageProjection<>(this, this);    
     getFields().put("avatar", projection);
     getInputArguments().computeIfAbsent("avatar", k -> new ArrayList<>());                      
-    InputArgument fallbackArg = new InputArgument("fallback", fallback);
+    InputArgument fallbackArg = new InputArgument("fallback", fallback, false, null);
+    getInputArguments().get("avatar").add(fallbackArg);
+    return projection;
+  }
+
+  public ImageProjection<StaffMemberProjectionRoot<PARENT, ROOT>, StaffMemberProjectionRoot<PARENT, ROOT>> avatarWithVariableReferences(
+      String fallbackReference) {
+    ImageProjection<StaffMemberProjectionRoot<PARENT, ROOT>, StaffMemberProjectionRoot<PARENT, ROOT>> projection = new ImageProjection<>(this, this);    
+    getFields().put("avatar", projection);
+    getInputArguments().computeIfAbsent("avatar", k -> new ArrayList<>());              
+    InputArgument fallbackArg = new InputArgument("fallback", fallbackReference, true, new graphql.language.TypeName("StaffMemberDefaultImage"));
     getInputArguments().get("avatar").add(fallbackArg);
     return projection;
   }

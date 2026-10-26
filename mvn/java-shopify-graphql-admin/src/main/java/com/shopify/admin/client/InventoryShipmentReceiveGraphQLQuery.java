@@ -3,11 +3,15 @@ package com.shopify.admin.client;
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.InventoryShipmentReceiveItemInput;
 import com.shopify.admin.types.InventoryShipmentReceiveLineItemReason;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -35,6 +39,30 @@ public class InventoryShipmentReceiveGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public InventoryShipmentReceiveGraphQLQuery(String id,
+      List<InventoryShipmentReceiveItemInput> lineItems, OffsetDateTime dateReceived,
+      InventoryShipmentReceiveLineItemReason bulkReceiveAction, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (lineItems != null || fieldsSet.contains("lineItems")) {
+        getInput().put("lineItems", lineItems);
+    }if (dateReceived != null || fieldsSet.contains("dateReceived")) {
+        getInput().put("dateReceived", dateReceived);
+    }if (bulkReceiveAction != null || fieldsSet.contains("bulkReceiveAction")) {
+        getInput().put("bulkReceiveAction", bulkReceiveAction);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public InventoryShipmentReceiveGraphQLQuery() {
     super("mutation");
   }
@@ -51,6 +79,10 @@ public class InventoryShipmentReceiveGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private List<InventoryShipmentReceiveItemInput> lineItems;
@@ -62,7 +94,7 @@ public class InventoryShipmentReceiveGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public InventoryShipmentReceiveGraphQLQuery build() {
-      return new InventoryShipmentReceiveGraphQLQuery(id, lineItems, dateReceived, bulkReceiveAction, queryName, fieldsSet);
+      return new InventoryShipmentReceiveGraphQLQuery(id, lineItems, dateReceived, bulkReceiveAction, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -71,6 +103,16 @@ public class InventoryShipmentReceiveGraphQLQuery extends GraphQLQuery {
      */
     public Builder id(String id) {
       this.id = id;
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
+     * The ID of the inventory shipment to receive.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("id");
       return this;
     }
@@ -85,6 +127,16 @@ public class InventoryShipmentReceiveGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The list of receive line items for the inventory shipment.
+     */
+    public Builder lineItemsReference(String variableRef) {
+      this.variableReferences.put("lineItems", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("InventoryShipmentReceiveItemInput")))).build());
+      this.fieldsSet.add("lineItems");
+      return this;
+    }
+
+    /**
      * The date the inventory shipment was initially received.
      */
     public Builder dateReceived(OffsetDateTime dateReceived) {
@@ -94,10 +146,30 @@ public class InventoryShipmentReceiveGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The date the inventory shipment was initially received.
+     */
+    public Builder dateReceivedReference(String variableRef) {
+      this.variableReferences.put("dateReceived", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("DateTime")).build());
+      this.fieldsSet.add("dateReceived");
+      return this;
+    }
+
+    /**
      * The bulk receive action for the inventory shipment.
      */
     public Builder bulkReceiveAction(InventoryShipmentReceiveLineItemReason bulkReceiveAction) {
       this.bulkReceiveAction = bulkReceiveAction;
+      this.fieldsSet.add("bulkReceiveAction");
+      return this;
+    }
+
+    /**
+     * The bulk receive action for the inventory shipment.
+     */
+    public Builder bulkReceiveActionReference(String variableRef) {
+      this.variableReferences.put("bulkReceiveAction", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("InventoryShipmentReceiveLineItemReason")).build());
       this.fieldsSet.add("bulkReceiveAction");
       return this;
     }

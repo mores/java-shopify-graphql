@@ -1,5 +1,6 @@
 package com.shopify.admin.types;
 
+import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
@@ -76,6 +77,15 @@ public class DeliveryProfileInput {
    * The list of selling plan groups to be dissociated with the delivery profile.
    */
   private List<String> sellingPlanGroupsToDissociate;
+
+  /**
+   * Whether this delivery profile covers all items in the shop. This field is only supported on
+   * app-owned shipping profiles. Set it to `true` to make the profile cover all shippable items,
+   * or `false` to disable this behavior. When omitted
+   * on create, the profile is created with `coversAllItems: false`. When omitted on update, the
+   * existing value is preserved.
+   */
+  private Boolean coversAllItems;
 
   public DeliveryProfileInput() {
   }
@@ -222,9 +232,24 @@ public class DeliveryProfileInput {
     this.sellingPlanGroupsToDissociate = sellingPlanGroupsToDissociate;
   }
 
+  /**
+   * Whether this delivery profile covers all items in the shop. This field is only supported on
+   * app-owned shipping profiles. Set it to `true` to make the profile cover all shippable items,
+   * or `false` to disable this behavior. When omitted
+   * on create, the profile is created with `coversAllItems: false`. When omitted on update, the
+   * existing value is preserved.
+   */
+  public Boolean getCoversAllItems() {
+    return coversAllItems;
+  }
+
+  public void setCoversAllItems(Boolean coversAllItems) {
+    this.coversAllItems = coversAllItems;
+  }
+
   @Override
   public String toString() {
-    return "DeliveryProfileInput{name='" + name + "', profileLocationGroups='" + profileLocationGroups + "', locationGroupsToCreate='" + locationGroupsToCreate + "', locationGroupsToUpdate='" + locationGroupsToUpdate + "', locationGroupsToDelete='" + locationGroupsToDelete + "', variantsToAssociate='" + variantsToAssociate + "', variantsToDissociate='" + variantsToDissociate + "', zonesToDelete='" + zonesToDelete + "', methodDefinitionsToDelete='" + methodDefinitionsToDelete + "', conditionsToDelete='" + conditionsToDelete + "', sellingPlanGroupsToAssociate='" + sellingPlanGroupsToAssociate + "', sellingPlanGroupsToDissociate='" + sellingPlanGroupsToDissociate + "'}";
+    return "DeliveryProfileInput{name='" + name + "', profileLocationGroups='" + profileLocationGroups + "', locationGroupsToCreate='" + locationGroupsToCreate + "', locationGroupsToUpdate='" + locationGroupsToUpdate + "', locationGroupsToDelete='" + locationGroupsToDelete + "', variantsToAssociate='" + variantsToAssociate + "', variantsToDissociate='" + variantsToDissociate + "', zonesToDelete='" + zonesToDelete + "', methodDefinitionsToDelete='" + methodDefinitionsToDelete + "', conditionsToDelete='" + conditionsToDelete + "', sellingPlanGroupsToAssociate='" + sellingPlanGroupsToAssociate + "', sellingPlanGroupsToDissociate='" + sellingPlanGroupsToDissociate + "', coversAllItems='" + coversAllItems + "'}";
   }
 
   @Override
@@ -243,12 +268,13 @@ public class DeliveryProfileInput {
         Objects.equals(methodDefinitionsToDelete, that.methodDefinitionsToDelete) &&
         Objects.equals(conditionsToDelete, that.conditionsToDelete) &&
         Objects.equals(sellingPlanGroupsToAssociate, that.sellingPlanGroupsToAssociate) &&
-        Objects.equals(sellingPlanGroupsToDissociate, that.sellingPlanGroupsToDissociate);
+        Objects.equals(sellingPlanGroupsToDissociate, that.sellingPlanGroupsToDissociate) &&
+        Objects.equals(coversAllItems, that.coversAllItems);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, profileLocationGroups, locationGroupsToCreate, locationGroupsToUpdate, locationGroupsToDelete, variantsToAssociate, variantsToDissociate, zonesToDelete, methodDefinitionsToDelete, conditionsToDelete, sellingPlanGroupsToAssociate, sellingPlanGroupsToDissociate);
+    return Objects.hash(name, profileLocationGroups, locationGroupsToCreate, locationGroupsToUpdate, locationGroupsToDelete, variantsToAssociate, variantsToDissociate, zonesToDelete, methodDefinitionsToDelete, conditionsToDelete, sellingPlanGroupsToAssociate, sellingPlanGroupsToDissociate, coversAllItems);
   }
 
   public static Builder newBuilder() {
@@ -323,6 +349,15 @@ public class DeliveryProfileInput {
      */
     private List<String> sellingPlanGroupsToDissociate;
 
+    /**
+     * Whether this delivery profile covers all items in the shop. This field is only supported on
+     * app-owned shipping profiles. Set it to `true` to make the profile cover all shippable items,
+     * or `false` to disable this behavior. When omitted
+     * on create, the profile is created with `coversAllItems: false`. When omitted on update, the
+     * existing value is preserved.
+     */
+    private Boolean coversAllItems;
+
     public DeliveryProfileInput build() {
       DeliveryProfileInput result = new DeliveryProfileInput();
       result.name = this.name;
@@ -337,6 +372,7 @@ public class DeliveryProfileInput {
       result.conditionsToDelete = this.conditionsToDelete;
       result.sellingPlanGroupsToAssociate = this.sellingPlanGroupsToAssociate;
       result.sellingPlanGroupsToDissociate = this.sellingPlanGroupsToDissociate;
+      result.coversAllItems = this.coversAllItems;
       return result;
     }
 
@@ -443,6 +479,18 @@ public class DeliveryProfileInput {
      */
     public Builder sellingPlanGroupsToDissociate(List<String> sellingPlanGroupsToDissociate) {
       this.sellingPlanGroupsToDissociate = sellingPlanGroupsToDissociate;
+      return this;
+    }
+
+    /**
+     * Whether this delivery profile covers all items in the shop. This field is only supported on
+     * app-owned shipping profiles. Set it to `true` to make the profile cover all shippable items,
+     * or `false` to disable this behavior. When omitted
+     * on create, the profile is created with `coversAllItems: false`. When omitted on update, the
+     * existing value is preserved.
+     */
+    public Builder coversAllItems(Boolean coversAllItems) {
+      this.coversAllItems = coversAllItems;
       return this;
     }
   }

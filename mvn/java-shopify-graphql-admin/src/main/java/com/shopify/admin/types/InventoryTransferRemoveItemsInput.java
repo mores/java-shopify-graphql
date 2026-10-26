@@ -16,7 +16,9 @@ public class InventoryTransferRemoveItemsInput {
   private String id;
 
   /**
-   * The IDs of the transfer line items to be removed from the transfer.
+   * The IDs of the [`InventoryTransferLineItem`s](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryTransferLineItem)
+   * to be removed from the transfer. Passing an empty array is a no-op and returns
+   * the transfer unchanged.
    */
   private List<String> transferLineItemIds;
 
@@ -35,7 +37,9 @@ public class InventoryTransferRemoveItemsInput {
   }
 
   /**
-   * The IDs of the transfer line items to be removed from the transfer.
+   * The IDs of the [`InventoryTransferLineItem`s](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryTransferLineItem)
+   * to be removed from the transfer. Passing an empty array is a no-op and returns
+   * the transfer unchanged.
    */
   public List<String> getTransferLineItemIds() {
     return transferLineItemIds;
@@ -75,7 +79,9 @@ public class InventoryTransferRemoveItemsInput {
     private String id;
 
     /**
-     * The IDs of the transfer line items to be removed from the transfer.
+     * The IDs of the [`InventoryTransferLineItem`s](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryTransferLineItem)
+     * to be removed from the transfer. Passing an empty array is a no-op and returns
+     * the transfer unchanged.
      */
     private List<String> transferLineItemIds;
 
@@ -95,7 +101,9 @@ public class InventoryTransferRemoveItemsInput {
     }
 
     /**
-     * The IDs of the transfer line items to be removed from the transfer.
+     * The IDs of the [`InventoryTransferLineItem`s](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryTransferLineItem)
+     * to be removed from the transfer. Passing an empty array is a no-op and returns
+     * the transfer unchanged.
      */
     public Builder transferLineItemIds(List<String> transferLineItemIds) {
       this.transferLineItemIds = transferLineItemIds;

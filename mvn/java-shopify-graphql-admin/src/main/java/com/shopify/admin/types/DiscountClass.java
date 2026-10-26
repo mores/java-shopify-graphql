@@ -5,9 +5,24 @@ package com.shopify.admin.types;
  * that's used to control how discounts can be combined.
  */
 public enum DiscountClass {
+  /**
+   * The discount is combined with a
+   * [product discount](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
+   * class.
+   */
   PRODUCT,
 
+  /**
+   * The discount is combined with an
+   * [order discount](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
+   * class.
+   */
   ORDER,
 
+  /**
+   * The discount is combined with a
+   * [shipping discount](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
+   * class.
+   */
   SHIPPING
 }

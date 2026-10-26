@@ -1,5 +1,6 @@
 package com.shopify.admin.types;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
@@ -18,7 +19,10 @@ import java.util.Objects;
  *
  * Learn more about [subscription contracts](https://shopify.dev/docs/apps/build/purchase-options/subscriptions/contracts) and [selling plans](https://shopify.dev/docs/apps/build/purchase-options/subscriptions/selling-plans).
  */
-public class SubscriptionLine {
+@JsonTypeInfo(
+    use = JsonTypeInfo.Id.NONE
+)
+public class SubscriptionLine implements SubscriptionGroupedLine {
   /**
    * The origin contract of the line if it was concatenated from another contract.
    */
@@ -122,6 +126,11 @@ public class SubscriptionLine {
    * Product variant title of the item associated with the subscription line.
    */
   private String variantTitle;
+
+  /**
+   * The weight of one unit of the item associated with the subscription line.
+   */
+  private Weight weight;
 
   public SubscriptionLine() {
   }
@@ -338,9 +347,20 @@ public class SubscriptionLine {
     this.variantTitle = variantTitle;
   }
 
+  /**
+   * The weight of one unit of the item associated with the subscription line.
+   */
+  public Weight getWeight() {
+    return weight;
+  }
+
+  public void setWeight(Weight weight) {
+    this.weight = weight;
+  }
+
   @Override
   public String toString() {
-    return "SubscriptionLine{concatenatedOriginContract='" + concatenatedOriginContract + "', currentPrice='" + currentPrice + "', customAttributes='" + customAttributes + "', discountAllocations='" + discountAllocations + "', id='" + id + "', lineDiscountedPrice='" + lineDiscountedPrice + "', pricingPolicy='" + pricingPolicy + "', productId='" + productId + "', quantity='" + quantity + "', requiresShipping='" + requiresShipping + "', sellingPlanId='" + sellingPlanId + "', sellingPlanName='" + sellingPlanName + "', sku='" + sku + "', taxable='" + taxable + "', title='" + title + "', variantId='" + variantId + "', variantImage='" + variantImage + "', variantTitle='" + variantTitle + "'}";
+    return "SubscriptionLine{concatenatedOriginContract='" + concatenatedOriginContract + "', currentPrice='" + currentPrice + "', customAttributes='" + customAttributes + "', discountAllocations='" + discountAllocations + "', id='" + id + "', lineDiscountedPrice='" + lineDiscountedPrice + "', pricingPolicy='" + pricingPolicy + "', productId='" + productId + "', quantity='" + quantity + "', requiresShipping='" + requiresShipping + "', sellingPlanId='" + sellingPlanId + "', sellingPlanName='" + sellingPlanName + "', sku='" + sku + "', taxable='" + taxable + "', title='" + title + "', variantId='" + variantId + "', variantImage='" + variantImage + "', variantTitle='" + variantTitle + "', weight='" + weight + "'}";
   }
 
   @Override
@@ -365,12 +385,13 @@ public class SubscriptionLine {
         Objects.equals(title, that.title) &&
         Objects.equals(variantId, that.variantId) &&
         Objects.equals(variantImage, that.variantImage) &&
-        Objects.equals(variantTitle, that.variantTitle);
+        Objects.equals(variantTitle, that.variantTitle) &&
+        Objects.equals(weight, that.weight);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(concatenatedOriginContract, currentPrice, customAttributes, discountAllocations, id, lineDiscountedPrice, pricingPolicy, productId, quantity, requiresShipping, sellingPlanId, sellingPlanName, sku, taxable, title, variantId, variantImage, variantTitle);
+    return Objects.hash(concatenatedOriginContract, currentPrice, customAttributes, discountAllocations, id, lineDiscountedPrice, pricingPolicy, productId, quantity, requiresShipping, sellingPlanId, sellingPlanName, sku, taxable, title, variantId, variantImage, variantTitle, weight);
   }
 
   public static Builder newBuilder() {
@@ -482,6 +503,11 @@ public class SubscriptionLine {
      */
     private String variantTitle;
 
+    /**
+     * The weight of one unit of the item associated with the subscription line.
+     */
+    private Weight weight;
+
     public SubscriptionLine build() {
       SubscriptionLine result = new SubscriptionLine();
       result.concatenatedOriginContract = this.concatenatedOriginContract;
@@ -502,6 +528,7 @@ public class SubscriptionLine {
       result.variantId = this.variantId;
       result.variantImage = this.variantImage;
       result.variantTitle = this.variantTitle;
+      result.weight = this.weight;
       return result;
     }
 
@@ -660,6 +687,14 @@ public class SubscriptionLine {
      */
     public Builder variantTitle(String variantTitle) {
       this.variantTitle = variantTitle;
+      return this;
+    }
+
+    /**
+     * The weight of one unit of the item associated with the subscription line.
+     */
+    public Builder weight(Weight weight) {
+      this.weight = weight;
       return this;
     }
   }

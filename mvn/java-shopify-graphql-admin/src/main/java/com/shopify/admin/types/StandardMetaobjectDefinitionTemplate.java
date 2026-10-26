@@ -11,6 +11,11 @@ import java.util.Objects;
  */
 public class StandardMetaobjectDefinitionTemplate {
   /**
+   * Access configuration for the standard metaobject definition template.
+   */
+  private MetaobjectAccess access;
+
+  /**
    * The administrative description.
    */
   private String description;
@@ -41,6 +46,17 @@ public class StandardMetaobjectDefinitionTemplate {
   private String type;
 
   public StandardMetaobjectDefinitionTemplate() {
+  }
+
+  /**
+   * Access configuration for the standard metaobject definition template.
+   */
+  public MetaobjectAccess getAccess() {
+    return access;
+  }
+
+  public void setAccess(MetaobjectAccess access) {
+    this.access = access;
   }
 
   /**
@@ -113,7 +129,7 @@ public class StandardMetaobjectDefinitionTemplate {
 
   @Override
   public String toString() {
-    return "StandardMetaobjectDefinitionTemplate{description='" + description + "', displayNameKey='" + displayNameKey + "', enabledCapabilities='" + enabledCapabilities + "', fieldDefinitions='" + fieldDefinitions + "', name='" + name + "', type='" + type + "'}";
+    return "StandardMetaobjectDefinitionTemplate{access='" + access + "', description='" + description + "', displayNameKey='" + displayNameKey + "', enabledCapabilities='" + enabledCapabilities + "', fieldDefinitions='" + fieldDefinitions + "', name='" + name + "', type='" + type + "'}";
   }
 
   @Override
@@ -121,7 +137,8 @@ public class StandardMetaobjectDefinitionTemplate {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     StandardMetaobjectDefinitionTemplate that = (StandardMetaobjectDefinitionTemplate) o;
-    return Objects.equals(description, that.description) &&
+    return Objects.equals(access, that.access) &&
+        Objects.equals(description, that.description) &&
         Objects.equals(displayNameKey, that.displayNameKey) &&
         Objects.equals(enabledCapabilities, that.enabledCapabilities) &&
         Objects.equals(fieldDefinitions, that.fieldDefinitions) &&
@@ -131,7 +148,7 @@ public class StandardMetaobjectDefinitionTemplate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, displayNameKey, enabledCapabilities, fieldDefinitions, name, type);
+    return Objects.hash(access, description, displayNameKey, enabledCapabilities, fieldDefinitions, name, type);
   }
 
   public static Builder newBuilder() {
@@ -139,6 +156,11 @@ public class StandardMetaobjectDefinitionTemplate {
   }
 
   public static class Builder {
+    /**
+     * Access configuration for the standard metaobject definition template.
+     */
+    private MetaobjectAccess access;
+
     /**
      * The administrative description.
      */
@@ -171,6 +193,7 @@ public class StandardMetaobjectDefinitionTemplate {
 
     public StandardMetaobjectDefinitionTemplate build() {
       StandardMetaobjectDefinitionTemplate result = new StandardMetaobjectDefinitionTemplate();
+      result.access = this.access;
       result.description = this.description;
       result.displayNameKey = this.displayNameKey;
       result.enabledCapabilities = this.enabledCapabilities;
@@ -178,6 +201,14 @@ public class StandardMetaobjectDefinitionTemplate {
       result.name = this.name;
       result.type = this.type;
       return result;
+    }
+
+    /**
+     * Access configuration for the standard metaobject definition template.
+     */
+    public Builder access(MetaobjectAccess access) {
+      this.access = access;
+      return this;
     }
 
     /**

@@ -30,19 +30,42 @@ public class MarketCatalogProjection<PARENT extends BaseSubProjectionNode<?, ?>,
     MarketConnectionProjection<MarketCatalogProjection<PARENT, ROOT>, ROOT> projection = new MarketConnectionProjection<>(this, getRoot());    
     getFields().put("markets", projection);
     getInputArguments().computeIfAbsent("markets", k -> new ArrayList<>());                      
-    InputArgument typeArg = new InputArgument("type", type);
+    InputArgument typeArg = new InputArgument("type", type, false, null);
     getInputArguments().get("markets").add(typeArg);
-    InputArgument statusArg = new InputArgument("status", status);
+    InputArgument statusArg = new InputArgument("status", status, false, null);
     getInputArguments().get("markets").add(statusArg);
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("markets").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("markets").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("markets").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("markets").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("markets").add(reverseArg);
+    return projection;
+  }
+
+  public MarketConnectionProjection<MarketCatalogProjection<PARENT, ROOT>, ROOT> marketsWithVariableReferences(
+      String typeReference, String statusReference, String firstReference, String afterReference,
+      String lastReference, String beforeReference, String reverseReference) {
+    MarketConnectionProjection<MarketCatalogProjection<PARENT, ROOT>, ROOT> projection = new MarketConnectionProjection<>(this, getRoot());    
+    getFields().put("markets", projection);
+    getInputArguments().computeIfAbsent("markets", k -> new ArrayList<>());              
+    InputArgument typeArg = new InputArgument("type", typeReference, true, new graphql.language.TypeName("MarketType"));
+    getInputArguments().get("markets").add(typeArg);
+    InputArgument statusArg = new InputArgument("status", statusReference, true, new graphql.language.TypeName("MarketStatus"));
+    getInputArguments().get("markets").add(statusArg);
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("markets").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("markets").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("markets").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("markets").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("markets").add(reverseArg);
     return projection;
   }
@@ -58,13 +81,29 @@ public class MarketCatalogProjection<PARENT extends BaseSubProjectionNode<?, ?>,
     CountProjection<MarketCatalogProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());    
     getFields().put("marketsCount", projection);
     getInputArguments().computeIfAbsent("marketsCount", k -> new ArrayList<>());                      
-    InputArgument typeArg = new InputArgument("type", type);
+    InputArgument typeArg = new InputArgument("type", type, false, null);
     getInputArguments().get("marketsCount").add(typeArg);
-    InputArgument statusArg = new InputArgument("status", status);
+    InputArgument statusArg = new InputArgument("status", status, false, null);
     getInputArguments().get("marketsCount").add(statusArg);
-    InputArgument queryArg = new InputArgument("query", query);
+    InputArgument queryArg = new InputArgument("query", query, false, null);
     getInputArguments().get("marketsCount").add(queryArg);
-    InputArgument limitArg = new InputArgument("limit", limit);
+    InputArgument limitArg = new InputArgument("limit", limit, false, null);
+    getInputArguments().get("marketsCount").add(limitArg);
+    return projection;
+  }
+
+  public CountProjection<MarketCatalogProjection<PARENT, ROOT>, ROOT> marketsCountWithVariableReferences(
+      String typeReference, String statusReference, String queryReference, String limitReference) {
+    CountProjection<MarketCatalogProjection<PARENT, ROOT>, ROOT> projection = new CountProjection<>(this, getRoot());    
+    getFields().put("marketsCount", projection);
+    getInputArguments().computeIfAbsent("marketsCount", k -> new ArrayList<>());              
+    InputArgument typeArg = new InputArgument("type", typeReference, true, new graphql.language.TypeName("MarketType"));
+    getInputArguments().get("marketsCount").add(typeArg);
+    InputArgument statusArg = new InputArgument("status", statusReference, true, new graphql.language.TypeName("MarketStatus"));
+    getInputArguments().get("marketsCount").add(statusArg);
+    InputArgument queryArg = new InputArgument("query", queryReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("marketsCount").add(queryArg);
+    InputArgument limitArg = new InputArgument("limit", limitReference, true, new graphql.language.TypeName("Int"));
     getInputArguments().get("marketsCount").add(limitArg);
     return projection;
   }

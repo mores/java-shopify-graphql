@@ -1,10 +1,15 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -25,6 +30,24 @@ public class FulfillmentOrderRescheduleGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public FulfillmentOrderRescheduleGraphQLQuery(String id, OffsetDateTime fulfillAt,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (fulfillAt != null || fieldsSet.contains("fulfillAt")) {
+        getInput().put("fulfillAt", fulfillAt);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public FulfillmentOrderRescheduleGraphQLQuery() {
     super("mutation");
   }
@@ -41,6 +64,10 @@ public class FulfillmentOrderRescheduleGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private OffsetDateTime fulfillAt;
@@ -48,7 +75,7 @@ public class FulfillmentOrderRescheduleGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public FulfillmentOrderRescheduleGraphQLQuery build() {
-      return new FulfillmentOrderRescheduleGraphQLQuery(id, fulfillAt, queryName, fieldsSet);
+      return new FulfillmentOrderRescheduleGraphQLQuery(id, fulfillAt, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -62,10 +89,30 @@ public class FulfillmentOrderRescheduleGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the fulfillment order to reschedule.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * A future date and time when the fulfillment order will be marked as ready for fulfillment.
      */
     public Builder fulfillAt(OffsetDateTime fulfillAt) {
       this.fulfillAt = fulfillAt;
+      this.fieldsSet.add("fulfillAt");
+      return this;
+    }
+
+    /**
+     * A future date and time when the fulfillment order will be marked as ready for fulfillment.
+     */
+    public Builder fulfillAtReference(String variableRef) {
+      this.variableReferences.put("fulfillAt", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("DateTime"))).build());
       this.fieldsSet.add("fulfillAt");
       return this;
     }

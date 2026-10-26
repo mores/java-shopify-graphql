@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -37,6 +38,11 @@ import java.util.Objects;
 )
 public class Menu implements com.shopify.admin.types.HasPublishedTranslations, com.shopify.admin.types.Node {
   /**
+   * The date and time when the menu was created.
+   */
+  private OffsetDateTime createdAt;
+
+  /**
    * The menu's handle.
    */
   private String handle;
@@ -67,6 +73,17 @@ public class Menu implements com.shopify.admin.types.HasPublishedTranslations, c
   private List<Translation> translations;
 
   public Menu() {
+  }
+
+  /**
+   * The date and time when the menu was created.
+   */
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
   /**
@@ -137,7 +154,7 @@ public class Menu implements com.shopify.admin.types.HasPublishedTranslations, c
 
   @Override
   public String toString() {
-    return "Menu{handle='" + handle + "', id='" + id + "', isDefault='" + isDefault + "', items='" + items + "', title='" + title + "', translations='" + translations + "'}";
+    return "Menu{createdAt='" + createdAt + "', handle='" + handle + "', id='" + id + "', isDefault='" + isDefault + "', items='" + items + "', title='" + title + "', translations='" + translations + "'}";
   }
 
   @Override
@@ -145,7 +162,8 @@ public class Menu implements com.shopify.admin.types.HasPublishedTranslations, c
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Menu that = (Menu) o;
-    return Objects.equals(handle, that.handle) &&
+    return Objects.equals(createdAt, that.createdAt) &&
+        Objects.equals(handle, that.handle) &&
         Objects.equals(id, that.id) &&
         isDefault == that.isDefault &&
         Objects.equals(items, that.items) &&
@@ -155,7 +173,7 @@ public class Menu implements com.shopify.admin.types.HasPublishedTranslations, c
 
   @Override
   public int hashCode() {
-    return Objects.hash(handle, id, isDefault, items, title, translations);
+    return Objects.hash(createdAt, handle, id, isDefault, items, title, translations);
   }
 
   public static Builder newBuilder() {
@@ -163,6 +181,11 @@ public class Menu implements com.shopify.admin.types.HasPublishedTranslations, c
   }
 
   public static class Builder {
+    /**
+     * The date and time when the menu was created.
+     */
+    private OffsetDateTime createdAt;
+
     /**
      * The menu's handle.
      */
@@ -195,6 +218,7 @@ public class Menu implements com.shopify.admin.types.HasPublishedTranslations, c
 
     public Menu build() {
       Menu result = new Menu();
+      result.createdAt = this.createdAt;
       result.handle = this.handle;
       result.id = this.id;
       result.isDefault = this.isDefault;
@@ -202,6 +226,14 @@ public class Menu implements com.shopify.admin.types.HasPublishedTranslations, c
       result.title = this.title;
       result.translations = this.translations;
       return result;
+    }
+
+    /**
+     * The date and time when the menu was created.
+     */
+    public Builder createdAt(OffsetDateTime createdAt) {
+      this.createdAt = createdAt;
+      return this;
     }
 
     /**

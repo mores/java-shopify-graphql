@@ -1,10 +1,15 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -28,6 +33,26 @@ public class FulfillmentOrderAcceptFulfillmentRequestGraphQLQuery extends GraphQ
     }
   }
 
+  public FulfillmentOrderAcceptFulfillmentRequestGraphQLQuery(String id, String message,
+      OffsetDateTime estimatedShippedAt, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (message != null || fieldsSet.contains("message")) {
+        getInput().put("message", message);
+    }if (estimatedShippedAt != null || fieldsSet.contains("estimatedShippedAt")) {
+        getInput().put("estimatedShippedAt", estimatedShippedAt);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public FulfillmentOrderAcceptFulfillmentRequestGraphQLQuery() {
     super("mutation");
   }
@@ -44,6 +69,10 @@ public class FulfillmentOrderAcceptFulfillmentRequestGraphQLQuery extends GraphQ
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private String message;
@@ -53,7 +82,7 @@ public class FulfillmentOrderAcceptFulfillmentRequestGraphQLQuery extends GraphQ
     private String queryName;
 
     public FulfillmentOrderAcceptFulfillmentRequestGraphQLQuery build() {
-      return new FulfillmentOrderAcceptFulfillmentRequestGraphQLQuery(id, message, estimatedShippedAt, queryName, fieldsSet);
+      return new FulfillmentOrderAcceptFulfillmentRequestGraphQLQuery(id, message, estimatedShippedAt, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -62,6 +91,16 @@ public class FulfillmentOrderAcceptFulfillmentRequestGraphQLQuery extends GraphQ
      */
     public Builder id(String id) {
       this.id = id;
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
+     * The ID of the fulfillment order associated with the fulfillment request.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("id");
       return this;
     }
@@ -76,10 +115,30 @@ public class FulfillmentOrderAcceptFulfillmentRequestGraphQLQuery extends GraphQ
     }
 
     /**
+     * An optional reason for accepting the fulfillment request.
+     */
+    public Builder messageReference(String variableRef) {
+      this.variableReferences.put("message", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
+      this.fieldsSet.add("message");
+      return this;
+    }
+
+    /**
      * The estimated date and time when the fulfillment order will be shipped.
      */
     public Builder estimatedShippedAt(OffsetDateTime estimatedShippedAt) {
       this.estimatedShippedAt = estimatedShippedAt;
+      this.fieldsSet.add("estimatedShippedAt");
+      return this;
+    }
+
+    /**
+     * The estimated date and time when the fulfillment order will be shipped.
+     */
+    public Builder estimatedShippedAtReference(String variableRef) {
+      this.variableReferences.put("estimatedShippedAt", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("DateTime")).build());
       this.fieldsSet.add("estimatedShippedAt");
       return this;
     }

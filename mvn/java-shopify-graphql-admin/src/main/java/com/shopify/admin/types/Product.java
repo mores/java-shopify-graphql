@@ -154,6 +154,11 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
   private ResourceFeedback feedback;
 
   /**
+   * The gift card settings for this product. Only available on gift card products.
+   */
+  private GiftCardProductSettings giftCardSettings;
+
+  /**
    * The [theme template](https://shopify.dev/docs/storefronts/themes/architecture/templates)
    * that's used when customers view the gift card in a store.
    */
@@ -306,10 +311,11 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
   private String productType;
 
   /**
-   * The number of
+   * The total number of
    * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
-   * that a resource is published to, without
+   * that a resource is published to, including publications with
    * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+   * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
    */
   private int publicationCount;
 
@@ -358,7 +364,7 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
    * Whether the product can only be purchased with
    * a [selling plan](https://shopify.dev/docs/apps/build/purchase-options/subscriptions/selling-plans).
    * Products that are sold on subscription (`requiresSellingPlan: true`) can be updated only for online stores.
-   * If you update a product to be subscription-only (`requiresSellingPlan:false`),
+   * If you update a product to be subscription-only (`requiresSellingPlan: true`),
    * then the product is unpublished from all channels, except the online store.
    */
   private boolean requiresSellingPlan;
@@ -376,16 +382,21 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
   private ResourcePublicationConnection resourcePublications;
 
   /**
-   * The number of
+   * The total number of
    * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
-   * that a resource is published to, without
+   * that a resource is published to, including publications with
    * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+   * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
    */
   private Count resourcePublicationsCount;
 
   /**
    * The list of resources that are either published or staged to be published to a
    * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+   * By default, only publications to `APP` catalog types are returned.
+   * For `Product` and `ProductVariant`, use the `catalogType` argument to retrieve
+   * publications for other catalog types, such as `COMPANY_LOCATION` (B2B) or `MARKET`.
+   * `Collection` only supports publications to `APP` catalog types.
    */
   private ResourcePublicationV2Connection resourcePublicationsV2;
 
@@ -517,6 +528,22 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
    * that are associated with the product.
    */
   private Count variantsCount;
+
+  /**
+   * A list of [variants](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant)
+   * associated with the product that are members of the specified
+   * [collection](https://shopify.dev/docs/api/admin-graphql/latest/objects/Collection).
+   *   
+   * Returns null for products whose collection membership is product-scoped rather than variant-scoped.
+   */
+  private ProductVariantConnection variantsInCollection;
+
+  /**
+   * The number of [variants](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant)
+   * associated with the product that are members of the specified
+   * [collection](https://shopify.dev/docs/api/admin-graphql/latest/objects/Collection).
+   */
+  private Count variantsInCollectionCount;
 
   /**
    * The name of the product's vendor.
@@ -772,6 +799,17 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
 
   public void setFeedback(ResourceFeedback feedback) {
     this.feedback = feedback;
+  }
+
+  /**
+   * The gift card settings for this product. Only available on gift card products.
+   */
+  public GiftCardProductSettings getGiftCardSettings() {
+    return giftCardSettings;
+  }
+
+  public void setGiftCardSettings(GiftCardProductSettings giftCardSettings) {
+    this.giftCardSettings = giftCardSettings;
   }
 
   /**
@@ -1083,10 +1121,11 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
   }
 
   /**
-   * The number of
+   * The total number of
    * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
-   * that a resource is published to, without
+   * that a resource is published to, including publications with
    * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+   * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
    */
   public int getPublicationCount() {
     return publicationCount;
@@ -1183,7 +1222,7 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
    * Whether the product can only be purchased with
    * a [selling plan](https://shopify.dev/docs/apps/build/purchase-options/subscriptions/selling-plans).
    * Products that are sold on subscription (`requiresSellingPlan: true`) can be updated only for online stores.
-   * If you update a product to be subscription-only (`requiresSellingPlan:false`),
+   * If you update a product to be subscription-only (`requiresSellingPlan: true`),
    * then the product is unpublished from all channels, except the online store.
    */
   public boolean getRequiresSellingPlan() {
@@ -1220,10 +1259,11 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
   }
 
   /**
-   * The number of
+   * The total number of
    * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
-   * that a resource is published to, without
+   * that a resource is published to, including publications with
    * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+   * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
    */
   public Count getResourcePublicationsCount() {
     return resourcePublicationsCount;
@@ -1236,6 +1276,10 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
   /**
    * The list of resources that are either published or staged to be published to a
    * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+   * By default, only publications to `APP` catalog types are returned.
+   * For `Product` and `ProductVariant`, use the `catalogType` argument to retrieve
+   * publications for other catalog types, such as `COMPANY_LOCATION` (B2B) or `MARKET`.
+   * `Collection` only supports publications to `APP` catalog types.
    */
   public ResourcePublicationV2Connection getResourcePublicationsV2() {
     return resourcePublicationsV2;
@@ -1495,6 +1539,34 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
   }
 
   /**
+   * A list of [variants](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant)
+   * associated with the product that are members of the specified
+   * [collection](https://shopify.dev/docs/api/admin-graphql/latest/objects/Collection).
+   *   
+   * Returns null for products whose collection membership is product-scoped rather than variant-scoped.
+   */
+  public ProductVariantConnection getVariantsInCollection() {
+    return variantsInCollection;
+  }
+
+  public void setVariantsInCollection(ProductVariantConnection variantsInCollection) {
+    this.variantsInCollection = variantsInCollection;
+  }
+
+  /**
+   * The number of [variants](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant)
+   * associated with the product that are members of the specified
+   * [collection](https://shopify.dev/docs/api/admin-graphql/latest/objects/Collection).
+   */
+  public Count getVariantsInCollectionCount() {
+    return variantsInCollectionCount;
+  }
+
+  public void setVariantsInCollectionCount(Count variantsInCollectionCount) {
+    this.variantsInCollectionCount = variantsInCollectionCount;
+  }
+
+  /**
    * The name of the product's vendor.
    */
   public String getVendor() {
@@ -1507,7 +1579,7 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
 
   @Override
   public String toString() {
-    return "Product{availablePublicationsCount='" + availablePublicationsCount + "', bodyHtml='" + bodyHtml + "', bundleComponents='" + bundleComponents + "', bundleConsolidatedOptions='" + bundleConsolidatedOptions + "', category='" + category + "', collections='" + collections + "', combinedListing='" + combinedListing + "', combinedListingRole='" + combinedListingRole + "', compareAtPriceRange='" + compareAtPriceRange + "', contextualPricing='" + contextualPricing + "', createdAt='" + createdAt + "', customProductType='" + customProductType + "', defaultCursor='" + defaultCursor + "', description='" + description + "', descriptionHtml='" + descriptionHtml + "', descriptionPlainSummary='" + descriptionPlainSummary + "', events='" + events + "', featuredImage='" + featuredImage + "', featuredMedia='" + featuredMedia + "', feedback='" + feedback + "', giftCardTemplateSuffix='" + giftCardTemplateSuffix + "', handle='" + handle + "', hasOnlyDefaultVariant='" + hasOnlyDefaultVariant + "', hasOutOfStockVariants='" + hasOutOfStockVariants + "', hasVariantsThatRequiresComponents='" + hasVariantsThatRequiresComponents + "', id='" + id + "', images='" + images + "', inCollection='" + inCollection + "', isGiftCard='" + isGiftCard + "', legacyResourceId='" + legacyResourceId + "', media='" + media + "', mediaCount='" + mediaCount + "', metafield='" + metafield + "', metafieldDefinitions='" + metafieldDefinitions + "', metafields='" + metafields + "', onlineStorePreviewUrl='" + onlineStorePreviewUrl + "', onlineStoreUrl='" + onlineStoreUrl + "', options='" + options + "', priceRange='" + priceRange + "', priceRangeV2='" + priceRangeV2 + "', productCategory='" + productCategory + "', productComponents='" + productComponents + "', productComponentsCount='" + productComponentsCount + "', productParents='" + productParents + "', productPublications='" + productPublications + "', productType='" + productType + "', publicationCount='" + publicationCount + "', publications='" + publications + "', publishedAt='" + publishedAt + "', publishedInContext='" + publishedInContext + "', publishedOnChannel='" + publishedOnChannel + "', publishedOnCurrentChannel='" + publishedOnCurrentChannel + "', publishedOnCurrentPublication='" + publishedOnCurrentPublication + "', publishedOnPublication='" + publishedOnPublication + "', requiresSellingPlan='" + requiresSellingPlan + "', resourcePublicationOnCurrentPublication='" + resourcePublicationOnCurrentPublication + "', resourcePublications='" + resourcePublications + "', resourcePublicationsCount='" + resourcePublicationsCount + "', resourcePublicationsV2='" + resourcePublicationsV2 + "', restrictedForResource='" + restrictedForResource + "', sellingPlanGroupCount='" + sellingPlanGroupCount + "', sellingPlanGroups='" + sellingPlanGroups + "', sellingPlanGroupsCount='" + sellingPlanGroupsCount + "', seo='" + seo + "', standardizedProductType='" + standardizedProductType + "', status='" + status + "', storefrontId='" + storefrontId + "', tags='" + tags + "', templateSuffix='" + templateSuffix + "', title='" + title + "', totalInventory='" + totalInventory + "', totalVariants='" + totalVariants + "', tracksInventory='" + tracksInventory + "', translations='" + translations + "', unpublishedChannels='" + unpublishedChannels + "', unpublishedPublications='" + unpublishedPublications + "', updatedAt='" + updatedAt + "', variants='" + variants + "', variantsCount='" + variantsCount + "', vendor='" + vendor + "'}";
+    return "Product{availablePublicationsCount='" + availablePublicationsCount + "', bodyHtml='" + bodyHtml + "', bundleComponents='" + bundleComponents + "', bundleConsolidatedOptions='" + bundleConsolidatedOptions + "', category='" + category + "', collections='" + collections + "', combinedListing='" + combinedListing + "', combinedListingRole='" + combinedListingRole + "', compareAtPriceRange='" + compareAtPriceRange + "', contextualPricing='" + contextualPricing + "', createdAt='" + createdAt + "', customProductType='" + customProductType + "', defaultCursor='" + defaultCursor + "', description='" + description + "', descriptionHtml='" + descriptionHtml + "', descriptionPlainSummary='" + descriptionPlainSummary + "', events='" + events + "', featuredImage='" + featuredImage + "', featuredMedia='" + featuredMedia + "', feedback='" + feedback + "', giftCardSettings='" + giftCardSettings + "', giftCardTemplateSuffix='" + giftCardTemplateSuffix + "', handle='" + handle + "', hasOnlyDefaultVariant='" + hasOnlyDefaultVariant + "', hasOutOfStockVariants='" + hasOutOfStockVariants + "', hasVariantsThatRequiresComponents='" + hasVariantsThatRequiresComponents + "', id='" + id + "', images='" + images + "', inCollection='" + inCollection + "', isGiftCard='" + isGiftCard + "', legacyResourceId='" + legacyResourceId + "', media='" + media + "', mediaCount='" + mediaCount + "', metafield='" + metafield + "', metafieldDefinitions='" + metafieldDefinitions + "', metafields='" + metafields + "', onlineStorePreviewUrl='" + onlineStorePreviewUrl + "', onlineStoreUrl='" + onlineStoreUrl + "', options='" + options + "', priceRange='" + priceRange + "', priceRangeV2='" + priceRangeV2 + "', productCategory='" + productCategory + "', productComponents='" + productComponents + "', productComponentsCount='" + productComponentsCount + "', productParents='" + productParents + "', productPublications='" + productPublications + "', productType='" + productType + "', publicationCount='" + publicationCount + "', publications='" + publications + "', publishedAt='" + publishedAt + "', publishedInContext='" + publishedInContext + "', publishedOnChannel='" + publishedOnChannel + "', publishedOnCurrentChannel='" + publishedOnCurrentChannel + "', publishedOnCurrentPublication='" + publishedOnCurrentPublication + "', publishedOnPublication='" + publishedOnPublication + "', requiresSellingPlan='" + requiresSellingPlan + "', resourcePublicationOnCurrentPublication='" + resourcePublicationOnCurrentPublication + "', resourcePublications='" + resourcePublications + "', resourcePublicationsCount='" + resourcePublicationsCount + "', resourcePublicationsV2='" + resourcePublicationsV2 + "', restrictedForResource='" + restrictedForResource + "', sellingPlanGroupCount='" + sellingPlanGroupCount + "', sellingPlanGroups='" + sellingPlanGroups + "', sellingPlanGroupsCount='" + sellingPlanGroupsCount + "', seo='" + seo + "', standardizedProductType='" + standardizedProductType + "', status='" + status + "', storefrontId='" + storefrontId + "', tags='" + tags + "', templateSuffix='" + templateSuffix + "', title='" + title + "', totalInventory='" + totalInventory + "', totalVariants='" + totalVariants + "', tracksInventory='" + tracksInventory + "', translations='" + translations + "', unpublishedChannels='" + unpublishedChannels + "', unpublishedPublications='" + unpublishedPublications + "', updatedAt='" + updatedAt + "', variants='" + variants + "', variantsCount='" + variantsCount + "', variantsInCollection='" + variantsInCollection + "', variantsInCollectionCount='" + variantsInCollectionCount + "', vendor='" + vendor + "'}";
   }
 
   @Override
@@ -1535,6 +1607,7 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
         Objects.equals(featuredImage, that.featuredImage) &&
         Objects.equals(featuredMedia, that.featuredMedia) &&
         Objects.equals(feedback, that.feedback) &&
+        Objects.equals(giftCardSettings, that.giftCardSettings) &&
         Objects.equals(giftCardTemplateSuffix, that.giftCardTemplateSuffix) &&
         Objects.equals(handle, that.handle) &&
         hasOnlyDefaultVariant == that.hasOnlyDefaultVariant &&
@@ -1594,12 +1667,14 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
         Objects.equals(updatedAt, that.updatedAt) &&
         Objects.equals(variants, that.variants) &&
         Objects.equals(variantsCount, that.variantsCount) &&
+        Objects.equals(variantsInCollection, that.variantsInCollection) &&
+        Objects.equals(variantsInCollectionCount, that.variantsInCollectionCount) &&
         Objects.equals(vendor, that.vendor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(availablePublicationsCount, bodyHtml, bundleComponents, bundleConsolidatedOptions, category, collections, combinedListing, combinedListingRole, compareAtPriceRange, contextualPricing, createdAt, customProductType, defaultCursor, description, descriptionHtml, descriptionPlainSummary, events, featuredImage, featuredMedia, feedback, giftCardTemplateSuffix, handle, hasOnlyDefaultVariant, hasOutOfStockVariants, hasVariantsThatRequiresComponents, id, images, inCollection, isGiftCard, legacyResourceId, media, mediaCount, metafield, metafieldDefinitions, metafields, onlineStorePreviewUrl, onlineStoreUrl, options, priceRange, priceRangeV2, productCategory, productComponents, productComponentsCount, productParents, productPublications, productType, publicationCount, publications, publishedAt, publishedInContext, publishedOnChannel, publishedOnCurrentChannel, publishedOnCurrentPublication, publishedOnPublication, requiresSellingPlan, resourcePublicationOnCurrentPublication, resourcePublications, resourcePublicationsCount, resourcePublicationsV2, restrictedForResource, sellingPlanGroupCount, sellingPlanGroups, sellingPlanGroupsCount, seo, standardizedProductType, status, storefrontId, tags, templateSuffix, title, totalInventory, totalVariants, tracksInventory, translations, unpublishedChannels, unpublishedPublications, updatedAt, variants, variantsCount, vendor);
+    return Objects.hash(availablePublicationsCount, bodyHtml, bundleComponents, bundleConsolidatedOptions, category, collections, combinedListing, combinedListingRole, compareAtPriceRange, contextualPricing, createdAt, customProductType, defaultCursor, description, descriptionHtml, descriptionPlainSummary, events, featuredImage, featuredMedia, feedback, giftCardSettings, giftCardTemplateSuffix, handle, hasOnlyDefaultVariant, hasOutOfStockVariants, hasVariantsThatRequiresComponents, id, images, inCollection, isGiftCard, legacyResourceId, media, mediaCount, metafield, metafieldDefinitions, metafields, onlineStorePreviewUrl, onlineStoreUrl, options, priceRange, priceRangeV2, productCategory, productComponents, productComponentsCount, productParents, productPublications, productType, publicationCount, publications, publishedAt, publishedInContext, publishedOnChannel, publishedOnCurrentChannel, publishedOnCurrentPublication, publishedOnPublication, requiresSellingPlan, resourcePublicationOnCurrentPublication, resourcePublications, resourcePublicationsCount, resourcePublicationsV2, restrictedForResource, sellingPlanGroupCount, sellingPlanGroups, sellingPlanGroupsCount, seo, standardizedProductType, status, storefrontId, tags, templateSuffix, title, totalInventory, totalVariants, tracksInventory, translations, unpublishedChannels, unpublishedPublications, updatedAt, variants, variantsCount, variantsInCollection, variantsInCollectionCount, vendor);
   }
 
   public static Builder newBuilder() {
@@ -1733,6 +1808,11 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
      * to this product".
      */
     private ResourceFeedback feedback;
+
+    /**
+     * The gift card settings for this product. Only available on gift card products.
+     */
+    private GiftCardProductSettings giftCardSettings;
 
     /**
      * The [theme template](https://shopify.dev/docs/storefronts/themes/architecture/templates)
@@ -1887,10 +1967,11 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
     private String productType;
 
     /**
-     * The number of
+     * The total number of
      * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
-     * that a resource is published to, without
+     * that a resource is published to, including publications with
      * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+     * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
      */
     private int publicationCount;
 
@@ -1939,7 +2020,7 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
      * Whether the product can only be purchased with
      * a [selling plan](https://shopify.dev/docs/apps/build/purchase-options/subscriptions/selling-plans).
      * Products that are sold on subscription (`requiresSellingPlan: true`) can be updated only for online stores.
-     * If you update a product to be subscription-only (`requiresSellingPlan:false`),
+     * If you update a product to be subscription-only (`requiresSellingPlan: true`),
      * then the product is unpublished from all channels, except the online store.
      */
     private boolean requiresSellingPlan;
@@ -1957,16 +2038,21 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
     private ResourcePublicationConnection resourcePublications;
 
     /**
-     * The number of
+     * The total number of
      * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
-     * that a resource is published to, without
+     * that a resource is published to, including publications with
      * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+     * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
      */
     private Count resourcePublicationsCount;
 
     /**
      * The list of resources that are either published or staged to be published to a
      * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+     * By default, only publications to `APP` catalog types are returned.
+     * For `Product` and `ProductVariant`, use the `catalogType` argument to retrieve
+     * publications for other catalog types, such as `COMPANY_LOCATION` (B2B) or `MARKET`.
+     * `Collection` only supports publications to `APP` catalog types.
      */
     private ResourcePublicationV2Connection resourcePublicationsV2;
 
@@ -2100,6 +2186,22 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
     private Count variantsCount;
 
     /**
+     * A list of [variants](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant)
+     * associated with the product that are members of the specified
+     * [collection](https://shopify.dev/docs/api/admin-graphql/latest/objects/Collection).
+     *   
+     * Returns null for products whose collection membership is product-scoped rather than variant-scoped.
+     */
+    private ProductVariantConnection variantsInCollection;
+
+    /**
+     * The number of [variants](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant)
+     * associated with the product that are members of the specified
+     * [collection](https://shopify.dev/docs/api/admin-graphql/latest/objects/Collection).
+     */
+    private Count variantsInCollectionCount;
+
+    /**
      * The name of the product's vendor.
      */
     private String vendor;
@@ -2126,6 +2228,7 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
       result.featuredImage = this.featuredImage;
       result.featuredMedia = this.featuredMedia;
       result.feedback = this.feedback;
+      result.giftCardSettings = this.giftCardSettings;
       result.giftCardTemplateSuffix = this.giftCardTemplateSuffix;
       result.handle = this.handle;
       result.hasOnlyDefaultVariant = this.hasOnlyDefaultVariant;
@@ -2185,6 +2288,8 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
       result.updatedAt = this.updatedAt;
       result.variants = this.variants;
       result.variantsCount = this.variantsCount;
+      result.variantsInCollection = this.variantsInCollection;
+      result.variantsInCollectionCount = this.variantsInCollectionCount;
       result.vendor = this.vendor;
       return result;
     }
@@ -2374,6 +2479,14 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
      */
     public Builder feedback(ResourceFeedback feedback) {
       this.feedback = feedback;
+      return this;
+    }
+
+    /**
+     * The gift card settings for this product. Only available on gift card products.
+     */
+    public Builder giftCardSettings(GiftCardProductSettings giftCardSettings) {
+      this.giftCardSettings = giftCardSettings;
       return this;
     }
 
@@ -2608,10 +2721,11 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
     }
 
     /**
-     * The number of
+     * The total number of
      * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
-     * that a resource is published to, without
+     * that a resource is published to, including publications with
      * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+     * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
      */
     public Builder publicationCount(int publicationCount) {
       this.publicationCount = publicationCount;
@@ -2684,7 +2798,7 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
      * Whether the product can only be purchased with
      * a [selling plan](https://shopify.dev/docs/apps/build/purchase-options/subscriptions/selling-plans).
      * Products that are sold on subscription (`requiresSellingPlan: true`) can be updated only for online stores.
-     * If you update a product to be subscription-only (`requiresSellingPlan:false`),
+     * If you update a product to be subscription-only (`requiresSellingPlan: true`),
      * then the product is unpublished from all channels, except the online store.
      */
     public Builder requiresSellingPlan(boolean requiresSellingPlan) {
@@ -2712,10 +2826,11 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
     }
 
     /**
-     * The number of
+     * The total number of
      * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
-     * that a resource is published to, without
+     * that a resource is published to, including publications with
      * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+     * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
      */
     public Builder resourcePublicationsCount(Count resourcePublicationsCount) {
       this.resourcePublicationsCount = resourcePublicationsCount;
@@ -2725,6 +2840,10 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
     /**
      * The list of resources that are either published or staged to be published to a
      * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+     * By default, only publications to `APP` catalog types are returned.
+     * For `Product` and `ProductVariant`, use the `catalogType` argument to retrieve
+     * publications for other catalog types, such as `COMPANY_LOCATION` (B2B) or `MARKET`.
+     * `Collection` only supports publications to `APP` catalog types.
      */
     public Builder resourcePublicationsV2(ResourcePublicationV2Connection resourcePublicationsV2) {
       this.resourcePublicationsV2 = resourcePublicationsV2;
@@ -2917,6 +3036,28 @@ public class Product implements CommentEventEmbed, MetafieldReference, Metafield
      */
     public Builder variantsCount(Count variantsCount) {
       this.variantsCount = variantsCount;
+      return this;
+    }
+
+    /**
+     * A list of [variants](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant)
+     * associated with the product that are members of the specified
+     * [collection](https://shopify.dev/docs/api/admin-graphql/latest/objects/Collection).
+     *   
+     * Returns null for products whose collection membership is product-scoped rather than variant-scoped.
+     */
+    public Builder variantsInCollection(ProductVariantConnection variantsInCollection) {
+      this.variantsInCollection = variantsInCollection;
+      return this;
+    }
+
+    /**
+     * The number of [variants](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariant)
+     * associated with the product that are members of the specified
+     * [collection](https://shopify.dev/docs/api/admin-graphql/latest/objects/Collection).
+     */
+    public Builder variantsInCollectionCount(Count variantsInCollectionCount) {
+      this.variantsInCollectionCount = variantsInCollectionCount;
       return this;
     }
 

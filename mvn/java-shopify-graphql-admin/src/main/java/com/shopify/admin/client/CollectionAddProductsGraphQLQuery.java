@@ -1,10 +1,14 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -26,10 +30,6 @@ import java.util.Set;
  * along with any errors encountered during the operation. Products are added to
  * the collection while preserving existing collection settings.
  *   
- * This operation only works with manual collections where merchants explicitly
- * choose which products to include. It will return an error if used with smart
- * collections that automatically include products based on conditions.
- *   
  * Learn more about [collection management](https://shopify.dev/docs/api/admin-graphql/latest/objects/Collection).
  */
 public class CollectionAddProductsGraphQLQuery extends GraphQLQuery {
@@ -41,6 +41,24 @@ public class CollectionAddProductsGraphQLQuery extends GraphQLQuery {
     }if (productIds != null || fieldsSet.contains("productIds")) {
         getInput().put("productIds", productIds);
     }
+  }
+
+  public CollectionAddProductsGraphQLQuery(String id, List<String> productIds, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (productIds != null || fieldsSet.contains("productIds")) {
+        getInput().put("productIds", productIds);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public CollectionAddProductsGraphQLQuery() {
@@ -59,6 +77,10 @@ public class CollectionAddProductsGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private List<String> productIds;
@@ -66,15 +88,25 @@ public class CollectionAddProductsGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public CollectionAddProductsGraphQLQuery build() {
-      return new CollectionAddProductsGraphQLQuery(id, productIds, queryName, fieldsSet);
+      return new CollectionAddProductsGraphQLQuery(id, productIds, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
     /**
-     * The ID of the collection that's being updated. This can't be a smart collection.
+     * The ID of the collection that's being updated.
      */
     public Builder id(String id) {
       this.id = id;
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
+     * The ID of the collection that's being updated.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("id");
       return this;
     }
@@ -86,6 +118,18 @@ public class CollectionAddProductsGraphQLQuery extends GraphQLQuery {
      */
     public Builder productIds(List<String> productIds) {
       this.productIds = productIds;
+      this.fieldsSet.add("productIds");
+      return this;
+    }
+
+    /**
+     * The IDs of the products that are being added to the collection.
+     * If any of the products is already present in the input collection,
+     * then an error is raised and no products are added.
+     */
+    public Builder productIdsReference(String variableRef) {
+      this.variableReferences.put("productIds", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("ID"))))).build());
       this.fieldsSet.add("productIds");
       return this;
     }

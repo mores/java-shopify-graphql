@@ -16,6 +16,11 @@ public class OrderCreateMandatePaymentPayload {
   private Job job;
 
   /**
+   * The job result for tracking the status of the mandate payment request.
+   */
+  private OrderCreateMandatePaymentJobResult jobResult;
+
+  /**
    * The Unique ID for the created payment.
    */
   private String paymentReferenceId;
@@ -37,6 +42,17 @@ public class OrderCreateMandatePaymentPayload {
 
   public void setJob(Job job) {
     this.job = job;
+  }
+
+  /**
+   * The job result for tracking the status of the mandate payment request.
+   */
+  public OrderCreateMandatePaymentJobResult getJobResult() {
+    return jobResult;
+  }
+
+  public void setJobResult(OrderCreateMandatePaymentJobResult jobResult) {
+    this.jobResult = jobResult;
   }
 
   /**
@@ -63,7 +79,7 @@ public class OrderCreateMandatePaymentPayload {
 
   @Override
   public String toString() {
-    return "OrderCreateMandatePaymentPayload{job='" + job + "', paymentReferenceId='" + paymentReferenceId + "', userErrors='" + userErrors + "'}";
+    return "OrderCreateMandatePaymentPayload{job='" + job + "', jobResult='" + jobResult + "', paymentReferenceId='" + paymentReferenceId + "', userErrors='" + userErrors + "'}";
   }
 
   @Override
@@ -72,13 +88,14 @@ public class OrderCreateMandatePaymentPayload {
     if (o == null || getClass() != o.getClass()) return false;
     OrderCreateMandatePaymentPayload that = (OrderCreateMandatePaymentPayload) o;
     return Objects.equals(job, that.job) &&
+        Objects.equals(jobResult, that.jobResult) &&
         Objects.equals(paymentReferenceId, that.paymentReferenceId) &&
         Objects.equals(userErrors, that.userErrors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(job, paymentReferenceId, userErrors);
+    return Objects.hash(job, jobResult, paymentReferenceId, userErrors);
   }
 
   public static Builder newBuilder() {
@@ -90,6 +107,11 @@ public class OrderCreateMandatePaymentPayload {
      * The async job used for charging the payment.
      */
     private Job job;
+
+    /**
+     * The job result for tracking the status of the mandate payment request.
+     */
+    private OrderCreateMandatePaymentJobResult jobResult;
 
     /**
      * The Unique ID for the created payment.
@@ -104,6 +126,7 @@ public class OrderCreateMandatePaymentPayload {
     public OrderCreateMandatePaymentPayload build() {
       OrderCreateMandatePaymentPayload result = new OrderCreateMandatePaymentPayload();
       result.job = this.job;
+      result.jobResult = this.jobResult;
       result.paymentReferenceId = this.paymentReferenceId;
       result.userErrors = this.userErrors;
       return result;
@@ -114,6 +137,14 @@ public class OrderCreateMandatePaymentPayload {
      */
     public Builder job(Job job) {
       this.job = job;
+      return this;
+    }
+
+    /**
+     * The job result for tracking the status of the mandate payment request.
+     */
+    public Builder jobResult(OrderCreateMandatePaymentJobResult jobResult) {
+      this.jobResult = jobResult;
       return this;
     }
 

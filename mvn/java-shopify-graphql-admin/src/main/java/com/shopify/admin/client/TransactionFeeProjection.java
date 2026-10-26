@@ -30,6 +30,11 @@ public class TransactionFeeProjection<PARENT extends BaseSubProjectionNode<?, ?>
      return projection;
   }
 
+  public TransactionFeeProjection<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
+    return this;
+  }
+
   public TransactionFeeProjection<PARENT, ROOT> flatFeeName() {
     getFields().put("flatFeeName", null);
     return this;

@@ -16,8 +16,14 @@ public enum PaymentMethods {
 
   JCB,
 
+  /**
+   * The payment method for UnionPay payment.
+   */
   UNIONPAY,
 
+  /**
+   * The payment method for Elo payment.
+   */
   ELO,
 
   DANKORT,
@@ -36,11 +42,23 @@ public enum PaymentMethods {
 
   DOGECOIN,
 
+  /**
+   * The payment method for Interac payment.
+   */
   INTERAC,
 
+  /**
+   * The payment method for eftpos_au payment.
+   */
   EFTPOS,
 
+  /**
+   * The payment method for Cartes Bancaires payment.
+   */
   CARTES_BANCAIRES,
 
+  /**
+   * The payment method for Bancontact payment.
+   */
   BANCONTACT
 }

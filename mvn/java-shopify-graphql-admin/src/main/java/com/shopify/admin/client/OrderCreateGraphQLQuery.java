@@ -3,9 +3,14 @@ package com.shopify.admin.client;
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.OrderCreateOptionsInput;
 import com.shopify.admin.types.OrderCreateOrderInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -49,6 +54,24 @@ public class OrderCreateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public OrderCreateGraphQLQuery(OrderCreateOrderInput order, OrderCreateOptionsInput options,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (order != null || fieldsSet.contains("order")) {
+        getInput().put("order", order);
+    }if (options != null || fieldsSet.contains("options")) {
+        getInput().put("options", options);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public OrderCreateGraphQLQuery() {
     super("mutation");
   }
@@ -65,6 +88,10 @@ public class OrderCreateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private OrderCreateOrderInput order;
 
     private OrderCreateOptionsInput options;
@@ -72,7 +99,7 @@ public class OrderCreateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public OrderCreateGraphQLQuery build() {
-      return new OrderCreateGraphQLQuery(order, options, queryName, fieldsSet);
+      return new OrderCreateGraphQLQuery(order, options, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -86,10 +113,30 @@ public class OrderCreateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The attributes of the new order.
+     */
+    public Builder orderReference(String variableRef) {
+      this.variableReferences.put("order", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("OrderCreateOrderInput"))).build());
+      this.fieldsSet.add("order");
+      return this;
+    }
+
+    /**
      * The strategies for updating inventory and whether to send shipping and order confirmations to customers.
      */
     public Builder options(OrderCreateOptionsInput options) {
       this.options = options;
+      this.fieldsSet.add("options");
+      return this;
+    }
+
+    /**
+     * The strategies for updating inventory and whether to send shipping and order confirmations to customers.
+     */
+    public Builder optionsReference(String variableRef) {
+      this.variableReferences.put("options", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("OrderCreateOptionsInput")).build());
       this.fieldsSet.add("options");
       return this;
     }

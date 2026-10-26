@@ -28,7 +28,7 @@ public class SellingPlanFixedDeliveryPolicyInput {
   private OffsetDateTime fulfillmentExactTime;
 
   /**
-   * A buffer period for orders to be included in a cycle.
+   * Number of days which represent a buffer period for orders to be included in a cycle.
    */
   private Integer cutoff;
 
@@ -79,7 +79,7 @@ public class SellingPlanFixedDeliveryPolicyInput {
   }
 
   /**
-   * A buffer period for orders to be included in a cycle.
+   * Number of days which represent a buffer period for orders to be included in a cycle.
    */
   public Integer getCutoff() {
     return cutoff;
@@ -156,7 +156,7 @@ public class SellingPlanFixedDeliveryPolicyInput {
     private OffsetDateTime fulfillmentExactTime;
 
     /**
-     * A buffer period for orders to be included in a cycle.
+     * Number of days which represent a buffer period for orders to be included in a cycle.
      */
     private Integer cutoff;
 
@@ -206,7 +206,7 @@ public class SellingPlanFixedDeliveryPolicyInput {
     }
 
     /**
-     * A buffer period for orders to be included in a cycle.
+     * Number of days which represent a buffer period for orders to be included in a cycle.
      */
     public Builder cutoff(Integer cutoff) {
       this.cutoff = cutoff;

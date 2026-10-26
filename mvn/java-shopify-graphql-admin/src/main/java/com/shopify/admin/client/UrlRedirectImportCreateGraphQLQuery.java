@@ -1,9 +1,14 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -18,6 +23,21 @@ public class UrlRedirectImportCreateGraphQLQuery extends GraphQLQuery {
     if (url != null || fieldsSet.contains("url")) {
         getInput().put("url", url);
     }
+  }
+
+  public UrlRedirectImportCreateGraphQLQuery(String url, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (url != null || fieldsSet.contains("url")) {
+        getInput().put("url", url);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public UrlRedirectImportCreateGraphQLQuery() {
@@ -36,12 +56,16 @@ public class UrlRedirectImportCreateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String url;
 
     private String queryName;
 
     public UrlRedirectImportCreateGraphQLQuery build() {
-      return new UrlRedirectImportCreateGraphQLQuery(url, queryName, fieldsSet);
+      return new UrlRedirectImportCreateGraphQLQuery(url, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -51,6 +75,17 @@ public class UrlRedirectImportCreateGraphQLQuery extends GraphQLQuery {
      */
     public Builder url(String url) {
       this.url = url;
+      this.fieldsSet.add("url");
+      return this;
+    }
+
+    /**
+     * The staged upload URL of the CSV file.
+     * You can download [a sample URL redirect CSV file](https://help.shopify.com/csv/sample-redirect-template.csv).
+     */
+    public Builder urlReference(String variableRef) {
+      this.variableReferences.put("url", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("URL"))).build());
       this.fieldsSet.add("url");
       return this;
     }

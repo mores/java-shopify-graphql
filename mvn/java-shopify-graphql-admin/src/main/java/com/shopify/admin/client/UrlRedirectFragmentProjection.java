@@ -18,6 +18,11 @@ public class UrlRedirectFragmentProjection<PARENT extends BaseSubProjectionNode<
     return this;
   }
 
+  public UrlRedirectFragmentProjection<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
+    return this;
+  }
+
   public UrlRedirectFragmentProjection<PARENT, ROOT> id() {
     getFields().put("id", null);
     return this;

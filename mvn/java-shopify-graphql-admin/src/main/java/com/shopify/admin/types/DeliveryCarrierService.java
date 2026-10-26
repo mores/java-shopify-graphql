@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -29,7 +30,7 @@ import java.util.Objects;
  * * It's on the Shopify plan with yearly billing, or the carrier service feature
  * has been added to the store for a monthly fee. For more information, contact
  * [Shopify Support](https://help.shopify.com/questions).
- * * It's a development store.
+ * * It's a development store that isn't on the Basic plan.
  *
  * > Note:
  * > If a store changes its Shopify plan, then the store's association with a
@@ -247,7 +248,8 @@ import java.util.Objects;
  * If any of these fields differ, or if the cache has expired since the original
  * request, then new shipping rates are requested. The cache expires 15 minutes
  * after rates are successfully returned. If an error occurs, then the cache
- * expires after 30 seconds.
+ * expires after 30 seconds. The fields and cache duration are subject to change
+ * without notice.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -267,6 +269,11 @@ public class DeliveryCarrierService implements com.shopify.admin.types.Node {
    * The URL endpoint that Shopify needs to retrieve shipping rates.
    */
   private String callbackUrl;
+
+  /**
+   * The date and time when the carrier service was created.
+   */
+  private OffsetDateTime createdAt;
 
   /**
    * The properly formatted name of the shipping service provider, ready to display.
@@ -331,6 +338,17 @@ public class DeliveryCarrierService implements com.shopify.admin.types.Node {
   }
 
   /**
+   * The date and time when the carrier service was created.
+   */
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  /**
    * The properly formatted name of the shipping service provider, ready to display.
    */
   public String getFormattedName() {
@@ -387,7 +405,7 @@ public class DeliveryCarrierService implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "DeliveryCarrierService{active='" + active + "', availableServicesForCountries='" + availableServicesForCountries + "', callbackUrl='" + callbackUrl + "', formattedName='" + formattedName + "', icon='" + icon + "', id='" + id + "', name='" + name + "', supportsServiceDiscovery='" + supportsServiceDiscovery + "'}";
+    return "DeliveryCarrierService{active='" + active + "', availableServicesForCountries='" + availableServicesForCountries + "', callbackUrl='" + callbackUrl + "', createdAt='" + createdAt + "', formattedName='" + formattedName + "', icon='" + icon + "', id='" + id + "', name='" + name + "', supportsServiceDiscovery='" + supportsServiceDiscovery + "'}";
   }
 
   @Override
@@ -398,6 +416,7 @@ public class DeliveryCarrierService implements com.shopify.admin.types.Node {
     return active == that.active &&
         Objects.equals(availableServicesForCountries, that.availableServicesForCountries) &&
         Objects.equals(callbackUrl, that.callbackUrl) &&
+        Objects.equals(createdAt, that.createdAt) &&
         Objects.equals(formattedName, that.formattedName) &&
         Objects.equals(icon, that.icon) &&
         Objects.equals(id, that.id) &&
@@ -407,7 +426,7 @@ public class DeliveryCarrierService implements com.shopify.admin.types.Node {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, availableServicesForCountries, callbackUrl, formattedName, icon, id, name, supportsServiceDiscovery);
+    return Objects.hash(active, availableServicesForCountries, callbackUrl, createdAt, formattedName, icon, id, name, supportsServiceDiscovery);
   }
 
   public static Builder newBuilder() {
@@ -429,6 +448,11 @@ public class DeliveryCarrierService implements com.shopify.admin.types.Node {
      * The URL endpoint that Shopify needs to retrieve shipping rates.
      */
     private String callbackUrl;
+
+    /**
+     * The date and time when the carrier service was created.
+     */
+    private OffsetDateTime createdAt;
 
     /**
      * The properly formatted name of the shipping service provider, ready to display.
@@ -460,6 +484,7 @@ public class DeliveryCarrierService implements com.shopify.admin.types.Node {
       result.active = this.active;
       result.availableServicesForCountries = this.availableServicesForCountries;
       result.callbackUrl = this.callbackUrl;
+      result.createdAt = this.createdAt;
       result.formattedName = this.formattedName;
       result.icon = this.icon;
       result.id = this.id;
@@ -490,6 +515,14 @@ public class DeliveryCarrierService implements com.shopify.admin.types.Node {
      */
     public Builder callbackUrl(String callbackUrl) {
       this.callbackUrl = callbackUrl;
+      return this;
+    }
+
+    /**
+     * The date and time when the carrier service was created.
+     */
+    public Builder createdAt(OffsetDateTime createdAt) {
+      this.createdAt = createdAt;
       return this;
     }
 

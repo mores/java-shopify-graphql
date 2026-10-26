@@ -30,6 +30,11 @@ public class InventoryShipmentLineItemFragmentProjection<PARENT extends BaseSubP
     return this;
   }
 
+  public InventoryShipmentLineItemFragmentProjection<PARENT, ROOT> canceledQuantity() {
+    getFields().put("canceledQuantity", null);
+    return this;
+  }
+
   public InventoryShipmentLineItemFragmentProjection<PARENT, ROOT> id() {
     getFields().put("id", null);
     return this;

@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.FulfillmentInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -31,6 +36,24 @@ public class FulfillmentCreateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public FulfillmentCreateGraphQLQuery(FulfillmentInput fulfillment, String message,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (fulfillment != null || fieldsSet.contains("fulfillment")) {
+        getInput().put("fulfillment", fulfillment);
+    }if (message != null || fieldsSet.contains("message")) {
+        getInput().put("message", message);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public FulfillmentCreateGraphQLQuery() {
     super("mutation");
   }
@@ -47,6 +70,10 @@ public class FulfillmentCreateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private FulfillmentInput fulfillment;
 
     private String message;
@@ -54,7 +81,7 @@ public class FulfillmentCreateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public FulfillmentCreateGraphQLQuery build() {
-      return new FulfillmentCreateGraphQLQuery(fulfillment, message, queryName, fieldsSet);
+      return new FulfillmentCreateGraphQLQuery(fulfillment, message, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -68,10 +95,30 @@ public class FulfillmentCreateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The input fields used to create a fulfillment from fulfillment orders.
+     */
+    public Builder fulfillmentReference(String variableRef) {
+      this.variableReferences.put("fulfillment", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("FulfillmentInput"))).build());
+      this.fieldsSet.add("fulfillment");
+      return this;
+    }
+
+    /**
      * An optional message for the fulfillment request.
      */
     public Builder message(String message) {
       this.message = message;
+      this.fieldsSet.add("message");
+      return this;
+    }
+
+    /**
+     * An optional message for the fulfillment request.
+     */
+    public Builder messageReference(String variableRef) {
+      this.variableReferences.put("message", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
       this.fieldsSet.add("message");
       return this;
     }

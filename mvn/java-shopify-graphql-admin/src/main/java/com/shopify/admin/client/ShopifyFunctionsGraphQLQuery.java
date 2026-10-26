@@ -1,11 +1,16 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -44,6 +49,35 @@ public class ShopifyFunctionsGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public ShopifyFunctionsGraphQLQuery(String apiType, Boolean useCreationUi, Integer first,
+      String after, Integer last, String before, Boolean reverse, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("query", queryName);
+    if (apiType != null || fieldsSet.contains("apiType")) {
+        getInput().put("apiType", apiType);
+    }if (useCreationUi != null || fieldsSet.contains("useCreationUi")) {
+        getInput().put("useCreationUi", useCreationUi);
+    }if (first != null || fieldsSet.contains("first")) {
+        getInput().put("first", first);
+    }if (after != null || fieldsSet.contains("after")) {
+        getInput().put("after", after);
+    }if (last != null || fieldsSet.contains("last")) {
+        getInput().put("last", last);
+    }if (before != null || fieldsSet.contains("before")) {
+        getInput().put("before", before);
+    }if (reverse != null || fieldsSet.contains("reverse")) {
+        getInput().put("reverse", reverse);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public ShopifyFunctionsGraphQLQuery() {
     super("query");
   }
@@ -59,6 +93,10 @@ public class ShopifyFunctionsGraphQLQuery extends GraphQLQuery {
 
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
+
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
 
     private String apiType;
 
@@ -77,7 +115,7 @@ public class ShopifyFunctionsGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public ShopifyFunctionsGraphQLQuery build() {
-      return new ShopifyFunctionsGraphQLQuery(apiType, useCreationUi, first, after, last, before, reverse, queryName, fieldsSet);
+      return new ShopifyFunctionsGraphQLQuery(apiType, useCreationUi, first, after, last, before, reverse, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -86,6 +124,16 @@ public class ShopifyFunctionsGraphQLQuery extends GraphQLQuery {
      */
     public Builder apiType(String apiType) {
       this.apiType = apiType;
+      this.fieldsSet.add("apiType");
+      return this;
+    }
+
+    /**
+     * Filter the functions by the API type.
+     */
+    public Builder apiTypeReference(String variableRef) {
+      this.variableReferences.put("apiType", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
       this.fieldsSet.add("apiType");
       return this;
     }
@@ -100,10 +148,30 @@ public class ShopifyFunctionsGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * Filter the functions by whether or not the function uses the creation UI in the Admin.
+     */
+    public Builder useCreationUiReference(String variableRef) {
+      this.variableReferences.put("useCreationUi", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Boolean")).build());
+      this.fieldsSet.add("useCreationUi");
+      return this;
+    }
+
+    /**
      * The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
      */
     public Builder first(Integer first) {
       this.first = first;
+      this.fieldsSet.add("first");
+      return this;
+    }
+
+    /**
+     * The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+     */
+    public Builder firstReference(String variableRef) {
+      this.variableReferences.put("first", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Int")).build());
       this.fieldsSet.add("first");
       return this;
     }
@@ -118,10 +186,30 @@ public class ShopifyFunctionsGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+     */
+    public Builder afterReference(String variableRef) {
+      this.variableReferences.put("after", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
+      this.fieldsSet.add("after");
+      return this;
+    }
+
+    /**
      * The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
      */
     public Builder last(Integer last) {
       this.last = last;
+      this.fieldsSet.add("last");
+      return this;
+    }
+
+    /**
+     * The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+     */
+    public Builder lastReference(String variableRef) {
+      this.variableReferences.put("last", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Int")).build());
       this.fieldsSet.add("last");
       return this;
     }
@@ -136,10 +224,30 @@ public class ShopifyFunctionsGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+     */
+    public Builder beforeReference(String variableRef) {
+      this.variableReferences.put("before", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
+      this.fieldsSet.add("before");
+      return this;
+    }
+
+    /**
      * Reverse the order of the underlying list.
      */
     public Builder reverse(Boolean reverse) {
       this.reverse = reverse;
+      this.fieldsSet.add("reverse");
+      return this;
+    }
+
+    /**
+     * Reverse the order of the underlying list.
+     */
+    public Builder reverseReference(String variableRef) {
+      this.variableReferences.put("reverse", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Boolean")).build());
       this.fieldsSet.add("reverse");
       return this;
     }

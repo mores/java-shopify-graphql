@@ -4,10 +4,14 @@ import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.CreateMediaInput;
 import com.shopify.admin.types.ProductUpdateIdentifiers;
 import com.shopify.admin.types.ProductUpdateInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -52,6 +56,26 @@ public class ProductUpdateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public ProductUpdateGraphQLQuery(ProductUpdateInput product, List<CreateMediaInput> media,
+      ProductUpdateIdentifiers identifier, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (product != null || fieldsSet.contains("product")) {
+        getInput().put("product", product);
+    }if (media != null || fieldsSet.contains("media")) {
+        getInput().put("media", media);
+    }if (identifier != null || fieldsSet.contains("identifier")) {
+        getInput().put("identifier", identifier);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public ProductUpdateGraphQLQuery() {
     super("mutation");
   }
@@ -68,6 +92,10 @@ public class ProductUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private ProductUpdateInput product;
 
     private List<CreateMediaInput> media;
@@ -77,7 +105,7 @@ public class ProductUpdateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public ProductUpdateGraphQLQuery build() {
-      return new ProductUpdateGraphQLQuery(product, media, identifier, queryName, fieldsSet);
+      return new ProductUpdateGraphQLQuery(product, media, identifier, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -86,6 +114,16 @@ public class ProductUpdateGraphQLQuery extends GraphQLQuery {
      */
     public Builder product(ProductUpdateInput product) {
       this.product = product;
+      this.fieldsSet.add("product");
+      return this;
+    }
+
+    /**
+     * The updated properties for a product.
+     */
+    public Builder productReference(String variableRef) {
+      this.variableReferences.put("product", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("ProductUpdateInput")).build());
       this.fieldsSet.add("product");
       return this;
     }
@@ -100,10 +138,30 @@ public class ProductUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * List of new media to be added to the product.
+     */
+    public Builder mediaReference(String variableRef) {
+      this.variableReferences.put("media", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("CreateMediaInput")))).build());
+      this.fieldsSet.add("media");
+      return this;
+    }
+
+    /**
      * Specifies the identifier that will be used to lookup the resource.
      */
     public Builder identifier(ProductUpdateIdentifiers identifier) {
       this.identifier = identifier;
+      this.fieldsSet.add("identifier");
+      return this;
+    }
+
+    /**
+     * Specifies the identifier that will be used to lookup the resource.
+     */
+    public Builder identifierReference(String variableRef) {
+      this.variableReferences.put("identifier", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("ProductUpdateIdentifiers")).build());
       this.fieldsSet.add("identifier");
       return this;
     }

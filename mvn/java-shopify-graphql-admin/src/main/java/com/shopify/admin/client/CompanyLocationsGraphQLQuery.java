@@ -2,11 +2,16 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.CompanyLocationSortKeys;
+import graphql.language.VariableDefinition;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -43,6 +48,35 @@ public class CompanyLocationsGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public CompanyLocationsGraphQLQuery(Integer first, String after, Integer last, String before,
+      Boolean reverse, CompanyLocationSortKeys sortKey, String query, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("query", queryName);
+    if (first != null || fieldsSet.contains("first")) {
+        getInput().put("first", first);
+    }if (after != null || fieldsSet.contains("after")) {
+        getInput().put("after", after);
+    }if (last != null || fieldsSet.contains("last")) {
+        getInput().put("last", last);
+    }if (before != null || fieldsSet.contains("before")) {
+        getInput().put("before", before);
+    }if (reverse != null || fieldsSet.contains("reverse")) {
+        getInput().put("reverse", reverse);
+    }if (sortKey != null || fieldsSet.contains("sortKey")) {
+        getInput().put("sortKey", sortKey);
+    }if (query != null || fieldsSet.contains("query")) {
+        getInput().put("query", query);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public CompanyLocationsGraphQLQuery() {
     super("query");
   }
@@ -58,6 +92,10 @@ public class CompanyLocationsGraphQLQuery extends GraphQLQuery {
 
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
+
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
 
     private Integer first;
 
@@ -76,7 +114,7 @@ public class CompanyLocationsGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public CompanyLocationsGraphQLQuery build() {
-      return new CompanyLocationsGraphQLQuery(first, after, last, before, reverse, sortKey, query, queryName, fieldsSet);
+      return new CompanyLocationsGraphQLQuery(first, after, last, before, reverse, sortKey, query, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -85,6 +123,16 @@ public class CompanyLocationsGraphQLQuery extends GraphQLQuery {
      */
     public Builder first(Integer first) {
       this.first = first;
+      this.fieldsSet.add("first");
+      return this;
+    }
+
+    /**
+     * The first `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+     */
+    public Builder firstReference(String variableRef) {
+      this.variableReferences.put("first", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Int")).build());
       this.fieldsSet.add("first");
       return this;
     }
@@ -99,10 +147,30 @@ public class CompanyLocationsGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The elements that come after the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+     */
+    public Builder afterReference(String variableRef) {
+      this.variableReferences.put("after", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
+      this.fieldsSet.add("after");
+      return this;
+    }
+
+    /**
      * The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
      */
     public Builder last(Integer last) {
       this.last = last;
+      this.fieldsSet.add("last");
+      return this;
+    }
+
+    /**
+     * The last `n` elements from the [paginated list](https://shopify.dev/api/usage/pagination-graphql).
+     */
+    public Builder lastReference(String variableRef) {
+      this.variableReferences.put("last", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Int")).build());
       this.fieldsSet.add("last");
       return this;
     }
@@ -117,10 +185,30 @@ public class CompanyLocationsGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The elements that come before the specified [cursor](https://shopify.dev/api/usage/pagination-graphql).
+     */
+    public Builder beforeReference(String variableRef) {
+      this.variableReferences.put("before", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
+      this.fieldsSet.add("before");
+      return this;
+    }
+
+    /**
      * Reverse the order of the underlying list.
      */
     public Builder reverse(Boolean reverse) {
       this.reverse = reverse;
+      this.fieldsSet.add("reverse");
+      return this;
+    }
+
+    /**
+     * Reverse the order of the underlying list.
+     */
+    public Builder reverseReference(String variableRef) {
+      this.variableReferences.put("reverse", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Boolean")).build());
       this.fieldsSet.add("reverse");
       return this;
     }
@@ -135,6 +223,16 @@ public class CompanyLocationsGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * Sort the underlying list by the given key.
+     */
+    public Builder sortKeyReference(String variableRef) {
+      this.variableReferences.put("sortKey", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("CompanyLocationSortKeys")).build());
+      this.fieldsSet.add("sortKey");
+      return this;
+    }
+
+    /**
      * A filter made up of terms, connectives, modifiers, and comparators.
      * | name | type | description | acceptable_values | default_value | example_use |
      * | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -143,7 +241,7 @@ public class CompanyLocationsGraphQLQuery extends GraphQLQuery {
      * | company_id | id |
      * | created_at | time |
      * | external_id | string |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
      * | ids | string |
      * | metafields.{namespace}.{key} | mixed | Filters resources by metafield
      * value. Format: `metafields.{namespace}.{key}:{value}`. Learn more about
@@ -157,6 +255,34 @@ public class CompanyLocationsGraphQLQuery extends GraphQLQuery {
      */
     public Builder query(String query) {
       this.query = query;
+      this.fieldsSet.add("query");
+      return this;
+    }
+
+    /**
+     * A filter made up of terms, connectives, modifiers, and comparators.
+     * | name | type | description | acceptable_values | default_value | example_use |
+     * | ---- | ---- | ---- | ---- | ---- | ---- |
+     * | default | string | Filter by a case-insensitive search of multiple fields
+     * in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
+     * | company_id | id |
+     * | created_at | time |
+     * | external_id | string |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | ids | string |
+     * | metafields.{namespace}.{key} | mixed | Filters resources by metafield
+     * value. Format: `metafields.{namespace}.{key}:{value}`. Learn more about
+     * [querying by metafield value](https://shopify.dev/apps/build/custom-data/metafields/query-by-metafield-value).
+     * | | | - `metafields.custom.on_sale:true`<br/> -
+     * `metafields.product.material:"gid://shopify/Metaobject/43458085"` |
+     * | name | string |
+     * | updated_at | time |
+     * You can apply one or more filters to a query. Learn more about [Shopify API
+     * search syntax](https://shopify.dev/api/usage/search-syntax).
+     */
+    public Builder queryReference(String variableRef) {
+      this.variableReferences.put("query", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
       this.fieldsSet.add("query");
       return this;
     }

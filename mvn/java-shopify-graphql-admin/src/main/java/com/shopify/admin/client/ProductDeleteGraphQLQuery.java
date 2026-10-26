@@ -2,10 +2,15 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.ProductDeleteInput;
+import graphql.language.VariableDefinition;
 import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -70,6 +75,24 @@ public class ProductDeleteGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public ProductDeleteGraphQLQuery(ProductDeleteInput input, Boolean synchronous, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (input != null || fieldsSet.contains("input")) {
+        getInput().put("input", input);
+    }if (synchronous != null || fieldsSet.contains("synchronous")) {
+        getInput().put("synchronous", synchronous);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public ProductDeleteGraphQLQuery() {
     super("mutation");
   }
@@ -86,6 +109,10 @@ public class ProductDeleteGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private ProductDeleteInput input;
 
     private Boolean synchronous;
@@ -93,7 +120,7 @@ public class ProductDeleteGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public ProductDeleteGraphQLQuery build() {
-      return new ProductDeleteGraphQLQuery(input, synchronous, queryName, fieldsSet);
+      return new ProductDeleteGraphQLQuery(input, synchronous, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -107,10 +134,30 @@ public class ProductDeleteGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * Specifies the product to delete by its ID.
+     */
+    public Builder inputReference(String variableRef) {
+      this.variableReferences.put("input", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ProductDeleteInput"))).build());
+      this.fieldsSet.add("input");
+      return this;
+    }
+
+    /**
      * Specifies whether or not to run the mutation synchronously.
      */
     public Builder synchronous(Boolean synchronous) {
       this.synchronous = synchronous;
+      this.fieldsSet.add("synchronous");
+      return this;
+    }
+
+    /**
+     * Specifies whether or not to run the mutation synchronously.
+     */
+    public Builder synchronousReference(String variableRef) {
+      this.variableReferences.put("synchronous", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Boolean")).build());
       this.fieldsSet.add("synchronous");
       return this;
     }

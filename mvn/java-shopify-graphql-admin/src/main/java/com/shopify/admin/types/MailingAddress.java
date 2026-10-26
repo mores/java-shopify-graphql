@@ -130,7 +130,7 @@ public class MailingAddress implements com.shopify.admin.types.Node {
   private String timeZone;
 
   /**
-   * The validation status that is leveraged by the address validation feature in the Shopify Admin.
+   * The validation status that's leveraged by the address validation feature in the Shopify Admin.
    * See ["Validating addresses in your Shopify admin"](https://help.shopify.com/manual/fulfillment/managing-orders/validating-order-address)
    * for more details.
    */
@@ -371,7 +371,7 @@ public class MailingAddress implements com.shopify.admin.types.Node {
   }
 
   /**
-   * The validation status that is leveraged by the address validation feature in the Shopify Admin.
+   * The validation status that's leveraged by the address validation feature in the Shopify Admin.
    * See ["Validating addresses in your Shopify admin"](https://help.shopify.com/manual/fulfillment/managing-orders/validating-order-address)
    * for more details.
    */
@@ -545,7 +545,7 @@ public class MailingAddress implements com.shopify.admin.types.Node {
     private String timeZone;
 
     /**
-     * The validation status that is leveraged by the address validation feature in the Shopify Admin.
+     * The validation status that's leveraged by the address validation feature in the Shopify Admin.
      * See ["Validating addresses in your Shopify admin"](https://help.shopify.com/manual/fulfillment/managing-orders/validating-order-address)
      * for more details.
      */
@@ -750,7 +750,7 @@ public class MailingAddress implements com.shopify.admin.types.Node {
     }
 
     /**
-     * The validation status that is leveraged by the address validation feature in the Shopify Admin.
+     * The validation status that's leveraged by the address validation feature in the Shopify Admin.
      * See ["Validating addresses in your Shopify admin"](https://help.shopify.com/manual/fulfillment/managing-orders/validating-order-address)
      * for more details.
      */

@@ -1,9 +1,14 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -18,6 +23,24 @@ public class SegmentCreateGraphQLQuery extends GraphQLQuery {
     }if (query != null || fieldsSet.contains("query")) {
         getInput().put("query", query);
     }
+  }
+
+  public SegmentCreateGraphQLQuery(String name, String query, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (name != null || fieldsSet.contains("name")) {
+        getInput().put("name", name);
+    }if (query != null || fieldsSet.contains("query")) {
+        getInput().put("query", query);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public SegmentCreateGraphQLQuery() {
@@ -36,6 +59,10 @@ public class SegmentCreateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String name;
 
     private String query;
@@ -43,7 +70,7 @@ public class SegmentCreateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public SegmentCreateGraphQLQuery build() {
-      return new SegmentCreateGraphQLQuery(name, query, queryName, fieldsSet);
+      return new SegmentCreateGraphQLQuery(name, query, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -57,6 +84,16 @@ public class SegmentCreateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The name of the segment to be created. Segment names must be unique.
+     */
+    public Builder nameReference(String variableRef) {
+      this.variableReferences.put("name", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("String"))).build());
+      this.fieldsSet.add("name");
+      return this;
+    }
+
+    /**
      * A precise definition of the segment. The definition is composed of a
      * combination of conditions on facts about customers such as
      * `email_subscription_status = 'SUBSCRIBED'` with [this
@@ -64,6 +101,19 @@ public class SegmentCreateGraphQLQuery extends GraphQLQuery {
      */
     public Builder query(String query) {
       this.query = query;
+      this.fieldsSet.add("query");
+      return this;
+    }
+
+    /**
+     * A precise definition of the segment. The definition is composed of a
+     * combination of conditions on facts about customers such as
+     * `email_subscription_status = 'SUBSCRIBED'` with [this
+     * syntax](https://shopify.dev/api/shopifyql/segment-query-language-reference).
+     */
+    public Builder queryReference(String variableRef) {
+      this.variableReferences.put("query", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("String"))).build());
       this.fieldsSet.add("query");
       return this;
     }

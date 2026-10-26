@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.EmailInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -26,6 +31,24 @@ public class OrderInvoiceSendGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public OrderInvoiceSendGraphQLQuery(String id, EmailInput email, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (email != null || fieldsSet.contains("email")) {
+        getInput().put("email", email);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public OrderInvoiceSendGraphQLQuery() {
     super("mutation");
   }
@@ -42,6 +65,10 @@ public class OrderInvoiceSendGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private EmailInput email;
@@ -49,7 +76,7 @@ public class OrderInvoiceSendGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public OrderInvoiceSendGraphQLQuery build() {
-      return new OrderInvoiceSendGraphQLQuery(id, email, queryName, fieldsSet);
+      return new OrderInvoiceSendGraphQLQuery(id, email, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -63,10 +90,30 @@ public class OrderInvoiceSendGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The order associated with the invoice.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The email input fields for the order invoice. The `bcc` and `from` fields should be store or staff account emails.
      */
     public Builder email(EmailInput email) {
       this.email = email;
+      this.fieldsSet.add("email");
+      return this;
+    }
+
+    /**
+     * The email input fields for the order invoice. The `bcc` and `from` fields should be store or staff account emails.
+     */
+    public Builder emailReference(String variableRef) {
+      this.variableReferences.put("email", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("EmailInput")).build());
       this.fieldsSet.add("email");
       return this;
     }

@@ -1,0 +1,136 @@
+package com.shopify.admin.types;
+
+import java.lang.Object;
+import java.lang.Override;
+import java.lang.String;
+import java.util.Objects;
+
+/**
+ * The input fields for updating a condition based on single metaobject reference metafield values.
+ */
+public class CollectionSourceInclusionConditionUpdateMetafieldMetaobjectInput {
+  /**
+   * The ID of the metafield definition.
+   */
+  private String definitionId;
+
+  /**
+   * The relationship between the metafield value and the condition value.
+   */
+  private CollectionSourceInclusionConditionMetafieldMetaobjectRelation relation;
+
+  /**
+   * The metaobject ID to match against.
+   */
+  private String value;
+
+  public CollectionSourceInclusionConditionUpdateMetafieldMetaobjectInput() {
+  }
+
+  /**
+   * The ID of the metafield definition.
+   */
+  public String getDefinitionId() {
+    return definitionId;
+  }
+
+  public void setDefinitionId(String definitionId) {
+    this.definitionId = definitionId;
+  }
+
+  /**
+   * The relationship between the metafield value and the condition value.
+   */
+  public CollectionSourceInclusionConditionMetafieldMetaobjectRelation getRelation() {
+    return relation;
+  }
+
+  public void setRelation(CollectionSourceInclusionConditionMetafieldMetaobjectRelation relation) {
+    this.relation = relation;
+  }
+
+  /**
+   * The metaobject ID to match against.
+   */
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  @Override
+  public String toString() {
+    return "CollectionSourceInclusionConditionUpdateMetafieldMetaobjectInput{definitionId='" + definitionId + "', relation='" + relation + "', value='" + value + "'}";
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    CollectionSourceInclusionConditionUpdateMetafieldMetaobjectInput that = (CollectionSourceInclusionConditionUpdateMetafieldMetaobjectInput) o;
+    return Objects.equals(definitionId, that.definitionId) &&
+        Objects.equals(relation, that.relation) &&
+        Objects.equals(value, that.value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(definitionId, relation, value);
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
+
+  public static class Builder {
+    /**
+     * The ID of the metafield definition.
+     */
+    private String definitionId;
+
+    /**
+     * The relationship between the metafield value and the condition value.
+     */
+    private CollectionSourceInclusionConditionMetafieldMetaobjectRelation relation;
+
+    /**
+     * The metaobject ID to match against.
+     */
+    private String value;
+
+    public CollectionSourceInclusionConditionUpdateMetafieldMetaobjectInput build() {
+      CollectionSourceInclusionConditionUpdateMetafieldMetaobjectInput result = new CollectionSourceInclusionConditionUpdateMetafieldMetaobjectInput();
+      result.definitionId = this.definitionId;
+      result.relation = this.relation;
+      result.value = this.value;
+      return result;
+    }
+
+    /**
+     * The ID of the metafield definition.
+     */
+    public Builder definitionId(String definitionId) {
+      this.definitionId = definitionId;
+      return this;
+    }
+
+    /**
+     * The relationship between the metafield value and the condition value.
+     */
+    public Builder relation(
+        CollectionSourceInclusionConditionMetafieldMetaobjectRelation relation) {
+      this.relation = relation;
+      return this;
+    }
+
+    /**
+     * The metaobject ID to match against.
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
+    }
+  }
+}

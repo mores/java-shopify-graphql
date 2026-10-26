@@ -1,10 +1,15 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -31,6 +36,26 @@ public class OrderEditSetQuantityGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public OrderEditSetQuantityGraphQLQuery(String id, String lineItemId, int quantity,
+      Boolean restock, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (lineItemId != null || fieldsSet.contains("lineItemId")) {
+        getInput().put("lineItemId", lineItemId);
+    }getInput().put("quantity", quantity);                   if (restock != null || fieldsSet.contains("restock")) {
+        getInput().put("restock", restock);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public OrderEditSetQuantityGraphQLQuery() {
     super("mutation");
   }
@@ -47,6 +72,10 @@ public class OrderEditSetQuantityGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private String lineItemId;
@@ -58,7 +87,7 @@ public class OrderEditSetQuantityGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public OrderEditSetQuantityGraphQLQuery build() {
-      return new OrderEditSetQuantityGraphQLQuery(id, lineItemId, quantity, restock, queryName, fieldsSet);
+      return new OrderEditSetQuantityGraphQLQuery(id, lineItemId, quantity, restock, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -73,10 +102,31 @@ public class OrderEditSetQuantityGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
+     * or the order edit session to edit. The edit changes the quantity on the line item.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The ID of the calculated line item to edit.
      */
     public Builder lineItemId(String lineItemId) {
       this.lineItemId = lineItemId;
+      this.fieldsSet.add("lineItemId");
+      return this;
+    }
+
+    /**
+     * The ID of the calculated line item to edit.
+     */
+    public Builder lineItemIdReference(String variableRef) {
+      this.variableReferences.put("lineItemId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("lineItemId");
       return this;
     }
@@ -91,10 +141,30 @@ public class OrderEditSetQuantityGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The new quantity to set for the line item. This value cannot be negative.
+     */
+    public Builder quantityReference(String variableRef) {
+      this.variableReferences.put("quantity", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("Int"))).build());
+      this.fieldsSet.add("quantity");
+      return this;
+    }
+
+    /**
      * Whether or not to restock the line item when the updated quantity is less than the original quantity.
      */
     public Builder restock(Boolean restock) {
       this.restock = restock;
+      this.fieldsSet.add("restock");
+      return this;
+    }
+
+    /**
+     * Whether or not to restock the line item when the updated quantity is less than the original quantity.
+     */
+    public Builder restockReference(String variableRef) {
+      this.variableReferences.put("restock", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Boolean")).build());
       this.fieldsSet.add("restock");
       return this;
     }

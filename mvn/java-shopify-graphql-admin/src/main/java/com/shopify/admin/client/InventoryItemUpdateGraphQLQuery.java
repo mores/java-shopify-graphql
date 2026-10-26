@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.InventoryItemInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -23,6 +28,24 @@ public class InventoryItemUpdateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public InventoryItemUpdateGraphQLQuery(String id, InventoryItemInput input, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (input != null || fieldsSet.contains("input")) {
+        getInput().put("input", input);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public InventoryItemUpdateGraphQLQuery() {
     super("mutation");
   }
@@ -39,6 +62,10 @@ public class InventoryItemUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private InventoryItemInput input;
@@ -46,7 +73,7 @@ public class InventoryItemUpdateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public InventoryItemUpdateGraphQLQuery build() {
-      return new InventoryItemUpdateGraphQLQuery(id, input, queryName, fieldsSet);
+      return new InventoryItemUpdateGraphQLQuery(id, input, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -60,11 +87,32 @@ public class InventoryItemUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the inventory item to update.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The input fields that update an
      * [`inventoryItem`](https://shopify.dev/api/admin-graphql/latest/queries/inventoryitem).
      */
     public Builder input(InventoryItemInput input) {
       this.input = input;
+      this.fieldsSet.add("input");
+      return this;
+    }
+
+    /**
+     * The input fields that update an
+     * [`inventoryItem`](https://shopify.dev/api/admin-graphql/latest/queries/inventoryitem).
+     */
+    public Builder inputReference(String variableRef) {
+      this.variableReferences.put("input", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("InventoryItemInput"))).build());
       this.fieldsSet.add("input");
       return this;
     }

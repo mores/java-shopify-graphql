@@ -57,6 +57,12 @@ public class SubscriptionLineProjection<PARENT extends BaseSubProjectionNode<?, 
      return projection;
   }
 
+  public WeightProjection<SubscriptionLineProjection<PARENT, ROOT>, ROOT> weight() {
+     WeightProjection<SubscriptionLineProjection<PARENT, ROOT>, ROOT> projection = new WeightProjection<>(this, getRoot());
+     getFields().put("weight", projection);
+     return projection;
+  }
+
   public SubscriptionLineProjection<PARENT, ROOT> id() {
     getFields().put("id", null);
     return this;

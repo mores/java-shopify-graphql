@@ -43,6 +43,11 @@ public class InventoryTransferEditInput {
    */
   private String referenceName;
 
+  /**
+   * The metafields to attach to the inventory transfer.
+   */
+  private List<MetafieldInput> metafields;
+
   public InventoryTransferEditInput() {
   }
 
@@ -114,9 +119,20 @@ public class InventoryTransferEditInput {
     this.referenceName = referenceName;
   }
 
+  /**
+   * The metafields to attach to the inventory transfer.
+   */
+  public List<MetafieldInput> getMetafields() {
+    return metafields;
+  }
+
+  public void setMetafields(List<MetafieldInput> metafields) {
+    this.metafields = metafields;
+  }
+
   @Override
   public String toString() {
-    return "InventoryTransferEditInput{originId='" + originId + "', destinationId='" + destinationId + "', dateCreated='" + dateCreated + "', note='" + note + "', tags='" + tags + "', referenceName='" + referenceName + "'}";
+    return "InventoryTransferEditInput{originId='" + originId + "', destinationId='" + destinationId + "', dateCreated='" + dateCreated + "', note='" + note + "', tags='" + tags + "', referenceName='" + referenceName + "', metafields='" + metafields + "'}";
   }
 
   @Override
@@ -129,12 +145,13 @@ public class InventoryTransferEditInput {
         Objects.equals(dateCreated, that.dateCreated) &&
         Objects.equals(note, that.note) &&
         Objects.equals(tags, that.tags) &&
-        Objects.equals(referenceName, that.referenceName);
+        Objects.equals(referenceName, that.referenceName) &&
+        Objects.equals(metafields, that.metafields);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(originId, destinationId, dateCreated, note, tags, referenceName);
+    return Objects.hash(originId, destinationId, dateCreated, note, tags, referenceName, metafields);
   }
 
   public static Builder newBuilder() {
@@ -174,6 +191,11 @@ public class InventoryTransferEditInput {
      */
     private String referenceName;
 
+    /**
+     * The metafields to attach to the inventory transfer.
+     */
+    private List<MetafieldInput> metafields;
+
     public InventoryTransferEditInput build() {
       InventoryTransferEditInput result = new InventoryTransferEditInput();
       result.originId = this.originId;
@@ -182,6 +204,7 @@ public class InventoryTransferEditInput {
       result.note = this.note;
       result.tags = this.tags;
       result.referenceName = this.referenceName;
+      result.metafields = this.metafields;
       return result;
     }
 
@@ -232,6 +255,14 @@ public class InventoryTransferEditInput {
      */
     public Builder referenceName(String referenceName) {
       this.referenceName = referenceName;
+      return this;
+    }
+
+    /**
+     * The metafields to attach to the inventory transfer.
+     */
+    public Builder metafields(List<MetafieldInput> metafields) {
+      this.metafields = metafields;
       return this;
     }
   }

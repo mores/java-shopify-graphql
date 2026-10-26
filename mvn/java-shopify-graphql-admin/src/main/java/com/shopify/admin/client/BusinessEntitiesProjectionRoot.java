@@ -46,6 +46,11 @@ public class BusinessEntitiesProjectionRoot<PARENT extends BaseSubProjectionNode
     return this;
   }
 
+  public BusinessEntitiesProjectionRoot<PARENT, ROOT> legalEntityId() {
+    getFields().put("legalEntityId", null);
+    return this;
+  }
+
   public BusinessEntitiesProjectionRoot<PARENT, ROOT> primary() {
     getFields().put("primary", null);
     return this;

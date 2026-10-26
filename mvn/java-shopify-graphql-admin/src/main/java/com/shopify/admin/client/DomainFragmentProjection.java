@@ -31,6 +31,11 @@ public class DomainFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>
      return projection;
   }
 
+  public DomainFragmentProjection<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
+    return this;
+  }
+
   public DomainFragmentProjection<PARENT, ROOT> host() {
     getFields().put("host", null);
     return this;

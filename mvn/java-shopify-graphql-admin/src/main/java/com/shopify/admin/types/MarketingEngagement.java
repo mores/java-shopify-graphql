@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 /**
- * Marketing engagement represents customer activity taken on a marketing activity or a marketing channel.
+ * Marketing engagement represents customer activity taken on a marketing activity.
  */
 public class MarketingEngagement {
   /**
@@ -26,10 +26,7 @@ public class MarketingEngagement {
   private String allConversions;
 
   /**
-   * The unique string identifier of the channel to which the engagement metrics
-   * are being provided. This should be set when and only when providing
-   * channel-level engagements. This should be nil when providing activity-level
-   * engagements. For the correct handle for your channel, contact your partner manager.
+   * The unique string identifier of the channel to which the engagement metrics are being provided.
    */
   private String channelHandle;
 
@@ -82,8 +79,7 @@ public class MarketingEngagement {
    * `occuredOn`. Non-cumulative metrics are aggregated over the single day
    * indicated in `occuredOn`. Cumulative metrics will monotonically increase in
    * time as each record includes the previous day's values, and so on.
-   * Non-cumulative is strongly preferred, and support for cumulative metrics may
-   * be deprecated in the future.
+   * Non-cumulative metrics are required going forward; cumulative metrics are deprecated.
    */
   private boolean isCumulative;
 
@@ -208,10 +204,7 @@ public class MarketingEngagement {
   }
 
   /**
-   * The unique string identifier of the channel to which the engagement metrics
-   * are being provided. This should be set when and only when providing
-   * channel-level engagements. This should be nil when providing activity-level
-   * engagements. For the correct handle for your channel, contact your partner manager.
+   * The unique string identifier of the channel to which the engagement metrics are being provided.
    */
   public String getChannelHandle() {
     return channelHandle;
@@ -312,8 +305,7 @@ public class MarketingEngagement {
    * `occuredOn`. Non-cumulative metrics are aggregated over the single day
    * indicated in `occuredOn`. Cumulative metrics will monotonically increase in
    * time as each record includes the previous day's values, and so on.
-   * Non-cumulative is strongly preferred, and support for cumulative metrics may
-   * be deprecated in the future.
+   * Non-cumulative metrics are required going forward; cumulative metrics are deprecated.
    */
   public boolean getIsCumulative() {
     return isCumulative;
@@ -560,10 +552,7 @@ public class MarketingEngagement {
     private String allConversions;
 
     /**
-     * The unique string identifier of the channel to which the engagement metrics
-     * are being provided. This should be set when and only when providing
-     * channel-level engagements. This should be nil when providing activity-level
-     * engagements. For the correct handle for your channel, contact your partner manager.
+     * The unique string identifier of the channel to which the engagement metrics are being provided.
      */
     private String channelHandle;
 
@@ -616,8 +605,7 @@ public class MarketingEngagement {
      * `occuredOn`. Non-cumulative metrics are aggregated over the single day
      * indicated in `occuredOn`. Cumulative metrics will monotonically increase in
      * time as each record includes the previous day's values, and so on.
-     * Non-cumulative is strongly preferred, and support for cumulative metrics may
-     * be deprecated in the future.
+     * Non-cumulative metrics are required going forward; cumulative metrics are deprecated.
      */
     private boolean isCumulative;
 
@@ -763,10 +751,7 @@ public class MarketingEngagement {
     }
 
     /**
-     * The unique string identifier of the channel to which the engagement metrics
-     * are being provided. This should be set when and only when providing
-     * channel-level engagements. This should be nil when providing activity-level
-     * engagements. For the correct handle for your channel, contact your partner manager.
+     * The unique string identifier of the channel to which the engagement metrics are being provided.
      */
     public Builder channelHandle(String channelHandle) {
       this.channelHandle = channelHandle;
@@ -843,8 +828,7 @@ public class MarketingEngagement {
      * `occuredOn`. Non-cumulative metrics are aggregated over the single day
      * indicated in `occuredOn`. Cumulative metrics will monotonically increase in
      * time as each record includes the previous day's values, and so on.
-     * Non-cumulative is strongly preferred, and support for cumulative metrics may
-     * be deprecated in the future.
+     * Non-cumulative metrics are required going forward; cumulative metrics are deprecated.
      */
     public Builder isCumulative(boolean isCumulative) {
       this.isCumulative = isCumulative;

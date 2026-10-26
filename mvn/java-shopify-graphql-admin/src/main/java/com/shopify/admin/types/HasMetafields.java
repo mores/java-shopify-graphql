@@ -27,6 +27,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
     @JsonSubTypes.Type(value = DiscountNode.class, name = "DiscountNode"),
     @JsonSubTypes.Type(value = DraftOrder.class, name = "DraftOrder"),
     @JsonSubTypes.Type(value = FulfillmentConstraintRule.class, name = "FulfillmentConstraintRule"),
+    @JsonSubTypes.Type(value = GiftCardCashOutTransaction.class, name = "GiftCardCashOutTransaction"),
     @JsonSubTypes.Type(value = GiftCardCreditTransaction.class, name = "GiftCardCreditTransaction"),
     @JsonSubTypes.Type(value = GiftCardDebitTransaction.class, name = "GiftCardDebitTransaction"),
     @JsonSubTypes.Type(value = Image.class, name = "Image"),

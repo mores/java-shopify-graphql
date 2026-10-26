@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.DiscountAutomaticFreeShippingInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -37,6 +42,23 @@ public class DiscountAutomaticFreeShippingCreateGraphQLQuery extends GraphQLQuer
     }
   }
 
+  public DiscountAutomaticFreeShippingCreateGraphQLQuery(
+      DiscountAutomaticFreeShippingInput freeShippingAutomaticDiscount, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (freeShippingAutomaticDiscount != null || fieldsSet.contains("freeShippingAutomaticDiscount")) {
+        getInput().put("freeShippingAutomaticDiscount", freeShippingAutomaticDiscount);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public DiscountAutomaticFreeShippingCreateGraphQLQuery() {
     super("mutation");
   }
@@ -53,12 +75,16 @@ public class DiscountAutomaticFreeShippingCreateGraphQLQuery extends GraphQLQuer
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private DiscountAutomaticFreeShippingInput freeShippingAutomaticDiscount;
 
     private String queryName;
 
     public DiscountAutomaticFreeShippingCreateGraphQLQuery build() {
-      return new DiscountAutomaticFreeShippingCreateGraphQLQuery(freeShippingAutomaticDiscount, queryName, fieldsSet);
+      return new DiscountAutomaticFreeShippingCreateGraphQLQuery(freeShippingAutomaticDiscount, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -68,6 +94,16 @@ public class DiscountAutomaticFreeShippingCreateGraphQLQuery extends GraphQLQuer
     public Builder freeShippingAutomaticDiscount(
         DiscountAutomaticFreeShippingInput freeShippingAutomaticDiscount) {
       this.freeShippingAutomaticDiscount = freeShippingAutomaticDiscount;
+      this.fieldsSet.add("freeShippingAutomaticDiscount");
+      return this;
+    }
+
+    /**
+     * The input data used to create the automatic free shipping discount.
+     */
+    public Builder freeShippingAutomaticDiscountReference(String variableRef) {
+      this.variableReferences.put("freeShippingAutomaticDiscount", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("DiscountAutomaticFreeShippingInput"))).build());
       this.fieldsSet.add("freeShippingAutomaticDiscount");
       return this;
     }

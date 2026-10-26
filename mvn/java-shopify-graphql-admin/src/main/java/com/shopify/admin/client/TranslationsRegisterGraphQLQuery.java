@@ -2,10 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.TranslationInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -30,6 +34,24 @@ public class TranslationsRegisterGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public TranslationsRegisterGraphQLQuery(String resourceId, List<TranslationInput> translations,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (resourceId != null || fieldsSet.contains("resourceId")) {
+        getInput().put("resourceId", resourceId);
+    }if (translations != null || fieldsSet.contains("translations")) {
+        getInput().put("translations", translations);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public TranslationsRegisterGraphQLQuery() {
     super("mutation");
   }
@@ -46,6 +68,10 @@ public class TranslationsRegisterGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String resourceId;
 
     private List<TranslationInput> translations;
@@ -53,7 +79,7 @@ public class TranslationsRegisterGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public TranslationsRegisterGraphQLQuery build() {
-      return new TranslationsRegisterGraphQLQuery(resourceId, translations, queryName, fieldsSet);
+      return new TranslationsRegisterGraphQLQuery(resourceId, translations, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -67,10 +93,30 @@ public class TranslationsRegisterGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * ID of the resource that is being translated.
+     */
+    public Builder resourceIdReference(String variableRef) {
+      this.variableReferences.put("resourceId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("resourceId");
+      return this;
+    }
+
+    /**
      * Specifies the input fields for a translation.
      */
     public Builder translations(List<TranslationInput> translations) {
       this.translations = translations;
+      this.fieldsSet.add("translations");
+      return this;
+    }
+
+    /**
+     * Specifies the input fields for a translation.
+     */
+    public Builder translationsReference(String variableRef) {
+      this.variableReferences.put("translations", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("TranslationInput"))))).build());
       this.fieldsSet.add("translations");
       return this;
     }

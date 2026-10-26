@@ -11,6 +11,11 @@ import java.util.Objects;
  */
 public class MarketConditions {
   /**
+   * The channel conditions that determine whether a visitor is in the market.
+   */
+  private ChannelsCondition channelsCondition;
+
+  /**
    * The company location conditions that determine whether a visitor is in the market.
    */
   private CompanyLocationsCondition companyLocationsCondition;
@@ -31,6 +36,17 @@ public class MarketConditions {
   private RegionsCondition regionsCondition;
 
   public MarketConditions() {
+  }
+
+  /**
+   * The channel conditions that determine whether a visitor is in the market.
+   */
+  public ChannelsCondition getChannelsCondition() {
+    return channelsCondition;
+  }
+
+  public void setChannelsCondition(ChannelsCondition channelsCondition) {
+    this.channelsCondition = channelsCondition;
   }
 
   /**
@@ -79,7 +95,7 @@ public class MarketConditions {
 
   @Override
   public String toString() {
-    return "MarketConditions{companyLocationsCondition='" + companyLocationsCondition + "', conditionTypes='" + conditionTypes + "', locationsCondition='" + locationsCondition + "', regionsCondition='" + regionsCondition + "'}";
+    return "MarketConditions{channelsCondition='" + channelsCondition + "', companyLocationsCondition='" + companyLocationsCondition + "', conditionTypes='" + conditionTypes + "', locationsCondition='" + locationsCondition + "', regionsCondition='" + regionsCondition + "'}";
   }
 
   @Override
@@ -87,7 +103,8 @@ public class MarketConditions {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     MarketConditions that = (MarketConditions) o;
-    return Objects.equals(companyLocationsCondition, that.companyLocationsCondition) &&
+    return Objects.equals(channelsCondition, that.channelsCondition) &&
+        Objects.equals(companyLocationsCondition, that.companyLocationsCondition) &&
         Objects.equals(conditionTypes, that.conditionTypes) &&
         Objects.equals(locationsCondition, that.locationsCondition) &&
         Objects.equals(regionsCondition, that.regionsCondition);
@@ -95,7 +112,7 @@ public class MarketConditions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(companyLocationsCondition, conditionTypes, locationsCondition, regionsCondition);
+    return Objects.hash(channelsCondition, companyLocationsCondition, conditionTypes, locationsCondition, regionsCondition);
   }
 
   public static Builder newBuilder() {
@@ -103,6 +120,11 @@ public class MarketConditions {
   }
 
   public static class Builder {
+    /**
+     * The channel conditions that determine whether a visitor is in the market.
+     */
+    private ChannelsCondition channelsCondition;
+
     /**
      * The company location conditions that determine whether a visitor is in the market.
      */
@@ -125,11 +147,20 @@ public class MarketConditions {
 
     public MarketConditions build() {
       MarketConditions result = new MarketConditions();
+      result.channelsCondition = this.channelsCondition;
       result.companyLocationsCondition = this.companyLocationsCondition;
       result.conditionTypes = this.conditionTypes;
       result.locationsCondition = this.locationsCondition;
       result.regionsCondition = this.regionsCondition;
       return result;
+    }
+
+    /**
+     * The channel conditions that determine whether a visitor is in the market.
+     */
+    public Builder channelsCondition(ChannelsCondition channelsCondition) {
+      this.channelsCondition = channelsCondition;
+      return this;
     }
 
     /**

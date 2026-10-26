@@ -24,8 +24,8 @@ public class ShopPlan {
   /**
    * The public display name of the shop's billing plan. Possible values are:
    * Advanced, Agentic, Agentic Enterprise, Basic, Development, Grow, Inactive,
-   * Lite, Other, Paused, Plus, Plus Trial, Retail, Shop Component, Shopify
-   * Finance, Staff Business, Starter, and Trial.
+   * Lite, Other, Paused, Plus, Plus Trial, Retail, Shop Component, Staff Business,
+   * Starter, and Trial.
    */
   private String publicDisplayName;
 
@@ -62,8 +62,8 @@ public class ShopPlan {
   /**
    * The public display name of the shop's billing plan. Possible values are:
    * Advanced, Agentic, Agentic Enterprise, Basic, Development, Grow, Inactive,
-   * Lite, Other, Paused, Plus, Plus Trial, Retail, Shop Component, Shopify
-   * Finance, Staff Business, Starter, and Trial.
+   * Lite, Other, Paused, Plus, Plus Trial, Retail, Shop Component, Staff Business,
+   * Starter, and Trial.
    */
   public String getPublicDisplayName() {
     return publicDisplayName;
@@ -123,8 +123,8 @@ public class ShopPlan {
     /**
      * The public display name of the shop's billing plan. Possible values are:
      * Advanced, Agentic, Agentic Enterprise, Basic, Development, Grow, Inactive,
-     * Lite, Other, Paused, Plus, Plus Trial, Retail, Shop Component, Shopify
-     * Finance, Staff Business, Starter, and Trial.
+     * Lite, Other, Paused, Plus, Plus Trial, Retail, Shop Component, Staff Business,
+     * Starter, and Trial.
      */
     private String publicDisplayName;
 
@@ -161,8 +161,8 @@ public class ShopPlan {
     /**
      * The public display name of the shop's billing plan. Possible values are:
      * Advanced, Agentic, Agentic Enterprise, Basic, Development, Grow, Inactive,
-     * Lite, Other, Paused, Plus, Plus Trial, Retail, Shop Component, Shopify
-     * Finance, Staff Business, Starter, and Trial.
+     * Lite, Other, Paused, Plus, Plus Trial, Retail, Shop Component, Staff Business,
+     * Starter, and Trial.
      */
     public Builder publicDisplayName(String publicDisplayName) {
       this.publicDisplayName = publicDisplayName;

@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.PublicationUpdateInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -26,6 +31,24 @@ public class PublicationUpdateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public PublicationUpdateGraphQLQuery(String id, PublicationUpdateInput input, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (input != null || fieldsSet.contains("input")) {
+        getInput().put("input", input);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public PublicationUpdateGraphQLQuery() {
     super("mutation");
   }
@@ -42,6 +65,10 @@ public class PublicationUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private PublicationUpdateInput input;
@@ -49,7 +76,7 @@ public class PublicationUpdateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public PublicationUpdateGraphQLQuery build() {
-      return new PublicationUpdateGraphQLQuery(id, input, queryName, fieldsSet);
+      return new PublicationUpdateGraphQLQuery(id, input, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -63,10 +90,30 @@ public class PublicationUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the publication to update.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The input fields to use when updating the publication.
      */
     public Builder input(PublicationUpdateInput input) {
       this.input = input;
+      this.fieldsSet.add("input");
+      return this;
+    }
+
+    /**
+     * The input fields to use when updating the publication.
+     */
+    public Builder inputReference(String variableRef) {
+      this.variableReferences.put("input", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("PublicationUpdateInput"))).build());
       this.fieldsSet.add("input");
       return this;
     }

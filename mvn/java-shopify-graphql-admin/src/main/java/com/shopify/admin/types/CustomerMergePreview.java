@@ -7,7 +7,8 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * A preview of the results of a customer merge request.
+ * A preview of the results of a customer merge request. Use `resultingCustomerId` to check which customer
+ * would be kept before running `customerMerge`.
  */
 public class CustomerMergePreview {
   /**
@@ -31,7 +32,7 @@ public class CustomerMergePreview {
   private CustomerMergePreviewDefaultFields defaultFields;
 
   /**
-   * The resulting customer ID if the two customers are merged.
+   * The ID of the customer that would be kept if the two customers were merged.
    */
   private String resultingCustomerId;
 
@@ -83,7 +84,7 @@ public class CustomerMergePreview {
   }
 
   /**
-   * The resulting customer ID if the two customers are merged.
+   * The ID of the customer that would be kept if the two customers were merged.
    */
   public String getResultingCustomerId() {
     return resultingCustomerId;
@@ -141,7 +142,7 @@ public class CustomerMergePreview {
     private CustomerMergePreviewDefaultFields defaultFields;
 
     /**
-     * The resulting customer ID if the two customers are merged.
+     * The ID of the customer that would be kept if the two customers were merged.
      */
     private String resultingCustomerId;
 
@@ -188,7 +189,7 @@ public class CustomerMergePreview {
     }
 
     /**
-     * The resulting customer ID if the two customers are merged.
+     * The ID of the customer that would be kept if the two customers were merged.
      */
     public Builder resultingCustomerId(String resultingCustomerId) {
       this.resultingCustomerId = resultingCustomerId;

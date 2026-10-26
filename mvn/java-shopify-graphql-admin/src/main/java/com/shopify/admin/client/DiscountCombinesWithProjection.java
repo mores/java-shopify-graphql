@@ -22,6 +22,11 @@ public class DiscountCombinesWithProjection<PARENT extends BaseSubProjectionNode
     return this;
   }
 
+  public DiscountCombinesWithProjection<PARENT, ROOT> productDiscountsWithTagsOnSameCartLine() {
+    getFields().put("productDiscountsWithTagsOnSameCartLine", null);
+    return this;
+  }
+
   public DiscountCombinesWithProjection<PARENT, ROOT> shippingDiscounts() {
     getFields().put("shippingDiscounts", null);
     return this;

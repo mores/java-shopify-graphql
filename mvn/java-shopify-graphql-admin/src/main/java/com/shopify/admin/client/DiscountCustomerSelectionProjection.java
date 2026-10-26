@@ -26,6 +26,13 @@ public class DiscountCustomerSelectionProjection<PARENT extends BaseSubProjectio
     return fragment;
   }
 
+  public DiscountCustomerSelectionUnknownFragmentProjection<DiscountCustomerSelectionProjection<PARENT, ROOT>, ROOT> onDiscountCustomerSelectionUnknown(
+      ) {
+    DiscountCustomerSelectionUnknownFragmentProjection<DiscountCustomerSelectionProjection<PARENT, ROOT>, ROOT> fragment = new DiscountCustomerSelectionUnknownFragmentProjection<>(this, getRoot());
+    getFragments().add(fragment);
+    return fragment;
+  }
+
   public DiscountCustomersFragmentProjection<DiscountCustomerSelectionProjection<PARENT, ROOT>, ROOT> onDiscountCustomers(
       ) {
     DiscountCustomersFragmentProjection<DiscountCustomerSelectionProjection<PARENT, ROOT>, ROOT> fragment = new DiscountCustomersFragmentProjection<>(this, getRoot());

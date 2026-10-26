@@ -30,7 +30,7 @@ import java.util.Objects;
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
-public class DiscountAutomaticApp implements Discount, DiscountAutomatic {
+public class DiscountAutomaticApp implements Discount, DiscountAutomatic, com.shopify.admin.types.HasRollouts {
   /**
    * The details about the app extension that's providing the
    * [discount type](https://help.shopify.com/manual/discounts/discount-types).
@@ -122,6 +122,15 @@ public class DiscountAutomaticApp implements Discount, DiscountAutomatic {
    * subscription. If you specify `0`, then the discount applies indefinitely.
    */
   private int recurringCycleLimit;
+
+  /**
+   * The rollouts that include this discount. A rollout includes a discount when
+   * one of its treatments adds or removes the discount. Walk
+   * `treatments.changes` to see what each treatment does to the discount.
+   * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+   * Use `query` to filter by rollout `status`.
+   */
+  private RolloutConnection rollouts;
 
   /**
    * The date and time when the discount becomes active and is available to customers.
@@ -325,6 +334,21 @@ public class DiscountAutomaticApp implements Discount, DiscountAutomatic {
   }
 
   /**
+   * The rollouts that include this discount. A rollout includes a discount when
+   * one of its treatments adds or removes the discount. Walk
+   * `treatments.changes` to see what each treatment does to the discount.
+   * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+   * Use `query` to filter by rollout `status`.
+   */
+  public RolloutConnection getRollouts() {
+    return rollouts;
+  }
+
+  public void setRollouts(RolloutConnection rollouts) {
+    this.rollouts = rollouts;
+  }
+
+  /**
    * The date and time when the discount becomes active and is available to customers.
    */
   public OffsetDateTime getStartsAt() {
@@ -384,7 +408,7 @@ public class DiscountAutomaticApp implements Discount, DiscountAutomatic {
 
   @Override
   public String toString() {
-    return "DiscountAutomaticApp{appDiscountType='" + appDiscountType + "', appliesOnOneTimePurchase='" + appliesOnOneTimePurchase + "', appliesOnSubscription='" + appliesOnSubscription + "', asyncUsageCount='" + asyncUsageCount + "', combinesWith='" + combinesWith + "', context='" + context + "', createdAt='" + createdAt + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', discountId='" + discountId + "', endsAt='" + endsAt + "', errorHistory='" + errorHistory + "', recurringCycleLimit='" + recurringCycleLimit + "', startsAt='" + startsAt + "', status='" + status + "', tags='" + tags + "', title='" + title + "', updatedAt='" + updatedAt + "'}";
+    return "DiscountAutomaticApp{appDiscountType='" + appDiscountType + "', appliesOnOneTimePurchase='" + appliesOnOneTimePurchase + "', appliesOnSubscription='" + appliesOnSubscription + "', asyncUsageCount='" + asyncUsageCount + "', combinesWith='" + combinesWith + "', context='" + context + "', createdAt='" + createdAt + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', discountId='" + discountId + "', endsAt='" + endsAt + "', errorHistory='" + errorHistory + "', recurringCycleLimit='" + recurringCycleLimit + "', rollouts='" + rollouts + "', startsAt='" + startsAt + "', status='" + status + "', tags='" + tags + "', title='" + title + "', updatedAt='" + updatedAt + "'}";
   }
 
   @Override
@@ -405,6 +429,7 @@ public class DiscountAutomaticApp implements Discount, DiscountAutomatic {
         Objects.equals(endsAt, that.endsAt) &&
         Objects.equals(errorHistory, that.errorHistory) &&
         recurringCycleLimit == that.recurringCycleLimit &&
+        Objects.equals(rollouts, that.rollouts) &&
         Objects.equals(startsAt, that.startsAt) &&
         Objects.equals(status, that.status) &&
         Objects.equals(tags, that.tags) &&
@@ -414,7 +439,7 @@ public class DiscountAutomaticApp implements Discount, DiscountAutomatic {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appDiscountType, appliesOnOneTimePurchase, appliesOnSubscription, asyncUsageCount, combinesWith, context, createdAt, discountClass, discountClasses, discountId, endsAt, errorHistory, recurringCycleLimit, startsAt, status, tags, title, updatedAt);
+    return Objects.hash(appDiscountType, appliesOnOneTimePurchase, appliesOnSubscription, asyncUsageCount, combinesWith, context, createdAt, discountClass, discountClasses, discountId, endsAt, errorHistory, recurringCycleLimit, rollouts, startsAt, status, tags, title, updatedAt);
   }
 
   public static Builder newBuilder() {
@@ -515,6 +540,15 @@ public class DiscountAutomaticApp implements Discount, DiscountAutomatic {
     private int recurringCycleLimit;
 
     /**
+     * The rollouts that include this discount. A rollout includes a discount when
+     * one of its treatments adds or removes the discount. Walk
+     * `treatments.changes` to see what each treatment does to the discount.
+     * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+     * Use `query` to filter by rollout `status`.
+     */
+    private RolloutConnection rollouts;
+
+    /**
      * The date and time when the discount becomes active and is available to customers.
      */
     private OffsetDateTime startsAt;
@@ -557,6 +591,7 @@ public class DiscountAutomaticApp implements Discount, DiscountAutomatic {
       result.endsAt = this.endsAt;
       result.errorHistory = this.errorHistory;
       result.recurringCycleLimit = this.recurringCycleLimit;
+      result.rollouts = this.rollouts;
       result.startsAt = this.startsAt;
       result.status = this.status;
       result.tags = this.tags;
@@ -693,6 +728,18 @@ public class DiscountAutomaticApp implements Discount, DiscountAutomatic {
      */
     public Builder recurringCycleLimit(int recurringCycleLimit) {
       this.recurringCycleLimit = recurringCycleLimit;
+      return this;
+    }
+
+    /**
+     * The rollouts that include this discount. A rollout includes a discount when
+     * one of its treatments adds or removes the discount. Walk
+     * `treatments.changes` to see what each treatment does to the discount.
+     * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+     * Use `query` to filter by rollout `status`.
+     */
+    public Builder rollouts(RolloutConnection rollouts) {
+      this.rollouts = rollouts;
       return this;
     }
 

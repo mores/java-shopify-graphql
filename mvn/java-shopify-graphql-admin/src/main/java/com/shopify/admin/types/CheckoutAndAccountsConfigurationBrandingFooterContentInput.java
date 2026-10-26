@@ -10,7 +10,9 @@ import java.util.Objects;
  */
 public class CheckoutAndAccountsConfigurationBrandingFooterContentInput {
   /**
-   * The visibility customizations for footer content.
+   * The visibility of the footer content. Shopify reserves the right to add
+   * required legal notices to the footer and prevent them from being modified or
+   * hidden. This setting doesn't control the visibility of those notices.
    */
   private CheckoutAndAccountsConfigurationBrandingVisibility visibility;
 
@@ -18,7 +20,9 @@ public class CheckoutAndAccountsConfigurationBrandingFooterContentInput {
   }
 
   /**
-   * The visibility customizations for footer content.
+   * The visibility of the footer content. Shopify reserves the right to add
+   * required legal notices to the footer and prevent them from being modified or
+   * hidden. This setting doesn't control the visibility of those notices.
    */
   public CheckoutAndAccountsConfigurationBrandingVisibility getVisibility() {
     return visibility;
@@ -52,7 +56,9 @@ public class CheckoutAndAccountsConfigurationBrandingFooterContentInput {
 
   public static class Builder {
     /**
-     * The visibility customizations for footer content.
+     * The visibility of the footer content. Shopify reserves the right to add
+     * required legal notices to the footer and prevent them from being modified or
+     * hidden. This setting doesn't control the visibility of those notices.
      */
     private CheckoutAndAccountsConfigurationBrandingVisibility visibility;
 
@@ -63,7 +69,9 @@ public class CheckoutAndAccountsConfigurationBrandingFooterContentInput {
     }
 
     /**
-     * The visibility customizations for footer content.
+     * The visibility of the footer content. Shopify reserves the right to add
+     * required legal notices to the footer and prevent them from being modified or
+     * hidden. This setting doesn't control the visibility of those notices.
      */
     public Builder visibility(CheckoutAndAccountsConfigurationBrandingVisibility visibility) {
       this.visibility = visibility;

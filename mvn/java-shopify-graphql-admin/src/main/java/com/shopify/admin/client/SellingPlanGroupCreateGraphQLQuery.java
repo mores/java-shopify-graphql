@@ -3,9 +3,14 @@ package com.shopify.admin.client;
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.SellingPlanGroupInput;
 import com.shopify.admin.types.SellingPlanGroupResourceInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -31,6 +36,24 @@ public class SellingPlanGroupCreateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public SellingPlanGroupCreateGraphQLQuery(SellingPlanGroupInput input,
+      SellingPlanGroupResourceInput resources, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (input != null || fieldsSet.contains("input")) {
+        getInput().put("input", input);
+    }if (resources != null || fieldsSet.contains("resources")) {
+        getInput().put("resources", resources);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public SellingPlanGroupCreateGraphQLQuery() {
     super("mutation");
   }
@@ -47,6 +70,10 @@ public class SellingPlanGroupCreateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private SellingPlanGroupInput input;
 
     private SellingPlanGroupResourceInput resources;
@@ -54,7 +81,7 @@ public class SellingPlanGroupCreateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public SellingPlanGroupCreateGraphQLQuery build() {
-      return new SellingPlanGroupCreateGraphQLQuery(input, resources, queryName, fieldsSet);
+      return new SellingPlanGroupCreateGraphQLQuery(input, resources, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -68,10 +95,30 @@ public class SellingPlanGroupCreateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The properties of the new Selling Plan Group.
+     */
+    public Builder inputReference(String variableRef) {
+      this.variableReferences.put("input", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("SellingPlanGroupInput"))).build());
+      this.fieldsSet.add("input");
+      return this;
+    }
+
+    /**
      * The resources this Selling Plan Group should be applied to.
      */
     public Builder resources(SellingPlanGroupResourceInput resources) {
       this.resources = resources;
+      this.fieldsSet.add("resources");
+      return this;
+    }
+
+    /**
+     * The resources this Selling Plan Group should be applied to.
+     */
+    public Builder resourcesReference(String variableRef) {
+      this.variableReferences.put("resources", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("SellingPlanGroupResourceInput")).build());
       this.fieldsSet.add("resources");
       return this;
     }

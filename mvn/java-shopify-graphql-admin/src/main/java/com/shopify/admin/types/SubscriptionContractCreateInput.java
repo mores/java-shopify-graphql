@@ -11,6 +11,11 @@ import java.util.Objects;
  */
 public class SubscriptionContractCreateInput {
   /**
+   * The actor who initiated a subscription action.
+   */
+  private SubscriptionActor actor;
+
+  /**
    * The ID of the customer to associate with the subscription contract.
    */
   private String customerId;
@@ -31,6 +36,17 @@ public class SubscriptionContractCreateInput {
   private SubscriptionDraftInput contract;
 
   public SubscriptionContractCreateInput() {
+  }
+
+  /**
+   * The actor who initiated a subscription action.
+   */
+  public SubscriptionActor getActor() {
+    return actor;
+  }
+
+  public void setActor(SubscriptionActor actor) {
+    this.actor = actor;
   }
 
   /**
@@ -79,7 +95,7 @@ public class SubscriptionContractCreateInput {
 
   @Override
   public String toString() {
-    return "SubscriptionContractCreateInput{customerId='" + customerId + "', nextBillingDate='" + nextBillingDate + "', currencyCode='" + currencyCode + "', contract='" + contract + "'}";
+    return "SubscriptionContractCreateInput{actor='" + actor + "', customerId='" + customerId + "', nextBillingDate='" + nextBillingDate + "', currencyCode='" + currencyCode + "', contract='" + contract + "'}";
   }
 
   @Override
@@ -87,7 +103,8 @@ public class SubscriptionContractCreateInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     SubscriptionContractCreateInput that = (SubscriptionContractCreateInput) o;
-    return Objects.equals(customerId, that.customerId) &&
+    return Objects.equals(actor, that.actor) &&
+        Objects.equals(customerId, that.customerId) &&
         Objects.equals(nextBillingDate, that.nextBillingDate) &&
         Objects.equals(currencyCode, that.currencyCode) &&
         Objects.equals(contract, that.contract);
@@ -95,7 +112,7 @@ public class SubscriptionContractCreateInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerId, nextBillingDate, currencyCode, contract);
+    return Objects.hash(actor, customerId, nextBillingDate, currencyCode, contract);
   }
 
   public static Builder newBuilder() {
@@ -103,6 +120,11 @@ public class SubscriptionContractCreateInput {
   }
 
   public static class Builder {
+    /**
+     * The actor who initiated a subscription action.
+     */
+    private SubscriptionActor actor;
+
     /**
      * The ID of the customer to associate with the subscription contract.
      */
@@ -125,11 +147,20 @@ public class SubscriptionContractCreateInput {
 
     public SubscriptionContractCreateInput build() {
       SubscriptionContractCreateInput result = new SubscriptionContractCreateInput();
+      result.actor = this.actor;
       result.customerId = this.customerId;
       result.nextBillingDate = this.nextBillingDate;
       result.currencyCode = this.currencyCode;
       result.contract = this.contract;
       return result;
+    }
+
+    /**
+     * The actor who initiated a subscription action.
+     */
+    public Builder actor(SubscriptionActor actor) {
+      this.actor = actor;
+      return this;
     }
 
     /**

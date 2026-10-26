@@ -17,6 +17,13 @@ public class ProductVariantContextualPricingProjection<PARENT extends BaseSubPro
     return this;
   }
 
+  public PricingAuditTrailProjection<ProductVariantContextualPricingProjection<PARENT, ROOT>, ROOT> auditTrail(
+      ) {
+     PricingAuditTrailProjection<ProductVariantContextualPricingProjection<PARENT, ROOT>, ROOT> projection = new PricingAuditTrailProjection<>(this, getRoot());
+     getFields().put("auditTrail", projection);
+     return projection;
+  }
+
   public MoneyV2Projection<ProductVariantContextualPricingProjection<PARENT, ROOT>, ROOT> compareAtPrice(
       ) {
      MoneyV2Projection<ProductVariantContextualPricingProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());
@@ -43,17 +50,38 @@ public class ProductVariantContextualPricingProjection<PARENT extends BaseSubPro
     QuantityPriceBreakConnectionProjection<ProductVariantContextualPricingProjection<PARENT, ROOT>, ROOT> projection = new QuantityPriceBreakConnectionProjection<>(this, getRoot());    
     getFields().put("quantityPriceBreaks", projection);
     getInputArguments().computeIfAbsent("quantityPriceBreaks", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("quantityPriceBreaks").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("quantityPriceBreaks").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("quantityPriceBreaks").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("quantityPriceBreaks").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
     getInputArguments().get("quantityPriceBreaks").add(reverseArg);
-    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey, false, null);
+    getInputArguments().get("quantityPriceBreaks").add(sortKeyArg);
+    return projection;
+  }
+
+  public QuantityPriceBreakConnectionProjection<ProductVariantContextualPricingProjection<PARENT, ROOT>, ROOT> quantityPriceBreaksWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference, String sortKeyReference) {
+    QuantityPriceBreakConnectionProjection<ProductVariantContextualPricingProjection<PARENT, ROOT>, ROOT> projection = new QuantityPriceBreakConnectionProjection<>(this, getRoot());    
+    getFields().put("quantityPriceBreaks", projection);
+    getInputArguments().computeIfAbsent("quantityPriceBreaks", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("quantityPriceBreaks").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("quantityPriceBreaks").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("quantityPriceBreaks").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("quantityPriceBreaks").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("quantityPriceBreaks").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKeyReference, true, new graphql.language.TypeName("QuantityPriceBreakSortKeys"));
     getInputArguments().get("quantityPriceBreaks").add(sortKeyArg);
     return projection;
   }

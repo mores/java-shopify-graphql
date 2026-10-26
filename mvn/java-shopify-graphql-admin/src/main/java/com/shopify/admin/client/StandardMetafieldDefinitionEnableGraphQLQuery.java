@@ -4,10 +4,15 @@ import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.MetafieldCapabilityCreateInput;
 import com.shopify.admin.types.MetafieldOwnerType;
 import com.shopify.admin.types.StandardMetafieldDefinitionAccessInput;
+import graphql.language.VariableDefinition;
 import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -37,6 +42,35 @@ public class StandardMetafieldDefinitionEnableGraphQLQuery extends GraphQLQuery 
     }
   }
 
+  public StandardMetafieldDefinitionEnableGraphQLQuery(MetafieldOwnerType ownerType, String id,
+      String namespace, String key, Boolean pin, MetafieldCapabilityCreateInput capabilities,
+      StandardMetafieldDefinitionAccessInput access, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (ownerType != null || fieldsSet.contains("ownerType")) {
+        getInput().put("ownerType", ownerType);
+    }if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (namespace != null || fieldsSet.contains("namespace")) {
+        getInput().put("namespace", namespace);
+    }if (key != null || fieldsSet.contains("key")) {
+        getInput().put("key", key);
+    }if (pin != null || fieldsSet.contains("pin")) {
+        getInput().put("pin", pin);
+    }if (capabilities != null || fieldsSet.contains("capabilities")) {
+        getInput().put("capabilities", capabilities);
+    }if (access != null || fieldsSet.contains("access")) {
+        getInput().put("access", access);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public StandardMetafieldDefinitionEnableGraphQLQuery() {
     super("mutation");
   }
@@ -52,6 +86,10 @@ public class StandardMetafieldDefinitionEnableGraphQLQuery extends GraphQLQuery 
 
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
+
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
 
     private MetafieldOwnerType ownerType;
 
@@ -70,7 +108,7 @@ public class StandardMetafieldDefinitionEnableGraphQLQuery extends GraphQLQuery 
     private String queryName;
 
     public StandardMetafieldDefinitionEnableGraphQLQuery build() {
-      return new StandardMetafieldDefinitionEnableGraphQLQuery(ownerType, id, namespace, key, pin, capabilities, access, queryName, fieldsSet);
+      return new StandardMetafieldDefinitionEnableGraphQLQuery(ownerType, id, namespace, key, pin, capabilities, access, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -79,6 +117,16 @@ public class StandardMetafieldDefinitionEnableGraphQLQuery extends GraphQLQuery 
      */
     public Builder ownerType(MetafieldOwnerType ownerType) {
       this.ownerType = ownerType;
+      this.fieldsSet.add("ownerType");
+      return this;
+    }
+
+    /**
+     * The resource type that the metafield definition is scoped to.
+     */
+    public Builder ownerTypeReference(String variableRef) {
+      this.variableReferences.put("ownerType", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("MetafieldOwnerType"))).build());
       this.fieldsSet.add("ownerType");
       return this;
     }
@@ -93,10 +141,30 @@ public class StandardMetafieldDefinitionEnableGraphQLQuery extends GraphQLQuery 
     }
 
     /**
+     * The ID of the standard metafield definition template to enable.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("ID")).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The namespace of the standard metafield to enable. Used in combination with `key`.
      */
     public Builder namespace(String namespace) {
       this.namespace = namespace;
+      this.fieldsSet.add("namespace");
+      return this;
+    }
+
+    /**
+     * The namespace of the standard metafield to enable. Used in combination with `key`.
+     */
+    public Builder namespaceReference(String variableRef) {
+      this.variableReferences.put("namespace", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
       this.fieldsSet.add("namespace");
       return this;
     }
@@ -111,10 +179,30 @@ public class StandardMetafieldDefinitionEnableGraphQLQuery extends GraphQLQuery 
     }
 
     /**
+     * The key of the standard metafield to enable. Used in combination with `namespace`.
+     */
+    public Builder keyReference(String variableRef) {
+      this.variableReferences.put("key", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
+      this.fieldsSet.add("key");
+      return this;
+    }
+
+    /**
      * Whether to pin the metafield definition.
      */
     public Builder pin(Boolean pin) {
       this.pin = pin;
+      this.fieldsSet.add("pin");
+      return this;
+    }
+
+    /**
+     * Whether to pin the metafield definition.
+     */
+    public Builder pinReference(String variableRef) {
+      this.variableReferences.put("pin", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Boolean")).build());
       this.fieldsSet.add("pin");
       return this;
     }
@@ -129,10 +217,30 @@ public class StandardMetafieldDefinitionEnableGraphQLQuery extends GraphQLQuery 
     }
 
     /**
+     * The capabilities of the metafield definition.
+     */
+    public Builder capabilitiesReference(String variableRef) {
+      this.variableReferences.put("capabilities", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("MetafieldCapabilityCreateInput")).build());
+      this.fieldsSet.add("capabilities");
+      return this;
+    }
+
+    /**
      * The access settings that apply to each of the metafields that belong to the metafield definition.
      */
     public Builder access(StandardMetafieldDefinitionAccessInput access) {
       this.access = access;
+      this.fieldsSet.add("access");
+      return this;
+    }
+
+    /**
+     * The access settings that apply to each of the metafields that belong to the metafield definition.
+     */
+    public Builder accessReference(String variableRef) {
+      this.variableReferences.put("access", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("StandardMetafieldDefinitionAccessInput")).build());
       this.fieldsSet.add("access");
       return this;
     }

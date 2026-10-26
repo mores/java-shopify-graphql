@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 @JsonSubTypes({
     @JsonSubTypes.Type(value = DiscountCustomerAll.class, name = "DiscountCustomerAll"),
     @JsonSubTypes.Type(value = DiscountCustomerSegments.class, name = "DiscountCustomerSegments"),
+    @JsonSubTypes.Type(value = DiscountCustomerSelectionUnknown.class, name = "DiscountCustomerSelectionUnknown"),
     @JsonSubTypes.Type(value = DiscountCustomers.class, name = "DiscountCustomers")
 })
 public interface DiscountCustomerSelection {

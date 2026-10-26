@@ -12,7 +12,12 @@ import java.lang.String;
     include = JsonTypeInfo.As.PROPERTY,
     property = "__typename"
 )
-@JsonSubTypes(@JsonSubTypes.Type(value = CustomerSegmentMembersQuery.class, name = "CustomerSegmentMembersQuery"))
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = CustomerSegmentMembersQuery.class, name = "CustomerSegmentMembersQuery"),
+    @JsonSubTypes.Type(value = OrderCancelJobResult.class, name = "OrderCancelJobResult"),
+    @JsonSubTypes.Type(value = OrderCreateMandatePaymentJobResult.class, name = "OrderCreateMandatePaymentJobResult"),
+    @JsonSubTypes.Type(value = ShippingLabelPurchaseResult.class, name = "ShippingLabelPurchaseResult")
+})
 public interface JobResult {
   /**
    * This indicates if the job is still queued or has been run.

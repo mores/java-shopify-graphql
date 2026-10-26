@@ -2,10 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.TaxExemption;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -20,6 +24,24 @@ public class CompanyLocationRevokeTaxExemptionsGraphQLQuery extends GraphQLQuery
     }if (taxExemptions != null || fieldsSet.contains("taxExemptions")) {
         getInput().put("taxExemptions", taxExemptions);
     }
+  }
+
+  public CompanyLocationRevokeTaxExemptionsGraphQLQuery(String companyLocationId,
+      List<TaxExemption> taxExemptions, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (companyLocationId != null || fieldsSet.contains("companyLocationId")) {
+        getInput().put("companyLocationId", companyLocationId);
+    }if (taxExemptions != null || fieldsSet.contains("taxExemptions")) {
+        getInput().put("taxExemptions", taxExemptions);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public CompanyLocationRevokeTaxExemptionsGraphQLQuery() {
@@ -38,6 +60,10 @@ public class CompanyLocationRevokeTaxExemptionsGraphQLQuery extends GraphQLQuery
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String companyLocationId;
 
     private List<TaxExemption> taxExemptions;
@@ -45,7 +71,7 @@ public class CompanyLocationRevokeTaxExemptionsGraphQLQuery extends GraphQLQuery
     private String queryName;
 
     public CompanyLocationRevokeTaxExemptionsGraphQLQuery build() {
-      return new CompanyLocationRevokeTaxExemptionsGraphQLQuery(companyLocationId, taxExemptions, queryName, fieldsSet);
+      return new CompanyLocationRevokeTaxExemptionsGraphQLQuery(companyLocationId, taxExemptions, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -59,10 +85,30 @@ public class CompanyLocationRevokeTaxExemptionsGraphQLQuery extends GraphQLQuery
     }
 
     /**
+     * The location from which the tax exemptions will be revoked.
+     */
+    public Builder companyLocationIdReference(String variableRef) {
+      this.variableReferences.put("companyLocationId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("companyLocationId");
+      return this;
+    }
+
+    /**
      * The tax exemptions that are being revoked from the location.
      */
     public Builder taxExemptions(List<TaxExemption> taxExemptions) {
       this.taxExemptions = taxExemptions;
+      this.fieldsSet.add("taxExemptions");
+      return this;
+    }
+
+    /**
+     * The tax exemptions that are being revoked from the location.
+     */
+    public Builder taxExemptionsReference(String variableRef) {
+      this.variableReferences.put("taxExemptions", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("TaxExemption"))))).build());
       this.fieldsSet.add("taxExemptions");
       return this;
     }

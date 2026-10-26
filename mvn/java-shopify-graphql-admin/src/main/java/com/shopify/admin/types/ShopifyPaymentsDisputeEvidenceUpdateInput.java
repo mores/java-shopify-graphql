@@ -1,6 +1,5 @@
 package com.shopify.admin.types;
 
-import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
@@ -89,11 +88,6 @@ public class ShopifyPaymentsDisputeEvidenceUpdateInput {
    * Service documentation file.
    */
   private ShopifyPaymentsDisputeFileUploadUpdateInput serviceDocumentationFile;
-
-  /**
-   * Whether to submit the evidence.
-   */
-  private Boolean submitEvidence = false;
 
   public ShopifyPaymentsDisputeEvidenceUpdateInput() {
   }
@@ -278,20 +272,9 @@ public class ShopifyPaymentsDisputeEvidenceUpdateInput {
     this.serviceDocumentationFile = serviceDocumentationFile;
   }
 
-  /**
-   * Whether to submit the evidence.
-   */
-  public Boolean getSubmitEvidence() {
-    return submitEvidence;
-  }
-
-  public void setSubmitEvidence(Boolean submitEvidence) {
-    this.submitEvidence = submitEvidence;
-  }
-
   @Override
   public String toString() {
-    return "ShopifyPaymentsDisputeEvidenceUpdateInput{customerEmailAddress='" + customerEmailAddress + "', customerLastName='" + customerLastName + "', customerFirstName='" + customerFirstName + "', shippingAddress='" + shippingAddress + "', uncategorizedText='" + uncategorizedText + "', accessActivityLog='" + accessActivityLog + "', cancellationPolicyDisclosure='" + cancellationPolicyDisclosure + "', cancellationRebuttal='" + cancellationRebuttal + "', refundPolicyDisclosure='" + refundPolicyDisclosure + "', refundRefusalExplanation='" + refundRefusalExplanation + "', cancellationPolicyFile='" + cancellationPolicyFile + "', customerCommunicationFile='" + customerCommunicationFile + "', refundPolicyFile='" + refundPolicyFile + "', shippingDocumentationFile='" + shippingDocumentationFile + "', uncategorizedFile='" + uncategorizedFile + "', serviceDocumentationFile='" + serviceDocumentationFile + "', submitEvidence='" + submitEvidence + "'}";
+    return "ShopifyPaymentsDisputeEvidenceUpdateInput{customerEmailAddress='" + customerEmailAddress + "', customerLastName='" + customerLastName + "', customerFirstName='" + customerFirstName + "', shippingAddress='" + shippingAddress + "', uncategorizedText='" + uncategorizedText + "', accessActivityLog='" + accessActivityLog + "', cancellationPolicyDisclosure='" + cancellationPolicyDisclosure + "', cancellationRebuttal='" + cancellationRebuttal + "', refundPolicyDisclosure='" + refundPolicyDisclosure + "', refundRefusalExplanation='" + refundRefusalExplanation + "', cancellationPolicyFile='" + cancellationPolicyFile + "', customerCommunicationFile='" + customerCommunicationFile + "', refundPolicyFile='" + refundPolicyFile + "', shippingDocumentationFile='" + shippingDocumentationFile + "', uncategorizedFile='" + uncategorizedFile + "', serviceDocumentationFile='" + serviceDocumentationFile + "'}";
   }
 
   @Override
@@ -314,13 +297,12 @@ public class ShopifyPaymentsDisputeEvidenceUpdateInput {
         Objects.equals(refundPolicyFile, that.refundPolicyFile) &&
         Objects.equals(shippingDocumentationFile, that.shippingDocumentationFile) &&
         Objects.equals(uncategorizedFile, that.uncategorizedFile) &&
-        Objects.equals(serviceDocumentationFile, that.serviceDocumentationFile) &&
-        Objects.equals(submitEvidence, that.submitEvidence);
+        Objects.equals(serviceDocumentationFile, that.serviceDocumentationFile);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerEmailAddress, customerLastName, customerFirstName, shippingAddress, uncategorizedText, accessActivityLog, cancellationPolicyDisclosure, cancellationRebuttal, refundPolicyDisclosure, refundRefusalExplanation, cancellationPolicyFile, customerCommunicationFile, refundPolicyFile, shippingDocumentationFile, uncategorizedFile, serviceDocumentationFile, submitEvidence);
+    return Objects.hash(customerEmailAddress, customerLastName, customerFirstName, shippingAddress, uncategorizedText, accessActivityLog, cancellationPolicyDisclosure, cancellationRebuttal, refundPolicyDisclosure, refundRefusalExplanation, cancellationPolicyFile, customerCommunicationFile, refundPolicyFile, shippingDocumentationFile, uncategorizedFile, serviceDocumentationFile);
   }
 
   public static Builder newBuilder() {
@@ -408,11 +390,6 @@ public class ShopifyPaymentsDisputeEvidenceUpdateInput {
      */
     private ShopifyPaymentsDisputeFileUploadUpdateInput serviceDocumentationFile;
 
-    /**
-     * Whether to submit the evidence.
-     */
-    private Boolean submitEvidence = false;
-
     public ShopifyPaymentsDisputeEvidenceUpdateInput build() {
       ShopifyPaymentsDisputeEvidenceUpdateInput result = new ShopifyPaymentsDisputeEvidenceUpdateInput();
       result.customerEmailAddress = this.customerEmailAddress;
@@ -431,7 +408,6 @@ public class ShopifyPaymentsDisputeEvidenceUpdateInput {
       result.shippingDocumentationFile = this.shippingDocumentationFile;
       result.uncategorizedFile = this.uncategorizedFile;
       result.serviceDocumentationFile = this.serviceDocumentationFile;
-      result.submitEvidence = this.submitEvidence;
       return result;
     }
 
@@ -565,14 +541,6 @@ public class ShopifyPaymentsDisputeEvidenceUpdateInput {
     public Builder serviceDocumentationFile(
         ShopifyPaymentsDisputeFileUploadUpdateInput serviceDocumentationFile) {
       this.serviceDocumentationFile = serviceDocumentationFile;
-      return this;
-    }
-
-    /**
-     * Whether to submit the evidence.
-     */
-    public Builder submitEvidence(Boolean submitEvidence) {
-      this.submitEvidence = submitEvidence;
       return this;
     }
   }

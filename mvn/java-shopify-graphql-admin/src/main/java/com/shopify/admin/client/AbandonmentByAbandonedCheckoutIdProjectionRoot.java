@@ -70,15 +70,34 @@ public class AbandonmentByAbandonedCheckoutIdProjectionRoot<PARENT extends BaseS
     CustomerVisitProductInfoConnectionProjection<AbandonmentByAbandonedCheckoutIdProjectionRoot<PARENT, ROOT>, AbandonmentByAbandonedCheckoutIdProjectionRoot<PARENT, ROOT>> projection = new CustomerVisitProductInfoConnectionProjection<>(this, this);    
     getFields().put("productsAddedToCart", projection);
     getInputArguments().computeIfAbsent("productsAddedToCart", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("productsAddedToCart").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("productsAddedToCart").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("productsAddedToCart").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("productsAddedToCart").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("productsAddedToCart").add(reverseArg);
+    return projection;
+  }
+
+  public CustomerVisitProductInfoConnectionProjection<AbandonmentByAbandonedCheckoutIdProjectionRoot<PARENT, ROOT>, AbandonmentByAbandonedCheckoutIdProjectionRoot<PARENT, ROOT>> productsAddedToCartWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    CustomerVisitProductInfoConnectionProjection<AbandonmentByAbandonedCheckoutIdProjectionRoot<PARENT, ROOT>, AbandonmentByAbandonedCheckoutIdProjectionRoot<PARENT, ROOT>> projection = new CustomerVisitProductInfoConnectionProjection<>(this, this);    
+    getFields().put("productsAddedToCart", projection);
+    getInputArguments().computeIfAbsent("productsAddedToCart", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("productsAddedToCart").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("productsAddedToCart").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("productsAddedToCart").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("productsAddedToCart").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("productsAddedToCart").add(reverseArg);
     return projection;
   }
@@ -95,15 +114,34 @@ public class AbandonmentByAbandonedCheckoutIdProjectionRoot<PARENT extends BaseS
     CustomerVisitProductInfoConnectionProjection<AbandonmentByAbandonedCheckoutIdProjectionRoot<PARENT, ROOT>, AbandonmentByAbandonedCheckoutIdProjectionRoot<PARENT, ROOT>> projection = new CustomerVisitProductInfoConnectionProjection<>(this, this);    
     getFields().put("productsViewed", projection);
     getInputArguments().computeIfAbsent("productsViewed", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("productsViewed").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("productsViewed").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("productsViewed").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("productsViewed").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("productsViewed").add(reverseArg);
+    return projection;
+  }
+
+  public CustomerVisitProductInfoConnectionProjection<AbandonmentByAbandonedCheckoutIdProjectionRoot<PARENT, ROOT>, AbandonmentByAbandonedCheckoutIdProjectionRoot<PARENT, ROOT>> productsViewedWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    CustomerVisitProductInfoConnectionProjection<AbandonmentByAbandonedCheckoutIdProjectionRoot<PARENT, ROOT>, AbandonmentByAbandonedCheckoutIdProjectionRoot<PARENT, ROOT>> projection = new CustomerVisitProductInfoConnectionProjection<>(this, this);    
+    getFields().put("productsViewed", projection);
+    getInputArguments().computeIfAbsent("productsViewed", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("productsViewed").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("productsViewed").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("productsViewed").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("productsViewed").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("productsViewed").add(reverseArg);
     return projection;
   }

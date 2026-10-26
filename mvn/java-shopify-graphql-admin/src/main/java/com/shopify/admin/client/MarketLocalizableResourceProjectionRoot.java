@@ -33,7 +33,17 @@ public class MarketLocalizableResourceProjectionRoot<PARENT extends BaseSubProje
     MarketLocalizationProjection<MarketLocalizableResourceProjectionRoot<PARENT, ROOT>, MarketLocalizableResourceProjectionRoot<PARENT, ROOT>> projection = new MarketLocalizationProjection<>(this, this);    
     getFields().put("marketLocalizations", projection);
     getInputArguments().computeIfAbsent("marketLocalizations", k -> new ArrayList<>());                      
-    InputArgument marketIdArg = new InputArgument("marketId", marketId);
+    InputArgument marketIdArg = new InputArgument("marketId", marketId, false, null);
+    getInputArguments().get("marketLocalizations").add(marketIdArg);
+    return projection;
+  }
+
+  public MarketLocalizationProjection<MarketLocalizableResourceProjectionRoot<PARENT, ROOT>, MarketLocalizableResourceProjectionRoot<PARENT, ROOT>> marketLocalizationsWithVariableReferences(
+      String marketIdReference) {
+    MarketLocalizationProjection<MarketLocalizableResourceProjectionRoot<PARENT, ROOT>, MarketLocalizableResourceProjectionRoot<PARENT, ROOT>> projection = new MarketLocalizationProjection<>(this, this);    
+    getFields().put("marketLocalizations", projection);
+    getInputArguments().computeIfAbsent("marketLocalizations", k -> new ArrayList<>());              
+    InputArgument marketIdArg = new InputArgument("marketId", marketIdReference, true, new graphql.language.NonNullType(new graphql.language.TypeName("ID")));
     getInputArguments().get("marketLocalizations").add(marketIdArg);
     return projection;
   }

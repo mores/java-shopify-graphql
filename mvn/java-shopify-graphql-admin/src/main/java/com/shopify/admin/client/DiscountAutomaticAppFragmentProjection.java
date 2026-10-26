@@ -1,8 +1,11 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.BaseSubProjectionNode;
+import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
 
 public class DiscountAutomaticAppFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT extends BaseSubProjectionNode<?, ?>> extends BaseSubProjectionNode<PARENT, ROOT> {
   {
@@ -58,6 +61,54 @@ public class DiscountAutomaticAppFragmentProjection<PARENT extends BaseSubProjec
      FunctionsErrorHistoryProjection<DiscountAutomaticAppFragmentProjection<PARENT, ROOT>, ROOT> projection = new FunctionsErrorHistoryProjection<>(this, getRoot());
      getFields().put("errorHistory", projection);
      return projection;
+  }
+
+  public RolloutConnectionProjection<DiscountAutomaticAppFragmentProjection<PARENT, ROOT>, ROOT> rollouts(
+      ) {
+     RolloutConnectionProjection<DiscountAutomaticAppFragmentProjection<PARENT, ROOT>, ROOT> projection = new RolloutConnectionProjection<>(this, getRoot());
+     getFields().put("rollouts", projection);
+     return projection;
+  }
+
+  public RolloutConnectionProjection<DiscountAutomaticAppFragmentProjection<PARENT, ROOT>, ROOT> rollouts(
+      Integer first, String after, Integer last, String before, Boolean reverse, String query) {
+    RolloutConnectionProjection<DiscountAutomaticAppFragmentProjection<PARENT, ROOT>, ROOT> projection = new RolloutConnectionProjection<>(this, getRoot());    
+    getFields().put("rollouts", projection);
+    getInputArguments().computeIfAbsent("rollouts", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first, false, null);
+    getInputArguments().get("rollouts").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
+    getInputArguments().get("rollouts").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
+    getInputArguments().get("rollouts").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
+    getInputArguments().get("rollouts").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("rollouts").add(reverseArg);
+    InputArgument queryArg = new InputArgument("query", query, false, null);
+    getInputArguments().get("rollouts").add(queryArg);
+    return projection;
+  }
+
+  public RolloutConnectionProjection<DiscountAutomaticAppFragmentProjection<PARENT, ROOT>, ROOT> rolloutsWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference, String queryReference) {
+    RolloutConnectionProjection<DiscountAutomaticAppFragmentProjection<PARENT, ROOT>, ROOT> projection = new RolloutConnectionProjection<>(this, getRoot());    
+    getFields().put("rollouts", projection);
+    getInputArguments().computeIfAbsent("rollouts", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("rollouts").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("rollouts").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("rollouts").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("rollouts").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("rollouts").add(reverseArg);
+    InputArgument queryArg = new InputArgument("query", queryReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("rollouts").add(queryArg);
+    return projection;
   }
 
   public DiscountStatusProjection<DiscountAutomaticAppFragmentProjection<PARENT, ROOT>, ROOT> status(

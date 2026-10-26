@@ -219,20 +219,26 @@ public class OrderTransaction implements StoreCreditAccountTransactionOrigin, co
   private boolean test;
 
   /**
-   * Specifies the available amount to capture on the gateway.
-   * Only available when an amount is capturable or manually mark as paid.
+   * The amount of the original authorization that remains unsettled.
+   * During a pending capture, this reflects the full outstanding balance including the pending amount.
+   * When no capture is pending, this equals the capturable amount.
+   * Only available when an amount is capturable or manually marked as paid.
    */
   private String totalUnsettled;
 
   /**
-   * Specifies the available amount with currency to capture on the gateway in shop and presentment currencies.
-   * Only available when an amount is capturable or manually mark as paid.
+   * The amount of the original authorization that remains unsettled, in shop and presentment currencies.
+   * During a pending capture, this reflects the full outstanding balance including the pending amount.
+   * When no capture is pending, this equals the capturable amount.
+   * Only available when an amount is capturable or manually marked as paid.
    */
   private MoneyBag totalUnsettledSet;
 
   /**
-   * Specifies the available amount with currency to capture on the gateway.
-   * Only available when an amount is capturable or manually mark as paid.
+   * The amount with currency of the original authorization that remains unsettled.
+   * During a pending capture, this reflects the full outstanding balance including the pending amount.
+   * When no capture is pending, this equals the capturable amount.
+   * Only available when an amount is capturable or manually marked as paid.
    */
   private MoneyV2 totalUnsettledV2;
 
@@ -637,8 +643,10 @@ public class OrderTransaction implements StoreCreditAccountTransactionOrigin, co
   }
 
   /**
-   * Specifies the available amount to capture on the gateway.
-   * Only available when an amount is capturable or manually mark as paid.
+   * The amount of the original authorization that remains unsettled.
+   * During a pending capture, this reflects the full outstanding balance including the pending amount.
+   * When no capture is pending, this equals the capturable amount.
+   * Only available when an amount is capturable or manually marked as paid.
    */
   public String getTotalUnsettled() {
     return totalUnsettled;
@@ -649,8 +657,10 @@ public class OrderTransaction implements StoreCreditAccountTransactionOrigin, co
   }
 
   /**
-   * Specifies the available amount with currency to capture on the gateway in shop and presentment currencies.
-   * Only available when an amount is capturable or manually mark as paid.
+   * The amount of the original authorization that remains unsettled, in shop and presentment currencies.
+   * During a pending capture, this reflects the full outstanding balance including the pending amount.
+   * When no capture is pending, this equals the capturable amount.
+   * Only available when an amount is capturable or manually marked as paid.
    */
   public MoneyBag getTotalUnsettledSet() {
     return totalUnsettledSet;
@@ -661,8 +671,10 @@ public class OrderTransaction implements StoreCreditAccountTransactionOrigin, co
   }
 
   /**
-   * Specifies the available amount with currency to capture on the gateway.
-   * Only available when an amount is capturable or manually mark as paid.
+   * The amount with currency of the original authorization that remains unsettled.
+   * During a pending capture, this reflects the full outstanding balance including the pending amount.
+   * When no capture is pending, this equals the capturable amount.
+   * Only available when an amount is capturable or manually marked as paid.
    */
   public MoneyV2 getTotalUnsettledV2() {
     return totalUnsettledV2;
@@ -927,20 +939,26 @@ public class OrderTransaction implements StoreCreditAccountTransactionOrigin, co
     private boolean test;
 
     /**
-     * Specifies the available amount to capture on the gateway.
-     * Only available when an amount is capturable or manually mark as paid.
+     * The amount of the original authorization that remains unsettled.
+     * During a pending capture, this reflects the full outstanding balance including the pending amount.
+     * When no capture is pending, this equals the capturable amount.
+     * Only available when an amount is capturable or manually marked as paid.
      */
     private String totalUnsettled;
 
     /**
-     * Specifies the available amount with currency to capture on the gateway in shop and presentment currencies.
-     * Only available when an amount is capturable or manually mark as paid.
+     * The amount of the original authorization that remains unsettled, in shop and presentment currencies.
+     * During a pending capture, this reflects the full outstanding balance including the pending amount.
+     * When no capture is pending, this equals the capturable amount.
+     * Only available when an amount is capturable or manually marked as paid.
      */
     private MoneyBag totalUnsettledSet;
 
     /**
-     * Specifies the available amount with currency to capture on the gateway.
-     * Only available when an amount is capturable or manually mark as paid.
+     * The amount with currency of the original authorization that remains unsettled.
+     * During a pending capture, this reflects the full outstanding balance including the pending amount.
+     * When no capture is pending, this equals the capturable amount.
+     * Only available when an amount is capturable or manually marked as paid.
      */
     private MoneyV2 totalUnsettledV2;
 
@@ -1282,8 +1300,10 @@ public class OrderTransaction implements StoreCreditAccountTransactionOrigin, co
     }
 
     /**
-     * Specifies the available amount to capture on the gateway.
-     * Only available when an amount is capturable or manually mark as paid.
+     * The amount of the original authorization that remains unsettled.
+     * During a pending capture, this reflects the full outstanding balance including the pending amount.
+     * When no capture is pending, this equals the capturable amount.
+     * Only available when an amount is capturable or manually marked as paid.
      */
     public Builder totalUnsettled(String totalUnsettled) {
       this.totalUnsettled = totalUnsettled;
@@ -1291,8 +1311,10 @@ public class OrderTransaction implements StoreCreditAccountTransactionOrigin, co
     }
 
     /**
-     * Specifies the available amount with currency to capture on the gateway in shop and presentment currencies.
-     * Only available when an amount is capturable or manually mark as paid.
+     * The amount of the original authorization that remains unsettled, in shop and presentment currencies.
+     * During a pending capture, this reflects the full outstanding balance including the pending amount.
+     * When no capture is pending, this equals the capturable amount.
+     * Only available when an amount is capturable or manually marked as paid.
      */
     public Builder totalUnsettledSet(MoneyBag totalUnsettledSet) {
       this.totalUnsettledSet = totalUnsettledSet;
@@ -1300,8 +1322,10 @@ public class OrderTransaction implements StoreCreditAccountTransactionOrigin, co
     }
 
     /**
-     * Specifies the available amount with currency to capture on the gateway.
-     * Only available when an amount is capturable or manually mark as paid.
+     * The amount with currency of the original authorization that remains unsettled.
+     * During a pending capture, this reflects the full outstanding balance including the pending amount.
+     * When no capture is pending, this equals the capturable amount.
+     * Only available when an amount is capturable or manually marked as paid.
      */
     public Builder totalUnsettledV2(MoneyV2 totalUnsettledV2) {
       this.totalUnsettledV2 = totalUnsettledV2;

@@ -32,12 +32,13 @@ public class CollectionInput {
   private ImageInput image;
 
   /**
-   * Initial list of collection products. Only valid with `collectionCreate` and without rules.
+   * Initial list of collection products. Only valid with `collectionCreate`.
    */
   private List<String> products;
 
   /**
-   * The rules used to assign products to the collection.
+   * The rules used to assign products to the collection. This is the legacy smart-collection model;
+   * use `sources` with `conditions` instead. Each `ruleSet` rule has an equivalent `condition`.
    */
   private CollectionRuleSetInput ruleSet;
 
@@ -120,7 +121,7 @@ public class CollectionInput {
   }
 
   /**
-   * Initial list of collection products. Only valid with `collectionCreate` and without rules.
+   * Initial list of collection products. Only valid with `collectionCreate`.
    */
   public List<String> getProducts() {
     return products;
@@ -131,7 +132,8 @@ public class CollectionInput {
   }
 
   /**
-   * The rules used to assign products to the collection.
+   * The rules used to assign products to the collection. This is the legacy smart-collection model;
+   * use `sources` with `conditions` instead. Each `ruleSet` rule has an equivalent `condition`.
    */
   public CollectionRuleSetInput getRuleSet() {
     return ruleSet;
@@ -263,12 +265,13 @@ public class CollectionInput {
     private ImageInput image;
 
     /**
-     * Initial list of collection products. Only valid with `collectionCreate` and without rules.
+     * Initial list of collection products. Only valid with `collectionCreate`.
      */
     private List<String> products;
 
     /**
-     * The rules used to assign products to the collection.
+     * The rules used to assign products to the collection. This is the legacy smart-collection model;
+     * use `sources` with `conditions` instead. Each `ruleSet` rule has an equivalent `condition`.
      */
     private CollectionRuleSetInput ruleSet;
 
@@ -353,7 +356,7 @@ public class CollectionInput {
     }
 
     /**
-     * Initial list of collection products. Only valid with `collectionCreate` and without rules.
+     * Initial list of collection products. Only valid with `collectionCreate`.
      */
     public Builder products(List<String> products) {
       this.products = products;
@@ -361,7 +364,8 @@ public class CollectionInput {
     }
 
     /**
-     * The rules used to assign products to the collection.
+     * The rules used to assign products to the collection. This is the legacy smart-collection model;
+     * use `sources` with `conditions` instead. Each `ruleSet` rule has an equivalent `condition`.
      */
     public Builder ruleSet(CollectionRuleSetInput ruleSet) {
       this.ruleSet = ruleSet;

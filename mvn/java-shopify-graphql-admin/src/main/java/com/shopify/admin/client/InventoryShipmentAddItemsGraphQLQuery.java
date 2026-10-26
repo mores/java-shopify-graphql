@@ -2,10 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.InventoryShipmentLineItemInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -27,6 +31,24 @@ public class InventoryShipmentAddItemsGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public InventoryShipmentAddItemsGraphQLQuery(String id,
+      List<InventoryShipmentLineItemInput> lineItems, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (lineItems != null || fieldsSet.contains("lineItems")) {
+        getInput().put("lineItems", lineItems);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public InventoryShipmentAddItemsGraphQLQuery() {
     super("mutation");
   }
@@ -43,6 +65,10 @@ public class InventoryShipmentAddItemsGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private List<InventoryShipmentLineItemInput> lineItems;
@@ -50,7 +76,7 @@ public class InventoryShipmentAddItemsGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public InventoryShipmentAddItemsGraphQLQuery build() {
-      return new InventoryShipmentAddItemsGraphQLQuery(id, lineItems, queryName, fieldsSet);
+      return new InventoryShipmentAddItemsGraphQLQuery(id, lineItems, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -64,10 +90,30 @@ public class InventoryShipmentAddItemsGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the inventory shipment to modify.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The list of line items to add to the inventory shipment.
      */
     public Builder lineItems(List<InventoryShipmentLineItemInput> lineItems) {
       this.lineItems = lineItems;
+      this.fieldsSet.add("lineItems");
+      return this;
+    }
+
+    /**
+     * The list of line items to add to the inventory shipment.
+     */
+    public Builder lineItemsReference(String variableRef) {
+      this.variableReferences.put("lineItems", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("InventoryShipmentLineItemInput"))))).build());
       this.fieldsSet.add("lineItems");
       return this;
     }

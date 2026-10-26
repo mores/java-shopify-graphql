@@ -43,6 +43,11 @@ public class ShopFeaturesProjection<PARENT extends BaseSubProjectionNode<?, ?>, 
     return this;
   }
 
+  public ShopFeaturesProjection<PARENT, ROOT> buyerExperienceDepositEnabled() {
+    getFields().put("buyerExperienceDepositEnabled", null);
+    return this;
+  }
+
   public ShopFeaturesProjection<PARENT, ROOT> captcha() {
     getFields().put("captcha", null);
     return this;
@@ -55,6 +60,11 @@ public class ShopFeaturesProjection<PARENT extends BaseSubProjectionNode<?, ?>, 
 
   public ShopFeaturesProjection<PARENT, ROOT> deliveryProfiles() {
     getFields().put("deliveryProfiles", null);
+    return this;
+  }
+
+  public ShopFeaturesProjection<PARENT, ROOT> directConnectionCatalogAssignmentEnabled() {
+    getFields().put("directConnectionCatalogAssignmentEnabled", null);
     return this;
   }
 
@@ -108,6 +118,11 @@ public class ShopFeaturesProjection<PARENT extends BaseSubProjectionNode<?, ?>, 
     return this;
   }
 
+  public ShopFeaturesProjection<PARENT, ROOT> marketDrivenShipping() {
+    getFields().put("marketDrivenShipping", null);
+    return this;
+  }
+
   public ShopFeaturesProjection<PARENT, ROOT> onboardingVisual() {
     getFields().put("onboardingVisual", null);
     return this;
@@ -135,6 +150,11 @@ public class ShopFeaturesProjection<PARENT extends BaseSubProjectionNode<?, ?>, 
 
   public ShopFeaturesProjection<PARENT, ROOT> storefront() {
     getFields().put("storefront", null);
+    return this;
+  }
+
+  public ShopFeaturesProjection<PARENT, ROOT> subCountryMarketsEnabled() {
+    getFields().put("subCountryMarketsEnabled", null);
     return this;
   }
 

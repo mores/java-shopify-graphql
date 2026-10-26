@@ -12,6 +12,13 @@ public class MarketConditionsProjection<PARENT extends BaseSubProjectionNode<?, 
     return this;
   }
 
+  public ChannelsConditionProjection<MarketConditionsProjection<PARENT, ROOT>, ROOT> channelsCondition(
+      ) {
+     ChannelsConditionProjection<MarketConditionsProjection<PARENT, ROOT>, ROOT> projection = new ChannelsConditionProjection<>(this, getRoot());
+     getFields().put("channelsCondition", projection);
+     return projection;
+  }
+
   public CompanyLocationsConditionProjection<MarketConditionsProjection<PARENT, ROOT>, ROOT> companyLocationsCondition(
       ) {
      CompanyLocationsConditionProjection<MarketConditionsProjection<PARENT, ROOT>, ROOT> projection = new CompanyLocationsConditionProjection<>(this, getRoot());

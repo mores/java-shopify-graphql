@@ -57,6 +57,22 @@ public class MarketCreateInput {
    */
   private MarketPriceInclusionsInput priceInclusions;
 
+  /**
+   * Discounts that are eligible for this market.
+   */
+  private List<String> discounts;
+
+  /**
+   * Delivery settings for the market.
+   */
+  private MarketDeliveryConfigurationsCreateInput delivery;
+
+  /**
+   * The unique identifier of the Return Policy Profile to be associated with the
+   * market. When omitted, will inherit from parent market.
+   */
+  private String returnPolicyProfileId;
+
   public MarketCreateInput() {
   }
 
@@ -160,9 +176,43 @@ public class MarketCreateInput {
     this.priceInclusions = priceInclusions;
   }
 
+  /**
+   * Discounts that are eligible for this market.
+   */
+  public List<String> getDiscounts() {
+    return discounts;
+  }
+
+  public void setDiscounts(List<String> discounts) {
+    this.discounts = discounts;
+  }
+
+  /**
+   * Delivery settings for the market.
+   */
+  public MarketDeliveryConfigurationsCreateInput getDelivery() {
+    return delivery;
+  }
+
+  public void setDelivery(MarketDeliveryConfigurationsCreateInput delivery) {
+    this.delivery = delivery;
+  }
+
+  /**
+   * The unique identifier of the Return Policy Profile to be associated with the
+   * market. When omitted, will inherit from parent market.
+   */
+  public String getReturnPolicyProfileId() {
+    return returnPolicyProfileId;
+  }
+
+  public void setReturnPolicyProfileId(String returnPolicyProfileId) {
+    this.returnPolicyProfileId = returnPolicyProfileId;
+  }
+
   @Override
   public String toString() {
-    return "MarketCreateInput{name='" + name + "', handle='" + handle + "', conditions='" + conditions + "', catalogs='" + catalogs + "', makeDuplicateUniqueMarketsDraft='" + makeDuplicateUniqueMarketsDraft + "', status='" + status + "', webPresences='" + webPresences + "', currencySettings='" + currencySettings + "', priceInclusions='" + priceInclusions + "'}";
+    return "MarketCreateInput{name='" + name + "', handle='" + handle + "', conditions='" + conditions + "', catalogs='" + catalogs + "', makeDuplicateUniqueMarketsDraft='" + makeDuplicateUniqueMarketsDraft + "', status='" + status + "', webPresences='" + webPresences + "', currencySettings='" + currencySettings + "', priceInclusions='" + priceInclusions + "', discounts='" + discounts + "', delivery='" + delivery + "', returnPolicyProfileId='" + returnPolicyProfileId + "'}";
   }
 
   @Override
@@ -178,12 +228,15 @@ public class MarketCreateInput {
         Objects.equals(status, that.status) &&
         Objects.equals(webPresences, that.webPresences) &&
         Objects.equals(currencySettings, that.currencySettings) &&
-        Objects.equals(priceInclusions, that.priceInclusions);
+        Objects.equals(priceInclusions, that.priceInclusions) &&
+        Objects.equals(discounts, that.discounts) &&
+        Objects.equals(delivery, that.delivery) &&
+        Objects.equals(returnPolicyProfileId, that.returnPolicyProfileId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, handle, conditions, catalogs, makeDuplicateUniqueMarketsDraft, status, webPresences, currencySettings, priceInclusions);
+    return Objects.hash(name, handle, conditions, catalogs, makeDuplicateUniqueMarketsDraft, status, webPresences, currencySettings, priceInclusions, discounts, delivery, returnPolicyProfileId);
   }
 
   public static Builder newBuilder() {
@@ -237,6 +290,22 @@ public class MarketCreateInput {
      */
     private MarketPriceInclusionsInput priceInclusions;
 
+    /**
+     * Discounts that are eligible for this market.
+     */
+    private List<String> discounts;
+
+    /**
+     * Delivery settings for the market.
+     */
+    private MarketDeliveryConfigurationsCreateInput delivery;
+
+    /**
+     * The unique identifier of the Return Policy Profile to be associated with the
+     * market. When omitted, will inherit from parent market.
+     */
+    private String returnPolicyProfileId;
+
     public MarketCreateInput build() {
       MarketCreateInput result = new MarketCreateInput();
       result.name = this.name;
@@ -248,6 +317,9 @@ public class MarketCreateInput {
       result.webPresences = this.webPresences;
       result.currencySettings = this.currencySettings;
       result.priceInclusions = this.priceInclusions;
+      result.discounts = this.discounts;
+      result.delivery = this.delivery;
+      result.returnPolicyProfileId = this.returnPolicyProfileId;
       return result;
     }
 
@@ -321,6 +393,31 @@ public class MarketCreateInput {
      */
     public Builder priceInclusions(MarketPriceInclusionsInput priceInclusions) {
       this.priceInclusions = priceInclusions;
+      return this;
+    }
+
+    /**
+     * Discounts that are eligible for this market.
+     */
+    public Builder discounts(List<String> discounts) {
+      this.discounts = discounts;
+      return this;
+    }
+
+    /**
+     * Delivery settings for the market.
+     */
+    public Builder delivery(MarketDeliveryConfigurationsCreateInput delivery) {
+      this.delivery = delivery;
+      return this;
+    }
+
+    /**
+     * The unique identifier of the Return Policy Profile to be associated with the
+     * market. When omitted, will inherit from parent market.
+     */
+    public Builder returnPolicyProfileId(String returnPolicyProfileId) {
+      this.returnPolicyProfileId = returnPolicyProfileId;
       return this;
     }
   }

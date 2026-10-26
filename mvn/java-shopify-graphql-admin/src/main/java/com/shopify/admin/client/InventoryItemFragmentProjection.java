@@ -40,15 +40,34 @@ public class InventoryItemFragmentProjection<PARENT extends BaseSubProjectionNod
     CountryHarmonizedSystemCodeConnectionProjection<InventoryItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new CountryHarmonizedSystemCodeConnectionProjection<>(this, getRoot());    
     getFields().put("countryHarmonizedSystemCodes", projection);
     getInputArguments().computeIfAbsent("countryHarmonizedSystemCodes", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("countryHarmonizedSystemCodes").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("countryHarmonizedSystemCodes").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("countryHarmonizedSystemCodes").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("countryHarmonizedSystemCodes").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("countryHarmonizedSystemCodes").add(reverseArg);
+    return projection;
+  }
+
+  public CountryHarmonizedSystemCodeConnectionProjection<InventoryItemFragmentProjection<PARENT, ROOT>, ROOT> countryHarmonizedSystemCodesWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    CountryHarmonizedSystemCodeConnectionProjection<InventoryItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new CountryHarmonizedSystemCodeConnectionProjection<>(this, getRoot());    
+    getFields().put("countryHarmonizedSystemCodes", projection);
+    getInputArguments().computeIfAbsent("countryHarmonizedSystemCodes", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("countryHarmonizedSystemCodes").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("countryHarmonizedSystemCodes").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("countryHarmonizedSystemCodes").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("countryHarmonizedSystemCodes").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("countryHarmonizedSystemCodes").add(reverseArg);
     return projection;
   }
@@ -65,9 +84,21 @@ public class InventoryItemFragmentProjection<PARENT extends BaseSubProjectionNod
     InventoryLevelProjection<InventoryItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new InventoryLevelProjection<>(this, getRoot());    
     getFields().put("inventoryLevel", projection);
     getInputArguments().computeIfAbsent("inventoryLevel", k -> new ArrayList<>());                      
-    InputArgument locationIdArg = new InputArgument("locationId", locationId);
+    InputArgument locationIdArg = new InputArgument("locationId", locationId, false, null);
     getInputArguments().get("inventoryLevel").add(locationIdArg);
-    InputArgument includeInactiveArg = new InputArgument("includeInactive", includeInactive);
+    InputArgument includeInactiveArg = new InputArgument("includeInactive", includeInactive, false, null);
+    getInputArguments().get("inventoryLevel").add(includeInactiveArg);
+    return projection;
+  }
+
+  public InventoryLevelProjection<InventoryItemFragmentProjection<PARENT, ROOT>, ROOT> inventoryLevelWithVariableReferences(
+      String locationIdReference, String includeInactiveReference) {
+    InventoryLevelProjection<InventoryItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new InventoryLevelProjection<>(this, getRoot());    
+    getFields().put("inventoryLevel", projection);
+    getInputArguments().computeIfAbsent("inventoryLevel", k -> new ArrayList<>());              
+    InputArgument locationIdArg = new InputArgument("locationId", locationIdReference, true, new graphql.language.NonNullType(new graphql.language.TypeName("ID")));
+    getInputArguments().get("inventoryLevel").add(locationIdArg);
+    InputArgument includeInactiveArg = new InputArgument("includeInactive", includeInactiveReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("inventoryLevel").add(includeInactiveArg);
     return projection;
   }
@@ -85,19 +116,43 @@ public class InventoryItemFragmentProjection<PARENT extends BaseSubProjectionNod
     InventoryLevelConnectionProjection<InventoryItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new InventoryLevelConnectionProjection<>(this, getRoot());    
     getFields().put("inventoryLevels", projection);
     getInputArguments().computeIfAbsent("inventoryLevels", k -> new ArrayList<>());                      
-    InputArgument includeInactiveArg = new InputArgument("includeInactive", includeInactive);
+    InputArgument includeInactiveArg = new InputArgument("includeInactive", includeInactive, false, null);
     getInputArguments().get("inventoryLevels").add(includeInactiveArg);
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("inventoryLevels").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("inventoryLevels").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("inventoryLevels").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("inventoryLevels").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
     getInputArguments().get("inventoryLevels").add(reverseArg);
-    InputArgument queryArg = new InputArgument("query", query);
+    InputArgument queryArg = new InputArgument("query", query, false, null);
+    getInputArguments().get("inventoryLevels").add(queryArg);
+    return projection;
+  }
+
+  public InventoryLevelConnectionProjection<InventoryItemFragmentProjection<PARENT, ROOT>, ROOT> inventoryLevelsWithVariableReferences(
+      String includeInactiveReference, String firstReference, String afterReference,
+      String lastReference, String beforeReference, String reverseReference,
+      String queryReference) {
+    InventoryLevelConnectionProjection<InventoryItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new InventoryLevelConnectionProjection<>(this, getRoot());    
+    getFields().put("inventoryLevels", projection);
+    getInputArguments().computeIfAbsent("inventoryLevels", k -> new ArrayList<>());              
+    InputArgument includeInactiveArg = new InputArgument("includeInactive", includeInactiveReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("inventoryLevels").add(includeInactiveArg);
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("inventoryLevels").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("inventoryLevels").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("inventoryLevels").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("inventoryLevels").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("inventoryLevels").add(reverseArg);
+    InputArgument queryArg = new InputArgument("query", queryReference, true, new graphql.language.TypeName("String"));
     getInputArguments().get("inventoryLevels").add(queryArg);
     return projection;
   }
@@ -146,13 +201,29 @@ public class InventoryItemFragmentProjection<PARENT extends BaseSubProjectionNod
     ProductVariantConnectionProjection<InventoryItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantConnectionProjection<>(this, getRoot());    
     getFields().put("variants", projection);
     getInputArguments().computeIfAbsent("variants", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("variants").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("variants").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("variants").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
+    getInputArguments().get("variants").add(beforeArg);
+    return projection;
+  }
+
+  public ProductVariantConnectionProjection<InventoryItemFragmentProjection<PARENT, ROOT>, ROOT> variantsWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference) {
+    ProductVariantConnectionProjection<InventoryItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantConnectionProjection<>(this, getRoot());    
+    getFields().put("variants", projection);
+    getInputArguments().computeIfAbsent("variants", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("variants").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("variants").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("variants").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
     getInputArguments().get("variants").add(beforeArg);
     return projection;
   }

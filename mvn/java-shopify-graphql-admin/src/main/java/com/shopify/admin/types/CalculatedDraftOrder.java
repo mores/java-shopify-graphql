@@ -37,6 +37,20 @@ public class CalculatedDraftOrder {
   private boolean allVariantPricesOverridden;
 
   /**
+   * The amount due later.
+   * When there are payment terms, this is the total price minus the deposit amount (if any).
+   * When there are no payment terms, this is 0.
+   */
+  private MoneyBag amountDueLaterSet;
+
+  /**
+   * The amount due now.
+   * When there are payment terms this is the value of the deposit (0 by default).
+   * When there are no payment terms, this is the total price.
+   */
+  private MoneyBag amountDueNowSet;
+
+  /**
    * Whether any variant prices have been overridden.
    */
   private boolean anyVariantPricesOverridden;
@@ -66,6 +80,11 @@ public class CalculatedDraftOrder {
    * The customer who will be sent an invoice.
    */
   private Customer customer;
+
+  /**
+   * The portion required to be paid at checkout.
+   */
+  private DepositConfiguration deposit;
 
   /**
    * All discount codes applied.
@@ -236,6 +255,32 @@ public class CalculatedDraftOrder {
   }
 
   /**
+   * The amount due later.
+   * When there are payment terms, this is the total price minus the deposit amount (if any).
+   * When there are no payment terms, this is 0.
+   */
+  public MoneyBag getAmountDueLaterSet() {
+    return amountDueLaterSet;
+  }
+
+  public void setAmountDueLaterSet(MoneyBag amountDueLaterSet) {
+    this.amountDueLaterSet = amountDueLaterSet;
+  }
+
+  /**
+   * The amount due now.
+   * When there are payment terms this is the value of the deposit (0 by default).
+   * When there are no payment terms, this is the total price.
+   */
+  public MoneyBag getAmountDueNowSet() {
+    return amountDueNowSet;
+  }
+
+  public void setAmountDueNowSet(MoneyBag amountDueNowSet) {
+    this.amountDueNowSet = amountDueNowSet;
+  }
+
+  /**
    * Whether any variant prices have been overridden.
    */
   public boolean getAnyVariantPricesOverridden() {
@@ -301,6 +346,17 @@ public class CalculatedDraftOrder {
 
   public void setCustomer(Customer customer) {
     this.customer = customer;
+  }
+
+  /**
+   * The portion required to be paid at checkout.
+   */
+  public DepositConfiguration getDeposit() {
+    return deposit;
+  }
+
+  public void setDeposit(DepositConfiguration deposit) {
+    this.deposit = deposit;
   }
 
   /**
@@ -585,7 +641,7 @@ public class CalculatedDraftOrder {
 
   @Override
   public String toString() {
-    return "CalculatedDraftOrder{acceptAutomaticDiscounts='" + acceptAutomaticDiscounts + "', alerts='" + alerts + "', allVariantPricesOverridden='" + allVariantPricesOverridden + "', anyVariantPricesOverridden='" + anyVariantPricesOverridden + "', appliedDiscount='" + appliedDiscount + "', availableShippingRates='" + availableShippingRates + "', billingAddressMatchesShippingAddress='" + billingAddressMatchesShippingAddress + "', currencyCode='" + currencyCode + "', customer='" + customer + "', discountCodes='" + discountCodes + "', lineItems='" + lineItems + "', lineItemsSubtotalPrice='" + lineItemsSubtotalPrice + "', marketName='" + marketName + "', marketRegionCountryCode='" + marketRegionCountryCode + "', phone='" + phone + "', platformDiscounts='" + platformDiscounts + "', presentmentCurrencyCode='" + presentmentCurrencyCode + "', purchasingEntity='" + purchasingEntity + "', shippingLine='" + shippingLine + "', subtotalPrice='" + subtotalPrice + "', subtotalPriceSet='" + subtotalPriceSet + "', taxLines='" + taxLines + "', taxesIncluded='" + taxesIncluded + "', totalDiscountsSet='" + totalDiscountsSet + "', totalLineItemsPriceSet='" + totalLineItemsPriceSet + "', totalPrice='" + totalPrice + "', totalPriceSet='" + totalPriceSet + "', totalQuantityOfLineItems='" + totalQuantityOfLineItems + "', totalShippingPrice='" + totalShippingPrice + "', totalShippingPriceSet='" + totalShippingPriceSet + "', totalTax='" + totalTax + "', totalTaxSet='" + totalTaxSet + "', transformerFingerprint='" + transformerFingerprint + "', warnings='" + warnings + "'}";
+    return "CalculatedDraftOrder{acceptAutomaticDiscounts='" + acceptAutomaticDiscounts + "', alerts='" + alerts + "', allVariantPricesOverridden='" + allVariantPricesOverridden + "', amountDueLaterSet='" + amountDueLaterSet + "', amountDueNowSet='" + amountDueNowSet + "', anyVariantPricesOverridden='" + anyVariantPricesOverridden + "', appliedDiscount='" + appliedDiscount + "', availableShippingRates='" + availableShippingRates + "', billingAddressMatchesShippingAddress='" + billingAddressMatchesShippingAddress + "', currencyCode='" + currencyCode + "', customer='" + customer + "', deposit='" + deposit + "', discountCodes='" + discountCodes + "', lineItems='" + lineItems + "', lineItemsSubtotalPrice='" + lineItemsSubtotalPrice + "', marketName='" + marketName + "', marketRegionCountryCode='" + marketRegionCountryCode + "', phone='" + phone + "', platformDiscounts='" + platformDiscounts + "', presentmentCurrencyCode='" + presentmentCurrencyCode + "', purchasingEntity='" + purchasingEntity + "', shippingLine='" + shippingLine + "', subtotalPrice='" + subtotalPrice + "', subtotalPriceSet='" + subtotalPriceSet + "', taxLines='" + taxLines + "', taxesIncluded='" + taxesIncluded + "', totalDiscountsSet='" + totalDiscountsSet + "', totalLineItemsPriceSet='" + totalLineItemsPriceSet + "', totalPrice='" + totalPrice + "', totalPriceSet='" + totalPriceSet + "', totalQuantityOfLineItems='" + totalQuantityOfLineItems + "', totalShippingPrice='" + totalShippingPrice + "', totalShippingPriceSet='" + totalShippingPriceSet + "', totalTax='" + totalTax + "', totalTaxSet='" + totalTaxSet + "', transformerFingerprint='" + transformerFingerprint + "', warnings='" + warnings + "'}";
   }
 
   @Override
@@ -596,12 +652,15 @@ public class CalculatedDraftOrder {
     return Objects.equals(acceptAutomaticDiscounts, that.acceptAutomaticDiscounts) &&
         Objects.equals(alerts, that.alerts) &&
         allVariantPricesOverridden == that.allVariantPricesOverridden &&
+        Objects.equals(amountDueLaterSet, that.amountDueLaterSet) &&
+        Objects.equals(amountDueNowSet, that.amountDueNowSet) &&
         anyVariantPricesOverridden == that.anyVariantPricesOverridden &&
         Objects.equals(appliedDiscount, that.appliedDiscount) &&
         Objects.equals(availableShippingRates, that.availableShippingRates) &&
         billingAddressMatchesShippingAddress == that.billingAddressMatchesShippingAddress &&
         Objects.equals(currencyCode, that.currencyCode) &&
         Objects.equals(customer, that.customer) &&
+        Objects.equals(deposit, that.deposit) &&
         Objects.equals(discountCodes, that.discountCodes) &&
         Objects.equals(lineItems, that.lineItems) &&
         Objects.equals(lineItemsSubtotalPrice, that.lineItemsSubtotalPrice) &&
@@ -631,7 +690,7 @@ public class CalculatedDraftOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptAutomaticDiscounts, alerts, allVariantPricesOverridden, anyVariantPricesOverridden, appliedDiscount, availableShippingRates, billingAddressMatchesShippingAddress, currencyCode, customer, discountCodes, lineItems, lineItemsSubtotalPrice, marketName, marketRegionCountryCode, phone, platformDiscounts, presentmentCurrencyCode, purchasingEntity, shippingLine, subtotalPrice, subtotalPriceSet, taxLines, taxesIncluded, totalDiscountsSet, totalLineItemsPriceSet, totalPrice, totalPriceSet, totalQuantityOfLineItems, totalShippingPrice, totalShippingPriceSet, totalTax, totalTaxSet, transformerFingerprint, warnings);
+    return Objects.hash(acceptAutomaticDiscounts, alerts, allVariantPricesOverridden, amountDueLaterSet, amountDueNowSet, anyVariantPricesOverridden, appliedDiscount, availableShippingRates, billingAddressMatchesShippingAddress, currencyCode, customer, deposit, discountCodes, lineItems, lineItemsSubtotalPrice, marketName, marketRegionCountryCode, phone, platformDiscounts, presentmentCurrencyCode, purchasingEntity, shippingLine, subtotalPrice, subtotalPriceSet, taxLines, taxesIncluded, totalDiscountsSet, totalLineItemsPriceSet, totalPrice, totalPriceSet, totalQuantityOfLineItems, totalShippingPrice, totalShippingPriceSet, totalTax, totalTaxSet, transformerFingerprint, warnings);
   }
 
   public static Builder newBuilder() {
@@ -655,6 +714,20 @@ public class CalculatedDraftOrder {
      * Whether all variant prices have been overridden.
      */
     private boolean allVariantPricesOverridden;
+
+    /**
+     * The amount due later.
+     * When there are payment terms, this is the total price minus the deposit amount (if any).
+     * When there are no payment terms, this is 0.
+     */
+    private MoneyBag amountDueLaterSet;
+
+    /**
+     * The amount due now.
+     * When there are payment terms this is the value of the deposit (0 by default).
+     * When there are no payment terms, this is the total price.
+     */
+    private MoneyBag amountDueNowSet;
 
     /**
      * Whether any variant prices have been overridden.
@@ -686,6 +759,11 @@ public class CalculatedDraftOrder {
      * The customer who will be sent an invoice.
      */
     private Customer customer;
+
+    /**
+     * The portion required to be paid at checkout.
+     */
+    private DepositConfiguration deposit;
 
     /**
      * All discount codes applied.
@@ -822,12 +900,15 @@ public class CalculatedDraftOrder {
       result.acceptAutomaticDiscounts = this.acceptAutomaticDiscounts;
       result.alerts = this.alerts;
       result.allVariantPricesOverridden = this.allVariantPricesOverridden;
+      result.amountDueLaterSet = this.amountDueLaterSet;
+      result.amountDueNowSet = this.amountDueNowSet;
       result.anyVariantPricesOverridden = this.anyVariantPricesOverridden;
       result.appliedDiscount = this.appliedDiscount;
       result.availableShippingRates = this.availableShippingRates;
       result.billingAddressMatchesShippingAddress = this.billingAddressMatchesShippingAddress;
       result.currencyCode = this.currencyCode;
       result.customer = this.customer;
+      result.deposit = this.deposit;
       result.discountCodes = this.discountCodes;
       result.lineItems = this.lineItems;
       result.lineItemsSubtotalPrice = this.lineItemsSubtotalPrice;
@@ -883,6 +964,26 @@ public class CalculatedDraftOrder {
     }
 
     /**
+     * The amount due later.
+     * When there are payment terms, this is the total price minus the deposit amount (if any).
+     * When there are no payment terms, this is 0.
+     */
+    public Builder amountDueLaterSet(MoneyBag amountDueLaterSet) {
+      this.amountDueLaterSet = amountDueLaterSet;
+      return this;
+    }
+
+    /**
+     * The amount due now.
+     * When there are payment terms this is the value of the deposit (0 by default).
+     * When there are no payment terms, this is the total price.
+     */
+    public Builder amountDueNowSet(MoneyBag amountDueNowSet) {
+      this.amountDueNowSet = amountDueNowSet;
+      return this;
+    }
+
+    /**
      * Whether any variant prices have been overridden.
      */
     public Builder anyVariantPricesOverridden(boolean anyVariantPricesOverridden) {
@@ -929,6 +1030,14 @@ public class CalculatedDraftOrder {
      */
     public Builder customer(Customer customer) {
       this.customer = customer;
+      return this;
+    }
+
+    /**
+     * The portion required to be paid at checkout.
+     */
+    public Builder deposit(DepositConfiguration deposit) {
+      this.deposit = deposit;
       return this;
     }
 

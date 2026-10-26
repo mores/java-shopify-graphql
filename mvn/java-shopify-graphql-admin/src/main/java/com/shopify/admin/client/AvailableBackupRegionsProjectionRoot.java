@@ -28,4 +28,11 @@ public class AvailableBackupRegionsProjectionRoot<PARENT extends BaseSubProjecti
     getFragments().add(fragment);
     return fragment;
   }
+
+  public MarketRegionSubdivisionFragmentProjection<AvailableBackupRegionsProjectionRoot<PARENT, ROOT>, AvailableBackupRegionsProjectionRoot<PARENT, ROOT>> onMarketRegionSubdivision(
+      ) {
+    MarketRegionSubdivisionFragmentProjection<AvailableBackupRegionsProjectionRoot<PARENT, ROOT>, AvailableBackupRegionsProjectionRoot<PARENT, ROOT>> fragment = new MarketRegionSubdivisionFragmentProjection<>(this, this);
+    getFragments().add(fragment);
+    return fragment;
+  }
 }

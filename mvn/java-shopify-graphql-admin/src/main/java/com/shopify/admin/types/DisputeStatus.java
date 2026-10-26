@@ -10,11 +10,17 @@ public enum DisputeStatus {
 
   NEEDS_RESPONSE,
 
+  /**
+   * A dispute that was prevented from becoming a formal chargeback.
+   */
   PREVENTED,
 
   UNDER_REVIEW,
 
   WON,
 
+  /**
+   * Status previously used by Stripe to indicate that a dispute led to a refund.
+   */
   CHARGE_REFUNDED
 }

@@ -1,0 +1,152 @@
+package com.shopify.admin.client;
+
+import com.netflix.graphql.dgs.client.codegen.BaseSubProjectionNode;
+import java.lang.Boolean;
+import java.lang.Integer;
+import java.lang.Override;
+import java.lang.String;
+import java.util.ArrayList;
+import java.util.List;
+
+public class GiftCardCashOutTransactionFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT extends BaseSubProjectionNode<?, ?>> extends BaseSubProjectionNode<PARENT, ROOT> {
+  {
+    getFields().put("__typename", null);
+  }
+
+  public GiftCardCashOutTransactionFragmentProjection(PARENT parent, ROOT root) {
+    super(parent, root, java.util.Optional.of("GiftCardCashOutTransaction"));
+  }
+
+  public GiftCardCashOutTransactionFragmentProjection<PARENT, ROOT> __typename() {
+    getFields().put("__typename", null);
+    return this;
+  }
+
+  public MoneyV2Projection<GiftCardCashOutTransactionFragmentProjection<PARENT, ROOT>, ROOT> amount(
+      ) {
+     MoneyV2Projection<GiftCardCashOutTransactionFragmentProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());
+     getFields().put("amount", projection);
+     return projection;
+  }
+
+  public GiftCardProjection<GiftCardCashOutTransactionFragmentProjection<PARENT, ROOT>, ROOT> giftCard(
+      ) {
+     GiftCardProjection<GiftCardCashOutTransactionFragmentProjection<PARENT, ROOT>, ROOT> projection = new GiftCardProjection<>(this, getRoot());
+     getFields().put("giftCard", projection);
+     return projection;
+  }
+
+  public MetafieldProjection<GiftCardCashOutTransactionFragmentProjection<PARENT, ROOT>, ROOT> metafield(
+      ) {
+     MetafieldProjection<GiftCardCashOutTransactionFragmentProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());
+     getFields().put("metafield", projection);
+     return projection;
+  }
+
+  public MetafieldProjection<GiftCardCashOutTransactionFragmentProjection<PARENT, ROOT>, ROOT> metafield(
+      String namespace, String key) {
+    MetafieldProjection<GiftCardCashOutTransactionFragmentProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
+    getFields().put("metafield", projection);
+    getInputArguments().computeIfAbsent("metafield", k -> new ArrayList<>());                      
+    InputArgument namespaceArg = new InputArgument("namespace", namespace, false, null);
+    getInputArguments().get("metafield").add(namespaceArg);
+    InputArgument keyArg = new InputArgument("key", key, false, null);
+    getInputArguments().get("metafield").add(keyArg);
+    return projection;
+  }
+
+  public MetafieldProjection<GiftCardCashOutTransactionFragmentProjection<PARENT, ROOT>, ROOT> metafieldWithVariableReferences(
+      String namespaceReference, String keyReference) {
+    MetafieldProjection<GiftCardCashOutTransactionFragmentProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
+    getFields().put("metafield", projection);
+    getInputArguments().computeIfAbsent("metafield", k -> new ArrayList<>());              
+    InputArgument namespaceArg = new InputArgument("namespace", namespaceReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("metafield").add(namespaceArg);
+    InputArgument keyArg = new InputArgument("key", keyReference, true, new graphql.language.NonNullType(new graphql.language.TypeName("String")));
+    getInputArguments().get("metafield").add(keyArg);
+    return projection;
+  }
+
+  public MetafieldConnectionProjection<GiftCardCashOutTransactionFragmentProjection<PARENT, ROOT>, ROOT> metafields(
+      ) {
+     MetafieldConnectionProjection<GiftCardCashOutTransactionFragmentProjection<PARENT, ROOT>, ROOT> projection = new MetafieldConnectionProjection<>(this, getRoot());
+     getFields().put("metafields", projection);
+     return projection;
+  }
+
+  public MetafieldConnectionProjection<GiftCardCashOutTransactionFragmentProjection<PARENT, ROOT>, ROOT> metafields(
+      String namespace, List<String> keys, Integer first, String after, Integer last, String before,
+      Boolean reverse) {
+    MetafieldConnectionProjection<GiftCardCashOutTransactionFragmentProjection<PARENT, ROOT>, ROOT> projection = new MetafieldConnectionProjection<>(this, getRoot());    
+    getFields().put("metafields", projection);
+    getInputArguments().computeIfAbsent("metafields", k -> new ArrayList<>());                      
+    InputArgument namespaceArg = new InputArgument("namespace", namespace, false, null);
+    getInputArguments().get("metafields").add(namespaceArg);
+    InputArgument keysArg = new InputArgument("keys", keys, false, null);
+    getInputArguments().get("metafields").add(keysArg);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
+    getInputArguments().get("metafields").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
+    getInputArguments().get("metafields").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
+    getInputArguments().get("metafields").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
+    getInputArguments().get("metafields").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("metafields").add(reverseArg);
+    return projection;
+  }
+
+  public MetafieldConnectionProjection<GiftCardCashOutTransactionFragmentProjection<PARENT, ROOT>, ROOT> metafieldsWithVariableReferences(
+      String namespaceReference, String keysReference, String firstReference, String afterReference,
+      String lastReference, String beforeReference, String reverseReference) {
+    MetafieldConnectionProjection<GiftCardCashOutTransactionFragmentProjection<PARENT, ROOT>, ROOT> projection = new MetafieldConnectionProjection<>(this, getRoot());    
+    getFields().put("metafields", projection);
+    getInputArguments().computeIfAbsent("metafields", k -> new ArrayList<>());              
+    InputArgument namespaceArg = new InputArgument("namespace", namespaceReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("metafields").add(namespaceArg);
+    InputArgument keysArg = new InputArgument("keys", keysReference, true, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("String"))));
+    getInputArguments().get("metafields").add(keysArg);
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("metafields").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("metafields").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("metafields").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("metafields").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("metafields").add(reverseArg);
+    return projection;
+  }
+
+  public GiftCardCashOutTransactionFragmentProjection<PARENT, ROOT> id() {
+    getFields().put("id", null);
+    return this;
+  }
+
+  public GiftCardCashOutTransactionFragmentProjection<PARENT, ROOT> note() {
+    getFields().put("note", null);
+    return this;
+  }
+
+  public GiftCardCashOutTransactionFragmentProjection<PARENT, ROOT> processedAt() {
+    getFields().put("processedAt", null);
+    return this;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder builder = new StringBuilder();
+    builder.append("... on GiftCardCashOutTransaction {");
+    getFields().forEach((k, v) -> {
+        builder.append(" ").append(k);
+        if(v != null) {
+            builder.append(" ").append(v.toString());
+        }
+    });
+    builder.append("}");
+     
+    return builder.toString();
+  }
+}

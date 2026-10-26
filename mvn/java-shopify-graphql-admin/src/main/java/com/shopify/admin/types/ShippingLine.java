@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -25,6 +26,11 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
    * A reference to the shipping method.
    */
   private String code;
+
+  /**
+   * The date and time when the shipping line was created.
+   */
+  private OffsetDateTime createdAt;
 
   /**
    * The current shipping price after applying refunds, after applying discounts.
@@ -145,6 +151,17 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
 
   public void setCode(String code) {
     this.code = code;
+  }
+
+  /**
+   * The date and time when the shipping line was created.
+   */
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
   /**
@@ -346,7 +363,7 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
 
   @Override
   public String toString() {
-    return "ShippingLine{carrierIdentifier='" + carrierIdentifier + "', code='" + code + "', currentDiscountedPriceSet='" + currentDiscountedPriceSet + "', custom='" + custom + "', deliveryCategory='" + deliveryCategory + "', discountAllocations='" + discountAllocations + "', discountedPrice='" + discountedPrice + "', discountedPriceSet='" + discountedPriceSet + "', id='" + id + "', isRemoved='" + isRemoved + "', originalPrice='" + originalPrice + "', originalPriceSet='" + originalPriceSet + "', phone='" + phone + "', price='" + price + "', requestedFulfillmentService='" + requestedFulfillmentService + "', shippingRateHandle='" + shippingRateHandle + "', source='" + source + "', taxLines='" + taxLines + "', title='" + title + "'}";
+    return "ShippingLine{carrierIdentifier='" + carrierIdentifier + "', code='" + code + "', createdAt='" + createdAt + "', currentDiscountedPriceSet='" + currentDiscountedPriceSet + "', custom='" + custom + "', deliveryCategory='" + deliveryCategory + "', discountAllocations='" + discountAllocations + "', discountedPrice='" + discountedPrice + "', discountedPriceSet='" + discountedPriceSet + "', id='" + id + "', isRemoved='" + isRemoved + "', originalPrice='" + originalPrice + "', originalPriceSet='" + originalPriceSet + "', phone='" + phone + "', price='" + price + "', requestedFulfillmentService='" + requestedFulfillmentService + "', shippingRateHandle='" + shippingRateHandle + "', source='" + source + "', taxLines='" + taxLines + "', title='" + title + "'}";
   }
 
   @Override
@@ -356,6 +373,7 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
     ShippingLine that = (ShippingLine) o;
     return Objects.equals(carrierIdentifier, that.carrierIdentifier) &&
         Objects.equals(code, that.code) &&
+        Objects.equals(createdAt, that.createdAt) &&
         Objects.equals(currentDiscountedPriceSet, that.currentDiscountedPriceSet) &&
         custom == that.custom &&
         Objects.equals(deliveryCategory, that.deliveryCategory) &&
@@ -377,7 +395,7 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
 
   @Override
   public int hashCode() {
-    return Objects.hash(carrierIdentifier, code, currentDiscountedPriceSet, custom, deliveryCategory, discountAllocations, discountedPrice, discountedPriceSet, id, isRemoved, originalPrice, originalPriceSet, phone, price, requestedFulfillmentService, shippingRateHandle, source, taxLines, title);
+    return Objects.hash(carrierIdentifier, code, createdAt, currentDiscountedPriceSet, custom, deliveryCategory, discountAllocations, discountedPrice, discountedPriceSet, id, isRemoved, originalPrice, originalPriceSet, phone, price, requestedFulfillmentService, shippingRateHandle, source, taxLines, title);
   }
 
   public static Builder newBuilder() {
@@ -395,6 +413,11 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
      * A reference to the shipping method.
      */
     private String code;
+
+    /**
+     * The date and time when the shipping line was created.
+     */
+    private OffsetDateTime createdAt;
 
     /**
      * The current shipping price after applying refunds, after applying discounts.
@@ -495,6 +518,7 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
       ShippingLine result = new ShippingLine();
       result.carrierIdentifier = this.carrierIdentifier;
       result.code = this.code;
+      result.createdAt = this.createdAt;
       result.currentDiscountedPriceSet = this.currentDiscountedPriceSet;
       result.custom = this.custom;
       result.deliveryCategory = this.deliveryCategory;
@@ -529,6 +553,14 @@ public class ShippingLine implements DraftOrderPlatformDiscountAllocationTarget 
      */
     public Builder code(String code) {
       this.code = code;
+      return this;
+    }
+
+    /**
+     * The date and time when the shipping line was created.
+     */
+    public Builder createdAt(OffsetDateTime createdAt) {
+      this.createdAt = createdAt;
       return this;
     }
 

@@ -45,6 +45,13 @@ public class FulfillmentOrderLineItemFragmentProjection<PARENT extends BaseSubPr
      return projection;
   }
 
+  public ShippingLineProjection<FulfillmentOrderLineItemFragmentProjection<PARENT, ROOT>, ROOT> shippingLine(
+      ) {
+     ShippingLineProjection<FulfillmentOrderLineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new ShippingLineProjection<>(this, getRoot());
+     getFields().put("shippingLine", projection);
+     return projection;
+  }
+
   public ProductVariantProjection<FulfillmentOrderLineItemFragmentProjection<PARENT, ROOT>, ROOT> variant(
       ) {
      ProductVariantProjection<FulfillmentOrderLineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantProjection<>(this, getRoot());

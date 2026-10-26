@@ -41,6 +41,12 @@ public class Channel implements com.shopify.admin.types.Node {
   private String accountName;
 
   /**
+   * The regions where the channel is currently active, derived from the channel's
+   * active product feeds. Empty when the channel has no active product feeds.
+   */
+  private List<CountryCode> activeRegions;
+
+  /**
    * The underlying app used by the channel.
    */
   private App app;
@@ -70,6 +76,16 @@ public class Channel implements com.shopify.admin.types.Node {
    * A globally-unique ID.
    */
   private String id;
+
+  /**
+   * The markets associated with this channel.
+   */
+  private MarketConnection markets;
+
+  /**
+   * The number of markets associated with this channel.
+   */
+  private Count marketsCount;
 
   /**
    * The name of the channel.
@@ -157,6 +173,18 @@ public class Channel implements com.shopify.admin.types.Node {
   }
 
   /**
+   * The regions where the channel is currently active, derived from the channel's
+   * active product feeds. Empty when the channel has no active product feeds.
+   */
+  public List<CountryCode> getActiveRegions() {
+    return activeRegions;
+  }
+
+  public void setActiveRegions(List<CountryCode> activeRegions) {
+    this.activeRegions = activeRegions;
+  }
+
+  /**
    * The underlying app used by the channel.
    */
   public App getApp() {
@@ -221,6 +249,28 @@ public class Channel implements com.shopify.admin.types.Node {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  /**
+   * The markets associated with this channel.
+   */
+  public MarketConnection getMarkets() {
+    return markets;
+  }
+
+  public void setMarkets(MarketConnection markets) {
+    this.markets = markets;
+  }
+
+  /**
+   * The number of markets associated with this channel.
+   */
+  public Count getMarketsCount() {
+    return marketsCount;
+  }
+
+  public void setMarketsCount(Count marketsCount) {
+    this.marketsCount = marketsCount;
   }
 
   /**
@@ -342,7 +392,7 @@ public class Channel implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "Channel{accountId='" + accountId + "', accountName='" + accountName + "', app='" + app + "', collectionPublicationsV3='" + collectionPublicationsV3 + "', collections='" + collections + "', handle='" + handle + "', hasCollection='" + hasCollection + "', id='" + id + "', name='" + name + "', navigationItems='" + navigationItems + "', overviewPath='" + overviewPath + "', productPublications='" + productPublications + "', productPublicationsV3='" + productPublicationsV3 + "', products='" + products + "', productsCount='" + productsCount + "', resourceFeedback='" + resourceFeedback + "', specificationHandle='" + specificationHandle + "', supportsFuturePublishing='" + supportsFuturePublishing + "'}";
+    return "Channel{accountId='" + accountId + "', accountName='" + accountName + "', activeRegions='" + activeRegions + "', app='" + app + "', collectionPublicationsV3='" + collectionPublicationsV3 + "', collections='" + collections + "', handle='" + handle + "', hasCollection='" + hasCollection + "', id='" + id + "', markets='" + markets + "', marketsCount='" + marketsCount + "', name='" + name + "', navigationItems='" + navigationItems + "', overviewPath='" + overviewPath + "', productPublications='" + productPublications + "', productPublicationsV3='" + productPublicationsV3 + "', products='" + products + "', productsCount='" + productsCount + "', resourceFeedback='" + resourceFeedback + "', specificationHandle='" + specificationHandle + "', supportsFuturePublishing='" + supportsFuturePublishing + "'}";
   }
 
   @Override
@@ -352,12 +402,15 @@ public class Channel implements com.shopify.admin.types.Node {
     Channel that = (Channel) o;
     return Objects.equals(accountId, that.accountId) &&
         Objects.equals(accountName, that.accountName) &&
+        Objects.equals(activeRegions, that.activeRegions) &&
         Objects.equals(app, that.app) &&
         Objects.equals(collectionPublicationsV3, that.collectionPublicationsV3) &&
         Objects.equals(collections, that.collections) &&
         Objects.equals(handle, that.handle) &&
         hasCollection == that.hasCollection &&
         Objects.equals(id, that.id) &&
+        Objects.equals(markets, that.markets) &&
+        Objects.equals(marketsCount, that.marketsCount) &&
         Objects.equals(name, that.name) &&
         Objects.equals(navigationItems, that.navigationItems) &&
         Objects.equals(overviewPath, that.overviewPath) &&
@@ -372,7 +425,7 @@ public class Channel implements com.shopify.admin.types.Node {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, accountName, app, collectionPublicationsV3, collections, handle, hasCollection, id, name, navigationItems, overviewPath, productPublications, productPublicationsV3, products, productsCount, resourceFeedback, specificationHandle, supportsFuturePublishing);
+    return Objects.hash(accountId, accountName, activeRegions, app, collectionPublicationsV3, collections, handle, hasCollection, id, markets, marketsCount, name, navigationItems, overviewPath, productPublications, productPublicationsV3, products, productsCount, resourceFeedback, specificationHandle, supportsFuturePublishing);
   }
 
   public static Builder newBuilder() {
@@ -392,6 +445,12 @@ public class Channel implements com.shopify.admin.types.Node {
      * wherever the channel connection is referenced, such as in Markets and order attribution.
      */
     private String accountName;
+
+    /**
+     * The regions where the channel is currently active, derived from the channel's
+     * active product feeds. Empty when the channel has no active product feeds.
+     */
+    private List<CountryCode> activeRegions;
 
     /**
      * The underlying app used by the channel.
@@ -423,6 +482,16 @@ public class Channel implements com.shopify.admin.types.Node {
      * A globally-unique ID.
      */
     private String id;
+
+    /**
+     * The markets associated with this channel.
+     */
+    private MarketConnection markets;
+
+    /**
+     * The number of markets associated with this channel.
+     */
+    private Count marketsCount;
 
     /**
      * The name of the channel.
@@ -485,12 +554,15 @@ public class Channel implements com.shopify.admin.types.Node {
       Channel result = new Channel();
       result.accountId = this.accountId;
       result.accountName = this.accountName;
+      result.activeRegions = this.activeRegions;
       result.app = this.app;
       result.collectionPublicationsV3 = this.collectionPublicationsV3;
       result.collections = this.collections;
       result.handle = this.handle;
       result.hasCollection = this.hasCollection;
       result.id = this.id;
+      result.markets = this.markets;
+      result.marketsCount = this.marketsCount;
       result.name = this.name;
       result.navigationItems = this.navigationItems;
       result.overviewPath = this.overviewPath;
@@ -520,6 +592,15 @@ public class Channel implements com.shopify.admin.types.Node {
      */
     public Builder accountName(String accountName) {
       this.accountName = accountName;
+      return this;
+    }
+
+    /**
+     * The regions where the channel is currently active, derived from the channel's
+     * active product feeds. Empty when the channel has no active product feeds.
+     */
+    public Builder activeRegions(List<CountryCode> activeRegions) {
+      this.activeRegions = activeRegions;
       return this;
     }
 
@@ -570,6 +651,22 @@ public class Channel implements com.shopify.admin.types.Node {
      */
     public Builder id(String id) {
       this.id = id;
+      return this;
+    }
+
+    /**
+     * The markets associated with this channel.
+     */
+    public Builder markets(MarketConnection markets) {
+      this.markets = markets;
+      return this;
+    }
+
+    /**
+     * The number of markets associated with this channel.
+     */
+    public Builder marketsCount(Count marketsCount) {
+      this.marketsCount = marketsCount;
       return this;
     }
 

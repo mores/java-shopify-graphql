@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.MoneyInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -30,6 +35,24 @@ public class AppSubscriptionLineItemUpdateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public AppSubscriptionLineItemUpdateGraphQLQuery(String id, MoneyInput cappedAmount,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (cappedAmount != null || fieldsSet.contains("cappedAmount")) {
+        getInput().put("cappedAmount", cappedAmount);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public AppSubscriptionLineItemUpdateGraphQLQuery() {
     super("mutation");
   }
@@ -46,6 +69,10 @@ public class AppSubscriptionLineItemUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private MoneyInput cappedAmount;
@@ -53,7 +80,7 @@ public class AppSubscriptionLineItemUpdateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public AppSubscriptionLineItemUpdateGraphQLQuery build() {
-      return new AppSubscriptionLineItemUpdateGraphQLQuery(id, cappedAmount, queryName, fieldsSet);
+      return new AppSubscriptionLineItemUpdateGraphQLQuery(id, cappedAmount, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -67,10 +94,30 @@ public class AppSubscriptionLineItemUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the app subscription line item to be updated.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The new maximum amount of usage charges that can be incurred within a subscription billing interval.
      */
     public Builder cappedAmount(MoneyInput cappedAmount) {
       this.cappedAmount = cappedAmount;
+      this.fieldsSet.add("cappedAmount");
+      return this;
+    }
+
+    /**
+     * The new maximum amount of usage charges that can be incurred within a subscription billing interval.
+     */
+    public Builder cappedAmountReference(String variableRef) {
+      this.variableReferences.put("cappedAmount", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("MoneyInput"))).build());
       this.fieldsSet.add("cappedAmount");
       return this;
     }

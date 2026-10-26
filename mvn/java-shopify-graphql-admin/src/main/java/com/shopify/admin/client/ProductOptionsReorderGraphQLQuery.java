@@ -2,10 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.OptionReorderInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -78,6 +82,24 @@ public class ProductOptionsReorderGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public ProductOptionsReorderGraphQLQuery(String productId, List<OptionReorderInput> options,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (productId != null || fieldsSet.contains("productId")) {
+        getInput().put("productId", productId);
+    }if (options != null || fieldsSet.contains("options")) {
+        getInput().put("options", options);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public ProductOptionsReorderGraphQLQuery() {
     super("mutation");
   }
@@ -94,6 +116,10 @@ public class ProductOptionsReorderGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String productId;
 
     private List<OptionReorderInput> options;
@@ -101,7 +127,7 @@ public class ProductOptionsReorderGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public ProductOptionsReorderGraphQLQuery build() {
-      return new ProductOptionsReorderGraphQLQuery(productId, options, queryName, fieldsSet);
+      return new ProductOptionsReorderGraphQLQuery(productId, options, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -115,10 +141,30 @@ public class ProductOptionsReorderGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the product to update.
+     */
+    public Builder productIdReference(String variableRef) {
+      this.variableReferences.put("productId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("productId");
+      return this;
+    }
+
+    /**
      * Options to reorder on the product.
      */
     public Builder options(List<OptionReorderInput> options) {
       this.options = options;
+      this.fieldsSet.add("options");
+      return this;
+    }
+
+    /**
+     * Options to reorder on the product.
+     */
+    public Builder optionsReference(String variableRef) {
+      this.variableReferences.put("options", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("OptionReorderInput"))))).build());
       this.fieldsSet.add("options");
       return this;
     }

@@ -1,10 +1,15 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -23,6 +28,26 @@ public class DraftOrdersCountGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public DraftOrdersCountGraphQLQuery(String query, String savedSearchId, Integer limit,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("query", queryName);
+    if (query != null || fieldsSet.contains("query")) {
+        getInput().put("query", query);
+    }if (savedSearchId != null || fieldsSet.contains("savedSearchId")) {
+        getInput().put("savedSearchId", savedSearchId);
+    }if (limit != null || fieldsSet.contains("limit")) {
+        getInput().put("limit", limit);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public DraftOrdersCountGraphQLQuery() {
     super("query");
   }
@@ -39,6 +64,10 @@ public class DraftOrdersCountGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String query;
 
     private String savedSearchId;
@@ -48,7 +77,7 @@ public class DraftOrdersCountGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public DraftOrdersCountGraphQLQuery build() {
-      return new DraftOrdersCountGraphQLQuery(query, savedSearchId, limit, queryName, fieldsSet);
+      return new DraftOrdersCountGraphQLQuery(query, savedSearchId, limit, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -60,7 +89,7 @@ public class DraftOrdersCountGraphQLQuery extends GraphQLQuery {
      * in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
      * | created_at | time |
      * | customer_id | id |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
      * | ids | string |
      * | source | string |
      * | status | string |
@@ -71,6 +100,30 @@ public class DraftOrdersCountGraphQLQuery extends GraphQLQuery {
      */
     public Builder query(String query) {
       this.query = query;
+      this.fieldsSet.add("query");
+      return this;
+    }
+
+    /**
+     * A filter made up of terms, connectives, modifiers, and comparators.
+     * | name | type | description | acceptable_values | default_value | example_use |
+     * | ---- | ---- | ---- | ---- | ---- | ---- |
+     * | default | string | Filter by a case-insensitive search of multiple fields
+     * in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
+     * | created_at | time |
+     * | customer_id | id |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | ids | string |
+     * | source | string |
+     * | status | string |
+     * | tag | string |
+     * | updated_at | time |
+     * You can apply one or more filters to a query. Learn more about [Shopify API
+     * search syntax](https://shopify.dev/api/usage/search-syntax).
+     */
+    public Builder queryReference(String variableRef) {
+      this.variableReferences.put("query", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
       this.fieldsSet.add("query");
       return this;
     }
@@ -87,10 +140,32 @@ public class DraftOrdersCountGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of an existing saved search.
+     * The search’s query string is used as the query argument.
+     * Refer to the [`SavedSearch`](https://shopify.dev/api/admin-graphql/latest/objects/savedsearch) object.
+     */
+    public Builder savedSearchIdReference(String variableRef) {
+      this.variableReferences.put("savedSearchId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("ID")).build());
+      this.fieldsSet.add("savedSearchId");
+      return this;
+    }
+
+    /**
      * The upper bound on count value before returning a result. Use `null` to have no limit.
      */
     public Builder limit(Integer limit) {
       this.limit = limit;
+      this.fieldsSet.add("limit");
+      return this;
+    }
+
+    /**
+     * The upper bound on count value before returning a result. Use `null` to have no limit.
+     */
+    public Builder limitReference(String variableRef) {
+      this.variableReferences.put("limit", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Int")).build());
       this.fieldsSet.add("limit");
       return this;
     }
