@@ -28,7 +28,7 @@ https://github.com/Netflix/dgs-codegen/issues/772
 <dependency>
 	<groupId>io.github.mores</groupId>
 	<artifactId>java-shopify-graphql-admin</artifactId>
-	<version>2026.04.001</version>
+	<version>2026.10.001</version>
 </dependency>
 ```
 
@@ -40,7 +40,7 @@ https://github.com/Netflix/dgs-codegen/issues/772
 <dependency>
         <groupId>io.github.mores</groupId>
         <artifactId>java-shopify-graphql-storefront</artifactId>
-        <version>2026.04.001</version>
+        <version>2026.10.001</version>
 </dependency>
 ```
 
