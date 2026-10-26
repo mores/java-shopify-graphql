@@ -803,7 +803,11 @@ public class AppTest {
 
         ProductVariantSetInput variant1 = new ProductVariantSetInput();
         variant1.setOptionValues(optionValues200);
-        variant1.setBarcode("8410031950656");
+        java.util.List<BarcodeInput> barcodes = new java.util.ArrayList<>();
+        BarcodeInput barcodeInput = new BarcodeInput();
+        barcodeInput.setValue("8410031950656");
+        barcodes.add(barcodeInput);
+        variant1.setBarcodes(barcodes);
         variant1.setInventoryPolicy(ProductVariantInventoryPolicy.DENY);
 
         variant1.setPrice("6.89");
@@ -818,7 +822,7 @@ public class AppTest {
 
         ProductVariantSetInput variant2 = new ProductVariantSetInput();
         variant2.setOptionValues(optionValues100);
-        variant2.setBarcode("8410031950656");
+        variant2.setBarcodes(barcodes);
         variant2.setInventoryPolicy(ProductVariantInventoryPolicy.DENY);
         variant2.setPrice("3.45");
         variant2.setSku("loli100");
@@ -883,7 +887,11 @@ public class AppTest {
 
         ProductVariantsBulkInput variant1 = new ProductVariantsBulkInput();
         variant1.setOptionValues(optionValues200);
-        variant1.setBarcode("8410031950656");
+        java.util.List<BarcodeInput> barcodes = new java.util.ArrayList<>();
+        BarcodeInput barcodeInput = new BarcodeInput();
+        barcodeInput.setValue("8410031950656");
+        barcodes.add(barcodeInput);
+        variant1.setBarcodes(barcodes);
         InventoryItemInput inventoryItemInput = new InventoryItemInput();
         InventoryItemMeasurementInput measurement = new InventoryItemMeasurementInput();
         WeightInput weight = new WeightInput();
@@ -965,7 +973,11 @@ public class AppTest {
         java.util.List<ProductVariantsBulkInput> variants = new java.util.ArrayList();
 
         ProductVariantsBulkInput variant = new ProductVariantsBulkInput();
-        variant.setBarcode("8410031950656");
+        java.util.List<BarcodeInput> barcodes = new java.util.ArrayList<>();
+        BarcodeInput barcodeInput = new BarcodeInput();
+        barcodeInput.setValue("8410031950656");
+        barcodes.add(barcodeInput);
+        variant.setBarcodes(barcodes);
         variant.setCompareAtPrice(compareAt);
         variant.setId(productVariant.getId());
         InventoryItemInput inventoryItemInput = new InventoryItemInput();
