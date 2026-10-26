@@ -38,15 +38,15 @@
 		<maven.compiler.target>11</maven.compiler.target>
 		<maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
 		<maven-dependency-plugin.version>3.8.1</maven-dependency-plugin.version>
-		<maven-enforcer-plugin.verion>3.6.1</maven-enforcer-plugin.verion>
+		<maven-enforcer-plugin.verion>3.6.3</maven-enforcer-plugin.verion>
 		<dgs-client.version>10.2.4</dgs-client.version>
 		<dgs-core.version>8.1.1</dgs-core.version>
 		<dgs-codegen.version>3.0.2</dgs-codegen.version>
-		<formatter.version>2.27.0</formatter.version>
+		<formatter.version>2.29.0</formatter.version>
 
 		<!-- same that is used in: com.netflix.graphql.dgs.codegen:graphql-dgs-codegen-shared-core:jar:8.1.1:compile -->
 		<jackson.version>2.18.3</jackson.version>
-		<log4j.version>2.25.1</log4j.version>
+		<log4j.version>2.26.1</log4j.version>
 	</properties>
 
 	<dependencyManagement>
