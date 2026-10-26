@@ -8,9 +8,17 @@ https://github.com/mores/java-shopify-graphql/issues/9 - unable to pass @idempot
 
 ## Wish List
 
-https://github.com/Netflix/dgs-codegen/pull/920
+https://github.com/Netflix/dgs-codegen/pull/920 - Merged 6/25/2026
 
 https://github.com/Netflix/dgs-codegen/pull/935
+-or-
+https://github.com/Netflix/dgs-codegen/pull/938
+
+## Upstream bugs
+https://github.com/Netflix/dgs-codegen/issues/771
+
+https://github.com/Netflix/dgs-codegen/issues/772
+
 
 ## Using these objects in your project
 
