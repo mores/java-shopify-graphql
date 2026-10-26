@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * <div class="note"><h4>Theme app extensions</h4>
+ * <div class="note">&lt;h4>Theme app extensions&lt;/h4>
  *   <p>If your app integrates with a Shopify theme and you plan to submit it to
  * the Shopify App Store, you must use theme app extensions instead of Script
  * tags. Script tags can only be used with vintage themes. <a

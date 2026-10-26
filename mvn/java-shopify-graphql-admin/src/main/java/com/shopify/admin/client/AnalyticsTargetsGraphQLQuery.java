@@ -239,12 +239,12 @@ public class AnalyticsTargetsGraphQLQuery extends GraphQLQuery {
      * | default | string | Filter by a case-insensitive search of multiple fields
      * in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
      * | created_at | time | Filter by creation date and time. | | | -
-     * `created_at:>'2020-10-21T23:39:20Z'`<br/> - `created_at:<now`<br/> -
-     * `created_at:<='2024'` |
+     * `created_at:>'2020-10-21T23:39:20Z'`<br/> - `created_at:&lt;now`<br/> -
+     * `created_at:&lt;='2024'` |
      * | end_date | date | Filter by the end date of the target period. | | | -
-     * `end_date:2026-03-31`<br/> - `end_date:<=2026-03-31` |
+     * `end_date:2026-03-31`<br/> - `end_date:&lt;=2026-03-31` |
      * | filters | string | Filter by the target's filter expression. | | | - `filters:"shipping_country = 'US'"` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | metric | string | Filter by metric identifier. | | | - `metric:total_sales` |
      * | name | string | Filter by target name. | | | - `name:Q1 Sales Target` |
      * | start_date | date | Filter by the start date of the target period. | | | -
@@ -265,12 +265,12 @@ public class AnalyticsTargetsGraphQLQuery extends GraphQLQuery {
      * | default | string | Filter by a case-insensitive search of multiple fields
      * in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
      * | created_at | time | Filter by creation date and time. | | | -
-     * `created_at:>'2020-10-21T23:39:20Z'`<br/> - `created_at:<now`<br/> -
-     * `created_at:<='2024'` |
+     * `created_at:>'2020-10-21T23:39:20Z'`<br/> - `created_at:&lt;now`<br/> -
+     * `created_at:&lt;='2024'` |
      * | end_date | date | Filter by the end date of the target period. | | | -
-     * `end_date:2026-03-31`<br/> - `end_date:<=2026-03-31` |
+     * `end_date:2026-03-31`<br/> - `end_date:&lt;=2026-03-31` |
      * | filters | string | Filter by the target's filter expression. | | | - `filters:"shipping_country = 'US'"` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | metric | string | Filter by metric identifier. | | | - `metric:total_sales` |
      * | name | string | Filter by target name. | | | - `name:Q1 Sales Target` |
      * | start_date | date | Filter by the start date of the target period. | | | -

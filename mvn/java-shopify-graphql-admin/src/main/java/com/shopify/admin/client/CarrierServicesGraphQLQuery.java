@@ -234,9 +234,9 @@ public class CarrierServicesGraphQLQuery extends GraphQLQuery {
      * | ---- | ---- | ---- | ---- | ---- | ---- |
      * | active | boolean |
      * | created_at | time | Filter by creation date and time. | | | -
-     * `created_at:>'2020-10-21T23:39:20Z'`<br/> - `created_at:<now`<br/> -
-     * `created_at:<='2024'` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * `created_at:>'2020-10-21T23:39:20Z'`<br/> - `created_at:&lt;now`<br/> -
+     * `created_at:&lt;='2024'` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * You can apply one or more filters to a query. Learn more about [Shopify API
      * search syntax](https://shopify.dev/api/usage/search-syntax).
      */
@@ -252,9 +252,9 @@ public class CarrierServicesGraphQLQuery extends GraphQLQuery {
      * | ---- | ---- | ---- | ---- | ---- | ---- |
      * | active | boolean |
      * | created_at | time | Filter by creation date and time. | | | -
-     * `created_at:>'2020-10-21T23:39:20Z'`<br/> - `created_at:<now`<br/> -
-     * `created_at:<='2024'` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * `created_at:>'2020-10-21T23:39:20Z'`<br/> - `created_at:&lt;now`<br/> -
+     * `created_at:&lt;='2024'` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * You can apply one or more filters to a query. Learn more about [Shopify API
      * search syntax](https://shopify.dev/api/usage/search-syntax).
      */

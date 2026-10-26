@@ -238,7 +238,7 @@ public class SubscriptionContractsGraphQLQuery extends GraphQLQuery {
      * | created_at | time |
      * | customer_id | id | Filter subscription contracts by the customer [`id`](https://shopify.dev/api/admin-graphql/latest/objects/Customer#field-Customer.fields.id)
      * field. | | | - `customer_id:123` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | last_billing_attempt_error_type | string |
      * | product_id | id | Filter subscription contracts by the [`id`](https://shopify.dev/api/admin-graphql/latest/objects/Product#field-Product.fields.id)
      * of any product on the contract's lines. | | | - `product_id:123` |
@@ -266,7 +266,7 @@ public class SubscriptionContractsGraphQLQuery extends GraphQLQuery {
      * | created_at | time |
      * | customer_id | id | Filter subscription contracts by the customer [`id`](https://shopify.dev/api/admin-graphql/latest/objects/Customer#field-Customer.fields.id)
      * field. | | | - `customer_id:123` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | last_billing_attempt_error_type | string |
      * | product_id | id | Filter subscription contracts by the [`id`](https://shopify.dev/api/admin-graphql/latest/objects/Product#field-Product.fields.id)
      * of any product on the contract's lines. | | | - `product_id:123` |

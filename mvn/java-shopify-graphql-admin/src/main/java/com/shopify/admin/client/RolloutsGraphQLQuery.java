@@ -236,7 +236,7 @@ public class RolloutsGraphQLQuery extends GraphQLQuery {
      * `RolloutCheckoutAndAccountsConfigurationPublishChange` | | -
      * `change_type:RolloutDiscountActivateChange`<br/> -
      * `change_type:RolloutThemePublishChange` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | name | string | Filter by rollout name. Matches rollouts whose name contains the search value. |
      * | status | string | Filter by rollout status. Values are case-insensitive;
      * unknown values match no rollouts. | - `DRAFT`<br/> - `SCHEDULED`<br/> -
@@ -264,7 +264,7 @@ public class RolloutsGraphQLQuery extends GraphQLQuery {
      * `RolloutCheckoutAndAccountsConfigurationPublishChange` | | -
      * `change_type:RolloutDiscountActivateChange`<br/> -
      * `change_type:RolloutThemePublishChange` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | name | string | Filter by rollout name. Matches rollouts whose name contains the search value. |
      * | status | string | Filter by rollout status. Values are case-insensitive;
      * unknown values match no rollouts. | - `DRAFT`<br/> - `SCHEDULED`<br/> -

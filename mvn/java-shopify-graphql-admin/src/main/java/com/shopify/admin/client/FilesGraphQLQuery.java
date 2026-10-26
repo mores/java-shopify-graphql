@@ -255,7 +255,7 @@ public class FilesGraphQLQuery extends GraphQLQuery {
      * in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
      * | created_at | time |
      * | filename | string |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | ids | string |
      * | media_type | string |
      * | original_upload_size | string | Filter by the file's original upload size
@@ -264,7 +264,7 @@ public class FilesGraphQLQuery extends GraphQLQuery {
      * is provided, the value is interpreted as bytes. Units use binary
      * (1024-based) multipliers. | | | - `original_upload_size:1024`<br/> -
      * `original_upload_size:1.5MB`<br/> - `original_upload_size:>=10MB
-     * original_upload_size:<=100MB`<br/> - `original_upload_size:512KB` |
+     * original_upload_size:&lt;=100MB`<br/> - `original_upload_size:512KB` |
      * | product_id | string |
      * | status | string |
      * | updated_at | time |
@@ -286,7 +286,7 @@ public class FilesGraphQLQuery extends GraphQLQuery {
      * in a document. | | | - `query=Bob Norman`<br/> - `query=title:green hoodie` |
      * | created_at | time |
      * | filename | string |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | ids | string |
      * | media_type | string |
      * | original_upload_size | string | Filter by the file's original upload size
@@ -295,7 +295,7 @@ public class FilesGraphQLQuery extends GraphQLQuery {
      * is provided, the value is interpreted as bytes. Units use binary
      * (1024-based) multipliers. | | | - `original_upload_size:1024`<br/> -
      * `original_upload_size:1.5MB`<br/> - `original_upload_size:>=10MB
-     * original_upload_size:<=100MB`<br/> - `original_upload_size:512KB` |
+     * original_upload_size:&lt;=100MB`<br/> - `original_upload_size:512KB` |
      * | product_id | string |
      * | status | string |
      * | updated_at | time |

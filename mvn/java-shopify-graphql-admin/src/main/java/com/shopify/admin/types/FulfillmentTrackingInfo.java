@@ -72,7 +72,7 @@ public class FulfillmentTrackingInfo {
    *   * Fulfilla
    *   * GLS
    *   * Guangdong Weisuyi Information Technology (WSE)
-   *   * Heppner Internationale Spedition GmbH & Co.
+   *   * Heppner Internationale Spedition GmbH &amp; Co.
    *   * Iceland Post
    *   * IDEX
    *   * Israel Post
@@ -263,7 +263,7 @@ public class FulfillmentTrackingInfo {
    *   * Fulfilla
    *   * GLS
    *   * Guangdong Weisuyi Information Technology (WSE)
-   *   * Heppner Internationale Spedition GmbH & Co.
+   *   * Heppner Internationale Spedition GmbH &amp; Co.
    *   * Iceland Post
    *   * IDEX
    *   * Israel Post
@@ -494,7 +494,7 @@ public class FulfillmentTrackingInfo {
      *   * Fulfilla
      *   * GLS
      *   * Guangdong Weisuyi Information Technology (WSE)
-     *   * Heppner Internationale Spedition GmbH & Co.
+     *   * Heppner Internationale Spedition GmbH &amp; Co.
      *   * Iceland Post
      *   * IDEX
      *   * Israel Post
@@ -690,7 +690,7 @@ public class FulfillmentTrackingInfo {
      *   * Fulfilla
      *   * GLS
      *   * Guangdong Weisuyi Information Technology (WSE)
-     *   * Heppner Internationale Spedition GmbH & Co.
+     *   * Heppner Internationale Spedition GmbH &amp; Co.
      *   * Iceland Post
      *   * IDEX
      *   * Israel Post

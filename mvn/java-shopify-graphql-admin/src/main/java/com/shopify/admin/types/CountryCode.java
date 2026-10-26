@@ -43,7 +43,7 @@ public enum CountryCode {
   AI,
 
   /**
-   * Antigua & Barbuda.
+   * Antigua &amp; Barbuda.
    */
   AG,
 
@@ -138,7 +138,7 @@ public enum CountryCode {
   BO,
 
   /**
-   * Bosnia & Herzegovina.
+   * Bosnia &amp; Herzegovina.
    */
   BA,
 
@@ -478,7 +478,7 @@ public enum CountryCode {
   HT,
 
   /**
-   * Heard & McDonald Islands.
+   * Heard &amp; McDonald Islands.
    */
   HM,
 
@@ -913,7 +913,7 @@ public enum CountryCode {
   SH,
 
   /**
-   * St. Kitts & Nevis.
+   * St. Kitts &amp; Nevis.
    */
   KN,
 
@@ -928,7 +928,7 @@ public enum CountryCode {
   MF,
 
   /**
-   * St. Pierre & Miquelon.
+   * St. Pierre &amp; Miquelon.
    */
   PM,
 
@@ -943,7 +943,7 @@ public enum CountryCode {
   SM,
 
   /**
-   * São Tomé & Príncipe.
+   * São Tomé &amp; Príncipe.
    */
   ST,
 
@@ -1008,7 +1008,7 @@ public enum CountryCode {
   ZA,
 
   /**
-   * South Georgia & South Sandwich Islands.
+   * South Georgia &amp; South Sandwich Islands.
    */
   GS,
 
@@ -1033,7 +1033,7 @@ public enum CountryCode {
   LK,
 
   /**
-   * St. Vincent & Grenadines.
+   * St. Vincent &amp; Grenadines.
    */
   VC,
 
@@ -1048,7 +1048,7 @@ public enum CountryCode {
   SR,
 
   /**
-   * Svalbard & Jan Mayen.
+   * Svalbard &amp; Jan Mayen.
    */
   SJ,
 
@@ -1108,7 +1108,7 @@ public enum CountryCode {
   TO,
 
   /**
-   * Trinidad & Tobago.
+   * Trinidad &amp; Tobago.
    */
   TT,
 
@@ -1133,7 +1133,7 @@ public enum CountryCode {
   TM,
 
   /**
-   * Turks & Caicos Islands.
+   * Turks &amp; Caicos Islands.
    */
   TC,
 
@@ -1203,7 +1203,7 @@ public enum CountryCode {
   VG,
 
   /**
-   * Wallis & Futuna.
+   * Wallis &amp; Futuna.
    */
   WF,
 

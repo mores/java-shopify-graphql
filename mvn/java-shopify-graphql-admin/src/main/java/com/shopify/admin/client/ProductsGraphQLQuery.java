@@ -278,7 +278,7 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
      * `combined_listing_role:parent` |
      * | created_at | time | Filter by the date and time when the product was
      * created. | | | - `created_at:>'2020-10-21T23:39:20Z'`<br/> -
-     * `created_at:<now`<br/> - `created_at:<='2024'` |
+     * `created_at:&lt;now`<br/> - `created_at:&lt;='2024'` |
      * | delivery_profile_id | id | Filter by the delivery profile [`id`](https://shopify.dev/api/admin-graphql/latest/objects/DeliveryProfile#field-id)
      * field. | | | - `delivery_profile_id:108179161409` |
      * | error_feedback | string | Filter by products with publishing errors. |
@@ -294,7 +294,7 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
      * | has_variant_with_components | boolean | Filter by products that have
      * variants with associated components. | | | -
      * `has_variant_with_components:true` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | inventory_total | integer | Filter by inventory count. | | | -
      * `inventory_total:0`<br/> - `inventory_total:>150`<br/> -
      * `inventory_total:>=200` |
@@ -340,8 +340,8 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
      * `publishable_status:580111-unset`<br/> - `publishable_status:580111-pending` |
      * | published_at | time | Filter by the date and time when the product was
      * published to the online store and other sales channels. | | | -
-     * `published_at:>'2020-10-21T23:39:20Z'`<br/> - `published_at:<now`<br/> -
-     * `published_at:<=2024` |
+     * `published_at:>'2020-10-21T23:39:20Z'`<br/> - `published_at:&lt;now`<br/> -
+     * `published_at:&lt;=2024` |
      * | published_status | string | Filter resources by their visibility and
      * publication state on a channel. Online store channel filtering: -
      * `online_store_channel`: Returns all resources in the online store channel,
@@ -394,7 +394,7 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
      * enabled. | | | - `tracks_inventory:true` |
      * | updated_at | time | Filter by the date and time when the product was last
      * updated. | | | - `updated_at:>'2020-10-21T23:39:20Z'`<br/> -
-     * `updated_at:<now`<br/> - `updated_at:<='2024'` |
+     * `updated_at:&lt;now`<br/> - `updated_at:&lt;='2024'` |
      * | variant_id | id | Filter by the product variant [`id`](https://shopify.dev/api/admin-graphql/latest/objects/ProductVariant#field-id)
      * field. | | | - `variant_id:45779434701121` |
      * | variant_title | string | Filter by the product variant [`title`](https://shopify.dev/api/admin-graphql/latest/objects/ProductVariant#field-title)
@@ -435,7 +435,7 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
      * `combined_listing_role:parent` |
      * | created_at | time | Filter by the date and time when the product was
      * created. | | | - `created_at:>'2020-10-21T23:39:20Z'`<br/> -
-     * `created_at:<now`<br/> - `created_at:<='2024'` |
+     * `created_at:&lt;now`<br/> - `created_at:&lt;='2024'` |
      * | delivery_profile_id | id | Filter by the delivery profile [`id`](https://shopify.dev/api/admin-graphql/latest/objects/DeliveryProfile#field-id)
      * field. | | | - `delivery_profile_id:108179161409` |
      * | error_feedback | string | Filter by products with publishing errors. |
@@ -451,7 +451,7 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
      * | has_variant_with_components | boolean | Filter by products that have
      * variants with associated components. | | | -
      * `has_variant_with_components:true` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | inventory_total | integer | Filter by inventory count. | | | -
      * `inventory_total:0`<br/> - `inventory_total:>150`<br/> -
      * `inventory_total:>=200` |
@@ -497,8 +497,8 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
      * `publishable_status:580111-unset`<br/> - `publishable_status:580111-pending` |
      * | published_at | time | Filter by the date and time when the product was
      * published to the online store and other sales channels. | | | -
-     * `published_at:>'2020-10-21T23:39:20Z'`<br/> - `published_at:<now`<br/> -
-     * `published_at:<=2024` |
+     * `published_at:>'2020-10-21T23:39:20Z'`<br/> - `published_at:&lt;now`<br/> -
+     * `published_at:&lt;=2024` |
      * | published_status | string | Filter resources by their visibility and
      * publication state on a channel. Online store channel filtering: -
      * `online_store_channel`: Returns all resources in the online store channel,
@@ -551,7 +551,7 @@ public class ProductsGraphQLQuery extends GraphQLQuery {
      * enabled. | | | - `tracks_inventory:true` |
      * | updated_at | time | Filter by the date and time when the product was last
      * updated. | | | - `updated_at:>'2020-10-21T23:39:20Z'`<br/> -
-     * `updated_at:<now`<br/> - `updated_at:<='2024'` |
+     * `updated_at:&lt;now`<br/> - `updated_at:&lt;='2024'` |
      * | variant_id | id | Filter by the product variant [`id`](https://shopify.dev/api/admin-graphql/latest/objects/ProductVariant#field-id)
      * field. | | | - `variant_id:45779434701121` |
      * | variant_title | string | Filter by the product variant [`title`](https://shopify.dev/api/admin-graphql/latest/objects/ProductVariant#field-title)

@@ -241,7 +241,7 @@ public class AutomaticDiscountsGraphQLQuery extends GraphQLQuery {
      * Filter by a combines with tag applied to discounts on the same cart line.
      * Supports multiple tags separated by commas (e.g., combines_with.product_discounts_with_tags_on_same_cart_line:priority,exclusive). | | | -
      * `combines_with.product_discounts_with_tags_on_same_cart_line:priority`<br/> - `combines_with.product_discounts_with_tags_on_same_cart_line:priority,exclusive` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | status | string | Filter by the discount status. | - `active`<br/> -
      * `expired`<br/> - `scheduled` | | - `status:scheduled` |
      * | tag | string | Filter by a tag applied to the discount. | | | - `tag:loyalty`<br/> - `tag:clearance` |
@@ -268,7 +268,7 @@ public class AutomaticDiscountsGraphQLQuery extends GraphQLQuery {
      * Filter by a combines with tag applied to discounts on the same cart line.
      * Supports multiple tags separated by commas (e.g., combines_with.product_discounts_with_tags_on_same_cart_line:priority,exclusive). | | | -
      * `combines_with.product_discounts_with_tags_on_same_cart_line:priority`<br/> - `combines_with.product_discounts_with_tags_on_same_cart_line:priority,exclusive` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | status | string | Filter by the discount status. | - `active`<br/> -
      * `expired`<br/> - `scheduled` | | - `status:scheduled` |
      * | tag | string | Filter by a tag applied to the discount. | | | - `tag:loyalty`<br/> - `tag:clearance` |

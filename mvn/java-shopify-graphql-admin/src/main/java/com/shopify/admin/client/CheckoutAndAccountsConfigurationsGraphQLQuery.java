@@ -230,9 +230,9 @@ public class CheckoutAndAccountsConfigurationsGraphQLQuery extends GraphQLQuery 
      * | name | type | description | acceptable_values | default_value | example_use |
      * | ---- | ---- | ---- | ---- | ---- | ---- |
      * | created_at | time | Filter by creation date and time. | | | -
-     * `created_at:>'2020-10-21T23:39:20Z'`<br/> - `created_at:<now`<br/> -
-     * `created_at:<='2024'` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * `created_at:>'2020-10-21T23:39:20Z'`<br/> - `created_at:&lt;now`<br/> -
+     * `created_at:&lt;='2024'` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | is_published | boolean |
      * | one_page_checkout_enabled | boolean |
      * | typ_osp_pages_enabled | boolean |
@@ -250,9 +250,9 @@ public class CheckoutAndAccountsConfigurationsGraphQLQuery extends GraphQLQuery 
      * | name | type | description | acceptable_values | default_value | example_use |
      * | ---- | ---- | ---- | ---- | ---- | ---- |
      * | created_at | time | Filter by creation date and time. | | | -
-     * `created_at:>'2020-10-21T23:39:20Z'`<br/> - `created_at:<now`<br/> -
-     * `created_at:<='2024'` |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * `created_at:>'2020-10-21T23:39:20Z'`<br/> - `created_at:&lt;now`<br/> -
+     * `created_at:&lt;='2024'` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | is_published | boolean |
      * | one_page_checkout_enabled | boolean |
      * | typ_osp_pages_enabled | boolean |

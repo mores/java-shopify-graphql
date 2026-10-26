@@ -270,7 +270,7 @@ public class CatalogsGraphQLQuery extends GraphQLQuery {
      * | assigned_company_location_id | string |
      * | company_id | id |
      * | company_location_id | id |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | managed_country_id | id |
      * | market_id | string |
      * | status | string |
@@ -294,7 +294,7 @@ public class CatalogsGraphQLQuery extends GraphQLQuery {
      * | assigned_company_location_id | string |
      * | company_id | id |
      * | company_location_id | id |
-     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:<=1234` |
+     * | id | id | Filter by `id` range. | | | - `id:1234`<br/> - `id:>=1234`<br/> - `id:&lt;=1234` |
      * | managed_country_id | id |
      * | market_id | string |
      * | status | string |

@@ -20,12 +20,12 @@ public enum ValidationUserErrorCode {
   CUSTOM_APP_FUNCTION_NOT_ELIGIBLE,
 
   /**
-   * Function does not implement the required interface for this cart & checkout validation.
+   * Function does not implement the required interface for this cart &amp; checkout validation.
    */
   FUNCTION_DOES_NOT_IMPLEMENT,
 
   /**
-   * Only unlisted apps can be used for this cart & checkout validation.
+   * Only unlisted apps can be used for this cart &amp; checkout validation.
    */
   PUBLIC_APP_NOT_ALLOWED,
 
