@@ -14,7 +14,7 @@ import java.util.Objects;
  * The [`FilterValue`](https://shopify.dev/docs/api/storefront/current/objects/FilterValue) objects contain an [`input`](https://shopify.dev/docs/api/storefront/current/objects/FilterValue#field-FilterValue.fields.input)
  * field that you can combine to [build dynamic filtering queries](https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/products-collections/filter-products).
  * Merchants [configure available filters](https://help.shopify.com/manual/online-store/search-and-discovery/filters)
- * using the Shopify Search & Discovery app.
+ * using the Shopify Search &amp; Discovery app.
  */
 public class Filter {
   /**
