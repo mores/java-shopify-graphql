@@ -16,6 +16,15 @@ public class OrderCancelPayload {
   private Job job;
 
   /**
+   * The job result for tracking the order cancellation, including its `status`,
+   * any `errors`, and the affected `order`. Cancellation runs asynchronously, so
+   * query this result's `id` with the
+   * [`node`](https://shopify.dev/docs/api/admin-graphql/latest/queries/node) query
+   * until `done` is `true`.
+   */
+  private OrderCancelJobResult jobResult;
+
+  /**
    * The list of errors that occurred from executing the mutation.
    */
   private List<OrderCancelUserError> orderCancelUserErrors;
@@ -37,6 +46,21 @@ public class OrderCancelPayload {
 
   public void setJob(Job job) {
     this.job = job;
+  }
+
+  /**
+   * The job result for tracking the order cancellation, including its `status`,
+   * any `errors`, and the affected `order`. Cancellation runs asynchronously, so
+   * query this result's `id` with the
+   * [`node`](https://shopify.dev/docs/api/admin-graphql/latest/queries/node) query
+   * until `done` is `true`.
+   */
+  public OrderCancelJobResult getJobResult() {
+    return jobResult;
+  }
+
+  public void setJobResult(OrderCancelJobResult jobResult) {
+    this.jobResult = jobResult;
   }
 
   /**
@@ -63,7 +87,7 @@ public class OrderCancelPayload {
 
   @Override
   public String toString() {
-    return "OrderCancelPayload{job='" + job + "', orderCancelUserErrors='" + orderCancelUserErrors + "', userErrors='" + userErrors + "'}";
+    return "OrderCancelPayload{job='" + job + "', jobResult='" + jobResult + "', orderCancelUserErrors='" + orderCancelUserErrors + "', userErrors='" + userErrors + "'}";
   }
 
   @Override
@@ -72,13 +96,14 @@ public class OrderCancelPayload {
     if (o == null || getClass() != o.getClass()) return false;
     OrderCancelPayload that = (OrderCancelPayload) o;
     return Objects.equals(job, that.job) &&
+        Objects.equals(jobResult, that.jobResult) &&
         Objects.equals(orderCancelUserErrors, that.orderCancelUserErrors) &&
         Objects.equals(userErrors, that.userErrors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(job, orderCancelUserErrors, userErrors);
+    return Objects.hash(job, jobResult, orderCancelUserErrors, userErrors);
   }
 
   public static Builder newBuilder() {
@@ -90,6 +115,15 @@ public class OrderCancelPayload {
      * The job that asynchronously cancels the order.
      */
     private Job job;
+
+    /**
+     * The job result for tracking the order cancellation, including its `status`,
+     * any `errors`, and the affected `order`. Cancellation runs asynchronously, so
+     * query this result's `id` with the
+     * [`node`](https://shopify.dev/docs/api/admin-graphql/latest/queries/node) query
+     * until `done` is `true`.
+     */
+    private OrderCancelJobResult jobResult;
 
     /**
      * The list of errors that occurred from executing the mutation.
@@ -104,6 +138,7 @@ public class OrderCancelPayload {
     public OrderCancelPayload build() {
       OrderCancelPayload result = new OrderCancelPayload();
       result.job = this.job;
+      result.jobResult = this.jobResult;
       result.orderCancelUserErrors = this.orderCancelUserErrors;
       result.userErrors = this.userErrors;
       return result;
@@ -114,6 +149,18 @@ public class OrderCancelPayload {
      */
     public Builder job(Job job) {
       this.job = job;
+      return this;
+    }
+
+    /**
+     * The job result for tracking the order cancellation, including its `status`,
+     * any `errors`, and the affected `order`. Cancellation runs asynchronously, so
+     * query this result's `id` with the
+     * [`node`](https://shopify.dev/docs/api/admin-graphql/latest/queries/node) query
+     * until `done` is `true`.
+     */
+    public Builder jobResult(OrderCancelJobResult jobResult) {
+      this.jobResult = jobResult;
       return this;
     }
 

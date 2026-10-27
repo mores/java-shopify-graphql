@@ -1,9 +1,14 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -25,6 +30,22 @@ public class AppSubscriptionTrialExtendGraphQLQuery extends GraphQLQuery {
     }getInput().put("days", days);                   
   }
 
+  public AppSubscriptionTrialExtendGraphQLQuery(String id, int days, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }getInput().put("days", days);                   
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public AppSubscriptionTrialExtendGraphQLQuery() {
     super("mutation");
   }
@@ -41,6 +62,10 @@ public class AppSubscriptionTrialExtendGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private int days;
@@ -48,7 +73,7 @@ public class AppSubscriptionTrialExtendGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public AppSubscriptionTrialExtendGraphQLQuery build() {
-      return new AppSubscriptionTrialExtendGraphQLQuery(id, days, queryName, fieldsSet);
+      return new AppSubscriptionTrialExtendGraphQLQuery(id, days, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -62,10 +87,30 @@ public class AppSubscriptionTrialExtendGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the app subscription to extend the trial for.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The number of days to extend the trial. The value must be greater than 0 and less than or equal to 1000.
      */
     public Builder days(int days) {
       this.days = days;
+      this.fieldsSet.add("days");
+      return this;
+    }
+
+    /**
+     * The number of days to extend the trial. The value must be greater than 0 and less than or equal to 1000.
+     */
+    public Builder daysReference(String variableRef) {
+      this.variableReferences.put("days", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("Int"))).build());
       this.fieldsSet.add("days");
       return this;
     }

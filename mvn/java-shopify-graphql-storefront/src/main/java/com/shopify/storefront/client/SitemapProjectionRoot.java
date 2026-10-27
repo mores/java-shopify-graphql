@@ -1,6 +1,7 @@
 package com.shopify.storefront.client;
 
 import com.netflix.graphql.dgs.client.codegen.BaseSubProjectionNode;
+import java.lang.String;
 import java.util.ArrayList;
 
 public class SitemapProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, ROOT extends BaseSubProjectionNode<?, ?>> extends BaseSubProjectionNode<PARENT, ROOT> {
@@ -32,7 +33,17 @@ public class SitemapProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?>, R
     PaginatedSitemapResourcesProjection<SitemapProjectionRoot<PARENT, ROOT>, SitemapProjectionRoot<PARENT, ROOT>> projection = new PaginatedSitemapResourcesProjection<>(this, this);    
     getFields().put("resources", projection);
     getInputArguments().computeIfAbsent("resources", k -> new ArrayList<>());                      
-    InputArgument pageArg = new InputArgument("page", page);
+    InputArgument pageArg = new InputArgument("page", page, false, null);
+    getInputArguments().get("resources").add(pageArg);
+    return projection;
+  }
+
+  public PaginatedSitemapResourcesProjection<SitemapProjectionRoot<PARENT, ROOT>, SitemapProjectionRoot<PARENT, ROOT>> resourcesWithVariableReferences(
+      String pageReference) {
+    PaginatedSitemapResourcesProjection<SitemapProjectionRoot<PARENT, ROOT>, SitemapProjectionRoot<PARENT, ROOT>> projection = new PaginatedSitemapResourcesProjection<>(this, this);    
+    getFields().put("resources", projection);
+    getInputArguments().computeIfAbsent("resources", k -> new ArrayList<>());              
+    InputArgument pageArg = new InputArgument("page", pageReference, true, new graphql.language.NonNullType(new graphql.language.TypeName("Int")));
     getInputArguments().get("resources").add(pageArg);
     return projection;
   }

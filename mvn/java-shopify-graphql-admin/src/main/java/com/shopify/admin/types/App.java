@@ -113,7 +113,7 @@ public class App implements com.shopify.admin.types.Node {
 
   /**
    * Corresponding AppInstallation for this shop and App.
-   * Returns null if the App is not installed.
+   * Returns null if the App isn't installed.
    */
   private AppInstallation installation;
 
@@ -412,7 +412,7 @@ public class App implements com.shopify.admin.types.Node {
 
   /**
    * Corresponding AppInstallation for this shop and App.
-   * Returns null if the App is not installed.
+   * Returns null if the App isn't installed.
    */
   public AppInstallation getInstallation() {
     return installation;
@@ -766,7 +766,7 @@ public class App implements com.shopify.admin.types.Node {
 
     /**
      * Corresponding AppInstallation for this shop and App.
-     * Returns null if the App is not installed.
+     * Returns null if the App isn't installed.
      */
     private AppInstallation installation;
 
@@ -1049,7 +1049,7 @@ public class App implements com.shopify.admin.types.Node {
 
     /**
      * Corresponding AppInstallation for this shop and App.
-     * Returns null if the App is not installed.
+     * Returns null if the App isn't installed.
      */
     public Builder installation(AppInstallation installation) {
       this.installation = installation;

@@ -80,6 +80,13 @@ public class CartLine implements com.shopify.storefront.types.BaseCartLine, com.
    */
   private SellingPlanAllocation sellingPlanAllocation;
 
+  /**
+   * A stable identifier for the line matching the value exposed in Liquid via the
+   * `view_key` filter and accepted as input on `cartLinesUpdate` and
+   * `cartLinesRemove`.
+   */
+  private String viewKey;
+
   public CartLine() {
   }
 
@@ -207,9 +214,22 @@ public class CartLine implements com.shopify.storefront.types.BaseCartLine, com.
     this.sellingPlanAllocation = sellingPlanAllocation;
   }
 
+  /**
+   * A stable identifier for the line matching the value exposed in Liquid via the
+   * `view_key` filter and accepted as input on `cartLinesUpdate` and
+   * `cartLinesRemove`.
+   */
+  public String getViewKey() {
+    return viewKey;
+  }
+
+  public void setViewKey(String viewKey) {
+    this.viewKey = viewKey;
+  }
+
   @Override
   public String toString() {
-    return "CartLine{attribute='" + attribute + "', attributes='" + attributes + "', cost='" + cost + "', discountAllocations='" + discountAllocations + "', estimatedCost='" + estimatedCost + "', id='" + id + "', instructions='" + instructions + "', merchandise='" + merchandise + "', parentRelationship='" + parentRelationship + "', quantity='" + quantity + "', sellingPlanAllocation='" + sellingPlanAllocation + "'}";
+    return "CartLine{attribute='" + attribute + "', attributes='" + attributes + "', cost='" + cost + "', discountAllocations='" + discountAllocations + "', estimatedCost='" + estimatedCost + "', id='" + id + "', instructions='" + instructions + "', merchandise='" + merchandise + "', parentRelationship='" + parentRelationship + "', quantity='" + quantity + "', sellingPlanAllocation='" + sellingPlanAllocation + "', viewKey='" + viewKey + "'}";
   }
 
   @Override
@@ -227,12 +247,13 @@ public class CartLine implements com.shopify.storefront.types.BaseCartLine, com.
         Objects.equals(merchandise, that.merchandise) &&
         Objects.equals(parentRelationship, that.parentRelationship) &&
         quantity == that.quantity &&
-        Objects.equals(sellingPlanAllocation, that.sellingPlanAllocation);
+        Objects.equals(sellingPlanAllocation, that.sellingPlanAllocation) &&
+        Objects.equals(viewKey, that.viewKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attribute, attributes, cost, discountAllocations, estimatedCost, id, instructions, merchandise, parentRelationship, quantity, sellingPlanAllocation);
+    return Objects.hash(attribute, attributes, cost, discountAllocations, estimatedCost, id, instructions, merchandise, parentRelationship, quantity, sellingPlanAllocation, viewKey);
   }
 
   public static Builder newBuilder() {
@@ -298,6 +319,13 @@ public class CartLine implements com.shopify.storefront.types.BaseCartLine, com.
      */
     private SellingPlanAllocation sellingPlanAllocation;
 
+    /**
+     * A stable identifier for the line matching the value exposed in Liquid via the
+     * `view_key` filter and accepted as input on `cartLinesUpdate` and
+     * `cartLinesRemove`.
+     */
+    private String viewKey;
+
     public CartLine build() {
       CartLine result = new CartLine();
       result.attribute = this.attribute;
@@ -311,6 +339,7 @@ public class CartLine implements com.shopify.storefront.types.BaseCartLine, com.
       result.parentRelationship = this.parentRelationship;
       result.quantity = this.quantity;
       result.sellingPlanAllocation = this.sellingPlanAllocation;
+      result.viewKey = this.viewKey;
       return result;
     }
 
@@ -402,6 +431,16 @@ public class CartLine implements com.shopify.storefront.types.BaseCartLine, com.
      */
     public Builder sellingPlanAllocation(SellingPlanAllocation sellingPlanAllocation) {
       this.sellingPlanAllocation = sellingPlanAllocation;
+      return this;
+    }
+
+    /**
+     * A stable identifier for the line matching the value exposed in Liquid via the
+     * `view_key` filter and accepted as input on `cartLinesUpdate` and
+     * `cartLinesRemove`.
+     */
+    public Builder viewKey(String viewKey) {
+      this.viewKey = viewKey;
       return this;
     }
   }

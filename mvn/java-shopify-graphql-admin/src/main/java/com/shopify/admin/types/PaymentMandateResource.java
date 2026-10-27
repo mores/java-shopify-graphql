@@ -12,6 +12,13 @@ import java.util.Objects;
  */
 public class PaymentMandateResource {
   /**
+   * The unique ID of the payment mandate. Matches the corresponding
+   * `CustomerPaymentMethod.id` token, so partners can identify which payment
+   * method to use for a given mandate scope (e.g., SUBSCRIPTIONS).
+   */
+  private String id;
+
+  /**
    * The ID of the resource that this payment method was created for.
    */
   private String resourceId;
@@ -22,6 +29,19 @@ public class PaymentMandateResource {
   private MandateResourceType resourceType;
 
   public PaymentMandateResource() {
+  }
+
+  /**
+   * The unique ID of the payment mandate. Matches the corresponding
+   * `CustomerPaymentMethod.id` token, so partners can identify which payment
+   * method to use for a given mandate scope (e.g., SUBSCRIPTIONS).
+   */
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   /**
@@ -48,7 +68,7 @@ public class PaymentMandateResource {
 
   @Override
   public String toString() {
-    return "PaymentMandateResource{resourceId='" + resourceId + "', resourceType='" + resourceType + "'}";
+    return "PaymentMandateResource{id='" + id + "', resourceId='" + resourceId + "', resourceType='" + resourceType + "'}";
   }
 
   @Override
@@ -56,13 +76,14 @@ public class PaymentMandateResource {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     PaymentMandateResource that = (PaymentMandateResource) o;
-    return Objects.equals(resourceId, that.resourceId) &&
+    return Objects.equals(id, that.id) &&
+        Objects.equals(resourceId, that.resourceId) &&
         Objects.equals(resourceType, that.resourceType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(resourceId, resourceType);
+    return Objects.hash(id, resourceId, resourceType);
   }
 
   public static Builder newBuilder() {
@@ -70,6 +91,13 @@ public class PaymentMandateResource {
   }
 
   public static class Builder {
+    /**
+     * The unique ID of the payment mandate. Matches the corresponding
+     * `CustomerPaymentMethod.id` token, so partners can identify which payment
+     * method to use for a given mandate scope (e.g., SUBSCRIPTIONS).
+     */
+    private String id;
+
     /**
      * The ID of the resource that this payment method was created for.
      */
@@ -82,9 +110,20 @@ public class PaymentMandateResource {
 
     public PaymentMandateResource build() {
       PaymentMandateResource result = new PaymentMandateResource();
+      result.id = this.id;
       result.resourceId = this.resourceId;
       result.resourceType = this.resourceType;
       return result;
+    }
+
+    /**
+     * The unique ID of the payment mandate. Matches the corresponding
+     * `CustomerPaymentMethod.id` token, so partners can identify which payment
+     * method to use for a given mandate scope (e.g., SUBSCRIPTIONS).
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
     /**

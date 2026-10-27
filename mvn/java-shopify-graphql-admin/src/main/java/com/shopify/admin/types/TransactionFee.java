@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
@@ -17,6 +18,11 @@ public class TransactionFee implements com.shopify.admin.types.Node {
    * Amount of the fee.
    */
   private MoneyV2 amount;
+
+  /**
+   * The date and time when the transaction fee was created.
+   */
+  private OffsetDateTime createdAt;
 
   /**
    * Flat rate charge for a transaction.
@@ -65,6 +71,17 @@ public class TransactionFee implements com.shopify.admin.types.Node {
 
   public void setAmount(MoneyV2 amount) {
     this.amount = amount;
+  }
+
+  /**
+   * The date and time when the transaction fee was created.
+   */
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
   /**
@@ -146,7 +163,7 @@ public class TransactionFee implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "TransactionFee{amount='" + amount + "', flatFee='" + flatFee + "', flatFeeName='" + flatFeeName + "', id='" + id + "', rate='" + rate + "', rateName='" + rateName + "', taxAmount='" + taxAmount + "', type='" + type + "'}";
+    return "TransactionFee{amount='" + amount + "', createdAt='" + createdAt + "', flatFee='" + flatFee + "', flatFeeName='" + flatFeeName + "', id='" + id + "', rate='" + rate + "', rateName='" + rateName + "', taxAmount='" + taxAmount + "', type='" + type + "'}";
   }
 
   @Override
@@ -155,6 +172,7 @@ public class TransactionFee implements com.shopify.admin.types.Node {
     if (o == null || getClass() != o.getClass()) return false;
     TransactionFee that = (TransactionFee) o;
     return Objects.equals(amount, that.amount) &&
+        Objects.equals(createdAt, that.createdAt) &&
         Objects.equals(flatFee, that.flatFee) &&
         Objects.equals(flatFeeName, that.flatFeeName) &&
         Objects.equals(id, that.id) &&
@@ -166,7 +184,7 @@ public class TransactionFee implements com.shopify.admin.types.Node {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, flatFee, flatFeeName, id, rate, rateName, taxAmount, type);
+    return Objects.hash(amount, createdAt, flatFee, flatFeeName, id, rate, rateName, taxAmount, type);
   }
 
   public static Builder newBuilder() {
@@ -178,6 +196,11 @@ public class TransactionFee implements com.shopify.admin.types.Node {
      * Amount of the fee.
      */
     private MoneyV2 amount;
+
+    /**
+     * The date and time when the transaction fee was created.
+     */
+    private OffsetDateTime createdAt;
 
     /**
      * Flat rate charge for a transaction.
@@ -217,6 +240,7 @@ public class TransactionFee implements com.shopify.admin.types.Node {
     public TransactionFee build() {
       TransactionFee result = new TransactionFee();
       result.amount = this.amount;
+      result.createdAt = this.createdAt;
       result.flatFee = this.flatFee;
       result.flatFeeName = this.flatFeeName;
       result.id = this.id;
@@ -232,6 +256,14 @@ public class TransactionFee implements com.shopify.admin.types.Node {
      */
     public Builder amount(MoneyV2 amount) {
       this.amount = amount;
+      return this;
+    }
+
+    /**
+     * The date and time when the transaction fee was created.
+     */
+    public Builder createdAt(OffsetDateTime createdAt) {
+      this.createdAt = createdAt;
       return this;
     }
 

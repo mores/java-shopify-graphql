@@ -13,21 +13,48 @@ package com.shopify.admin.types;
  * line items that were refunded, and the actual amount refunded.
  */
 public enum SaleLineType {
+  /**
+   * A product purchased, returned or exchanged.
+   */
   PRODUCT,
 
+  /**
+   * A tip added by the customer.
+   */
   TIP,
 
+  /**
+   * A gift card.
+   */
   GIFT_CARD,
 
+  /**
+   * A shipping cost.
+   */
   SHIPPING,
 
+  /**
+   * A duty charge.
+   */
   DUTY,
 
+  /**
+   * An additional fee.
+   */
   ADDITIONAL_FEE,
 
+  /**
+   * A fee charge.
+   */
   FEE,
 
+  /**
+   * An unknown sale line. Represents new types that may be added in future versions.
+   */
   UNKNOWN,
 
+  /**
+   * A sale adjustment.
+   */
   ADJUSTMENT
 }

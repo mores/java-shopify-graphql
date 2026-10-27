@@ -7,13 +7,13 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * The risk assessments for an order.
+ * A risk assessment for an order.
  *
- * See the [example query "Retrieves a list of all order risks for an order"](https://shopify.dev/docs/api/admin-graphql/unstable/queries/order?example=Retrieves+a+list+of+all+order+risks+for+an+order).
+ * See the [example query "Retrieve order risk assessments"](https://shopify.dev/docs/api/admin-graphql/unstable/queries/order?example=retrieve-order-risk-assessments).
  */
 public class OrderRiskAssessment {
   /**
-   * Optional facts used to describe the risk assessment. The values in here are specific to the provider.
+   * Facts included with the risk assessment. Fact values are specific to the provider.
    * See the [examples for the mutation orderRiskAssessmentCreate](https://shopify.dev/api/admin-graphql/unstable/mutations/orderRiskAssessmentCreate#section-examples).
    */
   private List<RiskFact> facts;
@@ -24,7 +24,7 @@ public class OrderRiskAssessment {
   private App provider;
 
   /**
-   * The likelihood that the order is fraudulent, based on this risk assessment.
+   * The risk level assigned to the order.
    */
   private RiskAssessmentResult riskLevel;
 
@@ -32,7 +32,7 @@ public class OrderRiskAssessment {
   }
 
   /**
-   * Optional facts used to describe the risk assessment. The values in here are specific to the provider.
+   * Facts included with the risk assessment. Fact values are specific to the provider.
    * See the [examples for the mutation orderRiskAssessmentCreate](https://shopify.dev/api/admin-graphql/unstable/mutations/orderRiskAssessmentCreate#section-examples).
    */
   public List<RiskFact> getFacts() {
@@ -55,7 +55,7 @@ public class OrderRiskAssessment {
   }
 
   /**
-   * The likelihood that the order is fraudulent, based on this risk assessment.
+   * The risk level assigned to the order.
    */
   public RiskAssessmentResult getRiskLevel() {
     return riskLevel;
@@ -91,7 +91,7 @@ public class OrderRiskAssessment {
 
   public static class Builder {
     /**
-     * Optional facts used to describe the risk assessment. The values in here are specific to the provider.
+     * Facts included with the risk assessment. Fact values are specific to the provider.
      * See the [examples for the mutation orderRiskAssessmentCreate](https://shopify.dev/api/admin-graphql/unstable/mutations/orderRiskAssessmentCreate#section-examples).
      */
     private List<RiskFact> facts;
@@ -102,7 +102,7 @@ public class OrderRiskAssessment {
     private App provider;
 
     /**
-     * The likelihood that the order is fraudulent, based on this risk assessment.
+     * The risk level assigned to the order.
      */
     private RiskAssessmentResult riskLevel;
 
@@ -115,7 +115,7 @@ public class OrderRiskAssessment {
     }
 
     /**
-     * Optional facts used to describe the risk assessment. The values in here are specific to the provider.
+     * Facts included with the risk assessment. Fact values are specific to the provider.
      * See the [examples for the mutation orderRiskAssessmentCreate](https://shopify.dev/api/admin-graphql/unstable/mutations/orderRiskAssessmentCreate#section-examples).
      */
     public Builder facts(List<RiskFact> facts) {
@@ -132,7 +132,7 @@ public class OrderRiskAssessment {
     }
 
     /**
-     * The likelihood that the order is fraudulent, based on this risk assessment.
+     * The risk level assigned to the order.
      */
     public Builder riskLevel(RiskAssessmentResult riskLevel) {
       this.riskLevel = riskLevel;

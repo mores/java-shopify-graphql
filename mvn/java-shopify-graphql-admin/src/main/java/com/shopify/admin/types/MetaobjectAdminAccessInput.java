@@ -5,7 +5,13 @@ package com.shopify.admin.types;
  * full access.
  */
 public enum MetaobjectAdminAccessInput {
+  /**
+   * The merchant has read-only access. No other apps have access.
+   */
   MERCHANT_READ,
 
+  /**
+   * The merchant has read and write access. No other apps have access.
+   */
   MERCHANT_READ_WRITE
 }

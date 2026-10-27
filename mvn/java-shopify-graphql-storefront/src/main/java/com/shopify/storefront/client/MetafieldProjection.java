@@ -40,13 +40,29 @@ public class MetafieldProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROO
     MetafieldReferenceConnectionProjection<MetafieldProjection<PARENT, ROOT>, ROOT> projection = new MetafieldReferenceConnectionProjection<>(this, getRoot());    
     getFields().put("references", projection);
     getInputArguments().computeIfAbsent("references", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("references").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("references").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("references").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
+    getInputArguments().get("references").add(beforeArg);
+    return projection;
+  }
+
+  public MetafieldReferenceConnectionProjection<MetafieldProjection<PARENT, ROOT>, ROOT> referencesWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference) {
+    MetafieldReferenceConnectionProjection<MetafieldProjection<PARENT, ROOT>, ROOT> projection = new MetafieldReferenceConnectionProjection<>(this, getRoot());    
+    getFields().put("references", projection);
+    getInputArguments().computeIfAbsent("references", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("references").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("references").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("references").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
     getInputArguments().get("references").add(beforeArg);
     return projection;
   }

@@ -1,10 +1,14 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -30,6 +34,26 @@ public class DiscountCodeBulkDeleteGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public DiscountCodeBulkDeleteGraphQLQuery(String search, String savedSearchId, List<String> ids,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (search != null || fieldsSet.contains("search")) {
+        getInput().put("search", search);
+    }if (savedSearchId != null || fieldsSet.contains("savedSearchId")) {
+        getInput().put("savedSearchId", savedSearchId);
+    }if (ids != null || fieldsSet.contains("ids")) {
+        getInput().put("ids", ids);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public DiscountCodeBulkDeleteGraphQLQuery() {
     super("mutation");
   }
@@ -46,6 +70,10 @@ public class DiscountCodeBulkDeleteGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String search;
 
     private String savedSearchId;
@@ -55,7 +83,7 @@ public class DiscountCodeBulkDeleteGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public DiscountCodeBulkDeleteGraphQLQuery build() {
-      return new DiscountCodeBulkDeleteGraphQLQuery(search, savedSearchId, ids, queryName, fieldsSet);
+      return new DiscountCodeBulkDeleteGraphQLQuery(search, savedSearchId, ids, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -66,6 +94,18 @@ public class DiscountCodeBulkDeleteGraphQLQuery extends GraphQLQuery {
      */
     public Builder search(String search) {
       this.search = search;
+      this.fieldsSet.add("search");
+      return this;
+    }
+
+    /**
+     * The search query for filtering discounts.
+     * <br><br>
+     * For more information on the list of supported fields and search syntax, refer to the [`codeDiscountNodes`](https://shopify.dev/docs/api/admin-graphql/latest/queries/codeDiscountNodes#query-arguments) query.
+     */
+    public Builder searchReference(String variableRef) {
+      this.variableReferences.put("search", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
       this.fieldsSet.add("search");
       return this;
     }
@@ -83,10 +123,33 @@ public class DiscountCodeBulkDeleteGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the saved search for filtering discounts to delete. Saved searches
+     * represent [customer
+     * segments](https://help.shopify.com/manual/customers/customer-segments) that
+     * merchants have built in the Shopify admin.
+     */
+    public Builder savedSearchIdReference(String variableRef) {
+      this.variableReferences.put("savedSearchId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("ID")).build());
+      this.fieldsSet.add("savedSearchId");
+      return this;
+    }
+
+    /**
      * The IDs of the discounts to delete.
      */
     public Builder ids(List<String> ids) {
       this.ids = ids;
+      this.fieldsSet.add("ids");
+      return this;
+    }
+
+    /**
+     * The IDs of the discounts to delete.
+     */
+    public Builder idsReference(String variableRef) {
+      this.variableReferences.put("ids", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("ID")))).build());
       this.fieldsSet.add("ids");
       return this;
     }

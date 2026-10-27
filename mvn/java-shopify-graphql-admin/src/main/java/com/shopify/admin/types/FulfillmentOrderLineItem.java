@@ -67,6 +67,11 @@ public class FulfillmentOrderLineItem implements com.shopify.admin.types.Node {
   private boolean requiresShipping;
 
   /**
+   * The shipping line associated with this line item.
+   */
+  private ShippingLine shippingLine;
+
+  /**
    * The variant SKU number.
    */
   private String sku;
@@ -205,6 +210,17 @@ public class FulfillmentOrderLineItem implements com.shopify.admin.types.Node {
   }
 
   /**
+   * The shipping line associated with this line item.
+   */
+  public ShippingLine getShippingLine() {
+    return shippingLine;
+  }
+
+  public void setShippingLine(ShippingLine shippingLine) {
+    this.shippingLine = shippingLine;
+  }
+
+  /**
    * The variant SKU number.
    */
   public String getSku() {
@@ -283,7 +299,7 @@ public class FulfillmentOrderLineItem implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "FulfillmentOrderLineItem{financialSummaries='" + financialSummaries + "', id='" + id + "', image='" + image + "', inventoryItemId='" + inventoryItemId + "', lineItem='" + lineItem + "', originalUnitPriceSet='" + originalUnitPriceSet + "', productTitle='" + productTitle + "', remainingQuantity='" + remainingQuantity + "', requiresShipping='" + requiresShipping + "', sku='" + sku + "', totalQuantity='" + totalQuantity + "', variant='" + variant + "', variantTitle='" + variantTitle + "', vendor='" + vendor + "', warnings='" + warnings + "', weight='" + weight + "'}";
+    return "FulfillmentOrderLineItem{financialSummaries='" + financialSummaries + "', id='" + id + "', image='" + image + "', inventoryItemId='" + inventoryItemId + "', lineItem='" + lineItem + "', originalUnitPriceSet='" + originalUnitPriceSet + "', productTitle='" + productTitle + "', remainingQuantity='" + remainingQuantity + "', requiresShipping='" + requiresShipping + "', shippingLine='" + shippingLine + "', sku='" + sku + "', totalQuantity='" + totalQuantity + "', variant='" + variant + "', variantTitle='" + variantTitle + "', vendor='" + vendor + "', warnings='" + warnings + "', weight='" + weight + "'}";
   }
 
   @Override
@@ -300,6 +316,7 @@ public class FulfillmentOrderLineItem implements com.shopify.admin.types.Node {
         Objects.equals(productTitle, that.productTitle) &&
         remainingQuantity == that.remainingQuantity &&
         requiresShipping == that.requiresShipping &&
+        Objects.equals(shippingLine, that.shippingLine) &&
         Objects.equals(sku, that.sku) &&
         totalQuantity == that.totalQuantity &&
         Objects.equals(variant, that.variant) &&
@@ -311,7 +328,7 @@ public class FulfillmentOrderLineItem implements com.shopify.admin.types.Node {
 
   @Override
   public int hashCode() {
-    return Objects.hash(financialSummaries, id, image, inventoryItemId, lineItem, originalUnitPriceSet, productTitle, remainingQuantity, requiresShipping, sku, totalQuantity, variant, variantTitle, vendor, warnings, weight);
+    return Objects.hash(financialSummaries, id, image, inventoryItemId, lineItem, originalUnitPriceSet, productTitle, remainingQuantity, requiresShipping, shippingLine, sku, totalQuantity, variant, variantTitle, vendor, warnings, weight);
   }
 
   public static Builder newBuilder() {
@@ -365,6 +382,11 @@ public class FulfillmentOrderLineItem implements com.shopify.admin.types.Node {
     private boolean requiresShipping;
 
     /**
+     * The shipping line associated with this line item.
+     */
+    private ShippingLine shippingLine;
+
+    /**
      * The variant SKU number.
      */
     private String sku;
@@ -410,6 +432,7 @@ public class FulfillmentOrderLineItem implements com.shopify.admin.types.Node {
       result.productTitle = this.productTitle;
       result.remainingQuantity = this.remainingQuantity;
       result.requiresShipping = this.requiresShipping;
+      result.shippingLine = this.shippingLine;
       result.sku = this.sku;
       result.totalQuantity = this.totalQuantity;
       result.variant = this.variant;
@@ -490,6 +513,14 @@ public class FulfillmentOrderLineItem implements com.shopify.admin.types.Node {
      */
     public Builder requiresShipping(boolean requiresShipping) {
       this.requiresShipping = requiresShipping;
+      return this;
+    }
+
+    /**
+     * The shipping line associated with this line item.
+     */
+    public Builder shippingLine(ShippingLine shippingLine) {
+      this.shippingLine = shippingLine;
       return this;
     }
 

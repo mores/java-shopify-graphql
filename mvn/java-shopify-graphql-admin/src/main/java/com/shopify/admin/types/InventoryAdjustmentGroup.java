@@ -52,7 +52,7 @@ public class InventoryAdjustmentGroup implements com.shopify.admin.types.Node {
   /**
    * A freeform URI that represents why the inventory change happened. This can be the entity adjusting inventory
    * quantities or the Shopify resource that's associated with the inventory adjustment. For example, a unit in a
-   * draft order might have been previously reserved, and a merchant later creates an order from the draft order.
+   * draft order might have been previously committed, and a merchant later creates an order from the draft order.
    * In this case, the `referenceDocumentUri` for the inventory adjustment is a URI referencing the order ID.
    */
   private String referenceDocumentUri;
@@ -123,7 +123,7 @@ public class InventoryAdjustmentGroup implements com.shopify.admin.types.Node {
   /**
    * A freeform URI that represents why the inventory change happened. This can be the entity adjusting inventory
    * quantities or the Shopify resource that's associated with the inventory adjustment. For example, a unit in a
-   * draft order might have been previously reserved, and a merchant later creates an order from the draft order.
+   * draft order might have been previously committed, and a merchant later creates an order from the draft order.
    * In this case, the `referenceDocumentUri` for the inventory adjustment is a URI referencing the order ID.
    */
   public String getReferenceDocumentUri() {
@@ -202,7 +202,7 @@ public class InventoryAdjustmentGroup implements com.shopify.admin.types.Node {
     /**
      * A freeform URI that represents why the inventory change happened. This can be the entity adjusting inventory
      * quantities or the Shopify resource that's associated with the inventory adjustment. For example, a unit in a
-     * draft order might have been previously reserved, and a merchant later creates an order from the draft order.
+     * draft order might have been previously committed, and a merchant later creates an order from the draft order.
      * In this case, the `referenceDocumentUri` for the inventory adjustment is a URI referencing the order ID.
      */
     private String referenceDocumentUri;
@@ -267,7 +267,7 @@ public class InventoryAdjustmentGroup implements com.shopify.admin.types.Node {
     /**
      * A freeform URI that represents why the inventory change happened. This can be the entity adjusting inventory
      * quantities or the Shopify resource that's associated with the inventory adjustment. For example, a unit in a
-     * draft order might have been previously reserved, and a merchant later creates an order from the draft order.
+     * draft order might have been previously committed, and a merchant later creates an order from the draft order.
      * In this case, the `referenceDocumentUri` for the inventory adjustment is a URI referencing the order ID.
      */
     public Builder referenceDocumentUri(String referenceDocumentUri) {

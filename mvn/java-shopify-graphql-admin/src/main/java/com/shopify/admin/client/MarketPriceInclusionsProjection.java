@@ -25,4 +25,9 @@ public class MarketPriceInclusionsProjection<PARENT extends BaseSubProjectionNod
      getFields().put("inclusiveTaxPricingStrategy", projection);
      return projection;
   }
+
+  public MarketPriceInclusionsProjection<PARENT, ROOT> adaptivePricingEnabled() {
+    getFields().put("adaptivePricingEnabled", null);
+    return this;
+  }
 }

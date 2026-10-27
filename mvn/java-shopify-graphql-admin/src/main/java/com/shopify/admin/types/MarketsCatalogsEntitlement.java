@@ -14,6 +14,11 @@ public class MarketsCatalogsEntitlement {
    */
   private boolean enabled;
 
+  /**
+   * The maximum number of catalogs allowed.
+   */
+  private int limit;
+
   public MarketsCatalogsEntitlement() {
   }
 
@@ -28,9 +33,20 @@ public class MarketsCatalogsEntitlement {
     this.enabled = enabled;
   }
 
+  /**
+   * The maximum number of catalogs allowed.
+   */
+  public int getLimit() {
+    return limit;
+  }
+
+  public void setLimit(int limit) {
+    this.limit = limit;
+  }
+
   @Override
   public String toString() {
-    return "MarketsCatalogsEntitlement{enabled='" + enabled + "'}";
+    return "MarketsCatalogsEntitlement{enabled='" + enabled + "', limit='" + limit + "'}";
   }
 
   @Override
@@ -38,12 +54,13 @@ public class MarketsCatalogsEntitlement {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     MarketsCatalogsEntitlement that = (MarketsCatalogsEntitlement) o;
-    return enabled == that.enabled;
+    return enabled == that.enabled &&
+        limit == that.limit;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled);
+    return Objects.hash(enabled, limit);
   }
 
   public static Builder newBuilder() {
@@ -56,9 +73,15 @@ public class MarketsCatalogsEntitlement {
      */
     private boolean enabled;
 
+    /**
+     * The maximum number of catalogs allowed.
+     */
+    private int limit;
+
     public MarketsCatalogsEntitlement build() {
       MarketsCatalogsEntitlement result = new MarketsCatalogsEntitlement();
       result.enabled = this.enabled;
+      result.limit = this.limit;
       return result;
     }
 
@@ -67,6 +90,14 @@ public class MarketsCatalogsEntitlement {
      */
     public Builder enabled(boolean enabled) {
       this.enabled = enabled;
+      return this;
+    }
+
+    /**
+     * The maximum number of catalogs allowed.
+     */
+    public Builder limit(int limit) {
+      this.limit = limit;
       return this;
     }
   }

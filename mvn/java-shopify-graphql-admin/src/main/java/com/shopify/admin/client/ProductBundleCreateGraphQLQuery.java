@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.ProductBundleCreateInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -29,6 +34,22 @@ public class ProductBundleCreateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public ProductBundleCreateGraphQLQuery(ProductBundleCreateInput input, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (input != null || fieldsSet.contains("input")) {
+        getInput().put("input", input);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public ProductBundleCreateGraphQLQuery() {
     super("mutation");
   }
@@ -45,12 +66,16 @@ public class ProductBundleCreateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private ProductBundleCreateInput input;
 
     private String queryName;
 
     public ProductBundleCreateGraphQLQuery build() {
-      return new ProductBundleCreateGraphQLQuery(input, queryName, fieldsSet);
+      return new ProductBundleCreateGraphQLQuery(input, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -59,6 +84,16 @@ public class ProductBundleCreateGraphQLQuery extends GraphQLQuery {
      */
     public Builder input(ProductBundleCreateInput input) {
       this.input = input;
+      this.fieldsSet.add("input");
+      return this;
+    }
+
+    /**
+     * Input for creating a product bundle or componentized product.
+     */
+    public Builder inputReference(String variableRef) {
+      this.variableReferences.put("input", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ProductBundleCreateInput"))).build());
       this.fieldsSet.add("input");
       return this;
     }

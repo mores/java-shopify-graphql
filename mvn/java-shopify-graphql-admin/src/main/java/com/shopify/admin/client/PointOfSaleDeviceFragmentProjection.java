@@ -32,6 +32,11 @@ public class PointOfSaleDeviceFragmentProjection<PARENT extends BaseSubProjectio
      return projection;
   }
 
+  public PointOfSaleDeviceFragmentProjection<PARENT, ROOT> fiscalDeviceIdentifier() {
+    getFields().put("fiscalDeviceIdentifier", null);
+    return this;
+  }
+
   public PointOfSaleDeviceFragmentProjection<PARENT, ROOT> id() {
     getFields().put("id", null);
     return this;

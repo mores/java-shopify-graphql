@@ -32,7 +32,7 @@ import java.util.Objects;
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
-public class DiscountCodeBxgy implements Discount, DiscountCode {
+public class DiscountCodeBxgy implements Discount, DiscountCode, com.shopify.admin.types.HasRollouts {
   /**
    * Whether a customer can only use the discount once.
    */
@@ -115,6 +115,15 @@ public class DiscountCodeBxgy implements Discount, DiscountCode {
    * associated with the discount.
    */
   private boolean hasTimelineComment;
+
+  /**
+   * The rollouts that include this discount. A rollout includes a discount when
+   * one of its treatments adds or removes the discount. Walk
+   * `treatments.changes` to see what each treatment does to the discount.
+   * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+   * Use `query` to filter by rollout `status`.
+   */
+  private RolloutConnection rollouts;
 
   /**
    * A list of URLs that the app can use to share the discount.
@@ -343,6 +352,21 @@ public class DiscountCodeBxgy implements Discount, DiscountCode {
   }
 
   /**
+   * The rollouts that include this discount. A rollout includes a discount when
+   * one of its treatments adds or removes the discount. Walk
+   * `treatments.changes` to see what each treatment does to the discount.
+   * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+   * Use `query` to filter by rollout `status`.
+   */
+  public RolloutConnection getRollouts() {
+    return rollouts;
+  }
+
+  public void setRollouts(RolloutConnection rollouts) {
+    this.rollouts = rollouts;
+  }
+
+  /**
    * A list of URLs that the app can use to share the discount.
    */
   public List<DiscountShareableUrl> getShareableUrls() {
@@ -460,7 +484,7 @@ public class DiscountCodeBxgy implements Discount, DiscountCode {
 
   @Override
   public String toString() {
-    return "DiscountCodeBxgy{appliesOncePerCustomer='" + appliesOncePerCustomer + "', asyncUsageCount='" + asyncUsageCount + "', codes='" + codes + "', codesCount='" + codesCount + "', combinesWith='" + combinesWith + "', context='" + context + "', createdAt='" + createdAt + "', customerBuys='" + customerBuys + "', customerGets='" + customerGets + "', customerSelection='" + customerSelection + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', endsAt='" + endsAt + "', hasTimelineComment='" + hasTimelineComment + "', shareableUrls='" + shareableUrls + "', startsAt='" + startsAt + "', status='" + status + "', summary='" + summary + "', tags='" + tags + "', title='" + title + "', totalSales='" + totalSales + "', updatedAt='" + updatedAt + "', usageLimit='" + usageLimit + "', usesPerOrderLimit='" + usesPerOrderLimit + "'}";
+    return "DiscountCodeBxgy{appliesOncePerCustomer='" + appliesOncePerCustomer + "', asyncUsageCount='" + asyncUsageCount + "', codes='" + codes + "', codesCount='" + codesCount + "', combinesWith='" + combinesWith + "', context='" + context + "', createdAt='" + createdAt + "', customerBuys='" + customerBuys + "', customerGets='" + customerGets + "', customerSelection='" + customerSelection + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', endsAt='" + endsAt + "', hasTimelineComment='" + hasTimelineComment + "', rollouts='" + rollouts + "', shareableUrls='" + shareableUrls + "', startsAt='" + startsAt + "', status='" + status + "', summary='" + summary + "', tags='" + tags + "', title='" + title + "', totalSales='" + totalSales + "', updatedAt='" + updatedAt + "', usageLimit='" + usageLimit + "', usesPerOrderLimit='" + usesPerOrderLimit + "'}";
   }
 
   @Override
@@ -482,6 +506,7 @@ public class DiscountCodeBxgy implements Discount, DiscountCode {
         Objects.equals(discountClasses, that.discountClasses) &&
         Objects.equals(endsAt, that.endsAt) &&
         hasTimelineComment == that.hasTimelineComment &&
+        Objects.equals(rollouts, that.rollouts) &&
         Objects.equals(shareableUrls, that.shareableUrls) &&
         Objects.equals(startsAt, that.startsAt) &&
         Objects.equals(status, that.status) &&
@@ -496,7 +521,7 @@ public class DiscountCodeBxgy implements Discount, DiscountCode {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appliesOncePerCustomer, asyncUsageCount, codes, codesCount, combinesWith, context, createdAt, customerBuys, customerGets, customerSelection, discountClass, discountClasses, endsAt, hasTimelineComment, shareableUrls, startsAt, status, summary, tags, title, totalSales, updatedAt, usageLimit, usesPerOrderLimit);
+    return Objects.hash(appliesOncePerCustomer, asyncUsageCount, codes, codesCount, combinesWith, context, createdAt, customerBuys, customerGets, customerSelection, discountClass, discountClasses, endsAt, hasTimelineComment, rollouts, shareableUrls, startsAt, status, summary, tags, title, totalSales, updatedAt, usageLimit, usesPerOrderLimit);
   }
 
   public static Builder newBuilder() {
@@ -588,6 +613,15 @@ public class DiscountCodeBxgy implements Discount, DiscountCode {
     private boolean hasTimelineComment;
 
     /**
+     * The rollouts that include this discount. A rollout includes a discount when
+     * one of its treatments adds or removes the discount. Walk
+     * `treatments.changes` to see what each treatment does to the discount.
+     * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+     * Use `query` to filter by rollout `status`.
+     */
+    private RolloutConnection rollouts;
+
+    /**
      * A list of URLs that the app can use to share the discount.
      */
     private List<DiscountShareableUrl> shareableUrls;
@@ -659,6 +693,7 @@ public class DiscountCodeBxgy implements Discount, DiscountCode {
       result.discountClasses = this.discountClasses;
       result.endsAt = this.endsAt;
       result.hasTimelineComment = this.hasTimelineComment;
+      result.rollouts = this.rollouts;
       result.shareableUrls = this.shareableUrls;
       result.startsAt = this.startsAt;
       result.status = this.status;
@@ -794,6 +829,18 @@ public class DiscountCodeBxgy implements Discount, DiscountCode {
      */
     public Builder hasTimelineComment(boolean hasTimelineComment) {
       this.hasTimelineComment = hasTimelineComment;
+      return this;
+    }
+
+    /**
+     * The rollouts that include this discount. A rollout includes a discount when
+     * one of its treatments adds or removes the discount. Walk
+     * `treatments.changes` to see what each treatment does to the discount.
+     * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+     * Use `query` to filter by rollout `status`.
+     */
+    public Builder rollouts(RolloutConnection rollouts) {
+      this.rollouts = rollouts;
       return this;
     }
 

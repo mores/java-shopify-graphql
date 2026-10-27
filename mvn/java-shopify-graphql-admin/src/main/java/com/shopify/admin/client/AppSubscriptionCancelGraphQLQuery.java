@@ -1,10 +1,15 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -41,6 +46,24 @@ public class AppSubscriptionCancelGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public AppSubscriptionCancelGraphQLQuery(String id, Boolean prorate, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (prorate != null || fieldsSet.contains("prorate")) {
+        getInput().put("prorate", prorate);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public AppSubscriptionCancelGraphQLQuery() {
     super("mutation");
   }
@@ -57,6 +80,10 @@ public class AppSubscriptionCancelGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private Boolean prorate;
@@ -64,7 +91,7 @@ public class AppSubscriptionCancelGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public AppSubscriptionCancelGraphQLQuery build() {
-      return new AppSubscriptionCancelGraphQLQuery(id, prorate, queryName, fieldsSet);
+      return new AppSubscriptionCancelGraphQLQuery(id, prorate, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -78,6 +105,16 @@ public class AppSubscriptionCancelGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the app subscription to be cancelled.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * Whether to issue prorated credits for the unused portion of the app subscription.  There will
      * be a corresponding deduction (based on revenue share) to your Partner account.
      * For example, if a $10.00 app subscription (with 0% revenue share) is cancelled and prorated half way
@@ -86,6 +123,20 @@ public class AppSubscriptionCancelGraphQLQuery extends GraphQLQuery {
      */
     public Builder prorate(Boolean prorate) {
       this.prorate = prorate;
+      this.fieldsSet.add("prorate");
+      return this;
+    }
+
+    /**
+     * Whether to issue prorated credits for the unused portion of the app subscription.  There will
+     * be a corresponding deduction (based on revenue share) to your Partner account.
+     * For example, if a $10.00 app subscription (with 0% revenue share) is cancelled and prorated half way
+     * through the billing cycle, then the merchant will be credited $5.00 and that amount will be deducted
+     * from your Partner account.
+     */
+    public Builder prorateReference(String variableRef) {
+      this.variableReferences.put("prorate", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Boolean")).build());
       this.fieldsSet.add("prorate");
       return this;
     }

@@ -2,9 +2,14 @@ package com.shopify.storefront.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.storefront.types.CartMetafieldDeleteInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -25,6 +30,22 @@ public class CartMetafieldDeleteGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public CartMetafieldDeleteGraphQLQuery(CartMetafieldDeleteInput input, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (input != null || fieldsSet.contains("input")) {
+        getInput().put("input", input);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public CartMetafieldDeleteGraphQLQuery() {
     super("mutation");
   }
@@ -41,12 +62,16 @@ public class CartMetafieldDeleteGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private CartMetafieldDeleteInput input;
 
     private String queryName;
 
     public CartMetafieldDeleteGraphQLQuery build() {
-      return new CartMetafieldDeleteGraphQLQuery(input, queryName, fieldsSet);
+      return new CartMetafieldDeleteGraphQLQuery(input, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -55,6 +80,16 @@ public class CartMetafieldDeleteGraphQLQuery extends GraphQLQuery {
      */
     public Builder input(CartMetafieldDeleteInput input) {
       this.input = input;
+      this.fieldsSet.add("input");
+      return this;
+    }
+
+    /**
+     * The input fields used to delete a cart metafield.
+     */
+    public Builder inputReference(String variableRef) {
+      this.variableReferences.put("input", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("CartMetafieldDeleteInput"))).build());
       this.fieldsSet.add("input");
       return this;
     }

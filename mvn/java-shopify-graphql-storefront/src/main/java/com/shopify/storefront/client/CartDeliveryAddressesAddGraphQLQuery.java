@@ -2,10 +2,14 @@ package com.shopify.storefront.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.storefront.types.CartSelectableAddressInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -26,6 +30,24 @@ public class CartDeliveryAddressesAddGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public CartDeliveryAddressesAddGraphQLQuery(String cartId,
+      List<CartSelectableAddressInput> addresses, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (cartId != null || fieldsSet.contains("cartId")) {
+        getInput().put("cartId", cartId);
+    }if (addresses != null || fieldsSet.contains("addresses")) {
+        getInput().put("addresses", addresses);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public CartDeliveryAddressesAddGraphQLQuery() {
     super("mutation");
   }
@@ -42,6 +64,10 @@ public class CartDeliveryAddressesAddGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String cartId;
 
     private List<CartSelectableAddressInput> addresses;
@@ -49,7 +75,7 @@ public class CartDeliveryAddressesAddGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public CartDeliveryAddressesAddGraphQLQuery build() {
-      return new CartDeliveryAddressesAddGraphQLQuery(cartId, addresses, queryName, fieldsSet);
+      return new CartDeliveryAddressesAddGraphQLQuery(cartId, addresses, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -63,12 +89,34 @@ public class CartDeliveryAddressesAddGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the cart.
+     */
+    public Builder cartIdReference(String variableRef) {
+      this.variableReferences.put("cartId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("cartId");
+      return this;
+    }
+
+    /**
      * A list of delivery addresses to add to the cart.
      *     
      * The input must not contain more than `250` values.
      */
     public Builder addresses(List<CartSelectableAddressInput> addresses) {
       this.addresses = addresses;
+      this.fieldsSet.add("addresses");
+      return this;
+    }
+
+    /**
+     * A list of delivery addresses to add to the cart.
+     *     
+     * The input must not contain more than `250` values.
+     */
+    public Builder addressesReference(String variableRef) {
+      this.variableReferences.put("addresses", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("CartSelectableAddressInput"))))).build());
       this.fieldsSet.add("addresses");
       return this;
     }

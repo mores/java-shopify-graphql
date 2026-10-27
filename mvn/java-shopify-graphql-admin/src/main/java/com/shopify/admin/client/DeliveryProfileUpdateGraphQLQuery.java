@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.DeliveryProfileInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -33,6 +38,24 @@ public class DeliveryProfileUpdateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public DeliveryProfileUpdateGraphQLQuery(String id, DeliveryProfileInput profile,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (profile != null || fieldsSet.contains("profile")) {
+        getInput().put("profile", profile);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public DeliveryProfileUpdateGraphQLQuery() {
     super("mutation");
   }
@@ -49,6 +72,10 @@ public class DeliveryProfileUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private DeliveryProfileInput profile;
@@ -56,7 +83,7 @@ public class DeliveryProfileUpdateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public DeliveryProfileUpdateGraphQLQuery build() {
-      return new DeliveryProfileUpdateGraphQLQuery(id, profile, queryName, fieldsSet);
+      return new DeliveryProfileUpdateGraphQLQuery(id, profile, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -70,10 +97,30 @@ public class DeliveryProfileUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the delivery profile to update.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * Specifies the input fields for a delivery profile.
      */
     public Builder profile(DeliveryProfileInput profile) {
       this.profile = profile;
+      this.fieldsSet.add("profile");
+      return this;
+    }
+
+    /**
+     * Specifies the input fields for a delivery profile.
+     */
+    public Builder profileReference(String variableRef) {
+      this.variableReferences.put("profile", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("DeliveryProfileInput"))).build());
       this.fieldsSet.add("profile");
       return this;
     }

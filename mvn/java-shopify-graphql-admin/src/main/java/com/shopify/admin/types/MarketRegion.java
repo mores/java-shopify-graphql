@@ -12,7 +12,10 @@ import java.lang.String;
     include = JsonTypeInfo.As.PROPERTY,
     property = "__typename"
 )
-@JsonSubTypes(@JsonSubTypes.Type(value = MarketRegionCountry.class, name = "MarketRegionCountry"))
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = MarketRegionCountry.class, name = "MarketRegionCountry"),
+    @JsonSubTypes.Type(value = MarketRegionSubdivision.class, name = "MarketRegionSubdivision")
+})
 public interface MarketRegion {
   /**
    * A globally-unique ID.

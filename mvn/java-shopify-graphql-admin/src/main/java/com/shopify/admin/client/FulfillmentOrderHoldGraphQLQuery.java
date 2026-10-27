@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.FulfillmentOrderHoldInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -32,6 +37,24 @@ public class FulfillmentOrderHoldGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public FulfillmentOrderHoldGraphQLQuery(String id, FulfillmentOrderHoldInput fulfillmentHold,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (fulfillmentHold != null || fieldsSet.contains("fulfillmentHold")) {
+        getInput().put("fulfillmentHold", fulfillmentHold);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public FulfillmentOrderHoldGraphQLQuery() {
     super("mutation");
   }
@@ -48,6 +71,10 @@ public class FulfillmentOrderHoldGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private FulfillmentOrderHoldInput fulfillmentHold;
@@ -55,7 +82,7 @@ public class FulfillmentOrderHoldGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public FulfillmentOrderHoldGraphQLQuery build() {
-      return new FulfillmentOrderHoldGraphQLQuery(id, fulfillmentHold, queryName, fieldsSet);
+      return new FulfillmentOrderHoldGraphQLQuery(id, fulfillmentHold, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -69,10 +96,30 @@ public class FulfillmentOrderHoldGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the fulfillment order on which a fulfillment hold is applied.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The details of the fulfillment hold applied on the fulfillment order.
      */
     public Builder fulfillmentHold(FulfillmentOrderHoldInput fulfillmentHold) {
       this.fulfillmentHold = fulfillmentHold;
+      this.fieldsSet.add("fulfillmentHold");
+      return this;
+    }
+
+    /**
+     * The details of the fulfillment hold applied on the fulfillment order.
+     */
+    public Builder fulfillmentHoldReference(String variableRef) {
+      this.variableReferences.put("fulfillmentHold", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("FulfillmentOrderHoldInput"))).build());
       this.fieldsSet.add("fulfillmentHold");
       return this;
     }

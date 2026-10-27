@@ -123,19 +123,21 @@ public class DraftOrderInput {
   private PaymentTermsInput paymentTerms;
 
   /**
+   * The input fields configuring the deposit requirement.
+   */
+  private DepositInput deposit;
+
+  /**
    * The purchasing entity for the draft order.
    */
   private PurchasingEntityInput purchasingEntity;
 
   /**
-   * The source of the checkout.
-   * To use this field for sales attribution, you must register the channels that your app is managing.
-   * You can register the channels that your app is managing by completing
-   * [this Google Form](https://docs.google.com/forms/d/e/1FAIpQLScmVTZRQNjOJ7RD738mL1lGeFjqKVe_FM2tO9xsm21QEo5Ozg/viewform?usp=sf_link).
-   * After you've submitted your request, you need to wait for your request to be processed by Shopify.
-   * You can find a list of your channels in the Partner Dashboard, in your app's Marketplace extension.
-   * You need to specify the handle as the `source_name` value in your request.
-   * The handle is the channel that the order was placed from.
+   * The source channel that the order is attributed to. Set this to the handle of
+   * an order attribution definition configured for your sales channel app, such as
+   * `youtube` or `channel:amazon-us`.
+   * To set up order attribution for your app, follow the [order attribution
+   * guide](https://shopify.dev/docs/apps/build/sales-channels/order-attribution).
    */
   private String sourceName;
 
@@ -393,6 +395,17 @@ public class DraftOrderInput {
   }
 
   /**
+   * The input fields configuring the deposit requirement.
+   */
+  public DepositInput getDeposit() {
+    return deposit;
+  }
+
+  public void setDeposit(DepositInput deposit) {
+    this.deposit = deposit;
+  }
+
+  /**
    * The purchasing entity for the draft order.
    */
   public PurchasingEntityInput getPurchasingEntity() {
@@ -404,14 +417,11 @@ public class DraftOrderInput {
   }
 
   /**
-   * The source of the checkout.
-   * To use this field for sales attribution, you must register the channels that your app is managing.
-   * You can register the channels that your app is managing by completing
-   * [this Google Form](https://docs.google.com/forms/d/e/1FAIpQLScmVTZRQNjOJ7RD738mL1lGeFjqKVe_FM2tO9xsm21QEo5Ozg/viewform?usp=sf_link).
-   * After you've submitted your request, you need to wait for your request to be processed by Shopify.
-   * You can find a list of your channels in the Partner Dashboard, in your app's Marketplace extension.
-   * You need to specify the handle as the `source_name` value in your request.
-   * The handle is the channel that the order was placed from.
+   * The source channel that the order is attributed to. Set this to the handle of
+   * an order attribution definition configured for your sales channel app, such as
+   * `youtube` or `channel:amazon-us`.
+   * To set up order attribution for your app, follow the [order attribution
+   * guide](https://shopify.dev/docs/apps/build/sales-channels/order-attribution).
    */
   public String getSourceName() {
     return sourceName;
@@ -467,7 +477,7 @@ public class DraftOrderInput {
 
   @Override
   public String toString() {
-    return "DraftOrderInput{appliedDiscount='" + appliedDiscount + "', discountCodes='" + discountCodes + "', acceptAutomaticDiscounts='" + acceptAutomaticDiscounts + "', billingAddress='" + billingAddress + "', customAttributes='" + customAttributes + "', email='" + email + "', lineItems='" + lineItems + "', metafields='" + metafields + "', localizedFields='" + localizedFields + "', note='" + note + "', shippingAddress='" + shippingAddress + "', shippingLine='" + shippingLine + "', tags='" + tags + "', taxExempt='" + taxExempt + "', useCustomerDefaultAddress='" + useCustomerDefaultAddress + "', visibleToCustomer='" + visibleToCustomer + "', reserveInventoryUntil='" + reserveInventoryUntil + "', presentmentCurrencyCode='" + presentmentCurrencyCode + "', phone='" + phone + "', paymentTerms='" + paymentTerms + "', purchasingEntity='" + purchasingEntity + "', sourceName='" + sourceName + "', allowDiscountCodesInCheckout='" + allowDiscountCodesInCheckout + "', poNumber='" + poNumber + "', sessionToken='" + sessionToken + "', transformerFingerprint='" + transformerFingerprint + "'}";
+    return "DraftOrderInput{appliedDiscount='" + appliedDiscount + "', discountCodes='" + discountCodes + "', acceptAutomaticDiscounts='" + acceptAutomaticDiscounts + "', billingAddress='" + billingAddress + "', customAttributes='" + customAttributes + "', email='" + email + "', lineItems='" + lineItems + "', metafields='" + metafields + "', localizedFields='" + localizedFields + "', note='" + note + "', shippingAddress='" + shippingAddress + "', shippingLine='" + shippingLine + "', tags='" + tags + "', taxExempt='" + taxExempt + "', useCustomerDefaultAddress='" + useCustomerDefaultAddress + "', visibleToCustomer='" + visibleToCustomer + "', reserveInventoryUntil='" + reserveInventoryUntil + "', presentmentCurrencyCode='" + presentmentCurrencyCode + "', phone='" + phone + "', paymentTerms='" + paymentTerms + "', deposit='" + deposit + "', purchasingEntity='" + purchasingEntity + "', sourceName='" + sourceName + "', allowDiscountCodesInCheckout='" + allowDiscountCodesInCheckout + "', poNumber='" + poNumber + "', sessionToken='" + sessionToken + "', transformerFingerprint='" + transformerFingerprint + "'}";
   }
 
   @Override
@@ -495,6 +505,7 @@ public class DraftOrderInput {
         Objects.equals(presentmentCurrencyCode, that.presentmentCurrencyCode) &&
         Objects.equals(phone, that.phone) &&
         Objects.equals(paymentTerms, that.paymentTerms) &&
+        Objects.equals(deposit, that.deposit) &&
         Objects.equals(purchasingEntity, that.purchasingEntity) &&
         Objects.equals(sourceName, that.sourceName) &&
         Objects.equals(allowDiscountCodesInCheckout, that.allowDiscountCodesInCheckout) &&
@@ -505,7 +516,7 @@ public class DraftOrderInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appliedDiscount, discountCodes, acceptAutomaticDiscounts, billingAddress, customAttributes, email, lineItems, metafields, localizedFields, note, shippingAddress, shippingLine, tags, taxExempt, useCustomerDefaultAddress, visibleToCustomer, reserveInventoryUntil, presentmentCurrencyCode, phone, paymentTerms, purchasingEntity, sourceName, allowDiscountCodesInCheckout, poNumber, sessionToken, transformerFingerprint);
+    return Objects.hash(appliedDiscount, discountCodes, acceptAutomaticDiscounts, billingAddress, customAttributes, email, lineItems, metafields, localizedFields, note, shippingAddress, shippingLine, tags, taxExempt, useCustomerDefaultAddress, visibleToCustomer, reserveInventoryUntil, presentmentCurrencyCode, phone, paymentTerms, deposit, purchasingEntity, sourceName, allowDiscountCodesInCheckout, poNumber, sessionToken, transformerFingerprint);
   }
 
   public static Builder newBuilder() {
@@ -624,19 +635,21 @@ public class DraftOrderInput {
     private PaymentTermsInput paymentTerms;
 
     /**
+     * The input fields configuring the deposit requirement.
+     */
+    private DepositInput deposit;
+
+    /**
      * The purchasing entity for the draft order.
      */
     private PurchasingEntityInput purchasingEntity;
 
     /**
-     * The source of the checkout.
-     * To use this field for sales attribution, you must register the channels that your app is managing.
-     * You can register the channels that your app is managing by completing
-     * [this Google Form](https://docs.google.com/forms/d/e/1FAIpQLScmVTZRQNjOJ7RD738mL1lGeFjqKVe_FM2tO9xsm21QEo5Ozg/viewform?usp=sf_link).
-     * After you've submitted your request, you need to wait for your request to be processed by Shopify.
-     * You can find a list of your channels in the Partner Dashboard, in your app's Marketplace extension.
-     * You need to specify the handle as the `source_name` value in your request.
-     * The handle is the channel that the order was placed from.
+     * The source channel that the order is attributed to. Set this to the handle of
+     * an order attribution definition configured for your sales channel app, such as
+     * `youtube` or `channel:amazon-us`.
+     * To set up order attribution for your app, follow the [order attribution
+     * guide](https://shopify.dev/docs/apps/build/sales-channels/order-attribution).
      */
     private String sourceName;
 
@@ -682,6 +695,7 @@ public class DraftOrderInput {
       result.presentmentCurrencyCode = this.presentmentCurrencyCode;
       result.phone = this.phone;
       result.paymentTerms = this.paymentTerms;
+      result.deposit = this.deposit;
       result.purchasingEntity = this.purchasingEntity;
       result.sourceName = this.sourceName;
       result.allowDiscountCodesInCheckout = this.allowDiscountCodesInCheckout;
@@ -862,6 +876,14 @@ public class DraftOrderInput {
     }
 
     /**
+     * The input fields configuring the deposit requirement.
+     */
+    public Builder deposit(DepositInput deposit) {
+      this.deposit = deposit;
+      return this;
+    }
+
+    /**
      * The purchasing entity for the draft order.
      */
     public Builder purchasingEntity(PurchasingEntityInput purchasingEntity) {
@@ -870,14 +892,11 @@ public class DraftOrderInput {
     }
 
     /**
-     * The source of the checkout.
-     * To use this field for sales attribution, you must register the channels that your app is managing.
-     * You can register the channels that your app is managing by completing
-     * [this Google Form](https://docs.google.com/forms/d/e/1FAIpQLScmVTZRQNjOJ7RD738mL1lGeFjqKVe_FM2tO9xsm21QEo5Ozg/viewform?usp=sf_link).
-     * After you've submitted your request, you need to wait for your request to be processed by Shopify.
-     * You can find a list of your channels in the Partner Dashboard, in your app's Marketplace extension.
-     * You need to specify the handle as the `source_name` value in your request.
-     * The handle is the channel that the order was placed from.
+     * The source channel that the order is attributed to. Set this to the handle of
+     * an order attribution definition configured for your sales channel app, such as
+     * `youtube` or `channel:amazon-us`.
+     * To set up order attribution for your app, follow the [order attribution
+     * guide](https://shopify.dev/docs/apps/build/sales-channels/order-attribution).
      */
     public Builder sourceName(String sourceName) {
       this.sourceName = sourceName;

@@ -31,13 +31,13 @@ public class AbandonedCheckout implements com.shopify.admin.types.Navigable, com
 
   /**
    * The billing address provided by the buyer.
-   * Null if the user did not provide a billing address.
+   * Null if the user didn't provide a billing address.
    */
   private MailingAddress billingAddress;
 
   /**
    * The date and time when the buyer completed the checkout.
-   * Null if the checkout has not been completed.
+   * Null if the checkout hasn't been completed.
    */
   private OffsetDateTime completedAt;
 
@@ -95,7 +95,7 @@ public class AbandonedCheckout implements com.shopify.admin.types.Navigable, com
 
   /**
    * The shipping address to where the line items will be shipped.
-   * Null if the user did not provide a shipping address.
+   * Null if the user didn't provide a shipping address.
    */
   private MailingAddress shippingAddress;
 
@@ -160,7 +160,7 @@ public class AbandonedCheckout implements com.shopify.admin.types.Navigable, com
 
   /**
    * The billing address provided by the buyer.
-   * Null if the user did not provide a billing address.
+   * Null if the user didn't provide a billing address.
    */
   public MailingAddress getBillingAddress() {
     return billingAddress;
@@ -172,7 +172,7 @@ public class AbandonedCheckout implements com.shopify.admin.types.Navigable, com
 
   /**
    * The date and time when the buyer completed the checkout.
-   * Null if the checkout has not been completed.
+   * Null if the checkout hasn't been completed.
    */
   public OffsetDateTime getCompletedAt() {
     return completedAt;
@@ -296,7 +296,7 @@ public class AbandonedCheckout implements com.shopify.admin.types.Navigable, com
 
   /**
    * The shipping address to where the line items will be shipped.
-   * Null if the user did not provide a shipping address.
+   * Null if the user didn't provide a shipping address.
    */
   public MailingAddress getShippingAddress() {
     return shippingAddress;
@@ -457,13 +457,13 @@ public class AbandonedCheckout implements com.shopify.admin.types.Navigable, com
 
     /**
      * The billing address provided by the buyer.
-     * Null if the user did not provide a billing address.
+     * Null if the user didn't provide a billing address.
      */
     private MailingAddress billingAddress;
 
     /**
      * The date and time when the buyer completed the checkout.
-     * Null if the checkout has not been completed.
+     * Null if the checkout hasn't been completed.
      */
     private OffsetDateTime completedAt;
 
@@ -521,7 +521,7 @@ public class AbandonedCheckout implements com.shopify.admin.types.Navigable, com
 
     /**
      * The shipping address to where the line items will be shipped.
-     * Null if the user did not provide a shipping address.
+     * Null if the user didn't provide a shipping address.
      */
     private MailingAddress shippingAddress;
 
@@ -608,7 +608,7 @@ public class AbandonedCheckout implements com.shopify.admin.types.Navigable, com
 
     /**
      * The billing address provided by the buyer.
-     * Null if the user did not provide a billing address.
+     * Null if the user didn't provide a billing address.
      */
     public Builder billingAddress(MailingAddress billingAddress) {
       this.billingAddress = billingAddress;
@@ -617,7 +617,7 @@ public class AbandonedCheckout implements com.shopify.admin.types.Navigable, com
 
     /**
      * The date and time when the buyer completed the checkout.
-     * Null if the checkout has not been completed.
+     * Null if the checkout hasn't been completed.
      */
     public Builder completedAt(OffsetDateTime completedAt) {
       this.completedAt = completedAt;
@@ -708,7 +708,7 @@ public class AbandonedCheckout implements com.shopify.admin.types.Navigable, com
 
     /**
      * The shipping address to where the line items will be shipped.
-     * Null if the user did not provide a shipping address.
+     * Null if the user didn't provide a shipping address.
      */
     public Builder shippingAddress(MailingAddress shippingAddress) {
       this.shippingAddress = shippingAddress;

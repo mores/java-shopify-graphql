@@ -14,6 +14,7 @@ import java.time.OffsetDateTime;
     property = "__typename"
 )
 @JsonSubTypes({
+    @JsonSubTypes.Type(value = GiftCardCashOutTransaction.class, name = "GiftCardCashOutTransaction"),
     @JsonSubTypes.Type(value = GiftCardCreditTransaction.class, name = "GiftCardCreditTransaction"),
     @JsonSubTypes.Type(value = GiftCardDebitTransaction.class, name = "GiftCardDebitTransaction")
 })

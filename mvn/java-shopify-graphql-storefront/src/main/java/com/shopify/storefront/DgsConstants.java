@@ -3,7 +3,7 @@ package com.shopify.storefront;
 import java.lang.String;
 
 public class DgsConstants {
-  public static final String VERSION = "2026-04";
+  public static final String VERSION = "2026-10";
 
   public static final String QUERY_TYPE = "Query";
 
@@ -308,6 +308,8 @@ public class DgsConstants {
 
     public static final String DiscountAllocations = "discountAllocations";
 
+    public static final String DiscountApplications = "discountApplications";
+
     public static final String DiscountCodes = "discountCodes";
 
     public static final String EstimatedCost = "estimatedCost";
@@ -384,9 +386,27 @@ public class DgsConstants {
 
     public static final String DiscountedAmount = "discountedAmount";
 
+    public static final String SourceDiscountApplication = "sourceDiscountApplication";
+
     public static final String TargetType = "targetType";
 
     public static final String Title = "title";
+  }
+
+  public static class CARTAUTOMATICDISCOUNTAPPLICATION {
+    public static final String TYPE_NAME = "CartAutomaticDiscountApplication";
+
+    public static final String AllocationMethod = "allocationMethod";
+
+    public static final String TargetSelection = "targetSelection";
+
+    public static final String TargetType = "targetType";
+
+    public static final String Title = "title";
+
+    public static final String TotalAllocatedAmount = "totalAllocatedAmount";
+
+    public static final String Value = "value";
   }
 
   public static class CARTBILLINGADDRESSUPDATEPAYLOAD {
@@ -446,7 +466,25 @@ public class DgsConstants {
 
     public static final String DiscountedAmount = "discountedAmount";
 
+    public static final String SourceDiscountApplication = "sourceDiscountApplication";
+
     public static final String TargetType = "targetType";
+  }
+
+  public static class CARTCODEDISCOUNTAPPLICATION {
+    public static final String TYPE_NAME = "CartCodeDiscountApplication";
+
+    public static final String AllocationMethod = "allocationMethod";
+
+    public static final String Code = "code";
+
+    public static final String TargetSelection = "targetSelection";
+
+    public static final String TargetType = "targetType";
+
+    public static final String TotalAllocatedAmount = "totalAllocatedAmount";
+
+    public static final String Value = "value";
   }
 
   public static class CARTCOMPLETIONACTIONREQUIRED {
@@ -524,9 +562,27 @@ public class DgsConstants {
 
     public static final String DiscountedAmount = "discountedAmount";
 
+    public static final String SourceDiscountApplication = "sourceDiscountApplication";
+
     public static final String TargetType = "targetType";
 
     public static final String Title = "title";
+  }
+
+  public static class CARTCUSTOMDISCOUNTAPPLICATION {
+    public static final String TYPE_NAME = "CartCustomDiscountApplication";
+
+    public static final String AllocationMethod = "allocationMethod";
+
+    public static final String TargetSelection = "targetSelection";
+
+    public static final String TargetType = "targetType";
+
+    public static final String Title = "title";
+
+    public static final String TotalAllocatedAmount = "totalAllocatedAmount";
+
+    public static final String Value = "value";
   }
 
   public static class CARTDELIVERY {
@@ -637,6 +693,8 @@ public class DgsConstants {
     public static final String DeliveryAddress = "deliveryAddress";
 
     public static final String DeliveryOptions = "deliveryOptions";
+
+    public static final String DiscountAllocations = "discountAllocations";
 
     public static final String GroupType = "groupType";
 
@@ -800,8 +858,14 @@ public class DgsConstants {
 
     public static final String SellingPlanAllocation = "sellingPlanAllocation";
 
+    public static final String ViewKey = "viewKey";
+
     public static class ATTRIBUTE_INPUT_ARGUMENT {
       public static final String Key = "key";
+    }
+
+    public static class DISCOUNTALLOCATIONS_INPUT_ARGUMENT {
+      public static final String LineLevelOnly = "lineLevelOnly";
     }
   }
 
@@ -1246,8 +1310,14 @@ public class DgsConstants {
 
     public static final String SellingPlanAllocation = "sellingPlanAllocation";
 
+    public static final String ViewKey = "viewKey";
+
     public static class ATTRIBUTE_INPUT_ARGUMENT {
       public static final String Key = "key";
+    }
+
+    public static class DISCOUNTALLOCATIONS_INPUT_ARGUMENT {
+      public static final String LineLevelOnly = "lineLevelOnly";
     }
   }
 
@@ -2422,6 +2492,8 @@ public class DgsConstants {
       public static final String CartId = "cartId";
 
       public static final String LineIds = "lineIds";
+
+      public static final String ViewKeys = "viewKeys";
     }
 
     public static class CARTLINESUPDATE_INPUT_ARGUMENT {
@@ -2552,8 +2624,6 @@ public class DgsConstants {
 
     public static class SHOPPAYPAYMENTREQUESTSESSIONCREATE_INPUT_ARGUMENT {
       public static final String SourceIdentifier = "sourceIdentifier";
-
-      public static final String PaymentRequest = "paymentRequest";
     }
 
     public static class SHOPPAYPAYMENTREQUESTSESSIONSUBMIT_INPUT_ARGUMENT {
@@ -3565,8 +3635,6 @@ public class DgsConstants {
 
       public static final String Query = "query";
 
-      public static final String SearchableFields = "searchableFields";
-
       public static final String Types = "types";
 
       public static final String UnavailableProducts = "unavailableProducts";
@@ -4162,6 +4230,8 @@ public class DgsConstants {
 
     public static final String ProcessingStatusType = "processingStatusType";
 
+    public static final String ShopUser = "shopUser";
+
     public static final String Token = "token";
   }
 
@@ -4201,6 +4271,12 @@ public class DgsConstants {
     public static final String Code = "code";
 
     public static final String Label = "label";
+  }
+
+  public static class SHOPPAYPAYMENTREQUESTSHOPUSER {
+    public static final String TYPE_NAME = "ShopPayPaymentRequestShopUser";
+
+    public static final String PublicId = "publicId";
   }
 
   public static class SHOPPAYPAYMENTREQUESTTOTALSHIPPINGPRICE {
@@ -4647,6 +4723,8 @@ public class DgsConstants {
     public static final String Delivery = "delivery";
 
     public static final String Metafields = "metafields";
+
+    public static final String SourceName = "sourceName";
   }
 
   public static class CARTINPUTMETAFIELDINPUT {
@@ -4685,6 +4763,8 @@ public class DgsConstants {
     public static final String TYPE_NAME = "CartLineUpdateInput";
 
     public static final String Id = "id";
+
+    public static final String ViewKey = "viewKey";
 
     public static final String Quantity = "quantity";
 
@@ -5026,8 +5106,6 @@ public class DgsConstants {
 
     public static final String TotalTax = "totalTax";
 
-    public static final String DeliveryMethods = "deliveryMethods";
-
     public static final String SelectedDeliveryMethodType = "selectedDeliveryMethodType";
 
     public static final String Locale = "locale";
@@ -5121,6 +5199,20 @@ public class DgsConstants {
     public static final String SaleOfData = "saleOfData";
   }
 
+  public static class BASECARTDISCOUNTAPPLICATION {
+    public static final String TYPE_NAME = "BaseCartDiscountApplication";
+
+    public static final String AllocationMethod = "allocationMethod";
+
+    public static final String TargetSelection = "targetSelection";
+
+    public static final String TargetType = "targetType";
+
+    public static final String TotalAllocatedAmount = "totalAllocatedAmount";
+
+    public static final String Value = "value";
+  }
+
   public static class BASECARTLINE {
     public static final String TYPE_NAME = "BaseCartLine";
 
@@ -5141,6 +5233,8 @@ public class DgsConstants {
     public static final String Quantity = "quantity";
 
     public static final String SellingPlanAllocation = "sellingPlanAllocation";
+
+    public static final String ViewKey = "viewKey";
   }
 
   public static class CARTDISCOUNTALLOCATION {
@@ -5149,6 +5243,8 @@ public class DgsConstants {
     public static final String DiscountApplication = "discountApplication";
 
     public static final String DiscountedAmount = "discountedAmount";
+
+    public static final String SourceDiscountApplication = "sourceDiscountApplication";
 
     public static final String TargetType = "targetType";
   }

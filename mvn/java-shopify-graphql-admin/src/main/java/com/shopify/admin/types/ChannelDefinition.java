@@ -15,9 +15,7 @@ import java.util.Objects;
  *
  * Each definition includes the parent
  * [`Channel`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Channel)
- * name and subchannel name to indicate the selling surface hierarchy. The
- * marketplace flag identifies whether this surface represents a marketplace
- * channel such as shops on Facebook, Instagram, or Buy on Google.
+ * name and subchannel name to indicate the selling surface hierarchy.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

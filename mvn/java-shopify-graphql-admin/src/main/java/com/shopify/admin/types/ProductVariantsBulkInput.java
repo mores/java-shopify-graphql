@@ -12,9 +12,13 @@ import java.util.Objects;
  */
 public class ProductVariantsBulkInput {
   /**
-   * The value of the barcode associated with the product variant.
+   * The barcodes to associate with the product variant. Replaces the entire barcode set. A variant
+   * accepts up to 20 barcodes, and a given
+   * variant input can't set both `barcode` and `barcodes`. Refer to the
+   * [`ProductVariantBarcode`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariantBarcode)
+   * object for how these barcodes are returned.
    */
-  private String barcode;
+  private List<BarcodeInput> barcodes;
 
   /**
    * The compare-at price of the variant.
@@ -100,18 +104,28 @@ public class ProductVariantsBulkInput {
    */
   private Boolean requiresComponents;
 
+  /**
+   * Indicates whether the product variant is created as published or unpublished.
+   * This option is only available for new product variants.
+   */
+  private Boolean published;
+
   public ProductVariantsBulkInput() {
   }
 
   /**
-   * The value of the barcode associated with the product variant.
+   * The barcodes to associate with the product variant. Replaces the entire barcode set. A variant
+   * accepts up to 20 barcodes, and a given
+   * variant input can't set both `barcode` and `barcodes`. Refer to the
+   * [`ProductVariantBarcode`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariantBarcode)
+   * object for how these barcodes are returned.
    */
-  public String getBarcode() {
-    return barcode;
+  public List<BarcodeInput> getBarcodes() {
+    return barcodes;
   }
 
-  public void setBarcode(String barcode) {
-    this.barcode = barcode;
+  public void setBarcodes(List<BarcodeInput> barcodes) {
+    this.barcodes = barcodes;
   }
 
   /**
@@ -294,9 +308,21 @@ public class ProductVariantsBulkInput {
     this.requiresComponents = requiresComponents;
   }
 
+  /**
+   * Indicates whether the product variant is created as published or unpublished.
+   * This option is only available for new product variants.
+   */
+  public Boolean getPublished() {
+    return published;
+  }
+
+  public void setPublished(Boolean published) {
+    this.published = published;
+  }
+
   @Override
   public String toString() {
-    return "ProductVariantsBulkInput{barcode='" + barcode + "', compareAtPrice='" + compareAtPrice + "', id='" + id + "', mediaSrc='" + mediaSrc + "', inventoryPolicy='" + inventoryPolicy + "', inventoryQuantities='" + inventoryQuantities + "', quantityAdjustments='" + quantityAdjustments + "', inventoryItem='" + inventoryItem + "', mediaId='" + mediaId + "', metafields='" + metafields + "', optionValues='" + optionValues + "', price='" + price + "', taxable='" + taxable + "', taxCode='" + taxCode + "', unitPriceMeasurement='" + unitPriceMeasurement + "', showUnitPrice='" + showUnitPrice + "', requiresComponents='" + requiresComponents + "'}";
+    return "ProductVariantsBulkInput{barcodes='" + barcodes + "', compareAtPrice='" + compareAtPrice + "', id='" + id + "', mediaSrc='" + mediaSrc + "', inventoryPolicy='" + inventoryPolicy + "', inventoryQuantities='" + inventoryQuantities + "', quantityAdjustments='" + quantityAdjustments + "', inventoryItem='" + inventoryItem + "', mediaId='" + mediaId + "', metafields='" + metafields + "', optionValues='" + optionValues + "', price='" + price + "', taxable='" + taxable + "', taxCode='" + taxCode + "', unitPriceMeasurement='" + unitPriceMeasurement + "', showUnitPrice='" + showUnitPrice + "', requiresComponents='" + requiresComponents + "', published='" + published + "'}";
   }
 
   @Override
@@ -304,7 +330,7 @@ public class ProductVariantsBulkInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     ProductVariantsBulkInput that = (ProductVariantsBulkInput) o;
-    return Objects.equals(barcode, that.barcode) &&
+    return Objects.equals(barcodes, that.barcodes) &&
         Objects.equals(compareAtPrice, that.compareAtPrice) &&
         Objects.equals(id, that.id) &&
         Objects.equals(mediaSrc, that.mediaSrc) &&
@@ -320,12 +346,13 @@ public class ProductVariantsBulkInput {
         Objects.equals(taxCode, that.taxCode) &&
         Objects.equals(unitPriceMeasurement, that.unitPriceMeasurement) &&
         Objects.equals(showUnitPrice, that.showUnitPrice) &&
-        Objects.equals(requiresComponents, that.requiresComponents);
+        Objects.equals(requiresComponents, that.requiresComponents) &&
+        Objects.equals(published, that.published);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(barcode, compareAtPrice, id, mediaSrc, inventoryPolicy, inventoryQuantities, quantityAdjustments, inventoryItem, mediaId, metafields, optionValues, price, taxable, taxCode, unitPriceMeasurement, showUnitPrice, requiresComponents);
+    return Objects.hash(barcodes, compareAtPrice, id, mediaSrc, inventoryPolicy, inventoryQuantities, quantityAdjustments, inventoryItem, mediaId, metafields, optionValues, price, taxable, taxCode, unitPriceMeasurement, showUnitPrice, requiresComponents, published);
   }
 
   public static Builder newBuilder() {
@@ -334,9 +361,13 @@ public class ProductVariantsBulkInput {
 
   public static class Builder {
     /**
-     * The value of the barcode associated with the product variant.
+     * The barcodes to associate with the product variant. Replaces the entire barcode set. A variant
+     * accepts up to 20 barcodes, and a given
+     * variant input can't set both `barcode` and `barcodes`. Refer to the
+     * [`ProductVariantBarcode`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariantBarcode)
+     * object for how these barcodes are returned.
      */
-    private String barcode;
+    private List<BarcodeInput> barcodes;
 
     /**
      * The compare-at price of the variant.
@@ -422,9 +453,15 @@ public class ProductVariantsBulkInput {
      */
     private Boolean requiresComponents;
 
+    /**
+     * Indicates whether the product variant is created as published or unpublished.
+     * This option is only available for new product variants.
+     */
+    private Boolean published;
+
     public ProductVariantsBulkInput build() {
       ProductVariantsBulkInput result = new ProductVariantsBulkInput();
-      result.barcode = this.barcode;
+      result.barcodes = this.barcodes;
       result.compareAtPrice = this.compareAtPrice;
       result.id = this.id;
       result.mediaSrc = this.mediaSrc;
@@ -441,14 +478,19 @@ public class ProductVariantsBulkInput {
       result.unitPriceMeasurement = this.unitPriceMeasurement;
       result.showUnitPrice = this.showUnitPrice;
       result.requiresComponents = this.requiresComponents;
+      result.published = this.published;
       return result;
     }
 
     /**
-     * The value of the barcode associated with the product variant.
+     * The barcodes to associate with the product variant. Replaces the entire barcode set. A variant
+     * accepts up to 20 barcodes, and a given
+     * variant input can't set both `barcode` and `barcodes`. Refer to the
+     * [`ProductVariantBarcode`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariantBarcode)
+     * object for how these barcodes are returned.
      */
-    public Builder barcode(String barcode) {
-      this.barcode = barcode;
+    public Builder barcodes(List<BarcodeInput> barcodes) {
+      this.barcodes = barcodes;
       return this;
     }
 
@@ -581,6 +623,15 @@ public class ProductVariantsBulkInput {
      */
     public Builder requiresComponents(Boolean requiresComponents) {
       this.requiresComponents = requiresComponents;
+      return this;
+    }
+
+    /**
+     * Indicates whether the product variant is created as published or unpublished.
+     * This option is only available for new product variants.
+     */
+    public Builder published(Boolean published) {
+      this.published = published;
       return this;
     }
   }

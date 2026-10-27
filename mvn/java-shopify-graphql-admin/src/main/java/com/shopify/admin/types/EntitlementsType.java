@@ -10,11 +10,27 @@ import java.util.Objects;
  */
 public class EntitlementsType {
   /**
+   * The shop's B2B entitlements.
+   */
+  private B2BType b2b;
+
+  /**
    * Represents the markets for the shop.
    */
   private MarketsType markets;
 
   public EntitlementsType() {
+  }
+
+  /**
+   * The shop's B2B entitlements.
+   */
+  public B2BType getB2b() {
+    return b2b;
+  }
+
+  public void setB2b(B2BType b2b) {
+    this.b2b = b2b;
   }
 
   /**
@@ -30,7 +46,7 @@ public class EntitlementsType {
 
   @Override
   public String toString() {
-    return "EntitlementsType{markets='" + markets + "'}";
+    return "EntitlementsType{b2b='" + b2b + "', markets='" + markets + "'}";
   }
 
   @Override
@@ -38,12 +54,13 @@ public class EntitlementsType {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     EntitlementsType that = (EntitlementsType) o;
-    return Objects.equals(markets, that.markets);
+    return Objects.equals(b2b, that.b2b) &&
+        Objects.equals(markets, that.markets);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(markets);
+    return Objects.hash(b2b, markets);
   }
 
   public static Builder newBuilder() {
@@ -52,14 +69,28 @@ public class EntitlementsType {
 
   public static class Builder {
     /**
+     * The shop's B2B entitlements.
+     */
+    private B2BType b2b;
+
+    /**
      * Represents the markets for the shop.
      */
     private MarketsType markets;
 
     public EntitlementsType build() {
       EntitlementsType result = new EntitlementsType();
+      result.b2b = this.b2b;
       result.markets = this.markets;
       return result;
+    }
+
+    /**
+     * The shop's B2B entitlements.
+     */
+    public Builder b2b(B2BType b2b) {
+      this.b2b = b2b;
+      return this;
     }
 
     /**

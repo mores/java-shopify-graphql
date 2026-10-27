@@ -19,6 +19,11 @@ public class PaymentMandateResourceProjection<PARENT extends BaseSubProjectionNo
      return projection;
   }
 
+  public PaymentMandateResourceProjection<PARENT, ROOT> id() {
+    getFields().put("id", null);
+    return this;
+  }
+
   public PaymentMandateResourceProjection<PARENT, ROOT> resourceId() {
     getFields().put("resourceId", null);
     return this;

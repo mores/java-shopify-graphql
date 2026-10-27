@@ -59,13 +59,6 @@ public class ShopPayPaymentRequestInput {
   private MoneyInput totalTax;
 
   /**
-   * The delivery methods for the payment request.
-   *   
-   * The input must not contain more than `250` values.
-   */
-  private List<ShopPayPaymentRequestDeliveryMethodInput> deliveryMethods;
-
-  /**
    * The delivery method type for the payment request.
    */
   private ShopPayPaymentRequestDeliveryMethodType selectedDeliveryMethodType;
@@ -186,19 +179,6 @@ public class ShopPayPaymentRequestInput {
   }
 
   /**
-   * The delivery methods for the payment request.
-   *   
-   * The input must not contain more than `250` values.
-   */
-  public List<ShopPayPaymentRequestDeliveryMethodInput> getDeliveryMethods() {
-    return deliveryMethods;
-  }
-
-  public void setDeliveryMethods(List<ShopPayPaymentRequestDeliveryMethodInput> deliveryMethods) {
-    this.deliveryMethods = deliveryMethods;
-  }
-
-  /**
    * The delivery method type for the payment request.
    */
   public ShopPayPaymentRequestDeliveryMethodType getSelectedDeliveryMethodType() {
@@ -245,7 +225,7 @@ public class ShopPayPaymentRequestInput {
 
   @Override
   public String toString() {
-    return "ShopPayPaymentRequestInput{discountCodes='" + discountCodes + "', lineItems='" + lineItems + "', shippingLines='" + shippingLines + "', total='" + total + "', subtotal='" + subtotal + "', discounts='" + discounts + "', totalShippingPrice='" + totalShippingPrice + "', totalTax='" + totalTax + "', deliveryMethods='" + deliveryMethods + "', selectedDeliveryMethodType='" + selectedDeliveryMethodType + "', locale='" + locale + "', presentmentCurrency='" + presentmentCurrency + "', paymentMethod='" + paymentMethod + "'}";
+    return "ShopPayPaymentRequestInput{discountCodes='" + discountCodes + "', lineItems='" + lineItems + "', shippingLines='" + shippingLines + "', total='" + total + "', subtotal='" + subtotal + "', discounts='" + discounts + "', totalShippingPrice='" + totalShippingPrice + "', totalTax='" + totalTax + "', selectedDeliveryMethodType='" + selectedDeliveryMethodType + "', locale='" + locale + "', presentmentCurrency='" + presentmentCurrency + "', paymentMethod='" + paymentMethod + "'}";
   }
 
   @Override
@@ -261,7 +241,6 @@ public class ShopPayPaymentRequestInput {
         Objects.equals(discounts, that.discounts) &&
         Objects.equals(totalShippingPrice, that.totalShippingPrice) &&
         Objects.equals(totalTax, that.totalTax) &&
-        Objects.equals(deliveryMethods, that.deliveryMethods) &&
         Objects.equals(selectedDeliveryMethodType, that.selectedDeliveryMethodType) &&
         Objects.equals(locale, that.locale) &&
         Objects.equals(presentmentCurrency, that.presentmentCurrency) &&
@@ -270,7 +249,7 @@ public class ShopPayPaymentRequestInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(discountCodes, lineItems, shippingLines, total, subtotal, discounts, totalShippingPrice, totalTax, deliveryMethods, selectedDeliveryMethodType, locale, presentmentCurrency, paymentMethod);
+    return Objects.hash(discountCodes, lineItems, shippingLines, total, subtotal, discounts, totalShippingPrice, totalTax, selectedDeliveryMethodType, locale, presentmentCurrency, paymentMethod);
   }
 
   public static Builder newBuilder() {
@@ -327,13 +306,6 @@ public class ShopPayPaymentRequestInput {
     private MoneyInput totalTax;
 
     /**
-     * The delivery methods for the payment request.
-     *   
-     * The input must not contain more than `250` values.
-     */
-    private List<ShopPayPaymentRequestDeliveryMethodInput> deliveryMethods;
-
-    /**
      * The delivery method type for the payment request.
      */
     private ShopPayPaymentRequestDeliveryMethodType selectedDeliveryMethodType;
@@ -363,7 +335,6 @@ public class ShopPayPaymentRequestInput {
       result.discounts = this.discounts;
       result.totalShippingPrice = this.totalShippingPrice;
       result.totalTax = this.totalTax;
-      result.deliveryMethods = this.deliveryMethods;
       result.selectedDeliveryMethodType = this.selectedDeliveryMethodType;
       result.locale = this.locale;
       result.presentmentCurrency = this.presentmentCurrency;
@@ -441,16 +412,6 @@ public class ShopPayPaymentRequestInput {
      */
     public Builder totalTax(MoneyInput totalTax) {
       this.totalTax = totalTax;
-      return this;
-    }
-
-    /**
-     * The delivery methods for the payment request.
-     *   
-     * The input must not contain more than `250` values.
-     */
-    public Builder deliveryMethods(List<ShopPayPaymentRequestDeliveryMethodInput> deliveryMethods) {
-      this.deliveryMethods = deliveryMethods;
       return this;
     }
 

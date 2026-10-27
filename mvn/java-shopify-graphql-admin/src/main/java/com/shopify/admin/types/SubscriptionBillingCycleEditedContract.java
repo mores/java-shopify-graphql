@@ -14,7 +14,7 @@ import java.util.Objects;
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
-public class SubscriptionBillingCycleEditedContract implements com.shopify.admin.types.SubscriptionContractBase {
+public class SubscriptionBillingCycleEditedContract implements SubscriptionCommittedContract, com.shopify.admin.types.SubscriptionContractBase {
   /**
    * The subscription app that the subscription contract is registered to.
    */
@@ -69,6 +69,18 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.admin
    * The list of subscription discounts associated with the subscription contract.
    */
   private SubscriptionManualDiscountConnection discounts;
+
+  /**
+   * The list of subscription lines grouped by bundle parent, with bundle components nested under their parent line.
+   */
+  private SubscriptionGroupedLineConnection groupedLines;
+
+  /**
+   * The projected order totals from the last successful commit of the subscription
+   * contract. Returns null when no projected order totals have been persisted for
+   * the contract, or the edit was committed through a subscription draft.
+   */
+  private SubscriptionContractCalculationProjectedOrderTotals latestCommittedProjectedOrderTotals;
 
   /**
    * The number of lines associated with the subscription contract.
@@ -225,6 +237,32 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.admin
   }
 
   /**
+   * The list of subscription lines grouped by bundle parent, with bundle components nested under their parent line.
+   */
+  public SubscriptionGroupedLineConnection getGroupedLines() {
+    return groupedLines;
+  }
+
+  public void setGroupedLines(SubscriptionGroupedLineConnection groupedLines) {
+    this.groupedLines = groupedLines;
+  }
+
+  /**
+   * The projected order totals from the last successful commit of the subscription
+   * contract. Returns null when no projected order totals have been persisted for
+   * the contract, or the edit was committed through a subscription draft.
+   */
+  public SubscriptionContractCalculationProjectedOrderTotals getLatestCommittedProjectedOrderTotals(
+      ) {
+    return latestCommittedProjectedOrderTotals;
+  }
+
+  public void setLatestCommittedProjectedOrderTotals(
+      SubscriptionContractCalculationProjectedOrderTotals latestCommittedProjectedOrderTotals) {
+    this.latestCommittedProjectedOrderTotals = latestCommittedProjectedOrderTotals;
+  }
+
+  /**
    * The number of lines associated with the subscription contract.
    */
   public int getLineCount() {
@@ -292,7 +330,7 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.admin
 
   @Override
   public String toString() {
-    return "SubscriptionBillingCycleEditedContract{app='" + app + "', appAdminUrl='" + appAdminUrl + "', billingCycles='" + billingCycles + "', createdAt='" + createdAt + "', currencyCode='" + currencyCode + "', customAttributes='" + customAttributes + "', customer='" + customer + "', customerPaymentMethod='" + customerPaymentMethod + "', deliveryMethod='" + deliveryMethod + "', deliveryPrice='" + deliveryPrice + "', discounts='" + discounts + "', lineCount='" + lineCount + "', lines='" + lines + "', linesCount='" + linesCount + "', note='" + note + "', orders='" + orders + "', updatedAt='" + updatedAt + "'}";
+    return "SubscriptionBillingCycleEditedContract{app='" + app + "', appAdminUrl='" + appAdminUrl + "', billingCycles='" + billingCycles + "', createdAt='" + createdAt + "', currencyCode='" + currencyCode + "', customAttributes='" + customAttributes + "', customer='" + customer + "', customerPaymentMethod='" + customerPaymentMethod + "', deliveryMethod='" + deliveryMethod + "', deliveryPrice='" + deliveryPrice + "', discounts='" + discounts + "', groupedLines='" + groupedLines + "', latestCommittedProjectedOrderTotals='" + latestCommittedProjectedOrderTotals + "', lineCount='" + lineCount + "', lines='" + lines + "', linesCount='" + linesCount + "', note='" + note + "', orders='" + orders + "', updatedAt='" + updatedAt + "'}";
   }
 
   @Override
@@ -311,6 +349,8 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.admin
         Objects.equals(deliveryMethod, that.deliveryMethod) &&
         Objects.equals(deliveryPrice, that.deliveryPrice) &&
         Objects.equals(discounts, that.discounts) &&
+        Objects.equals(groupedLines, that.groupedLines) &&
+        Objects.equals(latestCommittedProjectedOrderTotals, that.latestCommittedProjectedOrderTotals) &&
         lineCount == that.lineCount &&
         Objects.equals(lines, that.lines) &&
         Objects.equals(linesCount, that.linesCount) &&
@@ -321,7 +361,7 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.admin
 
   @Override
   public int hashCode() {
-    return Objects.hash(app, appAdminUrl, billingCycles, createdAt, currencyCode, customAttributes, customer, customerPaymentMethod, deliveryMethod, deliveryPrice, discounts, lineCount, lines, linesCount, note, orders, updatedAt);
+    return Objects.hash(app, appAdminUrl, billingCycles, createdAt, currencyCode, customAttributes, customer, customerPaymentMethod, deliveryMethod, deliveryPrice, discounts, groupedLines, latestCommittedProjectedOrderTotals, lineCount, lines, linesCount, note, orders, updatedAt);
   }
 
   public static Builder newBuilder() {
@@ -385,6 +425,18 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.admin
     private SubscriptionManualDiscountConnection discounts;
 
     /**
+     * The list of subscription lines grouped by bundle parent, with bundle components nested under their parent line.
+     */
+    private SubscriptionGroupedLineConnection groupedLines;
+
+    /**
+     * The projected order totals from the last successful commit of the subscription
+     * contract. Returns null when no projected order totals have been persisted for
+     * the contract, or the edit was committed through a subscription draft.
+     */
+    private SubscriptionContractCalculationProjectedOrderTotals latestCommittedProjectedOrderTotals;
+
+    /**
      * The number of lines associated with the subscription contract.
      */
     private int lineCount;
@@ -427,6 +479,8 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.admin
       result.deliveryMethod = this.deliveryMethod;
       result.deliveryPrice = this.deliveryPrice;
       result.discounts = this.discounts;
+      result.groupedLines = this.groupedLines;
+      result.latestCommittedProjectedOrderTotals = this.latestCommittedProjectedOrderTotals;
       result.lineCount = this.lineCount;
       result.lines = this.lines;
       result.linesCount = this.linesCount;
@@ -521,6 +575,25 @@ public class SubscriptionBillingCycleEditedContract implements com.shopify.admin
      */
     public Builder discounts(SubscriptionManualDiscountConnection discounts) {
       this.discounts = discounts;
+      return this;
+    }
+
+    /**
+     * The list of subscription lines grouped by bundle parent, with bundle components nested under their parent line.
+     */
+    public Builder groupedLines(SubscriptionGroupedLineConnection groupedLines) {
+      this.groupedLines = groupedLines;
+      return this;
+    }
+
+    /**
+     * The projected order totals from the last successful commit of the subscription
+     * contract. Returns null when no projected order totals have been persisted for
+     * the contract, or the edit was committed through a subscription draft.
+     */
+    public Builder latestCommittedProjectedOrderTotals(
+        SubscriptionContractCalculationProjectedOrderTotals latestCommittedProjectedOrderTotals) {
+      this.latestCommittedProjectedOrderTotals = latestCommittedProjectedOrderTotals;
       return this;
     }
 

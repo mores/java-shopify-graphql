@@ -6,18 +6,16 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * A risk fact belongs to a single risk assessment and serves to provide additional
- * context for an assessment. Risk facts are not necessarily tied to the result of
- * the recommendation.
+ * Additional context provided with an order risk assessment. Facts may not affect the order's risk recommendation.
  */
 public class RiskFact {
   /**
-   * A description of the fact.
+   * Descriptions longer than 256 characters are truncated.
    */
   private String description;
 
   /**
-   * Indicates whether the fact is a negative, neutral or positive contributor with regards to risk.
+   * Indicates whether the fact contributes negatively, neutrally, or positively to risk.
    */
   private RiskFactSentiment sentiment;
 
@@ -25,7 +23,7 @@ public class RiskFact {
   }
 
   /**
-   * A description of the fact.
+   * Descriptions longer than 256 characters are truncated.
    */
   public String getDescription() {
     return description;
@@ -36,7 +34,7 @@ public class RiskFact {
   }
 
   /**
-   * Indicates whether the fact is a negative, neutral or positive contributor with regards to risk.
+   * Indicates whether the fact contributes negatively, neutrally, or positively to risk.
    */
   public RiskFactSentiment getSentiment() {
     return sentiment;
@@ -71,12 +69,12 @@ public class RiskFact {
 
   public static class Builder {
     /**
-     * A description of the fact.
+     * Descriptions longer than 256 characters are truncated.
      */
     private String description;
 
     /**
-     * Indicates whether the fact is a negative, neutral or positive contributor with regards to risk.
+     * Indicates whether the fact contributes negatively, neutrally, or positively to risk.
      */
     private RiskFactSentiment sentiment;
 
@@ -88,7 +86,7 @@ public class RiskFact {
     }
 
     /**
-     * A description of the fact.
+     * Descriptions longer than 256 characters are truncated.
      */
     public Builder description(String description) {
       this.description = description;
@@ -96,7 +94,7 @@ public class RiskFact {
     }
 
     /**
-     * Indicates whether the fact is a negative, neutral or positive contributor with regards to risk.
+     * Indicates whether the fact contributes negatively, neutrally, or positively to risk.
      */
     public Builder sentiment(RiskFactSentiment sentiment) {
       this.sentiment = sentiment;

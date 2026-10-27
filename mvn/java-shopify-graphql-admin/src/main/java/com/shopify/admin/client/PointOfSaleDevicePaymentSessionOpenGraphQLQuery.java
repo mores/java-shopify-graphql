@@ -2,10 +2,15 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.MoneyInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -31,6 +36,33 @@ public class PointOfSaleDevicePaymentSessionOpenGraphQLQuery extends GraphQLQuer
     }
   }
 
+  public PointOfSaleDevicePaymentSessionOpenGraphQLQuery(String pointOfSaleDeviceId,
+      MoneyInput balance, String staffMemberId, OffsetDateTime time, String reasonCodeId,
+      String note, String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (pointOfSaleDeviceId != null || fieldsSet.contains("pointOfSaleDeviceId")) {
+        getInput().put("pointOfSaleDeviceId", pointOfSaleDeviceId);
+    }if (balance != null || fieldsSet.contains("balance")) {
+        getInput().put("balance", balance);
+    }if (staffMemberId != null || fieldsSet.contains("staffMemberId")) {
+        getInput().put("staffMemberId", staffMemberId);
+    }if (time != null || fieldsSet.contains("time")) {
+        getInput().put("time", time);
+    }if (reasonCodeId != null || fieldsSet.contains("reasonCodeId")) {
+        getInput().put("reasonCodeId", reasonCodeId);
+    }if (note != null || fieldsSet.contains("note")) {
+        getInput().put("note", note);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public PointOfSaleDevicePaymentSessionOpenGraphQLQuery() {
     super("mutation");
   }
@@ -47,6 +79,10 @@ public class PointOfSaleDevicePaymentSessionOpenGraphQLQuery extends GraphQLQuer
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String pointOfSaleDeviceId;
 
     private MoneyInput balance;
@@ -62,7 +98,7 @@ public class PointOfSaleDevicePaymentSessionOpenGraphQLQuery extends GraphQLQuer
     private String queryName;
 
     public PointOfSaleDevicePaymentSessionOpenGraphQLQuery build() {
-      return new PointOfSaleDevicePaymentSessionOpenGraphQLQuery(pointOfSaleDeviceId, balance, staffMemberId, time, reasonCodeId, note, queryName, fieldsSet);
+      return new PointOfSaleDevicePaymentSessionOpenGraphQLQuery(pointOfSaleDeviceId, balance, staffMemberId, time, reasonCodeId, note, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -71,6 +107,16 @@ public class PointOfSaleDevicePaymentSessionOpenGraphQLQuery extends GraphQLQuer
      */
     public Builder pointOfSaleDeviceId(String pointOfSaleDeviceId) {
       this.pointOfSaleDeviceId = pointOfSaleDeviceId;
+      this.fieldsSet.add("pointOfSaleDeviceId");
+      return this;
+    }
+
+    /**
+     * The point of sale device to which this session belongs.
+     */
+    public Builder pointOfSaleDeviceIdReference(String variableRef) {
+      this.variableReferences.put("pointOfSaleDeviceId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("pointOfSaleDeviceId");
       return this;
     }
@@ -85,10 +131,30 @@ public class PointOfSaleDevicePaymentSessionOpenGraphQLQuery extends GraphQLQuer
     }
 
     /**
+     * The counted cash drawer balance when the session was opened.
+     */
+    public Builder balanceReference(String variableRef) {
+      this.variableReferences.put("balance", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("MoneyInput")).build());
+      this.fieldsSet.add("balance");
+      return this;
+    }
+
+    /**
      * The staff member who opened the session.
      */
     public Builder staffMemberId(String staffMemberId) {
       this.staffMemberId = staffMemberId;
+      this.fieldsSet.add("staffMemberId");
+      return this;
+    }
+
+    /**
+     * The staff member who opened the session.
+     */
+    public Builder staffMemberIdReference(String variableRef) {
+      this.variableReferences.put("staffMemberId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("staffMemberId");
       return this;
     }
@@ -103,6 +169,16 @@ public class PointOfSaleDevicePaymentSessionOpenGraphQLQuery extends GraphQLQuer
     }
 
     /**
+     * The time the session was opened. Defaults to the current time.
+     */
+    public Builder timeReference(String variableRef) {
+      this.variableReferences.put("time", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("DateTime")).build());
+      this.fieldsSet.add("time");
+      return this;
+    }
+
+    /**
      * The reason code for the session opening.
      */
     public Builder reasonCodeId(String reasonCodeId) {
@@ -112,10 +188,30 @@ public class PointOfSaleDevicePaymentSessionOpenGraphQLQuery extends GraphQLQuer
     }
 
     /**
+     * The reason code for the session opening.
+     */
+    public Builder reasonCodeIdReference(String variableRef) {
+      this.variableReferences.put("reasonCodeId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("ID")).build());
+      this.fieldsSet.add("reasonCodeId");
+      return this;
+    }
+
+    /**
      * The note entered when the session was opened.
      */
     public Builder note(String note) {
       this.note = note;
+      this.fieldsSet.add("note");
+      return this;
+    }
+
+    /**
+     * The note entered when the session was opened.
+     */
+    public Builder noteReference(String variableRef) {
+      this.variableReferences.put("note", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
       this.fieldsSet.add("note");
       return this;
     }

@@ -45,8 +45,18 @@ public class ExchangeLineItemFragmentProjection<PARENT extends BaseSubProjection
     return this;
   }
 
+  public ExchangeLineItemFragmentProjection<PARENT, ROOT> productId() {
+    getFields().put("productId", null);
+    return this;
+  }
+
   public ExchangeLineItemFragmentProjection<PARENT, ROOT> quantity() {
     getFields().put("quantity", null);
+    return this;
+  }
+
+  public ExchangeLineItemFragmentProjection<PARENT, ROOT> title() {
+    getFields().put("title", null);
     return this;
   }
 
@@ -57,6 +67,16 @@ public class ExchangeLineItemFragmentProjection<PARENT extends BaseSubProjection
 
   public ExchangeLineItemFragmentProjection<PARENT, ROOT> variantId() {
     getFields().put("variantId", null);
+    return this;
+  }
+
+  public ExchangeLineItemFragmentProjection<PARENT, ROOT> variantSku() {
+    getFields().put("variantSku", null);
+    return this;
+  }
+
+  public ExchangeLineItemFragmentProjection<PARENT, ROOT> variantTitle() {
+    getFields().put("variantTitle", null);
     return this;
   }
 

@@ -11,7 +11,7 @@ import java.util.Objects;
  */
 public class OrderRiskAssessmentCreatePayload {
   /**
-   * The order risk assessment created.
+   * The created risk assessment.
    */
   private OrderRiskAssessment orderRiskAssessment;
 
@@ -24,7 +24,7 @@ public class OrderRiskAssessmentCreatePayload {
   }
 
   /**
-   * The order risk assessment created.
+   * The created risk assessment.
    */
   public OrderRiskAssessment getOrderRiskAssessment() {
     return orderRiskAssessment;
@@ -70,7 +70,7 @@ public class OrderRiskAssessmentCreatePayload {
 
   public static class Builder {
     /**
-     * The order risk assessment created.
+     * The created risk assessment.
      */
     private OrderRiskAssessment orderRiskAssessment;
 
@@ -87,7 +87,7 @@ public class OrderRiskAssessmentCreatePayload {
     }
 
     /**
-     * The order risk assessment created.
+     * The created risk assessment.
      */
     public Builder orderRiskAssessment(OrderRiskAssessment orderRiskAssessment) {
       this.orderRiskAssessment = orderRiskAssessment;

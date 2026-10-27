@@ -37,17 +37,38 @@ public class FulfillmentProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?
     FulfillmentEventConnectionProjection<FulfillmentProjectionRoot<PARENT, ROOT>, FulfillmentProjectionRoot<PARENT, ROOT>> projection = new FulfillmentEventConnectionProjection<>(this, this);    
     getFields().put("events", projection);
     getInputArguments().computeIfAbsent("events", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("events").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("events").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("events").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("events").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
     getInputArguments().get("events").add(reverseArg);
-    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey, false, null);
+    getInputArguments().get("events").add(sortKeyArg);
+    return projection;
+  }
+
+  public FulfillmentEventConnectionProjection<FulfillmentProjectionRoot<PARENT, ROOT>, FulfillmentProjectionRoot<PARENT, ROOT>> eventsWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference, String sortKeyReference) {
+    FulfillmentEventConnectionProjection<FulfillmentProjectionRoot<PARENT, ROOT>, FulfillmentProjectionRoot<PARENT, ROOT>> projection = new FulfillmentEventConnectionProjection<>(this, this);    
+    getFields().put("events", projection);
+    getInputArguments().computeIfAbsent("events", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("events").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("events").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("events").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("events").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("events").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKeyReference, true, new graphql.language.TypeName("FulfillmentEventSortKeys"));
     getInputArguments().get("events").add(sortKeyArg);
     return projection;
   }
@@ -64,15 +85,34 @@ public class FulfillmentProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?
     FulfillmentLineItemConnectionProjection<FulfillmentProjectionRoot<PARENT, ROOT>, FulfillmentProjectionRoot<PARENT, ROOT>> projection = new FulfillmentLineItemConnectionProjection<>(this, this);    
     getFields().put("fulfillmentLineItems", projection);
     getInputArguments().computeIfAbsent("fulfillmentLineItems", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("fulfillmentLineItems").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("fulfillmentLineItems").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("fulfillmentLineItems").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("fulfillmentLineItems").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("fulfillmentLineItems").add(reverseArg);
+    return projection;
+  }
+
+  public FulfillmentLineItemConnectionProjection<FulfillmentProjectionRoot<PARENT, ROOT>, FulfillmentProjectionRoot<PARENT, ROOT>> fulfillmentLineItemsWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    FulfillmentLineItemConnectionProjection<FulfillmentProjectionRoot<PARENT, ROOT>, FulfillmentProjectionRoot<PARENT, ROOT>> projection = new FulfillmentLineItemConnectionProjection<>(this, this);    
+    getFields().put("fulfillmentLineItems", projection);
+    getInputArguments().computeIfAbsent("fulfillmentLineItems", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("fulfillmentLineItems").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("fulfillmentLineItems").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("fulfillmentLineItems").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("fulfillmentLineItems").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("fulfillmentLineItems").add(reverseArg);
     return projection;
   }
@@ -89,15 +129,34 @@ public class FulfillmentProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?
     FulfillmentOrderConnectionProjection<FulfillmentProjectionRoot<PARENT, ROOT>, FulfillmentProjectionRoot<PARENT, ROOT>> projection = new FulfillmentOrderConnectionProjection<>(this, this);    
     getFields().put("fulfillmentOrders", projection);
     getInputArguments().computeIfAbsent("fulfillmentOrders", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("fulfillmentOrders").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("fulfillmentOrders").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("fulfillmentOrders").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("fulfillmentOrders").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("fulfillmentOrders").add(reverseArg);
+    return projection;
+  }
+
+  public FulfillmentOrderConnectionProjection<FulfillmentProjectionRoot<PARENT, ROOT>, FulfillmentProjectionRoot<PARENT, ROOT>> fulfillmentOrdersWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    FulfillmentOrderConnectionProjection<FulfillmentProjectionRoot<PARENT, ROOT>, FulfillmentProjectionRoot<PARENT, ROOT>> projection = new FulfillmentOrderConnectionProjection<>(this, this);    
+    getFields().put("fulfillmentOrders", projection);
+    getInputArguments().computeIfAbsent("fulfillmentOrders", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("fulfillmentOrders").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("fulfillmentOrders").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("fulfillmentOrders").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("fulfillmentOrders").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("fulfillmentOrders").add(reverseArg);
     return projection;
   }
@@ -130,6 +189,13 @@ public class FulfillmentProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?
     return projection;
   }
 
+  public ShippingLabelProjection<FulfillmentProjectionRoot<PARENT, ROOT>, FulfillmentProjectionRoot<PARENT, ROOT>> shippingLabel(
+      ) {
+    ShippingLabelProjection<FulfillmentProjectionRoot<PARENT, ROOT>, FulfillmentProjectionRoot<PARENT, ROOT>> projection = new ShippingLabelProjection<>(this, this);    
+    getFields().put("shippingLabel", projection);
+    return projection;
+  }
+
   public FulfillmentStatusProjection<FulfillmentProjectionRoot<PARENT, ROOT>, FulfillmentProjectionRoot<PARENT, ROOT>> status(
       ) {
     FulfillmentStatusProjection<FulfillmentProjectionRoot<PARENT, ROOT>, FulfillmentProjectionRoot<PARENT, ROOT>> projection = new FulfillmentStatusProjection<>(this, this);    
@@ -149,7 +215,17 @@ public class FulfillmentProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?
     FulfillmentTrackingInfoProjection<FulfillmentProjectionRoot<PARENT, ROOT>, FulfillmentProjectionRoot<PARENT, ROOT>> projection = new FulfillmentTrackingInfoProjection<>(this, this);    
     getFields().put("trackingInfo", projection);
     getInputArguments().computeIfAbsent("trackingInfo", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
+    getInputArguments().get("trackingInfo").add(firstArg);
+    return projection;
+  }
+
+  public FulfillmentTrackingInfoProjection<FulfillmentProjectionRoot<PARENT, ROOT>, FulfillmentProjectionRoot<PARENT, ROOT>> trackingInfoWithVariableReferences(
+      String firstReference) {
+    FulfillmentTrackingInfoProjection<FulfillmentProjectionRoot<PARENT, ROOT>, FulfillmentProjectionRoot<PARENT, ROOT>> projection = new FulfillmentTrackingInfoProjection<>(this, this);    
+    getFields().put("trackingInfo", projection);
+    getInputArguments().computeIfAbsent("trackingInfo", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
     getInputArguments().get("trackingInfo").add(firstArg);
     return projection;
   }

@@ -3,11 +3,15 @@ package com.shopify.admin.client;
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.CreateMediaInput;
 import com.shopify.admin.types.ProductVariantsBulkInput;
+import graphql.language.VariableDefinition;
 import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -60,6 +64,29 @@ public class ProductVariantsBulkUpdateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public ProductVariantsBulkUpdateGraphQLQuery(List<ProductVariantsBulkInput> variants,
+      String productId, List<CreateMediaInput> media, Boolean allowPartialUpdates, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (variants != null || fieldsSet.contains("variants")) {
+        getInput().put("variants", variants);
+    }if (productId != null || fieldsSet.contains("productId")) {
+        getInput().put("productId", productId);
+    }if (media != null || fieldsSet.contains("media")) {
+        getInput().put("media", media);
+    }if (allowPartialUpdates != null || fieldsSet.contains("allowPartialUpdates")) {
+        getInput().put("allowPartialUpdates", allowPartialUpdates);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public ProductVariantsBulkUpdateGraphQLQuery() {
     super("mutation");
   }
@@ -76,6 +103,10 @@ public class ProductVariantsBulkUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private List<ProductVariantsBulkInput> variants;
 
     private String productId;
@@ -87,7 +118,7 @@ public class ProductVariantsBulkUpdateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public ProductVariantsBulkUpdateGraphQLQuery build() {
-      return new ProductVariantsBulkUpdateGraphQLQuery(variants, productId, media, allowPartialUpdates, queryName, fieldsSet);
+      return new ProductVariantsBulkUpdateGraphQLQuery(variants, productId, media, allowPartialUpdates, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -96,6 +127,16 @@ public class ProductVariantsBulkUpdateGraphQLQuery extends GraphQLQuery {
      */
     public Builder variants(List<ProductVariantsBulkInput> variants) {
       this.variants = variants;
+      this.fieldsSet.add("variants");
+      return this;
+    }
+
+    /**
+     * An array of product variants to update.
+     */
+    public Builder variantsReference(String variableRef) {
+      this.variableReferences.put("variants", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("ProductVariantsBulkInput"))))).build());
       this.fieldsSet.add("variants");
       return this;
     }
@@ -110,10 +151,30 @@ public class ProductVariantsBulkUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the product associated with the variants to update.
+     */
+    public Builder productIdReference(String variableRef) {
+      this.variableReferences.put("productId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("productId");
+      return this;
+    }
+
+    /**
      * List of new media to be added to the product.
      */
     public Builder media(List<CreateMediaInput> media) {
       this.media = media;
+      this.fieldsSet.add("media");
+      return this;
+    }
+
+    /**
+     * List of new media to be added to the product.
+     */
+    public Builder mediaReference(String variableRef) {
+      this.variableReferences.put("media", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("CreateMediaInput")))).build());
       this.fieldsSet.add("media");
       return this;
     }
@@ -125,6 +186,18 @@ public class ProductVariantsBulkUpdateGraphQLQuery extends GraphQLQuery {
      */
     public Builder allowPartialUpdates(Boolean allowPartialUpdates) {
       this.allowPartialUpdates = allowPartialUpdates;
+      this.fieldsSet.add("allowPartialUpdates");
+      return this;
+    }
+
+    /**
+     * When partial updates are allowed, valid variant changes may be persisted even if some of
+     * the variants updated have invalid data and cannot be persisted.
+     * When partial updates are not allowed, any error will prevent all variants from updating.
+     */
+    public Builder allowPartialUpdatesReference(String variableRef) {
+      this.variableReferences.put("allowPartialUpdates", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Boolean")).build());
       this.fieldsSet.add("allowPartialUpdates");
       return this;
     }

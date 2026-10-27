@@ -3,12 +3,16 @@ package com.shopify.admin.client;
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.AppSubscriptionLineItemInput;
 import com.shopify.admin.types.AppSubscriptionReplacementBehavior;
+import graphql.language.VariableDefinition;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -46,6 +50,34 @@ public class AppSubscriptionCreateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public AppSubscriptionCreateGraphQLQuery(String name,
+      List<AppSubscriptionLineItemInput> lineItems, Boolean test, Integer trialDays,
+      String returnUrl, AppSubscriptionReplacementBehavior replacementBehavior, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (name != null || fieldsSet.contains("name")) {
+        getInput().put("name", name);
+    }if (lineItems != null || fieldsSet.contains("lineItems")) {
+        getInput().put("lineItems", lineItems);
+    }if (test != null || fieldsSet.contains("test")) {
+        getInput().put("test", test);
+    }if (trialDays != null || fieldsSet.contains("trialDays")) {
+        getInput().put("trialDays", trialDays);
+    }if (returnUrl != null || fieldsSet.contains("returnUrl")) {
+        getInput().put("returnUrl", returnUrl);
+    }if (replacementBehavior != null || fieldsSet.contains("replacementBehavior")) {
+        getInput().put("replacementBehavior", replacementBehavior);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public AppSubscriptionCreateGraphQLQuery() {
     super("mutation");
   }
@@ -62,6 +94,10 @@ public class AppSubscriptionCreateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String name;
 
     private List<AppSubscriptionLineItemInput> lineItems;
@@ -77,7 +113,7 @@ public class AppSubscriptionCreateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public AppSubscriptionCreateGraphQLQuery build() {
-      return new AppSubscriptionCreateGraphQLQuery(name, lineItems, test, trialDays, returnUrl, replacementBehavior, queryName, fieldsSet);
+      return new AppSubscriptionCreateGraphQLQuery(name, lineItems, test, trialDays, returnUrl, replacementBehavior, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -86,6 +122,16 @@ public class AppSubscriptionCreateGraphQLQuery extends GraphQLQuery {
      */
     public Builder name(String name) {
       this.name = name;
+      this.fieldsSet.add("name");
+      return this;
+    }
+
+    /**
+     * A descriptive name for the app subscription.
+     */
+    public Builder nameReference(String variableRef) {
+      this.variableReferences.put("name", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("String"))).build());
       this.fieldsSet.add("name");
       return this;
     }
@@ -100,10 +146,30 @@ public class AppSubscriptionCreateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * Attaches one or more pricing plans to an app subscription. Only one pricing plan can be defined for each available type.
+     */
+    public Builder lineItemsReference(String variableRef) {
+      this.variableReferences.put("lineItems", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("AppSubscriptionLineItemInput"))))).build());
+      this.fieldsSet.add("lineItems");
+      return this;
+    }
+
+    /**
      * Whether the app subscription is a test transaction.
      */
     public Builder test(Boolean test) {
       this.test = test;
+      this.fieldsSet.add("test");
+      return this;
+    }
+
+    /**
+     * Whether the app subscription is a test transaction.
+     */
+    public Builder testReference(String variableRef) {
+      this.variableReferences.put("test", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Boolean")).build());
       this.fieldsSet.add("test");
       return this;
     }
@@ -118,6 +184,16 @@ public class AppSubscriptionCreateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The number of days of the free trial period, beginning on the day that the merchant approves the app charges.
+     */
+    public Builder trialDaysReference(String variableRef) {
+      this.variableReferences.put("trialDays", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Int")).build());
+      this.fieldsSet.add("trialDays");
+      return this;
+    }
+
+    /**
      * The URL pointing to the page where the merchant is redirected after approving the app subscription.
      */
     public Builder returnUrl(String returnUrl) {
@@ -127,10 +203,30 @@ public class AppSubscriptionCreateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The URL pointing to the page where the merchant is redirected after approving the app subscription.
+     */
+    public Builder returnUrlReference(String variableRef) {
+      this.variableReferences.put("returnUrl", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("URL"))).build());
+      this.fieldsSet.add("returnUrl");
+      return this;
+    }
+
+    /**
      * The replacement behavior when creating an app subscription for a merchant with an already existing app subscription.
      */
     public Builder replacementBehavior(AppSubscriptionReplacementBehavior replacementBehavior) {
       this.replacementBehavior = replacementBehavior;
+      this.fieldsSet.add("replacementBehavior");
+      return this;
+    }
+
+    /**
+     * The replacement behavior when creating an app subscription for a merchant with an already existing app subscription.
+     */
+    public Builder replacementBehaviorReference(String variableRef) {
+      this.variableReferences.put("replacementBehavior", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("AppSubscriptionReplacementBehavior")).build());
       this.fieldsSet.add("replacementBehavior");
       return this;
     }

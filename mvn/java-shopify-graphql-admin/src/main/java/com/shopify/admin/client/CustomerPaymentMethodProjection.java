@@ -41,15 +41,34 @@ public class CustomerPaymentMethodProjection<PARENT extends BaseSubProjectionNod
     PaymentMandateResourceConnectionProjection<CustomerPaymentMethodProjection<PARENT, ROOT>, ROOT> projection = new PaymentMandateResourceConnectionProjection<>(this, getRoot());    
     getFields().put("mandates", projection);
     getInputArguments().computeIfAbsent("mandates", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("mandates").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("mandates").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("mandates").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("mandates").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("mandates").add(reverseArg);
+    return projection;
+  }
+
+  public PaymentMandateResourceConnectionProjection<CustomerPaymentMethodProjection<PARENT, ROOT>, ROOT> mandatesWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    PaymentMandateResourceConnectionProjection<CustomerPaymentMethodProjection<PARENT, ROOT>, ROOT> projection = new PaymentMandateResourceConnectionProjection<>(this, getRoot());    
+    getFields().put("mandates", projection);
+    getInputArguments().computeIfAbsent("mandates", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("mandates").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("mandates").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("mandates").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("mandates").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("mandates").add(reverseArg);
     return projection;
   }
@@ -73,15 +92,34 @@ public class CustomerPaymentMethodProjection<PARENT extends BaseSubProjectionNod
     SubscriptionContractConnectionProjection<CustomerPaymentMethodProjection<PARENT, ROOT>, ROOT> projection = new SubscriptionContractConnectionProjection<>(this, getRoot());    
     getFields().put("subscriptionContracts", projection);
     getInputArguments().computeIfAbsent("subscriptionContracts", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("subscriptionContracts").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("subscriptionContracts").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("subscriptionContracts").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("subscriptionContracts").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("subscriptionContracts").add(reverseArg);
+    return projection;
+  }
+
+  public SubscriptionContractConnectionProjection<CustomerPaymentMethodProjection<PARENT, ROOT>, ROOT> subscriptionContractsWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    SubscriptionContractConnectionProjection<CustomerPaymentMethodProjection<PARENT, ROOT>, ROOT> projection = new SubscriptionContractConnectionProjection<>(this, getRoot());    
+    getFields().put("subscriptionContracts", projection);
+    getInputArguments().computeIfAbsent("subscriptionContracts", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("subscriptionContracts").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("subscriptionContracts").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("subscriptionContracts").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("subscriptionContracts").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("subscriptionContracts").add(reverseArg);
     return projection;
   }

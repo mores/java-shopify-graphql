@@ -30,6 +30,12 @@ public class MetaobjectCreateInput {
    */
   private MetaobjectCapabilityDataInput capabilities;
 
+  /**
+   * The field values for the metaobject as a JSON object, keyed by field
+   * definition key. Cannot be used in conjunction with `fields`.
+   */
+  private String values;
+
   public MetaobjectCreateInput() {
   }
 
@@ -77,9 +83,21 @@ public class MetaobjectCreateInput {
     this.capabilities = capabilities;
   }
 
+  /**
+   * The field values for the metaobject as a JSON object, keyed by field
+   * definition key. Cannot be used in conjunction with `fields`.
+   */
+  public String getValues() {
+    return values;
+  }
+
+  public void setValues(String values) {
+    this.values = values;
+  }
+
   @Override
   public String toString() {
-    return "MetaobjectCreateInput{type='" + type + "', handle='" + handle + "', fields='" + fields + "', capabilities='" + capabilities + "'}";
+    return "MetaobjectCreateInput{type='" + type + "', handle='" + handle + "', fields='" + fields + "', capabilities='" + capabilities + "', values='" + values + "'}";
   }
 
   @Override
@@ -90,12 +108,13 @@ public class MetaobjectCreateInput {
     return Objects.equals(type, that.type) &&
         Objects.equals(handle, that.handle) &&
         Objects.equals(fields, that.fields) &&
-        Objects.equals(capabilities, that.capabilities);
+        Objects.equals(capabilities, that.capabilities) &&
+        Objects.equals(values, that.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, handle, fields, capabilities);
+    return Objects.hash(type, handle, fields, capabilities, values);
   }
 
   public static Builder newBuilder() {
@@ -123,12 +142,19 @@ public class MetaobjectCreateInput {
      */
     private MetaobjectCapabilityDataInput capabilities;
 
+    /**
+     * The field values for the metaobject as a JSON object, keyed by field
+     * definition key. Cannot be used in conjunction with `fields`.
+     */
+    private String values;
+
     public MetaobjectCreateInput build() {
       MetaobjectCreateInput result = new MetaobjectCreateInput();
       result.type = this.type;
       result.handle = this.handle;
       result.fields = this.fields;
       result.capabilities = this.capabilities;
+      result.values = this.values;
       return result;
     }
 
@@ -161,6 +187,15 @@ public class MetaobjectCreateInput {
      */
     public Builder capabilities(MetaobjectCapabilityDataInput capabilities) {
       this.capabilities = capabilities;
+      return this;
+    }
+
+    /**
+     * The field values for the metaobject as a JSON object, keyed by field
+     * definition key. Cannot be used in conjunction with `fields`.
+     */
+    public Builder values(String values) {
+      this.values = values;
       return this;
     }
   }

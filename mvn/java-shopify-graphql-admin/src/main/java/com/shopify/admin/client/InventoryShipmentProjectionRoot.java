@@ -30,19 +30,42 @@ public class InventoryShipmentProjectionRoot<PARENT extends BaseSubProjectionNod
     InventoryShipmentLineItemConnectionProjection<InventoryShipmentProjectionRoot<PARENT, ROOT>, InventoryShipmentProjectionRoot<PARENT, ROOT>> projection = new InventoryShipmentLineItemConnectionProjection<>(this, this);    
     getFields().put("lineItems", projection);
     getInputArguments().computeIfAbsent("lineItems", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("lineItems").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("lineItems").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("lineItems").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("lineItems").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
     getInputArguments().get("lineItems").add(reverseArg);
-    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey, false, null);
     getInputArguments().get("lineItems").add(sortKeyArg);
-    InputArgument queryArg = new InputArgument("query", query);
+    InputArgument queryArg = new InputArgument("query", query, false, null);
+    getInputArguments().get("lineItems").add(queryArg);
+    return projection;
+  }
+
+  public InventoryShipmentLineItemConnectionProjection<InventoryShipmentProjectionRoot<PARENT, ROOT>, InventoryShipmentProjectionRoot<PARENT, ROOT>> lineItemsWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference, String sortKeyReference, String queryReference) {
+    InventoryShipmentLineItemConnectionProjection<InventoryShipmentProjectionRoot<PARENT, ROOT>, InventoryShipmentProjectionRoot<PARENT, ROOT>> projection = new InventoryShipmentLineItemConnectionProjection<>(this, this);    
+    getFields().put("lineItems", projection);
+    getInputArguments().computeIfAbsent("lineItems", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("lineItems").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("lineItems").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("lineItems").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("lineItems").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("lineItems").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKeyReference, true, new graphql.language.TypeName("ShipmentLineItemSortKeys"));
+    getInputArguments().get("lineItems").add(sortKeyArg);
+    InputArgument queryArg = new InputArgument("query", queryReference, true, new graphql.language.TypeName("String"));
     getInputArguments().get("lineItems").add(queryArg);
     return projection;
   }
@@ -59,9 +82,21 @@ public class InventoryShipmentProjectionRoot<PARENT extends BaseSubProjectionNod
     CountProjection<InventoryShipmentProjectionRoot<PARENT, ROOT>, InventoryShipmentProjectionRoot<PARENT, ROOT>> projection = new CountProjection<>(this, this);    
     getFields().put("lineItemsCount", projection);
     getInputArguments().computeIfAbsent("lineItemsCount", k -> new ArrayList<>());                      
-    InputArgument queryArg = new InputArgument("query", query);
+    InputArgument queryArg = new InputArgument("query", query, false, null);
     getInputArguments().get("lineItemsCount").add(queryArg);
-    InputArgument limitArg = new InputArgument("limit", limit);
+    InputArgument limitArg = new InputArgument("limit", limit, false, null);
+    getInputArguments().get("lineItemsCount").add(limitArg);
+    return projection;
+  }
+
+  public CountProjection<InventoryShipmentProjectionRoot<PARENT, ROOT>, InventoryShipmentProjectionRoot<PARENT, ROOT>> lineItemsCountWithVariableReferences(
+      String queryReference, String limitReference) {
+    CountProjection<InventoryShipmentProjectionRoot<PARENT, ROOT>, InventoryShipmentProjectionRoot<PARENT, ROOT>> projection = new CountProjection<>(this, this);    
+    getFields().put("lineItemsCount", projection);
+    getInputArguments().computeIfAbsent("lineItemsCount", k -> new ArrayList<>());              
+    InputArgument queryArg = new InputArgument("query", queryReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("lineItemsCount").add(queryArg);
+    InputArgument limitArg = new InputArgument("limit", limitReference, true, new graphql.language.TypeName("Int"));
     getInputArguments().get("lineItemsCount").add(limitArg);
     return projection;
   }
@@ -117,6 +152,11 @@ public class InventoryShipmentProjectionRoot<PARENT extends BaseSubProjectionNod
 
   public InventoryShipmentProjectionRoot<PARENT, ROOT> totalAcceptedQuantity() {
     getFields().put("totalAcceptedQuantity", null);
+    return this;
+  }
+
+  public InventoryShipmentProjectionRoot<PARENT, ROOT> totalCanceledQuantity() {
+    getFields().put("totalCanceledQuantity", null);
     return this;
   }
 

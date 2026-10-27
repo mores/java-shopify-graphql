@@ -2,28 +2,50 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.MarketingEngagementInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
- * Creates a new marketing engagement for a marketing activity or a marketing channel.
+ * Creates a new marketing engagement for a marketing activity.
  */
 public class MarketingEngagementCreateGraphQLQuery extends GraphQLQuery {
   public MarketingEngagementCreateGraphQLQuery(String marketingActivityId, String remoteId,
-      String channelHandle, MarketingEngagementInput marketingEngagement, String queryName,
-      Set<String> fieldsSet) {
+      MarketingEngagementInput marketingEngagement, String queryName, Set<String> fieldsSet) {
     super("mutation", queryName);
     if (marketingActivityId != null || fieldsSet.contains("marketingActivityId")) {
         getInput().put("marketingActivityId", marketingActivityId);
     }if (remoteId != null || fieldsSet.contains("remoteId")) {
         getInput().put("remoteId", remoteId);
-    }if (channelHandle != null || fieldsSet.contains("channelHandle")) {
-        getInput().put("channelHandle", channelHandle);
     }if (marketingEngagement != null || fieldsSet.contains("marketingEngagement")) {
         getInput().put("marketingEngagement", marketingEngagement);
     }
+  }
+
+  public MarketingEngagementCreateGraphQLQuery(String marketingActivityId, String remoteId,
+      MarketingEngagementInput marketingEngagement, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (marketingActivityId != null || fieldsSet.contains("marketingActivityId")) {
+        getInput().put("marketingActivityId", marketingActivityId);
+    }if (remoteId != null || fieldsSet.contains("remoteId")) {
+        getInput().put("remoteId", remoteId);
+    }if (marketingEngagement != null || fieldsSet.contains("marketingEngagement")) {
+        getInput().put("marketingEngagement", marketingEngagement);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public MarketingEngagementCreateGraphQLQuery() {
@@ -42,26 +64,27 @@ public class MarketingEngagementCreateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String marketingActivityId;
 
     private String remoteId;
-
-    private String channelHandle;
 
     private MarketingEngagementInput marketingEngagement;
 
     private String queryName;
 
     public MarketingEngagementCreateGraphQLQuery build() {
-      return new MarketingEngagementCreateGraphQLQuery(marketingActivityId, remoteId, channelHandle, marketingEngagement, queryName, fieldsSet);
+      return new MarketingEngagementCreateGraphQLQuery(marketingActivityId, remoteId, marketingEngagement, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
     /**
      * The identifier of the marketing activity for which the engagement metrics
-     * are being provided. This or the remoteId should be set when and only when
-     * providing activity-level engagements. This should be nil when providing
-     * channel-level engagements.
+     * are being provided. Exactly one of marketingActivityId, remoteId, or the
+     * deprecated channelHandle must be set.
      */
     public Builder marketingActivityId(String marketingActivityId) {
       this.marketingActivityId = marketingActivityId;
@@ -70,11 +93,22 @@ public class MarketingEngagementCreateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The identifier of the marketing activity for which the engagement metrics
+     * are being provided. Exactly one of marketingActivityId, remoteId, or the
+     * deprecated channelHandle must be set.
+     */
+    public Builder marketingActivityIdReference(String variableRef) {
+      this.variableReferences.put("marketingActivityId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("ID")).build());
+      this.fieldsSet.add("marketingActivityId");
+      return this;
+    }
+
+    /**
      * A custom unique identifier for the marketing activity, which can be used to
      * manage the activity and send engagement metrics without having to store our
-     * marketing activity ID in your systems. This or the marketingActivityId
-     * should be set when and only when providing activity-level engagements. This
-     * should be nil when providing channel-level engagements.
+     * marketing activity ID in your systems. Exactly one of marketingActivityId,
+     * remoteId, or the deprecated channelHandle must be set.
      */
     public Builder remoteId(String remoteId) {
       this.remoteId = remoteId;
@@ -83,14 +117,15 @@ public class MarketingEngagementCreateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
-     * The unique string identifier of the channel to which the engagement metrics
-     * are being provided. This should be set when and only when providing
-     * channel-level engagements. This should be nil when providing activity-level
-     * engagements. For the correct handle for your channel, contact your partner manager.
+     * A custom unique identifier for the marketing activity, which can be used to
+     * manage the activity and send engagement metrics without having to store our
+     * marketing activity ID in your systems. Exactly one of marketingActivityId,
+     * remoteId, or the deprecated channelHandle must be set.
      */
-    public Builder channelHandle(String channelHandle) {
-      this.channelHandle = channelHandle;
-      this.fieldsSet.add("channelHandle");
+    public Builder remoteIdReference(String variableRef) {
+      this.variableReferences.put("remoteId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
+      this.fieldsSet.add("remoteId");
       return this;
     }
 
@@ -99,6 +134,16 @@ public class MarketingEngagementCreateGraphQLQuery extends GraphQLQuery {
      */
     public Builder marketingEngagement(MarketingEngagementInput marketingEngagement) {
       this.marketingEngagement = marketingEngagement;
+      this.fieldsSet.add("marketingEngagement");
+      return this;
+    }
+
+    /**
+     * The marketing engagement's attributes.
+     */
+    public Builder marketingEngagementReference(String variableRef) {
+      this.variableReferences.put("marketingEngagement", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("MarketingEngagementInput"))).build());
       this.fieldsSet.add("marketingEngagement");
       return this;
     }

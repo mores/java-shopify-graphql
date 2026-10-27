@@ -27,6 +27,11 @@ public class ShopFeatures {
   private BundlesFeature bundles;
 
   /**
+   * Whether the buyer experience deposit configuration is enabled.
+   */
+  private boolean buyerExperienceDepositEnabled;
+
+  /**
    * Whether a shop's online store can have CAPTCHA protection.
    */
   private boolean captcha;
@@ -45,6 +50,11 @@ public class ShopFeatures {
    * Whether the delivery profiles functionality is enabled for this shop.
    */
   private boolean deliveryProfiles;
+
+  /**
+   * Whether the direct connection catalog assignment is enabled.
+   */
+  private boolean directConnectionCatalogAssignmentEnabled;
 
   /**
    * Whether a shop has access to the Google Analytics dynamic remarketing feature.
@@ -99,6 +109,11 @@ public class ShopFeatures {
   private boolean liveView;
 
   /**
+   * Whether market-driven shipping is enabled for the shop.
+   */
+  private boolean marketDrivenShipping;
+
+  /**
    * Whether a shop has access to the onboarding visual.
    */
   private boolean onboardingVisual;
@@ -132,6 +147,11 @@ public class ShopFeatures {
    * Whether a shop has an online store.
    */
   private boolean storefront;
+
+  /**
+   * Whether a shop is eligible for Sub Country Markets.
+   */
+  private boolean subCountryMarketsEnabled;
 
   /**
    * Whether a shop is eligible for Unified Markets.
@@ -180,6 +200,17 @@ public class ShopFeatures {
   }
 
   /**
+   * Whether the buyer experience deposit configuration is enabled.
+   */
+  public boolean getBuyerExperienceDepositEnabled() {
+    return buyerExperienceDepositEnabled;
+  }
+
+  public void setBuyerExperienceDepositEnabled(boolean buyerExperienceDepositEnabled) {
+    this.buyerExperienceDepositEnabled = buyerExperienceDepositEnabled;
+  }
+
+  /**
    * Whether a shop's online store can have CAPTCHA protection.
    */
   public boolean getCaptcha() {
@@ -221,6 +252,18 @@ public class ShopFeatures {
 
   public void setDeliveryProfiles(boolean deliveryProfiles) {
     this.deliveryProfiles = deliveryProfiles;
+  }
+
+  /**
+   * Whether the direct connection catalog assignment is enabled.
+   */
+  public boolean getDirectConnectionCatalogAssignmentEnabled() {
+    return directConnectionCatalogAssignmentEnabled;
+  }
+
+  public void setDirectConnectionCatalogAssignmentEnabled(
+      boolean directConnectionCatalogAssignmentEnabled) {
+    this.directConnectionCatalogAssignmentEnabled = directConnectionCatalogAssignmentEnabled;
   }
 
   /**
@@ -336,6 +379,17 @@ public class ShopFeatures {
   }
 
   /**
+   * Whether market-driven shipping is enabled for the shop.
+   */
+  public boolean getMarketDrivenShipping() {
+    return marketDrivenShipping;
+  }
+
+  public void setMarketDrivenShipping(boolean marketDrivenShipping) {
+    this.marketDrivenShipping = marketDrivenShipping;
+  }
+
+  /**
    * Whether a shop has access to the onboarding visual.
    */
   public boolean getOnboardingVisual() {
@@ -414,6 +468,17 @@ public class ShopFeatures {
   }
 
   /**
+   * Whether a shop is eligible for Sub Country Markets.
+   */
+  public boolean getSubCountryMarketsEnabled() {
+    return subCountryMarketsEnabled;
+  }
+
+  public void setSubCountryMarketsEnabled(boolean subCountryMarketsEnabled) {
+    this.subCountryMarketsEnabled = subCountryMarketsEnabled;
+  }
+
+  /**
    * Whether a shop is eligible for Unified Markets.
    */
   public boolean getUnifiedMarkets() {
@@ -437,7 +502,7 @@ public class ShopFeatures {
 
   @Override
   public String toString() {
-    return "ShopFeatures{avalaraAvatax='" + avalaraAvatax + "', branding='" + branding + "', bundles='" + bundles + "', captcha='" + captcha + "', captchaExternalDomains='" + captchaExternalDomains + "', cartTransform='" + cartTransform + "', deliveryProfiles='" + deliveryProfiles + "', dynamicRemarketing='" + dynamicRemarketing + "', eligibleForSubscriptionMigration='" + eligibleForSubscriptionMigration + "', eligibleForSubscriptions='" + eligibleForSubscriptions + "', giftCards='" + giftCards + "', harmonizedSystemCode='" + harmonizedSystemCode + "', internationalDomains='" + internationalDomains + "', internationalPriceOverrides='" + internationalPriceOverrides + "', internationalPriceRules='" + internationalPriceRules + "', legacySubscriptionGatewayEnabled='" + legacySubscriptionGatewayEnabled + "', liveView='" + liveView + "', onboardingVisual='" + onboardingVisual + "', paypalExpressSubscriptionGatewayStatus='" + paypalExpressSubscriptionGatewayStatus + "', reports='" + reports + "', sellsSubscriptions='" + sellsSubscriptions + "', shopifyPlus='" + shopifyPlus + "', showMetrics='" + showMetrics + "', storefront='" + storefront + "', unifiedMarkets='" + unifiedMarkets + "', usingShopifyBalance='" + usingShopifyBalance + "'}";
+    return "ShopFeatures{avalaraAvatax='" + avalaraAvatax + "', branding='" + branding + "', bundles='" + bundles + "', buyerExperienceDepositEnabled='" + buyerExperienceDepositEnabled + "', captcha='" + captcha + "', captchaExternalDomains='" + captchaExternalDomains + "', cartTransform='" + cartTransform + "', deliveryProfiles='" + deliveryProfiles + "', directConnectionCatalogAssignmentEnabled='" + directConnectionCatalogAssignmentEnabled + "', dynamicRemarketing='" + dynamicRemarketing + "', eligibleForSubscriptionMigration='" + eligibleForSubscriptionMigration + "', eligibleForSubscriptions='" + eligibleForSubscriptions + "', giftCards='" + giftCards + "', harmonizedSystemCode='" + harmonizedSystemCode + "', internationalDomains='" + internationalDomains + "', internationalPriceOverrides='" + internationalPriceOverrides + "', internationalPriceRules='" + internationalPriceRules + "', legacySubscriptionGatewayEnabled='" + legacySubscriptionGatewayEnabled + "', liveView='" + liveView + "', marketDrivenShipping='" + marketDrivenShipping + "', onboardingVisual='" + onboardingVisual + "', paypalExpressSubscriptionGatewayStatus='" + paypalExpressSubscriptionGatewayStatus + "', reports='" + reports + "', sellsSubscriptions='" + sellsSubscriptions + "', shopifyPlus='" + shopifyPlus + "', showMetrics='" + showMetrics + "', storefront='" + storefront + "', subCountryMarketsEnabled='" + subCountryMarketsEnabled + "', unifiedMarkets='" + unifiedMarkets + "', usingShopifyBalance='" + usingShopifyBalance + "'}";
   }
 
   @Override
@@ -448,10 +513,12 @@ public class ShopFeatures {
     return avalaraAvatax == that.avalaraAvatax &&
         Objects.equals(branding, that.branding) &&
         Objects.equals(bundles, that.bundles) &&
+        buyerExperienceDepositEnabled == that.buyerExperienceDepositEnabled &&
         captcha == that.captcha &&
         captchaExternalDomains == that.captchaExternalDomains &&
         Objects.equals(cartTransform, that.cartTransform) &&
         deliveryProfiles == that.deliveryProfiles &&
+        directConnectionCatalogAssignmentEnabled == that.directConnectionCatalogAssignmentEnabled &&
         dynamicRemarketing == that.dynamicRemarketing &&
         eligibleForSubscriptionMigration == that.eligibleForSubscriptionMigration &&
         eligibleForSubscriptions == that.eligibleForSubscriptions &&
@@ -462,6 +529,7 @@ public class ShopFeatures {
         internationalPriceRules == that.internationalPriceRules &&
         legacySubscriptionGatewayEnabled == that.legacySubscriptionGatewayEnabled &&
         liveView == that.liveView &&
+        marketDrivenShipping == that.marketDrivenShipping &&
         onboardingVisual == that.onboardingVisual &&
         Objects.equals(paypalExpressSubscriptionGatewayStatus, that.paypalExpressSubscriptionGatewayStatus) &&
         reports == that.reports &&
@@ -469,13 +537,14 @@ public class ShopFeatures {
         shopifyPlus == that.shopifyPlus &&
         showMetrics == that.showMetrics &&
         storefront == that.storefront &&
+        subCountryMarketsEnabled == that.subCountryMarketsEnabled &&
         unifiedMarkets == that.unifiedMarkets &&
         usingShopifyBalance == that.usingShopifyBalance;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(avalaraAvatax, branding, bundles, captcha, captchaExternalDomains, cartTransform, deliveryProfiles, dynamicRemarketing, eligibleForSubscriptionMigration, eligibleForSubscriptions, giftCards, harmonizedSystemCode, internationalDomains, internationalPriceOverrides, internationalPriceRules, legacySubscriptionGatewayEnabled, liveView, onboardingVisual, paypalExpressSubscriptionGatewayStatus, reports, sellsSubscriptions, shopifyPlus, showMetrics, storefront, unifiedMarkets, usingShopifyBalance);
+    return Objects.hash(avalaraAvatax, branding, bundles, buyerExperienceDepositEnabled, captcha, captchaExternalDomains, cartTransform, deliveryProfiles, directConnectionCatalogAssignmentEnabled, dynamicRemarketing, eligibleForSubscriptionMigration, eligibleForSubscriptions, giftCards, harmonizedSystemCode, internationalDomains, internationalPriceOverrides, internationalPriceRules, legacySubscriptionGatewayEnabled, liveView, marketDrivenShipping, onboardingVisual, paypalExpressSubscriptionGatewayStatus, reports, sellsSubscriptions, shopifyPlus, showMetrics, storefront, subCountryMarketsEnabled, unifiedMarkets, usingShopifyBalance);
   }
 
   public static Builder newBuilder() {
@@ -499,6 +568,11 @@ public class ShopFeatures {
     private BundlesFeature bundles;
 
     /**
+     * Whether the buyer experience deposit configuration is enabled.
+     */
+    private boolean buyerExperienceDepositEnabled;
+
+    /**
      * Whether a shop's online store can have CAPTCHA protection.
      */
     private boolean captcha;
@@ -517,6 +591,11 @@ public class ShopFeatures {
      * Whether the delivery profiles functionality is enabled for this shop.
      */
     private boolean deliveryProfiles;
+
+    /**
+     * Whether the direct connection catalog assignment is enabled.
+     */
+    private boolean directConnectionCatalogAssignmentEnabled;
 
     /**
      * Whether a shop has access to the Google Analytics dynamic remarketing feature.
@@ -571,6 +650,11 @@ public class ShopFeatures {
     private boolean liveView;
 
     /**
+     * Whether market-driven shipping is enabled for the shop.
+     */
+    private boolean marketDrivenShipping;
+
+    /**
      * Whether a shop has access to the onboarding visual.
      */
     private boolean onboardingVisual;
@@ -606,6 +690,11 @@ public class ShopFeatures {
     private boolean storefront;
 
     /**
+     * Whether a shop is eligible for Sub Country Markets.
+     */
+    private boolean subCountryMarketsEnabled;
+
+    /**
      * Whether a shop is eligible for Unified Markets.
      */
     private boolean unifiedMarkets;
@@ -620,10 +709,12 @@ public class ShopFeatures {
       result.avalaraAvatax = this.avalaraAvatax;
       result.branding = this.branding;
       result.bundles = this.bundles;
+      result.buyerExperienceDepositEnabled = this.buyerExperienceDepositEnabled;
       result.captcha = this.captcha;
       result.captchaExternalDomains = this.captchaExternalDomains;
       result.cartTransform = this.cartTransform;
       result.deliveryProfiles = this.deliveryProfiles;
+      result.directConnectionCatalogAssignmentEnabled = this.directConnectionCatalogAssignmentEnabled;
       result.dynamicRemarketing = this.dynamicRemarketing;
       result.eligibleForSubscriptionMigration = this.eligibleForSubscriptionMigration;
       result.eligibleForSubscriptions = this.eligibleForSubscriptions;
@@ -634,6 +725,7 @@ public class ShopFeatures {
       result.internationalPriceRules = this.internationalPriceRules;
       result.legacySubscriptionGatewayEnabled = this.legacySubscriptionGatewayEnabled;
       result.liveView = this.liveView;
+      result.marketDrivenShipping = this.marketDrivenShipping;
       result.onboardingVisual = this.onboardingVisual;
       result.paypalExpressSubscriptionGatewayStatus = this.paypalExpressSubscriptionGatewayStatus;
       result.reports = this.reports;
@@ -641,6 +733,7 @@ public class ShopFeatures {
       result.shopifyPlus = this.shopifyPlus;
       result.showMetrics = this.showMetrics;
       result.storefront = this.storefront;
+      result.subCountryMarketsEnabled = this.subCountryMarketsEnabled;
       result.unifiedMarkets = this.unifiedMarkets;
       result.usingShopifyBalance = this.usingShopifyBalance;
       return result;
@@ -667,6 +760,14 @@ public class ShopFeatures {
      */
     public Builder bundles(BundlesFeature bundles) {
       this.bundles = bundles;
+      return this;
+    }
+
+    /**
+     * Whether the buyer experience deposit configuration is enabled.
+     */
+    public Builder buyerExperienceDepositEnabled(boolean buyerExperienceDepositEnabled) {
+      this.buyerExperienceDepositEnabled = buyerExperienceDepositEnabled;
       return this;
     }
 
@@ -699,6 +800,15 @@ public class ShopFeatures {
      */
     public Builder deliveryProfiles(boolean deliveryProfiles) {
       this.deliveryProfiles = deliveryProfiles;
+      return this;
+    }
+
+    /**
+     * Whether the direct connection catalog assignment is enabled.
+     */
+    public Builder directConnectionCatalogAssignmentEnabled(
+        boolean directConnectionCatalogAssignmentEnabled) {
+      this.directConnectionCatalogAssignmentEnabled = directConnectionCatalogAssignmentEnabled;
       return this;
     }
 
@@ -785,6 +895,14 @@ public class ShopFeatures {
     }
 
     /**
+     * Whether market-driven shipping is enabled for the shop.
+     */
+    public Builder marketDrivenShipping(boolean marketDrivenShipping) {
+      this.marketDrivenShipping = marketDrivenShipping;
+      return this;
+    }
+
+    /**
      * Whether a shop has access to the onboarding visual.
      */
     public Builder onboardingVisual(boolean onboardingVisual) {
@@ -838,6 +956,14 @@ public class ShopFeatures {
      */
     public Builder storefront(boolean storefront) {
       this.storefront = storefront;
+      return this;
+    }
+
+    /**
+     * Whether a shop is eligible for Sub Country Markets.
+     */
+    public Builder subCountryMarketsEnabled(boolean subCountryMarketsEnabled) {
+      this.subCountryMarketsEnabled = subCountryMarketsEnabled;
       return this;
     }
 

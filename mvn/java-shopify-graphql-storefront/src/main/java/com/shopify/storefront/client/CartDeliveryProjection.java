@@ -2,6 +2,7 @@ package com.shopify.storefront.client;
 
 import com.netflix.graphql.dgs.client.codegen.BaseSubProjectionNode;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.ArrayList;
 
 public class CartDeliveryProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT extends BaseSubProjectionNode<?, ?>> extends BaseSubProjectionNode<PARENT, ROOT> {
@@ -25,7 +26,17 @@ public class CartDeliveryProjection<PARENT extends BaseSubProjectionNode<?, ?>, 
     CartSelectableAddressProjection<CartDeliveryProjection<PARENT, ROOT>, ROOT> projection = new CartSelectableAddressProjection<>(this, getRoot());    
     getFields().put("addresses", projection);
     getInputArguments().computeIfAbsent("addresses", k -> new ArrayList<>());                      
-    InputArgument selectedArg = new InputArgument("selected", selected);
+    InputArgument selectedArg = new InputArgument("selected", selected, false, null);
+    getInputArguments().get("addresses").add(selectedArg);
+    return projection;
+  }
+
+  public CartSelectableAddressProjection<CartDeliveryProjection<PARENT, ROOT>, ROOT> addressesWithVariableReferences(
+      String selectedReference) {
+    CartSelectableAddressProjection<CartDeliveryProjection<PARENT, ROOT>, ROOT> projection = new CartSelectableAddressProjection<>(this, getRoot());    
+    getFields().put("addresses", projection);
+    getInputArguments().computeIfAbsent("addresses", k -> new ArrayList<>());              
+    InputArgument selectedArg = new InputArgument("selected", selectedReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("addresses").add(selectedArg);
     return projection;
   }

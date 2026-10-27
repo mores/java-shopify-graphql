@@ -31,7 +31,10 @@ public class CartSelectableAddressUpdateInput {
   private Boolean oneTimeUse;
 
   /**
-   * Defines what kind of address validation is requested.
+   * Defines what kind of address validation is requested. Doesn't apply to
+   * addresses copied with `copyFromCustomerAddressId`, which are copied as-is.
+   * Validation can be requested on later delivery address updates and always
+   * occurs in checkout.
    */
   private DeliveryAddressValidationStrategy validationStrategy = DeliveryAddressValidationStrategy.COUNTRY_CODE_ONLY;
 
@@ -83,7 +86,10 @@ public class CartSelectableAddressUpdateInput {
   }
 
   /**
-   * Defines what kind of address validation is requested.
+   * Defines what kind of address validation is requested. Doesn't apply to
+   * addresses copied with `copyFromCustomerAddressId`, which are copied as-is.
+   * Validation can be requested on later delivery address updates and always
+   * occurs in checkout.
    */
   public DeliveryAddressValidationStrategy getValidationStrategy() {
     return validationStrategy;
@@ -141,7 +147,10 @@ public class CartSelectableAddressUpdateInput {
     private Boolean oneTimeUse;
 
     /**
-     * Defines what kind of address validation is requested.
+     * Defines what kind of address validation is requested. Doesn't apply to
+     * addresses copied with `copyFromCustomerAddressId`, which are copied as-is.
+     * Validation can be requested on later delivery address updates and always
+     * occurs in checkout.
      */
     private DeliveryAddressValidationStrategy validationStrategy = DeliveryAddressValidationStrategy.COUNTRY_CODE_ONLY;
 
@@ -188,7 +197,10 @@ public class CartSelectableAddressUpdateInput {
     }
 
     /**
-     * Defines what kind of address validation is requested.
+     * Defines what kind of address validation is requested. Doesn't apply to
+     * addresses copied with `copyFromCustomerAddressId`, which are copied as-is.
+     * Validation can be requested on later delivery address updates and always
+     * occurs in checkout.
      */
     public Builder validationStrategy(DeliveryAddressValidationStrategy validationStrategy) {
       this.validationStrategy = validationStrategy;

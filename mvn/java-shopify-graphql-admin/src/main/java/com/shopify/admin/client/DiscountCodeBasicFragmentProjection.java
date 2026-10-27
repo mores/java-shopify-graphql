@@ -35,21 +35,47 @@ public class DiscountCodeBasicFragmentProjection<PARENT extends BaseSubProjectio
     DiscountRedeemCodeConnectionProjection<DiscountCodeBasicFragmentProjection<PARENT, ROOT>, ROOT> projection = new DiscountRedeemCodeConnectionProjection<>(this, getRoot());    
     getFields().put("codes", projection);
     getInputArguments().computeIfAbsent("codes", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("codes").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("codes").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("codes").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("codes").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
     getInputArguments().get("codes").add(reverseArg);
-    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey, false, null);
     getInputArguments().get("codes").add(sortKeyArg);
-    InputArgument queryArg = new InputArgument("query", query);
+    InputArgument queryArg = new InputArgument("query", query, false, null);
     getInputArguments().get("codes").add(queryArg);
-    InputArgument savedSearchIdArg = new InputArgument("savedSearchId", savedSearchId);
+    InputArgument savedSearchIdArg = new InputArgument("savedSearchId", savedSearchId, false, null);
+    getInputArguments().get("codes").add(savedSearchIdArg);
+    return projection;
+  }
+
+  public DiscountRedeemCodeConnectionProjection<DiscountCodeBasicFragmentProjection<PARENT, ROOT>, ROOT> codesWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference, String sortKeyReference, String queryReference,
+      String savedSearchIdReference) {
+    DiscountRedeemCodeConnectionProjection<DiscountCodeBasicFragmentProjection<PARENT, ROOT>, ROOT> projection = new DiscountRedeemCodeConnectionProjection<>(this, getRoot());    
+    getFields().put("codes", projection);
+    getInputArguments().computeIfAbsent("codes", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("codes").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("codes").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("codes").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("codes").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("codes").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKeyReference, true, new graphql.language.TypeName("DiscountCodeSortKeys"));
+    getInputArguments().get("codes").add(sortKeyArg);
+    InputArgument queryArg = new InputArgument("query", queryReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("codes").add(queryArg);
+    InputArgument savedSearchIdArg = new InputArgument("savedSearchId", savedSearchIdReference, true, new graphql.language.TypeName("ID"));
     getInputArguments().get("codes").add(savedSearchIdArg);
     return projection;
   }
@@ -107,6 +133,54 @@ public class DiscountCodeBasicFragmentProjection<PARENT extends BaseSubProjectio
      DiscountMinimumRequirementProjection<DiscountCodeBasicFragmentProjection<PARENT, ROOT>, ROOT> projection = new DiscountMinimumRequirementProjection<>(this, getRoot());
      getFields().put("minimumRequirement", projection);
      return projection;
+  }
+
+  public RolloutConnectionProjection<DiscountCodeBasicFragmentProjection<PARENT, ROOT>, ROOT> rollouts(
+      ) {
+     RolloutConnectionProjection<DiscountCodeBasicFragmentProjection<PARENT, ROOT>, ROOT> projection = new RolloutConnectionProjection<>(this, getRoot());
+     getFields().put("rollouts", projection);
+     return projection;
+  }
+
+  public RolloutConnectionProjection<DiscountCodeBasicFragmentProjection<PARENT, ROOT>, ROOT> rollouts(
+      Integer first, String after, Integer last, String before, Boolean reverse, String query) {
+    RolloutConnectionProjection<DiscountCodeBasicFragmentProjection<PARENT, ROOT>, ROOT> projection = new RolloutConnectionProjection<>(this, getRoot());    
+    getFields().put("rollouts", projection);
+    getInputArguments().computeIfAbsent("rollouts", k -> new ArrayList<>());                      
+    InputArgument firstArg = new InputArgument("first", first, false, null);
+    getInputArguments().get("rollouts").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
+    getInputArguments().get("rollouts").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
+    getInputArguments().get("rollouts").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
+    getInputArguments().get("rollouts").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("rollouts").add(reverseArg);
+    InputArgument queryArg = new InputArgument("query", query, false, null);
+    getInputArguments().get("rollouts").add(queryArg);
+    return projection;
+  }
+
+  public RolloutConnectionProjection<DiscountCodeBasicFragmentProjection<PARENT, ROOT>, ROOT> rolloutsWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference, String queryReference) {
+    RolloutConnectionProjection<DiscountCodeBasicFragmentProjection<PARENT, ROOT>, ROOT> projection = new RolloutConnectionProjection<>(this, getRoot());    
+    getFields().put("rollouts", projection);
+    getInputArguments().computeIfAbsent("rollouts", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("rollouts").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("rollouts").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("rollouts").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("rollouts").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("rollouts").add(reverseArg);
+    InputArgument queryArg = new InputArgument("query", queryReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("rollouts").add(queryArg);
+    return projection;
   }
 
   public DiscountShareableUrlProjection<DiscountCodeBasicFragmentProjection<PARENT, ROOT>, ROOT> shareableUrls(

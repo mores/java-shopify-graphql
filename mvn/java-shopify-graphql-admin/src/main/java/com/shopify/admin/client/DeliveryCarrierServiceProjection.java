@@ -28,11 +28,25 @@ public class DeliveryCarrierServiceProjection<PARENT extends BaseSubProjectionNo
     DeliveryAvailableServiceProjection<DeliveryCarrierServiceProjection<PARENT, ROOT>, ROOT> projection = new DeliveryAvailableServiceProjection<>(this, getRoot());    
     getFields().put("availableServicesForCountries", projection);
     getInputArguments().computeIfAbsent("availableServicesForCountries", k -> new ArrayList<>());                      
-    InputArgument originsArg = new InputArgument("origins", origins);
+    InputArgument originsArg = new InputArgument("origins", origins, false, null);
     getInputArguments().get("availableServicesForCountries").add(originsArg);
-    InputArgument countryCodesArg = new InputArgument("countryCodes", countryCodes);
+    InputArgument countryCodesArg = new InputArgument("countryCodes", countryCodes, false, null);
     getInputArguments().get("availableServicesForCountries").add(countryCodesArg);
-    InputArgument restOfWorldArg = new InputArgument("restOfWorld", restOfWorld);
+    InputArgument restOfWorldArg = new InputArgument("restOfWorld", restOfWorld, false, null);
+    getInputArguments().get("availableServicesForCountries").add(restOfWorldArg);
+    return projection;
+  }
+
+  public DeliveryAvailableServiceProjection<DeliveryCarrierServiceProjection<PARENT, ROOT>, ROOT> availableServicesForCountriesWithVariableReferences(
+      String originsReference, String countryCodesReference, String restOfWorldReference) {
+    DeliveryAvailableServiceProjection<DeliveryCarrierServiceProjection<PARENT, ROOT>, ROOT> projection = new DeliveryAvailableServiceProjection<>(this, getRoot());    
+    getFields().put("availableServicesForCountries", projection);
+    getInputArguments().computeIfAbsent("availableServicesForCountries", k -> new ArrayList<>());              
+    InputArgument originsArg = new InputArgument("origins", originsReference, true, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("ID"))));
+    getInputArguments().get("availableServicesForCountries").add(originsArg);
+    InputArgument countryCodesArg = new InputArgument("countryCodes", countryCodesReference, true, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("CountryCode"))));
+    getInputArguments().get("availableServicesForCountries").add(countryCodesArg);
+    InputArgument restOfWorldArg = new InputArgument("restOfWorld", restOfWorldReference, true, new graphql.language.NonNullType(new graphql.language.TypeName("Boolean")));
     getInputArguments().get("availableServicesForCountries").add(restOfWorldArg);
     return projection;
   }
@@ -50,6 +64,11 @@ public class DeliveryCarrierServiceProjection<PARENT extends BaseSubProjectionNo
 
   public DeliveryCarrierServiceProjection<PARENT, ROOT> callbackUrl() {
     getFields().put("callbackUrl", null);
+    return this;
+  }
+
+  public DeliveryCarrierServiceProjection<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
     return this;
   }
 

@@ -70,7 +70,12 @@ public class InventoryShipment implements com.shopify.admin.types.Node {
   private int totalAcceptedQuantity;
 
   /**
-   * The total quantity of items received (both accepted and rejected) across all line items in this shipment.
+   * The total quantity of items marked as canceled across all line items in this shipment.
+   */
+  private int totalCanceledQuantity;
+
+  /**
+   * The total quantity of items accepted, rejected, or marked as canceled across all line items in this shipment.
    */
   private int totalReceivedQuantity;
 
@@ -209,7 +214,18 @@ public class InventoryShipment implements com.shopify.admin.types.Node {
   }
 
   /**
-   * The total quantity of items received (both accepted and rejected) across all line items in this shipment.
+   * The total quantity of items marked as canceled across all line items in this shipment.
+   */
+  public int getTotalCanceledQuantity() {
+    return totalCanceledQuantity;
+  }
+
+  public void setTotalCanceledQuantity(int totalCanceledQuantity) {
+    this.totalCanceledQuantity = totalCanceledQuantity;
+  }
+
+  /**
+   * The total quantity of items accepted, rejected, or marked as canceled across all line items in this shipment.
    */
   public int getTotalReceivedQuantity() {
     return totalReceivedQuantity;
@@ -243,7 +259,7 @@ public class InventoryShipment implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "InventoryShipment{barcode='" + barcode + "', dateCreated='" + dateCreated + "', dateReceived='" + dateReceived + "', dateShipped='" + dateShipped + "', id='" + id + "', lineItemTotalQuantity='" + lineItemTotalQuantity + "', lineItems='" + lineItems + "', lineItemsCount='" + lineItemsCount + "', name='" + name + "', status='" + status + "', totalAcceptedQuantity='" + totalAcceptedQuantity + "', totalReceivedQuantity='" + totalReceivedQuantity + "', totalRejectedQuantity='" + totalRejectedQuantity + "', tracking='" + tracking + "'}";
+    return "InventoryShipment{barcode='" + barcode + "', dateCreated='" + dateCreated + "', dateReceived='" + dateReceived + "', dateShipped='" + dateShipped + "', id='" + id + "', lineItemTotalQuantity='" + lineItemTotalQuantity + "', lineItems='" + lineItems + "', lineItemsCount='" + lineItemsCount + "', name='" + name + "', status='" + status + "', totalAcceptedQuantity='" + totalAcceptedQuantity + "', totalCanceledQuantity='" + totalCanceledQuantity + "', totalReceivedQuantity='" + totalReceivedQuantity + "', totalRejectedQuantity='" + totalRejectedQuantity + "', tracking='" + tracking + "'}";
   }
 
   @Override
@@ -262,6 +278,7 @@ public class InventoryShipment implements com.shopify.admin.types.Node {
         Objects.equals(name, that.name) &&
         Objects.equals(status, that.status) &&
         totalAcceptedQuantity == that.totalAcceptedQuantity &&
+        totalCanceledQuantity == that.totalCanceledQuantity &&
         totalReceivedQuantity == that.totalReceivedQuantity &&
         totalRejectedQuantity == that.totalRejectedQuantity &&
         Objects.equals(tracking, that.tracking);
@@ -269,7 +286,7 @@ public class InventoryShipment implements com.shopify.admin.types.Node {
 
   @Override
   public int hashCode() {
-    return Objects.hash(barcode, dateCreated, dateReceived, dateShipped, id, lineItemTotalQuantity, lineItems, lineItemsCount, name, status, totalAcceptedQuantity, totalReceivedQuantity, totalRejectedQuantity, tracking);
+    return Objects.hash(barcode, dateCreated, dateReceived, dateShipped, id, lineItemTotalQuantity, lineItems, lineItemsCount, name, status, totalAcceptedQuantity, totalCanceledQuantity, totalReceivedQuantity, totalRejectedQuantity, tracking);
   }
 
   public static Builder newBuilder() {
@@ -333,7 +350,12 @@ public class InventoryShipment implements com.shopify.admin.types.Node {
     private int totalAcceptedQuantity;
 
     /**
-     * The total quantity of items received (both accepted and rejected) across all line items in this shipment.
+     * The total quantity of items marked as canceled across all line items in this shipment.
+     */
+    private int totalCanceledQuantity;
+
+    /**
+     * The total quantity of items accepted, rejected, or marked as canceled across all line items in this shipment.
      */
     private int totalReceivedQuantity;
 
@@ -360,6 +382,7 @@ public class InventoryShipment implements com.shopify.admin.types.Node {
       result.name = this.name;
       result.status = this.status;
       result.totalAcceptedQuantity = this.totalAcceptedQuantity;
+      result.totalCanceledQuantity = this.totalCanceledQuantity;
       result.totalReceivedQuantity = this.totalReceivedQuantity;
       result.totalRejectedQuantity = this.totalRejectedQuantity;
       result.tracking = this.tracking;
@@ -455,7 +478,15 @@ public class InventoryShipment implements com.shopify.admin.types.Node {
     }
 
     /**
-     * The total quantity of items received (both accepted and rejected) across all line items in this shipment.
+     * The total quantity of items marked as canceled across all line items in this shipment.
+     */
+    public Builder totalCanceledQuantity(int totalCanceledQuantity) {
+      this.totalCanceledQuantity = totalCanceledQuantity;
+      return this;
+    }
+
+    /**
+     * The total quantity of items accepted, rejected, or marked as canceled across all line items in this shipment.
      */
     public Builder totalReceivedQuantity(int totalReceivedQuantity) {
       this.totalReceivedQuantity = totalReceivedQuantity;

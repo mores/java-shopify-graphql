@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.FulfillmentServiceDeleteInventoryAction;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -24,6 +29,27 @@ public class FulfillmentServiceDeleteGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public FulfillmentServiceDeleteGraphQLQuery(String id, String destinationLocationId,
+      FulfillmentServiceDeleteInventoryAction inventoryAction, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (destinationLocationId != null || fieldsSet.contains("destinationLocationId")) {
+        getInput().put("destinationLocationId", destinationLocationId);
+    }if (inventoryAction != null || fieldsSet.contains("inventoryAction")) {
+        getInput().put("inventoryAction", inventoryAction);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public FulfillmentServiceDeleteGraphQLQuery() {
     super("mutation");
   }
@@ -40,6 +66,10 @@ public class FulfillmentServiceDeleteGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private String destinationLocationId;
@@ -49,7 +79,7 @@ public class FulfillmentServiceDeleteGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public FulfillmentServiceDeleteGraphQLQuery build() {
-      return new FulfillmentServiceDeleteGraphQLQuery(id, destinationLocationId, inventoryAction, queryName, fieldsSet);
+      return new FulfillmentServiceDeleteGraphQLQuery(id, destinationLocationId, inventoryAction, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -58,6 +88,16 @@ public class FulfillmentServiceDeleteGraphQLQuery extends GraphQLQuery {
      */
     public Builder id(String id) {
       this.id = id;
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
+     * The ID of the fulfillment service to delete.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("id");
       return this;
     }
@@ -77,10 +117,35 @@ public class FulfillmentServiceDeleteGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of an active merchant managed location where inventory and commitments will be relocated
+     * after the fulfillment service is deleted.
+     *     
+     * Inventory will only be transferred if the
+     * [`TRANSFER`](https://shopify.dev/api/admin-graphql/latest/enums/FulfillmentServiceDeleteInventoryAction#value-transfer)
+     * inventory action has been chosen.
+     */
+    public Builder destinationLocationIdReference(String variableRef) {
+      this.variableReferences.put("destinationLocationId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("ID")).build());
+      this.fieldsSet.add("destinationLocationId");
+      return this;
+    }
+
+    /**
      * The action to take with the location after the fulfillment service is deleted.
      */
     public Builder inventoryAction(FulfillmentServiceDeleteInventoryAction inventoryAction) {
       this.inventoryAction = inventoryAction;
+      this.fieldsSet.add("inventoryAction");
+      return this;
+    }
+
+    /**
+     * The action to take with the location after the fulfillment service is deleted.
+     */
+    public Builder inventoryActionReference(String variableRef) {
+      this.variableReferences.put("inventoryAction", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("FulfillmentServiceDeleteInventoryAction")).build());
       this.fieldsSet.add("inventoryAction");
       return this;
     }

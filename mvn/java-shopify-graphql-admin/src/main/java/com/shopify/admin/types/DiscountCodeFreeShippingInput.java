@@ -68,7 +68,11 @@ public class DiscountCodeFreeShippingInput {
   /**
    * A list of searchable keywords that are associated with the discount.
    *   
-   * For example, a `loyalty` tag could be applied to discounts
+   * Use these tags on product discounts to determine which other product discounts can
+   * apply to the same cart line when you configure
+   * `productDiscountsWithTagsOnSameCartLine` in `combinesWith`.
+   *   
+   * For example, you can apply a `loyalty` tag to discounts
    * that are associated with a loyalty program.
    *   
    * Updating `tags` overwrites any existing tags that were previously added to the discount.
@@ -218,7 +222,11 @@ public class DiscountCodeFreeShippingInput {
   /**
    * A list of searchable keywords that are associated with the discount.
    *   
-   * For example, a `loyalty` tag could be applied to discounts
+   * Use these tags on product discounts to determine which other product discounts can
+   * apply to the same cart line when you configure
+   * `productDiscountsWithTagsOnSameCartLine` in `combinesWith`.
+   *   
+   * For example, you can apply a `loyalty` tag to discounts
    * that are associated with a loyalty program.
    *   
    * Updating `tags` overwrites any existing tags that were previously added to the discount.
@@ -396,7 +404,11 @@ public class DiscountCodeFreeShippingInput {
     /**
      * A list of searchable keywords that are associated with the discount.
      *   
-     * For example, a `loyalty` tag could be applied to discounts
+     * Use these tags on product discounts to determine which other product discounts can
+     * apply to the same cart line when you configure
+     * `productDiscountsWithTagsOnSameCartLine` in `combinesWith`.
+     *   
+     * For example, you can apply a `loyalty` tag to discounts
      * that are associated with a loyalty program.
      *   
      * Updating `tags` overwrites any existing tags that were previously added to the discount.
@@ -539,7 +551,11 @@ public class DiscountCodeFreeShippingInput {
     /**
      * A list of searchable keywords that are associated with the discount.
      *   
-     * For example, a `loyalty` tag could be applied to discounts
+     * Use these tags on product discounts to determine which other product discounts can
+     * apply to the same cart line when you configure
+     * `productDiscountsWithTagsOnSameCartLine` in `combinesWith`.
+     *   
+     * For example, you can apply a `loyalty` tag to discounts
      * that are associated with a loyalty program.
      *   
      * Updating `tags` overwrites any existing tags that were previously added to the discount.

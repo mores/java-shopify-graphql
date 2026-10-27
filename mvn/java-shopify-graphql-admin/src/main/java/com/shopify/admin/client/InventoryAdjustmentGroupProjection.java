@@ -33,11 +33,26 @@ public class InventoryAdjustmentGroupProjection<PARENT extends BaseSubProjection
     InventoryChangeProjection<InventoryAdjustmentGroupProjection<PARENT, ROOT>, ROOT> projection = new InventoryChangeProjection<>(this, getRoot());    
     getFields().put("changes", projection);
     getInputArguments().computeIfAbsent("changes", k -> new ArrayList<>());                      
-    InputArgument inventoryItemIdsArg = new InputArgument("inventoryItemIds", inventoryItemIds);
+    InputArgument inventoryItemIdsArg = new InputArgument("inventoryItemIds", inventoryItemIds, false, null);
     getInputArguments().get("changes").add(inventoryItemIdsArg);
-    InputArgument locationIdsArg = new InputArgument("locationIds", locationIds);
+    InputArgument locationIdsArg = new InputArgument("locationIds", locationIds, false, null);
     getInputArguments().get("changes").add(locationIdsArg);
-    InputArgument quantityNamesArg = new InputArgument("quantityNames", quantityNames);
+    InputArgument quantityNamesArg = new InputArgument("quantityNames", quantityNames, false, null);
+    getInputArguments().get("changes").add(quantityNamesArg);
+    return projection;
+  }
+
+  public InventoryChangeProjection<InventoryAdjustmentGroupProjection<PARENT, ROOT>, ROOT> changesWithVariableReferences(
+      String inventoryItemIdsReference, String locationIdsReference,
+      String quantityNamesReference) {
+    InventoryChangeProjection<InventoryAdjustmentGroupProjection<PARENT, ROOT>, ROOT> projection = new InventoryChangeProjection<>(this, getRoot());    
+    getFields().put("changes", projection);
+    getInputArguments().computeIfAbsent("changes", k -> new ArrayList<>());              
+    InputArgument inventoryItemIdsArg = new InputArgument("inventoryItemIds", inventoryItemIdsReference, true, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("ID"))));
+    getInputArguments().get("changes").add(inventoryItemIdsArg);
+    InputArgument locationIdsArg = new InputArgument("locationIds", locationIdsReference, true, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("ID"))));
+    getInputArguments().get("changes").add(locationIdsArg);
+    InputArgument quantityNamesArg = new InputArgument("quantityNames", quantityNamesReference, true, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("String"))));
     getInputArguments().get("changes").add(quantityNamesArg);
     return projection;
   }

@@ -1,9 +1,14 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -54,6 +59,24 @@ public class ProductResourceFeedbackGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public ProductResourceFeedbackGraphQLQuery(String id, String channelId, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("query", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (channelId != null || fieldsSet.contains("channelId")) {
+        getInput().put("channelId", channelId);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public ProductResourceFeedbackGraphQLQuery() {
     super("query");
   }
@@ -70,6 +93,10 @@ public class ProductResourceFeedbackGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private String channelId;
@@ -77,7 +104,7 @@ public class ProductResourceFeedbackGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public ProductResourceFeedbackGraphQLQuery build() {
-      return new ProductResourceFeedbackGraphQLQuery(id, channelId, queryName, fieldsSet);
+      return new ProductResourceFeedbackGraphQLQuery(id, channelId, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -91,11 +118,32 @@ public class ProductResourceFeedbackGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The product associated with the resource feedback.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The channel to filter resource feedback by. Use this when your app manages
      * multiple channels and each channel may have different feedback for the same product.
      */
     public Builder channelId(String channelId) {
       this.channelId = channelId;
+      this.fieldsSet.add("channelId");
+      return this;
+    }
+
+    /**
+     * The channel to filter resource feedback by. Use this when your app manages
+     * multiple channels and each channel may have different feedback for the same product.
+     */
+    public Builder channelIdReference(String variableRef) {
+      this.variableReferences.put("channelId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("ID")).build());
       this.fieldsSet.add("channelId");
       return this;
     }

@@ -11,11 +11,23 @@ package com.shopify.admin.types;
  * input fields.
  */
 public enum CheckoutBrandingCornerRadius {
+  /**
+   * The 0px corner radius (square corners).
+   */
   NONE,
 
+  /**
+   * The corner radius with a pixel value defined by designSystem.cornerRadius.small.
+   */
   SMALL,
 
+  /**
+   * The corner radius with a pixel value defined by designSystem.cornerRadius.base.
+   */
   BASE,
 
+  /**
+   * The corner radius with a pixel value defined by designSystem.cornerRadius.large.
+   */
   LARGE
 }

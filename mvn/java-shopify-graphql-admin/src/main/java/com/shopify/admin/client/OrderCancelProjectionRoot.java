@@ -19,6 +19,13 @@ public class OrderCancelProjectionRoot<PARENT extends BaseSubProjectionNode<?, ?
     return projection;
   }
 
+  public OrderCancelJobResultProjection<OrderCancelProjectionRoot<PARENT, ROOT>, OrderCancelProjectionRoot<PARENT, ROOT>> jobResult(
+      ) {
+    OrderCancelJobResultProjection<OrderCancelProjectionRoot<PARENT, ROOT>, OrderCancelProjectionRoot<PARENT, ROOT>> projection = new OrderCancelJobResultProjection<>(this, this);    
+    getFields().put("jobResult", projection);
+    return projection;
+  }
+
   public OrderCancelUserErrorProjection<OrderCancelProjectionRoot<PARENT, ROOT>, OrderCancelProjectionRoot<PARENT, ROOT>> orderCancelUserErrors(
       ) {
     OrderCancelUserErrorProjection<OrderCancelProjectionRoot<PARENT, ROOT>, OrderCancelProjectionRoot<PARENT, ROOT>> projection = new OrderCancelUserErrorProjection<>(this, this);    

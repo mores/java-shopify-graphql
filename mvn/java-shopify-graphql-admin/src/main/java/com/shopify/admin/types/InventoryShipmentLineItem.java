@@ -19,6 +19,11 @@ public class InventoryShipmentLineItem implements com.shopify.admin.types.Node {
   private int acceptedQuantity;
 
   /**
+   * The quantity of items that were marked as canceled in this shipment line item.
+   */
+  private int canceledQuantity;
+
+  /**
    * A globally-unique ID.
    */
   private String id;
@@ -39,7 +44,7 @@ public class InventoryShipmentLineItem implements com.shopify.admin.types.Node {
   private int rejectedQuantity;
 
   /**
-   * The total quantity of units that haven't been received (neither accepted or rejected) in this shipment line item.
+   * The total quantity of units that haven't been accepted, rejected, or marked as canceled in this shipment line item.
    */
   private int unreceivedQuantity;
 
@@ -55,6 +60,17 @@ public class InventoryShipmentLineItem implements com.shopify.admin.types.Node {
 
   public void setAcceptedQuantity(int acceptedQuantity) {
     this.acceptedQuantity = acceptedQuantity;
+  }
+
+  /**
+   * The quantity of items that were marked as canceled in this shipment line item.
+   */
+  public int getCanceledQuantity() {
+    return canceledQuantity;
+  }
+
+  public void setCanceledQuantity(int canceledQuantity) {
+    this.canceledQuantity = canceledQuantity;
   }
 
   /**
@@ -102,7 +118,7 @@ public class InventoryShipmentLineItem implements com.shopify.admin.types.Node {
   }
 
   /**
-   * The total quantity of units that haven't been received (neither accepted or rejected) in this shipment line item.
+   * The total quantity of units that haven't been accepted, rejected, or marked as canceled in this shipment line item.
    */
   public int getUnreceivedQuantity() {
     return unreceivedQuantity;
@@ -114,7 +130,7 @@ public class InventoryShipmentLineItem implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "InventoryShipmentLineItem{acceptedQuantity='" + acceptedQuantity + "', id='" + id + "', inventoryItem='" + inventoryItem + "', quantity='" + quantity + "', rejectedQuantity='" + rejectedQuantity + "', unreceivedQuantity='" + unreceivedQuantity + "'}";
+    return "InventoryShipmentLineItem{acceptedQuantity='" + acceptedQuantity + "', canceledQuantity='" + canceledQuantity + "', id='" + id + "', inventoryItem='" + inventoryItem + "', quantity='" + quantity + "', rejectedQuantity='" + rejectedQuantity + "', unreceivedQuantity='" + unreceivedQuantity + "'}";
   }
 
   @Override
@@ -123,6 +139,7 @@ public class InventoryShipmentLineItem implements com.shopify.admin.types.Node {
     if (o == null || getClass() != o.getClass()) return false;
     InventoryShipmentLineItem that = (InventoryShipmentLineItem) o;
     return acceptedQuantity == that.acceptedQuantity &&
+        canceledQuantity == that.canceledQuantity &&
         Objects.equals(id, that.id) &&
         Objects.equals(inventoryItem, that.inventoryItem) &&
         quantity == that.quantity &&
@@ -132,7 +149,7 @@ public class InventoryShipmentLineItem implements com.shopify.admin.types.Node {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptedQuantity, id, inventoryItem, quantity, rejectedQuantity, unreceivedQuantity);
+    return Objects.hash(acceptedQuantity, canceledQuantity, id, inventoryItem, quantity, rejectedQuantity, unreceivedQuantity);
   }
 
   public static Builder newBuilder() {
@@ -144,6 +161,11 @@ public class InventoryShipmentLineItem implements com.shopify.admin.types.Node {
      * The quantity of items that were accepted in this shipment line item.
      */
     private int acceptedQuantity;
+
+    /**
+     * The quantity of items that were marked as canceled in this shipment line item.
+     */
+    private int canceledQuantity;
 
     /**
      * A globally-unique ID.
@@ -166,13 +188,14 @@ public class InventoryShipmentLineItem implements com.shopify.admin.types.Node {
     private int rejectedQuantity;
 
     /**
-     * The total quantity of units that haven't been received (neither accepted or rejected) in this shipment line item.
+     * The total quantity of units that haven't been accepted, rejected, or marked as canceled in this shipment line item.
      */
     private int unreceivedQuantity;
 
     public InventoryShipmentLineItem build() {
       InventoryShipmentLineItem result = new InventoryShipmentLineItem();
       result.acceptedQuantity = this.acceptedQuantity;
+      result.canceledQuantity = this.canceledQuantity;
       result.id = this.id;
       result.inventoryItem = this.inventoryItem;
       result.quantity = this.quantity;
@@ -186,6 +209,14 @@ public class InventoryShipmentLineItem implements com.shopify.admin.types.Node {
      */
     public Builder acceptedQuantity(int acceptedQuantity) {
       this.acceptedQuantity = acceptedQuantity;
+      return this;
+    }
+
+    /**
+     * The quantity of items that were marked as canceled in this shipment line item.
+     */
+    public Builder canceledQuantity(int canceledQuantity) {
+      this.canceledQuantity = canceledQuantity;
       return this;
     }
 
@@ -222,7 +253,7 @@ public class InventoryShipmentLineItem implements com.shopify.admin.types.Node {
     }
 
     /**
-     * The total quantity of units that haven't been received (neither accepted or rejected) in this shipment line item.
+     * The total quantity of units that haven't been accepted, rejected, or marked as canceled in this shipment line item.
      */
     public Builder unreceivedQuantity(int unreceivedQuantity) {
       this.unreceivedQuantity = unreceivedQuantity;

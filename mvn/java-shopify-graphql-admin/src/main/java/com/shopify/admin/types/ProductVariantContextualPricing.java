@@ -11,6 +11,11 @@ import java.util.Objects;
  */
 public class ProductVariantContextualPricing {
   /**
+   * The record of how the price was determined.
+   */
+  private PricingAuditTrail auditTrail;
+
+  /**
    * The final compare-at price after all adjustments are applied.
    */
   private MoneyV2 compareAtPrice;
@@ -36,6 +41,17 @@ public class ProductVariantContextualPricing {
   private MoneyV2 unitPrice;
 
   public ProductVariantContextualPricing() {
+  }
+
+  /**
+   * The record of how the price was determined.
+   */
+  public PricingAuditTrail getAuditTrail() {
+    return auditTrail;
+  }
+
+  public void setAuditTrail(PricingAuditTrail auditTrail) {
+    this.auditTrail = auditTrail;
   }
 
   /**
@@ -95,7 +111,7 @@ public class ProductVariantContextualPricing {
 
   @Override
   public String toString() {
-    return "ProductVariantContextualPricing{compareAtPrice='" + compareAtPrice + "', price='" + price + "', quantityPriceBreaks='" + quantityPriceBreaks + "', quantityRule='" + quantityRule + "', unitPrice='" + unitPrice + "'}";
+    return "ProductVariantContextualPricing{auditTrail='" + auditTrail + "', compareAtPrice='" + compareAtPrice + "', price='" + price + "', quantityPriceBreaks='" + quantityPriceBreaks + "', quantityRule='" + quantityRule + "', unitPrice='" + unitPrice + "'}";
   }
 
   @Override
@@ -103,7 +119,8 @@ public class ProductVariantContextualPricing {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     ProductVariantContextualPricing that = (ProductVariantContextualPricing) o;
-    return Objects.equals(compareAtPrice, that.compareAtPrice) &&
+    return Objects.equals(auditTrail, that.auditTrail) &&
+        Objects.equals(compareAtPrice, that.compareAtPrice) &&
         Objects.equals(price, that.price) &&
         Objects.equals(quantityPriceBreaks, that.quantityPriceBreaks) &&
         Objects.equals(quantityRule, that.quantityRule) &&
@@ -112,7 +129,7 @@ public class ProductVariantContextualPricing {
 
   @Override
   public int hashCode() {
-    return Objects.hash(compareAtPrice, price, quantityPriceBreaks, quantityRule, unitPrice);
+    return Objects.hash(auditTrail, compareAtPrice, price, quantityPriceBreaks, quantityRule, unitPrice);
   }
 
   public static Builder newBuilder() {
@@ -120,6 +137,11 @@ public class ProductVariantContextualPricing {
   }
 
   public static class Builder {
+    /**
+     * The record of how the price was determined.
+     */
+    private PricingAuditTrail auditTrail;
+
     /**
      * The final compare-at price after all adjustments are applied.
      */
@@ -147,12 +169,21 @@ public class ProductVariantContextualPricing {
 
     public ProductVariantContextualPricing build() {
       ProductVariantContextualPricing result = new ProductVariantContextualPricing();
+      result.auditTrail = this.auditTrail;
       result.compareAtPrice = this.compareAtPrice;
       result.price = this.price;
       result.quantityPriceBreaks = this.quantityPriceBreaks;
       result.quantityRule = this.quantityRule;
       result.unitPrice = this.unitPrice;
       return result;
+    }
+
+    /**
+     * The record of how the price was determined.
+     */
+    public Builder auditTrail(PricingAuditTrail auditTrail) {
+      this.auditTrail = auditTrail;
+      return this;
     }
 
     /**

@@ -36,6 +36,11 @@ public class TransactionFeeFragmentProjection<PARENT extends BaseSubProjectionNo
      return projection;
   }
 
+  public TransactionFeeFragmentProjection<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
+    return this;
+  }
+
   public TransactionFeeFragmentProjection<PARENT, ROOT> flatFeeName() {
     getFields().put("flatFeeName", null);
     return this;

@@ -1,9 +1,14 @@
 package com.shopify.storefront.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -28,6 +33,21 @@ public class CustomerRecoverGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public CustomerRecoverGraphQLQuery(String email, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (email != null || fieldsSet.contains("email")) {
+        getInput().put("email", email);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public CustomerRecoverGraphQLQuery() {
     super("mutation");
   }
@@ -44,12 +64,16 @@ public class CustomerRecoverGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String email;
 
     private String queryName;
 
     public CustomerRecoverGraphQLQuery build() {
-      return new CustomerRecoverGraphQLQuery(email, queryName, fieldsSet);
+      return new CustomerRecoverGraphQLQuery(email, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -58,6 +82,16 @@ public class CustomerRecoverGraphQLQuery extends GraphQLQuery {
      */
     public Builder email(String email) {
       this.email = email;
+      this.fieldsSet.add("email");
+      return this;
+    }
+
+    /**
+     * The email address of the customer to recover.
+     */
+    public Builder emailReference(String variableRef) {
+      this.variableReferences.put("email", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("String"))).build());
       this.fieldsSet.add("email");
       return this;
     }

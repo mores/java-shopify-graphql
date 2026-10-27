@@ -19,6 +19,13 @@ public class SubscriptionBillingPolicyProjection<PARENT extends BaseSubProjectio
      return projection;
   }
 
+  public SubscriptionContractCalculationCadenceProjection<SubscriptionBillingPolicyProjection<PARENT, ROOT>, ROOT> cadence(
+      ) {
+     SubscriptionContractCalculationCadenceProjection<SubscriptionBillingPolicyProjection<PARENT, ROOT>, ROOT> projection = new SubscriptionContractCalculationCadenceProjection<>(this, getRoot());
+     getFields().put("cadence", projection);
+     return projection;
+  }
+
   public SellingPlanIntervalProjection<SubscriptionBillingPolicyProjection<PARENT, ROOT>, ROOT> interval(
       ) {
      SellingPlanIntervalProjection<SubscriptionBillingPolicyProjection<PARENT, ROOT>, ROOT> projection = new SellingPlanIntervalProjection<>(this, getRoot());

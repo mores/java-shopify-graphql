@@ -37,7 +37,17 @@ public class StaffMemberFragmentProjection<PARENT extends BaseSubProjectionNode<
     ImageProjection<StaffMemberFragmentProjection<PARENT, ROOT>, ROOT> projection = new ImageProjection<>(this, getRoot());    
     getFields().put("avatar", projection);
     getInputArguments().computeIfAbsent("avatar", k -> new ArrayList<>());                      
-    InputArgument fallbackArg = new InputArgument("fallback", fallback);
+    InputArgument fallbackArg = new InputArgument("fallback", fallback, false, null);
+    getInputArguments().get("avatar").add(fallbackArg);
+    return projection;
+  }
+
+  public ImageProjection<StaffMemberFragmentProjection<PARENT, ROOT>, ROOT> avatarWithVariableReferences(
+      String fallbackReference) {
+    ImageProjection<StaffMemberFragmentProjection<PARENT, ROOT>, ROOT> projection = new ImageProjection<>(this, getRoot());    
+    getFields().put("avatar", projection);
+    getInputArguments().computeIfAbsent("avatar", k -> new ArrayList<>());              
+    InputArgument fallbackArg = new InputArgument("fallback", fallbackReference, true, new graphql.language.TypeName("StaffMemberDefaultImage"));
     getInputArguments().get("avatar").add(fallbackArg);
     return projection;
   }

@@ -118,6 +118,11 @@ public class Customer implements CommentEventEmbed, MetafieldReference, Metafiel
   private String id;
 
   /**
+   * The identity provider subject identifiers associated with this customer.
+   */
+  private List<IdentityProviderSubject> identityProviderSubjects;
+
+  /**
    * The image associated with the customer.
    */
   private Image image;
@@ -150,7 +155,8 @@ public class Customer implements CommentEventEmbed, MetafieldReference, Metafiel
   private String locale;
 
   /**
-   * The market that includes the customer’s default address.
+   * The market that applies to the customer’s default address country. In cases
+   * where multiple markets match, this returns the most-specific country region market.
    */
   private Market market;
 
@@ -256,6 +262,11 @@ public class Customer implements CommentEventEmbed, MetafieldReference, Metafiel
    * The list of tax exemptions applied to the customer.
    */
   private List<TaxExemption> taxExemptions;
+
+  /**
+   * The customer's tax settings.
+   */
+  private TaxSettings taxSettings;
 
   /**
    * The URL to unsubscribe the customer from the mailing list.
@@ -480,6 +491,17 @@ public class Customer implements CommentEventEmbed, MetafieldReference, Metafiel
   }
 
   /**
+   * The identity provider subject identifiers associated with this customer.
+   */
+  public List<IdentityProviderSubject> getIdentityProviderSubjects() {
+    return identityProviderSubjects;
+  }
+
+  public void setIdentityProviderSubjects(List<IdentityProviderSubject> identityProviderSubjects) {
+    this.identityProviderSubjects = identityProviderSubjects;
+  }
+
+  /**
    * The image associated with the customer.
    */
   public Image getImage() {
@@ -548,7 +570,8 @@ public class Customer implements CommentEventEmbed, MetafieldReference, Metafiel
   }
 
   /**
-   * The market that includes the customer’s default address.
+   * The market that applies to the customer’s default address country. In cases
+   * where multiple markets match, this returns the most-specific country region market.
    */
   public Market getMarket() {
     return market;
@@ -776,6 +799,17 @@ public class Customer implements CommentEventEmbed, MetafieldReference, Metafiel
   }
 
   /**
+   * The customer's tax settings.
+   */
+  public TaxSettings getTaxSettings() {
+    return taxSettings;
+  }
+
+  public void setTaxSettings(TaxSettings taxSettings) {
+    this.taxSettings = taxSettings;
+  }
+
+  /**
    * The URL to unsubscribe the customer from the mailing list.
    */
   public String getUnsubscribeUrl() {
@@ -826,7 +860,7 @@ public class Customer implements CommentEventEmbed, MetafieldReference, Metafiel
 
   @Override
   public String toString() {
-    return "Customer{addresses='" + addresses + "', addressesV2='" + addressesV2 + "', amountSpent='" + amountSpent + "', canDelete='" + canDelete + "', companyContactProfiles='" + companyContactProfiles + "', createdAt='" + createdAt + "', dataSaleOptOut='" + dataSaleOptOut + "', defaultAddress='" + defaultAddress + "', defaultEmailAddress='" + defaultEmailAddress + "', defaultPhoneNumber='" + defaultPhoneNumber + "', displayName='" + displayName + "', email='" + email + "', emailMarketingConsent='" + emailMarketingConsent + "', events='" + events + "', firstName='" + firstName + "', hasTimelineComment='" + hasTimelineComment + "', id='" + id + "', image='" + image + "', lastName='" + lastName + "', lastOrder='" + lastOrder + "', legacyResourceId='" + legacyResourceId + "', lifetimeDuration='" + lifetimeDuration + "', locale='" + locale + "', market='" + market + "', mergeable='" + mergeable + "', metafield='" + metafield + "', metafieldDefinitions='" + metafieldDefinitions + "', metafields='" + metafields + "', multipassIdentifier='" + multipassIdentifier + "', note='" + note + "', numberOfOrders='" + numberOfOrders + "', orders='" + orders + "', paymentMethods='" + paymentMethods + "', phone='" + phone + "', productSubscriberStatus='" + productSubscriberStatus + "', smsMarketingConsent='" + smsMarketingConsent + "', state='" + state + "', statistics='" + statistics + "', storeCreditAccounts='" + storeCreditAccounts + "', subscriptionContracts='" + subscriptionContracts + "', tags='" + tags + "', taxExempt='" + taxExempt + "', taxExemptions='" + taxExemptions + "', unsubscribeUrl='" + unsubscribeUrl + "', updatedAt='" + updatedAt + "', validEmailAddress='" + validEmailAddress + "', verifiedEmail='" + verifiedEmail + "'}";
+    return "Customer{addresses='" + addresses + "', addressesV2='" + addressesV2 + "', amountSpent='" + amountSpent + "', canDelete='" + canDelete + "', companyContactProfiles='" + companyContactProfiles + "', createdAt='" + createdAt + "', dataSaleOptOut='" + dataSaleOptOut + "', defaultAddress='" + defaultAddress + "', defaultEmailAddress='" + defaultEmailAddress + "', defaultPhoneNumber='" + defaultPhoneNumber + "', displayName='" + displayName + "', email='" + email + "', emailMarketingConsent='" + emailMarketingConsent + "', events='" + events + "', firstName='" + firstName + "', hasTimelineComment='" + hasTimelineComment + "', id='" + id + "', identityProviderSubjects='" + identityProviderSubjects + "', image='" + image + "', lastName='" + lastName + "', lastOrder='" + lastOrder + "', legacyResourceId='" + legacyResourceId + "', lifetimeDuration='" + lifetimeDuration + "', locale='" + locale + "', market='" + market + "', mergeable='" + mergeable + "', metafield='" + metafield + "', metafieldDefinitions='" + metafieldDefinitions + "', metafields='" + metafields + "', multipassIdentifier='" + multipassIdentifier + "', note='" + note + "', numberOfOrders='" + numberOfOrders + "', orders='" + orders + "', paymentMethods='" + paymentMethods + "', phone='" + phone + "', productSubscriberStatus='" + productSubscriberStatus + "', smsMarketingConsent='" + smsMarketingConsent + "', state='" + state + "', statistics='" + statistics + "', storeCreditAccounts='" + storeCreditAccounts + "', subscriptionContracts='" + subscriptionContracts + "', tags='" + tags + "', taxExempt='" + taxExempt + "', taxExemptions='" + taxExemptions + "', taxSettings='" + taxSettings + "', unsubscribeUrl='" + unsubscribeUrl + "', updatedAt='" + updatedAt + "', validEmailAddress='" + validEmailAddress + "', verifiedEmail='" + verifiedEmail + "'}";
   }
 
   @Override
@@ -851,6 +885,7 @@ public class Customer implements CommentEventEmbed, MetafieldReference, Metafiel
         Objects.equals(firstName, that.firstName) &&
         hasTimelineComment == that.hasTimelineComment &&
         Objects.equals(id, that.id) &&
+        Objects.equals(identityProviderSubjects, that.identityProviderSubjects) &&
         Objects.equals(image, that.image) &&
         Objects.equals(lastName, that.lastName) &&
         Objects.equals(lastOrder, that.lastOrder) &&
@@ -877,6 +912,7 @@ public class Customer implements CommentEventEmbed, MetafieldReference, Metafiel
         Objects.equals(tags, that.tags) &&
         taxExempt == that.taxExempt &&
         Objects.equals(taxExemptions, that.taxExemptions) &&
+        Objects.equals(taxSettings, that.taxSettings) &&
         Objects.equals(unsubscribeUrl, that.unsubscribeUrl) &&
         Objects.equals(updatedAt, that.updatedAt) &&
         validEmailAddress == that.validEmailAddress &&
@@ -885,7 +921,7 @@ public class Customer implements CommentEventEmbed, MetafieldReference, Metafiel
 
   @Override
   public int hashCode() {
-    return Objects.hash(addresses, addressesV2, amountSpent, canDelete, companyContactProfiles, createdAt, dataSaleOptOut, defaultAddress, defaultEmailAddress, defaultPhoneNumber, displayName, email, emailMarketingConsent, events, firstName, hasTimelineComment, id, image, lastName, lastOrder, legacyResourceId, lifetimeDuration, locale, market, mergeable, metafield, metafieldDefinitions, metafields, multipassIdentifier, note, numberOfOrders, orders, paymentMethods, phone, productSubscriberStatus, smsMarketingConsent, state, statistics, storeCreditAccounts, subscriptionContracts, tags, taxExempt, taxExemptions, unsubscribeUrl, updatedAt, validEmailAddress, verifiedEmail);
+    return Objects.hash(addresses, addressesV2, amountSpent, canDelete, companyContactProfiles, createdAt, dataSaleOptOut, defaultAddress, defaultEmailAddress, defaultPhoneNumber, displayName, email, emailMarketingConsent, events, firstName, hasTimelineComment, id, identityProviderSubjects, image, lastName, lastOrder, legacyResourceId, lifetimeDuration, locale, market, mergeable, metafield, metafieldDefinitions, metafields, multipassIdentifier, note, numberOfOrders, orders, paymentMethods, phone, productSubscriberStatus, smsMarketingConsent, state, statistics, storeCreditAccounts, subscriptionContracts, tags, taxExempt, taxExemptions, taxSettings, unsubscribeUrl, updatedAt, validEmailAddress, verifiedEmail);
   }
 
   public static Builder newBuilder() {
@@ -986,6 +1022,11 @@ public class Customer implements CommentEventEmbed, MetafieldReference, Metafiel
     private String id;
 
     /**
+     * The identity provider subject identifiers associated with this customer.
+     */
+    private List<IdentityProviderSubject> identityProviderSubjects;
+
+    /**
      * The image associated with the customer.
      */
     private Image image;
@@ -1018,7 +1059,8 @@ public class Customer implements CommentEventEmbed, MetafieldReference, Metafiel
     private String locale;
 
     /**
-     * The market that includes the customer’s default address.
+     * The market that applies to the customer’s default address country. In cases
+     * where multiple markets match, this returns the most-specific country region market.
      */
     private Market market;
 
@@ -1126,6 +1168,11 @@ public class Customer implements CommentEventEmbed, MetafieldReference, Metafiel
     private List<TaxExemption> taxExemptions;
 
     /**
+     * The customer's tax settings.
+     */
+    private TaxSettings taxSettings;
+
+    /**
      * The URL to unsubscribe the customer from the mailing list.
      */
     private String unsubscribeUrl;
@@ -1169,6 +1216,7 @@ public class Customer implements CommentEventEmbed, MetafieldReference, Metafiel
       result.firstName = this.firstName;
       result.hasTimelineComment = this.hasTimelineComment;
       result.id = this.id;
+      result.identityProviderSubjects = this.identityProviderSubjects;
       result.image = this.image;
       result.lastName = this.lastName;
       result.lastOrder = this.lastOrder;
@@ -1195,6 +1243,7 @@ public class Customer implements CommentEventEmbed, MetafieldReference, Metafiel
       result.tags = this.tags;
       result.taxExempt = this.taxExempt;
       result.taxExemptions = this.taxExemptions;
+      result.taxSettings = this.taxSettings;
       result.unsubscribeUrl = this.unsubscribeUrl;
       result.updatedAt = this.updatedAt;
       result.validEmailAddress = this.validEmailAddress;
@@ -1346,6 +1395,15 @@ public class Customer implements CommentEventEmbed, MetafieldReference, Metafiel
     }
 
     /**
+     * The identity provider subject identifiers associated with this customer.
+     */
+    public Builder identityProviderSubjects(
+        List<IdentityProviderSubject> identityProviderSubjects) {
+      this.identityProviderSubjects = identityProviderSubjects;
+      return this;
+    }
+
+    /**
      * The image associated with the customer.
      */
     public Builder image(Image image) {
@@ -1396,7 +1454,8 @@ public class Customer implements CommentEventEmbed, MetafieldReference, Metafiel
     }
 
     /**
-     * The market that includes the customer’s default address.
+     * The market that applies to the customer’s default address country. In cases
+     * where multiple markets match, this returns the most-specific country region market.
      */
     public Builder market(Market market) {
       this.market = market;
@@ -1561,6 +1620,14 @@ public class Customer implements CommentEventEmbed, MetafieldReference, Metafiel
      */
     public Builder taxExemptions(List<TaxExemption> taxExemptions) {
       this.taxExemptions = taxExemptions;
+      return this;
+    }
+
+    /**
+     * The customer's tax settings.
+     */
+    public Builder taxSettings(TaxSettings taxSettings) {
+      this.taxSettings = taxSettings;
       return this;
     }
 

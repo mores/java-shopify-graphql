@@ -33,9 +33,15 @@ public class ProductVariantSetInput {
   private String sku;
 
   /**
-   * The value of the barcode associated with the product.
+   * The barcodes to associate with the product variant. Replaces the entire barcode set. A variant
+   * accepts up to 20 barcodes, and a given
+   * variant input can't set both `barcode` and `barcodes`. Refer to the
+   * [`ProductVariantBarcode`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariantBarcode)
+   * object for how these barcodes are returned.
+   *   
+   * Complexity cost: 0.0114 per barcode.
    */
-  private String barcode;
+  private List<BarcodeInput> barcodes;
 
   /**
    * The order of the product variant in the list of product variants. The first position in the list is 1.
@@ -57,6 +63,12 @@ public class ProductVariantSetInput {
    * Complexity cost: 0.4 per variant metafield.
    */
   private List<MetafieldInput> metafields;
+
+  /**
+   * Indicates whether the product variant is created as published or unpublished.
+   * This option is only available for new product variants.
+   */
+  private Boolean published;
 
   /**
    * The compare-at price of the variant.
@@ -157,14 +169,20 @@ public class ProductVariantSetInput {
   }
 
   /**
-   * The value of the barcode associated with the product.
+   * The barcodes to associate with the product variant. Replaces the entire barcode set. A variant
+   * accepts up to 20 barcodes, and a given
+   * variant input can't set both `barcode` and `barcodes`. Refer to the
+   * [`ProductVariantBarcode`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariantBarcode)
+   * object for how these barcodes are returned.
+   *   
+   * Complexity cost: 0.0114 per barcode.
    */
-  public String getBarcode() {
-    return barcode;
+  public List<BarcodeInput> getBarcodes() {
+    return barcodes;
   }
 
-  public void setBarcode(String barcode) {
-    this.barcode = barcode;
+  public void setBarcodes(List<BarcodeInput> barcodes) {
+    this.barcodes = barcodes;
   }
 
   /**
@@ -204,6 +222,18 @@ public class ProductVariantSetInput {
 
   public void setMetafields(List<MetafieldInput> metafields) {
     this.metafields = metafields;
+  }
+
+  /**
+   * Indicates whether the product variant is created as published or unpublished.
+   * This option is only available for new product variants.
+   */
+  public Boolean getPublished() {
+    return published;
+  }
+
+  public void setPublished(Boolean published) {
+    this.published = published;
   }
 
   /**
@@ -313,7 +343,7 @@ public class ProductVariantSetInput {
 
   @Override
   public String toString() {
-    return "ProductVariantSetInput{id='" + id + "', optionValues='" + optionValues + "', price='" + price + "', sku='" + sku + "', barcode='" + barcode + "', position='" + position + "', file='" + file + "', metafields='" + metafields + "', compareAtPrice='" + compareAtPrice + "', requiresComponents='" + requiresComponents + "', inventoryPolicy='" + inventoryPolicy + "', inventoryQuantities='" + inventoryQuantities + "', inventoryItem='" + inventoryItem + "', taxable='" + taxable + "', taxCode='" + taxCode + "', unitPriceMeasurement='" + unitPriceMeasurement + "', showUnitPrice='" + showUnitPrice + "'}";
+    return "ProductVariantSetInput{id='" + id + "', optionValues='" + optionValues + "', price='" + price + "', sku='" + sku + "', barcodes='" + barcodes + "', position='" + position + "', file='" + file + "', metafields='" + metafields + "', published='" + published + "', compareAtPrice='" + compareAtPrice + "', requiresComponents='" + requiresComponents + "', inventoryPolicy='" + inventoryPolicy + "', inventoryQuantities='" + inventoryQuantities + "', inventoryItem='" + inventoryItem + "', taxable='" + taxable + "', taxCode='" + taxCode + "', unitPriceMeasurement='" + unitPriceMeasurement + "', showUnitPrice='" + showUnitPrice + "'}";
   }
 
   @Override
@@ -325,10 +355,11 @@ public class ProductVariantSetInput {
         Objects.equals(optionValues, that.optionValues) &&
         Objects.equals(price, that.price) &&
         Objects.equals(sku, that.sku) &&
-        Objects.equals(barcode, that.barcode) &&
+        Objects.equals(barcodes, that.barcodes) &&
         Objects.equals(position, that.position) &&
         Objects.equals(file, that.file) &&
         Objects.equals(metafields, that.metafields) &&
+        Objects.equals(published, that.published) &&
         Objects.equals(compareAtPrice, that.compareAtPrice) &&
         Objects.equals(requiresComponents, that.requiresComponents) &&
         Objects.equals(inventoryPolicy, that.inventoryPolicy) &&
@@ -342,7 +373,7 @@ public class ProductVariantSetInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, optionValues, price, sku, barcode, position, file, metafields, compareAtPrice, requiresComponents, inventoryPolicy, inventoryQuantities, inventoryItem, taxable, taxCode, unitPriceMeasurement, showUnitPrice);
+    return Objects.hash(id, optionValues, price, sku, barcodes, position, file, metafields, published, compareAtPrice, requiresComponents, inventoryPolicy, inventoryQuantities, inventoryItem, taxable, taxCode, unitPriceMeasurement, showUnitPrice);
   }
 
   public static Builder newBuilder() {
@@ -371,9 +402,15 @@ public class ProductVariantSetInput {
     private String sku;
 
     /**
-     * The value of the barcode associated with the product.
+     * The barcodes to associate with the product variant. Replaces the entire barcode set. A variant
+     * accepts up to 20 barcodes, and a given
+     * variant input can't set both `barcode` and `barcodes`. Refer to the
+     * [`ProductVariantBarcode`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariantBarcode)
+     * object for how these barcodes are returned.
+     *   
+     * Complexity cost: 0.0114 per barcode.
      */
-    private String barcode;
+    private List<BarcodeInput> barcodes;
 
     /**
      * The order of the product variant in the list of product variants. The first position in the list is 1.
@@ -395,6 +432,12 @@ public class ProductVariantSetInput {
      * Complexity cost: 0.4 per variant metafield.
      */
     private List<MetafieldInput> metafields;
+
+    /**
+     * Indicates whether the product variant is created as published or unpublished.
+     * This option is only available for new product variants.
+     */
+    private Boolean published;
 
     /**
      * The compare-at price of the variant.
@@ -453,10 +496,11 @@ public class ProductVariantSetInput {
       result.optionValues = this.optionValues;
       result.price = this.price;
       result.sku = this.sku;
-      result.barcode = this.barcode;
+      result.barcodes = this.barcodes;
       result.position = this.position;
       result.file = this.file;
       result.metafields = this.metafields;
+      result.published = this.published;
       result.compareAtPrice = this.compareAtPrice;
       result.requiresComponents = this.requiresComponents;
       result.inventoryPolicy = this.inventoryPolicy;
@@ -502,10 +546,16 @@ public class ProductVariantSetInput {
     }
 
     /**
-     * The value of the barcode associated with the product.
+     * The barcodes to associate with the product variant. Replaces the entire barcode set. A variant
+     * accepts up to 20 barcodes, and a given
+     * variant input can't set both `barcode` and `barcodes`. Refer to the
+     * [`ProductVariantBarcode`](https://shopify.dev/docs/api/admin-graphql/latest/objects/ProductVariantBarcode)
+     * object for how these barcodes are returned.
+     *   
+     * Complexity cost: 0.0114 per barcode.
      */
-    public Builder barcode(String barcode) {
-      this.barcode = barcode;
+    public Builder barcodes(List<BarcodeInput> barcodes) {
+      this.barcodes = barcodes;
       return this;
     }
 
@@ -536,6 +586,15 @@ public class ProductVariantSetInput {
      */
     public Builder metafields(List<MetafieldInput> metafields) {
       this.metafields = metafields;
+      return this;
+    }
+
+    /**
+     * Indicates whether the product variant is created as published or unpublished.
+     * This option is only available for new product variants.
+     */
+    public Builder published(Boolean published) {
+      this.published = published;
       return this;
     }
 

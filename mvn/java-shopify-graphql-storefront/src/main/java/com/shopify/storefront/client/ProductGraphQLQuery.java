@@ -1,9 +1,14 @@
 package com.shopify.storefront.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -23,6 +28,23 @@ public class ProductGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public ProductGraphQLQuery(String id, String handle, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("query", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (handle != null || fieldsSet.contains("handle")) {
+        getInput().put("handle", handle);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public ProductGraphQLQuery() {
     super("query");
   }
@@ -39,6 +61,10 @@ public class ProductGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private String handle;
@@ -46,7 +72,7 @@ public class ProductGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public ProductGraphQLQuery build() {
-      return new ProductGraphQLQuery(id, handle, queryName, fieldsSet);
+      return new ProductGraphQLQuery(id, handle, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -60,10 +86,30 @@ public class ProductGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the `Product`.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("ID")).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The handle of the `Product`.
      */
     public Builder handle(String handle) {
       this.handle = handle;
+      this.fieldsSet.add("handle");
+      return this;
+    }
+
+    /**
+     * The handle of the `Product`.
+     */
+    public Builder handleReference(String variableRef) {
+      this.variableReferences.put("handle", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
       this.fieldsSet.add("handle");
       return this;
     }

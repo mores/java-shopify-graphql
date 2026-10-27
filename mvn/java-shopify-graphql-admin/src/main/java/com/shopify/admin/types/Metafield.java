@@ -88,6 +88,18 @@ public class Metafield implements com.shopify.admin.types.HasCompareDigest, com.
   private MetafieldReferenceConnection references;
 
   /**
+   * The size of the metafield value in bytes.
+   */
+  private int sizeInBytes;
+
+  /**
+   * Whether the metafield's value can be translated. This is true when the metafield's
+   * [type](https://shopify.dev/docs/apps/build/metafields/list-of-data-types#basic-types)
+   * is translatable and its owner allows metafield translations.
+   */
+  private boolean translatable;
+
+  /**
    * The published translations associated with the resource.
    */
   private List<Translation> translations;
@@ -255,6 +267,30 @@ public class Metafield implements com.shopify.admin.types.HasCompareDigest, com.
   }
 
   /**
+   * The size of the metafield value in bytes.
+   */
+  public int getSizeInBytes() {
+    return sizeInBytes;
+  }
+
+  public void setSizeInBytes(int sizeInBytes) {
+    this.sizeInBytes = sizeInBytes;
+  }
+
+  /**
+   * Whether the metafield's value can be translated. This is true when the metafield's
+   * [type](https://shopify.dev/docs/apps/build/metafields/list-of-data-types#basic-types)
+   * is translatable and its owner allows metafield translations.
+   */
+  public boolean getTranslatable() {
+    return translatable;
+  }
+
+  public void setTranslatable(boolean translatable) {
+    this.translatable = translatable;
+  }
+
+  /**
    * The published translations associated with the resource.
    */
   public List<Translation> getTranslations() {
@@ -301,7 +337,7 @@ public class Metafield implements com.shopify.admin.types.HasCompareDigest, com.
 
   @Override
   public String toString() {
-    return "Metafield{compareDigest='" + compareDigest + "', createdAt='" + createdAt + "', definition='" + definition + "', description='" + description + "', id='" + id + "', jsonValue='" + jsonValue + "', key='" + key + "', legacyResourceId='" + legacyResourceId + "', namespace='" + namespace + "', owner='" + owner + "', ownerType='" + ownerType + "', reference='" + reference + "', references='" + references + "', translations='" + translations + "', type='" + type + "', updatedAt='" + updatedAt + "', value='" + value + "'}";
+    return "Metafield{compareDigest='" + compareDigest + "', createdAt='" + createdAt + "', definition='" + definition + "', description='" + description + "', id='" + id + "', jsonValue='" + jsonValue + "', key='" + key + "', legacyResourceId='" + legacyResourceId + "', namespace='" + namespace + "', owner='" + owner + "', ownerType='" + ownerType + "', reference='" + reference + "', references='" + references + "', sizeInBytes='" + sizeInBytes + "', translatable='" + translatable + "', translations='" + translations + "', type='" + type + "', updatedAt='" + updatedAt + "', value='" + value + "'}";
   }
 
   @Override
@@ -322,6 +358,8 @@ public class Metafield implements com.shopify.admin.types.HasCompareDigest, com.
         Objects.equals(ownerType, that.ownerType) &&
         Objects.equals(reference, that.reference) &&
         Objects.equals(references, that.references) &&
+        sizeInBytes == that.sizeInBytes &&
+        translatable == that.translatable &&
         Objects.equals(translations, that.translations) &&
         Objects.equals(type, that.type) &&
         Objects.equals(updatedAt, that.updatedAt) &&
@@ -330,7 +368,7 @@ public class Metafield implements com.shopify.admin.types.HasCompareDigest, com.
 
   @Override
   public int hashCode() {
-    return Objects.hash(compareDigest, createdAt, definition, description, id, jsonValue, key, legacyResourceId, namespace, owner, ownerType, reference, references, translations, type, updatedAt, value);
+    return Objects.hash(compareDigest, createdAt, definition, description, id, jsonValue, key, legacyResourceId, namespace, owner, ownerType, reference, references, sizeInBytes, translatable, translations, type, updatedAt, value);
   }
 
   public static Builder newBuilder() {
@@ -404,6 +442,18 @@ public class Metafield implements com.shopify.admin.types.HasCompareDigest, com.
     private MetafieldReferenceConnection references;
 
     /**
+     * The size of the metafield value in bytes.
+     */
+    private int sizeInBytes;
+
+    /**
+     * Whether the metafield's value can be translated. This is true when the metafield's
+     * [type](https://shopify.dev/docs/apps/build/metafields/list-of-data-types#basic-types)
+     * is translatable and its owner allows metafield translations.
+     */
+    private boolean translatable;
+
+    /**
      * The published translations associated with the resource.
      */
     private List<Translation> translations;
@@ -439,6 +489,8 @@ public class Metafield implements com.shopify.admin.types.HasCompareDigest, com.
       result.ownerType = this.ownerType;
       result.reference = this.reference;
       result.references = this.references;
+      result.sizeInBytes = this.sizeInBytes;
+      result.translatable = this.translatable;
       result.translations = this.translations;
       result.type = this.type;
       result.updatedAt = this.updatedAt;
@@ -547,6 +599,24 @@ public class Metafield implements com.shopify.admin.types.HasCompareDigest, com.
      */
     public Builder references(MetafieldReferenceConnection references) {
       this.references = references;
+      return this;
+    }
+
+    /**
+     * The size of the metafield value in bytes.
+     */
+    public Builder sizeInBytes(int sizeInBytes) {
+      this.sizeInBytes = sizeInBytes;
+      return this;
+    }
+
+    /**
+     * Whether the metafield's value can be translated. This is true when the metafield's
+     * [type](https://shopify.dev/docs/apps/build/metafields/list-of-data-types#basic-types)
+     * is translatable and its owner allows metafield translations.
+     */
+    public Builder translatable(boolean translatable) {
+      this.translatable = translatable;
       return this;
     }
 

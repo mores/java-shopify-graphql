@@ -2,10 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.MoveInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -44,6 +48,24 @@ public class CollectionReorderProductsGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public CollectionReorderProductsGraphQLQuery(String id, List<MoveInput> moves, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (moves != null || fieldsSet.contains("moves")) {
+        getInput().put("moves", moves);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public CollectionReorderProductsGraphQLQuery() {
     super("mutation");
   }
@@ -60,6 +82,10 @@ public class CollectionReorderProductsGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private List<MoveInput> moves;
@@ -67,7 +93,7 @@ public class CollectionReorderProductsGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public CollectionReorderProductsGraphQLQuery build() {
-      return new CollectionReorderProductsGraphQLQuery(id, moves, queryName, fieldsSet);
+      return new CollectionReorderProductsGraphQLQuery(id, moves, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -76,6 +102,16 @@ public class CollectionReorderProductsGraphQLQuery extends GraphQLQuery {
      */
     public Builder id(String id) {
       this.id = id;
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
+     * The ID of the collection on which to reorder products.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("id");
       return this;
     }
@@ -90,6 +126,21 @@ public class CollectionReorderProductsGraphQLQuery extends GraphQLQuery {
      */
     public Builder moves(List<MoveInput> moves) {
       this.moves = moves;
+      this.fieldsSet.add("moves");
+      return this;
+    }
+
+    /**
+     * A list of moves to perform, evaluated in order. Provide only products whose
+     * positions changed; do not send the full list.
+     * `newPosition` is a zero-based index evaluated at the time each move is applied (after any prior moves).
+     * `newPosition` values do not need to be unique, and if a value is greater
+     * than or equal to the number of products, the product is moved to the end.
+     * Up to 250 moves are supported.
+     */
+    public Builder movesReference(String variableRef) {
+      this.variableReferences.put("moves", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("MoveInput"))))).build());
       this.fieldsSet.add("moves");
       return this;
     }

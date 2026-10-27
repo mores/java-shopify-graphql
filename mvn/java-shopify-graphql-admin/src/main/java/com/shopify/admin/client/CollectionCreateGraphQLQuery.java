@@ -1,10 +1,15 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
-import com.shopify.admin.types.CollectionInput;
+import com.shopify.admin.types.CollectionCreateInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -14,34 +19,59 @@ import java.util.Set;
  * other [sales channels](https://shopify.dev/docs/apps/build/sales-channels).
  * For example, an athletics store might create different collections for running attire, shoes, and accessories.
  *   
- * There are two types of collections:
- *   
- * - **[Custom (manual) collections](https://help.shopify.com/manual/products/collections/manual-shopify-collection)**:
- * You specify the products to include in a collection.
- * - **[Smart (automated) collections](https://help.shopify.com/manual/products/collections/automated-collections)**:
- * You define rules, and products matching those rules are automatically
- * included in the collection.
- *   
  * Use the `collectionCreate` mutation when you need to:
  *   
  * - Create a new collection for a product launch or campaign
  * - Organize products by category, season, or promotion
- * - Automate product grouping using rules (for example, by tag, type, or price)
+ * - Automate product grouping using conditions (for example, by tag, type, or price)
+ *   
+ * Collections can include products manually and can also include products automatically based on rules, sources,
+ * or conditions.
+ *   
+ * **Defining a collection's membership**
+ *   
+ * Define membership with `sources` on the `collection` argument
+ * ([`CollectionCreateInput`](https://shopify.dev/docs/api/admin-graphql/latest/input-objects/CollectionCreateInput)).
+ * Each source adds products through `conditions` (such as product tag, title, or metafield—see
+ * [`CollectionSourceInclusionConditionInput`](https://shopify.dev/docs/api/admin-graphql/latest/input-objects/CollectionSourceInclusionConditionInput)
+ * for the full list) and through manual `selections`.
+ *   
+ * > Note:
+ * > The `input` argument and its `ruleSet` field are deprecated. Existing integrations should migrate to
+ * `collection` and `sources` — a `ruleSet` rule maps to an equivalent source `condition` (for example, a
+ * tag rule becomes a `productTag` condition). If both `collection` and `input` are provided, `collection`
+ * is used.
  *   
  * > Note:
  * > The created collection is unpublished by default. To make it available to customers,
  * use the [`publishablePublish`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/publishablePublish)
  * mutation after creation.
  *   
- * Learn more about [using metafields with smart collections](https://shopify.dev/docs/apps/build/custom-data/metafields/use-metafield-capabilities).
+ * Learn more about [using metafields with collection conditions](https://shopify.dev/docs/apps/build/custom-data/metafields/use-metafield-capabilities).
  */
 public class CollectionCreateGraphQLQuery extends GraphQLQuery {
-  public CollectionCreateGraphQLQuery(CollectionInput input, String queryName,
+  public CollectionCreateGraphQLQuery(CollectionCreateInput collection, String queryName,
       Set<String> fieldsSet) {
     super("mutation", queryName);
-    if (input != null || fieldsSet.contains("input")) {
-        getInput().put("input", input);
+    if (collection != null || fieldsSet.contains("collection")) {
+        getInput().put("collection", collection);
     }
+  }
+
+  public CollectionCreateGraphQLQuery(CollectionCreateInput collection, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (collection != null || fieldsSet.contains("collection")) {
+        getInput().put("collection", collection);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public CollectionCreateGraphQLQuery() {
@@ -60,21 +90,39 @@ public class CollectionCreateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
-    private CollectionInput input;
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
+    private CollectionCreateInput collection;
 
     private String queryName;
 
     public CollectionCreateGraphQLQuery build() {
-      return new CollectionCreateGraphQLQuery(input, queryName, fieldsSet);
+      return new CollectionCreateGraphQLQuery(collection, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
     /**
-     * The properties to use when creating the collection.
+     * The properties and sources to use when creating the collection. Define
+     * product membership with `sources` (conditions and manual selections) instead
+     * of the legacy `ruleSet`.
      */
-    public Builder input(CollectionInput input) {
-      this.input = input;
-      this.fieldsSet.add("input");
+    public Builder collection(CollectionCreateInput collection) {
+      this.collection = collection;
+      this.fieldsSet.add("collection");
+      return this;
+    }
+
+    /**
+     * The properties and sources to use when creating the collection. Define
+     * product membership with `sources` (conditions and manual selections) instead
+     * of the legacy `ruleSet`.
+     */
+    public Builder collectionReference(String variableRef) {
+      this.variableReferences.put("collection", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("CollectionCreateInput")).build());
+      this.fieldsSet.add("collection");
       return this;
     }
 

@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.CheckoutAndAccountsConfigurationInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -20,6 +25,24 @@ public class CheckoutAndAccountsConfigurationUpdateGraphQLQuery extends GraphQLQ
     }if (configuration != null || fieldsSet.contains("configuration")) {
         getInput().put("configuration", configuration);
     }
+  }
+
+  public CheckoutAndAccountsConfigurationUpdateGraphQLQuery(String id,
+      CheckoutAndAccountsConfigurationInput configuration, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (configuration != null || fieldsSet.contains("configuration")) {
+        getInput().put("configuration", configuration);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public CheckoutAndAccountsConfigurationUpdateGraphQLQuery() {
@@ -38,6 +61,10 @@ public class CheckoutAndAccountsConfigurationUpdateGraphQLQuery extends GraphQLQ
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private CheckoutAndAccountsConfigurationInput configuration;
@@ -45,7 +72,7 @@ public class CheckoutAndAccountsConfigurationUpdateGraphQLQuery extends GraphQLQ
     private String queryName;
 
     public CheckoutAndAccountsConfigurationUpdateGraphQLQuery build() {
-      return new CheckoutAndAccountsConfigurationUpdateGraphQLQuery(id, configuration, queryName, fieldsSet);
+      return new CheckoutAndAccountsConfigurationUpdateGraphQLQuery(id, configuration, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -59,10 +86,30 @@ public class CheckoutAndAccountsConfigurationUpdateGraphQLQuery extends GraphQLQ
     }
 
     /**
+     * The ID of the configuration to update.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The intended changes to the configuration.
      */
     public Builder configuration(CheckoutAndAccountsConfigurationInput configuration) {
       this.configuration = configuration;
+      this.fieldsSet.add("configuration");
+      return this;
+    }
+
+    /**
+     * The intended changes to the configuration.
+     */
+    public Builder configurationReference(String variableRef) {
+      this.variableReferences.put("configuration", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("CheckoutAndAccountsConfigurationInput"))).build());
       this.fieldsSet.add("configuration");
       return this;
     }

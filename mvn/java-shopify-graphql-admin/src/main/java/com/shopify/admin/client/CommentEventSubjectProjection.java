@@ -61,11 +61,4 @@ public class CommentEventSubjectProjection<PARENT extends BaseSubProjectionNode<
     getFragments().add(fragment);
     return fragment;
   }
-
-  public PriceRuleFragmentProjection<CommentEventSubjectProjection<PARENT, ROOT>, ROOT> onPriceRule(
-      ) {
-    PriceRuleFragmentProjection<CommentEventSubjectProjection<PARENT, ROOT>, ROOT> fragment = new PriceRuleFragmentProjection<>(this, getRoot());
-    getFragments().add(fragment);
-    return fragment;
-  }
 }

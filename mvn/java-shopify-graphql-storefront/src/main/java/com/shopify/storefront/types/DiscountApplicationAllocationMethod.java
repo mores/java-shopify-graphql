@@ -9,9 +9,18 @@ package com.shopify.storefront.types;
  * at the time of application.
  */
 public enum DiscountApplicationAllocationMethod {
+  /**
+   * The value is spread across all entitled lines.
+   */
   ACROSS,
 
+  /**
+   * The value is applied onto every entitled line.
+   */
   EACH,
 
+  /**
+   * The value is specifically applied onto a particular line.
+   */
   ONE
 }

@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.EmailInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -19,6 +24,24 @@ public class DraftOrderInvoicePreviewGraphQLQuery extends GraphQLQuery {
     }if (email != null || fieldsSet.contains("email")) {
         getInput().put("email", email);
     }
+  }
+
+  public DraftOrderInvoicePreviewGraphQLQuery(String id, EmailInput email, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (email != null || fieldsSet.contains("email")) {
+        getInput().put("email", email);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public DraftOrderInvoicePreviewGraphQLQuery() {
@@ -37,6 +60,10 @@ public class DraftOrderInvoicePreviewGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private EmailInput email;
@@ -44,7 +71,7 @@ public class DraftOrderInvoicePreviewGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public DraftOrderInvoicePreviewGraphQLQuery build() {
-      return new DraftOrderInvoicePreviewGraphQLQuery(id, email, queryName, fieldsSet);
+      return new DraftOrderInvoicePreviewGraphQLQuery(id, email, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -58,10 +85,30 @@ public class DraftOrderInvoicePreviewGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * Specifies the draft order invoice email to preview.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * Specifies the draft order invoice email fields.
      */
     public Builder email(EmailInput email) {
       this.email = email;
+      this.fieldsSet.add("email");
+      return this;
+    }
+
+    /**
+     * Specifies the draft order invoice email fields.
+     */
+    public Builder emailReference(String variableRef) {
+      this.variableReferences.put("email", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("EmailInput")).build());
       this.fieldsSet.add("email");
       return this;
     }

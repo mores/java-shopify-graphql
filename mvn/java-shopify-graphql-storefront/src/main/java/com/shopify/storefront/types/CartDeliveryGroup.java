@@ -33,6 +33,11 @@ public class CartDeliveryGroup {
   private List<CartDeliveryOption> deliveryOptions;
 
   /**
+   * The discount allocations applied to the delivery group.
+   */
+  private List<CartDiscountAllocation> discountAllocations;
+
+  /**
    * The type of merchandise in the delivery group.
    */
   private CartDeliveryGroupType groupType;
@@ -84,6 +89,17 @@ public class CartDeliveryGroup {
   }
 
   /**
+   * The discount allocations applied to the delivery group.
+   */
+  public List<CartDiscountAllocation> getDiscountAllocations() {
+    return discountAllocations;
+  }
+
+  public void setDiscountAllocations(List<CartDiscountAllocation> discountAllocations) {
+    this.discountAllocations = discountAllocations;
+  }
+
+  /**
    * The type of merchandise in the delivery group.
    */
   public CartDeliveryGroupType getGroupType() {
@@ -118,7 +134,7 @@ public class CartDeliveryGroup {
 
   @Override
   public String toString() {
-    return "CartDeliveryGroup{cartLines='" + cartLines + "', deliveryAddress='" + deliveryAddress + "', deliveryOptions='" + deliveryOptions + "', groupType='" + groupType + "', id='" + id + "', selectedDeliveryOption='" + selectedDeliveryOption + "'}";
+    return "CartDeliveryGroup{cartLines='" + cartLines + "', deliveryAddress='" + deliveryAddress + "', deliveryOptions='" + deliveryOptions + "', discountAllocations='" + discountAllocations + "', groupType='" + groupType + "', id='" + id + "', selectedDeliveryOption='" + selectedDeliveryOption + "'}";
   }
 
   @Override
@@ -129,6 +145,7 @@ public class CartDeliveryGroup {
     return Objects.equals(cartLines, that.cartLines) &&
         Objects.equals(deliveryAddress, that.deliveryAddress) &&
         Objects.equals(deliveryOptions, that.deliveryOptions) &&
+        Objects.equals(discountAllocations, that.discountAllocations) &&
         Objects.equals(groupType, that.groupType) &&
         Objects.equals(id, that.id) &&
         Objects.equals(selectedDeliveryOption, that.selectedDeliveryOption);
@@ -136,7 +153,7 @@ public class CartDeliveryGroup {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cartLines, deliveryAddress, deliveryOptions, groupType, id, selectedDeliveryOption);
+    return Objects.hash(cartLines, deliveryAddress, deliveryOptions, discountAllocations, groupType, id, selectedDeliveryOption);
   }
 
   public static Builder newBuilder() {
@@ -160,6 +177,11 @@ public class CartDeliveryGroup {
     private List<CartDeliveryOption> deliveryOptions;
 
     /**
+     * The discount allocations applied to the delivery group.
+     */
+    private List<CartDiscountAllocation> discountAllocations;
+
+    /**
      * The type of merchandise in the delivery group.
      */
     private CartDeliveryGroupType groupType;
@@ -179,6 +201,7 @@ public class CartDeliveryGroup {
       result.cartLines = this.cartLines;
       result.deliveryAddress = this.deliveryAddress;
       result.deliveryOptions = this.deliveryOptions;
+      result.discountAllocations = this.discountAllocations;
       result.groupType = this.groupType;
       result.id = this.id;
       result.selectedDeliveryOption = this.selectedDeliveryOption;
@@ -206,6 +229,14 @@ public class CartDeliveryGroup {
      */
     public Builder deliveryOptions(List<CartDeliveryOption> deliveryOptions) {
       this.deliveryOptions = deliveryOptions;
+      return this;
+    }
+
+    /**
+     * The discount allocations applied to the delivery group.
+     */
+    public Builder discountAllocations(List<CartDiscountAllocation> discountAllocations) {
+      this.discountAllocations = discountAllocations;
       return this;
     }
 

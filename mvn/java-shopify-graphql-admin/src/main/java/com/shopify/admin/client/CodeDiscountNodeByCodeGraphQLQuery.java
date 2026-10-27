@@ -1,9 +1,14 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -26,6 +31,21 @@ public class CodeDiscountNodeByCodeGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public CodeDiscountNodeByCodeGraphQLQuery(String code, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("query", queryName);
+    if (code != null || fieldsSet.contains("code")) {
+        getInput().put("code", code);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public CodeDiscountNodeByCodeGraphQLQuery() {
     super("query");
   }
@@ -42,12 +62,16 @@ public class CodeDiscountNodeByCodeGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String code;
 
     private String queryName;
 
     public CodeDiscountNodeByCodeGraphQLQuery build() {
-      return new CodeDiscountNodeByCodeGraphQLQuery(code, queryName, fieldsSet);
+      return new CodeDiscountNodeByCodeGraphQLQuery(code, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -56,6 +80,16 @@ public class CodeDiscountNodeByCodeGraphQLQuery extends GraphQLQuery {
      */
     public Builder code(String code) {
       this.code = code;
+      this.fieldsSet.add("code");
+      return this;
+    }
+
+    /**
+     * The case-insensitive code of the `DiscountCodeNode` to return.
+     */
+    public Builder codeReference(String variableRef) {
+      this.variableReferences.put("code", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("String"))).build());
       this.fieldsSet.add("code");
       return this;
     }

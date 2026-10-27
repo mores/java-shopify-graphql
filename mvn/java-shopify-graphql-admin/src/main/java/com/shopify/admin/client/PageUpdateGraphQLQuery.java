@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.PageUpdateInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -32,6 +37,24 @@ public class PageUpdateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public PageUpdateGraphQLQuery(String id, PageUpdateInput page, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (page != null || fieldsSet.contains("page")) {
+        getInput().put("page", page);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public PageUpdateGraphQLQuery() {
     super("mutation");
   }
@@ -48,6 +71,10 @@ public class PageUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private PageUpdateInput page;
@@ -55,7 +82,7 @@ public class PageUpdateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public PageUpdateGraphQLQuery build() {
-      return new PageUpdateGraphQLQuery(id, page, queryName, fieldsSet);
+      return new PageUpdateGraphQLQuery(id, page, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -69,10 +96,30 @@ public class PageUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the page to be updated.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The properties of the page to be updated.
      */
     public Builder page(PageUpdateInput page) {
       this.page = page;
+      this.fieldsSet.add("page");
+      return this;
+    }
+
+    /**
+     * The properties of the page to be updated.
+     */
+    public Builder pageReference(String variableRef) {
+      this.variableReferences.put("page", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("PageUpdateInput"))).build());
       this.fieldsSet.add("page");
       return this;
     }

@@ -26,6 +26,13 @@ public class SubscriptionDeliveryPolicyProjection<PARENT extends BaseSubProjecti
      return projection;
   }
 
+  public SubscriptionContractCalculationMultipleFulfillmentConfigProjection<SubscriptionDeliveryPolicyProjection<PARENT, ROOT>, ROOT> multiFulfillment(
+      ) {
+     SubscriptionContractCalculationMultipleFulfillmentConfigProjection<SubscriptionDeliveryPolicyProjection<PARENT, ROOT>, ROOT> projection = new SubscriptionContractCalculationMultipleFulfillmentConfigProjection<>(this, getRoot());
+     getFields().put("multiFulfillment", projection);
+     return projection;
+  }
+
   public SubscriptionDeliveryPolicyProjection<PARENT, ROOT> intervalCount() {
     getFields().put("intervalCount", null);
     return this;

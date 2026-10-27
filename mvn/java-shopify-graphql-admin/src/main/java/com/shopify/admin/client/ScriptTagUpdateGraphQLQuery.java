@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.ScriptTagInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -14,12 +19,6 @@ import java.util.Set;
  * tags. Script tags can only be used with vintage themes. <a
  * href="/apps/online-store#what-integration-method-should-i-use"
  * target="_blank">Learn more</a>.</p></div>
- *   
- * <div class="note">&lt;h4>Script tag deprecation&lt;/h4>
- *   <p>Script tags will be sunset for the <b>Order status</b> page on August 28, 2025. <a href="https://www.shopify.com/plus/upgrading-to-checkout-extensibility">Upgrade
- * to Checkout Extensibility</a> before this date. <a
- * href="/docs/api/liquid/objects#script">Shopify Scripts</a> will continue to
- * work alongside Checkout Extensibility until August 28, 2025.</p></div>
  *   
  *   
  * Updates a script tag.
@@ -33,6 +32,24 @@ public class ScriptTagUpdateGraphQLQuery extends GraphQLQuery {
     }if (input != null || fieldsSet.contains("input")) {
         getInput().put("input", input);
     }
+  }
+
+  public ScriptTagUpdateGraphQLQuery(String id, ScriptTagInput input, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (input != null || fieldsSet.contains("input")) {
+        getInput().put("input", input);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public ScriptTagUpdateGraphQLQuery() {
@@ -51,6 +68,10 @@ public class ScriptTagUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private ScriptTagInput input;
@@ -58,7 +79,7 @@ public class ScriptTagUpdateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public ScriptTagUpdateGraphQLQuery build() {
-      return new ScriptTagUpdateGraphQLQuery(id, input, queryName, fieldsSet);
+      return new ScriptTagUpdateGraphQLQuery(id, input, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -72,10 +93,30 @@ public class ScriptTagUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the script tag to update.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * Specifies the input fields for a script tag.
      */
     public Builder input(ScriptTagInput input) {
       this.input = input;
+      this.fieldsSet.add("input");
+      return this;
+    }
+
+    /**
+     * Specifies the input fields for a script tag.
+     */
+    public Builder inputReference(String variableRef) {
+      this.variableReferences.put("input", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ScriptTagInput"))).build());
       this.fieldsSet.add("input");
       return this;
     }

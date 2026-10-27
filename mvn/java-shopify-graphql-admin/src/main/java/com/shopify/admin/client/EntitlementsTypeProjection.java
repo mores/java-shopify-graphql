@@ -12,6 +12,12 @@ public class EntitlementsTypeProjection<PARENT extends BaseSubProjectionNode<?, 
     return this;
   }
 
+  public B2BTypeProjection<EntitlementsTypeProjection<PARENT, ROOT>, ROOT> b2b() {
+     B2BTypeProjection<EntitlementsTypeProjection<PARENT, ROOT>, ROOT> projection = new B2BTypeProjection<>(this, getRoot());
+     getFields().put("b2b", projection);
+     return projection;
+  }
+
   public MarketsTypeProjection<EntitlementsTypeProjection<PARENT, ROOT>, ROOT> markets() {
      MarketsTypeProjection<EntitlementsTypeProjection<PARENT, ROOT>, ROOT> projection = new MarketsTypeProjection<>(this, getRoot());
      getFields().put("markets", projection);

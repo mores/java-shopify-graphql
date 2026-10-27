@@ -1,9 +1,14 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -29,6 +34,24 @@ public class CompanyAssignCustomerAsContactGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public CompanyAssignCustomerAsContactGraphQLQuery(String companyId, String customerId,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (companyId != null || fieldsSet.contains("companyId")) {
+        getInput().put("companyId", companyId);
+    }if (customerId != null || fieldsSet.contains("customerId")) {
+        getInput().put("customerId", customerId);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public CompanyAssignCustomerAsContactGraphQLQuery() {
     super("mutation");
   }
@@ -45,6 +68,10 @@ public class CompanyAssignCustomerAsContactGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String companyId;
 
     private String customerId;
@@ -52,7 +79,7 @@ public class CompanyAssignCustomerAsContactGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public CompanyAssignCustomerAsContactGraphQLQuery build() {
-      return new CompanyAssignCustomerAsContactGraphQLQuery(companyId, customerId, queryName, fieldsSet);
+      return new CompanyAssignCustomerAsContactGraphQLQuery(companyId, customerId, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -66,10 +93,30 @@ public class CompanyAssignCustomerAsContactGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the company to assign the contact to.
+     */
+    public Builder companyIdReference(String variableRef) {
+      this.variableReferences.put("companyId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("companyId");
+      return this;
+    }
+
+    /**
      * The ID of the customer to assign as the contact.
      */
     public Builder customerId(String customerId) {
       this.customerId = customerId;
+      this.fieldsSet.add("customerId");
+      return this;
+    }
+
+    /**
+     * The ID of the customer to assign as the contact.
+     */
+    public Builder customerIdReference(String variableRef) {
+      this.variableReferences.put("customerId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("customerId");
       return this;
     }

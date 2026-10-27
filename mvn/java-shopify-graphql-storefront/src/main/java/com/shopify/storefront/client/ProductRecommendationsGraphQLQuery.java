@@ -2,9 +2,14 @@ package com.shopify.storefront.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.storefront.types.ProductRecommendationIntent;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -31,6 +36,26 @@ public class ProductRecommendationsGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public ProductRecommendationsGraphQLQuery(String productId, String productHandle,
+      ProductRecommendationIntent intent, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("query", queryName);
+    if (productId != null || fieldsSet.contains("productId")) {
+        getInput().put("productId", productId);
+    }if (productHandle != null || fieldsSet.contains("productHandle")) {
+        getInput().put("productHandle", productHandle);
+    }if (intent != null || fieldsSet.contains("intent")) {
+        getInput().put("intent", intent);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public ProductRecommendationsGraphQLQuery() {
     super("query");
   }
@@ -47,6 +72,10 @@ public class ProductRecommendationsGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String productId;
 
     private String productHandle;
@@ -56,7 +85,7 @@ public class ProductRecommendationsGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public ProductRecommendationsGraphQLQuery build() {
-      return new ProductRecommendationsGraphQLQuery(productId, productHandle, intent, queryName, fieldsSet);
+      return new ProductRecommendationsGraphQLQuery(productId, productHandle, intent, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -65,6 +94,16 @@ public class ProductRecommendationsGraphQLQuery extends GraphQLQuery {
      */
     public Builder productId(String productId) {
       this.productId = productId;
+      this.fieldsSet.add("productId");
+      return this;
+    }
+
+    /**
+     * The id of the product.
+     */
+    public Builder productIdReference(String variableRef) {
+      this.variableReferences.put("productId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("ID")).build());
       this.fieldsSet.add("productId");
       return this;
     }
@@ -79,12 +118,34 @@ public class ProductRecommendationsGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The handle of the product.
+     */
+    public Builder productHandleReference(String variableRef) {
+      this.variableReferences.put("productHandle", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
+      this.fieldsSet.add("productHandle");
+      return this;
+    }
+
+    /**
      * The recommendation intent that is used to generate product recommendations.
      * You can use intent to generate product recommendations on various pages
      * across the channels, according to different strategies.
      */
     public Builder intent(ProductRecommendationIntent intent) {
       this.intent = intent;
+      this.fieldsSet.add("intent");
+      return this;
+    }
+
+    /**
+     * The recommendation intent that is used to generate product recommendations.
+     * You can use intent to generate product recommendations on various pages
+     * across the channels, according to different strategies.
+     */
+    public Builder intentReference(String variableRef) {
+      this.variableReferences.put("intent", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("ProductRecommendationIntent")).build());
       this.fieldsSet.add("intent");
       return this;
     }

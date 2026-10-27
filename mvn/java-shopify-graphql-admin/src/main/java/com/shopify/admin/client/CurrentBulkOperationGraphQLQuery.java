@@ -2,14 +2,22 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.BulkOperationType;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
  * Returns the current app's most recent [`BulkOperation`](https://shopify.dev/docs/api/admin-graphql/latest/objects/BulkOperation).
- * Apps can run one bulk query and one bulk mutation operation at a time per shop.
+ * Bulk query and bulk mutation operations can run at the same time per shop. The
+ * number of concurrent operations that an app can run depends on the API
+ * version. For the applicable concurrency limits, refer to the [bulk operations
+ * guide](https://shopify.dev/docs/api/usage/bulk-operations/queries).
  *   
  * The operation type parameter determines whether to retrieve the most recent
  * query or mutation bulk operation. Use this query to check the operation's
@@ -22,6 +30,22 @@ public class CurrentBulkOperationGraphQLQuery extends GraphQLQuery {
     if (type != null || fieldsSet.contains("type")) {
         getInput().put("type", type);
     }
+  }
+
+  public CurrentBulkOperationGraphQLQuery(BulkOperationType type, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("query", queryName);
+    if (type != null || fieldsSet.contains("type")) {
+        getInput().put("type", type);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public CurrentBulkOperationGraphQLQuery() {
@@ -40,12 +64,16 @@ public class CurrentBulkOperationGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private BulkOperationType type;
 
     private String queryName;
 
     public CurrentBulkOperationGraphQLQuery build() {
-      return new CurrentBulkOperationGraphQLQuery(type, queryName, fieldsSet);
+      return new CurrentBulkOperationGraphQLQuery(type, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -54,6 +82,16 @@ public class CurrentBulkOperationGraphQLQuery extends GraphQLQuery {
      */
     public Builder type(BulkOperationType type) {
       this.type = type;
+      this.fieldsSet.add("type");
+      return this;
+    }
+
+    /**
+     * The current bulk operation's type.
+     */
+    public Builder typeReference(String variableRef) {
+      this.variableReferences.put("type", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("BulkOperationType")).build());
       this.fieldsSet.add("type");
       return this;
     }

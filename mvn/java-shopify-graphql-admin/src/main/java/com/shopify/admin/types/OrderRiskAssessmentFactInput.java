@@ -6,16 +6,16 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The input fields to create a fact on an order risk assessment.
+ * The input fields for a risk assessment fact.
  */
 public class OrderRiskAssessmentFactInput {
   /**
-   * Indicates whether the fact is a negative, neutral or positive contributor with regards to risk.
+   * Indicates whether the fact contributes negatively, neutrally, or positively to risk.
    */
   private RiskFactSentiment sentiment;
 
   /**
-   * A description of the fact. Large values are truncated to 256 characters.
+   * Descriptions longer than 256 characters are truncated.
    */
   private String description;
 
@@ -23,7 +23,7 @@ public class OrderRiskAssessmentFactInput {
   }
 
   /**
-   * Indicates whether the fact is a negative, neutral or positive contributor with regards to risk.
+   * Indicates whether the fact contributes negatively, neutrally, or positively to risk.
    */
   public RiskFactSentiment getSentiment() {
     return sentiment;
@@ -34,7 +34,7 @@ public class OrderRiskAssessmentFactInput {
   }
 
   /**
-   * A description of the fact. Large values are truncated to 256 characters.
+   * Descriptions longer than 256 characters are truncated.
    */
   public String getDescription() {
     return description;
@@ -69,12 +69,12 @@ public class OrderRiskAssessmentFactInput {
 
   public static class Builder {
     /**
-     * Indicates whether the fact is a negative, neutral or positive contributor with regards to risk.
+     * Indicates whether the fact contributes negatively, neutrally, or positively to risk.
      */
     private RiskFactSentiment sentiment;
 
     /**
-     * A description of the fact. Large values are truncated to 256 characters.
+     * Descriptions longer than 256 characters are truncated.
      */
     private String description;
 
@@ -86,7 +86,7 @@ public class OrderRiskAssessmentFactInput {
     }
 
     /**
-     * Indicates whether the fact is a negative, neutral or positive contributor with regards to risk.
+     * Indicates whether the fact contributes negatively, neutrally, or positively to risk.
      */
     public Builder sentiment(RiskFactSentiment sentiment) {
       this.sentiment = sentiment;
@@ -94,7 +94,7 @@ public class OrderRiskAssessmentFactInput {
     }
 
     /**
-     * A description of the fact. Large values are truncated to 256 characters.
+     * Descriptions longer than 256 characters are truncated.
      */
     public Builder description(String description) {
       this.description = description;

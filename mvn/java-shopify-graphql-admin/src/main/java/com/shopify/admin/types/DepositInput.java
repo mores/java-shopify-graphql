@@ -6,7 +6,7 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * The input fields configuring the deposit for a B2B buyer.
+ * The input fields configuring the deposit requirement.
  */
 public class DepositInput {
   /**

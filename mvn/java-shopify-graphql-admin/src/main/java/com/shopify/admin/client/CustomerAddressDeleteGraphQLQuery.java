@@ -1,9 +1,14 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -18,6 +23,24 @@ public class CustomerAddressDeleteGraphQLQuery extends GraphQLQuery {
     }if (addressId != null || fieldsSet.contains("addressId")) {
         getInput().put("addressId", addressId);
     }
+  }
+
+  public CustomerAddressDeleteGraphQLQuery(String customerId, String addressId, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (customerId != null || fieldsSet.contains("customerId")) {
+        getInput().put("customerId", customerId);
+    }if (addressId != null || fieldsSet.contains("addressId")) {
+        getInput().put("addressId", addressId);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public CustomerAddressDeleteGraphQLQuery() {
@@ -36,6 +59,10 @@ public class CustomerAddressDeleteGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String customerId;
 
     private String addressId;
@@ -43,7 +70,7 @@ public class CustomerAddressDeleteGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public CustomerAddressDeleteGraphQLQuery build() {
-      return new CustomerAddressDeleteGraphQLQuery(customerId, addressId, queryName, fieldsSet);
+      return new CustomerAddressDeleteGraphQLQuery(customerId, addressId, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -57,10 +84,30 @@ public class CustomerAddressDeleteGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the customer whose address is being deleted.
+     */
+    public Builder customerIdReference(String variableRef) {
+      this.variableReferences.put("customerId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("customerId");
+      return this;
+    }
+
+    /**
      * The ID of the address to be deleted from the customer.
      */
     public Builder addressId(String addressId) {
       this.addressId = addressId;
+      this.fieldsSet.add("addressId");
+      return this;
+    }
+
+    /**
+     * The ID of the address to be deleted from the customer.
+     */
+    public Builder addressIdReference(String variableRef) {
+      this.variableReferences.put("addressId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("addressId");
       return this;
     }

@@ -10,6 +10,11 @@ import java.util.Objects;
  */
 public class MarketPriceInclusions {
   /**
+   * Whether adaptive pricing is enabled for the market. Only applicable to Managed Markets and must be ignored otherwise.
+   */
+  private boolean adaptivePricingEnabled;
+
+  /**
    * The inclusive duties pricing strategy of the market. This determines if prices include duties.
    */
   private InclusiveDutiesPricingStrategy inclusiveDutiesPricingStrategy;
@@ -20,6 +25,17 @@ public class MarketPriceInclusions {
   private InclusiveTaxPricingStrategy inclusiveTaxPricingStrategy;
 
   public MarketPriceInclusions() {
+  }
+
+  /**
+   * Whether adaptive pricing is enabled for the market. Only applicable to Managed Markets and must be ignored otherwise.
+   */
+  public boolean getAdaptivePricingEnabled() {
+    return adaptivePricingEnabled;
+  }
+
+  public void setAdaptivePricingEnabled(boolean adaptivePricingEnabled) {
+    this.adaptivePricingEnabled = adaptivePricingEnabled;
   }
 
   /**
@@ -48,7 +64,7 @@ public class MarketPriceInclusions {
 
   @Override
   public String toString() {
-    return "MarketPriceInclusions{inclusiveDutiesPricingStrategy='" + inclusiveDutiesPricingStrategy + "', inclusiveTaxPricingStrategy='" + inclusiveTaxPricingStrategy + "'}";
+    return "MarketPriceInclusions{adaptivePricingEnabled='" + adaptivePricingEnabled + "', inclusiveDutiesPricingStrategy='" + inclusiveDutiesPricingStrategy + "', inclusiveTaxPricingStrategy='" + inclusiveTaxPricingStrategy + "'}";
   }
 
   @Override
@@ -56,13 +72,14 @@ public class MarketPriceInclusions {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     MarketPriceInclusions that = (MarketPriceInclusions) o;
-    return Objects.equals(inclusiveDutiesPricingStrategy, that.inclusiveDutiesPricingStrategy) &&
+    return adaptivePricingEnabled == that.adaptivePricingEnabled &&
+        Objects.equals(inclusiveDutiesPricingStrategy, that.inclusiveDutiesPricingStrategy) &&
         Objects.equals(inclusiveTaxPricingStrategy, that.inclusiveTaxPricingStrategy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(inclusiveDutiesPricingStrategy, inclusiveTaxPricingStrategy);
+    return Objects.hash(adaptivePricingEnabled, inclusiveDutiesPricingStrategy, inclusiveTaxPricingStrategy);
   }
 
   public static Builder newBuilder() {
@@ -70,6 +87,11 @@ public class MarketPriceInclusions {
   }
 
   public static class Builder {
+    /**
+     * Whether adaptive pricing is enabled for the market. Only applicable to Managed Markets and must be ignored otherwise.
+     */
+    private boolean adaptivePricingEnabled;
+
     /**
      * The inclusive duties pricing strategy of the market. This determines if prices include duties.
      */
@@ -82,9 +104,18 @@ public class MarketPriceInclusions {
 
     public MarketPriceInclusions build() {
       MarketPriceInclusions result = new MarketPriceInclusions();
+      result.adaptivePricingEnabled = this.adaptivePricingEnabled;
       result.inclusiveDutiesPricingStrategy = this.inclusiveDutiesPricingStrategy;
       result.inclusiveTaxPricingStrategy = this.inclusiveTaxPricingStrategy;
       return result;
+    }
+
+    /**
+     * Whether adaptive pricing is enabled for the market. Only applicable to Managed Markets and must be ignored otherwise.
+     */
+    public Builder adaptivePricingEnabled(boolean adaptivePricingEnabled) {
+      this.adaptivePricingEnabled = adaptivePricingEnabled;
+      return this;
     }
 
     /**

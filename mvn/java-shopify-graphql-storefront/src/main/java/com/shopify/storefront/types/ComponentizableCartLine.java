@@ -67,6 +67,13 @@ public class ComponentizableCartLine implements com.shopify.storefront.types.Bas
    */
   private SellingPlanAllocation sellingPlanAllocation;
 
+  /**
+   * A stable identifier for the line matching the value exposed in Liquid via the
+   * `view_key` filter and accepted as input on `cartLinesUpdate` and
+   * `cartLinesRemove`.
+   */
+  private String viewKey;
+
   public ComponentizableCartLine() {
   }
 
@@ -183,9 +190,22 @@ public class ComponentizableCartLine implements com.shopify.storefront.types.Bas
     this.sellingPlanAllocation = sellingPlanAllocation;
   }
 
+  /**
+   * A stable identifier for the line matching the value exposed in Liquid via the
+   * `view_key` filter and accepted as input on `cartLinesUpdate` and
+   * `cartLinesRemove`.
+   */
+  public String getViewKey() {
+    return viewKey;
+  }
+
+  public void setViewKey(String viewKey) {
+    this.viewKey = viewKey;
+  }
+
   @Override
   public String toString() {
-    return "ComponentizableCartLine{attribute='" + attribute + "', attributes='" + attributes + "', cost='" + cost + "', discountAllocations='" + discountAllocations + "', estimatedCost='" + estimatedCost + "', id='" + id + "', lineComponents='" + lineComponents + "', merchandise='" + merchandise + "', quantity='" + quantity + "', sellingPlanAllocation='" + sellingPlanAllocation + "'}";
+    return "ComponentizableCartLine{attribute='" + attribute + "', attributes='" + attributes + "', cost='" + cost + "', discountAllocations='" + discountAllocations + "', estimatedCost='" + estimatedCost + "', id='" + id + "', lineComponents='" + lineComponents + "', merchandise='" + merchandise + "', quantity='" + quantity + "', sellingPlanAllocation='" + sellingPlanAllocation + "', viewKey='" + viewKey + "'}";
   }
 
   @Override
@@ -202,12 +222,13 @@ public class ComponentizableCartLine implements com.shopify.storefront.types.Bas
         Objects.equals(lineComponents, that.lineComponents) &&
         Objects.equals(merchandise, that.merchandise) &&
         quantity == that.quantity &&
-        Objects.equals(sellingPlanAllocation, that.sellingPlanAllocation);
+        Objects.equals(sellingPlanAllocation, that.sellingPlanAllocation) &&
+        Objects.equals(viewKey, that.viewKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attribute, attributes, cost, discountAllocations, estimatedCost, id, lineComponents, merchandise, quantity, sellingPlanAllocation);
+    return Objects.hash(attribute, attributes, cost, discountAllocations, estimatedCost, id, lineComponents, merchandise, quantity, sellingPlanAllocation, viewKey);
   }
 
   public static Builder newBuilder() {
@@ -268,6 +289,13 @@ public class ComponentizableCartLine implements com.shopify.storefront.types.Bas
      */
     private SellingPlanAllocation sellingPlanAllocation;
 
+    /**
+     * A stable identifier for the line matching the value exposed in Liquid via the
+     * `view_key` filter and accepted as input on `cartLinesUpdate` and
+     * `cartLinesRemove`.
+     */
+    private String viewKey;
+
     public ComponentizableCartLine build() {
       ComponentizableCartLine result = new ComponentizableCartLine();
       result.attribute = this.attribute;
@@ -280,6 +308,7 @@ public class ComponentizableCartLine implements com.shopify.storefront.types.Bas
       result.merchandise = this.merchandise;
       result.quantity = this.quantity;
       result.sellingPlanAllocation = this.sellingPlanAllocation;
+      result.viewKey = this.viewKey;
       return result;
     }
 
@@ -363,6 +392,16 @@ public class ComponentizableCartLine implements com.shopify.storefront.types.Bas
      */
     public Builder sellingPlanAllocation(SellingPlanAllocation sellingPlanAllocation) {
       this.sellingPlanAllocation = sellingPlanAllocation;
+      return this;
+    }
+
+    /**
+     * A stable identifier for the line matching the value exposed in Liquid via the
+     * `view_key` filter and accepted as input on `cartLinesUpdate` and
+     * `cartLinesRemove`.
+     */
+    public Builder viewKey(String viewKey) {
+      this.viewKey = viewKey;
       return this;
     }
   }

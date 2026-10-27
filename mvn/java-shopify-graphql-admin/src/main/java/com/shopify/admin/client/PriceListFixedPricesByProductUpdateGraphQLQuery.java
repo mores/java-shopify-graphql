@@ -2,10 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.PriceListProductPriceInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -32,6 +36,27 @@ public class PriceListFixedPricesByProductUpdateGraphQLQuery extends GraphQLQuer
     }
   }
 
+  public PriceListFixedPricesByProductUpdateGraphQLQuery(
+      List<PriceListProductPriceInput> pricesToAdd, List<String> pricesToDeleteByProductIds,
+      String priceListId, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (pricesToAdd != null || fieldsSet.contains("pricesToAdd")) {
+        getInput().put("pricesToAdd", pricesToAdd);
+    }if (pricesToDeleteByProductIds != null || fieldsSet.contains("pricesToDeleteByProductIds")) {
+        getInput().put("pricesToDeleteByProductIds", pricesToDeleteByProductIds);
+    }if (priceListId != null || fieldsSet.contains("priceListId")) {
+        getInput().put("priceListId", priceListId);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public PriceListFixedPricesByProductUpdateGraphQLQuery() {
     super("mutation");
   }
@@ -48,6 +73,10 @@ public class PriceListFixedPricesByProductUpdateGraphQLQuery extends GraphQLQuer
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private List<PriceListProductPriceInput> pricesToAdd;
 
     private List<String> pricesToDeleteByProductIds;
@@ -57,7 +86,7 @@ public class PriceListFixedPricesByProductUpdateGraphQLQuery extends GraphQLQuer
     private String queryName;
 
     public PriceListFixedPricesByProductUpdateGraphQLQuery build() {
-      return new PriceListFixedPricesByProductUpdateGraphQLQuery(pricesToAdd, pricesToDeleteByProductIds, priceListId, queryName, fieldsSet);
+      return new PriceListFixedPricesByProductUpdateGraphQLQuery(pricesToAdd, pricesToDeleteByProductIds, priceListId, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -66,6 +95,16 @@ public class PriceListFixedPricesByProductUpdateGraphQLQuery extends GraphQLQuer
      */
     public Builder pricesToAdd(List<PriceListProductPriceInput> pricesToAdd) {
       this.pricesToAdd = pricesToAdd;
+      this.fieldsSet.add("pricesToAdd");
+      return this;
+    }
+
+    /**
+     * A list of `PriceListProductPriceInput` that identifies which products to update the fixed prices for.
+     */
+    public Builder pricesToAddReference(String variableRef) {
+      this.variableReferences.put("pricesToAdd", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("PriceListProductPriceInput")))).build());
       this.fieldsSet.add("pricesToAdd");
       return this;
     }
@@ -80,10 +119,30 @@ public class PriceListFixedPricesByProductUpdateGraphQLQuery extends GraphQLQuer
     }
 
     /**
+     * A list of product IDs that identifies which products to remove the fixed prices for.
+     */
+    public Builder pricesToDeleteByProductIdsReference(String variableRef) {
+      this.variableReferences.put("pricesToDeleteByProductIds", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("ID")))).build());
+      this.fieldsSet.add("pricesToDeleteByProductIds");
+      return this;
+    }
+
+    /**
      * The price list to update the prices for.
      */
     public Builder priceListId(String priceListId) {
       this.priceListId = priceListId;
+      this.fieldsSet.add("priceListId");
+      return this;
+    }
+
+    /**
+     * The price list to update the prices for.
+     */
+    public Builder priceListIdReference(String variableRef) {
+      this.variableReferences.put("priceListId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("priceListId");
       return this;
     }

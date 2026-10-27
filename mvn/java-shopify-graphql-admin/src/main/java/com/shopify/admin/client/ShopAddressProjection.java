@@ -68,7 +68,7 @@ public class ShopAddressProjection<PARENT extends BaseSubProjectionNode<?, ?>, R
   public ShopAddressProjection formatted(Boolean withCompany) {
     getFields().put("formatted", null);
     getInputArguments().computeIfAbsent("formatted", k -> new ArrayList<>());
-    InputArgument withCompanyArg = new InputArgument("withCompany", withCompany);
+    InputArgument withCompanyArg = new InputArgument("withCompany", withCompany, false, null);
     getInputArguments().get("formatted").add(withCompanyArg);
     return this;
   }

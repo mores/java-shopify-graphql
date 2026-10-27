@@ -2,10 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.InventoryBulkToggleActivationInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -31,6 +35,25 @@ public class InventoryBulkToggleActivationGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public InventoryBulkToggleActivationGraphQLQuery(String inventoryItemId,
+      List<InventoryBulkToggleActivationInput> inventoryItemUpdates, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (inventoryItemId != null || fieldsSet.contains("inventoryItemId")) {
+        getInput().put("inventoryItemId", inventoryItemId);
+    }if (inventoryItemUpdates != null || fieldsSet.contains("inventoryItemUpdates")) {
+        getInput().put("inventoryItemUpdates", inventoryItemUpdates);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public InventoryBulkToggleActivationGraphQLQuery() {
     super("mutation");
   }
@@ -47,6 +70,10 @@ public class InventoryBulkToggleActivationGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String inventoryItemId;
 
     private List<InventoryBulkToggleActivationInput> inventoryItemUpdates;
@@ -54,7 +81,7 @@ public class InventoryBulkToggleActivationGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public InventoryBulkToggleActivationGraphQLQuery build() {
-      return new InventoryBulkToggleActivationGraphQLQuery(inventoryItemId, inventoryItemUpdates, queryName, fieldsSet);
+      return new InventoryBulkToggleActivationGraphQLQuery(inventoryItemId, inventoryItemUpdates, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -68,11 +95,31 @@ public class InventoryBulkToggleActivationGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the inventory item to modify the activation status locations for.
+     */
+    public Builder inventoryItemIdReference(String variableRef) {
+      this.variableReferences.put("inventoryItemId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("inventoryItemId");
+      return this;
+    }
+
+    /**
      * A list of pairs of locations and activate status to update for the specified inventory item.
      */
     public Builder inventoryItemUpdates(
         List<InventoryBulkToggleActivationInput> inventoryItemUpdates) {
       this.inventoryItemUpdates = inventoryItemUpdates;
+      this.fieldsSet.add("inventoryItemUpdates");
+      return this;
+    }
+
+    /**
+     * A list of pairs of locations and activate status to update for the specified inventory item.
+     */
+    public Builder inventoryItemUpdatesReference(String variableRef) {
+      this.variableReferences.put("inventoryItemUpdates", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("InventoryBulkToggleActivationInput"))))).build());
       this.fieldsSet.add("inventoryItemUpdates");
       return this;
     }

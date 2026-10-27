@@ -2,9 +2,14 @@ package com.shopify.storefront.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.storefront.types.CartBuyerIdentityInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -30,6 +35,24 @@ public class CartBuyerIdentityUpdateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public CartBuyerIdentityUpdateGraphQLQuery(String cartId, CartBuyerIdentityInput buyerIdentity,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (cartId != null || fieldsSet.contains("cartId")) {
+        getInput().put("cartId", cartId);
+    }if (buyerIdentity != null || fieldsSet.contains("buyerIdentity")) {
+        getInput().put("buyerIdentity", buyerIdentity);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public CartBuyerIdentityUpdateGraphQLQuery() {
     super("mutation");
   }
@@ -46,6 +69,10 @@ public class CartBuyerIdentityUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String cartId;
 
     private CartBuyerIdentityInput buyerIdentity;
@@ -53,7 +80,7 @@ public class CartBuyerIdentityUpdateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public CartBuyerIdentityUpdateGraphQLQuery build() {
-      return new CartBuyerIdentityUpdateGraphQLQuery(cartId, buyerIdentity, queryName, fieldsSet);
+      return new CartBuyerIdentityUpdateGraphQLQuery(cartId, buyerIdentity, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -67,12 +94,34 @@ public class CartBuyerIdentityUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the cart.
+     */
+    public Builder cartIdReference(String variableRef) {
+      this.variableReferences.put("cartId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("cartId");
+      return this;
+    }
+
+    /**
      * The customer associated with the cart. Used to determine
      * [international pricing](https://shopify.dev/custom-storefronts/internationalization/international-pricing).
      * Buyer identity should match the customer's shipping address.
      */
     public Builder buyerIdentity(CartBuyerIdentityInput buyerIdentity) {
       this.buyerIdentity = buyerIdentity;
+      this.fieldsSet.add("buyerIdentity");
+      return this;
+    }
+
+    /**
+     * The customer associated with the cart. Used to determine
+     * [international pricing](https://shopify.dev/custom-storefronts/internationalization/international-pricing).
+     * Buyer identity should match the customer's shipping address.
+     */
+    public Builder buyerIdentityReference(String variableRef) {
+      this.variableReferences.put("buyerIdentity", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("CartBuyerIdentityInput"))).build());
       this.fieldsSet.add("buyerIdentity");
       return this;
     }

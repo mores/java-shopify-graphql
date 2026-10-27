@@ -1,15 +1,27 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
- * Returns an
- * [InventoryLevel](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryLevel)
- * object by ID.
+ * Retrieves an [inventory level](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryLevel)
+ * by its ID. An inventory level exists for an inventory item at each location
+ * that stocks it. Each inventory level has a [`quantities`](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryLevel#field-InventoryLevel.fields.quantities)
+ * field to read the inventory quantity by name. Quantity names represent the [inventory states](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps#inventory-states)
+ * that merchants use to track inventory.
+ *   
+ * The [`InventoryItem`](https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryItem) and [`Location`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Location) objects each have an `inventoryLevels` field. Use it to find the ID of an
+ * inventory level.
+ *   
+ * Learn more about [inventory object relationships](https://shopify.dev/docs/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states#inventory-object-relationships).
  */
 public class InventoryLevelGraphQLQuery extends GraphQLQuery {
   public InventoryLevelGraphQLQuery(String id, String queryName, Set<String> fieldsSet) {
@@ -17,6 +29,21 @@ public class InventoryLevelGraphQLQuery extends GraphQLQuery {
     if (id != null || fieldsSet.contains("id")) {
         getInput().put("id", id);
     }
+  }
+
+  public InventoryLevelGraphQLQuery(String id, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("query", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public InventoryLevelGraphQLQuery() {
@@ -35,12 +62,16 @@ public class InventoryLevelGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private String queryName;
 
     public InventoryLevelGraphQLQuery build() {
-      return new InventoryLevelGraphQLQuery(id, queryName, fieldsSet);
+      return new InventoryLevelGraphQLQuery(id, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -49,6 +80,16 @@ public class InventoryLevelGraphQLQuery extends GraphQLQuery {
      */
     public Builder id(String id) {
       this.id = id;
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
+     * The ID of the `InventoryLevel` to return.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("id");
       return this;
     }

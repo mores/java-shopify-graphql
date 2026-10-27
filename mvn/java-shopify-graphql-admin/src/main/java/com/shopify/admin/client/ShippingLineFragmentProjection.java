@@ -80,6 +80,11 @@ public class ShippingLineFragmentProjection<PARENT extends BaseSubProjectionNode
     return this;
   }
 
+  public ShippingLineFragmentProjection<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
+    return this;
+  }
+
   public ShippingLineFragmentProjection<PARENT, ROOT> custom() {
     getFields().put("custom", null);
     return this;

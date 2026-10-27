@@ -3,10 +3,15 @@ package com.shopify.admin.client;
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.ProductSetIdentifiers;
 import com.shopify.admin.types.ProductSetInput;
+import graphql.language.VariableDefinition;
 import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -64,6 +69,26 @@ public class ProductSetGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public ProductSetGraphQLQuery(ProductSetInput input, Boolean synchronous,
+      ProductSetIdentifiers identifier, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (input != null || fieldsSet.contains("input")) {
+        getInput().put("input", input);
+    }if (synchronous != null || fieldsSet.contains("synchronous")) {
+        getInput().put("synchronous", synchronous);
+    }if (identifier != null || fieldsSet.contains("identifier")) {
+        getInput().put("identifier", identifier);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public ProductSetGraphQLQuery() {
     super("mutation");
   }
@@ -80,6 +105,10 @@ public class ProductSetGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private ProductSetInput input;
 
     private Boolean synchronous;
@@ -89,7 +118,7 @@ public class ProductSetGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public ProductSetGraphQLQuery build() {
-      return new ProductSetGraphQLQuery(input, synchronous, identifier, queryName, fieldsSet);
+      return new ProductSetGraphQLQuery(input, synchronous, identifier, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -98,6 +127,16 @@ public class ProductSetGraphQLQuery extends GraphQLQuery {
      */
     public Builder input(ProductSetInput input) {
       this.input = input;
+      this.fieldsSet.add("input");
+      return this;
+    }
+
+    /**
+     * The properties of the newly created or updated product.
+     */
+    public Builder inputReference(String variableRef) {
+      this.variableReferences.put("input", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ProductSetInput"))).build());
       this.fieldsSet.add("input");
       return this;
     }
@@ -125,10 +164,43 @@ public class ProductSetGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * Whether the mutation should be run synchronously or asynchronously.
+     *     
+     * If `true`, the mutation will return the updated `product`.
+     *     
+     * If `false`, the mutation will return a `productSetOperation`.
+     *     
+     * Defaults to `true`.
+     *     
+     * Setting `synchronous: false` may be desirable depending on the input
+     * complexity/size, and should be used if you are experiencing timeouts.
+     *     
+     * **Note**: When run in the context of a
+     * [bulk operation](https://shopify.dev/api/usage/bulk-operations/imports), the mutation will
+     * always run synchronously and this argument will be ignored.
+     */
+    public Builder synchronousReference(String variableRef) {
+      this.variableReferences.put("synchronous", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Boolean")).build());
+      this.fieldsSet.add("synchronous");
+      return this;
+    }
+
+    /**
      * Specifies the identifier that will be used to lookup the resource.
      */
     public Builder identifier(ProductSetIdentifiers identifier) {
       this.identifier = identifier;
+      this.fieldsSet.add("identifier");
+      return this;
+    }
+
+    /**
+     * Specifies the identifier that will be used to lookup the resource.
+     */
+    public Builder identifierReference(String variableRef) {
+      this.variableReferences.put("identifier", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("ProductSetIdentifiers")).build());
       this.fieldsSet.add("identifier");
       return this;
     }

@@ -3,10 +3,14 @@ package com.shopify.admin.client;
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.CreateMediaInput;
 import com.shopify.admin.types.ProductCreateInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -58,6 +62,24 @@ public class ProductCreateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public ProductCreateGraphQLQuery(ProductCreateInput product, List<CreateMediaInput> media,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (product != null || fieldsSet.contains("product")) {
+        getInput().put("product", product);
+    }if (media != null || fieldsSet.contains("media")) {
+        getInput().put("media", media);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public ProductCreateGraphQLQuery() {
     super("mutation");
   }
@@ -74,6 +96,10 @@ public class ProductCreateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private ProductCreateInput product;
 
     private List<CreateMediaInput> media;
@@ -81,7 +107,7 @@ public class ProductCreateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public ProductCreateGraphQLQuery build() {
-      return new ProductCreateGraphQLQuery(product, media, queryName, fieldsSet);
+      return new ProductCreateGraphQLQuery(product, media, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -95,10 +121,30 @@ public class ProductCreateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The attributes of the new product.
+     */
+    public Builder productReference(String variableRef) {
+      this.variableReferences.put("product", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("ProductCreateInput")).build());
+      this.fieldsSet.add("product");
+      return this;
+    }
+
+    /**
      * The media to add to the product.
      */
     public Builder media(List<CreateMediaInput> media) {
       this.media = media;
+      this.fieldsSet.add("media");
+      return this;
+    }
+
+    /**
+     * The media to add to the product.
+     */
+    public Builder mediaReference(String variableRef) {
+      this.variableReferences.put("media", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("CreateMediaInput")))).build());
       this.fieldsSet.add("media");
       return this;
     }

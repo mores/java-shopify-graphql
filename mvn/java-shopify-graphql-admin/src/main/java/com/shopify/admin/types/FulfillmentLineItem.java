@@ -5,6 +5,7 @@ import java.lang.Integer;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
@@ -20,6 +21,11 @@ import java.util.Objects;
     use = JsonTypeInfo.Id.NONE
 )
 public class FulfillmentLineItem implements com.shopify.admin.types.Node {
+  /**
+   * The date and time when the fulfillment line item was created.
+   */
+  private OffsetDateTime createdAt;
+
   /**
    * The total price after discounts are applied.
    */
@@ -57,6 +63,17 @@ public class FulfillmentLineItem implements com.shopify.admin.types.Node {
   private Integer quantity;
 
   public FulfillmentLineItem() {
+  }
+
+  /**
+   * The date and time when the fulfillment line item was created.
+   */
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
   /**
@@ -139,7 +156,7 @@ public class FulfillmentLineItem implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "FulfillmentLineItem{discountedTotal='" + discountedTotal + "', discountedTotalSet='" + discountedTotalSet + "', id='" + id + "', lineItem='" + lineItem + "', originalTotal='" + originalTotal + "', originalTotalSet='" + originalTotalSet + "', quantity='" + quantity + "'}";
+    return "FulfillmentLineItem{createdAt='" + createdAt + "', discountedTotal='" + discountedTotal + "', discountedTotalSet='" + discountedTotalSet + "', id='" + id + "', lineItem='" + lineItem + "', originalTotal='" + originalTotal + "', originalTotalSet='" + originalTotalSet + "', quantity='" + quantity + "'}";
   }
 
   @Override
@@ -147,7 +164,8 @@ public class FulfillmentLineItem implements com.shopify.admin.types.Node {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     FulfillmentLineItem that = (FulfillmentLineItem) o;
-    return Objects.equals(discountedTotal, that.discountedTotal) &&
+    return Objects.equals(createdAt, that.createdAt) &&
+        Objects.equals(discountedTotal, that.discountedTotal) &&
         Objects.equals(discountedTotalSet, that.discountedTotalSet) &&
         Objects.equals(id, that.id) &&
         Objects.equals(lineItem, that.lineItem) &&
@@ -158,7 +176,7 @@ public class FulfillmentLineItem implements com.shopify.admin.types.Node {
 
   @Override
   public int hashCode() {
-    return Objects.hash(discountedTotal, discountedTotalSet, id, lineItem, originalTotal, originalTotalSet, quantity);
+    return Objects.hash(createdAt, discountedTotal, discountedTotalSet, id, lineItem, originalTotal, originalTotalSet, quantity);
   }
 
   public static Builder newBuilder() {
@@ -166,6 +184,11 @@ public class FulfillmentLineItem implements com.shopify.admin.types.Node {
   }
 
   public static class Builder {
+    /**
+     * The date and time when the fulfillment line item was created.
+     */
+    private OffsetDateTime createdAt;
+
     /**
      * The total price after discounts are applied.
      */
@@ -204,6 +227,7 @@ public class FulfillmentLineItem implements com.shopify.admin.types.Node {
 
     public FulfillmentLineItem build() {
       FulfillmentLineItem result = new FulfillmentLineItem();
+      result.createdAt = this.createdAt;
       result.discountedTotal = this.discountedTotal;
       result.discountedTotalSet = this.discountedTotalSet;
       result.id = this.id;
@@ -212,6 +236,14 @@ public class FulfillmentLineItem implements com.shopify.admin.types.Node {
       result.originalTotalSet = this.originalTotalSet;
       result.quantity = this.quantity;
       return result;
+    }
+
+    /**
+     * The date and time when the fulfillment line item was created.
+     */
+    public Builder createdAt(OffsetDateTime createdAt) {
+      this.createdAt = createdAt;
+      return this;
     }
 
     /**

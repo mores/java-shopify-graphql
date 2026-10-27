@@ -34,7 +34,7 @@ import java.util.Objects;
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
-public class DiscountAutomaticBxgy implements Discount, DiscountAutomatic, com.shopify.admin.types.HasEvents, com.shopify.admin.types.Node {
+public class DiscountAutomaticBxgy implements Discount, DiscountAutomatic, com.shopify.admin.types.HasEvents, com.shopify.admin.types.HasRollouts, com.shopify.admin.types.Node {
   /**
    * The number of times that the discount has been used.
    * For example, if a "Buy 3, Get 1 Free" t-shirt discount
@@ -100,6 +100,15 @@ public class DiscountAutomaticBxgy implements Discount, DiscountAutomatic, com.s
    * A legacy unique ID for the discount.
    */
   private String id;
+
+  /**
+   * The rollouts that include this discount. A rollout includes a discount when
+   * one of its treatments adds or removes the discount. Walk
+   * `treatments.changes` to see what each treatment does to the discount.
+   * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+   * Use `query` to filter by rollout `status`.
+   */
+  private RolloutConnection rollouts;
 
   /**
    * The date and time when the discount becomes active and is available to customers.
@@ -282,6 +291,21 @@ public class DiscountAutomaticBxgy implements Discount, DiscountAutomatic, com.s
   }
 
   /**
+   * The rollouts that include this discount. A rollout includes a discount when
+   * one of its treatments adds or removes the discount. Walk
+   * `treatments.changes` to see what each treatment does to the discount.
+   * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+   * Use `query` to filter by rollout `status`.
+   */
+  public RolloutConnection getRollouts() {
+    return rollouts;
+  }
+
+  public void setRollouts(RolloutConnection rollouts) {
+    this.rollouts = rollouts;
+  }
+
+  /**
    * The date and time when the discount becomes active and is available to customers.
    */
   public OffsetDateTime getStartsAt() {
@@ -376,7 +400,7 @@ public class DiscountAutomaticBxgy implements Discount, DiscountAutomatic, com.s
 
   @Override
   public String toString() {
-    return "DiscountAutomaticBxgy{asyncUsageCount='" + asyncUsageCount + "', combinesWith='" + combinesWith + "', context='" + context + "', createdAt='" + createdAt + "', customerBuys='" + customerBuys + "', customerGets='" + customerGets + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', endsAt='" + endsAt + "', events='" + events + "', id='" + id + "', startsAt='" + startsAt + "', status='" + status + "', summary='" + summary + "', tags='" + tags + "', title='" + title + "', updatedAt='" + updatedAt + "', usageCount='" + usageCount + "', usesPerOrderLimit='" + usesPerOrderLimit + "'}";
+    return "DiscountAutomaticBxgy{asyncUsageCount='" + asyncUsageCount + "', combinesWith='" + combinesWith + "', context='" + context + "', createdAt='" + createdAt + "', customerBuys='" + customerBuys + "', customerGets='" + customerGets + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', endsAt='" + endsAt + "', events='" + events + "', id='" + id + "', rollouts='" + rollouts + "', startsAt='" + startsAt + "', status='" + status + "', summary='" + summary + "', tags='" + tags + "', title='" + title + "', updatedAt='" + updatedAt + "', usageCount='" + usageCount + "', usesPerOrderLimit='" + usesPerOrderLimit + "'}";
   }
 
   @Override
@@ -395,6 +419,7 @@ public class DiscountAutomaticBxgy implements Discount, DiscountAutomatic, com.s
         Objects.equals(endsAt, that.endsAt) &&
         Objects.equals(events, that.events) &&
         Objects.equals(id, that.id) &&
+        Objects.equals(rollouts, that.rollouts) &&
         Objects.equals(startsAt, that.startsAt) &&
         Objects.equals(status, that.status) &&
         Objects.equals(summary, that.summary) &&
@@ -407,7 +432,7 @@ public class DiscountAutomaticBxgy implements Discount, DiscountAutomatic, com.s
 
   @Override
   public int hashCode() {
-    return Objects.hash(asyncUsageCount, combinesWith, context, createdAt, customerBuys, customerGets, discountClass, discountClasses, endsAt, events, id, startsAt, status, summary, tags, title, updatedAt, usageCount, usesPerOrderLimit);
+    return Objects.hash(asyncUsageCount, combinesWith, context, createdAt, customerBuys, customerGets, discountClass, discountClasses, endsAt, events, id, rollouts, startsAt, status, summary, tags, title, updatedAt, usageCount, usesPerOrderLimit);
   }
 
   public static Builder newBuilder() {
@@ -482,6 +507,15 @@ public class DiscountAutomaticBxgy implements Discount, DiscountAutomatic, com.s
     private String id;
 
     /**
+     * The rollouts that include this discount. A rollout includes a discount when
+     * one of its treatments adds or removes the discount. Walk
+     * `treatments.changes` to see what each treatment does to the discount.
+     * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+     * Use `query` to filter by rollout `status`.
+     */
+    private RolloutConnection rollouts;
+
+    /**
      * The date and time when the discount becomes active and is available to customers.
      */
     private OffsetDateTime startsAt;
@@ -539,6 +573,7 @@ public class DiscountAutomaticBxgy implements Discount, DiscountAutomatic, com.s
       result.endsAt = this.endsAt;
       result.events = this.events;
       result.id = this.id;
+      result.rollouts = this.rollouts;
       result.startsAt = this.startsAt;
       result.status = this.status;
       result.summary = this.summary;
@@ -646,6 +681,18 @@ public class DiscountAutomaticBxgy implements Discount, DiscountAutomatic, com.s
      */
     public Builder id(String id) {
       this.id = id;
+      return this;
+    }
+
+    /**
+     * The rollouts that include this discount. A rollout includes a discount when
+     * one of its treatments adds or removes the discount. Walk
+     * `treatments.changes` to see what each treatment does to the discount.
+     * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+     * Use `query` to filter by rollout `status`.
+     */
+    public Builder rollouts(RolloutConnection rollouts) {
+      this.rollouts = rollouts;
       return this;
     }
 

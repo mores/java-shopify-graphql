@@ -7,12 +7,14 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * A market is a group of one or more regions that you want to target for international sales.
- * By creating a market, you can configure a distinct, localized shopping experience for
- * customers from a specific area of the world. For example, you can
- * [change currency](https://shopify.dev/api/admin-graphql/current/mutations/marketCurrencySettingsUpdate),
- * [configure international pricing](https://shopify.dev/apps/internationalization/product-price-lists),
- * or [add market-specific domains or subfolders](https://shopify.dev/api/admin-graphql/current/objects/MarketWebPresence).
+ * A merchant-defined group of buyers identified by conditions such as their
+ * region, retail location, or company location. Each market allows configuration
+ * of a distinct, localized buyer experience. Customizations include, but are
+ * not limited to,
+ * [currency](https://shopify.dev/api/admin-graphql/current/mutations/marketCurrencySettingsUpdate),
+ * [pricing and product availability](https://shopify.dev/apps/internationalization/product-price-lists),
+ * [web presence](https://shopify.dev/api/admin-graphql/current/objects/MarketWebPresence),
+ * and content translations.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -34,6 +36,18 @@ public class Market implements MetafieldReferencer, com.shopify.admin.types.HasM
   private Count catalogsCount;
 
   /**
+   * The market's direct children. Eventually consistent following a change in
+   * market hierarchy. See [`marketRelationshipsStatus`](https://shopify.dev/docs/api/admin-graphql/latest/queries/marketRelationshipsStatus).
+   */
+  private MarketConnection childMarkets;
+
+  /**
+   * The number of direct child markets. Eventually consistent following a change
+   * in market hierarchy. See [`marketRelationshipsStatus`](https://shopify.dev/docs/api/admin-graphql/latest/queries/marketRelationshipsStatus).
+   */
+  private Count childMarketsCount;
+
+  /**
    * The conditions under which a visitor is in the market.
    */
   private MarketConditions conditions;
@@ -42,6 +56,21 @@ public class Market implements MetafieldReferencer, com.shopify.admin.types.HasM
    * The market’s currency settings.
    */
   private MarketCurrencySettings currencySettings;
+
+  /**
+   * The delivery settings for this market.
+   */
+  private MarketDeliveryConfigurations delivery;
+
+  /**
+   * The discounts that are available in this market.
+   */
+  private DiscountNodeConnection discounts;
+
+  /**
+   * The number of discounts that are assigned to this market.
+   */
+  private Count discountsCount;
 
   /**
    * Whether the market is enabled to receive visitors and sales. **Note**: Regions in inactive
@@ -83,6 +112,18 @@ public class Market implements MetafieldReferencer, com.shopify.admin.types.HasM
   private String name;
 
   /**
+   * The market's direct parents. Eventually consistent following a change in
+   * market hierarchy. See [`marketRelationshipsStatus`](https://shopify.dev/docs/api/admin-graphql/latest/queries/marketRelationshipsStatus).
+   */
+  private MarketConnection parentMarkets;
+
+  /**
+   * The number of direct parent markets. Eventually consistent following a change
+   * in market hierarchy. See [`marketRelationshipsStatus`](https://shopify.dev/docs/api/admin-graphql/latest/queries/marketRelationshipsStatus).
+   */
+  private Count parentMarketsCount;
+
+  /**
    * The inclusive pricing strategy for a market. This determines if prices include duties and / or taxes.
    */
   private MarketPriceInclusions priceInclusions;
@@ -105,6 +146,11 @@ public class Market implements MetafieldReferencer, com.shopify.admin.types.HasM
    * The regions that comprise the market.
    */
   private MarketRegionConnection regions;
+
+  /**
+   * The return policy profile for this market.
+   */
+  private ReturnPolicyProfile returnPolicyProfile;
 
   /**
    * Status of the market. Replaces the enabled field.
@@ -172,6 +218,30 @@ public class Market implements MetafieldReferencer, com.shopify.admin.types.HasM
   }
 
   /**
+   * The market's direct children. Eventually consistent following a change in
+   * market hierarchy. See [`marketRelationshipsStatus`](https://shopify.dev/docs/api/admin-graphql/latest/queries/marketRelationshipsStatus).
+   */
+  public MarketConnection getChildMarkets() {
+    return childMarkets;
+  }
+
+  public void setChildMarkets(MarketConnection childMarkets) {
+    this.childMarkets = childMarkets;
+  }
+
+  /**
+   * The number of direct child markets. Eventually consistent following a change
+   * in market hierarchy. See [`marketRelationshipsStatus`](https://shopify.dev/docs/api/admin-graphql/latest/queries/marketRelationshipsStatus).
+   */
+  public Count getChildMarketsCount() {
+    return childMarketsCount;
+  }
+
+  public void setChildMarketsCount(Count childMarketsCount) {
+    this.childMarketsCount = childMarketsCount;
+  }
+
+  /**
    * The conditions under which a visitor is in the market.
    */
   public MarketConditions getConditions() {
@@ -191,6 +261,39 @@ public class Market implements MetafieldReferencer, com.shopify.admin.types.HasM
 
   public void setCurrencySettings(MarketCurrencySettings currencySettings) {
     this.currencySettings = currencySettings;
+  }
+
+  /**
+   * The delivery settings for this market.
+   */
+  public MarketDeliveryConfigurations getDelivery() {
+    return delivery;
+  }
+
+  public void setDelivery(MarketDeliveryConfigurations delivery) {
+    this.delivery = delivery;
+  }
+
+  /**
+   * The discounts that are available in this market.
+   */
+  public DiscountNodeConnection getDiscounts() {
+    return discounts;
+  }
+
+  public void setDiscounts(DiscountNodeConnection discounts) {
+    this.discounts = discounts;
+  }
+
+  /**
+   * The number of discounts that are assigned to this market.
+   */
+  public Count getDiscountsCount() {
+    return discountsCount;
+  }
+
+  public void setDiscountsCount(Count discountsCount) {
+    this.discountsCount = discountsCount;
   }
 
   /**
@@ -275,6 +378,30 @@ public class Market implements MetafieldReferencer, com.shopify.admin.types.HasM
   }
 
   /**
+   * The market's direct parents. Eventually consistent following a change in
+   * market hierarchy. See [`marketRelationshipsStatus`](https://shopify.dev/docs/api/admin-graphql/latest/queries/marketRelationshipsStatus).
+   */
+  public MarketConnection getParentMarkets() {
+    return parentMarkets;
+  }
+
+  public void setParentMarkets(MarketConnection parentMarkets) {
+    this.parentMarkets = parentMarkets;
+  }
+
+  /**
+   * The number of direct parent markets. Eventually consistent following a change
+   * in market hierarchy. See [`marketRelationshipsStatus`](https://shopify.dev/docs/api/admin-graphql/latest/queries/marketRelationshipsStatus).
+   */
+  public Count getParentMarketsCount() {
+    return parentMarketsCount;
+  }
+
+  public void setParentMarketsCount(Count parentMarketsCount) {
+    this.parentMarketsCount = parentMarketsCount;
+  }
+
+  /**
    * The inclusive pricing strategy for a market. This determines if prices include duties and / or taxes.
    */
   public MarketPriceInclusions getPriceInclusions() {
@@ -320,6 +447,17 @@ public class Market implements MetafieldReferencer, com.shopify.admin.types.HasM
 
   public void setRegions(MarketRegionConnection regions) {
     this.regions = regions;
+  }
+
+  /**
+   * The return policy profile for this market.
+   */
+  public ReturnPolicyProfile getReturnPolicyProfile() {
+    return returnPolicyProfile;
+  }
+
+  public void setReturnPolicyProfile(ReturnPolicyProfile returnPolicyProfile) {
+    this.returnPolicyProfile = returnPolicyProfile;
   }
 
   /**
@@ -377,7 +515,7 @@ public class Market implements MetafieldReferencer, com.shopify.admin.types.HasM
 
   @Override
   public String toString() {
-    return "Market{assignedCustomization='" + assignedCustomization + "', catalogs='" + catalogs + "', catalogsCount='" + catalogsCount + "', conditions='" + conditions + "', currencySettings='" + currencySettings + "', enabled='" + enabled + "', handle='" + handle + "', id='" + id + "', metafield='" + metafield + "', metafieldDefinitions='" + metafieldDefinitions + "', metafields='" + metafields + "', name='" + name + "', priceInclusions='" + priceInclusions + "', priceList='" + priceList + "', primary='" + primary + "', regions='" + regions + "', status='" + status + "', type='" + type + "', webPresence='" + webPresence + "', webPresences='" + webPresences + "'}";
+    return "Market{assignedCustomization='" + assignedCustomization + "', catalogs='" + catalogs + "', catalogsCount='" + catalogsCount + "', childMarkets='" + childMarkets + "', childMarketsCount='" + childMarketsCount + "', conditions='" + conditions + "', currencySettings='" + currencySettings + "', delivery='" + delivery + "', discounts='" + discounts + "', discountsCount='" + discountsCount + "', enabled='" + enabled + "', handle='" + handle + "', id='" + id + "', metafield='" + metafield + "', metafieldDefinitions='" + metafieldDefinitions + "', metafields='" + metafields + "', name='" + name + "', parentMarkets='" + parentMarkets + "', parentMarketsCount='" + parentMarketsCount + "', priceInclusions='" + priceInclusions + "', priceList='" + priceList + "', primary='" + primary + "', regions='" + regions + "', returnPolicyProfile='" + returnPolicyProfile + "', status='" + status + "', type='" + type + "', webPresence='" + webPresence + "', webPresences='" + webPresences + "'}";
   }
 
   @Override
@@ -388,8 +526,13 @@ public class Market implements MetafieldReferencer, com.shopify.admin.types.HasM
     return assignedCustomization == that.assignedCustomization &&
         Objects.equals(catalogs, that.catalogs) &&
         Objects.equals(catalogsCount, that.catalogsCount) &&
+        Objects.equals(childMarkets, that.childMarkets) &&
+        Objects.equals(childMarketsCount, that.childMarketsCount) &&
         Objects.equals(conditions, that.conditions) &&
         Objects.equals(currencySettings, that.currencySettings) &&
+        Objects.equals(delivery, that.delivery) &&
+        Objects.equals(discounts, that.discounts) &&
+        Objects.equals(discountsCount, that.discountsCount) &&
         enabled == that.enabled &&
         Objects.equals(handle, that.handle) &&
         Objects.equals(id, that.id) &&
@@ -397,10 +540,13 @@ public class Market implements MetafieldReferencer, com.shopify.admin.types.HasM
         Objects.equals(metafieldDefinitions, that.metafieldDefinitions) &&
         Objects.equals(metafields, that.metafields) &&
         Objects.equals(name, that.name) &&
+        Objects.equals(parentMarkets, that.parentMarkets) &&
+        Objects.equals(parentMarketsCount, that.parentMarketsCount) &&
         Objects.equals(priceInclusions, that.priceInclusions) &&
         Objects.equals(priceList, that.priceList) &&
         primary == that.primary &&
         Objects.equals(regions, that.regions) &&
+        Objects.equals(returnPolicyProfile, that.returnPolicyProfile) &&
         Objects.equals(status, that.status) &&
         Objects.equals(type, that.type) &&
         Objects.equals(webPresence, that.webPresence) &&
@@ -409,7 +555,7 @@ public class Market implements MetafieldReferencer, com.shopify.admin.types.HasM
 
   @Override
   public int hashCode() {
-    return Objects.hash(assignedCustomization, catalogs, catalogsCount, conditions, currencySettings, enabled, handle, id, metafield, metafieldDefinitions, metafields, name, priceInclusions, priceList, primary, regions, status, type, webPresence, webPresences);
+    return Objects.hash(assignedCustomization, catalogs, catalogsCount, childMarkets, childMarketsCount, conditions, currencySettings, delivery, discounts, discountsCount, enabled, handle, id, metafield, metafieldDefinitions, metafields, name, parentMarkets, parentMarketsCount, priceInclusions, priceList, primary, regions, returnPolicyProfile, status, type, webPresence, webPresences);
   }
 
   public static Builder newBuilder() {
@@ -433,6 +579,18 @@ public class Market implements MetafieldReferencer, com.shopify.admin.types.HasM
     private Count catalogsCount;
 
     /**
+     * The market's direct children. Eventually consistent following a change in
+     * market hierarchy. See [`marketRelationshipsStatus`](https://shopify.dev/docs/api/admin-graphql/latest/queries/marketRelationshipsStatus).
+     */
+    private MarketConnection childMarkets;
+
+    /**
+     * The number of direct child markets. Eventually consistent following a change
+     * in market hierarchy. See [`marketRelationshipsStatus`](https://shopify.dev/docs/api/admin-graphql/latest/queries/marketRelationshipsStatus).
+     */
+    private Count childMarketsCount;
+
+    /**
      * The conditions under which a visitor is in the market.
      */
     private MarketConditions conditions;
@@ -441,6 +599,21 @@ public class Market implements MetafieldReferencer, com.shopify.admin.types.HasM
      * The market’s currency settings.
      */
     private MarketCurrencySettings currencySettings;
+
+    /**
+     * The delivery settings for this market.
+     */
+    private MarketDeliveryConfigurations delivery;
+
+    /**
+     * The discounts that are available in this market.
+     */
+    private DiscountNodeConnection discounts;
+
+    /**
+     * The number of discounts that are assigned to this market.
+     */
+    private Count discountsCount;
 
     /**
      * Whether the market is enabled to receive visitors and sales. **Note**: Regions in inactive
@@ -482,6 +655,18 @@ public class Market implements MetafieldReferencer, com.shopify.admin.types.HasM
     private String name;
 
     /**
+     * The market's direct parents. Eventually consistent following a change in
+     * market hierarchy. See [`marketRelationshipsStatus`](https://shopify.dev/docs/api/admin-graphql/latest/queries/marketRelationshipsStatus).
+     */
+    private MarketConnection parentMarkets;
+
+    /**
+     * The number of direct parent markets. Eventually consistent following a change
+     * in market hierarchy. See [`marketRelationshipsStatus`](https://shopify.dev/docs/api/admin-graphql/latest/queries/marketRelationshipsStatus).
+     */
+    private Count parentMarketsCount;
+
+    /**
      * The inclusive pricing strategy for a market. This determines if prices include duties and / or taxes.
      */
     private MarketPriceInclusions priceInclusions;
@@ -504,6 +689,11 @@ public class Market implements MetafieldReferencer, com.shopify.admin.types.HasM
      * The regions that comprise the market.
      */
     private MarketRegionConnection regions;
+
+    /**
+     * The return policy profile for this market.
+     */
+    private ReturnPolicyProfile returnPolicyProfile;
 
     /**
      * Status of the market. Replaces the enabled field.
@@ -539,8 +729,13 @@ public class Market implements MetafieldReferencer, com.shopify.admin.types.HasM
       result.assignedCustomization = this.assignedCustomization;
       result.catalogs = this.catalogs;
       result.catalogsCount = this.catalogsCount;
+      result.childMarkets = this.childMarkets;
+      result.childMarketsCount = this.childMarketsCount;
       result.conditions = this.conditions;
       result.currencySettings = this.currencySettings;
+      result.delivery = this.delivery;
+      result.discounts = this.discounts;
+      result.discountsCount = this.discountsCount;
       result.enabled = this.enabled;
       result.handle = this.handle;
       result.id = this.id;
@@ -548,10 +743,13 @@ public class Market implements MetafieldReferencer, com.shopify.admin.types.HasM
       result.metafieldDefinitions = this.metafieldDefinitions;
       result.metafields = this.metafields;
       result.name = this.name;
+      result.parentMarkets = this.parentMarkets;
+      result.parentMarketsCount = this.parentMarketsCount;
       result.priceInclusions = this.priceInclusions;
       result.priceList = this.priceList;
       result.primary = this.primary;
       result.regions = this.regions;
+      result.returnPolicyProfile = this.returnPolicyProfile;
       result.status = this.status;
       result.type = this.type;
       result.webPresence = this.webPresence;
@@ -584,6 +782,24 @@ public class Market implements MetafieldReferencer, com.shopify.admin.types.HasM
     }
 
     /**
+     * The market's direct children. Eventually consistent following a change in
+     * market hierarchy. See [`marketRelationshipsStatus`](https://shopify.dev/docs/api/admin-graphql/latest/queries/marketRelationshipsStatus).
+     */
+    public Builder childMarkets(MarketConnection childMarkets) {
+      this.childMarkets = childMarkets;
+      return this;
+    }
+
+    /**
+     * The number of direct child markets. Eventually consistent following a change
+     * in market hierarchy. See [`marketRelationshipsStatus`](https://shopify.dev/docs/api/admin-graphql/latest/queries/marketRelationshipsStatus).
+     */
+    public Builder childMarketsCount(Count childMarketsCount) {
+      this.childMarketsCount = childMarketsCount;
+      return this;
+    }
+
+    /**
      * The conditions under which a visitor is in the market.
      */
     public Builder conditions(MarketConditions conditions) {
@@ -596,6 +812,30 @@ public class Market implements MetafieldReferencer, com.shopify.admin.types.HasM
      */
     public Builder currencySettings(MarketCurrencySettings currencySettings) {
       this.currencySettings = currencySettings;
+      return this;
+    }
+
+    /**
+     * The delivery settings for this market.
+     */
+    public Builder delivery(MarketDeliveryConfigurations delivery) {
+      this.delivery = delivery;
+      return this;
+    }
+
+    /**
+     * The discounts that are available in this market.
+     */
+    public Builder discounts(DiscountNodeConnection discounts) {
+      this.discounts = discounts;
+      return this;
+    }
+
+    /**
+     * The number of discounts that are assigned to this market.
+     */
+    public Builder discountsCount(Count discountsCount) {
+      this.discountsCount = discountsCount;
       return this;
     }
 
@@ -660,6 +900,24 @@ public class Market implements MetafieldReferencer, com.shopify.admin.types.HasM
     }
 
     /**
+     * The market's direct parents. Eventually consistent following a change in
+     * market hierarchy. See [`marketRelationshipsStatus`](https://shopify.dev/docs/api/admin-graphql/latest/queries/marketRelationshipsStatus).
+     */
+    public Builder parentMarkets(MarketConnection parentMarkets) {
+      this.parentMarkets = parentMarkets;
+      return this;
+    }
+
+    /**
+     * The number of direct parent markets. Eventually consistent following a change
+     * in market hierarchy. See [`marketRelationshipsStatus`](https://shopify.dev/docs/api/admin-graphql/latest/queries/marketRelationshipsStatus).
+     */
+    public Builder parentMarketsCount(Count parentMarketsCount) {
+      this.parentMarketsCount = parentMarketsCount;
+      return this;
+    }
+
+    /**
      * The inclusive pricing strategy for a market. This determines if prices include duties and / or taxes.
      */
     public Builder priceInclusions(MarketPriceInclusions priceInclusions) {
@@ -692,6 +950,14 @@ public class Market implements MetafieldReferencer, com.shopify.admin.types.HasM
      */
     public Builder regions(MarketRegionConnection regions) {
       this.regions = regions;
+      return this;
+    }
+
+    /**
+     * The return policy profile for this market.
+     */
+    public Builder returnPolicyProfile(ReturnPolicyProfile returnPolicyProfile) {
+      this.returnPolicyProfile = returnPolicyProfile;
       return this;
     }
 

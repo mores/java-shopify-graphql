@@ -21,6 +21,12 @@ public class FlowGenerateSignaturePayload {
   private String signature;
 
   /**
+   * The target URL corresponding to the requested payload schema: action runtime
+   * URL, validation URL, or custom configuration page preview URL.
+   */
+  private String targetUrl;
+
+  /**
    * The list of errors that occurred from executing the mutation.
    */
   private List<UserError> userErrors;
@@ -51,6 +57,18 @@ public class FlowGenerateSignaturePayload {
   }
 
   /**
+   * The target URL corresponding to the requested payload schema: action runtime
+   * URL, validation URL, or custom configuration page preview URL.
+   */
+  public String getTargetUrl() {
+    return targetUrl;
+  }
+
+  public void setTargetUrl(String targetUrl) {
+    this.targetUrl = targetUrl;
+  }
+
+  /**
    * The list of errors that occurred from executing the mutation.
    */
   public List<UserError> getUserErrors() {
@@ -63,7 +81,7 @@ public class FlowGenerateSignaturePayload {
 
   @Override
   public String toString() {
-    return "FlowGenerateSignaturePayload{payload='" + payload + "', signature='" + signature + "', userErrors='" + userErrors + "'}";
+    return "FlowGenerateSignaturePayload{payload='" + payload + "', signature='" + signature + "', targetUrl='" + targetUrl + "', userErrors='" + userErrors + "'}";
   }
 
   @Override
@@ -73,12 +91,13 @@ public class FlowGenerateSignaturePayload {
     FlowGenerateSignaturePayload that = (FlowGenerateSignaturePayload) o;
     return Objects.equals(payload, that.payload) &&
         Objects.equals(signature, that.signature) &&
+        Objects.equals(targetUrl, that.targetUrl) &&
         Objects.equals(userErrors, that.userErrors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(payload, signature, userErrors);
+    return Objects.hash(payload, signature, targetUrl, userErrors);
   }
 
   public static Builder newBuilder() {
@@ -97,6 +116,12 @@ public class FlowGenerateSignaturePayload {
     private String signature;
 
     /**
+     * The target URL corresponding to the requested payload schema: action runtime
+     * URL, validation URL, or custom configuration page preview URL.
+     */
+    private String targetUrl;
+
+    /**
      * The list of errors that occurred from executing the mutation.
      */
     private List<UserError> userErrors;
@@ -105,6 +130,7 @@ public class FlowGenerateSignaturePayload {
       FlowGenerateSignaturePayload result = new FlowGenerateSignaturePayload();
       result.payload = this.payload;
       result.signature = this.signature;
+      result.targetUrl = this.targetUrl;
       result.userErrors = this.userErrors;
       return result;
     }
@@ -122,6 +148,15 @@ public class FlowGenerateSignaturePayload {
      */
     public Builder signature(String signature) {
       this.signature = signature;
+      return this;
+    }
+
+    /**
+     * The target URL corresponding to the requested payload schema: action runtime
+     * URL, validation URL, or custom configuration page preview URL.
+     */
+    public Builder targetUrl(String targetUrl) {
+      this.targetUrl = targetUrl;
       return this;
     }
 

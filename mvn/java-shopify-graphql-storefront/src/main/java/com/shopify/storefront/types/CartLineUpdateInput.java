@@ -16,9 +16,15 @@ import java.util.Objects;
  */
 public class CartLineUpdateInput {
   /**
-   * The ID of the merchandise line.
+   * The ID of the merchandise line. Mutually exclusive with `viewKey`.
    */
   private String id;
+
+  /**
+   * The `view_key` of the merchandise line, as exposed in Liquid via the cart line
+   * `view_key` filter. Mutually exclusive with `id`.
+   */
+  private String viewKey;
 
   /**
    * The quantity of the line item.
@@ -46,7 +52,7 @@ public class CartLineUpdateInput {
   }
 
   /**
-   * The ID of the merchandise line.
+   * The ID of the merchandise line. Mutually exclusive with `viewKey`.
    */
   public String getId() {
     return id;
@@ -54,6 +60,18 @@ public class CartLineUpdateInput {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  /**
+   * The `view_key` of the merchandise line, as exposed in Liquid via the cart line
+   * `view_key` filter. Mutually exclusive with `id`.
+   */
+  public String getViewKey() {
+    return viewKey;
+  }
+
+  public void setViewKey(String viewKey) {
+    this.viewKey = viewKey;
   }
 
   /**
@@ -104,7 +122,7 @@ public class CartLineUpdateInput {
 
   @Override
   public String toString() {
-    return "CartLineUpdateInput{id='" + id + "', quantity='" + quantity + "', merchandiseId='" + merchandiseId + "', attributes='" + attributes + "', sellingPlanId='" + sellingPlanId + "'}";
+    return "CartLineUpdateInput{id='" + id + "', viewKey='" + viewKey + "', quantity='" + quantity + "', merchandiseId='" + merchandiseId + "', attributes='" + attributes + "', sellingPlanId='" + sellingPlanId + "'}";
   }
 
   @Override
@@ -113,6 +131,7 @@ public class CartLineUpdateInput {
     if (o == null || getClass() != o.getClass()) return false;
     CartLineUpdateInput that = (CartLineUpdateInput) o;
     return Objects.equals(id, that.id) &&
+        Objects.equals(viewKey, that.viewKey) &&
         Objects.equals(quantity, that.quantity) &&
         Objects.equals(merchandiseId, that.merchandiseId) &&
         Objects.equals(attributes, that.attributes) &&
@@ -121,7 +140,7 @@ public class CartLineUpdateInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, quantity, merchandiseId, attributes, sellingPlanId);
+    return Objects.hash(id, viewKey, quantity, merchandiseId, attributes, sellingPlanId);
   }
 
   public static Builder newBuilder() {
@@ -130,9 +149,15 @@ public class CartLineUpdateInput {
 
   public static class Builder {
     /**
-     * The ID of the merchandise line.
+     * The ID of the merchandise line. Mutually exclusive with `viewKey`.
      */
     private String id;
+
+    /**
+     * The `view_key` of the merchandise line, as exposed in Liquid via the cart line
+     * `view_key` filter. Mutually exclusive with `id`.
+     */
+    private String viewKey;
 
     /**
      * The quantity of the line item.
@@ -159,6 +184,7 @@ public class CartLineUpdateInput {
     public CartLineUpdateInput build() {
       CartLineUpdateInput result = new CartLineUpdateInput();
       result.id = this.id;
+      result.viewKey = this.viewKey;
       result.quantity = this.quantity;
       result.merchandiseId = this.merchandiseId;
       result.attributes = this.attributes;
@@ -167,10 +193,19 @@ public class CartLineUpdateInput {
     }
 
     /**
-     * The ID of the merchandise line.
+     * The ID of the merchandise line. Mutually exclusive with `viewKey`.
      */
     public Builder id(String id) {
       this.id = id;
+      return this;
+    }
+
+    /**
+     * The `view_key` of the merchandise line, as exposed in Liquid via the cart line
+     * `view_key` filter. Mutually exclusive with `id`.
+     */
+    public Builder viewKey(String viewKey) {
+      this.viewKey = viewKey;
       return this;
     }
 

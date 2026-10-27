@@ -18,6 +18,12 @@ public class CashDrawerProjection<PARENT extends BaseSubProjectionNode<?, ?>, RO
     return this;
   }
 
+  public MoneyV2Projection<CashDrawerProjection<PARENT, ROOT>, ROOT> balance() {
+     MoneyV2Projection<CashDrawerProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());
+     getFields().put("balance", projection);
+     return projection;
+  }
+
   public CashActivityConnectionProjection<CashDrawerProjection<PARENT, ROOT>, ROOT> cashActivities(
       ) {
      CashActivityConnectionProjection<CashDrawerProjection<PARENT, ROOT>, ROOT> projection = new CashActivityConnectionProjection<>(this, getRoot());
@@ -31,21 +37,47 @@ public class CashDrawerProjection<PARENT extends BaseSubProjectionNode<?, ?>, RO
     CashActivityConnectionProjection<CashDrawerProjection<PARENT, ROOT>, ROOT> projection = new CashActivityConnectionProjection<>(this, getRoot());    
     getFields().put("cashActivities", projection);
     getInputArguments().computeIfAbsent("cashActivities", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("cashActivities").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("cashActivities").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("cashActivities").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("cashActivities").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
     getInputArguments().get("cashActivities").add(reverseArg);
-    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey, false, null);
     getInputArguments().get("cashActivities").add(sortKeyArg);
-    InputArgument queryArg = new InputArgument("query", query);
+    InputArgument queryArg = new InputArgument("query", query, false, null);
     getInputArguments().get("cashActivities").add(queryArg);
-    InputArgument staffMemberIdArg = new InputArgument("staffMemberId", staffMemberId);
+    InputArgument staffMemberIdArg = new InputArgument("staffMemberId", staffMemberId, false, null);
+    getInputArguments().get("cashActivities").add(staffMemberIdArg);
+    return projection;
+  }
+
+  public CashActivityConnectionProjection<CashDrawerProjection<PARENT, ROOT>, ROOT> cashActivitiesWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference, String sortKeyReference, String queryReference,
+      String staffMemberIdReference) {
+    CashActivityConnectionProjection<CashDrawerProjection<PARENT, ROOT>, ROOT> projection = new CashActivityConnectionProjection<>(this, getRoot());    
+    getFields().put("cashActivities", projection);
+    getInputArguments().computeIfAbsent("cashActivities", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("cashActivities").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("cashActivities").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("cashActivities").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("cashActivities").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("cashActivities").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKeyReference, true, new graphql.language.TypeName("CashActivitiesSortKeys"));
+    getInputArguments().get("cashActivities").add(sortKeyArg);
+    InputArgument queryArg = new InputArgument("query", queryReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("cashActivities").add(queryArg);
+    InputArgument staffMemberIdArg = new InputArgument("staffMemberId", staffMemberIdReference, true, new graphql.language.TypeName("ID"));
     getInputArguments().get("cashActivities").add(staffMemberIdArg);
     return projection;
   }
@@ -67,7 +99,17 @@ public class CashDrawerProjection<PARENT extends BaseSubProjectionNode<?, ?>, RO
     MoneyV2Projection<CashDrawerProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());    
     getFields().put("netSales", projection);
     getInputArguments().computeIfAbsent("netSales", k -> new ArrayList<>());                      
-    InputArgument dateRangeArg = new InputArgument("dateRange", dateRange);
+    InputArgument dateRangeArg = new InputArgument("dateRange", dateRange, false, null);
+    getInputArguments().get("netSales").add(dateRangeArg);
+    return projection;
+  }
+
+  public MoneyV2Projection<CashDrawerProjection<PARENT, ROOT>, ROOT> netSalesWithVariableReferences(
+      String dateRangeReference) {
+    MoneyV2Projection<CashDrawerProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());    
+    getFields().put("netSales", projection);
+    getInputArguments().computeIfAbsent("netSales", k -> new ArrayList<>());              
+    InputArgument dateRangeArg = new InputArgument("dateRange", dateRangeReference, true, new graphql.language.NonNullType(new graphql.language.TypeName("CashDrawerDateRangeInput")));
     getInputArguments().get("netSales").add(dateRangeArg);
     return projection;
   }
@@ -84,13 +126,29 @@ public class CashDrawerProjection<PARENT extends BaseSubProjectionNode<?, ?>, RO
     PointOfSaleDeviceConnectionProjection<CashDrawerProjection<PARENT, ROOT>, ROOT> projection = new PointOfSaleDeviceConnectionProjection<>(this, getRoot());    
     getFields().put("pointOfSaleDevices", projection);
     getInputArguments().computeIfAbsent("pointOfSaleDevices", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("pointOfSaleDevices").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("pointOfSaleDevices").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("pointOfSaleDevices").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
+    getInputArguments().get("pointOfSaleDevices").add(beforeArg);
+    return projection;
+  }
+
+  public PointOfSaleDeviceConnectionProjection<CashDrawerProjection<PARENT, ROOT>, ROOT> pointOfSaleDevicesWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference) {
+    PointOfSaleDeviceConnectionProjection<CashDrawerProjection<PARENT, ROOT>, ROOT> projection = new PointOfSaleDeviceConnectionProjection<>(this, getRoot());    
+    getFields().put("pointOfSaleDevices", projection);
+    getInputArguments().computeIfAbsent("pointOfSaleDevices", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("pointOfSaleDevices").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("pointOfSaleDevices").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("pointOfSaleDevices").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
     getInputArguments().get("pointOfSaleDevices").add(beforeArg);
     return projection;
   }
@@ -106,7 +164,17 @@ public class CashDrawerProjection<PARENT extends BaseSubProjectionNode<?, ?>, RO
     MoneyV2Projection<CashDrawerProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());    
     getFields().put("totalAdjustments", projection);
     getInputArguments().computeIfAbsent("totalAdjustments", k -> new ArrayList<>());                      
-    InputArgument dateRangeArg = new InputArgument("dateRange", dateRange);
+    InputArgument dateRangeArg = new InputArgument("dateRange", dateRange, false, null);
+    getInputArguments().get("totalAdjustments").add(dateRangeArg);
+    return projection;
+  }
+
+  public MoneyV2Projection<CashDrawerProjection<PARENT, ROOT>, ROOT> totalAdjustmentsWithVariableReferences(
+      String dateRangeReference) {
+    MoneyV2Projection<CashDrawerProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());    
+    getFields().put("totalAdjustments", projection);
+    getInputArguments().computeIfAbsent("totalAdjustments", k -> new ArrayList<>());              
+    InputArgument dateRangeArg = new InputArgument("dateRange", dateRangeReference, true, new graphql.language.NonNullType(new graphql.language.TypeName("CashDrawerDateRangeInput")));
     getInputArguments().get("totalAdjustments").add(dateRangeArg);
     return projection;
   }
@@ -122,7 +190,17 @@ public class CashDrawerProjection<PARENT extends BaseSubProjectionNode<?, ?>, RO
     MoneyV2Projection<CashDrawerProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());    
     getFields().put("totalDiscrepancies", projection);
     getInputArguments().computeIfAbsent("totalDiscrepancies", k -> new ArrayList<>());                      
-    InputArgument dateRangeArg = new InputArgument("dateRange", dateRange);
+    InputArgument dateRangeArg = new InputArgument("dateRange", dateRange, false, null);
+    getInputArguments().get("totalDiscrepancies").add(dateRangeArg);
+    return projection;
+  }
+
+  public MoneyV2Projection<CashDrawerProjection<PARENT, ROOT>, ROOT> totalDiscrepanciesWithVariableReferences(
+      String dateRangeReference) {
+    MoneyV2Projection<CashDrawerProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());    
+    getFields().put("totalDiscrepancies", projection);
+    getInputArguments().computeIfAbsent("totalDiscrepancies", k -> new ArrayList<>());              
+    InputArgument dateRangeArg = new InputArgument("dateRange", dateRangeReference, true, new graphql.language.NonNullType(new graphql.language.TypeName("CashDrawerDateRangeInput")));
     getInputArguments().get("totalDiscrepancies").add(dateRangeArg);
     return projection;
   }
@@ -138,7 +216,17 @@ public class CashDrawerProjection<PARENT extends BaseSubProjectionNode<?, ?>, RO
     MoneyV2Projection<CashDrawerProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());    
     getFields().put("totalRefunds", projection);
     getInputArguments().computeIfAbsent("totalRefunds", k -> new ArrayList<>());                      
-    InputArgument dateRangeArg = new InputArgument("dateRange", dateRange);
+    InputArgument dateRangeArg = new InputArgument("dateRange", dateRange, false, null);
+    getInputArguments().get("totalRefunds").add(dateRangeArg);
+    return projection;
+  }
+
+  public MoneyV2Projection<CashDrawerProjection<PARENT, ROOT>, ROOT> totalRefundsWithVariableReferences(
+      String dateRangeReference) {
+    MoneyV2Projection<CashDrawerProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());    
+    getFields().put("totalRefunds", projection);
+    getInputArguments().computeIfAbsent("totalRefunds", k -> new ArrayList<>());              
+    InputArgument dateRangeArg = new InputArgument("dateRange", dateRangeReference, true, new graphql.language.NonNullType(new graphql.language.TypeName("CashDrawerDateRangeInput")));
     getInputArguments().get("totalRefunds").add(dateRangeArg);
     return projection;
   }
@@ -154,7 +242,17 @@ public class CashDrawerProjection<PARENT extends BaseSubProjectionNode<?, ?>, RO
     MoneyV2Projection<CashDrawerProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());    
     getFields().put("totalSales", projection);
     getInputArguments().computeIfAbsent("totalSales", k -> new ArrayList<>());                      
-    InputArgument dateRangeArg = new InputArgument("dateRange", dateRange);
+    InputArgument dateRangeArg = new InputArgument("dateRange", dateRange, false, null);
+    getInputArguments().get("totalSales").add(dateRangeArg);
+    return projection;
+  }
+
+  public MoneyV2Projection<CashDrawerProjection<PARENT, ROOT>, ROOT> totalSalesWithVariableReferences(
+      String dateRangeReference) {
+    MoneyV2Projection<CashDrawerProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());    
+    getFields().put("totalSales", projection);
+    getInputArguments().computeIfAbsent("totalSales", k -> new ArrayList<>());              
+    InputArgument dateRangeArg = new InputArgument("dateRange", dateRangeReference, true, new graphql.language.NonNullType(new graphql.language.TypeName("CashDrawerDateRangeInput")));
     getInputArguments().get("totalSales").add(dateRangeArg);
     return projection;
   }

@@ -3,10 +3,14 @@ package com.shopify.admin.client;
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.ChildProductRelationInput;
 import com.shopify.admin.types.OptionAndValueInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -54,6 +58,34 @@ public class CombinedListingUpdateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public CombinedListingUpdateGraphQLQuery(String parentProductId, String title,
+      List<ChildProductRelationInput> productsAdded, List<ChildProductRelationInput> productsEdited,
+      List<String> productsRemovedIds, List<OptionAndValueInput> optionsAndValues, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (parentProductId != null || fieldsSet.contains("parentProductId")) {
+        getInput().put("parentProductId", parentProductId);
+    }if (title != null || fieldsSet.contains("title")) {
+        getInput().put("title", title);
+    }if (productsAdded != null || fieldsSet.contains("productsAdded")) {
+        getInput().put("productsAdded", productsAdded);
+    }if (productsEdited != null || fieldsSet.contains("productsEdited")) {
+        getInput().put("productsEdited", productsEdited);
+    }if (productsRemovedIds != null || fieldsSet.contains("productsRemovedIds")) {
+        getInput().put("productsRemovedIds", productsRemovedIds);
+    }if (optionsAndValues != null || fieldsSet.contains("optionsAndValues")) {
+        getInput().put("optionsAndValues", optionsAndValues);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public CombinedListingUpdateGraphQLQuery() {
     super("mutation");
   }
@@ -70,6 +102,10 @@ public class CombinedListingUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String parentProductId;
 
     private String title;
@@ -85,7 +121,7 @@ public class CombinedListingUpdateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public CombinedListingUpdateGraphQLQuery build() {
-      return new CombinedListingUpdateGraphQLQuery(parentProductId, title, productsAdded, productsEdited, productsRemovedIds, optionsAndValues, queryName, fieldsSet);
+      return new CombinedListingUpdateGraphQLQuery(parentProductId, title, productsAdded, productsEdited, productsRemovedIds, optionsAndValues, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -94,6 +130,16 @@ public class CombinedListingUpdateGraphQLQuery extends GraphQLQuery {
      */
     public Builder parentProductId(String parentProductId) {
       this.parentProductId = parentProductId;
+      this.fieldsSet.add("parentProductId");
+      return this;
+    }
+
+    /**
+     * The ID of the parent product.
+     */
+    public Builder parentProductIdReference(String variableRef) {
+      this.variableReferences.put("parentProductId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("parentProductId");
       return this;
     }
@@ -108,10 +154,30 @@ public class CombinedListingUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The updated title for the combined listing.
+     */
+    public Builder titleReference(String variableRef) {
+      this.variableReferences.put("title", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
+      this.fieldsSet.add("title");
+      return this;
+    }
+
+    /**
      * The child products to add and their assigned options and option values.
      */
     public Builder productsAdded(List<ChildProductRelationInput> productsAdded) {
       this.productsAdded = productsAdded;
+      this.fieldsSet.add("productsAdded");
+      return this;
+    }
+
+    /**
+     * The child products to add and their assigned options and option values.
+     */
+    public Builder productsAddedReference(String variableRef) {
+      this.variableReferences.put("productsAdded", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("ChildProductRelationInput")))).build());
       this.fieldsSet.add("productsAdded");
       return this;
     }
@@ -126,10 +192,30 @@ public class CombinedListingUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The child products to edit and their assigned options and option values.
+     */
+    public Builder productsEditedReference(String variableRef) {
+      this.variableReferences.put("productsEdited", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("ChildProductRelationInput")))).build());
+      this.fieldsSet.add("productsEdited");
+      return this;
+    }
+
+    /**
      * The IDs of products to be removed from the combined listing.
      */
     public Builder productsRemovedIds(List<String> productsRemovedIds) {
       this.productsRemovedIds = productsRemovedIds;
+      this.fieldsSet.add("productsRemovedIds");
+      return this;
+    }
+
+    /**
+     * The IDs of products to be removed from the combined listing.
+     */
+    public Builder productsRemovedIdsReference(String variableRef) {
+      this.variableReferences.put("productsRemovedIds", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("ID")))).build());
       this.fieldsSet.add("productsRemovedIds");
       return this;
     }
@@ -140,6 +226,17 @@ public class CombinedListingUpdateGraphQLQuery extends GraphQLQuery {
      */
     public Builder optionsAndValues(List<OptionAndValueInput> optionsAndValues) {
       this.optionsAndValues = optionsAndValues;
+      this.fieldsSet.add("optionsAndValues");
+      return this;
+    }
+
+    /**
+     * The ordered options and values to be used by the combined listing. Options
+     * and values will be reordered to match the order specified here.
+     */
+    public Builder optionsAndValuesReference(String variableRef) {
+      this.variableReferences.put("optionsAndValues", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("OptionAndValueInput")))).build());
       this.fieldsSet.add("optionsAndValues");
       return this;
     }

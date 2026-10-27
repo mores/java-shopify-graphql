@@ -48,6 +48,11 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
   private String id;
 
   /**
+   * The stable central legal entity ID associated with this business entity.
+   */
+  private String legalEntityId;
+
+  /**
    * Whether it's the merchant's primary Business Entity.
    */
   private boolean primary;
@@ -123,6 +128,17 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
   }
 
   /**
+   * The stable central legal entity ID associated with this business entity.
+   */
+  public String getLegalEntityId() {
+    return legalEntityId;
+  }
+
+  public void setLegalEntityId(String legalEntityId) {
+    this.legalEntityId = legalEntityId;
+  }
+
+  /**
    * Whether it's the merchant's primary Business Entity.
    */
   public boolean getPrimary() {
@@ -153,7 +169,7 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "BusinessEntity{address='" + address + "', archived='" + archived + "', companyName='" + companyName + "', displayName='" + displayName + "', id='" + id + "', primary='" + primary + "', shopifyPaymentsAccount='" + shopifyPaymentsAccount + "'}";
+    return "BusinessEntity{address='" + address + "', archived='" + archived + "', companyName='" + companyName + "', displayName='" + displayName + "', id='" + id + "', legalEntityId='" + legalEntityId + "', primary='" + primary + "', shopifyPaymentsAccount='" + shopifyPaymentsAccount + "'}";
   }
 
   @Override
@@ -166,13 +182,14 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
         Objects.equals(companyName, that.companyName) &&
         Objects.equals(displayName, that.displayName) &&
         Objects.equals(id, that.id) &&
+        Objects.equals(legalEntityId, that.legalEntityId) &&
         primary == that.primary &&
         Objects.equals(shopifyPaymentsAccount, that.shopifyPaymentsAccount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, archived, companyName, displayName, id, primary, shopifyPaymentsAccount);
+    return Objects.hash(address, archived, companyName, displayName, id, legalEntityId, primary, shopifyPaymentsAccount);
   }
 
   public static Builder newBuilder() {
@@ -206,6 +223,11 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
     private String id;
 
     /**
+     * The stable central legal entity ID associated with this business entity.
+     */
+    private String legalEntityId;
+
+    /**
      * Whether it's the merchant's primary Business Entity.
      */
     private boolean primary;
@@ -229,6 +251,7 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
       result.companyName = this.companyName;
       result.displayName = this.displayName;
       result.id = this.id;
+      result.legalEntityId = this.legalEntityId;
       result.primary = this.primary;
       result.shopifyPaymentsAccount = this.shopifyPaymentsAccount;
       return result;
@@ -271,6 +294,14 @@ public class BusinessEntity implements com.shopify.admin.types.Node {
      */
     public Builder id(String id) {
       this.id = id;
+      return this;
+    }
+
+    /**
+     * The stable central legal entity ID associated with this business entity.
+     */
+    public Builder legalEntityId(String legalEntityId) {
+      this.legalEntityId = legalEntityId;
       return this;
     }
 

@@ -10,6 +10,11 @@ import java.util.Objects;
  */
 public class ShopifyqlTableDataColumn {
   /**
+   * Whether the column was explicitly requested in the query or dynamically generated.
+   */
+  private ShopifyqlColumnOrigin columnOrigin;
+
+  /**
    * The data type of the column.
    */
   private ColumnDataType dataType;
@@ -20,16 +25,38 @@ public class ShopifyqlTableDataColumn {
   private String displayName;
 
   /**
+   * Metadata describing how a dynamic column was generated (comparison, totals,
+   * benchmark, attribution, etc.). Null for non-dynamic columns.
+   */
+  private ShopifyqlDynamicColumnMetadata dynamicColumnMetadata;
+
+  /**
    * The name of the column.
    */
   private String name;
 
   /**
-   * The sub type of an array column.
+   * A shortened display name for the column, suitable for compact UI such as metric tiles.
+   */
+  private String shortDisplayName;
+
+  /**
+   * The element type of an array column or DAY_DURATION for a range column.
    */
   private ColumnDataType subType;
 
   public ShopifyqlTableDataColumn() {
+  }
+
+  /**
+   * Whether the column was explicitly requested in the query or dynamically generated.
+   */
+  public ShopifyqlColumnOrigin getColumnOrigin() {
+    return columnOrigin;
+  }
+
+  public void setColumnOrigin(ShopifyqlColumnOrigin columnOrigin) {
+    this.columnOrigin = columnOrigin;
   }
 
   /**
@@ -55,6 +82,18 @@ public class ShopifyqlTableDataColumn {
   }
 
   /**
+   * Metadata describing how a dynamic column was generated (comparison, totals,
+   * benchmark, attribution, etc.). Null for non-dynamic columns.
+   */
+  public ShopifyqlDynamicColumnMetadata getDynamicColumnMetadata() {
+    return dynamicColumnMetadata;
+  }
+
+  public void setDynamicColumnMetadata(ShopifyqlDynamicColumnMetadata dynamicColumnMetadata) {
+    this.dynamicColumnMetadata = dynamicColumnMetadata;
+  }
+
+  /**
    * The name of the column.
    */
   public String getName() {
@@ -66,7 +105,18 @@ public class ShopifyqlTableDataColumn {
   }
 
   /**
-   * The sub type of an array column.
+   * A shortened display name for the column, suitable for compact UI such as metric tiles.
+   */
+  public String getShortDisplayName() {
+    return shortDisplayName;
+  }
+
+  public void setShortDisplayName(String shortDisplayName) {
+    this.shortDisplayName = shortDisplayName;
+  }
+
+  /**
+   * The element type of an array column or DAY_DURATION for a range column.
    */
   public ColumnDataType getSubType() {
     return subType;
@@ -78,7 +128,7 @@ public class ShopifyqlTableDataColumn {
 
   @Override
   public String toString() {
-    return "ShopifyqlTableDataColumn{dataType='" + dataType + "', displayName='" + displayName + "', name='" + name + "', subType='" + subType + "'}";
+    return "ShopifyqlTableDataColumn{columnOrigin='" + columnOrigin + "', dataType='" + dataType + "', displayName='" + displayName + "', dynamicColumnMetadata='" + dynamicColumnMetadata + "', name='" + name + "', shortDisplayName='" + shortDisplayName + "', subType='" + subType + "'}";
   }
 
   @Override
@@ -86,15 +136,18 @@ public class ShopifyqlTableDataColumn {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     ShopifyqlTableDataColumn that = (ShopifyqlTableDataColumn) o;
-    return Objects.equals(dataType, that.dataType) &&
+    return Objects.equals(columnOrigin, that.columnOrigin) &&
+        Objects.equals(dataType, that.dataType) &&
         Objects.equals(displayName, that.displayName) &&
+        Objects.equals(dynamicColumnMetadata, that.dynamicColumnMetadata) &&
         Objects.equals(name, that.name) &&
+        Objects.equals(shortDisplayName, that.shortDisplayName) &&
         Objects.equals(subType, that.subType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataType, displayName, name, subType);
+    return Objects.hash(columnOrigin, dataType, displayName, dynamicColumnMetadata, name, shortDisplayName, subType);
   }
 
   public static Builder newBuilder() {
@@ -102,6 +155,11 @@ public class ShopifyqlTableDataColumn {
   }
 
   public static class Builder {
+    /**
+     * Whether the column was explicitly requested in the query or dynamically generated.
+     */
+    private ShopifyqlColumnOrigin columnOrigin;
+
     /**
      * The data type of the column.
      */
@@ -113,22 +171,44 @@ public class ShopifyqlTableDataColumn {
     private String displayName;
 
     /**
+     * Metadata describing how a dynamic column was generated (comparison, totals,
+     * benchmark, attribution, etc.). Null for non-dynamic columns.
+     */
+    private ShopifyqlDynamicColumnMetadata dynamicColumnMetadata;
+
+    /**
      * The name of the column.
      */
     private String name;
 
     /**
-     * The sub type of an array column.
+     * A shortened display name for the column, suitable for compact UI such as metric tiles.
+     */
+    private String shortDisplayName;
+
+    /**
+     * The element type of an array column or DAY_DURATION for a range column.
      */
     private ColumnDataType subType;
 
     public ShopifyqlTableDataColumn build() {
       ShopifyqlTableDataColumn result = new ShopifyqlTableDataColumn();
+      result.columnOrigin = this.columnOrigin;
       result.dataType = this.dataType;
       result.displayName = this.displayName;
+      result.dynamicColumnMetadata = this.dynamicColumnMetadata;
       result.name = this.name;
+      result.shortDisplayName = this.shortDisplayName;
       result.subType = this.subType;
       return result;
+    }
+
+    /**
+     * Whether the column was explicitly requested in the query or dynamically generated.
+     */
+    public Builder columnOrigin(ShopifyqlColumnOrigin columnOrigin) {
+      this.columnOrigin = columnOrigin;
+      return this;
     }
 
     /**
@@ -148,6 +228,15 @@ public class ShopifyqlTableDataColumn {
     }
 
     /**
+     * Metadata describing how a dynamic column was generated (comparison, totals,
+     * benchmark, attribution, etc.). Null for non-dynamic columns.
+     */
+    public Builder dynamicColumnMetadata(ShopifyqlDynamicColumnMetadata dynamicColumnMetadata) {
+      this.dynamicColumnMetadata = dynamicColumnMetadata;
+      return this;
+    }
+
+    /**
      * The name of the column.
      */
     public Builder name(String name) {
@@ -156,7 +245,15 @@ public class ShopifyqlTableDataColumn {
     }
 
     /**
-     * The sub type of an array column.
+     * A shortened display name for the column, suitable for compact UI such as metric tiles.
+     */
+    public Builder shortDisplayName(String shortDisplayName) {
+      this.shortDisplayName = shortDisplayName;
+      return this;
+    }
+
+    /**
+     * The element type of an array column or DAY_DURATION for a range column.
      */
     public Builder subType(ColumnDataType subType) {
       this.subType = subType;

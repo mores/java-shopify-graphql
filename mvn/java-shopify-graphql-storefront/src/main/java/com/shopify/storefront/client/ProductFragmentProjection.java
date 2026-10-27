@@ -40,11 +40,26 @@ public class ProductFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?
     ProductVariantProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantProjection<>(this, getRoot());    
     getFields().put("adjacentVariants", projection);
     getInputArguments().computeIfAbsent("adjacentVariants", k -> new ArrayList<>());                      
-    InputArgument selectedOptionsArg = new InputArgument("selectedOptions", selectedOptions);
+    InputArgument selectedOptionsArg = new InputArgument("selectedOptions", selectedOptions, false, null);
     getInputArguments().get("adjacentVariants").add(selectedOptionsArg);
-    InputArgument ignoreUnknownOptionsArg = new InputArgument("ignoreUnknownOptions", ignoreUnknownOptions);
+    InputArgument ignoreUnknownOptionsArg = new InputArgument("ignoreUnknownOptions", ignoreUnknownOptions, false, null);
     getInputArguments().get("adjacentVariants").add(ignoreUnknownOptionsArg);
-    InputArgument caseInsensitiveMatchArg = new InputArgument("caseInsensitiveMatch", caseInsensitiveMatch);
+    InputArgument caseInsensitiveMatchArg = new InputArgument("caseInsensitiveMatch", caseInsensitiveMatch, false, null);
+    getInputArguments().get("adjacentVariants").add(caseInsensitiveMatchArg);
+    return projection;
+  }
+
+  public ProductVariantProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> adjacentVariantsWithVariableReferences(
+      String selectedOptionsReference, String ignoreUnknownOptionsReference,
+      String caseInsensitiveMatchReference) {
+    ProductVariantProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantProjection<>(this, getRoot());    
+    getFields().put("adjacentVariants", projection);
+    getInputArguments().computeIfAbsent("adjacentVariants", k -> new ArrayList<>());              
+    InputArgument selectedOptionsArg = new InputArgument("selectedOptions", selectedOptionsReference, true, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("SelectedOptionInput"))));
+    getInputArguments().get("adjacentVariants").add(selectedOptionsArg);
+    InputArgument ignoreUnknownOptionsArg = new InputArgument("ignoreUnknownOptions", ignoreUnknownOptionsReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("adjacentVariants").add(ignoreUnknownOptionsArg);
+    InputArgument caseInsensitiveMatchArg = new InputArgument("caseInsensitiveMatch", caseInsensitiveMatchReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("adjacentVariants").add(caseInsensitiveMatchArg);
     return projection;
   }
@@ -67,15 +82,34 @@ public class ProductFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?
     CollectionConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new CollectionConnectionProjection<>(this, getRoot());    
     getFields().put("collections", projection);
     getInputArguments().computeIfAbsent("collections", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("collections").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("collections").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("collections").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("collections").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("collections").add(reverseArg);
+    return projection;
+  }
+
+  public CollectionConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> collectionsWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    CollectionConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new CollectionConnectionProjection<>(this, getRoot());    
+    getFields().put("collections", projection);
+    getInputArguments().computeIfAbsent("collections", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("collections").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("collections").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("collections").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("collections").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("collections").add(reverseArg);
     return projection;
   }
@@ -105,17 +139,38 @@ public class ProductFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?
     ImageConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new ImageConnectionProjection<>(this, getRoot());    
     getFields().put("images", projection);
     getInputArguments().computeIfAbsent("images", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("images").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("images").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("images").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("images").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
     getInputArguments().get("images").add(reverseArg);
-    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey, false, null);
+    getInputArguments().get("images").add(sortKeyArg);
+    return projection;
+  }
+
+  public ImageConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> imagesWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference, String sortKeyReference) {
+    ImageConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new ImageConnectionProjection<>(this, getRoot());    
+    getFields().put("images", projection);
+    getInputArguments().computeIfAbsent("images", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("images").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("images").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("images").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("images").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("images").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKeyReference, true, new graphql.language.TypeName("ProductImageSortKeys"));
     getInputArguments().get("images").add(sortKeyArg);
     return projection;
   }
@@ -132,17 +187,38 @@ public class ProductFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?
     MediaConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new MediaConnectionProjection<>(this, getRoot());    
     getFields().put("media", projection);
     getInputArguments().computeIfAbsent("media", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("media").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("media").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("media").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("media").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
     getInputArguments().get("media").add(reverseArg);
-    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey, false, null);
+    getInputArguments().get("media").add(sortKeyArg);
+    return projection;
+  }
+
+  public MediaConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> mediaWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference, String sortKeyReference) {
+    MediaConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new MediaConnectionProjection<>(this, getRoot());    
+    getFields().put("media", projection);
+    getInputArguments().computeIfAbsent("media", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("media").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("media").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("media").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("media").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("media").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKeyReference, true, new graphql.language.TypeName("ProductMediaSortKeys"));
     getInputArguments().get("media").add(sortKeyArg);
     return projection;
   }
@@ -158,9 +234,21 @@ public class ProductFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?
     MetafieldProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
     getFields().put("metafield", projection);
     getInputArguments().computeIfAbsent("metafield", k -> new ArrayList<>());                      
-    InputArgument namespaceArg = new InputArgument("namespace", namespace);
+    InputArgument namespaceArg = new InputArgument("namespace", namespace, false, null);
     getInputArguments().get("metafield").add(namespaceArg);
-    InputArgument keyArg = new InputArgument("key", key);
+    InputArgument keyArg = new InputArgument("key", key, false, null);
+    getInputArguments().get("metafield").add(keyArg);
+    return projection;
+  }
+
+  public MetafieldProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> metafieldWithVariableReferences(
+      String namespaceReference, String keyReference) {
+    MetafieldProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
+    getFields().put("metafield", projection);
+    getInputArguments().computeIfAbsent("metafield", k -> new ArrayList<>());              
+    InputArgument namespaceArg = new InputArgument("namespace", namespaceReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("metafield").add(namespaceArg);
+    InputArgument keyArg = new InputArgument("key", keyReference, true, new graphql.language.NonNullType(new graphql.language.TypeName("String")));
     getInputArguments().get("metafield").add(keyArg);
     return projection;
   }
@@ -176,7 +264,17 @@ public class ProductFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?
     MetafieldProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
     getFields().put("metafields", projection);
     getInputArguments().computeIfAbsent("metafields", k -> new ArrayList<>());                      
-    InputArgument identifiersArg = new InputArgument("identifiers", identifiers);
+    InputArgument identifiersArg = new InputArgument("identifiers", identifiers, false, null);
+    getInputArguments().get("metafields").add(identifiersArg);
+    return projection;
+  }
+
+  public MetafieldProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> metafieldsWithVariableReferences(
+      String identifiersReference) {
+    MetafieldProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
+    getFields().put("metafields", projection);
+    getInputArguments().computeIfAbsent("metafields", k -> new ArrayList<>());              
+    InputArgument identifiersArg = new InputArgument("identifiers", identifiersReference, true, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("HasMetafieldsIdentifier")))));
     getInputArguments().get("metafields").add(identifiersArg);
     return projection;
   }
@@ -192,7 +290,17 @@ public class ProductFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?
     ProductOptionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductOptionProjection<>(this, getRoot());    
     getFields().put("options", projection);
     getInputArguments().computeIfAbsent("options", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
+    getInputArguments().get("options").add(firstArg);
+    return projection;
+  }
+
+  public ProductOptionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> optionsWithVariableReferences(
+      String firstReference) {
+    ProductOptionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductOptionProjection<>(this, getRoot());    
+    getFields().put("options", projection);
+    getInputArguments().computeIfAbsent("options", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
     getInputArguments().get("options").add(firstArg);
     return projection;
   }
@@ -216,11 +324,26 @@ public class ProductFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?
     ProductVariantProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantProjection<>(this, getRoot());    
     getFields().put("selectedOrFirstAvailableVariant", projection);
     getInputArguments().computeIfAbsent("selectedOrFirstAvailableVariant", k -> new ArrayList<>());                      
-    InputArgument selectedOptionsArg = new InputArgument("selectedOptions", selectedOptions);
+    InputArgument selectedOptionsArg = new InputArgument("selectedOptions", selectedOptions, false, null);
     getInputArguments().get("selectedOrFirstAvailableVariant").add(selectedOptionsArg);
-    InputArgument ignoreUnknownOptionsArg = new InputArgument("ignoreUnknownOptions", ignoreUnknownOptions);
+    InputArgument ignoreUnknownOptionsArg = new InputArgument("ignoreUnknownOptions", ignoreUnknownOptions, false, null);
     getInputArguments().get("selectedOrFirstAvailableVariant").add(ignoreUnknownOptionsArg);
-    InputArgument caseInsensitiveMatchArg = new InputArgument("caseInsensitiveMatch", caseInsensitiveMatch);
+    InputArgument caseInsensitiveMatchArg = new InputArgument("caseInsensitiveMatch", caseInsensitiveMatch, false, null);
+    getInputArguments().get("selectedOrFirstAvailableVariant").add(caseInsensitiveMatchArg);
+    return projection;
+  }
+
+  public ProductVariantProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> selectedOrFirstAvailableVariantWithVariableReferences(
+      String selectedOptionsReference, String ignoreUnknownOptionsReference,
+      String caseInsensitiveMatchReference) {
+    ProductVariantProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantProjection<>(this, getRoot());    
+    getFields().put("selectedOrFirstAvailableVariant", projection);
+    getInputArguments().computeIfAbsent("selectedOrFirstAvailableVariant", k -> new ArrayList<>());              
+    InputArgument selectedOptionsArg = new InputArgument("selectedOptions", selectedOptionsReference, true, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("SelectedOptionInput"))));
+    getInputArguments().get("selectedOrFirstAvailableVariant").add(selectedOptionsArg);
+    InputArgument ignoreUnknownOptionsArg = new InputArgument("ignoreUnknownOptions", ignoreUnknownOptionsReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("selectedOrFirstAvailableVariant").add(ignoreUnknownOptionsArg);
+    InputArgument caseInsensitiveMatchArg = new InputArgument("caseInsensitiveMatch", caseInsensitiveMatchReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("selectedOrFirstAvailableVariant").add(caseInsensitiveMatchArg);
     return projection;
   }
@@ -237,15 +360,34 @@ public class ProductFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?
     SellingPlanGroupConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new SellingPlanGroupConnectionProjection<>(this, getRoot());    
     getFields().put("sellingPlanGroups", projection);
     getInputArguments().computeIfAbsent("sellingPlanGroups", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("sellingPlanGroups").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("sellingPlanGroups").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("sellingPlanGroups").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("sellingPlanGroups").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("sellingPlanGroups").add(reverseArg);
+    return projection;
+  }
+
+  public SellingPlanGroupConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> sellingPlanGroupsWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    SellingPlanGroupConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new SellingPlanGroupConnectionProjection<>(this, getRoot());    
+    getFields().put("sellingPlanGroups", projection);
+    getInputArguments().computeIfAbsent("sellingPlanGroups", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("sellingPlanGroups").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("sellingPlanGroups").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("sellingPlanGroups").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("sellingPlanGroups").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("sellingPlanGroups").add(reverseArg);
     return projection;
   }
@@ -269,11 +411,26 @@ public class ProductFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?
     ProductVariantProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantProjection<>(this, getRoot());    
     getFields().put("variantBySelectedOptions", projection);
     getInputArguments().computeIfAbsent("variantBySelectedOptions", k -> new ArrayList<>());                      
-    InputArgument selectedOptionsArg = new InputArgument("selectedOptions", selectedOptions);
+    InputArgument selectedOptionsArg = new InputArgument("selectedOptions", selectedOptions, false, null);
     getInputArguments().get("variantBySelectedOptions").add(selectedOptionsArg);
-    InputArgument ignoreUnknownOptionsArg = new InputArgument("ignoreUnknownOptions", ignoreUnknownOptions);
+    InputArgument ignoreUnknownOptionsArg = new InputArgument("ignoreUnknownOptions", ignoreUnknownOptions, false, null);
     getInputArguments().get("variantBySelectedOptions").add(ignoreUnknownOptionsArg);
-    InputArgument caseInsensitiveMatchArg = new InputArgument("caseInsensitiveMatch", caseInsensitiveMatch);
+    InputArgument caseInsensitiveMatchArg = new InputArgument("caseInsensitiveMatch", caseInsensitiveMatch, false, null);
+    getInputArguments().get("variantBySelectedOptions").add(caseInsensitiveMatchArg);
+    return projection;
+  }
+
+  public ProductVariantProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> variantBySelectedOptionsWithVariableReferences(
+      String selectedOptionsReference, String ignoreUnknownOptionsReference,
+      String caseInsensitiveMatchReference) {
+    ProductVariantProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantProjection<>(this, getRoot());    
+    getFields().put("variantBySelectedOptions", projection);
+    getInputArguments().computeIfAbsent("variantBySelectedOptions", k -> new ArrayList<>());              
+    InputArgument selectedOptionsArg = new InputArgument("selectedOptions", selectedOptionsReference, true, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("SelectedOptionInput")))));
+    getInputArguments().get("variantBySelectedOptions").add(selectedOptionsArg);
+    InputArgument ignoreUnknownOptionsArg = new InputArgument("ignoreUnknownOptions", ignoreUnknownOptionsReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("variantBySelectedOptions").add(ignoreUnknownOptionsArg);
+    InputArgument caseInsensitiveMatchArg = new InputArgument("caseInsensitiveMatch", caseInsensitiveMatchReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("variantBySelectedOptions").add(caseInsensitiveMatchArg);
     return projection;
   }
@@ -291,17 +448,38 @@ public class ProductFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?
     ProductVariantConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantConnectionProjection<>(this, getRoot());    
     getFields().put("variants", projection);
     getInputArguments().computeIfAbsent("variants", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("variants").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("variants").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("variants").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("variants").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
     getInputArguments().get("variants").add(reverseArg);
-    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey, false, null);
+    getInputArguments().get("variants").add(sortKeyArg);
+    return projection;
+  }
+
+  public ProductVariantConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> variantsWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference, String sortKeyReference) {
+    ProductVariantConnectionProjection<ProductFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantConnectionProjection<>(this, getRoot());    
+    getFields().put("variants", projection);
+    getInputArguments().computeIfAbsent("variants", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("variants").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("variants").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("variants").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("variants").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("variants").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKeyReference, true, new graphql.language.TypeName("ProductVariantSortKeys"));
     getInputArguments().get("variants").add(sortKeyArg);
     return projection;
   }
@@ -330,7 +508,7 @@ public class ProductFragmentProjection<PARENT extends BaseSubProjectionNode<?, ?
   public ProductFragmentProjection description(Integer truncateAt) {
     getFields().put("description", null);
     getInputArguments().computeIfAbsent("description", k -> new ArrayList<>());
-    InputArgument truncateAtArg = new InputArgument("truncateAt", truncateAt);
+    InputArgument truncateAtArg = new InputArgument("truncateAt", truncateAt, false, null);
     getInputArguments().get("description").add(truncateAtArg);
     return this;
   }

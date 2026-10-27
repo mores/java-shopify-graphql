@@ -38,11 +38,6 @@ public class DraftOrderDiscountNotAppliedWarning implements com.shopify.admin.ty
    */
   private String message;
 
-  /**
-   * The price rule that can't be applied.
-   */
-  private PriceRule priceRule;
-
   public DraftOrderDiscountNotAppliedWarning() {
   }
 
@@ -101,20 +96,9 @@ public class DraftOrderDiscountNotAppliedWarning implements com.shopify.admin.ty
     this.message = message;
   }
 
-  /**
-   * The price rule that can't be applied.
-   */
-  public PriceRule getPriceRule() {
-    return priceRule;
-  }
-
-  public void setPriceRule(PriceRule priceRule) {
-    this.priceRule = priceRule;
-  }
-
   @Override
   public String toString() {
-    return "DraftOrderDiscountNotAppliedWarning{discountCode='" + discountCode + "', discountTitle='" + discountTitle + "', errorCode='" + errorCode + "', field='" + field + "', message='" + message + "', priceRule='" + priceRule + "'}";
+    return "DraftOrderDiscountNotAppliedWarning{discountCode='" + discountCode + "', discountTitle='" + discountTitle + "', errorCode='" + errorCode + "', field='" + field + "', message='" + message + "'}";
   }
 
   @Override
@@ -126,13 +110,12 @@ public class DraftOrderDiscountNotAppliedWarning implements com.shopify.admin.ty
         Objects.equals(discountTitle, that.discountTitle) &&
         Objects.equals(errorCode, that.errorCode) &&
         Objects.equals(field, that.field) &&
-        Objects.equals(message, that.message) &&
-        Objects.equals(priceRule, that.priceRule);
+        Objects.equals(message, that.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(discountCode, discountTitle, errorCode, field, message, priceRule);
+    return Objects.hash(discountCode, discountTitle, errorCode, field, message);
   }
 
   public static Builder newBuilder() {
@@ -165,11 +148,6 @@ public class DraftOrderDiscountNotAppliedWarning implements com.shopify.admin.ty
      */
     private String message;
 
-    /**
-     * The price rule that can't be applied.
-     */
-    private PriceRule priceRule;
-
     public DraftOrderDiscountNotAppliedWarning build() {
       DraftOrderDiscountNotAppliedWarning result = new DraftOrderDiscountNotAppliedWarning();
       result.discountCode = this.discountCode;
@@ -177,7 +155,6 @@ public class DraftOrderDiscountNotAppliedWarning implements com.shopify.admin.ty
       result.errorCode = this.errorCode;
       result.field = this.field;
       result.message = this.message;
-      result.priceRule = this.priceRule;
       return result;
     }
 
@@ -218,14 +195,6 @@ public class DraftOrderDiscountNotAppliedWarning implements com.shopify.admin.ty
      */
     public Builder message(String message) {
       this.message = message;
-      return this;
-    }
-
-    /**
-     * The price rule that can't be applied.
-     */
-    public Builder priceRule(PriceRule priceRule) {
-      this.priceRule = priceRule;
       return this;
     }
   }

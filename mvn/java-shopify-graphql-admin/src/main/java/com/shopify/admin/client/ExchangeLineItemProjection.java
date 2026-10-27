@@ -39,8 +39,18 @@ public class ExchangeLineItemProjection<PARENT extends BaseSubProjectionNode<?, 
     return this;
   }
 
+  public ExchangeLineItemProjection<PARENT, ROOT> productId() {
+    getFields().put("productId", null);
+    return this;
+  }
+
   public ExchangeLineItemProjection<PARENT, ROOT> quantity() {
     getFields().put("quantity", null);
+    return this;
+  }
+
+  public ExchangeLineItemProjection<PARENT, ROOT> title() {
+    getFields().put("title", null);
     return this;
   }
 
@@ -51,6 +61,16 @@ public class ExchangeLineItemProjection<PARENT extends BaseSubProjectionNode<?, 
 
   public ExchangeLineItemProjection<PARENT, ROOT> variantId() {
     getFields().put("variantId", null);
+    return this;
+  }
+
+  public ExchangeLineItemProjection<PARENT, ROOT> variantSku() {
+    getFields().put("variantSku", null);
+    return this;
+  }
+
+  public ExchangeLineItemProjection<PARENT, ROOT> variantTitle() {
+    getFields().put("variantTitle", null);
     return this;
   }
 }

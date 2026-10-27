@@ -1,10 +1,15 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
-import com.shopify.admin.types.CollectionInput;
+import com.shopify.admin.types.CollectionUpdateInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -18,21 +23,12 @@ import java.util.Set;
  *   
  * - Updating collection details, like title, description, or image
  * - Modifying SEO metadata for better search visibility
- * - Changing which products are included (using rule updates for smart collections)
- * - Publishing or unpublishing collections across different sales channels
+ * - Changing which products are included in a collection by updating its rules, sources, or conditions
  * - Updating custom data using [metafields](https://shopify.dev/docs/apps/build/custom-data/metafields)
  *   
- * There are two types of collections with different update capabilities:
- *   
- * - **[Custom (manual) collections](https://help.shopify.com/manual/products/collections/manual-shopify-collection)**:
- * You can update collection properties, but rule sets can't be modified since
- * products are manually selected.
- * - **[Smart (automated) collections](https://help.shopify.com/manual/products/collections/automated-collections)**:
- * You can update both collection properties and the rules that automatically
- * determine which products are included.
- * When updating [rule sets](https://shopify.dev/docs/api/admin-graphql/latest/objects/CollectionRuleConditions)
- * for smart collections, the operation might be processed asynchronously. In
- * these cases, the mutation returns a
+ * Collections can include products manually and can also include products automatically based on rules, sources,
+ * or conditions. When product membership is updated through rules, sources, or conditions, the operation might
+ * be processed asynchronously. In these cases, the mutation returns a
  * [`job`](https://shopify.dev/docs/api/admin-graphql/latest/objects/Job) object
  * that you can use to track the progress of the update.
  *   
@@ -40,15 +36,31 @@ import java.util.Set;
  * [`publishablePublish`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/publishablePublish) and
  * [`publishableUnpublish`](https://shopify.dev/docs/api/admin-graphql/latest/mutations/publishableUnpublish) mutations.
  *   
- * Learn more about [using metafields with smart collections](https://shopify.dev/docs/apps/build/custom-data/metafields/use-metafield-capabilities).
+ * Learn more about [using metafields with collection conditions](https://shopify.dev/docs/apps/build/custom-data/metafields/use-metafield-capabilities).
  */
 public class CollectionUpdateGraphQLQuery extends GraphQLQuery {
-  public CollectionUpdateGraphQLQuery(CollectionInput input, String queryName,
+  public CollectionUpdateGraphQLQuery(CollectionUpdateInput collection, String queryName,
       Set<String> fieldsSet) {
     super("mutation", queryName);
-    if (input != null || fieldsSet.contains("input")) {
-        getInput().put("input", input);
+    if (collection != null || fieldsSet.contains("collection")) {
+        getInput().put("collection", collection);
     }
+  }
+
+  public CollectionUpdateGraphQLQuery(CollectionUpdateInput collection, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (collection != null || fieldsSet.contains("collection")) {
+        getInput().put("collection", collection);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public CollectionUpdateGraphQLQuery() {
@@ -67,21 +79,35 @@ public class CollectionUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
-    private CollectionInput input;
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
+    private CollectionUpdateInput collection;
 
     private String queryName;
 
     public CollectionUpdateGraphQLQuery build() {
-      return new CollectionUpdateGraphQLQuery(input, queryName, fieldsSet);
+      return new CollectionUpdateGraphQLQuery(collection, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
     /**
-     * The updated properties for the collection.
+     * The properties and sources to use when updating the collection.
      */
-    public Builder input(CollectionInput input) {
-      this.input = input;
-      this.fieldsSet.add("input");
+    public Builder collection(CollectionUpdateInput collection) {
+      this.collection = collection;
+      this.fieldsSet.add("collection");
+      return this;
+    }
+
+    /**
+     * The properties and sources to use when updating the collection.
+     */
+    public Builder collectionReference(String variableRef) {
+      this.variableReferences.put("collection", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("CollectionUpdateInput")).build());
+      this.fieldsSet.add("collection");
       return this;
     }
 

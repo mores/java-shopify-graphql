@@ -1,26 +1,23 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
-import java.lang.Boolean;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
- * Marks channel-level engagement data such that it no longer appears in reports.
- *           Activity-level data cannot be deleted directly, instead the MarketingActivity itself should be deleted to
- *           hide it from reports.
+ * Marks engagement data for a channel so it no longer appears in reports.
+ * Activity-level data cannot be deleted directly; delete the MarketingActivity instead.
  */
 public class MarketingEngagementsDeleteGraphQLQuery extends GraphQLQuery {
-  public MarketingEngagementsDeleteGraphQLQuery(String channelHandle,
-      Boolean deleteEngagementsForAllChannels, String queryName, Set<String> fieldsSet) {
+  public MarketingEngagementsDeleteGraphQLQuery(String queryName) {
     super("mutation", queryName);
-    if (channelHandle != null || fieldsSet.contains("channelHandle")) {
-        getInput().put("channelHandle", channelHandle);
-    }if (deleteEngagementsForAllChannels != null || fieldsSet.contains("deleteEngagementsForAllChannels")) {
-        getInput().put("deleteEngagementsForAllChannels", deleteEngagementsForAllChannels);
-    }
   }
 
   public MarketingEngagementsDeleteGraphQLQuery() {
@@ -39,33 +36,14 @@ public class MarketingEngagementsDeleteGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
-    private String channelHandle;
+    private final Map<String, String> variableReferences = new HashMap<>();
 
-    private Boolean deleteEngagementsForAllChannels;
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
 
     private String queryName;
 
     public MarketingEngagementsDeleteGraphQLQuery build() {
-      return new MarketingEngagementsDeleteGraphQLQuery(channelHandle, deleteEngagementsForAllChannels, queryName, fieldsSet);
-               
-    }
-
-    /**
-     * The handle of the channel for which engagement data should be deleted.
-     */
-    public Builder channelHandle(String channelHandle) {
-      this.channelHandle = channelHandle;
-      this.fieldsSet.add("channelHandle");
-      return this;
-    }
-
-    /**
-     * When true, engagements for all channels that belong to the api client will be deleted.
-     */
-    public Builder deleteEngagementsForAllChannels(Boolean deleteEngagementsForAllChannels) {
-      this.deleteEngagementsForAllChannels = deleteEngagementsForAllChannels;
-      this.fieldsSet.add("deleteEngagementsForAllChannels");
-      return this;
+      return new MarketingEngagementsDeleteGraphQLQuery(queryName);                                     
     }
 
     public Builder queryName(String queryName) {

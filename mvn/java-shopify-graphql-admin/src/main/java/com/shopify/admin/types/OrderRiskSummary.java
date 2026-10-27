@@ -9,17 +9,16 @@ import java.util.Objects;
 /**
  * Summary of risk characteristics for an order.
  *
- * See the [example query "Retrieves a list of all order risks for an order"](https://shopify.dev/docs/api/admin-graphql/unstable/queries/order?example=Retrieves+a+list+of+all+order+risks+for+an+order).
+ * See the [example query "Retrieve order risk assessments"](https://shopify.dev/docs/api/admin-graphql/unstable/queries/order?example=retrieve-order-risk-assessments).
  */
 public class OrderRiskSummary {
   /**
-   * The list of risk assessments for the order.
+   * The risk assessments for the order.
    */
   private List<OrderRiskAssessment> assessments;
 
   /**
-   * The recommendation for the order based on the results of the risk assessments.
-   * This suggests the action the merchant should take with regards to its risk of fraud.
+   * The recommended action for the order based on its risk assessments.
    */
   private OrderRiskRecommendationResult recommendation;
 
@@ -27,7 +26,7 @@ public class OrderRiskSummary {
   }
 
   /**
-   * The list of risk assessments for the order.
+   * The risk assessments for the order.
    */
   public List<OrderRiskAssessment> getAssessments() {
     return assessments;
@@ -38,8 +37,7 @@ public class OrderRiskSummary {
   }
 
   /**
-   * The recommendation for the order based on the results of the risk assessments.
-   * This suggests the action the merchant should take with regards to its risk of fraud.
+   * The recommended action for the order based on its risk assessments.
    */
   public OrderRiskRecommendationResult getRecommendation() {
     return recommendation;
@@ -74,13 +72,12 @@ public class OrderRiskSummary {
 
   public static class Builder {
     /**
-     * The list of risk assessments for the order.
+     * The risk assessments for the order.
      */
     private List<OrderRiskAssessment> assessments;
 
     /**
-     * The recommendation for the order based on the results of the risk assessments.
-     * This suggests the action the merchant should take with regards to its risk of fraud.
+     * The recommended action for the order based on its risk assessments.
      */
     private OrderRiskRecommendationResult recommendation;
 
@@ -92,7 +89,7 @@ public class OrderRiskSummary {
     }
 
     /**
-     * The list of risk assessments for the order.
+     * The risk assessments for the order.
      */
     public Builder assessments(List<OrderRiskAssessment> assessments) {
       this.assessments = assessments;
@@ -100,8 +97,7 @@ public class OrderRiskSummary {
     }
 
     /**
-     * The recommendation for the order based on the results of the risk assessments.
-     * This suggests the action the merchant should take with regards to its risk of fraud.
+     * The recommended action for the order based on its risk assessments.
      */
     public Builder recommendation(OrderRiskRecommendationResult recommendation) {
       this.recommendation = recommendation;

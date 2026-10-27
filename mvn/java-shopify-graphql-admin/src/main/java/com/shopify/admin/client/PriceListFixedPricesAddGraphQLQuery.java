@@ -2,10 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.PriceListPriceInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -26,6 +30,24 @@ public class PriceListFixedPricesAddGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public PriceListFixedPricesAddGraphQLQuery(String priceListId, List<PriceListPriceInput> prices,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (priceListId != null || fieldsSet.contains("priceListId")) {
+        getInput().put("priceListId", priceListId);
+    }if (prices != null || fieldsSet.contains("prices")) {
+        getInput().put("prices", prices);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public PriceListFixedPricesAddGraphQLQuery() {
     super("mutation");
   }
@@ -42,6 +64,10 @@ public class PriceListFixedPricesAddGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String priceListId;
 
     private List<PriceListPriceInput> prices;
@@ -49,7 +75,7 @@ public class PriceListFixedPricesAddGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public PriceListFixedPricesAddGraphQLQuery build() {
-      return new PriceListFixedPricesAddGraphQLQuery(priceListId, prices, queryName, fieldsSet);
+      return new PriceListFixedPricesAddGraphQLQuery(priceListId, prices, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -63,10 +89,30 @@ public class PriceListFixedPricesAddGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the price list to which the fixed prices will be added or updated.
+     */
+    public Builder priceListIdReference(String variableRef) {
+      this.variableReferences.put("priceListId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("priceListId");
+      return this;
+    }
+
+    /**
      * The list of fixed prices to add or update in the price list.
      */
     public Builder prices(List<PriceListPriceInput> prices) {
       this.prices = prices;
+      this.fieldsSet.add("prices");
+      return this;
+    }
+
+    /**
+     * The list of fixed prices to add or update in the price list.
+     */
+    public Builder pricesReference(String variableRef) {
+      this.variableReferences.put("prices", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("PriceListPriceInput"))))).build());
       this.fieldsSet.add("prices");
       return this;
     }

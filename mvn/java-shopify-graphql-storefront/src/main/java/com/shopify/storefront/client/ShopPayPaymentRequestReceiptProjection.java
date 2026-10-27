@@ -19,6 +19,13 @@ public class ShopPayPaymentRequestReceiptProjection<PARENT extends BaseSubProjec
      return projection;
   }
 
+  public ShopPayPaymentRequestShopUserProjection<ShopPayPaymentRequestReceiptProjection<PARENT, ROOT>, ROOT> shopUser(
+      ) {
+     ShopPayPaymentRequestShopUserProjection<ShopPayPaymentRequestReceiptProjection<PARENT, ROOT>, ROOT> projection = new ShopPayPaymentRequestShopUserProjection<>(this, getRoot());
+     getFields().put("shopUser", projection);
+     return projection;
+  }
+
   public ShopPayPaymentRequestReceiptProjection<PARENT, ROOT> processingStatusType() {
     getFields().put("processingStatusType", null);
     return this;

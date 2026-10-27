@@ -21,7 +21,7 @@ public class CustomerMergeRequest {
   private String jobId;
 
   /**
-   * The ID of the customer resulting from the merge.
+   * The ID of the customer that was kept after the merge. Treat this ID as authoritative.
    */
   private String resultingCustomerId;
 
@@ -56,7 +56,7 @@ public class CustomerMergeRequest {
   }
 
   /**
-   * The ID of the customer resulting from the merge.
+   * The ID of the customer that was kept after the merge. Treat this ID as authoritative.
    */
   public String getResultingCustomerId() {
     return resultingCustomerId;
@@ -114,7 +114,7 @@ public class CustomerMergeRequest {
     private String jobId;
 
     /**
-     * The ID of the customer resulting from the merge.
+     * The ID of the customer that was kept after the merge. Treat this ID as authoritative.
      */
     private String resultingCustomerId;
 
@@ -149,7 +149,7 @@ public class CustomerMergeRequest {
     }
 
     /**
-     * The ID of the customer resulting from the merge.
+     * The ID of the customer that was kept after the merge. Treat this ID as authoritative.
      */
     public Builder resultingCustomerId(String resultingCustomerId) {
       this.resultingCustomerId = resultingCustomerId;

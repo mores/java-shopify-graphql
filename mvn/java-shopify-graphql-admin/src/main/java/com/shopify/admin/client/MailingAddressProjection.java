@@ -75,9 +75,9 @@ public class MailingAddressProjection<PARENT extends BaseSubProjectionNode<?, ?>
   public MailingAddressProjection formatted(Boolean withName, Boolean withCompany) {
     getFields().put("formatted", null);
     getInputArguments().computeIfAbsent("formatted", k -> new ArrayList<>());
-    InputArgument withNameArg = new InputArgument("withName", withName);
+    InputArgument withNameArg = new InputArgument("withName", withName, false, null);
     getInputArguments().get("formatted").add(withNameArg);
-    InputArgument withCompanyArg = new InputArgument("withCompany", withCompany);
+    InputArgument withCompanyArg = new InputArgument("withCompany", withCompany, false, null);
     getInputArguments().get("formatted").add(withCompanyArg);
     return this;
   }

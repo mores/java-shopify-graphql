@@ -51,7 +51,17 @@ public class LineItemFragmentProjection<PARENT extends BaseSubProjectionNode<?, 
     MoneyBagProjection<LineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new MoneyBagProjection<>(this, getRoot());    
     getFields().put("discountedTotalSet", projection);
     getInputArguments().computeIfAbsent("discountedTotalSet", k -> new ArrayList<>());                      
-    InputArgument withCodeDiscountsArg = new InputArgument("withCodeDiscounts", withCodeDiscounts);
+    InputArgument withCodeDiscountsArg = new InputArgument("withCodeDiscounts", withCodeDiscounts, false, null);
+    getInputArguments().get("discountedTotalSet").add(withCodeDiscountsArg);
+    return projection;
+  }
+
+  public MoneyBagProjection<LineItemFragmentProjection<PARENT, ROOT>, ROOT> discountedTotalSetWithVariableReferences(
+      String withCodeDiscountsReference) {
+    MoneyBagProjection<LineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new MoneyBagProjection<>(this, getRoot());    
+    getFields().put("discountedTotalSet", projection);
+    getInputArguments().computeIfAbsent("discountedTotalSet", k -> new ArrayList<>());              
+    InputArgument withCodeDiscountsArg = new InputArgument("withCodeDiscounts", withCodeDiscountsReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("discountedTotalSet").add(withCodeDiscountsArg);
     return projection;
   }
@@ -107,6 +117,13 @@ public class LineItemFragmentProjection<PARENT extends BaseSubProjectionNode<?, 
      return projection;
   }
 
+  public MoneyBagProjection<LineItemFragmentProjection<PARENT, ROOT>, ROOT> priceAfterAllDiscountsBeforeTaxesSet(
+      ) {
+     MoneyBagProjection<LineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new MoneyBagProjection<>(this, getRoot());
+     getFields().put("priceAfterAllDiscountsBeforeTaxesSet", projection);
+     return projection;
+  }
+
   public ProductProjection<LineItemFragmentProjection<PARENT, ROOT>, ROOT> product() {
      ProductProjection<LineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductProjection<>(this, getRoot());
      getFields().put("product", projection);
@@ -138,15 +155,34 @@ public class LineItemFragmentProjection<PARENT extends BaseSubProjectionNode<?, 
     ReturnReasonDefinitionConnectionProjection<LineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new ReturnReasonDefinitionConnectionProjection<>(this, getRoot());    
     getFields().put("suggestedReturnReasonDefinitions", projection);
     getInputArguments().computeIfAbsent("suggestedReturnReasonDefinitions", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("suggestedReturnReasonDefinitions").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("suggestedReturnReasonDefinitions").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("suggestedReturnReasonDefinitions").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("suggestedReturnReasonDefinitions").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("suggestedReturnReasonDefinitions").add(reverseArg);
+    return projection;
+  }
+
+  public ReturnReasonDefinitionConnectionProjection<LineItemFragmentProjection<PARENT, ROOT>, ROOT> suggestedReturnReasonDefinitionsWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    ReturnReasonDefinitionConnectionProjection<LineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new ReturnReasonDefinitionConnectionProjection<>(this, getRoot());    
+    getFields().put("suggestedReturnReasonDefinitions", projection);
+    getInputArguments().computeIfAbsent("suggestedReturnReasonDefinitions", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("suggestedReturnReasonDefinitions").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("suggestedReturnReasonDefinitions").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("suggestedReturnReasonDefinitions").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("suggestedReturnReasonDefinitions").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("suggestedReturnReasonDefinitions").add(reverseArg);
     return projection;
   }
@@ -161,7 +197,17 @@ public class LineItemFragmentProjection<PARENT extends BaseSubProjectionNode<?, 
     TaxLineProjection<LineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new TaxLineProjection<>(this, getRoot());    
     getFields().put("taxLines", projection);
     getInputArguments().computeIfAbsent("taxLines", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
+    getInputArguments().get("taxLines").add(firstArg);
+    return projection;
+  }
+
+  public TaxLineProjection<LineItemFragmentProjection<PARENT, ROOT>, ROOT> taxLinesWithVariableReferences(
+      String firstReference) {
+    TaxLineProjection<LineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new TaxLineProjection<>(this, getRoot());    
+    getFields().put("taxLines", projection);
+    getInputArguments().computeIfAbsent("taxLines", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
     getInputArguments().get("taxLines").add(firstArg);
     return projection;
   }
@@ -192,8 +238,19 @@ public class LineItemFragmentProjection<PARENT extends BaseSubProjectionNode<?, 
      return projection;
   }
 
+  public WeightProjection<LineItemFragmentProjection<PARENT, ROOT>, ROOT> weight() {
+     WeightProjection<LineItemFragmentProjection<PARENT, ROOT>, ROOT> projection = new WeightProjection<>(this, getRoot());
+     getFields().put("weight", projection);
+     return projection;
+  }
+
   public LineItemFragmentProjection<PARENT, ROOT> canRestock() {
     getFields().put("canRestock", null);
+    return this;
+  }
+
+  public LineItemFragmentProjection<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
     return this;
   }
 

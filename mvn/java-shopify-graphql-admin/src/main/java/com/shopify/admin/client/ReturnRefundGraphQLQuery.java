@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.ReturnRefundInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -19,6 +24,22 @@ public class ReturnRefundGraphQLQuery extends GraphQLQuery {
     if (returnRefundInput != null || fieldsSet.contains("returnRefundInput")) {
         getInput().put("returnRefundInput", returnRefundInput);
     }
+  }
+
+  public ReturnRefundGraphQLQuery(ReturnRefundInput returnRefundInput, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (returnRefundInput != null || fieldsSet.contains("returnRefundInput")) {
+        getInput().put("returnRefundInput", returnRefundInput);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public ReturnRefundGraphQLQuery() {
@@ -37,12 +58,16 @@ public class ReturnRefundGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private ReturnRefundInput returnRefundInput;
 
     private String queryName;
 
     public ReturnRefundGraphQLQuery build() {
-      return new ReturnRefundGraphQLQuery(returnRefundInput, queryName, fieldsSet);
+      return new ReturnRefundGraphQLQuery(returnRefundInput, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -51,6 +76,16 @@ public class ReturnRefundGraphQLQuery extends GraphQLQuery {
      */
     public Builder returnRefundInput(ReturnRefundInput returnRefundInput) {
       this.returnRefundInput = returnRefundInput;
+      this.fieldsSet.add("returnRefundInput");
+      return this;
+    }
+
+    /**
+     * The input fields to refund a return.
+     */
+    public Builder returnRefundInputReference(String variableRef) {
+      this.variableReferences.put("returnRefundInput", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ReturnRefundInput"))).build());
       this.fieldsSet.add("returnRefundInput");
       return this;
     }

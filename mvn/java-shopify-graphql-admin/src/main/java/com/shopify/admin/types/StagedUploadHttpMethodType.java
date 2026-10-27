@@ -5,7 +5,13 @@ package com.shopify.admin.types;
  * [StagedMediaUploadTarget](https://shopify.dev/api/admin-graphql/latest/objects/StagedMediaUploadTarget).
  */
 public enum StagedUploadHttpMethodType {
+  /**
+   * The POST HTTP method.
+   */
   POST,
 
+  /**
+   * The PUT HTTP method.
+   */
   PUT
 }

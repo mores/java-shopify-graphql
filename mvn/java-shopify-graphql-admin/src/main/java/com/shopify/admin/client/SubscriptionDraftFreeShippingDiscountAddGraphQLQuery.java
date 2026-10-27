@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.SubscriptionFreeShippingDiscountInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -19,6 +24,24 @@ public class SubscriptionDraftFreeShippingDiscountAddGraphQLQuery extends GraphQ
     }if (input != null || fieldsSet.contains("input")) {
         getInput().put("input", input);
     }
+  }
+
+  public SubscriptionDraftFreeShippingDiscountAddGraphQLQuery(String draftId,
+      SubscriptionFreeShippingDiscountInput input, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (draftId != null || fieldsSet.contains("draftId")) {
+        getInput().put("draftId", draftId);
+    }if (input != null || fieldsSet.contains("input")) {
+        getInput().put("input", input);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public SubscriptionDraftFreeShippingDiscountAddGraphQLQuery() {
@@ -37,6 +60,10 @@ public class SubscriptionDraftFreeShippingDiscountAddGraphQLQuery extends GraphQ
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String draftId;
 
     private SubscriptionFreeShippingDiscountInput input;
@@ -44,7 +71,7 @@ public class SubscriptionDraftFreeShippingDiscountAddGraphQLQuery extends GraphQ
     private String queryName;
 
     public SubscriptionDraftFreeShippingDiscountAddGraphQLQuery build() {
-      return new SubscriptionDraftFreeShippingDiscountAddGraphQLQuery(draftId, input, queryName, fieldsSet);
+      return new SubscriptionDraftFreeShippingDiscountAddGraphQLQuery(draftId, input, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -58,10 +85,30 @@ public class SubscriptionDraftFreeShippingDiscountAddGraphQLQuery extends GraphQ
     }
 
     /**
+     * The ID of the subscription contract draft to add a subscription free shipping discount to.
+     */
+    public Builder draftIdReference(String variableRef) {
+      this.variableReferences.put("draftId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("draftId");
+      return this;
+    }
+
+    /**
      * The properties of the new subscription free shipping discount.
      */
     public Builder input(SubscriptionFreeShippingDiscountInput input) {
       this.input = input;
+      this.fieldsSet.add("input");
+      return this;
+    }
+
+    /**
+     * The properties of the new subscription free shipping discount.
+     */
+    public Builder inputReference(String variableRef) {
+      this.variableReferences.put("input", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("SubscriptionFreeShippingDiscountInput"))).build());
       this.fieldsSet.add("input");
       return this;
     }

@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.StoreCreditAccountCreditInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -30,6 +35,24 @@ public class StoreCreditAccountCreditGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public StoreCreditAccountCreditGraphQLQuery(String id, StoreCreditAccountCreditInput creditInput,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (creditInput != null || fieldsSet.contains("creditInput")) {
+        getInput().put("creditInput", creditInput);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public StoreCreditAccountCreditGraphQLQuery() {
     super("mutation");
   }
@@ -46,6 +69,10 @@ public class StoreCreditAccountCreditGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private StoreCreditAccountCreditInput creditInput;
@@ -53,7 +80,7 @@ public class StoreCreditAccountCreditGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public StoreCreditAccountCreditGraphQLQuery build() {
-      return new StoreCreditAccountCreditGraphQLQuery(id, creditInput, queryName, fieldsSet);
+      return new StoreCreditAccountCreditGraphQLQuery(id, creditInput, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -67,10 +94,30 @@ public class StoreCreditAccountCreditGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the store credit account or the ID of the account owner.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The input fields for a store credit account credit transaction.
      */
     public Builder creditInput(StoreCreditAccountCreditInput creditInput) {
       this.creditInput = creditInput;
+      this.fieldsSet.add("creditInput");
+      return this;
+    }
+
+    /**
+     * The input fields for a store credit account credit transaction.
+     */
+    public Builder creditInputReference(String variableRef) {
+      this.variableReferences.put("creditInput", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("StoreCreditAccountCreditInput"))).build());
       this.fieldsSet.add("creditInput");
       return this;
     }

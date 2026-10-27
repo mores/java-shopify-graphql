@@ -18,6 +18,13 @@ public class CalculatedReturnShippingFeeProjection<PARENT extends BaseSubProject
      return projection;
   }
 
+  public MoneyBagProjection<CalculatedReturnShippingFeeProjection<PARENT, ROOT>, ROOT> taxAmountSet(
+      ) {
+     MoneyBagProjection<CalculatedReturnShippingFeeProjection<PARENT, ROOT>, ROOT> projection = new MoneyBagProjection<>(this, getRoot());
+     getFields().put("taxAmountSet", projection);
+     return projection;
+  }
+
   public CalculatedReturnShippingFeeProjection<PARENT, ROOT> id() {
     getFields().put("id", null);
     return this;

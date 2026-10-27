@@ -41,15 +41,34 @@ public class DeliveryProfileProjection<PARENT extends BaseSubProjectionNode<?, ?
     DeliveryProfileItemConnectionProjection<DeliveryProfileProjection<PARENT, ROOT>, ROOT> projection = new DeliveryProfileItemConnectionProjection<>(this, getRoot());    
     getFields().put("profileItems", projection);
     getInputArguments().computeIfAbsent("profileItems", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("profileItems").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("profileItems").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("profileItems").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("profileItems").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("profileItems").add(reverseArg);
+    return projection;
+  }
+
+  public DeliveryProfileItemConnectionProjection<DeliveryProfileProjection<PARENT, ROOT>, ROOT> profileItemsWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    DeliveryProfileItemConnectionProjection<DeliveryProfileProjection<PARENT, ROOT>, ROOT> projection = new DeliveryProfileItemConnectionProjection<>(this, getRoot());    
+    getFields().put("profileItems", projection);
+    getInputArguments().computeIfAbsent("profileItems", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("profileItems").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("profileItems").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("profileItems").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("profileItems").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("profileItems").add(reverseArg);
     return projection;
   }
@@ -66,7 +85,17 @@ public class DeliveryProfileProjection<PARENT extends BaseSubProjectionNode<?, ?
     DeliveryProfileLocationGroupProjection<DeliveryProfileProjection<PARENT, ROOT>, ROOT> projection = new DeliveryProfileLocationGroupProjection<>(this, getRoot());    
     getFields().put("profileLocationGroups", projection);
     getInputArguments().computeIfAbsent("profileLocationGroups", k -> new ArrayList<>());                      
-    InputArgument locationGroupIdArg = new InputArgument("locationGroupId", locationGroupId);
+    InputArgument locationGroupIdArg = new InputArgument("locationGroupId", locationGroupId, false, null);
+    getInputArguments().get("profileLocationGroups").add(locationGroupIdArg);
+    return projection;
+  }
+
+  public DeliveryProfileLocationGroupProjection<DeliveryProfileProjection<PARENT, ROOT>, ROOT> profileLocationGroupsWithVariableReferences(
+      String locationGroupIdReference) {
+    DeliveryProfileLocationGroupProjection<DeliveryProfileProjection<PARENT, ROOT>, ROOT> projection = new DeliveryProfileLocationGroupProjection<>(this, getRoot());    
+    getFields().put("profileLocationGroups", projection);
+    getInputArguments().computeIfAbsent("profileLocationGroups", k -> new ArrayList<>());              
+    InputArgument locationGroupIdArg = new InputArgument("locationGroupId", locationGroupIdReference, true, new graphql.language.TypeName("ID"));
     getInputArguments().get("profileLocationGroups").add(locationGroupIdArg);
     return projection;
   }
@@ -83,15 +112,34 @@ public class DeliveryProfileProjection<PARENT extends BaseSubProjectionNode<?, ?
     SellingPlanGroupConnectionProjection<DeliveryProfileProjection<PARENT, ROOT>, ROOT> projection = new SellingPlanGroupConnectionProjection<>(this, getRoot());    
     getFields().put("sellingPlanGroups", projection);
     getInputArguments().computeIfAbsent("sellingPlanGroups", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("sellingPlanGroups").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("sellingPlanGroups").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("sellingPlanGroups").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("sellingPlanGroups").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("sellingPlanGroups").add(reverseArg);
+    return projection;
+  }
+
+  public SellingPlanGroupConnectionProjection<DeliveryProfileProjection<PARENT, ROOT>, ROOT> sellingPlanGroupsWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    SellingPlanGroupConnectionProjection<DeliveryProfileProjection<PARENT, ROOT>, ROOT> projection = new SellingPlanGroupConnectionProjection<>(this, getRoot());    
+    getFields().put("sellingPlanGroups", projection);
+    getInputArguments().computeIfAbsent("sellingPlanGroups", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("sellingPlanGroups").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("sellingPlanGroups").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("sellingPlanGroups").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("sellingPlanGroups").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("sellingPlanGroups").add(reverseArg);
     return projection;
   }
@@ -114,21 +162,50 @@ public class DeliveryProfileProjection<PARENT extends BaseSubProjectionNode<?, ?
     LocationConnectionProjection<DeliveryProfileProjection<PARENT, ROOT>, ROOT> projection = new LocationConnectionProjection<>(this, getRoot());    
     getFields().put("unassignedLocationsPaginated", projection);
     getInputArguments().computeIfAbsent("unassignedLocationsPaginated", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("unassignedLocationsPaginated").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("unassignedLocationsPaginated").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("unassignedLocationsPaginated").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("unassignedLocationsPaginated").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("unassignedLocationsPaginated").add(reverseArg);
+    return projection;
+  }
+
+  public LocationConnectionProjection<DeliveryProfileProjection<PARENT, ROOT>, ROOT> unassignedLocationsPaginatedWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    LocationConnectionProjection<DeliveryProfileProjection<PARENT, ROOT>, ROOT> projection = new LocationConnectionProjection<>(this, getRoot());    
+    getFields().put("unassignedLocationsPaginated", projection);
+    getInputArguments().computeIfAbsent("unassignedLocationsPaginated", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("unassignedLocationsPaginated").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("unassignedLocationsPaginated").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("unassignedLocationsPaginated").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("unassignedLocationsPaginated").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("unassignedLocationsPaginated").add(reverseArg);
     return projection;
   }
 
   public DeliveryProfileProjection<PARENT, ROOT> activeMethodDefinitionsCount() {
     getFields().put("activeMethodDefinitionsCount", null);
+    return this;
+  }
+
+  public DeliveryProfileProjection<PARENT, ROOT> coversAllItems() {
+    getFields().put("coversAllItems", null);
+    return this;
+  }
+
+  public DeliveryProfileProjection<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
     return this;
   }
 

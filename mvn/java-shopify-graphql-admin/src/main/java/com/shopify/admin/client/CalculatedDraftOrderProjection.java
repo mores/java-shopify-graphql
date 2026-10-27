@@ -18,6 +18,19 @@ public class CalculatedDraftOrderProjection<PARENT extends BaseSubProjectionNode
      return projection;
   }
 
+  public MoneyBagProjection<CalculatedDraftOrderProjection<PARENT, ROOT>, ROOT> amountDueLaterSet(
+      ) {
+     MoneyBagProjection<CalculatedDraftOrderProjection<PARENT, ROOT>, ROOT> projection = new MoneyBagProjection<>(this, getRoot());
+     getFields().put("amountDueLaterSet", projection);
+     return projection;
+  }
+
+  public MoneyBagProjection<CalculatedDraftOrderProjection<PARENT, ROOT>, ROOT> amountDueNowSet() {
+     MoneyBagProjection<CalculatedDraftOrderProjection<PARENT, ROOT>, ROOT> projection = new MoneyBagProjection<>(this, getRoot());
+     getFields().put("amountDueNowSet", projection);
+     return projection;
+  }
+
   public DraftOrderAppliedDiscountProjection<CalculatedDraftOrderProjection<PARENT, ROOT>, ROOT> appliedDiscount(
       ) {
      DraftOrderAppliedDiscountProjection<CalculatedDraftOrderProjection<PARENT, ROOT>, ROOT> projection = new DraftOrderAppliedDiscountProjection<>(this, getRoot());
@@ -41,6 +54,13 @@ public class CalculatedDraftOrderProjection<PARENT extends BaseSubProjectionNode
   public CustomerProjection<CalculatedDraftOrderProjection<PARENT, ROOT>, ROOT> customer() {
      CustomerProjection<CalculatedDraftOrderProjection<PARENT, ROOT>, ROOT> projection = new CustomerProjection<>(this, getRoot());
      getFields().put("customer", projection);
+     return projection;
+  }
+
+  public DepositConfigurationProjection<CalculatedDraftOrderProjection<PARENT, ROOT>, ROOT> deposit(
+      ) {
+     DepositConfigurationProjection<CalculatedDraftOrderProjection<PARENT, ROOT>, ROOT> projection = new DepositConfigurationProjection<>(this, getRoot());
+     getFields().put("deposit", projection);
      return projection;
   }
 

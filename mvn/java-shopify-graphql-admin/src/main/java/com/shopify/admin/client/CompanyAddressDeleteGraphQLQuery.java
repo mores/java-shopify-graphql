@@ -1,9 +1,14 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -16,6 +21,21 @@ public class CompanyAddressDeleteGraphQLQuery extends GraphQLQuery {
     if (addressId != null || fieldsSet.contains("addressId")) {
         getInput().put("addressId", addressId);
     }
+  }
+
+  public CompanyAddressDeleteGraphQLQuery(String addressId, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (addressId != null || fieldsSet.contains("addressId")) {
+        getInput().put("addressId", addressId);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public CompanyAddressDeleteGraphQLQuery() {
@@ -34,12 +54,16 @@ public class CompanyAddressDeleteGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String addressId;
 
     private String queryName;
 
     public CompanyAddressDeleteGraphQLQuery build() {
-      return new CompanyAddressDeleteGraphQLQuery(addressId, queryName, fieldsSet);
+      return new CompanyAddressDeleteGraphQLQuery(addressId, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -48,6 +72,16 @@ public class CompanyAddressDeleteGraphQLQuery extends GraphQLQuery {
      */
     public Builder addressId(String addressId) {
       this.addressId = addressId;
+      this.fieldsSet.add("addressId");
+      return this;
+    }
+
+    /**
+     * The ID of the address to delete.
+     */
+    public Builder addressIdReference(String variableRef) {
+      this.variableReferences.put("addressId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("addressId");
       return this;
     }

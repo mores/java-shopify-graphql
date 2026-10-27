@@ -26,6 +26,11 @@ public class CartAutomaticDiscountAllocation implements com.shopify.storefront.t
   private MoneyV2 discountedAmount;
 
   /**
+   * The discount application that created this allocation, with corrected value semantics.
+   */
+  private BaseCartDiscountApplication sourceDiscountApplication;
+
+  /**
    * The type of line that the discount is applicable towards.
    */
   private DiscountApplicationTargetType targetType;
@@ -61,6 +66,17 @@ public class CartAutomaticDiscountAllocation implements com.shopify.storefront.t
   }
 
   /**
+   * The discount application that created this allocation, with corrected value semantics.
+   */
+  public BaseCartDiscountApplication getSourceDiscountApplication() {
+    return sourceDiscountApplication;
+  }
+
+  public void setSourceDiscountApplication(BaseCartDiscountApplication sourceDiscountApplication) {
+    this.sourceDiscountApplication = sourceDiscountApplication;
+  }
+
+  /**
    * The type of line that the discount is applicable towards.
    */
   public DiscountApplicationTargetType getTargetType() {
@@ -84,7 +100,7 @@ public class CartAutomaticDiscountAllocation implements com.shopify.storefront.t
 
   @Override
   public String toString() {
-    return "CartAutomaticDiscountAllocation{discountApplication='" + discountApplication + "', discountedAmount='" + discountedAmount + "', targetType='" + targetType + "', title='" + title + "'}";
+    return "CartAutomaticDiscountAllocation{discountApplication='" + discountApplication + "', discountedAmount='" + discountedAmount + "', sourceDiscountApplication='" + sourceDiscountApplication + "', targetType='" + targetType + "', title='" + title + "'}";
   }
 
   @Override
@@ -94,13 +110,14 @@ public class CartAutomaticDiscountAllocation implements com.shopify.storefront.t
     CartAutomaticDiscountAllocation that = (CartAutomaticDiscountAllocation) o;
     return Objects.equals(discountApplication, that.discountApplication) &&
         Objects.equals(discountedAmount, that.discountedAmount) &&
+        Objects.equals(sourceDiscountApplication, that.sourceDiscountApplication) &&
         Objects.equals(targetType, that.targetType) &&
         Objects.equals(title, that.title);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(discountApplication, discountedAmount, targetType, title);
+    return Objects.hash(discountApplication, discountedAmount, sourceDiscountApplication, targetType, title);
   }
 
   public static Builder newBuilder() {
@@ -119,6 +136,11 @@ public class CartAutomaticDiscountAllocation implements com.shopify.storefront.t
     private MoneyV2 discountedAmount;
 
     /**
+     * The discount application that created this allocation, with corrected value semantics.
+     */
+    private BaseCartDiscountApplication sourceDiscountApplication;
+
+    /**
      * The type of line that the discount is applicable towards.
      */
     private DiscountApplicationTargetType targetType;
@@ -132,6 +154,7 @@ public class CartAutomaticDiscountAllocation implements com.shopify.storefront.t
       CartAutomaticDiscountAllocation result = new CartAutomaticDiscountAllocation();
       result.discountApplication = this.discountApplication;
       result.discountedAmount = this.discountedAmount;
+      result.sourceDiscountApplication = this.sourceDiscountApplication;
       result.targetType = this.targetType;
       result.title = this.title;
       return result;
@@ -150,6 +173,15 @@ public class CartAutomaticDiscountAllocation implements com.shopify.storefront.t
      */
     public Builder discountedAmount(MoneyV2 discountedAmount) {
       this.discountedAmount = discountedAmount;
+      return this;
+    }
+
+    /**
+     * The discount application that created this allocation, with corrected value semantics.
+     */
+    public Builder sourceDiscountApplication(
+        BaseCartDiscountApplication sourceDiscountApplication) {
+      this.sourceDiscountApplication = sourceDiscountApplication;
       return this;
     }
 

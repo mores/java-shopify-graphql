@@ -1,10 +1,14 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -19,6 +23,24 @@ public class ProductVariantJoinSellingPlanGroupsGraphQLQuery extends GraphQLQuer
     }if (sellingPlanGroupIds != null || fieldsSet.contains("sellingPlanGroupIds")) {
         getInput().put("sellingPlanGroupIds", sellingPlanGroupIds);
     }
+  }
+
+  public ProductVariantJoinSellingPlanGroupsGraphQLQuery(String id,
+      List<String> sellingPlanGroupIds, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (sellingPlanGroupIds != null || fieldsSet.contains("sellingPlanGroupIds")) {
+        getInput().put("sellingPlanGroupIds", sellingPlanGroupIds);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public ProductVariantJoinSellingPlanGroupsGraphQLQuery() {
@@ -37,6 +59,10 @@ public class ProductVariantJoinSellingPlanGroupsGraphQLQuery extends GraphQLQuer
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private List<String> sellingPlanGroupIds;
@@ -44,7 +70,7 @@ public class ProductVariantJoinSellingPlanGroupsGraphQLQuery extends GraphQLQuer
     private String queryName;
 
     public ProductVariantJoinSellingPlanGroupsGraphQLQuery build() {
-      return new ProductVariantJoinSellingPlanGroupsGraphQLQuery(id, sellingPlanGroupIds, queryName, fieldsSet);
+      return new ProductVariantJoinSellingPlanGroupsGraphQLQuery(id, sellingPlanGroupIds, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -58,10 +84,30 @@ public class ProductVariantJoinSellingPlanGroupsGraphQLQuery extends GraphQLQuer
     }
 
     /**
+     * The ID of the product variant.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The IDs of the selling plan groups to add.
      */
     public Builder sellingPlanGroupIds(List<String> sellingPlanGroupIds) {
       this.sellingPlanGroupIds = sellingPlanGroupIds;
+      this.fieldsSet.add("sellingPlanGroupIds");
+      return this;
+    }
+
+    /**
+     * The IDs of the selling plan groups to add.
+     */
+    public Builder sellingPlanGroupIdsReference(String variableRef) {
+      this.variableReferences.put("sellingPlanGroupIds", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("ID"))))).build());
       this.fieldsSet.add("sellingPlanGroupIds");
       return this;
     }

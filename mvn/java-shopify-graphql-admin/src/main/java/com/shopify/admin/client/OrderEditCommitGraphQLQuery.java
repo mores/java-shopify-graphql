@@ -1,10 +1,15 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -36,6 +41,26 @@ public class OrderEditCommitGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public OrderEditCommitGraphQLQuery(String id, Boolean notifyCustomer, String staffNote,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (notifyCustomer != null || fieldsSet.contains("notifyCustomer")) {
+        getInput().put("notifyCustomer", notifyCustomer);
+    }if (staffNote != null || fieldsSet.contains("staffNote")) {
+        getInput().put("staffNote", staffNote);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public OrderEditCommitGraphQLQuery() {
     super("mutation");
   }
@@ -52,6 +77,10 @@ public class OrderEditCommitGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private Boolean notifyCustomer;
@@ -61,7 +90,7 @@ public class OrderEditCommitGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public OrderEditCommitGraphQLQuery build() {
-      return new OrderEditCommitGraphQLQuery(id, notifyCustomer, staffNote, queryName, fieldsSet);
+      return new OrderEditCommitGraphQLQuery(id, notifyCustomer, staffNote, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -76,6 +105,17 @@ public class OrderEditCommitGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the [calculated order](https://shopify.dev/api/admin-graphql/latest/objects/calculatedorder)
+     * or the order edit session that will have its changes applied to the order.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * Whether to notify the customer or not.
      */
     public Builder notifyCustomer(Boolean notifyCustomer) {
@@ -85,10 +125,30 @@ public class OrderEditCommitGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * Whether to notify the customer or not.
+     */
+    public Builder notifyCustomerReference(String variableRef) {
+      this.variableReferences.put("notifyCustomer", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Boolean")).build());
+      this.fieldsSet.add("notifyCustomer");
+      return this;
+    }
+
+    /**
      * Note for staff members.
      */
     public Builder staffNote(String staffNote) {
       this.staffNote = staffNote;
+      this.fieldsSet.add("staffNote");
+      return this;
+    }
+
+    /**
+     * Note for staff members.
+     */
+    public Builder staffNoteReference(String variableRef) {
+      this.variableReferences.put("staffNote", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
       this.fieldsSet.add("staffNote");
       return this;
     }

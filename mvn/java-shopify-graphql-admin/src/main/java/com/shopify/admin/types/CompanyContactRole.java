@@ -19,8 +19,7 @@ public class CompanyContactRole implements com.shopify.admin.types.Node {
   private String id;
 
   /**
-   * The name of a role.
-   * For example, `admin` or `buyer`.
+   * The name of a role. For example, `admin` or `buyer`.
    */
   private String name;
 
@@ -44,8 +43,7 @@ public class CompanyContactRole implements com.shopify.admin.types.Node {
   }
 
   /**
-   * The name of a role.
-   * For example, `admin` or `buyer`.
+   * The name of a role. For example, `admin` or `buyer`.
    */
   public String getName() {
     return name;
@@ -97,8 +95,7 @@ public class CompanyContactRole implements com.shopify.admin.types.Node {
     private String id;
 
     /**
-     * The name of a role.
-     * For example, `admin` or `buyer`.
+     * The name of a role. For example, `admin` or `buyer`.
      */
     private String name;
 
@@ -124,8 +121,7 @@ public class CompanyContactRole implements com.shopify.admin.types.Node {
     }
 
     /**
-     * The name of a role.
-     * For example, `admin` or `buyer`.
+     * The name of a role. For example, `admin` or `buyer`.
      */
     public Builder name(String name) {
       this.name = name;

@@ -29,6 +29,11 @@ public class FulfillmentServiceProjection<PARENT extends BaseSubProjectionNode<?
     return this;
   }
 
+  public FulfillmentServiceProjection<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
+    return this;
+  }
+
   public FulfillmentServiceProjection<PARENT, ROOT> fulfillmentOrdersOptIn() {
     getFields().put("fulfillmentOrdersOptIn", null);
     return this;

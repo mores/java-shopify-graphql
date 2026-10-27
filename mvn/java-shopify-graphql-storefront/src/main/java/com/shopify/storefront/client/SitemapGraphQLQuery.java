@@ -2,9 +2,14 @@ package com.shopify.storefront.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.storefront.types.SitemapType;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -27,6 +32,21 @@ public class SitemapGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public SitemapGraphQLQuery(SitemapType type, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("query", queryName);
+    if (type != null || fieldsSet.contains("type")) {
+        getInput().put("type", type);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public SitemapGraphQLQuery() {
     super("query");
   }
@@ -43,12 +63,16 @@ public class SitemapGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private SitemapType type;
 
     private String queryName;
 
     public SitemapGraphQLQuery build() {
-      return new SitemapGraphQLQuery(type, queryName, fieldsSet);
+      return new SitemapGraphQLQuery(type, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -57,6 +81,16 @@ public class SitemapGraphQLQuery extends GraphQLQuery {
      */
     public Builder type(SitemapType type) {
       this.type = type;
+      this.fieldsSet.add("type");
+      return this;
+    }
+
+    /**
+     * The type of the resource for the sitemap.
+     */
+    public Builder typeReference(String variableRef) {
+      this.variableReferences.put("type", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("SitemapType"))).build());
       this.fieldsSet.add("type");
       return this;
     }

@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.InventoryAdjustQuantitiesInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -32,6 +37,22 @@ public class InventoryAdjustQuantitiesGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public InventoryAdjustQuantitiesGraphQLQuery(InventoryAdjustQuantitiesInput input,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (input != null || fieldsSet.contains("input")) {
+        getInput().put("input", input);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public InventoryAdjustQuantitiesGraphQLQuery() {
     super("mutation");
   }
@@ -48,12 +69,16 @@ public class InventoryAdjustQuantitiesGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private InventoryAdjustQuantitiesInput input;
 
     private String queryName;
 
     public InventoryAdjustQuantitiesGraphQLQuery build() {
-      return new InventoryAdjustQuantitiesGraphQLQuery(input, queryName, fieldsSet);
+      return new InventoryAdjustQuantitiesGraphQLQuery(input, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -62,6 +87,16 @@ public class InventoryAdjustQuantitiesGraphQLQuery extends GraphQLQuery {
      */
     public Builder input(InventoryAdjustQuantitiesInput input) {
       this.input = input;
+      this.fieldsSet.add("input");
+      return this;
+    }
+
+    /**
+     * The information required to adjust inventory quantities.
+     */
+    public Builder inputReference(String variableRef) {
+      this.variableReferences.put("input", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("InventoryAdjustQuantitiesInput"))).build());
       this.fieldsSet.add("input");
       return this;
     }

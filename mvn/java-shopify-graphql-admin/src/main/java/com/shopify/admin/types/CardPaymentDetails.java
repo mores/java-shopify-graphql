@@ -5,6 +5,7 @@ import java.lang.Integer;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
@@ -31,6 +32,11 @@ public class CardPaymentDetails implements PaymentDetails, com.shopify.admin.typ
    * The name of the company that issued the customer's credit card.
    */
   private String company;
+
+  /**
+   * The date and time when the card payment details were created.
+   */
+  private OffsetDateTime createdAt;
 
   /**
    * The response code from the credit card company indicating whether the customer
@@ -105,6 +111,17 @@ public class CardPaymentDetails implements PaymentDetails, com.shopify.admin.typ
 
   public void setCompany(String company) {
     this.company = company;
+  }
+
+  /**
+   * The date and time when the card payment details were created.
+   */
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
   /**
@@ -188,7 +205,7 @@ public class CardPaymentDetails implements PaymentDetails, com.shopify.admin.typ
 
   @Override
   public String toString() {
-    return "CardPaymentDetails{avsResultCode='" + avsResultCode + "', bin='" + bin + "', company='" + company + "', cvvResultCode='" + cvvResultCode + "', expirationMonth='" + expirationMonth + "', expirationYear='" + expirationYear + "', name='" + name + "', number='" + number + "', paymentMethodName='" + paymentMethodName + "', wallet='" + wallet + "'}";
+    return "CardPaymentDetails{avsResultCode='" + avsResultCode + "', bin='" + bin + "', company='" + company + "', createdAt='" + createdAt + "', cvvResultCode='" + cvvResultCode + "', expirationMonth='" + expirationMonth + "', expirationYear='" + expirationYear + "', name='" + name + "', number='" + number + "', paymentMethodName='" + paymentMethodName + "', wallet='" + wallet + "'}";
   }
 
   @Override
@@ -199,6 +216,7 @@ public class CardPaymentDetails implements PaymentDetails, com.shopify.admin.typ
     return Objects.equals(avsResultCode, that.avsResultCode) &&
         Objects.equals(bin, that.bin) &&
         Objects.equals(company, that.company) &&
+        Objects.equals(createdAt, that.createdAt) &&
         Objects.equals(cvvResultCode, that.cvvResultCode) &&
         Objects.equals(expirationMonth, that.expirationMonth) &&
         Objects.equals(expirationYear, that.expirationYear) &&
@@ -210,7 +228,7 @@ public class CardPaymentDetails implements PaymentDetails, com.shopify.admin.typ
 
   @Override
   public int hashCode() {
-    return Objects.hash(avsResultCode, bin, company, cvvResultCode, expirationMonth, expirationYear, name, number, paymentMethodName, wallet);
+    return Objects.hash(avsResultCode, bin, company, createdAt, cvvResultCode, expirationMonth, expirationYear, name, number, paymentMethodName, wallet);
   }
 
   public static Builder newBuilder() {
@@ -234,6 +252,11 @@ public class CardPaymentDetails implements PaymentDetails, com.shopify.admin.typ
      * The name of the company that issued the customer's credit card.
      */
     private String company;
+
+    /**
+     * The date and time when the card payment details were created.
+     */
+    private OffsetDateTime createdAt;
 
     /**
      * The response code from the credit card company indicating whether the customer
@@ -277,6 +300,7 @@ public class CardPaymentDetails implements PaymentDetails, com.shopify.admin.typ
       result.avsResultCode = this.avsResultCode;
       result.bin = this.bin;
       result.company = this.company;
+      result.createdAt = this.createdAt;
       result.cvvResultCode = this.cvvResultCode;
       result.expirationMonth = this.expirationMonth;
       result.expirationYear = this.expirationYear;
@@ -310,6 +334,14 @@ public class CardPaymentDetails implements PaymentDetails, com.shopify.admin.typ
      */
     public Builder company(String company) {
       this.company = company;
+      return this;
+    }
+
+    /**
+     * The date and time when the card payment details were created.
+     */
+    public Builder createdAt(OffsetDateTime createdAt) {
+      this.createdAt = createdAt;
       return this;
     }
 

@@ -2,9 +2,14 @@ package com.shopify.storefront.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.storefront.types.CustomerResetInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -31,6 +36,24 @@ public class CustomerResetGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public CustomerResetGraphQLQuery(String id, CustomerResetInput input, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (input != null || fieldsSet.contains("input")) {
+        getInput().put("input", input);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public CustomerResetGraphQLQuery() {
     super("mutation");
   }
@@ -47,6 +70,10 @@ public class CustomerResetGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private CustomerResetInput input;
@@ -54,7 +81,7 @@ public class CustomerResetGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public CustomerResetGraphQLQuery build() {
-      return new CustomerResetGraphQLQuery(id, input, queryName, fieldsSet);
+      return new CustomerResetGraphQLQuery(id, input, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -68,10 +95,30 @@ public class CustomerResetGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * Specifies the customer to reset.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The fields used to reset a customer’s password.
      */
     public Builder input(CustomerResetInput input) {
       this.input = input;
+      this.fieldsSet.add("input");
+      return this;
+    }
+
+    /**
+     * The fields used to reset a customer’s password.
+     */
+    public Builder inputReference(String variableRef) {
+      this.variableReferences.put("input", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("CustomerResetInput"))).build());
       this.fieldsSet.add("input");
       return this;
     }

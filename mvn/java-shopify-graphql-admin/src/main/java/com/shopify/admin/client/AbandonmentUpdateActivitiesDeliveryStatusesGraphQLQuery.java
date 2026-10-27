@@ -2,10 +2,15 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.AbandonmentDeliveryState;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -30,6 +35,32 @@ public class AbandonmentUpdateActivitiesDeliveryStatusesGraphQLQuery extends Gra
     }
   }
 
+  public AbandonmentUpdateActivitiesDeliveryStatusesGraphQLQuery(String abandonmentId,
+      String marketingActivityId, AbandonmentDeliveryState deliveryStatus,
+      OffsetDateTime deliveredAt, String deliveryStatusChangeReason, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (abandonmentId != null || fieldsSet.contains("abandonmentId")) {
+        getInput().put("abandonmentId", abandonmentId);
+    }if (marketingActivityId != null || fieldsSet.contains("marketingActivityId")) {
+        getInput().put("marketingActivityId", marketingActivityId);
+    }if (deliveryStatus != null || fieldsSet.contains("deliveryStatus")) {
+        getInput().put("deliveryStatus", deliveryStatus);
+    }if (deliveredAt != null || fieldsSet.contains("deliveredAt")) {
+        getInput().put("deliveredAt", deliveredAt);
+    }if (deliveryStatusChangeReason != null || fieldsSet.contains("deliveryStatusChangeReason")) {
+        getInput().put("deliveryStatusChangeReason", deliveryStatusChangeReason);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public AbandonmentUpdateActivitiesDeliveryStatusesGraphQLQuery() {
     super("mutation");
   }
@@ -46,6 +77,10 @@ public class AbandonmentUpdateActivitiesDeliveryStatusesGraphQLQuery extends Gra
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String abandonmentId;
 
     private String marketingActivityId;
@@ -59,7 +94,7 @@ public class AbandonmentUpdateActivitiesDeliveryStatusesGraphQLQuery extends Gra
     private String queryName;
 
     public AbandonmentUpdateActivitiesDeliveryStatusesGraphQLQuery build() {
-      return new AbandonmentUpdateActivitiesDeliveryStatusesGraphQLQuery(abandonmentId, marketingActivityId, deliveryStatus, deliveredAt, deliveryStatusChangeReason, queryName, fieldsSet);
+      return new AbandonmentUpdateActivitiesDeliveryStatusesGraphQLQuery(abandonmentId, marketingActivityId, deliveryStatus, deliveredAt, deliveryStatusChangeReason, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -68,6 +103,16 @@ public class AbandonmentUpdateActivitiesDeliveryStatusesGraphQLQuery extends Gra
      */
     public Builder abandonmentId(String abandonmentId) {
       this.abandonmentId = abandonmentId;
+      this.fieldsSet.add("abandonmentId");
+      return this;
+    }
+
+    /**
+     * The ID of the abandonment that needs to be updated.
+     */
+    public Builder abandonmentIdReference(String variableRef) {
+      this.variableReferences.put("abandonmentId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("abandonmentId");
       return this;
     }
@@ -82,10 +127,30 @@ public class AbandonmentUpdateActivitiesDeliveryStatusesGraphQLQuery extends Gra
     }
 
     /**
+     * The ID of the marketing activity that needs to be updated.
+     */
+    public Builder marketingActivityIdReference(String variableRef) {
+      this.variableReferences.put("marketingActivityId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("marketingActivityId");
+      return this;
+    }
+
+    /**
      * The new delivery status of the marketing activity for this abandonment.
      */
     public Builder deliveryStatus(AbandonmentDeliveryState deliveryStatus) {
       this.deliveryStatus = deliveryStatus;
+      this.fieldsSet.add("deliveryStatus");
+      return this;
+    }
+
+    /**
+     * The new delivery status of the marketing activity for this abandonment.
+     */
+    public Builder deliveryStatusReference(String variableRef) {
+      this.variableReferences.put("deliveryStatus", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("AbandonmentDeliveryState"))).build());
       this.fieldsSet.add("deliveryStatus");
       return this;
     }
@@ -100,10 +165,30 @@ public class AbandonmentUpdateActivitiesDeliveryStatusesGraphQLQuery extends Gra
     }
 
     /**
+     * The delivery timestamp if the activity delivered.
+     */
+    public Builder deliveredAtReference(String variableRef) {
+      this.variableReferences.put("deliveredAt", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("DateTime")).build());
+      this.fieldsSet.add("deliveredAt");
+      return this;
+    }
+
+    /**
      * The reason why the activity was or was not delivered.
      */
     public Builder deliveryStatusChangeReason(String deliveryStatusChangeReason) {
       this.deliveryStatusChangeReason = deliveryStatusChangeReason;
+      this.fieldsSet.add("deliveryStatusChangeReason");
+      return this;
+    }
+
+    /**
+     * The reason why the activity was or was not delivered.
+     */
+    public Builder deliveryStatusChangeReasonReference(String variableRef) {
+      this.variableReferences.put("deliveryStatusChangeReason", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
       this.fieldsSet.add("deliveryStatusChangeReason");
       return this;
     }

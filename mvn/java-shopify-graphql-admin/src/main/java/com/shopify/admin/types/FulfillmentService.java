@@ -3,6 +3,7 @@ package com.shopify.admin.types;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
@@ -83,6 +84,11 @@ public class FulfillmentService {
   private String callbackUrl;
 
   /**
+   * The date and time when the fulfillment service was created.
+   */
+  private OffsetDateTime createdAt;
+
+  /**
    * Whether the fulfillment service uses the [fulfillment order based workflow](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments)
    * for managing fulfillments.
    *   
@@ -151,6 +157,17 @@ public class FulfillmentService {
 
   public void setCallbackUrl(String callbackUrl) {
     this.callbackUrl = callbackUrl;
+  }
+
+  /**
+   * The date and time when the fulfillment service was created.
+   */
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
   /**
@@ -259,7 +276,7 @@ public class FulfillmentService {
 
   @Override
   public String toString() {
-    return "FulfillmentService{callbackUrl='" + callbackUrl + "', fulfillmentOrdersOptIn='" + fulfillmentOrdersOptIn + "', handle='" + handle + "', id='" + id + "', inventoryManagement='" + inventoryManagement + "', location='" + location + "', requiresShippingMethod='" + requiresShippingMethod + "', serviceName='" + serviceName + "', trackingSupport='" + trackingSupport + "', type='" + type + "'}";
+    return "FulfillmentService{callbackUrl='" + callbackUrl + "', createdAt='" + createdAt + "', fulfillmentOrdersOptIn='" + fulfillmentOrdersOptIn + "', handle='" + handle + "', id='" + id + "', inventoryManagement='" + inventoryManagement + "', location='" + location + "', requiresShippingMethod='" + requiresShippingMethod + "', serviceName='" + serviceName + "', trackingSupport='" + trackingSupport + "', type='" + type + "'}";
   }
 
   @Override
@@ -268,6 +285,7 @@ public class FulfillmentService {
     if (o == null || getClass() != o.getClass()) return false;
     FulfillmentService that = (FulfillmentService) o;
     return Objects.equals(callbackUrl, that.callbackUrl) &&
+        Objects.equals(createdAt, that.createdAt) &&
         fulfillmentOrdersOptIn == that.fulfillmentOrdersOptIn &&
         Objects.equals(handle, that.handle) &&
         Objects.equals(id, that.id) &&
@@ -281,7 +299,7 @@ public class FulfillmentService {
 
   @Override
   public int hashCode() {
-    return Objects.hash(callbackUrl, fulfillmentOrdersOptIn, handle, id, inventoryManagement, location, requiresShippingMethod, serviceName, trackingSupport, type);
+    return Objects.hash(callbackUrl, createdAt, fulfillmentOrdersOptIn, handle, id, inventoryManagement, location, requiresShippingMethod, serviceName, trackingSupport, type);
   }
 
   public static Builder newBuilder() {
@@ -300,6 +318,11 @@ public class FulfillmentService {
      *     [fulfillment and cancellation requests](https://shopify.dev/apps/build/orders-fulfillment/fulfillment-service-apps/build-for-fulfillment-services#step-9-optional-enable-tracking-support).
      */
     private String callbackUrl;
+
+    /**
+     * The date and time when the fulfillment service was created.
+     */
+    private OffsetDateTime createdAt;
 
     /**
      * Whether the fulfillment service uses the [fulfillment order based workflow](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments)
@@ -354,6 +377,7 @@ public class FulfillmentService {
     public FulfillmentService build() {
       FulfillmentService result = new FulfillmentService();
       result.callbackUrl = this.callbackUrl;
+      result.createdAt = this.createdAt;
       result.fulfillmentOrdersOptIn = this.fulfillmentOrdersOptIn;
       result.handle = this.handle;
       result.id = this.id;
@@ -378,6 +402,14 @@ public class FulfillmentService {
      */
     public Builder callbackUrl(String callbackUrl) {
       this.callbackUrl = callbackUrl;
+      return this;
+    }
+
+    /**
+     * The date and time when the fulfillment service was created.
+     */
+    public Builder createdAt(OffsetDateTime createdAt) {
+      this.createdAt = createdAt;
       return this;
     }
 

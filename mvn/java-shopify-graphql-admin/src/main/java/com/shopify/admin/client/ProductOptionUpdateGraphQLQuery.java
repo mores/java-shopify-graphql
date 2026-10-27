@@ -5,10 +5,14 @@ import com.shopify.admin.types.OptionUpdateInput;
 import com.shopify.admin.types.OptionValueCreateInput;
 import com.shopify.admin.types.OptionValueUpdateInput;
 import com.shopify.admin.types.ProductOptionUpdateVariantStrategy;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -69,6 +73,34 @@ public class ProductOptionUpdateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public ProductOptionUpdateGraphQLQuery(OptionUpdateInput option, String productId,
+      List<OptionValueCreateInput> optionValuesToAdd,
+      List<OptionValueUpdateInput> optionValuesToUpdate, List<String> optionValuesToDelete,
+      ProductOptionUpdateVariantStrategy variantStrategy, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (option != null || fieldsSet.contains("option")) {
+        getInput().put("option", option);
+    }if (productId != null || fieldsSet.contains("productId")) {
+        getInput().put("productId", productId);
+    }if (optionValuesToAdd != null || fieldsSet.contains("optionValuesToAdd")) {
+        getInput().put("optionValuesToAdd", optionValuesToAdd);
+    }if (optionValuesToUpdate != null || fieldsSet.contains("optionValuesToUpdate")) {
+        getInput().put("optionValuesToUpdate", optionValuesToUpdate);
+    }if (optionValuesToDelete != null || fieldsSet.contains("optionValuesToDelete")) {
+        getInput().put("optionValuesToDelete", optionValuesToDelete);
+    }if (variantStrategy != null || fieldsSet.contains("variantStrategy")) {
+        getInput().put("variantStrategy", variantStrategy);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public ProductOptionUpdateGraphQLQuery() {
     super("mutation");
   }
@@ -85,6 +117,10 @@ public class ProductOptionUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private OptionUpdateInput option;
 
     private String productId;
@@ -100,7 +136,7 @@ public class ProductOptionUpdateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public ProductOptionUpdateGraphQLQuery build() {
-      return new ProductOptionUpdateGraphQLQuery(option, productId, optionValuesToAdd, optionValuesToUpdate, optionValuesToDelete, variantStrategy, queryName, fieldsSet);
+      return new ProductOptionUpdateGraphQLQuery(option, productId, optionValuesToAdd, optionValuesToUpdate, optionValuesToDelete, variantStrategy, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -109,6 +145,16 @@ public class ProductOptionUpdateGraphQLQuery extends GraphQLQuery {
      */
     public Builder option(OptionUpdateInput option) {
       this.option = option;
+      this.fieldsSet.add("option");
+      return this;
+    }
+
+    /**
+     * Option to update.
+     */
+    public Builder optionReference(String variableRef) {
+      this.variableReferences.put("option", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("OptionUpdateInput"))).build());
       this.fieldsSet.add("option");
       return this;
     }
@@ -123,10 +169,30 @@ public class ProductOptionUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the Product the Option belongs to.
+     */
+    public Builder productIdReference(String variableRef) {
+      this.variableReferences.put("productId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("productId");
+      return this;
+    }
+
+    /**
      * New option values to create.
      */
     public Builder optionValuesToAdd(List<OptionValueCreateInput> optionValuesToAdd) {
       this.optionValuesToAdd = optionValuesToAdd;
+      this.fieldsSet.add("optionValuesToAdd");
+      return this;
+    }
+
+    /**
+     * New option values to create.
+     */
+    public Builder optionValuesToAddReference(String variableRef) {
+      this.variableReferences.put("optionValuesToAdd", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("OptionValueCreateInput")))).build());
       this.fieldsSet.add("optionValuesToAdd");
       return this;
     }
@@ -141,10 +207,30 @@ public class ProductOptionUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * Existing option values to update.
+     */
+    public Builder optionValuesToUpdateReference(String variableRef) {
+      this.variableReferences.put("optionValuesToUpdate", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("OptionValueUpdateInput")))).build());
+      this.fieldsSet.add("optionValuesToUpdate");
+      return this;
+    }
+
+    /**
      * IDs of the existing option values to delete.
      */
     public Builder optionValuesToDelete(List<String> optionValuesToDelete) {
       this.optionValuesToDelete = optionValuesToDelete;
+      this.fieldsSet.add("optionValuesToDelete");
+      return this;
+    }
+
+    /**
+     * IDs of the existing option values to delete.
+     */
+    public Builder optionValuesToDeleteReference(String variableRef) {
+      this.variableReferences.put("optionValuesToDelete", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("ID")))).build());
       this.fieldsSet.add("optionValuesToDelete");
       return this;
     }
@@ -156,6 +242,18 @@ public class ProductOptionUpdateGraphQLQuery extends GraphQLQuery {
      */
     public Builder variantStrategy(ProductOptionUpdateVariantStrategy variantStrategy) {
       this.variantStrategy = variantStrategy;
+      this.fieldsSet.add("variantStrategy");
+      return this;
+    }
+
+    /**
+     * The strategy defines which behavior the mutation should observe regarding variants,
+     * such as creating variants or deleting them in response to option values to add or to delete.
+     * If not provided or set to null, the strategy `LEAVE_AS_IS` will be used.
+     */
+    public Builder variantStrategyReference(String variableRef) {
+      this.variableReferences.put("variantStrategy", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("ProductOptionUpdateVariantStrategy")).build());
       this.fieldsSet.add("variantStrategy");
       return this;
     }

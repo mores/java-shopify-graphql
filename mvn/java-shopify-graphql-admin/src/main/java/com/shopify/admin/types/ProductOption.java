@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -22,6 +23,11 @@ import java.util.Objects;
     use = JsonTypeInfo.Id.NONE
 )
 public class ProductOption implements com.shopify.admin.types.HasPublishedTranslations, com.shopify.admin.types.Node {
+  /**
+   * The date and time when the product option was created.
+   */
+  private OffsetDateTime createdAt;
+
   /**
    * A globally-unique ID.
    */
@@ -59,6 +65,17 @@ public class ProductOption implements com.shopify.admin.types.HasPublishedTransl
   private List<String> values;
 
   public ProductOption() {
+  }
+
+  /**
+   * The date and time when the product option was created.
+   */
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
   /**
@@ -141,7 +158,7 @@ public class ProductOption implements com.shopify.admin.types.HasPublishedTransl
 
   @Override
   public String toString() {
-    return "ProductOption{id='" + id + "', linkedMetafield='" + linkedMetafield + "', name='" + name + "', optionValues='" + optionValues + "', position='" + position + "', translations='" + translations + "', values='" + values + "'}";
+    return "ProductOption{createdAt='" + createdAt + "', id='" + id + "', linkedMetafield='" + linkedMetafield + "', name='" + name + "', optionValues='" + optionValues + "', position='" + position + "', translations='" + translations + "', values='" + values + "'}";
   }
 
   @Override
@@ -149,7 +166,8 @@ public class ProductOption implements com.shopify.admin.types.HasPublishedTransl
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     ProductOption that = (ProductOption) o;
-    return Objects.equals(id, that.id) &&
+    return Objects.equals(createdAt, that.createdAt) &&
+        Objects.equals(id, that.id) &&
         Objects.equals(linkedMetafield, that.linkedMetafield) &&
         Objects.equals(name, that.name) &&
         Objects.equals(optionValues, that.optionValues) &&
@@ -160,7 +178,7 @@ public class ProductOption implements com.shopify.admin.types.HasPublishedTransl
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedMetafield, name, optionValues, position, translations, values);
+    return Objects.hash(createdAt, id, linkedMetafield, name, optionValues, position, translations, values);
   }
 
   public static Builder newBuilder() {
@@ -168,6 +186,11 @@ public class ProductOption implements com.shopify.admin.types.HasPublishedTransl
   }
 
   public static class Builder {
+    /**
+     * The date and time when the product option was created.
+     */
+    private OffsetDateTime createdAt;
+
     /**
      * A globally-unique ID.
      */
@@ -206,6 +229,7 @@ public class ProductOption implements com.shopify.admin.types.HasPublishedTransl
 
     public ProductOption build() {
       ProductOption result = new ProductOption();
+      result.createdAt = this.createdAt;
       result.id = this.id;
       result.linkedMetafield = this.linkedMetafield;
       result.name = this.name;
@@ -214,6 +238,14 @@ public class ProductOption implements com.shopify.admin.types.HasPublishedTransl
       result.translations = this.translations;
       result.values = this.values;
       return result;
+    }
+
+    /**
+     * The date and time when the product option was created.
+     */
+    public Builder createdAt(OffsetDateTime createdAt) {
+      this.createdAt = createdAt;
+      return this;
     }
 
     /**

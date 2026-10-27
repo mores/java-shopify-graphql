@@ -39,7 +39,9 @@ public class Localization {
   private Language language;
 
   /**
-   * The market including the country of the active localized experience. Use the `@inContext` directive to change this value.
+   * The market that applies to the buyer's country. In cases where multiple
+   * markets match, this returns the most-specific country region market. Use the
+   * `@inContext` directive to change this value.
    */
   private Market market;
 
@@ -91,7 +93,9 @@ public class Localization {
   }
 
   /**
-   * The market including the country of the active localized experience. Use the `@inContext` directive to change this value.
+   * The market that applies to the buyer's country. In cases where multiple
+   * markets match, this returns the most-specific country region market. Use the
+   * `@inContext` directive to change this value.
    */
   public Market getMarket() {
     return market;
@@ -149,7 +153,9 @@ public class Localization {
     private Language language;
 
     /**
-     * The market including the country of the active localized experience. Use the `@inContext` directive to change this value.
+     * The market that applies to the buyer's country. In cases where multiple
+     * markets match, this returns the most-specific country region market. Use the
+     * `@inContext` directive to change this value.
      */
     private Market market;
 
@@ -196,7 +202,9 @@ public class Localization {
     }
 
     /**
-     * The market including the country of the active localized experience. Use the `@inContext` directive to change this value.
+     * The market that applies to the buyer's country. In cases where multiple
+     * markets match, this returns the most-specific country region market. Use the
+     * `@inContext` directive to change this value.
      */
     public Builder market(Market market) {
       this.market = market;

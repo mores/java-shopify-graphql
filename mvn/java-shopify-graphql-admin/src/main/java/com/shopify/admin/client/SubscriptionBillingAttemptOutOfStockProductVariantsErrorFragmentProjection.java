@@ -42,15 +42,34 @@ public class SubscriptionBillingAttemptOutOfStockProductVariantsErrorFragmentPro
     ProductVariantConnectionProjection<SubscriptionBillingAttemptOutOfStockProductVariantsErrorFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantConnectionProjection<>(this, getRoot());    
     getFields().put("outOfStockProductVariants", projection);
     getInputArguments().computeIfAbsent("outOfStockProductVariants", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("outOfStockProductVariants").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("outOfStockProductVariants").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("outOfStockProductVariants").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("outOfStockProductVariants").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("outOfStockProductVariants").add(reverseArg);
+    return projection;
+  }
+
+  public ProductVariantConnectionProjection<SubscriptionBillingAttemptOutOfStockProductVariantsErrorFragmentProjection<PARENT, ROOT>, ROOT> outOfStockProductVariantsWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    ProductVariantConnectionProjection<SubscriptionBillingAttemptOutOfStockProductVariantsErrorFragmentProjection<PARENT, ROOT>, ROOT> projection = new ProductVariantConnectionProjection<>(this, getRoot());    
+    getFields().put("outOfStockProductVariants", projection);
+    getInputArguments().computeIfAbsent("outOfStockProductVariants", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("outOfStockProductVariants").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("outOfStockProductVariants").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("outOfStockProductVariants").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("outOfStockProductVariants").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("outOfStockProductVariants").add(reverseArg);
     return projection;
   }

@@ -1,5 +1,6 @@
 package com.shopify.admin.types;
 
+import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
@@ -18,6 +19,15 @@ public class MarketPriceInclusionsInput {
    * The inclusive duties pricing strategy for the market.
    */
   private InclusiveDutiesPricingStrategy dutiesPricingStrategy;
+
+  /**
+   * Whether adaptive pricing is enabled for the market. Only applicable for
+   * Markets with Managed Market enabled. When enabled, forces a state of
+   * `INCLUDES_TAXES_IN_PRICE_BASED_ON_COUNTRY`, `INCLUDE_DUTIES_IN_PRICE`, and
+   * `DDP`. When disabled, defaults to `INCLUDES_TAXES_IN_PRICE_BASED_ON_COUNTRY`,
+   * `ADD_DUTIES_AT_CHECKOUT`, and `DDP` unless otherwise specified.
+   */
+  private Boolean adaptivePricingEnabled;
 
   public MarketPriceInclusionsInput() {
   }
@@ -44,9 +54,24 @@ public class MarketPriceInclusionsInput {
     this.dutiesPricingStrategy = dutiesPricingStrategy;
   }
 
+  /**
+   * Whether adaptive pricing is enabled for the market. Only applicable for
+   * Markets with Managed Market enabled. When enabled, forces a state of
+   * `INCLUDES_TAXES_IN_PRICE_BASED_ON_COUNTRY`, `INCLUDE_DUTIES_IN_PRICE`, and
+   * `DDP`. When disabled, defaults to `INCLUDES_TAXES_IN_PRICE_BASED_ON_COUNTRY`,
+   * `ADD_DUTIES_AT_CHECKOUT`, and `DDP` unless otherwise specified.
+   */
+  public Boolean getAdaptivePricingEnabled() {
+    return adaptivePricingEnabled;
+  }
+
+  public void setAdaptivePricingEnabled(Boolean adaptivePricingEnabled) {
+    this.adaptivePricingEnabled = adaptivePricingEnabled;
+  }
+
   @Override
   public String toString() {
-    return "MarketPriceInclusionsInput{taxPricingStrategy='" + taxPricingStrategy + "', dutiesPricingStrategy='" + dutiesPricingStrategy + "'}";
+    return "MarketPriceInclusionsInput{taxPricingStrategy='" + taxPricingStrategy + "', dutiesPricingStrategy='" + dutiesPricingStrategy + "', adaptivePricingEnabled='" + adaptivePricingEnabled + "'}";
   }
 
   @Override
@@ -55,12 +80,13 @@ public class MarketPriceInclusionsInput {
     if (o == null || getClass() != o.getClass()) return false;
     MarketPriceInclusionsInput that = (MarketPriceInclusionsInput) o;
     return Objects.equals(taxPricingStrategy, that.taxPricingStrategy) &&
-        Objects.equals(dutiesPricingStrategy, that.dutiesPricingStrategy);
+        Objects.equals(dutiesPricingStrategy, that.dutiesPricingStrategy) &&
+        Objects.equals(adaptivePricingEnabled, that.adaptivePricingEnabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(taxPricingStrategy, dutiesPricingStrategy);
+    return Objects.hash(taxPricingStrategy, dutiesPricingStrategy, adaptivePricingEnabled);
   }
 
   public static Builder newBuilder() {
@@ -78,10 +104,20 @@ public class MarketPriceInclusionsInput {
      */
     private InclusiveDutiesPricingStrategy dutiesPricingStrategy;
 
+    /**
+     * Whether adaptive pricing is enabled for the market. Only applicable for
+     * Markets with Managed Market enabled. When enabled, forces a state of
+     * `INCLUDES_TAXES_IN_PRICE_BASED_ON_COUNTRY`, `INCLUDE_DUTIES_IN_PRICE`, and
+     * `DDP`. When disabled, defaults to `INCLUDES_TAXES_IN_PRICE_BASED_ON_COUNTRY`,
+     * `ADD_DUTIES_AT_CHECKOUT`, and `DDP` unless otherwise specified.
+     */
+    private Boolean adaptivePricingEnabled;
+
     public MarketPriceInclusionsInput build() {
       MarketPriceInclusionsInput result = new MarketPriceInclusionsInput();
       result.taxPricingStrategy = this.taxPricingStrategy;
       result.dutiesPricingStrategy = this.dutiesPricingStrategy;
+      result.adaptivePricingEnabled = this.adaptivePricingEnabled;
       return result;
     }
 
@@ -98,6 +134,18 @@ public class MarketPriceInclusionsInput {
      */
     public Builder dutiesPricingStrategy(InclusiveDutiesPricingStrategy dutiesPricingStrategy) {
       this.dutiesPricingStrategy = dutiesPricingStrategy;
+      return this;
+    }
+
+    /**
+     * Whether adaptive pricing is enabled for the market. Only applicable for
+     * Markets with Managed Market enabled. When enabled, forces a state of
+     * `INCLUDES_TAXES_IN_PRICE_BASED_ON_COUNTRY`, `INCLUDE_DUTIES_IN_PRICE`, and
+     * `DDP`. When disabled, defaults to `INCLUDES_TAXES_IN_PRICE_BASED_ON_COUNTRY`,
+     * `ADD_DUTIES_AT_CHECKOUT`, and `DDP` unless otherwise specified.
+     */
+    public Builder adaptivePricingEnabled(Boolean adaptivePricingEnabled) {
+      this.adaptivePricingEnabled = adaptivePricingEnabled;
       return this;
     }
   }

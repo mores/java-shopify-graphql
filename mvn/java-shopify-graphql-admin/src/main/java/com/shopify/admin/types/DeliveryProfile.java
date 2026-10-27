@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -29,6 +30,18 @@ public class DeliveryProfile implements com.shopify.admin.types.Node {
    * The number of active shipping rates for the profile.
    */
   private int activeMethodDefinitionsCount;
+
+  /**
+   * Whether this delivery profile covers every shippable product variant in the
+   * shop. Rates from a profile with `coversAllItems: true` apply to all items at
+   * checkout, overriding any explicit product or variant assignments.
+   */
+  private boolean coversAllItems;
+
+  /**
+   * The date and time when the delivery profile was created.
+   */
+  private OffsetDateTime createdAt;
 
   /**
    * Whether this is the default profile.
@@ -112,6 +125,30 @@ public class DeliveryProfile implements com.shopify.admin.types.Node {
 
   public void setActiveMethodDefinitionsCount(int activeMethodDefinitionsCount) {
     this.activeMethodDefinitionsCount = activeMethodDefinitionsCount;
+  }
+
+  /**
+   * Whether this delivery profile covers every shippable product variant in the
+   * shop. Rates from a profile with `coversAllItems: true` apply to all items at
+   * checkout, overriding any explicit product or variant assignments.
+   */
+  public boolean getCoversAllItems() {
+    return coversAllItems;
+  }
+
+  public void setCoversAllItems(boolean coversAllItems) {
+    this.coversAllItems = coversAllItems;
+  }
+
+  /**
+   * The date and time when the delivery profile was created.
+   */
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
   /**
@@ -270,7 +307,7 @@ public class DeliveryProfile implements com.shopify.admin.types.Node {
 
   @Override
   public String toString() {
-    return "DeliveryProfile{activeMethodDefinitionsCount='" + activeMethodDefinitionsCount + "', default='" + _default + "', id='" + id + "', locationsWithoutRatesCount='" + locationsWithoutRatesCount + "', name='" + name + "', originLocationCount='" + originLocationCount + "', productVariantsCount='" + productVariantsCount + "', productVariantsCountV2='" + productVariantsCountV2 + "', profileItems='" + profileItems + "', profileLocationGroups='" + profileLocationGroups + "', sellingPlanGroups='" + sellingPlanGroups + "', unassignedLocations='" + unassignedLocations + "', unassignedLocationsPaginated='" + unassignedLocationsPaginated + "', version='" + version + "', zoneCountryCount='" + zoneCountryCount + "'}";
+    return "DeliveryProfile{activeMethodDefinitionsCount='" + activeMethodDefinitionsCount + "', coversAllItems='" + coversAllItems + "', createdAt='" + createdAt + "', default='" + _default + "', id='" + id + "', locationsWithoutRatesCount='" + locationsWithoutRatesCount + "', name='" + name + "', originLocationCount='" + originLocationCount + "', productVariantsCount='" + productVariantsCount + "', productVariantsCountV2='" + productVariantsCountV2 + "', profileItems='" + profileItems + "', profileLocationGroups='" + profileLocationGroups + "', sellingPlanGroups='" + sellingPlanGroups + "', unassignedLocations='" + unassignedLocations + "', unassignedLocationsPaginated='" + unassignedLocationsPaginated + "', version='" + version + "', zoneCountryCount='" + zoneCountryCount + "'}";
   }
 
   @Override
@@ -279,6 +316,8 @@ public class DeliveryProfile implements com.shopify.admin.types.Node {
     if (o == null || getClass() != o.getClass()) return false;
     DeliveryProfile that = (DeliveryProfile) o;
     return activeMethodDefinitionsCount == that.activeMethodDefinitionsCount &&
+        coversAllItems == that.coversAllItems &&
+        Objects.equals(createdAt, that.createdAt) &&
         _default == that._default &&
         Objects.equals(id, that.id) &&
         locationsWithoutRatesCount == that.locationsWithoutRatesCount &&
@@ -297,7 +336,7 @@ public class DeliveryProfile implements com.shopify.admin.types.Node {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeMethodDefinitionsCount, _default, id, locationsWithoutRatesCount, name, originLocationCount, productVariantsCount, productVariantsCountV2, profileItems, profileLocationGroups, sellingPlanGroups, unassignedLocations, unassignedLocationsPaginated, version, zoneCountryCount);
+    return Objects.hash(activeMethodDefinitionsCount, coversAllItems, createdAt, _default, id, locationsWithoutRatesCount, name, originLocationCount, productVariantsCount, productVariantsCountV2, profileItems, profileLocationGroups, sellingPlanGroups, unassignedLocations, unassignedLocationsPaginated, version, zoneCountryCount);
   }
 
   public static Builder newBuilder() {
@@ -309,6 +348,18 @@ public class DeliveryProfile implements com.shopify.admin.types.Node {
      * The number of active shipping rates for the profile.
      */
     private int activeMethodDefinitionsCount;
+
+    /**
+     * Whether this delivery profile covers every shippable product variant in the
+     * shop. Rates from a profile with `coversAllItems: true` apply to all items at
+     * checkout, overriding any explicit product or variant assignments.
+     */
+    private boolean coversAllItems;
+
+    /**
+     * The date and time when the delivery profile was created.
+     */
+    private OffsetDateTime createdAt;
 
     /**
      * Whether this is the default profile.
@@ -383,6 +434,8 @@ public class DeliveryProfile implements com.shopify.admin.types.Node {
     public DeliveryProfile build() {
       DeliveryProfile result = new DeliveryProfile();
       result.activeMethodDefinitionsCount = this.activeMethodDefinitionsCount;
+      result.coversAllItems = this.coversAllItems;
+      result.createdAt = this.createdAt;
       result._default = this._default;
       result.id = this.id;
       result.locationsWithoutRatesCount = this.locationsWithoutRatesCount;
@@ -405,6 +458,24 @@ public class DeliveryProfile implements com.shopify.admin.types.Node {
      */
     public Builder activeMethodDefinitionsCount(int activeMethodDefinitionsCount) {
       this.activeMethodDefinitionsCount = activeMethodDefinitionsCount;
+      return this;
+    }
+
+    /**
+     * Whether this delivery profile covers every shippable product variant in the
+     * shop. Rates from a profile with `coversAllItems: true` apply to all items at
+     * checkout, overriding any explicit product or variant assignments.
+     */
+    public Builder coversAllItems(boolean coversAllItems) {
+      this.coversAllItems = coversAllItems;
+      return this;
+    }
+
+    /**
+     * The date and time when the delivery profile was created.
+     */
+    public Builder createdAt(OffsetDateTime createdAt) {
+      this.createdAt = createdAt;
       return this;
     }
 

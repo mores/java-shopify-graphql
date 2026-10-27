@@ -33,9 +33,23 @@ public class CustomerPhoneNumberProjection<PARENT extends BaseSubProjectionNode<
      return projection;
   }
 
+  public CustomerSmsMarketingConsentProjection<CustomerPhoneNumberProjection<PARENT, ROOT>, ROOT> smsMarketingConsent(
+      ) {
+     CustomerSmsMarketingConsentProjection<CustomerPhoneNumberProjection<PARENT, ROOT>, ROOT> projection = new CustomerSmsMarketingConsentProjection<>(this, getRoot());
+     getFields().put("smsMarketingConsent", projection);
+     return projection;
+  }
+
   public LocationProjection<CustomerPhoneNumberProjection<PARENT, ROOT>, ROOT> sourceLocation() {
      LocationProjection<CustomerPhoneNumberProjection<PARENT, ROOT>, ROOT> projection = new LocationProjection<>(this, getRoot());
      getFields().put("sourceLocation", projection);
+     return projection;
+  }
+
+  public CustomerWhatsAppMarketingConsentProjection<CustomerPhoneNumberProjection<PARENT, ROOT>, ROOT> whatsAppMarketingConsent(
+      ) {
+     CustomerWhatsAppMarketingConsentProjection<CustomerPhoneNumberProjection<PARENT, ROOT>, ROOT> projection = new CustomerWhatsAppMarketingConsentProjection<>(this, getRoot());
+     getFields().put("whatsAppMarketingConsent", projection);
      return projection;
   }
 

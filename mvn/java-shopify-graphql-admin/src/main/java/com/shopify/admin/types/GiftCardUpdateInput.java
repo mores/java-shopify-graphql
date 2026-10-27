@@ -21,10 +21,15 @@ public class GiftCardUpdateInput {
   private LocalDate expiresOn;
 
   /**
-   * The ID of the customer who will receive the gift card. The ID can't be changed
-   * if the gift card already has an assigned customer ID.
+   * The ID of the customer the gift card is issued to, as opposed to the gift
+   * recipient. Replaces the current customer, if any. Requires `write_customers` access_scope.
    */
   private String customerId;
+
+  /**
+   * The strategy used to convert the gift card's balance when it's redeemed in a currency other than the one it was issued in.
+   */
+  private GiftCardCrossCurrencyRedemptionStrategy crossCurrencyRedemptionStrategy;
 
   /**
    * The recipient attributes of the gift card.
@@ -63,8 +68,8 @@ public class GiftCardUpdateInput {
   }
 
   /**
-   * The ID of the customer who will receive the gift card. The ID can't be changed
-   * if the gift card already has an assigned customer ID.
+   * The ID of the customer the gift card is issued to, as opposed to the gift
+   * recipient. Replaces the current customer, if any. Requires `write_customers` access_scope.
    */
   public String getCustomerId() {
     return customerId;
@@ -72,6 +77,18 @@ public class GiftCardUpdateInput {
 
   public void setCustomerId(String customerId) {
     this.customerId = customerId;
+  }
+
+  /**
+   * The strategy used to convert the gift card's balance when it's redeemed in a currency other than the one it was issued in.
+   */
+  public GiftCardCrossCurrencyRedemptionStrategy getCrossCurrencyRedemptionStrategy() {
+    return crossCurrencyRedemptionStrategy;
+  }
+
+  public void setCrossCurrencyRedemptionStrategy(
+      GiftCardCrossCurrencyRedemptionStrategy crossCurrencyRedemptionStrategy) {
+    this.crossCurrencyRedemptionStrategy = crossCurrencyRedemptionStrategy;
   }
 
   /**
@@ -99,7 +116,7 @@ public class GiftCardUpdateInput {
 
   @Override
   public String toString() {
-    return "GiftCardUpdateInput{note='" + note + "', expiresOn='" + expiresOn + "', customerId='" + customerId + "', recipientAttributes='" + recipientAttributes + "', templateSuffix='" + templateSuffix + "'}";
+    return "GiftCardUpdateInput{note='" + note + "', expiresOn='" + expiresOn + "', customerId='" + customerId + "', crossCurrencyRedemptionStrategy='" + crossCurrencyRedemptionStrategy + "', recipientAttributes='" + recipientAttributes + "', templateSuffix='" + templateSuffix + "'}";
   }
 
   @Override
@@ -110,13 +127,14 @@ public class GiftCardUpdateInput {
     return Objects.equals(note, that.note) &&
         Objects.equals(expiresOn, that.expiresOn) &&
         Objects.equals(customerId, that.customerId) &&
+        Objects.equals(crossCurrencyRedemptionStrategy, that.crossCurrencyRedemptionStrategy) &&
         Objects.equals(recipientAttributes, that.recipientAttributes) &&
         Objects.equals(templateSuffix, that.templateSuffix);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(note, expiresOn, customerId, recipientAttributes, templateSuffix);
+    return Objects.hash(note, expiresOn, customerId, crossCurrencyRedemptionStrategy, recipientAttributes, templateSuffix);
   }
 
   public static Builder newBuilder() {
@@ -135,10 +153,15 @@ public class GiftCardUpdateInput {
     private LocalDate expiresOn;
 
     /**
-     * The ID of the customer who will receive the gift card. The ID can't be changed
-     * if the gift card already has an assigned customer ID.
+     * The ID of the customer the gift card is issued to, as opposed to the gift
+     * recipient. Replaces the current customer, if any. Requires `write_customers` access_scope.
      */
     private String customerId;
+
+    /**
+     * The strategy used to convert the gift card's balance when it's redeemed in a currency other than the one it was issued in.
+     */
+    private GiftCardCrossCurrencyRedemptionStrategy crossCurrencyRedemptionStrategy;
 
     /**
      * The recipient attributes of the gift card.
@@ -156,6 +179,7 @@ public class GiftCardUpdateInput {
       result.note = this.note;
       result.expiresOn = this.expiresOn;
       result.customerId = this.customerId;
+      result.crossCurrencyRedemptionStrategy = this.crossCurrencyRedemptionStrategy;
       result.recipientAttributes = this.recipientAttributes;
       result.templateSuffix = this.templateSuffix;
       return result;
@@ -178,11 +202,20 @@ public class GiftCardUpdateInput {
     }
 
     /**
-     * The ID of the customer who will receive the gift card. The ID can't be changed
-     * if the gift card already has an assigned customer ID.
+     * The ID of the customer the gift card is issued to, as opposed to the gift
+     * recipient. Replaces the current customer, if any. Requires `write_customers` access_scope.
      */
     public Builder customerId(String customerId) {
       this.customerId = customerId;
+      return this;
+    }
+
+    /**
+     * The strategy used to convert the gift card's balance when it's redeemed in a currency other than the one it was issued in.
+     */
+    public Builder crossCurrencyRedemptionStrategy(
+        GiftCardCrossCurrencyRedemptionStrategy crossCurrencyRedemptionStrategy) {
+      this.crossCurrencyRedemptionStrategy = crossCurrencyRedemptionStrategy;
       return this;
     }
 

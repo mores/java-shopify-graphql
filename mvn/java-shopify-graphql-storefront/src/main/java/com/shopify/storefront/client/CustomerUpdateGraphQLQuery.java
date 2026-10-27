@@ -2,9 +2,14 @@ package com.shopify.storefront.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.storefront.types.CustomerUpdateInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -32,6 +37,24 @@ public class CustomerUpdateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public CustomerUpdateGraphQLQuery(String customerAccessToken, CustomerUpdateInput customer,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (customerAccessToken != null || fieldsSet.contains("customerAccessToken")) {
+        getInput().put("customerAccessToken", customerAccessToken);
+    }if (customer != null || fieldsSet.contains("customer")) {
+        getInput().put("customer", customer);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public CustomerUpdateGraphQLQuery() {
     super("mutation");
   }
@@ -48,6 +71,10 @@ public class CustomerUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String customerAccessToken;
 
     private CustomerUpdateInput customer;
@@ -55,7 +82,7 @@ public class CustomerUpdateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public CustomerUpdateGraphQLQuery build() {
-      return new CustomerUpdateGraphQLQuery(customerAccessToken, customer, queryName, fieldsSet);
+      return new CustomerUpdateGraphQLQuery(customerAccessToken, customer, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -69,10 +96,30 @@ public class CustomerUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The access token used to identify the customer.
+     */
+    public Builder customerAccessTokenReference(String variableRef) {
+      this.variableReferences.put("customerAccessToken", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("String"))).build());
+      this.fieldsSet.add("customerAccessToken");
+      return this;
+    }
+
+    /**
      * The customer object input.
      */
     public Builder customer(CustomerUpdateInput customer) {
       this.customer = customer;
+      this.fieldsSet.add("customer");
+      return this;
+    }
+
+    /**
+     * The customer object input.
+     */
+    public Builder customerReference(String variableRef) {
+      this.variableReferences.put("customer", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("CustomerUpdateInput"))).build());
       this.fieldsSet.add("customer");
       return this;
     }

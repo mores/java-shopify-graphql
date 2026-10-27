@@ -14,6 +14,11 @@ public class MarketConditionsRegionInput {
    */
   private CountryCode countryCode;
 
+  /**
+   * A subdivision such as a province or state.
+   */
+  private String subdivision;
+
   public MarketConditionsRegionInput() {
   }
 
@@ -28,9 +33,20 @@ public class MarketConditionsRegionInput {
     this.countryCode = countryCode;
   }
 
+  /**
+   * A subdivision such as a province or state.
+   */
+  public String getSubdivision() {
+    return subdivision;
+  }
+
+  public void setSubdivision(String subdivision) {
+    this.subdivision = subdivision;
+  }
+
   @Override
   public String toString() {
-    return "MarketConditionsRegionInput{countryCode='" + countryCode + "'}";
+    return "MarketConditionsRegionInput{countryCode='" + countryCode + "', subdivision='" + subdivision + "'}";
   }
 
   @Override
@@ -38,12 +54,13 @@ public class MarketConditionsRegionInput {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     MarketConditionsRegionInput that = (MarketConditionsRegionInput) o;
-    return Objects.equals(countryCode, that.countryCode);
+    return Objects.equals(countryCode, that.countryCode) &&
+        Objects.equals(subdivision, that.subdivision);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(countryCode);
+    return Objects.hash(countryCode, subdivision);
   }
 
   public static Builder newBuilder() {
@@ -56,9 +73,15 @@ public class MarketConditionsRegionInput {
      */
     private CountryCode countryCode;
 
+    /**
+     * A subdivision such as a province or state.
+     */
+    private String subdivision;
+
     public MarketConditionsRegionInput build() {
       MarketConditionsRegionInput result = new MarketConditionsRegionInput();
       result.countryCode = this.countryCode;
+      result.subdivision = this.subdivision;
       return result;
     }
 
@@ -67,6 +90,14 @@ public class MarketConditionsRegionInput {
      */
     public Builder countryCode(CountryCode countryCode) {
       this.countryCode = countryCode;
+      return this;
+    }
+
+    /**
+     * A subdivision such as a province or state.
+     */
+    public Builder subdivision(String subdivision) {
+      this.subdivision = subdivision;
       return this;
     }
   }

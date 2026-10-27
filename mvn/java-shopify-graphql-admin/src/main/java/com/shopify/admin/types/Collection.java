@@ -15,14 +15,6 @@ import java.util.Objects;
  * [online stores](https://shopify.dev/docs/apps/build/online-store),
  * [sales channels](https://shopify.dev/docs/apps/build/sales-channels), and marketing campaigns.
  *
- * There are two types of collections:
- *
- * - **[Custom (manual) collections](https://help.shopify.com/manual/products/collections/manual-shopify-collection)**:
- * You specify the products to include in a collection.
- * - **[Smart (automated) collections](https://help.shopify.com/manual/products/collections/automated-collections)**:
- * You define rules, and products matching those rules are automatically included
- * in the collection.
- *
  * The `Collection` object provides information to:
  *
  * - Organize products by category, season, or promotion.
@@ -41,7 +33,7 @@ import java.util.Objects;
  * for unique layouts. They also support advanced features like translated content, resource feedback,
  * and contextual publication for location-based catalogs.
  *
- * Learn about [using metafields with smart collections](https://shopify.dev/docs/apps/build/custom-data/metafields/use-metafield-capabilities).
+ * Learn about [using metafields with collection conditions](https://shopify.dev/docs/apps/build/custom-data/metafields/use-metafield-capabilities).
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
@@ -61,6 +53,11 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
    * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
    */
   private Count availablePublicationsCount;
+
+  /**
+   * The date and time when the collection was created.
+   */
+  private OffsetDateTime createdAt;
 
   /**
    * A single-line, text-only description of the collection, stripped of any HTML
@@ -148,10 +145,11 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
   private Count productsCount;
 
   /**
-   * The number of
+   * The total number of
    * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
-   * that a resource is published to, without
+   * that a resource is published to, including publications with
    * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+   * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
    */
   private int publicationCount;
 
@@ -192,21 +190,26 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
   private ResourcePublicationConnection resourcePublications;
 
   /**
-   * The number of
+   * The total number of
    * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
-   * that a resource is published to, without
+   * that a resource is published to, including publications with
    * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+   * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
    */
   private Count resourcePublicationsCount;
 
   /**
    * The list of resources that are either published or staged to be published to a
    * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+   * By default, only publications to `APP` catalog types are returned.
+   * For `Product` and `ProductVariant`, use the `catalogType` argument to retrieve
+   * publications for other catalog types, such as `COMPANY_LOCATION` (B2B) or `MARKET`.
+   * `Collection` only supports publications to `APP` catalog types.
    */
   private ResourcePublicationV2Connection resourcePublicationsV2;
 
   /**
-   * For a smart (automated) collection, specifies the rules that determine whether a product is included.
+   * Specifies the rules that determine whether a product is included.
    */
   private CollectionRuleSet ruleSet;
 
@@ -222,6 +225,12 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
   private CollectionSortOrder sortOrder;
 
   /**
+   * The sources that provide products for this collection. Each source represents
+   * a way products are included in the collection, such as through conditions and rules.
+   */
+  private List<CollectionSource> sources;
+
+  /**
    * The Storefront GraphQL API ID of the `Collection`.
    *   
    * As of the `2022-04` version release, the Storefront GraphQL API will no longer
@@ -229,6 +238,14 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
    * Therefore, you can safely use the `id` field's value instead.
    */
   private String storefrontId;
+
+  /**
+   * Whether this collection is eligible to be referenced as a sub-collection from
+   * another collection's source. Returns one state per role (inclusion / exclusion).
+   *   
+   * Use this to filter ineligible targets up front and surface the reason.
+   */
+  private CollectionSubCollectionEligibility subCollectionEligibility;
 
   /**
    * The suffix of the Liquid template being used to show the collection in an
@@ -293,6 +310,17 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
 
   public void setAvailablePublicationsCount(Count availablePublicationsCount) {
     this.availablePublicationsCount = availablePublicationsCount;
+  }
+
+  /**
+   * The date and time when the collection was created.
+   */
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
   /**
@@ -465,10 +493,11 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
   }
 
   /**
-   * The number of
+   * The total number of
    * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
-   * that a resource is published to, without
+   * that a resource is published to, including publications with
    * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+   * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
    */
   public int getPublicationCount() {
     return publicationCount;
@@ -551,10 +580,11 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
   }
 
   /**
-   * The number of
+   * The total number of
    * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
-   * that a resource is published to, without
+   * that a resource is published to, including publications with
    * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+   * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
    */
   public Count getResourcePublicationsCount() {
     return resourcePublicationsCount;
@@ -567,6 +597,10 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
   /**
    * The list of resources that are either published or staged to be published to a
    * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+   * By default, only publications to `APP` catalog types are returned.
+   * For `Product` and `ProductVariant`, use the `catalogType` argument to retrieve
+   * publications for other catalog types, such as `COMPANY_LOCATION` (B2B) or `MARKET`.
+   * `Collection` only supports publications to `APP` catalog types.
    */
   public ResourcePublicationV2Connection getResourcePublicationsV2() {
     return resourcePublicationsV2;
@@ -577,7 +611,7 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
   }
 
   /**
-   * For a smart (automated) collection, specifies the rules that determine whether a product is included.
+   * Specifies the rules that determine whether a product is included.
    */
   public CollectionRuleSet getRuleSet() {
     return ruleSet;
@@ -611,6 +645,18 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
   }
 
   /**
+   * The sources that provide products for this collection. Each source represents
+   * a way products are included in the collection, such as through conditions and rules.
+   */
+  public List<CollectionSource> getSources() {
+    return sources;
+  }
+
+  public void setSources(List<CollectionSource> sources) {
+    this.sources = sources;
+  }
+
+  /**
    * The Storefront GraphQL API ID of the `Collection`.
    *   
    * As of the `2022-04` version release, the Storefront GraphQL API will no longer
@@ -623,6 +669,21 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
 
   public void setStorefrontId(String storefrontId) {
     this.storefrontId = storefrontId;
+  }
+
+  /**
+   * Whether this collection is eligible to be referenced as a sub-collection from
+   * another collection's source. Returns one state per role (inclusion / exclusion).
+   *   
+   * Use this to filter ineligible targets up front and surface the reason.
+   */
+  public CollectionSubCollectionEligibility getSubCollectionEligibility() {
+    return subCollectionEligibility;
+  }
+
+  public void setSubCollectionEligibility(
+      CollectionSubCollectionEligibility subCollectionEligibility) {
+    this.subCollectionEligibility = subCollectionEligibility;
   }
 
   /**
@@ -698,7 +759,7 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
 
   @Override
   public String toString() {
-    return "Collection{activeOperations='" + activeOperations + "', availablePublicationsCount='" + availablePublicationsCount + "', description='" + description + "', descriptionHtml='" + descriptionHtml + "', events='" + events + "', feedback='" + feedback + "', handle='" + handle + "', hasProduct='" + hasProduct + "', id='" + id + "', image='" + image + "', legacyResourceId='" + legacyResourceId + "', metafield='" + metafield + "', metafieldDefinitions='" + metafieldDefinitions + "', metafields='" + metafields + "', products='" + products + "', productsCount='" + productsCount + "', publicationCount='" + publicationCount + "', publications='" + publications + "', publishedOnChannel='" + publishedOnChannel + "', publishedOnCurrentChannel='" + publishedOnCurrentChannel + "', publishedOnCurrentPublication='" + publishedOnCurrentPublication + "', publishedOnPublication='" + publishedOnPublication + "', resourcePublications='" + resourcePublications + "', resourcePublicationsCount='" + resourcePublicationsCount + "', resourcePublicationsV2='" + resourcePublicationsV2 + "', ruleSet='" + ruleSet + "', seo='" + seo + "', sortOrder='" + sortOrder + "', storefrontId='" + storefrontId + "', templateSuffix='" + templateSuffix + "', title='" + title + "', translations='" + translations + "', unpublishedChannels='" + unpublishedChannels + "', unpublishedPublications='" + unpublishedPublications + "', updatedAt='" + updatedAt + "'}";
+    return "Collection{activeOperations='" + activeOperations + "', availablePublicationsCount='" + availablePublicationsCount + "', createdAt='" + createdAt + "', description='" + description + "', descriptionHtml='" + descriptionHtml + "', events='" + events + "', feedback='" + feedback + "', handle='" + handle + "', hasProduct='" + hasProduct + "', id='" + id + "', image='" + image + "', legacyResourceId='" + legacyResourceId + "', metafield='" + metafield + "', metafieldDefinitions='" + metafieldDefinitions + "', metafields='" + metafields + "', products='" + products + "', productsCount='" + productsCount + "', publicationCount='" + publicationCount + "', publications='" + publications + "', publishedOnChannel='" + publishedOnChannel + "', publishedOnCurrentChannel='" + publishedOnCurrentChannel + "', publishedOnCurrentPublication='" + publishedOnCurrentPublication + "', publishedOnPublication='" + publishedOnPublication + "', resourcePublications='" + resourcePublications + "', resourcePublicationsCount='" + resourcePublicationsCount + "', resourcePublicationsV2='" + resourcePublicationsV2 + "', ruleSet='" + ruleSet + "', seo='" + seo + "', sortOrder='" + sortOrder + "', sources='" + sources + "', storefrontId='" + storefrontId + "', subCollectionEligibility='" + subCollectionEligibility + "', templateSuffix='" + templateSuffix + "', title='" + title + "', translations='" + translations + "', unpublishedChannels='" + unpublishedChannels + "', unpublishedPublications='" + unpublishedPublications + "', updatedAt='" + updatedAt + "'}";
   }
 
   @Override
@@ -708,6 +769,7 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
     Collection that = (Collection) o;
     return Objects.equals(activeOperations, that.activeOperations) &&
         Objects.equals(availablePublicationsCount, that.availablePublicationsCount) &&
+        Objects.equals(createdAt, that.createdAt) &&
         Objects.equals(description, that.description) &&
         Objects.equals(descriptionHtml, that.descriptionHtml) &&
         Objects.equals(events, that.events) &&
@@ -734,7 +796,9 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
         Objects.equals(ruleSet, that.ruleSet) &&
         Objects.equals(seo, that.seo) &&
         Objects.equals(sortOrder, that.sortOrder) &&
+        Objects.equals(sources, that.sources) &&
         Objects.equals(storefrontId, that.storefrontId) &&
+        Objects.equals(subCollectionEligibility, that.subCollectionEligibility) &&
         Objects.equals(templateSuffix, that.templateSuffix) &&
         Objects.equals(title, that.title) &&
         Objects.equals(translations, that.translations) &&
@@ -745,7 +809,7 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeOperations, availablePublicationsCount, description, descriptionHtml, events, feedback, handle, hasProduct, id, image, legacyResourceId, metafield, metafieldDefinitions, metafields, products, productsCount, publicationCount, publications, publishedOnChannel, publishedOnCurrentChannel, publishedOnCurrentPublication, publishedOnPublication, resourcePublications, resourcePublicationsCount, resourcePublicationsV2, ruleSet, seo, sortOrder, storefrontId, templateSuffix, title, translations, unpublishedChannels, unpublishedPublications, updatedAt);
+    return Objects.hash(activeOperations, availablePublicationsCount, createdAt, description, descriptionHtml, events, feedback, handle, hasProduct, id, image, legacyResourceId, metafield, metafieldDefinitions, metafields, products, productsCount, publicationCount, publications, publishedOnChannel, publishedOnCurrentChannel, publishedOnCurrentPublication, publishedOnPublication, resourcePublications, resourcePublicationsCount, resourcePublicationsV2, ruleSet, seo, sortOrder, sources, storefrontId, subCollectionEligibility, templateSuffix, title, translations, unpublishedChannels, unpublishedPublications, updatedAt);
   }
 
   public static Builder newBuilder() {
@@ -767,6 +831,11 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
      * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
      */
     private Count availablePublicationsCount;
+
+    /**
+     * The date and time when the collection was created.
+     */
+    private OffsetDateTime createdAt;
 
     /**
      * A single-line, text-only description of the collection, stripped of any HTML
@@ -854,10 +923,11 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
     private Count productsCount;
 
     /**
-     * The number of
+     * The total number of
      * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
-     * that a resource is published to, without
+     * that a resource is published to, including publications with
      * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+     * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
      */
     private int publicationCount;
 
@@ -898,21 +968,26 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
     private ResourcePublicationConnection resourcePublications;
 
     /**
-     * The number of
+     * The total number of
      * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
-     * that a resource is published to, without
+     * that a resource is published to, including publications with
      * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+     * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
      */
     private Count resourcePublicationsCount;
 
     /**
      * The list of resources that are either published or staged to be published to a
      * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+     * By default, only publications to `APP` catalog types are returned.
+     * For `Product` and `ProductVariant`, use the `catalogType` argument to retrieve
+     * publications for other catalog types, such as `COMPANY_LOCATION` (B2B) or `MARKET`.
+     * `Collection` only supports publications to `APP` catalog types.
      */
     private ResourcePublicationV2Connection resourcePublicationsV2;
 
     /**
-     * For a smart (automated) collection, specifies the rules that determine whether a product is included.
+     * Specifies the rules that determine whether a product is included.
      */
     private CollectionRuleSet ruleSet;
 
@@ -928,6 +1003,12 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
     private CollectionSortOrder sortOrder;
 
     /**
+     * The sources that provide products for this collection. Each source represents
+     * a way products are included in the collection, such as through conditions and rules.
+     */
+    private List<CollectionSource> sources;
+
+    /**
      * The Storefront GraphQL API ID of the `Collection`.
      *   
      * As of the `2022-04` version release, the Storefront GraphQL API will no longer
@@ -935,6 +1016,14 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
      * Therefore, you can safely use the `id` field's value instead.
      */
     private String storefrontId;
+
+    /**
+     * Whether this collection is eligible to be referenced as a sub-collection from
+     * another collection's source. Returns one state per role (inclusion / exclusion).
+     *   
+     * Use this to filter ineligible targets up front and surface the reason.
+     */
+    private CollectionSubCollectionEligibility subCollectionEligibility;
 
     /**
      * The suffix of the Liquid template being used to show the collection in an
@@ -975,6 +1064,7 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
       Collection result = new Collection();
       result.activeOperations = this.activeOperations;
       result.availablePublicationsCount = this.availablePublicationsCount;
+      result.createdAt = this.createdAt;
       result.description = this.description;
       result.descriptionHtml = this.descriptionHtml;
       result.events = this.events;
@@ -1001,7 +1091,9 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
       result.ruleSet = this.ruleSet;
       result.seo = this.seo;
       result.sortOrder = this.sortOrder;
+      result.sources = this.sources;
       result.storefrontId = this.storefrontId;
+      result.subCollectionEligibility = this.subCollectionEligibility;
       result.templateSuffix = this.templateSuffix;
       result.title = this.title;
       result.translations = this.translations;
@@ -1029,6 +1121,14 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
      */
     public Builder availablePublicationsCount(Count availablePublicationsCount) {
       this.availablePublicationsCount = availablePublicationsCount;
+      return this;
+    }
+
+    /**
+     * The date and time when the collection was created.
+     */
+    public Builder createdAt(OffsetDateTime createdAt) {
+      this.createdAt = createdAt;
       return this;
     }
 
@@ -1160,10 +1260,11 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
     }
 
     /**
-     * The number of
+     * The total number of
      * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
-     * that a resource is published to, without
+     * that a resource is published to, including publications with
      * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+     * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
      */
     public Builder publicationCount(int publicationCount) {
       this.publicationCount = publicationCount;
@@ -1225,10 +1326,11 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
     }
 
     /**
-     * The number of
+     * The total number of
      * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
-     * that a resource is published to, without
+     * that a resource is published to, including publications with
      * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+     * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
      */
     public Builder resourcePublicationsCount(Count resourcePublicationsCount) {
       this.resourcePublicationsCount = resourcePublicationsCount;
@@ -1238,6 +1340,10 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
     /**
      * The list of resources that are either published or staged to be published to a
      * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+     * By default, only publications to `APP` catalog types are returned.
+     * For `Product` and `ProductVariant`, use the `catalogType` argument to retrieve
+     * publications for other catalog types, such as `COMPANY_LOCATION` (B2B) or `MARKET`.
+     * `Collection` only supports publications to `APP` catalog types.
      */
     public Builder resourcePublicationsV2(ResourcePublicationV2Connection resourcePublicationsV2) {
       this.resourcePublicationsV2 = resourcePublicationsV2;
@@ -1245,7 +1351,7 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
     }
 
     /**
-     * For a smart (automated) collection, specifies the rules that determine whether a product is included.
+     * Specifies the rules that determine whether a product is included.
      */
     public Builder ruleSet(CollectionRuleSet ruleSet) {
       this.ruleSet = ruleSet;
@@ -1270,6 +1376,15 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
     }
 
     /**
+     * The sources that provide products for this collection. Each source represents
+     * a way products are included in the collection, such as through conditions and rules.
+     */
+    public Builder sources(List<CollectionSource> sources) {
+      this.sources = sources;
+      return this;
+    }
+
+    /**
      * The Storefront GraphQL API ID of the `Collection`.
      *   
      * As of the `2022-04` version release, the Storefront GraphQL API will no longer
@@ -1278,6 +1393,18 @@ public class Collection implements MetafieldReference, MetafieldReferencer, com.
      */
     public Builder storefrontId(String storefrontId) {
       this.storefrontId = storefrontId;
+      return this;
+    }
+
+    /**
+     * Whether this collection is eligible to be referenced as a sub-collection from
+     * another collection's source. Returns one state per role (inclusion / exclusion).
+     *   
+     * Use this to filter ineligible targets up front and surface the reason.
+     */
+    public Builder subCollectionEligibility(
+        CollectionSubCollectionEligibility subCollectionEligibility) {
+      this.subCollectionEligibility = subCollectionEligibility;
       return this;
     }
 

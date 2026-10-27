@@ -33,7 +33,7 @@ import java.util.Objects;
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
-public class DiscountAutomaticFreeShipping implements Discount, DiscountAutomatic {
+public class DiscountAutomaticFreeShipping implements Discount, DiscountAutomatic, com.shopify.admin.types.HasRollouts {
   /**
    * Whether the discount applies on one-time purchases.
    * A one-time purchase is a transaction where you pay a
@@ -129,6 +129,15 @@ public class DiscountAutomaticFreeShipping implements Discount, DiscountAutomati
    * subscription. If you specify `0`, then the discount applies indefinitely.
    */
   private int recurringCycleLimit;
+
+  /**
+   * The rollouts that include this discount. A rollout includes a discount when
+   * one of its treatments adds or removes the discount. Walk
+   * `treatments.changes` to see what each treatment does to the discount.
+   * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+   * Use `query` to filter by rollout `status`.
+   */
+  private RolloutConnection rollouts;
 
   /**
    * An abbreviated version of the discount
@@ -361,6 +370,21 @@ public class DiscountAutomaticFreeShipping implements Discount, DiscountAutomati
   }
 
   /**
+   * The rollouts that include this discount. A rollout includes a discount when
+   * one of its treatments adds or removes the discount. Walk
+   * `treatments.changes` to see what each treatment does to the discount.
+   * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+   * Use `query` to filter by rollout `status`.
+   */
+  public RolloutConnection getRollouts() {
+    return rollouts;
+  }
+
+  public void setRollouts(RolloutConnection rollouts) {
+    this.rollouts = rollouts;
+  }
+
+  /**
    * An abbreviated version of the discount
    * [`summary`](https://shopify.dev/docs/api/admin-graphql/latest/objects/DiscountAutomaticFreeShipping#field-summary)
    * field.
@@ -457,7 +481,7 @@ public class DiscountAutomaticFreeShipping implements Discount, DiscountAutomati
 
   @Override
   public String toString() {
-    return "DiscountAutomaticFreeShipping{appliesOnOneTimePurchase='" + appliesOnOneTimePurchase + "', appliesOnSubscription='" + appliesOnSubscription + "', asyncUsageCount='" + asyncUsageCount + "', combinesWith='" + combinesWith + "', context='" + context + "', createdAt='" + createdAt + "', destinationSelection='" + destinationSelection + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', endsAt='" + endsAt + "', hasTimelineComment='" + hasTimelineComment + "', maximumShippingPrice='" + maximumShippingPrice + "', minimumRequirement='" + minimumRequirement + "', recurringCycleLimit='" + recurringCycleLimit + "', shortSummary='" + shortSummary + "', startsAt='" + startsAt + "', status='" + status + "', summary='" + summary + "', tags='" + tags + "', title='" + title + "', totalSales='" + totalSales + "', updatedAt='" + updatedAt + "'}";
+    return "DiscountAutomaticFreeShipping{appliesOnOneTimePurchase='" + appliesOnOneTimePurchase + "', appliesOnSubscription='" + appliesOnSubscription + "', asyncUsageCount='" + asyncUsageCount + "', combinesWith='" + combinesWith + "', context='" + context + "', createdAt='" + createdAt + "', destinationSelection='" + destinationSelection + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', endsAt='" + endsAt + "', hasTimelineComment='" + hasTimelineComment + "', maximumShippingPrice='" + maximumShippingPrice + "', minimumRequirement='" + minimumRequirement + "', recurringCycleLimit='" + recurringCycleLimit + "', rollouts='" + rollouts + "', shortSummary='" + shortSummary + "', startsAt='" + startsAt + "', status='" + status + "', summary='" + summary + "', tags='" + tags + "', title='" + title + "', totalSales='" + totalSales + "', updatedAt='" + updatedAt + "'}";
   }
 
   @Override
@@ -479,6 +503,7 @@ public class DiscountAutomaticFreeShipping implements Discount, DiscountAutomati
         Objects.equals(maximumShippingPrice, that.maximumShippingPrice) &&
         Objects.equals(minimumRequirement, that.minimumRequirement) &&
         recurringCycleLimit == that.recurringCycleLimit &&
+        Objects.equals(rollouts, that.rollouts) &&
         Objects.equals(shortSummary, that.shortSummary) &&
         Objects.equals(startsAt, that.startsAt) &&
         Objects.equals(status, that.status) &&
@@ -491,7 +516,7 @@ public class DiscountAutomaticFreeShipping implements Discount, DiscountAutomati
 
   @Override
   public int hashCode() {
-    return Objects.hash(appliesOnOneTimePurchase, appliesOnSubscription, asyncUsageCount, combinesWith, context, createdAt, destinationSelection, discountClass, discountClasses, endsAt, hasTimelineComment, maximumShippingPrice, minimumRequirement, recurringCycleLimit, shortSummary, startsAt, status, summary, tags, title, totalSales, updatedAt);
+    return Objects.hash(appliesOnOneTimePurchase, appliesOnSubscription, asyncUsageCount, combinesWith, context, createdAt, destinationSelection, discountClass, discountClasses, endsAt, hasTimelineComment, maximumShippingPrice, minimumRequirement, recurringCycleLimit, rollouts, shortSummary, startsAt, status, summary, tags, title, totalSales, updatedAt);
   }
 
   public static Builder newBuilder() {
@@ -596,6 +621,15 @@ public class DiscountAutomaticFreeShipping implements Discount, DiscountAutomati
     private int recurringCycleLimit;
 
     /**
+     * The rollouts that include this discount. A rollout includes a discount when
+     * one of its treatments adds or removes the discount. Walk
+     * `treatments.changes` to see what each treatment does to the discount.
+     * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+     * Use `query` to filter by rollout `status`.
+     */
+    private RolloutConnection rollouts;
+
+    /**
      * An abbreviated version of the discount
      * [`summary`](https://shopify.dev/docs/api/admin-graphql/latest/objects/DiscountAutomaticFreeShipping#field-summary)
      * field.
@@ -658,6 +692,7 @@ public class DiscountAutomaticFreeShipping implements Discount, DiscountAutomati
       result.maximumShippingPrice = this.maximumShippingPrice;
       result.minimumRequirement = this.minimumRequirement;
       result.recurringCycleLimit = this.recurringCycleLimit;
+      result.rollouts = this.rollouts;
       result.shortSummary = this.shortSummary;
       result.startsAt = this.startsAt;
       result.status = this.status;
@@ -804,6 +839,18 @@ public class DiscountAutomaticFreeShipping implements Discount, DiscountAutomati
      */
     public Builder recurringCycleLimit(int recurringCycleLimit) {
       this.recurringCycleLimit = recurringCycleLimit;
+      return this;
+    }
+
+    /**
+     * The rollouts that include this discount. A rollout includes a discount when
+     * one of its treatments adds or removes the discount. Walk
+     * `treatments.changes` to see what each treatment does to the discount.
+     * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+     * Use `query` to filter by rollout `status`.
+     */
+    public Builder rollouts(RolloutConnection rollouts) {
+      this.rollouts = rollouts;
       return this;
     }
 

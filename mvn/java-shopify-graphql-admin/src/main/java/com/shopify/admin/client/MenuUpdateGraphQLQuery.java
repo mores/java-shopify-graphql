@@ -2,10 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.MenuItemUpdateInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -33,6 +37,28 @@ public class MenuUpdateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public MenuUpdateGraphQLQuery(String id, String title, String handle,
+      List<MenuItemUpdateInput> items, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (title != null || fieldsSet.contains("title")) {
+        getInput().put("title", title);
+    }if (handle != null || fieldsSet.contains("handle")) {
+        getInput().put("handle", handle);
+    }if (items != null || fieldsSet.contains("items")) {
+        getInput().put("items", items);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public MenuUpdateGraphQLQuery() {
     super("mutation");
   }
@@ -49,6 +75,10 @@ public class MenuUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private String title;
@@ -60,7 +90,7 @@ public class MenuUpdateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public MenuUpdateGraphQLQuery build() {
-      return new MenuUpdateGraphQLQuery(id, title, handle, items, queryName, fieldsSet);
+      return new MenuUpdateGraphQLQuery(id, title, handle, items, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -69,6 +99,16 @@ public class MenuUpdateGraphQLQuery extends GraphQLQuery {
      */
     public Builder id(String id) {
       this.id = id;
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
+     * ID of the menu to be updated.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("id");
       return this;
     }
@@ -83,6 +123,16 @@ public class MenuUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The menu's title.
+     */
+    public Builder titleReference(String variableRef) {
+      this.variableReferences.put("title", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("String"))).build());
+      this.fieldsSet.add("title");
+      return this;
+    }
+
+    /**
      * The menu's handle.
      */
     public Builder handle(String handle) {
@@ -92,10 +142,30 @@ public class MenuUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The menu's handle.
+     */
+    public Builder handleReference(String variableRef) {
+      this.variableReferences.put("handle", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
+      this.fieldsSet.add("handle");
+      return this;
+    }
+
+    /**
      * List of the menu's items.
      */
     public Builder items(List<MenuItemUpdateInput> items) {
       this.items = items;
+      this.fieldsSet.add("items");
+      return this;
+    }
+
+    /**
+     * List of the menu's items.
+     */
+    public Builder itemsReference(String variableRef) {
+      this.variableReferences.put("items", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("MenuItemUpdateInput"))))).build());
       this.fieldsSet.add("items");
       return this;
     }

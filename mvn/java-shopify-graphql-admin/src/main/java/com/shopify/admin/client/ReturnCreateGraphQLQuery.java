@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.ReturnInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -25,9 +30,6 @@ import java.util.Set;
  * - Creates a [reverse fulfillment order](https://shopify.dev/docs/apps/build/orders-fulfillment/returns-apps/manage-reverse-fulfillment-orders),
  * and enables you to create a [reverse delivery](https://shopify.dev/docs/apps/build/orders-fulfillment/returns-apps/manage-reverse-deliveries)
  * for the reverse fulfillment order
- * - Creates a sales agreement with a `RETURN` reason, which links to all sales created for the return or exchange
- * - Generates sales records that reverse the sales records for the items being returned
- * - Generates sales records for any exchange line items
  *   
  * After you've created a return, use the
  * [`return`](https://shopify.dev/docs/api/admin-graphql/latest/queries/return) query to retrieve the
@@ -42,6 +44,21 @@ public class ReturnCreateGraphQLQuery extends GraphQLQuery {
     if (returnInput != null || fieldsSet.contains("returnInput")) {
         getInput().put("returnInput", returnInput);
     }
+  }
+
+  public ReturnCreateGraphQLQuery(ReturnInput returnInput, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (returnInput != null || fieldsSet.contains("returnInput")) {
+        getInput().put("returnInput", returnInput);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public ReturnCreateGraphQLQuery() {
@@ -60,12 +77,16 @@ public class ReturnCreateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private ReturnInput returnInput;
 
     private String queryName;
 
     public ReturnCreateGraphQLQuery build() {
-      return new ReturnCreateGraphQLQuery(returnInput, queryName, fieldsSet);
+      return new ReturnCreateGraphQLQuery(returnInput, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -74,6 +95,16 @@ public class ReturnCreateGraphQLQuery extends GraphQLQuery {
      */
     public Builder returnInput(ReturnInput returnInput) {
       this.returnInput = returnInput;
+      this.fieldsSet.add("returnInput");
+      return this;
+    }
+
+    /**
+     * Specifies the input fields for a return.
+     */
+    public Builder returnInputReference(String variableRef) {
+      this.variableReferences.put("returnInput", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ReturnInput"))).build());
       this.fieldsSet.add("returnInput");
       return this;
     }

@@ -40,15 +40,34 @@ public class ReverseDeliveryFragmentProjection<PARENT extends BaseSubProjectionN
     ReverseDeliveryLineItemConnectionProjection<ReverseDeliveryFragmentProjection<PARENT, ROOT>, ROOT> projection = new ReverseDeliveryLineItemConnectionProjection<>(this, getRoot());    
     getFields().put("reverseDeliveryLineItems", projection);
     getInputArguments().computeIfAbsent("reverseDeliveryLineItems", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("reverseDeliveryLineItems").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("reverseDeliveryLineItems").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("reverseDeliveryLineItems").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("reverseDeliveryLineItems").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("reverseDeliveryLineItems").add(reverseArg);
+    return projection;
+  }
+
+  public ReverseDeliveryLineItemConnectionProjection<ReverseDeliveryFragmentProjection<PARENT, ROOT>, ROOT> reverseDeliveryLineItemsWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    ReverseDeliveryLineItemConnectionProjection<ReverseDeliveryFragmentProjection<PARENT, ROOT>, ROOT> projection = new ReverseDeliveryLineItemConnectionProjection<>(this, getRoot());    
+    getFields().put("reverseDeliveryLineItems", projection);
+    getInputArguments().computeIfAbsent("reverseDeliveryLineItems", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("reverseDeliveryLineItems").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("reverseDeliveryLineItems").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("reverseDeliveryLineItems").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("reverseDeliveryLineItems").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("reverseDeliveryLineItems").add(reverseArg);
     return projection;
   }

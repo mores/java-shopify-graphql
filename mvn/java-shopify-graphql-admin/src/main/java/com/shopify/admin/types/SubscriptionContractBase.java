@@ -65,6 +65,11 @@ public interface SubscriptionContractBase {
   SubscriptionManualDiscountConnection getDiscounts();
 
   /**
+   * The list of subscription lines grouped by bundle parent, with bundle components nested under their parent line.
+   */
+  SubscriptionGroupedLineConnection getGroupedLines();
+
+  /**
    * The number of lines associated with the subscription contract.
    */
   int getLineCount();

@@ -24,7 +24,9 @@ public class DiscountCodeAppInput {
    * The
    * [discount classes](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
    * that you can use in combination with
-   * [Shopify discount types](https://help.shopify.com/manual/discounts/discount-types).
+   * [Shopify discount types](https://help.shopify.com/manual/discounts/discount-types),
+   * and the product discount tags that determine which product discounts can apply
+   * together on the same cart line.
    */
   private DiscountCombinesWithInput combinesWith;
 
@@ -74,7 +76,11 @@ public class DiscountCodeAppInput {
   /**
    * A list of searchable keywords that are associated with the discount.
    *   
-   * For example, a `loyalty` tag could be applied to discounts
+   * Use these tags on product discounts to determine which other product discounts can
+   * apply to the same cart line when you configure
+   * `productDiscountsWithTagsOnSameCartLine` in `combinesWith`.
+   *   
+   * For example, you can apply a `loyalty` tag to discounts
    * that are associated with a loyalty program.
    *   
    * Updating `tags` overwrites any existing tags that were previously added to the discount.
@@ -92,7 +98,7 @@ public class DiscountCodeAppInput {
   /**
    * Whether the discount applies to subscriptions items.
    */
-  private Boolean appliesOnSubscription = false;
+  private Boolean appliesOnSubscription = true;
 
   /**
    * Whether the discount applies on regular one-time-purchase items.
@@ -121,7 +127,9 @@ public class DiscountCodeAppInput {
    * The
    * [discount classes](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
    * that you can use in combination with
-   * [Shopify discount types](https://help.shopify.com/manual/discounts/discount-types).
+   * [Shopify discount types](https://help.shopify.com/manual/discounts/discount-types),
+   * and the product discount tags that determine which product discounts can apply
+   * together on the same cart line.
    */
   public DiscountCombinesWithInput getCombinesWith() {
     return combinesWith;
@@ -225,7 +233,11 @@ public class DiscountCodeAppInput {
   /**
    * A list of searchable keywords that are associated with the discount.
    *   
-   * For example, a `loyalty` tag could be applied to discounts
+   * Use these tags on product discounts to determine which other product discounts can
+   * apply to the same cart line when you configure
+   * `productDiscountsWithTagsOnSameCartLine` in `combinesWith`.
+   *   
+   * For example, you can apply a `loyalty` tag to discounts
    * that are associated with a loyalty program.
    *   
    * Updating `tags` overwrites any existing tags that were previously added to the discount.
@@ -342,7 +354,9 @@ public class DiscountCodeAppInput {
      * The
      * [discount classes](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
      * that you can use in combination with
-     * [Shopify discount types](https://help.shopify.com/manual/discounts/discount-types).
+     * [Shopify discount types](https://help.shopify.com/manual/discounts/discount-types),
+     * and the product discount tags that determine which product discounts can apply
+     * together on the same cart line.
      */
     private DiscountCombinesWithInput combinesWith;
 
@@ -392,7 +406,11 @@ public class DiscountCodeAppInput {
     /**
      * A list of searchable keywords that are associated with the discount.
      *   
-     * For example, a `loyalty` tag could be applied to discounts
+     * Use these tags on product discounts to determine which other product discounts can
+     * apply to the same cart line when you configure
+     * `productDiscountsWithTagsOnSameCartLine` in `combinesWith`.
+     *   
+     * For example, you can apply a `loyalty` tag to discounts
      * that are associated with a loyalty program.
      *   
      * Updating `tags` overwrites any existing tags that were previously added to the discount.
@@ -410,7 +428,7 @@ public class DiscountCodeAppInput {
     /**
      * Whether the discount applies to subscriptions items.
      */
-    private Boolean appliesOnSubscription = false;
+    private Boolean appliesOnSubscription = true;
 
     /**
      * Whether the discount applies on regular one-time-purchase items.
@@ -456,7 +474,9 @@ public class DiscountCodeAppInput {
      * The
      * [discount classes](https://help.shopify.com/manual/discounts/combining-discounts/discount-combinations)
      * that you can use in combination with
-     * [Shopify discount types](https://help.shopify.com/manual/discounts/discount-types).
+     * [Shopify discount types](https://help.shopify.com/manual/discounts/discount-types),
+     * and the product discount tags that determine which product discounts can apply
+     * together on the same cart line.
      */
     public Builder combinesWith(DiscountCombinesWithInput combinesWith) {
       this.combinesWith = combinesWith;
@@ -533,7 +553,11 @@ public class DiscountCodeAppInput {
     /**
      * A list of searchable keywords that are associated with the discount.
      *   
-     * For example, a `loyalty` tag could be applied to discounts
+     * Use these tags on product discounts to determine which other product discounts can
+     * apply to the same cart line when you configure
+     * `productDiscountsWithTagsOnSameCartLine` in `combinesWith`.
+     *   
+     * For example, you can apply a `loyalty` tag to discounts
      * that are associated with a loyalty program.
      *   
      * Updating `tags` overwrites any existing tags that were previously added to the discount.

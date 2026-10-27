@@ -106,8 +106,9 @@ public class CompanyLocation implements MetafieldReferencer, com.shopify.admin.t
   private String locale;
 
   /**
-   * The market that includes the location's shipping address. If the shipping
-   * address is empty, then the value is the shop's primary market.
+   * The market that applies to the location's shipping address country. In cases
+   * where multiple markets match, this returns the most-specific country region
+   * market. If the shipping address is empty, then the value is the shop's backup region market.
    */
   private Market market;
 
@@ -379,8 +380,9 @@ public class CompanyLocation implements MetafieldReferencer, com.shopify.admin.t
   }
 
   /**
-   * The market that includes the location's shipping address. If the shipping
-   * address is empty, then the value is the shop's primary market.
+   * The market that applies to the location's shipping address country. In cases
+   * where multiple markets match, this returns the most-specific country region
+   * market. If the shipping address is empty, then the value is the shop's backup region market.
    */
   public Market getMarket() {
     return market;
@@ -729,8 +731,9 @@ public class CompanyLocation implements MetafieldReferencer, com.shopify.admin.t
     private String locale;
 
     /**
-     * The market that includes the location's shipping address. If the shipping
-     * address is empty, then the value is the shop's primary market.
+     * The market that applies to the location's shipping address country. In cases
+     * where multiple markets match, this returns the most-specific country region
+     * market. If the shipping address is empty, then the value is the shop's backup region market.
      */
     private Market market;
 
@@ -993,8 +996,9 @@ public class CompanyLocation implements MetafieldReferencer, com.shopify.admin.t
     }
 
     /**
-     * The market that includes the location's shipping address. If the shipping
-     * address is empty, then the value is the shop's primary market.
+     * The market that applies to the location's shipping address country. In cases
+     * where multiple markets match, this returns the most-specific country region
+     * market. If the shipping address is empty, then the value is the shop's backup region market.
      */
     public Builder market(Market market) {
       this.market = market;

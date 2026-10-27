@@ -1,10 +1,15 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -24,6 +29,21 @@ public class ShopLocalesGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public ShopLocalesGraphQLQuery(Boolean published, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("query", queryName);
+    if (published != null || fieldsSet.contains("published")) {
+        getInput().put("published", published);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public ShopLocalesGraphQLQuery() {
     super("query");
   }
@@ -40,12 +60,16 @@ public class ShopLocalesGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private Boolean published;
 
     private String queryName;
 
     public ShopLocalesGraphQLQuery build() {
-      return new ShopLocalesGraphQLQuery(published, queryName, fieldsSet);
+      return new ShopLocalesGraphQLQuery(published, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -54,6 +78,16 @@ public class ShopLocalesGraphQLQuery extends GraphQLQuery {
      */
     public Builder published(Boolean published) {
       this.published = published;
+      this.fieldsSet.add("published");
+      return this;
+    }
+
+    /**
+     * Return only published locales.
+     */
+    public Builder publishedReference(String variableRef) {
+      this.variableReferences.put("published", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Boolean")).build());
       this.fieldsSet.add("published");
       return this;
     }

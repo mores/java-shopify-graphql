@@ -73,6 +73,11 @@ public class ShippingLineProjection<PARENT extends BaseSubProjectionNode<?, ?>, 
     return this;
   }
 
+  public ShippingLineProjection<PARENT, ROOT> createdAt() {
+    getFields().put("createdAt", null);
+    return this;
+  }
+
   public ShippingLineProjection<PARENT, ROOT> custom() {
     getFields().put("custom", null);
     return this;

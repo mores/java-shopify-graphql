@@ -32,6 +32,13 @@ public class CartAutomaticDiscountAllocationFragmentProjection<PARENT extends Ba
      return projection;
   }
 
+  public BaseCartDiscountApplicationProjection<CartAutomaticDiscountAllocationFragmentProjection<PARENT, ROOT>, ROOT> sourceDiscountApplication(
+      ) {
+     BaseCartDiscountApplicationProjection<CartAutomaticDiscountAllocationFragmentProjection<PARENT, ROOT>, ROOT> projection = new BaseCartDiscountApplicationProjection<>(this, getRoot());
+     getFields().put("sourceDiscountApplication", projection);
+     return projection;
+  }
+
   public DiscountApplicationTargetTypeProjection<CartAutomaticDiscountAllocationFragmentProjection<PARENT, ROOT>, ROOT> targetType(
       ) {
      DiscountApplicationTargetTypeProjection<CartAutomaticDiscountAllocationFragmentProjection<PARENT, ROOT>, ROOT> projection = new DiscountApplicationTargetTypeProjection<>(this, getRoot());

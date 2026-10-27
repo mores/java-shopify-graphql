@@ -7,9 +7,18 @@ package com.shopify.admin.types;
  * which allows for more granular risk levels, including PENDING and NONE.
  */
 public enum OrderRiskLevel {
+  /**
+   * There is a low level of risk that this order is fraudulent.
+   */
   LOW,
 
+  /**
+   * There is a medium level of risk that this order is fraudulent.
+   */
   MEDIUM,
 
+  /**
+   * There is a high level of risk that this order is fraudulent.
+   */
   HIGH
 }

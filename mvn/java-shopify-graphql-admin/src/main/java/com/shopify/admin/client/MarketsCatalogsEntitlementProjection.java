@@ -16,4 +16,9 @@ public class MarketsCatalogsEntitlementProjection<PARENT extends BaseSubProjecti
     getFields().put("enabled", null);
     return this;
   }
+
+  public MarketsCatalogsEntitlementProjection<PARENT, ROOT> limit() {
+    getFields().put("limit", null);
+    return this;
+  }
 }

@@ -14,11 +14,11 @@ public class FulfillmentTrackingInfo {
    *   
    * For tracking company names from the list below
    * Shopify will automatically build tracking URLs for all provided tracking numbers,
-   * which will make the tracking numbers clickable in the interface.
+   * which will make the tracking numbers clickable in the interface. This doesn't mean
+   * that Shopify automatically updates the fulfillment's `shipment_status` field in Admin.
    *   
-   * Additionally, for the tracking companies listed on the
-   * [Shipping Carriers help page](https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers#integrated-shipping-carriers)
-   * Shopify will automatically update the fulfillment's `shipment_status` field during the fulfillment process.
+   * For tracking companies whose `shipment_status` field is updated automatically, see the
+   * [Shipping Carriers help page](https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers#integrated-shipping-carriers).
    *   
    * ### Supported tracking companies
    *   
@@ -36,6 +36,7 @@ public class FulfillmentTrackingInfo {
    *   * Bonshaw
    *   * BPost
    *   * BPost International
+   *   * Better Trucks
    *   * Canada Post
    *   * Canpar
    *   * CDL Last Mile
@@ -64,6 +65,7 @@ public class FulfillmentTrackingInfo {
    *   * Estes
    *   * Evri
    *   * FedEx
+   *   * FedEx Freight
    *   * First Global Logistics
    *   * First Line
    *   * FSC
@@ -110,9 +112,11 @@ public class FulfillmentTrackingInfo {
    *   * Sendle
    *   * SF Express
    *   * SFC Fulfillment
+   *   * ShipBob
    *   * SHREE NANDAN COURIER
    *   * Singapore Post
    *   * Southwest Air Cargo
+   *   * SpeedX
    *   * StarTrack
    *   * Step Forward Freight
    *   * Swiss Post
@@ -121,6 +125,7 @@ public class FulfillmentTrackingInfo {
    *   * TNT
    *   * Toll IPEC
    *   * United Delivery Service
+   *   * Uni Uni
    *   * UPS
    *   * USPS
    *   * Venipak
@@ -200,11 +205,11 @@ public class FulfillmentTrackingInfo {
    *   
    * For tracking company names from the list below
    * Shopify will automatically build tracking URLs for all provided tracking numbers,
-   * which will make the tracking numbers clickable in the interface.
+   * which will make the tracking numbers clickable in the interface. This doesn't mean
+   * that Shopify automatically updates the fulfillment's `shipment_status` field in Admin.
    *   
-   * Additionally, for the tracking companies listed on the
-   * [Shipping Carriers help page](https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers#integrated-shipping-carriers)
-   * Shopify will automatically update the fulfillment's `shipment_status` field during the fulfillment process.
+   * For tracking companies whose `shipment_status` field is updated automatically, see the
+   * [Shipping Carriers help page](https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers#integrated-shipping-carriers).
    *   
    * ### Supported tracking companies
    *   
@@ -222,6 +227,7 @@ public class FulfillmentTrackingInfo {
    *   * Bonshaw
    *   * BPost
    *   * BPost International
+   *   * Better Trucks
    *   * Canada Post
    *   * Canpar
    *   * CDL Last Mile
@@ -250,6 +256,7 @@ public class FulfillmentTrackingInfo {
    *   * Estes
    *   * Evri
    *   * FedEx
+   *   * FedEx Freight
    *   * First Global Logistics
    *   * First Line
    *   * FSC
@@ -296,9 +303,11 @@ public class FulfillmentTrackingInfo {
    *   * Sendle
    *   * SF Express
    *   * SFC Fulfillment
+   *   * ShipBob
    *   * SHREE NANDAN COURIER
    *   * Singapore Post
    *   * Southwest Air Cargo
+   *   * SpeedX
    *   * StarTrack
    *   * Step Forward Freight
    *   * Swiss Post
@@ -307,6 +316,7 @@ public class FulfillmentTrackingInfo {
    *   * TNT
    *   * Toll IPEC
    *   * United Delivery Service
+   *   * Uni Uni
    *   * UPS
    *   * USPS
    *   * Venipak
@@ -426,11 +436,11 @@ public class FulfillmentTrackingInfo {
      *   
      * For tracking company names from the list below
      * Shopify will automatically build tracking URLs for all provided tracking numbers,
-     * which will make the tracking numbers clickable in the interface.
+     * which will make the tracking numbers clickable in the interface. This doesn't mean
+     * that Shopify automatically updates the fulfillment's `shipment_status` field in Admin.
      *   
-     * Additionally, for the tracking companies listed on the
-     * [Shipping Carriers help page](https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers#integrated-shipping-carriers)
-     * Shopify will automatically update the fulfillment's `shipment_status` field during the fulfillment process.
+     * For tracking companies whose `shipment_status` field is updated automatically, see the
+     * [Shipping Carriers help page](https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers#integrated-shipping-carriers).
      *   
      * ### Supported tracking companies
      *   
@@ -448,6 +458,7 @@ public class FulfillmentTrackingInfo {
      *   * Bonshaw
      *   * BPost
      *   * BPost International
+     *   * Better Trucks
      *   * Canada Post
      *   * Canpar
      *   * CDL Last Mile
@@ -476,6 +487,7 @@ public class FulfillmentTrackingInfo {
      *   * Estes
      *   * Evri
      *   * FedEx
+     *   * FedEx Freight
      *   * First Global Logistics
      *   * First Line
      *   * FSC
@@ -522,9 +534,11 @@ public class FulfillmentTrackingInfo {
      *   * Sendle
      *   * SF Express
      *   * SFC Fulfillment
+     *   * ShipBob
      *   * SHREE NANDAN COURIER
      *   * Singapore Post
      *   * Southwest Air Cargo
+     *   * SpeedX
      *   * StarTrack
      *   * Step Forward Freight
      *   * Swiss Post
@@ -533,6 +547,7 @@ public class FulfillmentTrackingInfo {
      *   * TNT
      *   * Toll IPEC
      *   * United Delivery Service
+     *   * Uni Uni
      *   * UPS
      *   * USPS
      *   * Venipak
@@ -617,11 +632,11 @@ public class FulfillmentTrackingInfo {
      *   
      * For tracking company names from the list below
      * Shopify will automatically build tracking URLs for all provided tracking numbers,
-     * which will make the tracking numbers clickable in the interface.
+     * which will make the tracking numbers clickable in the interface. This doesn't mean
+     * that Shopify automatically updates the fulfillment's `shipment_status` field in Admin.
      *   
-     * Additionally, for the tracking companies listed on the
-     * [Shipping Carriers help page](https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers#integrated-shipping-carriers)
-     * Shopify will automatically update the fulfillment's `shipment_status` field during the fulfillment process.
+     * For tracking companies whose `shipment_status` field is updated automatically, see the
+     * [Shipping Carriers help page](https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers#integrated-shipping-carriers).
      *   
      * ### Supported tracking companies
      *   
@@ -639,6 +654,7 @@ public class FulfillmentTrackingInfo {
      *   * Bonshaw
      *   * BPost
      *   * BPost International
+     *   * Better Trucks
      *   * Canada Post
      *   * Canpar
      *   * CDL Last Mile
@@ -667,6 +683,7 @@ public class FulfillmentTrackingInfo {
      *   * Estes
      *   * Evri
      *   * FedEx
+     *   * FedEx Freight
      *   * First Global Logistics
      *   * First Line
      *   * FSC
@@ -713,9 +730,11 @@ public class FulfillmentTrackingInfo {
      *   * Sendle
      *   * SF Express
      *   * SFC Fulfillment
+     *   * ShipBob
      *   * SHREE NANDAN COURIER
      *   * Singapore Post
      *   * Southwest Air Cargo
+     *   * SpeedX
      *   * StarTrack
      *   * Step Forward Freight
      *   * Swiss Post
@@ -724,6 +743,7 @@ public class FulfillmentTrackingInfo {
      *   * TNT
      *   * Toll IPEC
      *   * United Delivery Service
+     *   * Uni Uni
      *   * UPS
      *   * USPS
      *   * Venipak

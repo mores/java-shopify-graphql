@@ -144,7 +144,7 @@ public class ProductInput {
    * Whether the product can only be purchased with
    * a [selling plan](https://shopify.dev/docs/apps/build/purchase-options/subscriptions/selling-plans).
    * Products that are sold on subscription (`requiresSellingPlan: true`) can be updated only for online stores.
-   * If you update a product to be subscription-only (`requiresSellingPlan:false`),
+   * If you update a product to be subscription-only (`requiresSellingPlan: true`),
    * then the product is unpublished from all channels except the online store.
    */
   private Boolean requiresSellingPlan;
@@ -408,7 +408,7 @@ public class ProductInput {
    * Whether the product can only be purchased with
    * a [selling plan](https://shopify.dev/docs/apps/build/purchase-options/subscriptions/selling-plans).
    * Products that are sold on subscription (`requiresSellingPlan: true`) can be updated only for online stores.
-   * If you update a product to be subscription-only (`requiresSellingPlan:false`),
+   * If you update a product to be subscription-only (`requiresSellingPlan: true`),
    * then the product is unpublished from all channels except the online store.
    */
   public Boolean getRequiresSellingPlan() {
@@ -610,7 +610,7 @@ public class ProductInput {
      * Whether the product can only be purchased with
      * a [selling plan](https://shopify.dev/docs/apps/build/purchase-options/subscriptions/selling-plans).
      * Products that are sold on subscription (`requiresSellingPlan: true`) can be updated only for online stores.
-     * If you update a product to be subscription-only (`requiresSellingPlan:false`),
+     * If you update a product to be subscription-only (`requiresSellingPlan: true`),
      * then the product is unpublished from all channels except the online store.
      */
     private Boolean requiresSellingPlan;
@@ -840,7 +840,7 @@ public class ProductInput {
      * Whether the product can only be purchased with
      * a [selling plan](https://shopify.dev/docs/apps/build/purchase-options/subscriptions/selling-plans).
      * Products that are sold on subscription (`requiresSellingPlan: true`) can be updated only for online stores.
-     * If you update a product to be subscription-only (`requiresSellingPlan:false`),
+     * If you update a product to be subscription-only (`requiresSellingPlan: true`),
      * then the product is unpublished from all channels except the online store.
      */
     public Builder requiresSellingPlan(Boolean requiresSellingPlan) {

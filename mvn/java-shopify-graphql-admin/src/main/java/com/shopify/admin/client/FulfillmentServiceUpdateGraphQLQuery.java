@@ -1,10 +1,15 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -40,6 +45,33 @@ public class FulfillmentServiceUpdateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public FulfillmentServiceUpdateGraphQLQuery(String id, String name, String callbackUrl,
+      Boolean trackingSupport, Boolean inventoryManagement, Boolean requiresShippingMethod,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (name != null || fieldsSet.contains("name")) {
+        getInput().put("name", name);
+    }if (callbackUrl != null || fieldsSet.contains("callbackUrl")) {
+        getInput().put("callbackUrl", callbackUrl);
+    }if (trackingSupport != null || fieldsSet.contains("trackingSupport")) {
+        getInput().put("trackingSupport", trackingSupport);
+    }if (inventoryManagement != null || fieldsSet.contains("inventoryManagement")) {
+        getInput().put("inventoryManagement", inventoryManagement);
+    }if (requiresShippingMethod != null || fieldsSet.contains("requiresShippingMethod")) {
+        getInput().put("requiresShippingMethod", requiresShippingMethod);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public FulfillmentServiceUpdateGraphQLQuery() {
     super("mutation");
   }
@@ -56,6 +88,10 @@ public class FulfillmentServiceUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private String name;
@@ -71,7 +107,7 @@ public class FulfillmentServiceUpdateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public FulfillmentServiceUpdateGraphQLQuery build() {
-      return new FulfillmentServiceUpdateGraphQLQuery(id, name, callbackUrl, trackingSupport, inventoryManagement, requiresShippingMethod, queryName, fieldsSet);
+      return new FulfillmentServiceUpdateGraphQLQuery(id, name, callbackUrl, trackingSupport, inventoryManagement, requiresShippingMethod, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -85,10 +121,30 @@ public class FulfillmentServiceUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The id of the fulfillment service.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The name of the fulfillment service.
      */
     public Builder name(String name) {
       this.name = name;
+      this.fieldsSet.add("name");
+      return this;
+    }
+
+    /**
+     * The name of the fulfillment service.
+     */
+    public Builder nameReference(String variableRef) {
+      this.variableReferences.put("name", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
       this.fieldsSet.add("name");
       return this;
     }
@@ -116,6 +172,29 @@ public class FulfillmentServiceUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The URL to send requests for the fulfillment service.
+     *     
+     * If `callbackUrl` is provided:
+     * - Shopify queries the <code>callback_url/fetch_tracking_numbers</code> endpoint to retrieve tracking numbers
+     *     for orders, if `trackingSupport` is set to `true`.
+     * - Shopify queries the <code>callback_url/fetch_stock</code> endpoint to retrieve inventory levels,
+     *     if `inventoryManagement` is set to `true`.
+     * - Shopify uses the <code>callback_url/fulfillment_order_notification</code> endpoint to send
+     *     [fulfillment and cancellation requests](https://shopify.dev/apps/fulfillment/fulfillment-service-apps/manage-fulfillments#step-2-receive-fulfillment-requests-and-cancellations).
+     *     
+     * Otherwise, if no `callbackUrl` is provided you need to submit this information via the api:
+     * - For submitting tracking info and handling fulfillment requests, see our
+     * docs on [building for fulfillment services](https://shopify.dev/apps/build/orders-fulfillment/fulfillment-service-apps/build-for-fulfillment-services).
+     * - For managing inventory quantities, see our docs on [managing inventory quantities and states](https://shopify.dev/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states).
+     */
+    public Builder callbackUrlReference(String variableRef) {
+      this.variableReferences.put("callbackUrl", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("URL")).build());
+      this.fieldsSet.add("callbackUrl");
+      return this;
+    }
+
+    /**
      * Whether the fulfillment service provides tracking numbers for packages.
      *     
      * If `callbackUrl` is provided, Shopify will periodically fetch tracking numbers via the callback endpoint.
@@ -125,6 +204,21 @@ public class FulfillmentServiceUpdateGraphQLQuery extends GraphQLQuery {
      */
     public Builder trackingSupport(Boolean trackingSupport) {
       this.trackingSupport = trackingSupport;
+      this.fieldsSet.add("trackingSupport");
+      return this;
+    }
+
+    /**
+     * Whether the fulfillment service provides tracking numbers for packages.
+     *     
+     * If `callbackUrl` is provided, Shopify will periodically fetch tracking numbers via the callback endpoint.
+     *     
+     * If no `callbackUrl` is provided you need to submit this information via the
+     * api, see our docs on [building for fulfillment services](https://shopify.dev/apps/build/orders-fulfillment/fulfillment-service-apps/build-for-fulfillment-services).
+     */
+    public Builder trackingSupportReference(String variableRef) {
+      this.variableReferences.put("trackingSupport", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Boolean")).build());
       this.fieldsSet.add("trackingSupport");
       return this;
     }
@@ -144,10 +238,35 @@ public class FulfillmentServiceUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * Whether the fulfillment service manages product inventory and provides updates to Shopify.
+     *     
+     * If `callbackUrl` is provided, Shopify will periodically fetch inventory levels via the callback endpoint.
+     *     
+     * If no `callbackUrl` is provided you need to submit this information via the
+     * api, see our docs on [managing inventory quantities and states](https://shopify.dev/apps/build/orders-fulfillment/inventory-management-apps/manage-quantities-states).
+     */
+    public Builder inventoryManagementReference(String variableRef) {
+      this.variableReferences.put("inventoryManagement", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Boolean")).build());
+      this.fieldsSet.add("inventoryManagement");
+      return this;
+    }
+
+    /**
      * Whether the fulfillment service requires products to be physically shipped.
      */
     public Builder requiresShippingMethod(Boolean requiresShippingMethod) {
       this.requiresShippingMethod = requiresShippingMethod;
+      this.fieldsSet.add("requiresShippingMethod");
+      return this;
+    }
+
+    /**
+     * Whether the fulfillment service requires products to be physically shipped.
+     */
+    public Builder requiresShippingMethodReference(String variableRef) {
+      this.variableReferences.put("requiresShippingMethod", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Boolean")).build());
       this.fieldsSet.add("requiresShippingMethod");
       return this;
     }

@@ -11,8 +11,7 @@ import java.util.Objects;
  */
 public class MarketingEngagementCreatePayload {
   /**
-   * The marketing engagement that was created. This represents customer activity
-   * taken on a marketing activity or a marketing channel.
+   * The marketing engagement that was created. This represents customer activity taken on a marketing activity.
    */
   private MarketingEngagement marketingEngagement;
 
@@ -25,8 +24,7 @@ public class MarketingEngagementCreatePayload {
   }
 
   /**
-   * The marketing engagement that was created. This represents customer activity
-   * taken on a marketing activity or a marketing channel.
+   * The marketing engagement that was created. This represents customer activity taken on a marketing activity.
    */
   public MarketingEngagement getMarketingEngagement() {
     return marketingEngagement;
@@ -72,8 +70,7 @@ public class MarketingEngagementCreatePayload {
 
   public static class Builder {
     /**
-     * The marketing engagement that was created. This represents customer activity
-     * taken on a marketing activity or a marketing channel.
+     * The marketing engagement that was created. This represents customer activity taken on a marketing activity.
      */
     private MarketingEngagement marketingEngagement;
 
@@ -90,8 +87,7 @@ public class MarketingEngagementCreatePayload {
     }
 
     /**
-     * The marketing engagement that was created. This represents customer activity
-     * taken on a marketing activity or a marketing channel.
+     * The marketing engagement that was created. This represents customer activity taken on a marketing activity.
      */
     public Builder marketingEngagement(MarketingEngagement marketingEngagement) {
       this.marketingEngagement = marketingEngagement;

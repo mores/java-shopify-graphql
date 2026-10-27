@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.CheckoutBrandingInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -35,6 +40,24 @@ public class CheckoutBrandingUpsertGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public CheckoutBrandingUpsertGraphQLQuery(String checkoutProfileId,
+      CheckoutBrandingInput checkoutBrandingInput, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (checkoutProfileId != null || fieldsSet.contains("checkoutProfileId")) {
+        getInput().put("checkoutProfileId", checkoutProfileId);
+    }if (checkoutBrandingInput != null || fieldsSet.contains("checkoutBrandingInput")) {
+        getInput().put("checkoutBrandingInput", checkoutBrandingInput);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public CheckoutBrandingUpsertGraphQLQuery() {
     super("mutation");
   }
@@ -51,6 +74,10 @@ public class CheckoutBrandingUpsertGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String checkoutProfileId;
 
     private CheckoutBrandingInput checkoutBrandingInput;
@@ -58,7 +85,7 @@ public class CheckoutBrandingUpsertGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public CheckoutBrandingUpsertGraphQLQuery build() {
-      return new CheckoutBrandingUpsertGraphQLQuery(checkoutProfileId, checkoutBrandingInput, queryName, fieldsSet);
+      return new CheckoutBrandingUpsertGraphQLQuery(checkoutProfileId, checkoutBrandingInput, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -72,10 +99,30 @@ public class CheckoutBrandingUpsertGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * A globally-unique identifier.
+     */
+    public Builder checkoutProfileIdReference(String variableRef) {
+      this.variableReferences.put("checkoutProfileId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("checkoutProfileId");
+      return this;
+    }
+
+    /**
      * The input fields to use to upsert the checkout branding settings (pass null to reset them to default).
      */
     public Builder checkoutBrandingInput(CheckoutBrandingInput checkoutBrandingInput) {
       this.checkoutBrandingInput = checkoutBrandingInput;
+      this.fieldsSet.add("checkoutBrandingInput");
+      return this;
+    }
+
+    /**
+     * The input fields to use to upsert the checkout branding settings (pass null to reset them to default).
+     */
+    public Builder checkoutBrandingInputReference(String variableRef) {
+      this.variableReferences.put("checkoutBrandingInput", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("CheckoutBrandingInput")).build());
       this.fieldsSet.add("checkoutBrandingInput");
       return this;
     }

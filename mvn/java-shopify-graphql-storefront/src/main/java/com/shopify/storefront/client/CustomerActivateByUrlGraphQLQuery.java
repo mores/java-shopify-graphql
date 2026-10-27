@@ -1,9 +1,14 @@
 package com.shopify.storefront.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -27,6 +32,24 @@ public class CustomerActivateByUrlGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public CustomerActivateByUrlGraphQLQuery(String activationUrl, String password, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (activationUrl != null || fieldsSet.contains("activationUrl")) {
+        getInput().put("activationUrl", activationUrl);
+    }if (password != null || fieldsSet.contains("password")) {
+        getInput().put("password", password);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public CustomerActivateByUrlGraphQLQuery() {
     super("mutation");
   }
@@ -43,6 +66,10 @@ public class CustomerActivateByUrlGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String activationUrl;
 
     private String password;
@@ -50,7 +77,7 @@ public class CustomerActivateByUrlGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public CustomerActivateByUrlGraphQLQuery build() {
-      return new CustomerActivateByUrlGraphQLQuery(activationUrl, password, queryName, fieldsSet);
+      return new CustomerActivateByUrlGraphQLQuery(activationUrl, password, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -64,10 +91,30 @@ public class CustomerActivateByUrlGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The customer activation URL.
+     */
+    public Builder activationUrlReference(String variableRef) {
+      this.variableReferences.put("activationUrl", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("URL"))).build());
+      this.fieldsSet.add("activationUrl");
+      return this;
+    }
+
+    /**
      * A new password set during activation.
      */
     public Builder password(String password) {
       this.password = password;
+      this.fieldsSet.add("password");
+      return this;
+    }
+
+    /**
+     * A new password set during activation.
+     */
+    public Builder passwordReference(String variableRef) {
+      this.variableReferences.put("password", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("String"))).build());
       this.fieldsSet.add("password");
       return this;
     }

@@ -12,6 +12,13 @@ public class ShopifyqlQueryResponseProjection<PARENT extends BaseSubProjectionNo
     return this;
   }
 
+  public AnalyticsTargetProjection<ShopifyqlQueryResponseProjection<PARENT, ROOT>, ROOT> analyticsTargets(
+      ) {
+     AnalyticsTargetProjection<ShopifyqlQueryResponseProjection<PARENT, ROOT>, ROOT> projection = new AnalyticsTargetProjection<>(this, getRoot());
+     getFields().put("analyticsTargets", projection);
+     return projection;
+  }
+
   public ShopifyqlTableDataProjection<ShopifyqlQueryResponseProjection<PARENT, ROOT>, ROOT> tableData(
       ) {
      ShopifyqlTableDataProjection<ShopifyqlQueryResponseProjection<PARENT, ROOT>, ROOT> projection = new ShopifyqlTableDataProjection<>(this, getRoot());
@@ -21,6 +28,11 @@ public class ShopifyqlQueryResponseProjection<PARENT extends BaseSubProjectionNo
 
   public ShopifyqlQueryResponseProjection<PARENT, ROOT> parseErrors() {
     getFields().put("parseErrors", null);
+    return this;
+  }
+
+  public ShopifyqlQueryResponseProjection<PARENT, ROOT> parseWarnings() {
+    getFields().put("parseWarnings", null);
     return this;
   }
 }

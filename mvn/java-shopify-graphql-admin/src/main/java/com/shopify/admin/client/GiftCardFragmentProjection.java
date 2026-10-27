@@ -27,6 +27,13 @@ public class GiftCardFragmentProjection<PARENT extends BaseSubProjectionNode<?, 
      return projection;
   }
 
+  public GiftCardCrossCurrencyRedemptionStrategyProjection<GiftCardFragmentProjection<PARENT, ROOT>, ROOT> crossCurrencyRedemptionStrategy(
+      ) {
+     GiftCardCrossCurrencyRedemptionStrategyProjection<GiftCardFragmentProjection<PARENT, ROOT>, ROOT> projection = new GiftCardCrossCurrencyRedemptionStrategyProjection<>(this, getRoot());
+     getFields().put("crossCurrencyRedemptionStrategy", projection);
+     return projection;
+  }
+
   public CustomerProjection<GiftCardFragmentProjection<PARENT, ROOT>, ROOT> customer() {
      CustomerProjection<GiftCardFragmentProjection<PARENT, ROOT>, ROOT> projection = new CustomerProjection<>(this, getRoot());
      getFields().put("customer", projection);
@@ -36,6 +43,12 @@ public class GiftCardFragmentProjection<PARENT extends BaseSubProjectionNode<?, 
   public MoneyV2Projection<GiftCardFragmentProjection<PARENT, ROOT>, ROOT> initialValue() {
      MoneyV2Projection<GiftCardFragmentProjection<PARENT, ROOT>, ROOT> projection = new MoneyV2Projection<>(this, getRoot());
      getFields().put("initialValue", projection);
+     return projection;
+  }
+
+  public LineItemProjection<GiftCardFragmentProjection<PARENT, ROOT>, ROOT> lineItem() {
+     LineItemProjection<GiftCardFragmentProjection<PARENT, ROOT>, ROOT> projection = new LineItemProjection<>(this, getRoot());
+     getFields().put("lineItem", projection);
      return projection;
   }
 
@@ -64,15 +77,34 @@ public class GiftCardFragmentProjection<PARENT extends BaseSubProjectionNode<?, 
     GiftCardTransactionConnectionProjection<GiftCardFragmentProjection<PARENT, ROOT>, ROOT> projection = new GiftCardTransactionConnectionProjection<>(this, getRoot());    
     getFields().put("transactions", projection);
     getInputArguments().computeIfAbsent("transactions", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("transactions").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("transactions").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("transactions").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("transactions").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("transactions").add(reverseArg);
+    return projection;
+  }
+
+  public GiftCardTransactionConnectionProjection<GiftCardFragmentProjection<PARENT, ROOT>, ROOT> transactionsWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    GiftCardTransactionConnectionProjection<GiftCardFragmentProjection<PARENT, ROOT>, ROOT> projection = new GiftCardTransactionConnectionProjection<>(this, getRoot());    
+    getFields().put("transactions", projection);
+    getInputArguments().computeIfAbsent("transactions", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("transactions").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("transactions").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("transactions").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("transactions").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("transactions").add(reverseArg);
     return projection;
   }
@@ -99,6 +131,11 @@ public class GiftCardFragmentProjection<PARENT extends BaseSubProjectionNode<?, 
 
   public GiftCardFragmentProjection<PARENT, ROOT> id() {
     getFields().put("id", null);
+    return this;
+  }
+
+  public GiftCardFragmentProjection<PARENT, ROOT> isRedeemable() {
+    getFields().put("isRedeemable", null);
     return this;
   }
 

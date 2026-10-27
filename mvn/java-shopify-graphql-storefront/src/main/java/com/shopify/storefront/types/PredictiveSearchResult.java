@@ -21,7 +21,7 @@ public class PredictiveSearchResult {
   private List<Article> articles;
 
   /**
-   * The articles that match the search query.
+   * The collections that match the search query.
    */
   private List<Collection> collections;
 
@@ -55,7 +55,7 @@ public class PredictiveSearchResult {
   }
 
   /**
-   * The articles that match the search query.
+   * The collections that match the search query.
    */
   public List<Collection> getCollections() {
     return collections;
@@ -131,7 +131,7 @@ public class PredictiveSearchResult {
     private List<Article> articles;
 
     /**
-     * The articles that match the search query.
+     * The collections that match the search query.
      */
     private List<Collection> collections;
 
@@ -169,7 +169,7 @@ public class PredictiveSearchResult {
     }
 
     /**
-     * The articles that match the search query.
+     * The collections that match the search query.
      */
     public Builder collections(List<Collection> collections) {
       this.collections = collections;

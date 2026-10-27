@@ -2,9 +2,14 @@ package com.shopify.storefront.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.storefront.types.ShopPayPaymentRequestInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -37,6 +42,29 @@ public class ShopPayPaymentRequestSessionSubmitGraphQLQuery extends GraphQLQuery
     }
   }
 
+  public ShopPayPaymentRequestSessionSubmitGraphQLQuery(String token,
+      ShopPayPaymentRequestInput paymentRequest, String idempotencyKey, String orderName,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (token != null || fieldsSet.contains("token")) {
+        getInput().put("token", token);
+    }if (paymentRequest != null || fieldsSet.contains("paymentRequest")) {
+        getInput().put("paymentRequest", paymentRequest);
+    }if (idempotencyKey != null || fieldsSet.contains("idempotencyKey")) {
+        getInput().put("idempotencyKey", idempotencyKey);
+    }if (orderName != null || fieldsSet.contains("orderName")) {
+        getInput().put("orderName", orderName);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public ShopPayPaymentRequestSessionSubmitGraphQLQuery() {
     super("mutation");
   }
@@ -53,6 +81,10 @@ public class ShopPayPaymentRequestSessionSubmitGraphQLQuery extends GraphQLQuery
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String token;
 
     private ShopPayPaymentRequestInput paymentRequest;
@@ -64,7 +96,7 @@ public class ShopPayPaymentRequestSessionSubmitGraphQLQuery extends GraphQLQuery
     private String queryName;
 
     public ShopPayPaymentRequestSessionSubmitGraphQLQuery build() {
-      return new ShopPayPaymentRequestSessionSubmitGraphQLQuery(token, paymentRequest, idempotencyKey, orderName, queryName, fieldsSet);
+      return new ShopPayPaymentRequestSessionSubmitGraphQLQuery(token, paymentRequest, idempotencyKey, orderName, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -73,6 +105,16 @@ public class ShopPayPaymentRequestSessionSubmitGraphQLQuery extends GraphQLQuery
      */
     public Builder token(String token) {
       this.token = token;
+      this.fieldsSet.add("token");
+      return this;
+    }
+
+    /**
+     * A token representing a payment session request.
+     */
+    public Builder tokenReference(String variableRef) {
+      this.variableReferences.put("token", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("String"))).build());
       this.fieldsSet.add("token");
       return this;
     }
@@ -87,6 +129,16 @@ public class ShopPayPaymentRequestSessionSubmitGraphQLQuery extends GraphQLQuery
     }
 
     /**
+     * The final payment request object.
+     */
+    public Builder paymentRequestReference(String variableRef) {
+      this.variableReferences.put("paymentRequest", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ShopPayPaymentRequestInput"))).build());
+      this.fieldsSet.add("paymentRequest");
+      return this;
+    }
+
+    /**
      * The idempotency key is used to guarantee an idempotent result.
      */
     public Builder idempotencyKey(String idempotencyKey) {
@@ -96,10 +148,30 @@ public class ShopPayPaymentRequestSessionSubmitGraphQLQuery extends GraphQLQuery
     }
 
     /**
+     * The idempotency key is used to guarantee an idempotent result.
+     */
+    public Builder idempotencyKeyReference(String variableRef) {
+      this.variableReferences.put("idempotencyKey", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("String"))).build());
+      this.fieldsSet.add("idempotencyKey");
+      return this;
+    }
+
+    /**
      * The order name to be used for the order created from the payment request.
      */
     public Builder orderName(String orderName) {
       this.orderName = orderName;
+      this.fieldsSet.add("orderName");
+      return this;
+    }
+
+    /**
+     * The order name to be used for the order created from the payment request.
+     */
+    public Builder orderNameReference(String variableRef) {
+      this.variableReferences.put("orderName", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
       this.fieldsSet.add("orderName");
       return this;
     }

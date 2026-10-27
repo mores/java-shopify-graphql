@@ -16,6 +16,11 @@ public class ShopifyqlTableData {
   private List<ShopifyqlTableDataColumn> columns;
 
   /**
+   * Per-row metadata, aligned by index with `rows`.
+   */
+  private List<ShopifyqlRowMetadata> rowMetadata;
+
+  /**
    * The rows of the table.
    */
   private String rows;
@@ -35,6 +40,17 @@ public class ShopifyqlTableData {
   }
 
   /**
+   * Per-row metadata, aligned by index with `rows`.
+   */
+  public List<ShopifyqlRowMetadata> getRowMetadata() {
+    return rowMetadata;
+  }
+
+  public void setRowMetadata(List<ShopifyqlRowMetadata> rowMetadata) {
+    this.rowMetadata = rowMetadata;
+  }
+
+  /**
    * The rows of the table.
    */
   public String getRows() {
@@ -47,7 +63,7 @@ public class ShopifyqlTableData {
 
   @Override
   public String toString() {
-    return "ShopifyqlTableData{columns='" + columns + "', rows='" + rows + "'}";
+    return "ShopifyqlTableData{columns='" + columns + "', rowMetadata='" + rowMetadata + "', rows='" + rows + "'}";
   }
 
   @Override
@@ -56,12 +72,13 @@ public class ShopifyqlTableData {
     if (o == null || getClass() != o.getClass()) return false;
     ShopifyqlTableData that = (ShopifyqlTableData) o;
     return Objects.equals(columns, that.columns) &&
+        Objects.equals(rowMetadata, that.rowMetadata) &&
         Objects.equals(rows, that.rows);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(columns, rows);
+    return Objects.hash(columns, rowMetadata, rows);
   }
 
   public static Builder newBuilder() {
@@ -75,6 +92,11 @@ public class ShopifyqlTableData {
     private List<ShopifyqlTableDataColumn> columns;
 
     /**
+     * Per-row metadata, aligned by index with `rows`.
+     */
+    private List<ShopifyqlRowMetadata> rowMetadata;
+
+    /**
      * The rows of the table.
      */
     private String rows;
@@ -82,6 +104,7 @@ public class ShopifyqlTableData {
     public ShopifyqlTableData build() {
       ShopifyqlTableData result = new ShopifyqlTableData();
       result.columns = this.columns;
+      result.rowMetadata = this.rowMetadata;
       result.rows = this.rows;
       return result;
     }
@@ -91,6 +114,14 @@ public class ShopifyqlTableData {
      */
     public Builder columns(List<ShopifyqlTableDataColumn> columns) {
       this.columns = columns;
+      return this;
+    }
+
+    /**
+     * Per-row metadata, aligned by index with `rows`.
+     */
+    public Builder rowMetadata(List<ShopifyqlRowMetadata> rowMetadata) {
+      this.rowMetadata = rowMetadata;
       return this;
     }
 

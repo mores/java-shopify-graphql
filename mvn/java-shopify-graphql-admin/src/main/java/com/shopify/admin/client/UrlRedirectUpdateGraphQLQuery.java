@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.UrlRedirectInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -19,6 +24,24 @@ public class UrlRedirectUpdateGraphQLQuery extends GraphQLQuery {
     }if (urlRedirect != null || fieldsSet.contains("urlRedirect")) {
         getInput().put("urlRedirect", urlRedirect);
     }
+  }
+
+  public UrlRedirectUpdateGraphQLQuery(String id, UrlRedirectInput urlRedirect, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (urlRedirect != null || fieldsSet.contains("urlRedirect")) {
+        getInput().put("urlRedirect", urlRedirect);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public UrlRedirectUpdateGraphQLQuery() {
@@ -37,6 +60,10 @@ public class UrlRedirectUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private UrlRedirectInput urlRedirect;
@@ -44,7 +71,7 @@ public class UrlRedirectUpdateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public UrlRedirectUpdateGraphQLQuery build() {
-      return new UrlRedirectUpdateGraphQLQuery(id, urlRedirect, queryName, fieldsSet);
+      return new UrlRedirectUpdateGraphQLQuery(id, urlRedirect, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -58,10 +85,30 @@ public class UrlRedirectUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the URL redirect to update.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The input fields required to update the URL redirect.
      */
     public Builder urlRedirect(UrlRedirectInput urlRedirect) {
       this.urlRedirect = urlRedirect;
+      this.fieldsSet.add("urlRedirect");
+      return this;
+    }
+
+    /**
+     * The input fields required to update the URL redirect.
+     */
+    public Builder urlRedirectReference(String variableRef) {
+      this.variableReferences.put("urlRedirect", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("UrlRedirectInput"))).build());
       this.fieldsSet.add("urlRedirect");
       return this;
     }

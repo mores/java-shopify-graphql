@@ -57,12 +57,12 @@ public class FulfillmentTrackingInput {
    * If you specify a tracking company name from
    * [the list](https://shopify.dev/api/admin-graphql/latest/objects/FulfillmentTrackingInfo#supported-tracking-companies),
    * Shopify will automatically build tracking URLs for all provided tracking numbers,
-   * which will make the tracking numbers clickable in the interface.
+   * which will make the tracking numbers clickable in the interface. This doesn't mean
+   * that Shopify automatically updates the fulfillment's `shipment_status` field in Admin.
    * The same tracking company will be applied to all tracking numbers specified.
    *   
-   * Additionally, for the tracking companies listed on the
-   * [Shipping Carriers help page](https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers#integrated-shipping-carriers)
-   * Shopify will automatically update the fulfillment's `shipment_status` field during the fulfillment process.
+   * For tracking companies whose `shipment_status` field is updated automatically, see the
+   * [Shipping Carriers help page](https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers#integrated-shipping-carriers).
    *   
    * > Note:
    * > Send the tracking company name exactly as written in
@@ -170,12 +170,12 @@ public class FulfillmentTrackingInput {
    * If you specify a tracking company name from
    * [the list](https://shopify.dev/api/admin-graphql/latest/objects/FulfillmentTrackingInfo#supported-tracking-companies),
    * Shopify will automatically build tracking URLs for all provided tracking numbers,
-   * which will make the tracking numbers clickable in the interface.
+   * which will make the tracking numbers clickable in the interface. This doesn't mean
+   * that Shopify automatically updates the fulfillment's `shipment_status` field in Admin.
    * The same tracking company will be applied to all tracking numbers specified.
    *   
-   * Additionally, for the tracking companies listed on the
-   * [Shipping Carriers help page](https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers#integrated-shipping-carriers)
-   * Shopify will automatically update the fulfillment's `shipment_status` field during the fulfillment process.
+   * For tracking companies whose `shipment_status` field is updated automatically, see the
+   * [Shipping Carriers help page](https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers#integrated-shipping-carriers).
    *   
    * > Note:
    * > Send the tracking company name exactly as written in
@@ -313,12 +313,12 @@ public class FulfillmentTrackingInput {
      * If you specify a tracking company name from
      * [the list](https://shopify.dev/api/admin-graphql/latest/objects/FulfillmentTrackingInfo#supported-tracking-companies),
      * Shopify will automatically build tracking URLs for all provided tracking numbers,
-     * which will make the tracking numbers clickable in the interface.
+     * which will make the tracking numbers clickable in the interface. This doesn't mean
+     * that Shopify automatically updates the fulfillment's `shipment_status` field in Admin.
      * The same tracking company will be applied to all tracking numbers specified.
      *   
-     * Additionally, for the tracking companies listed on the
-     * [Shipping Carriers help page](https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers#integrated-shipping-carriers)
-     * Shopify will automatically update the fulfillment's `shipment_status` field during the fulfillment process.
+     * For tracking companies whose `shipment_status` field is updated automatically, see the
+     * [Shipping Carriers help page](https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers#integrated-shipping-carriers).
      *   
      * > Note:
      * > Send the tracking company name exactly as written in
@@ -427,12 +427,12 @@ public class FulfillmentTrackingInput {
      * If you specify a tracking company name from
      * [the list](https://shopify.dev/api/admin-graphql/latest/objects/FulfillmentTrackingInfo#supported-tracking-companies),
      * Shopify will automatically build tracking URLs for all provided tracking numbers,
-     * which will make the tracking numbers clickable in the interface.
+     * which will make the tracking numbers clickable in the interface. This doesn't mean
+     * that Shopify automatically updates the fulfillment's `shipment_status` field in Admin.
      * The same tracking company will be applied to all tracking numbers specified.
      *   
-     * Additionally, for the tracking companies listed on the
-     * [Shipping Carriers help page](https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers#integrated-shipping-carriers)
-     * Shopify will automatically update the fulfillment's `shipment_status` field during the fulfillment process.
+     * For tracking companies whose `shipment_status` field is updated automatically, see the
+     * [Shipping Carriers help page](https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers#integrated-shipping-carriers).
      *   
      * > Note:
      * > Send the tracking company name exactly as written in

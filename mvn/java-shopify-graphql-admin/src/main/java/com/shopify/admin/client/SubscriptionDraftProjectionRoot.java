@@ -45,17 +45,38 @@ public class SubscriptionDraftProjectionRoot<PARENT extends BaseSubProjectionNod
     SubscriptionBillingCycleConnectionProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> projection = new SubscriptionBillingCycleConnectionProjection<>(this, this);    
     getFields().put("concatenatedBillingCycles", projection);
     getInputArguments().computeIfAbsent("concatenatedBillingCycles", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("concatenatedBillingCycles").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("concatenatedBillingCycles").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("concatenatedBillingCycles").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("concatenatedBillingCycles").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
     getInputArguments().get("concatenatedBillingCycles").add(reverseArg);
-    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey, false, null);
+    getInputArguments().get("concatenatedBillingCycles").add(sortKeyArg);
+    return projection;
+  }
+
+  public SubscriptionBillingCycleConnectionProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> concatenatedBillingCyclesWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference, String sortKeyReference) {
+    SubscriptionBillingCycleConnectionProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> projection = new SubscriptionBillingCycleConnectionProjection<>(this, this);    
+    getFields().put("concatenatedBillingCycles", projection);
+    getInputArguments().computeIfAbsent("concatenatedBillingCycles", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("concatenatedBillingCycles").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("concatenatedBillingCycles").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("concatenatedBillingCycles").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("concatenatedBillingCycles").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("concatenatedBillingCycles").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKeyReference, true, new graphql.language.TypeName("SubscriptionBillingCyclesSortKeys"));
     getInputArguments().get("concatenatedBillingCycles").add(sortKeyArg);
     return projection;
   }
@@ -93,7 +114,17 @@ public class SubscriptionDraftProjectionRoot<PARENT extends BaseSubProjectionNod
     CustomerPaymentMethodProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> projection = new CustomerPaymentMethodProjection<>(this, this);    
     getFields().put("customerPaymentMethod", projection);
     getInputArguments().computeIfAbsent("customerPaymentMethod", k -> new ArrayList<>());                      
-    InputArgument showRevokedArg = new InputArgument("showRevoked", showRevoked);
+    InputArgument showRevokedArg = new InputArgument("showRevoked", showRevoked, false, null);
+    getInputArguments().get("customerPaymentMethod").add(showRevokedArg);
+    return projection;
+  }
+
+  public CustomerPaymentMethodProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> customerPaymentMethodWithVariableReferences(
+      String showRevokedReference) {
+    CustomerPaymentMethodProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> projection = new CustomerPaymentMethodProjection<>(this, this);    
+    getFields().put("customerPaymentMethod", projection);
+    getInputArguments().computeIfAbsent("customerPaymentMethod", k -> new ArrayList<>());              
+    InputArgument showRevokedArg = new InputArgument("showRevoked", showRevokedReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("customerPaymentMethod").add(showRevokedArg);
     return projection;
   }
@@ -117,7 +148,17 @@ public class SubscriptionDraftProjectionRoot<PARENT extends BaseSubProjectionNod
     SubscriptionDeliveryOptionResultProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> projection = new SubscriptionDeliveryOptionResultProjection<>(this, this);    
     getFields().put("deliveryOptions", projection);
     getInputArguments().computeIfAbsent("deliveryOptions", k -> new ArrayList<>());                      
-    InputArgument deliveryAddressArg = new InputArgument("deliveryAddress", deliveryAddress);
+    InputArgument deliveryAddressArg = new InputArgument("deliveryAddress", deliveryAddress, false, null);
+    getInputArguments().get("deliveryOptions").add(deliveryAddressArg);
+    return projection;
+  }
+
+  public SubscriptionDeliveryOptionResultProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> deliveryOptionsWithVariableReferences(
+      String deliveryAddressReference) {
+    SubscriptionDeliveryOptionResultProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> projection = new SubscriptionDeliveryOptionResultProjection<>(this, this);    
+    getFields().put("deliveryOptions", projection);
+    getInputArguments().computeIfAbsent("deliveryOptions", k -> new ArrayList<>());              
+    InputArgument deliveryAddressArg = new InputArgument("deliveryAddress", deliveryAddressReference, true, new graphql.language.TypeName("MailingAddressInput"));
     getInputArguments().get("deliveryOptions").add(deliveryAddressArg);
     return projection;
   }
@@ -148,15 +189,34 @@ public class SubscriptionDraftProjectionRoot<PARENT extends BaseSubProjectionNod
     SubscriptionDiscountConnectionProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> projection = new SubscriptionDiscountConnectionProjection<>(this, this);    
     getFields().put("discounts", projection);
     getInputArguments().computeIfAbsent("discounts", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("discounts").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("discounts").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("discounts").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("discounts").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("discounts").add(reverseArg);
+    return projection;
+  }
+
+  public SubscriptionDiscountConnectionProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> discountsWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    SubscriptionDiscountConnectionProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> projection = new SubscriptionDiscountConnectionProjection<>(this, this);    
+    getFields().put("discounts", projection);
+    getInputArguments().computeIfAbsent("discounts", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("discounts").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("discounts").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("discounts").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("discounts").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("discounts").add(reverseArg);
     return projection;
   }
@@ -173,15 +233,34 @@ public class SubscriptionDraftProjectionRoot<PARENT extends BaseSubProjectionNod
     SubscriptionDiscountConnectionProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> projection = new SubscriptionDiscountConnectionProjection<>(this, this);    
     getFields().put("discountsAdded", projection);
     getInputArguments().computeIfAbsent("discountsAdded", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("discountsAdded").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("discountsAdded").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("discountsAdded").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("discountsAdded").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("discountsAdded").add(reverseArg);
+    return projection;
+  }
+
+  public SubscriptionDiscountConnectionProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> discountsAddedWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    SubscriptionDiscountConnectionProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> projection = new SubscriptionDiscountConnectionProjection<>(this, this);    
+    getFields().put("discountsAdded", projection);
+    getInputArguments().computeIfAbsent("discountsAdded", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("discountsAdded").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("discountsAdded").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("discountsAdded").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("discountsAdded").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("discountsAdded").add(reverseArg);
     return projection;
   }
@@ -198,15 +277,34 @@ public class SubscriptionDraftProjectionRoot<PARENT extends BaseSubProjectionNod
     SubscriptionDiscountConnectionProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> projection = new SubscriptionDiscountConnectionProjection<>(this, this);    
     getFields().put("discountsRemoved", projection);
     getInputArguments().computeIfAbsent("discountsRemoved", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("discountsRemoved").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("discountsRemoved").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("discountsRemoved").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("discountsRemoved").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("discountsRemoved").add(reverseArg);
+    return projection;
+  }
+
+  public SubscriptionDiscountConnectionProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> discountsRemovedWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    SubscriptionDiscountConnectionProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> projection = new SubscriptionDiscountConnectionProjection<>(this, this);    
+    getFields().put("discountsRemoved", projection);
+    getInputArguments().computeIfAbsent("discountsRemoved", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("discountsRemoved").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("discountsRemoved").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("discountsRemoved").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("discountsRemoved").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("discountsRemoved").add(reverseArg);
     return projection;
   }
@@ -223,15 +321,34 @@ public class SubscriptionDraftProjectionRoot<PARENT extends BaseSubProjectionNod
     SubscriptionDiscountConnectionProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> projection = new SubscriptionDiscountConnectionProjection<>(this, this);    
     getFields().put("discountsUpdated", projection);
     getInputArguments().computeIfAbsent("discountsUpdated", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("discountsUpdated").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("discountsUpdated").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("discountsUpdated").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("discountsUpdated").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("discountsUpdated").add(reverseArg);
+    return projection;
+  }
+
+  public SubscriptionDiscountConnectionProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> discountsUpdatedWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    SubscriptionDiscountConnectionProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> projection = new SubscriptionDiscountConnectionProjection<>(this, this);    
+    getFields().put("discountsUpdated", projection);
+    getInputArguments().computeIfAbsent("discountsUpdated", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("discountsUpdated").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("discountsUpdated").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("discountsUpdated").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("discountsUpdated").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("discountsUpdated").add(reverseArg);
     return projection;
   }
@@ -248,15 +365,34 @@ public class SubscriptionDraftProjectionRoot<PARENT extends BaseSubProjectionNod
     SubscriptionLineConnectionProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> projection = new SubscriptionLineConnectionProjection<>(this, this);    
     getFields().put("lines", projection);
     getInputArguments().computeIfAbsent("lines", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("lines").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("lines").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("lines").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("lines").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("lines").add(reverseArg);
+    return projection;
+  }
+
+  public SubscriptionLineConnectionProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> linesWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    SubscriptionLineConnectionProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> projection = new SubscriptionLineConnectionProjection<>(this, this);    
+    getFields().put("lines", projection);
+    getInputArguments().computeIfAbsent("lines", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("lines").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("lines").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("lines").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("lines").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("lines").add(reverseArg);
     return projection;
   }
@@ -273,15 +409,34 @@ public class SubscriptionDraftProjectionRoot<PARENT extends BaseSubProjectionNod
     SubscriptionLineConnectionProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> projection = new SubscriptionLineConnectionProjection<>(this, this);    
     getFields().put("linesAdded", projection);
     getInputArguments().computeIfAbsent("linesAdded", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("linesAdded").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("linesAdded").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("linesAdded").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("linesAdded").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("linesAdded").add(reverseArg);
+    return projection;
+  }
+
+  public SubscriptionLineConnectionProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> linesAddedWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    SubscriptionLineConnectionProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> projection = new SubscriptionLineConnectionProjection<>(this, this);    
+    getFields().put("linesAdded", projection);
+    getInputArguments().computeIfAbsent("linesAdded", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("linesAdded").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("linesAdded").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("linesAdded").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("linesAdded").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("linesAdded").add(reverseArg);
     return projection;
   }
@@ -298,15 +453,34 @@ public class SubscriptionDraftProjectionRoot<PARENT extends BaseSubProjectionNod
     SubscriptionLineConnectionProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> projection = new SubscriptionLineConnectionProjection<>(this, this);    
     getFields().put("linesRemoved", projection);
     getInputArguments().computeIfAbsent("linesRemoved", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("linesRemoved").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("linesRemoved").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("linesRemoved").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("linesRemoved").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("linesRemoved").add(reverseArg);
+    return projection;
+  }
+
+  public SubscriptionLineConnectionProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> linesRemovedWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    SubscriptionLineConnectionProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> projection = new SubscriptionLineConnectionProjection<>(this, this);    
+    getFields().put("linesRemoved", projection);
+    getInputArguments().computeIfAbsent("linesRemoved", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("linesRemoved").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("linesRemoved").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("linesRemoved").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("linesRemoved").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("linesRemoved").add(reverseArg);
     return projection;
   }
@@ -330,7 +504,17 @@ public class SubscriptionDraftProjectionRoot<PARENT extends BaseSubProjectionNod
     SubscriptionShippingOptionResultProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> projection = new SubscriptionShippingOptionResultProjection<>(this, this);    
     getFields().put("shippingOptions", projection);
     getInputArguments().computeIfAbsent("shippingOptions", k -> new ArrayList<>());                      
-    InputArgument deliveryAddressArg = new InputArgument("deliveryAddress", deliveryAddress);
+    InputArgument deliveryAddressArg = new InputArgument("deliveryAddress", deliveryAddress, false, null);
+    getInputArguments().get("shippingOptions").add(deliveryAddressArg);
+    return projection;
+  }
+
+  public SubscriptionShippingOptionResultProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> shippingOptionsWithVariableReferences(
+      String deliveryAddressReference) {
+    SubscriptionShippingOptionResultProjection<SubscriptionDraftProjectionRoot<PARENT, ROOT>, SubscriptionDraftProjectionRoot<PARENT, ROOT>> projection = new SubscriptionShippingOptionResultProjection<>(this, this);    
+    getFields().put("shippingOptions", projection);
+    getInputArguments().computeIfAbsent("shippingOptions", k -> new ArrayList<>());              
+    InputArgument deliveryAddressArg = new InputArgument("deliveryAddress", deliveryAddressReference, true, new graphql.language.TypeName("MailingAddressInput"));
     getInputArguments().get("shippingOptions").add(deliveryAddressArg);
     return projection;
   }

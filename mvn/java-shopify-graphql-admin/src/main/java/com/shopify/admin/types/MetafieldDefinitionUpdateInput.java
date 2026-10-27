@@ -13,7 +13,7 @@ import java.util.Objects;
 public class MetafieldDefinitionUpdateInput {
   /**
    * The container for a group of metafields that the metafield definition is associated with. Used to help identify
-   * the metafield definition, but cannot be updated itself. If omitted, the app-reserved namespace will be used.
+   * the metafield definition, but can't be updated itself. If omitted, the app-reserved namespace will be used.
    */
   private String namespace;
 
@@ -73,7 +73,7 @@ public class MetafieldDefinitionUpdateInput {
 
   /**
    * The container for a group of metafields that the metafield definition is associated with. Used to help identify
-   * the metafield definition, but cannot be updated itself. If omitted, the app-reserved namespace will be used.
+   * the metafield definition, but can't be updated itself. If omitted, the app-reserved namespace will be used.
    */
   public String getNamespace() {
     return namespace;
@@ -222,7 +222,7 @@ public class MetafieldDefinitionUpdateInput {
   public static class Builder {
     /**
      * The container for a group of metafields that the metafield definition is associated with. Used to help identify
-     * the metafield definition, but cannot be updated itself. If omitted, the app-reserved namespace will be used.
+     * the metafield definition, but can't be updated itself. If omitted, the app-reserved namespace will be used.
      */
     private String namespace;
 
@@ -294,7 +294,7 @@ public class MetafieldDefinitionUpdateInput {
 
     /**
      * The container for a group of metafields that the metafield definition is associated with. Used to help identify
-     * the metafield definition, but cannot be updated itself. If omitted, the app-reserved namespace will be used.
+     * the metafield definition, but can't be updated itself. If omitted, the app-reserved namespace will be used.
      */
     public Builder namespace(String namespace) {
       this.namespace = namespace;

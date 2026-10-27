@@ -17,6 +17,11 @@ public class SubscriptionBillingPolicy {
   private List<SellingPlanAnchor> anchors;
 
   /**
+   * The billing cadence associated with the subscription contract.
+   */
+  private SubscriptionContractCalculationCadence cadence;
+
+  /**
    * The kind of interval that's associated with this schedule (e.g. Monthly, Weekly, etc).
    */
   private SellingPlanInterval interval;
@@ -48,6 +53,17 @@ public class SubscriptionBillingPolicy {
 
   public void setAnchors(List<SellingPlanAnchor> anchors) {
     this.anchors = anchors;
+  }
+
+  /**
+   * The billing cadence associated with the subscription contract.
+   */
+  public SubscriptionContractCalculationCadence getCadence() {
+    return cadence;
+  }
+
+  public void setCadence(SubscriptionContractCalculationCadence cadence) {
+    this.cadence = cadence;
   }
 
   /**
@@ -96,7 +112,7 @@ public class SubscriptionBillingPolicy {
 
   @Override
   public String toString() {
-    return "SubscriptionBillingPolicy{anchors='" + anchors + "', interval='" + interval + "', intervalCount='" + intervalCount + "', maxCycles='" + maxCycles + "', minCycles='" + minCycles + "'}";
+    return "SubscriptionBillingPolicy{anchors='" + anchors + "', cadence='" + cadence + "', interval='" + interval + "', intervalCount='" + intervalCount + "', maxCycles='" + maxCycles + "', minCycles='" + minCycles + "'}";
   }
 
   @Override
@@ -105,6 +121,7 @@ public class SubscriptionBillingPolicy {
     if (o == null || getClass() != o.getClass()) return false;
     SubscriptionBillingPolicy that = (SubscriptionBillingPolicy) o;
     return Objects.equals(anchors, that.anchors) &&
+        Objects.equals(cadence, that.cadence) &&
         Objects.equals(interval, that.interval) &&
         intervalCount == that.intervalCount &&
         Objects.equals(maxCycles, that.maxCycles) &&
@@ -113,7 +130,7 @@ public class SubscriptionBillingPolicy {
 
   @Override
   public int hashCode() {
-    return Objects.hash(anchors, interval, intervalCount, maxCycles, minCycles);
+    return Objects.hash(anchors, cadence, interval, intervalCount, maxCycles, minCycles);
   }
 
   public static Builder newBuilder() {
@@ -125,6 +142,11 @@ public class SubscriptionBillingPolicy {
      * Specific anchor dates upon which the billing interval calculations should be made.
      */
     private List<SellingPlanAnchor> anchors;
+
+    /**
+     * The billing cadence associated with the subscription contract.
+     */
+    private SubscriptionContractCalculationCadence cadence;
 
     /**
      * The kind of interval that's associated with this schedule (e.g. Monthly, Weekly, etc).
@@ -149,6 +171,7 @@ public class SubscriptionBillingPolicy {
     public SubscriptionBillingPolicy build() {
       SubscriptionBillingPolicy result = new SubscriptionBillingPolicy();
       result.anchors = this.anchors;
+      result.cadence = this.cadence;
       result.interval = this.interval;
       result.intervalCount = this.intervalCount;
       result.maxCycles = this.maxCycles;
@@ -161,6 +184,14 @@ public class SubscriptionBillingPolicy {
      */
     public Builder anchors(List<SellingPlanAnchor> anchors) {
       this.anchors = anchors;
+      return this;
+    }
+
+    /**
+     * The billing cadence associated with the subscription contract.
+     */
+    public Builder cadence(SubscriptionContractCalculationCadence cadence) {
+      this.cadence = cadence;
       return this;
     }
 

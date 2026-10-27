@@ -104,6 +104,11 @@ public class Metaobject implements MetafieldReference, MetafieldReferencer, com.
    */
   private OffsetDateTime updatedAt;
 
+  /**
+   * The values of the metaobject.
+   */
+  private String values;
+
   public Metaobject() {
   }
 
@@ -283,9 +288,20 @@ public class Metaobject implements MetafieldReference, MetafieldReferencer, com.
     this.updatedAt = updatedAt;
   }
 
+  /**
+   * The values of the metaobject.
+   */
+  public String getValues() {
+    return values;
+  }
+
+  public void setValues(String values) {
+    this.values = values;
+  }
+
   @Override
   public String toString() {
-    return "Metaobject{capabilities='" + capabilities + "', createdAt='" + createdAt + "', createdBy='" + createdBy + "', createdByApp='" + createdByApp + "', createdByStaff='" + createdByStaff + "', definition='" + definition + "', displayName='" + displayName + "', field='" + field + "', fields='" + fields + "', handle='" + handle + "', id='" + id + "', referencedBy='" + referencedBy + "', staffMember='" + staffMember + "', thumbnailField='" + thumbnailField + "', type='" + type + "', updatedAt='" + updatedAt + "'}";
+    return "Metaobject{capabilities='" + capabilities + "', createdAt='" + createdAt + "', createdBy='" + createdBy + "', createdByApp='" + createdByApp + "', createdByStaff='" + createdByStaff + "', definition='" + definition + "', displayName='" + displayName + "', field='" + field + "', fields='" + fields + "', handle='" + handle + "', id='" + id + "', referencedBy='" + referencedBy + "', staffMember='" + staffMember + "', thumbnailField='" + thumbnailField + "', type='" + type + "', updatedAt='" + updatedAt + "', values='" + values + "'}";
   }
 
   @Override
@@ -308,12 +324,13 @@ public class Metaobject implements MetafieldReference, MetafieldReferencer, com.
         Objects.equals(staffMember, that.staffMember) &&
         Objects.equals(thumbnailField, that.thumbnailField) &&
         Objects.equals(type, that.type) &&
-        Objects.equals(updatedAt, that.updatedAt);
+        Objects.equals(updatedAt, that.updatedAt) &&
+        Objects.equals(values, that.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capabilities, createdAt, createdBy, createdByApp, createdByStaff, definition, displayName, field, fields, handle, id, referencedBy, staffMember, thumbnailField, type, updatedAt);
+    return Objects.hash(capabilities, createdAt, createdBy, createdByApp, createdByStaff, definition, displayName, field, fields, handle, id, referencedBy, staffMember, thumbnailField, type, updatedAt, values);
   }
 
   public static Builder newBuilder() {
@@ -401,6 +418,11 @@ public class Metaobject implements MetafieldReference, MetafieldReferencer, com.
      */
     private OffsetDateTime updatedAt;
 
+    /**
+     * The values of the metaobject.
+     */
+    private String values;
+
     public Metaobject build() {
       Metaobject result = new Metaobject();
       result.capabilities = this.capabilities;
@@ -419,6 +441,7 @@ public class Metaobject implements MetafieldReference, MetafieldReferencer, com.
       result.thumbnailField = this.thumbnailField;
       result.type = this.type;
       result.updatedAt = this.updatedAt;
+      result.values = this.values;
       return result;
     }
 
@@ -547,6 +570,14 @@ public class Metaobject implements MetafieldReference, MetafieldReferencer, com.
      */
     public Builder updatedAt(OffsetDateTime updatedAt) {
       this.updatedAt = updatedAt;
+      return this;
+    }
+
+    /**
+     * The values of the metaobject.
+     */
+    public Builder values(String values) {
+      this.values = values;
       return this;
     }
   }

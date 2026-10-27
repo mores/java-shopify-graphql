@@ -70,9 +70,9 @@ public class CompanyAddressFragmentProjection<PARENT extends BaseSubProjectionNo
       Boolean withCompanyName) {
     getFields().put("formattedAddress", null);
     getInputArguments().computeIfAbsent("formattedAddress", k -> new ArrayList<>());
-    InputArgument withNameArg = new InputArgument("withName", withName);
+    InputArgument withNameArg = new InputArgument("withName", withName, false, null);
     getInputArguments().get("formattedAddress").add(withNameArg);
-    InputArgument withCompanyNameArg = new InputArgument("withCompanyName", withCompanyName);
+    InputArgument withCompanyNameArg = new InputArgument("withCompanyName", withCompanyName, false, null);
     getInputArguments().get("formattedAddress").add(withCompanyNameArg);
     return this;
   }

@@ -15,8 +15,7 @@ public class RemoteStripePaymentMethodInput {
   private String customerId;
 
   /**
-   * The payment_method_id value from the Stripe API. Starting on 2025,
-   * payment_method_id will become mandatory for all API versions.
+   * The payment_method_id value from the Stripe API.
    */
   private String paymentMethodId;
 
@@ -35,8 +34,7 @@ public class RemoteStripePaymentMethodInput {
   }
 
   /**
-   * The payment_method_id value from the Stripe API. Starting on 2025,
-   * payment_method_id will become mandatory for all API versions.
+   * The payment_method_id value from the Stripe API.
    */
   public String getPaymentMethodId() {
     return paymentMethodId;
@@ -76,8 +74,7 @@ public class RemoteStripePaymentMethodInput {
     private String customerId;
 
     /**
-     * The payment_method_id value from the Stripe API. Starting on 2025,
-     * payment_method_id will become mandatory for all API versions.
+     * The payment_method_id value from the Stripe API.
      */
     private String paymentMethodId;
 
@@ -97,8 +94,7 @@ public class RemoteStripePaymentMethodInput {
     }
 
     /**
-     * The payment_method_id value from the Stripe API. Starting on 2025,
-     * payment_method_id will become mandatory for all API versions.
+     * The payment_method_id value from the Stripe API.
      */
     public Builder paymentMethodId(String paymentMethodId) {
       this.paymentMethodId = paymentMethodId;

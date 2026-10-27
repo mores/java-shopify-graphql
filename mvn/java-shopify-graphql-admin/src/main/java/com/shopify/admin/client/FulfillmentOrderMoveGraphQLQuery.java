@@ -2,10 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.FulfillmentOrderLineItemInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -61,6 +65,27 @@ public class FulfillmentOrderMoveGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public FulfillmentOrderMoveGraphQLQuery(String id, String newLocationId,
+      List<FulfillmentOrderLineItemInput> fulfillmentOrderLineItems, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (newLocationId != null || fieldsSet.contains("newLocationId")) {
+        getInput().put("newLocationId", newLocationId);
+    }if (fulfillmentOrderLineItems != null || fieldsSet.contains("fulfillmentOrderLineItems")) {
+        getInput().put("fulfillmentOrderLineItems", fulfillmentOrderLineItems);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public FulfillmentOrderMoveGraphQLQuery() {
     super("mutation");
   }
@@ -77,6 +102,10 @@ public class FulfillmentOrderMoveGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private String newLocationId;
@@ -86,7 +115,7 @@ public class FulfillmentOrderMoveGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public FulfillmentOrderMoveGraphQLQuery build() {
-      return new FulfillmentOrderMoveGraphQLQuery(id, newLocationId, fulfillmentOrderLineItems, queryName, fieldsSet);
+      return new FulfillmentOrderMoveGraphQLQuery(id, newLocationId, fulfillmentOrderLineItems, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -95,6 +124,16 @@ public class FulfillmentOrderMoveGraphQLQuery extends GraphQLQuery {
      */
     public Builder id(String id) {
       this.id = id;
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
+     * The ID of the fulfillment order to be moved.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("id");
       return this;
     }
@@ -109,12 +148,33 @@ public class FulfillmentOrderMoveGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the location where the fulfillment order will be moved.
+     */
+    public Builder newLocationIdReference(String variableRef) {
+      this.variableReferences.put("newLocationId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("newLocationId");
+      return this;
+    }
+
+    /**
      * The fulfillment order line items to be moved.
      * If left blank, all unfulfilled line items belonging to the fulfillment order are moved.
      */
     public Builder fulfillmentOrderLineItems(
         List<FulfillmentOrderLineItemInput> fulfillmentOrderLineItems) {
       this.fulfillmentOrderLineItems = fulfillmentOrderLineItems;
+      this.fieldsSet.add("fulfillmentOrderLineItems");
+      return this;
+    }
+
+    /**
+     * The fulfillment order line items to be moved.
+     * If left blank, all unfulfilled line items belonging to the fulfillment order are moved.
+     */
+    public Builder fulfillmentOrderLineItemsReference(String variableRef) {
+      this.variableReferences.put("fulfillmentOrderLineItems", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("FulfillmentOrderLineItemInput")))).build());
       this.fieldsSet.add("fulfillmentOrderLineItems");
       return this;
     }

@@ -7,9 +7,18 @@ package com.shopify.storefront.types;
  * The value `ALL`, combined with a `targetType` of `SHIPPING_LINE`, applies the discount on all shipping lines.
  */
 public enum DiscountApplicationTargetSelection {
+  /**
+   * The discount is allocated onto all the lines.
+   */
   ALL,
 
+  /**
+   * The discount is allocated onto only the lines that it's entitled for.
+   */
   ENTITLED,
 
+  /**
+   * The discount is allocated onto explicitly chosen lines.
+   */
   EXPLICIT
 }

@@ -33,7 +33,7 @@ import java.util.Objects;
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE
 )
-public class DiscountAutomaticBasic implements Discount, DiscountAutomatic {
+public class DiscountAutomaticBasic implements Discount, DiscountAutomatic, com.shopify.admin.types.HasRollouts {
   /**
    * The number of times that the discount has been used.
    * For example, if a "Buy 3, Get 1 Free" t-shirt discount
@@ -97,6 +97,15 @@ public class DiscountAutomaticBasic implements Discount, DiscountAutomatic {
    * subscription. If you specify `0`, then the discount applies indefinitely.
    */
   private int recurringCycleLimit;
+
+  /**
+   * The rollouts that include this discount. A rollout includes a discount when
+   * one of its treatments adds or removes the discount. Walk
+   * `treatments.changes` to see what each treatment does to the discount.
+   * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+   * Use `query` to filter by rollout `status`.
+   */
+  private RolloutConnection rollouts;
 
   /**
    * An abbreviated version of the discount
@@ -273,6 +282,21 @@ public class DiscountAutomaticBasic implements Discount, DiscountAutomatic {
   }
 
   /**
+   * The rollouts that include this discount. A rollout includes a discount when
+   * one of its treatments adds or removes the discount. Walk
+   * `treatments.changes` to see what each treatment does to the discount.
+   * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+   * Use `query` to filter by rollout `status`.
+   */
+  public RolloutConnection getRollouts() {
+    return rollouts;
+  }
+
+  public void setRollouts(RolloutConnection rollouts) {
+    this.rollouts = rollouts;
+  }
+
+  /**
    * An abbreviated version of the discount
    * [`summary`](https://shopify.dev/docs/api/admin-graphql/latest/objects/DiscountAutomaticBasic#field-summary)
    * field.
@@ -369,7 +393,7 @@ public class DiscountAutomaticBasic implements Discount, DiscountAutomatic {
 
   @Override
   public String toString() {
-    return "DiscountAutomaticBasic{asyncUsageCount='" + asyncUsageCount + "', combinesWith='" + combinesWith + "', context='" + context + "', createdAt='" + createdAt + "', customerGets='" + customerGets + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', endsAt='" + endsAt + "', minimumRequirement='" + minimumRequirement + "', recurringCycleLimit='" + recurringCycleLimit + "', shortSummary='" + shortSummary + "', startsAt='" + startsAt + "', status='" + status + "', summary='" + summary + "', tags='" + tags + "', title='" + title + "', updatedAt='" + updatedAt + "', usageCount='" + usageCount + "'}";
+    return "DiscountAutomaticBasic{asyncUsageCount='" + asyncUsageCount + "', combinesWith='" + combinesWith + "', context='" + context + "', createdAt='" + createdAt + "', customerGets='" + customerGets + "', discountClass='" + discountClass + "', discountClasses='" + discountClasses + "', endsAt='" + endsAt + "', minimumRequirement='" + minimumRequirement + "', recurringCycleLimit='" + recurringCycleLimit + "', rollouts='" + rollouts + "', shortSummary='" + shortSummary + "', startsAt='" + startsAt + "', status='" + status + "', summary='" + summary + "', tags='" + tags + "', title='" + title + "', updatedAt='" + updatedAt + "', usageCount='" + usageCount + "'}";
   }
 
   @Override
@@ -387,6 +411,7 @@ public class DiscountAutomaticBasic implements Discount, DiscountAutomatic {
         Objects.equals(endsAt, that.endsAt) &&
         Objects.equals(minimumRequirement, that.minimumRequirement) &&
         recurringCycleLimit == that.recurringCycleLimit &&
+        Objects.equals(rollouts, that.rollouts) &&
         Objects.equals(shortSummary, that.shortSummary) &&
         Objects.equals(startsAt, that.startsAt) &&
         Objects.equals(status, that.status) &&
@@ -399,7 +424,7 @@ public class DiscountAutomaticBasic implements Discount, DiscountAutomatic {
 
   @Override
   public int hashCode() {
-    return Objects.hash(asyncUsageCount, combinesWith, context, createdAt, customerGets, discountClass, discountClasses, endsAt, minimumRequirement, recurringCycleLimit, shortSummary, startsAt, status, summary, tags, title, updatedAt, usageCount);
+    return Objects.hash(asyncUsageCount, combinesWith, context, createdAt, customerGets, discountClass, discountClasses, endsAt, minimumRequirement, recurringCycleLimit, rollouts, shortSummary, startsAt, status, summary, tags, title, updatedAt, usageCount);
   }
 
   public static Builder newBuilder() {
@@ -472,6 +497,15 @@ public class DiscountAutomaticBasic implements Discount, DiscountAutomatic {
     private int recurringCycleLimit;
 
     /**
+     * The rollouts that include this discount. A rollout includes a discount when
+     * one of its treatments adds or removes the discount. Walk
+     * `treatments.changes` to see what each treatment does to the discount.
+     * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+     * Use `query` to filter by rollout `status`.
+     */
+    private RolloutConnection rollouts;
+
+    /**
      * An abbreviated version of the discount
      * [`summary`](https://shopify.dev/docs/api/admin-graphql/latest/objects/DiscountAutomaticBasic#field-summary)
      * field.
@@ -530,6 +564,7 @@ public class DiscountAutomaticBasic implements Discount, DiscountAutomatic {
       result.endsAt = this.endsAt;
       result.minimumRequirement = this.minimumRequirement;
       result.recurringCycleLimit = this.recurringCycleLimit;
+      result.rollouts = this.rollouts;
       result.shortSummary = this.shortSummary;
       result.startsAt = this.startsAt;
       result.status = this.status;
@@ -632,6 +667,18 @@ public class DiscountAutomaticBasic implements Discount, DiscountAutomatic {
      */
     public Builder recurringCycleLimit(int recurringCycleLimit) {
       this.recurringCycleLimit = recurringCycleLimit;
+      return this;
+    }
+
+    /**
+     * The rollouts that include this discount. A rollout includes a discount when
+     * one of its treatments adds or removes the discount. Walk
+     * `treatments.changes` to see what each treatment does to the discount.
+     * A rollout's schedule is separate from the discount's own `startsAt` and `endsAt`.
+     * Use `query` to filter by rollout `status`.
+     */
+    public Builder rollouts(RolloutConnection rollouts) {
+      this.rollouts = rollouts;
       return this;
     }
 

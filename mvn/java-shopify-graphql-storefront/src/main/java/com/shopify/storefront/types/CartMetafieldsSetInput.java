@@ -15,7 +15,8 @@ public class CartMetafieldsSetInput {
   private String ownerId;
 
   /**
-   * The key name of the cart metafield.
+   * The key name of the cart metafield. This can either be a composite key (`namespace.key`) or a simple key
+   * that relies on the default app-reserved namespace.
    */
   private String key;
 
@@ -45,7 +46,8 @@ public class CartMetafieldsSetInput {
   }
 
   /**
-   * The key name of the cart metafield.
+   * The key name of the cart metafield. This can either be a composite key (`namespace.key`) or a simple key
+   * that relies on the default app-reserved namespace.
    */
   public String getKey() {
     return key;
@@ -110,7 +112,8 @@ public class CartMetafieldsSetInput {
     private String ownerId;
 
     /**
-     * The key name of the cart metafield.
+     * The key name of the cart metafield. This can either be a composite key (`namespace.key`) or a simple key
+     * that relies on the default app-reserved namespace.
      */
     private String key;
 
@@ -143,7 +146,8 @@ public class CartMetafieldsSetInput {
     }
 
     /**
-     * The key name of the cart metafield.
+     * The key name of the cart metafield. This can either be a composite key (`namespace.key`) or a simple key
+     * that relies on the default app-reserved namespace.
      */
     public Builder key(String key) {
       this.key = key;

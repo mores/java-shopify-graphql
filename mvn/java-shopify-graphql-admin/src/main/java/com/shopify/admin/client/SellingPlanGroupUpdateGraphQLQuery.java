@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.SellingPlanGroupInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -19,6 +24,24 @@ public class SellingPlanGroupUpdateGraphQLQuery extends GraphQLQuery {
     }if (input != null || fieldsSet.contains("input")) {
         getInput().put("input", input);
     }
+  }
+
+  public SellingPlanGroupUpdateGraphQLQuery(String id, SellingPlanGroupInput input,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (input != null || fieldsSet.contains("input")) {
+        getInput().put("input", input);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public SellingPlanGroupUpdateGraphQLQuery() {
@@ -37,6 +60,10 @@ public class SellingPlanGroupUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private SellingPlanGroupInput input;
@@ -44,7 +71,7 @@ public class SellingPlanGroupUpdateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public SellingPlanGroupUpdateGraphQLQuery build() {
-      return new SellingPlanGroupUpdateGraphQLQuery(id, input, queryName, fieldsSet);
+      return new SellingPlanGroupUpdateGraphQLQuery(id, input, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -58,10 +85,30 @@ public class SellingPlanGroupUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The Selling Plan Group to update.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The properties of the Selling Plan Group to update.
      */
     public Builder input(SellingPlanGroupInput input) {
       this.input = input;
+      this.fieldsSet.add("input");
+      return this;
+    }
+
+    /**
+     * The properties of the Selling Plan Group to update.
+     */
+    public Builder inputReference(String variableRef) {
+      this.variableReferences.put("input", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("SellingPlanGroupInput"))).build());
       this.fieldsSet.add("input");
       return this;
     }

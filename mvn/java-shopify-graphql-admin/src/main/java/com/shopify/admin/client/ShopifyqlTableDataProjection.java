@@ -19,6 +19,13 @@ public class ShopifyqlTableDataProjection<PARENT extends BaseSubProjectionNode<?
      return projection;
   }
 
+  public ShopifyqlRowMetadataProjection<ShopifyqlTableDataProjection<PARENT, ROOT>, ROOT> rowMetadata(
+      ) {
+     ShopifyqlRowMetadataProjection<ShopifyqlTableDataProjection<PARENT, ROOT>, ROOT> projection = new ShopifyqlRowMetadataProjection<>(this, getRoot());
+     getFields().put("rowMetadata", projection);
+     return projection;
+  }
+
   public ShopifyqlTableDataProjection<PARENT, ROOT> rows() {
     getFields().put("rows", null);
     return this;

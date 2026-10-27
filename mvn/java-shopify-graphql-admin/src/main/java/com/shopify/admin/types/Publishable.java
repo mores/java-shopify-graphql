@@ -14,7 +14,8 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 )
 @JsonSubTypes({
     @JsonSubTypes.Type(value = Collection.class, name = "Collection"),
-    @JsonSubTypes.Type(value = Product.class, name = "Product")
+    @JsonSubTypes.Type(value = Product.class, name = "Product"),
+    @JsonSubTypes.Type(value = ProductVariant.class, name = "ProductVariant")
 })
 public interface Publishable {
   /**
@@ -26,10 +27,11 @@ public interface Publishable {
   Count getAvailablePublicationsCount();
 
   /**
-   * The number of
+   * The total number of
    * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
-   * that a resource is published to, without
+   * that a resource is published to, including publications with
    * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+   * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
    */
   int getPublicationCount();
 
@@ -65,16 +67,21 @@ public interface Publishable {
   ResourcePublicationConnection getResourcePublications();
 
   /**
-   * The number of
+   * The total number of
    * [publications](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication)
-   * that a resource is published to, without
+   * that a resource is published to, including publications with
    * [feedback errors](https://shopify.dev/docs/api/admin-graphql/latest/objects/ResourceFeedback).
+   * To get a count that excludes publications with feedback errors, use `availablePublicationsCount`.
    */
   Count getResourcePublicationsCount();
 
   /**
    * The list of resources that are either published or staged to be published to a
    * [publication](https://shopify.dev/docs/api/admin-graphql/latest/objects/Publication).
+   * By default, only publications to `APP` catalog types are returned.
+   * For `Product` and `ProductVariant`, use the `catalogType` argument to retrieve
+   * publications for other catalog types, such as `COMPANY_LOCATION` (B2B) or `MARKET`.
+   * `Collection` only supports publications to `APP` catalog types.
    */
   ResourcePublicationV2Connection getResourcePublicationsV2();
 

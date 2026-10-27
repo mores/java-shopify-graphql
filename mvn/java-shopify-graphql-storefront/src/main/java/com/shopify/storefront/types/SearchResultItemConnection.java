@@ -31,7 +31,9 @@ public class SearchResultItemConnection {
   private List<Filter> productFilters;
 
   /**
-   * The total number of results.
+   * The total number of results, up to a maximum of 1,000. If a search matches
+   * more than 1,000 results, then it returns 1,000, and pagination returns up to
+   * the first 1,000 results.
    */
   private int totalCount;
 
@@ -83,7 +85,9 @@ public class SearchResultItemConnection {
   }
 
   /**
-   * The total number of results.
+   * The total number of results, up to a maximum of 1,000. If a search matches
+   * more than 1,000 results, then it returns 1,000, and pagination returns up to
+   * the first 1,000 results.
    */
   public int getTotalCount() {
     return totalCount;
@@ -141,7 +145,9 @@ public class SearchResultItemConnection {
     private List<Filter> productFilters;
 
     /**
-     * The total number of results.
+     * The total number of results, up to a maximum of 1,000. If a search matches
+     * more than 1,000 results, then it returns 1,000, and pagination returns up to
+     * the first 1,000 results.
      */
     private int totalCount;
 
@@ -188,7 +194,9 @@ public class SearchResultItemConnection {
     }
 
     /**
-     * The total number of results.
+     * The total number of results, up to a maximum of 1,000. If a search matches
+     * more than 1,000 results, then it returns 1,000, and pagination returns up to
+     * the first 1,000 results.
      */
     public Builder totalCount(int totalCount) {
       this.totalCount = totalCount;

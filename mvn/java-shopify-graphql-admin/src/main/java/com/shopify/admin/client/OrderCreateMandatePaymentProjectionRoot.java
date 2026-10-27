@@ -19,6 +19,13 @@ public class OrderCreateMandatePaymentProjectionRoot<PARENT extends BaseSubProje
     return projection;
   }
 
+  public OrderCreateMandatePaymentJobResultProjection<OrderCreateMandatePaymentProjectionRoot<PARENT, ROOT>, OrderCreateMandatePaymentProjectionRoot<PARENT, ROOT>> jobResult(
+      ) {
+    OrderCreateMandatePaymentJobResultProjection<OrderCreateMandatePaymentProjectionRoot<PARENT, ROOT>, OrderCreateMandatePaymentProjectionRoot<PARENT, ROOT>> projection = new OrderCreateMandatePaymentJobResultProjection<>(this, this);    
+    getFields().put("jobResult", projection);
+    return projection;
+  }
+
   public OrderCreateMandatePaymentUserErrorProjection<OrderCreateMandatePaymentProjectionRoot<PARENT, ROOT>, OrderCreateMandatePaymentProjectionRoot<PARENT, ROOT>> userErrors(
       ) {
     OrderCreateMandatePaymentUserErrorProjection<OrderCreateMandatePaymentProjectionRoot<PARENT, ROOT>, OrderCreateMandatePaymentProjectionRoot<PARENT, ROOT>> projection = new OrderCreateMandatePaymentUserErrorProjection<>(this, this);    

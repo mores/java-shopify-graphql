@@ -23,6 +23,14 @@ public class CalculatedReturnShippingFee implements com.shopify.admin.types.Calc
    */
   private String id;
 
+  /**
+   * The estimated tax amount on the return shipping fee, in shop and presentment
+   * currencies. Estimated when the return is calculated or created, and zero when
+   * no tax applies to the fee. For the tax actually charged, use
+   * `ReturnShippingFee.finalizedTaxAmountSet` once the return is processed.
+   */
+  private MoneyBag taxAmountSet;
+
   public CalculatedReturnShippingFee() {
   }
 
@@ -48,9 +56,23 @@ public class CalculatedReturnShippingFee implements com.shopify.admin.types.Calc
     this.id = id;
   }
 
+  /**
+   * The estimated tax amount on the return shipping fee, in shop and presentment
+   * currencies. Estimated when the return is calculated or created, and zero when
+   * no tax applies to the fee. For the tax actually charged, use
+   * `ReturnShippingFee.finalizedTaxAmountSet` once the return is processed.
+   */
+  public MoneyBag getTaxAmountSet() {
+    return taxAmountSet;
+  }
+
+  public void setTaxAmountSet(MoneyBag taxAmountSet) {
+    this.taxAmountSet = taxAmountSet;
+  }
+
   @Override
   public String toString() {
-    return "CalculatedReturnShippingFee{amountSet='" + amountSet + "', id='" + id + "'}";
+    return "CalculatedReturnShippingFee{amountSet='" + amountSet + "', id='" + id + "', taxAmountSet='" + taxAmountSet + "'}";
   }
 
   @Override
@@ -59,12 +81,13 @@ public class CalculatedReturnShippingFee implements com.shopify.admin.types.Calc
     if (o == null || getClass() != o.getClass()) return false;
     CalculatedReturnShippingFee that = (CalculatedReturnShippingFee) o;
     return Objects.equals(amountSet, that.amountSet) &&
-        Objects.equals(id, that.id);
+        Objects.equals(id, that.id) &&
+        Objects.equals(taxAmountSet, that.taxAmountSet);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amountSet, id);
+    return Objects.hash(amountSet, id, taxAmountSet);
   }
 
   public static Builder newBuilder() {
@@ -82,10 +105,19 @@ public class CalculatedReturnShippingFee implements com.shopify.admin.types.Calc
      */
     private String id;
 
+    /**
+     * The estimated tax amount on the return shipping fee, in shop and presentment
+     * currencies. Estimated when the return is calculated or created, and zero when
+     * no tax applies to the fee. For the tax actually charged, use
+     * `ReturnShippingFee.finalizedTaxAmountSet` once the return is processed.
+     */
+    private MoneyBag taxAmountSet;
+
     public CalculatedReturnShippingFee build() {
       CalculatedReturnShippingFee result = new CalculatedReturnShippingFee();
       result.amountSet = this.amountSet;
       result.id = this.id;
+      result.taxAmountSet = this.taxAmountSet;
       return result;
     }
 
@@ -102,6 +134,17 @@ public class CalculatedReturnShippingFee implements com.shopify.admin.types.Calc
      */
     public Builder id(String id) {
       this.id = id;
+      return this;
+    }
+
+    /**
+     * The estimated tax amount on the return shipping fee, in shop and presentment
+     * currencies. Estimated when the return is calculated or created, and zero when
+     * no tax applies to the fee. For the tax actually charged, use
+     * `ReturnShippingFee.finalizedTaxAmountSet` once the return is processed.
+     */
+    public Builder taxAmountSet(MoneyBag taxAmountSet) {
+      this.taxAmountSet = taxAmountSet;
       return this;
     }
   }

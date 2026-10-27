@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.CustomerPaymentMethodRemoteInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -32,6 +37,24 @@ public class CustomerPaymentMethodRemoteCreateGraphQLQuery extends GraphQLQuery 
     }
   }
 
+  public CustomerPaymentMethodRemoteCreateGraphQLQuery(String customerId,
+      CustomerPaymentMethodRemoteInput remoteReference, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (customerId != null || fieldsSet.contains("customerId")) {
+        getInput().put("customerId", customerId);
+    }if (remoteReference != null || fieldsSet.contains("remoteReference")) {
+        getInput().put("remoteReference", remoteReference);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public CustomerPaymentMethodRemoteCreateGraphQLQuery() {
     super("mutation");
   }
@@ -48,6 +71,10 @@ public class CustomerPaymentMethodRemoteCreateGraphQLQuery extends GraphQLQuery 
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String customerId;
 
     private CustomerPaymentMethodRemoteInput remoteReference;
@@ -55,7 +82,7 @@ public class CustomerPaymentMethodRemoteCreateGraphQLQuery extends GraphQLQuery 
     private String queryName;
 
     public CustomerPaymentMethodRemoteCreateGraphQLQuery build() {
-      return new CustomerPaymentMethodRemoteCreateGraphQLQuery(customerId, remoteReference, queryName, fieldsSet);
+      return new CustomerPaymentMethodRemoteCreateGraphQLQuery(customerId, remoteReference, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -69,10 +96,30 @@ public class CustomerPaymentMethodRemoteCreateGraphQLQuery extends GraphQLQuery 
     }
 
     /**
+     * The ID of the customer.
+     */
+    public Builder customerIdReference(String variableRef) {
+      this.variableReferences.put("customerId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("customerId");
+      return this;
+    }
+
+    /**
      * Remote gateway payment method details.
      */
     public Builder remoteReference(CustomerPaymentMethodRemoteInput remoteReference) {
       this.remoteReference = remoteReference;
+      this.fieldsSet.add("remoteReference");
+      return this;
+    }
+
+    /**
+     * Remote gateway payment method details.
+     */
+    public Builder remoteReferenceReference(String variableRef) {
+      this.variableReferences.put("remoteReference", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("CustomerPaymentMethodRemoteInput"))).build());
       this.fieldsSet.add("remoteReference");
       return this;
     }

@@ -1,10 +1,14 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -34,6 +38,22 @@ public class AppRevokeAccessScopesGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public AppRevokeAccessScopesGraphQLQuery(List<String> scopes, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (scopes != null || fieldsSet.contains("scopes")) {
+        getInput().put("scopes", scopes);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public AppRevokeAccessScopesGraphQLQuery() {
     super("mutation");
   }
@@ -50,12 +70,16 @@ public class AppRevokeAccessScopesGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private List<String> scopes;
 
     private String queryName;
 
     public AppRevokeAccessScopesGraphQLQuery build() {
-      return new AppRevokeAccessScopesGraphQLQuery(scopes, queryName, fieldsSet);
+      return new AppRevokeAccessScopesGraphQLQuery(scopes, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -64,6 +88,16 @@ public class AppRevokeAccessScopesGraphQLQuery extends GraphQLQuery {
      */
     public Builder scopes(List<String> scopes) {
       this.scopes = scopes;
+      this.fieldsSet.add("scopes");
+      return this;
+    }
+
+    /**
+     * The list of scope handles to revoke.
+     */
+    public Builder scopesReference(String variableRef) {
+      this.variableReferences.put("scopes", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("String"))))).build());
       this.fieldsSet.add("scopes");
       return this;
     }

@@ -1,9 +1,14 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -22,6 +27,22 @@ public class CheckoutBrandingGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public CheckoutBrandingGraphQLQuery(String checkoutProfileId, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("query", queryName);
+    if (checkoutProfileId != null || fieldsSet.contains("checkoutProfileId")) {
+        getInput().put("checkoutProfileId", checkoutProfileId);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public CheckoutBrandingGraphQLQuery() {
     super("query");
   }
@@ -38,12 +59,16 @@ public class CheckoutBrandingGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String checkoutProfileId;
 
     private String queryName;
 
     public CheckoutBrandingGraphQLQuery build() {
-      return new CheckoutBrandingGraphQLQuery(checkoutProfileId, queryName, fieldsSet);
+      return new CheckoutBrandingGraphQLQuery(checkoutProfileId, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -52,6 +77,16 @@ public class CheckoutBrandingGraphQLQuery extends GraphQLQuery {
      */
     public Builder checkoutProfileId(String checkoutProfileId) {
       this.checkoutProfileId = checkoutProfileId;
+      this.fieldsSet.add("checkoutProfileId");
+      return this;
+    }
+
+    /**
+     * A globally-unique identifier.
+     */
+    public Builder checkoutProfileIdReference(String variableRef) {
+      this.variableReferences.put("checkoutProfileId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
       this.fieldsSet.add("checkoutProfileId");
       return this;
     }

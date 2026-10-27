@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.DiscountAutomaticFreeShippingInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -39,6 +44,25 @@ public class DiscountAutomaticFreeShippingUpdateGraphQLQuery extends GraphQLQuer
     }
   }
 
+  public DiscountAutomaticFreeShippingUpdateGraphQLQuery(String id,
+      DiscountAutomaticFreeShippingInput freeShippingAutomaticDiscount, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (freeShippingAutomaticDiscount != null || fieldsSet.contains("freeShippingAutomaticDiscount")) {
+        getInput().put("freeShippingAutomaticDiscount", freeShippingAutomaticDiscount);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public DiscountAutomaticFreeShippingUpdateGraphQLQuery() {
     super("mutation");
   }
@@ -55,6 +79,10 @@ public class DiscountAutomaticFreeShippingUpdateGraphQLQuery extends GraphQLQuer
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private DiscountAutomaticFreeShippingInput freeShippingAutomaticDiscount;
@@ -62,7 +90,7 @@ public class DiscountAutomaticFreeShippingUpdateGraphQLQuery extends GraphQLQuer
     private String queryName;
 
     public DiscountAutomaticFreeShippingUpdateGraphQLQuery build() {
-      return new DiscountAutomaticFreeShippingUpdateGraphQLQuery(id, freeShippingAutomaticDiscount, queryName, fieldsSet);
+      return new DiscountAutomaticFreeShippingUpdateGraphQLQuery(id, freeShippingAutomaticDiscount, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -76,11 +104,31 @@ public class DiscountAutomaticFreeShippingUpdateGraphQLQuery extends GraphQLQuer
     }
 
     /**
+     * The ID of the automatic free shipping discount to update.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The input data used to update the automatic free shipping discount.
      */
     public Builder freeShippingAutomaticDiscount(
         DiscountAutomaticFreeShippingInput freeShippingAutomaticDiscount) {
       this.freeShippingAutomaticDiscount = freeShippingAutomaticDiscount;
+      this.fieldsSet.add("freeShippingAutomaticDiscount");
+      return this;
+    }
+
+    /**
+     * The input data used to update the automatic free shipping discount.
+     */
+    public Builder freeShippingAutomaticDiscountReference(String variableRef) {
+      this.variableReferences.put("freeShippingAutomaticDiscount", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("DiscountAutomaticFreeShippingInput"))).build());
       this.fieldsSet.add("freeShippingAutomaticDiscount");
       return this;
     }

@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.EventBridgeWebhookSubscriptionInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -28,6 +33,25 @@ public class EventBridgeWebhookSubscriptionUpdateGraphQLQuery extends GraphQLQue
     }
   }
 
+  public EventBridgeWebhookSubscriptionUpdateGraphQLQuery(String id,
+      EventBridgeWebhookSubscriptionInput webhookSubscription, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (webhookSubscription != null || fieldsSet.contains("webhookSubscription")) {
+        getInput().put("webhookSubscription", webhookSubscription);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public EventBridgeWebhookSubscriptionUpdateGraphQLQuery() {
     super("mutation");
   }
@@ -44,6 +68,10 @@ public class EventBridgeWebhookSubscriptionUpdateGraphQLQuery extends GraphQLQue
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private EventBridgeWebhookSubscriptionInput webhookSubscription;
@@ -51,7 +79,7 @@ public class EventBridgeWebhookSubscriptionUpdateGraphQLQuery extends GraphQLQue
     private String queryName;
 
     public EventBridgeWebhookSubscriptionUpdateGraphQLQuery build() {
-      return new EventBridgeWebhookSubscriptionUpdateGraphQLQuery(id, webhookSubscription, queryName, fieldsSet);
+      return new EventBridgeWebhookSubscriptionUpdateGraphQLQuery(id, webhookSubscription, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -65,10 +93,30 @@ public class EventBridgeWebhookSubscriptionUpdateGraphQLQuery extends GraphQLQue
     }
 
     /**
+     * The ID of the webhook subscription to update.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * Specifies the input fields for an EventBridge webhook subscription.
      */
     public Builder webhookSubscription(EventBridgeWebhookSubscriptionInput webhookSubscription) {
       this.webhookSubscription = webhookSubscription;
+      this.fieldsSet.add("webhookSubscription");
+      return this;
+    }
+
+    /**
+     * Specifies the input fields for an EventBridge webhook subscription.
+     */
+    public Builder webhookSubscriptionReference(String variableRef) {
+      this.variableReferences.put("webhookSubscription", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("EventBridgeWebhookSubscriptionInput"))).build());
       this.fieldsSet.add("webhookSubscription");
       return this;
     }

@@ -2,10 +2,15 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.MoneyInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -34,6 +39,28 @@ public class OrderCreateManualPaymentGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public OrderCreateManualPaymentGraphQLQuery(String id, MoneyInput amount,
+      String paymentMethodName, OffsetDateTime processedAt, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (amount != null || fieldsSet.contains("amount")) {
+        getInput().put("amount", amount);
+    }if (paymentMethodName != null || fieldsSet.contains("paymentMethodName")) {
+        getInput().put("paymentMethodName", paymentMethodName);
+    }if (processedAt != null || fieldsSet.contains("processedAt")) {
+        getInput().put("processedAt", processedAt);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public OrderCreateManualPaymentGraphQLQuery() {
     super("mutation");
   }
@@ -50,6 +77,10 @@ public class OrderCreateManualPaymentGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private MoneyInput amount;
@@ -61,7 +92,7 @@ public class OrderCreateManualPaymentGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public OrderCreateManualPaymentGraphQLQuery build() {
-      return new OrderCreateManualPaymentGraphQLQuery(id, amount, paymentMethodName, processedAt, queryName, fieldsSet);
+      return new OrderCreateManualPaymentGraphQLQuery(id, amount, paymentMethodName, processedAt, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -75,10 +106,30 @@ public class OrderCreateManualPaymentGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the order to create a manual payment for.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The manual payment amount to be created.
      */
     public Builder amount(MoneyInput amount) {
       this.amount = amount;
+      this.fieldsSet.add("amount");
+      return this;
+    }
+
+    /**
+     * The manual payment amount to be created.
+     */
+    public Builder amountReference(String variableRef) {
+      this.variableReferences.put("amount", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("MoneyInput")).build());
       this.fieldsSet.add("amount");
       return this;
     }
@@ -94,6 +145,17 @@ public class OrderCreateManualPaymentGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The name of the payment method used for creating the payment. If none is
+     * provided, then the default manual payment method ('Other') will be used.
+     */
+    public Builder paymentMethodNameReference(String variableRef) {
+      this.variableReferences.put("paymentMethodName", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
+      this.fieldsSet.add("paymentMethodName");
+      return this;
+    }
+
+    /**
      * The date and time ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
      * format) when a manual payment was processed. If you're importing
      * transactions from an app or another platform, then you can set processedAt
@@ -101,6 +163,19 @@ public class OrderCreateManualPaymentGraphQLQuery extends GraphQLQuery {
      */
     public Builder processedAt(OffsetDateTime processedAt) {
       this.processedAt = processedAt;
+      this.fieldsSet.add("processedAt");
+      return this;
+    }
+
+    /**
+     * The date and time ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
+     * format) when a manual payment was processed. If you're importing
+     * transactions from an app or another platform, then you can set processedAt
+     * to a date and time in the past to match when the original transaction was created.
+     */
+    public Builder processedAtReference(String variableRef) {
+      this.variableReferences.put("processedAt", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("DateTime")).build());
       this.fieldsSet.add("processedAt");
       return this;
     }

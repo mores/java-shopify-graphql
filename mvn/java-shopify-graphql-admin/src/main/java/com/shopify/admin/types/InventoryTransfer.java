@@ -97,7 +97,7 @@ public class InventoryTransfer implements CommentEventEmbed, com.shopify.admin.t
   private LocationSnapshot origin;
 
   /**
-   * The total quantity of items received in the transfer.
+   * The total quantity of items accepted, rejected, or marked as canceled in the transfer.
    */
   private int receivedQuantity;
 
@@ -280,7 +280,7 @@ public class InventoryTransfer implements CommentEventEmbed, com.shopify.admin.t
   }
 
   /**
-   * The total quantity of items received in the transfer.
+   * The total quantity of items accepted, rejected, or marked as canceled in the transfer.
    */
   public int getReceivedQuantity() {
     return receivedQuantity;
@@ -459,7 +459,7 @@ public class InventoryTransfer implements CommentEventEmbed, com.shopify.admin.t
     private LocationSnapshot origin;
 
     /**
-     * The total quantity of items received in the transfer.
+     * The total quantity of items accepted, rejected, or marked as canceled in the transfer.
      */
     private int receivedQuantity;
 
@@ -624,7 +624,7 @@ public class InventoryTransfer implements CommentEventEmbed, com.shopify.admin.t
     }
 
     /**
-     * The total quantity of items received in the transfer.
+     * The total quantity of items accepted, rejected, or marked as canceled in the transfer.
      */
     public Builder receivedQuantity(int receivedQuantity) {
       this.receivedQuantity = receivedQuantity;

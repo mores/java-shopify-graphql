@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.SubscriptionBillingCyclesTargetSelection;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -20,6 +25,25 @@ public class SubscriptionBillingCycleEditsDeleteGraphQLQuery extends GraphQLQuer
     }if (targetSelection != null || fieldsSet.contains("targetSelection")) {
         getInput().put("targetSelection", targetSelection);
     }
+  }
+
+  public SubscriptionBillingCycleEditsDeleteGraphQLQuery(String contractId,
+      SubscriptionBillingCyclesTargetSelection targetSelection, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (contractId != null || fieldsSet.contains("contractId")) {
+        getInput().put("contractId", contractId);
+    }if (targetSelection != null || fieldsSet.contains("targetSelection")) {
+        getInput().put("targetSelection", targetSelection);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
   }
 
   public SubscriptionBillingCycleEditsDeleteGraphQLQuery() {
@@ -38,6 +62,10 @@ public class SubscriptionBillingCycleEditsDeleteGraphQLQuery extends GraphQLQuer
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String contractId;
 
     private SubscriptionBillingCyclesTargetSelection targetSelection;
@@ -45,7 +73,7 @@ public class SubscriptionBillingCycleEditsDeleteGraphQLQuery extends GraphQLQuer
     private String queryName;
 
     public SubscriptionBillingCycleEditsDeleteGraphQLQuery build() {
-      return new SubscriptionBillingCycleEditsDeleteGraphQLQuery(contractId, targetSelection, queryName, fieldsSet);
+      return new SubscriptionBillingCycleEditsDeleteGraphQLQuery(contractId, targetSelection, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -59,10 +87,30 @@ public class SubscriptionBillingCycleEditsDeleteGraphQLQuery extends GraphQLQuer
     }
 
     /**
+     * The globally-unique identifier of the subscription contract that the billing cycle belongs to.
+     */
+    public Builder contractIdReference(String variableRef) {
+      this.variableReferences.put("contractId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("contractId");
+      return this;
+    }
+
+    /**
      * Select billing cycles to be deleted.
      */
     public Builder targetSelection(SubscriptionBillingCyclesTargetSelection targetSelection) {
       this.targetSelection = targetSelection;
+      this.fieldsSet.add("targetSelection");
+      return this;
+    }
+
+    /**
+     * Select billing cycles to be deleted.
+     */
+    public Builder targetSelectionReference(String variableRef) {
+      this.variableReferences.put("targetSelection", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("SubscriptionBillingCyclesTargetSelection"))).build());
       this.fieldsSet.add("targetSelection");
       return this;
     }

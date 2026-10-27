@@ -44,7 +44,17 @@ public class InventoryLevelProjectionRoot<PARENT extends BaseSubProjectionNode<?
     InventoryQuantityProjection<InventoryLevelProjectionRoot<PARENT, ROOT>, InventoryLevelProjectionRoot<PARENT, ROOT>> projection = new InventoryQuantityProjection<>(this, this);    
     getFields().put("quantities", projection);
     getInputArguments().computeIfAbsent("quantities", k -> new ArrayList<>());                      
-    InputArgument namesArg = new InputArgument("names", names);
+    InputArgument namesArg = new InputArgument("names", names, false, null);
+    getInputArguments().get("quantities").add(namesArg);
+    return projection;
+  }
+
+  public InventoryQuantityProjection<InventoryLevelProjectionRoot<PARENT, ROOT>, InventoryLevelProjectionRoot<PARENT, ROOT>> quantitiesWithVariableReferences(
+      String namesReference) {
+    InventoryQuantityProjection<InventoryLevelProjectionRoot<PARENT, ROOT>, InventoryLevelProjectionRoot<PARENT, ROOT>> projection = new InventoryQuantityProjection<>(this, this);    
+    getFields().put("quantities", projection);
+    getInputArguments().computeIfAbsent("quantities", k -> new ArrayList<>());              
+    InputArgument namesArg = new InputArgument("names", namesReference, true, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("String")))));
     getInputArguments().get("quantities").add(namesArg);
     return projection;
   }
@@ -62,19 +72,42 @@ public class InventoryLevelProjectionRoot<PARENT extends BaseSubProjectionNode<?
     InventoryScheduledChangeConnectionProjection<InventoryLevelProjectionRoot<PARENT, ROOT>, InventoryLevelProjectionRoot<PARENT, ROOT>> projection = new InventoryScheduledChangeConnectionProjection<>(this, this);    
     getFields().put("scheduledChanges", projection);
     getInputArguments().computeIfAbsent("scheduledChanges", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("scheduledChanges").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("scheduledChanges").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("scheduledChanges").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("scheduledChanges").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
     getInputArguments().get("scheduledChanges").add(reverseArg);
-    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKey, false, null);
     getInputArguments().get("scheduledChanges").add(sortKeyArg);
-    InputArgument queryArg = new InputArgument("query", query);
+    InputArgument queryArg = new InputArgument("query", query, false, null);
+    getInputArguments().get("scheduledChanges").add(queryArg);
+    return projection;
+  }
+
+  public InventoryScheduledChangeConnectionProjection<InventoryLevelProjectionRoot<PARENT, ROOT>, InventoryLevelProjectionRoot<PARENT, ROOT>> scheduledChangesWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference, String sortKeyReference, String queryReference) {
+    InventoryScheduledChangeConnectionProjection<InventoryLevelProjectionRoot<PARENT, ROOT>, InventoryLevelProjectionRoot<PARENT, ROOT>> projection = new InventoryScheduledChangeConnectionProjection<>(this, this);    
+    getFields().put("scheduledChanges", projection);
+    getInputArguments().computeIfAbsent("scheduledChanges", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("scheduledChanges").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("scheduledChanges").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("scheduledChanges").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("scheduledChanges").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("scheduledChanges").add(reverseArg);
+    InputArgument sortKeyArg = new InputArgument("sortKey", sortKeyReference, true, new graphql.language.TypeName("ScheduledChangeSortKeys"));
+    getInputArguments().get("scheduledChanges").add(sortKeyArg);
+    InputArgument queryArg = new InputArgument("query", queryReference, true, new graphql.language.TypeName("String"));
     getInputArguments().get("scheduledChanges").add(queryArg);
     return projection;
   }

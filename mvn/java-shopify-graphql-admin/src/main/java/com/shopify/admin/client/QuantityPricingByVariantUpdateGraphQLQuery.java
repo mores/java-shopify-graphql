@@ -2,9 +2,14 @@ package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.QuantityPricingByVariantUpdateInput;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -30,6 +35,24 @@ public class QuantityPricingByVariantUpdateGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public QuantityPricingByVariantUpdateGraphQLQuery(String priceListId,
+      QuantityPricingByVariantUpdateInput input, String queryName, Set<String> fieldsSet,
+      Map<String, String> variableReferences, List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (priceListId != null || fieldsSet.contains("priceListId")) {
+        getInput().put("priceListId", priceListId);
+    }if (input != null || fieldsSet.contains("input")) {
+        getInput().put("input", input);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public QuantityPricingByVariantUpdateGraphQLQuery() {
     super("mutation");
   }
@@ -46,6 +69,10 @@ public class QuantityPricingByVariantUpdateGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String priceListId;
 
     private QuantityPricingByVariantUpdateInput input;
@@ -53,7 +80,7 @@ public class QuantityPricingByVariantUpdateGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public QuantityPricingByVariantUpdateGraphQLQuery build() {
-      return new QuantityPricingByVariantUpdateGraphQLQuery(priceListId, input, queryName, fieldsSet);
+      return new QuantityPricingByVariantUpdateGraphQLQuery(priceListId, input, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -67,10 +94,30 @@ public class QuantityPricingByVariantUpdateGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the price list for which quantity pricing will be updated.
+     */
+    public Builder priceListIdReference(String variableRef) {
+      this.variableReferences.put("priceListId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("priceListId");
+      return this;
+    }
+
+    /**
      * The input data used to update the quantity pricing in the price list.
      */
     public Builder input(QuantityPricingByVariantUpdateInput input) {
       this.input = input;
+      this.fieldsSet.add("input");
+      return this;
+    }
+
+    /**
+     * The input data used to update the quantity pricing in the price list.
+     */
+    public Builder inputReference(String variableRef) {
+      this.variableReferences.put("input", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("QuantityPricingByVariantUpdateInput"))).build());
       this.fieldsSet.add("input");
       return this;
     }

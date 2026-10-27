@@ -34,7 +34,17 @@ public class CartProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
     AttributeProjection<CartProjection<PARENT, ROOT>, ROOT> projection = new AttributeProjection<>(this, getRoot());    
     getFields().put("attribute", projection);
     getInputArguments().computeIfAbsent("attribute", k -> new ArrayList<>());                      
-    InputArgument keyArg = new InputArgument("key", key);
+    InputArgument keyArg = new InputArgument("key", key, false, null);
+    getInputArguments().get("attribute").add(keyArg);
+    return projection;
+  }
+
+  public AttributeProjection<CartProjection<PARENT, ROOT>, ROOT> attributeWithVariableReferences(
+      String keyReference) {
+    AttributeProjection<CartProjection<PARENT, ROOT>, ROOT> projection = new AttributeProjection<>(this, getRoot());    
+    getFields().put("attribute", projection);
+    getInputArguments().computeIfAbsent("attribute", k -> new ArrayList<>());              
+    InputArgument keyArg = new InputArgument("key", keyReference, true, new graphql.language.NonNullType(new graphql.language.TypeName("String")));
     getInputArguments().get("attribute").add(keyArg);
     return projection;
   }
@@ -76,17 +86,38 @@ public class CartProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
     CartDeliveryGroupConnectionProjection<CartProjection<PARENT, ROOT>, ROOT> projection = new CartDeliveryGroupConnectionProjection<>(this, getRoot());    
     getFields().put("deliveryGroups", projection);
     getInputArguments().computeIfAbsent("deliveryGroups", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("deliveryGroups").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("deliveryGroups").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("deliveryGroups").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("deliveryGroups").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
     getInputArguments().get("deliveryGroups").add(reverseArg);
-    InputArgument withCarrierRatesArg = new InputArgument("withCarrierRates", withCarrierRates);
+    InputArgument withCarrierRatesArg = new InputArgument("withCarrierRates", withCarrierRates, false, null);
+    getInputArguments().get("deliveryGroups").add(withCarrierRatesArg);
+    return projection;
+  }
+
+  public CartDeliveryGroupConnectionProjection<CartProjection<PARENT, ROOT>, ROOT> deliveryGroupsWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference, String withCarrierRatesReference) {
+    CartDeliveryGroupConnectionProjection<CartProjection<PARENT, ROOT>, ROOT> projection = new CartDeliveryGroupConnectionProjection<>(this, getRoot());    
+    getFields().put("deliveryGroups", projection);
+    getInputArguments().computeIfAbsent("deliveryGroups", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("deliveryGroups").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("deliveryGroups").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("deliveryGroups").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("deliveryGroups").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
+    getInputArguments().get("deliveryGroups").add(reverseArg);
+    InputArgument withCarrierRatesArg = new InputArgument("withCarrierRates", withCarrierRatesReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("deliveryGroups").add(withCarrierRatesArg);
     return projection;
   }
@@ -95,6 +126,13 @@ public class CartProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
       ) {
      CartDiscountAllocationProjection<CartProjection<PARENT, ROOT>, ROOT> projection = new CartDiscountAllocationProjection<>(this, getRoot());
      getFields().put("discountAllocations", projection);
+     return projection;
+  }
+
+  public BaseCartDiscountApplicationProjection<CartProjection<PARENT, ROOT>, ROOT> discountApplications(
+      ) {
+     BaseCartDiscountApplicationProjection<CartProjection<PARENT, ROOT>, ROOT> projection = new BaseCartDiscountApplicationProjection<>(this, getRoot());
+     getFields().put("discountApplications", projection);
      return projection;
   }
 
@@ -121,15 +159,34 @@ public class CartProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
     BaseCartLineConnectionProjection<CartProjection<PARENT, ROOT>, ROOT> projection = new BaseCartLineConnectionProjection<>(this, getRoot());    
     getFields().put("lines", projection);
     getInputArguments().computeIfAbsent("lines", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("lines").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("lines").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("lines").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("lines").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("lines").add(reverseArg);
+    return projection;
+  }
+
+  public BaseCartLineConnectionProjection<CartProjection<PARENT, ROOT>, ROOT> linesWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    BaseCartLineConnectionProjection<CartProjection<PARENT, ROOT>, ROOT> projection = new BaseCartLineConnectionProjection<>(this, getRoot());    
+    getFields().put("lines", projection);
+    getInputArguments().computeIfAbsent("lines", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("lines").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("lines").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("lines").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("lines").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("lines").add(reverseArg);
     return projection;
   }
@@ -145,9 +202,21 @@ public class CartProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
     MetafieldProjection<CartProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
     getFields().put("metafield", projection);
     getInputArguments().computeIfAbsent("metafield", k -> new ArrayList<>());                      
-    InputArgument namespaceArg = new InputArgument("namespace", namespace);
+    InputArgument namespaceArg = new InputArgument("namespace", namespace, false, null);
     getInputArguments().get("metafield").add(namespaceArg);
-    InputArgument keyArg = new InputArgument("key", key);
+    InputArgument keyArg = new InputArgument("key", key, false, null);
+    getInputArguments().get("metafield").add(keyArg);
+    return projection;
+  }
+
+  public MetafieldProjection<CartProjection<PARENT, ROOT>, ROOT> metafieldWithVariableReferences(
+      String namespaceReference, String keyReference) {
+    MetafieldProjection<CartProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
+    getFields().put("metafield", projection);
+    getInputArguments().computeIfAbsent("metafield", k -> new ArrayList<>());              
+    InputArgument namespaceArg = new InputArgument("namespace", namespaceReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("metafield").add(namespaceArg);
+    InputArgument keyArg = new InputArgument("key", keyReference, true, new graphql.language.NonNullType(new graphql.language.TypeName("String")));
     getInputArguments().get("metafield").add(keyArg);
     return projection;
   }
@@ -163,7 +232,17 @@ public class CartProjection<PARENT extends BaseSubProjectionNode<?, ?>, ROOT ext
     MetafieldProjection<CartProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
     getFields().put("metafields", projection);
     getInputArguments().computeIfAbsent("metafields", k -> new ArrayList<>());                      
-    InputArgument identifiersArg = new InputArgument("identifiers", identifiers);
+    InputArgument identifiersArg = new InputArgument("identifiers", identifiers, false, null);
+    getInputArguments().get("metafields").add(identifiersArg);
+    return projection;
+  }
+
+  public MetafieldProjection<CartProjection<PARENT, ROOT>, ROOT> metafieldsWithVariableReferences(
+      String identifiersReference) {
+    MetafieldProjection<CartProjection<PARENT, ROOT>, ROOT> projection = new MetafieldProjection<>(this, getRoot());    
+    getFields().put("metafields", projection);
+    getInputArguments().computeIfAbsent("metafields", k -> new ArrayList<>());              
+    InputArgument identifiersArg = new InputArgument("identifiers", identifiersReference, true, new graphql.language.NonNullType(new graphql.language.ListType(new graphql.language.NonNullType(new graphql.language.TypeName("HasMetafieldsIdentifier")))));
     getInputArguments().get("metafields").add(identifiersArg);
     return projection;
   }

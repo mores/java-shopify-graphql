@@ -1,9 +1,14 @@
 package com.shopify.storefront.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -25,6 +30,24 @@ public class CustomerAddressDeleteGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public CustomerAddressDeleteGraphQLQuery(String id, String customerAccessToken, String queryName,
+      Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (id != null || fieldsSet.contains("id")) {
+        getInput().put("id", id);
+    }if (customerAccessToken != null || fieldsSet.contains("customerAccessToken")) {
+        getInput().put("customerAccessToken", customerAccessToken);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public CustomerAddressDeleteGraphQLQuery() {
     super("mutation");
   }
@@ -41,6 +64,10 @@ public class CustomerAddressDeleteGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String id;
 
     private String customerAccessToken;
@@ -48,7 +75,7 @@ public class CustomerAddressDeleteGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public CustomerAddressDeleteGraphQLQuery build() {
-      return new CustomerAddressDeleteGraphQLQuery(id, customerAccessToken, queryName, fieldsSet);
+      return new CustomerAddressDeleteGraphQLQuery(id, customerAccessToken, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -62,10 +89,30 @@ public class CustomerAddressDeleteGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * Specifies the address to delete.
+     */
+    public Builder idReference(String variableRef) {
+      this.variableReferences.put("id", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("id");
+      return this;
+    }
+
+    /**
      * The access token used to identify the customer.
      */
     public Builder customerAccessToken(String customerAccessToken) {
       this.customerAccessToken = customerAccessToken;
+      this.fieldsSet.add("customerAccessToken");
+      return this;
+    }
+
+    /**
+     * The access token used to identify the customer.
+     */
+    public Builder customerAccessTokenReference(String variableRef) {
+      this.variableReferences.put("customerAccessToken", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("String"))).build());
       this.fieldsSet.add("customerAccessToken");
       return this;
     }

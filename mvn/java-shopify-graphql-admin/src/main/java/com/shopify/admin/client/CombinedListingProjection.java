@@ -28,15 +28,34 @@ public class CombinedListingProjection<PARENT extends BaseSubProjectionNode<?, ?
     CombinedListingChildConnectionProjection<CombinedListingProjection<PARENT, ROOT>, ROOT> projection = new CombinedListingChildConnectionProjection<>(this, getRoot());    
     getFields().put("combinedListingChildren", projection);
     getInputArguments().computeIfAbsent("combinedListingChildren", k -> new ArrayList<>());                      
-    InputArgument firstArg = new InputArgument("first", first);
+    InputArgument firstArg = new InputArgument("first", first, false, null);
     getInputArguments().get("combinedListingChildren").add(firstArg);
-    InputArgument afterArg = new InputArgument("after", after);
+    InputArgument afterArg = new InputArgument("after", after, false, null);
     getInputArguments().get("combinedListingChildren").add(afterArg);
-    InputArgument lastArg = new InputArgument("last", last);
+    InputArgument lastArg = new InputArgument("last", last, false, null);
     getInputArguments().get("combinedListingChildren").add(lastArg);
-    InputArgument beforeArg = new InputArgument("before", before);
+    InputArgument beforeArg = new InputArgument("before", before, false, null);
     getInputArguments().get("combinedListingChildren").add(beforeArg);
-    InputArgument reverseArg = new InputArgument("reverse", reverse);
+    InputArgument reverseArg = new InputArgument("reverse", reverse, false, null);
+    getInputArguments().get("combinedListingChildren").add(reverseArg);
+    return projection;
+  }
+
+  public CombinedListingChildConnectionProjection<CombinedListingProjection<PARENT, ROOT>, ROOT> combinedListingChildrenWithVariableReferences(
+      String firstReference, String afterReference, String lastReference, String beforeReference,
+      String reverseReference) {
+    CombinedListingChildConnectionProjection<CombinedListingProjection<PARENT, ROOT>, ROOT> projection = new CombinedListingChildConnectionProjection<>(this, getRoot());    
+    getFields().put("combinedListingChildren", projection);
+    getInputArguments().computeIfAbsent("combinedListingChildren", k -> new ArrayList<>());              
+    InputArgument firstArg = new InputArgument("first", firstReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("combinedListingChildren").add(firstArg);
+    InputArgument afterArg = new InputArgument("after", afterReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("combinedListingChildren").add(afterArg);
+    InputArgument lastArg = new InputArgument("last", lastReference, true, new graphql.language.TypeName("Int"));
+    getInputArguments().get("combinedListingChildren").add(lastArg);
+    InputArgument beforeArg = new InputArgument("before", beforeReference, true, new graphql.language.TypeName("String"));
+    getInputArguments().get("combinedListingChildren").add(beforeArg);
+    InputArgument reverseArg = new InputArgument("reverse", reverseReference, true, new graphql.language.TypeName("Boolean"));
     getInputArguments().get("combinedListingChildren").add(reverseArg);
     return projection;
   }

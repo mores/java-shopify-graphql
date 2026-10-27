@@ -54,6 +54,20 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
   private boolean allowDiscountCodesInCheckout;
 
   /**
+   * The amount due later.
+   * When there are payment terms, this is the total price minus the deposit amount (if any).
+   * When there are no payment terms, this is 0.
+   */
+  private MoneyBag amountDueLaterSet;
+
+  /**
+   * The amount due now.
+   * When there are payment terms this is the value of the deposit (0 by default).
+   * When there are no payment terms, this is the total price.
+   */
+  private MoneyBag amountDueNowSet;
+
+  /**
    * Whether any variant prices have been overridden.
    */
   private boolean anyVariantPricesOverridden;
@@ -104,6 +118,11 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
    * returns the single next record, sorted ascending by ID.
    */
   private String defaultCursor;
+
+  /**
+   * The portion required to be paid at checkout.
+   */
+  private DepositConfiguration deposit;
 
   /**
    * All discount codes applied.
@@ -412,6 +431,32 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
   }
 
   /**
+   * The amount due later.
+   * When there are payment terms, this is the total price minus the deposit amount (if any).
+   * When there are no payment terms, this is 0.
+   */
+  public MoneyBag getAmountDueLaterSet() {
+    return amountDueLaterSet;
+  }
+
+  public void setAmountDueLaterSet(MoneyBag amountDueLaterSet) {
+    this.amountDueLaterSet = amountDueLaterSet;
+  }
+
+  /**
+   * The amount due now.
+   * When there are payment terms this is the value of the deposit (0 by default).
+   * When there are no payment terms, this is the total price.
+   */
+  public MoneyBag getAmountDueNowSet() {
+    return amountDueNowSet;
+  }
+
+  public void setAmountDueNowSet(MoneyBag amountDueNowSet) {
+    this.amountDueNowSet = amountDueNowSet;
+  }
+
+  /**
    * Whether any variant prices have been overridden.
    */
   public boolean getAnyVariantPricesOverridden() {
@@ -522,6 +567,17 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
 
   public void setDefaultCursor(String defaultCursor) {
     this.defaultCursor = defaultCursor;
+  }
+
+  /**
+   * The portion required to be paid at checkout.
+   */
+  public DepositConfiguration getDeposit() {
+    return deposit;
+  }
+
+  public void setDeposit(DepositConfiguration deposit) {
+    this.deposit = deposit;
   }
 
   /**
@@ -1100,7 +1156,7 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
 
   @Override
   public String toString() {
-    return "DraftOrder{acceptAutomaticDiscounts='" + acceptAutomaticDiscounts + "', allVariantPricesOverridden='" + allVariantPricesOverridden + "', allowDiscountCodesInCheckout='" + allowDiscountCodesInCheckout + "', anyVariantPricesOverridden='" + anyVariantPricesOverridden + "', appliedDiscount='" + appliedDiscount + "', billingAddress='" + billingAddress + "', billingAddressMatchesShippingAddress='" + billingAddressMatchesShippingAddress + "', completedAt='" + completedAt + "', createdAt='" + createdAt + "', currencyCode='" + currencyCode + "', customAttributes='" + customAttributes + "', customer='" + customer + "', defaultCursor='" + defaultCursor + "', discountCodes='" + discountCodes + "', email='" + email + "', events='" + events + "', hasTimelineComment='" + hasTimelineComment + "', id='" + id + "', invoiceEmailTemplateSubject='" + invoiceEmailTemplateSubject + "', invoiceSentAt='" + invoiceSentAt + "', invoiceUrl='" + invoiceUrl + "', legacyResourceId='" + legacyResourceId + "', lineItems='" + lineItems + "', lineItemsSubtotalPrice='" + lineItemsSubtotalPrice + "', localizationExtensions='" + localizationExtensions + "', localizedFields='" + localizedFields + "', marketName='" + marketName + "', marketRegionCountryCode='" + marketRegionCountryCode + "', metafield='" + metafield + "', metafields='" + metafields + "', name='" + name + "', note2='" + note2 + "', order='" + order + "', paymentTerms='" + paymentTerms + "', phone='" + phone + "', platformDiscounts='" + platformDiscounts + "', poNumber='" + poNumber + "', presentmentCurrencyCode='" + presentmentCurrencyCode + "', purchasingEntity='" + purchasingEntity + "', ready='" + ready + "', reserveInventoryUntil='" + reserveInventoryUntil + "', shippingAddress='" + shippingAddress + "', shippingLine='" + shippingLine + "', status='" + status + "', subtotalPrice='" + subtotalPrice + "', subtotalPriceSet='" + subtotalPriceSet + "', tags='" + tags + "', taxExempt='" + taxExempt + "', taxLines='" + taxLines + "', taxesIncluded='" + taxesIncluded + "', totalDiscountsSet='" + totalDiscountsSet + "', totalLineItemsPriceSet='" + totalLineItemsPriceSet + "', totalPrice='" + totalPrice + "', totalPriceSet='" + totalPriceSet + "', totalQuantityOfLineItems='" + totalQuantityOfLineItems + "', totalShippingPrice='" + totalShippingPrice + "', totalShippingPriceSet='" + totalShippingPriceSet + "', totalTax='" + totalTax + "', totalTaxSet='" + totalTaxSet + "', totalWeight='" + totalWeight + "', transformerFingerprint='" + transformerFingerprint + "', updatedAt='" + updatedAt + "', visibleToCustomer='" + visibleToCustomer + "', warnings='" + warnings + "'}";
+    return "DraftOrder{acceptAutomaticDiscounts='" + acceptAutomaticDiscounts + "', allVariantPricesOverridden='" + allVariantPricesOverridden + "', allowDiscountCodesInCheckout='" + allowDiscountCodesInCheckout + "', amountDueLaterSet='" + amountDueLaterSet + "', amountDueNowSet='" + amountDueNowSet + "', anyVariantPricesOverridden='" + anyVariantPricesOverridden + "', appliedDiscount='" + appliedDiscount + "', billingAddress='" + billingAddress + "', billingAddressMatchesShippingAddress='" + billingAddressMatchesShippingAddress + "', completedAt='" + completedAt + "', createdAt='" + createdAt + "', currencyCode='" + currencyCode + "', customAttributes='" + customAttributes + "', customer='" + customer + "', defaultCursor='" + defaultCursor + "', deposit='" + deposit + "', discountCodes='" + discountCodes + "', email='" + email + "', events='" + events + "', hasTimelineComment='" + hasTimelineComment + "', id='" + id + "', invoiceEmailTemplateSubject='" + invoiceEmailTemplateSubject + "', invoiceSentAt='" + invoiceSentAt + "', invoiceUrl='" + invoiceUrl + "', legacyResourceId='" + legacyResourceId + "', lineItems='" + lineItems + "', lineItemsSubtotalPrice='" + lineItemsSubtotalPrice + "', localizationExtensions='" + localizationExtensions + "', localizedFields='" + localizedFields + "', marketName='" + marketName + "', marketRegionCountryCode='" + marketRegionCountryCode + "', metafield='" + metafield + "', metafields='" + metafields + "', name='" + name + "', note2='" + note2 + "', order='" + order + "', paymentTerms='" + paymentTerms + "', phone='" + phone + "', platformDiscounts='" + platformDiscounts + "', poNumber='" + poNumber + "', presentmentCurrencyCode='" + presentmentCurrencyCode + "', purchasingEntity='" + purchasingEntity + "', ready='" + ready + "', reserveInventoryUntil='" + reserveInventoryUntil + "', shippingAddress='" + shippingAddress + "', shippingLine='" + shippingLine + "', status='" + status + "', subtotalPrice='" + subtotalPrice + "', subtotalPriceSet='" + subtotalPriceSet + "', tags='" + tags + "', taxExempt='" + taxExempt + "', taxLines='" + taxLines + "', taxesIncluded='" + taxesIncluded + "', totalDiscountsSet='" + totalDiscountsSet + "', totalLineItemsPriceSet='" + totalLineItemsPriceSet + "', totalPrice='" + totalPrice + "', totalPriceSet='" + totalPriceSet + "', totalQuantityOfLineItems='" + totalQuantityOfLineItems + "', totalShippingPrice='" + totalShippingPrice + "', totalShippingPriceSet='" + totalShippingPriceSet + "', totalTax='" + totalTax + "', totalTaxSet='" + totalTaxSet + "', totalWeight='" + totalWeight + "', transformerFingerprint='" + transformerFingerprint + "', updatedAt='" + updatedAt + "', visibleToCustomer='" + visibleToCustomer + "', warnings='" + warnings + "'}";
   }
 
   @Override
@@ -1111,6 +1167,8 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
     return Objects.equals(acceptAutomaticDiscounts, that.acceptAutomaticDiscounts) &&
         allVariantPricesOverridden == that.allVariantPricesOverridden &&
         allowDiscountCodesInCheckout == that.allowDiscountCodesInCheckout &&
+        Objects.equals(amountDueLaterSet, that.amountDueLaterSet) &&
+        Objects.equals(amountDueNowSet, that.amountDueNowSet) &&
         anyVariantPricesOverridden == that.anyVariantPricesOverridden &&
         Objects.equals(appliedDiscount, that.appliedDiscount) &&
         Objects.equals(billingAddress, that.billingAddress) &&
@@ -1121,6 +1179,7 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
         Objects.equals(customAttributes, that.customAttributes) &&
         Objects.equals(customer, that.customer) &&
         Objects.equals(defaultCursor, that.defaultCursor) &&
+        Objects.equals(deposit, that.deposit) &&
         Objects.equals(discountCodes, that.discountCodes) &&
         Objects.equals(email, that.email) &&
         Objects.equals(events, that.events) &&
@@ -1176,7 +1235,7 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptAutomaticDiscounts, allVariantPricesOverridden, allowDiscountCodesInCheckout, anyVariantPricesOverridden, appliedDiscount, billingAddress, billingAddressMatchesShippingAddress, completedAt, createdAt, currencyCode, customAttributes, customer, defaultCursor, discountCodes, email, events, hasTimelineComment, id, invoiceEmailTemplateSubject, invoiceSentAt, invoiceUrl, legacyResourceId, lineItems, lineItemsSubtotalPrice, localizationExtensions, localizedFields, marketName, marketRegionCountryCode, metafield, metafields, name, note2, order, paymentTerms, phone, platformDiscounts, poNumber, presentmentCurrencyCode, purchasingEntity, ready, reserveInventoryUntil, shippingAddress, shippingLine, status, subtotalPrice, subtotalPriceSet, tags, taxExempt, taxLines, taxesIncluded, totalDiscountsSet, totalLineItemsPriceSet, totalPrice, totalPriceSet, totalQuantityOfLineItems, totalShippingPrice, totalShippingPriceSet, totalTax, totalTaxSet, totalWeight, transformerFingerprint, updatedAt, visibleToCustomer, warnings);
+    return Objects.hash(acceptAutomaticDiscounts, allVariantPricesOverridden, allowDiscountCodesInCheckout, amountDueLaterSet, amountDueNowSet, anyVariantPricesOverridden, appliedDiscount, billingAddress, billingAddressMatchesShippingAddress, completedAt, createdAt, currencyCode, customAttributes, customer, defaultCursor, deposit, discountCodes, email, events, hasTimelineComment, id, invoiceEmailTemplateSubject, invoiceSentAt, invoiceUrl, legacyResourceId, lineItems, lineItemsSubtotalPrice, localizationExtensions, localizedFields, marketName, marketRegionCountryCode, metafield, metafields, name, note2, order, paymentTerms, phone, platformDiscounts, poNumber, presentmentCurrencyCode, purchasingEntity, ready, reserveInventoryUntil, shippingAddress, shippingLine, status, subtotalPrice, subtotalPriceSet, tags, taxExempt, taxLines, taxesIncluded, totalDiscountsSet, totalLineItemsPriceSet, totalPrice, totalPriceSet, totalQuantityOfLineItems, totalShippingPrice, totalShippingPriceSet, totalTax, totalTaxSet, totalWeight, transformerFingerprint, updatedAt, visibleToCustomer, warnings);
   }
 
   public static Builder newBuilder() {
@@ -1200,6 +1259,20 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
      * Whether discount codes are allowed during checkout of this draft order.
      */
     private boolean allowDiscountCodesInCheckout;
+
+    /**
+     * The amount due later.
+     * When there are payment terms, this is the total price minus the deposit amount (if any).
+     * When there are no payment terms, this is 0.
+     */
+    private MoneyBag amountDueLaterSet;
+
+    /**
+     * The amount due now.
+     * When there are payment terms this is the value of the deposit (0 by default).
+     * When there are no payment terms, this is the total price.
+     */
+    private MoneyBag amountDueNowSet;
 
     /**
      * Whether any variant prices have been overridden.
@@ -1252,6 +1325,11 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
      * returns the single next record, sorted ascending by ID.
      */
     private String defaultCursor;
+
+    /**
+     * The portion required to be paid at checkout.
+     */
+    private DepositConfiguration deposit;
 
     /**
      * All discount codes applied.
@@ -1526,6 +1604,8 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
       result.acceptAutomaticDiscounts = this.acceptAutomaticDiscounts;
       result.allVariantPricesOverridden = this.allVariantPricesOverridden;
       result.allowDiscountCodesInCheckout = this.allowDiscountCodesInCheckout;
+      result.amountDueLaterSet = this.amountDueLaterSet;
+      result.amountDueNowSet = this.amountDueNowSet;
       result.anyVariantPricesOverridden = this.anyVariantPricesOverridden;
       result.appliedDiscount = this.appliedDiscount;
       result.billingAddress = this.billingAddress;
@@ -1536,6 +1616,7 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
       result.customAttributes = this.customAttributes;
       result.customer = this.customer;
       result.defaultCursor = this.defaultCursor;
+      result.deposit = this.deposit;
       result.discountCodes = this.discountCodes;
       result.email = this.email;
       result.events = this.events;
@@ -1613,6 +1694,26 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
      */
     public Builder allowDiscountCodesInCheckout(boolean allowDiscountCodesInCheckout) {
       this.allowDiscountCodesInCheckout = allowDiscountCodesInCheckout;
+      return this;
+    }
+
+    /**
+     * The amount due later.
+     * When there are payment terms, this is the total price minus the deposit amount (if any).
+     * When there are no payment terms, this is 0.
+     */
+    public Builder amountDueLaterSet(MoneyBag amountDueLaterSet) {
+      this.amountDueLaterSet = amountDueLaterSet;
+      return this;
+    }
+
+    /**
+     * The amount due now.
+     * When there are payment terms this is the value of the deposit (0 by default).
+     * When there are no payment terms, this is the total price.
+     */
+    public Builder amountDueNowSet(MoneyBag amountDueNowSet) {
+      this.amountDueNowSet = amountDueNowSet;
       return this;
     }
 
@@ -1696,6 +1797,14 @@ public class DraftOrder implements CommentEventEmbed, MetafieldReferencer, com.s
      */
     public Builder defaultCursor(String defaultCursor) {
       this.defaultCursor = defaultCursor;
+      return this;
+    }
+
+    /**
+     * The portion required to be paid at checkout.
+     */
+    public Builder deposit(DepositConfiguration deposit) {
+      this.deposit = deposit;
       return this;
     }
 

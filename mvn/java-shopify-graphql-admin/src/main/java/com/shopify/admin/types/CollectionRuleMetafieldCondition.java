@@ -7,7 +7,7 @@ import java.lang.String;
 import java.util.Objects;
 
 /**
- * Identifies a metafield definition used as a rule for the smart collection.
+ * Identifies a metafield definition used as a rule for the collection.
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NONE

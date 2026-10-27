@@ -3,10 +3,15 @@ package com.shopify.admin.client;
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
 import com.shopify.admin.types.OrderCancelReason;
 import com.shopify.admin.types.OrderCancelRefundMethodInput;
+import graphql.language.VariableDefinition;
 import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -79,6 +84,31 @@ public class OrderCancelGraphQLQuery extends GraphQLQuery {
     }
   }
 
+  public OrderCancelGraphQLQuery(String orderId, OrderCancelRefundMethodInput refundMethod,
+      boolean restock, OrderCancelReason reason, Boolean notifyCustomer, String staffNote,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (orderId != null || fieldsSet.contains("orderId")) {
+        getInput().put("orderId", orderId);
+    }if (refundMethod != null || fieldsSet.contains("refundMethod")) {
+        getInput().put("refundMethod", refundMethod);
+    }getInput().put("restock", restock);                   if (reason != null || fieldsSet.contains("reason")) {
+        getInput().put("reason", reason);
+    }if (notifyCustomer != null || fieldsSet.contains("notifyCustomer")) {
+        getInput().put("notifyCustomer", notifyCustomer);
+    }if (staffNote != null || fieldsSet.contains("staffNote")) {
+        getInput().put("staffNote", staffNote);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public OrderCancelGraphQLQuery() {
     super("mutation");
   }
@@ -95,6 +125,10 @@ public class OrderCancelGraphQLQuery extends GraphQLQuery {
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String orderId;
 
     private OrderCancelRefundMethodInput refundMethod;
@@ -110,7 +144,7 @@ public class OrderCancelGraphQLQuery extends GraphQLQuery {
     private String queryName;
 
     public OrderCancelGraphQLQuery build() {
-      return new OrderCancelGraphQLQuery(orderId, refundMethod, restock, reason, notifyCustomer, staffNote, queryName, fieldsSet);
+      return new OrderCancelGraphQLQuery(orderId, refundMethod, restock, reason, notifyCustomer, staffNote, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -124,10 +158,30 @@ public class OrderCancelGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * The ID of the order to be canceled.
+     */
+    public Builder orderIdReference(String variableRef) {
+      this.variableReferences.put("orderId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("orderId");
+      return this;
+    }
+
+    /**
      * Indicates how to refund the amount paid by the customer. Authorized payments will be voided regardless of this setting.
      */
     public Builder refundMethod(OrderCancelRefundMethodInput refundMethod) {
       this.refundMethod = refundMethod;
+      this.fieldsSet.add("refundMethod");
+      return this;
+    }
+
+    /**
+     * Indicates how to refund the amount paid by the customer. Authorized payments will be voided regardless of this setting.
+     */
+    public Builder refundMethodReference(String variableRef) {
+      this.variableReferences.put("refundMethod", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("OrderCancelRefundMethodInput")).build());
       this.fieldsSet.add("refundMethod");
       return this;
     }
@@ -144,10 +198,32 @@ public class OrderCancelGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * Whether to restock the inventory committed to the order. For unpaid orders
+     * fulfilled from locations that have been deactivated, inventory will not be
+     * restocked to the deactivated locations even if this argument is set to true.
+     */
+    public Builder restockReference(String variableRef) {
+      this.variableReferences.put("restock", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("Boolean"))).build());
+      this.fieldsSet.add("restock");
+      return this;
+    }
+
+    /**
      * The reason for canceling the order.
      */
     public Builder reason(OrderCancelReason reason) {
       this.reason = reason;
+      this.fieldsSet.add("reason");
+      return this;
+    }
+
+    /**
+     * The reason for canceling the order.
+     */
+    public Builder reasonReference(String variableRef) {
+      this.variableReferences.put("reason", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("OrderCancelReason"))).build());
       this.fieldsSet.add("reason");
       return this;
     }
@@ -162,10 +238,30 @@ public class OrderCancelGraphQLQuery extends GraphQLQuery {
     }
 
     /**
+     * Whether to send a notification to the customer about the order cancellation.
+     */
+    public Builder notifyCustomerReference(String variableRef) {
+      this.variableReferences.put("notifyCustomer", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("Boolean")).build());
+      this.fieldsSet.add("notifyCustomer");
+      return this;
+    }
+
+    /**
      * A staff-facing note about the order cancellation. This is not visible to the customer. Maximum length of 255 characters.
      */
     public Builder staffNote(String staffNote) {
       this.staffNote = staffNote;
+      this.fieldsSet.add("staffNote");
+      return this;
+    }
+
+    /**
+     * A staff-facing note about the order cancellation. This is not visible to the customer. Maximum length of 255 characters.
+     */
+    public Builder staffNoteReference(String variableRef) {
+      this.variableReferences.put("staffNote", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.TypeName("String")).build());
       this.fieldsSet.add("staffNote");
       return this;
     }

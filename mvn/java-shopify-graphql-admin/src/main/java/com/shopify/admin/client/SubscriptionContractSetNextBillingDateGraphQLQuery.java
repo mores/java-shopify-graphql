@@ -1,10 +1,15 @@
 package com.shopify.admin.client;
 
 import com.netflix.graphql.dgs.client.codegen.GraphQLQuery;
+import graphql.language.VariableDefinition;
 import java.lang.Override;
 import java.lang.String;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -24,6 +29,24 @@ public class SubscriptionContractSetNextBillingDateGraphQLQuery extends GraphQLQ
     }
   }
 
+  public SubscriptionContractSetNextBillingDateGraphQLQuery(String contractId, OffsetDateTime date,
+      String queryName, Set<String> fieldsSet, Map<String, String> variableReferences,
+      List<VariableDefinition> variableDefinitions) {
+    super("mutation", queryName);
+    if (contractId != null || fieldsSet.contains("contractId")) {
+        getInput().put("contractId", contractId);
+    }if (date != null || fieldsSet.contains("date")) {
+        getInput().put("date", date);
+    }
+    if(variableDefinitions != null) {
+       getVariableDefinitions().addAll(variableDefinitions);
+    }
+
+    if(variableReferences != null) {
+       getVariableReferences().putAll(variableReferences);
+    }                      
+  }
+
   public SubscriptionContractSetNextBillingDateGraphQLQuery() {
     super("mutation");
   }
@@ -40,6 +63,10 @@ public class SubscriptionContractSetNextBillingDateGraphQLQuery extends GraphQLQ
   public static class Builder {
     private Set<String> fieldsSet = new HashSet<>();
 
+    private final Map<String, String> variableReferences = new HashMap<>();
+
+    private final List<VariableDefinition> variableDefinitions = new ArrayList<>();
+
     private String contractId;
 
     private OffsetDateTime date;
@@ -47,7 +74,7 @@ public class SubscriptionContractSetNextBillingDateGraphQLQuery extends GraphQLQ
     private String queryName;
 
     public SubscriptionContractSetNextBillingDateGraphQLQuery build() {
-      return new SubscriptionContractSetNextBillingDateGraphQLQuery(contractId, date, queryName, fieldsSet);
+      return new SubscriptionContractSetNextBillingDateGraphQLQuery(contractId, date, queryName, fieldsSet, variableReferences, variableDefinitions);
                
     }
 
@@ -61,10 +88,30 @@ public class SubscriptionContractSetNextBillingDateGraphQLQuery extends GraphQLQ
     }
 
     /**
+     * The gid of the Subscription Contract to set the next billing date for.
+     */
+    public Builder contractIdReference(String variableRef) {
+      this.variableReferences.put("contractId", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("ID"))).build());
+      this.fieldsSet.add("contractId");
+      return this;
+    }
+
+    /**
      * The next billing date.
      */
     public Builder date(OffsetDateTime date) {
       this.date = date;
+      this.fieldsSet.add("date");
+      return this;
+    }
+
+    /**
+     * The next billing date.
+     */
+    public Builder dateReference(String variableRef) {
+      this.variableReferences.put("date", variableRef);
+      this.variableDefinitions.add(graphql.language.VariableDefinition.newVariableDefinition(variableRef, new graphql.language.NonNullType(new graphql.language.TypeName("DateTime"))).build());
       this.fieldsSet.add("date");
       return this;
     }
